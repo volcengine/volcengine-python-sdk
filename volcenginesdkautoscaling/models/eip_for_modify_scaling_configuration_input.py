@@ -34,26 +34,31 @@ class EipForModifyScalingConfigurationInput(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'billing_type': 'str',
         'isp': 'str'
     }
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'billing_type': 'BillingType',
         'isp': 'ISP'
     }
 
-    def __init__(self, bandwidth=None, isp=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, isp=None, _configuration=None):  # noqa: E501
         """EipForModifyScalingConfigurationInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._billing_type = None
         self._isp = None
         self.discriminator = None
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if billing_type is not None:
+            self.billing_type = billing_type
         if isp is not None:
             self.isp = isp
 
@@ -77,6 +82,27 @@ class EipForModifyScalingConfigurationInput(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def billing_type(self):
+        """Gets the billing_type of this EipForModifyScalingConfigurationInput.  # noqa: E501
+
+
+        :return: The billing_type of this EipForModifyScalingConfigurationInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_type
+
+    @billing_type.setter
+    def billing_type(self, billing_type):
+        """Sets the billing_type of this EipForModifyScalingConfigurationInput.
+
+
+        :param billing_type: The billing_type of this EipForModifyScalingConfigurationInput.  # noqa: E501
+        :type: str
+        """
+
+        self._billing_type = billing_type
 
     @property
     def isp(self):

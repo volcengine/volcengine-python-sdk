@@ -34,6 +34,7 @@ class ModifyScalingGroupRequest(object):
     """
     swagger_types = {
         'active_scaling_configuration_id': 'str',
+        'default_cooldown': 'int',
         'desire_instance_number': 'int',
         'instance_terminate_policy': 'str',
         'max_instance_number': 'int',
@@ -45,6 +46,7 @@ class ModifyScalingGroupRequest(object):
 
     attribute_map = {
         'active_scaling_configuration_id': 'ActiveScalingConfigurationId',
+        'default_cooldown': 'DefaultCooldown',
         'desire_instance_number': 'DesireInstanceNumber',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
         'max_instance_number': 'MaxInstanceNumber',
@@ -54,13 +56,14 @@ class ModifyScalingGroupRequest(object):
         'subnet_ids': 'SubnetIds'
     }
 
-    def __init__(self, active_scaling_configuration_id=None, desire_instance_number=None, instance_terminate_policy=None, max_instance_number=None, min_instance_number=None, scaling_group_id=None, scaling_group_name=None, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_scaling_configuration_id=None, default_cooldown=None, desire_instance_number=None, instance_terminate_policy=None, max_instance_number=None, min_instance_number=None, scaling_group_id=None, scaling_group_name=None, subnet_ids=None, _configuration=None):  # noqa: E501
         """ModifyScalingGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._active_scaling_configuration_id = None
+        self._default_cooldown = None
         self._desire_instance_number = None
         self._instance_terminate_policy = None
         self._max_instance_number = None
@@ -72,6 +75,8 @@ class ModifyScalingGroupRequest(object):
 
         if active_scaling_configuration_id is not None:
             self.active_scaling_configuration_id = active_scaling_configuration_id
+        if default_cooldown is not None:
+            self.default_cooldown = default_cooldown
         if desire_instance_number is not None:
             self.desire_instance_number = desire_instance_number
         if instance_terminate_policy is not None:
@@ -107,6 +112,27 @@ class ModifyScalingGroupRequest(object):
         """
 
         self._active_scaling_configuration_id = active_scaling_configuration_id
+
+    @property
+    def default_cooldown(self):
+        """Gets the default_cooldown of this ModifyScalingGroupRequest.  # noqa: E501
+
+
+        :return: The default_cooldown of this ModifyScalingGroupRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._default_cooldown
+
+    @default_cooldown.setter
+    def default_cooldown(self, default_cooldown):
+        """Sets the default_cooldown of this ModifyScalingGroupRequest.
+
+
+        :param default_cooldown: The default_cooldown of this ModifyScalingGroupRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._default_cooldown = default_cooldown
 
     @property
     def desire_instance_number(self):
