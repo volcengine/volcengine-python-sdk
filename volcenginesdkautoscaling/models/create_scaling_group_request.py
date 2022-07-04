@@ -33,43 +33,51 @@ class CreateScalingGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'db_instance_ids': 'list[str]',
         'default_cooldown': 'int',
         'desire_instance_number': 'int',
         'instance_terminate_policy': 'str',
         'max_instance_number': 'int',
         'min_instance_number': 'int',
+        'multi_az_policy': 'str',
         'scaling_group_name': 'str',
         'server_group_attributes': 'list[ServerGroupAttributeForCreateScalingGroupInput]',
         'subnet_ids': 'list[str]'
     }
 
     attribute_map = {
+        'db_instance_ids': 'DBInstanceIds',
         'default_cooldown': 'DefaultCooldown',
         'desire_instance_number': 'DesireInstanceNumber',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
         'max_instance_number': 'MaxInstanceNumber',
         'min_instance_number': 'MinInstanceNumber',
+        'multi_az_policy': 'MultiAZPolicy',
         'scaling_group_name': 'ScalingGroupName',
         'server_group_attributes': 'ServerGroupAttributes',
         'subnet_ids': 'SubnetIds'
     }
 
-    def __init__(self, default_cooldown=None, desire_instance_number=None, instance_terminate_policy=None, max_instance_number=None, min_instance_number=None, scaling_group_name=None, server_group_attributes=None, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, instance_terminate_policy=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, scaling_group_name=None, server_group_attributes=None, subnet_ids=None, _configuration=None):  # noqa: E501
         """CreateScalingGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._db_instance_ids = None
         self._default_cooldown = None
         self._desire_instance_number = None
         self._instance_terminate_policy = None
         self._max_instance_number = None
         self._min_instance_number = None
+        self._multi_az_policy = None
         self._scaling_group_name = None
         self._server_group_attributes = None
         self._subnet_ids = None
         self.discriminator = None
 
+        if db_instance_ids is not None:
+            self.db_instance_ids = db_instance_ids
         if default_cooldown is not None:
             self.default_cooldown = default_cooldown
         if desire_instance_number is not None:
@@ -80,12 +88,35 @@ class CreateScalingGroupRequest(object):
             self.max_instance_number = max_instance_number
         if min_instance_number is not None:
             self.min_instance_number = min_instance_number
+        if multi_az_policy is not None:
+            self.multi_az_policy = multi_az_policy
         if scaling_group_name is not None:
             self.scaling_group_name = scaling_group_name
         if server_group_attributes is not None:
             self.server_group_attributes = server_group_attributes
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+
+    @property
+    def db_instance_ids(self):
+        """Gets the db_instance_ids of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The db_instance_ids of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._db_instance_ids
+
+    @db_instance_ids.setter
+    def db_instance_ids(self, db_instance_ids):
+        """Sets the db_instance_ids of this CreateScalingGroupRequest.
+
+
+        :param db_instance_ids: The db_instance_ids of this CreateScalingGroupRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._db_instance_ids = db_instance_ids
 
     @property
     def default_cooldown(self):
@@ -191,6 +222,27 @@ class CreateScalingGroupRequest(object):
         """
 
         self._min_instance_number = min_instance_number
+
+    @property
+    def multi_az_policy(self):
+        """Gets the multi_az_policy of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The multi_az_policy of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_az_policy
+
+    @multi_az_policy.setter
+    def multi_az_policy(self, multi_az_policy):
+        """Sets the multi_az_policy of this CreateScalingGroupRequest.
+
+
+        :param multi_az_policy: The multi_az_policy of this CreateScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._multi_az_policy = multi_az_policy
 
     @property
     def scaling_group_name(self):
