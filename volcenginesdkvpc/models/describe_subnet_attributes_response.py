@@ -38,6 +38,7 @@ class DescribeSubnetAttributesResponse(object):
         'cidr_block': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'network_acl_id': 'str',
         'request_id': 'str',
         'route_table': 'RouteTableForDescribeSubnetAttributesOutput',
         'status': 'str',
@@ -55,6 +56,7 @@ class DescribeSubnetAttributesResponse(object):
         'cidr_block': 'CidrBlock',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'network_acl_id': 'NetworkAclId',
         'request_id': 'RequestId',
         'route_table': 'RouteTable',
         'status': 'Status',
@@ -66,7 +68,7 @@ class DescribeSubnetAttributesResponse(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, request_id=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, network_acl_id=None, request_id=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeSubnetAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class DescribeSubnetAttributesResponse(object):
         self._cidr_block = None
         self._creation_time = None
         self._description = None
+        self._network_acl_id = None
         self._request_id = None
         self._route_table = None
         self._status = None
@@ -98,6 +101,8 @@ class DescribeSubnetAttributesResponse(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if network_acl_id is not None:
+            self.network_acl_id = network_acl_id
         if request_id is not None:
             self.request_id = request_id
         if route_table is not None:
@@ -221,6 +226,27 @@ class DescribeSubnetAttributesResponse(object):
         """
 
         self._description = description
+
+    @property
+    def network_acl_id(self):
+        """Gets the network_acl_id of this DescribeSubnetAttributesResponse.  # noqa: E501
+
+
+        :return: The network_acl_id of this DescribeSubnetAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_acl_id
+
+    @network_acl_id.setter
+    def network_acl_id(self, network_acl_id):
+        """Sets the network_acl_id of this DescribeSubnetAttributesResponse.
+
+
+        :param network_acl_id: The network_acl_id of this DescribeSubnetAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._network_acl_id = network_acl_id
 
     @property
     def request_id(self):

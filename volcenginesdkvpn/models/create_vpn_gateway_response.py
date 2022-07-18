@@ -34,34 +34,29 @@ class CreateVpnGatewayResponse(object):
     """
     swagger_types = {
         'order_id': 'str',
-        'pre_order_number': 'str',
         'request_id': 'str',
         'vpn_gateway_id': 'str'
     }
 
     attribute_map = {
         'order_id': 'OrderId',
-        'pre_order_number': 'PreOrderNumber',
         'request_id': 'RequestId',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, order_id=None, pre_order_number=None, request_id=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, order_id=None, request_id=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateVpnGatewayResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._order_id = None
-        self._pre_order_number = None
         self._request_id = None
         self._vpn_gateway_id = None
         self.discriminator = None
 
         if order_id is not None:
             self.order_id = order_id
-        if pre_order_number is not None:
-            self.pre_order_number = pre_order_number
         if request_id is not None:
             self.request_id = request_id
         if vpn_gateway_id is not None:
@@ -87,27 +82,6 @@ class CreateVpnGatewayResponse(object):
         """
 
         self._order_id = order_id
-
-    @property
-    def pre_order_number(self):
-        """Gets the pre_order_number of this CreateVpnGatewayResponse.  # noqa: E501
-
-
-        :return: The pre_order_number of this CreateVpnGatewayResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._pre_order_number
-
-    @pre_order_number.setter
-    def pre_order_number(self, pre_order_number):
-        """Sets the pre_order_number of this CreateVpnGatewayResponse.
-
-
-        :param pre_order_number: The pre_order_number of this CreateVpnGatewayResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._pre_order_number = pre_order_number
 
     @property
     def request_id(self):

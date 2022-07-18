@@ -33,24 +33,50 @@ class VolumeForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'maximum_count': 'int',
         'supported_volume_types': 'list[str]'
     }
 
     attribute_map = {
+        'maximum_count': 'MaximumCount',
         'supported_volume_types': 'SupportedVolumeTypes'
     }
 
-    def __init__(self, supported_volume_types=None, _configuration=None):  # noqa: E501
+    def __init__(self, maximum_count=None, supported_volume_types=None, _configuration=None):  # noqa: E501
         """VolumeForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._maximum_count = None
         self._supported_volume_types = None
         self.discriminator = None
 
+        if maximum_count is not None:
+            self.maximum_count = maximum_count
         if supported_volume_types is not None:
             self.supported_volume_types = supported_volume_types
+
+    @property
+    def maximum_count(self):
+        """Gets the maximum_count of this VolumeForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The maximum_count of this VolumeForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._maximum_count
+
+    @maximum_count.setter
+    def maximum_count(self, maximum_count):
+        """Sets the maximum_count of this VolumeForDescribeInstanceTypesOutput.
+
+
+        :param maximum_count: The maximum_count of this VolumeForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._maximum_count = maximum_count
 
     @property
     def supported_volume_types(self):

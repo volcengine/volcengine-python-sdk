@@ -33,33 +33,59 @@ class CreateCustomerGatewayRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'customer_gateway_name': 'str',
         'description': 'str',
         'ip_address': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'customer_gateway_name': 'CustomerGatewayName',
         'description': 'Description',
-        'ip_address': 'IPAddress'
+        'ip_address': 'IpAddress'
     }
 
-    def __init__(self, customer_gateway_name=None, description=None, ip_address=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, customer_gateway_name=None, description=None, ip_address=None, _configuration=None):  # noqa: E501
         """CreateCustomerGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._customer_gateway_name = None
         self._description = None
         self._ip_address = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if customer_gateway_name is not None:
             self.customer_gateway_name = customer_gateway_name
         if description is not None:
             self.description = description
         self.ip_address = ip_address
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateCustomerGatewayRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateCustomerGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateCustomerGatewayRequest.
+
+
+        :param client_token: The client_token of this CreateCustomerGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def customer_gateway_name(self):

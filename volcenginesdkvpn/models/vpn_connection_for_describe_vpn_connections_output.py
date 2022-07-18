@@ -34,9 +34,11 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'connect_status': 'str',
         'creation_time': 'str',
         'customer_gateway_id': 'str',
         'description': 'str',
+        'dpd_action': 'str',
         'ike_config': 'IkeConfigForDescribeVpnConnectionsOutput',
         'ipsec_config': 'IpsecConfigForDescribeVpnConnectionsOutput',
         'local_subnet': 'list[str]',
@@ -51,9 +53,11 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'connect_status': 'ConnectStatus',
         'creation_time': 'CreationTime',
         'customer_gateway_id': 'CustomerGatewayId',
         'description': 'Description',
+        'dpd_action': 'DpdAction',
         'ike_config': 'IkeConfig',
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
@@ -66,16 +70,18 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, account_id=None, creation_time=None, customer_gateway_id=None, description=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, remote_subnet=None, status=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, connect_status=None, creation_time=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, remote_subnet=None, status=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """VpnConnectionForDescribeVpnConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._connect_status = None
         self._creation_time = None
         self._customer_gateway_id = None
         self._description = None
+        self._dpd_action = None
         self._ike_config = None
         self._ipsec_config = None
         self._local_subnet = None
@@ -90,12 +96,16 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if connect_status is not None:
+            self.connect_status = connect_status
         if creation_time is not None:
             self.creation_time = creation_time
         if customer_gateway_id is not None:
             self.customer_gateway_id = customer_gateway_id
         if description is not None:
             self.description = description
+        if dpd_action is not None:
+            self.dpd_action = dpd_action
         if ike_config is not None:
             self.ike_config = ike_config
         if ipsec_config is not None:
@@ -137,6 +147,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def connect_status(self):
+        """Gets the connect_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The connect_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._connect_status
+
+    @connect_status.setter
+    def connect_status(self, connect_status):
+        """Sets the connect_status of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param connect_status: The connect_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._connect_status = connect_status
 
     @property
     def creation_time(self):
@@ -200,6 +231,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def dpd_action(self):
+        """Gets the dpd_action of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The dpd_action of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dpd_action
+
+    @dpd_action.setter
+    def dpd_action(self, dpd_action):
+        """Sets the dpd_action of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param dpd_action: The dpd_action of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._dpd_action = dpd_action
 
     @property
     def ike_config(self):

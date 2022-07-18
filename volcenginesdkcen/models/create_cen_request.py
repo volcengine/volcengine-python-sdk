@@ -34,26 +34,31 @@ class CreateCenRequest(object):
     """
     swagger_types = {
         'cen_name': 'str',
+        'client_token': 'str',
         'description': 'str'
     }
 
     attribute_map = {
         'cen_name': 'CenName',
+        'client_token': 'ClientToken',
         'description': 'Description'
     }
 
-    def __init__(self, cen_name=None, description=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_name=None, client_token=None, description=None, _configuration=None):  # noqa: E501
         """CreateCenRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cen_name = None
+        self._client_token = None
         self._description = None
         self.discriminator = None
 
         if cen_name is not None:
             self.cen_name = cen_name
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
 
@@ -77,6 +82,27 @@ class CreateCenRequest(object):
         """
 
         self._cen_name = cen_name
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateCenRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateCenRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateCenRequest.
+
+
+        :param client_token: The client_token of this CreateCenRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):

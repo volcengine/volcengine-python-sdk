@@ -35,6 +35,7 @@ class AttachInstanceToCenRequest(object):
     swagger_types = {
         'cen_id': 'str',
         'instance_id': 'str',
+        'instance_owner_id': 'str',
         'instance_region_id': 'str',
         'instance_type': 'str'
     }
@@ -42,11 +43,12 @@ class AttachInstanceToCenRequest(object):
     attribute_map = {
         'cen_id': 'CenId',
         'instance_id': 'InstanceId',
+        'instance_owner_id': 'InstanceOwnerId',
         'instance_region_id': 'InstanceRegionId',
         'instance_type': 'InstanceType'
     }
 
-    def __init__(self, cen_id=None, instance_id=None, instance_region_id=None, instance_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_id=None, instance_id=None, instance_owner_id=None, instance_region_id=None, instance_type=None, _configuration=None):  # noqa: E501
         """AttachInstanceToCenRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,12 +56,15 @@ class AttachInstanceToCenRequest(object):
 
         self._cen_id = None
         self._instance_id = None
+        self._instance_owner_id = None
         self._instance_region_id = None
         self._instance_type = None
         self.discriminator = None
 
         self.cen_id = cen_id
         self.instance_id = instance_id
+        if instance_owner_id is not None:
+            self.instance_owner_id = instance_owner_id
         self.instance_region_id = instance_region_id
         self.instance_type = instance_type
 
@@ -108,6 +113,27 @@ class AttachInstanceToCenRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def instance_owner_id(self):
+        """Gets the instance_owner_id of this AttachInstanceToCenRequest.  # noqa: E501
+
+
+        :return: The instance_owner_id of this AttachInstanceToCenRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_owner_id
+
+    @instance_owner_id.setter
+    def instance_owner_id(self, instance_owner_id):
+        """Sets the instance_owner_id of this AttachInstanceToCenRequest.
+
+
+        :param instance_owner_id: The instance_owner_id of this AttachInstanceToCenRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_owner_id = instance_owner_id
 
     @property
     def instance_region_id(self):

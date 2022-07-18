@@ -36,7 +36,6 @@ class DescribeVpnConnectionsRequest(object):
         'customer_gateway_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'status': 'str',
         'vpn_connection_ids': 'list[str]',
         'vpn_connection_name': 'str',
         'vpn_gateway_id': 'str'
@@ -46,13 +45,12 @@ class DescribeVpnConnectionsRequest(object):
         'customer_gateway_id': 'CustomerGatewayId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'status': 'Status',
         'vpn_connection_ids': 'VpnConnectionIds',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, customer_gateway_id=None, page_number=None, page_size=None, status=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer_gateway_id=None, page_number=None, page_size=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +59,6 @@ class DescribeVpnConnectionsRequest(object):
         self._customer_gateway_id = None
         self._page_number = None
         self._page_size = None
-        self._status = None
         self._vpn_connection_ids = None
         self._vpn_connection_name = None
         self._vpn_gateway_id = None
@@ -73,8 +70,6 @@ class DescribeVpnConnectionsRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        if status is not None:
-            self.status = status
         if vpn_connection_ids is not None:
             self.vpn_connection_ids = vpn_connection_ids
         if vpn_connection_name is not None:
@@ -144,27 +139,6 @@ class DescribeVpnConnectionsRequest(object):
         """
 
         self._page_size = page_size
-
-    @property
-    def status(self):
-        """Gets the status of this DescribeVpnConnectionsRequest.  # noqa: E501
-
-
-        :return: The status of this DescribeVpnConnectionsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this DescribeVpnConnectionsRequest.
-
-
-        :param status: The status of this DescribeVpnConnectionsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._status = status
 
     @property
     def vpn_connection_ids(self):

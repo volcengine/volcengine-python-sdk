@@ -36,6 +36,7 @@ class InstanceForDescribeInstancesOutput(object):
         'cpus': 'int',
         'created_at': 'str',
         'description': 'str',
+        'eip_address': 'EipAddressForDescribeInstancesOutput',
         'expired_at': 'str',
         'host_name': 'str',
         'image_id': 'str',
@@ -45,6 +46,7 @@ class InstanceForDescribeInstancesOutput(object):
         'instance_type_id': 'str',
         'key_pair_id': 'str',
         'key_pair_name': 'str',
+        'local_volumes': 'list[LocalVolumeForDescribeInstancesOutput]',
         'memory_size': 'int',
         'network_interfaces': 'list[NetworkInterfaceForDescribeInstancesOutput]',
         'os_name': 'str',
@@ -53,6 +55,7 @@ class InstanceForDescribeInstancesOutput(object):
         'status': 'str',
         'stopped_mode': 'str',
         'updated_at': 'str',
+        'uuid': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
@@ -61,6 +64,7 @@ class InstanceForDescribeInstancesOutput(object):
         'cpus': 'Cpus',
         'created_at': 'CreatedAt',
         'description': 'Description',
+        'eip_address': 'EipAddress',
         'expired_at': 'ExpiredAt',
         'host_name': 'HostName',
         'image_id': 'ImageId',
@@ -70,6 +74,7 @@ class InstanceForDescribeInstancesOutput(object):
         'instance_type_id': 'InstanceTypeId',
         'key_pair_id': 'KeyPairId',
         'key_pair_name': 'KeyPairName',
+        'local_volumes': 'LocalVolumes',
         'memory_size': 'MemorySize',
         'network_interfaces': 'NetworkInterfaces',
         'os_name': 'OsName',
@@ -78,11 +83,12 @@ class InstanceForDescribeInstancesOutput(object):
         'status': 'Status',
         'stopped_mode': 'StoppedMode',
         'updated_at': 'UpdatedAt',
+        'uuid': 'Uuid',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpus=None, created_at=None, description=None, expired_at=None, host_name=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, rdma_ip_addresses=None, status=None, stopped_mode=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpus=None, created_at=None, description=None, eip_address=None, expired_at=None, host_name=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, rdma_ip_addresses=None, status=None, stopped_mode=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +97,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._cpus = None
         self._created_at = None
         self._description = None
+        self._eip_address = None
         self._expired_at = None
         self._host_name = None
         self._image_id = None
@@ -100,6 +107,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._instance_type_id = None
         self._key_pair_id = None
         self._key_pair_name = None
+        self._local_volumes = None
         self._memory_size = None
         self._network_interfaces = None
         self._os_name = None
@@ -108,6 +116,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._status = None
         self._stopped_mode = None
         self._updated_at = None
+        self._uuid = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
@@ -118,6 +127,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.created_at = created_at
         if description is not None:
             self.description = description
+        if eip_address is not None:
+            self.eip_address = eip_address
         if expired_at is not None:
             self.expired_at = expired_at
         if host_name is not None:
@@ -136,6 +147,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.key_pair_id = key_pair_id
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
+        if local_volumes is not None:
+            self.local_volumes = local_volumes
         if memory_size is not None:
             self.memory_size = memory_size
         if network_interfaces is not None:
@@ -152,6 +165,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.stopped_mode = stopped_mode
         if updated_at is not None:
             self.updated_at = updated_at
+        if uuid is not None:
+            self.uuid = uuid
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
@@ -219,6 +234,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._description = description
+
+    @property
+    def eip_address(self):
+        """Gets the eip_address of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The eip_address of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: EipAddressForDescribeInstancesOutput
+        """
+        return self._eip_address
+
+    @eip_address.setter
+    def eip_address(self, eip_address):
+        """Sets the eip_address of this InstanceForDescribeInstancesOutput.
+
+
+        :param eip_address: The eip_address of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: EipAddressForDescribeInstancesOutput
+        """
+
+        self._eip_address = eip_address
 
     @property
     def expired_at(self):
@@ -410,6 +446,27 @@ class InstanceForDescribeInstancesOutput(object):
         self._key_pair_name = key_pair_name
 
     @property
+    def local_volumes(self):
+        """Gets the local_volumes of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The local_volumes of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: list[LocalVolumeForDescribeInstancesOutput]
+        """
+        return self._local_volumes
+
+    @local_volumes.setter
+    def local_volumes(self, local_volumes):
+        """Sets the local_volumes of this InstanceForDescribeInstancesOutput.
+
+
+        :param local_volumes: The local_volumes of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: list[LocalVolumeForDescribeInstancesOutput]
+        """
+
+        self._local_volumes = local_volumes
+
+    @property
     def memory_size(self):
         """Gets the memory_size of this InstanceForDescribeInstancesOutput.  # noqa: E501
 
@@ -576,6 +633,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._updated_at = updated_at
+
+    @property
+    def uuid(self):
+        """Gets the uuid of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The uuid of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._uuid
+
+    @uuid.setter
+    def uuid(self, uuid):
+        """Sets the uuid of this InstanceForDescribeInstancesOutput.
+
+
+        :param uuid: The uuid of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._uuid = uuid
 
     @property
     def vpc_id(self):
