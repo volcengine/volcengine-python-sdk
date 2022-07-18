@@ -47,8 +47,7 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         'local_geographic_region_set_id': 'str',
         'peer_geographic_region_set_id': 'str',
         'remaining_bandwidth': 'int',
-        'status': 'str',
-        'update_time': 'str'
+        'status': 'str'
     }
 
     attribute_map = {
@@ -66,11 +65,10 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         'local_geographic_region_set_id': 'LocalGeographicRegionSetId',
         'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
         'remaining_bandwidth': 'RemainingBandwidth',
-        'status': 'Status',
-        'update_time': 'UpdateTime'
+        'status': 'Status'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, remaining_bandwidth=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, remaining_bandwidth=None, status=None, _configuration=None):  # noqa: E501
         """DescribeCenBandwidthPackageAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,7 +89,6 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         self._peer_geographic_region_set_id = None
         self._remaining_bandwidth = None
         self._status = None
-        self._update_time = None
         self.discriminator = None
 
         if account_id is not None:
@@ -124,8 +121,6 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
             self.remaining_bandwidth = remaining_bandwidth
         if status is not None:
             self.status = status
-        if update_time is not None:
-            self.update_time = update_time
 
     @property
     def account_id(self):
@@ -441,27 +436,6 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         """
 
         self._status = status
-
-    @property
-    def update_time(self):
-        """Gets the update_time of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
-
-
-        :return: The update_time of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._update_time
-
-    @update_time.setter
-    def update_time(self, update_time):
-        """Sets the update_time of this DescribeCenBandwidthPackageAttributesResponse.
-
-
-        :param update_time: The update_time of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

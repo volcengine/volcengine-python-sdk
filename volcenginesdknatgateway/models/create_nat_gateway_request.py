@@ -33,43 +33,111 @@ class CreateNatGatewayRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'billing_type': 'int',
+        'client_token': 'str',
         'description': 'str',
         'nat_gateway_name': 'str',
+        'period': 'int',
+        'period_unit': 'str',
         'spec': 'str',
         'subnet_id': 'str',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'billing_type': 'BillingType',
+        'client_token': 'ClientToken',
         'description': 'Description',
         'nat_gateway_name': 'NatGatewayName',
+        'period': 'Period',
+        'period_unit': 'PeriodUnit',
         'spec': 'Spec',
         'subnet_id': 'SubnetId',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, nat_gateway_name=None, spec=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, client_token=None, description=None, nat_gateway_name=None, period=None, period_unit=None, spec=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateNatGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._billing_type = None
+        self._client_token = None
         self._description = None
         self._nat_gateway_name = None
+        self._period = None
+        self._period_unit = None
         self._spec = None
         self._subnet_id = None
         self._vpc_id = None
         self.discriminator = None
 
+        if billing_type is not None:
+            self.billing_type = billing_type
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if nat_gateway_name is not None:
             self.nat_gateway_name = nat_gateway_name
+        if period is not None:
+            self.period = period
+        if period_unit is not None:
+            self.period_unit = period_unit
         if spec is not None:
             self.spec = spec
         if subnet_id is not None:
             self.subnet_id = subnet_id
         self.vpc_id = vpc_id
+
+    @property
+    def billing_type(self):
+        """Gets the billing_type of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The billing_type of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._billing_type
+
+    @billing_type.setter
+    def billing_type(self, billing_type):
+        """Sets the billing_type of this CreateNatGatewayRequest.
+
+
+        :param billing_type: The billing_type of this CreateNatGatewayRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                billing_type is not None and billing_type > 1):  # noqa: E501
+            raise ValueError("Invalid value for `billing_type`, must be a value less than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                billing_type is not None and billing_type < 1):  # noqa: E501
+            raise ValueError("Invalid value for `billing_type`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._billing_type = billing_type
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateNatGatewayRequest.
+
+
+        :param client_token: The client_token of this CreateNatGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):
@@ -124,6 +192,55 @@ class CreateNatGatewayRequest(object):
             raise ValueError("Invalid value for `nat_gateway_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._nat_gateway_name = nat_gateway_name
+
+    @property
+    def period(self):
+        """Gets the period of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The period of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._period
+
+    @period.setter
+    def period(self, period):
+        """Sets the period of this CreateNatGatewayRequest.
+
+
+        :param period: The period of this CreateNatGatewayRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._period = period
+
+    @property
+    def period_unit(self):
+        """Gets the period_unit of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The period_unit of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._period_unit
+
+    @period_unit.setter
+    def period_unit(self, period_unit):
+        """Sets the period_unit of this CreateNatGatewayRequest.
+
+
+        :param period_unit: The period_unit of this CreateNatGatewayRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Month", "Year"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                period_unit not in allowed_values):
+            raise ValueError(
+                "Invalid value for `period_unit` ({0}), must be one of {1}"  # noqa: E501
+                .format(period_unit, allowed_values)
+            )
+
+        self._period_unit = period_unit
 
     @property
     def spec(self):

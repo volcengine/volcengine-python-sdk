@@ -37,14 +37,12 @@ class CreateCenBandwidthPackageRequest(object):
         'billing_type': 'int',
         'cen_bandwidth_package_name': 'str',
         'cen_id': 'str',
+        'client_token': 'str',
         'description': 'str',
         'local_geographic_region_set_id': 'str',
         'peer_geographic_region_set_id': 'str',
         'period': 'int',
-        'period_unit': 'str',
-        'remain_renew_times': 'int',
-        'renew_period': 'int',
-        'renew_type': 'str'
+        'period_unit': 'str'
     }
 
     attribute_map = {
@@ -52,17 +50,15 @@ class CreateCenBandwidthPackageRequest(object):
         'billing_type': 'BillingType',
         'cen_bandwidth_package_name': 'CenBandwidthPackageName',
         'cen_id': 'CenId',
+        'client_token': 'ClientToken',
         'description': 'Description',
         'local_geographic_region_set_id': 'LocalGeographicRegionSetId',
         'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
         'period': 'Period',
-        'period_unit': 'PeriodUnit',
-        'remain_renew_times': 'RemainRenewTimes',
-        'renew_period': 'RenewPeriod',
-        'renew_type': 'RenewType'
+        'period_unit': 'PeriodUnit'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, cen_bandwidth_package_name=None, cen_id=None, description=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, period=None, period_unit=None, remain_renew_times=None, renew_period=None, renew_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, cen_bandwidth_package_name=None, cen_id=None, client_token=None, description=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
         """CreateCenBandwidthPackageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,14 +68,12 @@ class CreateCenBandwidthPackageRequest(object):
         self._billing_type = None
         self._cen_bandwidth_package_name = None
         self._cen_id = None
+        self._client_token = None
         self._description = None
         self._local_geographic_region_set_id = None
         self._peer_geographic_region_set_id = None
         self._period = None
         self._period_unit = None
-        self._remain_renew_times = None
-        self._renew_period = None
-        self._renew_type = None
         self.discriminator = None
 
         if bandwidth is not None:
@@ -90,6 +84,8 @@ class CreateCenBandwidthPackageRequest(object):
             self.cen_bandwidth_package_name = cen_bandwidth_package_name
         if cen_id is not None:
             self.cen_id = cen_id
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         self.local_geographic_region_set_id = local_geographic_region_set_id
@@ -98,12 +94,6 @@ class CreateCenBandwidthPackageRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
-        if remain_renew_times is not None:
-            self.remain_renew_times = remain_renew_times
-        if renew_period is not None:
-            self.renew_period = renew_period
-        if renew_type is not None:
-            self.renew_type = renew_type
 
     @property
     def bandwidth(self):
@@ -200,6 +190,27 @@ class CreateCenBandwidthPackageRequest(object):
         """
 
         self._cen_id = cen_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateCenBandwidthPackageRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateCenBandwidthPackageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateCenBandwidthPackageRequest.
+
+
+        :param client_token: The client_token of this CreateCenBandwidthPackageRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):
@@ -322,76 +333,6 @@ class CreateCenBandwidthPackageRequest(object):
             )
 
         self._period_unit = period_unit
-
-    @property
-    def remain_renew_times(self):
-        """Gets the remain_renew_times of this CreateCenBandwidthPackageRequest.  # noqa: E501
-
-
-        :return: The remain_renew_times of this CreateCenBandwidthPackageRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._remain_renew_times
-
-    @remain_renew_times.setter
-    def remain_renew_times(self, remain_renew_times):
-        """Sets the remain_renew_times of this CreateCenBandwidthPackageRequest.
-
-
-        :param remain_renew_times: The remain_renew_times of this CreateCenBandwidthPackageRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._remain_renew_times = remain_renew_times
-
-    @property
-    def renew_period(self):
-        """Gets the renew_period of this CreateCenBandwidthPackageRequest.  # noqa: E501
-
-
-        :return: The renew_period of this CreateCenBandwidthPackageRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._renew_period
-
-    @renew_period.setter
-    def renew_period(self, renew_period):
-        """Sets the renew_period of this CreateCenBandwidthPackageRequest.
-
-
-        :param renew_period: The renew_period of this CreateCenBandwidthPackageRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._renew_period = renew_period
-
-    @property
-    def renew_type(self):
-        """Gets the renew_type of this CreateCenBandwidthPackageRequest.  # noqa: E501
-
-
-        :return: The renew_type of this CreateCenBandwidthPackageRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._renew_type
-
-    @renew_type.setter
-    def renew_type(self, renew_type):
-        """Sets the renew_type of this CreateCenBandwidthPackageRequest.
-
-
-        :param renew_type: The renew_type of this CreateCenBandwidthPackageRequest.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["Manual", "Auto", "NoRenew"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                renew_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `renew_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(renew_type, allowed_values)
-            )
-
-        self._renew_type = renew_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,29 +33,55 @@ class ExtendVolumeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'new_size': 'str',
         'volume_id': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'new_size': 'NewSize',
         'volume_id': 'VolumeId'
     }
 
-    def __init__(self, new_size=None, volume_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, new_size=None, volume_id=None, _configuration=None):  # noqa: E501
         """ExtendVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._new_size = None
         self._volume_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if new_size is not None:
             self.new_size = new_size
         if volume_id is not None:
             self.volume_id = volume_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ExtendVolumeRequest.  # noqa: E501
+
+
+        :return: The client_token of this ExtendVolumeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ExtendVolumeRequest.
+
+
+        :param client_token: The client_token of this ExtendVolumeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def new_size(self):

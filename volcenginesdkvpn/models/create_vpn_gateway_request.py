@@ -38,9 +38,6 @@ class CreateVpnGatewayRequest(object):
         'description': 'str',
         'period': 'int',
         'period_unit': 'str',
-        'remain_renew_times': 'int',
-        'renew_period': 'int',
-        'renew_type': 'int',
         'subnet_id': 'str',
         'vpc_id': 'str',
         'vpn_gateway_name': 'str'
@@ -52,15 +49,12 @@ class CreateVpnGatewayRequest(object):
         'description': 'Description',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
-        'remain_renew_times': 'RemainRenewTimes',
-        'renew_period': 'RenewPeriod',
-        'renew_type': 'RenewType',
         'subnet_id': 'SubnetId',
         'vpc_id': 'VpcId',
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, description=None, period=None, period_unit=None, remain_renew_times=None, renew_period=None, renew_type=None, subnet_id=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, description=None, period=None, period_unit=None, subnet_id=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """CreateVpnGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,9 +65,6 @@ class CreateVpnGatewayRequest(object):
         self._description = None
         self._period = None
         self._period_unit = None
-        self._remain_renew_times = None
-        self._renew_period = None
-        self._renew_type = None
         self._subnet_id = None
         self._vpc_id = None
         self._vpn_gateway_name = None
@@ -88,12 +79,6 @@ class CreateVpnGatewayRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
-        if remain_renew_times is not None:
-            self.remain_renew_times = remain_renew_times
-        if renew_period is not None:
-            self.renew_period = renew_period
-        if renew_type is not None:
-            self.renew_type = renew_type
         self.subnet_id = subnet_id
         self.vpc_id = vpc_id
         if vpn_gateway_name is not None:
@@ -230,75 +215,6 @@ class CreateVpnGatewayRequest(object):
             )
 
         self._period_unit = period_unit
-
-    @property
-    def remain_renew_times(self):
-        """Gets the remain_renew_times of this CreateVpnGatewayRequest.  # noqa: E501
-
-
-        :return: The remain_renew_times of this CreateVpnGatewayRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._remain_renew_times
-
-    @remain_renew_times.setter
-    def remain_renew_times(self, remain_renew_times):
-        """Sets the remain_renew_times of this CreateVpnGatewayRequest.
-
-
-        :param remain_renew_times: The remain_renew_times of this CreateVpnGatewayRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._remain_renew_times = remain_renew_times
-
-    @property
-    def renew_period(self):
-        """Gets the renew_period of this CreateVpnGatewayRequest.  # noqa: E501
-
-
-        :return: The renew_period of this CreateVpnGatewayRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._renew_period
-
-    @renew_period.setter
-    def renew_period(self, renew_period):
-        """Sets the renew_period of this CreateVpnGatewayRequest.
-
-
-        :param renew_period: The renew_period of this CreateVpnGatewayRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._renew_period = renew_period
-
-    @property
-    def renew_type(self):
-        """Gets the renew_type of this CreateVpnGatewayRequest.  # noqa: E501
-
-
-        :return: The renew_type of this CreateVpnGatewayRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._renew_type
-
-    @renew_type.setter
-    def renew_type(self, renew_type):
-        """Sets the renew_type of this CreateVpnGatewayRequest.
-
-
-        :param renew_type: The renew_type of this CreateVpnGatewayRequest.  # noqa: E501
-        :type: int
-        """
-        if (self._configuration.client_side_validation and
-                renew_type is not None and renew_type > 3):  # noqa: E501
-            raise ValueError("Invalid value for `renew_type`, must be a value less than or equal to `3`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                renew_type is not None and renew_type < 1):  # noqa: E501
-            raise ValueError("Invalid value for `renew_type`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._renew_type = renew_type
 
     @property
     def subnet_id(self):

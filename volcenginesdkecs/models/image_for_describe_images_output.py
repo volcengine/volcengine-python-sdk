@@ -38,6 +38,7 @@ class ImageForDescribeImagesOutput(object):
         'description': 'str',
         'image_id': 'str',
         'image_name': 'str',
+        'image_owner_id': 'str',
         'is_support_cloud_init': 'bool',
         'os_name': 'str',
         'os_type': 'str',
@@ -57,6 +58,7 @@ class ImageForDescribeImagesOutput(object):
         'description': 'Description',
         'image_id': 'ImageId',
         'image_name': 'ImageName',
+        'image_owner_id': 'ImageOwnerId',
         'is_support_cloud_init': 'IsSupportCloudInit',
         'os_name': 'OsName',
         'os_type': 'OsType',
@@ -70,7 +72,7 @@ class ImageForDescribeImagesOutput(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, created_at=None, description=None, image_id=None, image_name=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, share_status=None, size=None, status=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, created_at=None, description=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, share_status=None, size=None, status=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class ImageForDescribeImagesOutput(object):
         self._description = None
         self._image_id = None
         self._image_name = None
+        self._image_owner_id = None
         self._is_support_cloud_init = None
         self._os_name = None
         self._os_type = None
@@ -104,6 +107,8 @@ class ImageForDescribeImagesOutput(object):
             self.image_id = image_id
         if image_name is not None:
             self.image_name = image_name
+        if image_owner_id is not None:
+            self.image_owner_id = image_owner_id
         if is_support_cloud_init is not None:
             self.is_support_cloud_init = is_support_cloud_init
         if os_name is not None:
@@ -231,6 +236,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._image_name = image_name
+
+    @property
+    def image_owner_id(self):
+        """Gets the image_owner_id of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The image_owner_id of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_owner_id
+
+    @image_owner_id.setter
+    def image_owner_id(self, image_owner_id):
+        """Sets the image_owner_id of this ImageForDescribeImagesOutput.
+
+
+        :param image_owner_id: The image_owner_id of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._image_owner_id = image_owner_id
 
     @property
     def is_support_cloud_init(self):

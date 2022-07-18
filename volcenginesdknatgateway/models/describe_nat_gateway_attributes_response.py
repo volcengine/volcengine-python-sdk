@@ -39,6 +39,7 @@ class DescribeNatGatewayAttributesResponse(object):
         'deleted_time': 'str',
         'description': 'str',
         'eip_addresses': 'list[EipAddressForDescribeNatGatewayAttributesOutput]',
+        'expired_time': 'str',
         'lock_reason': 'str',
         'nat_gateway_id': 'str',
         'nat_gateway_name': 'str',
@@ -59,6 +60,7 @@ class DescribeNatGatewayAttributesResponse(object):
         'deleted_time': 'DeletedTime',
         'description': 'Description',
         'eip_addresses': 'EipAddresses',
+        'expired_time': 'ExpiredTime',
         'lock_reason': 'LockReason',
         'nat_gateway_id': 'NatGatewayId',
         'nat_gateway_name': 'NatGatewayName',
@@ -72,7 +74,7 @@ class DescribeNatGatewayAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, overdue_time=None, request_id=None, spec=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, overdue_time=None, request_id=None, spec=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeNatGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +86,7 @@ class DescribeNatGatewayAttributesResponse(object):
         self._deleted_time = None
         self._description = None
         self._eip_addresses = None
+        self._expired_time = None
         self._lock_reason = None
         self._nat_gateway_id = None
         self._nat_gateway_name = None
@@ -109,6 +112,8 @@ class DescribeNatGatewayAttributesResponse(object):
             self.description = description
         if eip_addresses is not None:
             self.eip_addresses = eip_addresses
+        if expired_time is not None:
+            self.expired_time = expired_time
         if lock_reason is not None:
             self.lock_reason = lock_reason
         if nat_gateway_id is not None:
@@ -257,6 +262,27 @@ class DescribeNatGatewayAttributesResponse(object):
         """
 
         self._eip_addresses = eip_addresses
+
+    @property
+    def expired_time(self):
+        """Gets the expired_time of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The expired_time of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._expired_time
+
+    @expired_time.setter
+    def expired_time(self, expired_time):
+        """Sets the expired_time of this DescribeNatGatewayAttributesResponse.
+
+
+        :param expired_time: The expired_time of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._expired_time = expired_time
 
     @property
     def lock_reason(self):

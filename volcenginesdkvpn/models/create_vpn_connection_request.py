@@ -33,60 +33,83 @@ class CreateVpnConnectionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'customer_gateway_id': 'str',
         'description': 'str',
-        'ike_config': 'IkeConfigForCreateVpnConnectionInput',
-        'ipsec_config': 'IpsecConfigForCreateVpnConnectionInput',
-        'local_subnet': 'str',
+        'dpd_action': 'str',
+        'ike_config': 'str',
+        'ipsec_config': 'str',
         'nat_traversal': 'bool',
-        'remote_subnet': 'str',
         'vpn_connection_name': 'str',
         'vpn_gateway_id': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'customer_gateway_id': 'CustomerGatewayId',
         'description': 'Description',
+        'dpd_action': 'DpdAction',
         'ike_config': 'IkeConfig',
         'ipsec_config': 'IpsecConfig',
-        'local_subnet': 'LocalSubnet',
         'nat_traversal': 'NatTraversal',
-        'remote_subnet': 'RemoteSubnet',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, customer_gateway_id=None, description=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, remote_subnet=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, nat_traversal=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateVpnConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._customer_gateway_id = None
         self._description = None
+        self._dpd_action = None
         self._ike_config = None
         self._ipsec_config = None
-        self._local_subnet = None
         self._nat_traversal = None
-        self._remote_subnet = None
         self._vpn_connection_name = None
         self._vpn_gateway_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         self.customer_gateway_id = customer_gateway_id
         if description is not None:
             self.description = description
+        if dpd_action is not None:
+            self.dpd_action = dpd_action
         if ike_config is not None:
             self.ike_config = ike_config
         if ipsec_config is not None:
             self.ipsec_config = ipsec_config
-        self.local_subnet = local_subnet
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
-        self.remote_subnet = remote_subnet
         if vpn_connection_name is not None:
             self.vpn_connection_name = vpn_connection_name
         self.vpn_gateway_id = vpn_gateway_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateVpnConnectionRequest.
+
+
+        :param client_token: The client_token of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def customer_gateway_id(self):
@@ -139,12 +162,40 @@ class CreateVpnConnectionRequest(object):
         self._description = description
 
     @property
+    def dpd_action(self):
+        """Gets the dpd_action of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The dpd_action of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._dpd_action
+
+    @dpd_action.setter
+    def dpd_action(self, dpd_action):
+        """Sets the dpd_action of this CreateVpnConnectionRequest.
+
+
+        :param dpd_action: The dpd_action of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["none", "clear", "hold", "restart"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                dpd_action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `dpd_action` ({0}), must be one of {1}"  # noqa: E501
+                .format(dpd_action, allowed_values)
+            )
+
+        self._dpd_action = dpd_action
+
+    @property
     def ike_config(self):
         """Gets the ike_config of this CreateVpnConnectionRequest.  # noqa: E501
 
 
         :return: The ike_config of this CreateVpnConnectionRequest.  # noqa: E501
-        :rtype: IkeConfigForCreateVpnConnectionInput
+        :rtype: str
         """
         return self._ike_config
 
@@ -154,7 +205,7 @@ class CreateVpnConnectionRequest(object):
 
 
         :param ike_config: The ike_config of this CreateVpnConnectionRequest.  # noqa: E501
-        :type: IkeConfigForCreateVpnConnectionInput
+        :type: str
         """
 
         self._ike_config = ike_config
@@ -165,7 +216,7 @@ class CreateVpnConnectionRequest(object):
 
 
         :return: The ipsec_config of this CreateVpnConnectionRequest.  # noqa: E501
-        :rtype: IpsecConfigForCreateVpnConnectionInput
+        :rtype: str
         """
         return self._ipsec_config
 
@@ -175,33 +226,10 @@ class CreateVpnConnectionRequest(object):
 
 
         :param ipsec_config: The ipsec_config of this CreateVpnConnectionRequest.  # noqa: E501
-        :type: IpsecConfigForCreateVpnConnectionInput
+        :type: str
         """
 
         self._ipsec_config = ipsec_config
-
-    @property
-    def local_subnet(self):
-        """Gets the local_subnet of this CreateVpnConnectionRequest.  # noqa: E501
-
-
-        :return: The local_subnet of this CreateVpnConnectionRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._local_subnet
-
-    @local_subnet.setter
-    def local_subnet(self, local_subnet):
-        """Sets the local_subnet of this CreateVpnConnectionRequest.
-
-
-        :param local_subnet: The local_subnet of this CreateVpnConnectionRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and local_subnet is None:
-            raise ValueError("Invalid value for `local_subnet`, must not be `None`")  # noqa: E501
-
-        self._local_subnet = local_subnet
 
     @property
     def nat_traversal(self):
@@ -223,29 +251,6 @@ class CreateVpnConnectionRequest(object):
         """
 
         self._nat_traversal = nat_traversal
-
-    @property
-    def remote_subnet(self):
-        """Gets the remote_subnet of this CreateVpnConnectionRequest.  # noqa: E501
-
-
-        :return: The remote_subnet of this CreateVpnConnectionRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._remote_subnet
-
-    @remote_subnet.setter
-    def remote_subnet(self, remote_subnet):
-        """Sets the remote_subnet of this CreateVpnConnectionRequest.
-
-
-        :param remote_subnet: The remote_subnet of this CreateVpnConnectionRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and remote_subnet is None:
-            raise ValueError("Invalid value for `remote_subnet`, must not be `None`")  # noqa: E501
-
-        self._remote_subnet = remote_subnet
 
     @property
     def vpn_connection_name(self):

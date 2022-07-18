@@ -33,24 +33,50 @@ class MemoryForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'encrypted_size': 'int',
         'size': 'int'
     }
 
     attribute_map = {
+        'encrypted_size': 'EncryptedSize',
         'size': 'Size'
     }
 
-    def __init__(self, size=None, _configuration=None):  # noqa: E501
+    def __init__(self, encrypted_size=None, size=None, _configuration=None):  # noqa: E501
         """MemoryForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._encrypted_size = None
         self._size = None
         self.discriminator = None
 
+        if encrypted_size is not None:
+            self.encrypted_size = encrypted_size
         if size is not None:
             self.size = size
+
+    @property
+    def encrypted_size(self):
+        """Gets the encrypted_size of this MemoryForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The encrypted_size of this MemoryForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._encrypted_size
+
+    @encrypted_size.setter
+    def encrypted_size(self, encrypted_size):
+        """Sets the encrypted_size of this MemoryForDescribeInstanceTypesOutput.
+
+
+        :param encrypted_size: The encrypted_size of this MemoryForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._encrypted_size = encrypted_size
 
     @property
     def size(self):

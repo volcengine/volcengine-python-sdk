@@ -33,33 +33,59 @@ class CreateSecurityGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'description': 'str',
         'security_group_name': 'str',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'description': 'Description',
         'security_group_name': 'SecurityGroupName',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, security_group_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, security_group_name=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateSecurityGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._description = None
         self._security_group_name = None
         self._vpc_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if security_group_name is not None:
             self.security_group_name = security_group_name
         self.vpc_id = vpc_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateSecurityGroupRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateSecurityGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateSecurityGroupRequest.
+
+
+        :param client_token: The client_token of this CreateSecurityGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):

@@ -33,45 +33,17 @@ class ModifyCenBandwidthPackageAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'pre_order_number': 'str'
     }
 
     attribute_map = {
-        'pre_order_number': 'PreOrderNumber'
     }
 
-    def __init__(self, pre_order_number=None, _configuration=None):  # noqa: E501
+    def __init__(self, _configuration=None):  # noqa: E501
         """ModifyCenBandwidthPackageAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
-
-        self._pre_order_number = None
         self.discriminator = None
-
-        if pre_order_number is not None:
-            self.pre_order_number = pre_order_number
-
-    @property
-    def pre_order_number(self):
-        """Gets the pre_order_number of this ModifyCenBandwidthPackageAttributesResponse.  # noqa: E501
-
-
-        :return: The pre_order_number of this ModifyCenBandwidthPackageAttributesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._pre_order_number
-
-    @pre_order_number.setter
-    def pre_order_number(self, pre_order_number):
-        """Sets the pre_order_number of this ModifyCenBandwidthPackageAttributesResponse.
-
-
-        :param pre_order_number: The pre_order_number of this ModifyCenBandwidthPackageAttributesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._pre_order_number = pre_order_number
 
     def to_dict(self):
         """Returns the model properties as a dict"""

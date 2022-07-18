@@ -1294,103 +1294,6 @@ class CENApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_cen_bandwidth_packages_billing(self, body, **kwargs):  # noqa: E501
-        """describe_cen_bandwidth_packages_billing  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_cen_bandwidth_packages_billing(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeCenBandwidthPackagesBillingRequest body: (required)
-        :return: DescribeCenBandwidthPackagesBillingResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.describe_cen_bandwidth_packages_billing_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.describe_cen_bandwidth_packages_billing_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def describe_cen_bandwidth_packages_billing_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_cen_bandwidth_packages_billing  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_cen_bandwidth_packages_billing_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeCenBandwidthPackagesBillingRequest body: (required)
-        :return: DescribeCenBandwidthPackagesBillingResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method describe_cen_bandwidth_packages_billing" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_cen_bandwidth_packages_billing`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DescribeCenBandwidthPackagesBilling/2020-04-01/cen/get/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DescribeCenBandwidthPackagesBillingResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def describe_cen_inter_region_bandwidth_attributes(self, body, **kwargs):  # noqa: E501
         """describe_cen_inter_region_bandwidth_attributes  # noqa: E501
 
@@ -1682,103 +1585,6 @@ class CENApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_cen_supported_regions(self, body, **kwargs):  # noqa: E501
-        """describe_cen_supported_regions  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_cen_supported_regions(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeCenSupportedRegionsRequest body: (required)
-        :return: DescribeCenSupportedRegionsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.describe_cen_supported_regions_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.describe_cen_supported_regions_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def describe_cen_supported_regions_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_cen_supported_regions  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_cen_supported_regions_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeCenSupportedRegionsRequest body: (required)
-        :return: DescribeCenSupportedRegionsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method describe_cen_supported_regions" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_cen_supported_regions`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DescribeCenSupportedRegions/2020-04-01/cen/get/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DescribeCenSupportedRegionsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def describe_cens(self, body, **kwargs):  # noqa: E501
         """describe_cens  # noqa: E501
 
@@ -1869,6 +1675,200 @@ class CENApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeCensResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_grant_rules_to_cen(self, body, **kwargs):  # noqa: E501
+        """describe_grant_rules_to_cen  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_grant_rules_to_cen(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeGrantRulesToCenRequest body: (required)
+        :return: DescribeGrantRulesToCenResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_grant_rules_to_cen_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_grant_rules_to_cen_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_grant_rules_to_cen_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_grant_rules_to_cen  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_grant_rules_to_cen_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeGrantRulesToCenRequest body: (required)
+        :return: DescribeGrantRulesToCenResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_grant_rules_to_cen" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_grant_rules_to_cen`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeGrantRulesToCen/2020-04-01/cen/get/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeGrantRulesToCenResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_instance_granted_rules(self, body, **kwargs):  # noqa: E501
+        """describe_instance_granted_rules  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_instance_granted_rules(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeInstanceGrantedRulesRequest body: (required)
+        :return: DescribeInstanceGrantedRulesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_instance_granted_rules_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_instance_granted_rules_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_instance_granted_rules_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_instance_granted_rules  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_instance_granted_rules_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeInstanceGrantedRulesRequest body: (required)
+        :return: DescribeInstanceGrantedRulesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_instance_granted_rules" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_instance_granted_rules`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeInstanceGrantedRules/2020-04-01/cen/get/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeInstanceGrantedRulesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2063,6 +2063,103 @@ class CENApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DisassociateCenBandwidthPackageResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def grant_instance_to_cen(self, body, **kwargs):  # noqa: E501
+        """grant_instance_to_cen  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.grant_instance_to_cen(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GrantInstanceToCenRequest body: (required)
+        :return: GrantInstanceToCenResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.grant_instance_to_cen_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.grant_instance_to_cen_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def grant_instance_to_cen_with_http_info(self, body, **kwargs):  # noqa: E501
+        """grant_instance_to_cen  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.grant_instance_to_cen_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GrantInstanceToCenRequest body: (required)
+        :return: GrantInstanceToCenResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method grant_instance_to_cen" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `grant_instance_to_cen`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/GrantInstanceToCen/2020-04-01/cen/get/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GrantInstanceToCenResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2361,38 +2458,38 @@ class CENApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def publish_cen_route_entry(self, body, **kwargs):  # noqa: E501
-        """publish_cen_route_entry  # noqa: E501
+    def revoke_instance_from_cen(self, body, **kwargs):  # noqa: E501
+        """revoke_instance_from_cen  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.publish_cen_route_entry(body, async_req=True)
+        >>> thread = api.revoke_instance_from_cen(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param PublishCenRouteEntryRequest body: (required)
-        :return: PublishCenRouteEntryResponse
+        :param RevokeInstanceFromCenRequest body: (required)
+        :return: RevokeInstanceFromCenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.publish_cen_route_entry_with_http_info(body, **kwargs)  # noqa: E501
+            return self.revoke_instance_from_cen_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.publish_cen_route_entry_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.revoke_instance_from_cen_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def publish_cen_route_entry_with_http_info(self, body, **kwargs):  # noqa: E501
-        """publish_cen_route_entry  # noqa: E501
+    def revoke_instance_from_cen_with_http_info(self, body, **kwargs):  # noqa: E501
+        """revoke_instance_from_cen  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.publish_cen_route_entry_with_http_info(body, async_req=True)
+        >>> thread = api.revoke_instance_from_cen_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param PublishCenRouteEntryRequest body: (required)
-        :return: PublishCenRouteEntryResponse
+        :param RevokeInstanceFromCenRequest body: (required)
+        :return: RevokeInstanceFromCenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2408,14 +2505,14 @@ class CENApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method publish_cen_route_entry" % key
+                    " to method revoke_instance_from_cen" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `publish_cen_route_entry`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `revoke_instance_from_cen`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2443,305 +2540,14 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/PublishCenRouteEntry/2020-04-01/cen/get/', 'GET',
+            '/RevokeInstanceFromCen/2020-04-01/cen/get/', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PublishCenRouteEntryResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def renew_cen_bandwidth_package(self, body, **kwargs):  # noqa: E501
-        """renew_cen_bandwidth_package  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.renew_cen_bandwidth_package(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param RenewCenBandwidthPackageRequest body: (required)
-        :return: RenewCenBandwidthPackageResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.renew_cen_bandwidth_package_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.renew_cen_bandwidth_package_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def renew_cen_bandwidth_package_with_http_info(self, body, **kwargs):  # noqa: E501
-        """renew_cen_bandwidth_package  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.renew_cen_bandwidth_package_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param RenewCenBandwidthPackageRequest body: (required)
-        :return: RenewCenBandwidthPackageResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method renew_cen_bandwidth_package" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `renew_cen_bandwidth_package`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/RenewCenBandwidthPackage/2020-04-01/cen/get/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RenewCenBandwidthPackageResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def set_cen_bandwidth_package_renewal(self, body, **kwargs):  # noqa: E501
-        """set_cen_bandwidth_package_renewal  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_cen_bandwidth_package_renewal(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param SetCenBandwidthPackageRenewalRequest body: (required)
-        :return: SetCenBandwidthPackageRenewalResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.set_cen_bandwidth_package_renewal_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.set_cen_bandwidth_package_renewal_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def set_cen_bandwidth_package_renewal_with_http_info(self, body, **kwargs):  # noqa: E501
-        """set_cen_bandwidth_package_renewal  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_cen_bandwidth_package_renewal_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param SetCenBandwidthPackageRenewalRequest body: (required)
-        :return: SetCenBandwidthPackageRenewalResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method set_cen_bandwidth_package_renewal" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `set_cen_bandwidth_package_renewal`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/SetCenBandwidthPackageRenewal/2020-04-01/cen/get/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='SetCenBandwidthPackageRenewalResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def withdraw_cen_route_entry(self, body, **kwargs):  # noqa: E501
-        """withdraw_cen_route_entry  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.withdraw_cen_route_entry(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param WithdrawCenRouteEntryRequest body: (required)
-        :return: WithdrawCenRouteEntryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.withdraw_cen_route_entry_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.withdraw_cen_route_entry_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def withdraw_cen_route_entry_with_http_info(self, body, **kwargs):  # noqa: E501
-        """withdraw_cen_route_entry  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.withdraw_cen_route_entry_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param WithdrawCenRouteEntryRequest body: (required)
-        :return: WithdrawCenRouteEntryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method withdraw_cen_route_entry" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `withdraw_cen_route_entry`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/WithdrawCenRouteEntry/2020-04-01/cen/get/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='WithdrawCenRouteEntryResponse',  # noqa: E501
+            response_type='RevokeInstanceFromCenResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

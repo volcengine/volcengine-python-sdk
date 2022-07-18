@@ -37,7 +37,6 @@ class DescribeVpnGatewayRoutesRequest(object):
         'next_hop_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'status': 'str',
         'vpn_gateway_id': 'str',
         'vpn_gateway_route_ids': 'list[str]'
     }
@@ -47,12 +46,11 @@ class DescribeVpnGatewayRoutesRequest(object):
         'next_hop_id': 'NextHopId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'status': 'Status',
         'vpn_gateway_id': 'VpnGatewayId',
         'vpn_gateway_route_ids': 'VpnGatewayRouteIds'
     }
 
-    def __init__(self, destination_cidr_block=None, next_hop_id=None, page_number=None, page_size=None, status=None, vpn_gateway_id=None, vpn_gateway_route_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination_cidr_block=None, next_hop_id=None, page_number=None, page_size=None, vpn_gateway_id=None, vpn_gateway_route_ids=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewayRoutesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,7 +60,6 @@ class DescribeVpnGatewayRoutesRequest(object):
         self._next_hop_id = None
         self._page_number = None
         self._page_size = None
-        self._status = None
         self._vpn_gateway_id = None
         self._vpn_gateway_route_ids = None
         self.discriminator = None
@@ -75,8 +72,6 @@ class DescribeVpnGatewayRoutesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        if status is not None:
-            self.status = status
         if vpn_gateway_id is not None:
             self.vpn_gateway_id = vpn_gateway_id
         if vpn_gateway_route_ids is not None:
@@ -165,27 +160,6 @@ class DescribeVpnGatewayRoutesRequest(object):
         """
 
         self._page_size = page_size
-
-    @property
-    def status(self):
-        """Gets the status of this DescribeVpnGatewayRoutesRequest.  # noqa: E501
-
-
-        :return: The status of this DescribeVpnGatewayRoutesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this DescribeVpnGatewayRoutesRequest.
-
-
-        :param status: The status of this DescribeVpnGatewayRoutesRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._status = status
 
     @property
     def vpn_gateway_id(self):

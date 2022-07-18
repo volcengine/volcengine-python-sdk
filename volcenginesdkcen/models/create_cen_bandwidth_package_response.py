@@ -33,29 +33,24 @@ class CreateCenBandwidthPackageResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cen_bandwidth_package_id': 'str',
-        'pre_order_number': 'str'
+        'cen_bandwidth_package_id': 'str'
     }
 
     attribute_map = {
-        'cen_bandwidth_package_id': 'CenBandwidthPackageId',
-        'pre_order_number': 'PreOrderNumber'
+        'cen_bandwidth_package_id': 'CenBandwidthPackageId'
     }
 
-    def __init__(self, cen_bandwidth_package_id=None, pre_order_number=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_bandwidth_package_id=None, _configuration=None):  # noqa: E501
         """CreateCenBandwidthPackageResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cen_bandwidth_package_id = None
-        self._pre_order_number = None
         self.discriminator = None
 
         if cen_bandwidth_package_id is not None:
             self.cen_bandwidth_package_id = cen_bandwidth_package_id
-        if pre_order_number is not None:
-            self.pre_order_number = pre_order_number
 
     @property
     def cen_bandwidth_package_id(self):
@@ -77,27 +72,6 @@ class CreateCenBandwidthPackageResponse(object):
         """
 
         self._cen_bandwidth_package_id = cen_bandwidth_package_id
-
-    @property
-    def pre_order_number(self):
-        """Gets the pre_order_number of this CreateCenBandwidthPackageResponse.  # noqa: E501
-
-
-        :return: The pre_order_number of this CreateCenBandwidthPackageResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._pre_order_number
-
-    @pre_order_number.setter
-    def pre_order_number(self, pre_order_number):
-        """Sets the pre_order_number of this CreateCenBandwidthPackageResponse.
-
-
-        :param pre_order_number: The pre_order_number of this CreateCenBandwidthPackageResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._pre_order_number = pre_order_number
 
     def to_dict(self):
         """Returns the model properties as a dict"""

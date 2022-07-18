@@ -36,7 +36,6 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         'account_id': 'str',
         'bandwidth': 'int',
         'billing_type': 'int',
-        'business_status': 'str',
         'cen_bandwidth_package_id': 'str',
         'cen_bandwidth_package_name': 'str',
         'cen_ids': 'list[str]',
@@ -47,15 +46,13 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         'local_geographic_region_set_id': 'str',
         'peer_geographic_region_set_id': 'str',
         'remaining_bandwidth': 'int',
-        'status': 'str',
-        'update_time': 'str'
+        'status': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
         'bandwidth': 'Bandwidth',
         'billing_type': 'BillingType',
-        'business_status': 'BusinessStatus',
         'cen_bandwidth_package_id': 'CenBandwidthPackageId',
         'cen_bandwidth_package_name': 'CenBandwidthPackageName',
         'cen_ids': 'CenIds',
@@ -66,11 +63,10 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         'local_geographic_region_set_id': 'LocalGeographicRegionSetId',
         'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
         'remaining_bandwidth': 'RemainingBandwidth',
-        'status': 'Status',
-        'update_time': 'UpdateTime'
+        'status': 'Status'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, remaining_bandwidth=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, remaining_bandwidth=None, status=None, _configuration=None):  # noqa: E501
         """CenBandwidthPackageForDescribeCenBandwidthPackagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,7 +75,6 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         self._account_id = None
         self._bandwidth = None
         self._billing_type = None
-        self._business_status = None
         self._cen_bandwidth_package_id = None
         self._cen_bandwidth_package_name = None
         self._cen_ids = None
@@ -91,7 +86,6 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         self._peer_geographic_region_set_id = None
         self._remaining_bandwidth = None
         self._status = None
-        self._update_time = None
         self.discriminator = None
 
         if account_id is not None:
@@ -100,8 +94,6 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
             self.bandwidth = bandwidth
         if billing_type is not None:
             self.billing_type = billing_type
-        if business_status is not None:
-            self.business_status = business_status
         if cen_bandwidth_package_id is not None:
             self.cen_bandwidth_package_id = cen_bandwidth_package_id
         if cen_bandwidth_package_name is not None:
@@ -124,8 +116,6 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
             self.remaining_bandwidth = remaining_bandwidth
         if status is not None:
             self.status = status
-        if update_time is not None:
-            self.update_time = update_time
 
     @property
     def account_id(self):
@@ -189,27 +179,6 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         """
 
         self._billing_type = billing_type
-
-    @property
-    def business_status(self):
-        """Gets the business_status of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-
-
-        :return: The business_status of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._business_status
-
-    @business_status.setter
-    def business_status(self, business_status):
-        """Sets the business_status of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.
-
-
-        :param business_status: The business_status of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._business_status = business_status
 
     @property
     def cen_bandwidth_package_id(self):
@@ -441,27 +410,6 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         """
 
         self._status = status
-
-    @property
-    def update_time(self):
-        """Gets the update_time of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-
-
-        :return: The update_time of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._update_time
-
-    @update_time.setter
-    def update_time(self, update_time):
-        """Sets the update_time of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.
-
-
-        :param update_time: The update_time of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""
