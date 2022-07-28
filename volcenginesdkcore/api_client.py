@@ -67,7 +67,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'volcstack-python-sdk'
+        self.user_agent = 'volcstack-python-sdk/1.0.0'
         self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):
@@ -262,8 +262,15 @@ class ApiClient(object):
         except ValueError:
             data = response.data
 
-        # Fixme: extract result
-        data = data.get("Result")
+        meta = data.get("ResponseMetadata")
+        if meta is not None:
+            err = meta.get("Error")
+            if err is not None:
+                raise rest.ApiException(status=200, reason=str(err))
+            else:
+                data = data.get("Result")
+        else:
+            raise rest.ApiException(status=200, reason="InternalServiceError")
 
         return self.__deserialize(data, response_type, service)
 
