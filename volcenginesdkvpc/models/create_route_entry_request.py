@@ -33,6 +33,7 @@ class CreateRouteEntryRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'description': 'str',
         'destination_cidr_block': 'str',
         'next_hop_id': 'str',
@@ -42,6 +43,7 @@ class CreateRouteEntryRequest(object):
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'description': 'Description',
         'destination_cidr_block': 'DestinationCidrBlock',
         'next_hop_id': 'NextHopId',
@@ -50,12 +52,13 @@ class CreateRouteEntryRequest(object):
         'route_table_id': 'RouteTableId'
     }
 
-    def __init__(self, description=None, destination_cidr_block=None, next_hop_id=None, next_hop_type=None, route_entry_name=None, route_table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, destination_cidr_block=None, next_hop_id=None, next_hop_type=None, route_entry_name=None, route_table_id=None, _configuration=None):  # noqa: E501
         """CreateRouteEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._description = None
         self._destination_cidr_block = None
         self._next_hop_id = None
@@ -64,6 +67,8 @@ class CreateRouteEntryRequest(object):
         self._route_table_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         self.destination_cidr_block = destination_cidr_block
@@ -72,6 +77,27 @@ class CreateRouteEntryRequest(object):
         if route_entry_name is not None:
             self.route_entry_name = route_entry_name
         self.route_table_id = route_table_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateRouteEntryRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateRouteEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateRouteEntryRequest.
+
+
+        :param client_token: The client_token of this CreateRouteEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):

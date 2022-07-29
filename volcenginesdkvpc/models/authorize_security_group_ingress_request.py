@@ -34,6 +34,7 @@ class AuthorizeSecurityGroupIngressRequest(object):
     """
     swagger_types = {
         'cidr_ip': 'str',
+        'client_token': 'str',
         'description': 'str',
         'policy': 'str',
         'port_end': 'int',
@@ -46,6 +47,7 @@ class AuthorizeSecurityGroupIngressRequest(object):
 
     attribute_map = {
         'cidr_ip': 'CidrIp',
+        'client_token': 'ClientToken',
         'description': 'Description',
         'policy': 'Policy',
         'port_end': 'PortEnd',
@@ -56,13 +58,14 @@ class AuthorizeSecurityGroupIngressRequest(object):
         'source_group_id': 'SourceGroupId'
     }
 
-    def __init__(self, cidr_ip=None, description=None, policy=None, port_end=None, port_start=None, priority=None, protocol=None, security_group_id=None, source_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_ip=None, client_token=None, description=None, policy=None, port_end=None, port_start=None, priority=None, protocol=None, security_group_id=None, source_group_id=None, _configuration=None):  # noqa: E501
         """AuthorizeSecurityGroupIngressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cidr_ip = None
+        self._client_token = None
         self._description = None
         self._policy = None
         self._port_end = None
@@ -74,6 +77,8 @@ class AuthorizeSecurityGroupIngressRequest(object):
         self.discriminator = None
 
         self.cidr_ip = cidr_ip
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if policy is not None:
@@ -109,6 +114,27 @@ class AuthorizeSecurityGroupIngressRequest(object):
             raise ValueError("Invalid value for `cidr_ip`, must not be `None`")  # noqa: E501
 
         self._cidr_ip = cidr_ip
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this AuthorizeSecurityGroupIngressRequest.  # noqa: E501
+
+
+        :return: The client_token of this AuthorizeSecurityGroupIngressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this AuthorizeSecurityGroupIngressRequest.
+
+
+        :param client_token: The client_token of this AuthorizeSecurityGroupIngressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):

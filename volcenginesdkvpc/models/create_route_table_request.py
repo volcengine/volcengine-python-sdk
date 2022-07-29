@@ -33,33 +33,59 @@ class CreateRouteTableRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'description': 'str',
         'route_table_name': 'str',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'description': 'Description',
         'route_table_name': 'RouteTableName',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, route_table_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, route_table_name=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateRouteTableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._description = None
         self._route_table_name = None
         self._vpc_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if route_table_name is not None:
             self.route_table_name = route_table_name
         self.vpc_id = vpc_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateRouteTableRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateRouteTableRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateRouteTableRequest.
+
+
+        :param client_token: The client_token of this CreateRouteTableRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):

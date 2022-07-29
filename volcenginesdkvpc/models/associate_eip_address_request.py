@@ -130,7 +130,7 @@ class AssociateEipAddressRequest(object):
         """
         if self._configuration.client_side_validation and instance_type is None:
             raise ValueError("Invalid value for `instance_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Nat", "NetworkInterface", "ClbInstance", "EcsInstance", "HaVip"]  # noqa: E501
+        allowed_values = ["Nat", "NetworkInterface", "ClbInstance", "AlbInstance", "EcsInstance", "HaVip"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_type not in allowed_values):
             raise ValueError(

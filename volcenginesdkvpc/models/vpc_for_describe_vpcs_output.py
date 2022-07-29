@@ -40,6 +40,7 @@ class VpcForDescribeVpcsOutput(object):
         'description': 'str',
         'dns_servers': 'list[str]',
         'nat_gateway_ids': 'list[str]',
+        'network_acl_num': 'str',
         'route_table_ids': 'list[str]',
         'security_group_ids': 'list[str]',
         'status': 'str',
@@ -57,6 +58,7 @@ class VpcForDescribeVpcsOutput(object):
         'description': 'Description',
         'dns_servers': 'DnsServers',
         'nat_gateway_ids': 'NatGatewayIds',
+        'network_acl_num': 'NetworkAclNum',
         'route_table_ids': 'RouteTableIds',
         'security_group_ids': 'SecurityGroupIds',
         'status': 'Status',
@@ -66,7 +68,7 @@ class VpcForDescribeVpcsOutput(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, nat_gateway_ids=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, nat_gateway_ids=None, network_acl_num=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """VpcForDescribeVpcsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class VpcForDescribeVpcsOutput(object):
         self._description = None
         self._dns_servers = None
         self._nat_gateway_ids = None
+        self._network_acl_num = None
         self._route_table_ids = None
         self._security_group_ids = None
         self._status = None
@@ -102,6 +105,8 @@ class VpcForDescribeVpcsOutput(object):
             self.dns_servers = dns_servers
         if nat_gateway_ids is not None:
             self.nat_gateway_ids = nat_gateway_ids
+        if network_acl_num is not None:
+            self.network_acl_num = network_acl_num
         if route_table_ids is not None:
             self.route_table_ids = route_table_ids
         if security_group_ids is not None:
@@ -263,6 +268,27 @@ class VpcForDescribeVpcsOutput(object):
         """
 
         self._nat_gateway_ids = nat_gateway_ids
+
+    @property
+    def network_acl_num(self):
+        """Gets the network_acl_num of this VpcForDescribeVpcsOutput.  # noqa: E501
+
+
+        :return: The network_acl_num of this VpcForDescribeVpcsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_acl_num
+
+    @network_acl_num.setter
+    def network_acl_num(self, network_acl_num):
+        """Sets the network_acl_num of this VpcForDescribeVpcsOutput.
+
+
+        :param network_acl_num: The network_acl_num of this VpcForDescribeVpcsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._network_acl_num = network_acl_num
 
     @property
     def route_table_ids(self):

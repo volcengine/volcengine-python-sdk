@@ -34,6 +34,7 @@ class CreateVpcRequest(object):
     """
     swagger_types = {
         'cidr_block': 'str',
+        'client_token': 'str',
         'description': 'str',
         'dns_servers': 'list[str]',
         'vpc_name': 'str'
@@ -41,24 +42,28 @@ class CreateVpcRequest(object):
 
     attribute_map = {
         'cidr_block': 'CidrBlock',
+        'client_token': 'ClientToken',
         'description': 'Description',
         'dns_servers': 'DnsServers',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, cidr_block=None, description=None, dns_servers=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_block=None, client_token=None, description=None, dns_servers=None, vpc_name=None, _configuration=None):  # noqa: E501
         """CreateVpcRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cidr_block = None
+        self._client_token = None
         self._description = None
         self._dns_servers = None
         self._vpc_name = None
         self.discriminator = None
 
         self.cidr_block = cidr_block
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if dns_servers is not None:
@@ -88,6 +93,27 @@ class CreateVpcRequest(object):
             raise ValueError("Invalid value for `cidr_block`, must not be `None`")  # noqa: E501
 
         self._cidr_block = cidr_block
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateVpcRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateVpcRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateVpcRequest.
+
+
+        :param client_token: The client_token of this CreateVpcRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):

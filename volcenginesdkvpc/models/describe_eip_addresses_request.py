@@ -162,7 +162,7 @@ class DescribeEipAddressesRequest(object):
         :param associated_instance_type: The associated_instance_type of this DescribeEipAddressesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Nat", "EcsInstance", "NetworkInterface", "ClbInstance"]  # noqa: E501
+        allowed_values = ["Nat", "EcsInstance", "NetworkInterface", "ClbInstance", "AlbInstance"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 associated_instance_type not in allowed_values):
             raise ValueError(
