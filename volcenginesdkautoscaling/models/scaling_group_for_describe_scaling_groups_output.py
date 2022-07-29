@@ -35,11 +35,14 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
     swagger_types = {
         'active_scaling_configuration_id': 'str',
         'created_at': 'str',
+        'db_instance_ids': 'list[str]',
         'default_cooldown': 'int',
         'desire_instance_number': 'int',
+        'instance_terminate_policy': 'str',
         'lifecycle_state': 'str',
         'max_instance_number': 'int',
         'min_instance_number': 'int',
+        'multi_az_policy': 'str',
         'scaling_group_id': 'str',
         'scaling_group_name': 'str',
         'server_group_attributes': 'list[ServerGroupAttributeForDescribeScalingGroupsOutput]',
@@ -52,11 +55,14 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
     attribute_map = {
         'active_scaling_configuration_id': 'ActiveScalingConfigurationId',
         'created_at': 'CreatedAt',
+        'db_instance_ids': 'DBInstanceIds',
         'default_cooldown': 'DefaultCooldown',
         'desire_instance_number': 'DesireInstanceNumber',
+        'instance_terminate_policy': 'InstanceTerminatePolicy',
         'lifecycle_state': 'LifecycleState',
         'max_instance_number': 'MaxInstanceNumber',
         'min_instance_number': 'MinInstanceNumber',
+        'multi_az_policy': 'MultiAZPolicy',
         'scaling_group_id': 'ScalingGroupId',
         'scaling_group_name': 'ScalingGroupName',
         'server_group_attributes': 'ServerGroupAttributes',
@@ -66,7 +72,7 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, active_scaling_configuration_id=None, created_at=None, default_cooldown=None, desire_instance_number=None, lifecycle_state=None, max_instance_number=None, min_instance_number=None, scaling_group_id=None, scaling_group_name=None, server_group_attributes=None, subnet_ids=None, total_instance_count=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_scaling_configuration_id=None, created_at=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, instance_terminate_policy=None, lifecycle_state=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, scaling_group_id=None, scaling_group_name=None, server_group_attributes=None, subnet_ids=None, total_instance_count=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ScalingGroupForDescribeScalingGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,11 +80,14 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
 
         self._active_scaling_configuration_id = None
         self._created_at = None
+        self._db_instance_ids = None
         self._default_cooldown = None
         self._desire_instance_number = None
+        self._instance_terminate_policy = None
         self._lifecycle_state = None
         self._max_instance_number = None
         self._min_instance_number = None
+        self._multi_az_policy = None
         self._scaling_group_id = None
         self._scaling_group_name = None
         self._server_group_attributes = None
@@ -92,16 +101,22 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
             self.active_scaling_configuration_id = active_scaling_configuration_id
         if created_at is not None:
             self.created_at = created_at
+        if db_instance_ids is not None:
+            self.db_instance_ids = db_instance_ids
         if default_cooldown is not None:
             self.default_cooldown = default_cooldown
         if desire_instance_number is not None:
             self.desire_instance_number = desire_instance_number
+        if instance_terminate_policy is not None:
+            self.instance_terminate_policy = instance_terminate_policy
         if lifecycle_state is not None:
             self.lifecycle_state = lifecycle_state
         if max_instance_number is not None:
             self.max_instance_number = max_instance_number
         if min_instance_number is not None:
             self.min_instance_number = min_instance_number
+        if multi_az_policy is not None:
+            self.multi_az_policy = multi_az_policy
         if scaling_group_id is not None:
             self.scaling_group_id = scaling_group_id
         if scaling_group_name is not None:
@@ -160,6 +175,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._created_at = created_at
 
     @property
+    def db_instance_ids(self):
+        """Gets the db_instance_ids of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The db_instance_ids of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._db_instance_ids
+
+    @db_instance_ids.setter
+    def db_instance_ids(self, db_instance_ids):
+        """Sets the db_instance_ids of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param db_instance_ids: The db_instance_ids of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._db_instance_ids = db_instance_ids
+
+    @property
     def default_cooldown(self):
         """Gets the default_cooldown of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
 
@@ -200,6 +236,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         """
 
         self._desire_instance_number = desire_instance_number
+
+    @property
+    def instance_terminate_policy(self):
+        """Gets the instance_terminate_policy of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The instance_terminate_policy of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_terminate_policy
+
+    @instance_terminate_policy.setter
+    def instance_terminate_policy(self, instance_terminate_policy):
+        """Sets the instance_terminate_policy of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param instance_terminate_policy: The instance_terminate_policy of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_terminate_policy = instance_terminate_policy
 
     @property
     def lifecycle_state(self):
@@ -263,6 +320,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         """
 
         self._min_instance_number = min_instance_number
+
+    @property
+    def multi_az_policy(self):
+        """Gets the multi_az_policy of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The multi_az_policy of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_az_policy
+
+    @multi_az_policy.setter
+    def multi_az_policy(self, multi_az_policy):
+        """Sets the multi_az_policy of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param multi_az_policy: The multi_az_policy of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._multi_az_policy = multi_az_policy
 
     @property
     def scaling_group_id(self):
