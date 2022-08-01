@@ -33,29 +33,55 @@ class NetworkInterfaceForRunInstancesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'primary_ip_address': 'str',
         'security_group_ids': 'list[str]',
         'subnet_id': 'str'
     }
 
     attribute_map = {
+        'primary_ip_address': 'PrimaryIpAddress',
         'security_group_ids': 'SecurityGroupIds',
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, security_group_ids=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, primary_ip_address=None, security_group_ids=None, subnet_id=None, _configuration=None):  # noqa: E501
         """NetworkInterfaceForRunInstancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._primary_ip_address = None
         self._security_group_ids = None
         self._subnet_id = None
         self.discriminator = None
 
+        if primary_ip_address is not None:
+            self.primary_ip_address = primary_ip_address
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
         if subnet_id is not None:
             self.subnet_id = subnet_id
+
+    @property
+    def primary_ip_address(self):
+        """Gets the primary_ip_address of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+
+
+        :return: The primary_ip_address of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._primary_ip_address
+
+    @primary_ip_address.setter
+    def primary_ip_address(self, primary_ip_address):
+        """Sets the primary_ip_address of this NetworkInterfaceForRunInstancesInput.
+
+
+        :param primary_ip_address: The primary_ip_address of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._primary_ip_address = primary_ip_address
 
     @property
     def security_group_ids(self):

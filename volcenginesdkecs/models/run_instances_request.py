@@ -53,6 +53,7 @@ class RunInstancesRequest(object):
         'password': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'project_name': 'str',
         'security_enhancement_strategy': 'str',
         'suffix_index': 'int',
         'unique_suffix': 'bool',
@@ -82,6 +83,7 @@ class RunInstancesRequest(object):
         'password': 'Password',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'security_enhancement_strategy': 'SecurityEnhancementStrategy',
         'suffix_index': 'SuffixIndex',
         'unique_suffix': 'UniqueSuffix',
@@ -90,7 +92,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, security_enhancement_strategy=None, suffix_index=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, suffix_index=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -116,6 +118,7 @@ class RunInstancesRequest(object):
         self._password = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
         self._security_enhancement_strategy = None
         self._suffix_index = None
         self._unique_suffix = None
@@ -164,6 +167,8 @@ class RunInstancesRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         if security_enhancement_strategy is not None:
             self.security_enhancement_strategy = security_enhancement_strategy
         if suffix_index is not None:
@@ -596,6 +601,27 @@ class RunInstancesRequest(object):
         """
 
         self._period_unit = period_unit
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The project_name of this RunInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this RunInstancesRequest.
+
+
+        :param project_name: The project_name of this RunInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def security_enhancement_strategy(self):
