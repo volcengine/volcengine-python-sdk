@@ -51,6 +51,7 @@ class InstanceForDescribeInstancesOutput(object):
         'network_interfaces': 'list[NetworkInterfaceForDescribeInstancesOutput]',
         'os_name': 'str',
         'os_type': 'str',
+        'project_name': 'str',
         'rdma_ip_addresses': 'list[str]',
         'status': 'str',
         'stopped_mode': 'str',
@@ -79,6 +80,7 @@ class InstanceForDescribeInstancesOutput(object):
         'network_interfaces': 'NetworkInterfaces',
         'os_name': 'OsName',
         'os_type': 'OsType',
+        'project_name': 'ProjectName',
         'rdma_ip_addresses': 'RdmaIpAddresses',
         'status': 'Status',
         'stopped_mode': 'StoppedMode',
@@ -88,7 +90,7 @@ class InstanceForDescribeInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpus=None, created_at=None, description=None, eip_address=None, expired_at=None, host_name=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, rdma_ip_addresses=None, status=None, stopped_mode=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpus=None, created_at=None, description=None, eip_address=None, expired_at=None, host_name=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, project_name=None, rdma_ip_addresses=None, status=None, stopped_mode=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -112,6 +114,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._network_interfaces = None
         self._os_name = None
         self._os_type = None
+        self._project_name = None
         self._rdma_ip_addresses = None
         self._status = None
         self._stopped_mode = None
@@ -157,6 +160,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.os_name = os_name
         if os_type is not None:
             self.os_type = os_type
+        if project_name is not None:
+            self.project_name = project_name
         if rdma_ip_addresses is not None:
             self.rdma_ip_addresses = rdma_ip_addresses
         if status is not None:
@@ -549,6 +554,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._os_type = os_type
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The project_name of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this InstanceForDescribeInstancesOutput.
+
+
+        :param project_name: The project_name of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def rdma_ip_addresses(self):
