@@ -263,7 +263,7 @@ class CreateDBInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_5_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
