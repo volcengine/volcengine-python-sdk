@@ -35,6 +35,7 @@ class ItemForListRegistriesOutput(object):
     swagger_types = {
         'charge_type': 'str',
         'create_time': 'str',
+        'name': 'str',
         'status': 'StatusForListRegistriesOutput',
         'type': 'str'
     }
@@ -42,11 +43,12 @@ class ItemForListRegistriesOutput(object):
     attribute_map = {
         'charge_type': 'ChargeType',
         'create_time': 'CreateTime',
+        'name': 'Name',
         'status': 'Status',
         'type': 'Type'
     }
 
-    def __init__(self, charge_type=None, create_time=None, status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time=None, name=None, status=None, type=None, _configuration=None):  # noqa: E501
         """ItemForListRegistriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ItemForListRegistriesOutput(object):
 
         self._charge_type = None
         self._create_time = None
+        self._name = None
         self._status = None
         self._type = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ItemForListRegistriesOutput(object):
             self.charge_type = charge_type
         if create_time is not None:
             self.create_time = create_time
+        if name is not None:
+            self.name = name
         if status is not None:
             self.status = status
         if type is not None:
@@ -108,6 +113,27 @@ class ItemForListRegistriesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def name(self):
+        """Gets the name of this ItemForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The name of this ItemForListRegistriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ItemForListRegistriesOutput.
+
+
+        :param name: The name of this ItemForListRegistriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def status(self):
