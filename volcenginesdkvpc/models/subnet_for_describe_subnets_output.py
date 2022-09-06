@@ -39,6 +39,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'creation_time': 'str',
         'description': 'str',
         'network_acl_id': 'str',
+        'project_name': 'str',
         'route_table': 'RouteTableForDescribeSubnetsOutput',
         'status': 'str',
         'subnet_id': 'str',
@@ -56,6 +57,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'creation_time': 'CreationTime',
         'description': 'Description',
         'network_acl_id': 'NetworkAclId',
+        'project_name': 'ProjectName',
         'route_table': 'RouteTable',
         'status': 'Status',
         'subnet_id': 'SubnetId',
@@ -66,7 +68,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, network_acl_id=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, network_acl_id=None, project_name=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """SubnetForDescribeSubnetsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class SubnetForDescribeSubnetsOutput(object):
         self._creation_time = None
         self._description = None
         self._network_acl_id = None
+        self._project_name = None
         self._route_table = None
         self._status = None
         self._subnet_id = None
@@ -100,6 +103,8 @@ class SubnetForDescribeSubnetsOutput(object):
             self.description = description
         if network_acl_id is not None:
             self.network_acl_id = network_acl_id
+        if project_name is not None:
+            self.project_name = project_name
         if route_table is not None:
             self.route_table = route_table
         if status is not None:
@@ -242,6 +247,27 @@ class SubnetForDescribeSubnetsOutput(object):
         """
 
         self._network_acl_id = network_acl_id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+
+
+        :return: The project_name of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this SubnetForDescribeSubnetsOutput.
+
+
+        :param project_name: The project_name of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def route_table(self):

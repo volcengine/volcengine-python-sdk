@@ -37,7 +37,8 @@ class DescribeDirectConnectGatewaysRequest(object):
         'direct_connect_gateway_ids': 'list[str]',
         'direct_connect_gateway_name': 'str',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'tag_filters': 'list[TagFilterForDescribeDirectConnectGatewaysInput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeDirectConnectGatewaysRequest(object):
         'direct_connect_gateway_ids': 'DirectConnectGatewayIds',
         'direct_connect_gateway_name': 'DirectConnectGatewayName',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, cen_id=None, direct_connect_gateway_ids=None, direct_connect_gateway_name=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_id=None, direct_connect_gateway_ids=None, direct_connect_gateway_name=None, page_number=None, page_size=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeDirectConnectGatewaysRequest(object):
         self._direct_connect_gateway_name = None
         self._page_number = None
         self._page_size = None
+        self._tag_filters = None
         self.discriminator = None
 
         if cen_id is not None:
@@ -71,6 +74,8 @@ class DescribeDirectConnectGatewaysRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def cen_id(self):
@@ -176,6 +181,27 @@ class DescribeDirectConnectGatewaysRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeDirectConnectGatewaysRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeDirectConnectGatewaysRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeDirectConnectGatewaysInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeDirectConnectGatewaysRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeDirectConnectGatewaysRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeDirectConnectGatewaysInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,29 +34,39 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'local_ipv6_ip': 'str',
+        'peer_ipv6_ip': 'str',
         'virtual_interface_id': 'str',
         'virtual_interface_name': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'local_ipv6_ip': 'LocalIpv6Ip',
+        'peer_ipv6_ip': 'PeerIpv6Ip',
         'virtual_interface_id': 'VirtualInterfaceId',
         'virtual_interface_name': 'VirtualInterfaceName'
     }
 
-    def __init__(self, description=None, virtual_interface_id=None, virtual_interface_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, local_ipv6_ip=None, peer_ipv6_ip=None, virtual_interface_id=None, virtual_interface_name=None, _configuration=None):  # noqa: E501
         """ModifyDirectConnectVirtualInterfaceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._local_ipv6_ip = None
+        self._peer_ipv6_ip = None
         self._virtual_interface_id = None
         self._virtual_interface_name = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if local_ipv6_ip is not None:
+            self.local_ipv6_ip = local_ipv6_ip
+        if peer_ipv6_ip is not None:
+            self.peer_ipv6_ip = peer_ipv6_ip
         self.virtual_interface_id = virtual_interface_id
         if virtual_interface_name is not None:
             self.virtual_interface_name = virtual_interface_name
@@ -87,6 +97,48 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def local_ipv6_ip(self):
+        """Gets the local_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The local_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._local_ipv6_ip
+
+    @local_ipv6_ip.setter
+    def local_ipv6_ip(self, local_ipv6_ip):
+        """Sets the local_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
+
+
+        :param local_ipv6_ip: The local_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._local_ipv6_ip = local_ipv6_ip
+
+    @property
+    def peer_ipv6_ip(self):
+        """Gets the peer_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The peer_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._peer_ipv6_ip
+
+    @peer_ipv6_ip.setter
+    def peer_ipv6_ip(self, peer_ipv6_ip):
+        """Sets the peer_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
+
+
+        :param peer_ipv6_ip: The peer_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._peer_ipv6_ip = peer_ipv6_ip
 
     @property
     def virtual_interface_id(self):

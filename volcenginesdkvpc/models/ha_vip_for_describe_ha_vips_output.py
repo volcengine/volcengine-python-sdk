@@ -35,6 +35,7 @@ class HaVipForDescribeHaVipsOutput(object):
     swagger_types = {
         'account_id': 'str',
         'associated_eip_address': 'str',
+        'associated_eip_id': 'str',
         'associated_instance_ids': 'list[str]',
         'associated_instance_type': 'str',
         'created_at': 'str',
@@ -52,6 +53,7 @@ class HaVipForDescribeHaVipsOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'associated_eip_address': 'AssociatedEipAddress',
+        'associated_eip_id': 'AssociatedEipId',
         'associated_instance_ids': 'AssociatedInstanceIds',
         'associated_instance_type': 'AssociatedInstanceType',
         'created_at': 'CreatedAt',
@@ -66,7 +68,7 @@ class HaVipForDescribeHaVipsOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, associated_eip_address=None, associated_instance_ids=None, associated_instance_type=None, created_at=None, description=None, ha_vip_id=None, ha_vip_name=None, ip_address=None, master_instance_id=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_eip_address=None, associated_eip_id=None, associated_instance_ids=None, associated_instance_type=None, created_at=None, description=None, ha_vip_id=None, ha_vip_name=None, ip_address=None, master_instance_id=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """HaVipForDescribeHaVipsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class HaVipForDescribeHaVipsOutput(object):
 
         self._account_id = None
         self._associated_eip_address = None
+        self._associated_eip_id = None
         self._associated_instance_ids = None
         self._associated_instance_type = None
         self._created_at = None
@@ -92,6 +95,8 @@ class HaVipForDescribeHaVipsOutput(object):
             self.account_id = account_id
         if associated_eip_address is not None:
             self.associated_eip_address = associated_eip_address
+        if associated_eip_id is not None:
+            self.associated_eip_id = associated_eip_id
         if associated_instance_ids is not None:
             self.associated_instance_ids = associated_instance_ids
         if associated_instance_type is not None:
@@ -158,6 +163,27 @@ class HaVipForDescribeHaVipsOutput(object):
         """
 
         self._associated_eip_address = associated_eip_address
+
+    @property
+    def associated_eip_id(self):
+        """Gets the associated_eip_id of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+
+
+        :return: The associated_eip_id of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._associated_eip_id
+
+    @associated_eip_id.setter
+    def associated_eip_id(self, associated_eip_id):
+        """Sets the associated_eip_id of this HaVipForDescribeHaVipsOutput.
+
+
+        :param associated_eip_id: The associated_eip_id of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._associated_eip_id = associated_eip_id
 
     @property
     def associated_instance_ids(self):

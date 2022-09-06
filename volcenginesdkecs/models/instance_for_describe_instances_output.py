@@ -33,6 +33,7 @@ class InstanceForDescribeInstancesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cpu_options': 'CpuOptionsForDescribeInstancesOutput',
         'cpus': 'int',
         'created_at': 'str',
         'description': 'str',
@@ -55,6 +56,7 @@ class InstanceForDescribeInstancesOutput(object):
         'rdma_ip_addresses': 'list[str]',
         'status': 'str',
         'stopped_mode': 'str',
+        'tags': 'list[TagForDescribeInstancesOutput]',
         'updated_at': 'str',
         'uuid': 'str',
         'vpc_id': 'str',
@@ -62,6 +64,7 @@ class InstanceForDescribeInstancesOutput(object):
     }
 
     attribute_map = {
+        'cpu_options': 'CpuOptions',
         'cpus': 'Cpus',
         'created_at': 'CreatedAt',
         'description': 'Description',
@@ -84,18 +87,20 @@ class InstanceForDescribeInstancesOutput(object):
         'rdma_ip_addresses': 'RdmaIpAddresses',
         'status': 'Status',
         'stopped_mode': 'StoppedMode',
+        'tags': 'Tags',
         'updated_at': 'UpdatedAt',
         'uuid': 'Uuid',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpus=None, created_at=None, description=None, eip_address=None, expired_at=None, host_name=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, project_name=None, rdma_ip_addresses=None, status=None, stopped_mode=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_options=None, cpus=None, created_at=None, description=None, eip_address=None, expired_at=None, host_name=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, project_name=None, rdma_ip_addresses=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cpu_options = None
         self._cpus = None
         self._created_at = None
         self._description = None
@@ -118,12 +123,15 @@ class InstanceForDescribeInstancesOutput(object):
         self._rdma_ip_addresses = None
         self._status = None
         self._stopped_mode = None
+        self._tags = None
         self._updated_at = None
         self._uuid = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
 
+        if cpu_options is not None:
+            self.cpu_options = cpu_options
         if cpus is not None:
             self.cpus = cpus
         if created_at is not None:
@@ -168,6 +176,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.status = status
         if stopped_mode is not None:
             self.stopped_mode = stopped_mode
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
         if uuid is not None:
@@ -176,6 +186,27 @@ class InstanceForDescribeInstancesOutput(object):
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def cpu_options(self):
+        """Gets the cpu_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The cpu_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: CpuOptionsForDescribeInstancesOutput
+        """
+        return self._cpu_options
+
+    @cpu_options.setter
+    def cpu_options(self, cpu_options):
+        """Sets the cpu_options of this InstanceForDescribeInstancesOutput.
+
+
+        :param cpu_options: The cpu_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: CpuOptionsForDescribeInstancesOutput
+        """
+
+        self._cpu_options = cpu_options
 
     @property
     def cpus(self):
@@ -638,6 +669,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._stopped_mode = stopped_mode
+
+    @property
+    def tags(self):
+        """Gets the tags of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The tags of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeInstancesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this InstanceForDescribeInstancesOutput.
+
+
+        :param tags: The tags of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: list[TagForDescribeInstancesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):

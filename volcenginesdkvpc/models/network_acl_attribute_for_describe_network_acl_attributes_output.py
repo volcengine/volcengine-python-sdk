@@ -39,6 +39,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
         'ingress_acl_entries': 'list[IngressAclEntryForDescribeNetworkAclAttributesOutput]',
         'network_acl_id': 'str',
         'network_acl_name': 'str',
+        'project_name': 'str',
         'resources': 'list[ResourceForDescribeNetworkAclAttributesOutput]',
         'status': 'str',
         'update_time': 'str',
@@ -52,13 +53,14 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
         'ingress_acl_entries': 'IngressAclEntries',
         'network_acl_id': 'NetworkAclId',
         'network_acl_name': 'NetworkAclName',
+        'project_name': 'ProjectName',
         'resources': 'Resources',
         'status': 'Status',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, egress_acl_entries=None, ingress_acl_entries=None, network_acl_id=None, network_acl_name=None, resources=None, status=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, egress_acl_entries=None, ingress_acl_entries=None, network_acl_id=None, network_acl_name=None, project_name=None, resources=None, status=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """NetworkAclAttributeForDescribeNetworkAclAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
         self._ingress_acl_entries = None
         self._network_acl_id = None
         self._network_acl_name = None
+        self._project_name = None
         self._resources = None
         self._status = None
         self._update_time = None
@@ -88,6 +91,8 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
             self.network_acl_id = network_acl_id
         if network_acl_name is not None:
             self.network_acl_name = network_acl_name
+        if project_name is not None:
+            self.project_name = project_name
         if resources is not None:
             self.resources = resources
         if status is not None:
@@ -222,6 +227,27 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
         """
 
         self._network_acl_name = network_acl_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this NetworkAclAttributeForDescribeNetworkAclAttributesOutput.  # noqa: E501
+
+
+        :return: The project_name of this NetworkAclAttributeForDescribeNetworkAclAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this NetworkAclAttributeForDescribeNetworkAclAttributesOutput.
+
+
+        :param project_name: The project_name of this NetworkAclAttributeForDescribeNetworkAclAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def resources(self):

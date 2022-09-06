@@ -37,7 +37,9 @@ class ModifyVpnConnectionAttributesRequest(object):
         'dpd_action': 'str',
         'ike_config': 'str',
         'ipsec_config': 'str',
+        'local_subnet': 'list[str]',
         'nat_traversal': 'bool',
+        'remote_subnet': 'list[str]',
         'vpn_connection_id': 'str',
         'vpn_connection_name': 'str'
     }
@@ -47,12 +49,14 @@ class ModifyVpnConnectionAttributesRequest(object):
         'dpd_action': 'DpdAction',
         'ike_config': 'IkeConfig',
         'ipsec_config': 'IpsecConfig',
+        'local_subnet': 'LocalSubnet',
         'nat_traversal': 'NatTraversal',
+        'remote_subnet': 'RemoteSubnet',
         'vpn_connection_id': 'VpnConnectionId',
         'vpn_connection_name': 'VpnConnectionName'
     }
 
-    def __init__(self, description=None, dpd_action=None, ike_config=None, ipsec_config=None, nat_traversal=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, remote_subnet=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
         """ModifyVpnConnectionAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,7 +66,9 @@ class ModifyVpnConnectionAttributesRequest(object):
         self._dpd_action = None
         self._ike_config = None
         self._ipsec_config = None
+        self._local_subnet = None
         self._nat_traversal = None
+        self._remote_subnet = None
         self._vpn_connection_id = None
         self._vpn_connection_name = None
         self.discriminator = None
@@ -75,8 +81,12 @@ class ModifyVpnConnectionAttributesRequest(object):
             self.ike_config = ike_config
         if ipsec_config is not None:
             self.ipsec_config = ipsec_config
+        if local_subnet is not None:
+            self.local_subnet = local_subnet
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
+        if remote_subnet is not None:
+            self.remote_subnet = remote_subnet
         self.vpn_connection_id = vpn_connection_id
         if vpn_connection_name is not None:
             self.vpn_connection_name = vpn_connection_name
@@ -179,6 +189,27 @@ class ModifyVpnConnectionAttributesRequest(object):
         self._ipsec_config = ipsec_config
 
     @property
+    def local_subnet(self):
+        """Gets the local_subnet of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The local_subnet of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._local_subnet
+
+    @local_subnet.setter
+    def local_subnet(self, local_subnet):
+        """Sets the local_subnet of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param local_subnet: The local_subnet of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._local_subnet = local_subnet
+
+    @property
     def nat_traversal(self):
         """Gets the nat_traversal of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
 
@@ -198,6 +229,27 @@ class ModifyVpnConnectionAttributesRequest(object):
         """
 
         self._nat_traversal = nat_traversal
+
+    @property
+    def remote_subnet(self):
+        """Gets the remote_subnet of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The remote_subnet of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._remote_subnet
+
+    @remote_subnet.setter
+    def remote_subnet(self, remote_subnet):
+        """Sets the remote_subnet of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param remote_subnet: The remote_subnet of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._remote_subnet = remote_subnet
 
     @property
     def vpn_connection_id(self):

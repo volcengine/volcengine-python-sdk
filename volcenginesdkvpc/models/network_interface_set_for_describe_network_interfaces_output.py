@@ -44,10 +44,12 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         'port_security_enabled': 'bool',
         'primary_ip_address': 'str',
         'private_ip_sets': 'PrivateIpSetsForDescribeNetworkInterfacesOutput',
+        'project_name': 'str',
         'security_group_ids': 'list[str]',
         'service_managed': 'bool',
         'status': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeNetworkInterfacesOutput]',
         'type': 'str',
         'updated_at': 'str',
         'vpc_id': 'str',
@@ -67,10 +69,12 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         'port_security_enabled': 'PortSecurityEnabled',
         'primary_ip_address': 'PrimaryIpAddress',
         'private_ip_sets': 'PrivateIpSets',
+        'project_name': 'ProjectName',
         'security_group_ids': 'SecurityGroupIds',
         'service_managed': 'ServiceManaged',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'type': 'Type',
         'updated_at': 'UpdatedAt',
         'vpc_id': 'VpcId',
@@ -78,7 +82,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, project_name=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """NetworkInterfaceSetForDescribeNetworkInterfacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,10 +99,12 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         self._port_security_enabled = None
         self._primary_ip_address = None
         self._private_ip_sets = None
+        self._project_name = None
         self._security_group_ids = None
         self._service_managed = None
         self._status = None
         self._subnet_id = None
+        self._tags = None
         self._type = None
         self._updated_at = None
         self._vpc_id = None
@@ -128,6 +134,8 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
             self.primary_ip_address = primary_ip_address
         if private_ip_sets is not None:
             self.private_ip_sets = private_ip_sets
+        if project_name is not None:
+            self.project_name = project_name
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
         if service_managed is not None:
@@ -136,6 +144,8 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if updated_at is not None:
@@ -379,6 +389,27 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         self._private_ip_sets = private_ip_sets
 
     @property
+    def project_name(self):
+        """Gets the project_name of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+
+
+        :return: The project_name of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.
+
+
+        :param project_name: The project_name of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def security_group_ids(self):
         """Gets the security_group_ids of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
 
@@ -461,6 +492,27 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+
+
+        :return: The tags of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeNetworkInterfacesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.
+
+
+        :param tags: The tags of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+        :type: list[TagForDescribeNetworkInterfacesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

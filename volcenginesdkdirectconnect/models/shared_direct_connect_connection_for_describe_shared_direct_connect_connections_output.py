@@ -33,12 +33,12 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_point': 'str',
         'account_id': 'str',
         'bandwidth': 'int',
         'creation_time': 'str',
         'description': 'str',
-        'operator': 'str',
+        'direct_connect_access_point_id': 'str',
+        'line_operator': 'str',
         'parent_connection_id': 'str',
         'port_type': 'str',
         'shared_direct_connect_connection_id': 'str',
@@ -50,12 +50,12 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
     }
 
     attribute_map = {
-        'access_point': 'AccessPoint',
         'account_id': 'AccountId',
         'bandwidth': 'Bandwidth',
         'creation_time': 'CreationTime',
         'description': 'Description',
-        'operator': 'Operator',
+        'direct_connect_access_point_id': 'DirectConnectAccessPointId',
+        'line_operator': 'LineOperator',
         'parent_connection_id': 'ParentConnectionId',
         'port_type': 'PortType',
         'shared_direct_connect_connection_id': 'SharedDirectConnectConnectionId',
@@ -66,18 +66,18 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, access_point=None, account_id=None, bandwidth=None, creation_time=None, description=None, operator=None, parent_connection_id=None, port_type=None, shared_direct_connect_connection_id=None, shared_direct_connect_connection_name=None, status=None, update_time=None, user_account_id=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, creation_time=None, description=None, direct_connect_access_point_id=None, line_operator=None, parent_connection_id=None, port_type=None, shared_direct_connect_connection_id=None, shared_direct_connect_connection_name=None, status=None, update_time=None, user_account_id=None, vlan_id=None, _configuration=None):  # noqa: E501
         """SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._access_point = None
         self._account_id = None
         self._bandwidth = None
         self._creation_time = None
         self._description = None
-        self._operator = None
+        self._direct_connect_access_point_id = None
+        self._line_operator = None
         self._parent_connection_id = None
         self._port_type = None
         self._shared_direct_connect_connection_id = None
@@ -88,8 +88,6 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
         self._vlan_id = None
         self.discriminator = None
 
-        if access_point is not None:
-            self.access_point = access_point
         if account_id is not None:
             self.account_id = account_id
         if bandwidth is not None:
@@ -98,8 +96,10 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
             self.creation_time = creation_time
         if description is not None:
             self.description = description
-        if operator is not None:
-            self.operator = operator
+        if direct_connect_access_point_id is not None:
+            self.direct_connect_access_point_id = direct_connect_access_point_id
+        if line_operator is not None:
+            self.line_operator = line_operator
         if parent_connection_id is not None:
             self.parent_connection_id = parent_connection_id
         if port_type is not None:
@@ -116,27 +116,6 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
             self.user_account_id = user_account_id
         if vlan_id is not None:
             self.vlan_id = vlan_id
-
-    @property
-    def access_point(self):
-        """Gets the access_point of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
-
-
-        :return: The access_point of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._access_point
-
-    @access_point.setter
-    def access_point(self, access_point):
-        """Sets the access_point of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
-
-
-        :param access_point: The access_point of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._access_point = access_point
 
     @property
     def account_id(self):
@@ -223,25 +202,46 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
         self._description = description
 
     @property
-    def operator(self):
-        """Gets the operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+    def direct_connect_access_point_id(self):
+        """Gets the direct_connect_access_point_id of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
 
 
-        :return: The operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :return: The direct_connect_access_point_id of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
         :rtype: str
         """
-        return self._operator
+        return self._direct_connect_access_point_id
 
-    @operator.setter
-    def operator(self, operator):
-        """Sets the operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
+    @direct_connect_access_point_id.setter
+    def direct_connect_access_point_id(self, direct_connect_access_point_id):
+        """Sets the direct_connect_access_point_id of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
 
 
-        :param operator: The operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :param direct_connect_access_point_id: The direct_connect_access_point_id of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
         :type: str
         """
 
-        self._operator = operator
+        self._direct_connect_access_point_id = direct_connect_access_point_id
+
+    @property
+    def line_operator(self):
+        """Gets the line_operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The line_operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._line_operator
+
+    @line_operator.setter
+    def line_operator(self, line_operator):
+        """Sets the line_operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
+
+
+        :param line_operator: The line_operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._line_operator = line_operator
 
     @property
     def parent_connection_id(self):

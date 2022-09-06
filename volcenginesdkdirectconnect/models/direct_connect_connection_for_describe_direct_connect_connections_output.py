@@ -33,69 +33,79 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_point': 'str',
         'account_id': 'str',
         'bandwidth': 'int',
         'connection_type': 'str',
         'creation_time': 'str',
+        'customer_contact_email': 'str',
+        'customer_contact_phone': 'str',
+        'customer_name': 'str',
         'description': 'str',
+        'direct_connect_access_point_id': 'str',
         'direct_connect_connection_id': 'str',
         'direct_connect_connection_name': 'str',
-        'operator': 'str',
+        'line_operator': 'str',
         'parent_connection_account_id': 'str',
         'parent_connection_id': 'str',
         'peer_location': 'str',
         'port_type': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeDirectConnectConnectionsOutput]',
         'update_time': 'str',
         'vlan_id': 'int'
     }
 
     attribute_map = {
-        'access_point': 'AccessPoint',
         'account_id': 'AccountId',
         'bandwidth': 'Bandwidth',
         'connection_type': 'ConnectionType',
         'creation_time': 'CreationTime',
+        'customer_contact_email': 'CustomerContactEmail',
+        'customer_contact_phone': 'CustomerContactPhone',
+        'customer_name': 'CustomerName',
         'description': 'Description',
+        'direct_connect_access_point_id': 'DirectConnectAccessPointId',
         'direct_connect_connection_id': 'DirectConnectConnectionId',
         'direct_connect_connection_name': 'DirectConnectConnectionName',
-        'operator': 'Operator',
+        'line_operator': 'LineOperator',
         'parent_connection_account_id': 'ParentConnectionAccountId',
         'parent_connection_id': 'ParentConnectionId',
         'peer_location': 'PeerLocation',
         'port_type': 'PortType',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, access_point=None, account_id=None, bandwidth=None, connection_type=None, creation_time=None, description=None, direct_connect_connection_id=None, direct_connect_connection_name=None, operator=None, parent_connection_account_id=None, parent_connection_id=None, peer_location=None, port_type=None, status=None, update_time=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, connection_type=None, creation_time=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_id=None, direct_connect_connection_name=None, line_operator=None, parent_connection_account_id=None, parent_connection_id=None, peer_location=None, port_type=None, status=None, tags=None, update_time=None, vlan_id=None, _configuration=None):  # noqa: E501
         """DirectConnectConnectionForDescribeDirectConnectConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._access_point = None
         self._account_id = None
         self._bandwidth = None
         self._connection_type = None
         self._creation_time = None
+        self._customer_contact_email = None
+        self._customer_contact_phone = None
+        self._customer_name = None
         self._description = None
+        self._direct_connect_access_point_id = None
         self._direct_connect_connection_id = None
         self._direct_connect_connection_name = None
-        self._operator = None
+        self._line_operator = None
         self._parent_connection_account_id = None
         self._parent_connection_id = None
         self._peer_location = None
         self._port_type = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self._vlan_id = None
         self.discriminator = None
 
-        if access_point is not None:
-            self.access_point = access_point
         if account_id is not None:
             self.account_id = account_id
         if bandwidth is not None:
@@ -104,14 +114,22 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
             self.connection_type = connection_type
         if creation_time is not None:
             self.creation_time = creation_time
+        if customer_contact_email is not None:
+            self.customer_contact_email = customer_contact_email
+        if customer_contact_phone is not None:
+            self.customer_contact_phone = customer_contact_phone
+        if customer_name is not None:
+            self.customer_name = customer_name
         if description is not None:
             self.description = description
+        if direct_connect_access_point_id is not None:
+            self.direct_connect_access_point_id = direct_connect_access_point_id
         if direct_connect_connection_id is not None:
             self.direct_connect_connection_id = direct_connect_connection_id
         if direct_connect_connection_name is not None:
             self.direct_connect_connection_name = direct_connect_connection_name
-        if operator is not None:
-            self.operator = operator
+        if line_operator is not None:
+            self.line_operator = line_operator
         if parent_connection_account_id is not None:
             self.parent_connection_account_id = parent_connection_account_id
         if parent_connection_id is not None:
@@ -122,31 +140,12 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
             self.port_type = port_type
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vlan_id is not None:
             self.vlan_id = vlan_id
-
-    @property
-    def access_point(self):
-        """Gets the access_point of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
-
-
-        :return: The access_point of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._access_point
-
-    @access_point.setter
-    def access_point(self, access_point):
-        """Sets the access_point of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
-
-
-        :param access_point: The access_point of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._access_point = access_point
 
     @property
     def account_id(self):
@@ -233,6 +232,69 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         self._creation_time = creation_time
 
     @property
+    def customer_contact_email(self):
+        """Gets the customer_contact_email of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The customer_contact_email of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_contact_email
+
+    @customer_contact_email.setter
+    def customer_contact_email(self, customer_contact_email):
+        """Sets the customer_contact_email of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param customer_contact_email: The customer_contact_email of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_contact_email = customer_contact_email
+
+    @property
+    def customer_contact_phone(self):
+        """Gets the customer_contact_phone of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The customer_contact_phone of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_contact_phone
+
+    @customer_contact_phone.setter
+    def customer_contact_phone(self, customer_contact_phone):
+        """Sets the customer_contact_phone of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param customer_contact_phone: The customer_contact_phone of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_contact_phone = customer_contact_phone
+
+    @property
+    def customer_name(self):
+        """Gets the customer_name of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The customer_name of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_name
+
+    @customer_name.setter
+    def customer_name(self, customer_name):
+        """Sets the customer_name of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param customer_name: The customer_name of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_name = customer_name
+
+    @property
     def description(self):
         """Gets the description of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
 
@@ -252,6 +314,27 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def direct_connect_access_point_id(self):
+        """Gets the direct_connect_access_point_id of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The direct_connect_access_point_id of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._direct_connect_access_point_id
+
+    @direct_connect_access_point_id.setter
+    def direct_connect_access_point_id(self, direct_connect_access_point_id):
+        """Sets the direct_connect_access_point_id of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param direct_connect_access_point_id: The direct_connect_access_point_id of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._direct_connect_access_point_id = direct_connect_access_point_id
 
     @property
     def direct_connect_connection_id(self):
@@ -296,25 +379,25 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         self._direct_connect_connection_name = direct_connect_connection_name
 
     @property
-    def operator(self):
-        """Gets the operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+    def line_operator(self):
+        """Gets the line_operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
 
 
-        :return: The operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :return: The line_operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
         :rtype: str
         """
-        return self._operator
+        return self._line_operator
 
-    @operator.setter
-    def operator(self, operator):
-        """Sets the operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+    @line_operator.setter
+    def line_operator(self, line_operator):
+        """Sets the line_operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
 
 
-        :param operator: The operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :param line_operator: The line_operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
         :type: str
         """
 
-        self._operator = operator
+        self._line_operator = line_operator
 
     @property
     def parent_connection_account_id(self):
@@ -420,6 +503,27 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The tags of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeDirectConnectConnectionsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param tags: The tags of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: list[TagForDescribeDirectConnectConnectionsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

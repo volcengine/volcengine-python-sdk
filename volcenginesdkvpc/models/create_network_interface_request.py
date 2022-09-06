@@ -39,9 +39,11 @@ class CreateNetworkInterfaceRequest(object):
         'port_security_enabled': 'bool',
         'primary_ip_address': 'str',
         'private_ip_address': 'list[str]',
+        'project_name': 'str',
         'secondary_private_ip_address_count': 'int',
         'security_group_ids': 'list[str]',
-        'subnet_id': 'str'
+        'subnet_id': 'str',
+        'tags': 'list[TagForCreateNetworkInterfaceInput]'
     }
 
     attribute_map = {
@@ -51,12 +53,14 @@ class CreateNetworkInterfaceRequest(object):
         'port_security_enabled': 'PortSecurityEnabled',
         'primary_ip_address': 'PrimaryIpAddress',
         'private_ip_address': 'PrivateIpAddress',
+        'project_name': 'ProjectName',
         'secondary_private_ip_address_count': 'SecondaryPrivateIpAddressCount',
         'security_group_ids': 'SecurityGroupIds',
-        'subnet_id': 'SubnetId'
+        'subnet_id': 'SubnetId',
+        'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, description=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_address=None, secondary_private_ip_address_count=None, security_group_ids=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_address=None, project_name=None, secondary_private_ip_address_count=None, security_group_ids=None, subnet_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateNetworkInterfaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,9 +72,11 @@ class CreateNetworkInterfaceRequest(object):
         self._port_security_enabled = None
         self._primary_ip_address = None
         self._private_ip_address = None
+        self._project_name = None
         self._secondary_private_ip_address_count = None
         self._security_group_ids = None
         self._subnet_id = None
+        self._tags = None
         self.discriminator = None
 
         if client_token is not None:
@@ -85,11 +91,15 @@ class CreateNetworkInterfaceRequest(object):
             self.primary_ip_address = primary_ip_address
         if private_ip_address is not None:
             self.private_ip_address = private_ip_address
+        if project_name is not None:
+            self.project_name = project_name
         if secondary_private_ip_address_count is not None:
             self.secondary_private_ip_address_count = secondary_private_ip_address_count
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
         self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
 
     @property
     def client_token(self):
@@ -230,6 +240,27 @@ class CreateNetworkInterfaceRequest(object):
         self._private_ip_address = private_ip_address
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateNetworkInterfaceRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateNetworkInterfaceRequest.
+
+
+        :param project_name: The project_name of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def secondary_private_ip_address_count(self):
         """Gets the secondary_private_ip_address_count of this CreateNetworkInterfaceRequest.  # noqa: E501
 
@@ -293,6 +324,27 @@ class CreateNetworkInterfaceRequest(object):
             raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateNetworkInterfaceRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :rtype: list[TagForCreateNetworkInterfaceInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateNetworkInterfaceRequest.
+
+
+        :param tags: The tags of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :type: list[TagForCreateNetworkInterfaceInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

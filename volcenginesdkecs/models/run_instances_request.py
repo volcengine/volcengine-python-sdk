@@ -56,6 +56,7 @@ class RunInstancesRequest(object):
         'project_name': 'str',
         'security_enhancement_strategy': 'str',
         'suffix_index': 'int',
+        'tags': 'list[TagForRunInstancesInput]',
         'unique_suffix': 'bool',
         'user_data': 'str',
         'volumes': 'list[VolumeForRunInstancesInput]',
@@ -86,13 +87,14 @@ class RunInstancesRequest(object):
         'project_name': 'ProjectName',
         'security_enhancement_strategy': 'SecurityEnhancementStrategy',
         'suffix_index': 'SuffixIndex',
+        'tags': 'Tags',
         'unique_suffix': 'UniqueSuffix',
         'user_data': 'UserData',
         'volumes': 'Volumes',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, suffix_index=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -121,6 +123,7 @@ class RunInstancesRequest(object):
         self._project_name = None
         self._security_enhancement_strategy = None
         self._suffix_index = None
+        self._tags = None
         self._unique_suffix = None
         self._user_data = None
         self._volumes = None
@@ -173,6 +176,8 @@ class RunInstancesRequest(object):
             self.security_enhancement_strategy = security_enhancement_strategy
         if suffix_index is not None:
             self.suffix_index = suffix_index
+        if tags is not None:
+            self.tags = tags
         if unique_suffix is not None:
             self.unique_suffix = unique_suffix
         if user_data is not None:
@@ -664,6 +669,27 @@ class RunInstancesRequest(object):
         """
 
         self._suffix_index = suffix_index
+
+    @property
+    def tags(self):
+        """Gets the tags of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The tags of this RunInstancesRequest.  # noqa: E501
+        :rtype: list[TagForRunInstancesInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RunInstancesRequest.
+
+
+        :param tags: The tags of this RunInstancesRequest.  # noqa: E501
+        :type: list[TagForRunInstancesInput]
+        """
+
+        self._tags = tags
 
     @property
     def unique_suffix(self):
