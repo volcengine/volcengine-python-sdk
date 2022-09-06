@@ -39,6 +39,7 @@ class DescribeSecurityGroupAttributesResponse(object):
         'request_id': 'str',
         'security_group_id': 'str',
         'security_group_name': 'str',
+        'tags': 'list[TagForDescribeSecurityGroupAttributesOutput]',
         'type': 'str',
         'update_time': 'str',
         'vpc_id': 'str'
@@ -51,12 +52,13 @@ class DescribeSecurityGroupAttributesResponse(object):
         'request_id': 'RequestId',
         'security_group_id': 'SecurityGroupId',
         'security_group_name': 'SecurityGroupName',
+        'tags': 'Tags',
         'type': 'Type',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, permissions=None, request_id=None, security_group_id=None, security_group_name=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, permissions=None, request_id=None, security_group_id=None, security_group_name=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeSecurityGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class DescribeSecurityGroupAttributesResponse(object):
         self._request_id = None
         self._security_group_id = None
         self._security_group_name = None
+        self._tags = None
         self._type = None
         self._update_time = None
         self._vpc_id = None
@@ -85,6 +88,8 @@ class DescribeSecurityGroupAttributesResponse(object):
             self.security_group_id = security_group_id
         if security_group_name is not None:
             self.security_group_name = security_group_name
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if update_time is not None:
@@ -217,6 +222,27 @@ class DescribeSecurityGroupAttributesResponse(object):
         """
 
         self._security_group_name = security_group_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeSecurityGroupAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeSecurityGroupAttributesResponse.
+
+
+        :param tags: The tags of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeSecurityGroupAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

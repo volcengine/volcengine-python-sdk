@@ -34,15 +34,17 @@ class CreateAclRequest(object):
     """
     swagger_types = {
         'acl_name': 'str',
-        'description': 'str'
+        'description': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'acl_name': 'AclName',
-        'description': 'Description'
+        'description': 'Description',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, acl_name=None, description=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_name=None, description=None, project_name=None, _configuration=None):  # noqa: E501
         """CreateAclRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class CreateAclRequest(object):
 
         self._acl_name = None
         self._description = None
+        self._project_name = None
         self.discriminator = None
 
         if acl_name is not None:
             self.acl_name = acl_name
         if description is not None:
             self.description = description
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def acl_name(self):
@@ -104,6 +109,27 @@ class CreateAclRequest(object):
         """
 
         self._description = description
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateAclRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateAclRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateAclRequest.
+
+
+        :param project_name: The project_name of this CreateAclRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -41,6 +41,7 @@ class DescribeDirectConnectVirtualInterfacesRequest(object):
         'peer_ip': 'str',
         'route_type': 'str',
         'status': 'str',
+        'tag_filters': 'list[TagFilterForDescribeDirectConnectVirtualInterfacesInput]',
         'virtual_interface_ids': 'list[str]',
         'virtual_interface_name': 'str',
         'vlan_id': 'int'
@@ -55,12 +56,13 @@ class DescribeDirectConnectVirtualInterfacesRequest(object):
         'peer_ip': 'PeerIp',
         'route_type': 'RouteType',
         'status': 'Status',
+        'tag_filters': 'TagFilters',
         'virtual_interface_ids': 'VirtualInterfaceIds',
         'virtual_interface_name': 'VirtualInterfaceName',
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, direct_connect_connection_id=None, direct_connect_gateway_id=None, local_ip=None, page_number=None, page_size=None, peer_ip=None, route_type=None, status=None, virtual_interface_ids=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, direct_connect_connection_id=None, direct_connect_gateway_id=None, local_ip=None, page_number=None, page_size=None, peer_ip=None, route_type=None, status=None, tag_filters=None, virtual_interface_ids=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectVirtualInterfacesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class DescribeDirectConnectVirtualInterfacesRequest(object):
         self._peer_ip = None
         self._route_type = None
         self._status = None
+        self._tag_filters = None
         self._virtual_interface_ids = None
         self._virtual_interface_name = None
         self._vlan_id = None
@@ -95,6 +98,8 @@ class DescribeDirectConnectVirtualInterfacesRequest(object):
             self.route_type = route_type
         if status is not None:
             self.status = status
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if virtual_interface_ids is not None:
             self.virtual_interface_ids = virtual_interface_ids
         if virtual_interface_name is not None:
@@ -269,6 +274,27 @@ class DescribeDirectConnectVirtualInterfacesRequest(object):
         """
 
         self._status = status
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeDirectConnectVirtualInterfacesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeDirectConnectVirtualInterfacesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeDirectConnectVirtualInterfacesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeDirectConnectVirtualInterfacesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeDirectConnectVirtualInterfacesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeDirectConnectVirtualInterfacesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def virtual_interface_ids(self):

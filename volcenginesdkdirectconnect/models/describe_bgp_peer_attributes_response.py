@@ -39,6 +39,8 @@ class DescribeBgpPeerAttributesResponse(object):
         'bgp_peer_name': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'ip_version': 'str',
+        'local_asn': 'int',
         'remote_asn': 'int',
         'request_id': 'str',
         'session_status': 'str',
@@ -54,6 +56,8 @@ class DescribeBgpPeerAttributesResponse(object):
         'bgp_peer_name': 'BgpPeerName',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'ip_version': 'IpVersion',
+        'local_asn': 'LocalAsn',
         'remote_asn': 'RemoteAsn',
         'request_id': 'RequestId',
         'session_status': 'SessionStatus',
@@ -62,7 +66,7 @@ class DescribeBgpPeerAttributesResponse(object):
         'virtual_interface_id': 'VirtualInterfaceId'
     }
 
-    def __init__(self, account_id=None, auth_key=None, bgp_peer_id=None, bgp_peer_name=None, creation_time=None, description=None, remote_asn=None, request_id=None, session_status=None, status=None, update_time=None, virtual_interface_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, auth_key=None, bgp_peer_id=None, bgp_peer_name=None, creation_time=None, description=None, ip_version=None, local_asn=None, remote_asn=None, request_id=None, session_status=None, status=None, update_time=None, virtual_interface_id=None, _configuration=None):  # noqa: E501
         """DescribeBgpPeerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +78,8 @@ class DescribeBgpPeerAttributesResponse(object):
         self._bgp_peer_name = None
         self._creation_time = None
         self._description = None
+        self._ip_version = None
+        self._local_asn = None
         self._remote_asn = None
         self._request_id = None
         self._session_status = None
@@ -94,6 +100,10 @@ class DescribeBgpPeerAttributesResponse(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if ip_version is not None:
+            self.ip_version = ip_version
+        if local_asn is not None:
+            self.local_asn = local_asn
         if remote_asn is not None:
             self.remote_asn = remote_asn
         if request_id is not None:
@@ -232,6 +242,48 @@ class DescribeBgpPeerAttributesResponse(object):
         """
 
         self._description = description
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this DescribeBgpPeerAttributesResponse.  # noqa: E501
+
+
+        :return: The ip_version of this DescribeBgpPeerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this DescribeBgpPeerAttributesResponse.
+
+
+        :param ip_version: The ip_version of this DescribeBgpPeerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
+
+    @property
+    def local_asn(self):
+        """Gets the local_asn of this DescribeBgpPeerAttributesResponse.  # noqa: E501
+
+
+        :return: The local_asn of this DescribeBgpPeerAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._local_asn
+
+    @local_asn.setter
+    def local_asn(self, local_asn):
+        """Sets the local_asn of this DescribeBgpPeerAttributesResponse.
+
+
+        :param local_asn: The local_asn of this DescribeBgpPeerAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._local_asn = local_asn
 
     @property
     def remote_asn(self):

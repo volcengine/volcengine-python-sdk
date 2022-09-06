@@ -39,7 +39,8 @@ class DescribeDirectConnectConnectionsRequest(object):
         'operator': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'peer_location': 'str'
+        'peer_location': 'str',
+        'tag_filters': 'list[TagFilterForDescribeDirectConnectConnectionsInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DescribeDirectConnectConnectionsRequest(object):
         'operator': 'Operator',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'peer_location': 'PeerLocation'
+        'peer_location': 'PeerLocation',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, access_point=None, direct_connect_connection_ids=None, direct_connect_connection_name=None, operator=None, page_number=None, page_size=None, peer_location=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_point=None, direct_connect_connection_ids=None, direct_connect_connection_name=None, operator=None, page_number=None, page_size=None, peer_location=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeDirectConnectConnectionsRequest(object):
         self._page_number = None
         self._page_size = None
         self._peer_location = None
+        self._tag_filters = None
         self.discriminator = None
 
         if access_point is not None:
@@ -81,6 +84,8 @@ class DescribeDirectConnectConnectionsRequest(object):
             self.page_size = page_size
         if peer_location is not None:
             self.peer_location = peer_location
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def access_point(self):
@@ -228,6 +233,27 @@ class DescribeDirectConnectConnectionsRequest(object):
         """
 
         self._peer_location = peer_location
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeDirectConnectConnectionsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeDirectConnectConnectionsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeDirectConnectConnectionsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

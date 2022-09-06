@@ -39,6 +39,7 @@ class DescribeAclAttributesResponse(object):
         'create_time': 'str',
         'description': 'str',
         'listeners': 'list[ListenerForDescribeAclAttributesOutput]',
+        'project_name': 'str',
         'request_id': 'str',
         'status': 'str',
         'update_time': 'str'
@@ -51,12 +52,13 @@ class DescribeAclAttributesResponse(object):
         'create_time': 'CreateTime',
         'description': 'Description',
         'listeners': 'Listeners',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_entries=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, request_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_entries=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, project_name=None, request_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeAclAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class DescribeAclAttributesResponse(object):
         self._create_time = None
         self._description = None
         self._listeners = None
+        self._project_name = None
         self._request_id = None
         self._status = None
         self._update_time = None
@@ -85,6 +88,8 @@ class DescribeAclAttributesResponse(object):
             self.description = description
         if listeners is not None:
             self.listeners = listeners
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if status is not None:
@@ -217,6 +222,27 @@ class DescribeAclAttributesResponse(object):
         """
 
         self._listeners = listeners
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeAclAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeAclAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeAclAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeAclAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def request_id(self):

@@ -89,8 +89,7 @@ class DescribeRouteEntryListRequest(object):
             self.route_entry_name = route_entry_name
         if route_entry_type is not None:
             self.route_entry_type = route_entry_type
-        if route_table_id is not None:
-            self.route_table_id = route_table_id
+        self.route_table_id = route_table_id
 
     @property
     def destination_cidr_block(self):
@@ -281,6 +280,8 @@ class DescribeRouteEntryListRequest(object):
         :param route_table_id: The route_table_id of this DescribeRouteEntryListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and route_table_id is None:
+            raise ValueError("Invalid value for `route_table_id`, must not be `None`")  # noqa: E501
 
         self._route_table_id = route_table_id
 

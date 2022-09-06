@@ -39,7 +39,8 @@ class CertificateForDescribeCertificatesOutput(object):
         'description': 'str',
         'domain_name': 'str',
         'expired_at': 'str',
-        'listeners': 'list[str]'
+        'listeners': 'list[str]',
+        'project_name': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class CertificateForDescribeCertificatesOutput(object):
         'description': 'Description',
         'domain_name': 'DomainName',
         'expired_at': 'ExpiredAt',
-        'listeners': 'Listeners'
+        'listeners': 'Listeners',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, certificate_id=None, certificate_name=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_id=None, certificate_name=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, _configuration=None):  # noqa: E501
         """CertificateForDescribeCertificatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class CertificateForDescribeCertificatesOutput(object):
         self._domain_name = None
         self._expired_at = None
         self._listeners = None
+        self._project_name = None
         self.discriminator = None
 
         if certificate_id is not None:
@@ -81,6 +84,8 @@ class CertificateForDescribeCertificatesOutput(object):
             self.expired_at = expired_at
         if listeners is not None:
             self.listeners = listeners
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def certificate_id(self):
@@ -228,6 +233,27 @@ class CertificateForDescribeCertificatesOutput(object):
         """
 
         self._listeners = listeners
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+
+
+        :return: The project_name of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CertificateForDescribeCertificatesOutput.
+
+
+        :param project_name: The project_name of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

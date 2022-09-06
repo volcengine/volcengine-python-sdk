@@ -35,6 +35,7 @@ class CreateRouteTableRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
+        'project_name': 'str',
         'route_table_name': 'str',
         'vpc_id': 'str'
     }
@@ -42,11 +43,12 @@ class CreateRouteTableRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
+        'project_name': 'ProjectName',
         'route_table_name': 'RouteTableName',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, client_token=None, description=None, route_table_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, project_name=None, route_table_name=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateRouteTableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class CreateRouteTableRequest(object):
 
         self._client_token = None
         self._description = None
+        self._project_name = None
         self._route_table_name = None
         self._vpc_id = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class CreateRouteTableRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if project_name is not None:
+            self.project_name = project_name
         if route_table_name is not None:
             self.route_table_name = route_table_name
         self.vpc_id = vpc_id
@@ -113,6 +118,27 @@ class CreateRouteTableRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateRouteTableRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateRouteTableRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateRouteTableRequest.
+
+
+        :param project_name: The project_name of this CreateRouteTableRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def route_table_name(self):

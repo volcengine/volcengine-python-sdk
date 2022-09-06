@@ -41,9 +41,11 @@ class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput(object):
         'description': 'str',
         'direct_connect_gateway_id': 'str',
         'direct_connect_gateway_name': 'str',
+        'enable_ipv6': 'bool',
         'lock_reason': 'str',
         'overdue_time': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeDirectConnectGatewaysOutput]',
         'update_time': 'str'
     }
 
@@ -56,13 +58,15 @@ class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput(object):
         'description': 'Description',
         'direct_connect_gateway_id': 'DirectConnectGatewayId',
         'direct_connect_gateway_name': 'DirectConnectGatewayName',
+        'enable_ipv6': 'EnableIpv6',
         'lock_reason': 'LockReason',
         'overdue_time': 'OverdueTime',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, lock_reason=None, overdue_time=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, enable_ipv6=None, lock_reason=None, overdue_time=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DirectConnectGatewayForDescribeDirectConnectGatewaysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,9 +80,11 @@ class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput(object):
         self._description = None
         self._direct_connect_gateway_id = None
         self._direct_connect_gateway_name = None
+        self._enable_ipv6 = None
         self._lock_reason = None
         self._overdue_time = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -98,12 +104,16 @@ class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput(object):
             self.direct_connect_gateway_id = direct_connect_gateway_id
         if direct_connect_gateway_name is not None:
             self.direct_connect_gateway_name = direct_connect_gateway_name
+        if enable_ipv6 is not None:
+            self.enable_ipv6 = enable_ipv6
         if lock_reason is not None:
             self.lock_reason = lock_reason
         if overdue_time is not None:
             self.overdue_time = overdue_time
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -276,6 +286,27 @@ class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput(object):
         self._direct_connect_gateway_name = direct_connect_gateway_name
 
     @property
+    def enable_ipv6(self):
+        """Gets the enable_ipv6 of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.  # noqa: E501
+
+
+        :return: The enable_ipv6 of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_ipv6
+
+    @enable_ipv6.setter
+    def enable_ipv6(self, enable_ipv6):
+        """Sets the enable_ipv6 of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.
+
+
+        :param enable_ipv6: The enable_ipv6 of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_ipv6 = enable_ipv6
+
+    @property
     def lock_reason(self):
         """Gets the lock_reason of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.  # noqa: E501
 
@@ -337,6 +368,27 @@ class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.  # noqa: E501
+
+
+        :return: The tags of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.  # noqa: E501
+        :rtype: list[TagForDescribeDirectConnectGatewaysOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.
+
+
+        :param tags: The tags of this DirectConnectGatewayForDescribeDirectConnectGatewaysOutput.  # noqa: E501
+        :type: list[TagForDescribeDirectConnectGatewaysOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

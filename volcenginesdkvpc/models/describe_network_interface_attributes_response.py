@@ -49,6 +49,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'service_managed': 'bool',
         'status': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeNetworkInterfaceAttributesOutput]',
         'type': 'str',
         'updated_at': 'str',
         'vpc_id': 'str',
@@ -73,6 +74,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'service_managed': 'ServiceManaged',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'type': 'Type',
         'updated_at': 'UpdatedAt',
         'vpc_id': 'VpcId',
@@ -80,7 +82,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, request_id=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, request_id=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeNetworkInterfaceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -102,6 +104,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         self._service_managed = None
         self._status = None
         self._subnet_id = None
+        self._tags = None
         self._type = None
         self._updated_at = None
         self._vpc_id = None
@@ -141,6 +144,8 @@ class DescribeNetworkInterfaceAttributesResponse(object):
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if updated_at is not None:
@@ -487,6 +492,27 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeNetworkInterfaceAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeNetworkInterfaceAttributesResponse.
+
+
+        :param tags: The tags of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeNetworkInterfaceAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):
