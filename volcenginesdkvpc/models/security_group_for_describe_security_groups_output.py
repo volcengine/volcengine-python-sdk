@@ -35,9 +35,11 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
     swagger_types = {
         'creation_time': 'str',
         'description': 'str',
+        'project_name': 'str',
         'security_group_id': 'str',
         'security_group_name': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeSecurityGroupsOutput]',
         'type': 'str',
         'vpc_id': 'str'
     }
@@ -45,14 +47,16 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
     attribute_map = {
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'project_name': 'ProjectName',
         'security_group_id': 'SecurityGroupId',
         'security_group_name': 'SecurityGroupName',
         'status': 'Status',
+        'tags': 'Tags',
         'type': 'Type',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, security_group_id=None, security_group_name=None, status=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, project_name=None, security_group_id=None, security_group_name=None, status=None, tags=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """SecurityGroupForDescribeSecurityGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,9 +64,11 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
 
         self._creation_time = None
         self._description = None
+        self._project_name = None
         self._security_group_id = None
         self._security_group_name = None
         self._status = None
+        self._tags = None
         self._type = None
         self._vpc_id = None
         self.discriminator = None
@@ -71,12 +77,16 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if project_name is not None:
+            self.project_name = project_name
         if security_group_id is not None:
             self.security_group_id = security_group_id
         if security_group_name is not None:
             self.security_group_name = security_group_name
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if vpc_id is not None:
@@ -123,6 +133,27 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+
+
+        :return: The project_name of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this SecurityGroupForDescribeSecurityGroupsOutput.
+
+
+        :param project_name: The project_name of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def security_group_id(self):
@@ -186,6 +217,27 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+
+
+        :return: The tags of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeSecurityGroupsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this SecurityGroupForDescribeSecurityGroupsOutput.
+
+
+        :param tags: The tags of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :type: list[TagForDescribeSecurityGroupsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

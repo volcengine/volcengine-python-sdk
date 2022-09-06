@@ -39,6 +39,7 @@ class AclForDescribeAclsOutput(object):
         'create_time': 'str',
         'description': 'str',
         'listeners': 'list[str]',
+        'project_name': 'str',
         'status': 'str',
         'update_time': 'str'
     }
@@ -50,11 +51,12 @@ class AclForDescribeAclsOutput(object):
         'create_time': 'CreateTime',
         'description': 'Description',
         'listeners': 'Listeners',
+        'project_name': 'ProjectName',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_entry_count=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_entry_count=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """AclForDescribeAclsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class AclForDescribeAclsOutput(object):
         self._create_time = None
         self._description = None
         self._listeners = None
+        self._project_name = None
         self._status = None
         self._update_time = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class AclForDescribeAclsOutput(object):
             self.description = description
         if listeners is not None:
             self.listeners = listeners
+        if project_name is not None:
+            self.project_name = project_name
         if status is not None:
             self.status = status
         if update_time is not None:
@@ -212,6 +217,27 @@ class AclForDescribeAclsOutput(object):
         """
 
         self._listeners = listeners
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this AclForDescribeAclsOutput.  # noqa: E501
+
+
+        :return: The project_name of this AclForDescribeAclsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this AclForDescribeAclsOutput.
+
+
+        :param project_name: The project_name of this AclForDescribeAclsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def status(self):

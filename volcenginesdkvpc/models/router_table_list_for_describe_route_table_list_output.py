@@ -36,6 +36,7 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         'account_id': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'project_name': 'str',
         'route_table_id': 'str',
         'route_table_name': 'str',
         'route_table_type': 'str',
@@ -49,6 +50,7 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         'account_id': 'AccountId',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'project_name': 'ProjectName',
         'route_table_id': 'RouteTableId',
         'route_table_name': 'RouteTableName',
         'route_table_type': 'RouteTableType',
@@ -58,7 +60,7 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, creation_time=None, description=None, route_table_id=None, route_table_name=None, route_table_type=None, subnet_ids=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, creation_time=None, description=None, project_name=None, route_table_id=None, route_table_name=None, route_table_type=None, subnet_ids=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """RouterTableListForDescribeRouteTableListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         self._account_id = None
         self._creation_time = None
         self._description = None
+        self._project_name = None
         self._route_table_id = None
         self._route_table_name = None
         self._route_table_type = None
@@ -82,6 +85,8 @@ class RouterTableListForDescribeRouteTableListOutput(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if project_name is not None:
+            self.project_name = project_name
         if route_table_id is not None:
             self.route_table_id = route_table_id
         if route_table_name is not None:
@@ -159,6 +164,27 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         """
 
         self._description = description
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+
+
+        :return: The project_name of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this RouterTableListForDescribeRouteTableListOutput.
+
+
+        :param project_name: The project_name of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def route_table_id(self):

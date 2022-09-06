@@ -40,6 +40,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'eip': 'EipForDescribeLoadBalancerAttributesOutput',
         'eip_address': 'str',
         'eip_id': 'str',
+        'enabled': 'bool',
         'eni_address': 'str',
         'eni_id': 'str',
         'expired_time': 'str',
@@ -52,10 +53,12 @@ class DescribeLoadBalancerAttributesResponse(object):
         'modification_protection_reason': 'str',
         'modification_protection_status': 'str',
         'overdue_time': 'str',
+        'project_name': 'str',
         'request_id': 'str',
         'server_groups': 'list[ServerGroupForDescribeLoadBalancerAttributesOutput]',
         'status': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeLoadBalancerAttributesOutput]',
         'type': 'str',
         'update_time': 'str',
         'vpc_id': 'str'
@@ -69,6 +72,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'eip': 'Eip',
         'eip_address': 'EipAddress',
         'eip_id': 'EipID',
+        'enabled': 'Enabled',
         'eni_address': 'EniAddress',
         'eni_id': 'EniID',
         'expired_time': 'ExpiredTime',
@@ -81,16 +85,18 @@ class DescribeLoadBalancerAttributesResponse(object):
         'modification_protection_reason': 'ModificationProtectionReason',
         'modification_protection_status': 'ModificationProtectionStatus',
         'overdue_time': 'OverdueTime',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'server_groups': 'ServerGroups',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'type': 'Type',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, access_log=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, expired_time=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, request_id=None, server_groups=None, status=None, subnet_id=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, expired_time=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +109,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._eip = None
         self._eip_address = None
         self._eip_id = None
+        self._enabled = None
         self._eni_address = None
         self._eni_id = None
         self._expired_time = None
@@ -115,10 +122,12 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._modification_protection_reason = None
         self._modification_protection_status = None
         self._overdue_time = None
+        self._project_name = None
         self._request_id = None
         self._server_groups = None
         self._status = None
         self._subnet_id = None
+        self._tags = None
         self._type = None
         self._update_time = None
         self._vpc_id = None
@@ -138,6 +147,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.eip_address = eip_address
         if eip_id is not None:
             self.eip_id = eip_id
+        if enabled is not None:
+            self.enabled = enabled
         if eni_address is not None:
             self.eni_address = eni_address
         if eni_id is not None:
@@ -162,6 +173,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.modification_protection_status = modification_protection_status
         if overdue_time is not None:
             self.overdue_time = overdue_time
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if server_groups is not None:
@@ -170,6 +183,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if update_time is not None:
@@ -323,6 +338,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._eip_id = eip_id
+
+    @property
+    def enabled(self):
+        """Gets the enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """Sets the enabled of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param enabled: The enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._enabled = enabled
 
     @property
     def eni_address(self):
@@ -577,6 +613,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._overdue_time = overdue_time
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def request_id(self):
         """Gets the request_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
 
@@ -659,6 +716,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeLoadBalancerAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param tags: The tags of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeLoadBalancerAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

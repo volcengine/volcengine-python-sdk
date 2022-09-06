@@ -50,8 +50,10 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'modification_protection_reason': 'str',
         'modification_protection_status': 'str',
         'overdue_time': 'str',
+        'project_name': 'str',
         'status': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeLoadBalancersOutput]',
         'type': 'str',
         'update_time': 'str',
         'vpc_id': 'str'
@@ -75,14 +77,16 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'modification_protection_reason': 'ModificationProtectionReason',
         'modification_protection_status': 'ModificationProtectionStatus',
         'overdue_time': 'OverdueTime',
+        'project_name': 'ProjectName',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'type': 'Type',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, business_status=None, create_time=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, expired_time=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, status=None, subnet_id=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, business_status=None, create_time=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, expired_time=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """LoadBalancerForDescribeLoadBalancersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,8 +109,10 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._modification_protection_reason = None
         self._modification_protection_status = None
         self._overdue_time = None
+        self._project_name = None
         self._status = None
         self._subnet_id = None
+        self._tags = None
         self._type = None
         self._update_time = None
         self._vpc_id = None
@@ -146,10 +152,14 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.modification_protection_status = modification_protection_status
         if overdue_time is not None:
             self.overdue_time = overdue_time
+        if project_name is not None:
+            self.project_name = project_name
         if status is not None:
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if update_time is not None:
@@ -515,6 +525,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._overdue_time = overdue_time
 
     @property
+    def project_name(self):
+        """Gets the project_name of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The project_name of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param project_name: The project_name of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def status(self):
         """Gets the status of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
 
@@ -555,6 +586,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The tags of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: list[TagForDescribeLoadBalancersOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param tags: The tags of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: list[TagForDescribeLoadBalancersOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

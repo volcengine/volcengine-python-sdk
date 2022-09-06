@@ -35,18 +35,22 @@ class CreateSecurityGroupRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
+        'project_name': 'str',
         'security_group_name': 'str',
+        'tags': 'list[TagForCreateSecurityGroupInput]',
         'vpc_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
+        'project_name': 'ProjectName',
         'security_group_name': 'SecurityGroupName',
+        'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, client_token=None, description=None, security_group_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, project_name=None, security_group_name=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateSecurityGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,7 +58,9 @@ class CreateSecurityGroupRequest(object):
 
         self._client_token = None
         self._description = None
+        self._project_name = None
         self._security_group_name = None
+        self._tags = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -62,8 +68,12 @@ class CreateSecurityGroupRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if project_name is not None:
+            self.project_name = project_name
         if security_group_name is not None:
             self.security_group_name = security_group_name
+        if tags is not None:
+            self.tags = tags
         self.vpc_id = vpc_id
 
     @property
@@ -109,6 +119,27 @@ class CreateSecurityGroupRequest(object):
         self._description = description
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateSecurityGroupRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateSecurityGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateSecurityGroupRequest.
+
+
+        :param project_name: The project_name of this CreateSecurityGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def security_group_name(self):
         """Gets the security_group_name of this CreateSecurityGroupRequest.  # noqa: E501
 
@@ -128,6 +159,27 @@ class CreateSecurityGroupRequest(object):
         """
 
         self._security_group_name = security_group_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateSecurityGroupRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateSecurityGroupRequest.  # noqa: E501
+        :rtype: list[TagForCreateSecurityGroupInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateSecurityGroupRequest.
+
+
+        :param tags: The tags of this CreateSecurityGroupRequest.  # noqa: E501
+        :type: list[TagForCreateSecurityGroupInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

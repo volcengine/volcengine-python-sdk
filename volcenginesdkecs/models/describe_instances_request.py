@@ -46,6 +46,7 @@ class DescribeInstancesRequest(object):
         'primary_ip_address': 'str',
         'project_name': 'str',
         'status': 'str',
+        'tag_filters': 'list[TagFilterForDescribeInstancesInput]',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
@@ -64,11 +65,12 @@ class DescribeInstancesRequest(object):
         'primary_ip_address': 'PrimaryIpAddress',
         'project_name': 'ProjectName',
         'status': 'Status',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class DescribeInstancesRequest(object):
         self._primary_ip_address = None
         self._project_name = None
         self._status = None
+        self._tag_filters = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
@@ -117,6 +120,8 @@ class DescribeInstancesRequest(object):
             self.project_name = project_name
         if status is not None:
             self.status = status
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
@@ -394,6 +399,27 @@ class DescribeInstancesRequest(object):
         """
 
         self._status = status
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeInstancesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeInstancesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeInstancesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeInstancesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):

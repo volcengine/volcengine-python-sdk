@@ -41,11 +41,13 @@ class DescribeVpcAttributesResponse(object):
         'dns_servers': 'list[str]',
         'nat_gateway_ids': 'list[str]',
         'network_acl_num': 'str',
+        'project_name': 'str',
         'request_id': 'str',
         'route_table_ids': 'list[str]',
         'security_group_ids': 'list[str]',
         'status': 'str',
         'subnet_ids': 'list[str]',
+        'tags': 'list[TagForDescribeVpcAttributesOutput]',
         'update_time': 'str',
         'vpc_id': 'str',
         'vpc_name': 'str'
@@ -60,17 +62,19 @@ class DescribeVpcAttributesResponse(object):
         'dns_servers': 'DnsServers',
         'nat_gateway_ids': 'NatGatewayIds',
         'network_acl_num': 'NetworkAclNum',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'route_table_ids': 'RouteTableIds',
         'security_group_ids': 'SecurityGroupIds',
         'status': 'Status',
         'subnet_ids': 'SubnetIds',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, nat_gateway_ids=None, network_acl_num=None, request_id=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,11 +88,13 @@ class DescribeVpcAttributesResponse(object):
         self._dns_servers = None
         self._nat_gateway_ids = None
         self._network_acl_num = None
+        self._project_name = None
         self._request_id = None
         self._route_table_ids = None
         self._security_group_ids = None
         self._status = None
         self._subnet_ids = None
+        self._tags = None
         self._update_time = None
         self._vpc_id = None
         self._vpc_name = None
@@ -110,6 +116,8 @@ class DescribeVpcAttributesResponse(object):
             self.nat_gateway_ids = nat_gateway_ids
         if network_acl_num is not None:
             self.network_acl_num = network_acl_num
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if route_table_ids is not None:
@@ -120,6 +128,8 @@ class DescribeVpcAttributesResponse(object):
             self.status = status
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vpc_id is not None:
@@ -296,6 +306,27 @@ class DescribeVpcAttributesResponse(object):
         self._network_acl_num = network_acl_num
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeVpcAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeVpcAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeVpcAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeVpcAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def request_id(self):
         """Gets the request_id of this DescribeVpcAttributesResponse.  # noqa: E501
 
@@ -399,6 +430,27 @@ class DescribeVpcAttributesResponse(object):
         """
 
         self._subnet_ids = subnet_ids
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeVpcAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeVpcAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeVpcAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeVpcAttributesResponse.
+
+
+        :param tags: The tags of this DescribeVpcAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeVpcAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

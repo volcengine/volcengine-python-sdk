@@ -38,6 +38,7 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         'instance_type_id': 'str',
         'local_volumes': 'list[LocalVolumeForDescribeInstanceTypesOutput]',
         'memory': 'MemoryForDescribeInstanceTypesOutput',
+        'network': 'NetworkForDescribeInstanceTypesOutput',
         'processor': 'ProcessorForDescribeInstanceTypesOutput',
         'rdma': 'RdmaForDescribeInstanceTypesOutput',
         'volume': 'VolumeForDescribeInstanceTypesOutput'
@@ -49,12 +50,13 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         'instance_type_id': 'InstanceTypeId',
         'local_volumes': 'LocalVolumes',
         'memory': 'Memory',
+        'network': 'Network',
         'processor': 'Processor',
         'rdma': 'Rdma',
         'volume': 'Volume'
     }
 
-    def __init__(self, gpu=None, instance_type_family=None, instance_type_id=None, local_volumes=None, memory=None, processor=None, rdma=None, volume=None, _configuration=None):  # noqa: E501
+    def __init__(self, gpu=None, instance_type_family=None, instance_type_id=None, local_volumes=None, memory=None, network=None, processor=None, rdma=None, volume=None, _configuration=None):  # noqa: E501
         """InstanceTypeForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         self._instance_type_id = None
         self._local_volumes = None
         self._memory = None
+        self._network = None
         self._processor = None
         self._rdma = None
         self._volume = None
@@ -80,6 +83,8 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
             self.local_volumes = local_volumes
         if memory is not None:
             self.memory = memory
+        if network is not None:
+            self.network = network
         if processor is not None:
             self.processor = processor
         if rdma is not None:
@@ -191,6 +196,27 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         """
 
         self._memory = memory
+
+    @property
+    def network(self):
+        """Gets the network of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The network of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: NetworkForDescribeInstanceTypesOutput
+        """
+        return self._network
+
+    @network.setter
+    def network(self, network):
+        """Sets the network of this InstanceTypeForDescribeInstanceTypesOutput.
+
+
+        :param network: The network of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: NetworkForDescribeInstanceTypesOutput
+        """
+
+        self._network = network
 
     @property
     def processor(self):

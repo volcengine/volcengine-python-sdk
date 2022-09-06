@@ -40,9 +40,11 @@ class DescribeNetworkInterfacesRequest(object):
         'page_size': 'int',
         'primary_ip_addresses': 'list[str]',
         'private_ip_addresses': 'list[str]',
+        'project_name': 'str',
         'security_group_id': 'str',
         'status': 'str',
         'subnet_id': 'str',
+        'tag_filters': 'list[TagFilterForDescribeNetworkInterfacesInput]',
         'type': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
@@ -56,15 +58,17 @@ class DescribeNetworkInterfacesRequest(object):
         'page_size': 'PageSize',
         'primary_ip_addresses': 'PrimaryIpAddresses',
         'private_ip_addresses': 'PrivateIpAddresses',
+        'project_name': 'ProjectName',
         'security_group_id': 'SecurityGroupId',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tag_filters': 'TagFilters',
         'type': 'Type',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, instance_id=None, network_interface_ids=None, network_interface_name=None, page_number=None, page_size=None, primary_ip_addresses=None, private_ip_addresses=None, security_group_id=None, status=None, subnet_id=None, type=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, network_interface_ids=None, network_interface_name=None, page_number=None, page_size=None, primary_ip_addresses=None, private_ip_addresses=None, project_name=None, security_group_id=None, status=None, subnet_id=None, tag_filters=None, type=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeNetworkInterfacesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,9 +81,11 @@ class DescribeNetworkInterfacesRequest(object):
         self._page_size = None
         self._primary_ip_addresses = None
         self._private_ip_addresses = None
+        self._project_name = None
         self._security_group_id = None
         self._status = None
         self._subnet_id = None
+        self._tag_filters = None
         self._type = None
         self._vpc_id = None
         self._zone_id = None
@@ -99,12 +105,16 @@ class DescribeNetworkInterfacesRequest(object):
             self.primary_ip_addresses = primary_ip_addresses
         if private_ip_addresses is not None:
             self.private_ip_addresses = private_ip_addresses
+        if project_name is not None:
+            self.project_name = project_name
         if security_group_id is not None:
             self.security_group_id = security_group_id
         if status is not None:
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if type is not None:
             self.type = type
         if vpc_id is not None:
@@ -263,6 +273,27 @@ class DescribeNetworkInterfacesRequest(object):
         self._private_ip_addresses = private_ip_addresses
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeNetworkInterfacesRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeNetworkInterfacesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeNetworkInterfacesRequest.
+
+
+        :param project_name: The project_name of this DescribeNetworkInterfacesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def security_group_id(self):
         """Gets the security_group_id of this DescribeNetworkInterfacesRequest.  # noqa: E501
 
@@ -324,6 +355,27 @@ class DescribeNetworkInterfacesRequest(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeNetworkInterfacesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeNetworkInterfacesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeNetworkInterfacesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeNetworkInterfacesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeNetworkInterfacesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeNetworkInterfacesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def type(self):
