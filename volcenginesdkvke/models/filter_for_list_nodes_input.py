@@ -38,7 +38,8 @@ class FilterForListNodesInput(object):
         'ids': 'list[str]',
         'name': 'str',
         'node_pool_ids': 'list[str]',
-        'statuses': 'list[StatusForListNodesInput]'
+        'statuses': 'list[StatusForListNodesInput]',
+        'zone_ids': 'list[str]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class FilterForListNodesInput(object):
         'ids': 'Ids',
         'name': 'Name',
         'node_pool_ids': 'NodePoolIds',
-        'statuses': 'Statuses'
+        'statuses': 'Statuses',
+        'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, cluster_ids=None, create_client_token=None, ids=None, name=None, node_pool_ids=None, statuses=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_ids=None, create_client_token=None, ids=None, name=None, node_pool_ids=None, statuses=None, zone_ids=None, _configuration=None):  # noqa: E501
         """FilterForListNodesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class FilterForListNodesInput(object):
         self._name = None
         self._node_pool_ids = None
         self._statuses = None
+        self._zone_ids = None
         self.discriminator = None
 
         if cluster_ids is not None:
@@ -76,6 +79,8 @@ class FilterForListNodesInput(object):
             self.node_pool_ids = node_pool_ids
         if statuses is not None:
             self.statuses = statuses
+        if zone_ids is not None:
+            self.zone_ids = zone_ids
 
     @property
     def cluster_ids(self):
@@ -202,6 +207,27 @@ class FilterForListNodesInput(object):
         """
 
         self._statuses = statuses
+
+    @property
+    def zone_ids(self):
+        """Gets the zone_ids of this FilterForListNodesInput.  # noqa: E501
+
+
+        :return: The zone_ids of this FilterForListNodesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._zone_ids
+
+    @zone_ids.setter
+    def zone_ids(self, zone_ids):
+        """Sets the zone_ids of this FilterForListNodesInput.
+
+
+        :param zone_ids: The zone_ids of this FilterForListNodesInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._zone_ids = zone_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

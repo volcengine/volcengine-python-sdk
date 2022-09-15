@@ -33,24 +33,50 @@ class ApiServerPublicAccessConfigForListClustersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_source_ipsv4': 'list[str]',
         'public_access_network_config': 'PublicAccessNetworkConfigForListClustersOutput'
     }
 
     attribute_map = {
+        'access_source_ipsv4': 'AccessSourceIpsv4',
         'public_access_network_config': 'PublicAccessNetworkConfig'
     }
 
-    def __init__(self, public_access_network_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_source_ipsv4=None, public_access_network_config=None, _configuration=None):  # noqa: E501
         """ApiServerPublicAccessConfigForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._access_source_ipsv4 = None
         self._public_access_network_config = None
         self.discriminator = None
 
+        if access_source_ipsv4 is not None:
+            self.access_source_ipsv4 = access_source_ipsv4
         if public_access_network_config is not None:
             self.public_access_network_config = public_access_network_config
+
+    @property
+    def access_source_ipsv4(self):
+        """Gets the access_source_ipsv4 of this ApiServerPublicAccessConfigForListClustersOutput.  # noqa: E501
+
+
+        :return: The access_source_ipsv4 of this ApiServerPublicAccessConfigForListClustersOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._access_source_ipsv4
+
+    @access_source_ipsv4.setter
+    def access_source_ipsv4(self, access_source_ipsv4):
+        """Sets the access_source_ipsv4 of this ApiServerPublicAccessConfigForListClustersOutput.
+
+
+        :param access_source_ipsv4: The access_source_ipsv4 of this ApiServerPublicAccessConfigForListClustersOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._access_source_ipsv4 = access_source_ipsv4
 
     @property
     def public_access_network_config(self):
