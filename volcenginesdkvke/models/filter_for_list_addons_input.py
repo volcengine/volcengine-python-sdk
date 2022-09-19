@@ -34,7 +34,6 @@ class FilterForListAddonsInput(object):
     """
     swagger_types = {
         'cluster_ids': 'list[str]',
-        'cluster_types': 'list[str]',
         'create_client_token': 'str',
         'deploy_modes': 'list[str]',
         'deploy_node_types': 'list[str]',
@@ -45,7 +44,6 @@ class FilterForListAddonsInput(object):
 
     attribute_map = {
         'cluster_ids': 'ClusterIds',
-        'cluster_types': 'ClusterTypes',
         'create_client_token': 'CreateClientToken',
         'deploy_modes': 'DeployModes',
         'deploy_node_types': 'DeployNodeTypes',
@@ -54,14 +52,13 @@ class FilterForListAddonsInput(object):
         'update_client_token': 'UpdateClientToken'
     }
 
-    def __init__(self, cluster_ids=None, cluster_types=None, create_client_token=None, deploy_modes=None, deploy_node_types=None, names=None, statuses=None, update_client_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_ids=None, create_client_token=None, deploy_modes=None, deploy_node_types=None, names=None, statuses=None, update_client_token=None, _configuration=None):  # noqa: E501
         """FilterForListAddonsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cluster_ids = None
-        self._cluster_types = None
         self._create_client_token = None
         self._deploy_modes = None
         self._deploy_node_types = None
@@ -72,8 +69,6 @@ class FilterForListAddonsInput(object):
 
         if cluster_ids is not None:
             self.cluster_ids = cluster_ids
-        if cluster_types is not None:
-            self.cluster_types = cluster_types
         if create_client_token is not None:
             self.create_client_token = create_client_token
         if deploy_modes is not None:
@@ -107,35 +102,6 @@ class FilterForListAddonsInput(object):
         """
 
         self._cluster_ids = cluster_ids
-
-    @property
-    def cluster_types(self):
-        """Gets the cluster_types of this FilterForListAddonsInput.  # noqa: E501
-
-
-        :return: The cluster_types of this FilterForListAddonsInput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._cluster_types
-
-    @cluster_types.setter
-    def cluster_types(self, cluster_types):
-        """Sets the cluster_types of this FilterForListAddonsInput.
-
-
-        :param cluster_types: The cluster_types of this FilterForListAddonsInput.  # noqa: E501
-        :type: list[str]
-        """
-        allowed_values = ["OnPremise", "Registered", "Standard"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(cluster_types).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `cluster_types` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(cluster_types) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
-
-        self._cluster_types = cluster_types
 
     @property
     def create_client_token(self):

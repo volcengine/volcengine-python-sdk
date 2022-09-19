@@ -34,7 +34,6 @@ class FilterForListSupportedAddonsInput(object):
     """
     swagger_types = {
         'categories': 'list[str]',
-        'cluster_types': 'list[str]',
         'deploy_modes': 'list[str]',
         'deploy_node_types': 'list[str]',
         'name': 'str',
@@ -44,7 +43,6 @@ class FilterForListSupportedAddonsInput(object):
 
     attribute_map = {
         'categories': 'Categories',
-        'cluster_types': 'ClusterTypes',
         'deploy_modes': 'DeployModes',
         'deploy_node_types': 'DeployNodeTypes',
         'name': 'Name',
@@ -52,14 +50,13 @@ class FilterForListSupportedAddonsInput(object):
         'pod_network_modes': 'PodNetworkModes'
     }
 
-    def __init__(self, categories=None, cluster_types=None, deploy_modes=None, deploy_node_types=None, name=None, necessaries=None, pod_network_modes=None, _configuration=None):  # noqa: E501
+    def __init__(self, categories=None, deploy_modes=None, deploy_node_types=None, name=None, necessaries=None, pod_network_modes=None, _configuration=None):  # noqa: E501
         """FilterForListSupportedAddonsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._categories = None
-        self._cluster_types = None
         self._deploy_modes = None
         self._deploy_node_types = None
         self._name = None
@@ -69,8 +66,6 @@ class FilterForListSupportedAddonsInput(object):
 
         if categories is not None:
             self.categories = categories
-        if cluster_types is not None:
-            self.cluster_types = cluster_types
         if deploy_modes is not None:
             self.deploy_modes = deploy_modes
         if deploy_node_types is not None:
@@ -110,35 +105,6 @@ class FilterForListSupportedAddonsInput(object):
             )
 
         self._categories = categories
-
-    @property
-    def cluster_types(self):
-        """Gets the cluster_types of this FilterForListSupportedAddonsInput.  # noqa: E501
-
-
-        :return: The cluster_types of this FilterForListSupportedAddonsInput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._cluster_types
-
-    @cluster_types.setter
-    def cluster_types(self, cluster_types):
-        """Sets the cluster_types of this FilterForListSupportedAddonsInput.
-
-
-        :param cluster_types: The cluster_types of this FilterForListSupportedAddonsInput.  # noqa: E501
-        :type: list[str]
-        """
-        allowed_values = ["OnPremise", "Registered", "Standard"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(cluster_types).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `cluster_types` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(cluster_types) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
-
-        self._cluster_types = cluster_types
 
     @property
     def deploy_modes(self):
