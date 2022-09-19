@@ -103,7 +103,7 @@ class StatusForListNodesInput(object):
         :param phase: The phase of this StatusForListNodesInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Creating", "Deleting", "Failed", "Running", "Updating"]  # noqa: E501
+        allowed_values = ["Creating", "Deleting", "Failed", "Running", "Starting", "Stopped", "Stopping", "Updating"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 phase not in allowed_values):
             raise ValueError(

@@ -184,7 +184,7 @@ class FilterForListClustersInput(object):
         :param pods_config_pod_network_mode: The pods_config_pod_network_mode of this FilterForListClustersInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Carma", "Default", "Flannel", "VpcCniDedicated", "VpcCniShared"]  # noqa: E501
+        allowed_values = ["CalicoBgp", "CalicoVxlan", "Carma", "Cilium", "Default", "Flannel", "KubeOvn", "VpcCniDedicated", "VpcCniShared"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 pods_config_pod_network_mode not in allowed_values):
             raise ValueError(
