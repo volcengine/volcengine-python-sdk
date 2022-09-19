@@ -34,43 +34,41 @@ class ItemForListSupportedAddonsOutput(object):
     """
     swagger_types = {
         'categories': 'list[str]',
-        'cluster_types': 'list[str]',
         'deploy_mode': 'str',
         'deploy_node_types': 'list[str]',
         'name': 'str',
         'necessary': 'str',
-        'pod_network_modes': 'list[str]'
+        'pod_network_modes': 'list[str]',
+        'versions': 'list[VersionForListSupportedAddonsOutput]'
     }
 
     attribute_map = {
         'categories': 'Categories',
-        'cluster_types': 'ClusterTypes',
         'deploy_mode': 'DeployMode',
         'deploy_node_types': 'DeployNodeTypes',
         'name': 'Name',
         'necessary': 'Necessary',
-        'pod_network_modes': 'PodNetworkModes'
+        'pod_network_modes': 'PodNetworkModes',
+        'versions': 'Versions'
     }
 
-    def __init__(self, categories=None, cluster_types=None, deploy_mode=None, deploy_node_types=None, name=None, necessary=None, pod_network_modes=None, _configuration=None):  # noqa: E501
+    def __init__(self, categories=None, deploy_mode=None, deploy_node_types=None, name=None, necessary=None, pod_network_modes=None, versions=None, _configuration=None):  # noqa: E501
         """ItemForListSupportedAddonsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._categories = None
-        self._cluster_types = None
         self._deploy_mode = None
         self._deploy_node_types = None
         self._name = None
         self._necessary = None
         self._pod_network_modes = None
+        self._versions = None
         self.discriminator = None
 
         if categories is not None:
             self.categories = categories
-        if cluster_types is not None:
-            self.cluster_types = cluster_types
         if deploy_mode is not None:
             self.deploy_mode = deploy_mode
         if deploy_node_types is not None:
@@ -81,6 +79,8 @@ class ItemForListSupportedAddonsOutput(object):
             self.necessary = necessary
         if pod_network_modes is not None:
             self.pod_network_modes = pod_network_modes
+        if versions is not None:
+            self.versions = versions
 
     @property
     def categories(self):
@@ -110,35 +110,6 @@ class ItemForListSupportedAddonsOutput(object):
             )
 
         self._categories = categories
-
-    @property
-    def cluster_types(self):
-        """Gets the cluster_types of this ItemForListSupportedAddonsOutput.  # noqa: E501
-
-
-        :return: The cluster_types of this ItemForListSupportedAddonsOutput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._cluster_types
-
-    @cluster_types.setter
-    def cluster_types(self, cluster_types):
-        """Sets the cluster_types of this ItemForListSupportedAddonsOutput.
-
-
-        :param cluster_types: The cluster_types of this ItemForListSupportedAddonsOutput.  # noqa: E501
-        :type: list[str]
-        """
-        allowed_values = ["OnPremise", "Registered", "Standard"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(cluster_types).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `cluster_types` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(cluster_types) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
-
-        self._cluster_types = cluster_types
 
     @property
     def deploy_mode(self):
@@ -260,6 +231,27 @@ class ItemForListSupportedAddonsOutput(object):
             )
 
         self._pod_network_modes = pod_network_modes
+
+    @property
+    def versions(self):
+        """Gets the versions of this ItemForListSupportedAddonsOutput.  # noqa: E501
+
+
+        :return: The versions of this ItemForListSupportedAddonsOutput.  # noqa: E501
+        :rtype: list[VersionForListSupportedAddonsOutput]
+        """
+        return self._versions
+
+    @versions.setter
+    def versions(self, versions):
+        """Sets the versions of this ItemForListSupportedAddonsOutput.
+
+
+        :param versions: The versions of this ItemForListSupportedAddonsOutput.  # noqa: E501
+        :type: list[VersionForListSupportedAddonsOutput]
+        """
+
+        self._versions = versions
 
     def to_dict(self):
         """Returns the model properties as a dict"""
