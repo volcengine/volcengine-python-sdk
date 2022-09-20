@@ -45,7 +45,8 @@ class ItemForListNodesOutput(object):
         'node_pool_id': 'str',
         'roles': 'list[str]',
         'status': 'StatusForListNodesOutput',
-        'update_time': 'str'
+        'update_time': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -61,10 +62,11 @@ class ItemForListNodesOutput(object):
         'node_pool_id': 'NodePoolId',
         'roles': 'Roles',
         'status': 'Status',
-        'update_time': 'UpdateTime'
+        'update_time': 'UpdateTime',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, instance_id=None, is_virtual=None, name=None, node_pool_id=None, roles=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, instance_id=None, is_virtual=None, name=None, node_pool_id=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
         """ItemForListNodesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class ItemForListNodesOutput(object):
         self._roles = None
         self._status = None
         self._update_time = None
+        self._zone_id = None
         self.discriminator = None
 
         if additional_container_storage_enabled is not None:
@@ -111,6 +114,8 @@ class ItemForListNodesOutput(object):
             self.status = status
         if update_time is not None:
             self.update_time = update_time
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def additional_container_storage_enabled(self):
@@ -392,6 +397,27 @@ class ItemForListNodesOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The zone_id of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this ItemForListNodesOutput.
+
+
+        :param zone_id: The zone_id of this ItemForListNodesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

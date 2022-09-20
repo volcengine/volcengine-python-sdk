@@ -34,9 +34,14 @@ class NodeConfigForListNodePoolsOutput(object):
     """
     swagger_types = {
         'additional_container_storage_enabled': 'bool',
+        'auto_renew': 'bool',
+        'auto_renew_period': 'int',
         'data_volumes': 'list[DataVolumeForListNodePoolsOutput]',
+        'image_id': 'str',
         'initialize_script': 'str',
+        'instance_charge_type': 'str',
         'instance_type_ids': 'list[str]',
+        'period': 'int',
         'security': 'SecurityForListNodePoolsOutput',
         'subnet_ids': 'list[str]',
         'system_volume': 'SystemVolumeForListNodePoolsOutput'
@@ -44,24 +49,34 @@ class NodeConfigForListNodePoolsOutput(object):
 
     attribute_map = {
         'additional_container_storage_enabled': 'AdditionalContainerStorageEnabled',
+        'auto_renew': 'AutoRenew',
+        'auto_renew_period': 'AutoRenewPeriod',
         'data_volumes': 'DataVolumes',
+        'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
+        'instance_charge_type': 'InstanceChargeType',
         'instance_type_ids': 'InstanceTypeIds',
+        'period': 'Period',
         'security': 'Security',
         'subnet_ids': 'SubnetIds',
         'system_volume': 'SystemVolume'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, data_volumes=None, initialize_script=None, instance_type_ids=None, security=None, subnet_ids=None, system_volume=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, period=None, security=None, subnet_ids=None, system_volume=None, _configuration=None):  # noqa: E501
         """NodeConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._additional_container_storage_enabled = None
+        self._auto_renew = None
+        self._auto_renew_period = None
         self._data_volumes = None
+        self._image_id = None
         self._initialize_script = None
+        self._instance_charge_type = None
         self._instance_type_ids = None
+        self._period = None
         self._security = None
         self._subnet_ids = None
         self._system_volume = None
@@ -69,12 +84,22 @@ class NodeConfigForListNodePoolsOutput(object):
 
         if additional_container_storage_enabled is not None:
             self.additional_container_storage_enabled = additional_container_storage_enabled
+        if auto_renew is not None:
+            self.auto_renew = auto_renew
+        if auto_renew_period is not None:
+            self.auto_renew_period = auto_renew_period
         if data_volumes is not None:
             self.data_volumes = data_volumes
+        if image_id is not None:
+            self.image_id = image_id
         if initialize_script is not None:
             self.initialize_script = initialize_script
+        if instance_charge_type is not None:
+            self.instance_charge_type = instance_charge_type
         if instance_type_ids is not None:
             self.instance_type_ids = instance_type_ids
+        if period is not None:
+            self.period = period
         if security is not None:
             self.security = security
         if subnet_ids is not None:
@@ -104,6 +129,48 @@ class NodeConfigForListNodePoolsOutput(object):
         self._additional_container_storage_enabled = additional_container_storage_enabled
 
     @property
+    def auto_renew(self):
+        """Gets the auto_renew of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The auto_renew of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_renew
+
+    @auto_renew.setter
+    def auto_renew(self, auto_renew):
+        """Sets the auto_renew of this NodeConfigForListNodePoolsOutput.
+
+
+        :param auto_renew: The auto_renew of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_renew = auto_renew
+
+    @property
+    def auto_renew_period(self):
+        """Gets the auto_renew_period of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The auto_renew_period of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_renew_period
+
+    @auto_renew_period.setter
+    def auto_renew_period(self, auto_renew_period):
+        """Sets the auto_renew_period of this NodeConfigForListNodePoolsOutput.
+
+
+        :param auto_renew_period: The auto_renew_period of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_renew_period = auto_renew_period
+
+    @property
     def data_volumes(self):
         """Gets the data_volumes of this NodeConfigForListNodePoolsOutput.  # noqa: E501
 
@@ -123,6 +190,27 @@ class NodeConfigForListNodePoolsOutput(object):
         """
 
         self._data_volumes = data_volumes
+
+    @property
+    def image_id(self):
+        """Gets the image_id of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The image_id of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_id
+
+    @image_id.setter
+    def image_id(self, image_id):
+        """Sets the image_id of this NodeConfigForListNodePoolsOutput.
+
+
+        :param image_id: The image_id of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._image_id = image_id
 
     @property
     def initialize_script(self):
@@ -146,6 +234,27 @@ class NodeConfigForListNodePoolsOutput(object):
         self._initialize_script = initialize_script
 
     @property
+    def instance_charge_type(self):
+        """Gets the instance_charge_type of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The instance_charge_type of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_charge_type
+
+    @instance_charge_type.setter
+    def instance_charge_type(self, instance_charge_type):
+        """Sets the instance_charge_type of this NodeConfigForListNodePoolsOutput.
+
+
+        :param instance_charge_type: The instance_charge_type of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_charge_type = instance_charge_type
+
+    @property
     def instance_type_ids(self):
         """Gets the instance_type_ids of this NodeConfigForListNodePoolsOutput.  # noqa: E501
 
@@ -165,6 +274,27 @@ class NodeConfigForListNodePoolsOutput(object):
         """
 
         self._instance_type_ids = instance_type_ids
+
+    @property
+    def period(self):
+        """Gets the period of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The period of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._period
+
+    @period.setter
+    def period(self, period):
+        """Sets the period of this NodeConfigForListNodePoolsOutput.
+
+
+        :param period: The period of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._period = period
 
     @property
     def security(self):

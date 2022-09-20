@@ -33,29 +33,55 @@ class DataVolumeForCreateNodePoolInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'mount_point': 'str',
         'size': 'int',
         'type': 'str'
     }
 
     attribute_map = {
+        'mount_point': 'MountPoint',
         'size': 'Size',
         'type': 'Type'
     }
 
-    def __init__(self, size=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, mount_point=None, size=None, type=None, _configuration=None):  # noqa: E501
         """DataVolumeForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._mount_point = None
         self._size = None
         self._type = None
         self.discriminator = None
 
+        if mount_point is not None:
+            self.mount_point = mount_point
         if size is not None:
             self.size = size
         if type is not None:
             self.type = type
+
+    @property
+    def mount_point(self):
+        """Gets the mount_point of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The mount_point of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._mount_point
+
+    @mount_point.setter
+    def mount_point(self, mount_point):
+        """Sets the mount_point of this DataVolumeForCreateNodePoolInput.
+
+
+        :param mount_point: The mount_point of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._mount_point = mount_point
 
     @property
     def size(self):
@@ -96,7 +122,7 @@ class DataVolumeForCreateNodePoolInput(object):
         :param type: The type of this DataVolumeForCreateNodePoolInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ESSD_PL0", "ESSD_PL1", "PTSSD"]  # noqa: E501
+        allowed_values = ["ESSD", "ESSD_FlexPL", "ESSD_PL0", "ESSD_PL1", "PTSSD"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 type not in allowed_values):
             raise ValueError(

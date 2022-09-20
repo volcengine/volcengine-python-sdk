@@ -34,15 +34,17 @@ class PublicAccessNetworkConfigForUpdateClusterConfigInput(object):
     """
     swagger_types = {
         'bandwidth': 'int',
-        'billing_type': 'int'
+        'billing_type': 'int',
+        'isp': 'str'
     }
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
-        'billing_type': 'BillingType'
+        'billing_type': 'BillingType',
+        'isp': 'Isp'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, isp=None, _configuration=None):  # noqa: E501
         """PublicAccessNetworkConfigForUpdateClusterConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class PublicAccessNetworkConfigForUpdateClusterConfigInput(object):
 
         self._bandwidth = None
         self._billing_type = None
+        self._isp = None
         self.discriminator = None
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
         if billing_type is not None:
             self.billing_type = billing_type
+        if isp is not None:
+            self.isp = isp
 
     @property
     def bandwidth(self):
@@ -98,6 +103,34 @@ class PublicAccessNetworkConfigForUpdateClusterConfigInput(object):
         """
 
         self._billing_type = billing_type
+
+    @property
+    def isp(self):
+        """Gets the isp of this PublicAccessNetworkConfigForUpdateClusterConfigInput.  # noqa: E501
+
+
+        :return: The isp of this PublicAccessNetworkConfigForUpdateClusterConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._isp
+
+    @isp.setter
+    def isp(self, isp):
+        """Sets the isp of this PublicAccessNetworkConfigForUpdateClusterConfigInput.
+
+
+        :param isp: The isp of this PublicAccessNetworkConfigForUpdateClusterConfigInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["BGP", "ChinaMobile"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                isp not in allowed_values):
+            raise ValueError(
+                "Invalid value for `isp` ({0}), must be one of {1}"  # noqa: E501
+                .format(isp, allowed_values)
+            )
+
+        self._isp = isp
 
     def to_dict(self):
         """Returns the model properties as a dict"""
