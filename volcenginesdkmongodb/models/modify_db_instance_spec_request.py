@@ -35,20 +35,24 @@ class ModifyDBInstanceSpecRequest(object):
     swagger_types = {
         'instance_id': 'str',
         'instance_type': 'str',
+        'mongos_node_number': 'int',
         'mongos_node_spec': 'str',
         'node_spec': 'str',
+        'shard_number': 'int',
         'storage_space_gb': 'int'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
         'instance_type': 'InstanceType',
+        'mongos_node_number': 'MongosNodeNumber',
         'mongos_node_spec': 'MongosNodeSpec',
         'node_spec': 'NodeSpec',
+        'shard_number': 'ShardNumber',
         'storage_space_gb': 'StorageSpaceGB'
     }
 
-    def __init__(self, instance_id=None, instance_type=None, mongos_node_spec=None, node_spec=None, storage_space_gb=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_spec=None, shard_number=None, storage_space_gb=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,18 +60,24 @@ class ModifyDBInstanceSpecRequest(object):
 
         self._instance_id = None
         self._instance_type = None
+        self._mongos_node_number = None
         self._mongos_node_spec = None
         self._node_spec = None
+        self._shard_number = None
         self._storage_space_gb = None
         self.discriminator = None
 
         self.instance_id = instance_id
         if instance_type is not None:
             self.instance_type = instance_type
+        if mongos_node_number is not None:
+            self.mongos_node_number = mongos_node_number
         if mongos_node_spec is not None:
             self.mongos_node_spec = mongos_node_spec
         if node_spec is not None:
             self.node_spec = node_spec
+        if shard_number is not None:
+            self.shard_number = shard_number
         if storage_space_gb is not None:
             self.storage_space_gb = storage_space_gb
 
@@ -123,6 +133,27 @@ class ModifyDBInstanceSpecRequest(object):
         self._instance_type = instance_type
 
     @property
+    def mongos_node_number(self):
+        """Gets the mongos_node_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The mongos_node_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._mongos_node_number
+
+    @mongos_node_number.setter
+    def mongos_node_number(self, mongos_node_number):
+        """Sets the mongos_node_number of this ModifyDBInstanceSpecRequest.
+
+
+        :param mongos_node_number: The mongos_node_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._mongos_node_number = mongos_node_number
+
+    @property
     def mongos_node_spec(self):
         """Gets the mongos_node_spec of this ModifyDBInstanceSpecRequest.  # noqa: E501
 
@@ -163,6 +194,27 @@ class ModifyDBInstanceSpecRequest(object):
         """
 
         self._node_spec = node_spec
+
+    @property
+    def shard_number(self):
+        """Gets the shard_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The shard_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._shard_number
+
+    @shard_number.setter
+    def shard_number(self, shard_number):
+        """Sets the shard_number of this ModifyDBInstanceSpecRequest.
+
+
+        :param shard_number: The shard_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._shard_number = shard_number
 
     @property
     def storage_space_gb(self):

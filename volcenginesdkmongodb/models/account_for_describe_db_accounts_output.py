@@ -122,6 +122,13 @@ class AccountForDescribeDBAccountsOutput(object):
         :param account_type: The account_type of this AccountForDescribeDBAccountsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Super"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                account_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `account_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(account_type, allowed_values)
+            )
 
         self._account_type = account_type
 
