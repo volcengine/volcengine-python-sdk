@@ -37,6 +37,7 @@ class InstanceDetailForDescribeBackupsOutput(object):
         'arch_type': 'str',
         'charge_type': 'str',
         'engine_version': 'str',
+        'expired_time': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'maintenance_time': 'str',
@@ -58,6 +59,7 @@ class InstanceDetailForDescribeBackupsOutput(object):
         'arch_type': 'ArchType',
         'charge_type': 'ChargeType',
         'engine_version': 'EngineVersion',
+        'expired_time': 'ExpiredTime',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'maintenance_time': 'MaintenanceTime',
@@ -74,7 +76,7 @@ class InstanceDetailForDescribeBackupsOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, account_id=None, arch_type=None, charge_type=None, engine_version=None, instance_id=None, instance_name=None, maintenance_time=None, network_type=None, project_name=None, region_id=None, replicas=None, server_cpu=None, shard_capacity=None, shard_count=None, total_capacity=None, used_capacity=None, vpc_info=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, arch_type=None, charge_type=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, maintenance_time=None, network_type=None, project_name=None, region_id=None, replicas=None, server_cpu=None, shard_capacity=None, shard_count=None, total_capacity=None, used_capacity=None, vpc_info=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceDetailForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +86,7 @@ class InstanceDetailForDescribeBackupsOutput(object):
         self._arch_type = None
         self._charge_type = None
         self._engine_version = None
+        self._expired_time = None
         self._instance_id = None
         self._instance_name = None
         self._maintenance_time = None
@@ -108,6 +111,8 @@ class InstanceDetailForDescribeBackupsOutput(object):
             self.charge_type = charge_type
         if engine_version is not None:
             self.engine_version = engine_version
+        if expired_time is not None:
+            self.expired_time = expired_time
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -220,6 +225,27 @@ class InstanceDetailForDescribeBackupsOutput(object):
         """
 
         self._engine_version = engine_version
+
+    @property
+    def expired_time(self):
+        """Gets the expired_time of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The expired_time of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expired_time
+
+    @expired_time.setter
+    def expired_time(self, expired_time):
+        """Sets the expired_time of this InstanceDetailForDescribeBackupsOutput.
+
+
+        :param expired_time: The expired_time of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._expired_time = expired_time
 
     @property
     def instance_id(self):

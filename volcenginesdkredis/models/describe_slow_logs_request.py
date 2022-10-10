@@ -75,7 +75,8 @@ class DescribeSlowLogsRequest(object):
         if node_ids is not None:
             self.node_ids = node_ids
         self.page_size = page_size
-        self.query_end_time = query_end_time
+        if query_end_time is not None:
+            self.query_end_time = query_end_time
         if query_start_time is not None:
             self.query_start_time = query_start_time
 
@@ -206,8 +207,6 @@ class DescribeSlowLogsRequest(object):
         :param query_end_time: The query_end_time of this DescribeSlowLogsRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and query_end_time is None:
-            raise ValueError("Invalid value for `query_end_time`, must not be `None`")  # noqa: E501
 
         self._query_end_time = query_end_time
 
