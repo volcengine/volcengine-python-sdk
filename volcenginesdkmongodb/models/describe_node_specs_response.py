@@ -35,7 +35,7 @@ class DescribeNodeSpecsResponse(object):
     swagger_types = {
         'mongos_node_specs': 'list[MongosNodeSpecForDescribeNodeSpecsOutput]',
         'node_specs': 'list[NodeSpecForDescribeNodeSpecsOutput]',
-        'shard_node_specs': 'list[ShardNodeSpecForDescribeNodeSpecsOutput]'
+        'shard_node_specs': 'list[NodeSpecForDescribeNodeSpecsOutput]'
     }
 
     attribute_map = {
@@ -110,7 +110,7 @@ class DescribeNodeSpecsResponse(object):
 
 
         :return: The shard_node_specs of this DescribeNodeSpecsResponse.  # noqa: E501
-        :rtype: list[ShardNodeSpecForDescribeNodeSpecsOutput]
+        :rtype: list[NodeSpecForDescribeNodeSpecsOutput]
         """
         return self._shard_node_specs
 
@@ -120,7 +120,7 @@ class DescribeNodeSpecsResponse(object):
 
 
         :param shard_node_specs: The shard_node_specs of this DescribeNodeSpecsResponse.  # noqa: E501
-        :type: list[ShardNodeSpecForDescribeNodeSpecsOutput]
+        :type: list[NodeSpecForDescribeNodeSpecsOutput]
         """
 
         self._shard_node_specs = shard_node_specs
