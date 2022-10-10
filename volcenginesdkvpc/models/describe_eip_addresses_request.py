@@ -42,6 +42,7 @@ class DescribeEipAddressesRequest(object):
         'name': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'security_protection_enabled': 'bool',
         'status': 'str',
         'tag_filters': 'list[TagFilterForDescribeEipAddressesInput]'
@@ -57,12 +58,13 @@ class DescribeEipAddressesRequest(object):
         'name': 'Name',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'security_protection_enabled': 'SecurityProtectionEnabled',
         'status': 'Status',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, billing_type=None, eip_addresses=None, isp=None, name=None, page_number=None, page_size=None, security_protection_enabled=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, billing_type=None, eip_addresses=None, isp=None, name=None, page_number=None, page_size=None, project_name=None, security_protection_enabled=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeEipAddressesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class DescribeEipAddressesRequest(object):
         self._name = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._security_protection_enabled = None
         self._status = None
         self._tag_filters = None
@@ -100,6 +103,8 @@ class DescribeEipAddressesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if security_protection_enabled is not None:
             self.security_protection_enabled = security_protection_enabled
         if status is not None:
@@ -318,6 +323,27 @@ class DescribeEipAddressesRequest(object):
             raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeEipAddressesRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeEipAddressesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeEipAddressesRequest.
+
+
+        :param project_name: The project_name of this DescribeEipAddressesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def security_protection_enabled(self):

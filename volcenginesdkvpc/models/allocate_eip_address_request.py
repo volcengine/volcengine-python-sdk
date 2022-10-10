@@ -35,11 +35,13 @@ class AllocateEipAddressRequest(object):
     swagger_types = {
         'bandwidth': 'int',
         'billing_type': 'int',
+        'client_token': 'str',
         'description': 'str',
         'isp': 'str',
         'name': 'str',
         'period': 'int',
         'period_unit': 'int',
+        'project_name': 'str',
         'security_protection_types': 'list[str]',
         'tags': 'list[TagForAllocateEipAddressInput]'
     }
@@ -47,16 +49,18 @@ class AllocateEipAddressRequest(object):
     attribute_map = {
         'bandwidth': 'Bandwidth',
         'billing_type': 'BillingType',
+        'client_token': 'ClientToken',
         'description': 'Description',
         'isp': 'ISP',
         'name': 'Name',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'security_protection_types': 'SecurityProtectionTypes',
         'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, description=None, isp=None, name=None, period=None, period_unit=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, client_token=None, description=None, isp=None, name=None, period=None, period_unit=None, project_name=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
         """AllocateEipAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,11 +68,13 @@ class AllocateEipAddressRequest(object):
 
         self._bandwidth = None
         self._billing_type = None
+        self._client_token = None
         self._description = None
         self._isp = None
         self._name = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
         self._security_protection_types = None
         self._tags = None
         self.discriminator = None
@@ -77,6 +83,8 @@ class AllocateEipAddressRequest(object):
             self.bandwidth = bandwidth
         if billing_type is not None:
             self.billing_type = billing_type
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if isp is not None:
@@ -87,6 +95,8 @@ class AllocateEipAddressRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
         if tags is not None:
@@ -145,6 +155,27 @@ class AllocateEipAddressRequest(object):
             raise ValueError("Invalid value for `billing_type`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._billing_type = billing_type
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The client_token of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this AllocateEipAddressRequest.
+
+
+        :param client_token: The client_token of this AllocateEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):
@@ -275,6 +306,27 @@ class AllocateEipAddressRequest(object):
             raise ValueError("Invalid value for `period_unit`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._period_unit = period_unit
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The project_name of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this AllocateEipAddressRequest.
+
+
+        :param project_name: The project_name of this AllocateEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def security_protection_types(self):
