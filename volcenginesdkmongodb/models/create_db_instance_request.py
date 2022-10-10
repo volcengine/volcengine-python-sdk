@@ -46,6 +46,7 @@ class CreateDBInstanceRequest(object):
         'node_spec': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'project_name': 'str',
         'shard_number': 'int',
         'storage_space_gb': 'int',
         'subnet_id': 'str',
@@ -69,6 +70,7 @@ class CreateDBInstanceRequest(object):
         'node_spec': 'NodeSpec',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'shard_number': 'ShardNumber',
         'storage_space_gb': 'StorageSpaceGB',
         'subnet_id': 'SubnetId',
@@ -78,7 +80,7 @@ class CreateDBInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_number=None, node_spec=None, period=None, period_unit=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class CreateDBInstanceRequest(object):
         self._node_spec = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
         self._shard_number = None
         self._storage_space_gb = None
         self._subnet_id = None
@@ -132,6 +135,8 @@ class CreateDBInstanceRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         if shard_number is not None:
             self.shard_number = shard_number
         if storage_space_gb is not None:
@@ -263,7 +268,7 @@ class CreateDBInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_5_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -457,6 +462,27 @@ class CreateDBInstanceRequest(object):
             )
 
         self._period_unit = period_unit
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateDBInstanceRequest.
+
+
+        :param project_name: The project_name of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def shard_number(self):

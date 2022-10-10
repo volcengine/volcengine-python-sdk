@@ -45,6 +45,7 @@ class DescribeDBInstancesRequest(object):
         'page_size': 'int',
         'update_end_time': 'str',
         'update_start_time': 'str',
+        'vpc_id': 'str',
         'zone_id': 'str'
     }
 
@@ -61,10 +62,11 @@ class DescribeDBInstancesRequest(object):
         'page_size': 'PageSize',
         'update_end_time': 'UpdateEndTime',
         'update_start_time': 'UpdateStartTime',
+        'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, create_end_time=None, create_start_time=None, db_engine=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, update_end_time=None, update_start_time=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_end_time=None, create_start_time=None, db_engine=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, update_end_time=None, update_start_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class DescribeDBInstancesRequest(object):
         self._page_size = None
         self._update_end_time = None
         self._update_start_time = None
+        self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
 
@@ -109,6 +112,8 @@ class DescribeDBInstancesRequest(object):
             self.update_end_time = update_end_time
         if update_start_time is not None:
             self.update_start_time = update_start_time
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -200,7 +205,7 @@ class DescribeDBInstancesRequest(object):
         :param db_engine_version: The db_engine_version of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_5_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -273,7 +278,7 @@ class DescribeDBInstancesRequest(object):
         :param instance_status: The instance_status of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["AllowListMaintaining", "Closed", "Closing", "CreateFailed", "Creating", "Deleted", "Deleting", "Destroyed", "Destroying", "Error", "Importing", "Migrating", "NetCreating", "NetReleasing", "NetworkMaintaining", "Rebuilding", "Reclaiming", "Recycled", "Released", "Restarting", "Restoring", "Resuming", "Running", "Scaling", "TaskFailed_Available", "Unavailable", "Updating", "Upgrading", "WaitingPaid"]  # noqa: E501
+        allowed_values = ["AllowListMaintaining", "Closed", "Closing", "CreateFailed", "Creating", "Deleted", "Deleting", "Destroyed", "Destroying", "Error", "Importing", "Migrating", "NetCreating", "NetReleasing", "NetworkMaintaining", "Rebuilding", "Reclaiming", "Recycled", "Released", "Restarting", "Restoring", "Resuming", "Running", "SSLUpdating", "Scaling", "TDEMaintaining", "TaskFailed_Available", "Unavailable", "Updating", "Upgrading", "WaitingPaid"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_status not in allowed_values):
             raise ValueError(
@@ -394,6 +399,27 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._update_start_time = update_start_time
+
+    @property
+    def vpc_id(self):
+        """Gets the vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_id
+
+    @vpc_id.setter
+    def vpc_id(self, vpc_id):
+        """Sets the vpc_id of this DescribeDBInstancesRequest.
+
+
+        :param vpc_id: The vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_id = vpc_id
 
     @property
     def zone_id(self):
