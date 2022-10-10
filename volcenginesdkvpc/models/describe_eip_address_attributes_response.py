@@ -49,9 +49,11 @@ class DescribeEipAddressAttributesResponse(object):
         'lock_reason': 'str',
         'name': 'str',
         'overdue_time': 'str',
+        'project_name': 'str',
         'request_id': 'str',
         'security_protection_types': 'list[str]',
         'status': 'str',
+        'tags': 'list[TagForDescribeEipAddressAttributesOutput]',
         'updated_at': 'str'
     }
 
@@ -72,13 +74,15 @@ class DescribeEipAddressAttributesResponse(object):
         'lock_reason': 'LockReason',
         'name': 'Name',
         'overdue_time': 'OverdueTime',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'security_protection_types': 'SecurityProtectionTypes',
         'status': 'Status',
+        'tags': 'Tags',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, allocation_id=None, allocation_time=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, deleted_time=None, description=None, eip_address=None, expired_time=None, isp=None, instance_id=None, instance_type=None, lock_reason=None, name=None, overdue_time=None, request_id=None, security_protection_types=None, status=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, allocation_time=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, deleted_time=None, description=None, eip_address=None, expired_time=None, isp=None, instance_id=None, instance_type=None, lock_reason=None, name=None, overdue_time=None, project_name=None, request_id=None, security_protection_types=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
         """DescribeEipAddressAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,9 +104,11 @@ class DescribeEipAddressAttributesResponse(object):
         self._lock_reason = None
         self._name = None
         self._overdue_time = None
+        self._project_name = None
         self._request_id = None
         self._security_protection_types = None
         self._status = None
+        self._tags = None
         self._updated_at = None
         self.discriminator = None
 
@@ -138,12 +144,16 @@ class DescribeEipAddressAttributesResponse(object):
             self.name = name
         if overdue_time is not None:
             self.overdue_time = overdue_time
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
 
@@ -484,6 +494,27 @@ class DescribeEipAddressAttributesResponse(object):
         self._overdue_time = overdue_time
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeEipAddressAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeEipAddressAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def request_id(self):
         """Gets the request_id of this DescribeEipAddressAttributesResponse.  # noqa: E501
 
@@ -545,6 +576,27 @@ class DescribeEipAddressAttributesResponse(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeEipAddressAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeEipAddressAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeEipAddressAttributesResponse.
+
+
+        :param tags: The tags of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeEipAddressAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):
