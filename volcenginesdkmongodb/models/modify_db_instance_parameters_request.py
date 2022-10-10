@@ -34,27 +34,27 @@ class ModifyDBInstanceParametersRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
-        'parameters': 'str'
+        'parameters_object': 'ParametersObjectForModifyDBInstanceParametersInput'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
-        'parameters': 'Parameters'
+        'parameters_object': 'ParametersObject'
     }
 
-    def __init__(self, instance_id=None, parameters=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, parameters_object=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceParametersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
-        self._parameters = None
+        self._parameters_object = None
         self.discriminator = None
 
         self.instance_id = instance_id
-        if parameters is not None:
-            self.parameters = parameters
+        if parameters_object is not None:
+            self.parameters_object = parameters_object
 
     @property
     def instance_id(self):
@@ -80,25 +80,25 @@ class ModifyDBInstanceParametersRequest(object):
         self._instance_id = instance_id
 
     @property
-    def parameters(self):
-        """Gets the parameters of this ModifyDBInstanceParametersRequest.  # noqa: E501
+    def parameters_object(self):
+        """Gets the parameters_object of this ModifyDBInstanceParametersRequest.  # noqa: E501
 
 
-        :return: The parameters of this ModifyDBInstanceParametersRequest.  # noqa: E501
-        :rtype: str
+        :return: The parameters_object of this ModifyDBInstanceParametersRequest.  # noqa: E501
+        :rtype: ParametersObjectForModifyDBInstanceParametersInput
         """
-        return self._parameters
+        return self._parameters_object
 
-    @parameters.setter
-    def parameters(self, parameters):
-        """Sets the parameters of this ModifyDBInstanceParametersRequest.
+    @parameters_object.setter
+    def parameters_object(self, parameters_object):
+        """Sets the parameters_object of this ModifyDBInstanceParametersRequest.
 
 
-        :param parameters: The parameters of this ModifyDBInstanceParametersRequest.  # noqa: E501
-        :type: str
+        :param parameters_object: The parameters_object of this ModifyDBInstanceParametersRequest.  # noqa: E501
+        :type: ParametersObjectForModifyDBInstanceParametersInput
         """
 
-        self._parameters = parameters
+        self._parameters_object = parameters_object
 
     def to_dict(self):
         """Returns the model properties as a dict"""
