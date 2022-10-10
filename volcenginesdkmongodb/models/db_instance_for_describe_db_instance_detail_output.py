@@ -34,6 +34,7 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
     """
     swagger_types = {
         'auto_renew': 'bool',
+        'charge_status': 'str',
         'charge_type': 'str',
         'closed_time': 'str',
         'config_servers': 'list[ConfigServerForDescribeDBInstanceDetailOutput]',
@@ -50,6 +51,7 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         'mongos': 'list[MongoForDescribeDBInstanceDetailOutput]',
         'mongos_id': 'str',
         'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]',
+        'project_name': 'str',
         'reclaim_time': 'str',
         'shards': 'list[ShardForDescribeDBInstanceDetailOutput]',
         'subnet_id': 'str',
@@ -60,6 +62,7 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
 
     attribute_map = {
         'auto_renew': 'AutoRenew',
+        'charge_status': 'ChargeStatus',
         'charge_type': 'ChargeType',
         'closed_time': 'ClosedTime',
         'config_servers': 'ConfigServers',
@@ -76,6 +79,7 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         'mongos': 'Mongos',
         'mongos_id': 'MongosId',
         'nodes': 'Nodes',
+        'project_name': 'ProjectName',
         'reclaim_time': 'ReclaimTime',
         'shards': 'Shards',
         'subnet_id': 'SubnetId',
@@ -84,13 +88,14 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, closed_time=None, config_servers=None, config_servers_id=None, create_time=None, db_engine=None, db_engine_version=None, db_engine_version_str=None, expired_time=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, mongos=None, mongos_id=None, nodes=None, reclaim_time=None, shards=None, subnet_id=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, closed_time=None, config_servers=None, config_servers_id=None, create_time=None, db_engine=None, db_engine_version=None, db_engine_version_str=None, expired_time=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, mongos=None, mongos_id=None, nodes=None, project_name=None, reclaim_time=None, shards=None, subnet_id=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DBInstanceForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_renew = None
+        self._charge_status = None
         self._charge_type = None
         self._closed_time = None
         self._config_servers = None
@@ -107,6 +112,7 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         self._mongos = None
         self._mongos_id = None
         self._nodes = None
+        self._project_name = None
         self._reclaim_time = None
         self._shards = None
         self._subnet_id = None
@@ -117,6 +123,8 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
 
         if auto_renew is not None:
             self.auto_renew = auto_renew
+        if charge_status is not None:
+            self.charge_status = charge_status
         if charge_type is not None:
             self.charge_type = charge_type
         if closed_time is not None:
@@ -149,6 +157,8 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
             self.mongos_id = mongos_id
         if nodes is not None:
             self.nodes = nodes
+        if project_name is not None:
+            self.project_name = project_name
         if reclaim_time is not None:
             self.reclaim_time = reclaim_time
         if shards is not None:
@@ -184,6 +194,34 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         self._auto_renew = auto_renew
 
     @property
+    def charge_status(self):
+        """Gets the charge_status of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The charge_status of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._charge_status
+
+    @charge_status.setter
+    def charge_status(self, charge_status):
+        """Sets the charge_status of this DBInstanceForDescribeDBInstanceDetailOutput.
+
+
+        :param charge_status: The charge_status of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Normal", "Overdue", "Owing", "Renewing", "UnDeploy", "Unsubscribing", "WaitingPaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                charge_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `charge_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(charge_status, allowed_values)
+            )
+
+        self._charge_status = charge_status
+
+    @property
     def charge_type(self):
         """Gets the charge_type of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -201,6 +239,13 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         :param charge_type: The charge_type of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["NotEnabled", "PostPaid", "Prepaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(charge_type, allowed_values)
+            )
 
         self._charge_type = charge_type
 
@@ -306,6 +351,13 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         :param db_engine: The db_engine of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["MongoDB"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                db_engine not in allowed_values):
+            raise ValueError(
+                "Invalid value for `db_engine` ({0}), must be one of {1}"  # noqa: E501
+                .format(db_engine, allowed_values)
+            )
 
         self._db_engine = db_engine
 
@@ -327,6 +379,13 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         :param db_engine_version: The db_engine_version of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["MongoDB_4_0", "MongoDB_5_0"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                db_engine_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `db_engine_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(db_engine_version, allowed_values)
+            )
 
         self._db_engine_version = db_engine_version
 
@@ -432,6 +491,13 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         :param instance_status: The instance_status of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["AllowListMaintaining", "Closed", "Closing", "CreateFailed", "Creating", "Deleted", "Deleting", "Destroyed", "Destroying", "Error", "Importing", "Migrating", "NetCreating", "NetReleasing", "NetworkMaintaining", "Rebuilding", "Reclaiming", "Recycled", "Released", "Restarting", "Restoring", "Resuming", "Running", "SSLUpdating", "Scaling", "TDEMaintaining", "TaskFailed_Available", "Unavailable", "Updating", "Upgrading", "WaitingPaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                instance_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `instance_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(instance_status, allowed_values)
+            )
 
         self._instance_status = instance_status
 
@@ -453,6 +519,13 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         :param instance_type: The instance_type of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ReplicaSet", "ShardedCluster"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                instance_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `instance_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(instance_type, allowed_values)
+            )
 
         self._instance_type = instance_type
 
@@ -518,6 +591,27 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         """
 
         self._nodes = nodes
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The project_name of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DBInstanceForDescribeDBInstanceDetailOutput.
+
+
+        :param project_name: The project_name of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def reclaim_time(self):

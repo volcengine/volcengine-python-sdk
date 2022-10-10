@@ -39,6 +39,7 @@ class DBEndpointForDescribeDBEndpointOutput(object):
         'endpoint_type': 'str',
         'network_type': 'str',
         'object_id': 'str',
+        'subnet_id': 'str',
         'vpc_id': 'str'
     }
 
@@ -49,10 +50,11 @@ class DBEndpointForDescribeDBEndpointOutput(object):
         'endpoint_type': 'EndpointType',
         'network_type': 'NetworkType',
         'object_id': 'ObjectId',
+        'subnet_id': 'SubnetId',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, db_addresses=None, endpoint_id=None, endpoint_str=None, endpoint_type=None, network_type=None, object_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, db_addresses=None, endpoint_id=None, endpoint_str=None, endpoint_type=None, network_type=None, object_id=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DBEndpointForDescribeDBEndpointOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class DBEndpointForDescribeDBEndpointOutput(object):
         self._endpoint_type = None
         self._network_type = None
         self._object_id = None
+        self._subnet_id = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class DBEndpointForDescribeDBEndpointOutput(object):
             self.network_type = network_type
         if object_id is not None:
             self.object_id = object_id
+        if subnet_id is not None:
+            self.subnet_id = subnet_id
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -163,6 +168,13 @@ class DBEndpointForDescribeDBEndpointOutput(object):
         :param endpoint_type: The endpoint_type of this DBEndpointForDescribeDBEndpointOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ConfigServer", "Mongos", "ReplicaSet", "Shard"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                endpoint_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `endpoint_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(endpoint_type, allowed_values)
+            )
 
         self._endpoint_type = endpoint_type
 
@@ -184,6 +196,13 @@ class DBEndpointForDescribeDBEndpointOutput(object):
         :param network_type: The network_type of this DBEndpointForDescribeDBEndpointOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["InnerPLB", "Private", "Public", "StorageInner"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                network_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `network_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(network_type, allowed_values)
+            )
 
         self._network_type = network_type
 
@@ -207,6 +226,27 @@ class DBEndpointForDescribeDBEndpointOutput(object):
         """
 
         self._object_id = object_id
+
+    @property
+    def subnet_id(self):
+        """Gets the subnet_id of this DBEndpointForDescribeDBEndpointOutput.  # noqa: E501
+
+
+        :return: The subnet_id of this DBEndpointForDescribeDBEndpointOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_id
+
+    @subnet_id.setter
+    def subnet_id(self, subnet_id):
+        """Sets the subnet_id of this DBEndpointForDescribeDBEndpointOutput.
+
+
+        :param subnet_id: The subnet_id of this DBEndpointForDescribeDBEndpointOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_id = subnet_id
 
     @property
     def vpc_id(self):
