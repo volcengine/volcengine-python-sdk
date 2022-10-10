@@ -40,7 +40,8 @@ class AllocateEipAddressRequest(object):
         'name': 'str',
         'period': 'int',
         'period_unit': 'int',
-        'security_protection_types': 'list[str]'
+        'security_protection_types': 'list[str]',
+        'tags': 'list[TagForAllocateEipAddressInput]'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class AllocateEipAddressRequest(object):
         'name': 'Name',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
-        'security_protection_types': 'SecurityProtectionTypes'
+        'security_protection_types': 'SecurityProtectionTypes',
+        'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, description=None, isp=None, name=None, period=None, period_unit=None, security_protection_types=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, description=None, isp=None, name=None, period=None, period_unit=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
         """AllocateEipAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class AllocateEipAddressRequest(object):
         self._period = None
         self._period_unit = None
         self._security_protection_types = None
+        self._tags = None
         self.discriminator = None
 
         if bandwidth is not None:
@@ -86,6 +89,8 @@ class AllocateEipAddressRequest(object):
             self.period_unit = period_unit
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
+        if tags is not None:
+            self.tags = tags
 
     @property
     def bandwidth(self):
@@ -291,6 +296,27 @@ class AllocateEipAddressRequest(object):
         """
 
         self._security_protection_types = security_protection_types
+
+    @property
+    def tags(self):
+        """Gets the tags of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The tags of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: list[TagForAllocateEipAddressInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this AllocateEipAddressRequest.
+
+
+        :param tags: The tags of this AllocateEipAddressRequest.  # noqa: E501
+        :type: list[TagForAllocateEipAddressInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

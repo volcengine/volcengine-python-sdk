@@ -43,7 +43,8 @@ class DescribeEipAddressesRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'security_protection_enabled': 'bool',
-        'status': 'str'
+        'status': 'str',
+        'tag_filters': 'list[TagFilterForDescribeEipAddressesInput]'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class DescribeEipAddressesRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'security_protection_enabled': 'SecurityProtectionEnabled',
-        'status': 'Status'
+        'status': 'Status',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, billing_type=None, eip_addresses=None, isp=None, name=None, page_number=None, page_size=None, security_protection_enabled=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, billing_type=None, eip_addresses=None, isp=None, name=None, page_number=None, page_size=None, security_protection_enabled=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeEipAddressesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class DescribeEipAddressesRequest(object):
         self._page_size = None
         self._security_protection_enabled = None
         self._status = None
+        self._tag_filters = None
         self.discriminator = None
 
         if allocation_ids is not None:
@@ -101,6 +104,8 @@ class DescribeEipAddressesRequest(object):
             self.security_protection_enabled = security_protection_enabled
         if status is not None:
             self.status = status
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def allocation_ids(self):
@@ -362,6 +367,27 @@ class DescribeEipAddressesRequest(object):
             )
 
         self._status = status
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeEipAddressesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeEipAddressesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeEipAddressesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeEipAddressesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeEipAddressesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeEipAddressesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""
