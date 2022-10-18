@@ -129,6 +129,13 @@ class ItemForListSupportedAddonsOutput(object):
         :param deploy_mode: The deploy_mode of this ItemForListSupportedAddonsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Either", "Managed", "Unmanaged"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                deploy_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `deploy_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(deploy_mode, allowed_values)
+            )
 
         self._deploy_mode = deploy_mode
 
@@ -200,6 +207,13 @@ class ItemForListSupportedAddonsOutput(object):
         :param necessary: The necessary of this ItemForListSupportedAddonsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["OnDemand", "Recommended", "Required"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                necessary not in allowed_values):
+            raise ValueError(
+                "Invalid value for `necessary` ({0}), must be one of {1}"  # noqa: E501
+                .format(necessary, allowed_values)
+            )
 
         self._necessary = necessary
 

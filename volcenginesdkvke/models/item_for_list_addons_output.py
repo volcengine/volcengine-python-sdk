@@ -146,6 +146,13 @@ class ItemForListAddonsOutput(object):
         :param cluster_type: The cluster_type of this ItemForListAddonsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["OnPremise", "Registered", "Standard"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                cluster_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `cluster_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(cluster_type, allowed_values)
+            )
 
         self._cluster_type = cluster_type
 
@@ -230,6 +237,13 @@ class ItemForListAddonsOutput(object):
         :param deploy_mode: The deploy_mode of this ItemForListAddonsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Managed", "Unmanaged"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                deploy_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `deploy_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(deploy_mode, allowed_values)
+            )
 
         self._deploy_mode = deploy_mode
 
@@ -251,6 +265,13 @@ class ItemForListAddonsOutput(object):
         :param deploy_node_type: The deploy_node_type of this ItemForListAddonsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Node", "VirtualNode"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                deploy_node_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `deploy_node_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(deploy_node_type, allowed_values)
+            )
 
         self._deploy_node_type = deploy_node_type
 

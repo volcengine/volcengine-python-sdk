@@ -33,24 +33,58 @@ class FilterForListSupportedResourceTypesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'resource_types': 'list[str]',
         'zone_ids': 'list[str]'
     }
 
     attribute_map = {
+        'resource_types': 'ResourceTypes',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, resource_types=None, zone_ids=None, _configuration=None):  # noqa: E501
         """FilterForListSupportedResourceTypesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._resource_types = None
         self._zone_ids = None
         self.discriminator = None
 
+        if resource_types is not None:
+            self.resource_types = resource_types
         if zone_ids is not None:
             self.zone_ids = zone_ids
+
+    @property
+    def resource_types(self):
+        """Gets the resource_types of this FilterForListSupportedResourceTypesInput.  # noqa: E501
+
+
+        :return: The resource_types of this FilterForListSupportedResourceTypesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._resource_types
+
+    @resource_types.setter
+    def resource_types(self, resource_types):
+        """Sets the resource_types of this FilterForListSupportedResourceTypesInput.
+
+
+        :param resource_types: The resource_types of this FilterForListSupportedResourceTypesInput.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["Ecs", "Zone"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(resource_types).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `resource_types` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(resource_types) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._resource_types = resource_types
 
     @property
     def zone_ids(self):

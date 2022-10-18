@@ -85,6 +85,13 @@ class ItemForListSupportedResourceTypesOutput(object):
         :param resource_scope: The resource_scope of this ItemForListSupportedResourceTypesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Region", "Zone"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resource_scope not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resource_scope` ({0}), must be one of {1}"  # noqa: E501
+                .format(resource_scope, allowed_values)
+            )
 
         self._resource_scope = resource_scope
 
@@ -127,6 +134,13 @@ class ItemForListSupportedResourceTypesOutput(object):
         :param resource_type: The resource_type of this ItemForListSupportedResourceTypesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Ecs", "Zone"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resource_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resource_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(resource_type, allowed_values)
+            )
 
         self._resource_type = resource_type
 
