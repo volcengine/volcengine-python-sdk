@@ -148,6 +148,13 @@ class DataForListDatabasesOutput(object):
         :param db_status: The db_status of this DataForListDatabasesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Running"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                db_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `db_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(db_status, allowed_values)
+            )
 
         self._db_status = db_status
 

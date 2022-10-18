@@ -292,7 +292,7 @@ class RecoveryDBInstanceRequest(object):
         :param recovery_type: The recovery_type of this RecoveryDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Instance", "Slave", "Table"]  # noqa: E501
+        allowed_values = ["Instance"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 recovery_type not in allowed_values):
             raise ValueError(
@@ -362,7 +362,7 @@ class RecoveryDBInstanceRequest(object):
         :param storage_type: The storage_type of this RecoveryDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["CloudStorage", "ESSDFlexPL", "LocalSSD"]  # noqa: E501
+        allowed_values = ["CloudStorage", "ESSDPL1", "ESSDPL2", "LocalSSD"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 storage_type not in allowed_values):
             raise ValueError(

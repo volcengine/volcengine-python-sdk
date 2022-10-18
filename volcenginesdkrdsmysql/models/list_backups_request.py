@@ -99,7 +99,7 @@ class ListBackupsRequest(object):
         :param backup_data_type: The backup_data_type of this ListBackupsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Data", "Log"]  # noqa: E501
+        allowed_values = ["Data"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 backup_data_type not in allowed_values):
             raise ValueError(

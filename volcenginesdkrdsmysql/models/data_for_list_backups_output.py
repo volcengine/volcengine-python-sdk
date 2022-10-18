@@ -199,6 +199,13 @@ class DataForListBackupsOutput(object):
         :param backup_mode: The backup_mode of this DataForListBackupsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Full", "Increment"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                backup_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `backup_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(backup_mode, allowed_values)
+            )
 
         self._backup_mode = backup_mode
 
@@ -241,6 +248,13 @@ class DataForListBackupsOutput(object):
         :param backup_status: The backup_status of this DataForListBackupsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Failed", "Running", "Success"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                backup_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `backup_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(backup_status, allowed_values)
+            )
 
         self._backup_status = backup_status
 
@@ -262,6 +276,13 @@ class DataForListBackupsOutput(object):
         :param backup_strategy: The backup_strategy of this DataForListBackupsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Database", "Instance"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                backup_strategy not in allowed_values):
+            raise ValueError(
+                "Invalid value for `backup_strategy` ({0}), must be one of {1}"  # noqa: E501
+                .format(backup_strategy, allowed_values)
+            )
 
         self._backup_strategy = backup_strategy
 
@@ -283,6 +304,13 @@ class DataForListBackupsOutput(object):
         :param backup_type: The backup_type of this DataForListBackupsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Logical", "Physical"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                backup_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `backup_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(backup_type, allowed_values)
+            )
 
         self._backup_type = backup_type
 
@@ -304,6 +332,13 @@ class DataForListBackupsOutput(object):
         :param create_type: The create_type of this DataForListBackupsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["System", "User"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                create_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `create_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(create_type, allowed_values)
+            )
 
         self._create_type = create_type
 

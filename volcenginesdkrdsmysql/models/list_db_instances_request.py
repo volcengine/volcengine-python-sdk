@@ -201,7 +201,7 @@ class ListDBInstancesRequest(object):
         :param instance_type: The instance_type of this ListDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Basic", "Cluster", "Finance", "HA"]  # noqa: E501
+        allowed_values = ["HA"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_type not in allowed_values):
             raise ValueError(

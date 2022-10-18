@@ -33,23 +33,28 @@ class DeleteDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'released_keep_policy': 'str'
     }
 
     attribute_map = {
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'released_keep_policy': 'ReleasedKeepPolicy'
     }
 
-    def __init__(self, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, released_keep_policy=None, _configuration=None):  # noqa: E501
         """DeleteDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._released_keep_policy = None
         self.discriminator = None
 
         self.instance_id = instance_id
+        if released_keep_policy is not None:
+            self.released_keep_policy = released_keep_policy
 
     @property
     def instance_id(self):
@@ -73,6 +78,34 @@ class DeleteDBInstanceRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def released_keep_policy(self):
+        """Gets the released_keep_policy of this DeleteDBInstanceRequest.  # noqa: E501
+
+
+        :return: The released_keep_policy of this DeleteDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._released_keep_policy
+
+    @released_keep_policy.setter
+    def released_keep_policy(self, released_keep_policy):
+        """Sets the released_keep_policy of this DeleteDBInstanceRequest.
+
+
+        :param released_keep_policy: The released_keep_policy of this DeleteDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Lastest", "None"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                released_keep_policy not in allowed_values):
+            raise ValueError(
+                "Invalid value for `released_keep_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(released_keep_policy, allowed_values)
+            )
+
+        self._released_keep_policy = released_keep_policy
 
     def to_dict(self):
         """Returns the model properties as a dict"""

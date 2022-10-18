@@ -37,14 +37,17 @@ class CreateDBInstanceRequest(object):
         'charge_type': 'str',
         'db_engine': 'str',
         'db_engine_version': 'str',
-        'instance_category': 'str',
+        'instance_name': 'str',
         'instance_spec_name': 'str',
         'instance_type': 'str',
         'number': 'int',
         'prepaid_period': 'str',
-        'region': 'str',
+        'project_name': 'str',
         'storage_space_gb': 'int',
         'storage_type': 'str',
+        'subnet_id': 'str',
+        'super_account_name': 'str',
+        'super_account_password': 'str',
         'used_time': 'int',
         'vpc_id': 'str',
         'zone': 'str'
@@ -55,20 +58,23 @@ class CreateDBInstanceRequest(object):
         'charge_type': 'ChargeType',
         'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
-        'instance_category': 'InstanceCategory',
+        'instance_name': 'InstanceName',
         'instance_spec_name': 'InstanceSpecName',
         'instance_type': 'InstanceType',
         'number': 'Number',
         'prepaid_period': 'PrepaidPeriod',
-        'region': 'Region',
+        'project_name': 'ProjectName',
         'storage_space_gb': 'StorageSpaceGB',
         'storage_type': 'StorageType',
+        'subnet_id': 'SubnetId',
+        'super_account_name': 'SuperAccountName',
+        'super_account_password': 'SuperAccountPassword',
         'used_time': 'UsedTime',
         'vpc_id': 'VpcID',
         'zone': 'Zone'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, db_engine=None, db_engine_version=None, instance_category=None, instance_spec_name=None, instance_type=None, number=None, prepaid_period=None, region=None, storage_space_gb=None, storage_type=None, used_time=None, vpc_id=None, zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, db_engine=None, db_engine_version=None, instance_name=None, instance_spec_name=None, instance_type=None, number=None, prepaid_period=None, project_name=None, storage_space_gb=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, used_time=None, vpc_id=None, zone=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,14 +84,17 @@ class CreateDBInstanceRequest(object):
         self._charge_type = None
         self._db_engine = None
         self._db_engine_version = None
-        self._instance_category = None
+        self._instance_name = None
         self._instance_spec_name = None
         self._instance_type = None
         self._number = None
         self._prepaid_period = None
-        self._region = None
+        self._project_name = None
         self._storage_space_gb = None
         self._storage_type = None
+        self._subnet_id = None
+        self._super_account_name = None
+        self._super_account_password = None
         self._used_time = None
         self._vpc_id = None
         self._zone = None
@@ -99,8 +108,8 @@ class CreateDBInstanceRequest(object):
             self.db_engine = db_engine
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
-        if instance_category is not None:
-            self.instance_category = instance_category
+        if instance_name is not None:
+            self.instance_name = instance_name
         if instance_spec_name is not None:
             self.instance_spec_name = instance_spec_name
         if instance_type is not None:
@@ -109,10 +118,17 @@ class CreateDBInstanceRequest(object):
             self.number = number
         if prepaid_period is not None:
             self.prepaid_period = prepaid_period
-        self.region = region
+        if project_name is not None:
+            self.project_name = project_name
         self.storage_space_gb = storage_space_gb
         if storage_type is not None:
             self.storage_type = storage_type
+        if subnet_id is not None:
+            self.subnet_id = subnet_id
+        if super_account_name is not None:
+            self.super_account_name = super_account_name
+        if super_account_password is not None:
+            self.super_account_password = super_account_password
         if used_time is not None:
             self.used_time = used_time
         if vpc_id is not None:
@@ -186,7 +202,7 @@ class CreateDBInstanceRequest(object):
         :param db_engine: The db_engine of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MySQL", "Postgres", "Sqlserver"]  # noqa: E501
+        allowed_values = ["MySQL"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine not in allowed_values):
             raise ValueError(
@@ -214,7 +230,7 @@ class CreateDBInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MySQL_5_5", "MySQL_5_6", "MySQL_8_0", "MySQL_Community_5_7", "Postgres_12", "SQLServer_2019_Ent", "SQLServer_2019_Std", "SQLServer_2019_Web"]  # noqa: E501
+        allowed_values = ["MySQL_8_0", "MySQL_Community_5_7"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -225,32 +241,25 @@ class CreateDBInstanceRequest(object):
         self._db_engine_version = db_engine_version
 
     @property
-    def instance_category(self):
-        """Gets the instance_category of this CreateDBInstanceRequest.  # noqa: E501
+    def instance_name(self):
+        """Gets the instance_name of this CreateDBInstanceRequest.  # noqa: E501
 
 
-        :return: The instance_category of this CreateDBInstanceRequest.  # noqa: E501
+        :return: The instance_name of this CreateDBInstanceRequest.  # noqa: E501
         :rtype: str
         """
-        return self._instance_category
+        return self._instance_name
 
-    @instance_category.setter
-    def instance_category(self, instance_category):
-        """Sets the instance_category of this CreateDBInstanceRequest.
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this CreateDBInstanceRequest.
 
 
-        :param instance_category: The instance_category of this CreateDBInstanceRequest.  # noqa: E501
+        :param instance_name: The instance_name of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Primary", "ReadOnly"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                instance_category not in allowed_values):
-            raise ValueError(
-                "Invalid value for `instance_category` ({0}), must be one of {1}"  # noqa: E501
-                .format(instance_category, allowed_values)
-            )
 
-        self._instance_category = instance_category
+        self._instance_name = instance_name
 
     @property
     def instance_spec_name(self):
@@ -291,7 +300,7 @@ class CreateDBInstanceRequest(object):
         :param instance_type: The instance_type of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Basic", "Cluster", "Finance", "HA"]  # noqa: E501
+        allowed_values = ["HA"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_type not in allowed_values):
             raise ValueError(
@@ -351,27 +360,25 @@ class CreateDBInstanceRequest(object):
         self._prepaid_period = prepaid_period
 
     @property
-    def region(self):
-        """Gets the region of this CreateDBInstanceRequest.  # noqa: E501
+    def project_name(self):
+        """Gets the project_name of this CreateDBInstanceRequest.  # noqa: E501
 
 
-        :return: The region of this CreateDBInstanceRequest.  # noqa: E501
+        :return: The project_name of this CreateDBInstanceRequest.  # noqa: E501
         :rtype: str
         """
-        return self._region
+        return self._project_name
 
-    @region.setter
-    def region(self, region):
-        """Sets the region of this CreateDBInstanceRequest.
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateDBInstanceRequest.
 
 
-        :param region: The region of this CreateDBInstanceRequest.  # noqa: E501
+        :param project_name: The project_name of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and region is None:
-            raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
 
-        self._region = region
+        self._project_name = project_name
 
     @property
     def storage_space_gb(self):
@@ -414,7 +421,7 @@ class CreateDBInstanceRequest(object):
         :param storage_type: The storage_type of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["CloudStorage", "ESSDFlexPL", "LocalSSD"]  # noqa: E501
+        allowed_values = ["CloudStorage", "ESSDPL1", "ESSDPL2", "LocalSSD"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 storage_type not in allowed_values):
             raise ValueError(
@@ -423,6 +430,69 @@ class CreateDBInstanceRequest(object):
             )
 
         self._storage_type = storage_type
+
+    @property
+    def subnet_id(self):
+        """Gets the subnet_id of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The subnet_id of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_id
+
+    @subnet_id.setter
+    def subnet_id(self, subnet_id):
+        """Sets the subnet_id of this CreateDBInstanceRequest.
+
+
+        :param subnet_id: The subnet_id of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_id = subnet_id
+
+    @property
+    def super_account_name(self):
+        """Gets the super_account_name of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The super_account_name of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._super_account_name
+
+    @super_account_name.setter
+    def super_account_name(self, super_account_name):
+        """Sets the super_account_name of this CreateDBInstanceRequest.
+
+
+        :param super_account_name: The super_account_name of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._super_account_name = super_account_name
+
+    @property
+    def super_account_password(self):
+        """Gets the super_account_password of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The super_account_password of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._super_account_password
+
+    @super_account_password.setter
+    def super_account_password(self, super_account_password):
+        """Sets the super_account_password of this CreateDBInstanceRequest.
+
+
+        :param super_account_password: The super_account_password of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._super_account_password = super_account_password
 
     @property
     def used_time(self):

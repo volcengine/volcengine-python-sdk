@@ -145,6 +145,13 @@ class DataForListDBInstancesOutput(object):
         :param charge_status: The charge_status of this DataForListDBInstancesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Normal", "Overdue", "Unpaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                charge_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `charge_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(charge_status, allowed_values)
+            )
 
         self._charge_status = charge_status
 
@@ -166,6 +173,13 @@ class DataForListDBInstancesOutput(object):
         :param charge_type: The charge_type of this DataForListDBInstancesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["NotEnabled", "PostPaid", "Prepaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(charge_type, allowed_values)
+            )
 
         self._charge_type = charge_type
 
@@ -208,6 +222,13 @@ class DataForListDBInstancesOutput(object):
         :param db_engine: The db_engine of this DataForListDBInstancesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["MySQL"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                db_engine not in allowed_values):
+            raise ValueError(
+                "Invalid value for `db_engine` ({0}), must be one of {1}"  # noqa: E501
+                .format(db_engine, allowed_values)
+            )
 
         self._db_engine = db_engine
 
@@ -229,6 +250,13 @@ class DataForListDBInstancesOutput(object):
         :param db_engine_version: The db_engine_version of this DataForListDBInstancesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["MySQL_8_0", "MySQL_Community_5_7"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                db_engine_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `db_engine_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(db_engine_version, allowed_values)
+            )
 
         self._db_engine_version = db_engine_version
 
@@ -313,6 +341,13 @@ class DataForListDBInstancesOutput(object):
         :param instance_status: The instance_status of this DataForListDBInstancesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["AllowListMaintaining", "Closed", "Closing", "CreateFailed", "Creating", "Deleting", "Destroyed", "Destroying", "Error", "Importing", "Maintaining", "MasterChanging", "Migrating", "Reclaiming", "Recycled", "Released", "Restarting", "Restoring", "Resuming", "Running", "SSLUpdating", "TDEUpdating", "Unknown", "Updating", "Upgrading", "WaitingPaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                instance_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `instance_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(instance_status, allowed_values)
+            )
 
         self._instance_status = instance_status
 
@@ -334,6 +369,13 @@ class DataForListDBInstancesOutput(object):
         :param instance_type: The instance_type of this DataForListDBInstancesOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["HA"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                instance_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `instance_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(instance_type, allowed_values)
+            )
 
         self._instance_type = instance_type
 
