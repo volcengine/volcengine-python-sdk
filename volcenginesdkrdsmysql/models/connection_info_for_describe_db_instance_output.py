@@ -95,6 +95,13 @@ class ConnectionInfoForDescribeDBInstanceOutput(object):
         :param enable_read_only: The enable_read_only of this ConnectionInfoForDescribeDBInstanceOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Disable", "Enable"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                enable_read_only not in allowed_values):
+            raise ValueError(
+                "Invalid value for `enable_read_only` ({0}), must be one of {1}"  # noqa: E501
+                .format(enable_read_only, allowed_values)
+            )
 
         self._enable_read_only = enable_read_only
 
@@ -116,6 +123,13 @@ class ConnectionInfoForDescribeDBInstanceOutput(object):
         :param enable_read_write_splitting: The enable_read_write_splitting of this ConnectionInfoForDescribeDBInstanceOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Disable", "Enable"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                enable_read_write_splitting not in allowed_values):
+            raise ValueError(
+                "Invalid value for `enable_read_write_splitting` ({0}), must be one of {1}"  # noqa: E501
+                .format(enable_read_write_splitting, allowed_values)
+            )
 
         self._enable_read_write_splitting = enable_read_write_splitting
 

@@ -127,6 +127,13 @@ class DescribeDBInstanceResponse(object):
         :param data_sync_mode: The data_sync_mode of this DescribeDBInstanceResponse.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Async", "SemiSync", "Sync"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                data_sync_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `data_sync_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(data_sync_mode, allowed_values)
+            )
 
         self._data_sync_mode = data_sync_mode
 
@@ -148,6 +155,13 @@ class DescribeDBInstanceResponse(object):
         :param storage_type: The storage_type of this DescribeDBInstanceResponse.  # noqa: E501
         :type: str
         """
+        allowed_values = ["CloudStorage", "ESSDPL1", "ESSDPL2", "LocalSSD"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_type, allowed_values)
+            )
 
         self._storage_type = storage_type
 

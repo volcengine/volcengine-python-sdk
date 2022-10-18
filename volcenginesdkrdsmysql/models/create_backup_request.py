@@ -37,6 +37,7 @@ class CreateBackupRequest(object):
         'backup_mode': 'str',
         'backup_strategy': 'str',
         'backup_type': 'str',
+        'db_names': 'str',
         'instance_id': 'str'
     }
 
@@ -45,10 +46,11 @@ class CreateBackupRequest(object):
         'backup_mode': 'BackupMode',
         'backup_strategy': 'BackupStrategy',
         'backup_type': 'BackupType',
+        'db_names': 'DBNames',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, backup_data_type=None, backup_mode=None, backup_strategy=None, backup_type=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_data_type=None, backup_mode=None, backup_strategy=None, backup_type=None, db_names=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateBackupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CreateBackupRequest(object):
         self._backup_mode = None
         self._backup_strategy = None
         self._backup_type = None
+        self._db_names = None
         self._instance_id = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class CreateBackupRequest(object):
             self.backup_strategy = backup_strategy
         if backup_type is not None:
             self.backup_type = backup_type
+        if db_names is not None:
+            self.db_names = db_names
         self.instance_id = instance_id
 
     @property
@@ -89,7 +94,7 @@ class CreateBackupRequest(object):
         :param backup_data_type: The backup_data_type of this CreateBackupRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Data", "Log"]  # noqa: E501
+        allowed_values = ["Data"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 backup_data_type not in allowed_values):
             raise ValueError(
@@ -182,6 +187,27 @@ class CreateBackupRequest(object):
             )
 
         self._backup_type = backup_type
+
+    @property
+    def db_names(self):
+        """Gets the db_names of this CreateBackupRequest.  # noqa: E501
+
+
+        :return: The db_names of this CreateBackupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_names
+
+    @db_names.setter
+    def db_names(self, db_names):
+        """Sets the db_names of this CreateBackupRequest.
+
+
+        :param db_names: The db_names of this CreateBackupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._db_names = db_names
 
     @property
     def instance_id(self):
