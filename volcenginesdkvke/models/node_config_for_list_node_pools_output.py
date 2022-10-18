@@ -251,6 +251,13 @@ class NodeConfigForListNodePoolsOutput(object):
         :param instance_charge_type: The instance_charge_type of this NodeConfigForListNodePoolsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                instance_charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `instance_charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(instance_charge_type, allowed_values)
+            )
 
         self._instance_charge_type = instance_charge_type
 
