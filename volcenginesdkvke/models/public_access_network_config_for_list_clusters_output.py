@@ -122,7 +122,7 @@ class PublicAccessNetworkConfigForListClustersOutput(object):
         :param isp: The isp of this PublicAccessNetworkConfigForListClustersOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["BGP", "ChinaMobile"]  # noqa: E501
+        allowed_values = ["BGP", "ChinaMobile", "ChinaTelecom", "ChinaUnicom"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 isp not in allowed_values):
             raise ValueError(
