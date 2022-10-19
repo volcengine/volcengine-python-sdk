@@ -41,6 +41,7 @@ class CreateDBInstanceRequest(object):
         'instance_spec_name': 'str',
         'instance_type': 'str',
         'number': 'int',
+        'parameter_template_id': 'str',
         'prepaid_period': 'str',
         'project_name': 'str',
         'storage_space_gb': 'int',
@@ -62,6 +63,7 @@ class CreateDBInstanceRequest(object):
         'instance_spec_name': 'InstanceSpecName',
         'instance_type': 'InstanceType',
         'number': 'Number',
+        'parameter_template_id': 'ParameterTemplateId',
         'prepaid_period': 'PrepaidPeriod',
         'project_name': 'ProjectName',
         'storage_space_gb': 'StorageSpaceGB',
@@ -74,7 +76,7 @@ class CreateDBInstanceRequest(object):
         'zone': 'Zone'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, db_engine=None, db_engine_version=None, instance_name=None, instance_spec_name=None, instance_type=None, number=None, prepaid_period=None, project_name=None, storage_space_gb=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, used_time=None, vpc_id=None, zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, db_engine=None, db_engine_version=None, instance_name=None, instance_spec_name=None, instance_type=None, number=None, parameter_template_id=None, prepaid_period=None, project_name=None, storage_space_gb=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, used_time=None, vpc_id=None, zone=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class CreateDBInstanceRequest(object):
         self._instance_spec_name = None
         self._instance_type = None
         self._number = None
+        self._parameter_template_id = None
         self._prepaid_period = None
         self._project_name = None
         self._storage_space_gb = None
@@ -116,6 +119,8 @@ class CreateDBInstanceRequest(object):
             self.instance_type = instance_type
         if number is not None:
             self.number = number
+        if parameter_template_id is not None:
+            self.parameter_template_id = parameter_template_id
         if prepaid_period is not None:
             self.prepaid_period = prepaid_period
         if project_name is not None:
@@ -330,6 +335,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._number = number
+
+    @property
+    def parameter_template_id(self):
+        """Gets the parameter_template_id of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The parameter_template_id of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._parameter_template_id
+
+    @parameter_template_id.setter
+    def parameter_template_id(self, parameter_template_id):
+        """Sets the parameter_template_id of this CreateDBInstanceRequest.
+
+
+        :param parameter_template_id: The parameter_template_id of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._parameter_template_id = parameter_template_id
 
     @property
     def prepaid_period(self):
