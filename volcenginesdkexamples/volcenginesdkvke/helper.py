@@ -1,30 +1,25 @@
+# -*- coding: utf-8 -*-
+
 import time
-from dataclasses import field, dataclass
 from enum import Enum
 from pprint import pprint
-from typing import List
 
-import volcenginesdkvke
 from volcenginesdkvke import (AutoScalingForUpdateNodePoolConfigInput,
                               ClusterConfigForCreateClusterInput,
-                              CreateAddonRequest, CreateAddonResponse,
-                              CreateClusterRequest, CreateClusterResponse,
-                              CreateNodePoolRequest, CreateNodePoolResponse,
+                              CreateAddonRequest, CreateClusterRequest,
+                              CreateNodePoolRequest,
                               FilterForListClustersInput,
                               FilterForListNodePoolsInput,
                               FilterForListNodesInput,
                               FlannelConfigForCreateClusterInput,
-                              ListClustersRequest, ListClustersResponse,
-                              ListNodePoolsRequest, ListNodePoolsResponse,
-                              ListNodesRequest, ListNodesResponse,
-                              LoginForCreateNodePoolInput,
+                              ListClustersRequest, ListNodePoolsRequest,
+                              ListNodesRequest, LoginForCreateNodePoolInput,
                               NodeConfigForCreateNodePoolInput,
                               PodsConfigForCreateClusterInput,
                               SecurityForCreateNodePoolInput,
                               ServicesConfigForCreateClusterInput,
                               SystemVolumeForCreateNodePoolInput,
                               UpdateNodePoolConfigRequest,
-                              UpdateNodePoolConfigResponse,
                               VpcCniConfigForCreateClusterInput)
 
 
@@ -34,23 +29,37 @@ class NetworkMode(Enum):
     VpcCniShared = "VpcCniShared"
 
 
-@dataclass
 class VKEOption:
     """包含搭建最基本的VKE服务的选项"""
 
-    cluster_name: str
-    network_mode: str
-    node_pool_name: str
-    instance_type: str
-    password: str
-    subnet_ids: List[str] = field(default_factory=list[str])
-    pod_cidrs: List[str] = field(default_factory=list[str])
-    service_cidrs: List[str] = field(default_factory=list[str])
-    api_server_public_access_enabled: bool = False
-    auto_scaling: bool = False
+    def __init__(
+        self,
+        cluster_name,
+        network_mode,
+        node_pool_name,
+        instance_type,
+        password,
+        subnet_ids,
+        pod_cidrs,
+        service_cidrs,
+        api_server_public_access_enabled=False,
+        auto_scaling=False,
+    ):
+
+        self.cluster_name = cluster_name
+        self.network_mode = network_mode
+        self.node_pool_name = node_pool_name
+        self.instance_type = instance_type
+        self.password = password
+        self.subnet_ids = subnet_ids
+        self.pod_cidrs = pod_cidrs
+        self.service_cidrs = service_cidrs
+        self.api_server_public_access_enabled = api_server_public_access_enabled
+        self.auto_scaling = auto_scaling
 
 
-def create_pods_config(opt: VKEOption) -> PodsConfigForCreateClusterInput:
+def create_pods_config(opt):
+    """根据用户提供的集群NetworkMode类型，创建PodConfig"""
     network_mode = opt.network_mode
     if network_mode == NetworkMode.Flannel.value:
         pod_config = PodsConfigForCreateClusterInput(
@@ -68,18 +77,15 @@ def create_pods_config(opt: VKEOption) -> PodsConfigForCreateClusterInput:
         )
     else:
         raise ValueError(
-            f"Network mode: {network_mode} is not accepted. Please choose from: 'Flannel' and 'VpcCniShared'."
+            "Network mode: {network_mode} is not accepted. Please choose from: 'Flannel' and 'VpcCniShared'.".format(
+                network_mode=network_mode
+            )
         )
     return pod_config
 
 
-def create_cluster(
-    vke_api: volcenginesdkvke.VKEApi,
-    name: str,
-    cluster_config: ClusterConfigForCreateClusterInput,
-    pods_config: PodsConfigForCreateClusterInput,
-    services_config: ServicesConfigForCreateClusterInput,
-) -> CreateClusterResponse:
+def create_cluster(vke_api, name, cluster_config, pods_config, services_config):
+    """创建VKE集群"""
     req = CreateClusterRequest(
         cluster_config=cluster_config,
         name=name,
@@ -89,21 +95,16 @@ def create_cluster(
     return vke_api.create_cluster(req)
 
 
-def get_cluster(
-    vke_api: volcenginesdkvke.VKEApi, cluster_id: str
-) -> ListClustersResponse:
+def get_cluster(vke_api, cluster_id):
+    """获取指定ID的集群信息"""
     req = ListClustersRequest(filter=FilterForListClustersInput(ids=[cluster_id]))
     return vke_api.list_clusters(req)
 
 
 def create_node_pool(
-    vke_api: volcenginesdkvke.VKEApi,
-    cluster_id: str,
-    node_pool_name: str,
-    instance_type: str,
-    password: str,
-    subnet_ids: List[str],
-) -> CreateNodePoolResponse:
+    vke_api, cluster_id, node_pool_name, instance_type, password, subnet_ids
+):
+    """创建节点池"""
     node_config = NodeConfigForCreateNodePoolInput(
         instance_type_ids=[instance_type],
         security=SecurityForCreateNodePoolInput(
@@ -120,19 +121,14 @@ def create_node_pool(
     return vke_api.create_node_pool(req)
 
 
-def get_node_pool(
-    vke_api: volcenginesdkvke.VKEApi, node_pool_id: str
-) -> ListNodePoolsResponse:
+def get_node_pool(vke_api, node_pool_id):
+    """获取指定ID的节点池信息"""
     req = ListNodePoolsRequest(filter=FilterForListNodePoolsInput(ids=[node_pool_id]))
     return vke_api.list_node_pools(req)
 
 
-def update_node_pool(
-    vke_api: volcenginesdkvke.VKEApi,
-    cluster_id: str,
-    node_pool_id: str,
-    auto_scaling: bool,
-) -> UpdateNodePoolConfigResponse:
+def update_node_pool(vke_api, cluster_id, node_pool_id, auto_scaling):
+    """更新节点池节点数量"""
     replicas = 1
     if auto_scaling:
         replicas = 0
@@ -147,16 +143,14 @@ def update_node_pool(
     return vke_api.update_node_pool_config(req)
 
 
-def list_nodes(
-    vke_api: volcenginesdkvke.VKEApi, node_pool_id: str
-) -> ListNodesResponse:
+def list_nodes(vke_api, node_pool_id):
+    """获取指定ID的节点池的节点信息"""
     req = ListNodesRequest(filter=FilterForListNodesInput(node_pool_ids=[node_pool_id]))
     return vke_api.list_nodes(req)
 
 
-def install_addon(
-    vke_api: volcenginesdkvke.VKEApi, cluster_id: str
-) -> CreateAddonResponse:
+def install_addon(vke_api, cluster_id):
+    """安装插件"""
     # 在每个addon安装之后，sleep 5秒
     _interval = 5
     metrics_server_req = CreateAddonRequest(
@@ -182,7 +176,8 @@ def install_addon(
     pprint(cluster_autoscaler_resp)
 
 
-def create_vke(vke_api: volcenginesdkvke.VKEApi, opt: VKEOption):
+def create_vke(vke_api, opt):
+    """创建VKE服务"""
     pods_config = create_pods_config(opt)
     cluster_config = ClusterConfigForCreateClusterInput(
         api_server_public_access_enabled=opt.api_server_public_access_enabled,
@@ -197,7 +192,7 @@ def create_vke(vke_api: volcenginesdkvke.VKEApi, opt: VKEOption):
         vke_api, opt.cluster_name, cluster_config, pods_config, services_config
     )
     cluster_id = create_cluster_resp.to_dict().get("id")
-    pprint(f"cluster id: {cluster_id}")
+    pprint("cluster id: {}".format(cluster_id))
 
     # 2. 查询集群状态
     while True:
@@ -217,7 +212,7 @@ def create_vke(vke_api: volcenginesdkvke.VKEApi, opt: VKEOption):
         opt.subnet_ids,
     )
     node_pool_id = create_node_pool_resp.to_dict().get("id")
-    pprint(f"node pool id: {node_pool_id}")
+    pprint("node pool id: {}".format(node_pool_id))
 
     # 4. 查看节点池
     while True:
@@ -242,7 +237,10 @@ def create_vke(vke_api: volcenginesdkvke.VKEApi, opt: VKEOption):
     # 7. 修改节点数量
     pprint("update node pool")
     update_node_pool_resp = update_node_pool(
-        vke_api, cluster_id, node_pool_id, auto_scaling=opt.auto_scaling,
+        vke_api,
+        cluster_id,
+        node_pool_id,
+        auto_scaling=opt.auto_scaling,
     )
     pprint(update_node_pool_resp)
 

@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import volcenginesdkcore
 import volcenginesdkvke
@@ -7,18 +8,19 @@ from helper import VKEOption, create_vke
 
 
 if __name__ == "__main__":
-    # change the following variables
+
+    # 设置VKE服务的选项
+    # ``your_``开头的字段需要替换
     cluster_name = "your_cluster_name"
-    network_mode = "your_cluster_network_mode"  # choose from: Flannel, VpcCniShared
-    subnet_ids = "your_subnet_id"  # type: list
-    # ``pod_cidrs` is only required by cluster with Flannel network mode
-    pod_cidrs = "your_pod_cidr"  # type: list
-    service_cidrs = "your_service_cidr"  # type: list
+    network_mode = "your_cluster_network_mode"  # 选项: Flannel, VpcCniShared
+    subnet_ids = "your_subnet_id"  # 类型: list
+    # 如果是Flannel网络模式的集群，需要填写``pod_cidrs``
+    pod_cidrs = "your_pod_cidr"  # 类型: list
+    service_cidrs = "your_service_cidr"  # 类型: list
     node_pool_name = "your_node_pool_name"
     instance_type = "your_instance_type"
     password = "your_password"
 
-    # create vke option
     vke_opt = VKEOption(
         cluster_name=cluster_name,
         network_mode=network_mode,
@@ -30,14 +32,15 @@ if __name__ == "__main__":
         service_cidrs=service_cidrs,
     )
 
-    # set up volc configuration
+    # 设置火山配置
+    # ``your_``开头的字段需要替换
     configuration = volcenginesdkcore.Configuration()
     configuration.ak = "your_ak"
     configuration.sk = "your_sk"
     configuration.region = "your_region"
 
-    # create an instance of the API class
+    # 创建VKEApi实例
     api_instance = volcenginesdkvke.VKEApi(volcenginesdkcore.ApiClient(configuration))
 
-    # create vke
+    # 创建VKE服务
     create_vke(api_instance, vke_opt)
