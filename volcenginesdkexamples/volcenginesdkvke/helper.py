@@ -40,8 +40,8 @@ class VKEOption:
         instance_type,
         password,
         subnet_ids,
-        pod_cidrs,
         service_cidrs,
+        pod_cidrs=None,
         api_server_public_access_enabled=False,
         auto_scaling=False,
     ):
@@ -52,8 +52,8 @@ class VKEOption:
         self.instance_type = instance_type
         self.password = password
         self.subnet_ids = subnet_ids
-        self.pod_cidrs = pod_cidrs
         self.service_cidrs = service_cidrs
+        self.pod_cidrs = pod_cidrs
         self.api_server_public_access_enabled = api_server_public_access_enabled
         self.auto_scaling = auto_scaling
 
