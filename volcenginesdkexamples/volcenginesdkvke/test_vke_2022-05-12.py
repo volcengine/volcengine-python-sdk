@@ -21,6 +21,7 @@ if __name__ == "__main__":
     instance_type = "your_instance_type"
     password = "your_password"
 
+    # 这里以创建一个Flannel网络模式的集群为例
     vke_opt = VKEOption(
         cluster_name=cluster_name,
         network_mode=network_mode,
@@ -28,8 +29,8 @@ if __name__ == "__main__":
         instance_type=instance_type,
         password=password,
         subnet_ids=subnet_ids,
-        pod_cidrs=pod_cidrs,
         service_cidrs=service_cidrs,
+        pod_cidrs=pod_cidrs,
     )
 
     # 设置火山配置
