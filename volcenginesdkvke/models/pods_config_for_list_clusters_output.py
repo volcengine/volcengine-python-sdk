@@ -101,13 +101,6 @@ class PodsConfigForListClustersOutput(object):
         :param pod_network_mode: The pod_network_mode of this PodsConfigForListClustersOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["CalicoBgp", "CalicoVxlan", "Carma", "Cilium", "Default", "Flannel", "KubeOvn", "VpcCniDedicated", "VpcCniShared"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                pod_network_mode not in allowed_values):
-            raise ValueError(
-                "Invalid value for `pod_network_mode` ({0}), must be one of {1}"  # noqa: E501
-                .format(pod_network_mode, allowed_values)
-            )
 
         self._pod_network_mode = pod_network_mode
 

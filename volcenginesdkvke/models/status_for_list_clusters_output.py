@@ -96,13 +96,6 @@ class StatusForListClustersOutput(object):
         :param phase: The phase of this StatusForListClustersOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Creating", "Deleting", "Failed", "Running", "Starting", "Stopped", "Updating"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                phase not in allowed_values):
-            raise ValueError(
-                "Invalid value for `phase` ({0}), must be one of {1}"  # noqa: E501
-                .format(phase, allowed_values)
-            )
 
         self._phase = phase
 

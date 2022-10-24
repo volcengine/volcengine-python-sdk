@@ -140,13 +140,6 @@ class ItemForListClustersOutput(object):
         :param charge_type: The charge_type of this ItemForListClustersOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                charge_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(charge_type, allowed_values)
-            )
 
         self._charge_type = charge_type
 
