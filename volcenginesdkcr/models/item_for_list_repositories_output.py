@@ -35,6 +35,7 @@ class ItemForListRepositoriesOutput(object):
     swagger_types = {
         'access_level': 'str',
         'create_time': 'str',
+        'description': 'str',
         'name': 'str',
         'update_time': 'str'
     }
@@ -42,11 +43,12 @@ class ItemForListRepositoriesOutput(object):
     attribute_map = {
         'access_level': 'AccessLevel',
         'create_time': 'CreateTime',
+        'description': 'Description',
         'name': 'Name',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, access_level=None, create_time=None, name=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_level=None, create_time=None, description=None, name=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListRepositoriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ItemForListRepositoriesOutput(object):
 
         self._access_level = None
         self._create_time = None
+        self._description = None
         self._name = None
         self._update_time = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ItemForListRepositoriesOutput(object):
             self.access_level = access_level
         if create_time is not None:
             self.create_time = create_time
+        if description is not None:
+            self.description = description
         if name is not None:
             self.name = name
         if update_time is not None:
@@ -108,6 +113,27 @@ class ItemForListRepositoriesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def description(self):
+        """Gets the description of this ItemForListRepositoriesOutput.  # noqa: E501
+
+
+        :return: The description of this ItemForListRepositoriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ItemForListRepositoriesOutput.
+
+
+        :param description: The description of this ItemForListRepositoriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def name(self):
