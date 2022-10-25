@@ -37,8 +37,10 @@ class CreateNodesRequest(object):
         'client_token': 'str',
         'cluster_id': 'str',
         'container_storage_path': 'str',
+        'initialize_script': 'str',
         'instance_ids': 'list[str]',
-        'keep_instance_name': 'bool'
+        'keep_instance_name': 'bool',
+        'kubernetes_config': 'KubernetesConfigForCreateNodesInput'
     }
 
     attribute_map = {
@@ -46,11 +48,13 @@ class CreateNodesRequest(object):
         'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
         'container_storage_path': 'ContainerStoragePath',
+        'initialize_script': 'InitializeScript',
         'instance_ids': 'InstanceIds',
-        'keep_instance_name': 'KeepInstanceName'
+        'keep_instance_name': 'KeepInstanceName',
+        'kubernetes_config': 'KubernetesConfig'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, instance_ids=None, keep_instance_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, _configuration=None):  # noqa: E501
         """CreateNodesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,8 +64,10 @@ class CreateNodesRequest(object):
         self._client_token = None
         self._cluster_id = None
         self._container_storage_path = None
+        self._initialize_script = None
         self._instance_ids = None
         self._keep_instance_name = None
+        self._kubernetes_config = None
         self.discriminator = None
 
         if additional_container_storage_enabled is not None:
@@ -72,10 +78,14 @@ class CreateNodesRequest(object):
             self.cluster_id = cluster_id
         if container_storage_path is not None:
             self.container_storage_path = container_storage_path
+        if initialize_script is not None:
+            self.initialize_script = initialize_script
         if instance_ids is not None:
             self.instance_ids = instance_ids
         if keep_instance_name is not None:
             self.keep_instance_name = keep_instance_name
+        if kubernetes_config is not None:
+            self.kubernetes_config = kubernetes_config
 
     @property
     def additional_container_storage_enabled(self):
@@ -162,6 +172,27 @@ class CreateNodesRequest(object):
         self._container_storage_path = container_storage_path
 
     @property
+    def initialize_script(self):
+        """Gets the initialize_script of this CreateNodesRequest.  # noqa: E501
+
+
+        :return: The initialize_script of this CreateNodesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._initialize_script
+
+    @initialize_script.setter
+    def initialize_script(self, initialize_script):
+        """Sets the initialize_script of this CreateNodesRequest.
+
+
+        :param initialize_script: The initialize_script of this CreateNodesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._initialize_script = initialize_script
+
+    @property
     def instance_ids(self):
         """Gets the instance_ids of this CreateNodesRequest.  # noqa: E501
 
@@ -202,6 +233,27 @@ class CreateNodesRequest(object):
         """
 
         self._keep_instance_name = keep_instance_name
+
+    @property
+    def kubernetes_config(self):
+        """Gets the kubernetes_config of this CreateNodesRequest.  # noqa: E501
+
+
+        :return: The kubernetes_config of this CreateNodesRequest.  # noqa: E501
+        :rtype: KubernetesConfigForCreateNodesInput
+        """
+        return self._kubernetes_config
+
+    @kubernetes_config.setter
+    def kubernetes_config(self, kubernetes_config):
+        """Sets the kubernetes_config of this CreateNodesRequest.
+
+
+        :param kubernetes_config: The kubernetes_config of this CreateNodesRequest.  # noqa: E501
+        :type: KubernetesConfigForCreateNodesInput
+        """
+
+        self._kubernetes_config = kubernetes_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

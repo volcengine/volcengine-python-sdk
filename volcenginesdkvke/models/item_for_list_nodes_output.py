@@ -39,8 +39,10 @@ class ItemForListNodesOutput(object):
         'create_client_token': 'str',
         'create_time': 'str',
         'id': 'str',
+        'initialize_script': 'str',
         'instance_id': 'str',
         'is_virtual': 'bool',
+        'kubernetes_config': 'KubernetesConfigForListNodesOutput',
         'name': 'str',
         'node_pool_id': 'str',
         'roles': 'list[str]',
@@ -56,8 +58,10 @@ class ItemForListNodesOutput(object):
         'create_client_token': 'CreateClientToken',
         'create_time': 'CreateTime',
         'id': 'Id',
+        'initialize_script': 'InitializeScript',
         'instance_id': 'InstanceId',
         'is_virtual': 'IsVirtual',
+        'kubernetes_config': 'KubernetesConfig',
         'name': 'Name',
         'node_pool_id': 'NodePoolId',
         'roles': 'Roles',
@@ -66,7 +70,7 @@ class ItemForListNodesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, instance_id=None, is_virtual=None, name=None, node_pool_id=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, name=None, node_pool_id=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
         """ItemForListNodesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,8 +82,10 @@ class ItemForListNodesOutput(object):
         self._create_client_token = None
         self._create_time = None
         self._id = None
+        self._initialize_script = None
         self._instance_id = None
         self._is_virtual = None
+        self._kubernetes_config = None
         self._name = None
         self._node_pool_id = None
         self._roles = None
@@ -100,10 +106,14 @@ class ItemForListNodesOutput(object):
             self.create_time = create_time
         if id is not None:
             self.id = id
+        if initialize_script is not None:
+            self.initialize_script = initialize_script
         if instance_id is not None:
             self.instance_id = instance_id
         if is_virtual is not None:
             self.is_virtual = is_virtual
+        if kubernetes_config is not None:
+            self.kubernetes_config = kubernetes_config
         if name is not None:
             self.name = name
         if node_pool_id is not None:
@@ -244,6 +254,27 @@ class ItemForListNodesOutput(object):
         self._id = id
 
     @property
+    def initialize_script(self):
+        """Gets the initialize_script of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The initialize_script of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._initialize_script
+
+    @initialize_script.setter
+    def initialize_script(self, initialize_script):
+        """Sets the initialize_script of this ItemForListNodesOutput.
+
+
+        :param initialize_script: The initialize_script of this ItemForListNodesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._initialize_script = initialize_script
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this ItemForListNodesOutput.  # noqa: E501
 
@@ -284,6 +315,27 @@ class ItemForListNodesOutput(object):
         """
 
         self._is_virtual = is_virtual
+
+    @property
+    def kubernetes_config(self):
+        """Gets the kubernetes_config of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The kubernetes_config of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: KubernetesConfigForListNodesOutput
+        """
+        return self._kubernetes_config
+
+    @kubernetes_config.setter
+    def kubernetes_config(self, kubernetes_config):
+        """Sets the kubernetes_config of this ItemForListNodesOutput.
+
+
+        :param kubernetes_config: The kubernetes_config of this ItemForListNodesOutput.  # noqa: E501
+        :type: KubernetesConfigForListNodesOutput
+        """
+
+        self._kubernetes_config = kubernetes_config
 
     @property
     def name(self):
