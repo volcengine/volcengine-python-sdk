@@ -73,7 +73,8 @@ class RevokeSecurityGroupEgressRequest(object):
         self._source_group_id = None
         self.discriminator = None
 
-        self.cidr_ip = cidr_ip
+        if cidr_ip is not None:
+            self.cidr_ip = cidr_ip
         if description is not None:
             self.description = description
         if policy is not None:
@@ -105,8 +106,6 @@ class RevokeSecurityGroupEgressRequest(object):
         :param cidr_ip: The cidr_ip of this RevokeSecurityGroupEgressRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and cidr_ip is None:
-            raise ValueError("Invalid value for `cidr_ip`, must not be `None`")  # noqa: E501
 
         self._cidr_ip = cidr_ip
 

@@ -49,8 +49,7 @@ class DescribeNetworkAclAttributesRequest(object):
         self._network_acl_id = None
         self.discriminator = None
 
-        if network_acl_id is not None:
-            self.network_acl_id = network_acl_id
+        self.network_acl_id = network_acl_id
 
     @property
     def network_acl_id(self):
@@ -70,6 +69,8 @@ class DescribeNetworkAclAttributesRequest(object):
         :param network_acl_id: The network_acl_id of this DescribeNetworkAclAttributesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and network_acl_id is None:
+            raise ValueError("Invalid value for `network_acl_id`, must not be `None`")  # noqa: E501
 
         self._network_acl_id = network_acl_id
 

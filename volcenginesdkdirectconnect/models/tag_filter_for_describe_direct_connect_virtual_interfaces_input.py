@@ -34,7 +34,7 @@ class TagFilterForDescribeDirectConnectVirtualInterfacesInput(object):
     """
     swagger_types = {
         'key': 'str',
-        'values': 'ValuesForDescribeDirectConnectVirtualInterfacesInput'
+        'values': 'list[str]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class TagFilterForDescribeDirectConnectVirtualInterfacesInput(object):
 
 
         :return: The values of this TagFilterForDescribeDirectConnectVirtualInterfacesInput.  # noqa: E501
-        :rtype: ValuesForDescribeDirectConnectVirtualInterfacesInput
+        :rtype: list[str]
         """
         return self._values
 
@@ -94,7 +94,7 @@ class TagFilterForDescribeDirectConnectVirtualInterfacesInput(object):
 
 
         :param values: The values of this TagFilterForDescribeDirectConnectVirtualInterfacesInput.  # noqa: E501
-        :type: ValuesForDescribeDirectConnectVirtualInterfacesInput
+        :type: list[str]
         """
 
         self._values = values

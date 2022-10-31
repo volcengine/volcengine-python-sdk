@@ -33,7 +33,7 @@ class VolumeForRunInstancesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'delete_with_instance': 'str',
+        'delete_with_instance': 'bool',
         'size': 'int',
         'volume_type': 'str'
     }
@@ -68,7 +68,7 @@ class VolumeForRunInstancesInput(object):
 
 
         :return: The delete_with_instance of this VolumeForRunInstancesInput.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._delete_with_instance
 
@@ -78,7 +78,7 @@ class VolumeForRunInstancesInput(object):
 
 
         :param delete_with_instance: The delete_with_instance of this VolumeForRunInstancesInput.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._delete_with_instance = delete_with_instance

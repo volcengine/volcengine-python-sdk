@@ -35,11 +35,16 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
     swagger_types = {
         'account_id': 'str',
         'bandwidth': 'int',
+        'billing_type': 'int',
+        'business_status': 'str',
         'creation_time': 'str',
+        'deleted_time': 'str',
         'description': 'str',
         'direct_connect_access_point_id': 'str',
+        'expired_time': 'str',
         'line_operator': 'str',
         'parent_connection_id': 'str',
+        'port_spec': 'str',
         'port_type': 'str',
         'shared_direct_connect_connection_id': 'str',
         'shared_direct_connect_connection_name': 'str',
@@ -52,11 +57,16 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
     attribute_map = {
         'account_id': 'AccountId',
         'bandwidth': 'Bandwidth',
+        'billing_type': 'BillingType',
+        'business_status': 'BusinessStatus',
         'creation_time': 'CreationTime',
+        'deleted_time': 'DeletedTime',
         'description': 'Description',
         'direct_connect_access_point_id': 'DirectConnectAccessPointId',
+        'expired_time': 'ExpiredTime',
         'line_operator': 'LineOperator',
         'parent_connection_id': 'ParentConnectionId',
+        'port_spec': 'PortSpec',
         'port_type': 'PortType',
         'shared_direct_connect_connection_id': 'SharedDirectConnectConnectionId',
         'shared_direct_connect_connection_name': 'SharedDirectConnectConnectionName',
@@ -66,7 +76,7 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, creation_time=None, description=None, direct_connect_access_point_id=None, line_operator=None, parent_connection_id=None, port_type=None, shared_direct_connect_connection_id=None, shared_direct_connect_connection_name=None, status=None, update_time=None, user_account_id=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_connect_access_point_id=None, expired_time=None, line_operator=None, parent_connection_id=None, port_spec=None, port_type=None, shared_direct_connect_connection_id=None, shared_direct_connect_connection_name=None, status=None, update_time=None, user_account_id=None, vlan_id=None, _configuration=None):  # noqa: E501
         """SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,11 +84,16 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
 
         self._account_id = None
         self._bandwidth = None
+        self._billing_type = None
+        self._business_status = None
         self._creation_time = None
+        self._deleted_time = None
         self._description = None
         self._direct_connect_access_point_id = None
+        self._expired_time = None
         self._line_operator = None
         self._parent_connection_id = None
+        self._port_spec = None
         self._port_type = None
         self._shared_direct_connect_connection_id = None
         self._shared_direct_connect_connection_name = None
@@ -92,16 +107,26 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
             self.account_id = account_id
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if billing_type is not None:
+            self.billing_type = billing_type
+        if business_status is not None:
+            self.business_status = business_status
         if creation_time is not None:
             self.creation_time = creation_time
+        if deleted_time is not None:
+            self.deleted_time = deleted_time
         if description is not None:
             self.description = description
         if direct_connect_access_point_id is not None:
             self.direct_connect_access_point_id = direct_connect_access_point_id
+        if expired_time is not None:
+            self.expired_time = expired_time
         if line_operator is not None:
             self.line_operator = line_operator
         if parent_connection_id is not None:
             self.parent_connection_id = parent_connection_id
+        if port_spec is not None:
+            self.port_spec = port_spec
         if port_type is not None:
             self.port_type = port_type
         if shared_direct_connect_connection_id is not None:
@@ -160,6 +185,48 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
         self._bandwidth = bandwidth
 
     @property
+    def billing_type(self):
+        """Gets the billing_type of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The billing_type of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._billing_type
+
+    @billing_type.setter
+    def billing_type(self, billing_type):
+        """Sets the billing_type of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
+
+
+        :param billing_type: The billing_type of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._billing_type = billing_type
+
+    @property
+    def business_status(self):
+        """Gets the business_status of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The business_status of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_status
+
+    @business_status.setter
+    def business_status(self, business_status):
+        """Sets the business_status of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
+
+
+        :param business_status: The business_status of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._business_status = business_status
+
+    @property
     def creation_time(self):
         """Gets the creation_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
 
@@ -179,6 +246,27 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
         """
 
         self._creation_time = creation_time
+
+    @property
+    def deleted_time(self):
+        """Gets the deleted_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The deleted_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deleted_time
+
+    @deleted_time.setter
+    def deleted_time(self, deleted_time):
+        """Sets the deleted_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
+
+
+        :param deleted_time: The deleted_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deleted_time = deleted_time
 
     @property
     def description(self):
@@ -223,6 +311,27 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
         self._direct_connect_access_point_id = direct_connect_access_point_id
 
     @property
+    def expired_time(self):
+        """Gets the expired_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The expired_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expired_time
+
+    @expired_time.setter
+    def expired_time(self, expired_time):
+        """Sets the expired_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
+
+
+        :param expired_time: The expired_time of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._expired_time = expired_time
+
+    @property
     def line_operator(self):
         """Gets the line_operator of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
 
@@ -263,6 +372,27 @@ class SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutp
         """
 
         self._parent_connection_id = parent_connection_id
+
+    @property
+    def port_spec(self):
+        """Gets the port_spec of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The port_spec of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._port_spec
+
+    @port_spec.setter
+    def port_spec(self, port_spec):
+        """Sets the port_spec of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.
+
+
+        :param port_spec: The port_spec of this SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._port_spec = port_spec
 
     @property
     def port_type(self):

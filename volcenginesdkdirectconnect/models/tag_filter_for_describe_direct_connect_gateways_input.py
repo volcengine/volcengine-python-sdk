@@ -34,7 +34,7 @@ class TagFilterForDescribeDirectConnectGatewaysInput(object):
     """
     swagger_types = {
         'key': 'str',
-        'values': 'ValuesForDescribeDirectConnectGatewaysInput'
+        'values': 'list[str]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class TagFilterForDescribeDirectConnectGatewaysInput(object):
 
 
         :return: The values of this TagFilterForDescribeDirectConnectGatewaysInput.  # noqa: E501
-        :rtype: ValuesForDescribeDirectConnectGatewaysInput
+        :rtype: list[str]
         """
         return self._values
 
@@ -94,7 +94,7 @@ class TagFilterForDescribeDirectConnectGatewaysInput(object):
 
 
         :param values: The values of this TagFilterForDescribeDirectConnectGatewaysInput.  # noqa: E501
-        :type: ValuesForDescribeDirectConnectGatewaysInput
+        :type: list[str]
         """
 
         self._values = values

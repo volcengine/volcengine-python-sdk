@@ -35,19 +35,24 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
     swagger_types = {
         'account_id': 'str',
         'bandwidth': 'int',
+        'billing_type': 'int',
+        'business_status': 'str',
         'connection_type': 'str',
         'creation_time': 'str',
         'customer_contact_email': 'str',
         'customer_contact_phone': 'str',
         'customer_name': 'str',
+        'deleted_time': 'str',
         'description': 'str',
         'direct_connect_access_point_id': 'str',
         'direct_connect_connection_id': 'str',
         'direct_connect_connection_name': 'str',
+        'expired_time': 'str',
         'line_operator': 'str',
         'parent_connection_account_id': 'str',
         'parent_connection_id': 'str',
         'peer_location': 'str',
+        'port_spec': 'str',
         'port_type': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeDirectConnectConnectionsOutput]',
@@ -58,19 +63,24 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'bandwidth': 'Bandwidth',
+        'billing_type': 'BillingType',
+        'business_status': 'BusinessStatus',
         'connection_type': 'ConnectionType',
         'creation_time': 'CreationTime',
         'customer_contact_email': 'CustomerContactEmail',
         'customer_contact_phone': 'CustomerContactPhone',
         'customer_name': 'CustomerName',
+        'deleted_time': 'DeletedTime',
         'description': 'Description',
         'direct_connect_access_point_id': 'DirectConnectAccessPointId',
         'direct_connect_connection_id': 'DirectConnectConnectionId',
         'direct_connect_connection_name': 'DirectConnectConnectionName',
+        'expired_time': 'ExpiredTime',
         'line_operator': 'LineOperator',
         'parent_connection_account_id': 'ParentConnectionAccountId',
         'parent_connection_id': 'ParentConnectionId',
         'peer_location': 'PeerLocation',
+        'port_spec': 'PortSpec',
         'port_type': 'PortType',
         'status': 'Status',
         'tags': 'Tags',
@@ -78,7 +88,7 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, connection_type=None, creation_time=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_id=None, direct_connect_connection_name=None, line_operator=None, parent_connection_account_id=None, parent_connection_id=None, peer_location=None, port_type=None, status=None, tags=None, update_time=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, connection_type=None, creation_time=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, deleted_time=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_id=None, direct_connect_connection_name=None, expired_time=None, line_operator=None, parent_connection_account_id=None, parent_connection_id=None, peer_location=None, port_spec=None, port_type=None, status=None, tags=None, update_time=None, vlan_id=None, _configuration=None):  # noqa: E501
         """DirectConnectConnectionForDescribeDirectConnectConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,19 +96,24 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
 
         self._account_id = None
         self._bandwidth = None
+        self._billing_type = None
+        self._business_status = None
         self._connection_type = None
         self._creation_time = None
         self._customer_contact_email = None
         self._customer_contact_phone = None
         self._customer_name = None
+        self._deleted_time = None
         self._description = None
         self._direct_connect_access_point_id = None
         self._direct_connect_connection_id = None
         self._direct_connect_connection_name = None
+        self._expired_time = None
         self._line_operator = None
         self._parent_connection_account_id = None
         self._parent_connection_id = None
         self._peer_location = None
+        self._port_spec = None
         self._port_type = None
         self._status = None
         self._tags = None
@@ -110,6 +125,10 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
             self.account_id = account_id
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if billing_type is not None:
+            self.billing_type = billing_type
+        if business_status is not None:
+            self.business_status = business_status
         if connection_type is not None:
             self.connection_type = connection_type
         if creation_time is not None:
@@ -120,6 +139,8 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
             self.customer_contact_phone = customer_contact_phone
         if customer_name is not None:
             self.customer_name = customer_name
+        if deleted_time is not None:
+            self.deleted_time = deleted_time
         if description is not None:
             self.description = description
         if direct_connect_access_point_id is not None:
@@ -128,6 +149,8 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
             self.direct_connect_connection_id = direct_connect_connection_id
         if direct_connect_connection_name is not None:
             self.direct_connect_connection_name = direct_connect_connection_name
+        if expired_time is not None:
+            self.expired_time = expired_time
         if line_operator is not None:
             self.line_operator = line_operator
         if parent_connection_account_id is not None:
@@ -136,6 +159,8 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
             self.parent_connection_id = parent_connection_id
         if peer_location is not None:
             self.peer_location = peer_location
+        if port_spec is not None:
+            self.port_spec = port_spec
         if port_type is not None:
             self.port_type = port_type
         if status is not None:
@@ -188,6 +213,48 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def billing_type(self):
+        """Gets the billing_type of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The billing_type of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._billing_type
+
+    @billing_type.setter
+    def billing_type(self, billing_type):
+        """Sets the billing_type of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param billing_type: The billing_type of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._billing_type = billing_type
+
+    @property
+    def business_status(self):
+        """Gets the business_status of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The business_status of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_status
+
+    @business_status.setter
+    def business_status(self, business_status):
+        """Sets the business_status of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param business_status: The business_status of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._business_status = business_status
 
     @property
     def connection_type(self):
@@ -295,6 +362,27 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         self._customer_name = customer_name
 
     @property
+    def deleted_time(self):
+        """Gets the deleted_time of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The deleted_time of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deleted_time
+
+    @deleted_time.setter
+    def deleted_time(self, deleted_time):
+        """Sets the deleted_time of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param deleted_time: The deleted_time of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deleted_time = deleted_time
+
+    @property
     def description(self):
         """Gets the description of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
 
@@ -379,6 +467,27 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         self._direct_connect_connection_name = direct_connect_connection_name
 
     @property
+    def expired_time(self):
+        """Gets the expired_time of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The expired_time of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expired_time
+
+    @expired_time.setter
+    def expired_time(self, expired_time):
+        """Sets the expired_time of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param expired_time: The expired_time of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._expired_time = expired_time
+
+    @property
     def line_operator(self):
         """Gets the line_operator of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
 
@@ -461,6 +570,27 @@ class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput(object):
         """
 
         self._peer_location = peer_location
+
+    @property
+    def port_spec(self):
+        """Gets the port_spec of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+
+
+        :return: The port_spec of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._port_spec
+
+    @port_spec.setter
+    def port_spec(self, port_spec):
+        """Sets the port_spec of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.
+
+
+        :param port_spec: The port_spec of this DirectConnectConnectionForDescribeDirectConnectConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._port_spec = port_spec
 
     @property
     def port_type(self):
