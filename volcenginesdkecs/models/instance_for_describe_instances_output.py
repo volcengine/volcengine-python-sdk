@@ -226,6 +226,9 @@ class InstanceForDescribeInstancesOutput(object):
         :param cpus: The cpus of this InstanceForDescribeInstancesOutput.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                cpus is not None and cpus < 1):  # noqa: E501
+            raise ValueError("Invalid value for `cpus`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._cpus = cpus
 
@@ -268,6 +271,9 @@ class InstanceForDescribeInstancesOutput(object):
         :param description: The description of this InstanceForDescribeInstancesOutput.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 256):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `256`")  # noqa: E501
 
         self._description = description
 
@@ -331,6 +337,9 @@ class InstanceForDescribeInstancesOutput(object):
         :param host_name: The host_name of this InstanceForDescribeInstancesOutput.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                host_name is not None and len(host_name) < 1):
+            raise ValueError("Invalid value for `host_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._host_name = host_name
 
@@ -415,6 +424,9 @@ class InstanceForDescribeInstancesOutput(object):
         :param instance_name: The instance_name of this InstanceForDescribeInstancesOutput.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                instance_name is not None and len(instance_name) < 1):
+            raise ValueError("Invalid value for `instance_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._instance_name = instance_name
 
@@ -436,6 +448,9 @@ class InstanceForDescribeInstancesOutput(object):
         :param instance_type_id: The instance_type_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                instance_type_id is not None and len(instance_type_id) < 1):
+            raise ValueError("Invalid value for `instance_type_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._instance_type_id = instance_type_id
 
@@ -520,6 +535,9 @@ class InstanceForDescribeInstancesOutput(object):
         :param memory_size: The memory_size of this InstanceForDescribeInstancesOutput.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                memory_size is not None and memory_size < 1024):  # noqa: E501
+            raise ValueError("Invalid value for `memory_size`, must be a value greater than or equal to `1024`")  # noqa: E501
 
         self._memory_size = memory_size
 
@@ -772,6 +790,9 @@ class InstanceForDescribeInstancesOutput(object):
         :param zone_id: The zone_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                zone_id is not None and len(zone_id) < 1):
+            raise ValueError("Invalid value for `zone_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._zone_id = zone_id
 
