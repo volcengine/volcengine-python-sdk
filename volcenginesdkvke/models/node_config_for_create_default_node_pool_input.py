@@ -34,28 +34,38 @@ class NodeConfigForCreateDefaultNodePoolInput(object):
     """
     swagger_types = {
         'initialize_script': 'str',
-        'security': 'SecurityForCreateDefaultNodePoolInput'
+        'name_prefix': 'str',
+        'security': 'SecurityForCreateDefaultNodePoolInput',
+        'tags': 'list[TagForCreateDefaultNodePoolInput]'
     }
 
     attribute_map = {
         'initialize_script': 'InitializeScript',
-        'security': 'Security'
+        'name_prefix': 'NamePrefix',
+        'security': 'Security',
+        'tags': 'Tags'
     }
 
-    def __init__(self, initialize_script=None, security=None, _configuration=None):  # noqa: E501
+    def __init__(self, initialize_script=None, name_prefix=None, security=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForCreateDefaultNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._initialize_script = None
+        self._name_prefix = None
         self._security = None
+        self._tags = None
         self.discriminator = None
 
         if initialize_script is not None:
             self.initialize_script = initialize_script
+        if name_prefix is not None:
+            self.name_prefix = name_prefix
         if security is not None:
             self.security = security
+        if tags is not None:
+            self.tags = tags
 
     @property
     def initialize_script(self):
@@ -79,6 +89,27 @@ class NodeConfigForCreateDefaultNodePoolInput(object):
         self._initialize_script = initialize_script
 
     @property
+    def name_prefix(self):
+        """Gets the name_prefix of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+
+
+        :return: The name_prefix of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name_prefix
+
+    @name_prefix.setter
+    def name_prefix(self, name_prefix):
+        """Sets the name_prefix of this NodeConfigForCreateDefaultNodePoolInput.
+
+
+        :param name_prefix: The name_prefix of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._name_prefix = name_prefix
+
+    @property
     def security(self):
         """Gets the security of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
 
@@ -98,6 +129,27 @@ class NodeConfigForCreateDefaultNodePoolInput(object):
         """
 
         self._security = security
+
+    @property
+    def tags(self):
+        """Gets the tags of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+
+
+        :return: The tags of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+        :rtype: list[TagForCreateDefaultNodePoolInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this NodeConfigForCreateDefaultNodePoolInput.
+
+
+        :param tags: The tags of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+        :type: list[TagForCreateDefaultNodePoolInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

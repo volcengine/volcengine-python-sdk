@@ -41,10 +41,12 @@ class NodeConfigForListNodePoolsOutput(object):
         'initialize_script': 'str',
         'instance_charge_type': 'str',
         'instance_type_ids': 'list[str]',
+        'name_prefix': 'str',
         'period': 'int',
         'security': 'SecurityForListNodePoolsOutput',
         'subnet_ids': 'list[str]',
-        'system_volume': 'SystemVolumeForListNodePoolsOutput'
+        'system_volume': 'SystemVolumeForListNodePoolsOutput',
+        'tags': 'list[TagForListNodePoolsOutput]'
     }
 
     attribute_map = {
@@ -56,13 +58,15 @@ class NodeConfigForListNodePoolsOutput(object):
         'initialize_script': 'InitializeScript',
         'instance_charge_type': 'InstanceChargeType',
         'instance_type_ids': 'InstanceTypeIds',
+        'name_prefix': 'NamePrefix',
         'period': 'Period',
         'security': 'Security',
         'subnet_ids': 'SubnetIds',
-        'system_volume': 'SystemVolume'
+        'system_volume': 'SystemVolume',
+        'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, period=None, security=None, subnet_ids=None, system_volume=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,10 +80,12 @@ class NodeConfigForListNodePoolsOutput(object):
         self._initialize_script = None
         self._instance_charge_type = None
         self._instance_type_ids = None
+        self._name_prefix = None
         self._period = None
         self._security = None
         self._subnet_ids = None
         self._system_volume = None
+        self._tags = None
         self.discriminator = None
 
         if additional_container_storage_enabled is not None:
@@ -98,6 +104,8 @@ class NodeConfigForListNodePoolsOutput(object):
             self.instance_charge_type = instance_charge_type
         if instance_type_ids is not None:
             self.instance_type_ids = instance_type_ids
+        if name_prefix is not None:
+            self.name_prefix = name_prefix
         if period is not None:
             self.period = period
         if security is not None:
@@ -106,6 +114,8 @@ class NodeConfigForListNodePoolsOutput(object):
             self.subnet_ids = subnet_ids
         if system_volume is not None:
             self.system_volume = system_volume
+        if tags is not None:
+            self.tags = tags
 
     @property
     def additional_container_storage_enabled(self):
@@ -276,6 +286,27 @@ class NodeConfigForListNodePoolsOutput(object):
         self._instance_type_ids = instance_type_ids
 
     @property
+    def name_prefix(self):
+        """Gets the name_prefix of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The name_prefix of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name_prefix
+
+    @name_prefix.setter
+    def name_prefix(self, name_prefix):
+        """Sets the name_prefix of this NodeConfigForListNodePoolsOutput.
+
+
+        :param name_prefix: The name_prefix of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._name_prefix = name_prefix
+
+    @property
     def period(self):
         """Gets the period of this NodeConfigForListNodePoolsOutput.  # noqa: E501
 
@@ -358,6 +389,27 @@ class NodeConfigForListNodePoolsOutput(object):
         """
 
         self._system_volume = system_volume
+
+    @property
+    def tags(self):
+        """Gets the tags of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The tags of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: list[TagForListNodePoolsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this NodeConfigForListNodePoolsOutput.
+
+
+        :param tags: The tags of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: list[TagForListNodePoolsOutput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
