@@ -192,9 +192,6 @@ class ImageForDescribeImagesOutput(object):
         :param description: The description of this ImageForDescribeImagesOutput.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) > 255):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
 
         self._description = description
 
@@ -237,12 +234,6 @@ class ImageForDescribeImagesOutput(object):
         :param image_name: The image_name of this ImageForDescribeImagesOutput.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                image_name is not None and len(image_name) > 128):
-            raise ValueError("Invalid value for `image_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                image_name is not None and len(image_name) < 1):
-            raise ValueError("Invalid value for `image_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._image_name = image_name
 
@@ -411,12 +402,6 @@ class ImageForDescribeImagesOutput(object):
         :param size: The size of this ImageForDescribeImagesOutput.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                size is not None and size > 2001):  # noqa: E501
-            raise ValueError("Invalid value for `size`, must be a value less than or equal to `2001`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                size is not None and size < 1):  # noqa: E501
-            raise ValueError("Invalid value for `size`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._size = size
 
