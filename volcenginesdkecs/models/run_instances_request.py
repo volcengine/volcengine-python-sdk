@@ -41,6 +41,7 @@ class RunInstancesRequest(object):
         'description': 'str',
         'dry_run': 'bool',
         'host_name': 'str',
+        'hostname': 'str',
         'hpc_cluster_id': 'str',
         'image_id': 'str',
         'instance_charge_type': 'str',
@@ -72,6 +73,7 @@ class RunInstancesRequest(object):
         'description': 'Description',
         'dry_run': 'DryRun',
         'host_name': 'HostName',
+        'hostname': 'Hostname',
         'hpc_cluster_id': 'HpcClusterId',
         'image_id': 'ImageId',
         'instance_charge_type': 'InstanceChargeType',
@@ -94,7 +96,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -108,6 +110,7 @@ class RunInstancesRequest(object):
         self._description = None
         self._dry_run = None
         self._host_name = None
+        self._hostname = None
         self._hpc_cluster_id = None
         self._image_id = None
         self._instance_charge_type = None
@@ -146,6 +149,8 @@ class RunInstancesRequest(object):
             self.dry_run = dry_run
         if host_name is not None:
             self.host_name = host_name
+        if hostname is not None:
+            self.hostname = hostname
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
         if image_id is not None:
@@ -354,6 +359,27 @@ class RunInstancesRequest(object):
         """
 
         self._host_name = host_name
+
+    @property
+    def hostname(self):
+        """Gets the hostname of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The hostname of this RunInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._hostname
+
+    @hostname.setter
+    def hostname(self, hostname):
+        """Sets the hostname of this RunInstancesRequest.
+
+
+        :param hostname: The hostname of this RunInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._hostname = hostname
 
     @property
     def hpc_cluster_id(self):
