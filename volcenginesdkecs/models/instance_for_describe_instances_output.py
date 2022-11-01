@@ -40,6 +40,7 @@ class InstanceForDescribeInstancesOutput(object):
         'eip_address': 'EipAddressForDescribeInstancesOutput',
         'expired_at': 'str',
         'host_name': 'str',
+        'hostname': 'str',
         'image_id': 'str',
         'instance_charge_type': 'str',
         'instance_id': 'str',
@@ -71,6 +72,7 @@ class InstanceForDescribeInstancesOutput(object):
         'eip_address': 'EipAddress',
         'expired_at': 'ExpiredAt',
         'host_name': 'HostName',
+        'hostname': 'Hostname',
         'image_id': 'ImageId',
         'instance_charge_type': 'InstanceChargeType',
         'instance_id': 'InstanceId',
@@ -94,7 +96,7 @@ class InstanceForDescribeInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpu_options=None, cpus=None, created_at=None, description=None, eip_address=None, expired_at=None, host_name=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, project_name=None, rdma_ip_addresses=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_options=None, cpus=None, created_at=None, description=None, eip_address=None, expired_at=None, host_name=None, hostname=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, project_name=None, rdma_ip_addresses=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -107,6 +109,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._eip_address = None
         self._expired_at = None
         self._host_name = None
+        self._hostname = None
         self._image_id = None
         self._instance_charge_type = None
         self._instance_id = None
@@ -144,6 +147,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.expired_at = expired_at
         if host_name is not None:
             self.host_name = host_name
+        if hostname is not None:
+            self.hostname = hostname
         if image_id is not None:
             self.image_id = image_id
         if instance_charge_type is not None:
@@ -333,6 +338,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._host_name = host_name
+
+    @property
+    def hostname(self):
+        """Gets the hostname of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The hostname of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._hostname
+
+    @hostname.setter
+    def hostname(self, hostname):
+        """Sets the hostname of this InstanceForDescribeInstancesOutput.
+
+
+        :param hostname: The hostname of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._hostname = hostname
 
     @property
     def image_id(self):
