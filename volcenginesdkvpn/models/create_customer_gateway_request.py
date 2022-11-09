@@ -36,17 +36,19 @@ class CreateCustomerGatewayRequest(object):
         'client_token': 'str',
         'customer_gateway_name': 'str',
         'description': 'str',
-        'ip_address': 'str'
+        'ip_address': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'customer_gateway_name': 'CustomerGatewayName',
         'description': 'Description',
-        'ip_address': 'IpAddress'
+        'ip_address': 'IpAddress',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, client_token=None, customer_gateway_name=None, description=None, ip_address=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, customer_gateway_name=None, description=None, ip_address=None, project_name=None, _configuration=None):  # noqa: E501
         """CreateCustomerGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateCustomerGatewayRequest(object):
         self._customer_gateway_name = None
         self._description = None
         self._ip_address = None
+        self._project_name = None
         self.discriminator = None
 
         if client_token is not None:
@@ -65,6 +68,8 @@ class CreateCustomerGatewayRequest(object):
         if description is not None:
             self.description = description
         self.ip_address = ip_address
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def client_token(self):
@@ -163,6 +168,27 @@ class CreateCustomerGatewayRequest(object):
             raise ValueError("Invalid value for `ip_address`, must not be `None`")  # noqa: E501
 
         self._ip_address = ip_address
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateCustomerGatewayRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateCustomerGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateCustomerGatewayRequest.
+
+
+        :param project_name: The project_name of this CreateCustomerGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

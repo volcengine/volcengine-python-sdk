@@ -41,7 +41,6 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
         'description': 'str',
         'direct_connect_gateway_id': 'str',
         'direct_connect_gateway_name': 'str',
-        'enable_ipv6': 'bool',
         'lock_reason': 'str',
         'overdue_time': 'str',
         'request_id': 'str',
@@ -59,7 +58,6 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
         'description': 'Description',
         'direct_connect_gateway_id': 'DirectConnectGatewayId',
         'direct_connect_gateway_name': 'DirectConnectGatewayName',
-        'enable_ipv6': 'EnableIpv6',
         'lock_reason': 'LockReason',
         'overdue_time': 'OverdueTime',
         'request_id': 'RequestId',
@@ -68,7 +66,7 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, enable_ipv6=None, lock_reason=None, overdue_time=None, request_id=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, lock_reason=None, overdue_time=None, request_id=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,7 +80,6 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
         self._description = None
         self._direct_connect_gateway_id = None
         self._direct_connect_gateway_name = None
-        self._enable_ipv6 = None
         self._lock_reason = None
         self._overdue_time = None
         self._request_id = None
@@ -107,8 +104,6 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
             self.direct_connect_gateway_id = direct_connect_gateway_id
         if direct_connect_gateway_name is not None:
             self.direct_connect_gateway_name = direct_connect_gateway_name
-        if enable_ipv6 is not None:
-            self.enable_ipv6 = enable_ipv6
         if lock_reason is not None:
             self.lock_reason = lock_reason
         if overdue_time is not None:
@@ -289,27 +284,6 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
         """
 
         self._direct_connect_gateway_name = direct_connect_gateway_name
-
-    @property
-    def enable_ipv6(self):
-        """Gets the enable_ipv6 of this DescribeDirectConnectGatewayAttributesResponse.  # noqa: E501
-
-
-        :return: The enable_ipv6 of this DescribeDirectConnectGatewayAttributesResponse.  # noqa: E501
-        :rtype: bool
-        """
-        return self._enable_ipv6
-
-    @enable_ipv6.setter
-    def enable_ipv6(self, enable_ipv6):
-        """Sets the enable_ipv6 of this DescribeDirectConnectGatewayAttributesResponse.
-
-
-        :param enable_ipv6: The enable_ipv6 of this DescribeDirectConnectGatewayAttributesResponse.  # noqa: E501
-        :type: bool
-        """
-
-        self._enable_ipv6 = enable_ipv6
 
     @property
     def lock_reason(self):

@@ -38,7 +38,9 @@ class CreateVpnGatewayRequest(object):
         'description': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'project_name': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForCreateVpnGatewayInput]',
         'vpc_id': 'str',
         'vpn_gateway_name': 'str'
     }
@@ -49,12 +51,14 @@ class CreateVpnGatewayRequest(object):
         'description': 'Description',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'vpc_id': 'VpcId',
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, description=None, period=None, period_unit=None, subnet_id=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, description=None, period=None, period_unit=None, project_name=None, subnet_id=None, tags=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """CreateVpnGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,7 +69,9 @@ class CreateVpnGatewayRequest(object):
         self._description = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
         self._subnet_id = None
+        self._tags = None
         self._vpc_id = None
         self._vpn_gateway_name = None
         self.discriminator = None
@@ -79,7 +85,11 @@ class CreateVpnGatewayRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         self.vpc_id = vpc_id
         if vpn_gateway_name is not None:
             self.vpn_gateway_name = vpn_gateway_name
@@ -217,6 +227,27 @@ class CreateVpnGatewayRequest(object):
         self._period_unit = period_unit
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateVpnGatewayRequest.
+
+
+        :param project_name: The project_name of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def subnet_id(self):
         """Gets the subnet_id of this CreateVpnGatewayRequest.  # noqa: E501
 
@@ -238,6 +269,27 @@ class CreateVpnGatewayRequest(object):
             raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: list[TagForCreateVpnGatewayInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateVpnGatewayRequest.
+
+
+        :param tags: The tags of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: list[TagForCreateVpnGatewayInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

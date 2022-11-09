@@ -44,6 +44,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         'expired_time': 'str',
         'ip_address': 'str',
         'lock_reason': 'str',
+        'project_name': 'str',
         'request_id': 'str',
         'route_count': 'int',
         'status': 'str',
@@ -66,6 +67,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         'expired_time': 'ExpiredTime',
         'ip_address': 'IpAddress',
         'lock_reason': 'LockReason',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'route_count': 'RouteCount',
         'status': 'Status',
@@ -76,7 +78,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, expired_time=None, ip_address=None, lock_reason=None, request_id=None, route_count=None, status=None, subnet_id=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, expired_time=None, ip_address=None, lock_reason=None, project_name=None, request_id=None, route_count=None, status=None, subnet_id=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         self._expired_time = None
         self._ip_address = None
         self._lock_reason = None
+        self._project_name = None
         self._request_id = None
         self._route_count = None
         self._status = None
@@ -125,6 +128,8 @@ class DescribeVpnGatewayAttributesResponse(object):
             self.ip_address = ip_address
         if lock_reason is not None:
             self.lock_reason = lock_reason
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if route_count is not None:
@@ -372,6 +377,27 @@ class DescribeVpnGatewayAttributesResponse(object):
         """
 
         self._lock_reason = lock_reason
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def request_id(self):

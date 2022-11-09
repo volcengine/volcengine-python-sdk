@@ -39,6 +39,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         'ipsec_config': 'str',
         'local_subnet': 'list[str]',
         'nat_traversal': 'bool',
+        'negotiate_instantly': 'bool',
         'remote_subnet': 'list[str]',
         'vpn_connection_id': 'str',
         'vpn_connection_name': 'str'
@@ -51,12 +52,13 @@ class ModifyVpnConnectionAttributesRequest(object):
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
         'nat_traversal': 'NatTraversal',
+        'negotiate_instantly': 'NegotiateInstantly',
         'remote_subnet': 'RemoteSubnet',
         'vpn_connection_id': 'VpnConnectionId',
         'vpn_connection_name': 'VpnConnectionName'
     }
 
-    def __init__(self, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, remote_subnet=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
         """ModifyVpnConnectionAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         self._ipsec_config = None
         self._local_subnet = None
         self._nat_traversal = None
+        self._negotiate_instantly = None
         self._remote_subnet = None
         self._vpn_connection_id = None
         self._vpn_connection_name = None
@@ -85,6 +88,8 @@ class ModifyVpnConnectionAttributesRequest(object):
             self.local_subnet = local_subnet
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
+        if negotiate_instantly is not None:
+            self.negotiate_instantly = negotiate_instantly
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
         self.vpn_connection_id = vpn_connection_id
@@ -229,6 +234,27 @@ class ModifyVpnConnectionAttributesRequest(object):
         """
 
         self._nat_traversal = nat_traversal
+
+    @property
+    def negotiate_instantly(self):
+        """Gets the negotiate_instantly of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The negotiate_instantly of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._negotiate_instantly
+
+    @negotiate_instantly.setter
+    def negotiate_instantly(self, negotiate_instantly):
+        """Sets the negotiate_instantly of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param negotiate_instantly: The negotiate_instantly of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._negotiate_instantly = negotiate_instantly
 
     @property
     def remote_subnet(self):

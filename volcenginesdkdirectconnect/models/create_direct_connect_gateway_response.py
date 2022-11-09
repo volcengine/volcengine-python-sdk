@@ -34,31 +34,26 @@ class CreateDirectConnectGatewayResponse(object):
     """
     swagger_types = {
         'direct_connect_gateway_id': 'str',
-        'pre_order_number': 'str',
         'request_id': 'str'
     }
 
     attribute_map = {
         'direct_connect_gateway_id': 'DirectConnectGatewayId',
-        'pre_order_number': 'PreOrderNumber',
         'request_id': 'RequestId'
     }
 
-    def __init__(self, direct_connect_gateway_id=None, pre_order_number=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, direct_connect_gateway_id=None, request_id=None, _configuration=None):  # noqa: E501
         """CreateDirectConnectGatewayResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._direct_connect_gateway_id = None
-        self._pre_order_number = None
         self._request_id = None
         self.discriminator = None
 
         if direct_connect_gateway_id is not None:
             self.direct_connect_gateway_id = direct_connect_gateway_id
-        if pre_order_number is not None:
-            self.pre_order_number = pre_order_number
         if request_id is not None:
             self.request_id = request_id
 
@@ -82,27 +77,6 @@ class CreateDirectConnectGatewayResponse(object):
         """
 
         self._direct_connect_gateway_id = direct_connect_gateway_id
-
-    @property
-    def pre_order_number(self):
-        """Gets the pre_order_number of this CreateDirectConnectGatewayResponse.  # noqa: E501
-
-
-        :return: The pre_order_number of this CreateDirectConnectGatewayResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._pre_order_number
-
-    @pre_order_number.setter
-    def pre_order_number(self, pre_order_number):
-        """Sets the pre_order_number of this CreateDirectConnectGatewayResponse.
-
-
-        :param pre_order_number: The pre_order_number of this CreateDirectConnectGatewayResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._pre_order_number = pre_order_number
 
     @property
     def request_id(self):

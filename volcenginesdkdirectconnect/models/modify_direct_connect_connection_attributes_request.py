@@ -33,33 +33,111 @@ class ModifyDirectConnectConnectionAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'customer_contact_email': 'str',
+        'customer_contact_phone': 'str',
+        'customer_name': 'str',
         'description': 'str',
         'direct_connect_connection_id': 'str',
         'direct_connect_connection_name': 'str'
     }
 
     attribute_map = {
+        'customer_contact_email': 'CustomerContactEmail',
+        'customer_contact_phone': 'CustomerContactPhone',
+        'customer_name': 'CustomerName',
         'description': 'Description',
         'direct_connect_connection_id': 'DirectConnectConnectionId',
         'direct_connect_connection_name': 'DirectConnectConnectionName'
     }
 
-    def __init__(self, description=None, direct_connect_connection_id=None, direct_connect_connection_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_connection_id=None, direct_connect_connection_name=None, _configuration=None):  # noqa: E501
         """ModifyDirectConnectConnectionAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._customer_contact_email = None
+        self._customer_contact_phone = None
+        self._customer_name = None
         self._description = None
         self._direct_connect_connection_id = None
         self._direct_connect_connection_name = None
         self.discriminator = None
 
+        if customer_contact_email is not None:
+            self.customer_contact_email = customer_contact_email
+        if customer_contact_phone is not None:
+            self.customer_contact_phone = customer_contact_phone
+        if customer_name is not None:
+            self.customer_name = customer_name
         if description is not None:
             self.description = description
         self.direct_connect_connection_id = direct_connect_connection_id
         if direct_connect_connection_name is not None:
             self.direct_connect_connection_name = direct_connect_connection_name
+
+    @property
+    def customer_contact_email(self):
+        """Gets the customer_contact_email of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The customer_contact_email of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_contact_email
+
+    @customer_contact_email.setter
+    def customer_contact_email(self, customer_contact_email):
+        """Sets the customer_contact_email of this ModifyDirectConnectConnectionAttributesRequest.
+
+
+        :param customer_contact_email: The customer_contact_email of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_contact_email = customer_contact_email
+
+    @property
+    def customer_contact_phone(self):
+        """Gets the customer_contact_phone of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The customer_contact_phone of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_contact_phone
+
+    @customer_contact_phone.setter
+    def customer_contact_phone(self, customer_contact_phone):
+        """Sets the customer_contact_phone of this ModifyDirectConnectConnectionAttributesRequest.
+
+
+        :param customer_contact_phone: The customer_contact_phone of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_contact_phone = customer_contact_phone
+
+    @property
+    def customer_name(self):
+        """Gets the customer_name of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The customer_name of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_name
+
+    @customer_name.setter
+    def customer_name(self, customer_name):
+        """Sets the customer_name of this ModifyDirectConnectConnectionAttributesRequest.
+
+
+        :param customer_name: The customer_name of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_name = customer_name
 
     @property
     def description(self):
