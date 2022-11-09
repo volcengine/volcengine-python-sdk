@@ -36,6 +36,7 @@ class ReplaceSystemVolumeRequest(object):
         'client_token': 'str',
         'image_id': 'str',
         'instance_id': 'str',
+        'keep_image_credential': 'bool',
         'key_pair_name': 'str',
         'password': 'str',
         'size': 'str',
@@ -46,13 +47,14 @@ class ReplaceSystemVolumeRequest(object):
         'client_token': 'ClientToken',
         'image_id': 'ImageId',
         'instance_id': 'InstanceId',
+        'keep_image_credential': 'KeepImageCredential',
         'key_pair_name': 'KeyPairName',
         'password': 'Password',
         'size': 'Size',
         'user_data': 'UserData'
     }
 
-    def __init__(self, client_token=None, image_id=None, instance_id=None, key_pair_name=None, password=None, size=None, user_data=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, image_id=None, instance_id=None, keep_image_credential=None, key_pair_name=None, password=None, size=None, user_data=None, _configuration=None):  # noqa: E501
         """ReplaceSystemVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ReplaceSystemVolumeRequest(object):
         self._client_token = None
         self._image_id = None
         self._instance_id = None
+        self._keep_image_credential = None
         self._key_pair_name = None
         self._password = None
         self._size = None
@@ -73,6 +76,8 @@ class ReplaceSystemVolumeRequest(object):
             self.image_id = image_id
         if instance_id is not None:
             self.instance_id = instance_id
+        if keep_image_credential is not None:
+            self.keep_image_credential = keep_image_credential
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
         if password is not None:
@@ -144,6 +149,27 @@ class ReplaceSystemVolumeRequest(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def keep_image_credential(self):
+        """Gets the keep_image_credential of this ReplaceSystemVolumeRequest.  # noqa: E501
+
+
+        :return: The keep_image_credential of this ReplaceSystemVolumeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._keep_image_credential
+
+    @keep_image_credential.setter
+    def keep_image_credential(self, keep_image_credential):
+        """Sets the keep_image_credential of this ReplaceSystemVolumeRequest.
+
+
+        :param keep_image_credential: The keep_image_credential of this ReplaceSystemVolumeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._keep_image_credential = keep_image_credential
 
     @property
     def key_pair_name(self):

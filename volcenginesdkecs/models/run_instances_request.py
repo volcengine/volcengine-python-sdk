@@ -41,12 +41,14 @@ class RunInstancesRequest(object):
         'description': 'str',
         'dry_run': 'bool',
         'host_name': 'str',
+        'hostname': 'str',
         'hpc_cluster_id': 'str',
         'image_id': 'str',
         'instance_charge_type': 'str',
         'instance_name': 'str',
         'instance_type': 'str',
         'instance_type_id': 'str',
+        'keep_image_credential': 'bool',
         'key_pair_name': 'str',
         'min_count': 'int',
         'network_interfaces': 'list[NetworkInterfaceForRunInstancesInput]',
@@ -55,6 +57,7 @@ class RunInstancesRequest(object):
         'period_unit': 'str',
         'project_name': 'str',
         'security_enhancement_strategy': 'str',
+        'spot_strategy': 'str',
         'suffix_index': 'int',
         'tags': 'list[TagForRunInstancesInput]',
         'unique_suffix': 'bool',
@@ -72,12 +75,14 @@ class RunInstancesRequest(object):
         'description': 'Description',
         'dry_run': 'DryRun',
         'host_name': 'HostName',
+        'hostname': 'Hostname',
         'hpc_cluster_id': 'HpcClusterId',
         'image_id': 'ImageId',
         'instance_charge_type': 'InstanceChargeType',
         'instance_name': 'InstanceName',
         'instance_type': 'InstanceType',
         'instance_type_id': 'InstanceTypeId',
+        'keep_image_credential': 'KeepImageCredential',
         'key_pair_name': 'KeyPairName',
         'min_count': 'MinCount',
         'network_interfaces': 'NetworkInterfaces',
@@ -86,6 +91,7 @@ class RunInstancesRequest(object):
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
         'security_enhancement_strategy': 'SecurityEnhancementStrategy',
+        'spot_strategy': 'SpotStrategy',
         'suffix_index': 'SuffixIndex',
         'tags': 'Tags',
         'unique_suffix': 'UniqueSuffix',
@@ -94,7 +100,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -108,12 +114,14 @@ class RunInstancesRequest(object):
         self._description = None
         self._dry_run = None
         self._host_name = None
+        self._hostname = None
         self._hpc_cluster_id = None
         self._image_id = None
         self._instance_charge_type = None
         self._instance_name = None
         self._instance_type = None
         self._instance_type_id = None
+        self._keep_image_credential = None
         self._key_pair_name = None
         self._min_count = None
         self._network_interfaces = None
@@ -122,6 +130,7 @@ class RunInstancesRequest(object):
         self._period_unit = None
         self._project_name = None
         self._security_enhancement_strategy = None
+        self._spot_strategy = None
         self._suffix_index = None
         self._tags = None
         self._unique_suffix = None
@@ -146,6 +155,8 @@ class RunInstancesRequest(object):
             self.dry_run = dry_run
         if host_name is not None:
             self.host_name = host_name
+        if hostname is not None:
+            self.hostname = hostname
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
         if image_id is not None:
@@ -158,6 +169,8 @@ class RunInstancesRequest(object):
             self.instance_type = instance_type
         if instance_type_id is not None:
             self.instance_type_id = instance_type_id
+        if keep_image_credential is not None:
+            self.keep_image_credential = keep_image_credential
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
         if min_count is not None:
@@ -174,6 +187,8 @@ class RunInstancesRequest(object):
             self.project_name = project_name
         if security_enhancement_strategy is not None:
             self.security_enhancement_strategy = security_enhancement_strategy
+        if spot_strategy is not None:
+            self.spot_strategy = spot_strategy
         if suffix_index is not None:
             self.suffix_index = suffix_index
         if tags is not None:
@@ -356,6 +371,27 @@ class RunInstancesRequest(object):
         self._host_name = host_name
 
     @property
+    def hostname(self):
+        """Gets the hostname of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The hostname of this RunInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._hostname
+
+    @hostname.setter
+    def hostname(self, hostname):
+        """Sets the hostname of this RunInstancesRequest.
+
+
+        :param hostname: The hostname of this RunInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._hostname = hostname
+
+    @property
     def hpc_cluster_id(self):
         """Gets the hpc_cluster_id of this RunInstancesRequest.  # noqa: E501
 
@@ -480,6 +516,27 @@ class RunInstancesRequest(object):
         """
 
         self._instance_type_id = instance_type_id
+
+    @property
+    def keep_image_credential(self):
+        """Gets the keep_image_credential of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The keep_image_credential of this RunInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._keep_image_credential
+
+    @keep_image_credential.setter
+    def keep_image_credential(self, keep_image_credential):
+        """Sets the keep_image_credential of this RunInstancesRequest.
+
+
+        :param keep_image_credential: The keep_image_credential of this RunInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._keep_image_credential = keep_image_credential
 
     @property
     def key_pair_name(self):
@@ -648,6 +705,27 @@ class RunInstancesRequest(object):
         """
 
         self._security_enhancement_strategy = security_enhancement_strategy
+
+    @property
+    def spot_strategy(self):
+        """Gets the spot_strategy of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The spot_strategy of this RunInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._spot_strategy
+
+    @spot_strategy.setter
+    def spot_strategy(self, spot_strategy):
+        """Sets the spot_strategy of this RunInstancesRequest.
+
+
+        :param spot_strategy: The spot_strategy of this RunInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._spot_strategy = spot_strategy
 
     @property
     def suffix_index(self):
