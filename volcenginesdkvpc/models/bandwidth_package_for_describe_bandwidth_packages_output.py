@@ -45,6 +45,7 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         'isp': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
+        'security_protection_types': 'list[str]',
         'status': 'str',
         'tags': 'list[TagForDescribeBandwidthPackagesOutput]',
         'update_time': 'str'
@@ -63,12 +64,13 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         'isp': 'ISP',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
+        'security_protection_types': 'SecurityProtectionTypes',
         'status': 'Status',
         'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, bandwidth=None, bandwidth_package_id=None, bandwidth_package_name=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, isp=None, overdue_time=None, project_name=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, bandwidth_package_name=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, isp=None, overdue_time=None, project_name=None, security_protection_types=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """BandwidthPackageForDescribeBandwidthPackagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         self._isp = None
         self._overdue_time = None
         self._project_name = None
+        self._security_protection_types = None
         self._status = None
         self._tags = None
         self._update_time = None
@@ -115,6 +118,8 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
             self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
+        if security_protection_types is not None:
+            self.security_protection_types = security_protection_types
         if status is not None:
             self.status = status
         if tags is not None:
@@ -373,6 +378,27 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def security_protection_types(self):
+        """Gets the security_protection_types of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+
+
+        :return: The security_protection_types of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_protection_types
+
+    @security_protection_types.setter
+    def security_protection_types(self, security_protection_types):
+        """Sets the security_protection_types of this BandwidthPackageForDescribeBandwidthPackagesOutput.
+
+
+        :param security_protection_types: The security_protection_types of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_protection_types = security_protection_types
 
     @property
     def status(self):

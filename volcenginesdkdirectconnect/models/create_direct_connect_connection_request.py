@@ -43,6 +43,7 @@ class CreateDirectConnectConnectionRequest(object):
         'direct_connect_connection_name': 'str',
         'line_operator': 'str',
         'peer_location': 'str',
+        'port_spec': 'str',
         'port_type': 'str',
         'tags': 'list[TagForCreateDirectConnectConnectionInput]'
     }
@@ -58,11 +59,12 @@ class CreateDirectConnectConnectionRequest(object):
         'direct_connect_connection_name': 'DirectConnectConnectionName',
         'line_operator': 'LineOperator',
         'peer_location': 'PeerLocation',
+        'port_spec': 'PortSpec',
         'port_type': 'PortType',
         'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, client_token=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_name=None, line_operator=None, peer_location=None, port_type=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, client_token=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_name=None, line_operator=None, peer_location=None, port_spec=None, port_type=None, tags=None, _configuration=None):  # noqa: E501
         """CreateDirectConnectConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class CreateDirectConnectConnectionRequest(object):
         self._direct_connect_connection_name = None
         self._line_operator = None
         self._peer_location = None
+        self._port_spec = None
         self._port_type = None
         self._tags = None
         self.discriminator = None
@@ -95,6 +98,7 @@ class CreateDirectConnectConnectionRequest(object):
             self.direct_connect_connection_name = direct_connect_connection_name
         self.line_operator = line_operator
         self.peer_location = peer_location
+        self.port_spec = port_spec
         self.port_type = port_type
         if tags is not None:
             self.tags = tags
@@ -322,6 +326,29 @@ class CreateDirectConnectConnectionRequest(object):
             raise ValueError("Invalid value for `peer_location`, must not be `None`")  # noqa: E501
 
         self._peer_location = peer_location
+
+    @property
+    def port_spec(self):
+        """Gets the port_spec of this CreateDirectConnectConnectionRequest.  # noqa: E501
+
+
+        :return: The port_spec of this CreateDirectConnectConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._port_spec
+
+    @port_spec.setter
+    def port_spec(self, port_spec):
+        """Sets the port_spec of this CreateDirectConnectConnectionRequest.
+
+
+        :param port_spec: The port_spec of this CreateDirectConnectConnectionRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and port_spec is None:
+            raise ValueError("Invalid value for `port_spec`, must not be `None`")  # noqa: E501
+
+        self._port_spec = port_spec
 
     @property
     def port_type(self):

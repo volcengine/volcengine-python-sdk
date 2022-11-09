@@ -33,50 +33,24 @@ class DeleteDirectConnectGatewayResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'pre_order_number': 'str',
         'request_id': 'str'
     }
 
     attribute_map = {
-        'pre_order_number': 'PreOrderNumber',
         'request_id': 'RequestId'
     }
 
-    def __init__(self, pre_order_number=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, request_id=None, _configuration=None):  # noqa: E501
         """DeleteDirectConnectGatewayResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._pre_order_number = None
         self._request_id = None
         self.discriminator = None
 
-        if pre_order_number is not None:
-            self.pre_order_number = pre_order_number
         if request_id is not None:
             self.request_id = request_id
-
-    @property
-    def pre_order_number(self):
-        """Gets the pre_order_number of this DeleteDirectConnectGatewayResponse.  # noqa: E501
-
-
-        :return: The pre_order_number of this DeleteDirectConnectGatewayResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._pre_order_number
-
-    @pre_order_number.setter
-    def pre_order_number(self, pre_order_number):
-        """Sets the pre_order_number of this DeleteDirectConnectGatewayResponse.
-
-
-        :param pre_order_number: The pre_order_number of this DeleteDirectConnectGatewayResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._pre_order_number = pre_order_number
 
     @property
     def request_id(self):

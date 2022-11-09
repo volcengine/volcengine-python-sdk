@@ -43,6 +43,8 @@ class DescribeVpnConnectionAttributesResponse(object):
         'ipsec_config': 'IpsecConfigForDescribeVpnConnectionAttributesOutput',
         'local_subnet': 'list[str]',
         'nat_traversal': 'bool',
+        'negotiate_instantly': 'bool',
+        'project_name': 'str',
         'remote_subnet': 'list[str]',
         'request_id': 'str',
         'status': 'str',
@@ -63,6 +65,8 @@ class DescribeVpnConnectionAttributesResponse(object):
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
         'nat_traversal': 'NatTraversal',
+        'negotiate_instantly': 'NegotiateInstantly',
+        'project_name': 'ProjectName',
         'remote_subnet': 'RemoteSubnet',
         'request_id': 'RequestId',
         'status': 'Status',
@@ -72,7 +76,7 @@ class DescribeVpnConnectionAttributesResponse(object):
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, account_id=None, connect_status=None, creation_time=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, remote_subnet=None, request_id=None, status=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, connect_status=None, creation_time=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, request_id=None, status=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnConnectionAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +92,8 @@ class DescribeVpnConnectionAttributesResponse(object):
         self._ipsec_config = None
         self._local_subnet = None
         self._nat_traversal = None
+        self._negotiate_instantly = None
+        self._project_name = None
         self._remote_subnet = None
         self._request_id = None
         self._status = None
@@ -117,6 +123,10 @@ class DescribeVpnConnectionAttributesResponse(object):
             self.local_subnet = local_subnet
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
+        if negotiate_instantly is not None:
+            self.negotiate_instantly = negotiate_instantly
+        if project_name is not None:
+            self.project_name = project_name
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
         if request_id is not None:
@@ -341,6 +351,48 @@ class DescribeVpnConnectionAttributesResponse(object):
         """
 
         self._nat_traversal = nat_traversal
+
+    @property
+    def negotiate_instantly(self):
+        """Gets the negotiate_instantly of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+
+
+        :return: The negotiate_instantly of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._negotiate_instantly
+
+    @negotiate_instantly.setter
+    def negotiate_instantly(self, negotiate_instantly):
+        """Sets the negotiate_instantly of this DescribeVpnConnectionAttributesResponse.
+
+
+        :param negotiate_instantly: The negotiate_instantly of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._negotiate_instantly = negotiate_instantly
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeVpnConnectionAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def remote_subnet(self):

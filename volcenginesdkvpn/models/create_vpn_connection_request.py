@@ -41,6 +41,7 @@ class CreateVpnConnectionRequest(object):
         'ipsec_config': 'str',
         'local_subnet': 'list[str]',
         'nat_traversal': 'bool',
+        'negotiate_instantly': 'bool',
         'remote_subnet': 'list[str]',
         'vpn_connection_name': 'str',
         'vpn_gateway_id': 'str'
@@ -55,12 +56,13 @@ class CreateVpnConnectionRequest(object):
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
         'nat_traversal': 'NatTraversal',
+        'negotiate_instantly': 'NegotiateInstantly',
         'remote_subnet': 'RemoteSubnet',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, remote_subnet=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateVpnConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class CreateVpnConnectionRequest(object):
         self._ipsec_config = None
         self._local_subnet = None
         self._nat_traversal = None
+        self._negotiate_instantly = None
         self._remote_subnet = None
         self._vpn_connection_name = None
         self._vpn_gateway_id = None
@@ -94,6 +97,8 @@ class CreateVpnConnectionRequest(object):
             self.local_subnet = local_subnet
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
+        if negotiate_instantly is not None:
+            self.negotiate_instantly = negotiate_instantly
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
         if vpn_connection_name is not None:
@@ -282,6 +287,27 @@ class CreateVpnConnectionRequest(object):
         """
 
         self._nat_traversal = nat_traversal
+
+    @property
+    def negotiate_instantly(self):
+        """Gets the negotiate_instantly of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The negotiate_instantly of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._negotiate_instantly
+
+    @negotiate_instantly.setter
+    def negotiate_instantly(self, negotiate_instantly):
+        """Sets the negotiate_instantly of this CreateVpnConnectionRequest.
+
+
+        :param negotiate_instantly: The negotiate_instantly of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._negotiate_instantly = negotiate_instantly
 
     @property
     def remote_subnet(self):

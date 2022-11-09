@@ -43,9 +43,7 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         'direct_connect_gateway_id': 'str',
         'enable_bfd': 'bool',
         'local_ip': 'str',
-        'local_ipv6_ip': 'str',
         'peer_ip': 'str',
-        'peer_ipv6_ip': 'str',
         'request_id': 'str',
         'route_type': 'str',
         'status': 'str',
@@ -67,9 +65,7 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         'direct_connect_gateway_id': 'DirectConnectGatewayId',
         'enable_bfd': 'EnableBfd',
         'local_ip': 'LocalIp',
-        'local_ipv6_ip': 'LocalIpv6Ip',
         'peer_ip': 'PeerIp',
-        'peer_ipv6_ip': 'PeerIpv6Ip',
         'request_id': 'RequestId',
         'route_type': 'RouteType',
         'status': 'Status',
@@ -80,7 +76,7 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, creation_time=None, description=None, direct_connect_connection_id=None, direct_connect_gateway_id=None, enable_bfd=None, local_ip=None, local_ipv6_ip=None, peer_ip=None, peer_ipv6_ip=None, request_id=None, route_type=None, status=None, tags=None, update_time=None, virtual_interface_id=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, creation_time=None, description=None, direct_connect_connection_id=None, direct_connect_gateway_id=None, enable_bfd=None, local_ip=None, peer_ip=None, request_id=None, route_type=None, status=None, tags=None, update_time=None, virtual_interface_id=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectVirtualInterfaceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,9 +92,7 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         self._direct_connect_gateway_id = None
         self._enable_bfd = None
         self._local_ip = None
-        self._local_ipv6_ip = None
         self._peer_ip = None
-        self._peer_ipv6_ip = None
         self._request_id = None
         self._route_type = None
         self._status = None
@@ -129,12 +123,8 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
             self.enable_bfd = enable_bfd
         if local_ip is not None:
             self.local_ip = local_ip
-        if local_ipv6_ip is not None:
-            self.local_ipv6_ip = local_ipv6_ip
         if peer_ip is not None:
             self.peer_ip = peer_ip
-        if peer_ipv6_ip is not None:
-            self.peer_ipv6_ip = peer_ipv6_ip
         if request_id is not None:
             self.request_id = request_id
         if route_type is not None:
@@ -363,27 +353,6 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         self._local_ip = local_ip
 
     @property
-    def local_ipv6_ip(self):
-        """Gets the local_ipv6_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
-
-
-        :return: The local_ipv6_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._local_ipv6_ip
-
-    @local_ipv6_ip.setter
-    def local_ipv6_ip(self, local_ipv6_ip):
-        """Sets the local_ipv6_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.
-
-
-        :param local_ipv6_ip: The local_ipv6_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._local_ipv6_ip = local_ipv6_ip
-
-    @property
     def peer_ip(self):
         """Gets the peer_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
 
@@ -403,27 +372,6 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         """
 
         self._peer_ip = peer_ip
-
-    @property
-    def peer_ipv6_ip(self):
-        """Gets the peer_ipv6_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
-
-
-        :return: The peer_ipv6_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._peer_ipv6_ip
-
-    @peer_ipv6_ip.setter
-    def peer_ipv6_ip(self, peer_ipv6_ip):
-        """Sets the peer_ipv6_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.
-
-
-        :param peer_ipv6_ip: The peer_ipv6_ip of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._peer_ipv6_ip = peer_ipv6_ip
 
     @property
     def request_id(self):

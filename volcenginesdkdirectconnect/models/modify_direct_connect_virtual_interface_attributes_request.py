@@ -33,43 +33,42 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bandwidth': 'int',
         'bfd_detect_interval': 'int',
         'bfd_detect_multiplier': 'int',
         'description': 'str',
         'enable_bfd': 'bool',
-        'local_ipv6_ip': 'str',
-        'peer_ipv6_ip': 'str',
         'virtual_interface_id': 'str',
         'virtual_interface_name': 'str'
     }
 
     attribute_map = {
+        'bandwidth': 'Bandwidth',
         'bfd_detect_interval': 'BfdDetectInterval',
         'bfd_detect_multiplier': 'BfdDetectMultiplier',
         'description': 'Description',
         'enable_bfd': 'EnableBfd',
-        'local_ipv6_ip': 'LocalIpv6Ip',
-        'peer_ipv6_ip': 'PeerIpv6Ip',
         'virtual_interface_id': 'VirtualInterfaceId',
         'virtual_interface_name': 'VirtualInterfaceName'
     }
 
-    def __init__(self, bfd_detect_interval=None, bfd_detect_multiplier=None, description=None, enable_bfd=None, local_ipv6_ip=None, peer_ipv6_ip=None, virtual_interface_id=None, virtual_interface_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, description=None, enable_bfd=None, virtual_interface_id=None, virtual_interface_name=None, _configuration=None):  # noqa: E501
         """ModifyDirectConnectVirtualInterfaceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bandwidth = None
         self._bfd_detect_interval = None
         self._bfd_detect_multiplier = None
         self._description = None
         self._enable_bfd = None
-        self._local_ipv6_ip = None
-        self._peer_ipv6_ip = None
         self._virtual_interface_id = None
         self._virtual_interface_name = None
         self.discriminator = None
 
+        if bandwidth is not None:
+            self.bandwidth = bandwidth
         if bfd_detect_interval is not None:
             self.bfd_detect_interval = bfd_detect_interval
         if bfd_detect_multiplier is not None:
@@ -78,13 +77,30 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
             self.description = description
         if enable_bfd is not None:
             self.enable_bfd = enable_bfd
-        if local_ipv6_ip is not None:
-            self.local_ipv6_ip = local_ipv6_ip
-        if peer_ipv6_ip is not None:
-            self.peer_ipv6_ip = peer_ipv6_ip
         self.virtual_interface_id = virtual_interface_id
         if virtual_interface_name is not None:
             self.virtual_interface_name = virtual_interface_name
+
+    @property
+    def bandwidth(self):
+        """Gets the bandwidth of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The bandwidth of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bandwidth
+
+    @bandwidth.setter
+    def bandwidth(self, bandwidth):
+        """Sets the bandwidth of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
+
+
+        :param bandwidth: The bandwidth of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bandwidth = bandwidth
 
     @property
     def bfd_detect_interval(self):
@@ -187,48 +203,6 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         """
 
         self._enable_bfd = enable_bfd
-
-    @property
-    def local_ipv6_ip(self):
-        """Gets the local_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
-
-
-        :return: The local_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._local_ipv6_ip
-
-    @local_ipv6_ip.setter
-    def local_ipv6_ip(self, local_ipv6_ip):
-        """Sets the local_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
-
-
-        :param local_ipv6_ip: The local_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._local_ipv6_ip = local_ipv6_ip
-
-    @property
-    def peer_ipv6_ip(self):
-        """Gets the peer_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
-
-
-        :return: The peer_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._peer_ipv6_ip
-
-    @peer_ipv6_ip.setter
-    def peer_ipv6_ip(self, peer_ipv6_ip):
-        """Sets the peer_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
-
-
-        :param peer_ipv6_ip: The peer_ipv6_ip of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._peer_ipv6_ip = peer_ipv6_ip
 
     @property
     def virtual_interface_id(self):

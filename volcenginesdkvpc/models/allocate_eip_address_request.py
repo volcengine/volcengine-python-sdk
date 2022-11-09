@@ -34,6 +34,7 @@ class AllocateEipAddressRequest(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'bandwidth_package_id': 'str',
         'billing_type': 'int',
         'client_token': 'str',
         'description': 'str',
@@ -48,6 +49,7 @@ class AllocateEipAddressRequest(object):
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'bandwidth_package_id': 'BandwidthPackageId',
         'billing_type': 'BillingType',
         'client_token': 'ClientToken',
         'description': 'Description',
@@ -60,13 +62,14 @@ class AllocateEipAddressRequest(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, client_token=None, description=None, isp=None, name=None, period=None, period_unit=None, project_name=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, description=None, isp=None, name=None, period=None, period_unit=None, project_name=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
         """AllocateEipAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._bandwidth_package_id = None
         self._billing_type = None
         self._client_token = None
         self._description = None
@@ -81,6 +84,8 @@ class AllocateEipAddressRequest(object):
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if bandwidth_package_id is not None:
+            self.bandwidth_package_id = bandwidth_package_id
         if billing_type is not None:
             self.billing_type = billing_type
         if client_token is not None:
@@ -128,6 +133,27 @@ class AllocateEipAddressRequest(object):
             raise ValueError("Invalid value for `bandwidth`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._bandwidth = bandwidth
+
+    @property
+    def bandwidth_package_id(self):
+        """Gets the bandwidth_package_id of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The bandwidth_package_id of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bandwidth_package_id
+
+    @bandwidth_package_id.setter
+    def bandwidth_package_id(self, bandwidth_package_id):
+        """Sets the bandwidth_package_id of this AllocateEipAddressRequest.
+
+
+        :param bandwidth_package_id: The bandwidth_package_id of this AllocateEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bandwidth_package_id = bandwidth_package_id
 
     @property
     def billing_type(self):

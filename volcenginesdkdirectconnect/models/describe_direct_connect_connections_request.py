@@ -34,8 +34,10 @@ class DescribeDirectConnectConnectionsRequest(object):
     """
     swagger_types = {
         'access_point': 'str',
+        'connection_type': 'str',
         'direct_connect_connection_ids': 'list[str]',
         'direct_connect_connection_name': 'str',
+        'line_operator': 'str',
         'operator': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -45,8 +47,10 @@ class DescribeDirectConnectConnectionsRequest(object):
 
     attribute_map = {
         'access_point': 'AccessPoint',
+        'connection_type': 'ConnectionType',
         'direct_connect_connection_ids': 'DirectConnectConnectionIds',
         'direct_connect_connection_name': 'DirectConnectConnectionName',
+        'line_operator': 'LineOperator',
         'operator': 'Operator',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -54,15 +58,17 @@ class DescribeDirectConnectConnectionsRequest(object):
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, access_point=None, direct_connect_connection_ids=None, direct_connect_connection_name=None, operator=None, page_number=None, page_size=None, peer_location=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_point=None, connection_type=None, direct_connect_connection_ids=None, direct_connect_connection_name=None, line_operator=None, operator=None, page_number=None, page_size=None, peer_location=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._access_point = None
+        self._connection_type = None
         self._direct_connect_connection_ids = None
         self._direct_connect_connection_name = None
+        self._line_operator = None
         self._operator = None
         self._page_number = None
         self._page_size = None
@@ -72,10 +78,14 @@ class DescribeDirectConnectConnectionsRequest(object):
 
         if access_point is not None:
             self.access_point = access_point
+        if connection_type is not None:
+            self.connection_type = connection_type
         if direct_connect_connection_ids is not None:
             self.direct_connect_connection_ids = direct_connect_connection_ids
         if direct_connect_connection_name is not None:
             self.direct_connect_connection_name = direct_connect_connection_name
+        if line_operator is not None:
+            self.line_operator = line_operator
         if operator is not None:
             self.operator = operator
         if page_number is not None:
@@ -107,6 +117,27 @@ class DescribeDirectConnectConnectionsRequest(object):
         """
 
         self._access_point = access_point
+
+    @property
+    def connection_type(self):
+        """Gets the connection_type of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+
+
+        :return: The connection_type of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_type
+
+    @connection_type.setter
+    def connection_type(self, connection_type):
+        """Sets the connection_type of this DescribeDirectConnectConnectionsRequest.
+
+
+        :param connection_type: The connection_type of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._connection_type = connection_type
 
     @property
     def direct_connect_connection_ids(self):
@@ -149,6 +180,27 @@ class DescribeDirectConnectConnectionsRequest(object):
         """
 
         self._direct_connect_connection_name = direct_connect_connection_name
+
+    @property
+    def line_operator(self):
+        """Gets the line_operator of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+
+
+        :return: The line_operator of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._line_operator
+
+    @line_operator.setter
+    def line_operator(self, line_operator):
+        """Sets the line_operator of this DescribeDirectConnectConnectionsRequest.
+
+
+        :param line_operator: The line_operator of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._line_operator = line_operator
 
     @property
     def operator(self):

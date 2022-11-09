@@ -39,6 +39,7 @@ class CreateBandwidthPackageRequest(object):
         'description': 'str',
         'isp': 'str',
         'project_name': 'str',
+        'security_protection_types': 'list[str]',
         'tags': 'list[TagForCreateBandwidthPackageInput]'
     }
 
@@ -49,10 +50,11 @@ class CreateBandwidthPackageRequest(object):
         'description': 'Description',
         'isp': 'ISP',
         'project_name': 'ProjectName',
+        'security_protection_types': 'SecurityProtectionTypes',
         'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, bandwidth_package_name=None, billing_type=None, description=None, isp=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_name=None, billing_type=None, description=None, isp=None, project_name=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
         """CreateBandwidthPackageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class CreateBandwidthPackageRequest(object):
         self._description = None
         self._isp = None
         self._project_name = None
+        self._security_protection_types = None
         self._tags = None
         self.discriminator = None
 
@@ -78,6 +81,8 @@ class CreateBandwidthPackageRequest(object):
             self.isp = isp
         if project_name is not None:
             self.project_name = project_name
+        if security_protection_types is not None:
+            self.security_protection_types = security_protection_types
         if tags is not None:
             self.tags = tags
 
@@ -239,6 +244,27 @@ class CreateBandwidthPackageRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def security_protection_types(self):
+        """Gets the security_protection_types of this CreateBandwidthPackageRequest.  # noqa: E501
+
+
+        :return: The security_protection_types of this CreateBandwidthPackageRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_protection_types
+
+    @security_protection_types.setter
+    def security_protection_types(self, security_protection_types):
+        """Sets the security_protection_types of this CreateBandwidthPackageRequest.
+
+
+        :param security_protection_types: The security_protection_types of this CreateBandwidthPackageRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_protection_types = security_protection_types
 
     @property
     def tags(self):

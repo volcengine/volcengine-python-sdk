@@ -39,7 +39,9 @@ class CenForDescribeCensOutput(object):
         'cen_name': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'project_name': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeCensOutput]',
         'update_time': 'str'
     }
 
@@ -50,11 +52,13 @@ class CenForDescribeCensOutput(object):
         'cen_name': 'CenName',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'project_name': 'ProjectName',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, cen_bandwidth_package_ids=None, cen_id=None, cen_name=None, creation_time=None, description=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, cen_bandwidth_package_ids=None, cen_id=None, cen_name=None, creation_time=None, description=None, project_name=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """CenForDescribeCensOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,7 +70,9 @@ class CenForDescribeCensOutput(object):
         self._cen_name = None
         self._creation_time = None
         self._description = None
+        self._project_name = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -82,8 +88,12 @@ class CenForDescribeCensOutput(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if project_name is not None:
+            self.project_name = project_name
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -214,6 +224,27 @@ class CenForDescribeCensOutput(object):
         self._description = description
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CenForDescribeCensOutput.  # noqa: E501
+
+
+        :return: The project_name of this CenForDescribeCensOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CenForDescribeCensOutput.
+
+
+        :param project_name: The project_name of this CenForDescribeCensOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def status(self):
         """Gets the status of this CenForDescribeCensOutput.  # noqa: E501
 
@@ -233,6 +264,27 @@ class CenForDescribeCensOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this CenForDescribeCensOutput.  # noqa: E501
+
+
+        :return: The tags of this CenForDescribeCensOutput.  # noqa: E501
+        :rtype: list[TagForDescribeCensOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CenForDescribeCensOutput.
+
+
+        :param tags: The tags of this CenForDescribeCensOutput.  # noqa: E501
+        :type: list[TagForDescribeCensOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

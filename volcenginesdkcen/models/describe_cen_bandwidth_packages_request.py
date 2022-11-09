@@ -39,7 +39,9 @@ class DescribeCenBandwidthPackagesRequest(object):
         'local_geographic_region_set_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'peer_geographic_region_set_id': 'str'
+        'peer_geographic_region_set_id': 'str',
+        'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeCenBandwidthPackagesInput]'
     }
 
     attribute_map = {
@@ -49,10 +51,12 @@ class DescribeCenBandwidthPackagesRequest(object):
         'local_geographic_region_set_id': 'LocalGeographicRegionSetId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'peer_geographic_region_set_id': 'PeerGeographicRegionSetId'
+        'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
+        'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, cen_bandwidth_package_ids=None, cen_bandwidth_package_name=None, cen_id=None, local_geographic_region_set_id=None, page_number=None, page_size=None, peer_geographic_region_set_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_bandwidth_package_ids=None, cen_bandwidth_package_name=None, cen_id=None, local_geographic_region_set_id=None, page_number=None, page_size=None, peer_geographic_region_set_id=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeCenBandwidthPackagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +69,8 @@ class DescribeCenBandwidthPackagesRequest(object):
         self._page_number = None
         self._page_size = None
         self._peer_geographic_region_set_id = None
+        self._project_name = None
+        self._tag_filters = None
         self.discriminator = None
 
         if cen_bandwidth_package_ids is not None:
@@ -81,6 +87,10 @@ class DescribeCenBandwidthPackagesRequest(object):
             self.page_size = page_size
         if peer_geographic_region_set_id is not None:
             self.peer_geographic_region_set_id = peer_geographic_region_set_id
+        if project_name is not None:
+            self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def cen_bandwidth_package_ids(self):
@@ -228,6 +238,48 @@ class DescribeCenBandwidthPackagesRequest(object):
         """
 
         self._peer_geographic_region_set_id = peer_geographic_region_set_id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeCenBandwidthPackagesRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeCenBandwidthPackagesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeCenBandwidthPackagesRequest.
+
+
+        :param project_name: The project_name of this DescribeCenBandwidthPackagesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeCenBandwidthPackagesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeCenBandwidthPackagesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeCenBandwidthPackagesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeCenBandwidthPackagesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeCenBandwidthPackagesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeCenBandwidthPackagesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

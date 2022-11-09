@@ -33,55 +33,55 @@ class DescribeDirectConnectAccessPointsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'describe_direct_connect_access_point_ids': 'list[str]',
+        'direct_connect_access_point_ids': 'list[str]',
         'page_number': 'int',
         'page_size': 'int'
     }
 
     attribute_map = {
-        'describe_direct_connect_access_point_ids': 'DescribeDirectConnectAccessPointIds',
+        'direct_connect_access_point_ids': 'DirectConnectAccessPointIds',
         'page_number': 'PageNumber',
         'page_size': 'PageSize'
     }
 
-    def __init__(self, describe_direct_connect_access_point_ids=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, direct_connect_access_point_ids=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectAccessPointsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._describe_direct_connect_access_point_ids = None
+        self._direct_connect_access_point_ids = None
         self._page_number = None
         self._page_size = None
         self.discriminator = None
 
-        if describe_direct_connect_access_point_ids is not None:
-            self.describe_direct_connect_access_point_ids = describe_direct_connect_access_point_ids
+        if direct_connect_access_point_ids is not None:
+            self.direct_connect_access_point_ids = direct_connect_access_point_ids
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
 
     @property
-    def describe_direct_connect_access_point_ids(self):
-        """Gets the describe_direct_connect_access_point_ids of this DescribeDirectConnectAccessPointsRequest.  # noqa: E501
+    def direct_connect_access_point_ids(self):
+        """Gets the direct_connect_access_point_ids of this DescribeDirectConnectAccessPointsRequest.  # noqa: E501
 
 
-        :return: The describe_direct_connect_access_point_ids of this DescribeDirectConnectAccessPointsRequest.  # noqa: E501
+        :return: The direct_connect_access_point_ids of this DescribeDirectConnectAccessPointsRequest.  # noqa: E501
         :rtype: list[str]
         """
-        return self._describe_direct_connect_access_point_ids
+        return self._direct_connect_access_point_ids
 
-    @describe_direct_connect_access_point_ids.setter
-    def describe_direct_connect_access_point_ids(self, describe_direct_connect_access_point_ids):
-        """Sets the describe_direct_connect_access_point_ids of this DescribeDirectConnectAccessPointsRequest.
+    @direct_connect_access_point_ids.setter
+    def direct_connect_access_point_ids(self, direct_connect_access_point_ids):
+        """Sets the direct_connect_access_point_ids of this DescribeDirectConnectAccessPointsRequest.
 
 
-        :param describe_direct_connect_access_point_ids: The describe_direct_connect_access_point_ids of this DescribeDirectConnectAccessPointsRequest.  # noqa: E501
+        :param direct_connect_access_point_ids: The direct_connect_access_point_ids of this DescribeDirectConnectAccessPointsRequest.  # noqa: E501
         :type: list[str]
         """
 
-        self._describe_direct_connect_access_point_ids = describe_direct_connect_access_point_ids
+        self._direct_connect_access_point_ids = direct_connect_access_point_ids
 
     @property
     def page_number(self):

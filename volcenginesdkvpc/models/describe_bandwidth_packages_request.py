@@ -37,6 +37,7 @@ class DescribeBandwidthPackagesRequest(object):
         'bandwidth_package_name': 'str',
         'isp': 'str',
         'project_name': 'str',
+        'security_protection_enabled': 'bool',
         'tag_filters': 'list[TagFilterForDescribeBandwidthPackagesInput]'
     }
 
@@ -45,10 +46,11 @@ class DescribeBandwidthPackagesRequest(object):
         'bandwidth_package_name': 'BandwidthPackageName',
         'isp': 'ISP',
         'project_name': 'ProjectName',
+        'security_protection_enabled': 'SecurityProtectionEnabled',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, bandwidth_package_ids=None, bandwidth_package_name=None, isp=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_package_ids=None, bandwidth_package_name=None, isp=None, project_name=None, security_protection_enabled=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeBandwidthPackagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class DescribeBandwidthPackagesRequest(object):
         self._bandwidth_package_name = None
         self._isp = None
         self._project_name = None
+        self._security_protection_enabled = None
         self._tag_filters = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class DescribeBandwidthPackagesRequest(object):
             self.isp = isp
         if project_name is not None:
             self.project_name = project_name
+        if security_protection_enabled is not None:
+            self.security_protection_enabled = security_protection_enabled
         if tag_filters is not None:
             self.tag_filters = tag_filters
 
@@ -162,6 +167,27 @@ class DescribeBandwidthPackagesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def security_protection_enabled(self):
+        """Gets the security_protection_enabled of this DescribeBandwidthPackagesRequest.  # noqa: E501
+
+
+        :return: The security_protection_enabled of this DescribeBandwidthPackagesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._security_protection_enabled
+
+    @security_protection_enabled.setter
+    def security_protection_enabled(self, security_protection_enabled):
+        """Sets the security_protection_enabled of this DescribeBandwidthPackagesRequest.
+
+
+        :param security_protection_enabled: The security_protection_enabled of this DescribeBandwidthPackagesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._security_protection_enabled = security_protection_enabled
 
     @property
     def tag_filters(self):

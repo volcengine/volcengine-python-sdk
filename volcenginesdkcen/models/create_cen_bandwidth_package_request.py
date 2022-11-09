@@ -42,7 +42,9 @@ class CreateCenBandwidthPackageRequest(object):
         'local_geographic_region_set_id': 'str',
         'peer_geographic_region_set_id': 'str',
         'period': 'int',
-        'period_unit': 'str'
+        'period_unit': 'str',
+        'project_name': 'str',
+        'tags': 'list[TagForCreateCenBandwidthPackageInput]'
     }
 
     attribute_map = {
@@ -55,10 +57,12 @@ class CreateCenBandwidthPackageRequest(object):
         'local_geographic_region_set_id': 'LocalGeographicRegionSetId',
         'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
         'period': 'Period',
-        'period_unit': 'PeriodUnit'
+        'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, cen_bandwidth_package_name=None, cen_id=None, client_token=None, description=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, cen_bandwidth_package_name=None, cen_id=None, client_token=None, description=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, period=None, period_unit=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateCenBandwidthPackageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +78,8 @@ class CreateCenBandwidthPackageRequest(object):
         self._peer_geographic_region_set_id = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
+        self._tags = None
         self.discriminator = None
 
         if bandwidth is not None:
@@ -94,6 +100,10 @@ class CreateCenBandwidthPackageRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def bandwidth(self):
@@ -333,6 +343,48 @@ class CreateCenBandwidthPackageRequest(object):
             )
 
         self._period_unit = period_unit
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateCenBandwidthPackageRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateCenBandwidthPackageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateCenBandwidthPackageRequest.
+
+
+        :param project_name: The project_name of this CreateCenBandwidthPackageRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateCenBandwidthPackageRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateCenBandwidthPackageRequest.  # noqa: E501
+        :rtype: list[TagForCreateCenBandwidthPackageInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateCenBandwidthPackageRequest.
+
+
+        :param tags: The tags of this CreateCenBandwidthPackageRequest.  # noqa: E501
+        :type: list[TagForCreateCenBandwidthPackageInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -35,6 +35,7 @@ class ModifyVpnGatewayAttributesRequest(object):
     swagger_types = {
         'bandwidth': 'int',
         'description': 'str',
+        'negotiate_instantly': 'str',
         'vpn_gateway_id': 'str',
         'vpn_gateway_name': 'str'
     }
@@ -42,11 +43,12 @@ class ModifyVpnGatewayAttributesRequest(object):
     attribute_map = {
         'bandwidth': 'Bandwidth',
         'description': 'Description',
+        'negotiate_instantly': 'NegotiateInstantly',
         'vpn_gateway_id': 'VpnGatewayId',
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, bandwidth=None, description=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, description=None, negotiate_instantly=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """ModifyVpnGatewayAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ModifyVpnGatewayAttributesRequest(object):
 
         self._bandwidth = None
         self._description = None
+        self._negotiate_instantly = None
         self._vpn_gateway_id = None
         self._vpn_gateway_name = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ModifyVpnGatewayAttributesRequest(object):
             self.bandwidth = bandwidth
         if description is not None:
             self.description = description
+        if negotiate_instantly is not None:
+            self.negotiate_instantly = negotiate_instantly
         self.vpn_gateway_id = vpn_gateway_id
         if vpn_gateway_name is not None:
             self.vpn_gateway_name = vpn_gateway_name
@@ -119,6 +124,27 @@ class ModifyVpnGatewayAttributesRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def negotiate_instantly(self):
+        """Gets the negotiate_instantly of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+
+
+        :return: The negotiate_instantly of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._negotiate_instantly
+
+    @negotiate_instantly.setter
+    def negotiate_instantly(self, negotiate_instantly):
+        """Sets the negotiate_instantly of this ModifyVpnGatewayAttributesRequest.
+
+
+        :param negotiate_instantly: The negotiate_instantly of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._negotiate_instantly = negotiate_instantly
 
     @property
     def vpn_gateway_id(self):

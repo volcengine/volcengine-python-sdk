@@ -40,7 +40,8 @@ class CenRouteEntryForDescribeCenRouteEntriesOutput(object):
         'instance_region_id': 'str',
         'instance_type': 'str',
         'publish_status': 'str',
-        'status': 'str'
+        'status': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class CenRouteEntryForDescribeCenRouteEntriesOutput(object):
         'instance_region_id': 'InstanceRegionId',
         'instance_type': 'InstanceType',
         'publish_status': 'PublishStatus',
-        'status': 'Status'
+        'status': 'Status',
+        'type': 'Type'
     }
 
-    def __init__(self, as_path=None, cen_id=None, destination_cidr_block=None, instance_id=None, instance_region_id=None, instance_type=None, publish_status=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, as_path=None, cen_id=None, destination_cidr_block=None, instance_id=None, instance_region_id=None, instance_type=None, publish_status=None, status=None, type=None, _configuration=None):  # noqa: E501
         """CenRouteEntryForDescribeCenRouteEntriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class CenRouteEntryForDescribeCenRouteEntriesOutput(object):
         self._instance_type = None
         self._publish_status = None
         self._status = None
+        self._type = None
         self.discriminator = None
 
         if as_path is not None:
@@ -86,6 +89,8 @@ class CenRouteEntryForDescribeCenRouteEntriesOutput(object):
             self.publish_status = publish_status
         if status is not None:
             self.status = status
+        if type is not None:
+            self.type = type
 
     @property
     def as_path(self):
@@ -254,6 +259,27 @@ class CenRouteEntryForDescribeCenRouteEntriesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def type(self):
+        """Gets the type of this CenRouteEntryForDescribeCenRouteEntriesOutput.  # noqa: E501
+
+
+        :return: The type of this CenRouteEntryForDescribeCenRouteEntriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this CenRouteEntryForDescribeCenRouteEntriesOutput.
+
+
+        :param type: The type of this CenRouteEntryForDescribeCenRouteEntriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

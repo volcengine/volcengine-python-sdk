@@ -33,29 +33,24 @@ class TagFilterForDescribeDirectConnectConnectionsInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'key': 'str',
-        'values': 'list[str]'
+        'key': 'str'
     }
 
     attribute_map = {
-        'key': 'Key',
-        'values': 'Values'
+        'key': 'Key'
     }
 
-    def __init__(self, key=None, values=None, _configuration=None):  # noqa: E501
+    def __init__(self, key=None, _configuration=None):  # noqa: E501
         """TagFilterForDescribeDirectConnectConnectionsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._key = None
-        self._values = None
         self.discriminator = None
 
         if key is not None:
             self.key = key
-        if values is not None:
-            self.values = values
 
     @property
     def key(self):
@@ -77,27 +72,6 @@ class TagFilterForDescribeDirectConnectConnectionsInput(object):
         """
 
         self._key = key
-
-    @property
-    def values(self):
-        """Gets the values of this TagFilterForDescribeDirectConnectConnectionsInput.  # noqa: E501
-
-
-        :return: The values of this TagFilterForDescribeDirectConnectConnectionsInput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._values
-
-    @values.setter
-    def values(self, values):
-        """Sets the values of this TagFilterForDescribeDirectConnectConnectionsInput.
-
-
-        :param values: The values of this TagFilterForDescribeDirectConnectConnectionsInput.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._values = values
 
     def to_dict(self):
         """Returns the model properties as a dict"""

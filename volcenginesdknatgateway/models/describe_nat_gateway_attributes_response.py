@@ -50,7 +50,8 @@ class DescribeNatGatewayAttributesResponse(object):
         'status': 'str',
         'subnet_id': 'str',
         'updated_at': 'str',
-        'vpc_id': 'str'
+        'vpc_id': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -71,10 +72,11 @@ class DescribeNatGatewayAttributesResponse(object):
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'updated_at': 'UpdatedAt',
-        'vpc_id': 'VpcId'
+        'vpc_id': 'VpcId',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, overdue_time=None, request_id=None, spec=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, overdue_time=None, request_id=None, spec=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeNatGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,6 +100,7 @@ class DescribeNatGatewayAttributesResponse(object):
         self._subnet_id = None
         self._updated_at = None
         self._vpc_id = None
+        self._zone_id = None
         self.discriminator = None
 
         if billing_type is not None:
@@ -136,6 +139,8 @@ class DescribeNatGatewayAttributesResponse(object):
             self.updated_at = updated_at
         if vpc_id is not None:
             self.vpc_id = vpc_id
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def billing_type(self):
@@ -514,6 +519,27 @@ class DescribeNatGatewayAttributesResponse(object):
         """
 
         self._vpc_id = vpc_id
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The zone_id of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this DescribeNatGatewayAttributesResponse.
+
+
+        :param zone_id: The zone_id of this DescribeNatGatewayAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
