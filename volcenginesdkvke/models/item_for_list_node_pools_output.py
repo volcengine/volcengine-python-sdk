@@ -43,6 +43,7 @@ class ItemForListNodePoolsOutput(object):
         'node_config': 'NodeConfigForListNodePoolsOutput',
         'node_statistics': 'NodeStatisticsForListNodePoolsOutput',
         'status': 'StatusForListNodePoolsOutput',
+        'tags': 'list[ConvertTagForListNodePoolsOutput]',
         'update_client_token': 'str',
         'update_time': 'str'
     }
@@ -58,11 +59,12 @@ class ItemForListNodePoolsOutput(object):
         'node_config': 'NodeConfig',
         'node_statistics': 'NodeStatistics',
         'status': 'Status',
+        'tags': 'Tags',
         'update_client_token': 'UpdateClientToken',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, auto_scaling=None, cluster_id=None, create_client_token=None, create_time=None, id=None, kubernetes_config=None, name=None, node_config=None, node_statistics=None, status=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, cluster_id=None, create_client_token=None, create_time=None, id=None, kubernetes_config=None, name=None, node_config=None, node_statistics=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class ItemForListNodePoolsOutput(object):
         self._node_config = None
         self._node_statistics = None
         self._status = None
+        self._tags = None
         self._update_client_token = None
         self._update_time = None
         self.discriminator = None
@@ -102,6 +105,8 @@ class ItemForListNodePoolsOutput(object):
             self.node_statistics = node_statistics
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_client_token is not None:
             self.update_client_token = update_client_token
         if update_time is not None:
@@ -316,6 +321,27 @@ class ItemForListNodePoolsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this ItemForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The tags of this ItemForListNodePoolsOutput.  # noqa: E501
+        :rtype: list[ConvertTagForListNodePoolsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ItemForListNodePoolsOutput.
+
+
+        :param tags: The tags of this ItemForListNodePoolsOutput.  # noqa: E501
+        :type: list[ConvertTagForListNodePoolsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_client_token(self):

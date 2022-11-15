@@ -39,7 +39,8 @@ class CreateClusterRequest(object):
         'description': 'str',
         'name': 'str',
         'pods_config': 'PodsConfigForCreateClusterInput',
-        'services_config': 'ServicesConfigForCreateClusterInput'
+        'services_config': 'ServicesConfigForCreateClusterInput',
+        'tags': 'list[TagForCreateClusterInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class CreateClusterRequest(object):
         'description': 'Description',
         'name': 'Name',
         'pods_config': 'PodsConfig',
-        'services_config': 'ServicesConfig'
+        'services_config': 'ServicesConfig',
+        'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, name=None, pods_config=None, services_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, name=None, pods_config=None, services_config=None, tags=None, _configuration=None):  # noqa: E501
         """CreateClusterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class CreateClusterRequest(object):
         self._name = None
         self._pods_config = None
         self._services_config = None
+        self._tags = None
         self.discriminator = None
 
         if client_token is not None:
@@ -81,6 +84,8 @@ class CreateClusterRequest(object):
             self.pods_config = pods_config
         if services_config is not None:
             self.services_config = services_config
+        if tags is not None:
+            self.tags = tags
 
     @property
     def client_token(self):
@@ -228,6 +233,27 @@ class CreateClusterRequest(object):
         """
 
         self._services_config = services_config
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateClusterRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateClusterRequest.  # noqa: E501
+        :rtype: list[TagForCreateClusterInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateClusterRequest.
+
+
+        :param tags: The tags of this CreateClusterRequest.  # noqa: E501
+        :type: list[TagForCreateClusterInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
