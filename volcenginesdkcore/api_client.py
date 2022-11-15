@@ -15,10 +15,8 @@ import six
 from six.moves.urllib.parse import quote
 
 from volcenginesdkcore.configuration import Configuration
-from volcenginesdkcore.credentials import Credentials
 from volcenginesdkcore import rest
-from volcenginesdkcore.sign import Request
-from volcenginesdkcore.sign import SignerV4
+from volcenginesdkcore.signv4 import SignerV4
 
 
 class ApiClient(object):
@@ -536,19 +534,13 @@ class ApiClient(object):
             return
 
         for auth in auth_settings:
-            r = Request()
-            r.host = host
-            r.path = path
-            r.method = method
-            r.headers = headers
+            headers["Host"] = host
             if method == "POST":
-                r.body = json.dumps(body)
-            r.query = dict(querys)  # change list tuple to dict
-            r.headers["Host"] = host
-            credentials = Credentials(ak=self.configuration.ak, sk=self.configuration.sk, service=service,
-                                      region=self.configuration.region)
-            SignerV4.sign(r, credentials)
-            headers.update(r.headers)  # update to new headers
+                body = json.dumps(body)
+            else:
+                body = ""
+            SignerV4.sign(path, method, headers, body, dict(querys),
+                          self.configuration.ak, self.configuration.sk, self.configuration.region, service)
 
     def __deserialize_file(self, response):
         """Deserializes body to file
