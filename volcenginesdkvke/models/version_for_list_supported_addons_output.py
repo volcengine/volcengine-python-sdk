@@ -33,29 +33,55 @@ class VersionForListSupportedAddonsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'compatibilities': 'list[CompatibilityForListSupportedAddonsOutput]',
         'compatible_versions': 'list[str]',
         'version': 'str'
     }
 
     attribute_map = {
+        'compatibilities': 'Compatibilities',
         'compatible_versions': 'CompatibleVersions',
         'version': 'Version'
     }
 
-    def __init__(self, compatible_versions=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, compatibilities=None, compatible_versions=None, version=None, _configuration=None):  # noqa: E501
         """VersionForListSupportedAddonsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._compatibilities = None
         self._compatible_versions = None
         self._version = None
         self.discriminator = None
 
+        if compatibilities is not None:
+            self.compatibilities = compatibilities
         if compatible_versions is not None:
             self.compatible_versions = compatible_versions
         if version is not None:
             self.version = version
+
+    @property
+    def compatibilities(self):
+        """Gets the compatibilities of this VersionForListSupportedAddonsOutput.  # noqa: E501
+
+
+        :return: The compatibilities of this VersionForListSupportedAddonsOutput.  # noqa: E501
+        :rtype: list[CompatibilityForListSupportedAddonsOutput]
+        """
+        return self._compatibilities
+
+    @compatibilities.setter
+    def compatibilities(self, compatibilities):
+        """Sets the compatibilities of this VersionForListSupportedAddonsOutput.
+
+
+        :param compatibilities: The compatibilities of this VersionForListSupportedAddonsOutput.  # noqa: E501
+        :type: list[CompatibilityForListSupportedAddonsOutput]
+        """
+
+        self._compatibilities = compatibilities
 
     @property
     def compatible_versions(self):
