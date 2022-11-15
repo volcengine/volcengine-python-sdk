@@ -5,11 +5,7 @@
 import datetime
 import hmac
 import hashlib
-
-try:
-    from urllib import quote
-except:
-    from urllib.parse import quote
+from six.moves.urllib.parse import quote
 
 
 class SignerV4(object):
