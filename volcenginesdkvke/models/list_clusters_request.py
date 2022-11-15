@@ -35,16 +35,18 @@ class ListClustersRequest(object):
     swagger_types = {
         'filter': 'FilterForListClustersInput',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'tags': 'list[TagForListClustersInput]'
     }
 
     attribute_map = {
         'filter': 'Filter',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'tags': 'Tags'
     }
 
-    def __init__(self, filter=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, page_number=None, page_size=None, tags=None, _configuration=None):  # noqa: E501
         """ListClustersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ListClustersRequest(object):
         self._filter = None
         self._page_number = None
         self._page_size = None
+        self._tags = None
         self.discriminator = None
 
         if filter is not None:
@@ -61,6 +64,8 @@ class ListClustersRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if tags is not None:
+            self.tags = tags
 
     @property
     def filter(self):
@@ -124,6 +129,27 @@ class ListClustersRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def tags(self):
+        """Gets the tags of this ListClustersRequest.  # noqa: E501
+
+
+        :return: The tags of this ListClustersRequest.  # noqa: E501
+        :rtype: list[TagForListClustersInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ListClustersRequest.
+
+
+        :param tags: The tags of this ListClustersRequest.  # noqa: E501
+        :type: list[TagForListClustersInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

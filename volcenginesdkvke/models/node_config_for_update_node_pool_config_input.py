@@ -33,29 +33,163 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'additional_container_storage_enabled': 'bool',
+        'auto_renew': 'bool',
+        'auto_renew_period': 'int',
+        'data_volumes': 'list[DataVolumeForUpdateNodePoolConfigInput]',
         'initialize_script': 'str',
-        'security': 'SecurityForUpdateNodePoolConfigInput'
+        'instance_type_ids': 'list[str]',
+        'name_prefix': 'str',
+        'period': 'int',
+        'security': 'SecurityForUpdateNodePoolConfigInput',
+        'subnet_ids': 'list[str]',
+        'system_volume': 'SystemVolumeForUpdateNodePoolConfigInput',
+        'tags': 'list[TagForUpdateNodePoolConfigInput]'
     }
 
     attribute_map = {
+        'additional_container_storage_enabled': 'AdditionalContainerStorageEnabled',
+        'auto_renew': 'AutoRenew',
+        'auto_renew_period': 'AutoRenewPeriod',
+        'data_volumes': 'DataVolumes',
         'initialize_script': 'InitializeScript',
-        'security': 'Security'
+        'instance_type_ids': 'InstanceTypeIds',
+        'name_prefix': 'NamePrefix',
+        'period': 'Period',
+        'security': 'Security',
+        'subnet_ids': 'SubnetIds',
+        'system_volume': 'SystemVolume',
+        'tags': 'Tags'
     }
 
-    def __init__(self, initialize_script=None, security=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, initialize_script=None, instance_type_ids=None, name_prefix=None, period=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._additional_container_storage_enabled = None
+        self._auto_renew = None
+        self._auto_renew_period = None
+        self._data_volumes = None
         self._initialize_script = None
+        self._instance_type_ids = None
+        self._name_prefix = None
+        self._period = None
         self._security = None
+        self._subnet_ids = None
+        self._system_volume = None
+        self._tags = None
         self.discriminator = None
 
+        if additional_container_storage_enabled is not None:
+            self.additional_container_storage_enabled = additional_container_storage_enabled
+        if auto_renew is not None:
+            self.auto_renew = auto_renew
+        if auto_renew_period is not None:
+            self.auto_renew_period = auto_renew_period
+        if data_volumes is not None:
+            self.data_volumes = data_volumes
         if initialize_script is not None:
             self.initialize_script = initialize_script
+        if instance_type_ids is not None:
+            self.instance_type_ids = instance_type_ids
+        if name_prefix is not None:
+            self.name_prefix = name_prefix
+        if period is not None:
+            self.period = period
         if security is not None:
             self.security = security
+        if subnet_ids is not None:
+            self.subnet_ids = subnet_ids
+        if system_volume is not None:
+            self.system_volume = system_volume
+        if tags is not None:
+            self.tags = tags
+
+    @property
+    def additional_container_storage_enabled(self):
+        """Gets the additional_container_storage_enabled of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The additional_container_storage_enabled of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._additional_container_storage_enabled
+
+    @additional_container_storage_enabled.setter
+    def additional_container_storage_enabled(self, additional_container_storage_enabled):
+        """Sets the additional_container_storage_enabled of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param additional_container_storage_enabled: The additional_container_storage_enabled of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._additional_container_storage_enabled = additional_container_storage_enabled
+
+    @property
+    def auto_renew(self):
+        """Gets the auto_renew of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The auto_renew of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_renew
+
+    @auto_renew.setter
+    def auto_renew(self, auto_renew):
+        """Sets the auto_renew of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param auto_renew: The auto_renew of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_renew = auto_renew
+
+    @property
+    def auto_renew_period(self):
+        """Gets the auto_renew_period of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The auto_renew_period of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_renew_period
+
+    @auto_renew_period.setter
+    def auto_renew_period(self, auto_renew_period):
+        """Sets the auto_renew_period of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param auto_renew_period: The auto_renew_period of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_renew_period = auto_renew_period
+
+    @property
+    def data_volumes(self):
+        """Gets the data_volumes of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The data_volumes of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: list[DataVolumeForUpdateNodePoolConfigInput]
+        """
+        return self._data_volumes
+
+    @data_volumes.setter
+    def data_volumes(self, data_volumes):
+        """Sets the data_volumes of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param data_volumes: The data_volumes of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: list[DataVolumeForUpdateNodePoolConfigInput]
+        """
+
+        self._data_volumes = data_volumes
 
     @property
     def initialize_script(self):
@@ -79,6 +213,69 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         self._initialize_script = initialize_script
 
     @property
+    def instance_type_ids(self):
+        """Gets the instance_type_ids of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The instance_type_ids of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_type_ids
+
+    @instance_type_ids.setter
+    def instance_type_ids(self, instance_type_ids):
+        """Sets the instance_type_ids of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param instance_type_ids: The instance_type_ids of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_type_ids = instance_type_ids
+
+    @property
+    def name_prefix(self):
+        """Gets the name_prefix of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The name_prefix of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name_prefix
+
+    @name_prefix.setter
+    def name_prefix(self, name_prefix):
+        """Sets the name_prefix of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param name_prefix: The name_prefix of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._name_prefix = name_prefix
+
+    @property
+    def period(self):
+        """Gets the period of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The period of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._period
+
+    @period.setter
+    def period(self, period):
+        """Sets the period of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param period: The period of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: int
+        """
+
+        self._period = period
+
+    @property
     def security(self):
         """Gets the security of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
 
@@ -98,6 +295,69 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._security = security
+
+    @property
+    def subnet_ids(self):
+        """Gets the subnet_ids of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The subnet_ids of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._subnet_ids
+
+    @subnet_ids.setter
+    def subnet_ids(self, subnet_ids):
+        """Sets the subnet_ids of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param subnet_ids: The subnet_ids of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._subnet_ids = subnet_ids
+
+    @property
+    def system_volume(self):
+        """Gets the system_volume of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The system_volume of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: SystemVolumeForUpdateNodePoolConfigInput
+        """
+        return self._system_volume
+
+    @system_volume.setter
+    def system_volume(self, system_volume):
+        """Sets the system_volume of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param system_volume: The system_volume of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: SystemVolumeForUpdateNodePoolConfigInput
+        """
+
+        self._system_volume = system_volume
+
+    @property
+    def tags(self):
+        """Gets the tags of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The tags of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: list[TagForUpdateNodePoolConfigInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param tags: The tags of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: list[TagForUpdateNodePoolConfigInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

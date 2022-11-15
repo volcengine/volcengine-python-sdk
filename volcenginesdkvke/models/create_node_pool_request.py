@@ -38,7 +38,8 @@ class CreateNodePoolRequest(object):
         'cluster_id': 'str',
         'kubernetes_config': 'KubernetesConfigForCreateNodePoolInput',
         'name': 'str',
-        'node_config': 'NodeConfigForCreateNodePoolInput'
+        'node_config': 'NodeConfigForCreateNodePoolInput',
+        'tags': 'list[TagForCreateNodePoolInput]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class CreateNodePoolRequest(object):
         'cluster_id': 'ClusterId',
         'kubernetes_config': 'KubernetesConfig',
         'name': 'Name',
-        'node_config': 'NodeConfig'
+        'node_config': 'NodeConfig',
+        'tags': 'Tags'
     }
 
-    def __init__(self, auto_scaling=None, client_token=None, cluster_id=None, kubernetes_config=None, name=None, node_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, client_token=None, cluster_id=None, kubernetes_config=None, name=None, node_config=None, tags=None, _configuration=None):  # noqa: E501
         """CreateNodePoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class CreateNodePoolRequest(object):
         self._kubernetes_config = None
         self._name = None
         self._node_config = None
+        self._tags = None
         self.discriminator = None
 
         if auto_scaling is not None:
@@ -76,6 +79,8 @@ class CreateNodePoolRequest(object):
             self.name = name
         if node_config is not None:
             self.node_config = node_config
+        if tags is not None:
+            self.tags = tags
 
     @property
     def auto_scaling(self):
@@ -202,6 +207,27 @@ class CreateNodePoolRequest(object):
         """
 
         self._node_config = node_config
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateNodePoolRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateNodePoolRequest.  # noqa: E501
+        :rtype: list[TagForCreateNodePoolInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateNodePoolRequest.
+
+
+        :param tags: The tags of this CreateNodePoolRequest.  # noqa: E501
+        :type: list[TagForCreateNodePoolInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

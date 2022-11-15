@@ -46,6 +46,7 @@ class ItemForListClustersOutput(object):
         'pods_config': 'PodsConfigForListClustersOutput',
         'services_config': 'ServicesConfigForListClustersOutput',
         'status': 'StatusForListClustersOutput',
+        'tags': 'list[TagForListClustersOutput]',
         'update_client_token': 'str',
         'update_time': 'str'
     }
@@ -64,11 +65,12 @@ class ItemForListClustersOutput(object):
         'pods_config': 'PodsConfig',
         'services_config': 'ServicesConfig',
         'status': 'Status',
+        'tags': 'Tags',
         'update_client_token': 'UpdateClientToken',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, charge_type=None, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, name=None, node_statistics=None, pods_config=None, services_config=None, status=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, name=None, node_statistics=None, pods_config=None, services_config=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class ItemForListClustersOutput(object):
         self._pods_config = None
         self._services_config = None
         self._status = None
+        self._tags = None
         self._update_client_token = None
         self._update_time = None
         self.discriminator = None
@@ -117,6 +120,8 @@ class ItemForListClustersOutput(object):
             self.services_config = services_config
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_client_token is not None:
             self.update_client_token = update_client_token
         if update_time is not None:
@@ -394,6 +399,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The tags of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: list[TagForListClustersOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ItemForListClustersOutput.
+
+
+        :param tags: The tags of this ItemForListClustersOutput.  # noqa: E501
+        :type: list[TagForListClustersOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_client_token(self):

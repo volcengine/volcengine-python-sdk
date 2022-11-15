@@ -36,17 +36,19 @@ class CreateDefaultNodePoolRequest(object):
         'client_token': 'str',
         'cluster_id': 'str',
         'kubernetes_config': 'KubernetesConfigForCreateDefaultNodePoolInput',
-        'node_config': 'NodeConfigForCreateDefaultNodePoolInput'
+        'node_config': 'NodeConfigForCreateDefaultNodePoolInput',
+        'tags': 'list[TagForCreateDefaultNodePoolInput]'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
         'kubernetes_config': 'KubernetesConfig',
-        'node_config': 'NodeConfig'
+        'node_config': 'NodeConfig',
+        'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, cluster_id=None, kubernetes_config=None, node_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_id=None, kubernetes_config=None, node_config=None, tags=None, _configuration=None):  # noqa: E501
         """CreateDefaultNodePoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateDefaultNodePoolRequest(object):
         self._cluster_id = None
         self._kubernetes_config = None
         self._node_config = None
+        self._tags = None
         self.discriminator = None
 
         if client_token is not None:
@@ -66,6 +69,8 @@ class CreateDefaultNodePoolRequest(object):
             self.kubernetes_config = kubernetes_config
         if node_config is not None:
             self.node_config = node_config
+        if tags is not None:
+            self.tags = tags
 
     @property
     def client_token(self):
@@ -150,6 +155,27 @@ class CreateDefaultNodePoolRequest(object):
         """
 
         self._node_config = node_config
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateDefaultNodePoolRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateDefaultNodePoolRequest.  # noqa: E501
+        :rtype: list[TagForCreateDefaultNodePoolInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateDefaultNodePoolRequest.
+
+
+        :param tags: The tags of this CreateDefaultNodePoolRequest.  # noqa: E501
+        :type: list[TagForCreateDefaultNodePoolInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
