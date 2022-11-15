@@ -5,7 +5,7 @@
 import datetime
 import hmac
 import hashlib
-from six.moves.urllib.parse import quote
+from six.moves.urllib.parse import urlencode
 
 
 class SignerV4(object):
@@ -41,9 +41,8 @@ class SignerV4(object):
 
         signed_headers_string = ';'.join(sorted(signed_headers.keys()))
 
-        canonical_request = '\n'.join(
-            [method, path, SignerV4.norm_query(query), signed_str,
-             signed_headers_string, body_hash])
+        # The sorted() method sorts tuples by default, using the first item in each tuple.
+        canonical_request = '\n'.join([method, path, urlencode(sorted(query)), signed_str, signed_headers_string, body_hash])
         credential_scope = '/'.join([format_date[:8], region, service, 'request'])
         signing_str = '\n'.join(['HMAC-SHA256', format_date, credential_scope,
                                  hashlib.sha256(canonical_request.encode('utf-8')).hexdigest()])
@@ -67,19 +66,3 @@ class SignerV4(object):
     @staticmethod
     def hmac_sha256(key, msg):
         return hmac.new(key, msg.encode('utf-8'), hashlib.sha256).digest()
-
-    @staticmethod
-    def norm_query(params):
-        query = ''
-        for key in sorted(params.keys()):
-            if type(params[key]) == list:
-                for k in params[key]:
-                    query = query + quote(key, safe='-_.~') + '=' + quote(k, safe='-_.~') + '&'
-            elif type(params[key]) in [int, float, bool]:
-                # The argument to urllib.parse.quote must be a string
-                ele = str(params[key])
-                query = query + quote(key, safe='-_.~') + '=' + quote(ele, safe='-_.~') + '&'
-            else:
-                query = query + quote(key, safe='-_.~') + '=' + quote(params[key], safe='-_.~') + '&'
-        query = query[:-1]
-        return query.replace('+', '%20')

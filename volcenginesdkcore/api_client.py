@@ -539,7 +539,7 @@ class ApiClient(object):
                 body = json.dumps(body)
             else:
                 body = ""
-            SignerV4.sign(path, method, headers, body, dict(querys),
+            SignerV4.sign(path, method, headers, body, querys,
                           self.configuration.ak, self.configuration.sk, self.configuration.region, service)
 
     def __deserialize_file(self, response):
