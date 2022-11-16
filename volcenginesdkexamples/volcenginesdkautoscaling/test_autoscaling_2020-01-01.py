@@ -6,10 +6,10 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.host = "Wg"
-    configuration.ak = "AWWQ"
-    configuration.sk = "XM0XXX=="
-    configuration.region = "XXX"
+    configuration.host = "xx-xx-xx.xx.org"
+    configuration.ak = "xx"
+    configuration.sk = "xx=="
+    configuration.region = "xx"
 
     try:
         api_instance = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
