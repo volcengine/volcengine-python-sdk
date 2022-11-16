@@ -1,6 +1,6 @@
 from __future__ import print_function
 import volcenginesdkcore
-import volcenginesdkecs
+import volcenginesdkrdsmysql
 from pprint import pprint
 from volcenginesdkcore.rest import ApiException
 
@@ -14,10 +14,13 @@ if __name__ == '__main__':
 
     try:
         # create an instance of the API class
-        api_instance = volcenginesdkecs.ECSApi(volcenginesdkcore.ApiClient(configuration))
-        resp = api_instance.describe_instances(
-            volcenginesdkecs.DescribeInstancesRequest(instance_ids=["i-ybmq2b6xiil8u206g9yv"]))
+        api_instance = volcenginesdkrdsmysql.RDSMYSQLApi(volcenginesdkcore.ApiClient(configuration))
+        resp = api_instance.describe_db_instance(
+            volcenginesdkrdsmysql.DescribeDBInstanceRequest(
+                instance_id="rds-mysql-h441603c68aaa***"
+            )
+        )
 
         pprint(resp)
     except ApiException as e:
-        print("Exception when call ECSApi:DescribeInstances: %s\n" % e)
+        print("Exception when call RDSMYSQLApi:DescribeDBInstance: %s\n" % e)

@@ -3,6 +3,8 @@
 
 import volcenginesdkcore
 import volcenginesdkvke
+from volcenginesdkcore.rest import ApiException
+
 
 from helper import VKEOption, create_vke
 
@@ -40,8 +42,11 @@ if __name__ == "__main__":
     configuration.sk = "your_sk"
     configuration.region = "your_region"
 
-    # 创建VKEApi实例
-    api_instance = volcenginesdkvke.VKEApi(volcenginesdkcore.ApiClient(configuration))
+    try:
+        # 创建VKEApi实例
+        api_instance = volcenginesdkvke.VKEApi(volcenginesdkcore.ApiClient(configuration))
 
-    # 创建VKE服务
-    create_vke(api_instance, vke_opt)
+        # 创建VKE服务
+        create_vke(api_instance, vke_opt)
+    except ApiException as e:
+        print("Exception when call VKEApi %s\n" % e)
