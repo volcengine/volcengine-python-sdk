@@ -38,7 +38,8 @@ class FilterForListSupportedAddonsInput(object):
         'deploy_node_types': 'list[str]',
         'name': 'str',
         'necessaries': 'list[str]',
-        'pod_network_modes': 'list[str]'
+        'pod_network_modes': 'list[str]',
+        'versions_compatibilities_kubernetes_versions': 'list[str]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class FilterForListSupportedAddonsInput(object):
         'deploy_node_types': 'DeployNodeTypes',
         'name': 'Name',
         'necessaries': 'Necessaries',
-        'pod_network_modes': 'PodNetworkModes'
+        'pod_network_modes': 'PodNetworkModes',
+        'versions_compatibilities_kubernetes_versions': 'Versions.Compatibilities.KubernetesVersions'
     }
 
-    def __init__(self, categories=None, deploy_modes=None, deploy_node_types=None, name=None, necessaries=None, pod_network_modes=None, _configuration=None):  # noqa: E501
+    def __init__(self, categories=None, deploy_modes=None, deploy_node_types=None, name=None, necessaries=None, pod_network_modes=None, versions_compatibilities_kubernetes_versions=None, _configuration=None):  # noqa: E501
         """FilterForListSupportedAddonsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class FilterForListSupportedAddonsInput(object):
         self._name = None
         self._necessaries = None
         self._pod_network_modes = None
+        self._versions_compatibilities_kubernetes_versions = None
         self.discriminator = None
 
         if categories is not None:
@@ -76,6 +79,8 @@ class FilterForListSupportedAddonsInput(object):
             self.necessaries = necessaries
         if pod_network_modes is not None:
             self.pod_network_modes = pod_network_modes
+        if versions_compatibilities_kubernetes_versions is not None:
+            self.versions_compatibilities_kubernetes_versions = versions_compatibilities_kubernetes_versions
 
     @property
     def categories(self):
@@ -242,6 +247,27 @@ class FilterForListSupportedAddonsInput(object):
             )
 
         self._pod_network_modes = pod_network_modes
+
+    @property
+    def versions_compatibilities_kubernetes_versions(self):
+        """Gets the versions_compatibilities_kubernetes_versions of this FilterForListSupportedAddonsInput.  # noqa: E501
+
+
+        :return: The versions_compatibilities_kubernetes_versions of this FilterForListSupportedAddonsInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._versions_compatibilities_kubernetes_versions
+
+    @versions_compatibilities_kubernetes_versions.setter
+    def versions_compatibilities_kubernetes_versions(self, versions_compatibilities_kubernetes_versions):
+        """Sets the versions_compatibilities_kubernetes_versions of this FilterForListSupportedAddonsInput.
+
+
+        :param versions_compatibilities_kubernetes_versions: The versions_compatibilities_kubernetes_versions of this FilterForListSupportedAddonsInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._versions_compatibilities_kubernetes_versions = versions_compatibilities_kubernetes_versions
 
     def to_dict(self):
         """Returns the model properties as a dict"""
