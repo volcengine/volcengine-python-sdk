@@ -69,8 +69,7 @@ class ModifyAllowListRequest(object):
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
         self.allow_list_id = allow_list_id
-        if allow_list_name is not None:
-            self.allow_list_name = allow_list_name
+        self.allow_list_name = allow_list_name
         if apply_instance_num is not None:
             self.apply_instance_num = apply_instance_num
         if modify_mode is not None:
@@ -159,6 +158,8 @@ class ModifyAllowListRequest(object):
         :param allow_list_name: The allow_list_name of this ModifyAllowListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and allow_list_name is None:
+            raise ValueError("Invalid value for `allow_list_name`, must not be `None`")  # noqa: E501
 
         self._allow_list_name = allow_list_name
 
