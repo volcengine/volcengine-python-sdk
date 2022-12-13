@@ -37,6 +37,7 @@ class NodeConfigForListNodePoolsOutput(object):
         'auto_renew': 'bool',
         'auto_renew_period': 'int',
         'data_volumes': 'list[DataVolumeForListNodePoolsOutput]',
+        'hpc_cluster_ids': 'list[str]',
         'image_id': 'str',
         'initialize_script': 'str',
         'instance_charge_type': 'str',
@@ -54,6 +55,7 @@ class NodeConfigForListNodePoolsOutput(object):
         'auto_renew': 'AutoRenew',
         'auto_renew_period': 'AutoRenewPeriod',
         'data_volumes': 'DataVolumes',
+        'hpc_cluster_ids': 'HpcClusterIds',
         'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
         'instance_charge_type': 'InstanceChargeType',
@@ -66,7 +68,7 @@ class NodeConfigForListNodePoolsOutput(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class NodeConfigForListNodePoolsOutput(object):
         self._auto_renew = None
         self._auto_renew_period = None
         self._data_volumes = None
+        self._hpc_cluster_ids = None
         self._image_id = None
         self._initialize_script = None
         self._instance_charge_type = None
@@ -96,6 +99,8 @@ class NodeConfigForListNodePoolsOutput(object):
             self.auto_renew_period = auto_renew_period
         if data_volumes is not None:
             self.data_volumes = data_volumes
+        if hpc_cluster_ids is not None:
+            self.hpc_cluster_ids = hpc_cluster_ids
         if image_id is not None:
             self.image_id = image_id
         if initialize_script is not None:
@@ -200,6 +205,27 @@ class NodeConfigForListNodePoolsOutput(object):
         """
 
         self._data_volumes = data_volumes
+
+    @property
+    def hpc_cluster_ids(self):
+        """Gets the hpc_cluster_ids of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The hpc_cluster_ids of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._hpc_cluster_ids
+
+    @hpc_cluster_ids.setter
+    def hpc_cluster_ids(self, hpc_cluster_ids):
+        """Sets the hpc_cluster_ids of this NodeConfigForListNodePoolsOutput.
+
+
+        :param hpc_cluster_ids: The hpc_cluster_ids of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._hpc_cluster_ids = hpc_cluster_ids
 
     @property
     def image_id(self):
