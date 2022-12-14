@@ -11,7 +11,21 @@ if __name__ == '__main__':
 
     # create an instance of the API class
     api_instance = volcenginesdkecs.ECSApi(volcenginesdkcore.ApiClient(configuration))
-    resp = api_instance.describe_instances(
-        volcenginesdkecs.DescribeInstancesRequest(instance_ids=["i-ybmqiil8u206g9yv"]))
-
+    resp = api_instance.run_instances(
+        volcenginesdkecs.RunInstancesRequest(
+            instance_name="insname",
+            instance_type="ecs.g1.large",
+            zone_id="cn-beijing-a",
+            network_interfaces=[volcenginesdkecs.NetworkInterfaceForRunInstancesInput(
+                subnet_id="subnet-2d68bh73d858ozfekrm8fj",
+                security_group_ids=["sg-2b3dq7v0ha0w2dx0eg0nhljv"],
+            )],
+            image_id="image-ybvz29l3da4ox5h0m9",
+            volumes=[volcenginesdkecs.VolumeForRunInstancesInput(
+                volume_type="ESSD",
+                size=40,
+            )],
+            key_pair_name="vtable",
+            instance_charge_type="PostPaid"
+        ))
     pprint(resp)
