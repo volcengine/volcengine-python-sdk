@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "volcenginesdk"
+NAME = "volcengine-python-sdk"
 VERSION = "1.0.0"
 # To install the library, run the following
 #
@@ -24,4 +24,8 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
+    description='Volcengine SDK for Python',
+    license="Apache License 2.0",
+    platforms='any',
+    url='https://github.com/volcengine/volcengine-python-sdk',
 )

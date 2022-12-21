@@ -14,7 +14,7 @@ Python版本需要不低于2.7。
 
 Install via pip
 ```sh
-pip install volcenginesdk
+pip install volcengine-python-sdk
 ```
 
 Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
