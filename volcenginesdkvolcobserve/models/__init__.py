@@ -15,3 +15,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from volcenginesdkvolcobserve.models.dimension_for_get_metric_data_input import DimensionForGetMetricDataInput
+from volcenginesdkvolcobserve.models.get_metric_data_request import GetMetricDataRequest
+from volcenginesdkvolcobserve.models.get_metric_data_response import GetMetricDataResponse
+from volcenginesdkvolcobserve.models.instance_for_get_metric_data_input import InstanceForGetMetricDataInput
