@@ -33,29 +33,60 @@ class ProcessorForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'base_frequency': 'float',
         'cpus': 'int',
-        'model': 'str'
+        'model': 'str',
+        'turbo_frequency': 'float'
     }
 
     attribute_map = {
+        'base_frequency': 'BaseFrequency',
         'cpus': 'Cpus',
-        'model': 'Model'
+        'model': 'Model',
+        'turbo_frequency': 'TurboFrequency'
     }
 
-    def __init__(self, cpus=None, model=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_frequency=None, cpus=None, model=None, turbo_frequency=None, _configuration=None):  # noqa: E501
         """ProcessorForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._base_frequency = None
         self._cpus = None
         self._model = None
+        self._turbo_frequency = None
         self.discriminator = None
 
+        if base_frequency is not None:
+            self.base_frequency = base_frequency
         if cpus is not None:
             self.cpus = cpus
         if model is not None:
             self.model = model
+        if turbo_frequency is not None:
+            self.turbo_frequency = turbo_frequency
+
+    @property
+    def base_frequency(self):
+        """Gets the base_frequency of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The base_frequency of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._base_frequency
+
+    @base_frequency.setter
+    def base_frequency(self, base_frequency):
+        """Sets the base_frequency of this ProcessorForDescribeInstanceTypesOutput.
+
+
+        :param base_frequency: The base_frequency of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._base_frequency = base_frequency
 
     @property
     def cpus(self):
@@ -98,6 +129,27 @@ class ProcessorForDescribeInstanceTypesOutput(object):
         """
 
         self._model = model
+
+    @property
+    def turbo_frequency(self):
+        """Gets the turbo_frequency of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The turbo_frequency of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._turbo_frequency
+
+    @turbo_frequency.setter
+    def turbo_frequency(self, turbo_frequency):
+        """Sets the turbo_frequency of this ProcessorForDescribeInstanceTypesOutput.
+
+
+        :param turbo_frequency: The turbo_frequency of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._turbo_frequency = turbo_frequency
 
     def to_dict(self):
         """Returns the model properties as a dict"""
