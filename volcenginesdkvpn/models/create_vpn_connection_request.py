@@ -42,6 +42,7 @@ class CreateVpnConnectionRequest(object):
         'local_subnet': 'list[str]',
         'nat_traversal': 'bool',
         'negotiate_instantly': 'bool',
+        'project_name': 'str',
         'remote_subnet': 'list[str]',
         'vpn_connection_name': 'str',
         'vpn_gateway_id': 'str'
@@ -57,12 +58,13 @@ class CreateVpnConnectionRequest(object):
         'local_subnet': 'LocalSubnet',
         'nat_traversal': 'NatTraversal',
         'negotiate_instantly': 'NegotiateInstantly',
+        'project_name': 'ProjectName',
         'remote_subnet': 'RemoteSubnet',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateVpnConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class CreateVpnConnectionRequest(object):
         self._local_subnet = None
         self._nat_traversal = None
         self._negotiate_instantly = None
+        self._project_name = None
         self._remote_subnet = None
         self._vpn_connection_name = None
         self._vpn_gateway_id = None
@@ -99,6 +102,8 @@ class CreateVpnConnectionRequest(object):
             self.nat_traversal = nat_traversal
         if negotiate_instantly is not None:
             self.negotiate_instantly = negotiate_instantly
+        if project_name is not None:
+            self.project_name = project_name
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
         if vpn_connection_name is not None:
@@ -308,6 +313,27 @@ class CreateVpnConnectionRequest(object):
         """
 
         self._negotiate_instantly = negotiate_instantly
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateVpnConnectionRequest.
+
+
+        :param project_name: The project_name of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def remote_subnet(self):

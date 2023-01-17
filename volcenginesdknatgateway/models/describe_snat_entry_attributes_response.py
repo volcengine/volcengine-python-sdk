@@ -39,6 +39,7 @@ class DescribeSnatEntryAttributesResponse(object):
         'request_id': 'str',
         'snat_entry_id': 'str',
         'snat_entry_name': 'str',
+        'source_cidr': 'str',
         'status': 'str',
         'subnet_id': 'str'
     }
@@ -50,11 +51,12 @@ class DescribeSnatEntryAttributesResponse(object):
         'request_id': 'RequestId',
         'snat_entry_id': 'SnatEntryId',
         'snat_entry_name': 'SnatEntryName',
+        'source_cidr': 'SourceCidr',
         'status': 'Status',
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, eip_address=None, eip_id=None, nat_gateway_id=None, request_id=None, snat_entry_id=None, snat_entry_name=None, status=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_address=None, eip_id=None, nat_gateway_id=None, request_id=None, snat_entry_id=None, snat_entry_name=None, source_cidr=None, status=None, subnet_id=None, _configuration=None):  # noqa: E501
         """DescribeSnatEntryAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class DescribeSnatEntryAttributesResponse(object):
         self._request_id = None
         self._snat_entry_id = None
         self._snat_entry_name = None
+        self._source_cidr = None
         self._status = None
         self._subnet_id = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class DescribeSnatEntryAttributesResponse(object):
             self.snat_entry_id = snat_entry_id
         if snat_entry_name is not None:
             self.snat_entry_name = snat_entry_name
+        if source_cidr is not None:
+            self.source_cidr = source_cidr
         if status is not None:
             self.status = status
         if subnet_id is not None:
@@ -212,6 +217,27 @@ class DescribeSnatEntryAttributesResponse(object):
         """
 
         self._snat_entry_name = snat_entry_name
+
+    @property
+    def source_cidr(self):
+        """Gets the source_cidr of this DescribeSnatEntryAttributesResponse.  # noqa: E501
+
+
+        :return: The source_cidr of this DescribeSnatEntryAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_cidr
+
+    @source_cidr.setter
+    def source_cidr(self, source_cidr):
+        """Sets the source_cidr of this DescribeSnatEntryAttributesResponse.
+
+
+        :param source_cidr: The source_cidr of this DescribeSnatEntryAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._source_cidr = source_cidr
 
     @property
     def status(self):

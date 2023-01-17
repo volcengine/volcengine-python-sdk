@@ -33,24 +33,29 @@ class DescribeInstancesIamRolesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instances_iam_roles': 'list[InstancesIamRoleForDescribeInstancesIamRolesOutput]'
+        'instances_iam_roles': 'list[InstancesIamRoleForDescribeInstancesIamRolesOutput]',
+        'next_token': 'str'
     }
 
     attribute_map = {
-        'instances_iam_roles': 'InstancesIamRoles'
+        'instances_iam_roles': 'InstancesIamRoles',
+        'next_token': 'NextToken'
     }
 
-    def __init__(self, instances_iam_roles=None, _configuration=None):  # noqa: E501
+    def __init__(self, instances_iam_roles=None, next_token=None, _configuration=None):  # noqa: E501
         """DescribeInstancesIamRolesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instances_iam_roles = None
+        self._next_token = None
         self.discriminator = None
 
         if instances_iam_roles is not None:
             self.instances_iam_roles = instances_iam_roles
+        if next_token is not None:
+            self.next_token = next_token
 
     @property
     def instances_iam_roles(self):
@@ -72,6 +77,27 @@ class DescribeInstancesIamRolesResponse(object):
         """
 
         self._instances_iam_roles = instances_iam_roles
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this DescribeInstancesIamRolesResponse.  # noqa: E501
+
+
+        :return: The next_token of this DescribeInstancesIamRolesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this DescribeInstancesIamRolesResponse.
+
+
+        :param next_token: The next_token of this DescribeInstancesIamRolesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

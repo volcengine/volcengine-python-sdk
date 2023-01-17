@@ -38,6 +38,9 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         'bfd_detect_multiplier': 'int',
         'description': 'str',
         'enable_bfd': 'bool',
+        'enable_nqa': 'bool',
+        'nqa_detect_interval': 'int',
+        'nqa_detect_multiplier': 'int',
         'virtual_interface_id': 'str',
         'virtual_interface_name': 'str'
     }
@@ -48,11 +51,14 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         'bfd_detect_multiplier': 'BfdDetectMultiplier',
         'description': 'Description',
         'enable_bfd': 'EnableBfd',
+        'enable_nqa': 'EnableNqa',
+        'nqa_detect_interval': 'NqaDetectInterval',
+        'nqa_detect_multiplier': 'NqaDetectMultiplier',
         'virtual_interface_id': 'VirtualInterfaceId',
         'virtual_interface_name': 'VirtualInterfaceName'
     }
 
-    def __init__(self, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, description=None, enable_bfd=None, virtual_interface_id=None, virtual_interface_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, description=None, enable_bfd=None, enable_nqa=None, nqa_detect_interval=None, nqa_detect_multiplier=None, virtual_interface_id=None, virtual_interface_name=None, _configuration=None):  # noqa: E501
         """ModifyDirectConnectVirtualInterfaceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +69,9 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         self._bfd_detect_multiplier = None
         self._description = None
         self._enable_bfd = None
+        self._enable_nqa = None
+        self._nqa_detect_interval = None
+        self._nqa_detect_multiplier = None
         self._virtual_interface_id = None
         self._virtual_interface_name = None
         self.discriminator = None
@@ -77,6 +86,12 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
             self.description = description
         if enable_bfd is not None:
             self.enable_bfd = enable_bfd
+        if enable_nqa is not None:
+            self.enable_nqa = enable_nqa
+        if nqa_detect_interval is not None:
+            self.nqa_detect_interval = nqa_detect_interval
+        if nqa_detect_multiplier is not None:
+            self.nqa_detect_multiplier = nqa_detect_multiplier
         self.virtual_interface_id = virtual_interface_id
         if virtual_interface_name is not None:
             self.virtual_interface_name = virtual_interface_name
@@ -203,6 +218,81 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         """
 
         self._enable_bfd = enable_bfd
+
+    @property
+    def enable_nqa(self):
+        """Gets the enable_nqa of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The enable_nqa of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_nqa
+
+    @enable_nqa.setter
+    def enable_nqa(self, enable_nqa):
+        """Sets the enable_nqa of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
+
+
+        :param enable_nqa: The enable_nqa of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_nqa = enable_nqa
+
+    @property
+    def nqa_detect_interval(self):
+        """Gets the nqa_detect_interval of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The nqa_detect_interval of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._nqa_detect_interval
+
+    @nqa_detect_interval.setter
+    def nqa_detect_interval(self, nqa_detect_interval):
+        """Sets the nqa_detect_interval of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
+
+
+        :param nqa_detect_interval: The nqa_detect_interval of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                nqa_detect_interval is not None and nqa_detect_interval > 5000):  # noqa: E501
+            raise ValueError("Invalid value for `nqa_detect_interval`, must be a value less than or equal to `5000`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                nqa_detect_interval is not None and nqa_detect_interval < 1000):  # noqa: E501
+            raise ValueError("Invalid value for `nqa_detect_interval`, must be a value greater than or equal to `1000`")  # noqa: E501
+
+        self._nqa_detect_interval = nqa_detect_interval
+
+    @property
+    def nqa_detect_multiplier(self):
+        """Gets the nqa_detect_multiplier of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The nqa_detect_multiplier of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._nqa_detect_multiplier
+
+    @nqa_detect_multiplier.setter
+    def nqa_detect_multiplier(self, nqa_detect_multiplier):
+        """Sets the nqa_detect_multiplier of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
+
+
+        :param nqa_detect_multiplier: The nqa_detect_multiplier of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                nqa_detect_multiplier is not None and nqa_detect_multiplier > 8):  # noqa: E501
+            raise ValueError("Invalid value for `nqa_detect_multiplier`, must be a value less than or equal to `8`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                nqa_detect_multiplier is not None and nqa_detect_multiplier < 3):  # noqa: E501
+            raise ValueError("Invalid value for `nqa_detect_multiplier`, must be a value greater than or equal to `3`")  # noqa: E501
+
+        self._nqa_detect_multiplier = nqa_detect_multiplier
 
     @property
     def virtual_interface_id(self):

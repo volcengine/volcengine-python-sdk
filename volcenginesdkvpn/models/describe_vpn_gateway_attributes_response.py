@@ -49,6 +49,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         'route_count': 'int',
         'status': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeVpnGatewayAttributesOutput]',
         'update_time': 'str',
         'vpc_id': 'str',
         'vpn_gateway_id': 'str',
@@ -72,13 +73,14 @@ class DescribeVpnGatewayAttributesResponse(object):
         'route_count': 'RouteCount',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
         'vpn_gateway_id': 'VpnGatewayId',
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, expired_time=None, ip_address=None, lock_reason=None, project_name=None, request_id=None, route_count=None, status=None, subnet_id=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, expired_time=None, ip_address=None, lock_reason=None, project_name=None, request_id=None, route_count=None, status=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +102,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         self._route_count = None
         self._status = None
         self._subnet_id = None
+        self._tags = None
         self._update_time = None
         self._vpc_id = None
         self._vpn_gateway_id = None
@@ -138,6 +141,8 @@ class DescribeVpnGatewayAttributesResponse(object):
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vpc_id is not None:
@@ -482,6 +487,27 @@ class DescribeVpnGatewayAttributesResponse(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeVpnGatewayAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param tags: The tags of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeVpnGatewayAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

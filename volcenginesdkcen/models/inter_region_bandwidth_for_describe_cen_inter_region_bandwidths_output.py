@@ -39,7 +39,8 @@ class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput(object):
         'inter_region_bandwidth_id': 'str',
         'local_region_id': 'str',
         'peer_region_id': 'str',
-        'status': 'str'
+        'status': 'str',
+        'update_time': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput(object):
         'inter_region_bandwidth_id': 'InterRegionBandwidthId',
         'local_region_id': 'LocalRegionId',
         'peer_region_id': 'PeerRegionId',
-        'status': 'Status'
+        'status': 'Status',
+        'update_time': 'UpdateTime'
     }
 
-    def __init__(self, bandwidth=None, cen_id=None, creation_time=None, inter_region_bandwidth_id=None, local_region_id=None, peer_region_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, cen_id=None, creation_time=None, inter_region_bandwidth_id=None, local_region_id=None, peer_region_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput(object):
         self._local_region_id = None
         self._peer_region_id = None
         self._status = None
+        self._update_time = None
         self.discriminator = None
 
         if bandwidth is not None:
@@ -81,6 +84,8 @@ class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput(object):
             self.peer_region_id = peer_region_id
         if status is not None:
             self.status = status
+        if update_time is not None:
+            self.update_time = update_time
 
     @property
     def bandwidth(self):
@@ -228,6 +233,27 @@ class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.  # noqa: E501
+
+
+        :return: The update_time of this InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.
+
+
+        :param update_time: The update_time of this InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -44,6 +44,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'port_security_enabled': 'bool',
         'primary_ip_address': 'str',
         'private_ip_sets': 'PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput',
+        'project_name': 'str',
         'request_id': 'str',
         'security_group_ids': 'list[str]',
         'service_managed': 'bool',
@@ -69,6 +70,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'port_security_enabled': 'PortSecurityEnabled',
         'primary_ip_address': 'PrimaryIpAddress',
         'private_ip_sets': 'PrivateIpSets',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'security_group_ids': 'SecurityGroupIds',
         'service_managed': 'ServiceManaged',
@@ -82,7 +84,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, request_id=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, project_name=None, request_id=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeNetworkInterfaceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -99,6 +101,7 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         self._port_security_enabled = None
         self._primary_ip_address = None
         self._private_ip_sets = None
+        self._project_name = None
         self._request_id = None
         self._security_group_ids = None
         self._service_managed = None
@@ -134,6 +137,8 @@ class DescribeNetworkInterfaceAttributesResponse(object):
             self.primary_ip_address = primary_ip_address
         if private_ip_sets is not None:
             self.private_ip_sets = private_ip_sets
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if security_group_ids is not None:
@@ -387,6 +392,27 @@ class DescribeNetworkInterfaceAttributesResponse(object):
         """
 
         self._private_ip_sets = private_ip_sets
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeNetworkInterfaceAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeNetworkInterfaceAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def request_id(self):

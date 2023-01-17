@@ -36,6 +36,7 @@ class CreateSnatEntryRequest(object):
         'eip_id': 'str',
         'nat_gateway_id': 'str',
         'snat_entry_name': 'str',
+        'source_cidr': 'str',
         'subnet_id': 'str'
     }
 
@@ -43,10 +44,11 @@ class CreateSnatEntryRequest(object):
         'eip_id': 'EipId',
         'nat_gateway_id': 'NatGatewayId',
         'snat_entry_name': 'SnatEntryName',
+        'source_cidr': 'SourceCidr',
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, eip_id=None, nat_gateway_id=None, snat_entry_name=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_id=None, nat_gateway_id=None, snat_entry_name=None, source_cidr=None, subnet_id=None, _configuration=None):  # noqa: E501
         """CreateSnatEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class CreateSnatEntryRequest(object):
         self._eip_id = None
         self._nat_gateway_id = None
         self._snat_entry_name = None
+        self._source_cidr = None
         self._subnet_id = None
         self.discriminator = None
 
@@ -62,6 +65,8 @@ class CreateSnatEntryRequest(object):
         self.nat_gateway_id = nat_gateway_id
         if snat_entry_name is not None:
             self.snat_entry_name = snat_entry_name
+        if source_cidr is not None:
+            self.source_cidr = source_cidr
         if subnet_id is not None:
             self.subnet_id = subnet_id
 
@@ -137,6 +142,27 @@ class CreateSnatEntryRequest(object):
             raise ValueError("Invalid value for `snat_entry_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._snat_entry_name = snat_entry_name
+
+    @property
+    def source_cidr(self):
+        """Gets the source_cidr of this CreateSnatEntryRequest.  # noqa: E501
+
+
+        :return: The source_cidr of this CreateSnatEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_cidr
+
+    @source_cidr.setter
+    def source_cidr(self, source_cidr):
+        """Sets the source_cidr of this CreateSnatEntryRequest.
+
+
+        :param source_cidr: The source_cidr of this CreateSnatEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._source_cidr = source_cidr
 
     @property
     def subnet_id(self):

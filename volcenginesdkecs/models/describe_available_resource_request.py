@@ -34,36 +34,46 @@ class DescribeAvailableResourceRequest(object):
     """
     swagger_types = {
         'destination_resource': 'str',
+        'instance_charge_type': 'str',
         'instance_type': 'str',
         'instance_type_id': 'str',
+        'spot_strategy': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
         'destination_resource': 'DestinationResource',
+        'instance_charge_type': 'InstanceChargeType',
         'instance_type': 'InstanceType',
         'instance_type_id': 'InstanceTypeId',
+        'spot_strategy': 'SpotStrategy',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, destination_resource=None, instance_type=None, instance_type_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination_resource=None, instance_charge_type=None, instance_type=None, instance_type_id=None, spot_strategy=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeAvailableResourceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._destination_resource = None
+        self._instance_charge_type = None
         self._instance_type = None
         self._instance_type_id = None
+        self._spot_strategy = None
         self._zone_id = None
         self.discriminator = None
 
         if destination_resource is not None:
             self.destination_resource = destination_resource
+        if instance_charge_type is not None:
+            self.instance_charge_type = instance_charge_type
         if instance_type is not None:
             self.instance_type = instance_type
         if instance_type_id is not None:
             self.instance_type_id = instance_type_id
+        if spot_strategy is not None:
+            self.spot_strategy = spot_strategy
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -87,6 +97,27 @@ class DescribeAvailableResourceRequest(object):
         """
 
         self._destination_resource = destination_resource
+
+    @property
+    def instance_charge_type(self):
+        """Gets the instance_charge_type of this DescribeAvailableResourceRequest.  # noqa: E501
+
+
+        :return: The instance_charge_type of this DescribeAvailableResourceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_charge_type
+
+    @instance_charge_type.setter
+    def instance_charge_type(self, instance_charge_type):
+        """Sets the instance_charge_type of this DescribeAvailableResourceRequest.
+
+
+        :param instance_charge_type: The instance_charge_type of this DescribeAvailableResourceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_charge_type = instance_charge_type
 
     @property
     def instance_type(self):
@@ -129,6 +160,27 @@ class DescribeAvailableResourceRequest(object):
         """
 
         self._instance_type_id = instance_type_id
+
+    @property
+    def spot_strategy(self):
+        """Gets the spot_strategy of this DescribeAvailableResourceRequest.  # noqa: E501
+
+
+        :return: The spot_strategy of this DescribeAvailableResourceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._spot_strategy
+
+    @spot_strategy.setter
+    def spot_strategy(self, spot_strategy):
+        """Sets the spot_strategy of this DescribeAvailableResourceRequest.
+
+
+        :param spot_strategy: The spot_strategy of this DescribeAvailableResourceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._spot_strategy = spot_strategy
 
     @property
     def zone_id(self):

@@ -34,7 +34,6 @@ class DescribeVpnConnectionsRequest(object):
     """
     swagger_types = {
         'customer_gateway_id': 'str',
-        'negotiate_instantly': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -45,7 +44,6 @@ class DescribeVpnConnectionsRequest(object):
 
     attribute_map = {
         'customer_gateway_id': 'CustomerGatewayId',
-        'negotiate_instantly': 'NegotiateInstantly',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -54,14 +52,13 @@ class DescribeVpnConnectionsRequest(object):
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, customer_gateway_id=None, negotiate_instantly=None, page_number=None, page_size=None, project_name=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer_gateway_id=None, page_number=None, page_size=None, project_name=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._customer_gateway_id = None
-        self._negotiate_instantly = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -72,8 +69,6 @@ class DescribeVpnConnectionsRequest(object):
 
         if customer_gateway_id is not None:
             self.customer_gateway_id = customer_gateway_id
-        if negotiate_instantly is not None:
-            self.negotiate_instantly = negotiate_instantly
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -107,27 +102,6 @@ class DescribeVpnConnectionsRequest(object):
         """
 
         self._customer_gateway_id = customer_gateway_id
-
-    @property
-    def negotiate_instantly(self):
-        """Gets the negotiate_instantly of this DescribeVpnConnectionsRequest.  # noqa: E501
-
-
-        :return: The negotiate_instantly of this DescribeVpnConnectionsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._negotiate_instantly
-
-    @negotiate_instantly.setter
-    def negotiate_instantly(self, negotiate_instantly):
-        """Sets the negotiate_instantly of this DescribeVpnConnectionsRequest.
-
-
-        :param negotiate_instantly: The negotiate_instantly of this DescribeVpnConnectionsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._negotiate_instantly = negotiate_instantly
 
     @property
     def page_number(self):

@@ -34,38 +34,48 @@ class EipForDescribeLoadBalancerAttributesOutput(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'bandwidth_package_id': 'str',
         'eip_address': 'str',
         'eip_billing_type': 'int',
-        'isp': 'str'
+        'isp': 'str',
+        'security_protection_types': 'list[str]'
     }
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'bandwidth_package_id': 'BandwidthPackageId',
         'eip_address': 'EipAddress',
         'eip_billing_type': 'EipBillingType',
-        'isp': 'ISP'
+        'isp': 'ISP',
+        'security_protection_types': 'SecurityProtectionTypes'
     }
 
-    def __init__(self, bandwidth=None, eip_address=None, eip_billing_type=None, isp=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, eip_address=None, eip_billing_type=None, isp=None, security_protection_types=None, _configuration=None):  # noqa: E501
         """EipForDescribeLoadBalancerAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._bandwidth_package_id = None
         self._eip_address = None
         self._eip_billing_type = None
         self._isp = None
+        self._security_protection_types = None
         self.discriminator = None
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if bandwidth_package_id is not None:
+            self.bandwidth_package_id = bandwidth_package_id
         if eip_address is not None:
             self.eip_address = eip_address
         if eip_billing_type is not None:
             self.eip_billing_type = eip_billing_type
         if isp is not None:
             self.isp = isp
+        if security_protection_types is not None:
+            self.security_protection_types = security_protection_types
 
     @property
     def bandwidth(self):
@@ -87,6 +97,27 @@ class EipForDescribeLoadBalancerAttributesOutput(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def bandwidth_package_id(self):
+        """Gets the bandwidth_package_id of this EipForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The bandwidth_package_id of this EipForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bandwidth_package_id
+
+    @bandwidth_package_id.setter
+    def bandwidth_package_id(self, bandwidth_package_id):
+        """Sets the bandwidth_package_id of this EipForDescribeLoadBalancerAttributesOutput.
+
+
+        :param bandwidth_package_id: The bandwidth_package_id of this EipForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bandwidth_package_id = bandwidth_package_id
 
     @property
     def eip_address(self):
@@ -150,6 +181,27 @@ class EipForDescribeLoadBalancerAttributesOutput(object):
         """
 
         self._isp = isp
+
+    @property
+    def security_protection_types(self):
+        """Gets the security_protection_types of this EipForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The security_protection_types of this EipForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_protection_types
+
+    @security_protection_types.setter
+    def security_protection_types(self, security_protection_types):
+        """Sets the security_protection_types of this EipForDescribeLoadBalancerAttributesOutput.
+
+
+        :param security_protection_types: The security_protection_types of this EipForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_protection_types = security_protection_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""
