@@ -35,6 +35,7 @@ class DescribeDirectConnectConnectionsRequest(object):
     swagger_types = {
         'access_point': 'str',
         'connection_type': 'str',
+        'direct_connect_access_point_id': 'str',
         'direct_connect_connection_ids': 'list[str]',
         'direct_connect_connection_name': 'str',
         'line_operator': 'str',
@@ -48,6 +49,7 @@ class DescribeDirectConnectConnectionsRequest(object):
     attribute_map = {
         'access_point': 'AccessPoint',
         'connection_type': 'ConnectionType',
+        'direct_connect_access_point_id': 'DirectConnectAccessPointId',
         'direct_connect_connection_ids': 'DirectConnectConnectionIds',
         'direct_connect_connection_name': 'DirectConnectConnectionName',
         'line_operator': 'LineOperator',
@@ -58,7 +60,7 @@ class DescribeDirectConnectConnectionsRequest(object):
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, access_point=None, connection_type=None, direct_connect_connection_ids=None, direct_connect_connection_name=None, line_operator=None, operator=None, page_number=None, page_size=None, peer_location=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_point=None, connection_type=None, direct_connect_access_point_id=None, direct_connect_connection_ids=None, direct_connect_connection_name=None, line_operator=None, operator=None, page_number=None, page_size=None, peer_location=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class DescribeDirectConnectConnectionsRequest(object):
 
         self._access_point = None
         self._connection_type = None
+        self._direct_connect_access_point_id = None
         self._direct_connect_connection_ids = None
         self._direct_connect_connection_name = None
         self._line_operator = None
@@ -80,6 +83,8 @@ class DescribeDirectConnectConnectionsRequest(object):
             self.access_point = access_point
         if connection_type is not None:
             self.connection_type = connection_type
+        if direct_connect_access_point_id is not None:
+            self.direct_connect_access_point_id = direct_connect_access_point_id
         if direct_connect_connection_ids is not None:
             self.direct_connect_connection_ids = direct_connect_connection_ids
         if direct_connect_connection_name is not None:
@@ -138,6 +143,27 @@ class DescribeDirectConnectConnectionsRequest(object):
         """
 
         self._connection_type = connection_type
+
+    @property
+    def direct_connect_access_point_id(self):
+        """Gets the direct_connect_access_point_id of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+
+
+        :return: The direct_connect_access_point_id of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._direct_connect_access_point_id
+
+    @direct_connect_access_point_id.setter
+    def direct_connect_access_point_id(self, direct_connect_access_point_id):
+        """Sets the direct_connect_access_point_id of this DescribeDirectConnectConnectionsRequest.
+
+
+        :param direct_connect_access_point_id: The direct_connect_access_point_id of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._direct_connect_access_point_id = direct_connect_access_point_id
 
     @property
     def direct_connect_connection_ids(self):

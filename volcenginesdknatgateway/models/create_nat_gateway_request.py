@@ -39,8 +39,10 @@ class CreateNatGatewayRequest(object):
         'nat_gateway_name': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'project_name': 'str',
         'spec': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForCreateNatGatewayInput]',
         'vpc_id': 'str'
     }
 
@@ -51,12 +53,14 @@ class CreateNatGatewayRequest(object):
         'nat_gateway_name': 'NatGatewayName',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'spec': 'Spec',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, billing_type=None, client_token=None, description=None, nat_gateway_name=None, period=None, period_unit=None, spec=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, client_token=None, description=None, nat_gateway_name=None, period=None, period_unit=None, project_name=None, spec=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateNatGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,8 +72,10 @@ class CreateNatGatewayRequest(object):
         self._nat_gateway_name = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
         self._spec = None
         self._subnet_id = None
+        self._tags = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -85,10 +91,14 @@ class CreateNatGatewayRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         if spec is not None:
             self.spec = spec
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         self.vpc_id = vpc_id
 
     @property
@@ -243,6 +253,27 @@ class CreateNatGatewayRequest(object):
         self._period_unit = period_unit
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateNatGatewayRequest.
+
+
+        :param project_name: The project_name of this CreateNatGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def spec(self):
         """Gets the spec of this CreateNatGatewayRequest.  # noqa: E501
 
@@ -290,6 +321,27 @@ class CreateNatGatewayRequest(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: list[TagForCreateNatGatewayInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateNatGatewayRequest.
+
+
+        :param tags: The tags of this CreateNatGatewayRequest.  # noqa: E501
+        :type: list[TagForCreateNatGatewayInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

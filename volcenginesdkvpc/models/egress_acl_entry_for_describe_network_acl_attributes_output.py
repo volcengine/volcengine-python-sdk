@@ -39,6 +39,7 @@ class EgressAclEntryForDescribeNetworkAclAttributesOutput(object):
         'network_acl_entry_name': 'str',
         'policy': 'str',
         'port': 'str',
+        'priority': 'int',
         'protocol': 'str'
     }
 
@@ -49,10 +50,11 @@ class EgressAclEntryForDescribeNetworkAclAttributesOutput(object):
         'network_acl_entry_name': 'NetworkAclEntryName',
         'policy': 'Policy',
         'port': 'Port',
+        'priority': 'Priority',
         'protocol': 'Protocol'
     }
 
-    def __init__(self, description=None, destination_cidr_ip=None, network_acl_entry_id=None, network_acl_entry_name=None, policy=None, port=None, protocol=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, destination_cidr_ip=None, network_acl_entry_id=None, network_acl_entry_name=None, policy=None, port=None, priority=None, protocol=None, _configuration=None):  # noqa: E501
         """EgressAclEntryForDescribeNetworkAclAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class EgressAclEntryForDescribeNetworkAclAttributesOutput(object):
         self._network_acl_entry_name = None
         self._policy = None
         self._port = None
+        self._priority = None
         self._protocol = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class EgressAclEntryForDescribeNetworkAclAttributesOutput(object):
             self.policy = policy
         if port is not None:
             self.port = port
+        if priority is not None:
+            self.priority = priority
         if protocol is not None:
             self.protocol = protocol
 
@@ -207,6 +212,27 @@ class EgressAclEntryForDescribeNetworkAclAttributesOutput(object):
         """
 
         self._port = port
+
+    @property
+    def priority(self):
+        """Gets the priority of this EgressAclEntryForDescribeNetworkAclAttributesOutput.  # noqa: E501
+
+
+        :return: The priority of this EgressAclEntryForDescribeNetworkAclAttributesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """Sets the priority of this EgressAclEntryForDescribeNetworkAclAttributesOutput.
+
+
+        :param priority: The priority of this EgressAclEntryForDescribeNetworkAclAttributesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._priority = priority
 
     @property
     def protocol(self):

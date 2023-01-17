@@ -34,6 +34,7 @@ class DescribeLoadBalancerAttributesResponse(object):
     """
     swagger_types = {
         'access_log': 'AccessLogForDescribeLoadBalancerAttributesOutput',
+        'business_status': 'str',
         'create_time': 'str',
         'deleted_time': 'str',
         'description': 'str',
@@ -50,12 +51,15 @@ class DescribeLoadBalancerAttributesResponse(object):
         'load_balancer_name': 'str',
         'load_balancer_spec': 'str',
         'lock_reason': 'str',
+        'log_topic_id': 'str',
+        'master_zone_id': 'str',
         'modification_protection_reason': 'str',
         'modification_protection_status': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
         'request_id': 'str',
         'server_groups': 'list[ServerGroupForDescribeLoadBalancerAttributesOutput]',
+        'slave_zone_id': 'str',
         'status': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeLoadBalancerAttributesOutput]',
@@ -66,6 +70,7 @@ class DescribeLoadBalancerAttributesResponse(object):
 
     attribute_map = {
         'access_log': 'AccessLog',
+        'business_status': 'BusinessStatus',
         'create_time': 'CreateTime',
         'deleted_time': 'DeletedTime',
         'description': 'Description',
@@ -82,12 +87,15 @@ class DescribeLoadBalancerAttributesResponse(object):
         'load_balancer_name': 'LoadBalancerName',
         'load_balancer_spec': 'LoadBalancerSpec',
         'lock_reason': 'LockReason',
+        'log_topic_id': 'LogTopicId',
+        'master_zone_id': 'MasterZoneId',
         'modification_protection_reason': 'ModificationProtectionReason',
         'modification_protection_status': 'ModificationProtectionStatus',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'server_groups': 'ServerGroups',
+        'slave_zone_id': 'SlaveZoneId',
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
@@ -96,13 +104,14 @@ class DescribeLoadBalancerAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, access_log=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, expired_time=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, business_status=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, expired_time=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._access_log = None
+        self._business_status = None
         self._create_time = None
         self._deleted_time = None
         self._description = None
@@ -119,12 +128,15 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._load_balancer_name = None
         self._load_balancer_spec = None
         self._lock_reason = None
+        self._log_topic_id = None
+        self._master_zone_id = None
         self._modification_protection_reason = None
         self._modification_protection_status = None
         self._overdue_time = None
         self._project_name = None
         self._request_id = None
         self._server_groups = None
+        self._slave_zone_id = None
         self._status = None
         self._subnet_id = None
         self._tags = None
@@ -135,6 +147,8 @@ class DescribeLoadBalancerAttributesResponse(object):
 
         if access_log is not None:
             self.access_log = access_log
+        if business_status is not None:
+            self.business_status = business_status
         if create_time is not None:
             self.create_time = create_time
         if deleted_time is not None:
@@ -167,6 +181,10 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.load_balancer_spec = load_balancer_spec
         if lock_reason is not None:
             self.lock_reason = lock_reason
+        if log_topic_id is not None:
+            self.log_topic_id = log_topic_id
+        if master_zone_id is not None:
+            self.master_zone_id = master_zone_id
         if modification_protection_reason is not None:
             self.modification_protection_reason = modification_protection_reason
         if modification_protection_status is not None:
@@ -179,6 +197,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.request_id = request_id
         if server_groups is not None:
             self.server_groups = server_groups
+        if slave_zone_id is not None:
+            self.slave_zone_id = slave_zone_id
         if status is not None:
             self.status = status
         if subnet_id is not None:
@@ -212,6 +232,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._access_log = access_log
+
+    @property
+    def business_status(self):
+        """Gets the business_status of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The business_status of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_status
+
+    @business_status.setter
+    def business_status(self, business_status):
+        """Sets the business_status of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param business_status: The business_status of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._business_status = business_status
 
     @property
     def create_time(self):
@@ -550,6 +591,48 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._lock_reason = lock_reason
 
     @property
+    def log_topic_id(self):
+        """Gets the log_topic_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The log_topic_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._log_topic_id
+
+    @log_topic_id.setter
+    def log_topic_id(self, log_topic_id):
+        """Sets the log_topic_id of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param log_topic_id: The log_topic_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._log_topic_id = log_topic_id
+
+    @property
+    def master_zone_id(self):
+        """Gets the master_zone_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The master_zone_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_zone_id
+
+    @master_zone_id.setter
+    def master_zone_id(self, master_zone_id):
+        """Sets the master_zone_id of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param master_zone_id: The master_zone_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._master_zone_id = master_zone_id
+
+    @property
     def modification_protection_reason(self):
         """Gets the modification_protection_reason of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
 
@@ -674,6 +757,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._server_groups = server_groups
+
+    @property
+    def slave_zone_id(self):
+        """Gets the slave_zone_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The slave_zone_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._slave_zone_id
+
+    @slave_zone_id.setter
+    def slave_zone_id(self, slave_zone_id):
+        """Sets the slave_zone_id of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param slave_zone_id: The slave_zone_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._slave_zone_id = slave_zone_id
 
     @property
     def status(self):

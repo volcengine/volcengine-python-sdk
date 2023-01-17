@@ -33,34 +33,65 @@ class NetworkForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'maximum_bandwidth_mbps': 'int',
         'maximum_network_interfaces': 'int',
         'maximum_private_ipv4_addresses_per_network_interface': 'int',
-        'maximum_queues_per_network_interface': 'int'
+        'maximum_queues_per_network_interface': 'int',
+        'maximum_throughput_kpps': 'int'
     }
 
     attribute_map = {
+        'maximum_bandwidth_mbps': 'MaximumBandwidthMbps',
         'maximum_network_interfaces': 'MaximumNetworkInterfaces',
         'maximum_private_ipv4_addresses_per_network_interface': 'MaximumPrivateIpv4AddressesPerNetworkInterface',
-        'maximum_queues_per_network_interface': 'MaximumQueuesPerNetworkInterface'
+        'maximum_queues_per_network_interface': 'MaximumQueuesPerNetworkInterface',
+        'maximum_throughput_kpps': 'MaximumThroughputKpps'
     }
 
-    def __init__(self, maximum_network_interfaces=None, maximum_private_ipv4_addresses_per_network_interface=None, maximum_queues_per_network_interface=None, _configuration=None):  # noqa: E501
+    def __init__(self, maximum_bandwidth_mbps=None, maximum_network_interfaces=None, maximum_private_ipv4_addresses_per_network_interface=None, maximum_queues_per_network_interface=None, maximum_throughput_kpps=None, _configuration=None):  # noqa: E501
         """NetworkForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._maximum_bandwidth_mbps = None
         self._maximum_network_interfaces = None
         self._maximum_private_ipv4_addresses_per_network_interface = None
         self._maximum_queues_per_network_interface = None
+        self._maximum_throughput_kpps = None
         self.discriminator = None
 
+        if maximum_bandwidth_mbps is not None:
+            self.maximum_bandwidth_mbps = maximum_bandwidth_mbps
         if maximum_network_interfaces is not None:
             self.maximum_network_interfaces = maximum_network_interfaces
         if maximum_private_ipv4_addresses_per_network_interface is not None:
             self.maximum_private_ipv4_addresses_per_network_interface = maximum_private_ipv4_addresses_per_network_interface
         if maximum_queues_per_network_interface is not None:
             self.maximum_queues_per_network_interface = maximum_queues_per_network_interface
+        if maximum_throughput_kpps is not None:
+            self.maximum_throughput_kpps = maximum_throughput_kpps
+
+    @property
+    def maximum_bandwidth_mbps(self):
+        """Gets the maximum_bandwidth_mbps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The maximum_bandwidth_mbps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._maximum_bandwidth_mbps
+
+    @maximum_bandwidth_mbps.setter
+    def maximum_bandwidth_mbps(self, maximum_bandwidth_mbps):
+        """Sets the maximum_bandwidth_mbps of this NetworkForDescribeInstanceTypesOutput.
+
+
+        :param maximum_bandwidth_mbps: The maximum_bandwidth_mbps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._maximum_bandwidth_mbps = maximum_bandwidth_mbps
 
     @property
     def maximum_network_interfaces(self):
@@ -124,6 +155,27 @@ class NetworkForDescribeInstanceTypesOutput(object):
         """
 
         self._maximum_queues_per_network_interface = maximum_queues_per_network_interface
+
+    @property
+    def maximum_throughput_kpps(self):
+        """Gets the maximum_throughput_kpps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The maximum_throughput_kpps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._maximum_throughput_kpps
+
+    @maximum_throughput_kpps.setter
+    def maximum_throughput_kpps(self, maximum_throughput_kpps):
+        """Sets the maximum_throughput_kpps of this NetworkForDescribeInstanceTypesOutput.
+
+
+        :param maximum_throughput_kpps: The maximum_throughput_kpps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._maximum_throughput_kpps = maximum_throughput_kpps
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,6 +34,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'attach_status': 'str',
+        'attach_type': 'str',
         'connect_status': 'str',
         'creation_time': 'str',
         'customer_gateway_id': 'str',
@@ -43,6 +45,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'ipsec_config': 'IpsecConfigForDescribeVpnConnectionsOutput',
         'local_subnet': 'list[str]',
         'nat_traversal': 'bool',
+        'negotiate_instantly': 'bool',
         'project_name': 'str',
         'remote_subnet': 'list[str]',
         'status': 'str',
@@ -54,6 +57,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'attach_status': 'AttachStatus',
+        'attach_type': 'AttachType',
         'connect_status': 'ConnectStatus',
         'creation_time': 'CreationTime',
         'customer_gateway_id': 'CustomerGatewayId',
@@ -63,6 +68,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
         'nat_traversal': 'NatTraversal',
+        'negotiate_instantly': 'NegotiateInstantly',
         'project_name': 'ProjectName',
         'remote_subnet': 'RemoteSubnet',
         'status': 'Status',
@@ -72,13 +78,15 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, account_id=None, connect_status=None, creation_time=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, project_name=None, remote_subnet=None, status=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, attach_status=None, attach_type=None, connect_status=None, creation_time=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, status=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """VpnConnectionForDescribeVpnConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._attach_status = None
+        self._attach_type = None
         self._connect_status = None
         self._creation_time = None
         self._customer_gateway_id = None
@@ -88,6 +96,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._ipsec_config = None
         self._local_subnet = None
         self._nat_traversal = None
+        self._negotiate_instantly = None
         self._project_name = None
         self._remote_subnet = None
         self._status = None
@@ -99,6 +108,10 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if attach_status is not None:
+            self.attach_status = attach_status
+        if attach_type is not None:
+            self.attach_type = attach_type
         if connect_status is not None:
             self.connect_status = connect_status
         if creation_time is not None:
@@ -117,6 +130,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
             self.local_subnet = local_subnet
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
+        if negotiate_instantly is not None:
+            self.negotiate_instantly = negotiate_instantly
         if project_name is not None:
             self.project_name = project_name
         if remote_subnet is not None:
@@ -152,6 +167,48 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def attach_status(self):
+        """Gets the attach_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The attach_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._attach_status
+
+    @attach_status.setter
+    def attach_status(self, attach_status):
+        """Sets the attach_status of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param attach_status: The attach_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._attach_status = attach_status
+
+    @property
+    def attach_type(self):
+        """Gets the attach_type of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The attach_type of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._attach_type
+
+    @attach_type.setter
+    def attach_type(self, attach_type):
+        """Sets the attach_type of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param attach_type: The attach_type of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._attach_type = attach_type
 
     @property
     def connect_status(self):
@@ -341,6 +398,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._nat_traversal = nat_traversal
+
+    @property
+    def negotiate_instantly(self):
+        """Gets the negotiate_instantly of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The negotiate_instantly of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._negotiate_instantly
+
+    @negotiate_instantly.setter
+    def negotiate_instantly(self, negotiate_instantly):
+        """Sets the negotiate_instantly of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param negotiate_instantly: The negotiate_instantly of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._negotiate_instantly = negotiate_instantly
 
     @property
     def project_name(self):

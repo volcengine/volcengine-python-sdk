@@ -38,8 +38,10 @@ class DescribeNatGatewaysRequest(object):
         'nat_gateway_name': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'spec': 'str',
         'subnet_id': 'str',
+        'tag_filters': 'list[TagFilterForDescribeNatGatewaysInput]',
         'vpc_id': 'str'
     }
 
@@ -49,12 +51,14 @@ class DescribeNatGatewaysRequest(object):
         'nat_gateway_name': 'NatGatewayName',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'spec': 'Spec',
         'subnet_id': 'SubnetId',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, nat_gateway_ids=None, nat_gateway_name=None, page_number=None, page_size=None, spec=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, nat_gateway_ids=None, nat_gateway_name=None, page_number=None, page_size=None, project_name=None, spec=None, subnet_id=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeNatGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,8 +69,10 @@ class DescribeNatGatewaysRequest(object):
         self._nat_gateway_name = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._spec = None
         self._subnet_id = None
+        self._tag_filters = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -80,10 +86,14 @@ class DescribeNatGatewaysRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if spec is not None:
             self.spec = spec
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -196,6 +206,27 @@ class DescribeNatGatewaysRequest(object):
         self._page_size = page_size
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeNatGatewaysRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeNatGatewaysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeNatGatewaysRequest.
+
+
+        :param project_name: The project_name of this DescribeNatGatewaysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def spec(self):
         """Gets the spec of this DescribeNatGatewaysRequest.  # noqa: E501
 
@@ -243,6 +274,27 @@ class DescribeNatGatewaysRequest(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeNatGatewaysRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeNatGatewaysRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeNatGatewaysInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeNatGatewaysRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeNatGatewaysRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeNatGatewaysInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):

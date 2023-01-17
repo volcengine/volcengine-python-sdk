@@ -42,7 +42,10 @@ class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput(object):
         'direct_connect_connection_id': 'str',
         'direct_connect_gateway_id': 'str',
         'enable_bfd': 'bool',
+        'enable_nqa': 'bool',
         'local_ip': 'str',
+        'nqa_detect_interval': 'int',
+        'nqa_detect_multiplier': 'int',
         'peer_ip': 'str',
         'route_type': 'str',
         'status': 'str',
@@ -63,7 +66,10 @@ class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput(object):
         'direct_connect_connection_id': 'DirectConnectConnectionId',
         'direct_connect_gateway_id': 'DirectConnectGatewayId',
         'enable_bfd': 'EnableBfd',
+        'enable_nqa': 'EnableNqa',
         'local_ip': 'LocalIp',
+        'nqa_detect_interval': 'NqaDetectInterval',
+        'nqa_detect_multiplier': 'NqaDetectMultiplier',
         'peer_ip': 'PeerIp',
         'route_type': 'RouteType',
         'status': 'Status',
@@ -74,7 +80,7 @@ class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput(object):
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, creation_time=None, description=None, direct_connect_connection_id=None, direct_connect_gateway_id=None, enable_bfd=None, local_ip=None, peer_ip=None, route_type=None, status=None, tags=None, update_time=None, virtual_interface_id=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, creation_time=None, description=None, direct_connect_connection_id=None, direct_connect_gateway_id=None, enable_bfd=None, enable_nqa=None, local_ip=None, nqa_detect_interval=None, nqa_detect_multiplier=None, peer_ip=None, route_type=None, status=None, tags=None, update_time=None, virtual_interface_id=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
         """VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,7 +95,10 @@ class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput(object):
         self._direct_connect_connection_id = None
         self._direct_connect_gateway_id = None
         self._enable_bfd = None
+        self._enable_nqa = None
         self._local_ip = None
+        self._nqa_detect_interval = None
+        self._nqa_detect_multiplier = None
         self._peer_ip = None
         self._route_type = None
         self._status = None
@@ -118,8 +127,14 @@ class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput(object):
             self.direct_connect_gateway_id = direct_connect_gateway_id
         if enable_bfd is not None:
             self.enable_bfd = enable_bfd
+        if enable_nqa is not None:
+            self.enable_nqa = enable_nqa
         if local_ip is not None:
             self.local_ip = local_ip
+        if nqa_detect_interval is not None:
+            self.nqa_detect_interval = nqa_detect_interval
+        if nqa_detect_multiplier is not None:
+            self.nqa_detect_multiplier = nqa_detect_multiplier
         if peer_ip is not None:
             self.peer_ip = peer_ip
         if route_type is not None:
@@ -327,6 +342,27 @@ class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput(object):
         self._enable_bfd = enable_bfd
 
     @property
+    def enable_nqa(self):
+        """Gets the enable_nqa of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+
+
+        :return: The enable_nqa of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_nqa
+
+    @enable_nqa.setter
+    def enable_nqa(self, enable_nqa):
+        """Sets the enable_nqa of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.
+
+
+        :param enable_nqa: The enable_nqa of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_nqa = enable_nqa
+
+    @property
     def local_ip(self):
         """Gets the local_ip of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
 
@@ -346,6 +382,48 @@ class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput(object):
         """
 
         self._local_ip = local_ip
+
+    @property
+    def nqa_detect_interval(self):
+        """Gets the nqa_detect_interval of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+
+
+        :return: The nqa_detect_interval of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._nqa_detect_interval
+
+    @nqa_detect_interval.setter
+    def nqa_detect_interval(self, nqa_detect_interval):
+        """Sets the nqa_detect_interval of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.
+
+
+        :param nqa_detect_interval: The nqa_detect_interval of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._nqa_detect_interval = nqa_detect_interval
+
+    @property
+    def nqa_detect_multiplier(self):
+        """Gets the nqa_detect_multiplier of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+
+
+        :return: The nqa_detect_multiplier of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._nqa_detect_multiplier
+
+    @nqa_detect_multiplier.setter
+    def nqa_detect_multiplier(self, nqa_detect_multiplier):
+        """Sets the nqa_detect_multiplier of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.
+
+
+        :param nqa_detect_multiplier: The nqa_detect_multiplier of this VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._nqa_detect_multiplier = nqa_detect_multiplier
 
     @property
     def peer_ip(self):

@@ -38,6 +38,7 @@ class DescribeVpnGatewaysRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'subnet_id': 'str',
+        'tag_filters': 'list[TagFilterForDescribeVpnGatewaysInput]',
         'vpc_id': 'str',
         'vpn_gateway_ids': 'list[str]',
         'vpn_gateway_name': 'str'
@@ -49,12 +50,13 @@ class DescribeVpnGatewaysRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'subnet_id': 'SubnetId',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId',
         'vpn_gateway_ids': 'VpnGatewayIds',
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, ip_address=None, page_number=None, page_size=None, project_name=None, subnet_id=None, vpc_id=None, vpn_gateway_ids=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_address=None, page_number=None, page_size=None, project_name=None, subnet_id=None, tag_filters=None, vpc_id=None, vpn_gateway_ids=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeVpnGatewaysRequest(object):
         self._page_size = None
         self._project_name = None
         self._subnet_id = None
+        self._tag_filters = None
         self._vpc_id = None
         self._vpn_gateway_ids = None
         self._vpn_gateway_name = None
@@ -80,6 +83,8 @@ class DescribeVpnGatewaysRequest(object):
             self.project_name = project_name
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if vpn_gateway_ids is not None:
@@ -191,6 +196,27 @@ class DescribeVpnGatewaysRequest(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeVpnGatewaysRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeVpnGatewaysInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeVpnGatewaysRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeVpnGatewaysInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):

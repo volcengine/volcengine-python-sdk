@@ -33,24 +33,29 @@ class ProcessorForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cpus': 'int'
+        'cpus': 'int',
+        'model': 'str'
     }
 
     attribute_map = {
-        'cpus': 'Cpus'
+        'cpus': 'Cpus',
+        'model': 'Model'
     }
 
-    def __init__(self, cpus=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpus=None, model=None, _configuration=None):  # noqa: E501
         """ProcessorForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cpus = None
+        self._model = None
         self.discriminator = None
 
         if cpus is not None:
             self.cpus = cpus
+        if model is not None:
+            self.model = model
 
     @property
     def cpus(self):
@@ -72,6 +77,27 @@ class ProcessorForDescribeInstanceTypesOutput(object):
         """
 
         self._cpus = cpus
+
+    @property
+    def model(self):
+        """Gets the model of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The model of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._model
+
+    @model.setter
+    def model(self, model):
+        """Sets the model of this ProcessorForDescribeInstanceTypesOutput.
+
+
+        :param model: The model of this ProcessorForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._model = model
 
     def to_dict(self):
         """Returns the model properties as a dict"""

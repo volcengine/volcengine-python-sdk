@@ -45,9 +45,11 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'nat_gateway_name': 'str',
         'network_interface_id': 'str',
         'overdue_time': 'str',
+        'project_name': 'str',
         'spec': 'str',
         'status': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeNatGatewaysOutput]',
         'updated_at': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
@@ -66,15 +68,17 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'nat_gateway_name': 'NatGatewayName',
         'network_interface_id': 'NetworkInterfaceId',
         'overdue_time': 'OverdueTime',
+        'project_name': 'ProjectName',
         'spec': 'Spec',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'updated_at': 'UpdatedAt',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, overdue_time=None, spec=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, overdue_time=None, project_name=None, spec=None, status=None, subnet_id=None, tags=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """NatGatewayForDescribeNatGatewaysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,9 +96,11 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         self._nat_gateway_name = None
         self._network_interface_id = None
         self._overdue_time = None
+        self._project_name = None
         self._spec = None
         self._status = None
         self._subnet_id = None
+        self._tags = None
         self._updated_at = None
         self._vpc_id = None
         self._zone_id = None
@@ -124,12 +130,16 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
             self.network_interface_id = network_interface_id
         if overdue_time is not None:
             self.overdue_time = overdue_time
+        if project_name is not None:
+            self.project_name = project_name
         if spec is not None:
             self.spec = spec
         if status is not None:
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
         if vpc_id is not None:
@@ -390,6 +400,27 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         self._overdue_time = overdue_time
 
     @property
+    def project_name(self):
+        """Gets the project_name of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+
+
+        :return: The project_name of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this NatGatewayForDescribeNatGatewaysOutput.
+
+
+        :param project_name: The project_name of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def spec(self):
         """Gets the spec of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
 
@@ -451,6 +482,27 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+
+
+        :return: The tags of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :rtype: list[TagForDescribeNatGatewaysOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this NatGatewayForDescribeNatGatewaysOutput.
+
+
+        :param tags: The tags of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :type: list[TagForDescribeNatGatewaysOutput]
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):

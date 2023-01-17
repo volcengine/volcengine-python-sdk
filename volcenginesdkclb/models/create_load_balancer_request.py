@@ -33,18 +33,21 @@ class CreateLoadBalancerRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'description': 'str',
         'eip_billing_config': 'EipBillingConfigForCreateLoadBalancerInput',
         'eni_address': 'str',
         'load_balancer_billing_type': 'int',
         'load_balancer_name': 'str',
         'load_balancer_spec': 'str',
+        'master_zone_id': 'str',
         'modification_protection_reason': 'str',
         'modification_protection_status': 'str',
         'period': 'int',
         'period_unit': 'str',
         'project_name': 'str',
         'region_id': 'str',
+        'slave_zone_id': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForCreateLoadBalancerInput]',
         'type': 'str',
@@ -52,48 +55,56 @@ class CreateLoadBalancerRequest(object):
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'description': 'Description',
         'eip_billing_config': 'EipBillingConfig',
         'eni_address': 'EniAddress',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
         'load_balancer_name': 'LoadBalancerName',
         'load_balancer_spec': 'LoadBalancerSpec',
+        'master_zone_id': 'MasterZoneId',
         'modification_protection_reason': 'ModificationProtectionReason',
         'modification_protection_status': 'ModificationProtectionStatus',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
+        'slave_zone_id': 'SlaveZoneId',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
         'type': 'Type',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, eip_billing_config=None, eni_address=None, load_balancer_billing_type=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, period=None, period_unit=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, eip_billing_config=None, eni_address=None, load_balancer_billing_type=None, load_balancer_name=None, load_balancer_spec=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, period=None, period_unit=None, project_name=None, region_id=None, slave_zone_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._description = None
         self._eip_billing_config = None
         self._eni_address = None
         self._load_balancer_billing_type = None
         self._load_balancer_name = None
         self._load_balancer_spec = None
+        self._master_zone_id = None
         self._modification_protection_reason = None
         self._modification_protection_status = None
         self._period = None
         self._period_unit = None
         self._project_name = None
         self._region_id = None
+        self._slave_zone_id = None
         self._subnet_id = None
         self._tags = None
         self._type = None
         self._vpc_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if eip_billing_config is not None:
@@ -104,7 +115,10 @@ class CreateLoadBalancerRequest(object):
             self.load_balancer_billing_type = load_balancer_billing_type
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
-        self.load_balancer_spec = load_balancer_spec
+        if load_balancer_spec is not None:
+            self.load_balancer_spec = load_balancer_spec
+        if master_zone_id is not None:
+            self.master_zone_id = master_zone_id
         if modification_protection_reason is not None:
             self.modification_protection_reason = modification_protection_reason
         if modification_protection_status is not None:
@@ -116,12 +130,35 @@ class CreateLoadBalancerRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.region_id = region_id
+        if slave_zone_id is not None:
+            self.slave_zone_id = slave_zone_id
         self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
         self.type = type
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateLoadBalancerRequest.
+
+
+        :param client_token: The client_token of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):
@@ -246,10 +283,29 @@ class CreateLoadBalancerRequest(object):
         :param load_balancer_spec: The load_balancer_spec of this CreateLoadBalancerRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and load_balancer_spec is None:
-            raise ValueError("Invalid value for `load_balancer_spec`, must not be `None`")  # noqa: E501
 
         self._load_balancer_spec = load_balancer_spec
+
+    @property
+    def master_zone_id(self):
+        """Gets the master_zone_id of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The master_zone_id of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_zone_id
+
+    @master_zone_id.setter
+    def master_zone_id(self, master_zone_id):
+        """Sets the master_zone_id of this CreateLoadBalancerRequest.
+
+
+        :param master_zone_id: The master_zone_id of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._master_zone_id = master_zone_id
 
     @property
     def modification_protection_reason(self):
@@ -378,6 +434,27 @@ class CreateLoadBalancerRequest(object):
             raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
+
+    @property
+    def slave_zone_id(self):
+        """Gets the slave_zone_id of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The slave_zone_id of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._slave_zone_id
+
+    @slave_zone_id.setter
+    def slave_zone_id(self, slave_zone_id):
+        """Sets the slave_zone_id of this CreateLoadBalancerRequest.
+
+
+        :param slave_zone_id: The slave_zone_id of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._slave_zone_id = slave_zone_id
 
     @property
     def subnet_id(self):
