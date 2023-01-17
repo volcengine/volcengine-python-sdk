@@ -37,7 +37,7 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
         'bandwidth_package_id': 'str',
         'eip_billing_type': 'int',
         'isp': 'str',
-        'security_protection_types': 'str'
+        'security_protection_types': 'list[str]'
     }
 
     attribute_map = {
@@ -162,7 +162,7 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
 
 
         :return: The security_protection_types of this EipBillingConfigForCreateLoadBalancerInput.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._security_protection_types
 
@@ -172,7 +172,7 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
 
 
         :param security_protection_types: The security_protection_types of this EipBillingConfigForCreateLoadBalancerInput.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._security_protection_types = security_protection_types
