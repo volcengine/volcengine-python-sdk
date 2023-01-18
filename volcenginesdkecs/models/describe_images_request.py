@@ -40,6 +40,7 @@ class DescribeImagesRequest(object):
         'max_results': 'int',
         'next_token': 'str',
         'os_type': 'str',
+        'project_name': 'str',
         'status': 'list[str]',
         'visibility': 'str'
     }
@@ -52,11 +53,12 @@ class DescribeImagesRequest(object):
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'os_type': 'OsType',
+        'project_name': 'ProjectName',
         'status': 'Status',
         'visibility': 'Visibility'
     }
 
-    def __init__(self, image_ids=None, image_status=None, instance_type_id=None, is_support_cloud_init=None, max_results=None, next_token=None, os_type=None, status=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, image_ids=None, image_status=None, instance_type_id=None, is_support_cloud_init=None, max_results=None, next_token=None, os_type=None, project_name=None, status=None, visibility=None, _configuration=None):  # noqa: E501
         """DescribeImagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class DescribeImagesRequest(object):
         self._max_results = None
         self._next_token = None
         self._os_type = None
+        self._project_name = None
         self._status = None
         self._visibility = None
         self.discriminator = None
@@ -87,6 +90,8 @@ class DescribeImagesRequest(object):
             self.next_token = next_token
         if os_type is not None:
             self.os_type = os_type
+        if project_name is not None:
+            self.project_name = project_name
         if status is not None:
             self.status = status
         if visibility is not None:
@@ -238,6 +243,27 @@ class DescribeImagesRequest(object):
         """
 
         self._os_type = os_type
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeImagesRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeImagesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeImagesRequest.
+
+
+        :param project_name: The project_name of this DescribeImagesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def status(self):

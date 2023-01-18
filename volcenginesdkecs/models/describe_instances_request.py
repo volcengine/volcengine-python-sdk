@@ -33,6 +33,7 @@ class DescribeInstancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'deployment_set_ids': 'list[str]',
         'hpc_cluster_id': 'str',
         'instance_charge_type': 'str',
         'instance_ids': 'list[str]',
@@ -52,6 +53,7 @@ class DescribeInstancesRequest(object):
     }
 
     attribute_map = {
+        'deployment_set_ids': 'DeploymentSetIds',
         'hpc_cluster_id': 'HpcClusterId',
         'instance_charge_type': 'InstanceChargeType',
         'instance_ids': 'InstanceIds',
@@ -70,12 +72,13 @@ class DescribeInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, deployment_set_ids=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._deployment_set_ids = None
         self._hpc_cluster_id = None
         self._instance_charge_type = None
         self._instance_ids = None
@@ -94,6 +97,8 @@ class DescribeInstancesRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if deployment_set_ids is not None:
+            self.deployment_set_ids = deployment_set_ids
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
         if instance_charge_type is not None:
@@ -126,6 +131,27 @@ class DescribeInstancesRequest(object):
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def deployment_set_ids(self):
+        """Gets the deployment_set_ids of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The deployment_set_ids of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._deployment_set_ids
+
+    @deployment_set_ids.setter
+    def deployment_set_ids(self, deployment_set_ids):
+        """Sets the deployment_set_ids of this DescribeInstancesRequest.
+
+
+        :param deployment_set_ids: The deployment_set_ids of this DescribeInstancesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._deployment_set_ids = deployment_set_ids
 
     @property
     def hpc_cluster_id(self):

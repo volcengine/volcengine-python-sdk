@@ -36,6 +36,7 @@ class InstanceForDescribeInstancesOutput(object):
         'cpu_options': 'CpuOptionsForDescribeInstancesOutput',
         'cpus': 'int',
         'created_at': 'str',
+        'deployment_set_id': 'str',
         'description': 'str',
         'eip_address': 'EipAddressForDescribeInstancesOutput',
         'expired_at': 'str',
@@ -69,6 +70,7 @@ class InstanceForDescribeInstancesOutput(object):
         'cpu_options': 'CpuOptions',
         'cpus': 'Cpus',
         'created_at': 'CreatedAt',
+        'deployment_set_id': 'DeploymentSetId',
         'description': 'Description',
         'eip_address': 'EipAddress',
         'expired_at': 'ExpiredAt',
@@ -98,7 +100,7 @@ class InstanceForDescribeInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpu_options=None, cpus=None, created_at=None, description=None, eip_address=None, expired_at=None, host_name=None, hostname=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, project_name=None, rdma_ip_addresses=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_options=None, cpus=None, created_at=None, deployment_set_id=None, description=None, eip_address=None, expired_at=None, host_name=None, hostname=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, project_name=None, rdma_ip_addresses=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -107,6 +109,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._cpu_options = None
         self._cpus = None
         self._created_at = None
+        self._deployment_set_id = None
         self._description = None
         self._eip_address = None
         self._expired_at = None
@@ -142,6 +145,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.cpus = cpus
         if created_at is not None:
             self.created_at = created_at
+        if deployment_set_id is not None:
+            self.deployment_set_id = deployment_set_id
         if description is not None:
             self.description = description
         if eip_address is not None:
@@ -259,6 +264,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def deployment_set_id(self):
+        """Gets the deployment_set_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The deployment_set_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deployment_set_id
+
+    @deployment_set_id.setter
+    def deployment_set_id(self, deployment_set_id):
+        """Sets the deployment_set_id of this InstanceForDescribeInstancesOutput.
+
+
+        :param deployment_set_id: The deployment_set_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deployment_set_id = deployment_set_id
 
     @property
     def description(self):

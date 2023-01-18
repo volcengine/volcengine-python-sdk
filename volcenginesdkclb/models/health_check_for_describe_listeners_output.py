@@ -40,7 +40,8 @@ class HealthCheckForDescribeListenersOutput(object):
         'interval': 'int',
         'method': 'str',
         'timeout': 'int',
-        'un_healthy_threshold': 'int',
+        'udp_expect': 'str',
+        'udp_request': 'str',
         'uri': 'str'
     }
 
@@ -52,11 +53,12 @@ class HealthCheckForDescribeListenersOutput(object):
         'interval': 'Interval',
         'method': 'Method',
         'timeout': 'Timeout',
-        'un_healthy_threshold': 'UnHealthyThreshold',
+        'udp_expect': 'UdpExpect',
+        'udp_request': 'UdpRequest',
         'uri': 'Uri'
     }
 
-    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, un_healthy_threshold=None, uri=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, udp_expect=None, udp_request=None, uri=None, _configuration=None):  # noqa: E501
         """HealthCheckForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,7 +71,8 @@ class HealthCheckForDescribeListenersOutput(object):
         self._interval = None
         self._method = None
         self._timeout = None
-        self._un_healthy_threshold = None
+        self._udp_expect = None
+        self._udp_request = None
         self._uri = None
         self.discriminator = None
 
@@ -87,8 +90,10 @@ class HealthCheckForDescribeListenersOutput(object):
             self.method = method
         if timeout is not None:
             self.timeout = timeout
-        if un_healthy_threshold is not None:
-            self.un_healthy_threshold = un_healthy_threshold
+        if udp_expect is not None:
+            self.udp_expect = udp_expect
+        if udp_request is not None:
+            self.udp_request = udp_request
         if uri is not None:
             self.uri = uri
 
@@ -240,25 +245,46 @@ class HealthCheckForDescribeListenersOutput(object):
         self._timeout = timeout
 
     @property
-    def un_healthy_threshold(self):
-        """Gets the un_healthy_threshold of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+    def udp_expect(self):
+        """Gets the udp_expect of this HealthCheckForDescribeListenersOutput.  # noqa: E501
 
 
-        :return: The un_healthy_threshold of this HealthCheckForDescribeListenersOutput.  # noqa: E501
-        :rtype: int
+        :return: The udp_expect of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._un_healthy_threshold
+        return self._udp_expect
 
-    @un_healthy_threshold.setter
-    def un_healthy_threshold(self, un_healthy_threshold):
-        """Sets the un_healthy_threshold of this HealthCheckForDescribeListenersOutput.
+    @udp_expect.setter
+    def udp_expect(self, udp_expect):
+        """Sets the udp_expect of this HealthCheckForDescribeListenersOutput.
 
 
-        :param un_healthy_threshold: The un_healthy_threshold of this HealthCheckForDescribeListenersOutput.  # noqa: E501
-        :type: int
+        :param udp_expect: The udp_expect of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+        :type: str
         """
 
-        self._un_healthy_threshold = un_healthy_threshold
+        self._udp_expect = udp_expect
+
+    @property
+    def udp_request(self):
+        """Gets the udp_request of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The udp_request of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._udp_request
+
+    @udp_request.setter
+    def udp_request(self, udp_request):
+        """Sets the udp_request of this HealthCheckForDescribeListenersOutput.
+
+
+        :param udp_request: The udp_request of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._udp_request = udp_request
 
     @property
     def uri(self):

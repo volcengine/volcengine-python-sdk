@@ -33,7 +33,9 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'baseline_credit': 'int',
         'gpu': 'GpuForDescribeInstanceTypesOutput',
+        'initial_credit': 'int',
         'instance_type_family': 'str',
         'instance_type_id': 'str',
         'local_volumes': 'list[LocalVolumeForDescribeInstanceTypesOutput]',
@@ -45,7 +47,9 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
     }
 
     attribute_map = {
+        'baseline_credit': 'BaselineCredit',
         'gpu': 'Gpu',
+        'initial_credit': 'InitialCredit',
         'instance_type_family': 'InstanceTypeFamily',
         'instance_type_id': 'InstanceTypeId',
         'local_volumes': 'LocalVolumes',
@@ -56,13 +60,15 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         'volume': 'Volume'
     }
 
-    def __init__(self, gpu=None, instance_type_family=None, instance_type_id=None, local_volumes=None, memory=None, network=None, processor=None, rdma=None, volume=None, _configuration=None):  # noqa: E501
+    def __init__(self, baseline_credit=None, gpu=None, initial_credit=None, instance_type_family=None, instance_type_id=None, local_volumes=None, memory=None, network=None, processor=None, rdma=None, volume=None, _configuration=None):  # noqa: E501
         """InstanceTypeForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._baseline_credit = None
         self._gpu = None
+        self._initial_credit = None
         self._instance_type_family = None
         self._instance_type_id = None
         self._local_volumes = None
@@ -73,8 +79,12 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         self._volume = None
         self.discriminator = None
 
+        if baseline_credit is not None:
+            self.baseline_credit = baseline_credit
         if gpu is not None:
             self.gpu = gpu
+        if initial_credit is not None:
+            self.initial_credit = initial_credit
         if instance_type_family is not None:
             self.instance_type_family = instance_type_family
         if instance_type_id is not None:
@@ -91,6 +101,27 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
             self.rdma = rdma
         if volume is not None:
             self.volume = volume
+
+    @property
+    def baseline_credit(self):
+        """Gets the baseline_credit of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The baseline_credit of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._baseline_credit
+
+    @baseline_credit.setter
+    def baseline_credit(self, baseline_credit):
+        """Sets the baseline_credit of this InstanceTypeForDescribeInstanceTypesOutput.
+
+
+        :param baseline_credit: The baseline_credit of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._baseline_credit = baseline_credit
 
     @property
     def gpu(self):
@@ -112,6 +143,27 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         """
 
         self._gpu = gpu
+
+    @property
+    def initial_credit(self):
+        """Gets the initial_credit of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The initial_credit of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._initial_credit
+
+    @initial_credit.setter
+    def initial_credit(self, initial_credit):
+        """Sets the initial_credit of this InstanceTypeForDescribeInstanceTypesOutput.
+
+
+        :param initial_credit: The initial_credit of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._initial_credit = initial_credit
 
     @property
     def instance_type_family(self):

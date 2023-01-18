@@ -38,6 +38,7 @@ class RunInstancesRequest(object):
         'client_token': 'str',
         'count': 'int',
         'credit_specification': 'str',
+        'deployment_set_id': 'str',
         'description': 'str',
         'dry_run': 'bool',
         'host_name': 'str',
@@ -72,6 +73,7 @@ class RunInstancesRequest(object):
         'client_token': 'ClientToken',
         'count': 'Count',
         'credit_specification': 'CreditSpecification',
+        'deployment_set_id': 'DeploymentSetId',
         'description': 'Description',
         'dry_run': 'DryRun',
         'host_name': 'HostName',
@@ -100,7 +102,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, description=None, dry_run=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, deployment_set_id=None, description=None, dry_run=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -111,6 +113,7 @@ class RunInstancesRequest(object):
         self._client_token = None
         self._count = None
         self._credit_specification = None
+        self._deployment_set_id = None
         self._description = None
         self._dry_run = None
         self._host_name = None
@@ -149,6 +152,8 @@ class RunInstancesRequest(object):
             self.count = count
         if credit_specification is not None:
             self.credit_specification = credit_specification
+        if deployment_set_id is not None:
+            self.deployment_set_id = deployment_set_id
         if description is not None:
             self.description = description
         if dry_run is not None:
@@ -306,6 +311,27 @@ class RunInstancesRequest(object):
         """
 
         self._credit_specification = credit_specification
+
+    @property
+    def deployment_set_id(self):
+        """Gets the deployment_set_id of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The deployment_set_id of this RunInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._deployment_set_id
+
+    @deployment_set_id.setter
+    def deployment_set_id(self, deployment_set_id):
+        """Sets the deployment_set_id of this RunInstancesRequest.
+
+
+        :param deployment_set_id: The deployment_set_id of this RunInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._deployment_set_id = deployment_set_id
 
     @property
     def description(self):

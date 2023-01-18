@@ -47,10 +47,12 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'load_balancer_name': 'str',
         'load_balancer_spec': 'str',
         'lock_reason': 'str',
+        'master_zone_id': 'str',
         'modification_protection_reason': 'str',
         'modification_protection_status': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
+        'slave_zone_id': 'str',
         'status': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeLoadBalancersOutput]',
@@ -74,10 +76,12 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'load_balancer_name': 'LoadBalancerName',
         'load_balancer_spec': 'LoadBalancerSpec',
         'lock_reason': 'LockReason',
+        'master_zone_id': 'MasterZoneId',
         'modification_protection_reason': 'ModificationProtectionReason',
         'modification_protection_status': 'ModificationProtectionStatus',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
+        'slave_zone_id': 'SlaveZoneId',
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
@@ -86,7 +90,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, business_status=None, create_time=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, expired_time=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, business_status=None, create_time=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, expired_time=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """LoadBalancerForDescribeLoadBalancersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,10 +110,12 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._load_balancer_name = None
         self._load_balancer_spec = None
         self._lock_reason = None
+        self._master_zone_id = None
         self._modification_protection_reason = None
         self._modification_protection_status = None
         self._overdue_time = None
         self._project_name = None
+        self._slave_zone_id = None
         self._status = None
         self._subnet_id = None
         self._tags = None
@@ -146,6 +152,8 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.load_balancer_spec = load_balancer_spec
         if lock_reason is not None:
             self.lock_reason = lock_reason
+        if master_zone_id is not None:
+            self.master_zone_id = master_zone_id
         if modification_protection_reason is not None:
             self.modification_protection_reason = modification_protection_reason
         if modification_protection_status is not None:
@@ -154,6 +162,8 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
+        if slave_zone_id is not None:
+            self.slave_zone_id = slave_zone_id
         if status is not None:
             self.status = status
         if subnet_id is not None:
@@ -462,6 +472,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._lock_reason = lock_reason
 
     @property
+    def master_zone_id(self):
+        """Gets the master_zone_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The master_zone_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_zone_id
+
+    @master_zone_id.setter
+    def master_zone_id(self, master_zone_id):
+        """Sets the master_zone_id of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param master_zone_id: The master_zone_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._master_zone_id = master_zone_id
+
+    @property
     def modification_protection_reason(self):
         """Gets the modification_protection_reason of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
 
@@ -544,6 +575,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def slave_zone_id(self):
+        """Gets the slave_zone_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The slave_zone_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._slave_zone_id
+
+    @slave_zone_id.setter
+    def slave_zone_id(self, slave_zone_id):
+        """Sets the slave_zone_id of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param slave_zone_id: The slave_zone_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._slave_zone_id = slave_zone_id
 
     @property
     def status(self):

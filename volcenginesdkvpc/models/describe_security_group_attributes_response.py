@@ -36,6 +36,7 @@ class DescribeSecurityGroupAttributesResponse(object):
         'creation_time': 'str',
         'description': 'str',
         'permissions': 'list[PermissionForDescribeSecurityGroupAttributesOutput]',
+        'project_name': 'str',
         'request_id': 'str',
         'security_group_id': 'str',
         'security_group_name': 'str',
@@ -49,6 +50,7 @@ class DescribeSecurityGroupAttributesResponse(object):
         'creation_time': 'CreationTime',
         'description': 'Description',
         'permissions': 'Permissions',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'security_group_id': 'SecurityGroupId',
         'security_group_name': 'SecurityGroupName',
@@ -58,7 +60,7 @@ class DescribeSecurityGroupAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, permissions=None, request_id=None, security_group_id=None, security_group_name=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, permissions=None, project_name=None, request_id=None, security_group_id=None, security_group_name=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeSecurityGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class DescribeSecurityGroupAttributesResponse(object):
         self._creation_time = None
         self._description = None
         self._permissions = None
+        self._project_name = None
         self._request_id = None
         self._security_group_id = None
         self._security_group_name = None
@@ -82,6 +85,8 @@ class DescribeSecurityGroupAttributesResponse(object):
             self.description = description
         if permissions is not None:
             self.permissions = permissions
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if security_group_id is not None:
@@ -159,6 +164,27 @@ class DescribeSecurityGroupAttributesResponse(object):
         """
 
         self._permissions = permissions
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeSecurityGroupAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def request_id(self):

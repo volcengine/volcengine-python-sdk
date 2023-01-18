@@ -44,6 +44,7 @@ class ImageForDescribeImagesOutput(object):
         'os_type': 'str',
         'platform': 'str',
         'platform_version': 'str',
+        'project_name': 'str',
         'share_status': 'str',
         'size': 'int',
         'status': 'str',
@@ -64,6 +65,7 @@ class ImageForDescribeImagesOutput(object):
         'os_type': 'OsType',
         'platform': 'Platform',
         'platform_version': 'PlatformVersion',
+        'project_name': 'ProjectName',
         'share_status': 'ShareStatus',
         'size': 'Size',
         'status': 'Status',
@@ -72,7 +74,7 @@ class ImageForDescribeImagesOutput(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, created_at=None, description=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, share_status=None, size=None, status=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, created_at=None, description=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, status=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class ImageForDescribeImagesOutput(object):
         self._os_type = None
         self._platform = None
         self._platform_version = None
+        self._project_name = None
         self._share_status = None
         self._size = None
         self._status = None
@@ -119,6 +122,8 @@ class ImageForDescribeImagesOutput(object):
             self.platform = platform
         if platform_version is not None:
             self.platform_version = platform_version
+        if project_name is not None:
+            self.project_name = project_name
         if share_status is not None:
             self.share_status = share_status
         if size is not None:
@@ -362,6 +367,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._platform_version = platform_version
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The project_name of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ImageForDescribeImagesOutput.
+
+
+        :param project_name: The project_name of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def share_status(self):

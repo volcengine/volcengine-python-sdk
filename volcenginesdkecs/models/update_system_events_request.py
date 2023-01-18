@@ -34,29 +34,39 @@ class UpdateSystemEventsRequest(object):
     """
     swagger_types = {
         'event_ids': 'list[str]',
+        'operated_end_at': 'str',
+        'operated_start_at': 'str',
         'status': 'str',
         'updated_at': 'str'
     }
 
     attribute_map = {
         'event_ids': 'EventIds',
+        'operated_end_at': 'OperatedEndAt',
+        'operated_start_at': 'OperatedStartAt',
         'status': 'Status',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, event_ids=None, status=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, event_ids=None, operated_end_at=None, operated_start_at=None, status=None, updated_at=None, _configuration=None):  # noqa: E501
         """UpdateSystemEventsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._event_ids = None
+        self._operated_end_at = None
+        self._operated_start_at = None
         self._status = None
         self._updated_at = None
         self.discriminator = None
 
         if event_ids is not None:
             self.event_ids = event_ids
+        if operated_end_at is not None:
+            self.operated_end_at = operated_end_at
+        if operated_start_at is not None:
+            self.operated_start_at = operated_start_at
         if status is not None:
             self.status = status
         if updated_at is not None:
@@ -82,6 +92,48 @@ class UpdateSystemEventsRequest(object):
         """
 
         self._event_ids = event_ids
+
+    @property
+    def operated_end_at(self):
+        """Gets the operated_end_at of this UpdateSystemEventsRequest.  # noqa: E501
+
+
+        :return: The operated_end_at of this UpdateSystemEventsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._operated_end_at
+
+    @operated_end_at.setter
+    def operated_end_at(self, operated_end_at):
+        """Sets the operated_end_at of this UpdateSystemEventsRequest.
+
+
+        :param operated_end_at: The operated_end_at of this UpdateSystemEventsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._operated_end_at = operated_end_at
+
+    @property
+    def operated_start_at(self):
+        """Gets the operated_start_at of this UpdateSystemEventsRequest.  # noqa: E501
+
+
+        :return: The operated_start_at of this UpdateSystemEventsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._operated_start_at
+
+    @operated_start_at.setter
+    def operated_start_at(self, operated_start_at):
+        """Sets the operated_start_at of this UpdateSystemEventsRequest.
+
+
+        :param operated_start_at: The operated_start_at of this UpdateSystemEventsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._operated_start_at = operated_start_at
 
     @property
     def status(self):

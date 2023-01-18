@@ -33,28 +33,64 @@ class DescribeSecurityGroupAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cidr_ip': 'str',
         'direction': 'str',
-        'security_group_id': 'str'
+        'protocol': 'str',
+        'security_group_id': 'str',
+        'source_group_id': 'str'
     }
 
     attribute_map = {
+        'cidr_ip': 'CidrIp',
         'direction': 'Direction',
-        'security_group_id': 'SecurityGroupId'
+        'protocol': 'Protocol',
+        'security_group_id': 'SecurityGroupId',
+        'source_group_id': 'SourceGroupId'
     }
 
-    def __init__(self, direction=None, security_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_ip=None, direction=None, protocol=None, security_group_id=None, source_group_id=None, _configuration=None):  # noqa: E501
         """DescribeSecurityGroupAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cidr_ip = None
         self._direction = None
+        self._protocol = None
         self._security_group_id = None
+        self._source_group_id = None
         self.discriminator = None
 
+        if cidr_ip is not None:
+            self.cidr_ip = cidr_ip
         if direction is not None:
             self.direction = direction
+        if protocol is not None:
+            self.protocol = protocol
         self.security_group_id = security_group_id
+        if source_group_id is not None:
+            self.source_group_id = source_group_id
+
+    @property
+    def cidr_ip(self):
+        """Gets the cidr_ip of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+
+
+        :return: The cidr_ip of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cidr_ip
+
+    @cidr_ip.setter
+    def cidr_ip(self, cidr_ip):
+        """Sets the cidr_ip of this DescribeSecurityGroupAttributesRequest.
+
+
+        :param cidr_ip: The cidr_ip of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cidr_ip = cidr_ip
 
     @property
     def direction(self):
@@ -78,6 +114,27 @@ class DescribeSecurityGroupAttributesRequest(object):
         self._direction = direction
 
     @property
+    def protocol(self):
+        """Gets the protocol of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+
+
+        :return: The protocol of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol
+
+    @protocol.setter
+    def protocol(self, protocol):
+        """Sets the protocol of this DescribeSecurityGroupAttributesRequest.
+
+
+        :param protocol: The protocol of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._protocol = protocol
+
+    @property
     def security_group_id(self):
         """Gets the security_group_id of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
 
@@ -99,6 +156,27 @@ class DescribeSecurityGroupAttributesRequest(object):
             raise ValueError("Invalid value for `security_group_id`, must not be `None`")  # noqa: E501
 
         self._security_group_id = security_group_id
+
+    @property
+    def source_group_id(self):
+        """Gets the source_group_id of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+
+
+        :return: The source_group_id of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_group_id
+
+    @source_group_id.setter
+    def source_group_id(self, source_group_id):
+        """Sets the source_group_id of this DescribeSecurityGroupAttributesRequest.
+
+
+        :param source_group_id: The source_group_id of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._source_group_id = source_group_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

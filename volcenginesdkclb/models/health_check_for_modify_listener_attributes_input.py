@@ -40,7 +40,8 @@ class HealthCheckForModifyListenerAttributesInput(object):
         'interval': 'int',
         'method': 'str',
         'timeout': 'int',
-        'uri': 'str'
+        'uri': 'str',
+        'unhealthy_threshold': 'int'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class HealthCheckForModifyListenerAttributesInput(object):
         'interval': 'Interval',
         'method': 'Method',
         'timeout': 'Timeout',
-        'uri': 'URI'
+        'uri': 'URI',
+        'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, uri=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, uri=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckForModifyListenerAttributesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class HealthCheckForModifyListenerAttributesInput(object):
         self._method = None
         self._timeout = None
         self._uri = None
+        self._unhealthy_threshold = None
         self.discriminator = None
 
         if domain is not None:
@@ -86,6 +89,8 @@ class HealthCheckForModifyListenerAttributesInput(object):
             self.timeout = timeout
         if uri is not None:
             self.uri = uri
+        if unhealthy_threshold is not None:
+            self.unhealthy_threshold = unhealthy_threshold
 
     @property
     def domain(self):
@@ -254,6 +259,27 @@ class HealthCheckForModifyListenerAttributesInput(object):
         """
 
         self._uri = uri
+
+    @property
+    def unhealthy_threshold(self):
+        """Gets the unhealthy_threshold of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+
+
+        :return: The unhealthy_threshold of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._unhealthy_threshold
+
+    @unhealthy_threshold.setter
+    def unhealthy_threshold(self, unhealthy_threshold):
+        """Sets the unhealthy_threshold of this HealthCheckForModifyListenerAttributesInput.
+
+
+        :param unhealthy_threshold: The unhealthy_threshold of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._unhealthy_threshold = unhealthy_threshold
 
     def to_dict(self):
         """Returns the model properties as a dict"""

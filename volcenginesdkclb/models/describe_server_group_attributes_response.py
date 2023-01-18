@@ -33,6 +33,7 @@ class DescribeServerGroupAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'description': 'str',
         'listeners': 'list[str]',
         'load_balancer_id': 'str',
         'request_id': 'str',
@@ -42,6 +43,7 @@ class DescribeServerGroupAttributesResponse(object):
     }
 
     attribute_map = {
+        'description': 'Description',
         'listeners': 'Listeners',
         'load_balancer_id': 'LoadBalancerId',
         'request_id': 'RequestId',
@@ -50,12 +52,13 @@ class DescribeServerGroupAttributesResponse(object):
         'servers': 'Servers'
     }
 
-    def __init__(self, listeners=None, load_balancer_id=None, request_id=None, server_group_id=None, server_group_name=None, servers=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, listeners=None, load_balancer_id=None, request_id=None, server_group_id=None, server_group_name=None, servers=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._description = None
         self._listeners = None
         self._load_balancer_id = None
         self._request_id = None
@@ -64,6 +67,8 @@ class DescribeServerGroupAttributesResponse(object):
         self._servers = None
         self.discriminator = None
 
+        if description is not None:
+            self.description = description
         if listeners is not None:
             self.listeners = listeners
         if load_balancer_id is not None:
@@ -76,6 +81,27 @@ class DescribeServerGroupAttributesResponse(object):
             self.server_group_name = server_group_name
         if servers is not None:
             self.servers = servers
+
+    @property
+    def description(self):
+        """Gets the description of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The description of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this DescribeServerGroupAttributesResponse.
+
+
+        :param description: The description of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def listeners(self):
