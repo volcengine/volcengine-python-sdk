@@ -33,6 +33,7 @@ class BackupForDescribeBackupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_point_id': 'str',
         'backup_strategy': 'str',
         'backup_type': 'str',
         'end_time': 'str',
@@ -44,6 +45,7 @@ class BackupForDescribeBackupsOutput(object):
     }
 
     attribute_map = {
+        'backup_point_id': 'BackupPointId',
         'backup_strategy': 'BackupStrategy',
         'backup_type': 'BackupType',
         'end_time': 'EndTime',
@@ -54,12 +56,13 @@ class BackupForDescribeBackupsOutput(object):
         'status': 'Status'
     }
 
-    def __init__(self, backup_strategy=None, backup_type=None, end_time=None, instance_detail=None, instance_id=None, size=None, start_time=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_point_id=None, backup_strategy=None, backup_type=None, end_time=None, instance_detail=None, instance_id=None, size=None, start_time=None, status=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_point_id = None
         self._backup_strategy = None
         self._backup_type = None
         self._end_time = None
@@ -70,6 +73,8 @@ class BackupForDescribeBackupsOutput(object):
         self._status = None
         self.discriminator = None
 
+        if backup_point_id is not None:
+            self.backup_point_id = backup_point_id
         if backup_strategy is not None:
             self.backup_strategy = backup_strategy
         if backup_type is not None:
@@ -86,6 +91,27 @@ class BackupForDescribeBackupsOutput(object):
             self.start_time = start_time
         if status is not None:
             self.status = status
+
+    @property
+    def backup_point_id(self):
+        """Gets the backup_point_id of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_point_id of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_point_id
+
+    @backup_point_id.setter
+    def backup_point_id(self, backup_point_id):
+        """Sets the backup_point_id of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_point_id: The backup_point_id of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_point_id = backup_point_id
 
     @property
     def backup_strategy(self):
