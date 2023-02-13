@@ -127,7 +127,8 @@ class ApiClient(object):
 
         # body
         if body:
-            md = body.__module__.split(".")[0]
+            if type(body) is not dict:
+                md = body.__module__.split(".")[0]
             body = self.sanitize_for_serialization(body)
 
         # query parameters
