@@ -122,8 +122,13 @@ class ApiClient(object):
                     quote(str(v), safe=config.safe_chars_for_path_param)
                 )
 
+        # request module name
+        md = ""
+
         # body
         if body:
+            if type(body) is not dict:
+                md = body.__module__.split(".")[0]
             body = self.sanitize_for_serialization(body)
 
         # query parameters
@@ -187,7 +192,7 @@ class ApiClient(object):
         if _preload_content:
             # deserialize response data
             if response_type:
-                return_data = self.deserialize(response_data, response_type, service)
+                return_data = self.deserialize(response_data, response_type, md)
             else:
                 return_data = None
 
@@ -299,7 +304,7 @@ class ApiClient(object):
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
                 # black box for dynamic get models type
-                klass = getattr(__import__("volcenginesdk" + service.replace("_", "") + ".models"), klass)
+                klass = getattr(__import__(service + ".models"), klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
