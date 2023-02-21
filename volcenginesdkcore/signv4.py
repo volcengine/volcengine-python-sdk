@@ -1,7 +1,5 @@
 # coding: utf-8
 
-# Copy from https://github.com/volcengine/volc-sdk-python
-
 import datetime
 import hmac
 import hashlib

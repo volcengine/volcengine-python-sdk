@@ -5,11 +5,12 @@ import six
 
 
 class UniversalInfo(object):
-    def __init__(self, method=None, service=None, version=None, action=None):
+    def __init__(self, method=None, service=None, version=None, action=None, content_type=None):
         self.method = method
         self.service = service
         self.version = version
         self.action = action
+        self.content_type = content_type
 
 
 class UniversalApi(object):
@@ -48,7 +49,7 @@ class UniversalApi(object):
                 "Missing the required parameter `body` when calling `do_call`")  # noqa: E501
 
         if type(params['body']) is not dict:
-            raise ValueError(
+            raise TypeError(
                 "The required parameter `body` must be dict")  # noqa: E501
 
         collection_formats = {}
@@ -70,12 +71,13 @@ class UniversalApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
+        if info.content_type is not None:
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+                [info.content_type])  # noqa: E501
 
-        if info.method.lower() != "get":
-            header_params['Content-Type'] = 'application/json'  # noqa: E501
+        if info.method.lower() == "get":
+            query_params = list(body.items())
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
