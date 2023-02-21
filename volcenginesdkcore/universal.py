@@ -49,7 +49,7 @@ class UniversalApi(object):
                 "Missing the required parameter `body` when calling `do_call`")  # noqa: E501
 
         if type(params['body']) is not dict:
-            raise ValueError(
+            raise TypeError(
                 "The required parameter `body` must be dict")  # noqa: E501
 
         collection_formats = {}
