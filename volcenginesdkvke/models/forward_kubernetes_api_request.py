@@ -35,7 +35,7 @@ class ForwardKubernetesApiRequest(object):
     swagger_types = {
         'body': 'str',
         'cluster_id': 'str',
-        'headers': 'dict(str, list[str])',
+        'headers': 'list[HeaderForForwardKubernetesApiInput]',
         'method': 'str',
         'path': 'str'
     }
@@ -120,7 +120,7 @@ class ForwardKubernetesApiRequest(object):
 
 
         :return: The headers of this ForwardKubernetesApiRequest.  # noqa: E501
-        :rtype: dict(str, list[str])
+        :rtype: list[HeaderForForwardKubernetesApiInput]
         """
         return self._headers
 
@@ -130,7 +130,7 @@ class ForwardKubernetesApiRequest(object):
 
 
         :param headers: The headers of this ForwardKubernetesApiRequest.  # noqa: E501
-        :type: dict(str, list[str])
+        :type: list[HeaderForForwardKubernetesApiInput]
         """
 
         self._headers = headers
