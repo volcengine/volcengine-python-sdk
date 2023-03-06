@@ -3,7 +3,7 @@
 import datetime
 import hmac
 import hashlib
-from six.moves.urllib.parse import urlencode
+from six.moves.urllib.parse import quote
 
 
 class SignerV4(object):
@@ -39,8 +39,8 @@ class SignerV4(object):
 
         signed_headers_string = ';'.join(sorted(signed_headers.keys()))
 
-        # The sorted() method sorts tuples by default, using the first item in each tuple.
-        canonical_request = '\n'.join([method, path, urlencode(sorted(query)), signed_str, signed_headers_string, body_hash])
+        canonical_request = '\n'.join(
+            [method, path, SignerV4.canonical_query(dict(query)), signed_str, signed_headers_string, body_hash])
         credential_scope = '/'.join([format_date[:8], region, service, 'request'])
         signing_str = '\n'.join(['HMAC-SHA256', format_date, credential_scope,
                                  hashlib.sha256(canonical_request.encode('utf-8')).hexdigest()])
@@ -53,6 +53,17 @@ class SignerV4(object):
             'Authorization'] = 'HMAC-SHA256' + ' Credential=' + credential + ', SignedHeaders=' + \
                                signed_headers_string + ', Signature=' + signature
         return
+
+    @staticmethod
+    def canonical_query(query):
+        res = []
+        for key in query:
+            value = str(query[key])
+            res.append((quote(key, safe='-_.~'), quote(value, safe='-_.~')))
+        sorted_key_vals = []
+        for key, value in sorted(res):
+            sorted_key_vals.append('%s=%s' % (key, value))
+        return '&'.join(sorted_key_vals)
 
     @staticmethod
     def get_signing_secret_key_v4(sk, date, region, service):
