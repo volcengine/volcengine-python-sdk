@@ -33,24 +33,50 @@ class DeleteDeploymentSetRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'deployment_set_id': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'deployment_set_id': 'DeploymentSetId'
     }
 
-    def __init__(self, deployment_set_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, deployment_set_id=None, _configuration=None):  # noqa: E501
         """DeleteDeploymentSetRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._deployment_set_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if deployment_set_id is not None:
             self.deployment_set_id = deployment_set_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this DeleteDeploymentSetRequest.  # noqa: E501
+
+
+        :return: The client_token of this DeleteDeploymentSetRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this DeleteDeploymentSetRequest.
+
+
+        :param client_token: The client_token of this DeleteDeploymentSetRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def deployment_set_id(self):

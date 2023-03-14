@@ -38,6 +38,7 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         'project_name': 'str',
         'security_group_id': 'str',
         'security_group_name': 'str',
+        'service_managed': 'bool',
         'status': 'str',
         'tags': 'list[TagForDescribeSecurityGroupsOutput]',
         'type': 'str',
@@ -50,13 +51,14 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         'project_name': 'ProjectName',
         'security_group_id': 'SecurityGroupId',
         'security_group_name': 'SecurityGroupName',
+        'service_managed': 'ServiceManaged',
         'status': 'Status',
         'tags': 'Tags',
         'type': 'Type',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, project_name=None, security_group_id=None, security_group_name=None, status=None, tags=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, project_name=None, security_group_id=None, security_group_name=None, service_managed=None, status=None, tags=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """SecurityGroupForDescribeSecurityGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         self._project_name = None
         self._security_group_id = None
         self._security_group_name = None
+        self._service_managed = None
         self._status = None
         self._tags = None
         self._type = None
@@ -83,6 +86,8 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
             self.security_group_id = security_group_id
         if security_group_name is not None:
             self.security_group_name = security_group_name
+        if service_managed is not None:
+            self.service_managed = service_managed
         if status is not None:
             self.status = status
         if tags is not None:
@@ -196,6 +201,27 @@ class SecurityGroupForDescribeSecurityGroupsOutput(object):
         """
 
         self._security_group_name = security_group_name
+
+    @property
+    def service_managed(self):
+        """Gets the service_managed of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+
+
+        :return: The service_managed of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this SecurityGroupForDescribeSecurityGroupsOutput.
+
+
+        :param service_managed: The service_managed of this SecurityGroupForDescribeSecurityGroupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._service_managed = service_managed
 
     @property
     def status(self):

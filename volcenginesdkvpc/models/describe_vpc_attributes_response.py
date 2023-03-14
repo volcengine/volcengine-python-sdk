@@ -49,6 +49,7 @@ class DescribeVpcAttributesResponse(object):
         'subnet_ids': 'list[str]',
         'tags': 'list[TagForDescribeVpcAttributesOutput]',
         'update_time': 'str',
+        'user_cidr_blocks': 'list[str]',
         'vpc_id': 'str',
         'vpc_name': 'str'
     }
@@ -70,11 +71,12 @@ class DescribeVpcAttributesResponse(object):
         'subnet_ids': 'SubnetIds',
         'tags': 'Tags',
         'update_time': 'UpdateTime',
+        'user_cidr_blocks': 'UserCidrBlocks',
         'vpc_id': 'VpcId',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class DescribeVpcAttributesResponse(object):
         self._subnet_ids = None
         self._tags = None
         self._update_time = None
+        self._user_cidr_blocks = None
         self._vpc_id = None
         self._vpc_name = None
         self.discriminator = None
@@ -132,6 +135,8 @@ class DescribeVpcAttributesResponse(object):
             self.tags = tags
         if update_time is not None:
             self.update_time = update_time
+        if user_cidr_blocks is not None:
+            self.user_cidr_blocks = user_cidr_blocks
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if vpc_name is not None:
@@ -472,6 +477,27 @@ class DescribeVpcAttributesResponse(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def user_cidr_blocks(self):
+        """Gets the user_cidr_blocks of this DescribeVpcAttributesResponse.  # noqa: E501
+
+
+        :return: The user_cidr_blocks of this DescribeVpcAttributesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user_cidr_blocks
+
+    @user_cidr_blocks.setter
+    def user_cidr_blocks(self, user_cidr_blocks):
+        """Sets the user_cidr_blocks of this DescribeVpcAttributesResponse.
+
+
+        :param user_cidr_blocks: The user_cidr_blocks of this DescribeVpcAttributesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user_cidr_blocks = user_cidr_blocks
 
     @property
     def vpc_id(self):

@@ -33,6 +33,7 @@ class ModifyInstanceAttributeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'description': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
@@ -41,6 +42,7 @@ class ModifyInstanceAttributeRequest(object):
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'description': 'Description',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
@@ -48,12 +50,13 @@ class ModifyInstanceAttributeRequest(object):
         'user_data': 'UserData'
     }
 
-    def __init__(self, description=None, instance_id=None, instance_name=None, password=None, user_data=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, instance_id=None, instance_name=None, password=None, user_data=None, _configuration=None):  # noqa: E501
         """ModifyInstanceAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._description = None
         self._instance_id = None
         self._instance_name = None
@@ -61,6 +64,8 @@ class ModifyInstanceAttributeRequest(object):
         self._user_data = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if instance_id is not None:
@@ -71,6 +76,27 @@ class ModifyInstanceAttributeRequest(object):
             self.password = password
         if user_data is not None:
             self.user_data = user_data
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyInstanceAttributeRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyInstanceAttributeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyInstanceAttributeRequest.
+
+
+        :param client_token: The client_token of this ModifyInstanceAttributeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):

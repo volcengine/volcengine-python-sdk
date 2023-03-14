@@ -33,34 +33,60 @@ class ModifyDeploymentSetAttributeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'deployment_set_id': 'str',
         'deployment_set_name': 'str',
         'description': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'deployment_set_id': 'DeploymentSetId',
         'deployment_set_name': 'DeploymentSetName',
         'description': 'Description'
     }
 
-    def __init__(self, deployment_set_id=None, deployment_set_name=None, description=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, deployment_set_id=None, deployment_set_name=None, description=None, _configuration=None):  # noqa: E501
         """ModifyDeploymentSetAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._deployment_set_id = None
         self._deployment_set_name = None
         self._description = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if deployment_set_id is not None:
             self.deployment_set_id = deployment_set_id
         if deployment_set_name is not None:
             self.deployment_set_name = deployment_set_name
         if description is not None:
             self.description = description
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyDeploymentSetAttributeRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyDeploymentSetAttributeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyDeploymentSetAttributeRequest.
+
+
+        :param client_token: The client_token of this ModifyDeploymentSetAttributeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def deployment_set_id(self):
