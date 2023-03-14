@@ -171,7 +171,7 @@ class FilterForListAddonsInput(object):
         :param deploy_node_types: The deploy_node_types of this FilterForListAddonsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Node", "VirtualNode"]  # noqa: E501
+        allowed_values = ["EdgeNode", "Node", "VirtualNode"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(deploy_node_types).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

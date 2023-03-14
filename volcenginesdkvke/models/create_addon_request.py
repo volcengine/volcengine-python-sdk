@@ -37,6 +37,7 @@ class CreateAddonRequest(object):
         'cluster_id': 'str',
         'config': 'str',
         'deploy_mode': 'str',
+        'deploy_node_type': 'str',
         'name': 'str',
         'version': 'str'
     }
@@ -46,11 +47,12 @@ class CreateAddonRequest(object):
         'cluster_id': 'ClusterId',
         'config': 'Config',
         'deploy_mode': 'DeployMode',
+        'deploy_node_type': 'DeployNodeType',
         'name': 'Name',
         'version': 'Version'
     }
 
-    def __init__(self, client_token=None, cluster_id=None, config=None, deploy_mode=None, name=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_id=None, config=None, deploy_mode=None, deploy_node_type=None, name=None, version=None, _configuration=None):  # noqa: E501
         """CreateAddonRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +62,7 @@ class CreateAddonRequest(object):
         self._cluster_id = None
         self._config = None
         self._deploy_mode = None
+        self._deploy_node_type = None
         self._name = None
         self._version = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class CreateAddonRequest(object):
             self.config = config
         if deploy_mode is not None:
             self.deploy_mode = deploy_mode
+        if deploy_node_type is not None:
+            self.deploy_node_type = deploy_node_type
         if name is not None:
             self.name = name
         if version is not None:
@@ -167,6 +172,34 @@ class CreateAddonRequest(object):
             )
 
         self._deploy_mode = deploy_mode
+
+    @property
+    def deploy_node_type(self):
+        """Gets the deploy_node_type of this CreateAddonRequest.  # noqa: E501
+
+
+        :return: The deploy_node_type of this CreateAddonRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._deploy_node_type
+
+    @deploy_node_type.setter
+    def deploy_node_type(self, deploy_node_type):
+        """Sets the deploy_node_type of this CreateAddonRequest.
+
+
+        :param deploy_node_type: The deploy_node_type of this CreateAddonRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["EdgeNode", "Node", "VirtualNode"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                deploy_node_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `deploy_node_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(deploy_node_type, allowed_values)
+            )
+
+        self._deploy_node_type = deploy_node_type
 
     @property
     def name(self):
