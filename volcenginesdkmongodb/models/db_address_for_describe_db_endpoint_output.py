@@ -158,13 +158,6 @@ class DBAddressForDescribeDBEndpointOutput(object):
         :param address_type: The address_type of this DBAddressForDescribeDBEndpointOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Primary", "Secondary"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                address_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `address_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(address_type, allowed_values)
-            )
 
         self._address_type = address_type
 

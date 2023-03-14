@@ -142,13 +142,6 @@ class MongoForDescribeDBInstanceDetailOutput(object):
         :param node_status: The node_status of this MongoForDescribeDBInstanceDetailOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Error", "Running"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                node_status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `node_status` ({0}), must be one of {1}"  # noqa: E501
-                .format(node_status, allowed_values)
-            )
 
         self._node_status = node_status
 

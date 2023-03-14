@@ -179,13 +179,6 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
         :param parameter_role: The parameter_role of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ConfigServer", "Mongos", "Node", "Shard", "Unknown"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                parameter_role not in allowed_values):
-            raise ValueError(
-                "Invalid value for `parameter_role` ({0}), must be one of {1}"  # noqa: E501
-                .format(parameter_role, allowed_values)
-            )
 
         self._parameter_role = parameter_role
 
@@ -207,13 +200,6 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
         :param parameter_status: The parameter_status of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Applied", "Invalid", "Unknown"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                parameter_status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `parameter_status` ({0}), must be one of {1}"  # noqa: E501
-                .format(parameter_status, allowed_values)
-            )
 
         self._parameter_status = parameter_status
 

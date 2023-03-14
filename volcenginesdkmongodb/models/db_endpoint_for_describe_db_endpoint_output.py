@@ -168,13 +168,6 @@ class DBEndpointForDescribeDBEndpointOutput(object):
         :param endpoint_type: The endpoint_type of this DBEndpointForDescribeDBEndpointOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ConfigServer", "Mongos", "ReplicaSet", "Shard"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                endpoint_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `endpoint_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(endpoint_type, allowed_values)
-            )
 
         self._endpoint_type = endpoint_type
 
@@ -196,13 +189,6 @@ class DBEndpointForDescribeDBEndpointOutput(object):
         :param network_type: The network_type of this DBEndpointForDescribeDBEndpointOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["InnerPLB", "Private", "Public", "StorageInner"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                network_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `network_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(network_type, allowed_values)
-            )
 
         self._network_type = network_type
 

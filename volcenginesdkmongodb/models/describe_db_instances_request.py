@@ -43,6 +43,7 @@ class DescribeDBInstancesRequest(object):
         'instance_type': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
         'update_end_time': 'str',
         'update_start_time': 'str',
         'vpc_id': 'str',
@@ -60,13 +61,14 @@ class DescribeDBInstancesRequest(object):
         'instance_type': 'InstanceType',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'tag_filters': 'TagFilters',
         'update_end_time': 'UpdateEndTime',
         'update_start_time': 'UpdateStartTime',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, create_end_time=None, create_start_time=None, db_engine=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, update_end_time=None, update_start_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_end_time=None, create_start_time=None, db_engine=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, tag_filters=None, update_end_time=None, update_start_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class DescribeDBInstancesRequest(object):
         self._instance_type = None
         self._page_number = None
         self._page_size = None
+        self._tag_filters = None
         self._update_end_time = None
         self._update_start_time = None
         self._vpc_id = None
@@ -108,6 +111,8 @@ class DescribeDBInstancesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if update_end_time is not None:
             self.update_end_time = update_end_time
         if update_start_time is not None:
@@ -357,6 +362,27 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeDBInstancesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeDBInstancesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeDBInstancesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def update_end_time(self):
