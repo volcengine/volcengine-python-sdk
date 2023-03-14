@@ -52,6 +52,7 @@ class CreateDBInstanceRequest(object):
         'subnet_id': 'str',
         'super_account_name': 'str',
         'super_account_password': 'str',
+        'tags': 'list[TagForCreateDBInstanceInput]',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
@@ -76,11 +77,12 @@ class CreateDBInstanceRequest(object):
         'subnet_id': 'SubnetId',
         'super_account_name': 'SuperAccountName',
         'super_account_password': 'SuperAccountPassword',
+        'tags': 'Tags',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,6 +107,7 @@ class CreateDBInstanceRequest(object):
         self._subnet_id = None
         self._super_account_name = None
         self._super_account_password = None
+        self._tags = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
@@ -147,6 +150,8 @@ class CreateDBInstanceRequest(object):
             self.super_account_name = super_account_name
         if super_account_password is not None:
             self.super_account_password = super_account_password
+        if tags is not None:
+            self.tags = tags
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
@@ -588,6 +593,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._super_account_password = super_account_password
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: list[TagForCreateDBInstanceInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateDBInstanceRequest.
+
+
+        :param tags: The tags of this CreateDBInstanceRequest.  # noqa: E501
+        :type: list[TagForCreateDBInstanceInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):
