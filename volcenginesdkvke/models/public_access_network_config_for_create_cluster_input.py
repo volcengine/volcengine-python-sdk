@@ -33,24 +33,29 @@ class PublicAccessNetworkConfigForCreateClusterInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'bandwidth': 'int'
+        'bandwidth': 'int',
+        'billing_type': 'int'
     }
 
     attribute_map = {
-        'bandwidth': 'Bandwidth'
+        'bandwidth': 'Bandwidth',
+        'billing_type': 'BillingType'
     }
 
-    def __init__(self, bandwidth=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, _configuration=None):  # noqa: E501
         """PublicAccessNetworkConfigForCreateClusterInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._billing_type = None
         self.discriminator = None
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if billing_type is not None:
+            self.billing_type = billing_type
 
     @property
     def bandwidth(self):
@@ -72,6 +77,27 @@ class PublicAccessNetworkConfigForCreateClusterInput(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def billing_type(self):
+        """Gets the billing_type of this PublicAccessNetworkConfigForCreateClusterInput.  # noqa: E501
+
+
+        :return: The billing_type of this PublicAccessNetworkConfigForCreateClusterInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._billing_type
+
+    @billing_type.setter
+    def billing_type(self, billing_type):
+        """Sets the billing_type of this PublicAccessNetworkConfigForCreateClusterInput.
+
+
+        :param billing_type: The billing_type of this PublicAccessNetworkConfigForCreateClusterInput.  # noqa: E501
+        :type: int
+        """
+
+        self._billing_type = billing_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
