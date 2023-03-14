@@ -210,13 +210,6 @@ class InstanceParameterForDescribeDBInstanceParametersOutput(object):
         :param parameter_role: The parameter_role of this InstanceParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ConfigServer", "Mongos", "Node", "Shard", "Unknown"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                parameter_role not in allowed_values):
-            raise ValueError(
-                "Invalid value for `parameter_role` ({0}), must be one of {1}"  # noqa: E501
-                .format(parameter_role, allowed_values)
-            )
 
         self._parameter_role = parameter_role
 
@@ -238,13 +231,6 @@ class InstanceParameterForDescribeDBInstanceParametersOutput(object):
         :param parameter_type: The parameter_type of this InstanceParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Boolean", "Float", "Integer", "List", "String", "Unknown"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                parameter_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `parameter_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(parameter_type, allowed_values)
-            )
 
         self._parameter_type = parameter_type
 
