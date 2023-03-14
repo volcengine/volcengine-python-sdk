@@ -33,34 +33,60 @@ class CreateTagsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'resource_ids': 'list[str]',
         'resource_type': 'str',
         'tags': 'list[TagForCreateTagsInput]'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'resource_ids': 'ResourceIds',
         'resource_type': 'ResourceType',
         'tags': 'Tags'
     }
 
-    def __init__(self, resource_ids=None, resource_type=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, resource_ids=None, resource_type=None, tags=None, _configuration=None):  # noqa: E501
         """CreateTagsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._resource_ids = None
         self._resource_type = None
         self._tags = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if resource_ids is not None:
             self.resource_ids = resource_ids
         if resource_type is not None:
             self.resource_type = resource_type
         if tags is not None:
             self.tags = tags
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateTagsRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateTagsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateTagsRequest.
+
+
+        :param client_token: The client_token of this CreateTagsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def resource_ids(self):

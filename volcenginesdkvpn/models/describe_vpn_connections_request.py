@@ -33,40 +33,53 @@ class DescribeVpnConnectionsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attach_status': 'str',
+        'attach_type': 'str',
         'customer_gateway_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'transit_router_id': 'str',
         'vpn_connection_ids': 'list[str]',
         'vpn_connection_name': 'str',
         'vpn_gateway_id': 'str'
     }
 
     attribute_map = {
+        'attach_status': 'AttachStatus',
+        'attach_type': 'AttachType',
         'customer_gateway_id': 'CustomerGatewayId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'transit_router_id': 'TransitRouterId',
         'vpn_connection_ids': 'VpnConnectionIds',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, customer_gateway_id=None, page_number=None, page_size=None, project_name=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_status=None, attach_type=None, customer_gateway_id=None, page_number=None, page_size=None, project_name=None, transit_router_id=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attach_status = None
+        self._attach_type = None
         self._customer_gateway_id = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._transit_router_id = None
         self._vpn_connection_ids = None
         self._vpn_connection_name = None
         self._vpn_gateway_id = None
         self.discriminator = None
 
+        if attach_status is not None:
+            self.attach_status = attach_status
+        if attach_type is not None:
+            self.attach_type = attach_type
         if customer_gateway_id is not None:
             self.customer_gateway_id = customer_gateway_id
         if page_number is not None:
@@ -75,12 +88,70 @@ class DescribeVpnConnectionsRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if transit_router_id is not None:
+            self.transit_router_id = transit_router_id
         if vpn_connection_ids is not None:
             self.vpn_connection_ids = vpn_connection_ids
         if vpn_connection_name is not None:
             self.vpn_connection_name = vpn_connection_name
         if vpn_gateway_id is not None:
             self.vpn_gateway_id = vpn_gateway_id
+
+    @property
+    def attach_status(self):
+        """Gets the attach_status of this DescribeVpnConnectionsRequest.  # noqa: E501
+
+
+        :return: The attach_status of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._attach_status
+
+    @attach_status.setter
+    def attach_status(self, attach_status):
+        """Sets the attach_status of this DescribeVpnConnectionsRequest.
+
+
+        :param attach_status: The attach_status of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Attached", "Attaching", "Detached", "Detaching"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                attach_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `attach_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(attach_status, allowed_values)
+            )
+
+        self._attach_status = attach_status
+
+    @property
+    def attach_type(self):
+        """Gets the attach_type of this DescribeVpnConnectionsRequest.  # noqa: E501
+
+
+        :return: The attach_type of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._attach_type
+
+    @attach_type.setter
+    def attach_type(self, attach_type):
+        """Sets the attach_type of this DescribeVpnConnectionsRequest.
+
+
+        :param attach_type: The attach_type of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["VpnGateway", "TransitRouter"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                attach_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `attach_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(attach_type, allowed_values)
+            )
+
+        self._attach_type = attach_type
 
     @property
     def customer_gateway_id(self):
@@ -165,6 +236,27 @@ class DescribeVpnConnectionsRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def transit_router_id(self):
+        """Gets the transit_router_id of this DescribeVpnConnectionsRequest.  # noqa: E501
+
+
+        :return: The transit_router_id of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_id
+
+    @transit_router_id.setter
+    def transit_router_id(self, transit_router_id):
+        """Sets the transit_router_id of this DescribeVpnConnectionsRequest.
+
+
+        :param transit_router_id: The transit_router_id of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_id = transit_router_id
 
     @property
     def vpn_connection_ids(self):

@@ -38,6 +38,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         'ike_config': 'str',
         'ipsec_config': 'str',
         'local_subnet': 'list[str]',
+        'log_enabled': 'bool',
         'nat_traversal': 'bool',
         'negotiate_instantly': 'bool',
         'remote_subnet': 'list[str]',
@@ -51,6 +52,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         'ike_config': 'IkeConfig',
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
+        'log_enabled': 'LogEnabled',
         'nat_traversal': 'NatTraversal',
         'negotiate_instantly': 'NegotiateInstantly',
         'remote_subnet': 'RemoteSubnet',
@@ -58,7 +60,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         'vpn_connection_name': 'VpnConnectionName'
     }
 
-    def __init__(self, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
         """ModifyVpnConnectionAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         self._ike_config = None
         self._ipsec_config = None
         self._local_subnet = None
+        self._log_enabled = None
         self._nat_traversal = None
         self._negotiate_instantly = None
         self._remote_subnet = None
@@ -86,6 +89,8 @@ class ModifyVpnConnectionAttributesRequest(object):
             self.ipsec_config = ipsec_config
         if local_subnet is not None:
             self.local_subnet = local_subnet
+        if log_enabled is not None:
+            self.log_enabled = log_enabled
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
         if negotiate_instantly is not None:
@@ -213,6 +218,27 @@ class ModifyVpnConnectionAttributesRequest(object):
         """
 
         self._local_subnet = local_subnet
+
+    @property
+    def log_enabled(self):
+        """Gets the log_enabled of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The log_enabled of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._log_enabled
+
+    @log_enabled.setter
+    def log_enabled(self, log_enabled):
+        """Sets the log_enabled of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param log_enabled: The log_enabled of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._log_enabled = log_enabled
 
     @property
     def nat_traversal(self):

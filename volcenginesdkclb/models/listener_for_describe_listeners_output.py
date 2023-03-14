@@ -42,8 +42,11 @@ class ListenerForDescribeListenersOutput(object):
         'health_check': 'HealthCheckForDescribeListenersOutput',
         'listener_id': 'str',
         'listener_name': 'str',
+        'persistence_timeout': 'int',
+        'persistence_type': 'str',
         'port': 'int',
         'protocol': 'str',
+        'proxy_protocol_type': 'str',
         'server_group_id': 'str',
         'status': 'str',
         'update_time': 'str'
@@ -59,14 +62,17 @@ class ListenerForDescribeListenersOutput(object):
         'health_check': 'HealthCheck',
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
+        'persistence_timeout': 'PersistenceTimeout',
+        'persistence_type': 'PersistenceType',
         'port': 'Port',
         'protocol': 'Protocol',
+        'proxy_protocol_type': 'ProxyProtocolType',
         'server_group_id': 'ServerGroupId',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, certificate_id=None, create_time=None, enabled=None, health_check=None, listener_id=None, listener_name=None, port=None, protocol=None, server_group_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, certificate_id=None, create_time=None, enabled=None, health_check=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, server_group_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """ListenerForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,8 +87,11 @@ class ListenerForDescribeListenersOutput(object):
         self._health_check = None
         self._listener_id = None
         self._listener_name = None
+        self._persistence_timeout = None
+        self._persistence_type = None
         self._port = None
         self._protocol = None
+        self._proxy_protocol_type = None
         self._server_group_id = None
         self._status = None
         self._update_time = None
@@ -106,10 +115,16 @@ class ListenerForDescribeListenersOutput(object):
             self.listener_id = listener_id
         if listener_name is not None:
             self.listener_name = listener_name
+        if persistence_timeout is not None:
+            self.persistence_timeout = persistence_timeout
+        if persistence_type is not None:
+            self.persistence_type = persistence_type
         if port is not None:
             self.port = port
         if protocol is not None:
             self.protocol = protocol
+        if proxy_protocol_type is not None:
+            self.proxy_protocol_type = proxy_protocol_type
         if server_group_id is not None:
             self.server_group_id = server_group_id
         if status is not None:
@@ -307,6 +322,48 @@ class ListenerForDescribeListenersOutput(object):
         self._listener_name = listener_name
 
     @property
+    def persistence_timeout(self):
+        """Gets the persistence_timeout of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The persistence_timeout of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._persistence_timeout
+
+    @persistence_timeout.setter
+    def persistence_timeout(self, persistence_timeout):
+        """Sets the persistence_timeout of this ListenerForDescribeListenersOutput.
+
+
+        :param persistence_timeout: The persistence_timeout of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._persistence_timeout = persistence_timeout
+
+    @property
+    def persistence_type(self):
+        """Gets the persistence_type of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The persistence_type of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._persistence_type
+
+    @persistence_type.setter
+    def persistence_type(self, persistence_type):
+        """Sets the persistence_type of this ListenerForDescribeListenersOutput.
+
+
+        :param persistence_type: The persistence_type of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._persistence_type = persistence_type
+
+    @property
     def port(self):
         """Gets the port of this ListenerForDescribeListenersOutput.  # noqa: E501
 
@@ -347,6 +404,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._protocol = protocol
+
+    @property
+    def proxy_protocol_type(self):
+        """Gets the proxy_protocol_type of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The proxy_protocol_type of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_protocol_type
+
+    @proxy_protocol_type.setter
+    def proxy_protocol_type(self, proxy_protocol_type):
+        """Sets the proxy_protocol_type of this ListenerForDescribeListenersOutput.
+
+
+        :param proxy_protocol_type: The proxy_protocol_type of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._proxy_protocol_type = proxy_protocol_type
 
     @property
     def server_group_id(self):

@@ -43,6 +43,9 @@ class ModifyListenerAttributesRequest(object):
         'health_check': 'HealthCheckForModifyListenerAttributesInput',
         'listener_id': 'str',
         'listener_name': 'str',
+        'persistence_timeout': 'int',
+        'persistence_type': 'str',
+        'proxy_protocol_type': 'str',
         'scheduler': 'str',
         'server_group_id': 'str'
     }
@@ -58,11 +61,14 @@ class ModifyListenerAttributesRequest(object):
         'health_check': 'HealthCheck',
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
+        'persistence_timeout': 'PersistenceTimeout',
+        'persistence_type': 'PersistenceType',
+        'proxy_protocol_type': 'ProxyProtocolType',
         'scheduler': 'Scheduler',
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, certificate_id=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_id=None, listener_name=None, scheduler=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, certificate_id=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +84,9 @@ class ModifyListenerAttributesRequest(object):
         self._health_check = None
         self._listener_id = None
         self._listener_name = None
+        self._persistence_timeout = None
+        self._persistence_type = None
+        self._proxy_protocol_type = None
         self._scheduler = None
         self._server_group_id = None
         self.discriminator = None
@@ -101,6 +110,12 @@ class ModifyListenerAttributesRequest(object):
         self.listener_id = listener_id
         if listener_name is not None:
             self.listener_name = listener_name
+        if persistence_timeout is not None:
+            self.persistence_timeout = persistence_timeout
+        if persistence_type is not None:
+            self.persistence_type = persistence_type
+        if proxy_protocol_type is not None:
+            self.proxy_protocol_type = proxy_protocol_type
         if scheduler is not None:
             self.scheduler = scheduler
         if server_group_id is not None:
@@ -317,6 +332,69 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._listener_name = listener_name
+
+    @property
+    def persistence_timeout(self):
+        """Gets the persistence_timeout of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The persistence_timeout of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._persistence_timeout
+
+    @persistence_timeout.setter
+    def persistence_timeout(self, persistence_timeout):
+        """Sets the persistence_timeout of this ModifyListenerAttributesRequest.
+
+
+        :param persistence_timeout: The persistence_timeout of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._persistence_timeout = persistence_timeout
+
+    @property
+    def persistence_type(self):
+        """Gets the persistence_type of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The persistence_type of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._persistence_type
+
+    @persistence_type.setter
+    def persistence_type(self, persistence_type):
+        """Sets the persistence_type of this ModifyListenerAttributesRequest.
+
+
+        :param persistence_type: The persistence_type of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._persistence_type = persistence_type
+
+    @property
+    def proxy_protocol_type(self):
+        """Gets the proxy_protocol_type of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The proxy_protocol_type of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_protocol_type
+
+    @proxy_protocol_type.setter
+    def proxy_protocol_type(self, proxy_protocol_type):
+        """Sets the proxy_protocol_type of this ModifyListenerAttributesRequest.
+
+
+        :param proxy_protocol_type: The proxy_protocol_type of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._proxy_protocol_type = proxy_protocol_type
 
     @property
     def scheduler(self):

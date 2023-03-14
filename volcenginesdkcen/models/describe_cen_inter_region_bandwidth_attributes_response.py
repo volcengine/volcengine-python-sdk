@@ -34,6 +34,7 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'cen_bandwidth_package_id': 'str',
         'cen_id': 'str',
         'creation_time': 'str',
         'inter_region_bandwidth_id': 'str',
@@ -45,6 +46,7 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'cen_bandwidth_package_id': 'CenBandwidthPackageId',
         'cen_id': 'CenId',
         'creation_time': 'CreationTime',
         'inter_region_bandwidth_id': 'InterRegionBandwidthId',
@@ -54,13 +56,14 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, bandwidth=None, cen_id=None, creation_time=None, inter_region_bandwidth_id=None, local_region_id=None, peer_region_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, cen_bandwidth_package_id=None, cen_id=None, creation_time=None, inter_region_bandwidth_id=None, local_region_id=None, peer_region_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeCenInterRegionBandwidthAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._cen_bandwidth_package_id = None
         self._cen_id = None
         self._creation_time = None
         self._inter_region_bandwidth_id = None
@@ -72,6 +75,8 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if cen_bandwidth_package_id is not None:
+            self.cen_bandwidth_package_id = cen_bandwidth_package_id
         if cen_id is not None:
             self.cen_id = cen_id
         if creation_time is not None:
@@ -107,6 +112,27 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def cen_bandwidth_package_id(self):
+        """Gets the cen_bandwidth_package_id of this DescribeCenInterRegionBandwidthAttributesResponse.  # noqa: E501
+
+
+        :return: The cen_bandwidth_package_id of this DescribeCenInterRegionBandwidthAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._cen_bandwidth_package_id
+
+    @cen_bandwidth_package_id.setter
+    def cen_bandwidth_package_id(self, cen_bandwidth_package_id):
+        """Sets the cen_bandwidth_package_id of this DescribeCenInterRegionBandwidthAttributesResponse.
+
+
+        :param cen_bandwidth_package_id: The cen_bandwidth_package_id of this DescribeCenInterRegionBandwidthAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._cen_bandwidth_package_id = cen_bandwidth_package_id
 
     @property
     def cen_id(self):

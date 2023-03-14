@@ -33,29 +33,55 @@ class DisassociateInstancesIamRoleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'iam_role_name': 'str',
         'instance_ids': 'list[str]'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'iam_role_name': 'IamRoleName',
         'instance_ids': 'InstanceIds'
     }
 
-    def __init__(self, iam_role_name=None, instance_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, iam_role_name=None, instance_ids=None, _configuration=None):  # noqa: E501
         """DisassociateInstancesIamRoleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._iam_role_name = None
         self._instance_ids = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if iam_role_name is not None:
             self.iam_role_name = iam_role_name
         if instance_ids is not None:
             self.instance_ids = instance_ids
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this DisassociateInstancesIamRoleRequest.  # noqa: E501
+
+
+        :return: The client_token of this DisassociateInstancesIamRoleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this DisassociateInstancesIamRoleRequest.
+
+
+        :param client_token: The client_token of this DisassociateInstancesIamRoleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def iam_role_name(self):
