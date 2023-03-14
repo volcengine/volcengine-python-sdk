@@ -33,6 +33,7 @@ class CreateVpnConnectionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attach_type': 'str',
         'client_token': 'str',
         'customer_gateway_id': 'str',
         'description': 'str',
@@ -40,6 +41,7 @@ class CreateVpnConnectionRequest(object):
         'ike_config': 'str',
         'ipsec_config': 'str',
         'local_subnet': 'list[str]',
+        'log_enabled': 'bool',
         'nat_traversal': 'bool',
         'negotiate_instantly': 'bool',
         'project_name': 'str',
@@ -49,6 +51,7 @@ class CreateVpnConnectionRequest(object):
     }
 
     attribute_map = {
+        'attach_type': 'AttachType',
         'client_token': 'ClientToken',
         'customer_gateway_id': 'CustomerGatewayId',
         'description': 'Description',
@@ -56,6 +59,7 @@ class CreateVpnConnectionRequest(object):
         'ike_config': 'IkeConfig',
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
+        'log_enabled': 'LogEnabled',
         'nat_traversal': 'NatTraversal',
         'negotiate_instantly': 'NegotiateInstantly',
         'project_name': 'ProjectName',
@@ -64,12 +68,13 @@ class CreateVpnConnectionRequest(object):
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_type=None, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateVpnConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attach_type = None
         self._client_token = None
         self._customer_gateway_id = None
         self._description = None
@@ -77,6 +82,7 @@ class CreateVpnConnectionRequest(object):
         self._ike_config = None
         self._ipsec_config = None
         self._local_subnet = None
+        self._log_enabled = None
         self._nat_traversal = None
         self._negotiate_instantly = None
         self._project_name = None
@@ -85,6 +91,8 @@ class CreateVpnConnectionRequest(object):
         self._vpn_gateway_id = None
         self.discriminator = None
 
+        if attach_type is not None:
+            self.attach_type = attach_type
         if client_token is not None:
             self.client_token = client_token
         self.customer_gateway_id = customer_gateway_id
@@ -98,6 +106,8 @@ class CreateVpnConnectionRequest(object):
             self.ipsec_config = ipsec_config
         if local_subnet is not None:
             self.local_subnet = local_subnet
+        if log_enabled is not None:
+            self.log_enabled = log_enabled
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
         if negotiate_instantly is not None:
@@ -109,6 +119,34 @@ class CreateVpnConnectionRequest(object):
         if vpn_connection_name is not None:
             self.vpn_connection_name = vpn_connection_name
         self.vpn_gateway_id = vpn_gateway_id
+
+    @property
+    def attach_type(self):
+        """Gets the attach_type of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The attach_type of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._attach_type
+
+    @attach_type.setter
+    def attach_type(self, attach_type):
+        """Sets the attach_type of this CreateVpnConnectionRequest.
+
+
+        :param attach_type: The attach_type of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["VpnGateway", "TransitRouter"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                attach_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `attach_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(attach_type, allowed_values)
+            )
+
+        self._attach_type = attach_type
 
     @property
     def client_token(self):
@@ -271,6 +309,27 @@ class CreateVpnConnectionRequest(object):
         """
 
         self._local_subnet = local_subnet
+
+    @property
+    def log_enabled(self):
+        """Gets the log_enabled of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The log_enabled of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._log_enabled
+
+    @log_enabled.setter
+    def log_enabled(self, log_enabled):
+        """Sets the log_enabled of this CreateVpnConnectionRequest.
+
+
+        :param log_enabled: The log_enabled of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._log_enabled = log_enabled
 
     @property
     def nat_traversal(self):

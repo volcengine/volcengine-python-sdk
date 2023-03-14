@@ -33,29 +33,55 @@ class CreateVpnConnectionResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'order_id': 'str',
         'request_id': 'str',
         'vpn_connection_id': 'str'
     }
 
     attribute_map = {
+        'order_id': 'OrderId',
         'request_id': 'RequestId',
         'vpn_connection_id': 'VpnConnectionId'
     }
 
-    def __init__(self, request_id=None, vpn_connection_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, order_id=None, request_id=None, vpn_connection_id=None, _configuration=None):  # noqa: E501
         """CreateVpnConnectionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._order_id = None
         self._request_id = None
         self._vpn_connection_id = None
         self.discriminator = None
 
+        if order_id is not None:
+            self.order_id = order_id
         if request_id is not None:
             self.request_id = request_id
         if vpn_connection_id is not None:
             self.vpn_connection_id = vpn_connection_id
+
+    @property
+    def order_id(self):
+        """Gets the order_id of this CreateVpnConnectionResponse.  # noqa: E501
+
+
+        :return: The order_id of this CreateVpnConnectionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_id
+
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this CreateVpnConnectionResponse.
+
+
+        :param order_id: The order_id of this CreateVpnConnectionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._order_id = order_id
 
     @property
     def request_id(self):

@@ -38,6 +38,7 @@ class CreateVolumeRequest(object):
         'kind': 'str',
         'project_name': 'str',
         'size': 'str',
+        'tags': 'list[TagForCreateVolumeInput]',
         'volume_charge_type': 'str',
         'volume_name': 'str',
         'volume_type': 'str',
@@ -50,13 +51,14 @@ class CreateVolumeRequest(object):
         'kind': 'Kind',
         'project_name': 'ProjectName',
         'size': 'Size',
+        'tags': 'Tags',
         'volume_charge_type': 'VolumeChargeType',
         'volume_name': 'VolumeName',
         'volume_type': 'VolumeType',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, kind=None, project_name=None, size=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, kind=None, project_name=None, size=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class CreateVolumeRequest(object):
         self._kind = None
         self._project_name = None
         self._size = None
+        self._tags = None
         self._volume_charge_type = None
         self._volume_name = None
         self._volume_type = None
@@ -83,6 +86,8 @@ class CreateVolumeRequest(object):
             self.project_name = project_name
         if size is not None:
             self.size = size
+        if tags is not None:
+            self.tags = tags
         if volume_charge_type is not None:
             self.volume_charge_type = volume_charge_type
         if volume_name is not None:
@@ -196,6 +201,27 @@ class CreateVolumeRequest(object):
         """
 
         self._size = size
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateVolumeRequest.  # noqa: E501
+        :rtype: list[TagForCreateVolumeInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateVolumeRequest.
+
+
+        :param tags: The tags of this CreateVolumeRequest.  # noqa: E501
+        :type: list[TagForCreateVolumeInput]
+        """
+
+        self._tags = tags
 
     @property
     def volume_charge_type(self):

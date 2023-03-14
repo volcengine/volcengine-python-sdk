@@ -38,6 +38,7 @@ class DescribeVolumesRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeVolumesInput]',
         'volume_ids': 'list[str]',
         'volume_name': 'str',
         'volume_status': 'str',
@@ -51,6 +52,7 @@ class DescribeVolumesRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters',
         'volume_ids': 'VolumeIds',
         'volume_name': 'VolumeName',
         'volume_status': 'VolumeStatus',
@@ -58,7 +60,7 @@ class DescribeVolumesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, instance_id=None, kind=None, page_number=None, page_size=None, project_name=None, volume_ids=None, volume_name=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, kind=None, page_number=None, page_size=None, project_name=None, tag_filters=None, volume_ids=None, volume_name=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeVolumesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class DescribeVolumesRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._tag_filters = None
         self._volume_ids = None
         self._volume_name = None
         self._volume_status = None
@@ -86,6 +89,8 @@ class DescribeVolumesRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if volume_ids is not None:
             self.volume_ids = volume_ids
         if volume_name is not None:
@@ -201,6 +206,27 @@ class DescribeVolumesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeVolumesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeVolumesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeVolumesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeVolumesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeVolumesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeVolumesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def volume_ids(self):

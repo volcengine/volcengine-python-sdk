@@ -33,24 +33,50 @@ class StartInstancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'instance_ids': 'list[str]'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'instance_ids': 'InstanceIds'
     }
 
-    def __init__(self, instance_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_ids=None, _configuration=None):  # noqa: E501
         """StartInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._instance_ids = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if instance_ids is not None:
             self.instance_ids = instance_ids
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this StartInstancesRequest.  # noqa: E501
+
+
+        :return: The client_token of this StartInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this StartInstancesRequest.
+
+
+        :param client_token: The client_token of this StartInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_ids(self):

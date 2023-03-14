@@ -47,6 +47,7 @@ class DescribeDirectConnectConnectionAttributesResponse(object):
         'direct_connect_access_point_id': 'str',
         'direct_connect_connection_id': 'str',
         'direct_connect_connection_name': 'str',
+        'expect_bandwidth': 'int',
         'expired_time': 'str',
         'line_operator': 'str',
         'parent_connection_account_id': 'str',
@@ -76,6 +77,7 @@ class DescribeDirectConnectConnectionAttributesResponse(object):
         'direct_connect_access_point_id': 'DirectConnectAccessPointId',
         'direct_connect_connection_id': 'DirectConnectConnectionId',
         'direct_connect_connection_name': 'DirectConnectConnectionName',
+        'expect_bandwidth': 'ExpectBandwidth',
         'expired_time': 'ExpiredTime',
         'line_operator': 'LineOperator',
         'parent_connection_account_id': 'ParentConnectionAccountId',
@@ -90,7 +92,7 @@ class DescribeDirectConnectConnectionAttributesResponse(object):
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, connection_type=None, creation_time=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, deleted_time=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_id=None, direct_connect_connection_name=None, expired_time=None, line_operator=None, parent_connection_account_id=None, parent_connection_id=None, peer_location=None, port_spec=None, port_type=None, request_id=None, status=None, tags=None, update_time=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, connection_type=None, creation_time=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, deleted_time=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_id=None, direct_connect_connection_name=None, expect_bandwidth=None, expired_time=None, line_operator=None, parent_connection_account_id=None, parent_connection_id=None, peer_location=None, port_spec=None, port_type=None, request_id=None, status=None, tags=None, update_time=None, vlan_id=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectConnectionAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -110,6 +112,7 @@ class DescribeDirectConnectConnectionAttributesResponse(object):
         self._direct_connect_access_point_id = None
         self._direct_connect_connection_id = None
         self._direct_connect_connection_name = None
+        self._expect_bandwidth = None
         self._expired_time = None
         self._line_operator = None
         self._parent_connection_account_id = None
@@ -152,6 +155,8 @@ class DescribeDirectConnectConnectionAttributesResponse(object):
             self.direct_connect_connection_id = direct_connect_connection_id
         if direct_connect_connection_name is not None:
             self.direct_connect_connection_name = direct_connect_connection_name
+        if expect_bandwidth is not None:
+            self.expect_bandwidth = expect_bandwidth
         if expired_time is not None:
             self.expired_time = expired_time
         if line_operator is not None:
@@ -470,6 +475,27 @@ class DescribeDirectConnectConnectionAttributesResponse(object):
         """
 
         self._direct_connect_connection_name = direct_connect_connection_name
+
+    @property
+    def expect_bandwidth(self):
+        """Gets the expect_bandwidth of this DescribeDirectConnectConnectionAttributesResponse.  # noqa: E501
+
+
+        :return: The expect_bandwidth of this DescribeDirectConnectConnectionAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._expect_bandwidth
+
+    @expect_bandwidth.setter
+    def expect_bandwidth(self, expect_bandwidth):
+        """Sets the expect_bandwidth of this DescribeDirectConnectConnectionAttributesResponse.
+
+
+        :param expect_bandwidth: The expect_bandwidth of this DescribeDirectConnectConnectionAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._expect_bandwidth = expect_bandwidth
 
     @property
     def expired_time(self):

@@ -36,49 +36,63 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'account_id': 'str',
         'attach_status': 'str',
         'attach_type': 'str',
+        'business_status': 'str',
         'connect_status': 'str',
         'creation_time': 'str',
         'customer_gateway_id': 'str',
+        'deleted_time': 'str',
         'description': 'str',
         'dpd_action': 'str',
         'ike_config': 'IkeConfigForDescribeVpnConnectionsOutput',
+        'ip_address': 'str',
         'ipsec_config': 'IpsecConfigForDescribeVpnConnectionsOutput',
         'local_subnet': 'list[str]',
+        'log_enabled': 'bool',
         'nat_traversal': 'bool',
         'negotiate_instantly': 'bool',
+        'overdue_time': 'str',
         'project_name': 'str',
         'remote_subnet': 'list[str]',
         'status': 'str',
+        'transit_router_id': 'str',
         'update_time': 'str',
         'vpn_connection_id': 'str',
         'vpn_connection_name': 'str',
-        'vpn_gateway_id': 'str'
+        'vpn_gateway_id': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
         'attach_status': 'AttachStatus',
         'attach_type': 'AttachType',
+        'business_status': 'BusinessStatus',
         'connect_status': 'ConnectStatus',
         'creation_time': 'CreationTime',
         'customer_gateway_id': 'CustomerGatewayId',
+        'deleted_time': 'DeletedTime',
         'description': 'Description',
         'dpd_action': 'DpdAction',
         'ike_config': 'IkeConfig',
+        'ip_address': 'IpAddress',
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
+        'log_enabled': 'LogEnabled',
         'nat_traversal': 'NatTraversal',
         'negotiate_instantly': 'NegotiateInstantly',
+        'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'remote_subnet': 'RemoteSubnet',
         'status': 'Status',
+        'transit_router_id': 'TransitRouterId',
         'update_time': 'UpdateTime',
         'vpn_connection_id': 'VpnConnectionId',
         'vpn_connection_name': 'VpnConnectionName',
-        'vpn_gateway_id': 'VpnGatewayId'
+        'vpn_gateway_id': 'VpnGatewayId',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, attach_status=None, attach_type=None, connect_status=None, creation_time=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, status=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, attach_status=None, attach_type=None, business_status=None, connect_status=None, creation_time=None, customer_gateway_id=None, deleted_time=None, description=None, dpd_action=None, ike_config=None, ip_address=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, overdue_time=None, project_name=None, remote_subnet=None, status=None, transit_router_id=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """VpnConnectionForDescribeVpnConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,23 +101,30 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._account_id = None
         self._attach_status = None
         self._attach_type = None
+        self._business_status = None
         self._connect_status = None
         self._creation_time = None
         self._customer_gateway_id = None
+        self._deleted_time = None
         self._description = None
         self._dpd_action = None
         self._ike_config = None
+        self._ip_address = None
         self._ipsec_config = None
         self._local_subnet = None
+        self._log_enabled = None
         self._nat_traversal = None
         self._negotiate_instantly = None
+        self._overdue_time = None
         self._project_name = None
         self._remote_subnet = None
         self._status = None
+        self._transit_router_id = None
         self._update_time = None
         self._vpn_connection_id = None
         self._vpn_connection_name = None
         self._vpn_gateway_id = None
+        self._zone_id = None
         self.discriminator = None
 
         if account_id is not None:
@@ -112,32 +133,44 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
             self.attach_status = attach_status
         if attach_type is not None:
             self.attach_type = attach_type
+        if business_status is not None:
+            self.business_status = business_status
         if connect_status is not None:
             self.connect_status = connect_status
         if creation_time is not None:
             self.creation_time = creation_time
         if customer_gateway_id is not None:
             self.customer_gateway_id = customer_gateway_id
+        if deleted_time is not None:
+            self.deleted_time = deleted_time
         if description is not None:
             self.description = description
         if dpd_action is not None:
             self.dpd_action = dpd_action
         if ike_config is not None:
             self.ike_config = ike_config
+        if ip_address is not None:
+            self.ip_address = ip_address
         if ipsec_config is not None:
             self.ipsec_config = ipsec_config
         if local_subnet is not None:
             self.local_subnet = local_subnet
+        if log_enabled is not None:
+            self.log_enabled = log_enabled
         if nat_traversal is not None:
             self.nat_traversal = nat_traversal
         if negotiate_instantly is not None:
             self.negotiate_instantly = negotiate_instantly
+        if overdue_time is not None:
+            self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
         if status is not None:
             self.status = status
+        if transit_router_id is not None:
+            self.transit_router_id = transit_router_id
         if update_time is not None:
             self.update_time = update_time
         if vpn_connection_id is not None:
@@ -146,6 +179,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
             self.vpn_connection_name = vpn_connection_name
         if vpn_gateway_id is not None:
             self.vpn_gateway_id = vpn_gateway_id
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def account_id(self):
@@ -211,6 +246,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._attach_type = attach_type
 
     @property
+    def business_status(self):
+        """Gets the business_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The business_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_status
+
+    @business_status.setter
+    def business_status(self, business_status):
+        """Sets the business_status of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param business_status: The business_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._business_status = business_status
+
+    @property
     def connect_status(self):
         """Gets the connect_status of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
 
@@ -272,6 +328,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._customer_gateway_id = customer_gateway_id
+
+    @property
+    def deleted_time(self):
+        """Gets the deleted_time of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The deleted_time of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deleted_time
+
+    @deleted_time.setter
+    def deleted_time(self, deleted_time):
+        """Sets the deleted_time of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param deleted_time: The deleted_time of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deleted_time = deleted_time
 
     @property
     def description(self):
@@ -337,6 +414,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._ike_config = ike_config
 
     @property
+    def ip_address(self):
+        """Gets the ip_address of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The ip_address of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address
+
+    @ip_address.setter
+    def ip_address(self, ip_address):
+        """Sets the ip_address of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param ip_address: The ip_address of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address = ip_address
+
+    @property
     def ipsec_config(self):
         """Gets the ipsec_config of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
 
@@ -379,6 +477,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._local_subnet = local_subnet
 
     @property
+    def log_enabled(self):
+        """Gets the log_enabled of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The log_enabled of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._log_enabled
+
+    @log_enabled.setter
+    def log_enabled(self, log_enabled):
+        """Sets the log_enabled of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param log_enabled: The log_enabled of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._log_enabled = log_enabled
+
+    @property
     def nat_traversal(self):
         """Gets the nat_traversal of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
 
@@ -419,6 +538,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._negotiate_instantly = negotiate_instantly
+
+    @property
+    def overdue_time(self):
+        """Gets the overdue_time of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The overdue_time of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._overdue_time
+
+    @overdue_time.setter
+    def overdue_time(self, overdue_time):
+        """Sets the overdue_time of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param overdue_time: The overdue_time of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._overdue_time = overdue_time
 
     @property
     def project_name(self):
@@ -482,6 +622,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def transit_router_id(self):
+        """Gets the transit_router_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The transit_router_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_id
+
+    @transit_router_id.setter
+    def transit_router_id(self, transit_router_id):
+        """Sets the transit_router_id of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param transit_router_id: The transit_router_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_id = transit_router_id
 
     @property
     def update_time(self):
@@ -566,6 +727,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._vpn_gateway_id = vpn_gateway_id
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The zone_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param zone_id: The zone_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,34 +33,60 @@ class StopInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'force_stop': 'bool',
         'instance_id': 'str',
         'stopped_mode': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'force_stop': 'ForceStop',
         'instance_id': 'InstanceId',
         'stopped_mode': 'StoppedMode'
     }
 
-    def __init__(self, force_stop=None, instance_id=None, stopped_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, force_stop=None, instance_id=None, stopped_mode=None, _configuration=None):  # noqa: E501
         """StopInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._force_stop = None
         self._instance_id = None
         self._stopped_mode = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if force_stop is not None:
             self.force_stop = force_stop
         if instance_id is not None:
             self.instance_id = instance_id
         if stopped_mode is not None:
             self.stopped_mode = stopped_mode
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this StopInstanceRequest.  # noqa: E501
+
+
+        :return: The client_token of this StopInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this StopInstanceRequest.
+
+
+        :param client_token: The client_token of this StopInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def force_stop(self):
