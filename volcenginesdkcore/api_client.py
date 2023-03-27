@@ -176,7 +176,7 @@ class ApiClient(object):
                                     auth_settings=auth_settings, body=body, service=service)
 
         # request url
-        url = self.configuration.host + true_path
+        url = self.configuration.schema + "://" + self.configuration.host + true_path
 
         # perform request and return response
         response_data = self.request(
