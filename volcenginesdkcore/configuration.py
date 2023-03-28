@@ -29,6 +29,8 @@ class Configuration(object):
 
         # Default Base url
         self.host = "open.volcengineapi.com"
+        # Schema Support http or https
+        self.schema = "http"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
