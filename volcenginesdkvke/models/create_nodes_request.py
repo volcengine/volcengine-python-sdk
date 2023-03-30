@@ -37,6 +37,7 @@ class CreateNodesRequest(object):
         'client_token': 'str',
         'cluster_id': 'str',
         'container_storage_path': 'str',
+        'image_id': 'str',
         'initialize_script': 'str',
         'instance_ids': 'list[str]',
         'keep_instance_name': 'bool',
@@ -48,13 +49,14 @@ class CreateNodesRequest(object):
         'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
         'container_storage_path': 'ContainerStoragePath',
+        'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
         'instance_ids': 'InstanceIds',
         'keep_instance_name': 'KeepInstanceName',
         'kubernetes_config': 'KubernetesConfig'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, image_id=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, _configuration=None):  # noqa: E501
         """CreateNodesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class CreateNodesRequest(object):
         self._client_token = None
         self._cluster_id = None
         self._container_storage_path = None
+        self._image_id = None
         self._initialize_script = None
         self._instance_ids = None
         self._keep_instance_name = None
@@ -78,6 +81,8 @@ class CreateNodesRequest(object):
             self.cluster_id = cluster_id
         if container_storage_path is not None:
             self.container_storage_path = container_storage_path
+        if image_id is not None:
+            self.image_id = image_id
         if initialize_script is not None:
             self.initialize_script = initialize_script
         if instance_ids is not None:
@@ -170,6 +175,27 @@ class CreateNodesRequest(object):
         """
 
         self._container_storage_path = container_storage_path
+
+    @property
+    def image_id(self):
+        """Gets the image_id of this CreateNodesRequest.  # noqa: E501
+
+
+        :return: The image_id of this CreateNodesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_id
+
+    @image_id.setter
+    def image_id(self, image_id):
+        """Sets the image_id of this CreateNodesRequest.
+
+
+        :param image_id: The image_id of this CreateNodesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._image_id = image_id
 
     @property
     def initialize_script(self):
