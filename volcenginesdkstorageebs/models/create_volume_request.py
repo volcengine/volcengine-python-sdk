@@ -35,6 +35,7 @@ class CreateVolumeRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
+        'instance_id': 'str',
         'kind': 'str',
         'project_name': 'str',
         'size': 'str',
@@ -48,6 +49,7 @@ class CreateVolumeRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
+        'instance_id': 'InstanceId',
         'kind': 'Kind',
         'project_name': 'ProjectName',
         'size': 'Size',
@@ -58,7 +60,7 @@ class CreateVolumeRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, kind=None, project_name=None, size=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, instance_id=None, kind=None, project_name=None, size=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class CreateVolumeRequest(object):
 
         self._client_token = None
         self._description = None
+        self._instance_id = None
         self._kind = None
         self._project_name = None
         self._size = None
@@ -80,6 +83,8 @@ class CreateVolumeRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if instance_id is not None:
+            self.instance_id = instance_id
         if kind is not None:
             self.kind = kind
         if project_name is not None:
@@ -138,6 +143,27 @@ class CreateVolumeRequest(object):
         """
 
         self._description = description
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The instance_id of this CreateVolumeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this CreateVolumeRequest.
+
+
+        :param instance_id: The instance_id of this CreateVolumeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
 
     @property
     def kind(self):
