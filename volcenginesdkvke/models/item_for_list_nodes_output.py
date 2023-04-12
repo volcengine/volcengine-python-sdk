@@ -39,6 +39,7 @@ class ItemForListNodesOutput(object):
         'create_client_token': 'str',
         'create_time': 'str',
         'id': 'str',
+        'image_id': 'str',
         'initialize_script': 'str',
         'instance_id': 'str',
         'is_virtual': 'bool',
@@ -58,6 +59,7 @@ class ItemForListNodesOutput(object):
         'create_client_token': 'CreateClientToken',
         'create_time': 'CreateTime',
         'id': 'Id',
+        'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
         'instance_id': 'InstanceId',
         'is_virtual': 'IsVirtual',
@@ -70,7 +72,7 @@ class ItemForListNodesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, name=None, node_pool_id=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, image_id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, name=None, node_pool_id=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
         """ItemForListNodesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class ItemForListNodesOutput(object):
         self._create_client_token = None
         self._create_time = None
         self._id = None
+        self._image_id = None
         self._initialize_script = None
         self._instance_id = None
         self._is_virtual = None
@@ -106,6 +109,8 @@ class ItemForListNodesOutput(object):
             self.create_time = create_time
         if id is not None:
             self.id = id
+        if image_id is not None:
+            self.image_id = image_id
         if initialize_script is not None:
             self.initialize_script = initialize_script
         if instance_id is not None:
@@ -252,6 +257,27 @@ class ItemForListNodesOutput(object):
         """
 
         self._id = id
+
+    @property
+    def image_id(self):
+        """Gets the image_id of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The image_id of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_id
+
+    @image_id.setter
+    def image_id(self, image_id):
+        """Sets the image_id of this ItemForListNodesOutput.
+
+
+        :param image_id: The image_id of this ItemForListNodesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._image_id = image_id
 
     @property
     def initialize_script(self):
