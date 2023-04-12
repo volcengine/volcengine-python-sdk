@@ -34,7 +34,6 @@ class ItemForListAddonsOutput(object):
     """
     swagger_types = {
         'cluster_id': 'str',
-        'cluster_type': 'str',
         'config': 'str',
         'create_client_token': 'str',
         'create_time': 'str',
@@ -49,7 +48,6 @@ class ItemForListAddonsOutput(object):
 
     attribute_map = {
         'cluster_id': 'ClusterId',
-        'cluster_type': 'ClusterType',
         'config': 'Config',
         'create_client_token': 'CreateClientToken',
         'create_time': 'CreateTime',
@@ -62,14 +60,13 @@ class ItemForListAddonsOutput(object):
         'version': 'Version'
     }
 
-    def __init__(self, cluster_id=None, cluster_type=None, config=None, create_client_token=None, create_time=None, deploy_mode=None, deploy_node_type=None, name=None, status=None, update_client_token=None, update_time=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, config=None, create_client_token=None, create_time=None, deploy_mode=None, deploy_node_type=None, name=None, status=None, update_client_token=None, update_time=None, version=None, _configuration=None):  # noqa: E501
         """ItemForListAddonsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cluster_id = None
-        self._cluster_type = None
         self._config = None
         self._create_client_token = None
         self._create_time = None
@@ -84,8 +81,6 @@ class ItemForListAddonsOutput(object):
 
         if cluster_id is not None:
             self.cluster_id = cluster_id
-        if cluster_type is not None:
-            self.cluster_type = cluster_type
         if config is not None:
             self.config = config
         if create_client_token is not None:
@@ -127,27 +122,6 @@ class ItemForListAddonsOutput(object):
         """
 
         self._cluster_id = cluster_id
-
-    @property
-    def cluster_type(self):
-        """Gets the cluster_type of this ItemForListAddonsOutput.  # noqa: E501
-
-
-        :return: The cluster_type of this ItemForListAddonsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cluster_type
-
-    @cluster_type.setter
-    def cluster_type(self, cluster_type):
-        """Sets the cluster_type of this ItemForListAddonsOutput.
-
-
-        :param cluster_type: The cluster_type of this ItemForListAddonsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._cluster_type = cluster_type
 
     @property
     def config(self):
