@@ -33,28 +33,54 @@ class ModifyDBInstanceParamsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'instance_id': 'str',
         'param_values': 'list[ParamValueForModifyDBInstanceParamsInput]'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
         'param_values': 'ParamValues'
     }
 
-    def __init__(self, instance_id=None, param_values=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_id=None, param_values=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceParamsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._instance_id = None
         self._param_values = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         self.instance_id = instance_id
         if param_values is not None:
             self.param_values = param_values
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyDBInstanceParamsRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyDBInstanceParamsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyDBInstanceParamsRequest.
+
+
+        :param client_token: The client_token of this ModifyDBInstanceParamsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_id(self):

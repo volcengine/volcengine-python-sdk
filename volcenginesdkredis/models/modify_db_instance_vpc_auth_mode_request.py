@@ -33,28 +33,54 @@ class ModifyDBInstanceVpcAuthModeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'instance_id': 'str',
         'vpc_auth_mode': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
         'vpc_auth_mode': 'VpcAuthMode'
     }
 
-    def __init__(self, instance_id=None, vpc_auth_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_id=None, vpc_auth_mode=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceVpcAuthModeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._instance_id = None
         self._vpc_auth_mode = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         self.instance_id = instance_id
         if vpc_auth_mode is not None:
             self.vpc_auth_mode = vpc_auth_mode
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyDBInstanceVpcAuthModeRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyDBInstanceVpcAuthModeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyDBInstanceVpcAuthModeRequest.
+
+
+        :param client_token: The client_token of this ModifyDBInstanceVpcAuthModeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_id(self):
