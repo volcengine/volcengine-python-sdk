@@ -35,6 +35,7 @@ class ModifyDBInstanceChargeTypeRequest(object):
     swagger_types = {
         'auto_renew': 'bool',
         'charge_type': 'str',
+        'client_token': 'str',
         'instance_ids': 'list[str]',
         'purchase_months': 'int'
     }
@@ -42,11 +43,12 @@ class ModifyDBInstanceChargeTypeRequest(object):
     attribute_map = {
         'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
+        'client_token': 'ClientToken',
         'instance_ids': 'InstanceIds',
         'purchase_months': 'PurchaseMonths'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, instance_ids=None, purchase_months=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, client_token=None, instance_ids=None, purchase_months=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceChargeTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ModifyDBInstanceChargeTypeRequest(object):
 
         self._auto_renew = None
         self._charge_type = None
+        self._client_token = None
         self._instance_ids = None
         self._purchase_months = None
         self.discriminator = None
@@ -61,6 +64,8 @@ class ModifyDBInstanceChargeTypeRequest(object):
         if auto_renew is not None:
             self.auto_renew = auto_renew
         self.charge_type = charge_type
+        if client_token is not None:
+            self.client_token = client_token
         if instance_ids is not None:
             self.instance_ids = instance_ids
         if purchase_months is not None:
@@ -109,6 +114,27 @@ class ModifyDBInstanceChargeTypeRequest(object):
             raise ValueError("Invalid value for `charge_type`, must not be `None`")  # noqa: E501
 
         self._charge_type = charge_type
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyDBInstanceChargeTypeRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyDBInstanceChargeTypeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyDBInstanceChargeTypeRequest.
+
+
+        :param client_token: The client_token of this ModifyDBInstanceChargeTypeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_ids(self):

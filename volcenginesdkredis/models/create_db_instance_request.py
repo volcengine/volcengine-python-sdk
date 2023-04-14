@@ -35,6 +35,7 @@ class CreateDBInstanceRequest(object):
     swagger_types = {
         'auto_renew': 'bool',
         'charge_type': 'str',
+        'client_token': 'str',
         'deletion_protection': 'str',
         'engine_version': 'str',
         'instance_name': 'str',
@@ -55,6 +56,7 @@ class CreateDBInstanceRequest(object):
     attribute_map = {
         'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
+        'client_token': 'ClientToken',
         'deletion_protection': 'DeletionProtection',
         'engine_version': 'EngineVersion',
         'instance_name': 'InstanceName',
@@ -72,7 +74,7 @@ class CreateDBInstanceRequest(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, deletion_protection=None, engine_version=None, instance_name=None, node_number=None, password=None, port=None, project_name=None, purchase_months=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, subnet_id=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, client_token=None, deletion_protection=None, engine_version=None, instance_name=None, node_number=None, password=None, port=None, project_name=None, purchase_months=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, subnet_id=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class CreateDBInstanceRequest(object):
 
         self._auto_renew = None
         self._charge_type = None
+        self._client_token = None
         self._deletion_protection = None
         self._engine_version = None
         self._instance_name = None
@@ -101,6 +104,8 @@ class CreateDBInstanceRequest(object):
             self.auto_renew = auto_renew
         if charge_type is not None:
             self.charge_type = charge_type
+        if client_token is not None:
+            self.client_token = client_token
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
         self.engine_version = engine_version
@@ -170,6 +175,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._charge_type = charge_type
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateDBInstanceRequest.
+
+
+        :param client_token: The client_token of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def deletion_protection(self):

@@ -33,28 +33,54 @@ class DeleteDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'create_backup': 'bool',
         'instance_id': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'create_backup': 'CreateBackup',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, create_backup=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, create_backup=None, instance_id=None, _configuration=None):  # noqa: E501
         """DeleteDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._create_backup = None
         self._instance_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if create_backup is not None:
             self.create_backup = create_backup
         self.instance_id = instance_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this DeleteDBInstanceRequest.  # noqa: E501
+
+
+        :return: The client_token of this DeleteDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this DeleteDBInstanceRequest.
+
+
+        :param client_token: The client_token of this DeleteDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def create_backup(self):

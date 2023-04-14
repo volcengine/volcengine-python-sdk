@@ -35,6 +35,7 @@ class ModifyBackupPlanRequest(object):
     swagger_types = {
         'active': 'bool',
         'backup_hour': 'int',
+        'client_token': 'str',
         'instance_id': 'str',
         'period': 'list[int]'
     }
@@ -42,11 +43,12 @@ class ModifyBackupPlanRequest(object):
     attribute_map = {
         'active': 'Active',
         'backup_hour': 'BackupHour',
+        'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
         'period': 'Period'
     }
 
-    def __init__(self, active=None, backup_hour=None, instance_id=None, period=None, _configuration=None):  # noqa: E501
+    def __init__(self, active=None, backup_hour=None, client_token=None, instance_id=None, period=None, _configuration=None):  # noqa: E501
         """ModifyBackupPlanRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ModifyBackupPlanRequest(object):
 
         self._active = None
         self._backup_hour = None
+        self._client_token = None
         self._instance_id = None
         self._period = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ModifyBackupPlanRequest(object):
             self.active = active
         if backup_hour is not None:
             self.backup_hour = backup_hour
+        if client_token is not None:
+            self.client_token = client_token
         if instance_id is not None:
             self.instance_id = instance_id
         if period is not None:
@@ -108,6 +113,27 @@ class ModifyBackupPlanRequest(object):
         """
 
         self._backup_hour = backup_hour
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyBackupPlanRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyBackupPlanRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyBackupPlanRequest.
+
+
+        :param client_token: The client_token of this ModifyBackupPlanRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_id(self):
