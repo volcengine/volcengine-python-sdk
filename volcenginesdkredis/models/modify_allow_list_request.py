@@ -38,6 +38,7 @@ class ModifyAllowListRequest(object):
         'allow_list_id': 'str',
         'allow_list_name': 'str',
         'apply_instance_num': 'int',
+        'client_token': 'str',
         'modify_mode': 'str'
     }
 
@@ -47,10 +48,11 @@ class ModifyAllowListRequest(object):
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
         'apply_instance_num': 'ApplyInstanceNum',
+        'client_token': 'ClientToken',
         'modify_mode': 'ModifyMode'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, modify_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, client_token=None, modify_mode=None, _configuration=None):  # noqa: E501
         """ModifyAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ModifyAllowListRequest(object):
         self._allow_list_id = None
         self._allow_list_name = None
         self._apply_instance_num = None
+        self._client_token = None
         self._modify_mode = None
         self.discriminator = None
 
@@ -72,6 +75,8 @@ class ModifyAllowListRequest(object):
         self.allow_list_name = allow_list_name
         if apply_instance_num is not None:
             self.apply_instance_num = apply_instance_num
+        if client_token is not None:
+            self.client_token = client_token
         if modify_mode is not None:
             self.modify_mode = modify_mode
 
@@ -183,6 +188,27 @@ class ModifyAllowListRequest(object):
         """
 
         self._apply_instance_num = apply_instance_num
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyAllowListRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyAllowListRequest.
+
+
+        :param client_token: The client_token of this ModifyAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def modify_mode(self):

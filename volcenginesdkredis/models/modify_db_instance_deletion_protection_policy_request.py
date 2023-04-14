@@ -33,27 +33,53 @@ class ModifyDBInstanceDeletionProtectionPolicyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'deletion_protection': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'deletion_protection': 'DeletionProtection',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, deletion_protection=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, deletion_protection=None, instance_id=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceDeletionProtectionPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._deletion_protection = None
         self._instance_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         self.deletion_protection = deletion_protection
         self.instance_id = instance_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyDBInstanceDeletionProtectionPolicyRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyDBInstanceDeletionProtectionPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyDBInstanceDeletionProtectionPolicyRequest.
+
+
+        :param client_token: The client_token of this ModifyDBInstanceDeletionProtectionPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def deletion_protection(self):

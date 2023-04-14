@@ -36,17 +36,19 @@ class CreateAllowListRequest(object):
         'allow_list': 'str',
         'allow_list_desc': 'str',
         'allow_list_name': 'str',
-        'allow_list_type': 'str'
+        'allow_list_type': 'str',
+        'client_token': 'str'
     }
 
     attribute_map = {
         'allow_list': 'AllowList',
         'allow_list_desc': 'AllowListDesc',
         'allow_list_name': 'AllowListName',
-        'allow_list_type': 'AllowListType'
+        'allow_list_type': 'AllowListType',
+        'client_token': 'ClientToken'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, client_token=None, _configuration=None):  # noqa: E501
         """CreateAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateAllowListRequest(object):
         self._allow_list_desc = None
         self._allow_list_name = None
         self._allow_list_type = None
+        self._client_token = None
         self.discriminator = None
 
         self.allow_list = allow_list
@@ -64,6 +67,8 @@ class CreateAllowListRequest(object):
         self.allow_list_name = allow_list_name
         if allow_list_type is not None:
             self.allow_list_type = allow_list_type
+        if client_token is not None:
+            self.client_token = client_token
 
     @property
     def allow_list(self):
@@ -152,6 +157,27 @@ class CreateAllowListRequest(object):
         """
 
         self._allow_list_type = allow_list_type
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateAllowListRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateAllowListRequest.
+
+
+        :param client_token: The client_token of this CreateAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,23 +33,28 @@ class DeleteAllowListRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allow_list_id': 'str'
+        'allow_list_id': 'str',
+        'client_token': 'str'
     }
 
     attribute_map = {
-        'allow_list_id': 'AllowListId'
+        'allow_list_id': 'AllowListId',
+        'client_token': 'ClientToken'
     }
 
-    def __init__(self, allow_list_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_id=None, client_token=None, _configuration=None):  # noqa: E501
         """DeleteAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list_id = None
+        self._client_token = None
         self.discriminator = None
 
         self.allow_list_id = allow_list_id
+        if client_token is not None:
+            self.client_token = client_token
 
     @property
     def allow_list_id(self):
@@ -73,6 +78,27 @@ class DeleteAllowListRequest(object):
             raise ValueError("Invalid value for `allow_list_id`, must not be `None`")  # noqa: E501
 
         self._allow_list_id = allow_list_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this DeleteAllowListRequest.  # noqa: E501
+
+
+        :return: The client_token of this DeleteAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this DeleteAllowListRequest.
+
+
+        :param client_token: The client_token of this DeleteAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

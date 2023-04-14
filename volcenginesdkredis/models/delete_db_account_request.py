@@ -34,25 +34,30 @@ class DeleteDBAccountRequest(object):
     """
     swagger_types = {
         'account_name': 'str',
+        'client_token': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
         'account_name': 'AccountName',
+        'client_token': 'ClientToken',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, account_name=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, client_token=None, instance_id=None, _configuration=None):  # noqa: E501
         """DeleteDBAccountRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_name = None
+        self._client_token = None
         self._instance_id = None
         self.discriminator = None
 
         self.account_name = account_name
+        if client_token is not None:
+            self.client_token = client_token
         self.instance_id = instance_id
 
     @property
@@ -77,6 +82,27 @@ class DeleteDBAccountRequest(object):
             raise ValueError("Invalid value for `account_name`, must not be `None`")  # noqa: E501
 
         self._account_name = account_name
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this DeleteDBAccountRequest.  # noqa: E501
+
+
+        :return: The client_token of this DeleteDBAccountRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this DeleteDBAccountRequest.
+
+
+        :param client_token: The client_token of this DeleteDBAccountRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_id(self):

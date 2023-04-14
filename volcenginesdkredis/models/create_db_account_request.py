@@ -34,6 +34,7 @@ class CreateDBAccountRequest(object):
     """
     swagger_types = {
         'account_name': 'str',
+        'client_token': 'str',
         'description': 'str',
         'instance_id': 'str',
         'password': 'str',
@@ -42,19 +43,21 @@ class CreateDBAccountRequest(object):
 
     attribute_map = {
         'account_name': 'AccountName',
+        'client_token': 'ClientToken',
         'description': 'Description',
         'instance_id': 'InstanceId',
         'password': 'Password',
         'role_name': 'RoleName'
     }
 
-    def __init__(self, account_name=None, description=None, instance_id=None, password=None, role_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, client_token=None, description=None, instance_id=None, password=None, role_name=None, _configuration=None):  # noqa: E501
         """CreateDBAccountRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_name = None
+        self._client_token = None
         self._description = None
         self._instance_id = None
         self._password = None
@@ -62,6 +65,8 @@ class CreateDBAccountRequest(object):
         self.discriminator = None
 
         self.account_name = account_name
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         self.instance_id = instance_id
@@ -90,6 +95,27 @@ class CreateDBAccountRequest(object):
             raise ValueError("Invalid value for `account_name`, must not be `None`")  # noqa: E501
 
         self._account_name = account_name
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateDBAccountRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateDBAccountRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateDBAccountRequest.
+
+
+        :param client_token: The client_token of this CreateDBAccountRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):

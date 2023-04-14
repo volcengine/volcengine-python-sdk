@@ -33,31 +33,165 @@ class DescribeDBInstancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'charge_type': 'str',
+        'engine_version': 'str',
+        'instance_id': 'str',
+        'instance_name': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'region_id': 'str'
+        'project_name': 'str',
+        'region_id': 'str',
+        'sharded_cluster': 'int',
+        'status': 'str',
+        'tags': 'list[TagForDescribeDBInstancesInput]',
+        'vpc_id': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
+        'charge_type': 'ChargeType',
+        'engine_version': 'EngineVersion',
+        'instance_id': 'InstanceId',
+        'instance_name': 'InstanceName',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'region_id': 'RegionId'
+        'project_name': 'ProjectName',
+        'region_id': 'RegionId',
+        'sharded_cluster': 'ShardedCluster',
+        'status': 'Status',
+        'tags': 'Tags',
+        'vpc_id': 'VpcId',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, page_number=None, page_size=None, region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, engine_version=None, instance_id=None, instance_name=None, page_number=None, page_size=None, project_name=None, region_id=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._charge_type = None
+        self._engine_version = None
+        self._instance_id = None
+        self._instance_name = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._region_id = None
+        self._sharded_cluster = None
+        self._status = None
+        self._tags = None
+        self._vpc_id = None
+        self._zone_id = None
         self.discriminator = None
 
+        if charge_type is not None:
+            self.charge_type = charge_type
+        if engine_version is not None:
+            self.engine_version = engine_version
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if instance_name is not None:
+            self.instance_name = instance_name
         self.page_number = page_number
         self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         self.region_id = region_id
+        if sharded_cluster is not None:
+            self.sharded_cluster = sharded_cluster
+        if status is not None:
+            self.status = status
+        if tags is not None:
+            self.tags = tags
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
+        if zone_id is not None:
+            self.zone_id = zone_id
+
+    @property
+    def charge_type(self):
+        """Gets the charge_type of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The charge_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._charge_type
+
+    @charge_type.setter
+    def charge_type(self, charge_type):
+        """Sets the charge_type of this DescribeDBInstancesRequest.
+
+
+        :param charge_type: The charge_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._charge_type = charge_type
+
+    @property
+    def engine_version(self):
+        """Gets the engine_version of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The engine_version of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_version
+
+    @engine_version.setter
+    def engine_version(self, engine_version):
+        """Sets the engine_version of this DescribeDBInstancesRequest.
+
+
+        :param engine_version: The engine_version of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_version = engine_version
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The instance_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this DescribeDBInstancesRequest.
+
+
+        :param instance_id: The instance_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_id = instance_id
+
+    @property
+    def instance_name(self):
+        """Gets the instance_name of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The instance_name of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this DescribeDBInstancesRequest.
+
+
+        :param instance_name: The instance_name of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
 
     @property
     def page_number(self):
@@ -106,6 +240,27 @@ class DescribeDBInstancesRequest(object):
         self._page_size = page_size
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeDBInstancesRequest.
+
+
+        :param project_name: The project_name of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def region_id(self):
         """Gets the region_id of this DescribeDBInstancesRequest.  # noqa: E501
 
@@ -127,6 +282,111 @@ class DescribeDBInstancesRequest(object):
             raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
+
+    @property
+    def sharded_cluster(self):
+        """Gets the sharded_cluster of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The sharded_cluster of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._sharded_cluster
+
+    @sharded_cluster.setter
+    def sharded_cluster(self, sharded_cluster):
+        """Sets the sharded_cluster of this DescribeDBInstancesRequest.
+
+
+        :param sharded_cluster: The sharded_cluster of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._sharded_cluster = sharded_cluster
+
+    @property
+    def status(self):
+        """Gets the status of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The status of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this DescribeDBInstancesRequest.
+
+
+        :param status: The status of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The tags of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: list[TagForDescribeDBInstancesInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeDBInstancesRequest.
+
+
+        :param tags: The tags of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: list[TagForDescribeDBInstancesInput]
+        """
+
+        self._tags = tags
+
+    @property
+    def vpc_id(self):
+        """Gets the vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_id
+
+    @vpc_id.setter
+    def vpc_id(self, vpc_id):
+        """Sets the vpc_id of this DescribeDBInstancesRequest.
+
+
+        :param vpc_id: The vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_id = vpc_id
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The zone_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this DescribeDBInstancesRequest.
+
+
+        :param zone_id: The zone_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

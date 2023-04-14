@@ -47,6 +47,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'shard_number': 'int',
         'sharded_cluster': 'int',
         'status': 'str',
+        'tags': 'list[TagForDescribeDBInstancesOutput]',
         'vpc_id': 'str',
         'zone_ids': 'list[str]'
     }
@@ -66,11 +67,12 @@ class InstanceForDescribeDBInstancesOutput(object):
         'shard_number': 'ShardNumber',
         'sharded_cluster': 'ShardedCluster',
         'status': 'Status',
+        'tags': 'Tags',
         'vpc_id': 'VpcId',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, capacity=None, charge_type=None, create_time=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacity=None, charge_type=None, create_time=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,6 +92,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._shard_number = None
         self._sharded_cluster = None
         self._status = None
+        self._tags = None
         self._vpc_id = None
         self._zone_ids = None
         self.discriminator = None
@@ -122,6 +125,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.sharded_cluster = sharded_cluster
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_ids is not None:
@@ -420,6 +425,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeDBInstancesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param tags: The tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[TagForDescribeDBInstancesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):
