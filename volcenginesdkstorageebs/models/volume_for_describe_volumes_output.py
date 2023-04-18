@@ -33,20 +33,28 @@ class VolumeForDescribeVolumesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_snapshot_policy_id': 'str',
+        'auto_snapshot_policy_name': 'str',
         'billing_type': 'int',
         'created_at': 'str',
         'delete_with_instance': 'bool',
         'description': 'str',
         'device_name': 'str',
+        'error_detail': 'str',
         'expired_time': 'str',
         'image_id': 'str',
         'instance_id': 'str',
         'kind': 'str',
+        'overdue_reclaim_time': 'str',
+        'overdue_time': 'str',
         'pay_type': 'str',
         'project_name': 'str',
         'renew_type': 'int',
         'size': 'str',
+        'snapshot_count': 'int',
+        'source_snapshot_id': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeVolumesOutput]',
         'trade_status': 'int',
         'updated_at': 'str',
         'volume_id': 'str',
@@ -56,20 +64,28 @@ class VolumeForDescribeVolumesOutput(object):
     }
 
     attribute_map = {
+        'auto_snapshot_policy_id': 'AutoSnapshotPolicyId',
+        'auto_snapshot_policy_name': 'AutoSnapshotPolicyName',
         'billing_type': 'BillingType',
         'created_at': 'CreatedAt',
         'delete_with_instance': 'DeleteWithInstance',
         'description': 'Description',
         'device_name': 'DeviceName',
+        'error_detail': 'ErrorDetail',
         'expired_time': 'ExpiredTime',
         'image_id': 'ImageId',
         'instance_id': 'InstanceId',
         'kind': 'Kind',
+        'overdue_reclaim_time': 'OverdueReclaimTime',
+        'overdue_time': 'OverdueTime',
         'pay_type': 'PayType',
         'project_name': 'ProjectName',
         'renew_type': 'RenewType',
         'size': 'Size',
+        'snapshot_count': 'SnapshotCount',
+        'source_snapshot_id': 'SourceSnapshotId',
         'status': 'Status',
+        'tags': 'Tags',
         'trade_status': 'TradeStatus',
         'updated_at': 'UpdatedAt',
         'volume_id': 'VolumeId',
@@ -78,26 +94,34 @@ class VolumeForDescribeVolumesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, expired_time=None, image_id=None, instance_id=None, kind=None, pay_type=None, project_name=None, renew_type=None, size=None, status=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """VolumeForDescribeVolumesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_snapshot_policy_id = None
+        self._auto_snapshot_policy_name = None
         self._billing_type = None
         self._created_at = None
         self._delete_with_instance = None
         self._description = None
         self._device_name = None
+        self._error_detail = None
         self._expired_time = None
         self._image_id = None
         self._instance_id = None
         self._kind = None
+        self._overdue_reclaim_time = None
+        self._overdue_time = None
         self._pay_type = None
         self._project_name = None
         self._renew_type = None
         self._size = None
+        self._snapshot_count = None
+        self._source_snapshot_id = None
         self._status = None
+        self._tags = None
         self._trade_status = None
         self._updated_at = None
         self._volume_id = None
@@ -106,6 +130,10 @@ class VolumeForDescribeVolumesOutput(object):
         self._zone_id = None
         self.discriminator = None
 
+        if auto_snapshot_policy_id is not None:
+            self.auto_snapshot_policy_id = auto_snapshot_policy_id
+        if auto_snapshot_policy_name is not None:
+            self.auto_snapshot_policy_name = auto_snapshot_policy_name
         if billing_type is not None:
             self.billing_type = billing_type
         if created_at is not None:
@@ -116,6 +144,8 @@ class VolumeForDescribeVolumesOutput(object):
             self.description = description
         if device_name is not None:
             self.device_name = device_name
+        if error_detail is not None:
+            self.error_detail = error_detail
         if expired_time is not None:
             self.expired_time = expired_time
         if image_id is not None:
@@ -124,6 +154,10 @@ class VolumeForDescribeVolumesOutput(object):
             self.instance_id = instance_id
         if kind is not None:
             self.kind = kind
+        if overdue_reclaim_time is not None:
+            self.overdue_reclaim_time = overdue_reclaim_time
+        if overdue_time is not None:
+            self.overdue_time = overdue_time
         if pay_type is not None:
             self.pay_type = pay_type
         if project_name is not None:
@@ -132,8 +166,14 @@ class VolumeForDescribeVolumesOutput(object):
             self.renew_type = renew_type
         if size is not None:
             self.size = size
+        if snapshot_count is not None:
+            self.snapshot_count = snapshot_count
+        if source_snapshot_id is not None:
+            self.source_snapshot_id = source_snapshot_id
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if trade_status is not None:
             self.trade_status = trade_status
         if updated_at is not None:
@@ -146,6 +186,48 @@ class VolumeForDescribeVolumesOutput(object):
             self.volume_type = volume_type
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def auto_snapshot_policy_id(self):
+        """Gets the auto_snapshot_policy_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The auto_snapshot_policy_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_snapshot_policy_id
+
+    @auto_snapshot_policy_id.setter
+    def auto_snapshot_policy_id(self, auto_snapshot_policy_id):
+        """Sets the auto_snapshot_policy_id of this VolumeForDescribeVolumesOutput.
+
+
+        :param auto_snapshot_policy_id: The auto_snapshot_policy_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._auto_snapshot_policy_id = auto_snapshot_policy_id
+
+    @property
+    def auto_snapshot_policy_name(self):
+        """Gets the auto_snapshot_policy_name of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The auto_snapshot_policy_name of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_snapshot_policy_name
+
+    @auto_snapshot_policy_name.setter
+    def auto_snapshot_policy_name(self, auto_snapshot_policy_name):
+        """Sets the auto_snapshot_policy_name of this VolumeForDescribeVolumesOutput.
+
+
+        :param auto_snapshot_policy_name: The auto_snapshot_policy_name of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._auto_snapshot_policy_name = auto_snapshot_policy_name
 
     @property
     def billing_type(self):
@@ -253,6 +335,27 @@ class VolumeForDescribeVolumesOutput(object):
         self._device_name = device_name
 
     @property
+    def error_detail(self):
+        """Gets the error_detail of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The error_detail of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_detail
+
+    @error_detail.setter
+    def error_detail(self, error_detail):
+        """Sets the error_detail of this VolumeForDescribeVolumesOutput.
+
+
+        :param error_detail: The error_detail of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._error_detail = error_detail
+
+    @property
     def expired_time(self):
         """Gets the expired_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
 
@@ -335,6 +438,48 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._kind = kind
+
+    @property
+    def overdue_reclaim_time(self):
+        """Gets the overdue_reclaim_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The overdue_reclaim_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._overdue_reclaim_time
+
+    @overdue_reclaim_time.setter
+    def overdue_reclaim_time(self, overdue_reclaim_time):
+        """Sets the overdue_reclaim_time of this VolumeForDescribeVolumesOutput.
+
+
+        :param overdue_reclaim_time: The overdue_reclaim_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._overdue_reclaim_time = overdue_reclaim_time
+
+    @property
+    def overdue_time(self):
+        """Gets the overdue_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The overdue_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._overdue_time
+
+    @overdue_time.setter
+    def overdue_time(self, overdue_time):
+        """Sets the overdue_time of this VolumeForDescribeVolumesOutput.
+
+
+        :param overdue_time: The overdue_time of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._overdue_time = overdue_time
 
     @property
     def pay_type(self):
@@ -421,6 +566,48 @@ class VolumeForDescribeVolumesOutput(object):
         self._size = size
 
     @property
+    def snapshot_count(self):
+        """Gets the snapshot_count of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The snapshot_count of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._snapshot_count
+
+    @snapshot_count.setter
+    def snapshot_count(self, snapshot_count):
+        """Sets the snapshot_count of this VolumeForDescribeVolumesOutput.
+
+
+        :param snapshot_count: The snapshot_count of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._snapshot_count = snapshot_count
+
+    @property
+    def source_snapshot_id(self):
+        """Gets the source_snapshot_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The source_snapshot_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_snapshot_id
+
+    @source_snapshot_id.setter
+    def source_snapshot_id(self, source_snapshot_id):
+        """Sets the source_snapshot_id of this VolumeForDescribeVolumesOutput.
+
+
+        :param source_snapshot_id: The source_snapshot_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._source_snapshot_id = source_snapshot_id
+
+    @property
     def status(self):
         """Gets the status of this VolumeForDescribeVolumesOutput.  # noqa: E501
 
@@ -440,6 +627,27 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The tags of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeVolumesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this VolumeForDescribeVolumesOutput.
+
+
+        :param tags: The tags of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: list[TagForDescribeVolumesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def trade_status(self):
