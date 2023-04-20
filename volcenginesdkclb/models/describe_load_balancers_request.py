@@ -33,6 +33,7 @@ class DescribeLoadBalancersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_ip_version': 'str',
         'eni_address': 'str',
         'load_balancer_ids': 'list[str]',
         'load_balancer_name': 'str',
@@ -44,6 +45,7 @@ class DescribeLoadBalancersRequest(object):
     }
 
     attribute_map = {
+        'address_ip_version': 'AddressIpVersion',
         'eni_address': 'EniAddress',
         'load_balancer_ids': 'LoadBalancerIds',
         'load_balancer_name': 'LoadBalancerName',
@@ -54,12 +56,13 @@ class DescribeLoadBalancersRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address_ip_version = None
         self._eni_address = None
         self._load_balancer_ids = None
         self._load_balancer_name = None
@@ -70,6 +73,8 @@ class DescribeLoadBalancersRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if address_ip_version is not None:
+            self.address_ip_version = address_ip_version
         if eni_address is not None:
             self.eni_address = eni_address
         if load_balancer_ids is not None:
@@ -86,6 +91,27 @@ class DescribeLoadBalancersRequest(object):
             self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def address_ip_version(self):
+        """Gets the address_ip_version of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The address_ip_version of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_ip_version
+
+    @address_ip_version.setter
+    def address_ip_version(self, address_ip_version):
+        """Sets the address_ip_version of this DescribeLoadBalancersRequest.
+
+
+        :param address_ip_version: The address_ip_version of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._address_ip_version = address_ip_version
 
     @property
     def eni_address(self):

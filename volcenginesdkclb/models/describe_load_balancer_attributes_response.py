@@ -34,6 +34,7 @@ class DescribeLoadBalancerAttributesResponse(object):
     """
     swagger_types = {
         'access_log': 'AccessLogForDescribeLoadBalancerAttributesOutput',
+        'address_ip_version': 'str',
         'business_status': 'str',
         'create_time': 'str',
         'deleted_time': 'str',
@@ -44,7 +45,10 @@ class DescribeLoadBalancerAttributesResponse(object):
         'enabled': 'bool',
         'eni_address': 'str',
         'eni_id': 'str',
+        'eni_ipv6_address': 'str',
         'expired_time': 'str',
+        'ipv6_address_bandwidth': 'Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput',
+        'ipv6_eip_id': 'str',
         'listeners': 'list[ListenerForDescribeLoadBalancerAttributesOutput]',
         'load_balancer_billing_type': 'int',
         'load_balancer_id': 'str',
@@ -70,6 +74,7 @@ class DescribeLoadBalancerAttributesResponse(object):
 
     attribute_map = {
         'access_log': 'AccessLog',
+        'address_ip_version': 'AddressIpVersion',
         'business_status': 'BusinessStatus',
         'create_time': 'CreateTime',
         'deleted_time': 'DeletedTime',
@@ -80,7 +85,10 @@ class DescribeLoadBalancerAttributesResponse(object):
         'enabled': 'Enabled',
         'eni_address': 'EniAddress',
         'eni_id': 'EniID',
+        'eni_ipv6_address': 'EniIpv6Address',
         'expired_time': 'ExpiredTime',
+        'ipv6_address_bandwidth': 'Ipv6AddressBandwidth',
+        'ipv6_eip_id': 'Ipv6EipId',
         'listeners': 'Listeners',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
         'load_balancer_id': 'LoadBalancerId',
@@ -104,13 +112,14 @@ class DescribeLoadBalancerAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, access_log=None, business_status=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, expired_time=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, eni_ipv6_address=None, expired_time=None, ipv6_address_bandwidth=None, ipv6_eip_id=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._access_log = None
+        self._address_ip_version = None
         self._business_status = None
         self._create_time = None
         self._deleted_time = None
@@ -121,7 +130,10 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._enabled = None
         self._eni_address = None
         self._eni_id = None
+        self._eni_ipv6_address = None
         self._expired_time = None
+        self._ipv6_address_bandwidth = None
+        self._ipv6_eip_id = None
         self._listeners = None
         self._load_balancer_billing_type = None
         self._load_balancer_id = None
@@ -147,6 +159,8 @@ class DescribeLoadBalancerAttributesResponse(object):
 
         if access_log is not None:
             self.access_log = access_log
+        if address_ip_version is not None:
+            self.address_ip_version = address_ip_version
         if business_status is not None:
             self.business_status = business_status
         if create_time is not None:
@@ -167,8 +181,14 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.eni_address = eni_address
         if eni_id is not None:
             self.eni_id = eni_id
+        if eni_ipv6_address is not None:
+            self.eni_ipv6_address = eni_ipv6_address
         if expired_time is not None:
             self.expired_time = expired_time
+        if ipv6_address_bandwidth is not None:
+            self.ipv6_address_bandwidth = ipv6_address_bandwidth
+        if ipv6_eip_id is not None:
+            self.ipv6_eip_id = ipv6_eip_id
         if listeners is not None:
             self.listeners = listeners
         if load_balancer_billing_type is not None:
@@ -232,6 +252,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._access_log = access_log
+
+    @property
+    def address_ip_version(self):
+        """Gets the address_ip_version of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The address_ip_version of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_ip_version
+
+    @address_ip_version.setter
+    def address_ip_version(self, address_ip_version):
+        """Sets the address_ip_version of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param address_ip_version: The address_ip_version of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._address_ip_version = address_ip_version
 
     @property
     def business_status(self):
@@ -444,6 +485,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._eni_id = eni_id
 
     @property
+    def eni_ipv6_address(self):
+        """Gets the eni_ipv6_address of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The eni_ipv6_address of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._eni_ipv6_address
+
+    @eni_ipv6_address.setter
+    def eni_ipv6_address(self, eni_ipv6_address):
+        """Sets the eni_ipv6_address of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param eni_ipv6_address: The eni_ipv6_address of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._eni_ipv6_address = eni_ipv6_address
+
+    @property
     def expired_time(self):
         """Gets the expired_time of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
 
@@ -463,6 +525,48 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._expired_time = expired_time
+
+    @property
+    def ipv6_address_bandwidth(self):
+        """Gets the ipv6_address_bandwidth of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The ipv6_address_bandwidth of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput
+        """
+        return self._ipv6_address_bandwidth
+
+    @ipv6_address_bandwidth.setter
+    def ipv6_address_bandwidth(self, ipv6_address_bandwidth):
+        """Sets the ipv6_address_bandwidth of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param ipv6_address_bandwidth: The ipv6_address_bandwidth of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput
+        """
+
+        self._ipv6_address_bandwidth = ipv6_address_bandwidth
+
+    @property
+    def ipv6_eip_id(self):
+        """Gets the ipv6_eip_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The ipv6_eip_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_eip_id
+
+    @ipv6_eip_id.setter
+    def ipv6_eip_id(self, ipv6_eip_id):
+        """Sets the ipv6_eip_id of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param ipv6_eip_id: The ipv6_eip_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_eip_id = ipv6_eip_id
 
     @property
     def listeners(self):
