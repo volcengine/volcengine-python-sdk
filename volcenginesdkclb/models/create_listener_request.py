@@ -36,6 +36,7 @@ class CreateListenerRequest(object):
         'acl_ids': 'list[str]',
         'acl_status': 'str',
         'acl_type': 'str',
+        'bandwidth': 'int',
         'certificate_id': 'str',
         'description': 'str',
         'enabled': 'str',
@@ -56,6 +57,7 @@ class CreateListenerRequest(object):
         'acl_ids': 'AclIds',
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
+        'bandwidth': 'Bandwidth',
         'certificate_id': 'CertificateId',
         'description': 'Description',
         'enabled': 'Enabled',
@@ -72,7 +74,7 @@ class CreateListenerRequest(object):
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, certificate_id=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_name=None, load_balancer_id=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_name=None, load_balancer_id=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, _configuration=None):  # noqa: E501
         """CreateListenerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class CreateListenerRequest(object):
         self._acl_ids = None
         self._acl_status = None
         self._acl_type = None
+        self._bandwidth = None
         self._certificate_id = None
         self._description = None
         self._enabled = None
@@ -103,6 +106,8 @@ class CreateListenerRequest(object):
             self.acl_status = acl_status
         if acl_type is not None:
             self.acl_type = acl_type
+        if bandwidth is not None:
+            self.bandwidth = bandwidth
         if certificate_id is not None:
             self.certificate_id = certificate_id
         if description is not None:
@@ -190,6 +195,27 @@ class CreateListenerRequest(object):
         """
 
         self._acl_type = acl_type
+
+    @property
+    def bandwidth(self):
+        """Gets the bandwidth of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The bandwidth of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bandwidth
+
+    @bandwidth.setter
+    def bandwidth(self, bandwidth):
+        """Sets the bandwidth of this CreateListenerRequest.
+
+
+        :param bandwidth: The bandwidth of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bandwidth = bandwidth
 
     @property
     def certificate_id(self):

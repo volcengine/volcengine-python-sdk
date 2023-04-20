@@ -115,7 +115,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AddAclEntries/2020-04-01/clb/get/', 'GET',
+            '/AddAclEntries/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AddServerGroupBackendServers/2020-04-01/clb/get/', 'GET',
+            '/AddServerGroupBackendServers/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AttachHealthCheckLogTopic/2020-04-01/clb/get/', 'GET',
+            '/AttachHealthCheckLogTopic/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ConvertLoadBalancerBillingType/2020-04-01/clb/get/', 'GET',
+            '/ConvertLoadBalancerBillingType/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateAcl/2020-04-01/clb/get/', 'GET',
+            '/CreateAcl/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateHealthCheckLogProject/2020-04-01/clb/get/', 'GET',
+            '/CreateHealthCheckLogProject/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateListener/2020-04-01/clb/get/', 'GET',
+            '/CreateListener/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateLoadBalancer/2020-04-01/clb/get/', 'GET',
+            '/CreateLoadBalancer/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateRules/2020-04-01/clb/get/', 'GET',
+            '/CreateRules/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateServerGroup/2020-04-01/clb/get/', 'GET',
+            '/CreateServerGroup/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteAcl/2020-04-01/clb/get/', 'GET',
+            '/DeleteAcl/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteCertificate/2020-04-01/clb/get/', 'GET',
+            '/DeleteCertificate/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteHealthCheckLogProject/2020-04-01/clb/get/', 'GET',
+            '/DeleteHealthCheckLogProject/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteListener/2020-04-01/clb/get/', 'GET',
+            '/DeleteListener/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteLoadBalancer/2020-04-01/clb/get/', 'GET',
+            '/DeleteLoadBalancer/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteRules/2020-04-01/clb/get/', 'GET',
+            '/DeleteRules/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteServerGroup/2020-04-01/clb/get/', 'GET',
+            '/DeleteServerGroup/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAclAttributes/2020-04-01/clb/get/', 'GET',
+            '/DescribeAclAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAcls/2020-04-01/clb/get/', 'GET',
+            '/DescribeAcls/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCertificates/2020-04-01/clb/get/', 'GET',
+            '/DescribeCertificates/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeHealthCheckLogProjectAttributes/2020-04-01/clb/get/', 'GET',
+            '/DescribeHealthCheckLogProjectAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2152,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeHealthCheckLogTopicAttributes/2020-04-01/clb/get/', 'GET',
+            '/DescribeHealthCheckLogTopicAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2249,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeListenerAttributes/2020-04-01/clb/get/', 'GET',
+            '/DescribeListenerAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +2346,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeListenerHealth/2020-04-01/clb/get/', 'GET',
+            '/DescribeListenerHealth/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +2443,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeListeners/2020-04-01/clb/get/', 'GET',
+            '/DescribeListeners/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +2540,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeLoadBalancerAttributes/2020-04-01/clb/get/', 'GET',
+            '/DescribeLoadBalancerAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2637,7 +2637,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeLoadBalancers/2020-04-01/clb/get/', 'GET',
+            '/DescribeLoadBalancers/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2734,7 +2734,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeLoadBalancersBilling/2020-04-01/clb/get/', 'GET',
+            '/DescribeLoadBalancersBilling/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2831,7 +2831,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeRules/2020-04-01/clb/get/', 'GET',
+            '/DescribeRules/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2928,7 +2928,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeServerGroupAttributes/2020-04-01/clb/get/', 'GET',
+            '/DescribeServerGroupAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3025,7 +3025,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeServerGroups/2020-04-01/clb/get/', 'GET',
+            '/DescribeServerGroups/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3122,7 +3122,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeZones/2020-04-01/clb/get/', 'GET',
+            '/DescribeZones/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3219,7 +3219,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DetachHealthCheckLogTopic/2020-04-01/clb/get/', 'GET',
+            '/DetachHealthCheckLogTopic/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3316,7 +3316,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisableAccessLog/2020-04-01/clb/get/', 'GET',
+            '/DisableAccessLog/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3413,7 +3413,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/EnableAccessLog/2020-04-01/clb/get/', 'GET',
+            '/EnableAccessLog/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3510,7 +3510,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListTagsForResources/2020-04-01/clb/get/', 'GET',
+            '/ListTagsForResources/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3607,7 +3607,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyAclAttributes/2020-04-01/clb/get/', 'GET',
+            '/ModifyAclAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3704,7 +3704,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyListenerAttributes/2020-04-01/clb/get/', 'GET',
+            '/ModifyListenerAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3801,7 +3801,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyLoadBalancerAttributes/2020-04-01/clb/get/', 'GET',
+            '/ModifyLoadBalancerAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3898,7 +3898,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyRules/2020-04-01/clb/get/', 'GET',
+            '/ModifyRules/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3995,7 +3995,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyServerGroupAttributes/2020-04-01/clb/get/', 'GET',
+            '/ModifyServerGroupAttributes/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4092,7 +4092,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RemoveAclEntries/2020-04-01/clb/get/', 'GET',
+            '/RemoveAclEntries/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4189,7 +4189,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RemoveServerGroupBackendServers/2020-04-01/clb/get/', 'GET',
+            '/RemoveServerGroupBackendServers/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4286,7 +4286,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RenewLoadBalancer/2020-04-01/clb/get/', 'GET',
+            '/RenewLoadBalancer/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4383,7 +4383,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/SetLoadBalancerRenewal/2020-04-01/clb/get/', 'GET',
+            '/SetLoadBalancerRenewal/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4480,7 +4480,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/TagResources/2020-04-01/clb/get/', 'GET',
+            '/TagResources/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4577,7 +4577,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UntagResources/2020-04-01/clb/get/', 'GET',
+            '/UntagResources/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4674,7 +4674,7 @@ class CLBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UploadCertificate/2020-04-01/clb/get/', 'GET',
+            '/UploadCertificate/2020-04-01/clb/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
