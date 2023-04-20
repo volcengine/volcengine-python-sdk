@@ -33,10 +33,12 @@ class CreateLoadBalancerRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_ip_version': 'str',
         'client_token': 'str',
         'description': 'str',
         'eip_billing_config': 'EipBillingConfigForCreateLoadBalancerInput',
         'eni_address': 'str',
+        'eni_ipv6_address': 'str',
         'load_balancer_billing_type': 'int',
         'load_balancer_name': 'str',
         'load_balancer_spec': 'str',
@@ -55,10 +57,12 @@ class CreateLoadBalancerRequest(object):
     }
 
     attribute_map = {
+        'address_ip_version': 'AddressIpVersion',
         'client_token': 'ClientToken',
         'description': 'Description',
         'eip_billing_config': 'EipBillingConfig',
         'eni_address': 'EniAddress',
+        'eni_ipv6_address': 'EniIpv6Address',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
         'load_balancer_name': 'LoadBalancerName',
         'load_balancer_spec': 'LoadBalancerSpec',
@@ -76,16 +80,18 @@ class CreateLoadBalancerRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, client_token=None, description=None, eip_billing_config=None, eni_address=None, load_balancer_billing_type=None, load_balancer_name=None, load_balancer_spec=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, period=None, period_unit=None, project_name=None, region_id=None, slave_zone_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, client_token=None, description=None, eip_billing_config=None, eni_address=None, eni_ipv6_address=None, load_balancer_billing_type=None, load_balancer_name=None, load_balancer_spec=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, period=None, period_unit=None, project_name=None, region_id=None, slave_zone_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address_ip_version = None
         self._client_token = None
         self._description = None
         self._eip_billing_config = None
         self._eni_address = None
+        self._eni_ipv6_address = None
         self._load_balancer_billing_type = None
         self._load_balancer_name = None
         self._load_balancer_spec = None
@@ -103,6 +109,8 @@ class CreateLoadBalancerRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if address_ip_version is not None:
+            self.address_ip_version = address_ip_version
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
@@ -111,6 +119,8 @@ class CreateLoadBalancerRequest(object):
             self.eip_billing_config = eip_billing_config
         if eni_address is not None:
             self.eni_address = eni_address
+        if eni_ipv6_address is not None:
+            self.eni_ipv6_address = eni_ipv6_address
         if load_balancer_billing_type is not None:
             self.load_balancer_billing_type = load_balancer_billing_type
         if load_balancer_name is not None:
@@ -138,6 +148,27 @@ class CreateLoadBalancerRequest(object):
         self.type = type
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def address_ip_version(self):
+        """Gets the address_ip_version of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The address_ip_version of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_ip_version
+
+    @address_ip_version.setter
+    def address_ip_version(self, address_ip_version):
+        """Sets the address_ip_version of this CreateLoadBalancerRequest.
+
+
+        :param address_ip_version: The address_ip_version of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._address_ip_version = address_ip_version
 
     @property
     def client_token(self):
@@ -222,6 +253,27 @@ class CreateLoadBalancerRequest(object):
         """
 
         self._eni_address = eni_address
+
+    @property
+    def eni_ipv6_address(self):
+        """Gets the eni_ipv6_address of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The eni_ipv6_address of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eni_ipv6_address
+
+    @eni_ipv6_address.setter
+    def eni_ipv6_address(self, eni_ipv6_address):
+        """Sets the eni_ipv6_address of this CreateLoadBalancerRequest.
+
+
+        :param eni_ipv6_address: The eni_ipv6_address of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eni_ipv6_address = eni_ipv6_address
 
     @property
     def load_balancer_billing_type(self):
