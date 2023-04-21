@@ -33,6 +33,7 @@ class DescribeCensRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cen_ids': 'str',
         'cen_name': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -41,6 +42,7 @@ class DescribeCensRequest(object):
     }
 
     attribute_map = {
+        'cen_ids': 'CenIds',
         'cen_name': 'CenName',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -48,12 +50,13 @@ class DescribeCensRequest(object):
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, cen_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_ids=None, cen_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeCensRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cen_ids = None
         self._cen_name = None
         self._page_number = None
         self._page_size = None
@@ -61,6 +64,8 @@ class DescribeCensRequest(object):
         self._tag_filters = None
         self.discriminator = None
 
+        if cen_ids is not None:
+            self.cen_ids = cen_ids
         if cen_name is not None:
             self.cen_name = cen_name
         if page_number is not None:
@@ -71,6 +76,27 @@ class DescribeCensRequest(object):
             self.project_name = project_name
         if tag_filters is not None:
             self.tag_filters = tag_filters
+
+    @property
+    def cen_ids(self):
+        """Gets the cen_ids of this DescribeCensRequest.  # noqa: E501
+
+
+        :return: The cen_ids of this DescribeCensRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cen_ids
+
+    @cen_ids.setter
+    def cen_ids(self, cen_ids):
+        """Sets the cen_ids of this DescribeCensRequest.
+
+
+        :param cen_ids: The cen_ids of this DescribeCensRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cen_ids = cen_ids
 
     @property
     def cen_name(self):

@@ -33,81 +33,39 @@ class DescribeSubscriptionsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'created_at_end': 'str',
-        'created_at_start': 'str',
         'max_results': 'str',
-        'next_token': 'str'
+        'next_token': 'str',
+        'subscription_ids': 'list[str]',
+        'type': 'str'
     }
 
     attribute_map = {
-        'created_at_end': 'CreatedAtEnd',
-        'created_at_start': 'CreatedAtStart',
         'max_results': 'MaxResults',
-        'next_token': 'NextToken'
+        'next_token': 'NextToken',
+        'subscription_ids': 'SubscriptionIds',
+        'type': 'Type'
     }
 
-    def __init__(self, created_at_end=None, created_at_start=None, max_results=None, next_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_results=None, next_token=None, subscription_ids=None, type=None, _configuration=None):  # noqa: E501
         """DescribeSubscriptionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._created_at_end = None
-        self._created_at_start = None
         self._max_results = None
         self._next_token = None
+        self._subscription_ids = None
+        self._type = None
         self.discriminator = None
 
-        if created_at_end is not None:
-            self.created_at_end = created_at_end
-        if created_at_start is not None:
-            self.created_at_start = created_at_start
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
-
-    @property
-    def created_at_end(self):
-        """Gets the created_at_end of this DescribeSubscriptionsRequest.  # noqa: E501
-
-
-        :return: The created_at_end of this DescribeSubscriptionsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._created_at_end
-
-    @created_at_end.setter
-    def created_at_end(self, created_at_end):
-        """Sets the created_at_end of this DescribeSubscriptionsRequest.
-
-
-        :param created_at_end: The created_at_end of this DescribeSubscriptionsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._created_at_end = created_at_end
-
-    @property
-    def created_at_start(self):
-        """Gets the created_at_start of this DescribeSubscriptionsRequest.  # noqa: E501
-
-
-        :return: The created_at_start of this DescribeSubscriptionsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._created_at_start
-
-    @created_at_start.setter
-    def created_at_start(self, created_at_start):
-        """Sets the created_at_start of this DescribeSubscriptionsRequest.
-
-
-        :param created_at_start: The created_at_start of this DescribeSubscriptionsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._created_at_start = created_at_start
+        if subscription_ids is not None:
+            self.subscription_ids = subscription_ids
+        if type is not None:
+            self.type = type
 
     @property
     def max_results(self):
@@ -150,6 +108,48 @@ class DescribeSubscriptionsRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def subscription_ids(self):
+        """Gets the subscription_ids of this DescribeSubscriptionsRequest.  # noqa: E501
+
+
+        :return: The subscription_ids of this DescribeSubscriptionsRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._subscription_ids
+
+    @subscription_ids.setter
+    def subscription_ids(self, subscription_ids):
+        """Sets the subscription_ids of this DescribeSubscriptionsRequest.
+
+
+        :param subscription_ids: The subscription_ids of this DescribeSubscriptionsRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._subscription_ids = subscription_ids
+
+    @property
+    def type(self):
+        """Gets the type of this DescribeSubscriptionsRequest.  # noqa: E501
+
+
+        :return: The type of this DescribeSubscriptionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this DescribeSubscriptionsRequest.
+
+
+        :param type: The type of this DescribeSubscriptionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
