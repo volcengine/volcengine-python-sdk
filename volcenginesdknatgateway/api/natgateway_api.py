@@ -115,7 +115,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDnatEntry/2020-04-01/natgateway/get/', 'GET',
+            '/CreateDnatEntry/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateNatGateway/2020-04-01/natgateway/get/', 'GET',
+            '/CreateNatGateway/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateSnatEntry/2020-04-01/natgateway/get/', 'GET',
+            '/CreateSnatEntry/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDnatEntry/2020-04-01/natgateway/get/', 'GET',
+            '/DeleteDnatEntry/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteNatGateway/2020-04-01/natgateway/get/', 'GET',
+            '/DeleteNatGateway/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteSnatEntry/2020-04-01/natgateway/get/', 'GET',
+            '/DeleteSnatEntry/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDnatEntries/2020-04-01/natgateway/get/', 'GET',
+            '/DescribeDnatEntries/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDnatEntryAttributes/2020-04-01/natgateway/get/', 'GET',
+            '/DescribeDnatEntryAttributes/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeNatGatewayAttributes/2020-04-01/natgateway/get/', 'GET',
+            '/DescribeNatGatewayAttributes/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeNatGateways/2020-04-01/natgateway/get/', 'GET',
+            '/DescribeNatGateways/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeSnatEntries/2020-04-01/natgateway/get/', 'GET',
+            '/DescribeSnatEntries/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeSnatEntryAttributes/2020-04-01/natgateway/get/', 'GET',
+            '/DescribeSnatEntryAttributes/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListNatGatewayAvailableZones/2020-04-01/natgateway/get/', 'GET',
+            '/ListNatGatewayAvailableZones/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDnatEntryAttributes/2020-04-01/natgateway/get/', 'GET',
+            '/ModifyDnatEntryAttributes/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyNatGatewayAttributes/2020-04-01/natgateway/get/', 'GET',
+            '/ModifyNatGatewayAttributes/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class NATGATEWAYApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifySnatEntryAttributes/2020-04-01/natgateway/get/', 'GET',
+            '/ModifySnatEntryAttributes/2020-04-01/natgateway/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,

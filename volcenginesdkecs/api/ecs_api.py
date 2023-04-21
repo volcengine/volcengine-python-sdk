@@ -115,7 +115,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AssociateInstancesIamRole/2020-04-01/ecs/get/', 'GET',
+            '/AssociateInstancesIamRole/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AttachKeyPair/2020-04-01/ecs/get/', 'GET',
+            '/AttachKeyPair/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDeploymentSet/2020-04-01/ecs/get/', 'GET',
+            '/CreateDeploymentSet/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateImage/2020-04-01/ecs/get/', 'GET',
+            '/CreateImage/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateKeyPair/2020-04-01/ecs/get/', 'GET',
+            '/CreateKeyPair/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateSubscription/2020-04-01/ecs/get/', 'GET',
+            '/CreateSubscription/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateTags/2020-04-01/ecs/get/', 'GET',
+            '/CreateTags/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDeploymentSet/2020-04-01/ecs/get/', 'GET',
+            '/DeleteDeploymentSet/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteImages/2020-04-01/ecs/get/', 'GET',
+            '/DeleteImages/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteInstance/2020-04-01/ecs/get/', 'GET',
+            '/DeleteInstance/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteInstances/2020-04-01/ecs/get/', 'GET',
+            '/DeleteInstances/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteKeyPairs/2020-04-01/ecs/get/', 'GET',
+            '/DeleteKeyPairs/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteTags/2020-04-01/ecs/get/', 'GET',
+            '/DeleteTags/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAvailableResource/2020-04-01/ecs/get/', 'GET',
+            '/DescribeAvailableResource/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDeploymentSetSupportedInstanceTypeFamily/2020-04-01/ecs/get/', 'GET',
+            '/DescribeDeploymentSetSupportedInstanceTypeFamily/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDeploymentSets/2020-04-01/ecs/get/', 'GET',
+            '/DescribeDeploymentSets/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeImageSharePermission/2020-04-01/ecs/get/', 'GET',
+            '/DescribeImageSharePermission/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeImages/2020-04-01/ecs/get/', 'GET',
+            '/DescribeImages/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstanceECSTerminalUrl/2020-04-01/ecs/get/', 'GET',
+            '/DescribeInstanceECSTerminalUrl/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstanceTypeFamilies/2020-04-01/ecs/get/', 'GET',
+            '/DescribeInstanceTypeFamilies/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstanceTypes/2020-04-01/ecs/get/', 'GET',
+            '/DescribeInstanceTypes/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2152,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstanceVncUrl/2020-04-01/ecs/get/', 'GET',
+            '/DescribeInstanceVncUrl/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2249,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstances/2020-04-01/ecs/get/', 'GET',
+            '/DescribeInstances/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +2346,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstancesIamRoles/2020-04-01/ecs/get/', 'GET',
+            '/DescribeInstancesIamRoles/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +2443,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeKeyPairs/2020-04-01/ecs/get/', 'GET',
+            '/DescribeKeyPairs/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +2540,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeSubscriptions/2020-04-01/ecs/get/', 'GET',
+            '/DescribeSubscriptions/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2637,7 +2637,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeSystemEvents/2020-04-01/ecs/get/', 'GET',
+            '/DescribeSystemEvents/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2734,7 +2734,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTags/2020-04-01/ecs/get/', 'GET',
+            '/DescribeTags/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2831,7 +2831,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTasks/2020-04-01/ecs/get/', 'GET',
+            '/DescribeTasks/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2928,7 +2928,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeUserData/2020-04-01/ecs/get/', 'GET',
+            '/DescribeUserData/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3025,7 +3025,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeZones/2020-04-01/ecs/get/', 'GET',
+            '/DescribeZones/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3122,7 +3122,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DetachKeyPair/2020-04-01/ecs/get/', 'GET',
+            '/DetachKeyPair/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3219,7 +3219,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisassociateInstancesIamRole/2020-04-01/ecs/get/', 'GET',
+            '/DisassociateInstancesIamRole/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3316,7 +3316,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ExportImage/2020-04-01/ecs/get/', 'GET',
+            '/ExportImage/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3413,7 +3413,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GetConsoleOutput/2020-04-01/ecs/get/', 'GET',
+            '/GetConsoleOutput/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3510,7 +3510,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GetConsoleScreenshot/2020-04-01/ecs/get/', 'GET',
+            '/GetConsoleScreenshot/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3607,7 +3607,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ImportImage/2020-04-01/ecs/get/', 'GET',
+            '/ImportImage/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3704,7 +3704,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ImportKeyPair/2020-04-01/ecs/get/', 'GET',
+            '/ImportKeyPair/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3801,7 +3801,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDeploymentSetAttribute/2020-04-01/ecs/get/', 'GET',
+            '/ModifyDeploymentSetAttribute/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3898,7 +3898,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyImageAttribute/2020-04-01/ecs/get/', 'GET',
+            '/ModifyImageAttribute/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3995,7 +3995,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyImageSharePermission/2020-04-01/ecs/get/', 'GET',
+            '/ModifyImageSharePermission/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4092,7 +4092,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceAttribute/2020-04-01/ecs/get/', 'GET',
+            '/ModifyInstanceAttribute/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4189,7 +4189,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceChargeType/2020-04-01/ecs/get/', 'GET',
+            '/ModifyInstanceChargeType/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4286,7 +4286,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceDeployment/2020-04-01/ecs/get/', 'GET',
+            '/ModifyInstanceDeployment/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4383,7 +4383,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceSpec/2020-04-01/ecs/get/', 'GET',
+            '/ModifyInstanceSpec/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4480,7 +4480,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyKeyPairAttribute/2020-04-01/ecs/get/', 'GET',
+            '/ModifyKeyPairAttribute/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4577,7 +4577,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifySubscriptionEventTypes/2020-04-01/ecs/get/', 'GET',
+            '/ModifySubscriptionEventTypes/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4674,7 +4674,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RebootInstance/2020-04-01/ecs/get/', 'GET',
+            '/RebootInstance/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4771,7 +4771,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RebootInstances/2020-04-01/ecs/get/', 'GET',
+            '/RebootInstances/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4868,7 +4868,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RenewInstance/2020-04-01/ecs/get/', 'GET',
+            '/RenewInstance/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4965,7 +4965,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ReplaceSystemVolume/2020-04-01/ecs/get/', 'GET',
+            '/ReplaceSystemVolume/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5062,7 +5062,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RunInstances/2020-04-01/ecs/get/', 'GET',
+            '/RunInstances/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5159,7 +5159,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/StartInstance/2020-04-01/ecs/get/', 'GET',
+            '/StartInstance/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5256,7 +5256,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/StartInstances/2020-04-01/ecs/get/', 'GET',
+            '/StartInstances/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5353,7 +5353,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/StopInstance/2020-04-01/ecs/get/', 'GET',
+            '/StopInstance/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5450,7 +5450,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/StopInstances/2020-04-01/ecs/get/', 'GET',
+            '/StopInstances/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5547,7 +5547,7 @@ class ECSApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateSystemEvents/2020-04-01/ecs/get/', 'GET',
+            '/UpdateSystemEvents/2020-04-01/ecs/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,

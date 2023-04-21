@@ -115,7 +115,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AssociateCenBandwidthPackage/2020-04-01/cen/get/', 'GET',
+            '/AssociateCenBandwidthPackage/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AttachInstanceToCen/2020-04-01/cen/get/', 'GET',
+            '/AttachInstanceToCen/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateCen/2020-04-01/cen/get/', 'GET',
+            '/CreateCen/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateCenBandwidthPackage/2020-04-01/cen/get/', 'GET',
+            '/CreateCenBandwidthPackage/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateCenInterRegionBandwidth/2020-04-01/cen/get/', 'GET',
+            '/CreateCenInterRegionBandwidth/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateCenServiceRouteEntry/2020-04-01/cen/get/', 'GET',
+            '/CreateCenServiceRouteEntry/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateCenSummaryRouteEntry/2020-04-01/cen/get/', 'GET',
+            '/CreateCenSummaryRouteEntry/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteCen/2020-04-01/cen/get/', 'GET',
+            '/DeleteCen/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteCenBandwidthPackage/2020-04-01/cen/get/', 'GET',
+            '/DeleteCenBandwidthPackage/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteCenInterRegionBandwidth/2020-04-01/cen/get/', 'GET',
+            '/DeleteCenInterRegionBandwidth/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteCenSummaryRouteEntry/2020-04-01/cen/get/', 'GET',
+            '/DeleteCenSummaryRouteEntry/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenAttachedInstanceAttributes/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenAttachedInstanceAttributes/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenAttachedInstances/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenAttachedInstances/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenAttributes/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenAttributes/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenBandwidthPackageAttributes/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenBandwidthPackageAttributes/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenBandwidthPackages/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenBandwidthPackages/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenInterRegionBandwidthAttributes/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenInterRegionBandwidthAttributes/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenInterRegionBandwidths/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenInterRegionBandwidths/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenRouteEntries/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenRouteEntries/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCenSummaryRouteEntries/2020-04-01/cen/get/', 'GET',
+            '/DescribeCenSummaryRouteEntries/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCens/2020-04-01/cen/get/', 'GET',
+            '/DescribeCens/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2152,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeGrantRulesToCen/2020-04-01/cen/get/', 'GET',
+            '/DescribeGrantRulesToCen/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2249,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstanceGrantedRules/2020-04-01/cen/get/', 'GET',
+            '/DescribeInstanceGrantedRules/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +2346,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DetachInstanceFromCen/2020-04-01/cen/get/', 'GET',
+            '/DetachInstanceFromCen/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +2443,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisassociateCenBandwidthPackage/2020-04-01/cen/get/', 'GET',
+            '/DisassociateCenBandwidthPackage/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +2540,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GrantInstanceToCen/2020-04-01/cen/get/', 'GET',
+            '/GrantInstanceToCen/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2637,7 +2637,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListTagsForResources/2020-04-01/cen/get/', 'GET',
+            '/ListTagsForResources/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2734,7 +2734,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyCenAttributes/2020-04-01/cen/get/', 'GET',
+            '/ModifyCenAttributes/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2831,7 +2831,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyCenBandwidthPackageAttributes/2020-04-01/cen/get/', 'GET',
+            '/ModifyCenBandwidthPackageAttributes/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2928,7 +2928,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyCenInterRegionBandwidthAttributes/2020-04-01/cen/get/', 'GET',
+            '/ModifyCenInterRegionBandwidthAttributes/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3025,7 +3025,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RevokeInstanceFromCen/2020-04-01/cen/get/', 'GET',
+            '/RevokeInstanceFromCen/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3122,7 +3122,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/TagResources/2020-04-01/cen/get/', 'GET',
+            '/TagResources/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3219,7 +3219,7 @@ class CENApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UntagResources/2020-04-01/cen/get/', 'GET',
+            '/UntagResources/2020-04-01/cen/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,

@@ -34,6 +34,7 @@ class ImageForDescribeImagesOutput(object):
     """
     swagger_types = {
         'architecture': 'str',
+        'boot_mode': 'str',
         'created_at': 'str',
         'description': 'str',
         'image_id': 'str',
@@ -55,6 +56,7 @@ class ImageForDescribeImagesOutput(object):
 
     attribute_map = {
         'architecture': 'Architecture',
+        'boot_mode': 'BootMode',
         'created_at': 'CreatedAt',
         'description': 'Description',
         'image_id': 'ImageId',
@@ -74,13 +76,14 @@ class ImageForDescribeImagesOutput(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, created_at=None, description=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, status=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, status=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._architecture = None
+        self._boot_mode = None
         self._created_at = None
         self._description = None
         self._image_id = None
@@ -102,6 +105,8 @@ class ImageForDescribeImagesOutput(object):
 
         if architecture is not None:
             self.architecture = architecture
+        if boot_mode is not None:
+            self.boot_mode = boot_mode
         if created_at is not None:
             self.created_at = created_at
         if description is not None:
@@ -157,6 +162,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._architecture = architecture
+
+    @property
+    def boot_mode(self):
+        """Gets the boot_mode of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The boot_mode of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._boot_mode
+
+    @boot_mode.setter
+    def boot_mode(self, boot_mode):
+        """Sets the boot_mode of this ImageForDescribeImagesOutput.
+
+
+        :param boot_mode: The boot_mode of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._boot_mode = boot_mode
 
     @property
     def created_at(self):
