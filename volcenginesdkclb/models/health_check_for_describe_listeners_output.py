@@ -42,6 +42,7 @@ class HealthCheckForDescribeListenersOutput(object):
         'timeout': 'int',
         'udp_expect': 'str',
         'udp_request': 'str',
+        'un_healthy_threshold': 'int',
         'uri': 'str'
     }
 
@@ -55,10 +56,11 @@ class HealthCheckForDescribeListenersOutput(object):
         'timeout': 'Timeout',
         'udp_expect': 'UdpExpect',
         'udp_request': 'UdpRequest',
+        'un_healthy_threshold': 'UnHealthyThreshold',
         'uri': 'Uri'
     }
 
-    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, udp_expect=None, udp_request=None, uri=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, udp_expect=None, udp_request=None, un_healthy_threshold=None, uri=None, _configuration=None):  # noqa: E501
         """HealthCheckForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class HealthCheckForDescribeListenersOutput(object):
         self._timeout = None
         self._udp_expect = None
         self._udp_request = None
+        self._un_healthy_threshold = None
         self._uri = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class HealthCheckForDescribeListenersOutput(object):
             self.udp_expect = udp_expect
         if udp_request is not None:
             self.udp_request = udp_request
+        if un_healthy_threshold is not None:
+            self.un_healthy_threshold = un_healthy_threshold
         if uri is not None:
             self.uri = uri
 
@@ -285,6 +290,27 @@ class HealthCheckForDescribeListenersOutput(object):
         """
 
         self._udp_request = udp_request
+
+    @property
+    def un_healthy_threshold(self):
+        """Gets the un_healthy_threshold of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The un_healthy_threshold of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._un_healthy_threshold
+
+    @un_healthy_threshold.setter
+    def un_healthy_threshold(self, un_healthy_threshold):
+        """Sets the un_healthy_threshold of this HealthCheckForDescribeListenersOutput.
+
+
+        :param un_healthy_threshold: The un_healthy_threshold of this HealthCheckForDescribeListenersOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._un_healthy_threshold = un_healthy_threshold
 
     @property
     def uri(self):

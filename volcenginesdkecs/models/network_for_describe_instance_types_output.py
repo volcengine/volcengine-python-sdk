@@ -33,6 +33,7 @@ class NetworkForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'baseline_bandwidth_mbps': 'int',
         'maximum_bandwidth_mbps': 'int',
         'maximum_network_interfaces': 'int',
         'maximum_private_ipv4_addresses_per_network_interface': 'int',
@@ -41,6 +42,7 @@ class NetworkForDescribeInstanceTypesOutput(object):
     }
 
     attribute_map = {
+        'baseline_bandwidth_mbps': 'BaselineBandwidthMbps',
         'maximum_bandwidth_mbps': 'MaximumBandwidthMbps',
         'maximum_network_interfaces': 'MaximumNetworkInterfaces',
         'maximum_private_ipv4_addresses_per_network_interface': 'MaximumPrivateIpv4AddressesPerNetworkInterface',
@@ -48,12 +50,13 @@ class NetworkForDescribeInstanceTypesOutput(object):
         'maximum_throughput_kpps': 'MaximumThroughputKpps'
     }
 
-    def __init__(self, maximum_bandwidth_mbps=None, maximum_network_interfaces=None, maximum_private_ipv4_addresses_per_network_interface=None, maximum_queues_per_network_interface=None, maximum_throughput_kpps=None, _configuration=None):  # noqa: E501
+    def __init__(self, baseline_bandwidth_mbps=None, maximum_bandwidth_mbps=None, maximum_network_interfaces=None, maximum_private_ipv4_addresses_per_network_interface=None, maximum_queues_per_network_interface=None, maximum_throughput_kpps=None, _configuration=None):  # noqa: E501
         """NetworkForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._baseline_bandwidth_mbps = None
         self._maximum_bandwidth_mbps = None
         self._maximum_network_interfaces = None
         self._maximum_private_ipv4_addresses_per_network_interface = None
@@ -61,6 +64,8 @@ class NetworkForDescribeInstanceTypesOutput(object):
         self._maximum_throughput_kpps = None
         self.discriminator = None
 
+        if baseline_bandwidth_mbps is not None:
+            self.baseline_bandwidth_mbps = baseline_bandwidth_mbps
         if maximum_bandwidth_mbps is not None:
             self.maximum_bandwidth_mbps = maximum_bandwidth_mbps
         if maximum_network_interfaces is not None:
@@ -71,6 +76,27 @@ class NetworkForDescribeInstanceTypesOutput(object):
             self.maximum_queues_per_network_interface = maximum_queues_per_network_interface
         if maximum_throughput_kpps is not None:
             self.maximum_throughput_kpps = maximum_throughput_kpps
+
+    @property
+    def baseline_bandwidth_mbps(self):
+        """Gets the baseline_bandwidth_mbps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The baseline_bandwidth_mbps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._baseline_bandwidth_mbps
+
+    @baseline_bandwidth_mbps.setter
+    def baseline_bandwidth_mbps(self, baseline_bandwidth_mbps):
+        """Sets the baseline_bandwidth_mbps of this NetworkForDescribeInstanceTypesOutput.
+
+
+        :param baseline_bandwidth_mbps: The baseline_bandwidth_mbps of this NetworkForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._baseline_bandwidth_mbps = baseline_bandwidth_mbps
 
     @property
     def maximum_bandwidth_mbps(self):
