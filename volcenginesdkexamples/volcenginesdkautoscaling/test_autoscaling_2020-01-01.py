@@ -9,11 +9,12 @@ if __name__ == '__main__':
     configuration.ak = "AK"
     configuration.sk = "SK"
     configuration.region = "cn-beijing"
+    configuration.client_side_validation = True
 
     try:
         api_instance = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
         resp = api_instance.describe_scaling_groups(volcenginesdkautoscaling.DescribeScalingGroupsRequest(
-
+            _configuration=configuration
         ))
         pprint(resp)
     except ApiException as e:
