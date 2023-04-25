@@ -115,7 +115,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/createApplication/2021-06-01/spark/post/', 'POST',
+            '/createApplication/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/createProject/2021-06-01/spark/post/', 'POST',
+            '/createProject/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -227,38 +227,38 @@ class SPARKApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_resource_pool_one_step(self, body, **kwargs):  # noqa: E501
-        """create_resource_pool_one_step  # noqa: E501
+    def create_resource_pool(self, body, **kwargs):  # noqa: E501
+        """create_resource_pool  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_resource_pool_one_step(body, async_req=True)
+        >>> thread = api.create_resource_pool(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CreateResourcePoolOneStepRequest body: (required)
-        :return: CreateResourcePoolOneStepResponse
+        :param CreateResourcePoolRequest body: (required)
+        :return: CreateResourcePoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_resource_pool_one_step_with_http_info(body, **kwargs)  # noqa: E501
+            return self.create_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_resource_pool_one_step_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.create_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def create_resource_pool_one_step_with_http_info(self, body, **kwargs):  # noqa: E501
-        """create_resource_pool_one_step  # noqa: E501
+    def create_resource_pool_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_resource_pool  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_resource_pool_one_step_with_http_info(body, async_req=True)
+        >>> thread = api.create_resource_pool_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CreateResourcePoolOneStepRequest body: (required)
-        :return: CreateResourcePoolOneStepResponse
+        :param CreateResourcePoolRequest body: (required)
+        :return: CreateResourcePoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -274,14 +274,14 @@ class SPARKApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_resource_pool_one_step" % key
+                    " to method create_resource_pool" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `create_resource_pool_one_step`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_resource_pool`")  # noqa: E501
 
         collection_formats = {}
 
@@ -309,111 +309,14 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/createResourcePoolOneStep/2021-06-01/spark/post/', 'POST',
+            '/createResourcePool/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CreateResourcePoolOneStepResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete(self, body, **kwargs):  # noqa: E501
-        """delete  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteRequest body: (required)
-        :return: DeleteResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteRequest body: (required)
-        :return: DeleteResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/delete/2021-06-01/spark/post/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteResponse',  # noqa: E501
+            response_type='CreateResourcePoolResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -503,7 +406,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/deleteApplication/2021-06-01/spark/post/', 'POST',
+            '/deleteApplication/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -600,7 +503,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/deleteProject/2021-06-01/spark/post/', 'POST',
+            '/deleteProject/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -608,6 +511,103 @@ class SPARKApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeleteProjectResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_resource_pool(self, body, **kwargs):  # noqa: E501
+        """delete_resource_pool  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_resource_pool(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteResourcePoolRequest body: (required)
+        :return: DeleteResourcePoolResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_resource_pool_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_resource_pool  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_resource_pool_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteResourcePoolRequest body: (required)
+        :return: DeleteResourcePoolResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_resource_pool" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_resource_pool`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/deleteResourcePool/2021-06-01/spark/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteResourcePoolResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -697,7 +697,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/describeApplication/2021-06-01/spark/post/', 'POST',
+            '/describeApplication/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/describeApplicationInstance/2021-06-01/spark/post/', 'POST',
+            '/describeApplicationInstance/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/describeProject/2021-06-01/spark/post/', 'POST',
+            '/describeProject/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -906,38 +906,38 @@ class SPARKApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def detail(self, body, **kwargs):  # noqa: E501
-        """detail  # noqa: E501
+    def describe_resource_pool(self, body, **kwargs):  # noqa: E501
+        """describe_resource_pool  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.detail(body, async_req=True)
+        >>> thread = api.describe_resource_pool(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param DetailRequest body: (required)
-        :return: DetailResponse
+        :param DescribeResourcePoolRequest body: (required)
+        :return: DescribeResourcePoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.detail_with_http_info(body, **kwargs)  # noqa: E501
+            return self.describe_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.detail_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.describe_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def detail_with_http_info(self, body, **kwargs):  # noqa: E501
-        """detail  # noqa: E501
+    def describe_resource_pool_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_resource_pool  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.detail_with_http_info(body, async_req=True)
+        >>> thread = api.describe_resource_pool_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param DetailRequest body: (required)
-        :return: DetailResponse
+        :param DescribeResourcePoolRequest body: (required)
+        :return: DescribeResourcePoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -953,14 +953,14 @@ class SPARKApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method detail" % key
+                    " to method describe_resource_pool" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `detail`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_resource_pool`")  # noqa: E501
 
         collection_formats = {}
 
@@ -988,14 +988,14 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/detail/2021-06-01/spark/post/', 'POST',
+            '/describeResourcePool/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DetailResponse',  # noqa: E501
+            response_type='DescribeResourcePoolResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1003,38 +1003,38 @@ class SPARKApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def exit_resource_pool(self, body, **kwargs):  # noqa: E501
-        """exit_resource_pool  # noqa: E501
+    def exist_resource_pool(self, body, **kwargs):  # noqa: E501
+        """exist_resource_pool  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.exit_resource_pool(body, async_req=True)
+        >>> thread = api.exist_resource_pool(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ExitResourcePoolRequest body: (required)
-        :return: ExitResourcePoolResponse
+        :param ExistResourcePoolRequest body: (required)
+        :return: ExistResourcePoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.exit_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
+            return self.exist_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.exit_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.exist_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def exit_resource_pool_with_http_info(self, body, **kwargs):  # noqa: E501
-        """exit_resource_pool  # noqa: E501
+    def exist_resource_pool_with_http_info(self, body, **kwargs):  # noqa: E501
+        """exist_resource_pool  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.exit_resource_pool_with_http_info(body, async_req=True)
+        >>> thread = api.exist_resource_pool_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ExitResourcePoolRequest body: (required)
-        :return: ExitResourcePoolResponse
+        :param ExistResourcePoolRequest body: (required)
+        :return: ExistResourcePoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1050,14 +1050,14 @@ class SPARKApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method exit_resource_pool" % key
+                    " to method exist_resource_pool" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `exit_resource_pool`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `exist_resource_pool`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1085,14 +1085,14 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/exitResourcePool/2021-06-01/spark/post/', 'POST',
+            '/existResourcePool/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ExitResourcePoolResponse',  # noqa: E501
+            response_type='ExistResourcePoolResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1100,38 +1100,38 @@ class SPARKApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_application(self, body, **kwargs):  # noqa: E501
-        """get_application  # noqa: E501
+    def list_app_instance(self, body, **kwargs):  # noqa: E501
+        """list_app_instance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_application(body, async_req=True)
+        >>> thread = api.list_app_instance(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetApplicationRequest body: (required)
-        :return: GetApplicationResponse
+        :param ListAppInstanceRequest body: (required)
+        :return: ListAppInstanceResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_application_with_http_info(body, **kwargs)  # noqa: E501
+            return self.list_app_instance_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_application_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.list_app_instance_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def get_application_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_application  # noqa: E501
+    def list_app_instance_with_http_info(self, body, **kwargs):  # noqa: E501
+        """list_app_instance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_application_with_http_info(body, async_req=True)
+        >>> thread = api.list_app_instance_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetApplicationRequest body: (required)
-        :return: GetApplicationResponse
+        :param ListAppInstanceRequest body: (required)
+        :return: ListAppInstanceResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1147,14 +1147,14 @@ class SPARKApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_application" % key
+                    " to method list_app_instance" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_application`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `list_app_instance`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1182,14 +1182,14 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/getApplication/2021-06-01/spark/post/', 'POST',
+            '/listAppInstance/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetApplicationResponse',  # noqa: E501
+            response_type='ListAppInstanceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1197,38 +1197,38 @@ class SPARKApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self, body, **kwargs):  # noqa: E501
-        """list  # noqa: E501
+    def list_application(self, body, **kwargs):  # noqa: E501
+        """list_application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(body, async_req=True)
+        >>> thread = api.list_application(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ListRequest body: (required)
-        :return: ListResponse
+        :param ListApplicationRequest body: (required)
+        :return: ListApplicationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.list_with_http_info(body, **kwargs)  # noqa: E501
+            return self.list_application_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.list_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.list_application_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def list_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list  # noqa: E501
+    def list_application_with_http_info(self, body, **kwargs):  # noqa: E501
+        """list_application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(body, async_req=True)
+        >>> thread = api.list_application_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ListRequest body: (required)
-        :return: ListResponse
+        :param ListApplicationRequest body: (required)
+        :return: ListApplicationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1244,14 +1244,14 @@ class SPARKApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list" % key
+                    " to method list_application" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `list_application`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1279,14 +1279,14 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/list/2021-06-01/spark/post/', 'POST',
+            '/listApplication/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ListResponse',  # noqa: E501
+            response_type='ListApplicationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1376,7 +1376,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/listApplicationHistory/2021-06-01/spark/post/', 'POST',
+            '/listApplicationHistory/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1384,103 +1384,6 @@ class SPARKApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ListApplicationHistoryResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_application_instance(self, body, **kwargs):  # noqa: E501
-        """list_application_instance  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_application_instance(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListApplicationInstanceRequest body: (required)
-        :return: ListApplicationInstanceResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_application_instance_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_application_instance_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_application_instance_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_application_instance  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_application_instance_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListApplicationInstanceRequest body: (required)
-        :return: ListApplicationInstanceResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_application_instance" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_application_instance`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/listApplicationInstance/2021-06-01/spark/post/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListApplicationInstanceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1570,7 +1473,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/listProject/2021-06-01/spark/post/', 'POST',
+            '/listProject/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1585,38 +1488,38 @@ class SPARKApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_zone(self, **kwargs):  # noqa: E501
-        """list_zone  # noqa: E501
+    def list_resource_pool(self, body, **kwargs):  # noqa: E501
+        """list_resource_pool  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_zone(async_req=True)
+        >>> thread = api.list_resource_pool(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param  body:
-        :return: 
+        :param ListResourcePoolRequest body: (required)
+        :return: ListResourcePoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.list_zone_with_http_info(**kwargs)  # noqa: E501
+            return self.list_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.list_zone_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.list_resource_pool_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def list_zone_with_http_info(self, **kwargs):  # noqa: E501
-        """list_zone  # noqa: E501
+    def list_resource_pool_with_http_info(self, body, **kwargs):  # noqa: E501
+        """list_resource_pool  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_zone_with_http_info(async_req=True)
+        >>> thread = api.list_resource_pool_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param  body:
-        :return: 
+        :param ListResourcePoolRequest body: (required)
+        :return: ListResourcePoolResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1632,10 +1535,14 @@ class SPARKApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_zone" % key
+                    " to method list_resource_pool" % key
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `list_resource_pool`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1657,13 +1564,110 @@ class SPARKApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded', 'text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/listZone/2021-06-01/spark/post/', 'POST',
+            '/listResourcePool/2021-06-01/spark/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ListResourcePoolResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_zone(self, body, **kwargs):  # noqa: E501
+        """list_zone  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_zone(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param  body: (required)
+        :return: 
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.list_zone_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.list_zone_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def list_zone_with_http_info(self, body, **kwargs):  # noqa: E501
+        """list_zone  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_zone_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param  body: (required)
+        :return: 
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_zone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `list_zone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/x-www-form-urlencoded'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/listZone/2021-06-01/spark/post/application_x-www-form-urlencoded/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1671,6 +1675,103 @@ class SPARKApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_application(self, body, **kwargs):  # noqa: E501
+        """modify_application  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_application(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyApplicationRequest body: (required)
+        :return: ModifyApplicationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_application_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_application_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_application_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_application  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_application_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyApplicationRequest body: (required)
+        :return: ModifyApplicationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_application" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_application`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/modifyApplication/2021-06-01/spark/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyApplicationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1760,7 +1861,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/startApplication/2021-06-01/spark/post/', 'POST',
+            '/startApplication/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1857,7 +1958,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/stopApplication/2021-06-01/spark/post/', 'POST',
+            '/stopApplication/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1865,103 +1966,6 @@ class SPARKApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='StopApplicationResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_application(self, body, **kwargs):  # noqa: E501
-        """update_application  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_application(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateApplicationRequest body: (required)
-        :return: UpdateApplicationResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_application_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_application_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def update_application_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_application  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_application_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateApplicationRequest body: (required)
-        :return: UpdateApplicationResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_application" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_application`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/updateApplication/2021-06-01/spark/post/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UpdateApplicationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2051,7 +2055,7 @@ class SPARKApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/updateProject/2021-06-01/spark/post/', 'POST',
+            '/updateProject/2021-06-01/spark/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
