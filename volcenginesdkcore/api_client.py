@@ -656,6 +656,7 @@ class ApiClient(object):
                     value = data[klass.attribute_map[attr]]
                     kwargs[attr] = self.__deserialize(value, attr_type, service)
 
+        kwargs['_configuration'] = self.configuration
         instance = klass(**kwargs)
 
         if (isinstance(instance, dict) and
