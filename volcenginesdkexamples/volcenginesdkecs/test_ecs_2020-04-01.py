@@ -13,8 +13,12 @@ if __name__ == '__main__':
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
+    # use global default configuration
+    api_instance = volcenginesdkecs.ECSApi()
+    # use custom configuration
+    # api_instance = volcenginesdkecs.ECSApi(volcenginesdkcore.ApiClient(configuration))
+
     try:
-        api_instance = volcenginesdkecs.ECSApi()
         resp = api_instance.run_instances(
             volcenginesdkecs.RunInstancesRequest(
                 instance_name="insname",

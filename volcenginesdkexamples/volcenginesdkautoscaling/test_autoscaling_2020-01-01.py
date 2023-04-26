@@ -13,8 +13,9 @@ if __name__ == '__main__':
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
+    api_instance = volcenginesdkautoscaling.AUTOSCALINGApi()
+
     try:
-        api_instance = volcenginesdkautoscaling.AUTOSCALINGApi()
         resp = api_instance.describe_scaling_groups(volcenginesdkautoscaling.DescribeScalingGroupsRequest(
             _configuration=configuration
         ))
