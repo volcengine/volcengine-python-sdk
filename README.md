@@ -25,7 +25,7 @@ python setup.py install --user
 
 (or `sudo python setup.py install` to install the package for all users)
 
-### Usage ###
+### Basic Usage ###
 
 ```python
 from __future__ import print_function
@@ -64,4 +64,26 @@ if __name__ == '__main__':
     except ApiException as e:
         print("Exception when calling ECSApi->run_instances: %s\n" % e)
 
+```
+### Configuration Usage ###
+步骤一：启动时初始化，配置 Configuration 全局默认参数
+```python
+configuration = volcenginesdkcore.Configuration()
+configuration.client_side_validation = True  # 客户端是否进行参数校验
+configuration.schema = "http"  # https or http
+configuration.debug = False  # 是否开启调试
+configuration.logger_file = "sdk.log"
+
+volcenginesdkcore.Configuration.set_default(configuration)
+```
+步骤二：获取 Client
+```python
+def get_client(ak, sk, region):
+    # 包含默认属性
+    configuration = volcenginesdkcore.Configuration()
+    configuration.ak = ak
+    configuration.sk = sk
+    configuration.region = region
+    client = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
+    return client
 ```
