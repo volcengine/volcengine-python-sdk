@@ -29,7 +29,7 @@ python setup.py install --user
 
 ```python
 from __future__ import print_function
-import volcenginesdkautoscaling
+import volcenginesdkecs
 import volcenginesdkcore
 from pprint import pprint
 from volcenginesdkcore.rest import ApiException
@@ -42,12 +42,26 @@ if __name__ == '__main__':
     configuration.client_side_validation = True
 
     try:
-        api_instance = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
-        resp = api_instance.describe_scaling_groups(volcenginesdkautoscaling.DescribeScalingGroupsRequest(
-            _configuration=configuration
-        ))
+        api_instance = volcenginesdkecs.ECSApi(volcenginesdkcore.ApiClient(configuration))
+        resp = api_instance.run_instances(
+            volcenginesdkecs.RunInstancesRequest(
+                instance_name="insname",
+                instance_type="ecs.g1.large",
+                zone_id="cn-beijing-a",
+                network_interfaces=[volcenginesdkecs.NetworkInterfaceForRunInstancesInput(
+                    subnet_id="subnet-2d68bh73d858ozfekrm8fj",
+                    security_group_ids=["sg-2b3dq7v0ha0w2dx0eg0nhljv"],
+                )],
+                image_id="image-ybvz29l3da4ox5h0m9",
+                volumes=[volcenginesdkecs.VolumeForRunInstancesInput(
+                    volume_type="ESSD",
+                    size=40,
+                )],
+                key_pair_name="vtable",
+                instance_charge_type="PostPaid"
+            ))
         pprint(resp)
     except ApiException as e:
-        print("Exception when calling AUTOSCALINGApi->describe_scaling_groups: %s\n" % e)
+        print("Exception when calling ECSApi->run_instances: %s\n" % e)
 
 ```
