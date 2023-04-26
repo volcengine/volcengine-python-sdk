@@ -10,9 +10,11 @@ if __name__ == '__main__':
     configuration.sk = "SK"
     configuration.region = "cn-beijing"
     configuration.client_side_validation = True
+    # set default configuration
+    volcenginesdkcore.Configuration.set_default(configuration)
 
     try:
-        api_instance = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
+        api_instance = volcenginesdkautoscaling.AUTOSCALINGApi()
         resp = api_instance.describe_scaling_groups(volcenginesdkautoscaling.DescribeScalingGroupsRequest(
             _configuration=configuration
         ))

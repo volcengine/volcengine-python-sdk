@@ -10,9 +10,11 @@ if __name__ == '__main__':
     configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     configuration.client_side_validation = True
+    # set default configuration
+    volcenginesdkcore.Configuration.set_default(configuration)
 
     try:
-        api_instance = volcenginesdkecs.ECSApi(volcenginesdkcore.ApiClient(configuration))
+        api_instance = volcenginesdkecs.ECSApi()
         resp = api_instance.run_instances(
             volcenginesdkecs.RunInstancesRequest(
                 instance_name="insname",
