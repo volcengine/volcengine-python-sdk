@@ -2,22 +2,18 @@ from __future__ import print_function
 import volcenginesdkcore
 import volcenginesdkvpc
 from pprint import pprint
-from volcenginesdkcore.rest import ApiException
-
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.host = "XX"
-    configuration.ak = "XX"
-    configuration.sk = "XX"
-    configuration.region = "XX"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
+    configuration.region = "cn-beijing"
+    # set default configuration
+    volcenginesdkcore.Configuration.set_default(configuration)
 
-    try:
-        # create an instance of the API class
-        api_instance = volcenginesdkvpc.VPCApi(volcenginesdkcore.ApiClient(configuration))
-        body = volcenginesdkvpc.DescribeEipAddressesRequest(
-            allocation_ids=["eip-2feuho4efrbb45oxruvmm1w86", "eip-1g0vtlyo1huyo8ibuxx2zmjaw"])
-        api_response = api_instance.describe_eip_addresses(body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when call VPCApi:DescribeEipAddresses: %s\n" % e)
+    # create an instance of the API class
+    api_instance = volcenginesdkvpc.VPCApi()
+    body = volcenginesdkvpc.DescribeEipAddressesRequest(
+        allocation_ids=["eip-2feuho4efrbb45om1w86", "eip-1g0vtlyo1huyox2zmjaw"])
+    api_response = api_instance.describe_eip_addresses(body)
+    pprint(api_response)
