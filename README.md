@@ -5,6 +5,7 @@
 * Requirements
 * Install
 * Usage
+* FAQ
 
 ### Requirements ###
 
@@ -93,3 +94,5 @@ def get_client(ak, sk, region):
     client = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
     return client
 ```
+### FAQ ###
+关于 SDK 使用时碰到的常见问题，请查看 [FAQ](FAQ.md)
