@@ -6,15 +6,18 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.host = "xx-xx-xx.xx.org"
-    configuration.ak = "xx"
-    configuration.sk = "xx=="
-    configuration.region = "xx"
+    configuration.ak = "AK"
+    configuration.sk = "SK"
+    configuration.region = "cn-beijing"
+    configuration.client_side_validation = True
+    # set default configuration
+    volcenginesdkcore.Configuration.set_default(configuration)
+
+    api_instance = volcenginesdkautoscaling.AUTOSCALINGApi()
 
     try:
-        api_instance = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
         resp = api_instance.describe_scaling_groups(volcenginesdkautoscaling.DescribeScalingGroupsRequest(
-
+            _configuration=configuration
         ))
         pprint(resp)
     except ApiException as e:
