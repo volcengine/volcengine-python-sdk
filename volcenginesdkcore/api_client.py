@@ -8,6 +8,7 @@ import mimetypes
 from multiprocessing.pool import ThreadPool
 import os
 import re
+import sys
 import tempfile
 
 # python 2 and python 3 compatibility library
@@ -303,8 +304,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                # black box for dynamic get models type
-                klass = getattr(__import__(service + ".models"), klass)
+                klass = getattr(sys.modules[service + ".models"], klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
