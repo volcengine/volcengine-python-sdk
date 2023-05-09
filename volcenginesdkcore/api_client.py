@@ -5,6 +5,7 @@ from __future__ import absolute_import
 import datetime
 import json
 import mimetypes
+import sys
 from multiprocessing.pool import ThreadPool
 import os
 import re
@@ -303,8 +304,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                # black box for dynamic get models type
-                klass = getattr(__import__(service + ".models"), klass)
+                klass = getattr(sys.modules[service + ".models"], klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
