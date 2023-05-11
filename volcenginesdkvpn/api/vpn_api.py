@@ -115,7 +115,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateCustomerGateway/2020-04-01/vpn/get/', 'GET',
+            '/CreateCustomerGateway/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateVpnConnection/2020-04-01/vpn/get/', 'GET',
+            '/CreateVpnConnection/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateVpnGateway/2020-04-01/vpn/get/', 'GET',
+            '/CreateVpnGateway/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateVpnGatewayRoute/2020-04-01/vpn/get/', 'GET',
+            '/CreateVpnGatewayRoute/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteCustomerGateway/2020-04-01/vpn/get/', 'GET',
+            '/DeleteCustomerGateway/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteVpnConnection/2020-04-01/vpn/get/', 'GET',
+            '/DeleteVpnConnection/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteVpnGateway/2020-04-01/vpn/get/', 'GET',
+            '/DeleteVpnGateway/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteVpnGatewayRoute/2020-04-01/vpn/get/', 'GET',
+            '/DeleteVpnGatewayRoute/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCustomerGatewayAttributes/2020-04-01/vpn/get/', 'GET',
+            '/DescribeCustomerGatewayAttributes/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCustomerGateways/2020-04-01/vpn/get/', 'GET',
+            '/DescribeCustomerGateways/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeVpnConnectionAttributes/2020-04-01/vpn/get/', 'GET',
+            '/DescribeVpnConnectionAttributes/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeVpnConnections/2020-04-01/vpn/get/', 'GET',
+            '/DescribeVpnConnections/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeVpnGatewayAttributes/2020-04-01/vpn/get/', 'GET',
+            '/DescribeVpnGatewayAttributes/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeVpnGatewayRouteAttributes/2020-04-01/vpn/get/', 'GET',
+            '/DescribeVpnGatewayRouteAttributes/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeVpnGatewayRoutes/2020-04-01/vpn/get/', 'GET',
+            '/DescribeVpnGatewayRoutes/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeVpnGateways/2020-04-01/vpn/get/', 'GET',
+            '/DescribeVpnGateways/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeVpnGatewaysBilling/2020-04-01/vpn/get/', 'GET',
+            '/DescribeVpnGatewaysBilling/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyCustomerGatewayAttributes/2020-04-01/vpn/get/', 'GET',
+            '/ModifyCustomerGatewayAttributes/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyVpnConnectionAttributes/2020-04-01/vpn/get/', 'GET',
+            '/ModifyVpnConnectionAttributes/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyVpnGatewayAttributes/2020-04-01/vpn/get/', 'GET',
+            '/ModifyVpnGatewayAttributes/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RenewVpnGateway/2020-04-01/vpn/get/', 'GET',
+            '/RenewVpnGateway/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2152,7 @@ class VPNApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/SetVpnGatewayRenewal/2020-04-01/vpn/get/', 'GET',
+            '/SetVpnGatewayRenewal/2020-04-01/vpn/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
