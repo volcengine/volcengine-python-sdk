@@ -37,6 +37,7 @@ class ItemForListRepositoriesOutput(object):
         'create_time': 'str',
         'description': 'str',
         'name': 'str',
+        'namespace': 'str',
         'update_time': 'str'
     }
 
@@ -45,10 +46,11 @@ class ItemForListRepositoriesOutput(object):
         'create_time': 'CreateTime',
         'description': 'Description',
         'name': 'Name',
+        'namespace': 'Namespace',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, access_level=None, create_time=None, description=None, name=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_level=None, create_time=None, description=None, name=None, namespace=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListRepositoriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class ItemForListRepositoriesOutput(object):
         self._create_time = None
         self._description = None
         self._name = None
+        self._namespace = None
         self._update_time = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class ItemForListRepositoriesOutput(object):
             self.description = description
         if name is not None:
             self.name = name
+        if namespace is not None:
+            self.namespace = namespace
         if update_time is not None:
             self.update_time = update_time
 
@@ -155,6 +160,27 @@ class ItemForListRepositoriesOutput(object):
         """
 
         self._name = name
+
+    @property
+    def namespace(self):
+        """Gets the namespace of this ItemForListRepositoriesOutput.  # noqa: E501
+
+
+        :return: The namespace of this ItemForListRepositoriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._namespace
+
+    @namespace.setter
+    def namespace(self, namespace):
+        """Sets the namespace of this ItemForListRepositoriesOutput.
+
+
+        :param namespace: The namespace of this ItemForListRepositoriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._namespace = namespace
 
     @property
     def update_time(self):
