@@ -115,7 +115,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateBgpPeer/2020-04-01/directconnect/get/', 'GET',
+            '/CreateBgpPeer/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDirectConnectConnection/2020-04-01/directconnect/get/', 'GET',
+            '/CreateDirectConnectConnection/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDirectConnectConnectionOrder/2020-04-01/directconnect/get/', 'GET',
+            '/CreateDirectConnectConnectionOrder/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDirectConnectGateway/2020-04-01/directconnect/get/', 'GET',
+            '/CreateDirectConnectGateway/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDirectConnectGatewayRoute/2020-04-01/directconnect/get/', 'GET',
+            '/CreateDirectConnectGatewayRoute/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDirectConnectVirtualInterface/2020-04-01/directconnect/get/', 'GET',
+            '/CreateDirectConnectVirtualInterface/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteBgpPeer/2020-04-01/directconnect/get/', 'GET',
+            '/DeleteBgpPeer/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDirectConnectConnection/2020-04-01/directconnect/get/', 'GET',
+            '/DeleteDirectConnectConnection/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDirectConnectGateway/2020-04-01/directconnect/get/', 'GET',
+            '/DeleteDirectConnectGateway/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDirectConnectGatewayRoute/2020-04-01/directconnect/get/', 'GET',
+            '/DeleteDirectConnectGatewayRoute/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDirectConnectVirtualInterface/2020-04-01/directconnect/get/', 'GET',
+            '/DeleteDirectConnectVirtualInterface/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeBgpPeerAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeBgpPeerAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeBgpPeers/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeBgpPeers/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectAccessPoints/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectAccessPoints/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectConnectionAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectConnectionAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectConnections/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectConnections/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectGatewayAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectGatewayAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectGatewayRouteAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectGatewayRouteAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectGatewayRoutes/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectGatewayRoutes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectGateways/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectGateways/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectVirtualInterfaceAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectVirtualInterfaceAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2152,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDirectConnectVirtualInterfaces/2020-04-01/directconnect/get/', 'GET',
+            '/DescribeDirectConnectVirtualInterfaces/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2249,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyBgpPeerAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/ModifyBgpPeerAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +2346,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDirectConnectConnectionAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/ModifyDirectConnectConnectionAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +2443,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDirectConnectGatewayAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/ModifyDirectConnectGatewayAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +2540,7 @@ class DIRECTCONNECTApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDirectConnectVirtualInterfaceAttributes/2020-04-01/directconnect/get/', 'GET',
+            '/ModifyDirectConnectVirtualInterfaceAttributes/2020-04-01/directconnect/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
