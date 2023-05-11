@@ -115,7 +115,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateNamespace/022-05-12/cr/post/application_json/', 'POST',
+            '/CreateNamespace/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateRegistry/022-05-12/cr/post/application_json/', 'POST',
+            '/CreateRegistry/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateRepository/022-05-12/cr/post/application_json/', 'POST',
+            '/CreateRepository/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteNamespace/022-05-12/cr/post/application_json/', 'POST',
+            '/DeleteNamespace/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteRegistry/022-05-12/cr/post/application_json/', 'POST',
+            '/DeleteRegistry/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteRepository/022-05-12/cr/post/application_json/', 'POST',
+            '/DeleteRepository/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteTags/022-05-12/cr/post/application_json/', 'POST',
+            '/DeleteTags/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GetAuthorizationToken/022-05-12/cr/post/application_json/', 'POST',
+            '/GetAuthorizationToken/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GetPublicEndpoint/022-05-12/cr/post/application_json/', 'POST',
+            '/GetPublicEndpoint/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GetUser/022-05-12/cr/post/application_json/', 'POST',
+            '/GetUser/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GetVpcEndpoint/022-05-12/cr/post/application_json/', 'POST',
+            '/GetVpcEndpoint/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListDomains/022-05-12/cr/post/application_json/', 'POST',
+            '/ListDomains/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListNamespaces/022-05-12/cr/post/application_json/', 'POST',
+            '/ListNamespaces/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListRegistries/022-05-12/cr/post/application_json/', 'POST',
+            '/ListRegistries/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListRepositories/022-05-12/cr/post/application_json/', 'POST',
+            '/ListRepositories/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListTags/022-05-12/cr/post/application_json/', 'POST',
+            '/ListTags/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/SetUser/022-05-12/cr/post/application_json/', 'POST',
+            '/SetUser/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/StartRegistry/022-05-12/cr/post/application_json/', 'POST',
+            '/StartRegistry/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdatePublicEndpoint/022-05-12/cr/post/application_json/', 'POST',
+            '/UpdatePublicEndpoint/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateRepository/022-05-12/cr/post/application_json/', 'POST',
+            '/UpdateRepository/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class CRApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateVpcEndpoint/022-05-12/cr/post/application_json/', 'POST',
+            '/UpdateVpcEndpoint/2022-05-12/cr/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
