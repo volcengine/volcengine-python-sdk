@@ -37,7 +37,8 @@ class AutoScalingForListNodePoolsOutput(object):
         'enabled': 'bool',
         'max_replicas': 'int',
         'min_replicas': 'int',
-        'priority': 'int'
+        'priority': 'int',
+        'subnet_policy': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class AutoScalingForListNodePoolsOutput(object):
         'enabled': 'Enabled',
         'max_replicas': 'MaxReplicas',
         'min_replicas': 'MinReplicas',
-        'priority': 'Priority'
+        'priority': 'Priority',
+        'subnet_policy': 'SubnetPolicy'
     }
 
-    def __init__(self, desired_replicas=None, enabled=None, max_replicas=None, min_replicas=None, priority=None, _configuration=None):  # noqa: E501
+    def __init__(self, desired_replicas=None, enabled=None, max_replicas=None, min_replicas=None, priority=None, subnet_policy=None, _configuration=None):  # noqa: E501
         """AutoScalingForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class AutoScalingForListNodePoolsOutput(object):
         self._max_replicas = None
         self._min_replicas = None
         self._priority = None
+        self._subnet_policy = None
         self.discriminator = None
 
         if desired_replicas is not None:
@@ -71,6 +74,8 @@ class AutoScalingForListNodePoolsOutput(object):
             self.min_replicas = min_replicas
         if priority is not None:
             self.priority = priority
+        if subnet_policy is not None:
+            self.subnet_policy = subnet_policy
 
     @property
     def desired_replicas(self):
@@ -176,6 +181,27 @@ class AutoScalingForListNodePoolsOutput(object):
         """
 
         self._priority = priority
+
+    @property
+    def subnet_policy(self):
+        """Gets the subnet_policy of this AutoScalingForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The subnet_policy of this AutoScalingForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_policy
+
+    @subnet_policy.setter
+    def subnet_policy(self, subnet_policy):
+        """Sets the subnet_policy of this AutoScalingForListNodePoolsOutput.
+
+
+        :param subnet_policy: The subnet_policy of this AutoScalingForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_policy = subnet_policy
 
     def to_dict(self):
         """Returns the model properties as a dict"""

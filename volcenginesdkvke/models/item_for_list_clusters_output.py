@@ -41,6 +41,7 @@ class ItemForListClustersOutput(object):
         'description': 'str',
         'id': 'str',
         'kubernetes_version': 'str',
+        'logging_config': 'LoggingConfigForListClustersOutput',
         'name': 'str',
         'node_statistics': 'NodeStatisticsForListClustersOutput',
         'pods_config': 'PodsConfigForListClustersOutput',
@@ -60,6 +61,7 @@ class ItemForListClustersOutput(object):
         'description': 'Description',
         'id': 'Id',
         'kubernetes_version': 'KubernetesVersion',
+        'logging_config': 'LoggingConfig',
         'name': 'Name',
         'node_statistics': 'NodeStatistics',
         'pods_config': 'PodsConfig',
@@ -70,7 +72,7 @@ class ItemForListClustersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, charge_type=None, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, name=None, node_statistics=None, pods_config=None, services_config=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, name=None, node_statistics=None, pods_config=None, services_config=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +86,7 @@ class ItemForListClustersOutput(object):
         self._description = None
         self._id = None
         self._kubernetes_version = None
+        self._logging_config = None
         self._name = None
         self._node_statistics = None
         self._pods_config = None
@@ -110,6 +113,8 @@ class ItemForListClustersOutput(object):
             self.id = id
         if kubernetes_version is not None:
             self.kubernetes_version = kubernetes_version
+        if logging_config is not None:
+            self.logging_config = logging_config
         if name is not None:
             self.name = name
         if node_statistics is not None:
@@ -294,6 +299,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._kubernetes_version = kubernetes_version
+
+    @property
+    def logging_config(self):
+        """Gets the logging_config of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The logging_config of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: LoggingConfigForListClustersOutput
+        """
+        return self._logging_config
+
+    @logging_config.setter
+    def logging_config(self, logging_config):
+        """Sets the logging_config of this ItemForListClustersOutput.
+
+
+        :param logging_config: The logging_config of this ItemForListClustersOutput.  # noqa: E501
+        :type: LoggingConfigForListClustersOutput
+        """
+
+        self._logging_config = logging_config
 
     @property
     def name(self):
