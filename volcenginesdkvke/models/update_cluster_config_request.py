@@ -38,7 +38,9 @@ class UpdateClusterConfigRequest(object):
         'delete_protection_enabled': 'bool',
         'description': 'str',
         'id': 'str',
-        'name': 'str'
+        'logging_config': 'LoggingConfigForUpdateClusterConfigInput',
+        'name': 'str',
+        'pods_config': 'PodsConfigForUpdateClusterConfigInput'
     }
 
     attribute_map = {
@@ -47,10 +49,12 @@ class UpdateClusterConfigRequest(object):
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
         'id': 'Id',
-        'name': 'Name'
+        'logging_config': 'LoggingConfig',
+        'name': 'Name',
+        'pods_config': 'PodsConfig'
     }
 
-    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, id=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, id=None, logging_config=None, name=None, pods_config=None, _configuration=None):  # noqa: E501
         """UpdateClusterConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +65,9 @@ class UpdateClusterConfigRequest(object):
         self._delete_protection_enabled = None
         self._description = None
         self._id = None
+        self._logging_config = None
         self._name = None
+        self._pods_config = None
         self.discriminator = None
 
         if client_token is not None:
@@ -74,8 +80,12 @@ class UpdateClusterConfigRequest(object):
             self.description = description
         if id is not None:
             self.id = id
+        if logging_config is not None:
+            self.logging_config = logging_config
         if name is not None:
             self.name = name
+        if pods_config is not None:
+            self.pods_config = pods_config
 
     @property
     def client_token(self):
@@ -183,6 +193,27 @@ class UpdateClusterConfigRequest(object):
         self._id = id
 
     @property
+    def logging_config(self):
+        """Gets the logging_config of this UpdateClusterConfigRequest.  # noqa: E501
+
+
+        :return: The logging_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :rtype: LoggingConfigForUpdateClusterConfigInput
+        """
+        return self._logging_config
+
+    @logging_config.setter
+    def logging_config(self, logging_config):
+        """Sets the logging_config of this UpdateClusterConfigRequest.
+
+
+        :param logging_config: The logging_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :type: LoggingConfigForUpdateClusterConfigInput
+        """
+
+        self._logging_config = logging_config
+
+    @property
     def name(self):
         """Gets the name of this UpdateClusterConfigRequest.  # noqa: E501
 
@@ -202,6 +233,27 @@ class UpdateClusterConfigRequest(object):
         """
 
         self._name = name
+
+    @property
+    def pods_config(self):
+        """Gets the pods_config of this UpdateClusterConfigRequest.  # noqa: E501
+
+
+        :return: The pods_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :rtype: PodsConfigForUpdateClusterConfigInput
+        """
+        return self._pods_config
+
+    @pods_config.setter
+    def pods_config(self, pods_config):
+        """Sets the pods_config of this UpdateClusterConfigRequest.
+
+
+        :param pods_config: The pods_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :type: PodsConfigForUpdateClusterConfigInput
+        """
+
+        self._pods_config = pods_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

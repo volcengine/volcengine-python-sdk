@@ -38,6 +38,7 @@ class CreateClusterRequest(object):
         'delete_protection_enabled': 'bool',
         'description': 'str',
         'kubernetes_version': 'str',
+        'logging_config': 'LoggingConfigForCreateClusterInput',
         'name': 'str',
         'pods_config': 'PodsConfigForCreateClusterInput',
         'services_config': 'ServicesConfigForCreateClusterInput',
@@ -50,13 +51,14 @@ class CreateClusterRequest(object):
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
         'kubernetes_version': 'KubernetesVersion',
+        'logging_config': 'LoggingConfig',
         'name': 'Name',
         'pods_config': 'PodsConfig',
         'services_config': 'ServicesConfig',
         'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, kubernetes_version=None, name=None, pods_config=None, services_config=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, kubernetes_version=None, logging_config=None, name=None, pods_config=None, services_config=None, tags=None, _configuration=None):  # noqa: E501
         """CreateClusterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class CreateClusterRequest(object):
         self._delete_protection_enabled = None
         self._description = None
         self._kubernetes_version = None
+        self._logging_config = None
         self._name = None
         self._pods_config = None
         self._services_config = None
@@ -83,6 +86,8 @@ class CreateClusterRequest(object):
             self.description = description
         if kubernetes_version is not None:
             self.kubernetes_version = kubernetes_version
+        if logging_config is not None:
+            self.logging_config = logging_config
         if name is not None:
             self.name = name
         if pods_config is not None:
@@ -196,6 +201,27 @@ class CreateClusterRequest(object):
         """
 
         self._kubernetes_version = kubernetes_version
+
+    @property
+    def logging_config(self):
+        """Gets the logging_config of this CreateClusterRequest.  # noqa: E501
+
+
+        :return: The logging_config of this CreateClusterRequest.  # noqa: E501
+        :rtype: LoggingConfigForCreateClusterInput
+        """
+        return self._logging_config
+
+    @logging_config.setter
+    def logging_config(self, logging_config):
+        """Sets the logging_config of this CreateClusterRequest.
+
+
+        :param logging_config: The logging_config of this CreateClusterRequest.  # noqa: E501
+        :type: LoggingConfigForCreateClusterInput
+        """
+
+        self._logging_config = logging_config
 
     @property
     def name(self):

@@ -115,7 +115,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateAddon/2022-05-12/vke/post/', 'POST',
+            '/CreateAddon/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateCluster/2022-05-12/vke/post/', 'POST',
+            '/CreateCluster/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDefaultNodePool/2022-05-12/vke/post/', 'POST',
+            '/CreateDefaultNodePool/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateKubeconfig/2022-05-12/vke/post/', 'POST',
+            '/CreateKubeconfig/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateNodePool/2022-05-12/vke/post/', 'POST',
+            '/CreateNodePool/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateNodes/2022-05-12/vke/post/', 'POST',
+            '/CreateNodes/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteAddon/2022-05-12/vke/post/', 'POST',
+            '/DeleteAddon/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteCluster/2022-05-12/vke/post/', 'POST',
+            '/DeleteCluster/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteKubeconfigs/2022-05-12/vke/post/', 'POST',
+            '/DeleteKubeconfigs/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteNodePool/2022-05-12/vke/post/', 'POST',
+            '/DeleteNodePool/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteNodes/2022-05-12/vke/post/', 'POST',
+            '/DeleteNodes/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ForwardKubernetesApi/2022-05-12/vke/post/', 'POST',
+            '/ForwardKubernetesApi/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListAddons/2022-05-12/vke/post/', 'POST',
+            '/ListAddons/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListClusters/2022-05-12/vke/post/', 'POST',
+            '/ListClusters/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListKubeconfigs/2022-05-12/vke/post/', 'POST',
+            '/ListKubeconfigs/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListNodePools/2022-05-12/vke/post/', 'POST',
+            '/ListNodePools/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListNodes/2022-05-12/vke/post/', 'POST',
+            '/ListNodes/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListSupportedAddons/2022-05-12/vke/post/', 'POST',
+            '/ListSupportedAddons/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListSupportedResourceTypes/2022-05-12/vke/post/', 'POST',
+            '/ListSupportedResourceTypes/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListTagsForResources/2022-05-12/vke/post/', 'POST',
+            '/ListTagsForResources/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/TagResources/2022-05-12/vke/post/', 'POST',
+            '/TagResources/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2152,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UntagResources/2022-05-12/vke/post/', 'POST',
+            '/UntagResources/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2249,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateAddonConfig/2022-05-12/vke/post/', 'POST',
+            '/UpdateAddonConfig/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +2346,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateAddonVersion/2022-05-12/vke/post/', 'POST',
+            '/UpdateAddonVersion/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +2443,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateClusterConfig/2022-05-12/vke/post/', 'POST',
+            '/UpdateClusterConfig/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +2540,7 @@ class VKEApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateNodePoolConfig/2022-05-12/vke/post/', 'POST',
+            '/UpdateNodePoolConfig/2022-05-12/vke/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
