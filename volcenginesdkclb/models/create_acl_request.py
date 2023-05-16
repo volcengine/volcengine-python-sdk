@@ -35,16 +35,18 @@ class CreateAclRequest(object):
     swagger_types = {
         'acl_name': 'str',
         'description': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tags': 'list[TagForCreateAclInput]'
     }
 
     attribute_map = {
         'acl_name': 'AclName',
         'description': 'Description',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, acl_name=None, description=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_name=None, description=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateAclRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class CreateAclRequest(object):
         self._acl_name = None
         self._description = None
         self._project_name = None
+        self._tags = None
         self.discriminator = None
 
         if acl_name is not None:
@@ -61,6 +64,8 @@ class CreateAclRequest(object):
             self.description = description
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def acl_name(self):
@@ -130,6 +135,27 @@ class CreateAclRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateAclRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateAclRequest.  # noqa: E501
+        :rtype: list[TagForCreateAclInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateAclRequest.
+
+
+        :param tags: The tags of this CreateAclRequest.  # noqa: E501
+        :type: list[TagForCreateAclInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

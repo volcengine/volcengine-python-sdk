@@ -38,6 +38,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'cidr_block': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'is_default': 'bool',
         'network_acl_id': 'str',
         'project_name': 'str',
         'route_table': 'RouteTableForDescribeSubnetsOutput',
@@ -56,6 +57,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'cidr_block': 'CidrBlock',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'is_default': 'IsDefault',
         'network_acl_id': 'NetworkAclId',
         'project_name': 'ProjectName',
         'route_table': 'RouteTable',
@@ -68,7 +70,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, network_acl_id=None, project_name=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, is_default=None, network_acl_id=None, project_name=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """SubnetForDescribeSubnetsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class SubnetForDescribeSubnetsOutput(object):
         self._cidr_block = None
         self._creation_time = None
         self._description = None
+        self._is_default = None
         self._network_acl_id = None
         self._project_name = None
         self._route_table = None
@@ -101,6 +104,8 @@ class SubnetForDescribeSubnetsOutput(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if is_default is not None:
+            self.is_default = is_default
         if network_acl_id is not None:
             self.network_acl_id = network_acl_id
         if project_name is not None:
@@ -226,6 +231,27 @@ class SubnetForDescribeSubnetsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def is_default(self):
+        """Gets the is_default of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+
+
+        :return: The is_default of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_default
+
+    @is_default.setter
+    def is_default(self, is_default):
+        """Sets the is_default of this SubnetForDescribeSubnetsOutput.
+
+
+        :param is_default: The is_default of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_default = is_default
 
     @property
     def network_acl_id(self):

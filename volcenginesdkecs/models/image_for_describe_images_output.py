@@ -49,6 +49,7 @@ class ImageForDescribeImagesOutput(object):
         'share_status': 'str',
         'size': 'int',
         'status': 'str',
+        'tags': 'list[TagForDescribeImagesOutput]',
         'updated_at': 'str',
         'virtual_size': 'str',
         'visibility': 'str'
@@ -71,12 +72,13 @@ class ImageForDescribeImagesOutput(object):
         'share_status': 'ShareStatus',
         'size': 'Size',
         'status': 'Status',
+        'tags': 'Tags',
         'updated_at': 'UpdatedAt',
         'virtual_size': 'VirtualSize',
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, status=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,6 +100,7 @@ class ImageForDescribeImagesOutput(object):
         self._share_status = None
         self._size = None
         self._status = None
+        self._tags = None
         self._updated_at = None
         self._virtual_size = None
         self._visibility = None
@@ -135,6 +138,8 @@ class ImageForDescribeImagesOutput(object):
             self.size = size
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
         if virtual_size is not None:
@@ -477,6 +482,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The tags of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeImagesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ImageForDescribeImagesOutput.
+
+
+        :param tags: The tags of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: list[TagForDescribeImagesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):

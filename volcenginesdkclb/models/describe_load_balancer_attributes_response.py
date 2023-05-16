@@ -63,6 +63,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'project_name': 'str',
         'request_id': 'str',
         'server_groups': 'list[ServerGroupForDescribeLoadBalancerAttributesOutput]',
+        'service_managed': 'bool',
         'slave_zone_id': 'str',
         'status': 'str',
         'subnet_id': 'str',
@@ -103,6 +104,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'server_groups': 'ServerGroups',
+        'service_managed': 'ServiceManaged',
         'slave_zone_id': 'SlaveZoneId',
         'status': 'Status',
         'subnet_id': 'SubnetId',
@@ -112,7 +114,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, eni_ipv6_address=None, expired_time=None, ipv6_address_bandwidth=None, ipv6_eip_id=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, eni_ipv6_address=None, expired_time=None, ipv6_address_bandwidth=None, ipv6_eip_id=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -148,6 +150,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._project_name = None
         self._request_id = None
         self._server_groups = None
+        self._service_managed = None
         self._slave_zone_id = None
         self._status = None
         self._subnet_id = None
@@ -217,6 +220,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.request_id = request_id
         if server_groups is not None:
             self.server_groups = server_groups
+        if service_managed is not None:
+            self.service_managed = service_managed
         if slave_zone_id is not None:
             self.slave_zone_id = slave_zone_id
         if status is not None:
@@ -861,6 +866,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._server_groups = server_groups
+
+    @property
+    def service_managed(self):
+        """Gets the service_managed of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The service_managed of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param service_managed: The service_managed of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._service_managed = service_managed
 
     @property
     def slave_zone_id(self):
