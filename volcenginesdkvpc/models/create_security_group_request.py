@@ -37,7 +37,6 @@ class CreateSecurityGroupRequest(object):
         'description': 'str',
         'project_name': 'str',
         'security_group_name': 'str',
-        'service_managed': 'bool',
         'tags': 'list[TagForCreateSecurityGroupInput]',
         'vpc_id': 'str'
     }
@@ -47,12 +46,11 @@ class CreateSecurityGroupRequest(object):
         'description': 'Description',
         'project_name': 'ProjectName',
         'security_group_name': 'SecurityGroupName',
-        'service_managed': 'ServiceManaged',
         'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, client_token=None, description=None, project_name=None, security_group_name=None, service_managed=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, project_name=None, security_group_name=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateSecurityGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,7 +60,6 @@ class CreateSecurityGroupRequest(object):
         self._description = None
         self._project_name = None
         self._security_group_name = None
-        self._service_managed = None
         self._tags = None
         self._vpc_id = None
         self.discriminator = None
@@ -75,8 +72,6 @@ class CreateSecurityGroupRequest(object):
             self.project_name = project_name
         if security_group_name is not None:
             self.security_group_name = security_group_name
-        if service_managed is not None:
-            self.service_managed = service_managed
         if tags is not None:
             self.tags = tags
         self.vpc_id = vpc_id
@@ -164,27 +159,6 @@ class CreateSecurityGroupRequest(object):
         """
 
         self._security_group_name = security_group_name
-
-    @property
-    def service_managed(self):
-        """Gets the service_managed of this CreateSecurityGroupRequest.  # noqa: E501
-
-
-        :return: The service_managed of this CreateSecurityGroupRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._service_managed
-
-    @service_managed.setter
-    def service_managed(self, service_managed):
-        """Sets the service_managed of this CreateSecurityGroupRequest.
-
-
-        :param service_managed: The service_managed of this CreateSecurityGroupRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._service_managed = service_managed
 
     @property
     def tags(self):

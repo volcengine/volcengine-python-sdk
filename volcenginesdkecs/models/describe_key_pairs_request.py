@@ -38,7 +38,8 @@ class DescribeKeyPairsRequest(object):
         'key_pair_name': 'str',
         'key_pair_names': 'list[str]',
         'max_results': 'int',
-        'next_token': 'str'
+        'next_token': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class DescribeKeyPairsRequest(object):
         'key_pair_name': 'KeyPairName',
         'key_pair_names': 'KeyPairNames',
         'max_results': 'MaxResults',
-        'next_token': 'NextToken'
+        'next_token': 'NextToken',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, finger_print=None, key_pair_ids=None, key_pair_name=None, key_pair_names=None, max_results=None, next_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, finger_print=None, key_pair_ids=None, key_pair_name=None, key_pair_names=None, max_results=None, next_token=None, project_name=None, _configuration=None):  # noqa: E501
         """DescribeKeyPairsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DescribeKeyPairsRequest(object):
         self._key_pair_names = None
         self._max_results = None
         self._next_token = None
+        self._project_name = None
         self.discriminator = None
 
         if finger_print is not None:
@@ -76,6 +79,8 @@ class DescribeKeyPairsRequest(object):
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def finger_print(self):
@@ -202,6 +207,27 @@ class DescribeKeyPairsRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeKeyPairsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeKeyPairsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeKeyPairsRequest.
+
+
+        :param project_name: The project_name of this DescribeKeyPairsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,29 +34,34 @@ class RebootInstanceRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
+        'dry_run': 'bool',
         'force_stop': 'bool',
         'instance_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
+        'dry_run': 'DryRun',
         'force_stop': 'ForceStop',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, client_token=None, force_stop=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, dry_run=None, force_stop=None, instance_id=None, _configuration=None):  # noqa: E501
         """RebootInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
+        self._dry_run = None
         self._force_stop = None
         self._instance_id = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
+        if dry_run is not None:
+            self.dry_run = dry_run
         if force_stop is not None:
             self.force_stop = force_stop
         if instance_id is not None:
@@ -82,6 +87,27 @@ class RebootInstanceRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def dry_run(self):
+        """Gets the dry_run of this RebootInstanceRequest.  # noqa: E501
+
+
+        :return: The dry_run of this RebootInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this RebootInstanceRequest.
+
+
+        :param dry_run: The dry_run of this RebootInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
 
     @property
     def force_stop(self):

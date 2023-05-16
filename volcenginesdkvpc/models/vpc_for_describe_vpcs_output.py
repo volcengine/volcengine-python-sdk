@@ -39,6 +39,7 @@ class VpcForDescribeVpcsOutput(object):
         'creation_time': 'str',
         'description': 'str',
         'dns_servers': 'list[str]',
+        'is_default': 'bool',
         'nat_gateway_ids': 'list[str]',
         'network_acl_num': 'str',
         'project_name': 'str',
@@ -60,6 +61,7 @@ class VpcForDescribeVpcsOutput(object):
         'creation_time': 'CreationTime',
         'description': 'Description',
         'dns_servers': 'DnsServers',
+        'is_default': 'IsDefault',
         'nat_gateway_ids': 'NatGatewayIds',
         'network_acl_num': 'NetworkAclNum',
         'project_name': 'ProjectName',
@@ -74,7 +76,7 @@ class VpcForDescribeVpcsOutput(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """VpcForDescribeVpcsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class VpcForDescribeVpcsOutput(object):
         self._creation_time = None
         self._description = None
         self._dns_servers = None
+        self._is_default = None
         self._nat_gateway_ids = None
         self._network_acl_num = None
         self._project_name = None
@@ -112,6 +115,8 @@ class VpcForDescribeVpcsOutput(object):
             self.description = description
         if dns_servers is not None:
             self.dns_servers = dns_servers
+        if is_default is not None:
+            self.is_default = is_default
         if nat_gateway_ids is not None:
             self.nat_gateway_ids = nat_gateway_ids
         if network_acl_num is not None:
@@ -262,6 +267,27 @@ class VpcForDescribeVpcsOutput(object):
         """
 
         self._dns_servers = dns_servers
+
+    @property
+    def is_default(self):
+        """Gets the is_default of this VpcForDescribeVpcsOutput.  # noqa: E501
+
+
+        :return: The is_default of this VpcForDescribeVpcsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_default
+
+    @is_default.setter
+    def is_default(self, is_default):
+        """Sets the is_default of this VpcForDescribeVpcsOutput.
+
+
+        :param is_default: The is_default of this VpcForDescribeVpcsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_default = is_default
 
     @property
     def nat_gateway_ids(self):

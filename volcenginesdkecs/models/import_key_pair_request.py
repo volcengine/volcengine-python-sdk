@@ -36,6 +36,7 @@ class ImportKeyPairRequest(object):
         'client_token': 'str',
         'description': 'str',
         'key_pair_name': 'str',
+        'project_name': 'str',
         'public_key': 'str'
     }
 
@@ -43,10 +44,11 @@ class ImportKeyPairRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'key_pair_name': 'KeyPairName',
+        'project_name': 'ProjectName',
         'public_key': 'PublicKey'
     }
 
-    def __init__(self, client_token=None, description=None, key_pair_name=None, public_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, key_pair_name=None, project_name=None, public_key=None, _configuration=None):  # noqa: E501
         """ImportKeyPairRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class ImportKeyPairRequest(object):
         self._client_token = None
         self._description = None
         self._key_pair_name = None
+        self._project_name = None
         self._public_key = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class ImportKeyPairRequest(object):
             self.description = description
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
+        if project_name is not None:
+            self.project_name = project_name
         if public_key is not None:
             self.public_key = public_key
 
@@ -129,6 +134,27 @@ class ImportKeyPairRequest(object):
         """
 
         self._key_pair_name = key_pair_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ImportKeyPairRequest.  # noqa: E501
+
+
+        :return: The project_name of this ImportKeyPairRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ImportKeyPairRequest.
+
+
+        :param project_name: The project_name of this ImportKeyPairRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def public_key(self):

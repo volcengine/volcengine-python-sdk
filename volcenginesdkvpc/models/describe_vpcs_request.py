@@ -33,6 +33,7 @@ class DescribeVpcsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'is_default': 'bool',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -42,6 +43,7 @@ class DescribeVpcsRequest(object):
     }
 
     attribute_map = {
+        'is_default': 'IsDefault',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -50,12 +52,13 @@ class DescribeVpcsRequest(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_ids=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_default=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_ids=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._is_default = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -64,6 +67,8 @@ class DescribeVpcsRequest(object):
         self._vpc_name = None
         self.discriminator = None
 
+        if is_default is not None:
+            self.is_default = is_default
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -76,6 +81,27 @@ class DescribeVpcsRequest(object):
             self.vpc_ids = vpc_ids
         if vpc_name is not None:
             self.vpc_name = vpc_name
+
+    @property
+    def is_default(self):
+        """Gets the is_default of this DescribeVpcsRequest.  # noqa: E501
+
+
+        :return: The is_default of this DescribeVpcsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_default
+
+    @is_default.setter
+    def is_default(self, is_default):
+        """Sets the is_default of this DescribeVpcsRequest.
+
+
+        :param is_default: The is_default of this DescribeVpcsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_default = is_default
 
     @property
     def page_number(self):

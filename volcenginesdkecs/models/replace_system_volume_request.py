@@ -34,6 +34,7 @@ class ReplaceSystemVolumeRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
+        'dry_run': 'bool',
         'image_id': 'str',
         'instance_id': 'str',
         'keep_image_credential': 'bool',
@@ -45,6 +46,7 @@ class ReplaceSystemVolumeRequest(object):
 
     attribute_map = {
         'client_token': 'ClientToken',
+        'dry_run': 'DryRun',
         'image_id': 'ImageId',
         'instance_id': 'InstanceId',
         'keep_image_credential': 'KeepImageCredential',
@@ -54,13 +56,14 @@ class ReplaceSystemVolumeRequest(object):
         'user_data': 'UserData'
     }
 
-    def __init__(self, client_token=None, image_id=None, instance_id=None, keep_image_credential=None, key_pair_name=None, password=None, size=None, user_data=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, dry_run=None, image_id=None, instance_id=None, keep_image_credential=None, key_pair_name=None, password=None, size=None, user_data=None, _configuration=None):  # noqa: E501
         """ReplaceSystemVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
+        self._dry_run = None
         self._image_id = None
         self._instance_id = None
         self._keep_image_credential = None
@@ -72,6 +75,8 @@ class ReplaceSystemVolumeRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
+        if dry_run is not None:
+            self.dry_run = dry_run
         if image_id is not None:
             self.image_id = image_id
         if instance_id is not None:
@@ -107,6 +112,27 @@ class ReplaceSystemVolumeRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def dry_run(self):
+        """Gets the dry_run of this ReplaceSystemVolumeRequest.  # noqa: E501
+
+
+        :return: The dry_run of this ReplaceSystemVolumeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this ReplaceSystemVolumeRequest.
+
+
+        :param dry_run: The dry_run of this ReplaceSystemVolumeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
 
     @property
     def image_id(self):
