@@ -38,7 +38,7 @@ class UploadCertificateRequest(object):
         'private_key': 'str',
         'project_name': 'str',
         'public_key': 'str',
-        'tag_filters': 'str'
+        'tags': 'list[TagForUploadCertificateInput]'
     }
 
     attribute_map = {
@@ -47,10 +47,10 @@ class UploadCertificateRequest(object):
         'private_key': 'PrivateKey',
         'project_name': 'ProjectName',
         'public_key': 'PublicKey',
-        'tag_filters': 'TagFilters'
+        'tags': 'Tags'
     }
 
-    def __init__(self, certificate_name=None, description=None, private_key=None, project_name=None, public_key=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_name=None, description=None, private_key=None, project_name=None, public_key=None, tags=None, _configuration=None):  # noqa: E501
         """UploadCertificateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +61,7 @@ class UploadCertificateRequest(object):
         self._private_key = None
         self._project_name = None
         self._public_key = None
-        self._tag_filters = None
+        self._tags = None
         self.discriminator = None
 
         if certificate_name is not None:
@@ -72,8 +72,8 @@ class UploadCertificateRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.public_key = public_key
-        if tag_filters is not None:
-            self.tag_filters = tag_filters
+        if tags is not None:
+            self.tags = tags
 
     @property
     def certificate_name(self):
@@ -185,25 +185,25 @@ class UploadCertificateRequest(object):
         self._public_key = public_key
 
     @property
-    def tag_filters(self):
-        """Gets the tag_filters of this UploadCertificateRequest.  # noqa: E501
+    def tags(self):
+        """Gets the tags of this UploadCertificateRequest.  # noqa: E501
 
 
-        :return: The tag_filters of this UploadCertificateRequest.  # noqa: E501
-        :rtype: str
+        :return: The tags of this UploadCertificateRequest.  # noqa: E501
+        :rtype: list[TagForUploadCertificateInput]
         """
-        return self._tag_filters
+        return self._tags
 
-    @tag_filters.setter
-    def tag_filters(self, tag_filters):
-        """Sets the tag_filters of this UploadCertificateRequest.
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this UploadCertificateRequest.
 
 
-        :param tag_filters: The tag_filters of this UploadCertificateRequest.  # noqa: E501
-        :type: str
+        :param tags: The tags of this UploadCertificateRequest.  # noqa: E501
+        :type: list[TagForUploadCertificateInput]
         """
 
-        self._tag_filters = tag_filters
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
