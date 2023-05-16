@@ -41,7 +41,9 @@ class DescribeAclAttributesResponse(object):
         'listeners': 'list[ListenerForDescribeAclAttributesOutput]',
         'project_name': 'str',
         'request_id': 'str',
+        'service_managed': 'bool',
         'status': 'str',
+        'tags': 'list[TagForDescribeAclAttributesOutput]',
         'update_time': 'str'
     }
 
@@ -54,11 +56,13 @@ class DescribeAclAttributesResponse(object):
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
+        'service_managed': 'ServiceManaged',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_entries=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, project_name=None, request_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_entries=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, project_name=None, request_id=None, service_managed=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeAclAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,7 +76,9 @@ class DescribeAclAttributesResponse(object):
         self._listeners = None
         self._project_name = None
         self._request_id = None
+        self._service_managed = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -92,8 +98,12 @@ class DescribeAclAttributesResponse(object):
             self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
+        if service_managed is not None:
+            self.service_managed = service_managed
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -266,6 +276,27 @@ class DescribeAclAttributesResponse(object):
         self._request_id = request_id
 
     @property
+    def service_managed(self):
+        """Gets the service_managed of this DescribeAclAttributesResponse.  # noqa: E501
+
+
+        :return: The service_managed of this DescribeAclAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this DescribeAclAttributesResponse.
+
+
+        :param service_managed: The service_managed of this DescribeAclAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._service_managed = service_managed
+
+    @property
     def status(self):
         """Gets the status of this DescribeAclAttributesResponse.  # noqa: E501
 
@@ -285,6 +316,27 @@ class DescribeAclAttributesResponse(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeAclAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeAclAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeAclAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeAclAttributesResponse.
+
+
+        :param tags: The tags of this DescribeAclAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeAclAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

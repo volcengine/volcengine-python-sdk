@@ -36,17 +36,19 @@ class CreateImageRequest(object):
         'description': 'str',
         'image_name': 'str',
         'instance_id': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tags': 'list[TagForCreateImageInput]'
     }
 
     attribute_map = {
         'description': 'Description',
         'image_name': 'ImageName',
         'instance_id': 'InstanceId',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, description=None, image_name=None, instance_id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, image_name=None, instance_id=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateImageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateImageRequest(object):
         self._image_name = None
         self._instance_id = None
         self._project_name = None
+        self._tags = None
         self.discriminator = None
 
         if description is not None:
@@ -66,6 +69,8 @@ class CreateImageRequest(object):
             self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def description(self):
@@ -150,6 +155,27 @@ class CreateImageRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateImageRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateImageRequest.  # noqa: E501
+        :rtype: list[TagForCreateImageInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateImageRequest.
+
+
+        :param tags: The tags of this CreateImageRequest.  # noqa: E501
+        :type: list[TagForCreateImageInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

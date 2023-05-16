@@ -35,16 +35,18 @@ class CreateKeyPairRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
-        'key_pair_name': 'str'
+        'key_pair_name': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
-        'key_pair_name': 'KeyPairName'
+        'key_pair_name': 'KeyPairName',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, client_token=None, description=None, key_pair_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, key_pair_name=None, project_name=None, _configuration=None):  # noqa: E501
         """CreateKeyPairRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class CreateKeyPairRequest(object):
         self._client_token = None
         self._description = None
         self._key_pair_name = None
+        self._project_name = None
         self.discriminator = None
 
         if client_token is not None:
@@ -61,6 +64,8 @@ class CreateKeyPairRequest(object):
             self.description = description
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def client_token(self):
@@ -124,6 +129,27 @@ class CreateKeyPairRequest(object):
         """
 
         self._key_pair_name = key_pair_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateKeyPairRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateKeyPairRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateKeyPairRequest.
+
+
+        :param project_name: The project_name of this CreateKeyPairRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

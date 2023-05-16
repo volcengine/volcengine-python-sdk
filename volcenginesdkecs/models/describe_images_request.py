@@ -42,6 +42,7 @@ class DescribeImagesRequest(object):
         'os_type': 'str',
         'project_name': 'str',
         'status': 'list[str]',
+        'tag_filters': 'list[TagFilterForDescribeImagesInput]',
         'visibility': 'str'
     }
 
@@ -55,10 +56,11 @@ class DescribeImagesRequest(object):
         'os_type': 'OsType',
         'project_name': 'ProjectName',
         'status': 'Status',
+        'tag_filters': 'TagFilters',
         'visibility': 'Visibility'
     }
 
-    def __init__(self, image_ids=None, image_status=None, instance_type_id=None, is_support_cloud_init=None, max_results=None, next_token=None, os_type=None, project_name=None, status=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, image_ids=None, image_status=None, instance_type_id=None, is_support_cloud_init=None, max_results=None, next_token=None, os_type=None, project_name=None, status=None, tag_filters=None, visibility=None, _configuration=None):  # noqa: E501
         """DescribeImagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class DescribeImagesRequest(object):
         self._os_type = None
         self._project_name = None
         self._status = None
+        self._tag_filters = None
         self._visibility = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class DescribeImagesRequest(object):
             self.project_name = project_name
         if status is not None:
             self.status = status
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if visibility is not None:
             self.visibility = visibility
 
@@ -285,6 +290,27 @@ class DescribeImagesRequest(object):
         """
 
         self._status = status
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeImagesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeImagesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeImagesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeImagesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeImagesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeImagesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def visibility(self):

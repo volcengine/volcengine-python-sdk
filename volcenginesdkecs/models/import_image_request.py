@@ -41,6 +41,7 @@ class ImportImageRequest(object):
         'platform': 'str',
         'platform_version': 'str',
         'project_name': 'str',
+        'tags': 'list[TagForImportImageInput]',
         'url': 'str'
     }
 
@@ -53,10 +54,11 @@ class ImportImageRequest(object):
         'platform': 'Platform',
         'platform_version': 'PlatformVersion',
         'project_name': 'ProjectName',
+        'tags': 'Tags',
         'url': 'Url'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, description=None, image_name=None, os_type=None, platform=None, platform_version=None, project_name=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, description=None, image_name=None, os_type=None, platform=None, platform_version=None, project_name=None, tags=None, url=None, _configuration=None):  # noqa: E501
         """ImportImageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class ImportImageRequest(object):
         self._platform = None
         self._platform_version = None
         self._project_name = None
+        self._tags = None
         self._url = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class ImportImageRequest(object):
             self.platform_version = platform_version
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         if url is not None:
             self.url = url
 
@@ -259,6 +264,27 @@ class ImportImageRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this ImportImageRequest.  # noqa: E501
+
+
+        :return: The tags of this ImportImageRequest.  # noqa: E501
+        :rtype: list[TagForImportImageInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ImportImageRequest.
+
+
+        :param tags: The tags of this ImportImageRequest.  # noqa: E501
+        :type: list[TagForImportImageInput]
+        """
+
+        self._tags = tags
 
     @property
     def url(self):
