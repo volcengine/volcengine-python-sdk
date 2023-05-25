@@ -33,17 +33,123 @@ class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bandwidth': 'int',
+        'billing_type': 'int',
+        'isp': 'str',
+        'network_type': 'str'
     }
 
     attribute_map = {
+        'bandwidth': 'Bandwidth',
+        'billing_type': 'BillingType',
+        'isp': 'ISP',
+        'network_type': 'NetworkType'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, isp=None, network_type=None, _configuration=None):  # noqa: E501
         """Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._bandwidth = None
+        self._billing_type = None
+        self._isp = None
+        self._network_type = None
         self.discriminator = None
+
+        if bandwidth is not None:
+            self.bandwidth = bandwidth
+        if billing_type is not None:
+            self.billing_type = billing_type
+        if isp is not None:
+            self.isp = isp
+        if network_type is not None:
+            self.network_type = network_type
+
+    @property
+    def bandwidth(self):
+        """Gets the bandwidth of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The bandwidth of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bandwidth
+
+    @bandwidth.setter
+    def bandwidth(self, bandwidth):
+        """Sets the bandwidth of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.
+
+
+        :param bandwidth: The bandwidth of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bandwidth = bandwidth
+
+    @property
+    def billing_type(self):
+        """Gets the billing_type of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The billing_type of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._billing_type
+
+    @billing_type.setter
+    def billing_type(self, billing_type):
+        """Sets the billing_type of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.
+
+
+        :param billing_type: The billing_type of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._billing_type = billing_type
+
+    @property
+    def isp(self):
+        """Gets the isp of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The isp of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._isp
+
+    @isp.setter
+    def isp(self, isp):
+        """Sets the isp of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.
+
+
+        :param isp: The isp of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._isp = isp
+
+    @property
+    def network_type(self):
+        """Gets the network_type of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The network_type of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_type
+
+    @network_type.setter
+    def network_type(self, network_type):
+        """Sets the network_type of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.
+
+
+        :param network_type: The network_type of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._network_type = network_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
