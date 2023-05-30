@@ -101,7 +101,7 @@ class TagResourcesRequest(object):
         :param resource_type: The resource_type of this TagResourcesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Cluster", "NodePool"]  # noqa: E501
+        allowed_values = ["BareMachine", "Cluster", "NodePool"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 resource_type not in allowed_values):
             raise ValueError(
