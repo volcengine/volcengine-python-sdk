@@ -34,6 +34,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
     """
     swagger_types = {
         'created_at': 'str',
+        'extra_info': 'dict(str, str)',
         'id': 'str',
         'operated_end_at': 'str',
         'operated_start_at': 'str',
@@ -45,6 +46,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
 
     attribute_map = {
         'created_at': 'CreatedAt',
+        'extra_info': 'ExtraInfo',
         'id': 'Id',
         'operated_end_at': 'OperatedEndAt',
         'operated_start_at': 'OperatedStartAt',
@@ -54,13 +56,14 @@ class SystemEventForDescribeSystemEventsOutput(object):
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, created_at=None, id=None, operated_end_at=None, operated_start_at=None, resource_id=None, status=None, type=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, extra_info=None, id=None, operated_end_at=None, operated_start_at=None, resource_id=None, status=None, type=None, updated_at=None, _configuration=None):  # noqa: E501
         """SystemEventForDescribeSystemEventsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._created_at = None
+        self._extra_info = None
         self._id = None
         self._operated_end_at = None
         self._operated_start_at = None
@@ -72,6 +75,8 @@ class SystemEventForDescribeSystemEventsOutput(object):
 
         if created_at is not None:
             self.created_at = created_at
+        if extra_info is not None:
+            self.extra_info = extra_info
         if id is not None:
             self.id = id
         if operated_end_at is not None:
@@ -107,6 +112,27 @@ class SystemEventForDescribeSystemEventsOutput(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def extra_info(self):
+        """Gets the extra_info of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+
+
+        :return: The extra_info of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._extra_info
+
+    @extra_info.setter
+    def extra_info(self, extra_info):
+        """Sets the extra_info of this SystemEventForDescribeSystemEventsOutput.
+
+
+        :param extra_info: The extra_info of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._extra_info = extra_info
 
     @property
     def id(self):
