@@ -76,7 +76,8 @@ class AuthorizeSecurityGroupIngressRequest(object):
         self._source_group_id = None
         self.discriminator = None
 
-        self.cidr_ip = cidr_ip
+        if cidr_ip is not None:
+            self.cidr_ip = cidr_ip
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
@@ -110,8 +111,6 @@ class AuthorizeSecurityGroupIngressRequest(object):
         :param cidr_ip: The cidr_ip of this AuthorizeSecurityGroupIngressRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and cidr_ip is None:
-            raise ValueError("Invalid value for `cidr_ip`, must not be `None`")  # noqa: E501
 
         self._cidr_ip = cidr_ip
 

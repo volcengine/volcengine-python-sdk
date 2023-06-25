@@ -379,6 +379,7 @@ class RunInstancesRequest(object):
     def host_name(self):
         """Gets the host_name of this RunInstancesRequest.  # noqa: E501
 
+        this field is deprecated  # noqa: E501
 
         :return: The host_name of this RunInstancesRequest.  # noqa: E501
         :rtype: str
@@ -389,6 +390,7 @@ class RunInstancesRequest(object):
     def host_name(self, host_name):
         """Sets the host_name of this RunInstancesRequest.
 
+        this field is deprecated  # noqa: E501
 
         :param host_name: The host_name of this RunInstancesRequest.  # noqa: E501
         :type: str

@@ -36,6 +36,7 @@ class DescribeTasksRequest(object):
         'max_results': 'str',
         'next_token': 'str',
         'resource_id': 'str',
+        'resource_ids': 'list[str]',
         'task_ids': 'list[str]'
     }
 
@@ -43,10 +44,11 @@ class DescribeTasksRequest(object):
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'resource_id': 'ResourceId',
+        'resource_ids': 'ResourceIds',
         'task_ids': 'TaskIds'
     }
 
-    def __init__(self, max_results=None, next_token=None, resource_id=None, task_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_results=None, next_token=None, resource_id=None, resource_ids=None, task_ids=None, _configuration=None):  # noqa: E501
         """DescribeTasksRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class DescribeTasksRequest(object):
         self._max_results = None
         self._next_token = None
         self._resource_id = None
+        self._resource_ids = None
         self._task_ids = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class DescribeTasksRequest(object):
             self.next_token = next_token
         if resource_id is not None:
             self.resource_id = resource_id
+        if resource_ids is not None:
+            self.resource_ids = resource_ids
         if task_ids is not None:
             self.task_ids = task_ids
 
@@ -129,6 +134,27 @@ class DescribeTasksRequest(object):
         """
 
         self._resource_id = resource_id
+
+    @property
+    def resource_ids(self):
+        """Gets the resource_ids of this DescribeTasksRequest.  # noqa: E501
+
+
+        :return: The resource_ids of this DescribeTasksRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._resource_ids
+
+    @resource_ids.setter
+    def resource_ids(self, resource_ids):
+        """Sets the resource_ids of this DescribeTasksRequest.
+
+
+        :param resource_ids: The resource_ids of this DescribeTasksRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._resource_ids = resource_ids
 
     @property
     def task_ids(self):
