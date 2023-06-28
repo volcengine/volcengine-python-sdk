@@ -36,17 +36,19 @@ class CreateServerGroupRequest(object):
         'description': 'str',
         'load_balancer_id': 'str',
         'server_group_name': 'str',
-        'servers': 'list[ServerForCreateServerGroupInput]'
+        'servers': 'list[ServerForCreateServerGroupInput]',
+        'type': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
         'load_balancer_id': 'LoadBalancerId',
         'server_group_name': 'ServerGroupName',
-        'servers': 'Servers'
+        'servers': 'Servers',
+        'type': 'Type'
     }
 
-    def __init__(self, description=None, load_balancer_id=None, server_group_name=None, servers=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, load_balancer_id=None, server_group_name=None, servers=None, type=None, _configuration=None):  # noqa: E501
         """CreateServerGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateServerGroupRequest(object):
         self._load_balancer_id = None
         self._server_group_name = None
         self._servers = None
+        self._type = None
         self.discriminator = None
 
         if description is not None:
@@ -65,6 +68,8 @@ class CreateServerGroupRequest(object):
             self.server_group_name = server_group_name
         if servers is not None:
             self.servers = servers
+        if type is not None:
+            self.type = type
 
     @property
     def description(self):
@@ -151,6 +156,27 @@ class CreateServerGroupRequest(object):
         """
 
         self._servers = servers
+
+    @property
+    def type(self):
+        """Gets the type of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The type of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this CreateServerGroupRequest.
+
+
+        :param type: The type of this CreateServerGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
