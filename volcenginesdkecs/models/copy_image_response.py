@@ -33,29 +33,24 @@ class CopyImageResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'image_id': 'str',
-        'task_id': 'str'
+        'image_id': 'str'
     }
 
     attribute_map = {
-        'image_id': 'ImageId',
-        'task_id': 'TaskId'
+        'image_id': 'ImageId'
     }
 
-    def __init__(self, image_id=None, task_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, image_id=None, _configuration=None):  # noqa: E501
         """CopyImageResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._image_id = None
-        self._task_id = None
         self.discriminator = None
 
         if image_id is not None:
             self.image_id = image_id
-        if task_id is not None:
-            self.task_id = task_id
 
     @property
     def image_id(self):
@@ -77,27 +72,6 @@ class CopyImageResponse(object):
         """
 
         self._image_id = image_id
-
-    @property
-    def task_id(self):
-        """Gets the task_id of this CopyImageResponse.  # noqa: E501
-
-
-        :return: The task_id of this CopyImageResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._task_id
-
-    @task_id.setter
-    def task_id(self, task_id):
-        """Sets the task_id of this CopyImageResponse.
-
-
-        :param task_id: The task_id of this CopyImageResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._task_id = task_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
