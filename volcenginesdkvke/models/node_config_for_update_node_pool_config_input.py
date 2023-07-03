@@ -38,6 +38,7 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'auto_renew_period': 'int',
         'data_volumes': 'list[DataVolumeForUpdateNodePoolConfigInput]',
         'hpc_cluster_ids': 'list[str]',
+        'image_id': 'str',
         'initialize_script': 'str',
         'instance_type_ids': 'list[str]',
         'name_prefix': 'str',
@@ -54,6 +55,7 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'auto_renew_period': 'AutoRenewPeriod',
         'data_volumes': 'DataVolumes',
         'hpc_cluster_ids': 'HpcClusterIds',
+        'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
         'instance_type_ids': 'InstanceTypeIds',
         'name_prefix': 'NamePrefix',
@@ -64,7 +66,7 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, initialize_script=None, instance_type_ids=None, name_prefix=None, period=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_type_ids=None, name_prefix=None, period=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         self._auto_renew_period = None
         self._data_volumes = None
         self._hpc_cluster_ids = None
+        self._image_id = None
         self._initialize_script = None
         self._instance_type_ids = None
         self._name_prefix = None
@@ -95,6 +98,8 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
             self.data_volumes = data_volumes
         if hpc_cluster_ids is not None:
             self.hpc_cluster_ids = hpc_cluster_ids
+        if image_id is not None:
+            self.image_id = image_id
         if initialize_script is not None:
             self.initialize_script = initialize_script
         if instance_type_ids is not None:
@@ -216,6 +221,27 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._hpc_cluster_ids = hpc_cluster_ids
+
+    @property
+    def image_id(self):
+        """Gets the image_id of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The image_id of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_id
+
+    @image_id.setter
+    def image_id(self, image_id):
+        """Sets the image_id of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param image_id: The image_id of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._image_id = image_id
 
     @property
     def initialize_script(self):
