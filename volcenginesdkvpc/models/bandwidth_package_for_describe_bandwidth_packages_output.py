@@ -42,9 +42,11 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         'deleted_time': 'str',
         'description': 'str',
         'eip_addresses': 'list[EipAddressForDescribeBandwidthPackagesOutput]',
+        'expired_time': 'str',
         'isp': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
+        'protocol': 'str',
         'security_protection_types': 'list[str]',
         'status': 'str',
         'tags': 'list[TagForDescribeBandwidthPackagesOutput]',
@@ -61,16 +63,18 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         'deleted_time': 'DeletedTime',
         'description': 'Description',
         'eip_addresses': 'EipAddresses',
+        'expired_time': 'ExpiredTime',
         'isp': 'ISP',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
+        'protocol': 'Protocol',
         'security_protection_types': 'SecurityProtectionTypes',
         'status': 'Status',
         'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, bandwidth=None, bandwidth_package_id=None, bandwidth_package_name=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, isp=None, overdue_time=None, project_name=None, security_protection_types=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, bandwidth_package_name=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, expired_time=None, isp=None, overdue_time=None, project_name=None, protocol=None, security_protection_types=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """BandwidthPackageForDescribeBandwidthPackagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,9 +89,11 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         self._deleted_time = None
         self._description = None
         self._eip_addresses = None
+        self._expired_time = None
         self._isp = None
         self._overdue_time = None
         self._project_name = None
+        self._protocol = None
         self._security_protection_types = None
         self._status = None
         self._tags = None
@@ -112,12 +118,16 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
             self.description = description
         if eip_addresses is not None:
             self.eip_addresses = eip_addresses
+        if expired_time is not None:
+            self.expired_time = expired_time
         if isp is not None:
             self.isp = isp
         if overdue_time is not None:
             self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
+        if protocol is not None:
+            self.protocol = protocol
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
         if status is not None:
@@ -317,6 +327,27 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         self._eip_addresses = eip_addresses
 
     @property
+    def expired_time(self):
+        """Gets the expired_time of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+
+
+        :return: The expired_time of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expired_time
+
+    @expired_time.setter
+    def expired_time(self, expired_time):
+        """Sets the expired_time of this BandwidthPackageForDescribeBandwidthPackagesOutput.
+
+
+        :param expired_time: The expired_time of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._expired_time = expired_time
+
+    @property
     def isp(self):
         """Gets the isp of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
 
@@ -378,6 +409,27 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def protocol(self):
+        """Gets the protocol of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+
+
+        :return: The protocol of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol
+
+    @protocol.setter
+    def protocol(self, protocol):
+        """Sets the protocol of this BandwidthPackageForDescribeBandwidthPackagesOutput.
+
+
+        :param protocol: The protocol of this BandwidthPackageForDescribeBandwidthPackagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._protocol = protocol
 
     @property
     def security_protection_types(self):

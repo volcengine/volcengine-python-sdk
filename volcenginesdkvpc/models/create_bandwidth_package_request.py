@@ -38,7 +38,10 @@ class CreateBandwidthPackageRequest(object):
         'billing_type': 'int',
         'description': 'str',
         'isp': 'str',
+        'period': 'int',
+        'period_unit': 'int',
         'project_name': 'str',
+        'protocol': 'str',
         'security_protection_types': 'list[str]',
         'tags': 'list[TagForCreateBandwidthPackageInput]'
     }
@@ -49,12 +52,15 @@ class CreateBandwidthPackageRequest(object):
         'billing_type': 'BillingType',
         'description': 'Description',
         'isp': 'ISP',
+        'period': 'Period',
+        'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
+        'protocol': 'Protocol',
         'security_protection_types': 'SecurityProtectionTypes',
         'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, bandwidth_package_name=None, billing_type=None, description=None, isp=None, project_name=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_name=None, billing_type=None, description=None, isp=None, period=None, period_unit=None, project_name=None, protocol=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
         """CreateBandwidthPackageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,7 +71,10 @@ class CreateBandwidthPackageRequest(object):
         self._billing_type = None
         self._description = None
         self._isp = None
+        self._period = None
+        self._period_unit = None
         self._project_name = None
+        self._protocol = None
         self._security_protection_types = None
         self._tags = None
         self.discriminator = None
@@ -79,8 +88,14 @@ class CreateBandwidthPackageRequest(object):
             self.description = description
         if isp is not None:
             self.isp = isp
+        if period is not None:
+            self.period = period
+        if period_unit is not None:
+            self.period_unit = period_unit
         if project_name is not None:
             self.project_name = project_name
+        if protocol is not None:
+            self.protocol = protocol
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
         if tags is not None:
@@ -164,8 +179,8 @@ class CreateBandwidthPackageRequest(object):
                 billing_type is not None and billing_type > 4):  # noqa: E501
             raise ValueError("Invalid value for `billing_type`, must be a value less than or equal to `4`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                billing_type is not None and billing_type < 2):  # noqa: E501
-            raise ValueError("Invalid value for `billing_type`, must be a value greater than or equal to `2`")  # noqa: E501
+                billing_type is not None and billing_type < 1):  # noqa: E501
+            raise ValueError("Invalid value for `billing_type`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._billing_type = billing_type
 
@@ -225,6 +240,54 @@ class CreateBandwidthPackageRequest(object):
         self._isp = isp
 
     @property
+    def period(self):
+        """Gets the period of this CreateBandwidthPackageRequest.  # noqa: E501
+
+
+        :return: The period of this CreateBandwidthPackageRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._period
+
+    @period.setter
+    def period(self, period):
+        """Sets the period of this CreateBandwidthPackageRequest.
+
+
+        :param period: The period of this CreateBandwidthPackageRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._period = period
+
+    @property
+    def period_unit(self):
+        """Gets the period_unit of this CreateBandwidthPackageRequest.  # noqa: E501
+
+
+        :return: The period_unit of this CreateBandwidthPackageRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._period_unit
+
+    @period_unit.setter
+    def period_unit(self, period_unit):
+        """Sets the period_unit of this CreateBandwidthPackageRequest.
+
+
+        :param period_unit: The period_unit of this CreateBandwidthPackageRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                period_unit is not None and period_unit > 2):  # noqa: E501
+            raise ValueError("Invalid value for `period_unit`, must be a value less than or equal to `2`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                period_unit is not None and period_unit < 1):  # noqa: E501
+            raise ValueError("Invalid value for `period_unit`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._period_unit = period_unit
+
+    @property
     def project_name(self):
         """Gets the project_name of this CreateBandwidthPackageRequest.  # noqa: E501
 
@@ -244,6 +307,34 @@ class CreateBandwidthPackageRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def protocol(self):
+        """Gets the protocol of this CreateBandwidthPackageRequest.  # noqa: E501
+
+
+        :return: The protocol of this CreateBandwidthPackageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol
+
+    @protocol.setter
+    def protocol(self, protocol):
+        """Sets the protocol of this CreateBandwidthPackageRequest.
+
+
+        :param protocol: The protocol of this CreateBandwidthPackageRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["IPv4", "IPv6"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                protocol not in allowed_values):
+            raise ValueError(
+                "Invalid value for `protocol` ({0}), must be one of {1}"  # noqa: E501
+                .format(protocol, allowed_values)
+            )
+
+        self._protocol = protocol
 
     @property
     def security_protection_types(self):
