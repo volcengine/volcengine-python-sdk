@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     describe_rules_request = volcenginesdkclb.DescribeRulesRequest(
         listener_id="lsn-2fea4ayvu2g3k5oxruuz****",
     )
-
+    
     try:
         resp = api_instance.describe_rules(describe_rules_request)
         pprint(resp)

@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     describe_dnat_entry_attributes_request = volcenginesdknatgateway.DescribeDnatEntryAttributesRequest(
         dnat_entry_id="dnat-342abc3bc3****",
     )
-
+    
     try:
         resp = api_instance.describe_dnat_entry_attributes(describe_dnat_entry_attributes_request)
         pprint(resp)

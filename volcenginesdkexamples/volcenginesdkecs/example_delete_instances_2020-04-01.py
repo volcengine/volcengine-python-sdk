@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     delete_instances_request = volcenginesdkecs.DeleteInstancesRequest(
         instance_ids=["i-ybo349sxoncm9t******", "i-ybo349sxolcm9t******"],
     )
-
+    
     try:
         resp = api_instance.delete_instances(delete_instances_request)
         pprint(resp)

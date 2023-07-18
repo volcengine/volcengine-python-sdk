@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -17,9 +17,9 @@ if __name__ == '__main__':
     api_instance = volcenginesdkvpc.VPCApi()
     disassociate_route_table_request = volcenginesdkvpc.DisassociateRouteTableRequest(
         route_table_id="vpc-2fdz8g5nruzuo5oxr******",
-        subnet_id="ubnet-2fdzaou4liw3k5o******",
+        subnet_id="subnet-2fdzaou4liw3k5o******",
     )
-
+    
     try:
         resp = api_instance.disassociate_route_table(disassociate_route_table_request)
         pprint(resp)

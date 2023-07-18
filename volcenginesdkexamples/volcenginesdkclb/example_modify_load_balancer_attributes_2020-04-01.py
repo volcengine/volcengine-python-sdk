@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -23,7 +23,7 @@ if __name__ == '__main__':
         modification_protection_reason="实例托管",
         modification_protection_status="ConsoleProtection",
     )
-
+    
     try:
         resp = api_instance.modify_load_balancer_attributes(modify_load_balancer_attributes_request)
         pprint(resp)

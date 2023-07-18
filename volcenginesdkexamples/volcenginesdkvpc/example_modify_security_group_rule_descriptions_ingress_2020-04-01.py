@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -17,12 +17,15 @@ if __name__ == '__main__':
     api_instance = volcenginesdkvpc.VPCApi()
     modify_security_group_rule_descriptions_ingress_request = volcenginesdkvpc.ModifySecurityGroupRuleDescriptionsIngressRequest(
         cidr_ip="10.XX.XX.0/8",
+        description="S_G_R_I_Description",
+        policy="accept",
         port_end=22,
         port_start=22,
         priority=1,
         protocol="tcp",
+        security_group_id="sg-bp67acfmxazb4p****",
     )
-
+    
     try:
         resp = api_instance.modify_security_group_rule_descriptions_ingress(modify_security_group_rule_descriptions_ingress_request)
         pprint(resp)

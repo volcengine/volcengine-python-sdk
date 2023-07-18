@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -21,7 +21,7 @@ if __name__ == '__main__':
         service_region_id="cn-beijing",
         service_vpc_id="vpc-3rlkeggyn6tc010exd32q****",
     )
-
+    
     try:
         resp = api_instance.create_cen_service_route_entry(create_cen_service_route_entry_request)
         pprint(resp)

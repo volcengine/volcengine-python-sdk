@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,8 +19,9 @@ if __name__ == '__main__':
         bandwidth=10,
         billing_type=2,
         isp="BGP",
+        name="eip-1",
     )
-
+    
     try:
         resp = api_instance.allocate_eip_address(allocate_eip_address_request)
         pprint(resp)

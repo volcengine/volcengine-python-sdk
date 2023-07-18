@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,9 +18,9 @@ if __name__ == '__main__':
     modify_ha_vip_attributes_request = volcenginesdkvpc.ModifyHaVipAttributesRequest(
         description="This is my HaVip.",
         ha_vip_id="havip-2zeo05qre24nhrqp****",
-        ha_vip_name="test",
+        ha_vip_name="havip-1",
     )
-
+    
     try:
         resp = api_instance.modify_ha_vip_attributes(modify_ha_vip_attributes_request)
         pprint(resp)

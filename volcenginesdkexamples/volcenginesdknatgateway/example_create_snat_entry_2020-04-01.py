@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -21,7 +21,7 @@ if __name__ == '__main__':
         snat_entry_name="snat-01",
         subnet_id="subnet-2fe1vklp295a859gp6766****",
     )
-
+    
     try:
         resp = api_instance.create_snat_entry(create_snat_entry_request)
         pprint(resp)

@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -17,11 +17,9 @@ if __name__ == '__main__':
     api_instance = volcenginesdkvpc.VPCApi()
     create_vpc_request = volcenginesdkvpc.CreateVpcRequest(
         cidr_block="172.XX.XX.0/12",
-        description="test",
-        dns_servers=["1.XX.XX.1"],
-        vpc_name="test",
+        vpc_name="vpc-1",
     )
-
+    
     try:
         resp = api_instance.create_vpc(create_vpc_request)
         pprint(resp)

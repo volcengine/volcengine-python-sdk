@@ -7,24 +7,24 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkclb.CLBApi()
-    req_rules0 = volcenginesdkclb.RuleForCreateRulesInput(
+    req_rules = volcenginesdkclb.RuleForCreateRulesInput(
         domain="test.com",
         server_group_id="rsp-bp1o94dp5i6ea****",
         url="/test",
     )
     create_rules_request = volcenginesdkclb.CreateRulesRequest(
         listener_id="lsn-2fea4ayvu2g3k5oxruuz****",
-        rules=[req_rules0],
+        rules=[req_rules],
     )
-
+    
     try:
         resp = api_instance.create_rules(create_rules_request)
         pprint(resp)

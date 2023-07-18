@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -24,7 +24,7 @@ if __name__ == '__main__':
         protocol="tcp",
         security_group_id="sg-bp67acfmxazb4p****",
     )
-
+    
     try:
         resp = api_instance.authorize_security_group_egress(authorize_security_group_egress_request)
         pprint(resp)

@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         acl_id="acl-3cj44nv0jhhxc6c6rrtet****",
         acl_name="baaa",
     )
-
+    
     try:
         resp = api_instance.modify_acl_attributes(modify_acl_attributes_request)
         pprint(resp)

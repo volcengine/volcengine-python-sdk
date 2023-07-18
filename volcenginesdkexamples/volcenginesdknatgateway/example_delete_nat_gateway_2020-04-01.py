@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     delete_nat_gateway_request = volcenginesdknatgateway.DeleteNatGatewayRequest(
         nat_gateway_id="ngw-vv3t043k05sm****",
     )
-
+    
     try:
         resp = api_instance.delete_nat_gateway(delete_nat_gateway_request)
         pprint(resp)

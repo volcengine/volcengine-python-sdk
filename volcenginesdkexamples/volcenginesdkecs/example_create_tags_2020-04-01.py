@@ -7,24 +7,24 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkecs.ECSApi()
-    req_tags0 = volcenginesdkecs.TagForCreateTagsInput(
+    req_tags = volcenginesdkecs.TagForCreateTagsInput(
         key="k1",
         value="v1",
     )
     create_tags_request = volcenginesdkecs.CreateTagsRequest(
         resource_ids=["i-l8u0p77yseabkpak****", "i-l8u0p7xyseabkbak****"],
         resource_type="instance",
-        tags=[req_tags0],
+        tags=[req_tags],
     )
-
+    
     try:
         resp = api_instance.create_tags(create_tags_request)
         pprint(resp)
