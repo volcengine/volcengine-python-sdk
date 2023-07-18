@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         instance_ids=["i-ahipakt2gcg95jpv****", "i-ahipakt2gdg95lbe****"],
         key_pair_name="ssh_key_pair1",
     )
-
+    
     try:
         resp = api_instance.attach_key_pair(attach_key_pair_request)
         pprint(resp)

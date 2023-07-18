@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     delete_ha_vip_request = volcenginesdkvpc.DeleteHaVipRequest(
         ha_vip_id="havip-2zeo05qre24nhrqpy****",
     )
-
+    
     try:
         resp = api_instance.delete_ha_vip(delete_ha_vip_request)
         pprint(resp)

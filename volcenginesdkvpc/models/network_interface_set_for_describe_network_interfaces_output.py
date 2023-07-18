@@ -38,7 +38,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         'created_at': 'str',
         'description': 'str',
         'device_id': 'str',
-        'i_pv6_sets': 'list[str]',
+        'ipv6_sets': 'list[str]',
         'mac_address': 'str',
         'network_interface_id': 'str',
         'network_interface_name': 'str',
@@ -64,7 +64,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         'created_at': 'CreatedAt',
         'description': 'Description',
         'device_id': 'DeviceId',
-        'i_pv6_sets': 'IPv6Sets',
+        'ipv6_sets': 'IPv6Sets',
         'mac_address': 'MacAddress',
         'network_interface_id': 'NetworkInterfaceId',
         'network_interface_name': 'NetworkInterfaceName',
@@ -84,7 +84,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, i_pv6_sets=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, project_name=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_elastic_ip=None, created_at=None, description=None, device_id=None, ipv6_sets=None, mac_address=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_sets=None, project_name=None, security_group_ids=None, service_managed=None, status=None, subnet_id=None, tags=None, type=None, updated_at=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """NetworkInterfaceSetForDescribeNetworkInterfacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,7 +95,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         self._created_at = None
         self._description = None
         self._device_id = None
-        self._i_pv6_sets = None
+        self._ipv6_sets = None
         self._mac_address = None
         self._network_interface_id = None
         self._network_interface_name = None
@@ -125,8 +125,8 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
             self.description = description
         if device_id is not None:
             self.device_id = device_id
-        if i_pv6_sets is not None:
-            self.i_pv6_sets = i_pv6_sets
+        if ipv6_sets is not None:
+            self.ipv6_sets = ipv6_sets
         if mac_address is not None:
             self.mac_address = mac_address
         if network_interface_id is not None:
@@ -268,25 +268,25 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput(object):
         self._device_id = device_id
 
     @property
-    def i_pv6_sets(self):
-        """Gets the i_pv6_sets of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+    def ipv6_sets(self):
+        """Gets the ipv6_sets of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
 
 
-        :return: The i_pv6_sets of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+        :return: The ipv6_sets of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
         :rtype: list[str]
         """
-        return self._i_pv6_sets
+        return self._ipv6_sets
 
-    @i_pv6_sets.setter
-    def i_pv6_sets(self, i_pv6_sets):
-        """Sets the i_pv6_sets of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.
+    @ipv6_sets.setter
+    def ipv6_sets(self, ipv6_sets):
+        """Sets the ipv6_sets of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.
 
 
-        :param i_pv6_sets: The i_pv6_sets of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
+        :param ipv6_sets: The ipv6_sets of this NetworkInterfaceSetForDescribeNetworkInterfacesOutput.  # noqa: E501
         :type: list[str]
         """
 
-        self._i_pv6_sets = i_pv6_sets
+        self._ipv6_sets = ipv6_sets
 
     @property
     def mac_address(self):

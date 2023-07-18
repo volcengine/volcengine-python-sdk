@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     reboot_instances_request = volcenginesdkecs.RebootInstancesRequest(
         instance_ids=["i-ybo349sxoncm9t******", "i-ybo349sxolcm9t******"],
     )
-
+    
     try:
         resp = api_instance.reboot_instances(reboot_instances_request)
         pprint(resp)

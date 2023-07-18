@@ -7,15 +7,15 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkclb.CLBApi()
-    req_servers0 = volcenginesdkclb.ServerForAddServerGroupBackendServersInput(
+    req_servers = volcenginesdkclb.ServerForAddServerGroupBackendServersInput(
         description="ecs1",
         instance_id="i-3tkuehz8oa3vj0wz****",
         ip="192.XX.XX.2",
@@ -25,9 +25,9 @@ if __name__ == '__main__':
     )
     add_server_group_backend_servers_request = volcenginesdkclb.AddServerGroupBackendServersRequest(
         server_group_id="rsp-bp1o94dp5i6ea****",
-        servers=[req_servers0],
+        servers=[req_servers],
     )
-
+    
     try:
         resp = api_instance.add_server_group_backend_servers(add_server_group_backend_servers_request)
         pprint(resp)

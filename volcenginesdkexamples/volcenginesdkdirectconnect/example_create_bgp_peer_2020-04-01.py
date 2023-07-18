@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -17,12 +17,11 @@ if __name__ == '__main__':
     api_instance = volcenginesdkdirectconnect.DIRECTCONNECTApi()
     create_bgp_peer_request = volcenginesdkdirectconnect.CreateBgpPeerRequest(
         auth_key="testA****",
-        bgp_peer_name="test",
         description="test",
         remote_asn=32500,
         virtual_interface_id="dcv-3tehy13n2l4c6c0v****",
     )
-
+    
     try:
         resp = api_instance.create_bgp_peer(create_bgp_peer_request)
         pprint(resp)

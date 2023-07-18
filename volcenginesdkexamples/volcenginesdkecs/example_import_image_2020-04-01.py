@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -23,7 +23,7 @@ if __name__ == '__main__':
         platform_version="7.6",
         url="xxx",
     )
-
+    
     try:
         resp = api_instance.import_image(import_image_request)
         pprint(resp)

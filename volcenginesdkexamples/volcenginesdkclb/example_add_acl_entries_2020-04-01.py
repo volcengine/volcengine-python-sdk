@@ -7,25 +7,25 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkclb.CLBApi()
-    req_acl_entries0 = volcenginesdkclb.AclEntryForAddAclEntriesInput(
+    req_acl_entries = volcenginesdkclb.AclEntryForAddAclEntriesInput(
         entry="192.XX.XX.7/16",
     )
     req_acl_entries1 = volcenginesdkclb.AclEntryForAddAclEntriesInput(
         entry="192.XX.XX.0/16",
     )
     add_acl_entries_request = volcenginesdkclb.AddAclEntriesRequest(
-        acl_entries=[req_acl_entries0, req_acl_entries1],
+        acl_entries=[req_acl_entries, req_acl_entries1],
         acl_id="acl-3cj44nv0jhhxc6c6rrtet****",
     )
-
+    
     try:
         resp = api_instance.add_acl_entries(add_acl_entries_request)
         pprint(resp)

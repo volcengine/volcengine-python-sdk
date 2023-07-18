@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -28,7 +28,7 @@ if __name__ == '__main__':
         peer_location="中国上海市静安区XX路XX号XX楼XX机房",
         port_type="1000Base",
     )
-
+    
     try:
         resp = api_instance.create_direct_connect_connection(create_direct_connect_connection_request)
         pprint(resp)

@@ -54,8 +54,7 @@ class DeleteDeploymentSetRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if deployment_set_id is not None:
-            self.deployment_set_id = deployment_set_id
+        self.deployment_set_id = deployment_set_id
 
     @property
     def client_token(self):
@@ -96,6 +95,8 @@ class DeleteDeploymentSetRequest(object):
         :param deployment_set_id: The deployment_set_id of this DeleteDeploymentSetRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and deployment_set_id is None:
+            raise ValueError("Invalid value for `deployment_set_id`, must not be `None`")  # noqa: E501
 
         self._deployment_set_id = deployment_set_id
 

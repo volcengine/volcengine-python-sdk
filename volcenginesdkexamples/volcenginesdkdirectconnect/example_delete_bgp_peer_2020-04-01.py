@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     delete_bgp_peer_request = volcenginesdkdirectconnect.DeleteBgpPeerRequest(
         bgp_peer_id="bgp-2752hz4teko3k7fap8u4c****",
     )
-
+    
     try:
         resp = api_instance.delete_bgp_peer(delete_bgp_peer_request)
         pprint(resp)

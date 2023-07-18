@@ -7,15 +7,15 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkvpc.VPCApi()
-    req_egress_acl_entries0 = volcenginesdkvpc.EgressAclEntryForUpdateNetworkAclEntriesInput(
+    req_egress_acl_entries = volcenginesdkvpc.EgressAclEntryForUpdateNetworkAclEntriesInput(
         description="ThisisEgressAclEntries01.",
         destination_cidr_ip="10.XX.XX.0/24",
         network_acl_entry_id="nae-2zecs97e0brcge46****",
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         port="80/80",
         protocol="icmp",
     )
-    req_ingress_acl_entries0 = volcenginesdkvpc.IngressAclEntryForUpdateNetworkAclEntriesInput(
+    req_ingress_acl_entries = volcenginesdkvpc.IngressAclEntryForUpdateNetworkAclEntriesInput(
         description="ThisisIngressAclEntries01.",
         network_acl_entry_id="nae-2zepn32de59j8m4****",
         network_acl_entry_name="acl-3***",
@@ -52,13 +52,13 @@ if __name__ == '__main__':
         source_cidr_ip="10.XX.XX.0/24",
     )
     update_network_acl_entries_request = volcenginesdkvpc.UpdateNetworkAclEntriesRequest(
-        egress_acl_entries=[req_egress_acl_entries0, req_egress_acl_entries1],
-        ingress_acl_entries=[req_ingress_acl_entries0, req_ingress_acl_entries1],
+        egress_acl_entries=[req_egress_acl_entries, req_egress_acl_entries1],
+        ingress_acl_entries=[req_ingress_acl_entries, req_ingress_acl_entries1],
         network_acl_id="nacl-bp1fg655nh68xyz9****",
         update_egress_acl_entries=False,
         update_ingress_acl_entries=False,
     )
-
+    
     try:
         resp = api_instance.update_network_acl_entries(update_network_acl_entries_request)
         pprint(resp)

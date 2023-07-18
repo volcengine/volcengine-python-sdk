@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         network_interface_id="eni-bp67acfmxazb4ph****",
         private_ip_address=["192.168.XX.10"],
     )
-
+    
     try:
         resp = api_instance.unassign_private_ip_addresses(unassign_private_ip_addresses_request)
         pprint(resp)

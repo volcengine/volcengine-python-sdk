@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         instance_id="i-2zebbhyczzaweeval****",
         instance_type="EcsInstance",
     )
-
+    
     try:
         resp = api_instance.associate_eip_address(associate_eip_address_request)
         pprint(resp)

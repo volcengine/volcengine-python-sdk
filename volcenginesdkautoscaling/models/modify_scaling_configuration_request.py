@@ -107,8 +107,7 @@ class ModifyScalingConfigurationRequest(object):
             self.key_pair_name = key_pair_name
         if password is not None:
             self.password = password
-        if scaling_configuration_id is not None:
-            self.scaling_configuration_id = scaling_configuration_id
+        self.scaling_configuration_id = scaling_configuration_id
         if scaling_configuration_name is not None:
             self.scaling_configuration_name = scaling_configuration_name
         if security_enhancement_strategy is not None:
@@ -308,6 +307,8 @@ class ModifyScalingConfigurationRequest(object):
         :param scaling_configuration_id: The scaling_configuration_id of this ModifyScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_configuration_id is None:
+            raise ValueError("Invalid value for `scaling_configuration_id`, must not be `None`")  # noqa: E501
 
         self._scaling_configuration_id = scaling_configuration_id
 

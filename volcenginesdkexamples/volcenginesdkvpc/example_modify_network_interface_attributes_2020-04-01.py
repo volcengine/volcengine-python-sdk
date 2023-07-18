@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -16,9 +16,10 @@ if __name__ == '__main__':
     # use global default configuration
     api_instance = volcenginesdkvpc.VPCApi()
     modify_network_interface_attributes_request = volcenginesdkvpc.ModifyNetworkInterfaceAttributesRequest(
-        network_interface_name="test",
+        network_interface_id="eni-bp1fgnh68xyz9****",
+        network_interface_name="ENI_1",
     )
-
+    
     try:
         resp = api_instance.modify_network_interface_attributes(modify_network_interface_attributes_request)
         pprint(resp)

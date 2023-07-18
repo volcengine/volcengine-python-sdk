@@ -77,8 +77,7 @@ class DescribeScalingInstancesRequest(object):
             self.page_size = page_size
         if scaling_configuration_id is not None:
             self.scaling_configuration_id = scaling_configuration_id
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
         if status is not None:
             self.status = status
 
@@ -205,6 +204,8 @@ class DescribeScalingInstancesRequest(object):
         :param scaling_group_id: The scaling_group_id of this DescribeScalingInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

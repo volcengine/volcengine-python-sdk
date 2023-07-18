@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         direct_connect_gateway_id="dcg-7qthudw0ll6jmc****",
         direct_connect_gateway_name="test",
     )
-
+    
     try:
         resp = api_instance.modify_direct_connect_gateway_attributes(modify_direct_connect_gateway_attributes_request)
         pprint(resp)
