@@ -264,7 +264,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
         :param type: The type of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["UnknownType", "SystemFailure_Stop", "SystemFailure_Reboot", "SystemFailure_PleaseCheck", "DiskError_Redeploy", "HDDBadSector_Redeploy", "GpuError_Redeploy", "SystemMaintenance_Redeploy", "SystemFailure_Redeploy", "CreateInstance", "RunInstance", "StopInstance", "DeleteInstance", "SpotInstanceInterruption_Delete", "AccountUnbalanced_Stop", "AccountUnbalanced_Delete", "InstanceChargeType_Change", "InstanceConfiguration_Change", "FileSystemReadOnly_Change", "RebootInstance", "InstanceFailure", "ApplicationFailure"]  # noqa: E501
+        allowed_values = ["UnknownType", "SystemFailure_Stop", "SystemFailure_Reboot", "SystemFailure_PleaseCheck", "DiskError_Redeploy", "HDDBadSector_Redeploy", "GpuError_Redeploy", "SystemMaintenance_Redeploy", "SystemFailure_Redeploy", "CreateInstance", "RunInstance", "StopInstance", "DeleteInstance", "SpotInstanceInterruption_Delete", "AccountUnbalanced_Stop", "AccountUnbalanced_Delete", "InstanceChargeType_Change", "InstanceConfiguration_Change", "FileSystemReadOnly_Change", "RebootInstance", "InstanceFailure", "ApplicationFailure", "GpuRiskDetected"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 type not in allowed_values):
             raise ValueError(
