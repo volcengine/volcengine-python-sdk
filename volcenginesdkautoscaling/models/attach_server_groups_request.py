@@ -52,8 +52,7 @@ class AttachServerGroupsRequest(object):
         self._server_group_attributes = None
         self.discriminator = None
 
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
         if server_group_attributes is not None:
             self.server_group_attributes = server_group_attributes
 
@@ -75,6 +74,8 @@ class AttachServerGroupsRequest(object):
         :param scaling_group_id: The scaling_group_id of this AttachServerGroupsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

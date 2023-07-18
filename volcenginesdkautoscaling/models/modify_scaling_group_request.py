@@ -85,8 +85,7 @@ class ModifyScalingGroupRequest(object):
             self.max_instance_number = max_instance_number
         if min_instance_number is not None:
             self.min_instance_number = min_instance_number
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
         if scaling_group_name is not None:
             self.scaling_group_name = scaling_group_name
         if subnet_ids is not None:
@@ -236,6 +235,8 @@ class ModifyScalingGroupRequest(object):
         :param scaling_group_id: The scaling_group_id of this ModifyScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

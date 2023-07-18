@@ -115,7 +115,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AttachDBInstances/2020-01-01/auto_scaling/get/', 'GET',
+            '/AttachDBInstances/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AttachInstances/2020-01-01/auto_scaling/get/', 'GET',
+            '/AttachInstances/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AttachServerGroups/2020-01-01/auto_scaling/get/', 'GET',
+            '/AttachServerGroups/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CompleteLifecycleActivity/2020-01-01/auto_scaling/get/', 'GET',
+            '/CompleteLifecycleActivity/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateLifecycleHook/2020-01-01/auto_scaling/get/', 'GET',
+            '/CreateLifecycleHook/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateScalingConfiguration/2020-01-01/auto_scaling/get/', 'GET',
+            '/CreateScalingConfiguration/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateScalingGroup/2020-01-01/auto_scaling/get/', 'GET',
+            '/CreateScalingGroup/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateScalingPolicy/2020-01-01/auto_scaling/get/', 'GET',
+            '/CreateScalingPolicy/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteLifecycleHook/2020-01-01/auto_scaling/get/', 'GET',
+            '/DeleteLifecycleHook/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteScalingConfiguration/2020-01-01/auto_scaling/get/', 'GET',
+            '/DeleteScalingConfiguration/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteScalingGroup/2020-01-01/auto_scaling/get/', 'GET',
+            '/DeleteScalingGroup/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteScalingPolicy/2020-01-01/auto_scaling/get/', 'GET',
+            '/DeleteScalingPolicy/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeLifecycleActivities/2020-01-01/auto_scaling/get/', 'GET',
+            '/DescribeLifecycleActivities/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeLifecycleHooks/2020-01-01/auto_scaling/get/', 'GET',
+            '/DescribeLifecycleHooks/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeScalingActivities/2020-01-01/auto_scaling/get/', 'GET',
+            '/DescribeScalingActivities/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeScalingConfigurations/2020-01-01/auto_scaling/get/', 'GET',
+            '/DescribeScalingConfigurations/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeScalingGroups/2020-01-01/auto_scaling/get/', 'GET',
+            '/DescribeScalingGroups/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeScalingInstances/2020-01-01/auto_scaling/get/', 'GET',
+            '/DescribeScalingInstances/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeScalingPolicies/2020-01-01/auto_scaling/get/', 'GET',
+            '/DescribeScalingPolicies/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DetachDBInstances/2020-01-01/auto_scaling/get/', 'GET',
+            '/DetachDBInstances/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DetachInstances/2020-01-01/auto_scaling/get/', 'GET',
+            '/DetachInstances/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2152,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DetachServerGroups/2020-01-01/auto_scaling/get/', 'GET',
+            '/DetachServerGroups/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2249,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisableScalingGroup/2020-01-01/auto_scaling/get/', 'GET',
+            '/DisableScalingGroup/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +2346,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisableScalingPolicy/2020-01-01/auto_scaling/get/', 'GET',
+            '/DisableScalingPolicy/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +2443,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/EnableScalingConfiguration/2020-01-01/auto_scaling/get/', 'GET',
+            '/EnableScalingConfiguration/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +2540,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/EnableScalingGroup/2020-01-01/auto_scaling/get/', 'GET',
+            '/EnableScalingGroup/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2637,7 +2637,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/EnableScalingPolicy/2020-01-01/auto_scaling/get/', 'GET',
+            '/EnableScalingPolicy/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2734,7 +2734,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyLifecycleHook/2020-01-01/auto_scaling/get/', 'GET',
+            '/ModifyLifecycleHook/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2831,7 +2831,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyScalingConfiguration/2020-01-01/auto_scaling/get/', 'GET',
+            '/ModifyScalingConfiguration/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2928,7 +2928,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyScalingGroup/2020-01-01/auto_scaling/get/', 'GET',
+            '/ModifyScalingGroup/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3025,7 +3025,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyScalingPolicy/2020-01-01/auto_scaling/get/', 'GET',
+            '/ModifyScalingPolicy/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3122,7 +3122,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RemoveInstances/2020-01-01/auto_scaling/get/', 'GET',
+            '/RemoveInstances/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3219,7 +3219,7 @@ class AUTOSCALINGApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/SetInstancesProtection/2020-01-01/auto_scaling/get/', 'GET',
+            '/SetInstancesProtection/2020-01-01/auto_scaling/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,

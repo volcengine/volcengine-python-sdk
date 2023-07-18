@@ -52,10 +52,8 @@ class EnableScalingConfigurationRequest(object):
         self._scaling_group_id = None
         self.discriminator = None
 
-        if scaling_configuration_id is not None:
-            self.scaling_configuration_id = scaling_configuration_id
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_configuration_id = scaling_configuration_id
+        self.scaling_group_id = scaling_group_id
 
     @property
     def scaling_configuration_id(self):
@@ -75,6 +73,8 @@ class EnableScalingConfigurationRequest(object):
         :param scaling_configuration_id: The scaling_configuration_id of this EnableScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_configuration_id is None:
+            raise ValueError("Invalid value for `scaling_configuration_id`, must not be `None`")  # noqa: E501
 
         self._scaling_configuration_id = scaling_configuration_id
 
@@ -96,6 +96,8 @@ class EnableScalingConfigurationRequest(object):
         :param scaling_group_id: The scaling_group_id of this EnableScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 
