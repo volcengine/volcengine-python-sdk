@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         load_balancer_id="clb-bp1b6c719dfa08ex****",
         renew_type=2,
     )
-
+    
     try:
         resp = api_instance.set_load_balancer_renewal(set_load_balancer_renewal_request)
         pprint(resp)

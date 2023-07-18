@@ -90,8 +90,7 @@ class CreateScalingGroupRequest(object):
             self.min_instance_number = min_instance_number
         if multi_az_policy is not None:
             self.multi_az_policy = multi_az_policy
-        if scaling_group_name is not None:
-            self.scaling_group_name = scaling_group_name
+        self.scaling_group_name = scaling_group_name
         if server_group_attributes is not None:
             self.server_group_attributes = server_group_attributes
         if subnet_ids is not None:
@@ -262,6 +261,8 @@ class CreateScalingGroupRequest(object):
         :param scaling_group_name: The scaling_group_name of this CreateScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_name is None:
+            raise ValueError("Invalid value for `scaling_group_name`, must not be `None`")  # noqa: E501
 
         self._scaling_group_name = scaling_group_name
 

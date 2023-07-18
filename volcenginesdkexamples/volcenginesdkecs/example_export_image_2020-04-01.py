@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         tos_bucket="bucket-1",
         tos_prefix="test123",
     )
-
+    
     try:
         resp = api_instance.export_image(export_image_request)
         pprint(resp)

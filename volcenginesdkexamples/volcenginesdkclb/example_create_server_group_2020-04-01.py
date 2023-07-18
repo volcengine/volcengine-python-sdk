@@ -7,15 +7,15 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkclb.CLBApi()
-    req_servers0 = volcenginesdkclb.ServerForCreateServerGroupInput(
+    req_servers = volcenginesdkclb.ServerForCreateServerGroupInput(
         instance_id="i-3tkuehz8oa3vj0wz****",
         ip="192.XX.XX.2",
         port=88,
@@ -25,9 +25,9 @@ if __name__ == '__main__':
     create_server_group_request = volcenginesdkclb.CreateServerGroupRequest(
         load_balancer_id="clb-bp1b6c719dfa08ex****",
         server_group_name="myservergroup",
-        servers=[req_servers0],
+        servers=[req_servers],
     )
-
+    
     try:
         resp = api_instance.create_server_group(create_server_group_request)
         pprint(resp)

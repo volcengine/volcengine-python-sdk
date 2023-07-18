@@ -7,15 +7,15 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkclb.CLBApi()
-    req_tags0 = volcenginesdkclb.TagForTagResourcesInput(
+    req_tags = volcenginesdkclb.TagForTagResourcesInput(
         key="k1",
         value="v1",
     )
@@ -26,9 +26,9 @@ if __name__ == '__main__':
     tag_resources_request = volcenginesdkclb.TagResourcesRequest(
         resource_ids=["clb-273sdsdsxxxxxp8u2j****", "clb-2fe6fszjgeznk5oxruv0u****"],
         resource_type="CLB",
-        tags=[req_tags0, req_tags1],
+        tags=[req_tags, req_tags1],
     )
-
+    
     try:
         resp = api_instance.tag_resources(tag_resources_request)
         pprint(resp)

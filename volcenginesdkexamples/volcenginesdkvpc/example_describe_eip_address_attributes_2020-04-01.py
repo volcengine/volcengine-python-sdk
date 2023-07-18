@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     describe_eip_address_attributes_request = volcenginesdkvpc.DescribeEipAddressAttributesRequest(
         allocation_id="eip-2ze7ujxscd****",
     )
-
+    
     try:
         resp = api_instance.describe_eip_address_attributes(describe_eip_address_attributes_request)
         pprint(resp)

@@ -59,8 +59,7 @@ class AttachInstancesRequest(object):
             self.entrusted = entrusted
         if instance_ids is not None:
             self.instance_ids = instance_ids
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
 
     @property
     def entrusted(self):
@@ -122,6 +121,8 @@ class AttachInstancesRequest(object):
         :param scaling_group_id: The scaling_group_id of this AttachInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

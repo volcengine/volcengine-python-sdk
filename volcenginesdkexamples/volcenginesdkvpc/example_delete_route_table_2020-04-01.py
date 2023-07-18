@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     delete_route_table_request = volcenginesdkvpc.DeleteRouteTableRequest(
         route_table_id="vtb-2fdzao4h726f45****",
     )
-
+    
     try:
         resp = api_instance.delete_route_table(delete_route_table_request)
         pprint(resp)

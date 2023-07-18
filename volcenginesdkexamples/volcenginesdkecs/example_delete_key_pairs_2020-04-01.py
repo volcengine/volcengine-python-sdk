@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     delete_key_pairs_request = volcenginesdkecs.DeleteKeyPairsRequest(
         key_pair_names=["ssh_key_pair1", "ssh_key_pair2"],
     )
-
+    
     try:
         resp = api_instance.delete_key_pairs(delete_key_pairs_request)
         pprint(resp)

@@ -49,8 +49,7 @@ class EnableScalingGroupRequest(object):
         self._scaling_group_id = None
         self.discriminator = None
 
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
 
     @property
     def scaling_group_id(self):
@@ -70,6 +69,8 @@ class EnableScalingGroupRequest(object):
         :param scaling_group_id: The scaling_group_id of this EnableScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

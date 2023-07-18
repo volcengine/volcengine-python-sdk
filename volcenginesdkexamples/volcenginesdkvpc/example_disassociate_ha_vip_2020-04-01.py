@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         instance_id="i-faf344422ffsfad****",
         instance_type="EcsInstance",
     )
-
+    
     try:
         resp = api_instance.disassociate_ha_vip(disassociate_ha_vip_request)
         pprint(resp)

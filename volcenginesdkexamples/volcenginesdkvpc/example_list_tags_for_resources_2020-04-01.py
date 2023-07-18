@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         resource_ids=["vpc-273w3e33y2y9s7fap8u2j****", "vpc-bp15zckdt37pq72zv****"],
         resource_type="vpc",
     )
-
+    
     try:
         resp = api_instance.list_tags_for_resources(list_tags_for_resources_request)
         pprint(resp)

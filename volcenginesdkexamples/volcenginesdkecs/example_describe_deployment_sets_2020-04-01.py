@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     describe_deployment_sets_request = volcenginesdkecs.DescribeDeploymentSetsRequest(
         deployment_set_ids=["dps-yc1o9aahks5m57nk****"],
     )
-
+    
     try:
         resp = api_instance.describe_deployment_sets(describe_deployment_sets_request)
         pprint(resp)

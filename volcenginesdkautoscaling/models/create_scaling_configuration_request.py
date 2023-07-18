@@ -95,22 +95,18 @@ class CreateScalingConfigurationRequest(object):
             self.eip = eip
         if host_name is not None:
             self.host_name = host_name
-        if image_id is not None:
-            self.image_id = image_id
+        self.image_id = image_id
         if instance_description is not None:
             self.instance_description = instance_description
-        if instance_name is not None:
-            self.instance_name = instance_name
+        self.instance_name = instance_name
         if instance_types is not None:
             self.instance_types = instance_types
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
         if password is not None:
             self.password = password
-        if scaling_configuration_name is not None:
-            self.scaling_configuration_name = scaling_configuration_name
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_configuration_name = scaling_configuration_name
+        self.scaling_group_id = scaling_group_id
         if security_enhancement_strategy is not None:
             self.security_enhancement_strategy = security_enhancement_strategy
         if security_group_ids is not None:
@@ -119,8 +115,7 @@ class CreateScalingConfigurationRequest(object):
             self.user_data = user_data
         if volumes is not None:
             self.volumes = volumes
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.zone_id = zone_id
 
     @property
     def eip(self):
@@ -182,6 +177,8 @@ class CreateScalingConfigurationRequest(object):
         :param image_id: The image_id of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 
@@ -224,6 +221,8 @@ class CreateScalingConfigurationRequest(object):
         :param instance_name: The instance_name of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_name is None:
+            raise ValueError("Invalid value for `instance_name`, must not be `None`")  # noqa: E501
 
         self._instance_name = instance_name
 
@@ -308,6 +307,8 @@ class CreateScalingConfigurationRequest(object):
         :param scaling_configuration_name: The scaling_configuration_name of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_configuration_name is None:
+            raise ValueError("Invalid value for `scaling_configuration_name`, must not be `None`")  # noqa: E501
 
         self._scaling_configuration_name = scaling_configuration_name
 
@@ -329,6 +330,8 @@ class CreateScalingConfigurationRequest(object):
         :param scaling_group_id: The scaling_group_id of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 
@@ -434,6 +437,8 @@ class CreateScalingConfigurationRequest(object):
         :param zone_id: The zone_id of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

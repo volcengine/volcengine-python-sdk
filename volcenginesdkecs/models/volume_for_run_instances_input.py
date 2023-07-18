@@ -57,10 +57,8 @@ class VolumeForRunInstancesInput(object):
 
         if delete_with_instance is not None:
             self.delete_with_instance = delete_with_instance
-        if size is not None:
-            self.size = size
-        if volume_type is not None:
-            self.volume_type = volume_type
+        self.size = size
+        self.volume_type = volume_type
 
     @property
     def delete_with_instance(self):
@@ -101,6 +99,8 @@ class VolumeForRunInstancesInput(object):
         :param size: The size of this VolumeForRunInstancesInput.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and size is None:
+            raise ValueError("Invalid value for `size`, must not be `None`")  # noqa: E501
 
         self._size = size
 
@@ -122,6 +122,8 @@ class VolumeForRunInstancesInput(object):
         :param volume_type: The volume_type of this VolumeForRunInstancesInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and volume_type is None:
+            raise ValueError("Invalid value for `volume_type`, must not be `None`")  # noqa: E501
 
         self._volume_type = volume_type
 

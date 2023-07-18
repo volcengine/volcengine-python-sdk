@@ -7,15 +7,15 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkcen.CENApi()
-    req_tags0 = volcenginesdkcen.TagForTagResourcesInput(
+    req_tags = volcenginesdkcen.TagForTagResourcesInput(
         key="k1",
         value="v1",
     )
@@ -26,9 +26,9 @@ if __name__ == '__main__':
     tag_resources_request = volcenginesdkcen.TagResourcesRequest(
         resource_ids=["cen-273w3e33y2y9s7fap8u2j****", "cen-7qthudw0ll6jmc****"],
         resource_type="cen",
-        tags=[req_tags0, req_tags1],
+        tags=[req_tags, req_tags1],
     )
-
+    
     try:
         resp = api_instance.tag_resources(tag_resources_request)
         pprint(resp)

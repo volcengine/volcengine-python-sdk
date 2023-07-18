@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         bandwidth=1000,
         inter_region_bandwidth_id="cirb-3tex2x1cwd4c6c0v****",
     )
-
+    
     try:
         resp = api_instance.modify_cen_inter_region_bandwidth_attributes(modify_cen_inter_region_bandwidth_attributes_request)
         pprint(resp)

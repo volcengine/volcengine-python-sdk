@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         listener_id="lsn-2fek3rgsxhrsw5oxruwec****",
         rule_ids=["rule-2fegss1cplxxc5oxruvvq****"],
     )
-
+    
     try:
         resp = api_instance.delete_rules(delete_rules_request)
         pprint(resp)

@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         server_group_id="rsp-bp1o94dp5i6ea****",
         server_ids=["rs-3cig8e5o0kxs06c6rrsqn****"],
     )
-
+    
     try:
         resp = api_instance.remove_server_group_backend_servers(remove_server_group_backend_servers_request)
         pprint(resp)

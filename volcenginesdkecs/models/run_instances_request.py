@@ -164,14 +164,12 @@ class RunInstancesRequest(object):
             self.hostname = hostname
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
-        if image_id is not None:
-            self.image_id = image_id
+        self.image_id = image_id
         if instance_charge_type is not None:
             self.instance_charge_type = instance_charge_type
         if instance_name is not None:
             self.instance_name = instance_name
-        if instance_type is not None:
-            self.instance_type = instance_type
+        self.instance_type = instance_type
         if instance_type_id is not None:
             self.instance_type_id = instance_type_id
         if keep_image_credential is not None:
@@ -204,8 +202,7 @@ class RunInstancesRequest(object):
             self.user_data = user_data
         if volumes is not None:
             self.volumes = volumes
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.zone_id = zone_id
 
     @property
     def auto_renew(self):
@@ -458,6 +455,8 @@ class RunInstancesRequest(object):
         :param image_id: The image_id of this RunInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 
@@ -521,6 +520,8 @@ class RunInstancesRequest(object):
         :param instance_type: The instance_type of this RunInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_type is None:
+            raise ValueError("Invalid value for `instance_type`, must not be `None`")  # noqa: E501
 
         self._instance_type = instance_type
 
@@ -878,6 +879,8 @@ class RunInstancesRequest(object):
         :param zone_id: The zone_id of this RunInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

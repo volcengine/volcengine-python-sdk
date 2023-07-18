@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -16,9 +16,10 @@ if __name__ == '__main__':
     # use global default configuration
     api_instance = volcenginesdkvpc.VPCApi()
     disassociate_vpc_cidr_block_request = volcenginesdkvpc.DisassociateVpcCidrBlockRequest(
+        secondary_cidr_block="172.16.XX.0/24",
         vpc_id="vpc-257gqcdfvx6n****",
     )
-
+    
     try:
         resp = api_instance.disassociate_vpc_cidr_block(disassociate_vpc_cidr_block_request)
         pprint(resp)

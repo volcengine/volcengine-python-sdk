@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     delete_vpc_request = volcenginesdkvpc.DeleteVpcRequest(
         vpc_id="vpc-2ff3ruwe8fbb6****",
     )
-
+    
     try:
         resp = api_instance.delete_vpc(delete_vpc_request)
         pprint(resp)

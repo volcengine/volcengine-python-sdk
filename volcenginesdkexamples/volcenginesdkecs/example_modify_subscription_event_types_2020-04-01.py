@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         event_types=["SystemFailure.Stop:Succeeded", "SystemFailure.Stop:Succeeded"],
         subscription_id="s-6js1al1y9665lp******",
     )
-
+    
     try:
         resp = api_instance.modify_subscription_event_types(modify_subscription_event_types_request)
         pprint(resp)

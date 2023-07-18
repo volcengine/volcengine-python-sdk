@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -24,7 +24,7 @@ if __name__ == '__main__':
         virtual_interface_name="test",
         vlan_id=2000,
     )
-
+    
     try:
         resp = api_instance.create_direct_connect_virtual_interface(create_direct_connect_virtual_interface_request)
         pprint(resp)

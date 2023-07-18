@@ -7,15 +7,15 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
 
     # use global default configuration
     api_instance = volcenginesdkvpc.VPCApi()
-    req_resource0 = volcenginesdkvpc.ResourceForDisassociateNetworkAclInput(
+    req_resource = volcenginesdkvpc.ResourceForDisassociateNetworkAclInput(
         resource_id="subnet-67acfmxazb4p****",
     )
     req_resource1 = volcenginesdkvpc.ResourceForDisassociateNetworkAclInput(
@@ -23,9 +23,9 @@ if __name__ == '__main__':
     )
     disassociate_network_acl_request = volcenginesdkvpc.DisassociateNetworkAclRequest(
         network_acl_id="nacl-bp1fg655nh68xyz9****",
-        resource=[req_resource0, req_resource1],
+        resource=[req_resource, req_resource1],
     )
-
+    
     try:
         resp = api_instance.disassociate_network_acl(disassociate_network_acl_request)
         pprint(resp)

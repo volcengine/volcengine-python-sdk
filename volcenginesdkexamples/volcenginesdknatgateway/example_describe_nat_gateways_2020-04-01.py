@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -16,11 +16,11 @@ if __name__ == '__main__':
     # use global default configuration
     api_instance = volcenginesdknatgateway.NATGATEWAYApi()
     describe_nat_gateways_request = volcenginesdknatgateway.DescribeNatGatewaysRequest(
-        nat_gateway_ids=["ngw-2fesmko5zhdz459gp67sc****"],
         page_number=1,
         page_size=5,
+        spec="Medium",
     )
-
+    
     try:
         resp = api_instance.describe_nat_gateways(describe_nat_gateways_request)
         pprint(resp)

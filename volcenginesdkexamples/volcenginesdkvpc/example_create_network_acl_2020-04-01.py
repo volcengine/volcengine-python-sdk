@@ -7,8 +7,8 @@ from volcenginesdkcore.rest import ApiException
 
 if __name__ == '__main__':
     configuration = volcenginesdkcore.Configuration()
-    configuration.ak = "AK"
-    configuration.sk = "SK"
+    configuration.ak = "Your AK"
+    configuration.sk = "Your SK"
     configuration.region = "cn-beijing"
     # set default configuration
     volcenginesdkcore.Configuration.set_default(configuration)
@@ -16,11 +16,10 @@ if __name__ == '__main__':
     # use global default configuration
     api_instance = volcenginesdkvpc.VPCApi()
     create_network_acl_request = volcenginesdkvpc.CreateNetworkAclRequest(
-        description="testDescription",
-        network_acl_name="test-acl",
+        network_acl_name="acl-1",
         vpc_id="vpc-bp1opxu1zkhn00gzv****",
     )
-
+    
     try:
         resp = api_instance.create_network_acl(create_network_acl_request)
         pprint(resp)
