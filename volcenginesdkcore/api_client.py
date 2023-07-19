@@ -17,6 +17,7 @@ from six.moves.urllib.parse import quote
 
 from volcenginesdkcore.configuration import Configuration
 from volcenginesdkcore import rest
+from volcenginesdkcore.metadata import ResponseMetadata
 from volcenginesdkcore.signv4 import SignerV4
 
 
@@ -276,7 +277,17 @@ class ApiClient(object):
         else:
             raise rest.ApiException(status=200, reason="InternalServiceError")
 
-        return self.__deserialize(data, response_type, service)
+        resp_model = self.__deserialize(data, response_type, service)
+        # patch response metadata for resp_model
+        resp_model._metadata = ResponseMetadata(
+            service=meta.get("Service"),
+            action=meta.get("Action"),
+            version=meta.get("Version"),
+            region=meta.get("Region"),
+            request_id=meta.get("RequestId")
+        )
+        resp_model.metadata = metadata.__get__(resp_model)
+        return resp_model
 
     def __deserialize(self, data, klass, service):
         """Deserializes dict, list, str into an object.
@@ -670,3 +681,7 @@ class ApiClient(object):
             if klass_name:
                 instance = self.__deserialize(data, klass_name, service)
         return instance
+
+
+def metadata(self):
+    return self._metadata
