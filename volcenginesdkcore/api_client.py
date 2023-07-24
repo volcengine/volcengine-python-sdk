@@ -67,7 +67,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'volcstack-python-sdk/1.0.26'
+        self.user_agent = 'volcstack-python-sdk/1.0.27'
         self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):
@@ -278,6 +278,9 @@ class ApiClient(object):
             raise rest.ApiException(status=200, reason="InternalServiceError")
 
         resp_model = self.__deserialize(data, response_type, service)
+        if resp_model is None:
+            return resp_model
+
         # UniversalClient 直接返回
         if response_type == object:
             return resp_model
