@@ -41,6 +41,8 @@ class NodeForDescribeDBInstanceDetailOutput(object):
         'node_status': 'str',
         'node_type': 'str',
         'region_id': 'str',
+        'shard_id': 'str',
+        'sync_delay': 'int',
         'update_time': 'str',
         'vcpu': 'int',
         'zone_id': 'str'
@@ -55,12 +57,14 @@ class NodeForDescribeDBInstanceDetailOutput(object):
         'node_status': 'NodeStatus',
         'node_type': 'NodeType',
         'region_id': 'RegionId',
+        'shard_id': 'ShardId',
+        'sync_delay': 'SyncDelay',
         'update_time': 'UpdateTime',
         'vcpu': 'VCPU',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, create_time=None, instance_id=None, memory=None, node_id=None, node_spec=None, node_status=None, node_type=None, region_id=None, update_time=None, vcpu=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, instance_id=None, memory=None, node_id=None, node_spec=None, node_status=None, node_type=None, region_id=None, shard_id=None, sync_delay=None, update_time=None, vcpu=None, zone_id=None, _configuration=None):  # noqa: E501
         """NodeForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +78,8 @@ class NodeForDescribeDBInstanceDetailOutput(object):
         self._node_status = None
         self._node_type = None
         self._region_id = None
+        self._shard_id = None
+        self._sync_delay = None
         self._update_time = None
         self._vcpu = None
         self._zone_id = None
@@ -95,6 +101,10 @@ class NodeForDescribeDBInstanceDetailOutput(object):
             self.node_type = node_type
         if region_id is not None:
             self.region_id = region_id
+        if shard_id is not None:
+            self.shard_id = shard_id
+        if sync_delay is not None:
+            self.sync_delay = sync_delay
         if update_time is not None:
             self.update_time = update_time
         if vcpu is not None:
@@ -269,6 +279,48 @@ class NodeForDescribeDBInstanceDetailOutput(object):
         """
 
         self._region_id = region_id
+
+    @property
+    def shard_id(self):
+        """Gets the shard_id of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The shard_id of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._shard_id
+
+    @shard_id.setter
+    def shard_id(self, shard_id):
+        """Sets the shard_id of this NodeForDescribeDBInstanceDetailOutput.
+
+
+        :param shard_id: The shard_id of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._shard_id = shard_id
+
+    @property
+    def sync_delay(self):
+        """Gets the sync_delay of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The sync_delay of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._sync_delay
+
+    @sync_delay.setter
+    def sync_delay(self, sync_delay):
+        """Sets the sync_delay of this NodeForDescribeDBInstanceDetailOutput.
+
+
+        :param sync_delay: The sync_delay of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._sync_delay = sync_delay
 
     @property
     def update_time(self):

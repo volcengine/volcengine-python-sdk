@@ -33,67 +33,103 @@ class RestoreToNewInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_ids': 'list[str]',
         'backup_id': 'str',
         'charge_info': 'ChargeInfoForRestoreToNewInstanceInput',
+        'db_param_group_id': 'str',
         'instance_name': 'str',
+        'instance_tags': 'list[InstanceTagForRestoreToNewInstanceInput]',
         'node_info': 'list[NodeInfoForRestoreToNewInstanceInput]',
+        'node_number': 'int',
+        'node_spec': 'str',
         'project_name': 'str',
         'restore_time': 'str',
+        'shard_number': 'int',
         'src_instance_id': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
+        'super_account_password': 'str',
+        'table_meta': 'list[TableMetaForRestoreToNewInstanceInput]',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
+        'allow_list_ids': 'AllowListIds',
         'backup_id': 'BackupId',
         'charge_info': 'ChargeInfo',
+        'db_param_group_id': 'DBParamGroupId',
         'instance_name': 'InstanceName',
+        'instance_tags': 'InstanceTags',
         'node_info': 'NodeInfo',
+        'node_number': 'NodeNumber',
+        'node_spec': 'NodeSpec',
         'project_name': 'ProjectName',
         'restore_time': 'RestoreTime',
+        'shard_number': 'ShardNumber',
         'src_instance_id': 'SrcInstanceId',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
+        'super_account_password': 'SuperAccountPassword',
+        'table_meta': 'TableMeta',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, backup_id=None, charge_info=None, instance_name=None, node_info=None, project_name=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, backup_id=None, charge_info=None, db_param_group_id=None, instance_name=None, instance_tags=None, node_info=None, node_number=None, node_spec=None, project_name=None, restore_time=None, shard_number=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, super_account_password=None, table_meta=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_ids = None
         self._backup_id = None
         self._charge_info = None
+        self._db_param_group_id = None
         self._instance_name = None
+        self._instance_tags = None
         self._node_info = None
+        self._node_number = None
+        self._node_spec = None
         self._project_name = None
         self._restore_time = None
+        self._shard_number = None
         self._src_instance_id = None
         self._storage_space = None
         self._storage_type = None
         self._subnet_id = None
+        self._super_account_password = None
+        self._table_meta = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
 
+        if allow_list_ids is not None:
+            self.allow_list_ids = allow_list_ids
         if backup_id is not None:
             self.backup_id = backup_id
         if charge_info is not None:
             self.charge_info = charge_info
+        if db_param_group_id is not None:
+            self.db_param_group_id = db_param_group_id
         if instance_name is not None:
             self.instance_name = instance_name
+        if instance_tags is not None:
+            self.instance_tags = instance_tags
         if node_info is not None:
             self.node_info = node_info
+        if node_number is not None:
+            self.node_number = node_number
+        if node_spec is not None:
+            self.node_spec = node_spec
         if project_name is not None:
             self.project_name = project_name
         if restore_time is not None:
             self.restore_time = restore_time
+        if shard_number is not None:
+            self.shard_number = shard_number
         if src_instance_id is not None:
             self.src_instance_id = src_instance_id
         if storage_space is not None:
@@ -102,10 +138,35 @@ class RestoreToNewInstanceRequest(object):
             self.storage_type = storage_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if super_account_password is not None:
+            self.super_account_password = super_account_password
+        if table_meta is not None:
+            self.table_meta = table_meta
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def allow_list_ids(self):
+        """Gets the allow_list_ids of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The allow_list_ids of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_list_ids
+
+    @allow_list_ids.setter
+    def allow_list_ids(self, allow_list_ids):
+        """Sets the allow_list_ids of this RestoreToNewInstanceRequest.
+
+
+        :param allow_list_ids: The allow_list_ids of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_list_ids = allow_list_ids
 
     @property
     def backup_id(self):
@@ -150,6 +211,27 @@ class RestoreToNewInstanceRequest(object):
         self._charge_info = charge_info
 
     @property
+    def db_param_group_id(self):
+        """Gets the db_param_group_id of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The db_param_group_id of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_param_group_id
+
+    @db_param_group_id.setter
+    def db_param_group_id(self, db_param_group_id):
+        """Sets the db_param_group_id of this RestoreToNewInstanceRequest.
+
+
+        :param db_param_group_id: The db_param_group_id of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._db_param_group_id = db_param_group_id
+
+    @property
     def instance_name(self):
         """Gets the instance_name of this RestoreToNewInstanceRequest.  # noqa: E501
 
@@ -171,6 +253,27 @@ class RestoreToNewInstanceRequest(object):
         self._instance_name = instance_name
 
     @property
+    def instance_tags(self):
+        """Gets the instance_tags of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The instance_tags of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: list[InstanceTagForRestoreToNewInstanceInput]
+        """
+        return self._instance_tags
+
+    @instance_tags.setter
+    def instance_tags(self, instance_tags):
+        """Sets the instance_tags of this RestoreToNewInstanceRequest.
+
+
+        :param instance_tags: The instance_tags of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: list[InstanceTagForRestoreToNewInstanceInput]
+        """
+
+        self._instance_tags = instance_tags
+
+    @property
     def node_info(self):
         """Gets the node_info of this RestoreToNewInstanceRequest.  # noqa: E501
 
@@ -190,6 +293,48 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._node_info = node_info
+
+    @property
+    def node_number(self):
+        """Gets the node_number of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The node_number of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._node_number
+
+    @node_number.setter
+    def node_number(self, node_number):
+        """Sets the node_number of this RestoreToNewInstanceRequest.
+
+
+        :param node_number: The node_number of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._node_number = node_number
+
+    @property
+    def node_spec(self):
+        """Gets the node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_spec
+
+    @node_spec.setter
+    def node_spec(self, node_spec):
+        """Sets the node_spec of this RestoreToNewInstanceRequest.
+
+
+        :param node_spec: The node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._node_spec = node_spec
 
     @property
     def project_name(self):
@@ -232,6 +377,27 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._restore_time = restore_time
+
+    @property
+    def shard_number(self):
+        """Gets the shard_number of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The shard_number of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._shard_number
+
+    @shard_number.setter
+    def shard_number(self, shard_number):
+        """Sets the shard_number of this RestoreToNewInstanceRequest.
+
+
+        :param shard_number: The shard_number of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._shard_number = shard_number
 
     @property
     def src_instance_id(self):
@@ -316,6 +482,48 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def super_account_password(self):
+        """Gets the super_account_password of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The super_account_password of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._super_account_password
+
+    @super_account_password.setter
+    def super_account_password(self, super_account_password):
+        """Sets the super_account_password of this RestoreToNewInstanceRequest.
+
+
+        :param super_account_password: The super_account_password of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._super_account_password = super_account_password
+
+    @property
+    def table_meta(self):
+        """Gets the table_meta of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The table_meta of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: list[TableMetaForRestoreToNewInstanceInput]
+        """
+        return self._table_meta
+
+    @table_meta.setter
+    def table_meta(self, table_meta):
+        """Sets the table_meta of this RestoreToNewInstanceRequest.
+
+
+        :param table_meta: The table_meta of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: list[TableMetaForRestoreToNewInstanceInput]
+        """
+
+        self._table_meta = table_meta
 
     @property
     def vpc_id(self):
