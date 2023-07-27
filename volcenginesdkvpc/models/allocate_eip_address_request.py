@@ -43,6 +43,8 @@ class AllocateEipAddressRequest(object):
         'period': 'int',
         'period_unit': 'int',
         'project_name': 'str',
+        'renew_period_times': 'int',
+        'renew_type': 'int',
         'security_protection_types': 'list[str]',
         'tags': 'list[TagForAllocateEipAddressInput]'
     }
@@ -58,11 +60,13 @@ class AllocateEipAddressRequest(object):
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
+        'renew_period_times': 'RenewPeriodTimes',
+        'renew_type': 'RenewType',
         'security_protection_types': 'SecurityProtectionTypes',
         'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, description=None, isp=None, name=None, period=None, period_unit=None, project_name=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, description=None, isp=None, name=None, period=None, period_unit=None, project_name=None, renew_period_times=None, renew_type=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
         """AllocateEipAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +82,8 @@ class AllocateEipAddressRequest(object):
         self._period = None
         self._period_unit = None
         self._project_name = None
+        self._renew_period_times = None
+        self._renew_type = None
         self._security_protection_types = None
         self._tags = None
         self.discriminator = None
@@ -102,6 +108,10 @@ class AllocateEipAddressRequest(object):
             self.period_unit = period_unit
         if project_name is not None:
             self.project_name = project_name
+        if renew_period_times is not None:
+            self.renew_period_times = renew_period_times
+        if renew_type is not None:
+            self.renew_type = renew_type
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
         if tags is not None:
@@ -353,6 +363,54 @@ class AllocateEipAddressRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def renew_period_times(self):
+        """Gets the renew_period_times of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The renew_period_times of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._renew_period_times
+
+    @renew_period_times.setter
+    def renew_period_times(self, renew_period_times):
+        """Sets the renew_period_times of this AllocateEipAddressRequest.
+
+
+        :param renew_period_times: The renew_period_times of this AllocateEipAddressRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._renew_period_times = renew_period_times
+
+    @property
+    def renew_type(self):
+        """Gets the renew_type of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The renew_type of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._renew_type
+
+    @renew_type.setter
+    def renew_type(self, renew_type):
+        """Sets the renew_type of this AllocateEipAddressRequest.
+
+
+        :param renew_type: The renew_type of this AllocateEipAddressRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                renew_type is not None and renew_type > 3):  # noqa: E501
+            raise ValueError("Invalid value for `renew_type`, must be a value less than or equal to `3`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                renew_type is not None and renew_type < 1):  # noqa: E501
+            raise ValueError("Invalid value for `renew_type`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._renew_type = renew_type
 
     @property
     def security_protection_types(self):
