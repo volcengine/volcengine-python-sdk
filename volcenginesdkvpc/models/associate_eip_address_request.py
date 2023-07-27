@@ -36,17 +36,21 @@ class AssociateEipAddressRequest(object):
         'allocation_id': 'str',
         'instance_id': 'str',
         'instance_type': 'str',
-        'private_ip_address': 'str'
+        'private_ip_address': 'str',
+        'renew_period_times': 'str',
+        'renew_type': 'str'
     }
 
     attribute_map = {
         'allocation_id': 'AllocationId',
         'instance_id': 'InstanceId',
         'instance_type': 'InstanceType',
-        'private_ip_address': 'PrivateIpAddress'
+        'private_ip_address': 'PrivateIpAddress',
+        'renew_period_times': 'RenewPeriodTimes',
+        'renew_type': 'RenewType'
     }
 
-    def __init__(self, allocation_id=None, instance_id=None, instance_type=None, private_ip_address=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, instance_id=None, instance_type=None, private_ip_address=None, renew_period_times=None, renew_type=None, _configuration=None):  # noqa: E501
         """AssociateEipAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +60,8 @@ class AssociateEipAddressRequest(object):
         self._instance_id = None
         self._instance_type = None
         self._private_ip_address = None
+        self._renew_period_times = None
+        self._renew_type = None
         self.discriminator = None
 
         self.allocation_id = allocation_id
@@ -63,6 +69,10 @@ class AssociateEipAddressRequest(object):
         self.instance_type = instance_type
         if private_ip_address is not None:
             self.private_ip_address = private_ip_address
+        if renew_period_times is not None:
+            self.renew_period_times = renew_period_times
+        if renew_type is not None:
+            self.renew_type = renew_type
 
     @property
     def allocation_id(self):
@@ -160,6 +170,48 @@ class AssociateEipAddressRequest(object):
         """
 
         self._private_ip_address = private_ip_address
+
+    @property
+    def renew_period_times(self):
+        """Gets the renew_period_times of this AssociateEipAddressRequest.  # noqa: E501
+
+
+        :return: The renew_period_times of this AssociateEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._renew_period_times
+
+    @renew_period_times.setter
+    def renew_period_times(self, renew_period_times):
+        """Sets the renew_period_times of this AssociateEipAddressRequest.
+
+
+        :param renew_period_times: The renew_period_times of this AssociateEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._renew_period_times = renew_period_times
+
+    @property
+    def renew_type(self):
+        """Gets the renew_type of this AssociateEipAddressRequest.  # noqa: E501
+
+
+        :return: The renew_type of this AssociateEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._renew_type
+
+    @renew_type.setter
+    def renew_type(self, renew_type):
+        """Sets the renew_type of this AssociateEipAddressRequest.
+
+
+        :param renew_type: The renew_type of this AssociateEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._renew_type = renew_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
