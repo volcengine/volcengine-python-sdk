@@ -33,31 +33,47 @@ class ModifyDBEndpointAddressRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'domain_prefix': 'str',
+        'eip_id': 'str',
         'endpoint_id': 'str',
         'instance_id': 'str',
         'network_type': 'str',
-        'port': 'int'
+        'port': 'int',
+        'subnet_id': 'str',
+        'vpc_id': 'str'
     }
 
     attribute_map = {
+        'domain_prefix': 'DomainPrefix',
+        'eip_id': 'EipId',
         'endpoint_id': 'EndpointId',
         'instance_id': 'InstanceId',
         'network_type': 'NetworkType',
-        'port': 'Port'
+        'port': 'Port',
+        'subnet_id': 'SubnetId',
+        'vpc_id': 'VpcId'
     }
 
-    def __init__(self, endpoint_id=None, instance_id=None, network_type=None, port=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain_prefix=None, eip_id=None, endpoint_id=None, instance_id=None, network_type=None, port=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ModifyDBEndpointAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._domain_prefix = None
+        self._eip_id = None
         self._endpoint_id = None
         self._instance_id = None
         self._network_type = None
         self._port = None
+        self._subnet_id = None
+        self._vpc_id = None
         self.discriminator = None
 
+        if domain_prefix is not None:
+            self.domain_prefix = domain_prefix
+        if eip_id is not None:
+            self.eip_id = eip_id
         if endpoint_id is not None:
             self.endpoint_id = endpoint_id
         self.instance_id = instance_id
@@ -65,6 +81,52 @@ class ModifyDBEndpointAddressRequest(object):
             self.network_type = network_type
         if port is not None:
             self.port = port
+        if subnet_id is not None:
+            self.subnet_id = subnet_id
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
+
+    @property
+    def domain_prefix(self):
+        """Gets the domain_prefix of this ModifyDBEndpointAddressRequest.  # noqa: E501
+
+
+        :return: The domain_prefix of this ModifyDBEndpointAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_prefix
+
+    @domain_prefix.setter
+    def domain_prefix(self, domain_prefix):
+        """Sets the domain_prefix of this ModifyDBEndpointAddressRequest.
+
+
+        :param domain_prefix: The domain_prefix of this ModifyDBEndpointAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._domain_prefix = domain_prefix
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+
+
+        :return: The eip_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this ModifyDBEndpointAddressRequest.
+
+
+        :param eip_id: The eip_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
 
     @property
     def endpoint_id(self):
@@ -151,6 +213,48 @@ class ModifyDBEndpointAddressRequest(object):
         """
 
         self._port = port
+
+    @property
+    def subnet_id(self):
+        """Gets the subnet_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+
+
+        :return: The subnet_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_id
+
+    @subnet_id.setter
+    def subnet_id(self, subnet_id):
+        """Sets the subnet_id of this ModifyDBEndpointAddressRequest.
+
+
+        :param subnet_id: The subnet_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_id = subnet_id
+
+    @property
+    def vpc_id(self):
+        """Gets the vpc_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+
+
+        :return: The vpc_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_id
+
+    @vpc_id.setter
+    def vpc_id(self, vpc_id):
+        """Sets the vpc_id of this ModifyDBEndpointAddressRequest.
+
+
+        :param vpc_id: The vpc_id of this ModifyDBEndpointAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_id = vpc_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

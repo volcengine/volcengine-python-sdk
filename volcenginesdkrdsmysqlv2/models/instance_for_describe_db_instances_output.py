@@ -33,6 +33,7 @@ class InstanceForDescribeDBInstancesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'str',
         'address_object': 'list[AddressObjectForDescribeDBInstancesOutput]',
         'allow_list_version': 'str',
         'charge_detail': 'ChargeDetailForDescribeDBInstancesOutput',
@@ -41,22 +42,30 @@ class InstanceForDescribeDBInstancesOutput(object):
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
+        'instance_type': 'str',
         'lower_case_table_names': 'str',
         'maintenance_window': 'MaintenanceWindowForDescribeDBInstancesOutput',
+        'node_detail_info': 'list[NodeDetailInfoForDescribeDBInstancesOutput]',
         'node_number': 'int',
         'node_spec': 'str',
+        'port': 'str',
         'project_name': 'str',
         'region_id': 'str',
+        'server_collation': 'str',
+        'shard_number': 'int',
         'storage_space': 'int',
         'storage_type': 'str',
-        'storage_use': 'int',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeDBInstancesOutput]',
         'time_zone': 'str',
         'vpc_id': 'str',
-        'zone_id': 'str'
+        'zone_id': 'str',
+        'zone_ids': 'list[str]',
+        'zone_node_pools': 'list[ZoneNodePoolForDescribeDBInstancesOutput]'
     }
 
     attribute_map = {
+        'account_id': 'AccountId',
         'address_object': 'AddressObject',
         'allow_list_version': 'AllowListVersion',
         'charge_detail': 'ChargeDetail',
@@ -65,27 +74,35 @@ class InstanceForDescribeDBInstancesOutput(object):
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
+        'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
         'maintenance_window': 'MaintenanceWindow',
+        'node_detail_info': 'NodeDetailInfo',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
+        'port': 'Port',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
+        'server_collation': 'ServerCollation',
+        'shard_number': 'ShardNumber',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
-        'storage_use': 'StorageUse',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'time_zone': 'TimeZone',
         'vpc_id': 'VpcId',
-        'zone_id': 'ZoneId'
+        'zone_id': 'ZoneId',
+        'zone_ids': 'ZoneIds',
+        'zone_node_pools': 'ZoneNodePools'
     }
 
-    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, lower_case_table_names=None, maintenance_window=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, time_zone=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_detail_info=None, node_number=None, node_spec=None, port=None, project_name=None, region_id=None, server_collation=None, shard_number=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, zone_ids=None, zone_node_pools=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
         self._address_object = None
         self._allow_list_version = None
         self._charge_detail = None
@@ -94,21 +111,30 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
+        self._instance_type = None
         self._lower_case_table_names = None
         self._maintenance_window = None
+        self._node_detail_info = None
         self._node_number = None
         self._node_spec = None
+        self._port = None
         self._project_name = None
         self._region_id = None
+        self._server_collation = None
+        self._shard_number = None
         self._storage_space = None
         self._storage_type = None
-        self._storage_use = None
         self._subnet_id = None
+        self._tags = None
         self._time_zone = None
         self._vpc_id = None
         self._zone_id = None
+        self._zone_ids = None
+        self._zone_node_pools = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
         if address_object is not None:
             self.address_object = address_object
         if allow_list_version is not None:
@@ -125,32 +151,67 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.instance_name = instance_name
         if instance_status is not None:
             self.instance_status = instance_status
+        if instance_type is not None:
+            self.instance_type = instance_type
         if lower_case_table_names is not None:
             self.lower_case_table_names = lower_case_table_names
         if maintenance_window is not None:
             self.maintenance_window = maintenance_window
+        if node_detail_info is not None:
+            self.node_detail_info = node_detail_info
         if node_number is not None:
             self.node_number = node_number
         if node_spec is not None:
             self.node_spec = node_spec
+        if port is not None:
+            self.port = port
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
+        if server_collation is not None:
+            self.server_collation = server_collation
+        if shard_number is not None:
+            self.shard_number = shard_number
         if storage_space is not None:
             self.storage_space = storage_space
         if storage_type is not None:
             self.storage_type = storage_type
-        if storage_use is not None:
-            self.storage_use = storage_use
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if time_zone is not None:
             self.time_zone = time_zone
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+        if zone_ids is not None:
+            self.zone_ids = zone_ids
+        if zone_node_pools is not None:
+            self.zone_node_pools = zone_node_pools
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The account_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param account_id: The account_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def address_object(self):
@@ -321,6 +382,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._instance_status = instance_status
 
     @property
+    def instance_type(self):
+        """Gets the instance_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The instance_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param instance_type: The instance_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type = instance_type
+
+    @property
     def lower_case_table_names(self):
         """Gets the lower_case_table_names of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -361,6 +443,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._maintenance_window = maintenance_window
+
+    @property
+    def node_detail_info(self):
+        """Gets the node_detail_info of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The node_detail_info of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[NodeDetailInfoForDescribeDBInstancesOutput]
+        """
+        return self._node_detail_info
+
+    @node_detail_info.setter
+    def node_detail_info(self, node_detail_info):
+        """Sets the node_detail_info of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param node_detail_info: The node_detail_info of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[NodeDetailInfoForDescribeDBInstancesOutput]
+        """
+
+        self._node_detail_info = node_detail_info
 
     @property
     def node_number(self):
@@ -405,6 +508,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._node_spec = node_spec
 
     @property
+    def port(self):
+        """Gets the port of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The port of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param port: The port of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._port = port
+
+    @property
     def project_name(self):
         """Gets the project_name of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -445,6 +569,48 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._region_id = region_id
+
+    @property
+    def server_collation(self):
+        """Gets the server_collation of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The server_collation of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._server_collation
+
+    @server_collation.setter
+    def server_collation(self, server_collation):
+        """Sets the server_collation of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param server_collation: The server_collation of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._server_collation = server_collation
+
+    @property
+    def shard_number(self):
+        """Gets the shard_number of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The shard_number of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._shard_number
+
+    @shard_number.setter
+    def shard_number(self, shard_number):
+        """Sets the shard_number of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param shard_number: The shard_number of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._shard_number = shard_number
 
     @property
     def storage_space(self):
@@ -489,27 +655,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._storage_type = storage_type
 
     @property
-    def storage_use(self):
-        """Gets the storage_use of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-
-
-        :return: The storage_use of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._storage_use
-
-    @storage_use.setter
-    def storage_use(self, storage_use):
-        """Sets the storage_use of this InstanceForDescribeDBInstancesOutput.
-
-
-        :param storage_use: The storage_use of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._storage_use = storage_use
-
-    @property
     def subnet_id(self):
         """Gets the subnet_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -529,6 +674,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeDBInstancesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param tags: The tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[TagForDescribeDBInstancesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def time_zone(self):
@@ -592,6 +758,48 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._zone_id = zone_id
+
+    @property
+    def zone_ids(self):
+        """Gets the zone_ids of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The zone_ids of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._zone_ids
+
+    @zone_ids.setter
+    def zone_ids(self, zone_ids):
+        """Sets the zone_ids of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param zone_ids: The zone_ids of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._zone_ids = zone_ids
+
+    @property
+    def zone_node_pools(self):
+        """Gets the zone_node_pools of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The zone_node_pools of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[ZoneNodePoolForDescribeDBInstancesOutput]
+        """
+        return self._zone_node_pools
+
+    @zone_node_pools.setter
+    def zone_node_pools(self, zone_node_pools):
+        """Sets the zone_node_pools of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param zone_node_pools: The zone_node_pools of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[ZoneNodePoolForDescribeDBInstancesOutput]
+        """
+
+        self._zone_node_pools = zone_node_pools
 
     def to_dict(self):
         """Returns the model properties as a dict"""

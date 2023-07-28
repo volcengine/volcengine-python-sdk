@@ -33,67 +33,95 @@ class CreateDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_ids': 'list[str]',
+        'billing_rule_code': 'str',
         'charge_info': 'ChargeInfoForCreateDBInstanceInput',
         'db_engine_version': 'str',
         'db_param_group_id': 'str',
         'db_time_zone': 'str',
         'instance_name': 'str',
         'instance_tags': 'list[InstanceTagForCreateDBInstanceInput]',
+        'instance_type': 'str',
         'lower_case_table_names': 'str',
         'node_info': 'list[NodeInfoForCreateDBInstanceInput]',
+        'node_number': 'int',
+        'node_spec': 'str',
         'number': 'int',
         'project_name': 'str',
+        'server_collation': 'str',
+        'shard_number': 'int',
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
         'super_account_name': 'str',
         'super_account_password': 'str',
-        'vpc_id': 'str'
+        'vpc_id': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
+        'allow_list_ids': 'AllowListIds',
+        'billing_rule_code': 'BillingRuleCode',
         'charge_info': 'ChargeInfo',
         'db_engine_version': 'DBEngineVersion',
         'db_param_group_id': 'DBParamGroupId',
         'db_time_zone': 'DBTimeZone',
         'instance_name': 'InstanceName',
         'instance_tags': 'InstanceTags',
+        'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
         'node_info': 'NodeInfo',
+        'node_number': 'NodeNumber',
+        'node_spec': 'NodeSpec',
         'number': 'Number',
         'project_name': 'ProjectName',
+        'server_collation': 'ServerCollation',
+        'shard_number': 'ShardNumber',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
         'super_account_name': 'SuperAccountName',
         'super_account_password': 'SuperAccountPassword',
-        'vpc_id': 'VpcId'
+        'vpc_id': 'VpcId',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, instance_name=None, instance_tags=None, lower_case_table_names=None, node_info=None, number=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, billing_rule_code=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, node_info=None, node_number=None, node_spec=None, number=None, project_name=None, server_collation=None, shard_number=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_ids = None
+        self._billing_rule_code = None
         self._charge_info = None
         self._db_engine_version = None
         self._db_param_group_id = None
         self._db_time_zone = None
         self._instance_name = None
         self._instance_tags = None
+        self._instance_type = None
         self._lower_case_table_names = None
         self._node_info = None
+        self._node_number = None
+        self._node_spec = None
         self._number = None
         self._project_name = None
+        self._server_collation = None
+        self._shard_number = None
         self._storage_space = None
         self._storage_type = None
         self._subnet_id = None
         self._super_account_name = None
         self._super_account_password = None
         self._vpc_id = None
+        self._zone_id = None
         self.discriminator = None
 
+        if allow_list_ids is not None:
+            self.allow_list_ids = allow_list_ids
+        if billing_rule_code is not None:
+            self.billing_rule_code = billing_rule_code
         if charge_info is not None:
             self.charge_info = charge_info
         if db_engine_version is not None:
@@ -106,14 +134,24 @@ class CreateDBInstanceRequest(object):
             self.instance_name = instance_name
         if instance_tags is not None:
             self.instance_tags = instance_tags
+        if instance_type is not None:
+            self.instance_type = instance_type
         if lower_case_table_names is not None:
             self.lower_case_table_names = lower_case_table_names
         if node_info is not None:
             self.node_info = node_info
+        if node_number is not None:
+            self.node_number = node_number
+        if node_spec is not None:
+            self.node_spec = node_spec
         if number is not None:
             self.number = number
         if project_name is not None:
             self.project_name = project_name
+        if server_collation is not None:
+            self.server_collation = server_collation
+        if shard_number is not None:
+            self.shard_number = shard_number
         if storage_space is not None:
             self.storage_space = storage_space
         if storage_type is not None:
@@ -126,6 +164,50 @@ class CreateDBInstanceRequest(object):
             self.super_account_password = super_account_password
         if vpc_id is not None:
             self.vpc_id = vpc_id
+        if zone_id is not None:
+            self.zone_id = zone_id
+
+    @property
+    def allow_list_ids(self):
+        """Gets the allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_list_ids
+
+    @allow_list_ids.setter
+    def allow_list_ids(self, allow_list_ids):
+        """Sets the allow_list_ids of this CreateDBInstanceRequest.
+
+
+        :param allow_list_ids: The allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_list_ids = allow_list_ids
+
+    @property
+    def billing_rule_code(self):
+        """Gets the billing_rule_code of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The billing_rule_code of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_rule_code
+
+    @billing_rule_code.setter
+    def billing_rule_code(self, billing_rule_code):
+        """Sets the billing_rule_code of this CreateDBInstanceRequest.
+
+
+        :param billing_rule_code: The billing_rule_code of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._billing_rule_code = billing_rule_code
 
     @property
     def charge_info(self):
@@ -254,6 +336,27 @@ class CreateDBInstanceRequest(object):
         self._instance_tags = instance_tags
 
     @property
+    def instance_type(self):
+        """Gets the instance_type of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The instance_type of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this CreateDBInstanceRequest.
+
+
+        :param instance_type: The instance_type of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type = instance_type
+
+    @property
     def lower_case_table_names(self):
         """Gets the lower_case_table_names of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -296,6 +399,48 @@ class CreateDBInstanceRequest(object):
         self._node_info = node_info
 
     @property
+    def node_number(self):
+        """Gets the node_number of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The node_number of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._node_number
+
+    @node_number.setter
+    def node_number(self, node_number):
+        """Sets the node_number of this CreateDBInstanceRequest.
+
+
+        :param node_number: The node_number of this CreateDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._node_number = node_number
+
+    @property
+    def node_spec(self):
+        """Gets the node_spec of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The node_spec of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_spec
+
+    @node_spec.setter
+    def node_spec(self, node_spec):
+        """Sets the node_spec of this CreateDBInstanceRequest.
+
+
+        :param node_spec: The node_spec of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._node_spec = node_spec
+
+    @property
     def number(self):
         """Gets the number of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -336,6 +481,48 @@ class CreateDBInstanceRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def server_collation(self):
+        """Gets the server_collation of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The server_collation of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._server_collation
+
+    @server_collation.setter
+    def server_collation(self, server_collation):
+        """Sets the server_collation of this CreateDBInstanceRequest.
+
+
+        :param server_collation: The server_collation of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._server_collation = server_collation
+
+    @property
+    def shard_number(self):
+        """Gets the shard_number of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The shard_number of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._shard_number
+
+    @shard_number.setter
+    def shard_number(self, shard_number):
+        """Sets the shard_number of this CreateDBInstanceRequest.
+
+
+        :param shard_number: The shard_number of this CreateDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._shard_number = shard_number
 
     @property
     def storage_space(self):
@@ -474,6 +661,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._vpc_id = vpc_id
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The zone_id of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this CreateDBInstanceRequest.
+
+
+        :param zone_id: The zone_id of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
