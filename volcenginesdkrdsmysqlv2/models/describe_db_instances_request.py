@@ -33,52 +33,69 @@ class DescribeDBInstancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'str',
         'charge_type': 'str',
         'create_time_end': 'str',
         'create_time_start': 'str',
         'db_engine_version': 'str',
+        'filters': 'list[FilterForDescribeDBInstancesInput]',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
+        'instance_type': 'str',
+        'node_spec': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
         'zone_id': 'str'
     }
 
     attribute_map = {
+        'account_id': 'AccountId',
         'charge_type': 'ChargeType',
         'create_time_end': 'CreateTimeEnd',
         'create_time_start': 'CreateTimeStart',
         'db_engine_version': 'DBEngineVersion',
+        'filters': 'Filters',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
+        'instance_type': 'InstanceType',
+        'node_spec': 'NodeSpec',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, filters=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, node_spec=None, page_number=None, page_size=None, project_name=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
         self._charge_type = None
         self._create_time_end = None
         self._create_time_start = None
         self._db_engine_version = None
+        self._filters = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
+        self._instance_type = None
+        self._node_spec = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._tag_filters = None
         self._zone_id = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
         if charge_type is not None:
             self.charge_type = charge_type
         if create_time_end is not None:
@@ -87,20 +104,49 @@ class DescribeDBInstancesRequest(object):
             self.create_time_start = create_time_start
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if filters is not None:
+            self.filters = filters
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
         if instance_status is not None:
             self.instance_status = instance_status
+        if instance_type is not None:
+            self.instance_type = instance_type
+        if node_spec is not None:
+            self.node_spec = node_spec
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The account_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this DescribeDBInstancesRequest.
+
+
+        :param account_id: The account_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def charge_type(self):
@@ -187,6 +233,27 @@ class DescribeDBInstancesRequest(object):
         self._db_engine_version = db_engine_version
 
     @property
+    def filters(self):
+        """Gets the filters of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The filters of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: list[FilterForDescribeDBInstancesInput]
+        """
+        return self._filters
+
+    @filters.setter
+    def filters(self, filters):
+        """Sets the filters of this DescribeDBInstancesRequest.
+
+
+        :param filters: The filters of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: list[FilterForDescribeDBInstancesInput]
+        """
+
+        self._filters = filters
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this DescribeDBInstancesRequest.  # noqa: E501
 
@@ -250,6 +317,48 @@ class DescribeDBInstancesRequest(object):
         self._instance_status = instance_status
 
     @property
+    def instance_type(self):
+        """Gets the instance_type of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The instance_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this DescribeDBInstancesRequest.
+
+
+        :param instance_type: The instance_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type = instance_type
+
+    @property
+    def node_spec(self):
+        """Gets the node_spec of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The node_spec of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_spec
+
+    @node_spec.setter
+    def node_spec(self, node_spec):
+        """Sets the node_spec of this DescribeDBInstancesRequest.
+
+
+        :param node_spec: The node_spec of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._node_spec = node_spec
+
+    @property
     def page_number(self):
         """Gets the page_number of this DescribeDBInstancesRequest.  # noqa: E501
 
@@ -311,6 +420,27 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeDBInstancesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeDBInstancesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeDBInstancesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def zone_id(self):

@@ -33,28 +33,54 @@ class DescribeRecoverableTimeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_region': 'str',
         'instance_id': 'str',
         'restore_type': 'str'
     }
 
     attribute_map = {
+        'backup_region': 'BackupRegion',
         'instance_id': 'InstanceId',
         'restore_type': 'RestoreType'
     }
 
-    def __init__(self, instance_id=None, restore_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_region=None, instance_id=None, restore_type=None, _configuration=None):  # noqa: E501
         """DescribeRecoverableTimeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_region = None
         self._instance_id = None
         self._restore_type = None
         self.discriminator = None
 
+        if backup_region is not None:
+            self.backup_region = backup_region
         self.instance_id = instance_id
         if restore_type is not None:
             self.restore_type = restore_type
+
+    @property
+    def backup_region(self):
+        """Gets the backup_region of this DescribeRecoverableTimeRequest.  # noqa: E501
+
+
+        :return: The backup_region of this DescribeRecoverableTimeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_region
+
+    @backup_region.setter
+    def backup_region(self, backup_region):
+        """Sets the backup_region of this DescribeRecoverableTimeRequest.
+
+
+        :param backup_region: The backup_region of this DescribeRecoverableTimeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_region = backup_region
 
     @property
     def instance_id(self):

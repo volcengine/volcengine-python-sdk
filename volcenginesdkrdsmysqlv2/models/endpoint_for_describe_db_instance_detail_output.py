@@ -33,55 +33,74 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address': 'list[AddressForDescribeDBInstanceDetailOutput]',
         'addresses': 'list[AddressForDescribeDBInstanceDetailOutput]',
         'auto_add_new_nodes': 'str',
         'description': 'str',
+        'eip_id': 'str',
         'enable_read_only': 'str',
         'enable_read_write_splitting': 'str',
         'endpoint_id': 'str',
         'endpoint_name': 'str',
         'endpoint_type': 'str',
+        'public_ip_address': 'str',
+        'read_only_node_distribution_type': 'str',
+        'read_only_node_max_delay_time': 'int',
         'read_only_node_weight': 'list[ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput]',
         'read_write_mode': 'str'
     }
 
     attribute_map = {
+        'address': 'Address',
         'addresses': 'Addresses',
         'auto_add_new_nodes': 'AutoAddNewNodes',
         'description': 'Description',
+        'eip_id': 'EipId',
         'enable_read_only': 'EnableReadOnly',
         'enable_read_write_splitting': 'EnableReadWriteSplitting',
         'endpoint_id': 'EndpointId',
         'endpoint_name': 'EndpointName',
         'endpoint_type': 'EndpointType',
+        'public_ip_address': 'PublicIPAddress',
+        'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
+        'read_only_node_max_delay_time': 'ReadOnlyNodeMaxDelayTime',
         'read_only_node_weight': 'ReadOnlyNodeWeight',
         'read_write_mode': 'ReadWriteMode'
     }
 
-    def __init__(self, addresses=None, auto_add_new_nodes=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, addresses=None, auto_add_new_nodes=None, description=None, eip_id=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, public_ip_address=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
         """EndpointForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address = None
         self._addresses = None
         self._auto_add_new_nodes = None
         self._description = None
+        self._eip_id = None
         self._enable_read_only = None
         self._enable_read_write_splitting = None
         self._endpoint_id = None
         self._endpoint_name = None
         self._endpoint_type = None
+        self._public_ip_address = None
+        self._read_only_node_distribution_type = None
+        self._read_only_node_max_delay_time = None
         self._read_only_node_weight = None
         self._read_write_mode = None
         self.discriminator = None
 
+        if address is not None:
+            self.address = address
         if addresses is not None:
             self.addresses = addresses
         if auto_add_new_nodes is not None:
             self.auto_add_new_nodes = auto_add_new_nodes
         if description is not None:
             self.description = description
+        if eip_id is not None:
+            self.eip_id = eip_id
         if enable_read_only is not None:
             self.enable_read_only = enable_read_only
         if enable_read_write_splitting is not None:
@@ -92,10 +111,37 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
             self.endpoint_name = endpoint_name
         if endpoint_type is not None:
             self.endpoint_type = endpoint_type
+        if public_ip_address is not None:
+            self.public_ip_address = public_ip_address
+        if read_only_node_distribution_type is not None:
+            self.read_only_node_distribution_type = read_only_node_distribution_type
+        if read_only_node_max_delay_time is not None:
+            self.read_only_node_max_delay_time = read_only_node_max_delay_time
         if read_only_node_weight is not None:
             self.read_only_node_weight = read_only_node_weight
         if read_write_mode is not None:
             self.read_write_mode = read_write_mode
+
+    @property
+    def address(self):
+        """Gets the address of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The address of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: list[AddressForDescribeDBInstanceDetailOutput]
+        """
+        return self._address
+
+    @address.setter
+    def address(self, address):
+        """Sets the address of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param address: The address of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: list[AddressForDescribeDBInstanceDetailOutput]
+        """
+
+        self._address = address
 
     @property
     def addresses(self):
@@ -159,6 +205,27 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._description = description
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The eip_id of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param eip_id: The eip_id of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
 
     @property
     def enable_read_only(self):
@@ -264,6 +331,69 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._endpoint_type = endpoint_type
+
+    @property
+    def public_ip_address(self):
+        """Gets the public_ip_address of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The public_ip_address of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._public_ip_address
+
+    @public_ip_address.setter
+    def public_ip_address(self, public_ip_address):
+        """Sets the public_ip_address of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param public_ip_address: The public_ip_address of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._public_ip_address = public_ip_address
+
+    @property
+    def read_only_node_distribution_type(self):
+        """Gets the read_only_node_distribution_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The read_only_node_distribution_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._read_only_node_distribution_type
+
+    @read_only_node_distribution_type.setter
+    def read_only_node_distribution_type(self, read_only_node_distribution_type):
+        """Sets the read_only_node_distribution_type of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param read_only_node_distribution_type: The read_only_node_distribution_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._read_only_node_distribution_type = read_only_node_distribution_type
+
+    @property
+    def read_only_node_max_delay_time(self):
+        """Gets the read_only_node_max_delay_time of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The read_only_node_max_delay_time of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_only_node_max_delay_time
+
+    @read_only_node_max_delay_time.setter
+    def read_only_node_max_delay_time(self, read_only_node_max_delay_time):
+        """Sets the read_only_node_max_delay_time of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param read_only_node_max_delay_time: The read_only_node_max_delay_time of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_only_node_max_delay_time = read_only_node_max_delay_time
 
     @property
     def read_only_node_weight(self):

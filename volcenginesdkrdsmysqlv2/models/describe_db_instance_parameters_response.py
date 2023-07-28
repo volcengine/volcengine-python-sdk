@@ -36,6 +36,7 @@ class DescribeDBInstanceParametersResponse(object):
         'db_engine': 'str',
         'db_engine_version': 'str',
         'instance_id': 'str',
+        'instance_parameters': 'list[InstanceParameterForDescribeDBInstanceParametersOutput]',
         'parameter_count': 'int',
         'parameters': 'list[ParameterForDescribeDBInstanceParametersOutput]'
     }
@@ -44,11 +45,12 @@ class DescribeDBInstanceParametersResponse(object):
         'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
         'instance_id': 'InstanceId',
+        'instance_parameters': 'InstanceParameters',
         'parameter_count': 'ParameterCount',
         'parameters': 'Parameters'
     }
 
-    def __init__(self, db_engine=None, db_engine_version=None, instance_id=None, parameter_count=None, parameters=None, _configuration=None):  # noqa: E501
+    def __init__(self, db_engine=None, db_engine_version=None, instance_id=None, instance_parameters=None, parameter_count=None, parameters=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceParametersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class DescribeDBInstanceParametersResponse(object):
         self._db_engine = None
         self._db_engine_version = None
         self._instance_id = None
+        self._instance_parameters = None
         self._parameter_count = None
         self._parameters = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class DescribeDBInstanceParametersResponse(object):
             self.db_engine_version = db_engine_version
         if instance_id is not None:
             self.instance_id = instance_id
+        if instance_parameters is not None:
+            self.instance_parameters = instance_parameters
         if parameter_count is not None:
             self.parameter_count = parameter_count
         if parameters is not None:
@@ -134,6 +139,27 @@ class DescribeDBInstanceParametersResponse(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def instance_parameters(self):
+        """Gets the instance_parameters of this DescribeDBInstanceParametersResponse.  # noqa: E501
+
+
+        :return: The instance_parameters of this DescribeDBInstanceParametersResponse.  # noqa: E501
+        :rtype: list[InstanceParameterForDescribeDBInstanceParametersOutput]
+        """
+        return self._instance_parameters
+
+    @instance_parameters.setter
+    def instance_parameters(self, instance_parameters):
+        """Sets the instance_parameters of this DescribeDBInstanceParametersResponse.
+
+
+        :param instance_parameters: The instance_parameters of this DescribeDBInstanceParametersResponse.  # noqa: E501
+        :type: list[InstanceParameterForDescribeDBInstanceParametersOutput]
+        """
+
+        self._instance_parameters = instance_parameters
 
     @property
     def parameter_count(self):

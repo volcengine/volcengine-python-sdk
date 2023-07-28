@@ -33,38 +33,94 @@ class ModifyDBInstanceSpecRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'dry_run': 'bool',
         'instance_id': 'str',
+        'modify_type': 'str',
         'node_info': 'list[NodeInfoForModifyDBInstanceSpecInput]',
+        'node_spec': 'str',
+        'request_source': 'str',
+        'rollback_time': 'str',
+        'shard_number': 'int',
         'storage_space': 'int',
-        'storage_type': 'str'
+        'storage_type': 'str',
+        'switch_type': 'str'
     }
 
     attribute_map = {
+        'dry_run': 'DryRun',
         'instance_id': 'InstanceId',
+        'modify_type': 'ModifyType',
         'node_info': 'NodeInfo',
+        'node_spec': 'NodeSpec',
+        'request_source': 'RequestSource',
+        'rollback_time': 'RollbackTime',
+        'shard_number': 'ShardNumber',
         'storage_space': 'StorageSpace',
-        'storage_type': 'StorageType'
+        'storage_type': 'StorageType',
+        'switch_type': 'SwitchType'
     }
 
-    def __init__(self, instance_id=None, node_info=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, dry_run=None, instance_id=None, modify_type=None, node_info=None, node_spec=None, request_source=None, rollback_time=None, shard_number=None, storage_space=None, storage_type=None, switch_type=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._dry_run = None
         self._instance_id = None
+        self._modify_type = None
         self._node_info = None
+        self._node_spec = None
+        self._request_source = None
+        self._rollback_time = None
+        self._shard_number = None
         self._storage_space = None
         self._storage_type = None
+        self._switch_type = None
         self.discriminator = None
 
+        if dry_run is not None:
+            self.dry_run = dry_run
         self.instance_id = instance_id
+        if modify_type is not None:
+            self.modify_type = modify_type
         if node_info is not None:
             self.node_info = node_info
+        if node_spec is not None:
+            self.node_spec = node_spec
+        if request_source is not None:
+            self.request_source = request_source
+        if rollback_time is not None:
+            self.rollback_time = rollback_time
+        if shard_number is not None:
+            self.shard_number = shard_number
         if storage_space is not None:
             self.storage_space = storage_space
         if storage_type is not None:
             self.storage_type = storage_type
+        if switch_type is not None:
+            self.switch_type = switch_type
+
+    @property
+    def dry_run(self):
+        """Gets the dry_run of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The dry_run of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this ModifyDBInstanceSpecRequest.
+
+
+        :param dry_run: The dry_run of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
 
     @property
     def instance_id(self):
@@ -90,6 +146,27 @@ class ModifyDBInstanceSpecRequest(object):
         self._instance_id = instance_id
 
     @property
+    def modify_type(self):
+        """Gets the modify_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The modify_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._modify_type
+
+    @modify_type.setter
+    def modify_type(self, modify_type):
+        """Sets the modify_type of this ModifyDBInstanceSpecRequest.
+
+
+        :param modify_type: The modify_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._modify_type = modify_type
+
+    @property
     def node_info(self):
         """Gets the node_info of this ModifyDBInstanceSpecRequest.  # noqa: E501
 
@@ -109,6 +186,90 @@ class ModifyDBInstanceSpecRequest(object):
         """
 
         self._node_info = node_info
+
+    @property
+    def node_spec(self):
+        """Gets the node_spec of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The node_spec of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_spec
+
+    @node_spec.setter
+    def node_spec(self, node_spec):
+        """Sets the node_spec of this ModifyDBInstanceSpecRequest.
+
+
+        :param node_spec: The node_spec of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._node_spec = node_spec
+
+    @property
+    def request_source(self):
+        """Gets the request_source of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The request_source of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_source
+
+    @request_source.setter
+    def request_source(self, request_source):
+        """Sets the request_source of this ModifyDBInstanceSpecRequest.
+
+
+        :param request_source: The request_source of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._request_source = request_source
+
+    @property
+    def rollback_time(self):
+        """Gets the rollback_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The rollback_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._rollback_time
+
+    @rollback_time.setter
+    def rollback_time(self, rollback_time):
+        """Sets the rollback_time of this ModifyDBInstanceSpecRequest.
+
+
+        :param rollback_time: The rollback_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._rollback_time = rollback_time
+
+    @property
+    def shard_number(self):
+        """Gets the shard_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The shard_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._shard_number
+
+    @shard_number.setter
+    def shard_number(self, shard_number):
+        """Sets the shard_number of this ModifyDBInstanceSpecRequest.
+
+
+        :param shard_number: The shard_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._shard_number = shard_number
 
     @property
     def storage_space(self):
@@ -151,6 +312,27 @@ class ModifyDBInstanceSpecRequest(object):
         """
 
         self._storage_type = storage_type
+
+    @property
+    def switch_type(self):
+        """Gets the switch_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The switch_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._switch_type
+
+    @switch_type.setter
+    def switch_type(self, switch_type):
+        """Sets the switch_type of this ModifyDBInstanceSpecRequest.
+
+
+        :param switch_type: The switch_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._switch_type = switch_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

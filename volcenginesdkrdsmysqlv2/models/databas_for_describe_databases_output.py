@@ -34,33 +34,53 @@ class DatabasForDescribeDatabasesOutput(object):
     """
     swagger_types = {
         'character_set_name': 'str',
+        'db_desc': 'str',
         'db_name': 'str',
-        'database_privileges': 'list[DatabasePrivilegeForDescribeDatabasesOutput]'
+        'db_partition': 'int',
+        'db_status': 'str',
+        'database_privileges': 'list[DatabasePrivilegeForDescribeDatabasesOutput]',
+        'database_privileges_info': 'list[DatabasePrivilegesInfoForDescribeDatabasesOutput]'
     }
 
     attribute_map = {
         'character_set_name': 'CharacterSetName',
+        'db_desc': 'DBDesc',
         'db_name': 'DBName',
-        'database_privileges': 'DatabasePrivileges'
+        'db_partition': 'DBPartition',
+        'db_status': 'DBStatus',
+        'database_privileges': 'DatabasePrivileges',
+        'database_privileges_info': 'DatabasePrivilegesInfo'
     }
 
-    def __init__(self, character_set_name=None, db_name=None, database_privileges=None, _configuration=None):  # noqa: E501
+    def __init__(self, character_set_name=None, db_desc=None, db_name=None, db_partition=None, db_status=None, database_privileges=None, database_privileges_info=None, _configuration=None):  # noqa: E501
         """DatabasForDescribeDatabasesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._character_set_name = None
+        self._db_desc = None
         self._db_name = None
+        self._db_partition = None
+        self._db_status = None
         self._database_privileges = None
+        self._database_privileges_info = None
         self.discriminator = None
 
         if character_set_name is not None:
             self.character_set_name = character_set_name
+        if db_desc is not None:
+            self.db_desc = db_desc
         if db_name is not None:
             self.db_name = db_name
+        if db_partition is not None:
+            self.db_partition = db_partition
+        if db_status is not None:
+            self.db_status = db_status
         if database_privileges is not None:
             self.database_privileges = database_privileges
+        if database_privileges_info is not None:
+            self.database_privileges_info = database_privileges_info
 
     @property
     def character_set_name(self):
@@ -84,6 +104,27 @@ class DatabasForDescribeDatabasesOutput(object):
         self._character_set_name = character_set_name
 
     @property
+    def db_desc(self):
+        """Gets the db_desc of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+
+
+        :return: The db_desc of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_desc
+
+    @db_desc.setter
+    def db_desc(self, db_desc):
+        """Sets the db_desc of this DatabasForDescribeDatabasesOutput.
+
+
+        :param db_desc: The db_desc of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._db_desc = db_desc
+
+    @property
     def db_name(self):
         """Gets the db_name of this DatabasForDescribeDatabasesOutput.  # noqa: E501
 
@@ -105,6 +146,48 @@ class DatabasForDescribeDatabasesOutput(object):
         self._db_name = db_name
 
     @property
+    def db_partition(self):
+        """Gets the db_partition of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+
+
+        :return: The db_partition of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._db_partition
+
+    @db_partition.setter
+    def db_partition(self, db_partition):
+        """Sets the db_partition of this DatabasForDescribeDatabasesOutput.
+
+
+        :param db_partition: The db_partition of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._db_partition = db_partition
+
+    @property
+    def db_status(self):
+        """Gets the db_status of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+
+
+        :return: The db_status of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_status
+
+    @db_status.setter
+    def db_status(self, db_status):
+        """Sets the db_status of this DatabasForDescribeDatabasesOutput.
+
+
+        :param db_status: The db_status of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._db_status = db_status
+
+    @property
     def database_privileges(self):
         """Gets the database_privileges of this DatabasForDescribeDatabasesOutput.  # noqa: E501
 
@@ -124,6 +207,27 @@ class DatabasForDescribeDatabasesOutput(object):
         """
 
         self._database_privileges = database_privileges
+
+    @property
+    def database_privileges_info(self):
+        """Gets the database_privileges_info of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+
+
+        :return: The database_privileges_info of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+        :rtype: list[DatabasePrivilegesInfoForDescribeDatabasesOutput]
+        """
+        return self._database_privileges_info
+
+    @database_privileges_info.setter
+    def database_privileges_info(self, database_privileges_info):
+        """Sets the database_privileges_info of this DatabasForDescribeDatabasesOutput.
+
+
+        :param database_privileges_info: The database_privileges_info of this DatabasForDescribeDatabasesOutput.  # noqa: E501
+        :type: list[DatabasePrivilegesInfoForDescribeDatabasesOutput]
+        """
+
+        self._database_privileges_info = database_privileges_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""
