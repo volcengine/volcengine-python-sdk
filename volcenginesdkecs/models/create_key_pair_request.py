@@ -62,7 +62,8 @@ class CreateKeyPairRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
-        self.key_pair_name = key_pair_name
+        if key_pair_name is not None:
+            self.key_pair_name = key_pair_name
         if project_name is not None:
             self.project_name = project_name
 
@@ -126,8 +127,6 @@ class CreateKeyPairRequest(object):
         :param key_pair_name: The key_pair_name of this CreateKeyPairRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and key_pair_name is None:
-            raise ValueError("Invalid value for `key_pair_name`, must not be `None`")  # noqa: E501
 
         self._key_pair_name = key_pair_name
 

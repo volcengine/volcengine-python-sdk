@@ -34,6 +34,7 @@ class DescribeImagesRequest(object):
     """
     swagger_types = {
         'image_ids': 'list[str]',
+        'image_name': 'str',
         'image_status': 'str',
         'instance_type_id': 'str',
         'is_support_cloud_init': 'bool',
@@ -48,6 +49,7 @@ class DescribeImagesRequest(object):
 
     attribute_map = {
         'image_ids': 'ImageIds',
+        'image_name': 'ImageName',
         'image_status': 'ImageStatus',
         'instance_type_id': 'InstanceTypeId',
         'is_support_cloud_init': 'IsSupportCloudInit',
@@ -60,13 +62,14 @@ class DescribeImagesRequest(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, image_ids=None, image_status=None, instance_type_id=None, is_support_cloud_init=None, max_results=None, next_token=None, os_type=None, project_name=None, status=None, tag_filters=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, image_ids=None, image_name=None, image_status=None, instance_type_id=None, is_support_cloud_init=None, max_results=None, next_token=None, os_type=None, project_name=None, status=None, tag_filters=None, visibility=None, _configuration=None):  # noqa: E501
         """DescribeImagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._image_ids = None
+        self._image_name = None
         self._image_status = None
         self._instance_type_id = None
         self._is_support_cloud_init = None
@@ -81,6 +84,8 @@ class DescribeImagesRequest(object):
 
         if image_ids is not None:
             self.image_ids = image_ids
+        if image_name is not None:
+            self.image_name = image_name
         if image_status is not None:
             self.image_status = image_status
         if instance_type_id is not None:
@@ -122,6 +127,27 @@ class DescribeImagesRequest(object):
         """
 
         self._image_ids = image_ids
+
+    @property
+    def image_name(self):
+        """Gets the image_name of this DescribeImagesRequest.  # noqa: E501
+
+
+        :return: The image_name of this DescribeImagesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_name
+
+    @image_name.setter
+    def image_name(self, image_name):
+        """Sets the image_name of this DescribeImagesRequest.
+
+
+        :param image_name: The image_name of this DescribeImagesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._image_name = image_name
 
     @property
     def image_status(self):
