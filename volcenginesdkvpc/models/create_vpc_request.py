@@ -37,7 +37,7 @@ class CreateVpcRequest(object):
         'client_token': 'str',
         'description': 'str',
         'dns_servers': 'list[str]',
-        'enable_ipv6': 'str',
+        'enable_ipv6': 'bool',
         'ipv6_cidr_block': 'str',
         'project_name': 'str',
         'tags': 'list[TagForCreateVpcInput]',
@@ -189,7 +189,7 @@ class CreateVpcRequest(object):
 
 
         :return: The enable_ipv6 of this CreateVpcRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._enable_ipv6
 
@@ -199,7 +199,7 @@ class CreateVpcRequest(object):
 
 
         :param enable_ipv6: The enable_ipv6 of this CreateVpcRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._enable_ipv6 = enable_ipv6

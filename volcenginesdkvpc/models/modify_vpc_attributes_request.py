@@ -35,7 +35,7 @@ class ModifyVpcAttributesRequest(object):
     swagger_types = {
         'description': 'str',
         'dns_servers': 'list[str]',
-        'enable_ipv6': 'str',
+        'enable_ipv6': 'bool',
         'ipv6_cidr_block': 'str',
         'vpc_id': 'str',
         'vpc_name': 'str'
@@ -130,7 +130,7 @@ class ModifyVpcAttributesRequest(object):
 
 
         :return: The enable_ipv6 of this ModifyVpcAttributesRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._enable_ipv6
 
@@ -140,7 +140,7 @@ class ModifyVpcAttributesRequest(object):
 
 
         :param enable_ipv6: The enable_ipv6 of this ModifyVpcAttributesRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._enable_ipv6 = enable_ipv6
