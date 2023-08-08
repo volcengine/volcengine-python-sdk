@@ -33,6 +33,7 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ipv6_addresses': 'list[str]',
         'mac_address': 'str',
         'network_interface_id': 'str',
         'primary_ip_address': 'str',
@@ -42,6 +43,7 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
     }
 
     attribute_map = {
+        'ipv6_addresses': 'Ipv6Addresses',
         'mac_address': 'MacAddress',
         'network_interface_id': 'NetworkInterfaceId',
         'primary_ip_address': 'PrimaryIpAddress',
@@ -50,12 +52,13 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, mac_address=None, network_interface_id=None, primary_ip_address=None, subnet_id=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_addresses=None, mac_address=None, network_interface_id=None, primary_ip_address=None, subnet_id=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """NetworkInterfaceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ipv6_addresses = None
         self._mac_address = None
         self._network_interface_id = None
         self._primary_ip_address = None
@@ -64,6 +67,8 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if ipv6_addresses is not None:
+            self.ipv6_addresses = ipv6_addresses
         if mac_address is not None:
             self.mac_address = mac_address
         if network_interface_id is not None:
@@ -76,6 +81,27 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
             self.type = type
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def ipv6_addresses(self):
+        """Gets the ipv6_addresses of this NetworkInterfaceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The ipv6_addresses of this NetworkInterfaceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv6_addresses
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, ipv6_addresses):
+        """Sets the ipv6_addresses of this NetworkInterfaceForDescribeInstancesOutput.
+
+
+        :param ipv6_addresses: The ipv6_addresses of this NetworkInterfaceForDescribeInstancesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv6_addresses = ipv6_addresses
 
     @property
     def mac_address(self):
