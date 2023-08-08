@@ -39,6 +39,7 @@ class DescribeVpcAttributesResponse(object):
         'creation_time': 'str',
         'description': 'str',
         'dns_servers': 'list[str]',
+        'ipv6_cidr_block': 'str',
         'is_default': 'bool',
         'nat_gateway_ids': 'list[str]',
         'network_acl_num': 'str',
@@ -62,6 +63,7 @@ class DescribeVpcAttributesResponse(object):
         'creation_time': 'CreationTime',
         'description': 'Description',
         'dns_servers': 'DnsServers',
+        'ipv6_cidr_block': 'Ipv6CidrBlock',
         'is_default': 'IsDefault',
         'nat_gateway_ids': 'NatGatewayIds',
         'network_acl_num': 'NetworkAclNum',
@@ -78,7 +80,7 @@ class DescribeVpcAttributesResponse(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, ipv6_cidr_block=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,6 +92,7 @@ class DescribeVpcAttributesResponse(object):
         self._creation_time = None
         self._description = None
         self._dns_servers = None
+        self._ipv6_cidr_block = None
         self._is_default = None
         self._nat_gateway_ids = None
         self._network_acl_num = None
@@ -118,6 +121,8 @@ class DescribeVpcAttributesResponse(object):
             self.description = description
         if dns_servers is not None:
             self.dns_servers = dns_servers
+        if ipv6_cidr_block is not None:
+            self.ipv6_cidr_block = ipv6_cidr_block
         if is_default is not None:
             self.is_default = is_default
         if nat_gateway_ids is not None:
@@ -272,6 +277,27 @@ class DescribeVpcAttributesResponse(object):
         """
 
         self._dns_servers = dns_servers
+
+    @property
+    def ipv6_cidr_block(self):
+        """Gets the ipv6_cidr_block of this DescribeVpcAttributesResponse.  # noqa: E501
+
+
+        :return: The ipv6_cidr_block of this DescribeVpcAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_cidr_block
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, ipv6_cidr_block):
+        """Sets the ipv6_cidr_block of this DescribeVpcAttributesResponse.
+
+
+        :param ipv6_cidr_block: The ipv6_cidr_block of this DescribeVpcAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_cidr_block = ipv6_cidr_block
 
     @property
     def is_default(self):

@@ -38,6 +38,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'cidr_block': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'ipv6_cidr_block': 'str',
         'is_default': 'bool',
         'network_acl_id': 'str',
         'project_name': 'str',
@@ -57,6 +58,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'cidr_block': 'CidrBlock',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'ipv6_cidr_block': 'Ipv6CidrBlock',
         'is_default': 'IsDefault',
         'network_acl_id': 'NetworkAclId',
         'project_name': 'ProjectName',
@@ -70,7 +72,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, is_default=None, network_acl_id=None, project_name=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, ipv6_cidr_block=None, is_default=None, network_acl_id=None, project_name=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """SubnetForDescribeSubnetsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class SubnetForDescribeSubnetsOutput(object):
         self._cidr_block = None
         self._creation_time = None
         self._description = None
+        self._ipv6_cidr_block = None
         self._is_default = None
         self._network_acl_id = None
         self._project_name = None
@@ -104,6 +107,8 @@ class SubnetForDescribeSubnetsOutput(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if ipv6_cidr_block is not None:
+            self.ipv6_cidr_block = ipv6_cidr_block
         if is_default is not None:
             self.is_default = is_default
         if network_acl_id is not None:
@@ -231,6 +236,27 @@ class SubnetForDescribeSubnetsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def ipv6_cidr_block(self):
+        """Gets the ipv6_cidr_block of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+
+
+        :return: The ipv6_cidr_block of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_cidr_block
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, ipv6_cidr_block):
+        """Sets the ipv6_cidr_block of this SubnetForDescribeSubnetsOutput.
+
+
+        :param ipv6_cidr_block: The ipv6_cidr_block of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_cidr_block = ipv6_cidr_block
 
     @property
     def is_default(self):

@@ -34,29 +34,39 @@ class ModifySubnetAttributesRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'enable_ipv6': 'bool',
+        'ipv6_cidr_block': 'int',
         'subnet_id': 'str',
         'subnet_name': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'enable_ipv6': 'EnableIpv6',
+        'ipv6_cidr_block': 'Ipv6CidrBlock',
         'subnet_id': 'SubnetId',
         'subnet_name': 'SubnetName'
     }
 
-    def __init__(self, description=None, subnet_id=None, subnet_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, enable_ipv6=None, ipv6_cidr_block=None, subnet_id=None, subnet_name=None, _configuration=None):  # noqa: E501
         """ModifySubnetAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._enable_ipv6 = None
+        self._ipv6_cidr_block = None
         self._subnet_id = None
         self._subnet_name = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if enable_ipv6 is not None:
+            self.enable_ipv6 = enable_ipv6
+        if ipv6_cidr_block is not None:
+            self.ipv6_cidr_block = ipv6_cidr_block
         self.subnet_id = subnet_id
         if subnet_name is not None:
             self.subnet_name = subnet_name
@@ -87,6 +97,54 @@ class ModifySubnetAttributesRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def enable_ipv6(self):
+        """Gets the enable_ipv6 of this ModifySubnetAttributesRequest.  # noqa: E501
+
+
+        :return: The enable_ipv6 of this ModifySubnetAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_ipv6
+
+    @enable_ipv6.setter
+    def enable_ipv6(self, enable_ipv6):
+        """Sets the enable_ipv6 of this ModifySubnetAttributesRequest.
+
+
+        :param enable_ipv6: The enable_ipv6 of this ModifySubnetAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_ipv6 = enable_ipv6
+
+    @property
+    def ipv6_cidr_block(self):
+        """Gets the ipv6_cidr_block of this ModifySubnetAttributesRequest.  # noqa: E501
+
+
+        :return: The ipv6_cidr_block of this ModifySubnetAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ipv6_cidr_block
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, ipv6_cidr_block):
+        """Sets the ipv6_cidr_block of this ModifySubnetAttributesRequest.
+
+
+        :param ipv6_cidr_block: The ipv6_cidr_block of this ModifySubnetAttributesRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                ipv6_cidr_block is not None and ipv6_cidr_block > 255):  # noqa: E501
+            raise ValueError("Invalid value for `ipv6_cidr_block`, must be a value less than or equal to `255`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ipv6_cidr_block is not None and ipv6_cidr_block < 0):  # noqa: E501
+            raise ValueError("Invalid value for `ipv6_cidr_block`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._ipv6_cidr_block = ipv6_cidr_block
 
     @property
     def subnet_id(self):

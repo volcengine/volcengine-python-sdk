@@ -37,6 +37,8 @@ class CreateVpcRequest(object):
         'client_token': 'str',
         'description': 'str',
         'dns_servers': 'list[str]',
+        'enable_ipv6': 'str',
+        'ipv6_cidr_block': 'str',
         'project_name': 'str',
         'tags': 'list[TagForCreateVpcInput]',
         'vpc_name': 'str'
@@ -47,12 +49,14 @@ class CreateVpcRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'dns_servers': 'DnsServers',
+        'enable_ipv6': 'EnableIpv6',
+        'ipv6_cidr_block': 'Ipv6CidrBlock',
         'project_name': 'ProjectName',
         'tags': 'Tags',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, cidr_block=None, client_token=None, description=None, dns_servers=None, project_name=None, tags=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_block=None, client_token=None, description=None, dns_servers=None, enable_ipv6=None, ipv6_cidr_block=None, project_name=None, tags=None, vpc_name=None, _configuration=None):  # noqa: E501
         """CreateVpcRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +66,8 @@ class CreateVpcRequest(object):
         self._client_token = None
         self._description = None
         self._dns_servers = None
+        self._enable_ipv6 = None
+        self._ipv6_cidr_block = None
         self._project_name = None
         self._tags = None
         self._vpc_name = None
@@ -74,6 +80,10 @@ class CreateVpcRequest(object):
             self.description = description
         if dns_servers is not None:
             self.dns_servers = dns_servers
+        if enable_ipv6 is not None:
+            self.enable_ipv6 = enable_ipv6
+        if ipv6_cidr_block is not None:
+            self.ipv6_cidr_block = ipv6_cidr_block
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
@@ -172,6 +182,48 @@ class CreateVpcRequest(object):
         """
 
         self._dns_servers = dns_servers
+
+    @property
+    def enable_ipv6(self):
+        """Gets the enable_ipv6 of this CreateVpcRequest.  # noqa: E501
+
+
+        :return: The enable_ipv6 of this CreateVpcRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._enable_ipv6
+
+    @enable_ipv6.setter
+    def enable_ipv6(self, enable_ipv6):
+        """Sets the enable_ipv6 of this CreateVpcRequest.
+
+
+        :param enable_ipv6: The enable_ipv6 of this CreateVpcRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._enable_ipv6 = enable_ipv6
+
+    @property
+    def ipv6_cidr_block(self):
+        """Gets the ipv6_cidr_block of this CreateVpcRequest.  # noqa: E501
+
+
+        :return: The ipv6_cidr_block of this CreateVpcRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_cidr_block
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, ipv6_cidr_block):
+        """Sets the ipv6_cidr_block of this CreateVpcRequest.
+
+
+        :param ipv6_cidr_block: The ipv6_cidr_block of this CreateVpcRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_cidr_block = ipv6_cidr_block
 
     @property
     def project_name(self):

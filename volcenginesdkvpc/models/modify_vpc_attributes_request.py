@@ -35,6 +35,8 @@ class ModifyVpcAttributesRequest(object):
     swagger_types = {
         'description': 'str',
         'dns_servers': 'list[str]',
+        'enable_ipv6': 'str',
+        'ipv6_cidr_block': 'str',
         'vpc_id': 'str',
         'vpc_name': 'str'
     }
@@ -42,11 +44,13 @@ class ModifyVpcAttributesRequest(object):
     attribute_map = {
         'description': 'Description',
         'dns_servers': 'DnsServers',
+        'enable_ipv6': 'EnableIpv6',
+        'ipv6_cidr_block': 'Ipv6CidrBlock',
         'vpc_id': 'VpcId',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, description=None, dns_servers=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, dns_servers=None, enable_ipv6=None, ipv6_cidr_block=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """ModifyVpcAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +58,8 @@ class ModifyVpcAttributesRequest(object):
 
         self._description = None
         self._dns_servers = None
+        self._enable_ipv6 = None
+        self._ipv6_cidr_block = None
         self._vpc_id = None
         self._vpc_name = None
         self.discriminator = None
@@ -62,6 +68,10 @@ class ModifyVpcAttributesRequest(object):
             self.description = description
         if dns_servers is not None:
             self.dns_servers = dns_servers
+        if enable_ipv6 is not None:
+            self.enable_ipv6 = enable_ipv6
+        if ipv6_cidr_block is not None:
+            self.ipv6_cidr_block = ipv6_cidr_block
         self.vpc_id = vpc_id
         if vpc_name is not None:
             self.vpc_name = vpc_name
@@ -113,6 +123,48 @@ class ModifyVpcAttributesRequest(object):
         """
 
         self._dns_servers = dns_servers
+
+    @property
+    def enable_ipv6(self):
+        """Gets the enable_ipv6 of this ModifyVpcAttributesRequest.  # noqa: E501
+
+
+        :return: The enable_ipv6 of this ModifyVpcAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._enable_ipv6
+
+    @enable_ipv6.setter
+    def enable_ipv6(self, enable_ipv6):
+        """Sets the enable_ipv6 of this ModifyVpcAttributesRequest.
+
+
+        :param enable_ipv6: The enable_ipv6 of this ModifyVpcAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._enable_ipv6 = enable_ipv6
+
+    @property
+    def ipv6_cidr_block(self):
+        """Gets the ipv6_cidr_block of this ModifyVpcAttributesRequest.  # noqa: E501
+
+
+        :return: The ipv6_cidr_block of this ModifyVpcAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_cidr_block
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, ipv6_cidr_block):
+        """Sets the ipv6_cidr_block of this ModifyVpcAttributesRequest.
+
+
+        :param ipv6_cidr_block: The ipv6_cidr_block of this ModifyVpcAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_cidr_block = ipv6_cidr_block
 
     @property
     def vpc_id(self):

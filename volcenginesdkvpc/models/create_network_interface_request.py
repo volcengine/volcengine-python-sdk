@@ -35,6 +35,8 @@ class CreateNetworkInterfaceRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
+        'ipv6_address': 'list[str]',
+        'ipv6_address_count': 'int',
         'network_interface_name': 'str',
         'port_security_enabled': 'bool',
         'primary_ip_address': 'str',
@@ -49,6 +51,8 @@ class CreateNetworkInterfaceRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
+        'ipv6_address': 'Ipv6Address',
+        'ipv6_address_count': 'Ipv6AddressCount',
         'network_interface_name': 'NetworkInterfaceName',
         'port_security_enabled': 'PortSecurityEnabled',
         'primary_ip_address': 'PrimaryIpAddress',
@@ -60,7 +64,7 @@ class CreateNetworkInterfaceRequest(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, description=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_address=None, project_name=None, secondary_private_ip_address_count=None, security_group_ids=None, subnet_id=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, ipv6_address=None, ipv6_address_count=None, network_interface_name=None, port_security_enabled=None, primary_ip_address=None, private_ip_address=None, project_name=None, secondary_private_ip_address_count=None, security_group_ids=None, subnet_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateNetworkInterfaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +72,8 @@ class CreateNetworkInterfaceRequest(object):
 
         self._client_token = None
         self._description = None
+        self._ipv6_address = None
+        self._ipv6_address_count = None
         self._network_interface_name = None
         self._port_security_enabled = None
         self._primary_ip_address = None
@@ -83,6 +89,10 @@ class CreateNetworkInterfaceRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if ipv6_address is not None:
+            self.ipv6_address = ipv6_address
+        if ipv6_address_count is not None:
+            self.ipv6_address_count = ipv6_address_count
         if network_interface_name is not None:
             self.network_interface_name = network_interface_name
         if port_security_enabled is not None:
@@ -148,6 +158,48 @@ class CreateNetworkInterfaceRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def ipv6_address(self):
+        """Gets the ipv6_address of this CreateNetworkInterfaceRequest.  # noqa: E501
+
+
+        :return: The ipv6_address of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv6_address
+
+    @ipv6_address.setter
+    def ipv6_address(self, ipv6_address):
+        """Sets the ipv6_address of this CreateNetworkInterfaceRequest.
+
+
+        :param ipv6_address: The ipv6_address of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv6_address = ipv6_address
+
+    @property
+    def ipv6_address_count(self):
+        """Gets the ipv6_address_count of this CreateNetworkInterfaceRequest.  # noqa: E501
+
+
+        :return: The ipv6_address_count of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ipv6_address_count
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, ipv6_address_count):
+        """Sets the ipv6_address_count of this CreateNetworkInterfaceRequest.
+
+
+        :param ipv6_address_count: The ipv6_address_count of this CreateNetworkInterfaceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ipv6_address_count = ipv6_address_count
 
     @property
     def network_interface_name(self):
