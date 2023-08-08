@@ -33,49 +33,49 @@ class UnassignIpv6AddressesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'i_pv6_address': 'str',
+        'ipv6_address': 'list[str]',
         'network_interface_id': 'str'
     }
 
     attribute_map = {
-        'i_pv6_address': 'IPv6Address',
+        'ipv6_address': 'Ipv6Address',
         'network_interface_id': 'NetworkInterfaceId'
     }
 
-    def __init__(self, i_pv6_address=None, network_interface_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_address=None, network_interface_id=None, _configuration=None):  # noqa: E501
         """UnassignIpv6AddressesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._i_pv6_address = None
+        self._ipv6_address = None
         self._network_interface_id = None
         self.discriminator = None
 
-        if i_pv6_address is not None:
-            self.i_pv6_address = i_pv6_address
+        if ipv6_address is not None:
+            self.ipv6_address = ipv6_address
         self.network_interface_id = network_interface_id
 
     @property
-    def i_pv6_address(self):
-        """Gets the i_pv6_address of this UnassignIpv6AddressesRequest.  # noqa: E501
+    def ipv6_address(self):
+        """Gets the ipv6_address of this UnassignIpv6AddressesRequest.  # noqa: E501
 
 
-        :return: The i_pv6_address of this UnassignIpv6AddressesRequest.  # noqa: E501
-        :rtype: str
+        :return: The ipv6_address of this UnassignIpv6AddressesRequest.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._i_pv6_address
+        return self._ipv6_address
 
-    @i_pv6_address.setter
-    def i_pv6_address(self, i_pv6_address):
-        """Sets the i_pv6_address of this UnassignIpv6AddressesRequest.
+    @ipv6_address.setter
+    def ipv6_address(self, ipv6_address):
+        """Sets the ipv6_address of this UnassignIpv6AddressesRequest.
 
 
-        :param i_pv6_address: The i_pv6_address of this UnassignIpv6AddressesRequest.  # noqa: E501
-        :type: str
+        :param ipv6_address: The ipv6_address of this UnassignIpv6AddressesRequest.  # noqa: E501
+        :type: list[str]
         """
 
-        self._i_pv6_address = i_pv6_address
+        self._ipv6_address = ipv6_address
 
     @property
     def network_interface_id(self):

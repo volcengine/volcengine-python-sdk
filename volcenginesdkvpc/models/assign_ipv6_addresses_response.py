@@ -33,29 +33,55 @@ class AssignIpv6AddressesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ipv6_set': 'list[str]',
         'network_interface_id': 'str',
         'request_id': 'str'
     }
 
     attribute_map = {
+        'ipv6_set': 'Ipv6Set',
         'network_interface_id': 'NetworkInterfaceId',
         'request_id': 'RequestId'
     }
 
-    def __init__(self, network_interface_id=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_set=None, network_interface_id=None, request_id=None, _configuration=None):  # noqa: E501
         """AssignIpv6AddressesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ipv6_set = None
         self._network_interface_id = None
         self._request_id = None
         self.discriminator = None
 
+        if ipv6_set is not None:
+            self.ipv6_set = ipv6_set
         if network_interface_id is not None:
             self.network_interface_id = network_interface_id
         if request_id is not None:
             self.request_id = request_id
+
+    @property
+    def ipv6_set(self):
+        """Gets the ipv6_set of this AssignIpv6AddressesResponse.  # noqa: E501
+
+
+        :return: The ipv6_set of this AssignIpv6AddressesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv6_set
+
+    @ipv6_set.setter
+    def ipv6_set(self, ipv6_set):
+        """Sets the ipv6_set of this AssignIpv6AddressesResponse.
+
+
+        :param ipv6_set: The ipv6_set of this AssignIpv6AddressesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv6_set = ipv6_set
 
     @property
     def network_interface_id(self):

@@ -33,75 +33,75 @@ class AssignIpv6AddressesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'i_pv6_address': 'str',
-        'i_pv6_address_count': 'str',
+        'ipv6_address': 'list[str]',
+        'ipv6_address_count': 'int',
         'network_interface_id': 'str'
     }
 
     attribute_map = {
-        'i_pv6_address': 'IPv6Address',
-        'i_pv6_address_count': 'IPv6AddressCount',
+        'ipv6_address': 'Ipv6Address',
+        'ipv6_address_count': 'Ipv6AddressCount',
         'network_interface_id': 'NetworkInterfaceId'
     }
 
-    def __init__(self, i_pv6_address=None, i_pv6_address_count=None, network_interface_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_address=None, ipv6_address_count=None, network_interface_id=None, _configuration=None):  # noqa: E501
         """AssignIpv6AddressesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._i_pv6_address = None
-        self._i_pv6_address_count = None
+        self._ipv6_address = None
+        self._ipv6_address_count = None
         self._network_interface_id = None
         self.discriminator = None
 
-        if i_pv6_address is not None:
-            self.i_pv6_address = i_pv6_address
-        if i_pv6_address_count is not None:
-            self.i_pv6_address_count = i_pv6_address_count
+        if ipv6_address is not None:
+            self.ipv6_address = ipv6_address
+        if ipv6_address_count is not None:
+            self.ipv6_address_count = ipv6_address_count
         self.network_interface_id = network_interface_id
 
     @property
-    def i_pv6_address(self):
-        """Gets the i_pv6_address of this AssignIpv6AddressesRequest.  # noqa: E501
+    def ipv6_address(self):
+        """Gets the ipv6_address of this AssignIpv6AddressesRequest.  # noqa: E501
 
 
-        :return: The i_pv6_address of this AssignIpv6AddressesRequest.  # noqa: E501
-        :rtype: str
+        :return: The ipv6_address of this AssignIpv6AddressesRequest.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._i_pv6_address
+        return self._ipv6_address
 
-    @i_pv6_address.setter
-    def i_pv6_address(self, i_pv6_address):
-        """Sets the i_pv6_address of this AssignIpv6AddressesRequest.
+    @ipv6_address.setter
+    def ipv6_address(self, ipv6_address):
+        """Sets the ipv6_address of this AssignIpv6AddressesRequest.
 
 
-        :param i_pv6_address: The i_pv6_address of this AssignIpv6AddressesRequest.  # noqa: E501
-        :type: str
+        :param ipv6_address: The ipv6_address of this AssignIpv6AddressesRequest.  # noqa: E501
+        :type: list[str]
         """
 
-        self._i_pv6_address = i_pv6_address
+        self._ipv6_address = ipv6_address
 
     @property
-    def i_pv6_address_count(self):
-        """Gets the i_pv6_address_count of this AssignIpv6AddressesRequest.  # noqa: E501
+    def ipv6_address_count(self):
+        """Gets the ipv6_address_count of this AssignIpv6AddressesRequest.  # noqa: E501
 
 
-        :return: The i_pv6_address_count of this AssignIpv6AddressesRequest.  # noqa: E501
-        :rtype: str
+        :return: The ipv6_address_count of this AssignIpv6AddressesRequest.  # noqa: E501
+        :rtype: int
         """
-        return self._i_pv6_address_count
+        return self._ipv6_address_count
 
-    @i_pv6_address_count.setter
-    def i_pv6_address_count(self, i_pv6_address_count):
-        """Sets the i_pv6_address_count of this AssignIpv6AddressesRequest.
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, ipv6_address_count):
+        """Sets the ipv6_address_count of this AssignIpv6AddressesRequest.
 
 
-        :param i_pv6_address_count: The i_pv6_address_count of this AssignIpv6AddressesRequest.  # noqa: E501
-        :type: str
+        :param ipv6_address_count: The ipv6_address_count of this AssignIpv6AddressesRequest.  # noqa: E501
+        :type: int
         """
 
-        self._i_pv6_address_count = i_pv6_address_count
+        self._ipv6_address_count = ipv6_address_count
 
     @property
     def network_interface_id(self):
