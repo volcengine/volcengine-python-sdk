@@ -49,7 +49,8 @@ class DeleteScalingConfigurationRequest(object):
         self._scaling_configuration_id = None
         self.discriminator = None
 
-        self.scaling_configuration_id = scaling_configuration_id
+        if scaling_configuration_id is not None:
+            self.scaling_configuration_id = scaling_configuration_id
 
     @property
     def scaling_configuration_id(self):
@@ -69,8 +70,6 @@ class DeleteScalingConfigurationRequest(object):
         :param scaling_configuration_id: The scaling_configuration_id of this DeleteScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_configuration_id is None:
-            raise ValueError("Invalid value for `scaling_configuration_id`, must not be `None`")  # noqa: E501
 
         self._scaling_configuration_id = scaling_configuration_id
 

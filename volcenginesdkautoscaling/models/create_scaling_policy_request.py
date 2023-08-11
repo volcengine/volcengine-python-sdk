@@ -70,15 +70,20 @@ class CreateScalingPolicyRequest(object):
         self._scheduled_policy = None
         self.discriminator = None
 
-        self.adjustment_type = adjustment_type
-        self.adjustment_value = adjustment_value
+        if adjustment_type is not None:
+            self.adjustment_type = adjustment_type
+        if adjustment_value is not None:
+            self.adjustment_value = adjustment_value
         if alarm_policy is not None:
             self.alarm_policy = alarm_policy
         if cooldown is not None:
             self.cooldown = cooldown
-        self.scaling_group_id = scaling_group_id
-        self.scaling_policy_name = scaling_policy_name
-        self.scaling_policy_type = scaling_policy_type
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
+        if scaling_policy_name is not None:
+            self.scaling_policy_name = scaling_policy_name
+        if scaling_policy_type is not None:
+            self.scaling_policy_type = scaling_policy_type
         if scheduled_policy is not None:
             self.scheduled_policy = scheduled_policy
 
@@ -100,8 +105,6 @@ class CreateScalingPolicyRequest(object):
         :param adjustment_type: The adjustment_type of this CreateScalingPolicyRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and adjustment_type is None:
-            raise ValueError("Invalid value for `adjustment_type`, must not be `None`")  # noqa: E501
 
         self._adjustment_type = adjustment_type
 
@@ -123,8 +126,6 @@ class CreateScalingPolicyRequest(object):
         :param adjustment_value: The adjustment_value of this CreateScalingPolicyRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and adjustment_value is None:
-            raise ValueError("Invalid value for `adjustment_value`, must not be `None`")  # noqa: E501
 
         self._adjustment_value = adjustment_value
 
@@ -188,8 +189,6 @@ class CreateScalingPolicyRequest(object):
         :param scaling_group_id: The scaling_group_id of this CreateScalingPolicyRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_group_id is None:
-            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 
@@ -211,8 +210,6 @@ class CreateScalingPolicyRequest(object):
         :param scaling_policy_name: The scaling_policy_name of this CreateScalingPolicyRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_policy_name is None:
-            raise ValueError("Invalid value for `scaling_policy_name`, must not be `None`")  # noqa: E501
 
         self._scaling_policy_name = scaling_policy_name
 
@@ -234,8 +231,6 @@ class CreateScalingPolicyRequest(object):
         :param scaling_policy_type: The scaling_policy_type of this CreateScalingPolicyRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_policy_type is None:
-            raise ValueError("Invalid value for `scaling_policy_type`, must not be `None`")  # noqa: E501
 
         self._scaling_policy_type = scaling_policy_type
 

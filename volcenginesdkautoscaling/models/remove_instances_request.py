@@ -35,16 +35,20 @@ class RemoveInstancesRequest(object):
     swagger_types = {
         'decrease_desired_capacity': 'bool',
         'instance_ids': 'list[str]',
+        'lifecycle_hook': 'bool',
+        'remove_mode': 'str',
         'scaling_group_id': 'str'
     }
 
     attribute_map = {
         'decrease_desired_capacity': 'DecreaseDesiredCapacity',
         'instance_ids': 'InstanceIds',
+        'lifecycle_hook': 'LifecycleHook',
+        'remove_mode': 'RemoveMode',
         'scaling_group_id': 'ScalingGroupId'
     }
 
-    def __init__(self, decrease_desired_capacity=None, instance_ids=None, scaling_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, decrease_desired_capacity=None, instance_ids=None, lifecycle_hook=None, remove_mode=None, scaling_group_id=None, _configuration=None):  # noqa: E501
         """RemoveInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +56,8 @@ class RemoveInstancesRequest(object):
 
         self._decrease_desired_capacity = None
         self._instance_ids = None
+        self._lifecycle_hook = None
+        self._remove_mode = None
         self._scaling_group_id = None
         self.discriminator = None
 
@@ -59,7 +65,12 @@ class RemoveInstancesRequest(object):
             self.decrease_desired_capacity = decrease_desired_capacity
         if instance_ids is not None:
             self.instance_ids = instance_ids
-        self.scaling_group_id = scaling_group_id
+        if lifecycle_hook is not None:
+            self.lifecycle_hook = lifecycle_hook
+        if remove_mode is not None:
+            self.remove_mode = remove_mode
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
 
     @property
     def decrease_desired_capacity(self):
@@ -104,6 +115,48 @@ class RemoveInstancesRequest(object):
         self._instance_ids = instance_ids
 
     @property
+    def lifecycle_hook(self):
+        """Gets the lifecycle_hook of this RemoveInstancesRequest.  # noqa: E501
+
+
+        :return: The lifecycle_hook of this RemoveInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._lifecycle_hook
+
+    @lifecycle_hook.setter
+    def lifecycle_hook(self, lifecycle_hook):
+        """Sets the lifecycle_hook of this RemoveInstancesRequest.
+
+
+        :param lifecycle_hook: The lifecycle_hook of this RemoveInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._lifecycle_hook = lifecycle_hook
+
+    @property
+    def remove_mode(self):
+        """Gets the remove_mode of this RemoveInstancesRequest.  # noqa: E501
+
+
+        :return: The remove_mode of this RemoveInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._remove_mode
+
+    @remove_mode.setter
+    def remove_mode(self, remove_mode):
+        """Sets the remove_mode of this RemoveInstancesRequest.
+
+
+        :param remove_mode: The remove_mode of this RemoveInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._remove_mode = remove_mode
+
+    @property
     def scaling_group_id(self):
         """Gets the scaling_group_id of this RemoveInstancesRequest.  # noqa: E501
 
@@ -121,8 +174,6 @@ class RemoveInstancesRequest(object):
         :param scaling_group_id: The scaling_group_id of this RemoveInstancesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_group_id is None:
-            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

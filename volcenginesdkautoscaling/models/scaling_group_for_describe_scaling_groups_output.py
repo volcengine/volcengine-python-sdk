@@ -38,15 +38,21 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'db_instance_ids': 'list[str]',
         'default_cooldown': 'int',
         'desire_instance_number': 'int',
+        'health_check_type': 'str',
         'instance_terminate_policy': 'str',
+        'launch_template_overrides': 'list[LaunchTemplateOverrideForDescribeScalingGroupsOutput]',
         'lifecycle_state': 'str',
         'max_instance_number': 'int',
         'min_instance_number': 'int',
         'multi_az_policy': 'str',
+        'project_name': 'str',
         'scaling_group_id': 'str',
         'scaling_group_name': 'str',
+        'scaling_mode': 'str',
         'server_group_attributes': 'list[ServerGroupAttributeForDescribeScalingGroupsOutput]',
+        'stopped_instance_count': 'int',
         'subnet_ids': 'list[str]',
+        'tags': 'list[TagForDescribeScalingGroupsOutput]',
         'total_instance_count': 'int',
         'updated_at': 'str',
         'vpc_id': 'str'
@@ -58,21 +64,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'db_instance_ids': 'DBInstanceIds',
         'default_cooldown': 'DefaultCooldown',
         'desire_instance_number': 'DesireInstanceNumber',
+        'health_check_type': 'HealthCheckType',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
+        'launch_template_overrides': 'LaunchTemplateOverrides',
         'lifecycle_state': 'LifecycleState',
         'max_instance_number': 'MaxInstanceNumber',
         'min_instance_number': 'MinInstanceNumber',
         'multi_az_policy': 'MultiAZPolicy',
+        'project_name': 'ProjectName',
         'scaling_group_id': 'ScalingGroupId',
         'scaling_group_name': 'ScalingGroupName',
+        'scaling_mode': 'ScalingMode',
         'server_group_attributes': 'ServerGroupAttributes',
+        'stopped_instance_count': 'StoppedInstanceCount',
         'subnet_ids': 'SubnetIds',
+        'tags': 'Tags',
         'total_instance_count': 'TotalInstanceCount',
         'updated_at': 'UpdatedAt',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, active_scaling_configuration_id=None, created_at=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, instance_terminate_policy=None, lifecycle_state=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, scaling_group_id=None, scaling_group_name=None, server_group_attributes=None, subnet_ids=None, total_instance_count=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_scaling_configuration_id=None, created_at=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, launch_template_overrides=None, lifecycle_state=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, project_name=None, scaling_group_id=None, scaling_group_name=None, scaling_mode=None, server_group_attributes=None, stopped_instance_count=None, subnet_ids=None, tags=None, total_instance_count=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ScalingGroupForDescribeScalingGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,15 +95,21 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._db_instance_ids = None
         self._default_cooldown = None
         self._desire_instance_number = None
+        self._health_check_type = None
         self._instance_terminate_policy = None
+        self._launch_template_overrides = None
         self._lifecycle_state = None
         self._max_instance_number = None
         self._min_instance_number = None
         self._multi_az_policy = None
+        self._project_name = None
         self._scaling_group_id = None
         self._scaling_group_name = None
+        self._scaling_mode = None
         self._server_group_attributes = None
+        self._stopped_instance_count = None
         self._subnet_ids = None
+        self._tags = None
         self._total_instance_count = None
         self._updated_at = None
         self._vpc_id = None
@@ -107,8 +125,12 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
             self.default_cooldown = default_cooldown
         if desire_instance_number is not None:
             self.desire_instance_number = desire_instance_number
+        if health_check_type is not None:
+            self.health_check_type = health_check_type
         if instance_terminate_policy is not None:
             self.instance_terminate_policy = instance_terminate_policy
+        if launch_template_overrides is not None:
+            self.launch_template_overrides = launch_template_overrides
         if lifecycle_state is not None:
             self.lifecycle_state = lifecycle_state
         if max_instance_number is not None:
@@ -117,14 +139,22 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
             self.min_instance_number = min_instance_number
         if multi_az_policy is not None:
             self.multi_az_policy = multi_az_policy
+        if project_name is not None:
+            self.project_name = project_name
         if scaling_group_id is not None:
             self.scaling_group_id = scaling_group_id
         if scaling_group_name is not None:
             self.scaling_group_name = scaling_group_name
+        if scaling_mode is not None:
+            self.scaling_mode = scaling_mode
         if server_group_attributes is not None:
             self.server_group_attributes = server_group_attributes
+        if stopped_instance_count is not None:
+            self.stopped_instance_count = stopped_instance_count
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+        if tags is not None:
+            self.tags = tags
         if total_instance_count is not None:
             self.total_instance_count = total_instance_count
         if updated_at is not None:
@@ -238,6 +268,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._desire_instance_number = desire_instance_number
 
     @property
+    def health_check_type(self):
+        """Gets the health_check_type of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The health_check_type of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._health_check_type
+
+    @health_check_type.setter
+    def health_check_type(self, health_check_type):
+        """Sets the health_check_type of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param health_check_type: The health_check_type of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._health_check_type = health_check_type
+
+    @property
     def instance_terminate_policy(self):
         """Gets the instance_terminate_policy of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
 
@@ -257,6 +308,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         """
 
         self._instance_terminate_policy = instance_terminate_policy
+
+    @property
+    def launch_template_overrides(self):
+        """Gets the launch_template_overrides of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The launch_template_overrides of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: list[LaunchTemplateOverrideForDescribeScalingGroupsOutput]
+        """
+        return self._launch_template_overrides
+
+    @launch_template_overrides.setter
+    def launch_template_overrides(self, launch_template_overrides):
+        """Sets the launch_template_overrides of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param launch_template_overrides: The launch_template_overrides of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: list[LaunchTemplateOverrideForDescribeScalingGroupsOutput]
+        """
+
+        self._launch_template_overrides = launch_template_overrides
 
     @property
     def lifecycle_state(self):
@@ -343,6 +415,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._multi_az_policy = multi_az_policy
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The project_name of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param project_name: The project_name of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def scaling_group_id(self):
         """Gets the scaling_group_id of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
 
@@ -385,6 +478,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._scaling_group_name = scaling_group_name
 
     @property
+    def scaling_mode(self):
+        """Gets the scaling_mode of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The scaling_mode of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scaling_mode
+
+    @scaling_mode.setter
+    def scaling_mode(self, scaling_mode):
+        """Sets the scaling_mode of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param scaling_mode: The scaling_mode of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scaling_mode = scaling_mode
+
+    @property
     def server_group_attributes(self):
         """Gets the server_group_attributes of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
 
@@ -406,6 +520,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._server_group_attributes = server_group_attributes
 
     @property
+    def stopped_instance_count(self):
+        """Gets the stopped_instance_count of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The stopped_instance_count of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._stopped_instance_count
+
+    @stopped_instance_count.setter
+    def stopped_instance_count(self, stopped_instance_count):
+        """Sets the stopped_instance_count of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param stopped_instance_count: The stopped_instance_count of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._stopped_instance_count = stopped_instance_count
+
+    @property
     def subnet_ids(self):
         """Gets the subnet_ids of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
 
@@ -425,6 +560,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         """
 
         self._subnet_ids = subnet_ids
+
+    @property
+    def tags(self):
+        """Gets the tags of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The tags of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeScalingGroupsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param tags: The tags of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: list[TagForDescribeScalingGroupsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def total_instance_count(self):
