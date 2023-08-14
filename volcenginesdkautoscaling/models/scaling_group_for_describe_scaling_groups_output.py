@@ -40,7 +40,9 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'desire_instance_number': 'int',
         'health_check_type': 'str',
         'instance_terminate_policy': 'str',
+        'launch_template_id': 'str',
         'launch_template_overrides': 'list[LaunchTemplateOverrideForDescribeScalingGroupsOutput]',
+        'launch_template_version': 'str',
         'lifecycle_state': 'str',
         'max_instance_number': 'int',
         'min_instance_number': 'int',
@@ -66,7 +68,9 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'desire_instance_number': 'DesireInstanceNumber',
         'health_check_type': 'HealthCheckType',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
+        'launch_template_id': 'LaunchTemplateId',
         'launch_template_overrides': 'LaunchTemplateOverrides',
+        'launch_template_version': 'LaunchTemplateVersion',
         'lifecycle_state': 'LifecycleState',
         'max_instance_number': 'MaxInstanceNumber',
         'min_instance_number': 'MinInstanceNumber',
@@ -84,7 +88,7 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, active_scaling_configuration_id=None, created_at=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, launch_template_overrides=None, lifecycle_state=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, project_name=None, scaling_group_id=None, scaling_group_name=None, scaling_mode=None, server_group_attributes=None, stopped_instance_count=None, subnet_ids=None, tags=None, total_instance_count=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_scaling_configuration_id=None, created_at=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, lifecycle_state=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, project_name=None, scaling_group_id=None, scaling_group_name=None, scaling_mode=None, server_group_attributes=None, stopped_instance_count=None, subnet_ids=None, tags=None, total_instance_count=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ScalingGroupForDescribeScalingGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,7 +101,9 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._desire_instance_number = None
         self._health_check_type = None
         self._instance_terminate_policy = None
+        self._launch_template_id = None
         self._launch_template_overrides = None
+        self._launch_template_version = None
         self._lifecycle_state = None
         self._max_instance_number = None
         self._min_instance_number = None
@@ -129,8 +135,12 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
             self.health_check_type = health_check_type
         if instance_terminate_policy is not None:
             self.instance_terminate_policy = instance_terminate_policy
+        if launch_template_id is not None:
+            self.launch_template_id = launch_template_id
         if launch_template_overrides is not None:
             self.launch_template_overrides = launch_template_overrides
+        if launch_template_version is not None:
+            self.launch_template_version = launch_template_version
         if lifecycle_state is not None:
             self.lifecycle_state = lifecycle_state
         if max_instance_number is not None:
@@ -310,6 +320,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._instance_terminate_policy = instance_terminate_policy
 
     @property
+    def launch_template_id(self):
+        """Gets the launch_template_id of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The launch_template_id of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._launch_template_id
+
+    @launch_template_id.setter
+    def launch_template_id(self, launch_template_id):
+        """Sets the launch_template_id of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param launch_template_id: The launch_template_id of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._launch_template_id = launch_template_id
+
+    @property
     def launch_template_overrides(self):
         """Gets the launch_template_overrides of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
 
@@ -329,6 +360,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         """
 
         self._launch_template_overrides = launch_template_overrides
+
+    @property
+    def launch_template_version(self):
+        """Gets the launch_template_version of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The launch_template_version of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._launch_template_version
+
+    @launch_template_version.setter
+    def launch_template_version(self, launch_template_version):
+        """Sets the launch_template_version of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param launch_template_version: The launch_template_version of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._launch_template_version = launch_template_version
 
     @property
     def lifecycle_state(self):
