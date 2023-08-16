@@ -35,16 +35,18 @@ class AttachInstancesRequest(object):
     swagger_types = {
         'entrusted': 'bool',
         'instance_ids': 'list[str]',
+        'lifecycle_hook': 'bool',
         'scaling_group_id': 'str'
     }
 
     attribute_map = {
         'entrusted': 'Entrusted',
         'instance_ids': 'InstanceIds',
+        'lifecycle_hook': 'LifecycleHook',
         'scaling_group_id': 'ScalingGroupId'
     }
 
-    def __init__(self, entrusted=None, instance_ids=None, scaling_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, entrusted=None, instance_ids=None, lifecycle_hook=None, scaling_group_id=None, _configuration=None):  # noqa: E501
         """AttachInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class AttachInstancesRequest(object):
 
         self._entrusted = None
         self._instance_ids = None
+        self._lifecycle_hook = None
         self._scaling_group_id = None
         self.discriminator = None
 
@@ -59,7 +62,10 @@ class AttachInstancesRequest(object):
             self.entrusted = entrusted
         if instance_ids is not None:
             self.instance_ids = instance_ids
-        self.scaling_group_id = scaling_group_id
+        if lifecycle_hook is not None:
+            self.lifecycle_hook = lifecycle_hook
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
 
     @property
     def entrusted(self):
@@ -104,6 +110,27 @@ class AttachInstancesRequest(object):
         self._instance_ids = instance_ids
 
     @property
+    def lifecycle_hook(self):
+        """Gets the lifecycle_hook of this AttachInstancesRequest.  # noqa: E501
+
+
+        :return: The lifecycle_hook of this AttachInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._lifecycle_hook
+
+    @lifecycle_hook.setter
+    def lifecycle_hook(self, lifecycle_hook):
+        """Sets the lifecycle_hook of this AttachInstancesRequest.
+
+
+        :param lifecycle_hook: The lifecycle_hook of this AttachInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._lifecycle_hook = lifecycle_hook
+
+    @property
     def scaling_group_id(self):
         """Gets the scaling_group_id of this AttachInstancesRequest.  # noqa: E501
 
@@ -121,8 +148,6 @@ class AttachInstancesRequest(object):
         :param scaling_group_id: The scaling_group_id of this AttachInstancesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_group_id is None:
-            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

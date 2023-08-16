@@ -61,11 +61,16 @@ class CreateLifecycleHookRequest(object):
         self._scaling_group_id = None
         self.discriminator = None
 
-        self.lifecycle_hook_name = lifecycle_hook_name
-        self.lifecycle_hook_policy = lifecycle_hook_policy
-        self.lifecycle_hook_timeout = lifecycle_hook_timeout
-        self.lifecycle_hook_type = lifecycle_hook_type
-        self.scaling_group_id = scaling_group_id
+        if lifecycle_hook_name is not None:
+            self.lifecycle_hook_name = lifecycle_hook_name
+        if lifecycle_hook_policy is not None:
+            self.lifecycle_hook_policy = lifecycle_hook_policy
+        if lifecycle_hook_timeout is not None:
+            self.lifecycle_hook_timeout = lifecycle_hook_timeout
+        if lifecycle_hook_type is not None:
+            self.lifecycle_hook_type = lifecycle_hook_type
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
 
     @property
     def lifecycle_hook_name(self):
@@ -85,8 +90,6 @@ class CreateLifecycleHookRequest(object):
         :param lifecycle_hook_name: The lifecycle_hook_name of this CreateLifecycleHookRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and lifecycle_hook_name is None:
-            raise ValueError("Invalid value for `lifecycle_hook_name`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_name = lifecycle_hook_name
 
@@ -108,8 +111,6 @@ class CreateLifecycleHookRequest(object):
         :param lifecycle_hook_policy: The lifecycle_hook_policy of this CreateLifecycleHookRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and lifecycle_hook_policy is None:
-            raise ValueError("Invalid value for `lifecycle_hook_policy`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_policy = lifecycle_hook_policy
 
@@ -131,8 +132,6 @@ class CreateLifecycleHookRequest(object):
         :param lifecycle_hook_timeout: The lifecycle_hook_timeout of this CreateLifecycleHookRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and lifecycle_hook_timeout is None:
-            raise ValueError("Invalid value for `lifecycle_hook_timeout`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_timeout = lifecycle_hook_timeout
 
@@ -154,8 +153,6 @@ class CreateLifecycleHookRequest(object):
         :param lifecycle_hook_type: The lifecycle_hook_type of this CreateLifecycleHookRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and lifecycle_hook_type is None:
-            raise ValueError("Invalid value for `lifecycle_hook_type`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_type = lifecycle_hook_type
 
@@ -177,8 +174,6 @@ class CreateLifecycleHookRequest(object):
         :param scaling_group_id: The scaling_group_id of this CreateLifecycleHookRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_group_id is None:
-            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

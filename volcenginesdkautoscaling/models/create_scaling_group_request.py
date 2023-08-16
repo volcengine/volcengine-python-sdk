@@ -33,68 +33,130 @@ class CreateScalingGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'db_instance_ids': 'list[str]',
         'default_cooldown': 'int',
         'desire_instance_number': 'int',
+        'health_check_type': 'str',
         'instance_terminate_policy': 'str',
+        'launch_template_id': 'str',
+        'launch_template_overrides': 'list[LaunchTemplateOverrideForCreateScalingGroupInput]',
+        'launch_template_version': 'str',
         'max_instance_number': 'int',
         'min_instance_number': 'int',
         'multi_az_policy': 'str',
+        'project_name': 'str',
         'scaling_group_name': 'str',
+        'scaling_mode': 'str',
         'server_group_attributes': 'list[ServerGroupAttributeForCreateScalingGroupInput]',
-        'subnet_ids': 'list[str]'
+        'subnet_ids': 'list[str]',
+        'tags': 'list[TagForCreateScalingGroupInput]'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'db_instance_ids': 'DBInstanceIds',
         'default_cooldown': 'DefaultCooldown',
         'desire_instance_number': 'DesireInstanceNumber',
+        'health_check_type': 'HealthCheckType',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
+        'launch_template_id': 'LaunchTemplateId',
+        'launch_template_overrides': 'LaunchTemplateOverrides',
+        'launch_template_version': 'LaunchTemplateVersion',
         'max_instance_number': 'MaxInstanceNumber',
         'min_instance_number': 'MinInstanceNumber',
         'multi_az_policy': 'MultiAZPolicy',
+        'project_name': 'ProjectName',
         'scaling_group_name': 'ScalingGroupName',
+        'scaling_mode': 'ScalingMode',
         'server_group_attributes': 'ServerGroupAttributes',
-        'subnet_ids': 'SubnetIds'
+        'subnet_ids': 'SubnetIds',
+        'tags': 'Tags'
     }
 
-    def __init__(self, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, instance_terminate_policy=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, scaling_group_name=None, server_group_attributes=None, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, project_name=None, scaling_group_name=None, scaling_mode=None, server_group_attributes=None, subnet_ids=None, tags=None, _configuration=None):  # noqa: E501
         """CreateScalingGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._db_instance_ids = None
         self._default_cooldown = None
         self._desire_instance_number = None
+        self._health_check_type = None
         self._instance_terminate_policy = None
+        self._launch_template_id = None
+        self._launch_template_overrides = None
+        self._launch_template_version = None
         self._max_instance_number = None
         self._min_instance_number = None
         self._multi_az_policy = None
+        self._project_name = None
         self._scaling_group_name = None
+        self._scaling_mode = None
         self._server_group_attributes = None
         self._subnet_ids = None
+        self._tags = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if db_instance_ids is not None:
             self.db_instance_ids = db_instance_ids
         if default_cooldown is not None:
             self.default_cooldown = default_cooldown
         if desire_instance_number is not None:
             self.desire_instance_number = desire_instance_number
+        if health_check_type is not None:
+            self.health_check_type = health_check_type
         if instance_terminate_policy is not None:
             self.instance_terminate_policy = instance_terminate_policy
+        if launch_template_id is not None:
+            self.launch_template_id = launch_template_id
+        if launch_template_overrides is not None:
+            self.launch_template_overrides = launch_template_overrides
+        if launch_template_version is not None:
+            self.launch_template_version = launch_template_version
         if max_instance_number is not None:
             self.max_instance_number = max_instance_number
         if min_instance_number is not None:
             self.min_instance_number = min_instance_number
         if multi_az_policy is not None:
             self.multi_az_policy = multi_az_policy
-        self.scaling_group_name = scaling_group_name
+        if project_name is not None:
+            self.project_name = project_name
+        if scaling_group_name is not None:
+            self.scaling_group_name = scaling_group_name
+        if scaling_mode is not None:
+            self.scaling_mode = scaling_mode
         if server_group_attributes is not None:
             self.server_group_attributes = server_group_attributes
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+        if tags is not None:
+            self.tags = tags
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateScalingGroupRequest.
+
+
+        :param client_token: The client_token of this CreateScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def db_instance_ids(self):
@@ -160,6 +222,27 @@ class CreateScalingGroupRequest(object):
         self._desire_instance_number = desire_instance_number
 
     @property
+    def health_check_type(self):
+        """Gets the health_check_type of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The health_check_type of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._health_check_type
+
+    @health_check_type.setter
+    def health_check_type(self, health_check_type):
+        """Sets the health_check_type of this CreateScalingGroupRequest.
+
+
+        :param health_check_type: The health_check_type of this CreateScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._health_check_type = health_check_type
+
+    @property
     def instance_terminate_policy(self):
         """Gets the instance_terminate_policy of this CreateScalingGroupRequest.  # noqa: E501
 
@@ -179,6 +262,69 @@ class CreateScalingGroupRequest(object):
         """
 
         self._instance_terminate_policy = instance_terminate_policy
+
+    @property
+    def launch_template_id(self):
+        """Gets the launch_template_id of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The launch_template_id of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._launch_template_id
+
+    @launch_template_id.setter
+    def launch_template_id(self, launch_template_id):
+        """Sets the launch_template_id of this CreateScalingGroupRequest.
+
+
+        :param launch_template_id: The launch_template_id of this CreateScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._launch_template_id = launch_template_id
+
+    @property
+    def launch_template_overrides(self):
+        """Gets the launch_template_overrides of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The launch_template_overrides of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: list[LaunchTemplateOverrideForCreateScalingGroupInput]
+        """
+        return self._launch_template_overrides
+
+    @launch_template_overrides.setter
+    def launch_template_overrides(self, launch_template_overrides):
+        """Sets the launch_template_overrides of this CreateScalingGroupRequest.
+
+
+        :param launch_template_overrides: The launch_template_overrides of this CreateScalingGroupRequest.  # noqa: E501
+        :type: list[LaunchTemplateOverrideForCreateScalingGroupInput]
+        """
+
+        self._launch_template_overrides = launch_template_overrides
+
+    @property
+    def launch_template_version(self):
+        """Gets the launch_template_version of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The launch_template_version of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._launch_template_version
+
+    @launch_template_version.setter
+    def launch_template_version(self, launch_template_version):
+        """Sets the launch_template_version of this CreateScalingGroupRequest.
+
+
+        :param launch_template_version: The launch_template_version of this CreateScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._launch_template_version = launch_template_version
 
     @property
     def max_instance_number(self):
@@ -244,6 +390,27 @@ class CreateScalingGroupRequest(object):
         self._multi_az_policy = multi_az_policy
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateScalingGroupRequest.
+
+
+        :param project_name: The project_name of this CreateScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def scaling_group_name(self):
         """Gets the scaling_group_name of this CreateScalingGroupRequest.  # noqa: E501
 
@@ -261,10 +428,29 @@ class CreateScalingGroupRequest(object):
         :param scaling_group_name: The scaling_group_name of this CreateScalingGroupRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_group_name is None:
-            raise ValueError("Invalid value for `scaling_group_name`, must not be `None`")  # noqa: E501
 
         self._scaling_group_name = scaling_group_name
+
+    @property
+    def scaling_mode(self):
+        """Gets the scaling_mode of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The scaling_mode of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._scaling_mode
+
+    @scaling_mode.setter
+    def scaling_mode(self, scaling_mode):
+        """Sets the scaling_mode of this CreateScalingGroupRequest.
+
+
+        :param scaling_mode: The scaling_mode of this CreateScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._scaling_mode = scaling_mode
 
     @property
     def server_group_attributes(self):
@@ -307,6 +493,27 @@ class CreateScalingGroupRequest(object):
         """
 
         self._subnet_ids = subnet_ids
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: list[TagForCreateScalingGroupInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateScalingGroupRequest.
+
+
+        :param tags: The tags of this CreateScalingGroupRequest.  # noqa: E501
+        :type: list[TagForCreateScalingGroupInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

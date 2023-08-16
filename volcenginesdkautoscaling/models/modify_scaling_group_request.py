@@ -36,9 +36,14 @@ class ModifyScalingGroupRequest(object):
         'active_scaling_configuration_id': 'str',
         'default_cooldown': 'int',
         'desire_instance_number': 'int',
+        'health_check_type': 'str',
         'instance_terminate_policy': 'str',
+        'launch_template_id': 'str',
+        'launch_template_overrides': 'list[LaunchTemplateOverrideForModifyScalingGroupInput]',
+        'launch_template_version': 'str',
         'max_instance_number': 'int',
         'min_instance_number': 'int',
+        'multi_az_policy': 'str',
         'scaling_group_id': 'str',
         'scaling_group_name': 'str',
         'subnet_ids': 'list[str]'
@@ -48,15 +53,20 @@ class ModifyScalingGroupRequest(object):
         'active_scaling_configuration_id': 'ActiveScalingConfigurationId',
         'default_cooldown': 'DefaultCooldown',
         'desire_instance_number': 'DesireInstanceNumber',
+        'health_check_type': 'HealthCheckType',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
+        'launch_template_id': 'LaunchTemplateId',
+        'launch_template_overrides': 'LaunchTemplateOverrides',
+        'launch_template_version': 'LaunchTemplateVersion',
         'max_instance_number': 'MaxInstanceNumber',
         'min_instance_number': 'MinInstanceNumber',
+        'multi_az_policy': 'MultiAZPolicy',
         'scaling_group_id': 'ScalingGroupId',
         'scaling_group_name': 'ScalingGroupName',
         'subnet_ids': 'SubnetIds'
     }
 
-    def __init__(self, active_scaling_configuration_id=None, default_cooldown=None, desire_instance_number=None, instance_terminate_policy=None, max_instance_number=None, min_instance_number=None, scaling_group_id=None, scaling_group_name=None, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_scaling_configuration_id=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, scaling_group_id=None, scaling_group_name=None, subnet_ids=None, _configuration=None):  # noqa: E501
         """ModifyScalingGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,9 +75,14 @@ class ModifyScalingGroupRequest(object):
         self._active_scaling_configuration_id = None
         self._default_cooldown = None
         self._desire_instance_number = None
+        self._health_check_type = None
         self._instance_terminate_policy = None
+        self._launch_template_id = None
+        self._launch_template_overrides = None
+        self._launch_template_version = None
         self._max_instance_number = None
         self._min_instance_number = None
+        self._multi_az_policy = None
         self._scaling_group_id = None
         self._scaling_group_name = None
         self._subnet_ids = None
@@ -79,13 +94,24 @@ class ModifyScalingGroupRequest(object):
             self.default_cooldown = default_cooldown
         if desire_instance_number is not None:
             self.desire_instance_number = desire_instance_number
+        if health_check_type is not None:
+            self.health_check_type = health_check_type
         if instance_terminate_policy is not None:
             self.instance_terminate_policy = instance_terminate_policy
+        if launch_template_id is not None:
+            self.launch_template_id = launch_template_id
+        if launch_template_overrides is not None:
+            self.launch_template_overrides = launch_template_overrides
+        if launch_template_version is not None:
+            self.launch_template_version = launch_template_version
         if max_instance_number is not None:
             self.max_instance_number = max_instance_number
         if min_instance_number is not None:
             self.min_instance_number = min_instance_number
-        self.scaling_group_id = scaling_group_id
+        if multi_az_policy is not None:
+            self.multi_az_policy = multi_az_policy
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
         if scaling_group_name is not None:
             self.scaling_group_name = scaling_group_name
         if subnet_ids is not None:
@@ -155,6 +181,27 @@ class ModifyScalingGroupRequest(object):
         self._desire_instance_number = desire_instance_number
 
     @property
+    def health_check_type(self):
+        """Gets the health_check_type of this ModifyScalingGroupRequest.  # noqa: E501
+
+
+        :return: The health_check_type of this ModifyScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._health_check_type
+
+    @health_check_type.setter
+    def health_check_type(self, health_check_type):
+        """Sets the health_check_type of this ModifyScalingGroupRequest.
+
+
+        :param health_check_type: The health_check_type of this ModifyScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._health_check_type = health_check_type
+
+    @property
     def instance_terminate_policy(self):
         """Gets the instance_terminate_policy of this ModifyScalingGroupRequest.  # noqa: E501
 
@@ -174,6 +221,69 @@ class ModifyScalingGroupRequest(object):
         """
 
         self._instance_terminate_policy = instance_terminate_policy
+
+    @property
+    def launch_template_id(self):
+        """Gets the launch_template_id of this ModifyScalingGroupRequest.  # noqa: E501
+
+
+        :return: The launch_template_id of this ModifyScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._launch_template_id
+
+    @launch_template_id.setter
+    def launch_template_id(self, launch_template_id):
+        """Sets the launch_template_id of this ModifyScalingGroupRequest.
+
+
+        :param launch_template_id: The launch_template_id of this ModifyScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._launch_template_id = launch_template_id
+
+    @property
+    def launch_template_overrides(self):
+        """Gets the launch_template_overrides of this ModifyScalingGroupRequest.  # noqa: E501
+
+
+        :return: The launch_template_overrides of this ModifyScalingGroupRequest.  # noqa: E501
+        :rtype: list[LaunchTemplateOverrideForModifyScalingGroupInput]
+        """
+        return self._launch_template_overrides
+
+    @launch_template_overrides.setter
+    def launch_template_overrides(self, launch_template_overrides):
+        """Sets the launch_template_overrides of this ModifyScalingGroupRequest.
+
+
+        :param launch_template_overrides: The launch_template_overrides of this ModifyScalingGroupRequest.  # noqa: E501
+        :type: list[LaunchTemplateOverrideForModifyScalingGroupInput]
+        """
+
+        self._launch_template_overrides = launch_template_overrides
+
+    @property
+    def launch_template_version(self):
+        """Gets the launch_template_version of this ModifyScalingGroupRequest.  # noqa: E501
+
+
+        :return: The launch_template_version of this ModifyScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._launch_template_version
+
+    @launch_template_version.setter
+    def launch_template_version(self, launch_template_version):
+        """Sets the launch_template_version of this ModifyScalingGroupRequest.
+
+
+        :param launch_template_version: The launch_template_version of this ModifyScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._launch_template_version = launch_template_version
 
     @property
     def max_instance_number(self):
@@ -218,6 +328,27 @@ class ModifyScalingGroupRequest(object):
         self._min_instance_number = min_instance_number
 
     @property
+    def multi_az_policy(self):
+        """Gets the multi_az_policy of this ModifyScalingGroupRequest.  # noqa: E501
+
+
+        :return: The multi_az_policy of this ModifyScalingGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_az_policy
+
+    @multi_az_policy.setter
+    def multi_az_policy(self, multi_az_policy):
+        """Sets the multi_az_policy of this ModifyScalingGroupRequest.
+
+
+        :param multi_az_policy: The multi_az_policy of this ModifyScalingGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._multi_az_policy = multi_az_policy
+
+    @property
     def scaling_group_id(self):
         """Gets the scaling_group_id of this ModifyScalingGroupRequest.  # noqa: E501
 
@@ -235,8 +366,6 @@ class ModifyScalingGroupRequest(object):
         :param scaling_group_id: The scaling_group_id of this ModifyScalingGroupRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_group_id is None:
-            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

@@ -57,8 +57,10 @@ class SetInstancesProtectionRequest(object):
 
         if instance_ids is not None:
             self.instance_ids = instance_ids
-        self.protected_from_scale_in = protected_from_scale_in
-        self.scaling_group_id = scaling_group_id
+        if protected_from_scale_in is not None:
+            self.protected_from_scale_in = protected_from_scale_in
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
 
     @property
     def instance_ids(self):
@@ -99,8 +101,6 @@ class SetInstancesProtectionRequest(object):
         :param protected_from_scale_in: The protected_from_scale_in of this SetInstancesProtectionRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and protected_from_scale_in is None:
-            raise ValueError("Invalid value for `protected_from_scale_in`, must not be `None`")  # noqa: E501
 
         self._protected_from_scale_in = protected_from_scale_in
 
@@ -122,8 +122,6 @@ class SetInstancesProtectionRequest(object):
         :param scaling_group_id: The scaling_group_id of this SetInstancesProtectionRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_group_id is None:
-            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 
