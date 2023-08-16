@@ -35,16 +35,21 @@ class ModifyScalingConfigurationRequest(object):
     swagger_types = {
         'eip': 'EipForModifyScalingConfigurationInput',
         'host_name': 'str',
+        'hpc_cluster_id': 'str',
         'image_id': 'str',
         'instance_description': 'str',
         'instance_name': 'str',
         'instance_types': 'list[str]',
+        'ipv6_address_count': 'int',
         'key_pair_name': 'str',
         'password': 'str',
+        'project_name': 'str',
         'scaling_configuration_id': 'str',
         'scaling_configuration_name': 'str',
         'security_enhancement_strategy': 'str',
         'security_group_ids': 'list[str]',
+        'spot_strategy': 'str',
+        'tags': 'str',
         'user_data': 'str',
         'volumes': 'list[VolumeForModifyScalingConfigurationInput]',
         'zone_id': 'str'
@@ -53,22 +58,27 @@ class ModifyScalingConfigurationRequest(object):
     attribute_map = {
         'eip': 'Eip',
         'host_name': 'HostName',
+        'hpc_cluster_id': 'HpcClusterId',
         'image_id': 'ImageId',
         'instance_description': 'InstanceDescription',
         'instance_name': 'InstanceName',
         'instance_types': 'InstanceTypes',
+        'ipv6_address_count': 'Ipv6AddressCount',
         'key_pair_name': 'KeyPairName',
         'password': 'Password',
+        'project_name': 'ProjectName',
         'scaling_configuration_id': 'ScalingConfigurationId',
         'scaling_configuration_name': 'ScalingConfigurationName',
         'security_enhancement_strategy': 'SecurityEnhancementStrategy',
         'security_group_ids': 'SecurityGroupIds',
+        'spot_strategy': 'SpotStrategy',
+        'tags': 'Tags',
         'user_data': 'UserData',
         'volumes': 'Volumes',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, eip=None, host_name=None, image_id=None, instance_description=None, instance_name=None, instance_types=None, key_pair_name=None, password=None, scaling_configuration_id=None, scaling_configuration_name=None, security_enhancement_strategy=None, security_group_ids=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_description=None, instance_name=None, instance_types=None, ipv6_address_count=None, key_pair_name=None, password=None, project_name=None, scaling_configuration_id=None, scaling_configuration_name=None, security_enhancement_strategy=None, security_group_ids=None, spot_strategy=None, tags=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """ModifyScalingConfigurationRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,16 +86,21 @@ class ModifyScalingConfigurationRequest(object):
 
         self._eip = None
         self._host_name = None
+        self._hpc_cluster_id = None
         self._image_id = None
         self._instance_description = None
         self._instance_name = None
         self._instance_types = None
+        self._ipv6_address_count = None
         self._key_pair_name = None
         self._password = None
+        self._project_name = None
         self._scaling_configuration_id = None
         self._scaling_configuration_name = None
         self._security_enhancement_strategy = None
         self._security_group_ids = None
+        self._spot_strategy = None
+        self._tags = None
         self._user_data = None
         self._volumes = None
         self._zone_id = None
@@ -95,6 +110,8 @@ class ModifyScalingConfigurationRequest(object):
             self.eip = eip
         if host_name is not None:
             self.host_name = host_name
+        if hpc_cluster_id is not None:
+            self.hpc_cluster_id = hpc_cluster_id
         if image_id is not None:
             self.image_id = image_id
         if instance_description is not None:
@@ -103,17 +120,26 @@ class ModifyScalingConfigurationRequest(object):
             self.instance_name = instance_name
         if instance_types is not None:
             self.instance_types = instance_types
+        if ipv6_address_count is not None:
+            self.ipv6_address_count = ipv6_address_count
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
         if password is not None:
             self.password = password
-        self.scaling_configuration_id = scaling_configuration_id
+        if project_name is not None:
+            self.project_name = project_name
+        if scaling_configuration_id is not None:
+            self.scaling_configuration_id = scaling_configuration_id
         if scaling_configuration_name is not None:
             self.scaling_configuration_name = scaling_configuration_name
         if security_enhancement_strategy is not None:
             self.security_enhancement_strategy = security_enhancement_strategy
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
+        if spot_strategy is not None:
+            self.spot_strategy = spot_strategy
+        if tags is not None:
+            self.tags = tags
         if user_data is not None:
             self.user_data = user_data
         if volumes is not None:
@@ -162,6 +188,27 @@ class ModifyScalingConfigurationRequest(object):
         """
 
         self._host_name = host_name
+
+    @property
+    def hpc_cluster_id(self):
+        """Gets the hpc_cluster_id of this ModifyScalingConfigurationRequest.  # noqa: E501
+
+
+        :return: The hpc_cluster_id of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._hpc_cluster_id
+
+    @hpc_cluster_id.setter
+    def hpc_cluster_id(self, hpc_cluster_id):
+        """Sets the hpc_cluster_id of this ModifyScalingConfigurationRequest.
+
+
+        :param hpc_cluster_id: The hpc_cluster_id of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._hpc_cluster_id = hpc_cluster_id
 
     @property
     def image_id(self):
@@ -248,6 +295,27 @@ class ModifyScalingConfigurationRequest(object):
         self._instance_types = instance_types
 
     @property
+    def ipv6_address_count(self):
+        """Gets the ipv6_address_count of this ModifyScalingConfigurationRequest.  # noqa: E501
+
+
+        :return: The ipv6_address_count of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ipv6_address_count
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, ipv6_address_count):
+        """Sets the ipv6_address_count of this ModifyScalingConfigurationRequest.
+
+
+        :param ipv6_address_count: The ipv6_address_count of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ipv6_address_count = ipv6_address_count
+
+    @property
     def key_pair_name(self):
         """Gets the key_pair_name of this ModifyScalingConfigurationRequest.  # noqa: E501
 
@@ -290,6 +358,27 @@ class ModifyScalingConfigurationRequest(object):
         self._password = password
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ModifyScalingConfigurationRequest.  # noqa: E501
+
+
+        :return: The project_name of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ModifyScalingConfigurationRequest.
+
+
+        :param project_name: The project_name of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def scaling_configuration_id(self):
         """Gets the scaling_configuration_id of this ModifyScalingConfigurationRequest.  # noqa: E501
 
@@ -307,8 +396,6 @@ class ModifyScalingConfigurationRequest(object):
         :param scaling_configuration_id: The scaling_configuration_id of this ModifyScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_configuration_id is None:
-            raise ValueError("Invalid value for `scaling_configuration_id`, must not be `None`")  # noqa: E501
 
         self._scaling_configuration_id = scaling_configuration_id
 
@@ -374,6 +461,48 @@ class ModifyScalingConfigurationRequest(object):
         """
 
         self._security_group_ids = security_group_ids
+
+    @property
+    def spot_strategy(self):
+        """Gets the spot_strategy of this ModifyScalingConfigurationRequest.  # noqa: E501
+
+
+        :return: The spot_strategy of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._spot_strategy
+
+    @spot_strategy.setter
+    def spot_strategy(self, spot_strategy):
+        """Sets the spot_strategy of this ModifyScalingConfigurationRequest.
+
+
+        :param spot_strategy: The spot_strategy of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._spot_strategy = spot_strategy
+
+    @property
+    def tags(self):
+        """Gets the tags of this ModifyScalingConfigurationRequest.  # noqa: E501
+
+
+        :return: The tags of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ModifyScalingConfigurationRequest.
+
+
+        :param tags: The tags of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._tags = tags
 
     @property
     def user_data(self):

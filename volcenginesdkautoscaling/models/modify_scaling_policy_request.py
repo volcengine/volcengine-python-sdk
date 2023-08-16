@@ -75,7 +75,8 @@ class ModifyScalingPolicyRequest(object):
             self.alarm_policy = alarm_policy
         if cooldown is not None:
             self.cooldown = cooldown
-        self.scaling_policy_id = scaling_policy_id
+        if scaling_policy_id is not None:
+            self.scaling_policy_id = scaling_policy_id
         if scaling_policy_name is not None:
             self.scaling_policy_name = scaling_policy_name
         if scheduled_policy is not None:
@@ -183,8 +184,6 @@ class ModifyScalingPolicyRequest(object):
         :param scaling_policy_id: The scaling_policy_id of this ModifyScalingPolicyRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_policy_id is None:
-            raise ValueError("Invalid value for `scaling_policy_id`, must not be `None`")  # noqa: E501
 
         self._scaling_policy_id = scaling_policy_id
 

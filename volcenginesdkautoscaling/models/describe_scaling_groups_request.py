@@ -35,18 +35,22 @@ class DescribeScalingGroupsRequest(object):
     swagger_types = {
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'scaling_group_ids': 'list[str]',
-        'scaling_group_names': 'list[str]'
+        'scaling_group_names': 'list[str]',
+        'tag_filters': 'list[TagFilterForDescribeScalingGroupsInput]'
     }
 
     attribute_map = {
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'scaling_group_ids': 'ScalingGroupIds',
-        'scaling_group_names': 'ScalingGroupNames'
+        'scaling_group_names': 'ScalingGroupNames',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, page_number=None, page_size=None, scaling_group_ids=None, scaling_group_names=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, project_name=None, scaling_group_ids=None, scaling_group_names=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeScalingGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,18 +58,24 @@ class DescribeScalingGroupsRequest(object):
 
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._scaling_group_ids = None
         self._scaling_group_names = None
+        self._tag_filters = None
         self.discriminator = None
 
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if scaling_group_ids is not None:
             self.scaling_group_ids = scaling_group_ids
         if scaling_group_names is not None:
             self.scaling_group_names = scaling_group_names
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def page_number(self):
@@ -110,6 +120,27 @@ class DescribeScalingGroupsRequest(object):
         self._page_size = page_size
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeScalingGroupsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeScalingGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeScalingGroupsRequest.
+
+
+        :param project_name: The project_name of this DescribeScalingGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def scaling_group_ids(self):
         """Gets the scaling_group_ids of this DescribeScalingGroupsRequest.  # noqa: E501
 
@@ -150,6 +181,27 @@ class DescribeScalingGroupsRequest(object):
         """
 
         self._scaling_group_names = scaling_group_names
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeScalingGroupsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeScalingGroupsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeScalingGroupsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeScalingGroupsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeScalingGroupsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeScalingGroupsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

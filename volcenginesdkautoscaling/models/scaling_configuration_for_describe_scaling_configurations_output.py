@@ -36,17 +36,23 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         'created_at': 'str',
         'eip': 'EipForDescribeScalingConfigurationsOutput',
         'host_name': 'str',
+        'hpc_cluster_id': 'str',
         'image_id': 'str',
+        'instance_charge_type': 'str',
         'instance_description': 'str',
         'instance_name': 'str',
         'instance_types': 'list[str]',
+        'ipv6_address_count': 'int',
         'key_pair_name': 'str',
         'lifecycle_state': 'str',
+        'project_name': 'str',
         'scaling_configuration_id': 'str',
         'scaling_configuration_name': 'str',
         'scaling_group_id': 'str',
         'security_enhancement_strategy': 'str',
         'security_group_ids': 'list[str]',
+        'spot_strategy': 'str',
+        'tags': 'list[TagForDescribeScalingConfigurationsOutput]',
         'updated_at': 'str',
         'user_data': 'str',
         'volumes': 'list[VolumeForDescribeScalingConfigurationsOutput]',
@@ -57,24 +63,30 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         'created_at': 'CreatedAt',
         'eip': 'Eip',
         'host_name': 'HostName',
+        'hpc_cluster_id': 'HpcClusterId',
         'image_id': 'ImageId',
+        'instance_charge_type': 'InstanceChargeType',
         'instance_description': 'InstanceDescription',
         'instance_name': 'InstanceName',
         'instance_types': 'InstanceTypes',
+        'ipv6_address_count': 'Ipv6AddressCount',
         'key_pair_name': 'KeyPairName',
         'lifecycle_state': 'LifecycleState',
+        'project_name': 'ProjectName',
         'scaling_configuration_id': 'ScalingConfigurationId',
         'scaling_configuration_name': 'ScalingConfigurationName',
         'scaling_group_id': 'ScalingGroupId',
         'security_enhancement_strategy': 'SecurityEnhancementStrategy',
         'security_group_ids': 'SecurityGroupIds',
+        'spot_strategy': 'SpotStrategy',
+        'tags': 'Tags',
         'updated_at': 'UpdatedAt',
         'user_data': 'UserData',
         'volumes': 'Volumes',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, created_at=None, eip=None, host_name=None, image_id=None, instance_description=None, instance_name=None, instance_types=None, key_pair_name=None, lifecycle_state=None, scaling_configuration_id=None, scaling_configuration_name=None, scaling_group_id=None, security_enhancement_strategy=None, security_group_ids=None, updated_at=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, eip=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_description=None, instance_name=None, instance_types=None, ipv6_address_count=None, key_pair_name=None, lifecycle_state=None, project_name=None, scaling_configuration_id=None, scaling_configuration_name=None, scaling_group_id=None, security_enhancement_strategy=None, security_group_ids=None, spot_strategy=None, tags=None, updated_at=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """ScalingConfigurationForDescribeScalingConfigurationsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,17 +95,23 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         self._created_at = None
         self._eip = None
         self._host_name = None
+        self._hpc_cluster_id = None
         self._image_id = None
+        self._instance_charge_type = None
         self._instance_description = None
         self._instance_name = None
         self._instance_types = None
+        self._ipv6_address_count = None
         self._key_pair_name = None
         self._lifecycle_state = None
+        self._project_name = None
         self._scaling_configuration_id = None
         self._scaling_configuration_name = None
         self._scaling_group_id = None
         self._security_enhancement_strategy = None
         self._security_group_ids = None
+        self._spot_strategy = None
+        self._tags = None
         self._updated_at = None
         self._user_data = None
         self._volumes = None
@@ -106,18 +124,26 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
             self.eip = eip
         if host_name is not None:
             self.host_name = host_name
+        if hpc_cluster_id is not None:
+            self.hpc_cluster_id = hpc_cluster_id
         if image_id is not None:
             self.image_id = image_id
+        if instance_charge_type is not None:
+            self.instance_charge_type = instance_charge_type
         if instance_description is not None:
             self.instance_description = instance_description
         if instance_name is not None:
             self.instance_name = instance_name
         if instance_types is not None:
             self.instance_types = instance_types
+        if ipv6_address_count is not None:
+            self.ipv6_address_count = ipv6_address_count
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
         if lifecycle_state is not None:
             self.lifecycle_state = lifecycle_state
+        if project_name is not None:
+            self.project_name = project_name
         if scaling_configuration_id is not None:
             self.scaling_configuration_id = scaling_configuration_id
         if scaling_configuration_name is not None:
@@ -128,6 +154,10 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
             self.security_enhancement_strategy = security_enhancement_strategy
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
+        if spot_strategy is not None:
+            self.spot_strategy = spot_strategy
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
         if user_data is not None:
@@ -201,6 +231,27 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         self._host_name = host_name
 
     @property
+    def hpc_cluster_id(self):
+        """Gets the hpc_cluster_id of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The hpc_cluster_id of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._hpc_cluster_id
+
+    @hpc_cluster_id.setter
+    def hpc_cluster_id(self, hpc_cluster_id):
+        """Sets the hpc_cluster_id of this ScalingConfigurationForDescribeScalingConfigurationsOutput.
+
+
+        :param hpc_cluster_id: The hpc_cluster_id of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._hpc_cluster_id = hpc_cluster_id
+
+    @property
     def image_id(self):
         """Gets the image_id of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
 
@@ -220,6 +271,27 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         """
 
         self._image_id = image_id
+
+    @property
+    def instance_charge_type(self):
+        """Gets the instance_charge_type of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The instance_charge_type of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_charge_type
+
+    @instance_charge_type.setter
+    def instance_charge_type(self, instance_charge_type):
+        """Sets the instance_charge_type of this ScalingConfigurationForDescribeScalingConfigurationsOutput.
+
+
+        :param instance_charge_type: The instance_charge_type of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_charge_type = instance_charge_type
 
     @property
     def instance_description(self):
@@ -285,6 +357,27 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         self._instance_types = instance_types
 
     @property
+    def ipv6_address_count(self):
+        """Gets the ipv6_address_count of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The ipv6_address_count of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._ipv6_address_count
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, ipv6_address_count):
+        """Sets the ipv6_address_count of this ScalingConfigurationForDescribeScalingConfigurationsOutput.
+
+
+        :param ipv6_address_count: The ipv6_address_count of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._ipv6_address_count = ipv6_address_count
+
+    @property
     def key_pair_name(self):
         """Gets the key_pair_name of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
 
@@ -325,6 +418,27 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         """
 
         self._lifecycle_state = lifecycle_state
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The project_name of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ScalingConfigurationForDescribeScalingConfigurationsOutput.
+
+
+        :param project_name: The project_name of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def scaling_configuration_id(self):
@@ -430,6 +544,48 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         """
 
         self._security_group_ids = security_group_ids
+
+    @property
+    def spot_strategy(self):
+        """Gets the spot_strategy of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The spot_strategy of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._spot_strategy
+
+    @spot_strategy.setter
+    def spot_strategy(self, spot_strategy):
+        """Sets the spot_strategy of this ScalingConfigurationForDescribeScalingConfigurationsOutput.
+
+
+        :param spot_strategy: The spot_strategy of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._spot_strategy = spot_strategy
+
+    @property
+    def tags(self):
+        """Gets the tags of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The tags of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeScalingConfigurationsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ScalingConfigurationForDescribeScalingConfigurationsOutput.
+
+
+        :param tags: The tags of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: list[TagForDescribeScalingConfigurationsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):

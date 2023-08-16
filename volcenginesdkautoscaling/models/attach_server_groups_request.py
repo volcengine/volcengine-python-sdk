@@ -33,28 +33,55 @@ class AttachServerGroupsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'scaling_group_id': 'str',
         'server_group_attributes': 'list[ServerGroupAttributeForAttachServerGroupsInput]'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'scaling_group_id': 'ScalingGroupId',
         'server_group_attributes': 'ServerGroupAttributes'
     }
 
-    def __init__(self, scaling_group_id=None, server_group_attributes=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, scaling_group_id=None, server_group_attributes=None, _configuration=None):  # noqa: E501
         """AttachServerGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._scaling_group_id = None
         self._server_group_attributes = None
         self.discriminator = None
 
-        self.scaling_group_id = scaling_group_id
+        if client_token is not None:
+            self.client_token = client_token
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
         if server_group_attributes is not None:
             self.server_group_attributes = server_group_attributes
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this AttachServerGroupsRequest.  # noqa: E501
+
+
+        :return: The client_token of this AttachServerGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this AttachServerGroupsRequest.
+
+
+        :param client_token: The client_token of this AttachServerGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def scaling_group_id(self):
@@ -74,8 +101,6 @@ class AttachServerGroupsRequest(object):
         :param scaling_group_id: The scaling_group_id of this AttachServerGroupsRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and scaling_group_id is None:
-            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

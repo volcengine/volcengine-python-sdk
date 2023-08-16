@@ -37,6 +37,8 @@ class ScalingInstanceForDescribeScalingInstancesOutput(object):
         'creation_type': 'str',
         'entrusted': 'bool',
         'instance_id': 'str',
+        'launch_template_id': 'str',
+        'launch_template_version': 'str',
         'scaling_configuration_id': 'str',
         'scaling_group_id': 'str',
         'scaling_policy_id': 'str',
@@ -49,6 +51,8 @@ class ScalingInstanceForDescribeScalingInstancesOutput(object):
         'creation_type': 'CreationType',
         'entrusted': 'Entrusted',
         'instance_id': 'InstanceId',
+        'launch_template_id': 'LaunchTemplateId',
+        'launch_template_version': 'LaunchTemplateVersion',
         'scaling_configuration_id': 'ScalingConfigurationId',
         'scaling_group_id': 'ScalingGroupId',
         'scaling_policy_id': 'ScalingPolicyId',
@@ -56,7 +60,7 @@ class ScalingInstanceForDescribeScalingInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, created_time=None, creation_type=None, entrusted=None, instance_id=None, scaling_configuration_id=None, scaling_group_id=None, scaling_policy_id=None, status=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_time=None, creation_type=None, entrusted=None, instance_id=None, launch_template_id=None, launch_template_version=None, scaling_configuration_id=None, scaling_group_id=None, scaling_policy_id=None, status=None, zone_id=None, _configuration=None):  # noqa: E501
         """ScalingInstanceForDescribeScalingInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +70,8 @@ class ScalingInstanceForDescribeScalingInstancesOutput(object):
         self._creation_type = None
         self._entrusted = None
         self._instance_id = None
+        self._launch_template_id = None
+        self._launch_template_version = None
         self._scaling_configuration_id = None
         self._scaling_group_id = None
         self._scaling_policy_id = None
@@ -81,6 +87,10 @@ class ScalingInstanceForDescribeScalingInstancesOutput(object):
             self.entrusted = entrusted
         if instance_id is not None:
             self.instance_id = instance_id
+        if launch_template_id is not None:
+            self.launch_template_id = launch_template_id
+        if launch_template_version is not None:
+            self.launch_template_version = launch_template_version
         if scaling_configuration_id is not None:
             self.scaling_configuration_id = scaling_configuration_id
         if scaling_group_id is not None:
@@ -175,6 +185,48 @@ class ScalingInstanceForDescribeScalingInstancesOutput(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def launch_template_id(self):
+        """Gets the launch_template_id of this ScalingInstanceForDescribeScalingInstancesOutput.  # noqa: E501
+
+
+        :return: The launch_template_id of this ScalingInstanceForDescribeScalingInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._launch_template_id
+
+    @launch_template_id.setter
+    def launch_template_id(self, launch_template_id):
+        """Sets the launch_template_id of this ScalingInstanceForDescribeScalingInstancesOutput.
+
+
+        :param launch_template_id: The launch_template_id of this ScalingInstanceForDescribeScalingInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._launch_template_id = launch_template_id
+
+    @property
+    def launch_template_version(self):
+        """Gets the launch_template_version of this ScalingInstanceForDescribeScalingInstancesOutput.  # noqa: E501
+
+
+        :return: The launch_template_version of this ScalingInstanceForDescribeScalingInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._launch_template_version
+
+    @launch_template_version.setter
+    def launch_template_version(self, launch_template_version):
+        """Sets the launch_template_version of this ScalingInstanceForDescribeScalingInstancesOutput.
+
+
+        :param launch_template_version: The launch_template_version of this ScalingInstanceForDescribeScalingInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._launch_template_version = launch_template_version
 
     @property
     def scaling_configuration_id(self):
