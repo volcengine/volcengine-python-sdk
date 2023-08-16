@@ -34,6 +34,7 @@ class GetMetricDataRequest(object):
     """
     swagger_types = {
         'end_time': 'int',
+        'group_by': 'list[str]',
         'instances': 'list[InstanceForGetMetricDataInput]',
         'metric_name': 'str',
         'namespace': 'str',
@@ -44,6 +45,7 @@ class GetMetricDataRequest(object):
 
     attribute_map = {
         'end_time': 'EndTime',
+        'group_by': 'GroupBy',
         'instances': 'Instances',
         'metric_name': 'MetricName',
         'namespace': 'Namespace',
@@ -52,13 +54,14 @@ class GetMetricDataRequest(object):
         'sub_namespace': 'SubNamespace'
     }
 
-    def __init__(self, end_time=None, instances=None, metric_name=None, namespace=None, period=None, start_time=None, sub_namespace=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time=None, group_by=None, instances=None, metric_name=None, namespace=None, period=None, start_time=None, sub_namespace=None, _configuration=None):  # noqa: E501
         """GetMetricDataRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._end_time = None
+        self._group_by = None
         self._instances = None
         self._metric_name = None
         self._namespace = None
@@ -69,6 +72,8 @@ class GetMetricDataRequest(object):
 
         if end_time is not None:
             self.end_time = end_time
+        if group_by is not None:
+            self.group_by = group_by
         if instances is not None:
             self.instances = instances
         if metric_name is not None:
@@ -102,6 +107,27 @@ class GetMetricDataRequest(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def group_by(self):
+        """Gets the group_by of this GetMetricDataRequest.  # noqa: E501
+
+
+        :return: The group_by of this GetMetricDataRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._group_by
+
+    @group_by.setter
+    def group_by(self, group_by):
+        """Sets the group_by of this GetMetricDataRequest.
+
+
+        :param group_by: The group_by of this GetMetricDataRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._group_by = group_by
 
     @property
     def instances(self):
