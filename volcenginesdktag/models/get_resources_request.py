@@ -33,7 +33,7 @@ class GetResourcesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'max_results': 'str',
+        'max_results': 'int',
         'next_token': 'str',
         'resource_trn_list': 'list[str]',
         'resource_type_filters': 'list[str]',
@@ -78,7 +78,7 @@ class GetResourcesRequest(object):
 
 
         :return: The max_results of this GetResourcesRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._max_results
 
@@ -88,7 +88,7 @@ class GetResourcesRequest(object):
 
 
         :param max_results: The max_results of this GetResourcesRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._max_results = max_results

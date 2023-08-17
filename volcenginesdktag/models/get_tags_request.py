@@ -34,7 +34,7 @@ class GetTagsRequest(object):
     """
     swagger_types = {
         'count_resources': 'bool',
-        'max_results': 'str',
+        'max_results': 'int',
         'next_token': 'str',
         'tag_keys': 'list[str]'
     }
@@ -94,7 +94,7 @@ class GetTagsRequest(object):
 
 
         :return: The max_results of this GetTagsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._max_results
 
@@ -104,7 +104,7 @@ class GetTagsRequest(object):
 
 
         :param max_results: The max_results of this GetTagsRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._max_results = max_results
