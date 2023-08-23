@@ -35,7 +35,7 @@ class ProjectUserGroupForListProjectIdentitiesOutput(object):
     swagger_types = {
         'description': 'str',
         'display_name': 'str',
-        'policy': 'PolicyForListProjectIdentitiesOutput',
+        'policy': 'list[PolicyForListProjectIdentitiesOutput]',
         'update_date': 'str',
         'user_group_name': 'str'
     }
@@ -120,7 +120,7 @@ class ProjectUserGroupForListProjectIdentitiesOutput(object):
 
 
         :return: The policy of this ProjectUserGroupForListProjectIdentitiesOutput.  # noqa: E501
-        :rtype: PolicyForListProjectIdentitiesOutput
+        :rtype: list[PolicyForListProjectIdentitiesOutput]
         """
         return self._policy
 
@@ -130,7 +130,7 @@ class ProjectUserGroupForListProjectIdentitiesOutput(object):
 
 
         :param policy: The policy of this ProjectUserGroupForListProjectIdentitiesOutput.  # noqa: E501
-        :type: PolicyForListProjectIdentitiesOutput
+        :type: list[PolicyForListProjectIdentitiesOutput]
         """
 
         self._policy = policy
