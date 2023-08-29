@@ -558,7 +558,7 @@ class ApiClient(object):
 
         for auth in auth_settings:
             headers["Host"] = host
-            if method == "POST":
+            if method in ["POST", "PUT", "DELETE", "PATCH"]:
                 body = json.dumps(body)
             else:
                 body = ""
