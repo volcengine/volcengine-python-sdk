@@ -44,6 +44,7 @@ class CreateLoadBalancerRequest(object):
         'project_name': 'str',
         'region_id': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForCreateLoadBalancerInput]',
         'type': 'str',
         'vpc_id': 'str',
         'zone_mappings': 'list[ZoneMappingForCreateLoadBalancerInput]'
@@ -61,12 +62,13 @@ class CreateLoadBalancerRequest(object):
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'type': 'Type',
         'vpc_id': 'VpcId',
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, address_ip_version=None, bandwidth_package_id=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_name=None, project_name=None, region_id=None, subnet_id=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, bandwidth_package_id=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_name=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class CreateLoadBalancerRequest(object):
         self._project_name = None
         self._region_id = None
         self._subnet_id = None
+        self._tags = None
         self._type = None
         self._vpc_id = None
         self._zone_mappings = None
@@ -109,6 +112,8 @@ class CreateLoadBalancerRequest(object):
         self.region_id = region_id
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         self.type = type
         if vpc_id is not None:
             self.vpc_id = vpc_id
@@ -347,6 +352,27 @@ class CreateLoadBalancerRequest(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: list[TagForCreateLoadBalancerInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateLoadBalancerRequest.
+
+
+        :param tags: The tags of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: list[TagForCreateLoadBalancerInput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

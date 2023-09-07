@@ -39,6 +39,7 @@ class DescribeLoadBalancersRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeLoadBalancersInput]',
         'vpc_id': 'str'
     }
 
@@ -49,10 +50,11 @@ class DescribeLoadBalancersRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class DescribeLoadBalancersRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._tag_filters = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class DescribeLoadBalancersRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -207,6 +212,27 @@ class DescribeLoadBalancersRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeLoadBalancersInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeLoadBalancersRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeLoadBalancersInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):
