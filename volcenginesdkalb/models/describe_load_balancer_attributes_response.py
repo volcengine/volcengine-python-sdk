@@ -60,6 +60,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'status': 'str',
         'subnet_id': 'str',
         'tls_access_log': 'TLSAccessLogForDescribeLoadBalancerAttributesOutput',
+        'tags': 'list[TagForDescribeLoadBalancerAttributesOutput]',
         'type': 'str',
         'update_time': 'str',
         'vpc_id': 'str',
@@ -94,13 +95,14 @@ class DescribeLoadBalancerAttributesResponse(object):
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'tls_access_log': 'TLSAccessLog',
+        'tags': 'Tags',
         'type': 'Type',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, health_log=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, status=None, subnet_id=None, tls_access_log=None, type=None, update_time=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, health_log=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, status=None, subnet_id=None, tls_access_log=None, tags=None, type=None, update_time=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -133,6 +135,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._status = None
         self._subnet_id = None
         self._tls_access_log = None
+        self._tags = None
         self._type = None
         self._update_time = None
         self._vpc_id = None
@@ -193,6 +196,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.subnet_id = subnet_id
         if tls_access_log is not None:
             self.tls_access_log = tls_access_log
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if update_time is not None:
@@ -768,6 +773,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._tls_access_log = tls_access_log
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeLoadBalancerAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param tags: The tags of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeLoadBalancerAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):
