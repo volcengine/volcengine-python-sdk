@@ -33,6 +33,8 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     """
 
     def __init__(self):
+        """Constructor"""
+
         # Default Base url
         self.host = "open.volcengineapi.com"
         # Schema Support http or https
