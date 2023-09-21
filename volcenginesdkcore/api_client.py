@@ -67,7 +67,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'volcstack-python-sdk/1.0.42'
+        self.user_agent = 'volcstack-python-sdk/1.0.43'
         self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):
@@ -558,7 +558,7 @@ class ApiClient(object):
 
         for auth in auth_settings:
             headers["Host"] = host
-            if method in ["POST", "PUT", "DELETE", "PATCH"]:
+            if method == "POST":
                 body = json.dumps(body)
             else:
                 body = ""
