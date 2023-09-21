@@ -54,3 +54,9 @@ configuration.debug = False  # 是否开启调试
 
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
+
+### 4. 对象转 Dict
+对于请求和响应的对象，可以通过 to_dict() 方法将其转换成 dict 类型
+
+### 5. 查看使用示例
+[volcenginesdkexamples](https://github.com/volcengine/volcengine-python-sdk/tree/master/volcenginesdkexamples)
