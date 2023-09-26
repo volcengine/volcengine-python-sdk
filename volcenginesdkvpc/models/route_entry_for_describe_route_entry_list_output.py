@@ -38,6 +38,7 @@ class RouteEntryForDescribeRouteEntryListOutput(object):
         'next_hop_id': 'str',
         'next_hop_name': 'str',
         'next_hop_type': 'str',
+        'prefix_list_cidr_blocks': 'list[str]',
         'route_entry_id': 'str',
         'route_entry_name': 'str',
         'route_table_id': 'str',
@@ -52,6 +53,7 @@ class RouteEntryForDescribeRouteEntryListOutput(object):
         'next_hop_id': 'NextHopId',
         'next_hop_name': 'NextHopName',
         'next_hop_type': 'NextHopType',
+        'prefix_list_cidr_blocks': 'PrefixListCidrBlocks',
         'route_entry_id': 'RouteEntryId',
         'route_entry_name': 'RouteEntryName',
         'route_table_id': 'RouteTableId',
@@ -60,7 +62,7 @@ class RouteEntryForDescribeRouteEntryListOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, destination_cidr_block=None, next_hop_id=None, next_hop_name=None, next_hop_type=None, route_entry_id=None, route_entry_name=None, route_table_id=None, status=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, destination_cidr_block=None, next_hop_id=None, next_hop_name=None, next_hop_type=None, prefix_list_cidr_blocks=None, route_entry_id=None, route_entry_name=None, route_table_id=None, status=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RouteEntryForDescribeRouteEntryListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class RouteEntryForDescribeRouteEntryListOutput(object):
         self._next_hop_id = None
         self._next_hop_name = None
         self._next_hop_type = None
+        self._prefix_list_cidr_blocks = None
         self._route_entry_id = None
         self._route_entry_name = None
         self._route_table_id = None
@@ -89,6 +92,8 @@ class RouteEntryForDescribeRouteEntryListOutput(object):
             self.next_hop_name = next_hop_name
         if next_hop_type is not None:
             self.next_hop_type = next_hop_type
+        if prefix_list_cidr_blocks is not None:
+            self.prefix_list_cidr_blocks = prefix_list_cidr_blocks
         if route_entry_id is not None:
             self.route_entry_id = route_entry_id
         if route_entry_name is not None:
@@ -206,6 +211,27 @@ class RouteEntryForDescribeRouteEntryListOutput(object):
         """
 
         self._next_hop_type = next_hop_type
+
+    @property
+    def prefix_list_cidr_blocks(self):
+        """Gets the prefix_list_cidr_blocks of this RouteEntryForDescribeRouteEntryListOutput.  # noqa: E501
+
+
+        :return: The prefix_list_cidr_blocks of this RouteEntryForDescribeRouteEntryListOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._prefix_list_cidr_blocks
+
+    @prefix_list_cidr_blocks.setter
+    def prefix_list_cidr_blocks(self, prefix_list_cidr_blocks):
+        """Sets the prefix_list_cidr_blocks of this RouteEntryForDescribeRouteEntryListOutput.
+
+
+        :param prefix_list_cidr_blocks: The prefix_list_cidr_blocks of this RouteEntryForDescribeRouteEntryListOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._prefix_list_cidr_blocks = prefix_list_cidr_blocks
 
     @property
     def route_entry_id(self):

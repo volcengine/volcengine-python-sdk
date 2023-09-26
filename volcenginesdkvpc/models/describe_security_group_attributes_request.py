@@ -35,6 +35,7 @@ class DescribeSecurityGroupAttributesRequest(object):
     swagger_types = {
         'cidr_ip': 'str',
         'direction': 'str',
+        'prefix_list_id': 'str',
         'protocol': 'str',
         'security_group_id': 'str',
         'source_group_id': 'str'
@@ -43,12 +44,13 @@ class DescribeSecurityGroupAttributesRequest(object):
     attribute_map = {
         'cidr_ip': 'CidrIp',
         'direction': 'Direction',
+        'prefix_list_id': 'PrefixListId',
         'protocol': 'Protocol',
         'security_group_id': 'SecurityGroupId',
         'source_group_id': 'SourceGroupId'
     }
 
-    def __init__(self, cidr_ip=None, direction=None, protocol=None, security_group_id=None, source_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_ip=None, direction=None, prefix_list_id=None, protocol=None, security_group_id=None, source_group_id=None, _configuration=None):  # noqa: E501
         """DescribeSecurityGroupAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DescribeSecurityGroupAttributesRequest(object):
 
         self._cidr_ip = None
         self._direction = None
+        self._prefix_list_id = None
         self._protocol = None
         self._security_group_id = None
         self._source_group_id = None
@@ -65,6 +68,8 @@ class DescribeSecurityGroupAttributesRequest(object):
             self.cidr_ip = cidr_ip
         if direction is not None:
             self.direction = direction
+        if prefix_list_id is not None:
+            self.prefix_list_id = prefix_list_id
         if protocol is not None:
             self.protocol = protocol
         self.security_group_id = security_group_id
@@ -112,6 +117,27 @@ class DescribeSecurityGroupAttributesRequest(object):
         """
 
         self._direction = direction
+
+    @property
+    def prefix_list_id(self):
+        """Gets the prefix_list_id of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+
+
+        :return: The prefix_list_id of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix_list_id
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, prefix_list_id):
+        """Sets the prefix_list_id of this DescribeSecurityGroupAttributesRequest.
+
+
+        :param prefix_list_id: The prefix_list_id of this DescribeSecurityGroupAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix_list_id = prefix_list_id
 
     @property
     def protocol(self):

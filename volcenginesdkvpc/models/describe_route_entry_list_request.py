@@ -34,6 +34,7 @@ class DescribeRouteEntryListRequest(object):
     """
     swagger_types = {
         'destination_cidr_block': 'str',
+        'destination_prefix_list_id': 'str',
         'next_hop_id': 'str',
         'next_hop_type': 'str',
         'page_number': 'int',
@@ -46,6 +47,7 @@ class DescribeRouteEntryListRequest(object):
 
     attribute_map = {
         'destination_cidr_block': 'DestinationCidrBlock',
+        'destination_prefix_list_id': 'DestinationPrefixListId',
         'next_hop_id': 'NextHopId',
         'next_hop_type': 'NextHopType',
         'page_number': 'PageNumber',
@@ -56,13 +58,14 @@ class DescribeRouteEntryListRequest(object):
         'route_table_id': 'RouteTableId'
     }
 
-    def __init__(self, destination_cidr_block=None, next_hop_id=None, next_hop_type=None, page_number=None, page_size=None, route_entry_id=None, route_entry_name=None, route_entry_type=None, route_table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination_cidr_block=None, destination_prefix_list_id=None, next_hop_id=None, next_hop_type=None, page_number=None, page_size=None, route_entry_id=None, route_entry_name=None, route_entry_type=None, route_table_id=None, _configuration=None):  # noqa: E501
         """DescribeRouteEntryListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._destination_cidr_block = None
+        self._destination_prefix_list_id = None
         self._next_hop_id = None
         self._next_hop_type = None
         self._page_number = None
@@ -75,6 +78,8 @@ class DescribeRouteEntryListRequest(object):
 
         if destination_cidr_block is not None:
             self.destination_cidr_block = destination_cidr_block
+        if destination_prefix_list_id is not None:
+            self.destination_prefix_list_id = destination_prefix_list_id
         if next_hop_id is not None:
             self.next_hop_id = next_hop_id
         if next_hop_type is not None:
@@ -111,6 +116,27 @@ class DescribeRouteEntryListRequest(object):
         """
 
         self._destination_cidr_block = destination_cidr_block
+
+    @property
+    def destination_prefix_list_id(self):
+        """Gets the destination_prefix_list_id of this DescribeRouteEntryListRequest.  # noqa: E501
+
+
+        :return: The destination_prefix_list_id of this DescribeRouteEntryListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_prefix_list_id
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, destination_prefix_list_id):
+        """Sets the destination_prefix_list_id of this DescribeRouteEntryListRequest.
+
+
+        :param destination_prefix_list_id: The destination_prefix_list_id of this DescribeRouteEntryListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_prefix_list_id = destination_prefix_list_id
 
     @property
     def next_hop_id(self):

@@ -248,7 +248,7 @@ class DescribeEipAddressesRequest(object):
         :param isp: The isp of this DescribeEipAddressesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["BGP", "ChinaMobile", "ChinaUnicom", "ChinaTelecom", "ChinaMobile_Value", "ChinaUnicom_Value", "ChinaTelecom_Value"]  # noqa: E501
+        allowed_values = ["BGP", "SingleLine_BGP", "Fusion_BGP", "ChinaMobile", "ChinaUnicom", "ChinaTelecom", "ChinaMobile_Value", "ChinaUnicom_Value", "ChinaTelecom_Value"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 isp not in allowed_values):
             raise ValueError(

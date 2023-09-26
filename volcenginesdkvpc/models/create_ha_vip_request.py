@@ -33,6 +33,7 @@ class CreateHaVipRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'description': 'str',
         'ha_vip_name': 'str',
         'ip_address': 'str',
@@ -40,24 +41,28 @@ class CreateHaVipRequest(object):
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'description': 'Description',
         'ha_vip_name': 'HaVipName',
         'ip_address': 'IpAddress',
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, description=None, ha_vip_name=None, ip_address=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, ha_vip_name=None, ip_address=None, subnet_id=None, _configuration=None):  # noqa: E501
         """CreateHaVipRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._description = None
         self._ha_vip_name = None
         self._ip_address = None
         self._subnet_id = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
         if ha_vip_name is not None:
@@ -65,6 +70,27 @@ class CreateHaVipRequest(object):
         if ip_address is not None:
             self.ip_address = ip_address
         self.subnet_id = subnet_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateHaVipRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateHaVipRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateHaVipRequest.
+
+
+        :param client_token: The client_token of this CreateHaVipRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):
