@@ -40,7 +40,8 @@ class ResultForDescribeListenerHealthOutput(object):
         'server_group_id': 'str',
         'server_id': 'str',
         'status': 'str',
-        'type': 'str'
+        'type': 'str',
+        'updated_at': 'str'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class ResultForDescribeListenerHealthOutput(object):
         'server_group_id': 'ServerGroupId',
         'server_id': 'ServerId',
         'status': 'Status',
-        'type': 'Type'
+        'type': 'Type',
+        'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, instance_id=None, ip=None, port=None, rule_number=None, server_group_id=None, server_id=None, status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, ip=None, port=None, rule_number=None, server_group_id=None, server_id=None, status=None, type=None, updated_at=None, _configuration=None):  # noqa: E501
         """ResultForDescribeListenerHealthOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class ResultForDescribeListenerHealthOutput(object):
         self._server_id = None
         self._status = None
         self._type = None
+        self._updated_at = None
         self.discriminator = None
 
         if instance_id is not None:
@@ -86,6 +89,8 @@ class ResultForDescribeListenerHealthOutput(object):
             self.status = status
         if type is not None:
             self.type = type
+        if updated_at is not None:
+            self.updated_at = updated_at
 
     @property
     def instance_id(self):
@@ -254,6 +259,27 @@ class ResultForDescribeListenerHealthOutput(object):
         """
 
         self._type = type
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this ResultForDescribeListenerHealthOutput.  # noqa: E501
+
+
+        :return: The updated_at of this ResultForDescribeListenerHealthOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this ResultForDescribeListenerHealthOutput.
+
+
+        :param updated_at: The updated_at of this ResultForDescribeListenerHealthOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

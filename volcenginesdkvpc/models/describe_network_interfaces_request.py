@@ -34,6 +34,7 @@ class DescribeNetworkInterfacesRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
+        'ipv6_addresses': 'list[str]',
         'network_interface_ids': 'list[str]',
         'network_interface_name': 'str',
         'page_number': 'int',
@@ -52,6 +53,7 @@ class DescribeNetworkInterfacesRequest(object):
 
     attribute_map = {
         'instance_id': 'InstanceId',
+        'ipv6_addresses': 'Ipv6Addresses',
         'network_interface_ids': 'NetworkInterfaceIds',
         'network_interface_name': 'NetworkInterfaceName',
         'page_number': 'PageNumber',
@@ -68,13 +70,14 @@ class DescribeNetworkInterfacesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, instance_id=None, network_interface_ids=None, network_interface_name=None, page_number=None, page_size=None, primary_ip_addresses=None, private_ip_addresses=None, project_name=None, security_group_id=None, status=None, subnet_id=None, tag_filters=None, type=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, ipv6_addresses=None, network_interface_ids=None, network_interface_name=None, page_number=None, page_size=None, primary_ip_addresses=None, private_ip_addresses=None, project_name=None, security_group_id=None, status=None, subnet_id=None, tag_filters=None, type=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeNetworkInterfacesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._ipv6_addresses = None
         self._network_interface_ids = None
         self._network_interface_name = None
         self._page_number = None
@@ -93,6 +96,8 @@ class DescribeNetworkInterfacesRequest(object):
 
         if instance_id is not None:
             self.instance_id = instance_id
+        if ipv6_addresses is not None:
+            self.ipv6_addresses = ipv6_addresses
         if network_interface_ids is not None:
             self.network_interface_ids = network_interface_ids
         if network_interface_name is not None:
@@ -142,6 +147,27 @@ class DescribeNetworkInterfacesRequest(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def ipv6_addresses(self):
+        """Gets the ipv6_addresses of this DescribeNetworkInterfacesRequest.  # noqa: E501
+
+
+        :return: The ipv6_addresses of this DescribeNetworkInterfacesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv6_addresses
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, ipv6_addresses):
+        """Sets the ipv6_addresses of this DescribeNetworkInterfacesRequest.
+
+
+        :param ipv6_addresses: The ipv6_addresses of this DescribeNetworkInterfacesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv6_addresses = ipv6_addresses
 
     @property
     def network_interface_ids(self):

@@ -38,6 +38,7 @@ class ModifySecurityGroupRuleDescriptionsEgressRequest(object):
         'policy': 'str',
         'port_end': 'int',
         'port_start': 'int',
+        'prefix_list_id': 'str',
         'priority': 'int',
         'protocol': 'str',
         'security_group_id': 'str',
@@ -50,13 +51,14 @@ class ModifySecurityGroupRuleDescriptionsEgressRequest(object):
         'policy': 'Policy',
         'port_end': 'PortEnd',
         'port_start': 'PortStart',
+        'prefix_list_id': 'PrefixListId',
         'priority': 'Priority',
         'protocol': 'Protocol',
         'security_group_id': 'SecurityGroupId',
         'source_group_id': 'SourceGroupId'
     }
 
-    def __init__(self, cidr_ip=None, description=None, policy=None, port_end=None, port_start=None, priority=None, protocol=None, security_group_id=None, source_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_ip=None, description=None, policy=None, port_end=None, port_start=None, prefix_list_id=None, priority=None, protocol=None, security_group_id=None, source_group_id=None, _configuration=None):  # noqa: E501
         """ModifySecurityGroupRuleDescriptionsEgressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class ModifySecurityGroupRuleDescriptionsEgressRequest(object):
         self._policy = None
         self._port_end = None
         self._port_start = None
+        self._prefix_list_id = None
         self._priority = None
         self._protocol = None
         self._security_group_id = None
@@ -81,6 +84,8 @@ class ModifySecurityGroupRuleDescriptionsEgressRequest(object):
             self.policy = policy
         self.port_end = port_end
         self.port_start = port_start
+        if prefix_list_id is not None:
+            self.prefix_list_id = prefix_list_id
         if priority is not None:
             self.priority = priority
         self.protocol = protocol
@@ -196,6 +201,27 @@ class ModifySecurityGroupRuleDescriptionsEgressRequest(object):
             raise ValueError("Invalid value for `port_start`, must not be `None`")  # noqa: E501
 
         self._port_start = port_start
+
+    @property
+    def prefix_list_id(self):
+        """Gets the prefix_list_id of this ModifySecurityGroupRuleDescriptionsEgressRequest.  # noqa: E501
+
+
+        :return: The prefix_list_id of this ModifySecurityGroupRuleDescriptionsEgressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix_list_id
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, prefix_list_id):
+        """Sets the prefix_list_id of this ModifySecurityGroupRuleDescriptionsEgressRequest.
+
+
+        :param prefix_list_id: The prefix_list_id of this ModifySecurityGroupRuleDescriptionsEgressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix_list_id = prefix_list_id
 
     @property
     def priority(self):

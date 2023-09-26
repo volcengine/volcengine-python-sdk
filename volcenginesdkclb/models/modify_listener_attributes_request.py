@@ -38,6 +38,8 @@ class ModifyListenerAttributesRequest(object):
         'acl_type': 'str',
         'bandwidth': 'int',
         'certificate_id': 'str',
+        'connection_drain_enabled': 'str',
+        'connection_drain_timeout': 'int',
         'description': 'str',
         'enabled': 'str',
         'established_timeout': 'int',
@@ -57,6 +59,8 @@ class ModifyListenerAttributesRequest(object):
         'acl_type': 'AclType',
         'bandwidth': 'Bandwidth',
         'certificate_id': 'CertificateId',
+        'connection_drain_enabled': 'ConnectionDrainEnabled',
+        'connection_drain_timeout': 'ConnectionDrainTimeout',
         'description': 'Description',
         'enabled': 'Enabled',
         'established_timeout': 'EstablishedTimeout',
@@ -70,7 +74,7 @@ class ModifyListenerAttributesRequest(object):
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +85,8 @@ class ModifyListenerAttributesRequest(object):
         self._acl_type = None
         self._bandwidth = None
         self._certificate_id = None
+        self._connection_drain_enabled = None
+        self._connection_drain_timeout = None
         self._description = None
         self._enabled = None
         self._established_timeout = None
@@ -104,6 +110,10 @@ class ModifyListenerAttributesRequest(object):
             self.bandwidth = bandwidth
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if connection_drain_enabled is not None:
+            self.connection_drain_enabled = connection_drain_enabled
+        if connection_drain_timeout is not None:
+            self.connection_drain_timeout = connection_drain_timeout
         if description is not None:
             self.description = description
         if enabled is not None:
@@ -230,6 +240,48 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def connection_drain_enabled(self):
+        """Gets the connection_drain_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The connection_drain_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_drain_enabled
+
+    @connection_drain_enabled.setter
+    def connection_drain_enabled(self, connection_drain_enabled):
+        """Sets the connection_drain_enabled of this ModifyListenerAttributesRequest.
+
+
+        :param connection_drain_enabled: The connection_drain_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._connection_drain_enabled = connection_drain_enabled
+
+    @property
+    def connection_drain_timeout(self):
+        """Gets the connection_drain_timeout of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The connection_drain_timeout of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._connection_drain_timeout
+
+    @connection_drain_timeout.setter
+    def connection_drain_timeout(self, connection_drain_timeout):
+        """Sets the connection_drain_timeout of this ModifyListenerAttributesRequest.
+
+
+        :param connection_drain_timeout: The connection_drain_timeout of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._connection_drain_timeout = connection_drain_timeout
 
     @property
     def description(self):

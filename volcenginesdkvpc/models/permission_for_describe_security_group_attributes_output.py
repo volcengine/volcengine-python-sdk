@@ -40,6 +40,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
         'policy': 'str',
         'port_end': 'int',
         'port_start': 'int',
+        'prefix_list_cidrs': 'list[str]',
+        'prefix_list_id': 'str',
         'priority': 'int',
         'protocol': 'str',
         'source_group_id': 'str',
@@ -54,13 +56,15 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
         'policy': 'Policy',
         'port_end': 'PortEnd',
         'port_start': 'PortStart',
+        'prefix_list_cidrs': 'PrefixListCidrs',
+        'prefix_list_id': 'PrefixListId',
         'priority': 'Priority',
         'protocol': 'Protocol',
         'source_group_id': 'SourceGroupId',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cidr_ip=None, creation_time=None, description=None, direction=None, policy=None, port_end=None, port_start=None, priority=None, protocol=None, source_group_id=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_ip=None, creation_time=None, description=None, direction=None, policy=None, port_end=None, port_start=None, prefix_list_cidrs=None, prefix_list_id=None, priority=None, protocol=None, source_group_id=None, update_time=None, _configuration=None):  # noqa: E501
         """PermissionForDescribeSecurityGroupAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +77,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
         self._policy = None
         self._port_end = None
         self._port_start = None
+        self._prefix_list_cidrs = None
+        self._prefix_list_id = None
         self._priority = None
         self._protocol = None
         self._source_group_id = None
@@ -93,6 +99,10 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
             self.port_end = port_end
         if port_start is not None:
             self.port_start = port_start
+        if prefix_list_cidrs is not None:
+            self.prefix_list_cidrs = prefix_list_cidrs
+        if prefix_list_id is not None:
+            self.prefix_list_id = prefix_list_id
         if priority is not None:
             self.priority = priority
         if protocol is not None:
@@ -248,6 +258,48 @@ class PermissionForDescribeSecurityGroupAttributesOutput(object):
         """
 
         self._port_start = port_start
+
+    @property
+    def prefix_list_cidrs(self):
+        """Gets the prefix_list_cidrs of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+
+
+        :return: The prefix_list_cidrs of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._prefix_list_cidrs
+
+    @prefix_list_cidrs.setter
+    def prefix_list_cidrs(self, prefix_list_cidrs):
+        """Sets the prefix_list_cidrs of this PermissionForDescribeSecurityGroupAttributesOutput.
+
+
+        :param prefix_list_cidrs: The prefix_list_cidrs of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._prefix_list_cidrs = prefix_list_cidrs
+
+    @property
+    def prefix_list_id(self):
+        """Gets the prefix_list_id of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+
+
+        :return: The prefix_list_id of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix_list_id
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, prefix_list_id):
+        """Sets the prefix_list_id of this PermissionForDescribeSecurityGroupAttributesOutput.
+
+
+        :param prefix_list_id: The prefix_list_id of this PermissionForDescribeSecurityGroupAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix_list_id = prefix_list_id
 
     @property
     def priority(self):
