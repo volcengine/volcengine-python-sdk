@@ -44,6 +44,7 @@ class HaVipForDescribeHaVipsOutput(object):
         'ha_vip_name': 'str',
         'ip_address': 'str',
         'master_instance_id': 'str',
+        'project_name': 'str',
         'status': 'str',
         'subnet_id': 'str',
         'updated_at': 'str',
@@ -62,13 +63,14 @@ class HaVipForDescribeHaVipsOutput(object):
         'ha_vip_name': 'HaVipName',
         'ip_address': 'IpAddress',
         'master_instance_id': 'MasterInstanceId',
+        'project_name': 'ProjectName',
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'updated_at': 'UpdatedAt',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, associated_eip_address=None, associated_eip_id=None, associated_instance_ids=None, associated_instance_type=None, created_at=None, description=None, ha_vip_id=None, ha_vip_name=None, ip_address=None, master_instance_id=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_eip_address=None, associated_eip_id=None, associated_instance_ids=None, associated_instance_type=None, created_at=None, description=None, ha_vip_id=None, ha_vip_name=None, ip_address=None, master_instance_id=None, project_name=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """HaVipForDescribeHaVipsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +87,7 @@ class HaVipForDescribeHaVipsOutput(object):
         self._ha_vip_name = None
         self._ip_address = None
         self._master_instance_id = None
+        self._project_name = None
         self._status = None
         self._subnet_id = None
         self._updated_at = None
@@ -113,6 +116,8 @@ class HaVipForDescribeHaVipsOutput(object):
             self.ip_address = ip_address
         if master_instance_id is not None:
             self.master_instance_id = master_instance_id
+        if project_name is not None:
+            self.project_name = project_name
         if status is not None:
             self.status = status
         if subnet_id is not None:
@@ -352,6 +357,27 @@ class HaVipForDescribeHaVipsOutput(object):
         """
 
         self._master_instance_id = master_instance_id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+
+
+        :return: The project_name of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this HaVipForDescribeHaVipsOutput.
+
+
+        :param project_name: The project_name of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def status(self):

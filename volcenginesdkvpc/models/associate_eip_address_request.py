@@ -34,6 +34,7 @@ class AssociateEipAddressRequest(object):
     """
     swagger_types = {
         'allocation_id': 'str',
+        'client_token': 'str',
         'instance_id': 'str',
         'instance_type': 'str',
         'private_ip_address': 'str'
@@ -41,24 +42,28 @@ class AssociateEipAddressRequest(object):
 
     attribute_map = {
         'allocation_id': 'AllocationId',
+        'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
         'instance_type': 'InstanceType',
         'private_ip_address': 'PrivateIpAddress'
     }
 
-    def __init__(self, allocation_id=None, instance_id=None, instance_type=None, private_ip_address=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, client_token=None, instance_id=None, instance_type=None, private_ip_address=None, _configuration=None):  # noqa: E501
         """AssociateEipAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allocation_id = None
+        self._client_token = None
         self._instance_id = None
         self._instance_type = None
         self._private_ip_address = None
         self.discriminator = None
 
         self.allocation_id = allocation_id
+        if client_token is not None:
+            self.client_token = client_token
         self.instance_id = instance_id
         self.instance_type = instance_type
         if private_ip_address is not None:
@@ -86,6 +91,27 @@ class AssociateEipAddressRequest(object):
             raise ValueError("Invalid value for `allocation_id`, must not be `None`")  # noqa: E501
 
         self._allocation_id = allocation_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this AssociateEipAddressRequest.  # noqa: E501
+
+
+        :return: The client_token of this AssociateEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this AssociateEipAddressRequest.
+
+
+        :param client_token: The client_token of this AssociateEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_id(self):

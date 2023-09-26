@@ -36,6 +36,7 @@ class CreateRouteEntryRequest(object):
         'client_token': 'str',
         'description': 'str',
         'destination_cidr_block': 'str',
+        'destination_prefix_list_id': 'str',
         'next_hop_id': 'str',
         'next_hop_type': 'str',
         'route_entry_name': 'str',
@@ -46,13 +47,14 @@ class CreateRouteEntryRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'destination_cidr_block': 'DestinationCidrBlock',
+        'destination_prefix_list_id': 'DestinationPrefixListId',
         'next_hop_id': 'NextHopId',
         'next_hop_type': 'NextHopType',
         'route_entry_name': 'RouteEntryName',
         'route_table_id': 'RouteTableId'
     }
 
-    def __init__(self, client_token=None, description=None, destination_cidr_block=None, next_hop_id=None, next_hop_type=None, route_entry_name=None, route_table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, destination_cidr_block=None, destination_prefix_list_id=None, next_hop_id=None, next_hop_type=None, route_entry_name=None, route_table_id=None, _configuration=None):  # noqa: E501
         """CreateRouteEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class CreateRouteEntryRequest(object):
         self._client_token = None
         self._description = None
         self._destination_cidr_block = None
+        self._destination_prefix_list_id = None
         self._next_hop_id = None
         self._next_hop_type = None
         self._route_entry_name = None
@@ -71,7 +74,10 @@ class CreateRouteEntryRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
-        self.destination_cidr_block = destination_cidr_block
+        if destination_cidr_block is not None:
+            self.destination_cidr_block = destination_cidr_block
+        if destination_prefix_list_id is not None:
+            self.destination_prefix_list_id = destination_prefix_list_id
         self.next_hop_id = next_hop_id
         self.next_hop_type = next_hop_type
         if route_entry_name is not None:
@@ -144,10 +150,29 @@ class CreateRouteEntryRequest(object):
         :param destination_cidr_block: The destination_cidr_block of this CreateRouteEntryRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and destination_cidr_block is None:
-            raise ValueError("Invalid value for `destination_cidr_block`, must not be `None`")  # noqa: E501
 
         self._destination_cidr_block = destination_cidr_block
+
+    @property
+    def destination_prefix_list_id(self):
+        """Gets the destination_prefix_list_id of this CreateRouteEntryRequest.  # noqa: E501
+
+
+        :return: The destination_prefix_list_id of this CreateRouteEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_prefix_list_id
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, destination_prefix_list_id):
+        """Sets the destination_prefix_list_id of this CreateRouteEntryRequest.
+
+
+        :param destination_prefix_list_id: The destination_prefix_list_id of this CreateRouteEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_prefix_list_id = destination_prefix_list_id
 
     @property
     def next_hop_id(self):

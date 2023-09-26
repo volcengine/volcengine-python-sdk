@@ -38,7 +38,8 @@ class ModifyLoadBalancerAttributesRequest(object):
         'load_balancer_name': 'str',
         'load_balancer_spec': 'str',
         'modification_protection_reason': 'str',
-        'modification_protection_status': 'str'
+        'modification_protection_status': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class ModifyLoadBalancerAttributesRequest(object):
         'load_balancer_name': 'LoadBalancerName',
         'load_balancer_spec': 'LoadBalancerSpec',
         'modification_protection_reason': 'ModificationProtectionReason',
-        'modification_protection_status': 'ModificationProtectionStatus'
+        'modification_protection_status': 'ModificationProtectionStatus',
+        'type': 'Type'
     }
 
-    def __init__(self, description=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, type=None, _configuration=None):  # noqa: E501
         """ModifyLoadBalancerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ModifyLoadBalancerAttributesRequest(object):
         self._load_balancer_spec = None
         self._modification_protection_reason = None
         self._modification_protection_status = None
+        self._type = None
         self.discriminator = None
 
         if description is not None:
@@ -75,6 +78,8 @@ class ModifyLoadBalancerAttributesRequest(object):
             self.modification_protection_reason = modification_protection_reason
         if modification_protection_status is not None:
             self.modification_protection_status = modification_protection_status
+        if type is not None:
+            self.type = type
 
     @property
     def description(self):
@@ -203,6 +208,27 @@ class ModifyLoadBalancerAttributesRequest(object):
         """
 
         self._modification_protection_status = modification_protection_status
+
+    @property
+    def type(self):
+        """Gets the type of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The type of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param type: The type of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
