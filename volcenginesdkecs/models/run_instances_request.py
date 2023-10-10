@@ -45,6 +45,7 @@ class RunInstancesRequest(object):
         'hostname': 'str',
         'hpc_cluster_id': 'str',
         'image_id': 'str',
+        'install_run_command_agent': 'bool',
         'instance_charge_type': 'str',
         'instance_name': 'str',
         'instance_type': 'str',
@@ -56,8 +57,10 @@ class RunInstancesRequest(object):
         'password': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'placement': 'PlacementForRunInstancesInput',
         'project_name': 'str',
         'security_enhancement_strategy': 'str',
+        'spot_price_limit': 'float',
         'spot_strategy': 'str',
         'suffix_index': 'int',
         'tags': 'list[TagForRunInstancesInput]',
@@ -80,6 +83,7 @@ class RunInstancesRequest(object):
         'hostname': 'Hostname',
         'hpc_cluster_id': 'HpcClusterId',
         'image_id': 'ImageId',
+        'install_run_command_agent': 'InstallRunCommandAgent',
         'instance_charge_type': 'InstanceChargeType',
         'instance_name': 'InstanceName',
         'instance_type': 'InstanceType',
@@ -91,8 +95,10 @@ class RunInstancesRequest(object):
         'password': 'Password',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'placement': 'Placement',
         'project_name': 'ProjectName',
         'security_enhancement_strategy': 'SecurityEnhancementStrategy',
+        'spot_price_limit': 'SpotPriceLimit',
         'spot_strategy': 'SpotStrategy',
         'suffix_index': 'SuffixIndex',
         'tags': 'Tags',
@@ -102,7 +108,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, deployment_set_id=None, description=None, dry_run=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, project_name=None, security_enhancement_strategy=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, deployment_set_id=None, description=None, dry_run=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -120,6 +126,7 @@ class RunInstancesRequest(object):
         self._hostname = None
         self._hpc_cluster_id = None
         self._image_id = None
+        self._install_run_command_agent = None
         self._instance_charge_type = None
         self._instance_name = None
         self._instance_type = None
@@ -131,8 +138,10 @@ class RunInstancesRequest(object):
         self._password = None
         self._period = None
         self._period_unit = None
+        self._placement = None
         self._project_name = None
         self._security_enhancement_strategy = None
+        self._spot_price_limit = None
         self._spot_strategy = None
         self._suffix_index = None
         self._tags = None
@@ -166,6 +175,8 @@ class RunInstancesRequest(object):
             self.hpc_cluster_id = hpc_cluster_id
         if image_id is not None:
             self.image_id = image_id
+        if install_run_command_agent is not None:
+            self.install_run_command_agent = install_run_command_agent
         if instance_charge_type is not None:
             self.instance_charge_type = instance_charge_type
         if instance_name is not None:
@@ -188,10 +199,14 @@ class RunInstancesRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if placement is not None:
+            self.placement = placement
         if project_name is not None:
             self.project_name = project_name
         if security_enhancement_strategy is not None:
             self.security_enhancement_strategy = security_enhancement_strategy
+        if spot_price_limit is not None:
+            self.spot_price_limit = spot_price_limit
         if spot_strategy is not None:
             self.spot_strategy = spot_strategy
         if suffix_index is not None:
@@ -462,6 +477,27 @@ class RunInstancesRequest(object):
         self._image_id = image_id
 
     @property
+    def install_run_command_agent(self):
+        """Gets the install_run_command_agent of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The install_run_command_agent of this RunInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._install_run_command_agent
+
+    @install_run_command_agent.setter
+    def install_run_command_agent(self, install_run_command_agent):
+        """Sets the install_run_command_agent of this RunInstancesRequest.
+
+
+        :param install_run_command_agent: The install_run_command_agent of this RunInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._install_run_command_agent = install_run_command_agent
+
+    @property
     def instance_charge_type(self):
         """Gets the instance_charge_type of this RunInstancesRequest.  # noqa: E501
 
@@ -693,6 +729,27 @@ class RunInstancesRequest(object):
         self._period_unit = period_unit
 
     @property
+    def placement(self):
+        """Gets the placement of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The placement of this RunInstancesRequest.  # noqa: E501
+        :rtype: PlacementForRunInstancesInput
+        """
+        return self._placement
+
+    @placement.setter
+    def placement(self, placement):
+        """Sets the placement of this RunInstancesRequest.
+
+
+        :param placement: The placement of this RunInstancesRequest.  # noqa: E501
+        :type: PlacementForRunInstancesInput
+        """
+
+        self._placement = placement
+
+    @property
     def project_name(self):
         """Gets the project_name of this RunInstancesRequest.  # noqa: E501
 
@@ -733,6 +790,27 @@ class RunInstancesRequest(object):
         """
 
         self._security_enhancement_strategy = security_enhancement_strategy
+
+    @property
+    def spot_price_limit(self):
+        """Gets the spot_price_limit of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The spot_price_limit of this RunInstancesRequest.  # noqa: E501
+        :rtype: float
+        """
+        return self._spot_price_limit
+
+    @spot_price_limit.setter
+    def spot_price_limit(self, spot_price_limit):
+        """Sets the spot_price_limit of this RunInstancesRequest.
+
+
+        :param spot_price_limit: The spot_price_limit of this RunInstancesRequest.  # noqa: E501
+        :type: float
+        """
+
+        self._spot_price_limit = spot_price_limit
 
     @property
     def spot_strategy(self):
