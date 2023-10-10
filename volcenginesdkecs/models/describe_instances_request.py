@@ -33,6 +33,8 @@ class DescribeInstancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'dedicated_host_cluster_id': 'str',
+        'dedicated_host_id': 'str',
         'deployment_set_ids': 'list[str]',
         'hpc_cluster_id': 'str',
         'instance_charge_type': 'str',
@@ -53,6 +55,8 @@ class DescribeInstancesRequest(object):
     }
 
     attribute_map = {
+        'dedicated_host_cluster_id': 'DedicatedHostClusterId',
+        'dedicated_host_id': 'DedicatedHostId',
         'deployment_set_ids': 'DeploymentSetIds',
         'hpc_cluster_id': 'HpcClusterId',
         'instance_charge_type': 'InstanceChargeType',
@@ -72,12 +76,14 @@ class DescribeInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, deployment_set_ids=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_ids=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._dedicated_host_cluster_id = None
+        self._dedicated_host_id = None
         self._deployment_set_ids = None
         self._hpc_cluster_id = None
         self._instance_charge_type = None
@@ -97,6 +103,10 @@ class DescribeInstancesRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if dedicated_host_cluster_id is not None:
+            self.dedicated_host_cluster_id = dedicated_host_cluster_id
+        if dedicated_host_id is not None:
+            self.dedicated_host_id = dedicated_host_id
         if deployment_set_ids is not None:
             self.deployment_set_ids = deployment_set_ids
         if hpc_cluster_id is not None:
@@ -131,6 +141,48 @@ class DescribeInstancesRequest(object):
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def dedicated_host_cluster_id(self):
+        """Gets the dedicated_host_cluster_id of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The dedicated_host_cluster_id of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._dedicated_host_cluster_id
+
+    @dedicated_host_cluster_id.setter
+    def dedicated_host_cluster_id(self, dedicated_host_cluster_id):
+        """Sets the dedicated_host_cluster_id of this DescribeInstancesRequest.
+
+
+        :param dedicated_host_cluster_id: The dedicated_host_cluster_id of this DescribeInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._dedicated_host_cluster_id = dedicated_host_cluster_id
+
+    @property
+    def dedicated_host_id(self):
+        """Gets the dedicated_host_id of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The dedicated_host_id of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._dedicated_host_id
+
+    @dedicated_host_id.setter
+    def dedicated_host_id(self, dedicated_host_id):
+        """Sets the dedicated_host_id of this DescribeInstancesRequest.
+
+
+        :param dedicated_host_id: The dedicated_host_id of this DescribeInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._dedicated_host_id = dedicated_host_id
 
     @property
     def deployment_set_ids(self):
