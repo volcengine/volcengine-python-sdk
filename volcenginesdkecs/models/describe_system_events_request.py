@@ -33,6 +33,7 @@ class DescribeSystemEventsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'category': 'str',
         'created_at_end': 'str',
         'created_at_start': 'str',
         'event_ids': 'list[str]',
@@ -44,6 +45,7 @@ class DescribeSystemEventsRequest(object):
     }
 
     attribute_map = {
+        'category': 'Category',
         'created_at_end': 'CreatedAtEnd',
         'created_at_start': 'CreatedAtStart',
         'event_ids': 'EventIds',
@@ -54,12 +56,13 @@ class DescribeSystemEventsRequest(object):
         'types': 'Types'
     }
 
-    def __init__(self, created_at_end=None, created_at_start=None, event_ids=None, max_results=None, next_token=None, resource_ids=None, status=None, types=None, _configuration=None):  # noqa: E501
+    def __init__(self, category=None, created_at_end=None, created_at_start=None, event_ids=None, max_results=None, next_token=None, resource_ids=None, status=None, types=None, _configuration=None):  # noqa: E501
         """DescribeSystemEventsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._category = None
         self._created_at_end = None
         self._created_at_start = None
         self._event_ids = None
@@ -70,6 +73,8 @@ class DescribeSystemEventsRequest(object):
         self._types = None
         self.discriminator = None
 
+        if category is not None:
+            self.category = category
         if created_at_end is not None:
             self.created_at_end = created_at_end
         if created_at_start is not None:
@@ -86,6 +91,27 @@ class DescribeSystemEventsRequest(object):
             self.status = status
         if types is not None:
             self.types = types
+
+    @property
+    def category(self):
+        """Gets the category of this DescribeSystemEventsRequest.  # noqa: E501
+
+
+        :return: The category of this DescribeSystemEventsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._category
+
+    @category.setter
+    def category(self, category):
+        """Sets the category of this DescribeSystemEventsRequest.
+
+
+        :param category: The category of this DescribeSystemEventsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._category = category
 
     @property
     def created_at_end(self):

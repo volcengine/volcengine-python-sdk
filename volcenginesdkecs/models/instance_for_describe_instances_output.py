@@ -54,8 +54,10 @@ class InstanceForDescribeInstancesOutput(object):
         'network_interfaces': 'list[NetworkInterfaceForDescribeInstancesOutput]',
         'os_name': 'str',
         'os_type': 'str',
+        'placement': 'PlacementForDescribeInstancesOutput',
         'project_name': 'str',
         'rdma_ip_addresses': 'list[str]',
+        'spot_price_limit': 'float',
         'spot_strategy': 'str',
         'status': 'str',
         'stopped_mode': 'str',
@@ -88,8 +90,10 @@ class InstanceForDescribeInstancesOutput(object):
         'network_interfaces': 'NetworkInterfaces',
         'os_name': 'OsName',
         'os_type': 'OsType',
+        'placement': 'Placement',
         'project_name': 'ProjectName',
         'rdma_ip_addresses': 'RdmaIpAddresses',
+        'spot_price_limit': 'SpotPriceLimit',
         'spot_strategy': 'SpotStrategy',
         'status': 'Status',
         'stopped_mode': 'StoppedMode',
@@ -100,7 +104,7 @@ class InstanceForDescribeInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpu_options=None, cpus=None, created_at=None, deployment_set_id=None, description=None, eip_address=None, expired_at=None, host_name=None, hostname=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, project_name=None, rdma_ip_addresses=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_options=None, cpus=None, created_at=None, deployment_set_id=None, description=None, eip_address=None, expired_at=None, host_name=None, hostname=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -127,8 +131,10 @@ class InstanceForDescribeInstancesOutput(object):
         self._network_interfaces = None
         self._os_name = None
         self._os_type = None
+        self._placement = None
         self._project_name = None
         self._rdma_ip_addresses = None
+        self._spot_price_limit = None
         self._spot_strategy = None
         self._status = None
         self._stopped_mode = None
@@ -181,10 +187,14 @@ class InstanceForDescribeInstancesOutput(object):
             self.os_name = os_name
         if os_type is not None:
             self.os_type = os_type
+        if placement is not None:
+            self.placement = placement
         if project_name is not None:
             self.project_name = project_name
         if rdma_ip_addresses is not None:
             self.rdma_ip_addresses = rdma_ip_addresses
+        if spot_price_limit is not None:
+            self.spot_price_limit = spot_price_limit
         if spot_strategy is not None:
             self.spot_strategy = spot_strategy
         if status is not None:
@@ -644,6 +654,27 @@ class InstanceForDescribeInstancesOutput(object):
         self._os_type = os_type
 
     @property
+    def placement(self):
+        """Gets the placement of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The placement of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: PlacementForDescribeInstancesOutput
+        """
+        return self._placement
+
+    @placement.setter
+    def placement(self, placement):
+        """Sets the placement of this InstanceForDescribeInstancesOutput.
+
+
+        :param placement: The placement of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: PlacementForDescribeInstancesOutput
+        """
+
+        self._placement = placement
+
+    @property
     def project_name(self):
         """Gets the project_name of this InstanceForDescribeInstancesOutput.  # noqa: E501
 
@@ -684,6 +715,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._rdma_ip_addresses = rdma_ip_addresses
+
+    @property
+    def spot_price_limit(self):
+        """Gets the spot_price_limit of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The spot_price_limit of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._spot_price_limit
+
+    @spot_price_limit.setter
+    def spot_price_limit(self, spot_price_limit):
+        """Sets the spot_price_limit of this InstanceForDescribeInstancesOutput.
+
+
+        :param spot_price_limit: The spot_price_limit of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._spot_price_limit = spot_price_limit
 
     @property
     def spot_strategy(self):

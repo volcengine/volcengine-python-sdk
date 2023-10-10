@@ -34,6 +34,8 @@ class ModifyInstanceChargeTypeRequest(object):
     """
     swagger_types = {
         'auto_pay': 'bool',
+        'auto_renew': 'bool',
+        'auto_renew_period': 'int',
         'client_token': 'str',
         'include_data_volumes': 'bool',
         'instance_charge_type': 'str',
@@ -44,6 +46,8 @@ class ModifyInstanceChargeTypeRequest(object):
 
     attribute_map = {
         'auto_pay': 'AutoPay',
+        'auto_renew': 'AutoRenew',
+        'auto_renew_period': 'AutoRenewPeriod',
         'client_token': 'ClientToken',
         'include_data_volumes': 'IncludeDataVolumes',
         'instance_charge_type': 'InstanceChargeType',
@@ -52,13 +56,15 @@ class ModifyInstanceChargeTypeRequest(object):
         'period_unit': 'PeriodUnit'
     }
 
-    def __init__(self, auto_pay=None, client_token=None, include_data_volumes=None, instance_charge_type=None, instance_ids=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_pay=None, auto_renew=None, auto_renew_period=None, client_token=None, include_data_volumes=None, instance_charge_type=None, instance_ids=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
         """ModifyInstanceChargeTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_pay = None
+        self._auto_renew = None
+        self._auto_renew_period = None
         self._client_token = None
         self._include_data_volumes = None
         self._instance_charge_type = None
@@ -69,6 +75,10 @@ class ModifyInstanceChargeTypeRequest(object):
 
         if auto_pay is not None:
             self.auto_pay = auto_pay
+        if auto_renew is not None:
+            self.auto_renew = auto_renew
+        if auto_renew_period is not None:
+            self.auto_renew_period = auto_renew_period
         if client_token is not None:
             self.client_token = client_token
         if include_data_volumes is not None:
@@ -102,6 +112,48 @@ class ModifyInstanceChargeTypeRequest(object):
         """
 
         self._auto_pay = auto_pay
+
+    @property
+    def auto_renew(self):
+        """Gets the auto_renew of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+
+
+        :return: The auto_renew of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_renew
+
+    @auto_renew.setter
+    def auto_renew(self, auto_renew):
+        """Sets the auto_renew of this ModifyInstanceChargeTypeRequest.
+
+
+        :param auto_renew: The auto_renew of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_renew = auto_renew
+
+    @property
+    def auto_renew_period(self):
+        """Gets the auto_renew_period of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+
+
+        :return: The auto_renew_period of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_renew_period
+
+    @auto_renew_period.setter
+    def auto_renew_period(self, auto_renew_period):
+        """Sets the auto_renew_period of this ModifyInstanceChargeTypeRequest.
+
+
+        :param auto_renew_period: The auto_renew_period of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_renew_period = auto_renew_period
 
     @property
     def client_token(self):
