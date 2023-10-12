@@ -36,6 +36,7 @@ class CreateUserRequest(object):
         'all_authority': 'bool',
         'description': 'str',
         'instance_id': 'str',
+        'password_type': 'str',
         'user_name': 'str',
         'user_password': 'str'
     }
@@ -44,11 +45,12 @@ class CreateUserRequest(object):
         'all_authority': 'AllAuthority',
         'description': 'Description',
         'instance_id': 'InstanceId',
+        'password_type': 'PasswordType',
         'user_name': 'UserName',
         'user_password': 'UserPassword'
     }
 
-    def __init__(self, all_authority=None, description=None, instance_id=None, user_name=None, user_password=None, _configuration=None):  # noqa: E501
+    def __init__(self, all_authority=None, description=None, instance_id=None, password_type=None, user_name=None, user_password=None, _configuration=None):  # noqa: E501
         """CreateUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class CreateUserRequest(object):
         self._all_authority = None
         self._description = None
         self._instance_id = None
+        self._password_type = None
         self._user_name = None
         self._user_password = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class CreateUserRequest(object):
             self.description = description
         if instance_id is not None:
             self.instance_id = instance_id
+        if password_type is not None:
+            self.password_type = password_type
         if user_name is not None:
             self.user_name = user_name
         if user_password is not None:
@@ -134,6 +139,27 @@ class CreateUserRequest(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def password_type(self):
+        """Gets the password_type of this CreateUserRequest.  # noqa: E501
+
+
+        :return: The password_type of this CreateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._password_type
+
+    @password_type.setter
+    def password_type(self, password_type):
+        """Sets the password_type of this CreateUserRequest.
+
+
+        :param password_type: The password_type of this CreateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._password_type = password_type
 
     @property
     def user_name(self):
