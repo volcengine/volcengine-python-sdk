@@ -35,24 +35,18 @@ class DescribeDBInstanceDetailResponse(object):
     swagger_types = {
         'basic_info': 'BasicInfoForDescribeDBInstanceDetailOutput',
         'charge_detail': 'ChargeDetailForDescribeDBInstanceDetailOutput',
-        'connection_info': 'list[ConnectionInfoForDescribeDBInstanceDetailOutput]',
         'endpoints': 'list[EndpointForDescribeDBInstanceDetailOutput]',
-        'node_detail_info': 'list[NodeDetailInfoForDescribeDBInstanceDetailOutput]',
-        'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]',
-        'shard_info': 'list[ShardInfoForDescribeDBInstanceDetailOutput]'
+        'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]'
     }
 
     attribute_map = {
         'basic_info': 'BasicInfo',
         'charge_detail': 'ChargeDetail',
-        'connection_info': 'ConnectionInfo',
         'endpoints': 'Endpoints',
-        'node_detail_info': 'NodeDetailInfo',
-        'nodes': 'Nodes',
-        'shard_info': 'ShardInfo'
+        'nodes': 'Nodes'
     }
 
-    def __init__(self, basic_info=None, charge_detail=None, connection_info=None, endpoints=None, node_detail_info=None, nodes=None, shard_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, basic_info=None, charge_detail=None, endpoints=None, nodes=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,27 +54,18 @@ class DescribeDBInstanceDetailResponse(object):
 
         self._basic_info = None
         self._charge_detail = None
-        self._connection_info = None
         self._endpoints = None
-        self._node_detail_info = None
         self._nodes = None
-        self._shard_info = None
         self.discriminator = None
 
         if basic_info is not None:
             self.basic_info = basic_info
         if charge_detail is not None:
             self.charge_detail = charge_detail
-        if connection_info is not None:
-            self.connection_info = connection_info
         if endpoints is not None:
             self.endpoints = endpoints
-        if node_detail_info is not None:
-            self.node_detail_info = node_detail_info
         if nodes is not None:
             self.nodes = nodes
-        if shard_info is not None:
-            self.shard_info = shard_info
 
     @property
     def basic_info(self):
@@ -125,27 +110,6 @@ class DescribeDBInstanceDetailResponse(object):
         self._charge_detail = charge_detail
 
     @property
-    def connection_info(self):
-        """Gets the connection_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-
-
-        :return: The connection_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-        :rtype: list[ConnectionInfoForDescribeDBInstanceDetailOutput]
-        """
-        return self._connection_info
-
-    @connection_info.setter
-    def connection_info(self, connection_info):
-        """Sets the connection_info of this DescribeDBInstanceDetailResponse.
-
-
-        :param connection_info: The connection_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-        :type: list[ConnectionInfoForDescribeDBInstanceDetailOutput]
-        """
-
-        self._connection_info = connection_info
-
-    @property
     def endpoints(self):
         """Gets the endpoints of this DescribeDBInstanceDetailResponse.  # noqa: E501
 
@@ -167,27 +131,6 @@ class DescribeDBInstanceDetailResponse(object):
         self._endpoints = endpoints
 
     @property
-    def node_detail_info(self):
-        """Gets the node_detail_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-
-
-        :return: The node_detail_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-        :rtype: list[NodeDetailInfoForDescribeDBInstanceDetailOutput]
-        """
-        return self._node_detail_info
-
-    @node_detail_info.setter
-    def node_detail_info(self, node_detail_info):
-        """Sets the node_detail_info of this DescribeDBInstanceDetailResponse.
-
-
-        :param node_detail_info: The node_detail_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-        :type: list[NodeDetailInfoForDescribeDBInstanceDetailOutput]
-        """
-
-        self._node_detail_info = node_detail_info
-
-    @property
     def nodes(self):
         """Gets the nodes of this DescribeDBInstanceDetailResponse.  # noqa: E501
 
@@ -207,27 +150,6 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._nodes = nodes
-
-    @property
-    def shard_info(self):
-        """Gets the shard_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-
-
-        :return: The shard_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-        :rtype: list[ShardInfoForDescribeDBInstanceDetailOutput]
-        """
-        return self._shard_info
-
-    @shard_info.setter
-    def shard_info(self, shard_info):
-        """Sets the shard_info of this DescribeDBInstanceDetailResponse.
-
-
-        :param shard_info: The shard_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-        :type: list[ShardInfoForDescribeDBInstanceDetailOutput]
-        """
-
-        self._shard_info = shard_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""

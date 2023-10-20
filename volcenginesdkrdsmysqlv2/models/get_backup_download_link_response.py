@@ -40,8 +40,7 @@ class GetBackupDownloadLinkResponse(object):
         'backup_type': 'str',
         'download_progress': 'int',
         'instance_id': 'str',
-        'link_expired_time': 'str',
-        'node_id': 'str'
+        'link_expired_time': 'str'
     }
 
     attribute_map = {
@@ -52,11 +51,10 @@ class GetBackupDownloadLinkResponse(object):
         'backup_type': 'BackupType',
         'download_progress': 'DownloadProgress',
         'instance_id': 'InstanceId',
-        'link_expired_time': 'LinkExpiredTime',
-        'node_id': 'NodeId'
+        'link_expired_time': 'LinkExpiredTime'
     }
 
-    def __init__(self, backup_download_link=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_type=None, download_progress=None, instance_id=None, link_expired_time=None, node_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_download_link=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_type=None, download_progress=None, instance_id=None, link_expired_time=None, _configuration=None):  # noqa: E501
         """GetBackupDownloadLinkResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +68,6 @@ class GetBackupDownloadLinkResponse(object):
         self._download_progress = None
         self._instance_id = None
         self._link_expired_time = None
-        self._node_id = None
         self.discriminator = None
 
         if backup_download_link is not None:
@@ -89,8 +86,6 @@ class GetBackupDownloadLinkResponse(object):
             self.instance_id = instance_id
         if link_expired_time is not None:
             self.link_expired_time = link_expired_time
-        if node_id is not None:
-            self.node_id = node_id
 
     @property
     def backup_download_link(self):
@@ -259,27 +254,6 @@ class GetBackupDownloadLinkResponse(object):
         """
 
         self._link_expired_time = link_expired_time
-
-    @property
-    def node_id(self):
-        """Gets the node_id of this GetBackupDownloadLinkResponse.  # noqa: E501
-
-
-        :return: The node_id of this GetBackupDownloadLinkResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._node_id
-
-    @node_id.setter
-    def node_id(self, node_id):
-        """Sets the node_id of this GetBackupDownloadLinkResponse.
-
-
-        :param node_id: The node_id of this GetBackupDownloadLinkResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._node_id = node_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

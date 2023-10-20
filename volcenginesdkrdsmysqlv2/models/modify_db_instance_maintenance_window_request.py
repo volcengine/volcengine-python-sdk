@@ -34,7 +34,6 @@ class ModifyDBInstanceMaintenanceWindowRequest(object):
     """
     swagger_types = {
         'day_kind': 'str',
-        'day_of_month': 'list[int]',
         'day_of_week': 'list[str]',
         'instance_id': 'str',
         'maintenance_time': 'str'
@@ -42,20 +41,18 @@ class ModifyDBInstanceMaintenanceWindowRequest(object):
 
     attribute_map = {
         'day_kind': 'DayKind',
-        'day_of_month': 'DayOfMonth',
         'day_of_week': 'DayOfWeek',
         'instance_id': 'InstanceId',
         'maintenance_time': 'MaintenanceTime'
     }
 
-    def __init__(self, day_kind=None, day_of_month=None, day_of_week=None, instance_id=None, maintenance_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, day_kind=None, day_of_week=None, instance_id=None, maintenance_time=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceMaintenanceWindowRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._day_kind = None
-        self._day_of_month = None
         self._day_of_week = None
         self._instance_id = None
         self._maintenance_time = None
@@ -63,8 +60,6 @@ class ModifyDBInstanceMaintenanceWindowRequest(object):
 
         if day_kind is not None:
             self.day_kind = day_kind
-        if day_of_month is not None:
-            self.day_of_month = day_of_month
         if day_of_week is not None:
             self.day_of_week = day_of_week
         self.instance_id = instance_id
@@ -91,27 +86,6 @@ class ModifyDBInstanceMaintenanceWindowRequest(object):
         """
 
         self._day_kind = day_kind
-
-    @property
-    def day_of_month(self):
-        """Gets the day_of_month of this ModifyDBInstanceMaintenanceWindowRequest.  # noqa: E501
-
-
-        :return: The day_of_month of this ModifyDBInstanceMaintenanceWindowRequest.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._day_of_month
-
-    @day_of_month.setter
-    def day_of_month(self, day_of_month):
-        """Sets the day_of_month of this ModifyDBInstanceMaintenanceWindowRequest.
-
-
-        :param day_of_month: The day_of_month of this ModifyDBInstanceMaintenanceWindowRequest.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._day_of_month = day_of_month
 
     @property
     def day_of_week(self):

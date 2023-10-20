@@ -33,7 +33,6 @@ class ModifyParameterTemplateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'custom_params': 'list[CustomParamForModifyParameterTemplateInput]',
         'template_desc': 'str',
         'template_id': 'str',
         'template_name': 'str',
@@ -41,28 +40,24 @@ class ModifyParameterTemplateRequest(object):
     }
 
     attribute_map = {
-        'custom_params': 'CustomParams',
         'template_desc': 'TemplateDesc',
         'template_id': 'TemplateId',
         'template_name': 'TemplateName',
         'template_params': 'TemplateParams'
     }
 
-    def __init__(self, custom_params=None, template_desc=None, template_id=None, template_name=None, template_params=None, _configuration=None):  # noqa: E501
+    def __init__(self, template_desc=None, template_id=None, template_name=None, template_params=None, _configuration=None):  # noqa: E501
         """ModifyParameterTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._custom_params = None
         self._template_desc = None
         self._template_id = None
         self._template_name = None
         self._template_params = None
         self.discriminator = None
 
-        if custom_params is not None:
-            self.custom_params = custom_params
         if template_desc is not None:
             self.template_desc = template_desc
         self.template_id = template_id
@@ -70,27 +65,6 @@ class ModifyParameterTemplateRequest(object):
             self.template_name = template_name
         if template_params is not None:
             self.template_params = template_params
-
-    @property
-    def custom_params(self):
-        """Gets the custom_params of this ModifyParameterTemplateRequest.  # noqa: E501
-
-
-        :return: The custom_params of this ModifyParameterTemplateRequest.  # noqa: E501
-        :rtype: list[CustomParamForModifyParameterTemplateInput]
-        """
-        return self._custom_params
-
-    @custom_params.setter
-    def custom_params(self, custom_params):
-        """Sets the custom_params of this ModifyParameterTemplateRequest.
-
-
-        :param custom_params: The custom_params of this ModifyParameterTemplateRequest.  # noqa: E501
-        :type: list[CustomParamForModifyParameterTemplateInput]
-        """
-
-        self._custom_params = custom_params
 
     @property
     def template_desc(self):

@@ -37,7 +37,6 @@ class TemplateInfoForDescribeParameterTemplateOutput(object):
         'create_time': 'str',
         'need_restart': 'bool',
         'parameter_num': 'int',
-        'project_name': 'str',
         'template_category': 'str',
         'template_desc': 'str',
         'template_id': 'str',
@@ -54,7 +53,6 @@ class TemplateInfoForDescribeParameterTemplateOutput(object):
         'create_time': 'CreateTime',
         'need_restart': 'NeedRestart',
         'parameter_num': 'ParameterNum',
-        'project_name': 'ProjectName',
         'template_category': 'TemplateCategory',
         'template_desc': 'TemplateDesc',
         'template_id': 'TemplateId',
@@ -66,7 +64,7 @@ class TemplateInfoForDescribeParameterTemplateOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, create_time=None, need_restart=None, parameter_num=None, project_name=None, template_category=None, template_desc=None, template_id=None, template_name=None, template_params=None, template_source=None, template_type=None, template_type_version=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, create_time=None, need_restart=None, parameter_num=None, template_category=None, template_desc=None, template_id=None, template_name=None, template_params=None, template_source=None, template_type=None, template_type_version=None, update_time=None, _configuration=None):  # noqa: E501
         """TemplateInfoForDescribeParameterTemplateOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,7 +74,6 @@ class TemplateInfoForDescribeParameterTemplateOutput(object):
         self._create_time = None
         self._need_restart = None
         self._parameter_num = None
-        self._project_name = None
         self._template_category = None
         self._template_desc = None
         self._template_id = None
@@ -96,8 +93,6 @@ class TemplateInfoForDescribeParameterTemplateOutput(object):
             self.need_restart = need_restart
         if parameter_num is not None:
             self.parameter_num = parameter_num
-        if project_name is not None:
-            self.project_name = project_name
         if template_category is not None:
             self.template_category = template_category
         if template_desc is not None:
@@ -200,27 +195,6 @@ class TemplateInfoForDescribeParameterTemplateOutput(object):
         """
 
         self._parameter_num = parameter_num
-
-    @property
-    def project_name(self):
-        """Gets the project_name of this TemplateInfoForDescribeParameterTemplateOutput.  # noqa: E501
-
-
-        :return: The project_name of this TemplateInfoForDescribeParameterTemplateOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_name
-
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this TemplateInfoForDescribeParameterTemplateOutput.
-
-
-        :param project_name: The project_name of this TemplateInfoForDescribeParameterTemplateOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._project_name = project_name
 
     @property
     def template_category(self):

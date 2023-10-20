@@ -35,7 +35,6 @@ class NodeInfoForDescribeDBInstancePriceDetailInput(object):
     swagger_types = {
         'node_id': 'str',
         'node_operate_type': 'str',
-        'node_pool': 'str',
         'node_spec': 'str',
         'node_type': 'str',
         'zone_id': 'str'
@@ -44,13 +43,12 @@ class NodeInfoForDescribeDBInstancePriceDetailInput(object):
     attribute_map = {
         'node_id': 'NodeId',
         'node_operate_type': 'NodeOperateType',
-        'node_pool': 'NodePool',
         'node_spec': 'NodeSpec',
         'node_type': 'NodeType',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, node_id=None, node_operate_type=None, node_pool=None, node_spec=None, node_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, node_id=None, node_operate_type=None, node_spec=None, node_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """NodeInfoForDescribeDBInstancePriceDetailInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,7 +56,6 @@ class NodeInfoForDescribeDBInstancePriceDetailInput(object):
 
         self._node_id = None
         self._node_operate_type = None
-        self._node_pool = None
         self._node_spec = None
         self._node_type = None
         self._zone_id = None
@@ -68,8 +65,6 @@ class NodeInfoForDescribeDBInstancePriceDetailInput(object):
             self.node_id = node_id
         if node_operate_type is not None:
             self.node_operate_type = node_operate_type
-        if node_pool is not None:
-            self.node_pool = node_pool
         if node_spec is not None:
             self.node_spec = node_spec
         if node_type is not None:
@@ -118,27 +113,6 @@ class NodeInfoForDescribeDBInstancePriceDetailInput(object):
         """
 
         self._node_operate_type = node_operate_type
-
-    @property
-    def node_pool(self):
-        """Gets the node_pool of this NodeInfoForDescribeDBInstancePriceDetailInput.  # noqa: E501
-
-
-        :return: The node_pool of this NodeInfoForDescribeDBInstancePriceDetailInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._node_pool
-
-    @node_pool.setter
-    def node_pool(self, node_pool):
-        """Sets the node_pool of this NodeInfoForDescribeDBInstancePriceDetailInput.
-
-
-        :param node_pool: The node_pool of this NodeInfoForDescribeDBInstancePriceDetailInput.  # noqa: E501
-        :type: str
-        """
-
-        self._node_pool = node_pool
 
     @property
     def node_spec(self):

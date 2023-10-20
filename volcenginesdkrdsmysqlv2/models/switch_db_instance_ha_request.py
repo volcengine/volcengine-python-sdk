@@ -33,59 +33,33 @@ class SwitchDBInstanceHARequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'force': 'bool',
         'instance_id': 'str',
         'node_id': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
-        'force': 'Force',
         'instance_id': 'InstanceId',
         'node_id': 'NodeId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, force=None, instance_id=None, node_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, node_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """SwitchDBInstanceHARequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._force = None
         self._instance_id = None
         self._node_id = None
         self._zone_id = None
         self.discriminator = None
 
-        if force is not None:
-            self.force = force
         self.instance_id = instance_id
         if node_id is not None:
             self.node_id = node_id
         if zone_id is not None:
             self.zone_id = zone_id
-
-    @property
-    def force(self):
-        """Gets the force of this SwitchDBInstanceHARequest.  # noqa: E501
-
-
-        :return: The force of this SwitchDBInstanceHARequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._force
-
-    @force.setter
-    def force(self, force):
-        """Sets the force of this SwitchDBInstanceHARequest.
-
-
-        :param force: The force of this SwitchDBInstanceHARequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._force = force
 
     @property
     def instance_id(self):

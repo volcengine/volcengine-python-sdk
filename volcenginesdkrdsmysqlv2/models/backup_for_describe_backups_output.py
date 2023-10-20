@@ -33,72 +33,52 @@ class BackupForDescribeBackupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'backup_database_detail': 'list[BackupDatabaseDetailForDescribeBackupsOutput]',
         'backup_end_time': 'str',
         'backup_file_name': 'str',
         'backup_file_size': 'int',
         'backup_id': 'str',
         'backup_method': 'str',
-        'backup_region': 'str',
         'backup_start_time': 'str',
         'backup_status': 'str',
         'backup_type': 'str',
         'consistent_time': 'str',
         'create_type': 'str',
-        'db_table_infos': 'list[DBTableInfoForDescribeBackupsOutput]',
-        'download_status': 'str',
-        'expect_end_time': 'str',
-        'progress': 'int',
-        'rate': 'float'
+        'db_table_infos': 'list[DBTableInfoForDescribeBackupsOutput]'
     }
 
     attribute_map = {
-        'backup_database_detail': 'BackupDatabaseDetail',
         'backup_end_time': 'BackupEndTime',
         'backup_file_name': 'BackupFileName',
         'backup_file_size': 'BackupFileSize',
         'backup_id': 'BackupId',
         'backup_method': 'BackupMethod',
-        'backup_region': 'BackupRegion',
         'backup_start_time': 'BackupStartTime',
         'backup_status': 'BackupStatus',
         'backup_type': 'BackupType',
         'consistent_time': 'ConsistentTime',
         'create_type': 'CreateType',
-        'db_table_infos': 'DBTableInfos',
-        'download_status': 'DownloadStatus',
-        'expect_end_time': 'ExpectEndTime',
-        'progress': 'Progress',
-        'rate': 'Rate'
+        'db_table_infos': 'DBTableInfos'
     }
 
-    def __init__(self, backup_database_detail=None, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_region=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_table_infos=None, download_status=None, expect_end_time=None, progress=None, rate=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_table_infos=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._backup_database_detail = None
         self._backup_end_time = None
         self._backup_file_name = None
         self._backup_file_size = None
         self._backup_id = None
         self._backup_method = None
-        self._backup_region = None
         self._backup_start_time = None
         self._backup_status = None
         self._backup_type = None
         self._consistent_time = None
         self._create_type = None
         self._db_table_infos = None
-        self._download_status = None
-        self._expect_end_time = None
-        self._progress = None
-        self._rate = None
         self.discriminator = None
 
-        if backup_database_detail is not None:
-            self.backup_database_detail = backup_database_detail
         if backup_end_time is not None:
             self.backup_end_time = backup_end_time
         if backup_file_name is not None:
@@ -109,8 +89,6 @@ class BackupForDescribeBackupsOutput(object):
             self.backup_id = backup_id
         if backup_method is not None:
             self.backup_method = backup_method
-        if backup_region is not None:
-            self.backup_region = backup_region
         if backup_start_time is not None:
             self.backup_start_time = backup_start_time
         if backup_status is not None:
@@ -123,35 +101,6 @@ class BackupForDescribeBackupsOutput(object):
             self.create_type = create_type
         if db_table_infos is not None:
             self.db_table_infos = db_table_infos
-        if download_status is not None:
-            self.download_status = download_status
-        if expect_end_time is not None:
-            self.expect_end_time = expect_end_time
-        if progress is not None:
-            self.progress = progress
-        if rate is not None:
-            self.rate = rate
-
-    @property
-    def backup_database_detail(self):
-        """Gets the backup_database_detail of this BackupForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The backup_database_detail of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :rtype: list[BackupDatabaseDetailForDescribeBackupsOutput]
-        """
-        return self._backup_database_detail
-
-    @backup_database_detail.setter
-    def backup_database_detail(self, backup_database_detail):
-        """Sets the backup_database_detail of this BackupForDescribeBackupsOutput.
-
-
-        :param backup_database_detail: The backup_database_detail of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :type: list[BackupDatabaseDetailForDescribeBackupsOutput]
-        """
-
-        self._backup_database_detail = backup_database_detail
 
     @property
     def backup_end_time(self):
@@ -257,27 +206,6 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._backup_method = backup_method
-
-    @property
-    def backup_region(self):
-        """Gets the backup_region of this BackupForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The backup_region of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._backup_region
-
-    @backup_region.setter
-    def backup_region(self, backup_region):
-        """Sets the backup_region of this BackupForDescribeBackupsOutput.
-
-
-        :param backup_region: The backup_region of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._backup_region = backup_region
 
     @property
     def backup_start_time(self):
@@ -404,90 +332,6 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._db_table_infos = db_table_infos
-
-    @property
-    def download_status(self):
-        """Gets the download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._download_status
-
-    @download_status.setter
-    def download_status(self, download_status):
-        """Sets the download_status of this BackupForDescribeBackupsOutput.
-
-
-        :param download_status: The download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._download_status = download_status
-
-    @property
-    def expect_end_time(self):
-        """Gets the expect_end_time of this BackupForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The expect_end_time of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._expect_end_time
-
-    @expect_end_time.setter
-    def expect_end_time(self, expect_end_time):
-        """Sets the expect_end_time of this BackupForDescribeBackupsOutput.
-
-
-        :param expect_end_time: The expect_end_time of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._expect_end_time = expect_end_time
-
-    @property
-    def progress(self):
-        """Gets the progress of this BackupForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The progress of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._progress
-
-    @progress.setter
-    def progress(self, progress):
-        """Sets the progress of this BackupForDescribeBackupsOutput.
-
-
-        :param progress: The progress of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._progress = progress
-
-    @property
-    def rate(self):
-        """Gets the rate of this BackupForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The rate of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :rtype: float
-        """
-        return self._rate
-
-    @rate.setter
-    def rate(self, rate):
-        """Sets the rate of this BackupForDescribeBackupsOutput.
-
-
-        :param rate: The rate of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :type: float
-        """
-
-        self._rate = rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

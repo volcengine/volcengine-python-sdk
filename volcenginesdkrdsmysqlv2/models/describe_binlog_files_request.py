@@ -37,7 +37,6 @@ class DescribeBinlogFilesRequest(object):
         'context': 'str',
         'end_time': 'str',
         'instance_id': 'str',
-        'node_id': 'str',
         'start_time': 'str'
     }
 
@@ -46,11 +45,10 @@ class DescribeBinlogFilesRequest(object):
         'context': 'Context',
         'end_time': 'EndTime',
         'instance_id': 'InstanceId',
-        'node_id': 'NodeId',
         'start_time': 'StartTime'
     }
 
-    def __init__(self, backup_file_number=None, context=None, end_time=None, instance_id=None, node_id=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_file_number=None, context=None, end_time=None, instance_id=None, start_time=None, _configuration=None):  # noqa: E501
         """DescribeBinlogFilesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,7 +58,6 @@ class DescribeBinlogFilesRequest(object):
         self._context = None
         self._end_time = None
         self._instance_id = None
-        self._node_id = None
         self._start_time = None
         self.discriminator = None
 
@@ -72,8 +69,6 @@ class DescribeBinlogFilesRequest(object):
             self.end_time = end_time
         if instance_id is not None:
             self.instance_id = instance_id
-        if node_id is not None:
-            self.node_id = node_id
         if start_time is not None:
             self.start_time = start_time
 
@@ -160,27 +155,6 @@ class DescribeBinlogFilesRequest(object):
         """
 
         self._instance_id = instance_id
-
-    @property
-    def node_id(self):
-        """Gets the node_id of this DescribeBinlogFilesRequest.  # noqa: E501
-
-
-        :return: The node_id of this DescribeBinlogFilesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._node_id
-
-    @node_id.setter
-    def node_id(self, node_id):
-        """Sets the node_id of this DescribeBinlogFilesRequest.
-
-
-        :param node_id: The node_id of this DescribeBinlogFilesRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._node_id = node_id
 
     @property
     def start_time(self):

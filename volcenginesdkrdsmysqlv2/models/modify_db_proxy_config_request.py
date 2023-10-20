@@ -34,82 +34,27 @@ class ModifyDBProxyConfigRequest(object):
     """
     swagger_types = {
         'connection_pool_type': 'str',
-        'dial_timeout': 'str',
-        'instance_id': 'str',
-        'max_connections': 'int',
-        'max_front_connections': 'int',
-        'max_idle_connections': 'int',
-        'max_qps': 'int',
-        'min_idle_connections': 'int',
-        'ping_interval_seconds': 'int',
-        'read_only': 'bool',
-        'read_timeout': 'str',
-        'sql_rules': 'list[str]',
-        'write_timeout': 'str'
+        'instance_id': 'str'
     }
 
     attribute_map = {
         'connection_pool_type': 'ConnectionPoolType',
-        'dial_timeout': 'DialTimeout',
-        'instance_id': 'InstanceId',
-        'max_connections': 'MaxConnections',
-        'max_front_connections': 'MaxFrontConnections',
-        'max_idle_connections': 'MaxIdleConnections',
-        'max_qps': 'MaxQPS',
-        'min_idle_connections': 'MinIdleConnections',
-        'ping_interval_seconds': 'PingIntervalSeconds',
-        'read_only': 'ReadOnly',
-        'read_timeout': 'ReadTimeout',
-        'sql_rules': 'SQLRules',
-        'write_timeout': 'WriteTimeout'
+        'instance_id': 'InstanceId'
     }
 
-    def __init__(self, connection_pool_type=None, dial_timeout=None, instance_id=None, max_connections=None, max_front_connections=None, max_idle_connections=None, max_qps=None, min_idle_connections=None, ping_interval_seconds=None, read_only=None, read_timeout=None, sql_rules=None, write_timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_pool_type=None, instance_id=None, _configuration=None):  # noqa: E501
         """ModifyDBProxyConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._connection_pool_type = None
-        self._dial_timeout = None
         self._instance_id = None
-        self._max_connections = None
-        self._max_front_connections = None
-        self._max_idle_connections = None
-        self._max_qps = None
-        self._min_idle_connections = None
-        self._ping_interval_seconds = None
-        self._read_only = None
-        self._read_timeout = None
-        self._sql_rules = None
-        self._write_timeout = None
         self.discriminator = None
 
         if connection_pool_type is not None:
             self.connection_pool_type = connection_pool_type
-        if dial_timeout is not None:
-            self.dial_timeout = dial_timeout
         self.instance_id = instance_id
-        if max_connections is not None:
-            self.max_connections = max_connections
-        if max_front_connections is not None:
-            self.max_front_connections = max_front_connections
-        if max_idle_connections is not None:
-            self.max_idle_connections = max_idle_connections
-        if max_qps is not None:
-            self.max_qps = max_qps
-        if min_idle_connections is not None:
-            self.min_idle_connections = min_idle_connections
-        if ping_interval_seconds is not None:
-            self.ping_interval_seconds = ping_interval_seconds
-        if read_only is not None:
-            self.read_only = read_only
-        if read_timeout is not None:
-            self.read_timeout = read_timeout
-        if sql_rules is not None:
-            self.sql_rules = sql_rules
-        if write_timeout is not None:
-            self.write_timeout = write_timeout
 
     @property
     def connection_pool_type(self):
@@ -133,27 +78,6 @@ class ModifyDBProxyConfigRequest(object):
         self._connection_pool_type = connection_pool_type
 
     @property
-    def dial_timeout(self):
-        """Gets the dial_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The dial_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._dial_timeout
-
-    @dial_timeout.setter
-    def dial_timeout(self, dial_timeout):
-        """Sets the dial_timeout of this ModifyDBProxyConfigRequest.
-
-
-        :param dial_timeout: The dial_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._dial_timeout = dial_timeout
-
-    @property
     def instance_id(self):
         """Gets the instance_id of this ModifyDBProxyConfigRequest.  # noqa: E501
 
@@ -175,216 +99,6 @@ class ModifyDBProxyConfigRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
-
-    @property
-    def max_connections(self):
-        """Gets the max_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The max_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._max_connections
-
-    @max_connections.setter
-    def max_connections(self, max_connections):
-        """Sets the max_connections of this ModifyDBProxyConfigRequest.
-
-
-        :param max_connections: The max_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._max_connections = max_connections
-
-    @property
-    def max_front_connections(self):
-        """Gets the max_front_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The max_front_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._max_front_connections
-
-    @max_front_connections.setter
-    def max_front_connections(self, max_front_connections):
-        """Sets the max_front_connections of this ModifyDBProxyConfigRequest.
-
-
-        :param max_front_connections: The max_front_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._max_front_connections = max_front_connections
-
-    @property
-    def max_idle_connections(self):
-        """Gets the max_idle_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The max_idle_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._max_idle_connections
-
-    @max_idle_connections.setter
-    def max_idle_connections(self, max_idle_connections):
-        """Sets the max_idle_connections of this ModifyDBProxyConfigRequest.
-
-
-        :param max_idle_connections: The max_idle_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._max_idle_connections = max_idle_connections
-
-    @property
-    def max_qps(self):
-        """Gets the max_qps of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The max_qps of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._max_qps
-
-    @max_qps.setter
-    def max_qps(self, max_qps):
-        """Sets the max_qps of this ModifyDBProxyConfigRequest.
-
-
-        :param max_qps: The max_qps of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._max_qps = max_qps
-
-    @property
-    def min_idle_connections(self):
-        """Gets the min_idle_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The min_idle_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._min_idle_connections
-
-    @min_idle_connections.setter
-    def min_idle_connections(self, min_idle_connections):
-        """Sets the min_idle_connections of this ModifyDBProxyConfigRequest.
-
-
-        :param min_idle_connections: The min_idle_connections of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._min_idle_connections = min_idle_connections
-
-    @property
-    def ping_interval_seconds(self):
-        """Gets the ping_interval_seconds of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The ping_interval_seconds of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._ping_interval_seconds
-
-    @ping_interval_seconds.setter
-    def ping_interval_seconds(self, ping_interval_seconds):
-        """Sets the ping_interval_seconds of this ModifyDBProxyConfigRequest.
-
-
-        :param ping_interval_seconds: The ping_interval_seconds of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._ping_interval_seconds = ping_interval_seconds
-
-    @property
-    def read_only(self):
-        """Gets the read_only of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The read_only of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._read_only
-
-    @read_only.setter
-    def read_only(self, read_only):
-        """Sets the read_only of this ModifyDBProxyConfigRequest.
-
-
-        :param read_only: The read_only of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._read_only = read_only
-
-    @property
-    def read_timeout(self):
-        """Gets the read_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The read_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._read_timeout
-
-    @read_timeout.setter
-    def read_timeout(self, read_timeout):
-        """Sets the read_timeout of this ModifyDBProxyConfigRequest.
-
-
-        :param read_timeout: The read_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._read_timeout = read_timeout
-
-    @property
-    def sql_rules(self):
-        """Gets the sql_rules of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The sql_rules of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._sql_rules
-
-    @sql_rules.setter
-    def sql_rules(self, sql_rules):
-        """Sets the sql_rules of this ModifyDBProxyConfigRequest.
-
-
-        :param sql_rules: The sql_rules of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._sql_rules = sql_rules
-
-    @property
-    def write_timeout(self):
-        """Gets the write_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-
-
-        :return: The write_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._write_timeout
-
-    @write_timeout.setter
-    def write_timeout(self, write_timeout):
-        """Sets the write_timeout of this ModifyDBProxyConfigRequest.
-
-
-        :param write_timeout: The write_timeout of this ModifyDBProxyConfigRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._write_timeout = write_timeout
 
     def to_dict(self):
         """Returns the model properties as a dict"""
