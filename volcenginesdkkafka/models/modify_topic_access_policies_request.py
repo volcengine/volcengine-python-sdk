@@ -63,14 +63,11 @@ class ModifyTopicAccessPoliciesRequest(object):
 
         if access_policies is not None:
             self.access_policies = access_policies
-        if all_authority is not None:
-            self.all_authority = all_authority
+        self.all_authority = all_authority
         if delete_policies is not None:
             self.delete_policies = delete_policies
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if topic_name is not None:
-            self.topic_name = topic_name
+        self.instance_id = instance_id
+        self.topic_name = topic_name
 
     @property
     def access_policies(self):
@@ -111,6 +108,8 @@ class ModifyTopicAccessPoliciesRequest(object):
         :param all_authority: The all_authority of this ModifyTopicAccessPoliciesRequest.  # noqa: E501
         :type: bool
         """
+        if self._configuration.client_side_validation and all_authority is None:
+            raise ValueError("Invalid value for `all_authority`, must not be `None`")  # noqa: E501
 
         self._all_authority = all_authority
 
@@ -153,6 +152,8 @@ class ModifyTopicAccessPoliciesRequest(object):
         :param instance_id: The instance_id of this ModifyTopicAccessPoliciesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -174,6 +175,8 @@ class ModifyTopicAccessPoliciesRequest(object):
         :param topic_name: The topic_name of this ModifyTopicAccessPoliciesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and topic_name is None:
+            raise ValueError("Invalid value for `topic_name`, must not be `None`")  # noqa: E501
 
         self._topic_name = topic_name
 

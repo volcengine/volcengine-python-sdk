@@ -57,10 +57,8 @@ class ModifyTopicAttributesRequest(object):
 
         if description is not None:
             self.description = description
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if topic_name is not None:
-            self.topic_name = topic_name
+        self.instance_id = instance_id
+        self.topic_name = topic_name
 
     @property
     def description(self):
@@ -101,6 +99,8 @@ class ModifyTopicAttributesRequest(object):
         :param instance_id: The instance_id of this ModifyTopicAttributesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -122,6 +122,8 @@ class ModifyTopicAttributesRequest(object):
         :param topic_name: The topic_name of this ModifyTopicAttributesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and topic_name is None:
+            raise ValueError("Invalid value for `topic_name`, must not be `None`")  # noqa: E501
 
         self._topic_name = topic_name
 

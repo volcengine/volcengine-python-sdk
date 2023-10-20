@@ -64,18 +64,14 @@ class CreateUserRequest(object):
         self._user_password = None
         self.discriminator = None
 
-        if all_authority is not None:
-            self.all_authority = all_authority
+        self.all_authority = all_authority
         if description is not None:
             self.description = description
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if password_type is not None:
             self.password_type = password_type
-        if user_name is not None:
-            self.user_name = user_name
-        if user_password is not None:
-            self.user_password = user_password
+        self.user_name = user_name
+        self.user_password = user_password
 
     @property
     def all_authority(self):
@@ -95,6 +91,8 @@ class CreateUserRequest(object):
         :param all_authority: The all_authority of this CreateUserRequest.  # noqa: E501
         :type: bool
         """
+        if self._configuration.client_side_validation and all_authority is None:
+            raise ValueError("Invalid value for `all_authority`, must not be `None`")  # noqa: E501
 
         self._all_authority = all_authority
 
@@ -137,6 +135,8 @@ class CreateUserRequest(object):
         :param instance_id: The instance_id of this CreateUserRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -179,6 +179,8 @@ class CreateUserRequest(object):
         :param user_name: The user_name of this CreateUserRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and user_name is None:
+            raise ValueError("Invalid value for `user_name`, must not be `None`")  # noqa: E501
 
         self._user_name = user_name
 
@@ -200,6 +202,8 @@ class CreateUserRequest(object):
         :param user_password: The user_password of this CreateUserRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and user_password is None:
+            raise ValueError("Invalid value for `user_password`, must not be `None`")  # noqa: E501
 
         self._user_password = user_password
 

@@ -52,10 +52,8 @@ class DeleteGroupRequest(object):
         self._instance_id = None
         self.discriminator = None
 
-        if group_id is not None:
-            self.group_id = group_id
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.group_id = group_id
+        self.instance_id = instance_id
 
     @property
     def group_id(self):
@@ -75,6 +73,8 @@ class DeleteGroupRequest(object):
         :param group_id: The group_id of this DeleteGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and group_id is None:
+            raise ValueError("Invalid value for `group_id`, must not be `None`")  # noqa: E501
 
         self._group_id = group_id
 
@@ -96,6 +96,8 @@ class DeleteGroupRequest(object):
         :param instance_id: The instance_id of this DeleteGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

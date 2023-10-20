@@ -66,8 +66,7 @@ class ModifyInstanceSpecRequest(object):
 
         if compute_spec is not None:
             self.compute_spec = compute_spec
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if need_rebalance is not None:
             self.need_rebalance = need_rebalance
         if partition_number is not None:
@@ -116,6 +115,8 @@ class ModifyInstanceSpecRequest(object):
         :param instance_id: The instance_id of this ModifyInstanceSpecRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

@@ -45,7 +45,7 @@ class CreateInstanceRequest(object):
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
-        'tags': 'dict(str, str)',
+        'tags': 'TagsForCreateInstanceInput',
         'user_name': 'str',
         'user_password': 'str',
         'version': 'str',
@@ -102,8 +102,7 @@ class CreateInstanceRequest(object):
 
         if charge_info is not None:
             self.charge_info = charge_info
-        if compute_spec is not None:
-            self.compute_spec = compute_spec
+        self.compute_spec = compute_spec
         if eip_id is not None:
             self.eip_id = eip_id
         if instance_description is not None:
@@ -122,20 +121,14 @@ class CreateInstanceRequest(object):
             self.storage_space = storage_space
         if storage_type is not None:
             self.storage_type = storage_type
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
+        self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
-        if user_name is not None:
-            self.user_name = user_name
-        if user_password is not None:
-            self.user_password = user_password
-        if version is not None:
-            self.version = version
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.user_name = user_name
+        self.user_password = user_password
+        self.version = version
+        self.vpc_id = vpc_id
+        self.zone_id = zone_id
 
     @property
     def charge_info(self):
@@ -176,6 +169,8 @@ class CreateInstanceRequest(object):
         :param compute_spec: The compute_spec of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and compute_spec is None:
+            raise ValueError("Invalid value for `compute_spec`, must not be `None`")  # noqa: E501
 
         self._compute_spec = compute_spec
 
@@ -386,6 +381,8 @@ class CreateInstanceRequest(object):
         :param subnet_id: The subnet_id of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 
@@ -395,7 +392,7 @@ class CreateInstanceRequest(object):
 
 
         :return: The tags of this CreateInstanceRequest.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: TagsForCreateInstanceInput
         """
         return self._tags
 
@@ -405,7 +402,7 @@ class CreateInstanceRequest(object):
 
 
         :param tags: The tags of this CreateInstanceRequest.  # noqa: E501
-        :type: dict(str, str)
+        :type: TagsForCreateInstanceInput
         """
 
         self._tags = tags
@@ -428,6 +425,8 @@ class CreateInstanceRequest(object):
         :param user_name: The user_name of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and user_name is None:
+            raise ValueError("Invalid value for `user_name`, must not be `None`")  # noqa: E501
 
         self._user_name = user_name
 
@@ -449,6 +448,8 @@ class CreateInstanceRequest(object):
         :param user_password: The user_password of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and user_password is None:
+            raise ValueError("Invalid value for `user_password`, must not be `None`")  # noqa: E501
 
         self._user_password = user_password
 
@@ -470,6 +471,8 @@ class CreateInstanceRequest(object):
         :param version: The version of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and version is None:
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 
@@ -491,6 +494,8 @@ class CreateInstanceRequest(object):
         :param vpc_id: The vpc_id of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 
@@ -512,6 +517,8 @@ class CreateInstanceRequest(object):
         :param zone_id: The zone_id of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

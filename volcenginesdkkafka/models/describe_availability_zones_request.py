@@ -49,8 +49,7 @@ class DescribeAvailabilityZonesRequest(object):
         self._region_id = None
         self.discriminator = None
 
-        if region_id is not None:
-            self.region_id = region_id
+        self.region_id = region_id
 
     @property
     def region_id(self):
@@ -70,6 +69,8 @@ class DescribeAvailabilityZonesRequest(object):
         :param region_id: The region_id of this DescribeAvailabilityZonesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and region_id is None:
+            raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
 

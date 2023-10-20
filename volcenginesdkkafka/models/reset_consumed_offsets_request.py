@@ -55,10 +55,8 @@ class ResetConsumedOffsetsRequest(object):
         self._reset_offsets_info = None
         self.discriminator = None
 
-        if group_id is not None:
-            self.group_id = group_id
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.group_id = group_id
+        self.instance_id = instance_id
         if reset_offsets_info is not None:
             self.reset_offsets_info = reset_offsets_info
 
@@ -80,6 +78,8 @@ class ResetConsumedOffsetsRequest(object):
         :param group_id: The group_id of this ResetConsumedOffsetsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and group_id is None:
+            raise ValueError("Invalid value for `group_id`, must not be `None`")  # noqa: E501
 
         self._group_id = group_id
 
@@ -101,6 +101,8 @@ class ResetConsumedOffsetsRequest(object):
         :param instance_id: The instance_id of this ResetConsumedOffsetsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

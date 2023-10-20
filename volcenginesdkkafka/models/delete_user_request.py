@@ -52,10 +52,8 @@ class DeleteUserRequest(object):
         self._user_name = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if user_name is not None:
-            self.user_name = user_name
+        self.instance_id = instance_id
+        self.user_name = user_name
 
     @property
     def instance_id(self):
@@ -75,6 +73,8 @@ class DeleteUserRequest(object):
         :param instance_id: The instance_id of this DeleteUserRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -96,6 +96,8 @@ class DeleteUserRequest(object):
         :param user_name: The user_name of this DeleteUserRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and user_name is None:
+            raise ValueError("Invalid value for `user_name`, must not be `None`")  # noqa: E501
 
         self._user_name = user_name
 
