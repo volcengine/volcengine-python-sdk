@@ -33,54 +33,28 @@ class ModifyDBInstanceParametersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'forcerestart': 'bool',
         'instance_id': 'str',
         'parameters': 'list[ParameterForModifyDBInstanceParametersInput]'
     }
 
     attribute_map = {
-        'forcerestart': 'Forcerestart',
         'instance_id': 'InstanceId',
         'parameters': 'Parameters'
     }
 
-    def __init__(self, forcerestart=None, instance_id=None, parameters=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, parameters=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceParametersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._forcerestart = None
         self._instance_id = None
         self._parameters = None
         self.discriminator = None
 
-        if forcerestart is not None:
-            self.forcerestart = forcerestart
         self.instance_id = instance_id
         if parameters is not None:
             self.parameters = parameters
-
-    @property
-    def forcerestart(self):
-        """Gets the forcerestart of this ModifyDBInstanceParametersRequest.  # noqa: E501
-
-
-        :return: The forcerestart of this ModifyDBInstanceParametersRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._forcerestart
-
-    @forcerestart.setter
-    def forcerestart(self, forcerestart):
-        """Sets the forcerestart of this ModifyDBInstanceParametersRequest.
-
-
-        :param forcerestart: The forcerestart of this ModifyDBInstanceParametersRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._forcerestart = forcerestart
 
     @property
     def instance_id(self):

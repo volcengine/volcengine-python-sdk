@@ -33,9 +33,6 @@ class CreateParameterTemplateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'custom_params': 'list[CustomParamForCreateParameterTemplateInput]',
-        'project_name': 'str',
-        'template_category': 'str',
         'template_desc': 'str',
         'template_name': 'str',
         'template_params': 'list[TemplateParamForCreateParameterTemplateInput]',
@@ -44,9 +41,6 @@ class CreateParameterTemplateRequest(object):
     }
 
     attribute_map = {
-        'custom_params': 'CustomParams',
-        'project_name': 'ProjectName',
-        'template_category': 'TemplateCategory',
         'template_desc': 'TemplateDesc',
         'template_name': 'TemplateName',
         'template_params': 'TemplateParams',
@@ -54,15 +48,12 @@ class CreateParameterTemplateRequest(object):
         'template_type_version': 'TemplateTypeVersion'
     }
 
-    def __init__(self, custom_params=None, project_name=None, template_category=None, template_desc=None, template_name=None, template_params=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, template_desc=None, template_name=None, template_params=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
         """CreateParameterTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._custom_params = None
-        self._project_name = None
-        self._template_category = None
         self._template_desc = None
         self._template_name = None
         self._template_params = None
@@ -70,12 +61,6 @@ class CreateParameterTemplateRequest(object):
         self._template_type_version = None
         self.discriminator = None
 
-        if custom_params is not None:
-            self.custom_params = custom_params
-        if project_name is not None:
-            self.project_name = project_name
-        if template_category is not None:
-            self.template_category = template_category
         if template_desc is not None:
             self.template_desc = template_desc
         if template_name is not None:
@@ -86,69 +71,6 @@ class CreateParameterTemplateRequest(object):
             self.template_type = template_type
         if template_type_version is not None:
             self.template_type_version = template_type_version
-
-    @property
-    def custom_params(self):
-        """Gets the custom_params of this CreateParameterTemplateRequest.  # noqa: E501
-
-
-        :return: The custom_params of this CreateParameterTemplateRequest.  # noqa: E501
-        :rtype: list[CustomParamForCreateParameterTemplateInput]
-        """
-        return self._custom_params
-
-    @custom_params.setter
-    def custom_params(self, custom_params):
-        """Sets the custom_params of this CreateParameterTemplateRequest.
-
-
-        :param custom_params: The custom_params of this CreateParameterTemplateRequest.  # noqa: E501
-        :type: list[CustomParamForCreateParameterTemplateInput]
-        """
-
-        self._custom_params = custom_params
-
-    @property
-    def project_name(self):
-        """Gets the project_name of this CreateParameterTemplateRequest.  # noqa: E501
-
-
-        :return: The project_name of this CreateParameterTemplateRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_name
-
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this CreateParameterTemplateRequest.
-
-
-        :param project_name: The project_name of this CreateParameterTemplateRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._project_name = project_name
-
-    @property
-    def template_category(self):
-        """Gets the template_category of this CreateParameterTemplateRequest.  # noqa: E501
-
-
-        :return: The template_category of this CreateParameterTemplateRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._template_category
-
-    @template_category.setter
-    def template_category(self, template_category):
-        """Sets the template_category of this CreateParameterTemplateRequest.
-
-
-        :param template_category: The template_category of this CreateParameterTemplateRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._template_category = template_category
 
     @property
     def template_desc(self):
