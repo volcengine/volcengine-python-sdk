@@ -55,12 +55,9 @@ class ModifyUserAuthorityRequest(object):
         self._user_name = None
         self.discriminator = None
 
-        if all_authority is not None:
-            self.all_authority = all_authority
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if user_name is not None:
-            self.user_name = user_name
+        self.all_authority = all_authority
+        self.instance_id = instance_id
+        self.user_name = user_name
 
     @property
     def all_authority(self):
@@ -80,6 +77,8 @@ class ModifyUserAuthorityRequest(object):
         :param all_authority: The all_authority of this ModifyUserAuthorityRequest.  # noqa: E501
         :type: bool
         """
+        if self._configuration.client_side_validation and all_authority is None:
+            raise ValueError("Invalid value for `all_authority`, must not be `None`")  # noqa: E501
 
         self._all_authority = all_authority
 
@@ -101,6 +100,8 @@ class ModifyUserAuthorityRequest(object):
         :param instance_id: The instance_id of this ModifyUserAuthorityRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -122,6 +123,8 @@ class ModifyUserAuthorityRequest(object):
         :param user_name: The user_name of this ModifyUserAuthorityRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and user_name is None:
+            raise ValueError("Invalid value for `user_name`, must not be `None`")  # noqa: E501
 
         self._user_name = user_name
 

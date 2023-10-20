@@ -76,16 +76,13 @@ class CreateTopicRequest(object):
             self.all_authority = all_authority
         if description is not None:
             self.description = description
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if parameters is not None:
             self.parameters = parameters
-        if partition_number is not None:
-            self.partition_number = partition_number
+        self.partition_number = partition_number
         if replica_number is not None:
             self.replica_number = replica_number
-        if topic_name is not None:
-            self.topic_name = topic_name
+        self.topic_name = topic_name
 
     @property
     def access_policies(self):
@@ -168,6 +165,8 @@ class CreateTopicRequest(object):
         :param instance_id: The instance_id of this CreateTopicRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -210,6 +209,8 @@ class CreateTopicRequest(object):
         :param partition_number: The partition_number of this CreateTopicRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and partition_number is None:
+            raise ValueError("Invalid value for `partition_number`, must not be `None`")  # noqa: E501
 
         self._partition_number = partition_number
 
@@ -252,6 +253,8 @@ class CreateTopicRequest(object):
         :param topic_name: The topic_name of this CreateTopicRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and topic_name is None:
+            raise ValueError("Invalid value for `topic_name`, must not be `None`")  # noqa: E501
 
         self._topic_name = topic_name
 

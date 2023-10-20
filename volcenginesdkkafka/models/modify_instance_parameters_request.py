@@ -52,10 +52,8 @@ class ModifyInstanceParametersRequest(object):
         self._parameters = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if parameters is not None:
-            self.parameters = parameters
+        self.instance_id = instance_id
+        self.parameters = parameters
 
     @property
     def instance_id(self):
@@ -75,6 +73,8 @@ class ModifyInstanceParametersRequest(object):
         :param instance_id: The instance_id of this ModifyInstanceParametersRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -96,6 +96,8 @@ class ModifyInstanceParametersRequest(object):
         :param parameters: The parameters of this ModifyInstanceParametersRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and parameters is None:
+            raise ValueError("Invalid value for `parameters`, must not be `None`")  # noqa: E501
 
         self._parameters = parameters
 
