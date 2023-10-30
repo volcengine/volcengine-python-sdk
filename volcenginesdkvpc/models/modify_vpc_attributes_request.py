@@ -211,8 +211,8 @@ class ModifyVpcAttributesRequest(object):
                 vpc_name is not None and len(vpc_name) > 128):
             raise ValueError("Invalid value for `vpc_name`, length must be less than or equal to `128`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                vpc_name is not None and len(vpc_name) < 2):
-            raise ValueError("Invalid value for `vpc_name`, length must be greater than or equal to `2`")  # noqa: E501
+                vpc_name is not None and len(vpc_name) < 1):
+            raise ValueError("Invalid value for `vpc_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vpc_name = vpc_name
 

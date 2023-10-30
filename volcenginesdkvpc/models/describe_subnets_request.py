@@ -87,7 +87,8 @@ class DescribeSubnetsRequest(object):
             self.subnet_ids = subnet_ids
         if subnet_name is not None:
             self.subnet_name = subnet_name
-        self.vpc_id = vpc_id
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -259,8 +260,6 @@ class DescribeSubnetsRequest(object):
         :param vpc_id: The vpc_id of this DescribeSubnetsRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and vpc_id is None:
-            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 

@@ -34,7 +34,7 @@ class DeletePrefixListRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
-        'dry_run': 'str',
+        'dry_run': 'bool',
         'prefix_list_id': 'str'
     }
 
@@ -88,7 +88,7 @@ class DeletePrefixListRequest(object):
 
 
         :return: The dry_run of this DeletePrefixListRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._dry_run
 
@@ -98,7 +98,7 @@ class DeletePrefixListRequest(object):
 
 
         :param dry_run: The dry_run of this DeletePrefixListRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._dry_run = dry_run

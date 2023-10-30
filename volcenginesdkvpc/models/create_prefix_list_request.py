@@ -35,7 +35,7 @@ class CreatePrefixListRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
-        'dry_run': 'str',
+        'dry_run': 'bool',
         'ip_version': 'str',
         'max_entries': 'int',
         'prefix_list_entries': 'list[PrefixListEntryForCreatePrefixListInput]',
@@ -140,7 +140,7 @@ class CreatePrefixListRequest(object):
 
 
         :return: The dry_run of this CreatePrefixListRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._dry_run
 
@@ -150,7 +150,7 @@ class CreatePrefixListRequest(object):
 
 
         :param dry_run: The dry_run of this CreatePrefixListRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._dry_run = dry_run
