@@ -36,6 +36,7 @@ class CreateDatabaseRequest(object):
         'character_set_name': 'str',
         'db_desc': 'str',
         'db_name': 'str',
+        'database_privileges': 'list[DatabasePrivilegeForCreateDatabaseInput]',
         'database_privileges_info': 'list[DatabasePrivilegesInfoForCreateDatabaseInput]',
         'instance_id': 'str'
     }
@@ -44,11 +45,12 @@ class CreateDatabaseRequest(object):
         'character_set_name': 'CharacterSetName',
         'db_desc': 'DBDesc',
         'db_name': 'DBName',
+        'database_privileges': 'DatabasePrivileges',
         'database_privileges_info': 'DatabasePrivilegesInfo',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, character_set_name=None, db_desc=None, db_name=None, database_privileges_info=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, character_set_name=None, db_desc=None, db_name=None, database_privileges=None, database_privileges_info=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateDatabaseRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class CreateDatabaseRequest(object):
         self._character_set_name = None
         self._db_desc = None
         self._db_name = None
+        self._database_privileges = None
         self._database_privileges_info = None
         self._instance_id = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class CreateDatabaseRequest(object):
             self.db_desc = db_desc
         if db_name is not None:
             self.db_name = db_name
+        if database_privileges is not None:
+            self.database_privileges = database_privileges
         if database_privileges_info is not None:
             self.database_privileges_info = database_privileges_info
         self.instance_id = instance_id
@@ -139,6 +144,27 @@ class CreateDatabaseRequest(object):
             raise ValueError("Invalid value for `db_name`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._db_name = db_name
+
+    @property
+    def database_privileges(self):
+        """Gets the database_privileges of this CreateDatabaseRequest.  # noqa: E501
+
+
+        :return: The database_privileges of this CreateDatabaseRequest.  # noqa: E501
+        :rtype: list[DatabasePrivilegeForCreateDatabaseInput]
+        """
+        return self._database_privileges
+
+    @database_privileges.setter
+    def database_privileges(self, database_privileges):
+        """Sets the database_privileges of this CreateDatabaseRequest.
+
+
+        :param database_privileges: The database_privileges of this CreateDatabaseRequest.  # noqa: E501
+        :type: list[DatabasePrivilegeForCreateDatabaseInput]
+        """
+
+        self._database_privileges = database_privileges
 
     @property
     def database_privileges_info(self):
