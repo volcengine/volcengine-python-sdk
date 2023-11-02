@@ -46,6 +46,7 @@ class DescribeVpcAttributesResponse(object):
         'project_name': 'str',
         'request_id': 'str',
         'route_table_ids': 'list[str]',
+        'secondary_cidr_blocks': 'list[str]',
         'security_group_ids': 'list[str]',
         'status': 'str',
         'subnet_ids': 'list[str]',
@@ -70,6 +71,7 @@ class DescribeVpcAttributesResponse(object):
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'route_table_ids': 'RouteTableIds',
+        'secondary_cidr_blocks': 'SecondaryCidrBlocks',
         'security_group_ids': 'SecurityGroupIds',
         'status': 'Status',
         'subnet_ids': 'SubnetIds',
@@ -80,7 +82,7 @@ class DescribeVpcAttributesResponse(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, ipv6_cidr_block=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, ipv6_cidr_block=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, secondary_cidr_blocks=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -99,6 +101,7 @@ class DescribeVpcAttributesResponse(object):
         self._project_name = None
         self._request_id = None
         self._route_table_ids = None
+        self._secondary_cidr_blocks = None
         self._security_group_ids = None
         self._status = None
         self._subnet_ids = None
@@ -135,6 +138,8 @@ class DescribeVpcAttributesResponse(object):
             self.request_id = request_id
         if route_table_ids is not None:
             self.route_table_ids = route_table_ids
+        if secondary_cidr_blocks is not None:
+            self.secondary_cidr_blocks = secondary_cidr_blocks
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
         if status is not None:
@@ -424,6 +429,27 @@ class DescribeVpcAttributesResponse(object):
         """
 
         self._route_table_ids = route_table_ids
+
+    @property
+    def secondary_cidr_blocks(self):
+        """Gets the secondary_cidr_blocks of this DescribeVpcAttributesResponse.  # noqa: E501
+
+
+        :return: The secondary_cidr_blocks of this DescribeVpcAttributesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._secondary_cidr_blocks
+
+    @secondary_cidr_blocks.setter
+    def secondary_cidr_blocks(self, secondary_cidr_blocks):
+        """Sets the secondary_cidr_blocks of this DescribeVpcAttributesResponse.
+
+
+        :param secondary_cidr_blocks: The secondary_cidr_blocks of this DescribeVpcAttributesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._secondary_cidr_blocks = secondary_cidr_blocks
 
     @property
     def security_group_ids(self):

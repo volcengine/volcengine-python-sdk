@@ -61,14 +61,10 @@ class DescribeConsumedTopicsRequest(object):
         self._topic_name = None
         self.discriminator = None
 
-        if group_id is not None:
-            self.group_id = group_id
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if page_number is not None:
-            self.page_number = page_number
-        if page_size is not None:
-            self.page_size = page_size
+        self.group_id = group_id
+        self.instance_id = instance_id
+        self.page_number = page_number
+        self.page_size = page_size
         if topic_name is not None:
             self.topic_name = topic_name
 
@@ -90,6 +86,8 @@ class DescribeConsumedTopicsRequest(object):
         :param group_id: The group_id of this DescribeConsumedTopicsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and group_id is None:
+            raise ValueError("Invalid value for `group_id`, must not be `None`")  # noqa: E501
 
         self._group_id = group_id
 
@@ -111,6 +109,8 @@ class DescribeConsumedTopicsRequest(object):
         :param instance_id: The instance_id of this DescribeConsumedTopicsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -132,6 +132,8 @@ class DescribeConsumedTopicsRequest(object):
         :param page_number: The page_number of this DescribeConsumedTopicsRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and page_number is None:
+            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -153,6 +155,8 @@ class DescribeConsumedTopicsRequest(object):
         :param page_size: The page_size of this DescribeConsumedTopicsRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and page_size is None:
+            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
 

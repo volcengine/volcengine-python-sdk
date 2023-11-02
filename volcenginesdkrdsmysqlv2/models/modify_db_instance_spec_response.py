@@ -34,17 +34,15 @@ class ModifyDBInstanceSpecResponse(object):
     """
     swagger_types = {
         'instance_id': 'str',
-        'order_id': 'str',
-        'pre_schedule_plan': 'PreSchedulePlanForModifyDBInstanceSpecOutput'
+        'order_id': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
-        'order_id': 'OrderId',
-        'pre_schedule_plan': 'PreSchedulePlan'
+        'order_id': 'OrderId'
     }
 
-    def __init__(self, instance_id=None, order_id=None, pre_schedule_plan=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, order_id=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,15 +50,12 @@ class ModifyDBInstanceSpecResponse(object):
 
         self._instance_id = None
         self._order_id = None
-        self._pre_schedule_plan = None
         self.discriminator = None
 
         if instance_id is not None:
             self.instance_id = instance_id
         if order_id is not None:
             self.order_id = order_id
-        if pre_schedule_plan is not None:
-            self.pre_schedule_plan = pre_schedule_plan
 
     @property
     def instance_id(self):
@@ -103,27 +98,6 @@ class ModifyDBInstanceSpecResponse(object):
         """
 
         self._order_id = order_id
-
-    @property
-    def pre_schedule_plan(self):
-        """Gets the pre_schedule_plan of this ModifyDBInstanceSpecResponse.  # noqa: E501
-
-
-        :return: The pre_schedule_plan of this ModifyDBInstanceSpecResponse.  # noqa: E501
-        :rtype: PreSchedulePlanForModifyDBInstanceSpecOutput
-        """
-        return self._pre_schedule_plan
-
-    @pre_schedule_plan.setter
-    def pre_schedule_plan(self, pre_schedule_plan):
-        """Sets the pre_schedule_plan of this ModifyDBInstanceSpecResponse.
-
-
-        :param pre_schedule_plan: The pre_schedule_plan of this ModifyDBInstanceSpecResponse.  # noqa: E501
-        :type: PreSchedulePlanForModifyDBInstanceSpecOutput
-        """
-
-        self._pre_schedule_plan = pre_schedule_plan
 
     def to_dict(self):
         """Returns the model properties as a dict"""

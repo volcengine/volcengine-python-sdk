@@ -49,8 +49,7 @@ class ResourceForAssociateNetworkAclInput(object):
         self._resource_id = None
         self.discriminator = None
 
-        if resource_id is not None:
-            self.resource_id = resource_id
+        self.resource_id = resource_id
 
     @property
     def resource_id(self):
@@ -70,6 +69,8 @@ class ResourceForAssociateNetworkAclInput(object):
         :param resource_id: The resource_id of this ResourceForAssociateNetworkAclInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and resource_id is None:
+            raise ValueError("Invalid value for `resource_id`, must not be `None`")  # noqa: E501
 
         self._resource_id = resource_id
 

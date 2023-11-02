@@ -64,16 +64,12 @@ class DescribeTopicPartitionsRequest(object):
         self._under_insync_only = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if page_number is not None:
-            self.page_number = page_number
-        if page_size is not None:
-            self.page_size = page_size
+        self.instance_id = instance_id
+        self.page_number = page_number
+        self.page_size = page_size
         if partition_ids is not None:
             self.partition_ids = partition_ids
-        if topic_name is not None:
-            self.topic_name = topic_name
+        self.topic_name = topic_name
         if under_insync_only is not None:
             self.under_insync_only = under_insync_only
 
@@ -95,6 +91,8 @@ class DescribeTopicPartitionsRequest(object):
         :param instance_id: The instance_id of this DescribeTopicPartitionsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -116,6 +114,8 @@ class DescribeTopicPartitionsRequest(object):
         :param page_number: The page_number of this DescribeTopicPartitionsRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and page_number is None:
+            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -137,6 +137,8 @@ class DescribeTopicPartitionsRequest(object):
         :param page_size: The page_size of this DescribeTopicPartitionsRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and page_size is None:
+            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -179,6 +181,8 @@ class DescribeTopicPartitionsRequest(object):
         :param topic_name: The topic_name of this DescribeTopicPartitionsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and topic_name is None:
+            raise ValueError("Invalid value for `topic_name`, must not be `None`")  # noqa: E501
 
         self._topic_name = topic_name
 

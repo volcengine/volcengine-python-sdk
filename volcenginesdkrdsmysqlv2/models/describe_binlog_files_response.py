@@ -35,18 +35,16 @@ class DescribeBinlogFilesResponse(object):
     swagger_types = {
         'binlog_files': 'list[BinlogFileForDescribeBinlogFilesOutput]',
         'context': 'str',
-        'node_id': 'str',
         'total': 'int'
     }
 
     attribute_map = {
         'binlog_files': 'BinlogFiles',
         'context': 'Context',
-        'node_id': 'NodeId',
         'total': 'Total'
     }
 
-    def __init__(self, binlog_files=None, context=None, node_id=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, binlog_files=None, context=None, total=None, _configuration=None):  # noqa: E501
         """DescribeBinlogFilesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,7 +52,6 @@ class DescribeBinlogFilesResponse(object):
 
         self._binlog_files = None
         self._context = None
-        self._node_id = None
         self._total = None
         self.discriminator = None
 
@@ -62,8 +59,6 @@ class DescribeBinlogFilesResponse(object):
             self.binlog_files = binlog_files
         if context is not None:
             self.context = context
-        if node_id is not None:
-            self.node_id = node_id
         if total is not None:
             self.total = total
 
@@ -108,27 +103,6 @@ class DescribeBinlogFilesResponse(object):
         """
 
         self._context = context
-
-    @property
-    def node_id(self):
-        """Gets the node_id of this DescribeBinlogFilesResponse.  # noqa: E501
-
-
-        :return: The node_id of this DescribeBinlogFilesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._node_id
-
-    @node_id.setter
-    def node_id(self, node_id):
-        """Sets the node_id of this DescribeBinlogFilesResponse.
-
-
-        :param node_id: The node_id of this DescribeBinlogFilesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._node_id = node_id
 
     @property
     def total(self):

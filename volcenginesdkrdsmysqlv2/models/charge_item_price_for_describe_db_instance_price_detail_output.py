@@ -38,8 +38,7 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
         'charge_item_value': 'int',
         'discount_price': 'float',
         'original_price': 'float',
-        'payable_price': 'float',
-        'unit_price': 'float'
+        'payable_price': 'float'
     }
 
     attribute_map = {
@@ -48,11 +47,10 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
         'charge_item_value': 'ChargeItemValue',
         'discount_price': 'DiscountPrice',
         'original_price': 'OriginalPrice',
-        'payable_price': 'PayablePrice',
-        'unit_price': 'UnitPrice'
+        'payable_price': 'PayablePrice'
     }
 
-    def __init__(self, charge_item_key=None, charge_item_type=None, charge_item_value=None, discount_price=None, original_price=None, payable_price=None, unit_price=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_item_key=None, charge_item_type=None, charge_item_value=None, discount_price=None, original_price=None, payable_price=None, _configuration=None):  # noqa: E501
         """ChargeItemPriceForDescribeDBInstancePriceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,7 +62,6 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
         self._discount_price = None
         self._original_price = None
         self._payable_price = None
-        self._unit_price = None
         self.discriminator = None
 
         if charge_item_key is not None:
@@ -79,8 +76,6 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
             self.original_price = original_price
         if payable_price is not None:
             self.payable_price = payable_price
-        if unit_price is not None:
-            self.unit_price = unit_price
 
     @property
     def charge_item_key(self):
@@ -207,27 +202,6 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
         """
 
         self._payable_price = payable_price
-
-    @property
-    def unit_price(self):
-        """Gets the unit_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-
-
-        :return: The unit_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-        :rtype: float
-        """
-        return self._unit_price
-
-    @unit_price.setter
-    def unit_price(self, unit_price):
-        """Sets the unit_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.
-
-
-        :param unit_price: The unit_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-        :type: float
-        """
-
-        self._unit_price = unit_price
 
     def to_dict(self):
         """Returns the model properties as a dict"""

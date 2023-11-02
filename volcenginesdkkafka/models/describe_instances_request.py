@@ -38,7 +38,7 @@ class DescribeInstancesRequest(object):
         'instance_status': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'tags': 'dict(str, list[str])',
+        'tags': 'TagsForDescribeInstancesInput',
         'zone_id': 'str'
     }
 
@@ -73,10 +73,8 @@ class DescribeInstancesRequest(object):
             self.instance_name = instance_name
         if instance_status is not None:
             self.instance_status = instance_status
-        if page_number is not None:
-            self.page_number = page_number
-        if page_size is not None:
-            self.page_size = page_size
+        self.page_number = page_number
+        self.page_size = page_size
         if tags is not None:
             self.tags = tags
         if zone_id is not None:
@@ -163,6 +161,8 @@ class DescribeInstancesRequest(object):
         :param page_number: The page_number of this DescribeInstancesRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and page_number is None:
+            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -184,6 +184,8 @@ class DescribeInstancesRequest(object):
         :param page_size: The page_size of this DescribeInstancesRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and page_size is None:
+            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -193,7 +195,7 @@ class DescribeInstancesRequest(object):
 
 
         :return: The tags of this DescribeInstancesRequest.  # noqa: E501
-        :rtype: dict(str, list[str])
+        :rtype: TagsForDescribeInstancesInput
         """
         return self._tags
 
@@ -203,7 +205,7 @@ class DescribeInstancesRequest(object):
 
 
         :param tags: The tags of this DescribeInstancesRequest.  # noqa: E501
-        :type: dict(str, list[str])
+        :type: TagsForDescribeInstancesInput
         """
 
         self._tags = tags

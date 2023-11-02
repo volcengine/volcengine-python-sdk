@@ -42,9 +42,7 @@ class ChargeDetailForDescribeDBInstanceDetailOutput(object):
         'overdue_reclaim_time': 'str',
         'overdue_time': 'str',
         'period': 'int',
-        'period_unit': 'str',
-        'temp_modify_end_time': 'str',
-        'temp_modify_start_time': 'str'
+        'period_unit': 'str'
     }
 
     attribute_map = {
@@ -57,12 +55,10 @@ class ChargeDetailForDescribeDBInstanceDetailOutput(object):
         'overdue_reclaim_time': 'OverdueReclaimTime',
         'overdue_time': 'OverdueTime',
         'period': 'Period',
-        'period_unit': 'PeriodUnit',
-        'temp_modify_end_time': 'TempModifyEndTime',
-        'temp_modify_start_time': 'TempModifyStartTime'
+        'period_unit': 'PeriodUnit'
     }
 
-    def __init__(self, auto_renew=None, charge_end_time=None, charge_start_time=None, charge_status=None, charge_type=None, number=None, overdue_reclaim_time=None, overdue_time=None, period=None, period_unit=None, temp_modify_end_time=None, temp_modify_start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_end_time=None, charge_start_time=None, charge_status=None, charge_type=None, number=None, overdue_reclaim_time=None, overdue_time=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
         """ChargeDetailForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,8 +74,6 @@ class ChargeDetailForDescribeDBInstanceDetailOutput(object):
         self._overdue_time = None
         self._period = None
         self._period_unit = None
-        self._temp_modify_end_time = None
-        self._temp_modify_start_time = None
         self.discriminator = None
 
         if auto_renew is not None:
@@ -102,10 +96,6 @@ class ChargeDetailForDescribeDBInstanceDetailOutput(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
-        if temp_modify_end_time is not None:
-            self.temp_modify_end_time = temp_modify_end_time
-        if temp_modify_start_time is not None:
-            self.temp_modify_start_time = temp_modify_start_time
 
     @property
     def auto_renew(self):
@@ -316,48 +306,6 @@ class ChargeDetailForDescribeDBInstanceDetailOutput(object):
         """
 
         self._period_unit = period_unit
-
-    @property
-    def temp_modify_end_time(self):
-        """Gets the temp_modify_end_time of this ChargeDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The temp_modify_end_time of this ChargeDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._temp_modify_end_time
-
-    @temp_modify_end_time.setter
-    def temp_modify_end_time(self, temp_modify_end_time):
-        """Sets the temp_modify_end_time of this ChargeDetailForDescribeDBInstanceDetailOutput.
-
-
-        :param temp_modify_end_time: The temp_modify_end_time of this ChargeDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._temp_modify_end_time = temp_modify_end_time
-
-    @property
-    def temp_modify_start_time(self):
-        """Gets the temp_modify_start_time of this ChargeDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The temp_modify_start_time of this ChargeDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._temp_modify_start_time
-
-    @temp_modify_start_time.setter
-    def temp_modify_start_time(self, temp_modify_start_time):
-        """Sets the temp_modify_start_time of this ChargeDetailForDescribeDBInstanceDetailOutput.
-
-
-        :param temp_modify_start_time: The temp_modify_start_time of this ChargeDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._temp_modify_start_time = temp_modify_start_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

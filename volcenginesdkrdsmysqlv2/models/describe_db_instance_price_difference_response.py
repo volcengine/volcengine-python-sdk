@@ -33,54 +33,41 @@ class DescribeDBInstancePriceDifferenceResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'billing_method': 'str',
         'charge_item_prices': 'list[ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput]',
         'config_item_prices': 'list[ConfigItemPriceForDescribeDBInstancePriceDifferenceOutput]',
-        'coupon_amount': 'float',
         'currency': 'str',
         'discount_price': 'float',
         'original_price': 'float',
-        'payable_price': 'float',
-        'refund_amount': 'float'
+        'payable_price': 'float'
     }
 
     attribute_map = {
-        'billing_method': 'BillingMethod',
         'charge_item_prices': 'ChargeItemPrices',
         'config_item_prices': 'ConfigItemPrices',
-        'coupon_amount': 'CouponAmount',
         'currency': 'Currency',
         'discount_price': 'DiscountPrice',
         'original_price': 'OriginalPrice',
-        'payable_price': 'PayablePrice',
-        'refund_amount': 'RefundAmount'
+        'payable_price': 'PayablePrice'
     }
 
-    def __init__(self, billing_method=None, charge_item_prices=None, config_item_prices=None, coupon_amount=None, currency=None, discount_price=None, original_price=None, payable_price=None, refund_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_item_prices=None, config_item_prices=None, currency=None, discount_price=None, original_price=None, payable_price=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancePriceDifferenceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._billing_method = None
         self._charge_item_prices = None
         self._config_item_prices = None
-        self._coupon_amount = None
         self._currency = None
         self._discount_price = None
         self._original_price = None
         self._payable_price = None
-        self._refund_amount = None
         self.discriminator = None
 
-        if billing_method is not None:
-            self.billing_method = billing_method
         if charge_item_prices is not None:
             self.charge_item_prices = charge_item_prices
         if config_item_prices is not None:
             self.config_item_prices = config_item_prices
-        if coupon_amount is not None:
-            self.coupon_amount = coupon_amount
         if currency is not None:
             self.currency = currency
         if discount_price is not None:
@@ -89,29 +76,6 @@ class DescribeDBInstancePriceDifferenceResponse(object):
             self.original_price = original_price
         if payable_price is not None:
             self.payable_price = payable_price
-        if refund_amount is not None:
-            self.refund_amount = refund_amount
-
-    @property
-    def billing_method(self):
-        """Gets the billing_method of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-
-
-        :return: The billing_method of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._billing_method
-
-    @billing_method.setter
-    def billing_method(self, billing_method):
-        """Sets the billing_method of this DescribeDBInstancePriceDifferenceResponse.
-
-
-        :param billing_method: The billing_method of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._billing_method = billing_method
 
     @property
     def charge_item_prices(self):
@@ -154,27 +118,6 @@ class DescribeDBInstancePriceDifferenceResponse(object):
         """
 
         self._config_item_prices = config_item_prices
-
-    @property
-    def coupon_amount(self):
-        """Gets the coupon_amount of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-
-
-        :return: The coupon_amount of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-        :rtype: float
-        """
-        return self._coupon_amount
-
-    @coupon_amount.setter
-    def coupon_amount(self, coupon_amount):
-        """Sets the coupon_amount of this DescribeDBInstancePriceDifferenceResponse.
-
-
-        :param coupon_amount: The coupon_amount of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-        :type: float
-        """
-
-        self._coupon_amount = coupon_amount
 
     @property
     def currency(self):
@@ -259,27 +202,6 @@ class DescribeDBInstancePriceDifferenceResponse(object):
         """
 
         self._payable_price = payable_price
-
-    @property
-    def refund_amount(self):
-        """Gets the refund_amount of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-
-
-        :return: The refund_amount of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-        :rtype: float
-        """
-        return self._refund_amount
-
-    @refund_amount.setter
-    def refund_amount(self, refund_amount):
-        """Sets the refund_amount of this DescribeDBInstancePriceDifferenceResponse.
-
-
-        :param refund_amount: The refund_amount of this DescribeDBInstancePriceDifferenceResponse.  # noqa: E501
-        :type: float
-        """
-
-        self._refund_amount = refund_amount
 
     def to_dict(self):
         """Returns the model properties as a dict"""

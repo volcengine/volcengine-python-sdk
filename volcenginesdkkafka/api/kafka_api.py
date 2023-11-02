@@ -115,7 +115,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AddTagsToResource/2022-05-01/kafka/post/application_json/', 'POST',
+            '/AddTagsToResource/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -123,6 +123,297 @@ class KAFKAApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='AddTagsToResourceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def associate_allow_list(self, body, **kwargs):  # noqa: E501
+        """associate_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.associate_allow_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssociateAllowListRequest body: (required)
+        :return: AssociateAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.associate_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.associate_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def associate_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """associate_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.associate_allow_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssociateAllowListRequest body: (required)
+        :return: AssociateAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method associate_allow_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `associate_allow_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/AssociateAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssociateAllowListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_acl(self, body, **kwargs):  # noqa: E501
+        """create_acl  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_acl(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateAclRequest body: (required)
+        :return: CreateAclResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_acl_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_acl_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_acl_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_acl  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_acl_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateAclRequest body: (required)
+        :return: CreateAclResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_acl" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_acl`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateAcl/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateAclResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_allow_list(self, body, **kwargs):  # noqa: E501
+        """create_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_allow_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateAllowListRequest body: (required)
+        :return: CreateAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_allow_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateAllowListRequest body: (required)
+        :return: CreateAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_allow_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_allow_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateAllowListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -212,7 +503,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateGroup/2022-05-01/kafka/post/application_json/', 'POST',
+            '/CreateGroup/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -309,7 +600,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateInstance/2022-05-01/kafka/post/application_json/', 'POST',
+            '/CreateInstance/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -406,7 +697,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreatePublicAddress/2022-05-01/kafka/post/application_json/', 'POST',
+            '/CreatePublicAddress/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -503,7 +794,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateTopic/2022-05-01/kafka/post/application_json/', 'POST',
+            '/CreateTopic/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -600,7 +891,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateUser/2022-05-01/kafka/post/application_json/', 'POST',
+            '/CreateUser/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -608,6 +899,200 @@ class KAFKAApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateUserResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_acl(self, body, **kwargs):  # noqa: E501
+        """delete_acl  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_acl(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteAclRequest body: (required)
+        :return: DeleteAclResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_acl_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_acl_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_acl_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_acl  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_acl_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteAclRequest body: (required)
+        :return: DeleteAclResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_acl" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_acl`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteAcl/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteAclResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_allow_list(self, body, **kwargs):  # noqa: E501
+        """delete_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_allow_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteAllowListRequest body: (required)
+        :return: DeleteAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_allow_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteAllowListRequest body: (required)
+        :return: DeleteAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_allow_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_allow_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteAllowListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -697,7 +1182,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteGroup/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DeleteGroup/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -794,7 +1279,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteInstance/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DeleteInstance/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -891,7 +1376,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeletePublicAddress/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DeletePublicAddress/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -988,7 +1473,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteTopic/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DeleteTopic/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1570,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteUser/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DeleteUser/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1093,6 +1578,297 @@ class KAFKAApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeleteUserResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_acls(self, body, **kwargs):  # noqa: E501
+        """describe_acls  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_acls(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeAclsRequest body: (required)
+        :return: DescribeAclsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_acls_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_acls_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_acls_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_acls  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_acls_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeAclsRequest body: (required)
+        :return: DescribeAclsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_acls" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_acls`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeAcls/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeAclsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_allow_list_detail(self, body, **kwargs):  # noqa: E501
+        """describe_allow_list_detail  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_allow_list_detail(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeAllowListDetailRequest body: (required)
+        :return: DescribeAllowListDetailResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_allow_list_detail_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_allow_list_detail_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_allow_list_detail_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_allow_list_detail  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_allow_list_detail_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeAllowListDetailRequest body: (required)
+        :return: DescribeAllowListDetailResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_allow_list_detail" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_allow_list_detail`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeAllowListDetail/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeAllowListDetailResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_allow_lists(self, body, **kwargs):  # noqa: E501
+        """describe_allow_lists  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_allow_lists(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeAllowListsRequest body: (required)
+        :return: DescribeAllowListsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_allow_lists_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_allow_lists_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_allow_lists_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_allow_lists  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_allow_lists_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeAllowListsRequest body: (required)
+        :return: DescribeAllowListsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_allow_lists" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_allow_lists`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeAllowLists/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeAllowListsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1182,7 +1958,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAvailabilityZones/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeAvailabilityZones/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +2055,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeConsumedPartitions/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeConsumedPartitions/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +2152,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeConsumedTopics/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeConsumedTopics/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +2249,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeGroups/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeGroups/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +2346,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstanceDetail/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeInstanceDetail/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +2443,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstances/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeInstances/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1675,6 +2451,200 @@ class KAFKAApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeInstancesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_regions(self, body, **kwargs):  # noqa: E501
+        """describe_regions  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_regions(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeRegionsRequest body: (required)
+        :return: DescribeRegionsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_regions_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_regions_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_regions_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_regions  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_regions_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeRegionsRequest body: (required)
+        :return: DescribeRegionsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_regions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_regions`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeRegions/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeRegionsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_tags_by_resource(self, body, **kwargs):  # noqa: E501
+        """describe_tags_by_resource  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_tags_by_resource(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTagsByResourceRequest body: (required)
+        :return: DescribeTagsByResourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_tags_by_resource_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_tags_by_resource_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_tags_by_resource_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_tags_by_resource  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_tags_by_resource_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTagsByResourceRequest body: (required)
+        :return: DescribeTagsByResourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_tags_by_resource" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_tags_by_resource`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTagsByResource/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTagsByResourceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1764,7 +2734,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTopicAccessPolicies/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeTopicAccessPolicies/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +2831,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTopicParameters/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeTopicParameters/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +2928,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTopicPartitions/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeTopicPartitions/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +3025,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTopics/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeTopics/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +3122,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeUsers/2022-05-01/kafka/post/application_json/', 'POST',
+            '/DescribeUsers/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2160,6 +3130,297 @@ class KAFKAApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeUsersResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def disassociate_allow_list(self, body, **kwargs):  # noqa: E501
+        """disassociate_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.disassociate_allow_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DisassociateAllowListRequest body: (required)
+        :return: DisassociateAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.disassociate_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.disassociate_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def disassociate_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """disassociate_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.disassociate_allow_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DisassociateAllowListRequest body: (required)
+        :return: DisassociateAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method disassociate_allow_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `disassociate_allow_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DisassociateAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DisassociateAllowListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_allow_list(self, body, **kwargs):  # noqa: E501
+        """modify_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_allow_list(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyAllowListRequest body: (required)
+        :return: ModifyAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_allow_list_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_allow_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_allow_list_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyAllowListRequest body: (required)
+        :return: ModifyAllowListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_allow_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_allow_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyAllowListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_group(self, body, **kwargs):  # noqa: E501
+        """modify_group  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_group(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyGroupRequest body: (required)
+        :return: ModifyGroupResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_group_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_group_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_group_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_group  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_group_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyGroupRequest body: (required)
+        :return: ModifyGroupResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_group" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_group`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyGroup/2022-05-01/Kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyGroupResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2249,7 +3510,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceAttributes/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ModifyInstanceAttributes/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +3607,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceChargeType/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ModifyInstanceChargeType/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +3704,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceParameters/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ModifyInstanceParameters/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +3801,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceSpec/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ModifyInstanceSpec/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2637,7 +3898,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyTopicAccessPolicies/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ModifyTopicAccessPolicies/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2734,7 +3995,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyTopicAttributes/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ModifyTopicAttributes/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2831,7 +4092,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyTopicParameters/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ModifyTopicParameters/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2928,7 +4189,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyUserAuthority/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ModifyUserAuthority/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3025,7 +4286,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RemoveTagsFromResource/2022-05-01/kafka/post/application_json/', 'POST',
+            '/RemoveTagsFromResource/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3122,7 +4383,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ResetConsumedOffsets/2022-05-01/kafka/post/application_json/', 'POST',
+            '/ResetConsumedOffsets/2022-05-01/Kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,

@@ -33,7 +33,6 @@ class ModifyTopicParametersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'inner_parameters': 'InnerParametersForModifyTopicParametersInput',
         'instance_id': 'str',
         'parameters': 'str',
         'partition_number': 'int',
@@ -42,7 +41,6 @@ class ModifyTopicParametersRequest(object):
     }
 
     attribute_map = {
-        'inner_parameters': 'InnerParameters',
         'instance_id': 'InstanceId',
         'parameters': 'Parameters',
         'partition_number': 'PartitionNumber',
@@ -50,13 +48,12 @@ class ModifyTopicParametersRequest(object):
         'topic_name': 'TopicName'
     }
 
-    def __init__(self, inner_parameters=None, instance_id=None, parameters=None, partition_number=None, replica_number=None, topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, parameters=None, partition_number=None, replica_number=None, topic_name=None, _configuration=None):  # noqa: E501
         """ModifyTopicParametersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._inner_parameters = None
         self._instance_id = None
         self._parameters = None
         self._partition_number = None
@@ -64,39 +61,13 @@ class ModifyTopicParametersRequest(object):
         self._topic_name = None
         self.discriminator = None
 
-        if inner_parameters is not None:
-            self.inner_parameters = inner_parameters
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if parameters is not None:
-            self.parameters = parameters
+        self.instance_id = instance_id
+        self.parameters = parameters
         if partition_number is not None:
             self.partition_number = partition_number
         if replica_number is not None:
             self.replica_number = replica_number
-        if topic_name is not None:
-            self.topic_name = topic_name
-
-    @property
-    def inner_parameters(self):
-        """Gets the inner_parameters of this ModifyTopicParametersRequest.  # noqa: E501
-
-
-        :return: The inner_parameters of this ModifyTopicParametersRequest.  # noqa: E501
-        :rtype: InnerParametersForModifyTopicParametersInput
-        """
-        return self._inner_parameters
-
-    @inner_parameters.setter
-    def inner_parameters(self, inner_parameters):
-        """Sets the inner_parameters of this ModifyTopicParametersRequest.
-
-
-        :param inner_parameters: The inner_parameters of this ModifyTopicParametersRequest.  # noqa: E501
-        :type: InnerParametersForModifyTopicParametersInput
-        """
-
-        self._inner_parameters = inner_parameters
+        self.topic_name = topic_name
 
     @property
     def instance_id(self):
@@ -116,6 +87,8 @@ class ModifyTopicParametersRequest(object):
         :param instance_id: The instance_id of this ModifyTopicParametersRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -137,6 +110,8 @@ class ModifyTopicParametersRequest(object):
         :param parameters: The parameters of this ModifyTopicParametersRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and parameters is None:
+            raise ValueError("Invalid value for `parameters`, must not be `None`")  # noqa: E501
 
         self._parameters = parameters
 
@@ -200,6 +175,8 @@ class ModifyTopicParametersRequest(object):
         :param topic_name: The topic_name of this ModifyTopicParametersRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and topic_name is None:
+            raise ValueError("Invalid value for `topic_name`, must not be `None`")  # noqa: E501
 
         self._topic_name = topic_name
 

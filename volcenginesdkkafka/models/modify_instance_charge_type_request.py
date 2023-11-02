@@ -54,8 +54,7 @@ class ModifyInstanceChargeTypeRequest(object):
 
         if charge_info is not None:
             self.charge_info = charge_info
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
 
     @property
     def charge_info(self):
@@ -96,6 +95,8 @@ class ModifyInstanceChargeTypeRequest(object):
         :param instance_id: The instance_id of this ModifyInstanceChargeTypeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

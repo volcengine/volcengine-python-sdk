@@ -37,7 +37,6 @@ class ModifyDBEndpointRequest(object):
         'description': 'str',
         'endpoint_id': 'str',
         'endpoint_name': 'str',
-        'global_read_only': 'bool',
         'instance_id': 'str',
         'nodes': 'str',
         'read_only_node_distribution_type': 'str',
@@ -52,7 +51,6 @@ class ModifyDBEndpointRequest(object):
         'description': 'Description',
         'endpoint_id': 'EndpointId',
         'endpoint_name': 'EndpointName',
-        'global_read_only': 'GlobalReadOnly',
         'instance_id': 'InstanceId',
         'nodes': 'Nodes',
         'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
@@ -62,7 +60,7 @@ class ModifyDBEndpointRequest(object):
         'read_write_spliting': 'ReadWriteSpliting'
     }
 
-    def __init__(self, auto_add_new_nodes=None, description=None, endpoint_id=None, endpoint_name=None, global_read_only=None, instance_id=None, nodes=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, description=None, endpoint_id=None, endpoint_name=None, instance_id=None, nodes=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
         """ModifyDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,7 +70,6 @@ class ModifyDBEndpointRequest(object):
         self._description = None
         self._endpoint_id = None
         self._endpoint_name = None
-        self._global_read_only = None
         self._instance_id = None
         self._nodes = None
         self._read_only_node_distribution_type = None
@@ -89,8 +86,6 @@ class ModifyDBEndpointRequest(object):
         self.endpoint_id = endpoint_id
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
-        if global_read_only is not None:
-            self.global_read_only = global_read_only
         self.instance_id = instance_id
         if nodes is not None:
             self.nodes = nodes
@@ -190,27 +185,6 @@ class ModifyDBEndpointRequest(object):
         """
 
         self._endpoint_name = endpoint_name
-
-    @property
-    def global_read_only(self):
-        """Gets the global_read_only of this ModifyDBEndpointRequest.  # noqa: E501
-
-
-        :return: The global_read_only of this ModifyDBEndpointRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._global_read_only
-
-    @global_read_only.setter
-    def global_read_only(self, global_read_only):
-        """Sets the global_read_only of this ModifyDBEndpointRequest.
-
-
-        :param global_read_only: The global_read_only of this ModifyDBEndpointRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._global_read_only = global_read_only
 
     @property
     def instance_id(self):

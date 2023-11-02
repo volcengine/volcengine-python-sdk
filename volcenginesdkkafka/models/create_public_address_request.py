@@ -52,10 +52,8 @@ class CreatePublicAddressRequest(object):
         self._instance_id = None
         self.discriminator = None
 
-        if eip_id is not None:
-            self.eip_id = eip_id
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.eip_id = eip_id
+        self.instance_id = instance_id
 
     @property
     def eip_id(self):
@@ -75,6 +73,8 @@ class CreatePublicAddressRequest(object):
         :param eip_id: The eip_id of this CreatePublicAddressRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and eip_id is None:
+            raise ValueError("Invalid value for `eip_id`, must not be `None`")  # noqa: E501
 
         self._eip_id = eip_id
 
@@ -96,6 +96,8 @@ class CreatePublicAddressRequest(object):
         :param instance_id: The instance_id of this CreatePublicAddressRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

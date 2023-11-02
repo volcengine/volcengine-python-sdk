@@ -36,7 +36,6 @@ class DatabasesInfoForDescribeDatabasesOutput(object):
         'character_set_name': 'str',
         'db_desc': 'str',
         'db_name': 'str',
-        'db_partition': 'int',
         'db_status': 'str',
         'database_privileges': 'list[DatabasePrivilegeForDescribeDatabasesOutput]',
         'database_privileges_info': 'list[DatabasePrivilegesInfoForDescribeDatabasesOutput]'
@@ -46,13 +45,12 @@ class DatabasesInfoForDescribeDatabasesOutput(object):
         'character_set_name': 'CharacterSetName',
         'db_desc': 'DBDesc',
         'db_name': 'DBName',
-        'db_partition': 'DBPartition',
         'db_status': 'DBStatus',
         'database_privileges': 'DatabasePrivileges',
         'database_privileges_info': 'DatabasePrivilegesInfo'
     }
 
-    def __init__(self, character_set_name=None, db_desc=None, db_name=None, db_partition=None, db_status=None, database_privileges=None, database_privileges_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, character_set_name=None, db_desc=None, db_name=None, db_status=None, database_privileges=None, database_privileges_info=None, _configuration=None):  # noqa: E501
         """DatabasesInfoForDescribeDatabasesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +59,6 @@ class DatabasesInfoForDescribeDatabasesOutput(object):
         self._character_set_name = None
         self._db_desc = None
         self._db_name = None
-        self._db_partition = None
         self._db_status = None
         self._database_privileges = None
         self._database_privileges_info = None
@@ -73,8 +70,6 @@ class DatabasesInfoForDescribeDatabasesOutput(object):
             self.db_desc = db_desc
         if db_name is not None:
             self.db_name = db_name
-        if db_partition is not None:
-            self.db_partition = db_partition
         if db_status is not None:
             self.db_status = db_status
         if database_privileges is not None:
@@ -144,27 +139,6 @@ class DatabasesInfoForDescribeDatabasesOutput(object):
         """
 
         self._db_name = db_name
-
-    @property
-    def db_partition(self):
-        """Gets the db_partition of this DatabasesInfoForDescribeDatabasesOutput.  # noqa: E501
-
-
-        :return: The db_partition of this DatabasesInfoForDescribeDatabasesOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._db_partition
-
-    @db_partition.setter
-    def db_partition(self, db_partition):
-        """Sets the db_partition of this DatabasesInfoForDescribeDatabasesOutput.
-
-
-        :param db_partition: The db_partition of this DatabasesInfoForDescribeDatabasesOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._db_partition = db_partition
 
     @property
     def db_status(self):

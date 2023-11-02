@@ -33,59 +33,28 @@ class ModifyDBInstanceTDERequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'encryption_key': 'str',
         'instance_id': 'str',
-        'role_arn': 'str',
         'tde_status': 'str'
     }
 
     attribute_map = {
-        'encryption_key': 'EncryptionKey',
         'instance_id': 'InstanceId',
-        'role_arn': 'RoleArn',
         'tde_status': 'TDEStatus'
     }
 
-    def __init__(self, encryption_key=None, instance_id=None, role_arn=None, tde_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, tde_status=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceTDERequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._encryption_key = None
         self._instance_id = None
-        self._role_arn = None
         self._tde_status = None
         self.discriminator = None
 
-        if encryption_key is not None:
-            self.encryption_key = encryption_key
         self.instance_id = instance_id
-        if role_arn is not None:
-            self.role_arn = role_arn
         if tde_status is not None:
             self.tde_status = tde_status
-
-    @property
-    def encryption_key(self):
-        """Gets the encryption_key of this ModifyDBInstanceTDERequest.  # noqa: E501
-
-
-        :return: The encryption_key of this ModifyDBInstanceTDERequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._encryption_key
-
-    @encryption_key.setter
-    def encryption_key(self, encryption_key):
-        """Sets the encryption_key of this ModifyDBInstanceTDERequest.
-
-
-        :param encryption_key: The encryption_key of this ModifyDBInstanceTDERequest.  # noqa: E501
-        :type: str
-        """
-
-        self._encryption_key = encryption_key
 
     @property
     def instance_id(self):
@@ -109,27 +78,6 @@ class ModifyDBInstanceTDERequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
-
-    @property
-    def role_arn(self):
-        """Gets the role_arn of this ModifyDBInstanceTDERequest.  # noqa: E501
-
-
-        :return: The role_arn of this ModifyDBInstanceTDERequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._role_arn
-
-    @role_arn.setter
-    def role_arn(self, role_arn):
-        """Sets the role_arn of this ModifyDBInstanceTDERequest.
-
-
-        :param role_arn: The role_arn of this ModifyDBInstanceTDERequest.  # noqa: E501
-        :type: str
-        """
-
-        self._role_arn = role_arn
 
     @property
     def tde_status(self):

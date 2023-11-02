@@ -38,8 +38,7 @@ class DescribeDBInstanceDetailResponse(object):
         'connection_info': 'list[ConnectionInfoForDescribeDBInstanceDetailOutput]',
         'endpoints': 'list[EndpointForDescribeDBInstanceDetailOutput]',
         'node_detail_info': 'list[NodeDetailInfoForDescribeDBInstanceDetailOutput]',
-        'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]',
-        'shard_info': 'list[ShardInfoForDescribeDBInstanceDetailOutput]'
+        'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]'
     }
 
     attribute_map = {
@@ -48,11 +47,10 @@ class DescribeDBInstanceDetailResponse(object):
         'connection_info': 'ConnectionInfo',
         'endpoints': 'Endpoints',
         'node_detail_info': 'NodeDetailInfo',
-        'nodes': 'Nodes',
-        'shard_info': 'ShardInfo'
+        'nodes': 'Nodes'
     }
 
-    def __init__(self, basic_info=None, charge_detail=None, connection_info=None, endpoints=None, node_detail_info=None, nodes=None, shard_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, basic_info=None, charge_detail=None, connection_info=None, endpoints=None, node_detail_info=None, nodes=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,7 +62,6 @@ class DescribeDBInstanceDetailResponse(object):
         self._endpoints = None
         self._node_detail_info = None
         self._nodes = None
-        self._shard_info = None
         self.discriminator = None
 
         if basic_info is not None:
@@ -79,8 +76,6 @@ class DescribeDBInstanceDetailResponse(object):
             self.node_detail_info = node_detail_info
         if nodes is not None:
             self.nodes = nodes
-        if shard_info is not None:
-            self.shard_info = shard_info
 
     @property
     def basic_info(self):
@@ -207,27 +202,6 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._nodes = nodes
-
-    @property
-    def shard_info(self):
-        """Gets the shard_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-
-
-        :return: The shard_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-        :rtype: list[ShardInfoForDescribeDBInstanceDetailOutput]
-        """
-        return self._shard_info
-
-    @shard_info.setter
-    def shard_info(self, shard_info):
-        """Sets the shard_info of this DescribeDBInstanceDetailResponse.
-
-
-        :param shard_info: The shard_info of this DescribeDBInstanceDetailResponse.  # noqa: E501
-        :type: list[ShardInfoForDescribeDBInstanceDetailOutput]
-        """
-
-        self._shard_info = shard_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""

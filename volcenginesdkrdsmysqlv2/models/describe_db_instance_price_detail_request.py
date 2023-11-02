@@ -38,7 +38,6 @@ class DescribeDBInstancePriceDetailRequest(object):
         'number': 'int',
         'period': 'int',
         'period_unit': 'str',
-        'shard_number': 'int',
         'storage_space': 'int',
         'storage_type': 'str'
     }
@@ -49,12 +48,11 @@ class DescribeDBInstancePriceDetailRequest(object):
         'number': 'Number',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
-        'shard_number': 'ShardNumber',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType'
     }
 
-    def __init__(self, charge_type=None, node_info=None, number=None, period=None, period_unit=None, shard_number=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, node_info=None, number=None, period=None, period_unit=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancePriceDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,7 +63,6 @@ class DescribeDBInstancePriceDetailRequest(object):
         self._number = None
         self._period = None
         self._period_unit = None
-        self._shard_number = None
         self._storage_space = None
         self._storage_type = None
         self.discriminator = None
@@ -80,8 +77,6 @@ class DescribeDBInstancePriceDetailRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
-        if shard_number is not None:
-            self.shard_number = shard_number
         if storage_space is not None:
             self.storage_space = storage_space
         if storage_type is not None:
@@ -191,27 +186,6 @@ class DescribeDBInstancePriceDetailRequest(object):
         """
 
         self._period_unit = period_unit
-
-    @property
-    def shard_number(self):
-        """Gets the shard_number of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
-
-
-        :return: The shard_number of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._shard_number
-
-    @shard_number.setter
-    def shard_number(self, shard_number):
-        """Sets the shard_number of this DescribeDBInstancePriceDetailRequest.
-
-
-        :param shard_number: The shard_number of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._shard_number = shard_number
 
     @property
     def storage_space(self):
