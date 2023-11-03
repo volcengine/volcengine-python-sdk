@@ -58,8 +58,7 @@ class SetLoadBalancerRenewalRequest(object):
         self._renew_type = None
         self.discriminator = None
 
-        if load_balancer_id is not None:
-            self.load_balancer_id = load_balancer_id
+        self.load_balancer_id = load_balancer_id
         if remain_renew_times is not None:
             self.remain_renew_times = remain_renew_times
         if renew_period_times is not None:
@@ -84,6 +83,8 @@ class SetLoadBalancerRenewalRequest(object):
         :param load_balancer_id: The load_balancer_id of this SetLoadBalancerRenewalRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and load_balancer_id is None:
+            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 

@@ -34,6 +34,7 @@ class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'bandwidth_package_id': 'str',
         'billing_type': 'int',
         'isp': 'str',
         'network_type': 'str'
@@ -41,18 +42,20 @@ class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput(object):
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'bandwidth_package_id': 'BandwidthPackageId',
         'billing_type': 'BillingType',
         'isp': 'ISP',
         'network_type': 'NetworkType'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, isp=None, network_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, isp=None, network_type=None, _configuration=None):  # noqa: E501
         """Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._bandwidth_package_id = None
         self._billing_type = None
         self._isp = None
         self._network_type = None
@@ -60,6 +63,8 @@ class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput(object):
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if bandwidth_package_id is not None:
+            self.bandwidth_package_id = bandwidth_package_id
         if billing_type is not None:
             self.billing_type = billing_type
         if isp is not None:
@@ -87,6 +92,27 @@ class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def bandwidth_package_id(self):
+        """Gets the bandwidth_package_id of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The bandwidth_package_id of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bandwidth_package_id
+
+    @bandwidth_package_id.setter
+    def bandwidth_package_id(self, bandwidth_package_id):
+        """Sets the bandwidth_package_id of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.
+
+
+        :param bandwidth_package_id: The bandwidth_package_id of this Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bandwidth_package_id = bandwidth_package_id
 
     @property
     def billing_type(self):

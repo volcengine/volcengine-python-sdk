@@ -35,6 +35,7 @@ class ConvertLoadBalancerBillingTypeRequest(object):
     swagger_types = {
         'load_balancer_billing_type': 'int',
         'load_balancer_id': 'str',
+        'load_balancer_spec': 'str',
         'period': 'int',
         'period_unit': 'str'
     }
@@ -42,11 +43,12 @@ class ConvertLoadBalancerBillingTypeRequest(object):
     attribute_map = {
         'load_balancer_billing_type': 'LoadBalancerBillingType',
         'load_balancer_id': 'LoadBalancerId',
+        'load_balancer_spec': 'LoadBalancerSpec',
         'period': 'Period',
         'period_unit': 'PeriodUnit'
     }
 
-    def __init__(self, load_balancer_billing_type=None, load_balancer_id=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_spec=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
         """ConvertLoadBalancerBillingTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,12 +56,15 @@ class ConvertLoadBalancerBillingTypeRequest(object):
 
         self._load_balancer_billing_type = None
         self._load_balancer_id = None
+        self._load_balancer_spec = None
         self._period = None
         self._period_unit = None
         self.discriminator = None
 
         self.load_balancer_billing_type = load_balancer_billing_type
         self.load_balancer_id = load_balancer_id
+        if load_balancer_spec is not None:
+            self.load_balancer_spec = load_balancer_spec
         if period is not None:
             self.period = period
         if period_unit is not None:
@@ -110,6 +115,27 @@ class ConvertLoadBalancerBillingTypeRequest(object):
             raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
+
+    @property
+    def load_balancer_spec(self):
+        """Gets the load_balancer_spec of this ConvertLoadBalancerBillingTypeRequest.  # noqa: E501
+
+
+        :return: The load_balancer_spec of this ConvertLoadBalancerBillingTypeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._load_balancer_spec
+
+    @load_balancer_spec.setter
+    def load_balancer_spec(self, load_balancer_spec):
+        """Sets the load_balancer_spec of this ConvertLoadBalancerBillingTypeRequest.
+
+
+        :param load_balancer_spec: The load_balancer_spec of this ConvertLoadBalancerBillingTypeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._load_balancer_spec = load_balancer_spec
 
     @property
     def period(self):

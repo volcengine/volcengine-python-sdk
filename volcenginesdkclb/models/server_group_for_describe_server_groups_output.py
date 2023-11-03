@@ -33,34 +33,42 @@ class ServerGroupForDescribeServerGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_ip_version': 'str',
         'create_time': 'str',
         'description': 'str',
         'server_group_id': 'str',
         'server_group_name': 'str',
+        'type': 'str',
         'update_time': 'str'
     }
 
     attribute_map = {
+        'address_ip_version': 'AddressIpVersion',
         'create_time': 'CreateTime',
         'description': 'Description',
         'server_group_id': 'ServerGroupId',
         'server_group_name': 'ServerGroupName',
+        'type': 'Type',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, server_group_id=None, server_group_name=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, create_time=None, description=None, server_group_id=None, server_group_name=None, type=None, update_time=None, _configuration=None):  # noqa: E501
         """ServerGroupForDescribeServerGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address_ip_version = None
         self._create_time = None
         self._description = None
         self._server_group_id = None
         self._server_group_name = None
+        self._type = None
         self._update_time = None
         self.discriminator = None
 
+        if address_ip_version is not None:
+            self.address_ip_version = address_ip_version
         if create_time is not None:
             self.create_time = create_time
         if description is not None:
@@ -69,8 +77,31 @@ class ServerGroupForDescribeServerGroupsOutput(object):
             self.server_group_id = server_group_id
         if server_group_name is not None:
             self.server_group_name = server_group_name
+        if type is not None:
+            self.type = type
         if update_time is not None:
             self.update_time = update_time
+
+    @property
+    def address_ip_version(self):
+        """Gets the address_ip_version of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The address_ip_version of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_ip_version
+
+    @address_ip_version.setter
+    def address_ip_version(self, address_ip_version):
+        """Sets the address_ip_version of this ServerGroupForDescribeServerGroupsOutput.
+
+
+        :param address_ip_version: The address_ip_version of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._address_ip_version = address_ip_version
 
     @property
     def create_time(self):
@@ -155,6 +186,27 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         """
 
         self._server_group_name = server_group_name
+
+    @property
+    def type(self):
+        """Gets the type of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The type of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ServerGroupForDescribeServerGroupsOutput.
+
+
+        :param type: The type of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def update_time(self):

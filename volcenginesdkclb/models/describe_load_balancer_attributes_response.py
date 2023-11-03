@@ -34,7 +34,9 @@ class DescribeLoadBalancerAttributesResponse(object):
     """
     swagger_types = {
         'access_log': 'AccessLogForDescribeLoadBalancerAttributesOutput',
+        'account_id': 'str',
         'address_ip_version': 'str',
+        'allowed_ports': 'list[str]',
         'business_status': 'str',
         'create_time': 'str',
         'deleted_time': 'str',
@@ -75,7 +77,9 @@ class DescribeLoadBalancerAttributesResponse(object):
 
     attribute_map = {
         'access_log': 'AccessLog',
+        'account_id': 'AccountId',
         'address_ip_version': 'AddressIpVersion',
+        'allowed_ports': 'AllowedPorts',
         'business_status': 'BusinessStatus',
         'create_time': 'CreateTime',
         'deleted_time': 'DeletedTime',
@@ -114,14 +118,16 @@ class DescribeLoadBalancerAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, eni_ipv6_address=None, expired_time=None, ipv6_address_bandwidth=None, ipv6_eip_id=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, account_id=None, address_ip_version=None, allowed_ports=None, business_status=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, eni_ipv6_address=None, expired_time=None, ipv6_address_bandwidth=None, ipv6_eip_id=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._access_log = None
+        self._account_id = None
         self._address_ip_version = None
+        self._allowed_ports = None
         self._business_status = None
         self._create_time = None
         self._deleted_time = None
@@ -162,8 +168,12 @@ class DescribeLoadBalancerAttributesResponse(object):
 
         if access_log is not None:
             self.access_log = access_log
+        if account_id is not None:
+            self.account_id = account_id
         if address_ip_version is not None:
             self.address_ip_version = address_ip_version
+        if allowed_ports is not None:
+            self.allowed_ports = allowed_ports
         if business_status is not None:
             self.business_status = business_status
         if create_time is not None:
@@ -259,6 +269,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._access_log = access_log
 
     @property
+    def account_id(self):
+        """Gets the account_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The account_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param account_id: The account_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
+
+    @property
     def address_ip_version(self):
         """Gets the address_ip_version of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
 
@@ -278,6 +309,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._address_ip_version = address_ip_version
+
+    @property
+    def allowed_ports(self):
+        """Gets the allowed_ports of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The allowed_ports of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allowed_ports
+
+    @allowed_ports.setter
+    def allowed_ports(self, allowed_ports):
+        """Sets the allowed_ports of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param allowed_ports: The allowed_ports of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allowed_ports = allowed_ports
 
     @property
     def business_status(self):

@@ -37,7 +37,8 @@ class DescribeServerGroupsRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'server_group_ids': 'list[str]',
-        'server_group_name': 'str'
+        'server_group_name': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeServerGroupsRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'server_group_ids': 'ServerGroupIds',
-        'server_group_name': 'ServerGroupName'
+        'server_group_name': 'ServerGroupName',
+        'type': 'Type'
     }
 
-    def __init__(self, load_balancer_id=None, page_number=None, page_size=None, server_group_ids=None, server_group_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, load_balancer_id=None, page_number=None, page_size=None, server_group_ids=None, server_group_name=None, type=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeServerGroupsRequest(object):
         self._page_size = None
         self._server_group_ids = None
         self._server_group_name = None
+        self._type = None
         self.discriminator = None
 
         if load_balancer_id is not None:
@@ -71,6 +74,8 @@ class DescribeServerGroupsRequest(object):
             self.server_group_ids = server_group_ids
         if server_group_name is not None:
             self.server_group_name = server_group_name
+        if type is not None:
+            self.type = type
 
     @property
     def load_balancer_id(self):
@@ -176,6 +181,27 @@ class DescribeServerGroupsRequest(object):
         """
 
         self._server_group_name = server_group_name
+
+    @property
+    def type(self):
+        """Gets the type of this DescribeServerGroupsRequest.  # noqa: E501
+
+
+        :return: The type of this DescribeServerGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this DescribeServerGroupsRequest.
+
+
+        :param type: The type of this DescribeServerGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

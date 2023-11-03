@@ -48,8 +48,11 @@ class DescribeListenerAttributesResponse(object):
         'listener_id': 'str',
         'listener_name': 'str',
         'load_balancer_id': 'str',
+        'persistence_timeout': 'int',
+        'persistence_type': 'str',
         'port': 'int',
         'protocol': 'str',
+        'proxy_protocol_type': 'str',
         'request_id': 'str',
         'scheduler': 'str',
         'server_group_id': 'str',
@@ -73,8 +76,11 @@ class DescribeListenerAttributesResponse(object):
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
         'load_balancer_id': 'LoadBalancerId',
+        'persistence_timeout': 'PersistenceTimeout',
+        'persistence_type': 'PersistenceType',
         'port': 'Port',
         'protocol': 'Protocol',
+        'proxy_protocol_type': 'ProxyProtocolType',
         'request_id': 'RequestId',
         'scheduler': 'Scheduler',
         'server_group_id': 'ServerGroupId',
@@ -82,7 +88,7 @@ class DescribeListenerAttributesResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, create_time=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_id=None, listener_name=None, load_balancer_id=None, port=None, protocol=None, request_id=None, scheduler=None, server_group_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, create_time=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_id=None, listener_name=None, load_balancer_id=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, request_id=None, scheduler=None, server_group_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeListenerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,8 +109,11 @@ class DescribeListenerAttributesResponse(object):
         self._listener_id = None
         self._listener_name = None
         self._load_balancer_id = None
+        self._persistence_timeout = None
+        self._persistence_type = None
         self._port = None
         self._protocol = None
+        self._proxy_protocol_type = None
         self._request_id = None
         self._scheduler = None
         self._server_group_id = None
@@ -142,10 +151,16 @@ class DescribeListenerAttributesResponse(object):
             self.listener_name = listener_name
         if load_balancer_id is not None:
             self.load_balancer_id = load_balancer_id
+        if persistence_timeout is not None:
+            self.persistence_timeout = persistence_timeout
+        if persistence_type is not None:
+            self.persistence_type = persistence_type
         if port is not None:
             self.port = port
         if protocol is not None:
             self.protocol = protocol
+        if proxy_protocol_type is not None:
+            self.proxy_protocol_type = proxy_protocol_type
         if request_id is not None:
             self.request_id = request_id
         if scheduler is not None:
@@ -473,6 +488,48 @@ class DescribeListenerAttributesResponse(object):
         self._load_balancer_id = load_balancer_id
 
     @property
+    def persistence_timeout(self):
+        """Gets the persistence_timeout of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The persistence_timeout of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._persistence_timeout
+
+    @persistence_timeout.setter
+    def persistence_timeout(self, persistence_timeout):
+        """Sets the persistence_timeout of this DescribeListenerAttributesResponse.
+
+
+        :param persistence_timeout: The persistence_timeout of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._persistence_timeout = persistence_timeout
+
+    @property
+    def persistence_type(self):
+        """Gets the persistence_type of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The persistence_type of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._persistence_type
+
+    @persistence_type.setter
+    def persistence_type(self, persistence_type):
+        """Sets the persistence_type of this DescribeListenerAttributesResponse.
+
+
+        :param persistence_type: The persistence_type of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._persistence_type = persistence_type
+
+    @property
     def port(self):
         """Gets the port of this DescribeListenerAttributesResponse.  # noqa: E501
 
@@ -513,6 +570,27 @@ class DescribeListenerAttributesResponse(object):
         """
 
         self._protocol = protocol
+
+    @property
+    def proxy_protocol_type(self):
+        """Gets the proxy_protocol_type of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The proxy_protocol_type of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_protocol_type
+
+    @proxy_protocol_type.setter
+    def proxy_protocol_type(self, proxy_protocol_type):
+        """Sets the proxy_protocol_type of this DescribeListenerAttributesResponse.
+
+
+        :param proxy_protocol_type: The proxy_protocol_type of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._proxy_protocol_type = proxy_protocol_type
 
     @property
     def request_id(self):

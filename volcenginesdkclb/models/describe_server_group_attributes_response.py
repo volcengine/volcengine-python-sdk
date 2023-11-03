@@ -33,31 +33,36 @@ class DescribeServerGroupAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_ip_version': 'str',
         'description': 'str',
         'listeners': 'list[str]',
         'load_balancer_id': 'str',
         'request_id': 'str',
         'server_group_id': 'str',
         'server_group_name': 'str',
-        'servers': 'list[ServerForDescribeServerGroupAttributesOutput]'
+        'servers': 'list[ServerForDescribeServerGroupAttributesOutput]',
+        'type': 'str'
     }
 
     attribute_map = {
+        'address_ip_version': 'AddressIpVersion',
         'description': 'Description',
         'listeners': 'Listeners',
         'load_balancer_id': 'LoadBalancerId',
         'request_id': 'RequestId',
         'server_group_id': 'ServerGroupId',
         'server_group_name': 'ServerGroupName',
-        'servers': 'Servers'
+        'servers': 'Servers',
+        'type': 'Type'
     }
 
-    def __init__(self, description=None, listeners=None, load_balancer_id=None, request_id=None, server_group_id=None, server_group_name=None, servers=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, description=None, listeners=None, load_balancer_id=None, request_id=None, server_group_id=None, server_group_name=None, servers=None, type=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address_ip_version = None
         self._description = None
         self._listeners = None
         self._load_balancer_id = None
@@ -65,8 +70,11 @@ class DescribeServerGroupAttributesResponse(object):
         self._server_group_id = None
         self._server_group_name = None
         self._servers = None
+        self._type = None
         self.discriminator = None
 
+        if address_ip_version is not None:
+            self.address_ip_version = address_ip_version
         if description is not None:
             self.description = description
         if listeners is not None:
@@ -81,6 +89,29 @@ class DescribeServerGroupAttributesResponse(object):
             self.server_group_name = server_group_name
         if servers is not None:
             self.servers = servers
+        if type is not None:
+            self.type = type
+
+    @property
+    def address_ip_version(self):
+        """Gets the address_ip_version of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The address_ip_version of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_ip_version
+
+    @address_ip_version.setter
+    def address_ip_version(self, address_ip_version):
+        """Sets the address_ip_version of this DescribeServerGroupAttributesResponse.
+
+
+        :param address_ip_version: The address_ip_version of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._address_ip_version = address_ip_version
 
     @property
     def description(self):
@@ -228,6 +259,27 @@ class DescribeServerGroupAttributesResponse(object):
         """
 
         self._servers = servers
+
+    @property
+    def type(self):
+        """Gets the type of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The type of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this DescribeServerGroupAttributesResponse.
+
+
+        :param type: The type of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

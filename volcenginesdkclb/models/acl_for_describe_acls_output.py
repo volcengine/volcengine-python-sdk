@@ -41,6 +41,7 @@ class AclForDescribeAclsOutput(object):
         'listeners': 'list[str]',
         'project_name': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeAclsOutput]',
         'update_time': 'str'
     }
 
@@ -53,10 +54,11 @@ class AclForDescribeAclsOutput(object):
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_entry_count=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_entry_count=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, project_name=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """AclForDescribeAclsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class AclForDescribeAclsOutput(object):
         self._listeners = None
         self._project_name = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class AclForDescribeAclsOutput(object):
             self.project_name = project_name
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -259,6 +264,27 @@ class AclForDescribeAclsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this AclForDescribeAclsOutput.  # noqa: E501
+
+
+        :return: The tags of this AclForDescribeAclsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeAclsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this AclForDescribeAclsOutput.
+
+
+        :param tags: The tags of this AclForDescribeAclsOutput.  # noqa: E501
+        :type: list[TagForDescribeAclsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):
