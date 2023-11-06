@@ -33,6 +33,7 @@ class CreateServerGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_ip_version': 'str',
         'description': 'str',
         'load_balancer_id': 'str',
         'server_group_name': 'str',
@@ -41,6 +42,7 @@ class CreateServerGroupRequest(object):
     }
 
     attribute_map = {
+        'address_ip_version': 'AddressIpVersion',
         'description': 'Description',
         'load_balancer_id': 'LoadBalancerId',
         'server_group_name': 'ServerGroupName',
@@ -48,12 +50,13 @@ class CreateServerGroupRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, description=None, load_balancer_id=None, server_group_name=None, servers=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, description=None, load_balancer_id=None, server_group_name=None, servers=None, type=None, _configuration=None):  # noqa: E501
         """CreateServerGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address_ip_version = None
         self._description = None
         self._load_balancer_id = None
         self._server_group_name = None
@@ -61,6 +64,8 @@ class CreateServerGroupRequest(object):
         self._type = None
         self.discriminator = None
 
+        if address_ip_version is not None:
+            self.address_ip_version = address_ip_version
         if description is not None:
             self.description = description
         self.load_balancer_id = load_balancer_id
@@ -70,6 +75,27 @@ class CreateServerGroupRequest(object):
             self.servers = servers
         if type is not None:
             self.type = type
+
+    @property
+    def address_ip_version(self):
+        """Gets the address_ip_version of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The address_ip_version of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_ip_version
+
+    @address_ip_version.setter
+    def address_ip_version(self, address_ip_version):
+        """Sets the address_ip_version of this CreateServerGroupRequest.
+
+
+        :param address_ip_version: The address_ip_version of this CreateServerGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._address_ip_version = address_ip_version
 
     @property
     def description(self):

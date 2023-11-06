@@ -41,6 +41,8 @@ class HealthCheckForModifyListenerAttributesInput(object):
         'method': 'str',
         'timeout': 'int',
         'uri': 'str',
+        'udp_expect': 'str',
+        'udp_request': 'str',
         'unhealthy_threshold': 'int'
     }
 
@@ -53,10 +55,12 @@ class HealthCheckForModifyListenerAttributesInput(object):
         'method': 'Method',
         'timeout': 'Timeout',
         'uri': 'URI',
+        'udp_expect': 'UdpExpect',
+        'udp_request': 'UdpRequest',
         'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, uri=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, uri=None, udp_expect=None, udp_request=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckForModifyListenerAttributesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +74,8 @@ class HealthCheckForModifyListenerAttributesInput(object):
         self._method = None
         self._timeout = None
         self._uri = None
+        self._udp_expect = None
+        self._udp_request = None
         self._unhealthy_threshold = None
         self.discriminator = None
 
@@ -89,6 +95,10 @@ class HealthCheckForModifyListenerAttributesInput(object):
             self.timeout = timeout
         if uri is not None:
             self.uri = uri
+        if udp_expect is not None:
+            self.udp_expect = udp_expect
+        if udp_request is not None:
+            self.udp_request = udp_request
         if unhealthy_threshold is not None:
             self.unhealthy_threshold = unhealthy_threshold
 
@@ -259,6 +269,48 @@ class HealthCheckForModifyListenerAttributesInput(object):
         """
 
         self._uri = uri
+
+    @property
+    def udp_expect(self):
+        """Gets the udp_expect of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+
+
+        :return: The udp_expect of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._udp_expect
+
+    @udp_expect.setter
+    def udp_expect(self, udp_expect):
+        """Sets the udp_expect of this HealthCheckForModifyListenerAttributesInput.
+
+
+        :param udp_expect: The udp_expect of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._udp_expect = udp_expect
+
+    @property
+    def udp_request(self):
+        """Gets the udp_request of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+
+
+        :return: The udp_request of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._udp_request
+
+    @udp_request.setter
+    def udp_request(self, udp_request):
+        """Sets the udp_request of this HealthCheckForModifyListenerAttributesInput.
+
+
+        :param udp_request: The udp_request of this HealthCheckForModifyListenerAttributesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._udp_request = udp_request
 
     @property
     def unhealthy_threshold(self):

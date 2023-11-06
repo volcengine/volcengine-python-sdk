@@ -38,10 +38,13 @@ class DescribeLoadBalancersRequest(object):
         'eni_address': 'str',
         'load_balancer_ids': 'list[str]',
         'load_balancer_name': 'str',
+        'master_zone_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'status': 'str',
         'tag_filters': 'list[TagFilterForDescribeLoadBalancersInput]',
+        'type': 'str',
         'vpc_id': 'str'
     }
 
@@ -51,14 +54,17 @@ class DescribeLoadBalancersRequest(object):
         'eni_address': 'EniAddress',
         'load_balancer_ids': 'LoadBalancerIds',
         'load_balancer_name': 'LoadBalancerName',
+        'master_zone_id': 'MasterZoneId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'status': 'Status',
         'tag_filters': 'TagFilters',
+        'type': 'Type',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, address_ip_version=None, eip_address=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, eip_address=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, master_zone_id=None, page_number=None, page_size=None, project_name=None, status=None, tag_filters=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,10 +75,13 @@ class DescribeLoadBalancersRequest(object):
         self._eni_address = None
         self._load_balancer_ids = None
         self._load_balancer_name = None
+        self._master_zone_id = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._status = None
         self._tag_filters = None
+        self._type = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -86,14 +95,20 @@ class DescribeLoadBalancersRequest(object):
             self.load_balancer_ids = load_balancer_ids
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
+        if master_zone_id is not None:
+            self.master_zone_id = master_zone_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if status is not None:
+            self.status = status
         if tag_filters is not None:
             self.tag_filters = tag_filters
+        if type is not None:
+            self.type = type
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -203,6 +218,27 @@ class DescribeLoadBalancersRequest(object):
         self._load_balancer_name = load_balancer_name
 
     @property
+    def master_zone_id(self):
+        """Gets the master_zone_id of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The master_zone_id of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_zone_id
+
+    @master_zone_id.setter
+    def master_zone_id(self, master_zone_id):
+        """Sets the master_zone_id of this DescribeLoadBalancersRequest.
+
+
+        :param master_zone_id: The master_zone_id of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._master_zone_id = master_zone_id
+
+    @property
     def page_number(self):
         """Gets the page_number of this DescribeLoadBalancersRequest.  # noqa: E501
 
@@ -266,6 +302,27 @@ class DescribeLoadBalancersRequest(object):
         self._project_name = project_name
 
     @property
+    def status(self):
+        """Gets the status of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The status of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this DescribeLoadBalancersRequest.
+
+
+        :param status: The status of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
+
+    @property
     def tag_filters(self):
         """Gets the tag_filters of this DescribeLoadBalancersRequest.  # noqa: E501
 
@@ -285,6 +342,27 @@ class DescribeLoadBalancersRequest(object):
         """
 
         self._tag_filters = tag_filters
+
+    @property
+    def type(self):
+        """Gets the type of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The type of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this DescribeLoadBalancersRequest.
+
+
+        :param type: The type of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def vpc_id(self):

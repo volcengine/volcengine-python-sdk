@@ -37,6 +37,8 @@ class DescribeCertificatesResponse(object):
         'page_number': 'int',
         'page_size': 'int',
         'request_id': 'str',
+        'service_managed': 'bool',
+        'tags': 'list[TagForDescribeCertificatesOutput]',
         'total_count': 'int'
     }
 
@@ -45,10 +47,12 @@ class DescribeCertificatesResponse(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'request_id': 'RequestId',
+        'service_managed': 'ServiceManaged',
+        'tags': 'Tags',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, certificates=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificates=None, page_number=None, page_size=None, request_id=None, service_managed=None, tags=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeCertificatesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +62,8 @@ class DescribeCertificatesResponse(object):
         self._page_number = None
         self._page_size = None
         self._request_id = None
+        self._service_managed = None
+        self._tags = None
         self._total_count = None
         self.discriminator = None
 
@@ -69,6 +75,10 @@ class DescribeCertificatesResponse(object):
             self.page_size = page_size
         if request_id is not None:
             self.request_id = request_id
+        if service_managed is not None:
+            self.service_managed = service_managed
+        if tags is not None:
+            self.tags = tags
         if total_count is not None:
             self.total_count = total_count
 
@@ -155,6 +165,48 @@ class DescribeCertificatesResponse(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def service_managed(self):
+        """Gets the service_managed of this DescribeCertificatesResponse.  # noqa: E501
+
+
+        :return: The service_managed of this DescribeCertificatesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this DescribeCertificatesResponse.
+
+
+        :param service_managed: The service_managed of this DescribeCertificatesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._service_managed = service_managed
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeCertificatesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeCertificatesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeCertificatesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeCertificatesResponse.
+
+
+        :param tags: The tags of this DescribeCertificatesResponse.  # noqa: E501
+        :type: list[TagForDescribeCertificatesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def total_count(self):

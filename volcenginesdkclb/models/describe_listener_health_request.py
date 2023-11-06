@@ -34,7 +34,7 @@ class DescribeListenerHealthRequest(object):
     """
     swagger_types = {
         'listener_id': 'str',
-        'only_un_healthy': 'str',
+        'only_un_healthy': 'bool',
         'page_number': 'int',
         'page_size': 'int'
     }
@@ -95,7 +95,7 @@ class DescribeListenerHealthRequest(object):
 
 
         :return: The only_un_healthy of this DescribeListenerHealthRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._only_un_healthy
 
@@ -105,7 +105,7 @@ class DescribeListenerHealthRequest(object):
 
 
         :param only_un_healthy: The only_un_healthy of this DescribeListenerHealthRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._only_un_healthy = only_un_healthy
