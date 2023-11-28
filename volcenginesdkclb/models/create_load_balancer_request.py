@@ -128,7 +128,8 @@ class CreateLoadBalancerRequest(object):
             self.load_balancer_billing_type = load_balancer_billing_type
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
-        self.load_balancer_spec = load_balancer_spec
+        if load_balancer_spec is not None:
+            self.load_balancer_spec = load_balancer_spec
         if master_zone_id is not None:
             self.master_zone_id = master_zone_id
         if modification_protection_reason is not None:
@@ -339,8 +340,6 @@ class CreateLoadBalancerRequest(object):
         :param load_balancer_spec: The load_balancer_spec of this CreateLoadBalancerRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and load_balancer_spec is None:
-            raise ValueError("Invalid value for `load_balancer_spec`, must not be `None`")  # noqa: E501
 
         self._load_balancer_spec = load_balancer_spec
 
