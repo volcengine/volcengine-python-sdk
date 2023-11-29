@@ -33,6 +33,7 @@ class DescribeSubnetsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'request_id': 'str',
@@ -41,6 +42,7 @@ class DescribeSubnetsResponse(object):
     }
 
     attribute_map = {
+        'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'request_id': 'RequestId',
@@ -48,12 +50,13 @@ class DescribeSubnetsResponse(object):
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, page_number=None, page_size=None, request_id=None, subnets=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, next_token=None, page_number=None, page_size=None, request_id=None, subnets=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeSubnetsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._next_token = None
         self._page_number = None
         self._page_size = None
         self._request_id = None
@@ -61,6 +64,8 @@ class DescribeSubnetsResponse(object):
         self._total_count = None
         self.discriminator = None
 
+        if next_token is not None:
+            self.next_token = next_token
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -71,6 +76,27 @@ class DescribeSubnetsResponse(object):
             self.subnets = subnets
         if total_count is not None:
             self.total_count = total_count
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this DescribeSubnetsResponse.  # noqa: E501
+
+
+        :return: The next_token of this DescribeSubnetsResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this DescribeSubnetsResponse.
+
+
+        :param next_token: The next_token of this DescribeSubnetsResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def page_number(self):

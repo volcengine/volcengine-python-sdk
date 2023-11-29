@@ -34,6 +34,7 @@ class DescribeNetworkAclsResponse(object):
     """
     swagger_types = {
         'network_acls': 'list[NetworkAclForDescribeNetworkAclsOutput]',
+        'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'request_id': 'str',
@@ -42,19 +43,21 @@ class DescribeNetworkAclsResponse(object):
 
     attribute_map = {
         'network_acls': 'NetworkAcls',
+        'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'request_id': 'RequestId',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, network_acls=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, network_acls=None, next_token=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeNetworkAclsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._network_acls = None
+        self._next_token = None
         self._page_number = None
         self._page_size = None
         self._request_id = None
@@ -63,6 +66,8 @@ class DescribeNetworkAclsResponse(object):
 
         if network_acls is not None:
             self.network_acls = network_acls
+        if next_token is not None:
+            self.next_token = next_token
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -92,6 +97,27 @@ class DescribeNetworkAclsResponse(object):
         """
 
         self._network_acls = network_acls
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this DescribeNetworkAclsResponse.  # noqa: E501
+
+
+        :return: The next_token of this DescribeNetworkAclsResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this DescribeNetworkAclsResponse.
+
+
+        :param next_token: The next_token of this DescribeNetworkAclsResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def page_number(self):
