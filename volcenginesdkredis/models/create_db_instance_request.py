@@ -36,9 +36,11 @@ class CreateDBInstanceRequest(object):
         'auto_renew': 'bool',
         'charge_type': 'str',
         'client_token': 'str',
+        'configure_nodes': 'list[ConfigureNodeForCreateDBInstanceInput]',
         'deletion_protection': 'str',
         'engine_version': 'str',
         'instance_name': 'str',
+        'multi_az': 'str',
         'node_number': 'int',
         'password': 'str',
         'port': 'int',
@@ -49,6 +51,7 @@ class CreateDBInstanceRequest(object):
         'shard_number': 'int',
         'sharded_cluster': 'int',
         'subnet_id': 'str',
+        'tags': 'list[TagForCreateDBInstanceInput]',
         'vpc_id': 'str',
         'zone_ids': 'list[str]'
     }
@@ -57,9 +60,11 @@ class CreateDBInstanceRequest(object):
         'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
         'client_token': 'ClientToken',
+        'configure_nodes': 'ConfigureNodes',
         'deletion_protection': 'DeletionProtection',
         'engine_version': 'EngineVersion',
         'instance_name': 'InstanceName',
+        'multi_az': 'MultiAZ',
         'node_number': 'NodeNumber',
         'password': 'Password',
         'port': 'Port',
@@ -70,11 +75,12 @@ class CreateDBInstanceRequest(object):
         'shard_number': 'ShardNumber',
         'sharded_cluster': 'ShardedCluster',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'vpc_id': 'VpcId',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, client_token=None, deletion_protection=None, engine_version=None, instance_name=None, node_number=None, password=None, port=None, project_name=None, purchase_months=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, subnet_id=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, client_token=None, configure_nodes=None, deletion_protection=None, engine_version=None, instance_name=None, multi_az=None, node_number=None, password=None, port=None, project_name=None, purchase_months=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, subnet_id=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,9 +89,11 @@ class CreateDBInstanceRequest(object):
         self._auto_renew = None
         self._charge_type = None
         self._client_token = None
+        self._configure_nodes = None
         self._deletion_protection = None
         self._engine_version = None
         self._instance_name = None
+        self._multi_az = None
         self._node_number = None
         self._password = None
         self._port = None
@@ -96,6 +104,7 @@ class CreateDBInstanceRequest(object):
         self._shard_number = None
         self._sharded_cluster = None
         self._subnet_id = None
+        self._tags = None
         self._vpc_id = None
         self._zone_ids = None
         self.discriminator = None
@@ -106,15 +115,16 @@ class CreateDBInstanceRequest(object):
             self.charge_type = charge_type
         if client_token is not None:
             self.client_token = client_token
+        if configure_nodes is not None:
+            self.configure_nodes = configure_nodes
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
         self.engine_version = engine_version
         if instance_name is not None:
             self.instance_name = instance_name
-        if node_number is not None:
-            self.node_number = node_number
-        if password is not None:
-            self.password = password
+        self.multi_az = multi_az
+        self.node_number = node_number
+        self.password = password
         if port is not None:
             self.port = port
         if project_name is not None:
@@ -125,12 +135,11 @@ class CreateDBInstanceRequest(object):
         self.shard_capacity = shard_capacity
         if shard_number is not None:
             self.shard_number = shard_number
-        if sharded_cluster is not None:
-            self.sharded_cluster = sharded_cluster
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
+        self.sharded_cluster = sharded_cluster
+        self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
+        self.vpc_id = vpc_id
         if zone_ids is not None:
             self.zone_ids = zone_ids
 
@@ -198,6 +207,27 @@ class CreateDBInstanceRequest(object):
         self._client_token = client_token
 
     @property
+    def configure_nodes(self):
+        """Gets the configure_nodes of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The configure_nodes of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: list[ConfigureNodeForCreateDBInstanceInput]
+        """
+        return self._configure_nodes
+
+    @configure_nodes.setter
+    def configure_nodes(self, configure_nodes):
+        """Sets the configure_nodes of this CreateDBInstanceRequest.
+
+
+        :param configure_nodes: The configure_nodes of this CreateDBInstanceRequest.  # noqa: E501
+        :type: list[ConfigureNodeForCreateDBInstanceInput]
+        """
+
+        self._configure_nodes = configure_nodes
+
+    @property
     def deletion_protection(self):
         """Gets the deletion_protection of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -263,6 +293,29 @@ class CreateDBInstanceRequest(object):
         self._instance_name = instance_name
 
     @property
+    def multi_az(self):
+        """Gets the multi_az of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The multi_az of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_az
+
+    @multi_az.setter
+    def multi_az(self, multi_az):
+        """Sets the multi_az of this CreateDBInstanceRequest.
+
+
+        :param multi_az: The multi_az of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and multi_az is None:
+            raise ValueError("Invalid value for `multi_az`, must not be `None`")  # noqa: E501
+
+        self._multi_az = multi_az
+
+    @property
     def node_number(self):
         """Gets the node_number of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -280,6 +333,8 @@ class CreateDBInstanceRequest(object):
         :param node_number: The node_number of this CreateDBInstanceRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and node_number is None:
+            raise ValueError("Invalid value for `node_number`, must not be `None`")  # noqa: E501
 
         self._node_number = node_number
 
@@ -301,6 +356,8 @@ class CreateDBInstanceRequest(object):
         :param password: The password of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and password is None:
+            raise ValueError("Invalid value for `password`, must not be `None`")  # noqa: E501
 
         self._password = password
 
@@ -452,6 +509,8 @@ class CreateDBInstanceRequest(object):
         :param sharded_cluster: The sharded_cluster of this CreateDBInstanceRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and sharded_cluster is None:
+            raise ValueError("Invalid value for `sharded_cluster`, must not be `None`")  # noqa: E501
 
         self._sharded_cluster = sharded_cluster
 
@@ -473,8 +532,31 @@ class CreateDBInstanceRequest(object):
         :param subnet_id: The subnet_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: list[TagForCreateDBInstanceInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateDBInstanceRequest.
+
+
+        :param tags: The tags of this CreateDBInstanceRequest.  # noqa: E501
+        :type: list[TagForCreateDBInstanceInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):
@@ -494,6 +576,8 @@ class CreateDBInstanceRequest(object):
         :param vpc_id: The vpc_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 

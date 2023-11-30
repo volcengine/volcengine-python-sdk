@@ -36,6 +36,7 @@ class ModifyDBInstanceChargeTypeRequest(object):
         'auto_renew': 'bool',
         'charge_type': 'str',
         'client_token': 'str',
+        'instance_id': 'str',
         'instance_ids': 'list[str]',
         'purchase_months': 'int'
     }
@@ -44,11 +45,12 @@ class ModifyDBInstanceChargeTypeRequest(object):
         'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
         'client_token': 'ClientToken',
+        'instance_id': 'InstanceId',
         'instance_ids': 'InstanceIds',
         'purchase_months': 'PurchaseMonths'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, client_token=None, instance_ids=None, purchase_months=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, client_token=None, instance_id=None, instance_ids=None, purchase_months=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceChargeTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class ModifyDBInstanceChargeTypeRequest(object):
         self._auto_renew = None
         self._charge_type = None
         self._client_token = None
+        self._instance_id = None
         self._instance_ids = None
         self._purchase_months = None
         self.discriminator = None
@@ -66,6 +69,7 @@ class ModifyDBInstanceChargeTypeRequest(object):
         self.charge_type = charge_type
         if client_token is not None:
             self.client_token = client_token
+        self.instance_id = instance_id
         if instance_ids is not None:
             self.instance_ids = instance_ids
         if purchase_months is not None:
@@ -135,6 +139,29 @@ class ModifyDBInstanceChargeTypeRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this ModifyDBInstanceChargeTypeRequest.  # noqa: E501
+
+
+        :return: The instance_id of this ModifyDBInstanceChargeTypeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ModifyDBInstanceChargeTypeRequest.
+
+
+        :param instance_id: The instance_id of this ModifyDBInstanceChargeTypeRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def instance_ids(self):

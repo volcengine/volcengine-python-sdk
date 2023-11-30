@@ -43,7 +43,7 @@ class DescribeDBInstancesRequest(object):
         'region_id': 'str',
         'sharded_cluster': 'int',
         'status': 'str',
-        'tags': 'list[TagForDescribeDBInstancesInput]',
+        'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
@@ -59,12 +59,12 @@ class DescribeDBInstancesRequest(object):
         'region_id': 'RegionId',
         'sharded_cluster': 'ShardedCluster',
         'status': 'Status',
-        'tags': 'Tags',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, engine_version=None, instance_id=None, instance_name=None, page_number=None, page_size=None, project_name=None, region_id=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, engine_version=None, instance_id=None, instance_name=None, page_number=None, page_size=None, project_name=None, region_id=None, sharded_cluster=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,7 +80,7 @@ class DescribeDBInstancesRequest(object):
         self._region_id = None
         self._sharded_cluster = None
         self._status = None
-        self._tags = None
+        self._tag_filters = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
@@ -102,8 +102,8 @@ class DescribeDBInstancesRequest(object):
             self.sharded_cluster = sharded_cluster
         if status is not None:
             self.status = status
-        if tags is not None:
-            self.tags = tags
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
@@ -326,25 +326,25 @@ class DescribeDBInstancesRequest(object):
         self._status = status
 
     @property
-    def tags(self):
-        """Gets the tags of this DescribeDBInstancesRequest.  # noqa: E501
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
 
 
-        :return: The tags of this DescribeDBInstancesRequest.  # noqa: E501
-        :rtype: list[TagForDescribeDBInstancesInput]
+        :return: The tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeDBInstancesInput]
         """
-        return self._tags
+        return self._tag_filters
 
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this DescribeDBInstancesRequest.
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeDBInstancesRequest.
 
 
-        :param tags: The tags of this DescribeDBInstancesRequest.  # noqa: E501
-        :type: list[TagForDescribeDBInstancesInput]
+        :param tag_filters: The tag_filters of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeDBInstancesInput]
         """
 
-        self._tags = tags
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):

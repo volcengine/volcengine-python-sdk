@@ -34,30 +34,26 @@ class DeleteDBEndpointPublicAddressRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
-        'eip_id': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
-        'eip_id': 'EipId',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, client_token=None, eip_id=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_id=None, _configuration=None):  # noqa: E501
         """DeleteDBEndpointPublicAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
-        self._eip_id = None
         self._instance_id = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
-        self.eip_id = eip_id
         self.instance_id = instance_id
 
     @property
@@ -80,29 +76,6 @@ class DeleteDBEndpointPublicAddressRequest(object):
         """
 
         self._client_token = client_token
-
-    @property
-    def eip_id(self):
-        """Gets the eip_id of this DeleteDBEndpointPublicAddressRequest.  # noqa: E501
-
-
-        :return: The eip_id of this DeleteDBEndpointPublicAddressRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._eip_id
-
-    @eip_id.setter
-    def eip_id(self, eip_id):
-        """Sets the eip_id of this DeleteDBEndpointPublicAddressRequest.
-
-
-        :param eip_id: The eip_id of this DeleteDBEndpointPublicAddressRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and eip_id is None:
-            raise ValueError("Invalid value for `eip_id`, must not be `None`")  # noqa: E501
-
-        self._eip_id = eip_id
 
     @property
     def instance_id(self):

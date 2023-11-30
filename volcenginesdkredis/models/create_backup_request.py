@@ -54,8 +54,7 @@ class CreateBackupRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
 
     @property
     def client_token(self):
@@ -96,6 +95,8 @@ class CreateBackupRequest(object):
         :param instance_id: The instance_id of this CreateBackupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

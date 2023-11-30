@@ -58,8 +58,7 @@ class ModifyDBInstanceVpcAuthModeRequest(object):
         if client_token is not None:
             self.client_token = client_token
         self.instance_id = instance_id
-        if vpc_auth_mode is not None:
-            self.vpc_auth_mode = vpc_auth_mode
+        self.vpc_auth_mode = vpc_auth_mode
 
     @property
     def client_token(self):
@@ -123,6 +122,8 @@ class ModifyDBInstanceVpcAuthModeRequest(object):
         :param vpc_auth_mode: The vpc_auth_mode of this ModifyDBInstanceVpcAuthModeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_auth_mode is None:
+            raise ValueError("Invalid value for `vpc_auth_mode`, must not be `None`")  # noqa: E501
 
         self._vpc_auth_mode = vpc_auth_mode
 

@@ -60,9 +60,12 @@ class ServerForModifyServerGroupAttributesInput(object):
 
         if description is not None:
             self.description = description
-        self.port = port
-        self.server_id = server_id
-        self.weight = weight
+        if port is not None:
+            self.port = port
+        if server_id is not None:
+            self.server_id = server_id
+        if weight is not None:
+            self.weight = weight
 
     @property
     def description(self):
@@ -103,8 +106,6 @@ class ServerForModifyServerGroupAttributesInput(object):
         :param port: The port of this ServerForModifyServerGroupAttributesInput.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and port is None:
-            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
 
         self._port = port
 
@@ -126,8 +127,6 @@ class ServerForModifyServerGroupAttributesInput(object):
         :param server_id: The server_id of this ServerForModifyServerGroupAttributesInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and server_id is None:
-            raise ValueError("Invalid value for `server_id`, must not be `None`")  # noqa: E501
 
         self._server_id = server_id
 
@@ -149,8 +148,6 @@ class ServerForModifyServerGroupAttributesInput(object):
         :param weight: The weight of this ServerForModifyServerGroupAttributesInput.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and weight is None:
-            raise ValueError("Invalid value for `weight`, must not be `None`")  # noqa: E501
 
         self._weight = weight
 
