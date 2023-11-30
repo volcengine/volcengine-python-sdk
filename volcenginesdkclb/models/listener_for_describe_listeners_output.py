@@ -50,6 +50,7 @@ class ListenerForDescribeListenersOutput(object):
         'port': 'int',
         'protocol': 'str',
         'proxy_protocol_type': 'str',
+        'scheduler': 'str',
         'server_group_id': 'str',
         'status': 'str',
         'update_time': 'str'
@@ -73,12 +74,13 @@ class ListenerForDescribeListenersOutput(object):
         'port': 'Port',
         'protocol': 'Protocol',
         'proxy_protocol_type': 'ProxyProtocolType',
+        'scheduler': 'Scheduler',
         'server_group_id': 'ServerGroupId',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, create_time=None, enabled=None, health_check=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, server_group_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, create_time=None, enabled=None, health_check=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """ListenerForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,6 +103,7 @@ class ListenerForDescribeListenersOutput(object):
         self._port = None
         self._protocol = None
         self._proxy_protocol_type = None
+        self._scheduler = None
         self._server_group_id = None
         self._status = None
         self._update_time = None
@@ -140,6 +143,8 @@ class ListenerForDescribeListenersOutput(object):
             self.protocol = protocol
         if proxy_protocol_type is not None:
             self.proxy_protocol_type = proxy_protocol_type
+        if scheduler is not None:
+            self.scheduler = scheduler
         if server_group_id is not None:
             self.server_group_id = server_group_id
         if status is not None:
@@ -503,6 +508,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._proxy_protocol_type = proxy_protocol_type
+
+    @property
+    def scheduler(self):
+        """Gets the scheduler of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The scheduler of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduler
+
+    @scheduler.setter
+    def scheduler(self, scheduler):
+        """Sets the scheduler of this ListenerForDescribeListenersOutput.
+
+
+        :param scheduler: The scheduler of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scheduler = scheduler
 
     @property
     def server_group_id(self):

@@ -66,10 +66,14 @@ class ServerForAddServerGroupBackendServersInput(object):
 
         if description is not None:
             self.description = description
-        self.instance_id = instance_id
-        self.ip = ip
-        self.port = port
-        self.type = type
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if ip is not None:
+            self.ip = ip
+        if port is not None:
+            self.port = port
+        if type is not None:
+            self.type = type
         if weight is not None:
             self.weight = weight
 
@@ -112,8 +116,6 @@ class ServerForAddServerGroupBackendServersInput(object):
         :param instance_id: The instance_id of this ServerForAddServerGroupBackendServersInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and instance_id is None:
-            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -135,8 +137,6 @@ class ServerForAddServerGroupBackendServersInput(object):
         :param ip: The ip of this ServerForAddServerGroupBackendServersInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and ip is None:
-            raise ValueError("Invalid value for `ip`, must not be `None`")  # noqa: E501
 
         self._ip = ip
 
@@ -158,8 +158,6 @@ class ServerForAddServerGroupBackendServersInput(object):
         :param port: The port of this ServerForAddServerGroupBackendServersInput.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and port is None:
-            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
 
         self._port = port
 
@@ -181,8 +179,6 @@ class ServerForAddServerGroupBackendServersInput(object):
         :param type: The type of this ServerForAddServerGroupBackendServersInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
