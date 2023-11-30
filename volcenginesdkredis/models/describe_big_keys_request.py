@@ -36,7 +36,6 @@ class DescribeBigKeysRequest(object):
         'instance_id': 'str',
         'key_type': 'str',
         'order_by': 'str',
-        'order_type': 'str',
         'page_size': 'int',
         'query_end_time': 'str',
         'query_start_time': 'str'
@@ -46,13 +45,12 @@ class DescribeBigKeysRequest(object):
         'instance_id': 'InstanceId',
         'key_type': 'KeyType',
         'order_by': 'OrderBy',
-        'order_type': 'OrderType',
         'page_size': 'PageSize',
         'query_end_time': 'QueryEndTime',
         'query_start_time': 'QueryStartTime'
     }
 
-    def __init__(self, instance_id=None, key_type=None, order_by=None, order_type=None, page_size=None, query_end_time=None, query_start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, key_type=None, order_by=None, page_size=None, query_end_time=None, query_start_time=None, _configuration=None):  # noqa: E501
         """DescribeBigKeysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +59,6 @@ class DescribeBigKeysRequest(object):
         self._instance_id = None
         self._key_type = None
         self._order_by = None
-        self._order_type = None
         self._page_size = None
         self._query_end_time = None
         self._query_start_time = None
@@ -72,8 +69,6 @@ class DescribeBigKeysRequest(object):
             self.key_type = key_type
         if order_by is not None:
             self.order_by = order_by
-        if order_type is not None:
-            self.order_type = order_type
         self.page_size = page_size
         if query_end_time is not None:
             self.query_end_time = query_end_time
@@ -144,27 +139,6 @@ class DescribeBigKeysRequest(object):
         """
 
         self._order_by = order_by
-
-    @property
-    def order_type(self):
-        """Gets the order_type of this DescribeBigKeysRequest.  # noqa: E501
-
-
-        :return: The order_type of this DescribeBigKeysRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._order_type
-
-    @order_type.setter
-    def order_type(self, order_type):
-        """Sets the order_type of this DescribeBigKeysRequest.
-
-
-        :param order_type: The order_type of this DescribeBigKeysRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._order_type = order_type
 
     @property
     def page_size(self):

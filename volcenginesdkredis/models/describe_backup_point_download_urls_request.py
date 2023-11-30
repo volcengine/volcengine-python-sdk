@@ -52,10 +52,8 @@ class DescribeBackupPointDownloadUrlsRequest(object):
         self._instance_id = None
         self.discriminator = None
 
-        if backup_point_id is not None:
-            self.backup_point_id = backup_point_id
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.backup_point_id = backup_point_id
+        self.instance_id = instance_id
 
     @property
     def backup_point_id(self):
@@ -75,6 +73,8 @@ class DescribeBackupPointDownloadUrlsRequest(object):
         :param backup_point_id: The backup_point_id of this DescribeBackupPointDownloadUrlsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and backup_point_id is None:
+            raise ValueError("Invalid value for `backup_point_id`, must not be `None`")  # noqa: E501
 
         self._backup_point_id = backup_point_id
 
@@ -96,6 +96,8 @@ class DescribeBackupPointDownloadUrlsRequest(object):
         :param instance_id: The instance_id of this DescribeBackupPointDownloadUrlsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

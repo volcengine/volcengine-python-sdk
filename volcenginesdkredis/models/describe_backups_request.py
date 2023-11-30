@@ -68,8 +68,7 @@ class DescribeBackupsRequest(object):
             self.backup_strategy_list = backup_strategy_list
         if end_time is not None:
             self.end_time = end_time
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -137,6 +136,8 @@ class DescribeBackupsRequest(object):
         :param instance_id: The instance_id of this DescribeBackupsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
