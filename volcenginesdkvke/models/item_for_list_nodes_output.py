@@ -423,14 +423,6 @@ class ItemForListNodesOutput(object):
         :param roles: The roles of this ItemForListNodesOutput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Etcd", "Master", "Worker"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(roles).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `roles` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(roles) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._roles = roles
 

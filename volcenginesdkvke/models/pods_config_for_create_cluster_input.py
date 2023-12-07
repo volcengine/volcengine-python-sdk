@@ -101,7 +101,7 @@ class PodsConfigForCreateClusterInput(object):
         :param pod_network_mode: The pod_network_mode of this PodsConfigForCreateClusterInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["CalicoBgp", "CalicoVxlan", "Carma", "Cilium", "Default", "Flannel", "KubeOvn", "VpcCniDedicated", "VpcCniShared"]  # noqa: E501
+        allowed_values = ["Flannel", "VpcCniShared", "VpcCniDedicated"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 pod_network_mode not in allowed_values):
             raise ValueError(

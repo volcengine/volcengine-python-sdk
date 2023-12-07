@@ -36,17 +36,19 @@ class DeleteNodesRequest(object):
         'cascading_delete_resources': 'list[str]',
         'cluster_id': 'str',
         'ids': 'list[str]',
-        'node_pool_id': 'str'
+        'node_pool_id': 'str',
+        'retain_resources': 'list[str]'
     }
 
     attribute_map = {
         'cascading_delete_resources': 'CascadingDeleteResources',
         'cluster_id': 'ClusterId',
         'ids': 'Ids',
-        'node_pool_id': 'NodePoolId'
+        'node_pool_id': 'NodePoolId',
+        'retain_resources': 'RetainResources'
     }
 
-    def __init__(self, cascading_delete_resources=None, cluster_id=None, ids=None, node_pool_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cascading_delete_resources=None, cluster_id=None, ids=None, node_pool_id=None, retain_resources=None, _configuration=None):  # noqa: E501
         """DeleteNodesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,16 +58,18 @@ class DeleteNodesRequest(object):
         self._cluster_id = None
         self._ids = None
         self._node_pool_id = None
+        self._retain_resources = None
         self.discriminator = None
 
         if cascading_delete_resources is not None:
             self.cascading_delete_resources = cascading_delete_resources
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        self.cluster_id = cluster_id
         if ids is not None:
             self.ids = ids
         if node_pool_id is not None:
             self.node_pool_id = node_pool_id
+        if retain_resources is not None:
+            self.retain_resources = retain_resources
 
     @property
     def cascading_delete_resources(self):
@@ -114,6 +118,8 @@ class DeleteNodesRequest(object):
         :param cluster_id: The cluster_id of this DeleteNodesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -158,6 +164,35 @@ class DeleteNodesRequest(object):
         """
 
         self._node_pool_id = node_pool_id
+
+    @property
+    def retain_resources(self):
+        """Gets the retain_resources of this DeleteNodesRequest.  # noqa: E501
+
+
+        :return: The retain_resources of this DeleteNodesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._retain_resources
+
+    @retain_resources.setter
+    def retain_resources(self, retain_resources):
+        """Sets the retain_resources of this DeleteNodesRequest.
+
+
+        :param retain_resources: The retain_resources of this DeleteNodesRequest.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["Ecs"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(retain_resources).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `retain_resources` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(retain_resources) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._retain_resources = retain_resources
 
     def to_dict(self):
         """Returns the model properties as a dict"""

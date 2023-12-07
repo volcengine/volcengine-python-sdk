@@ -35,16 +35,18 @@ class DeleteAddonRequest(object):
     swagger_types = {
         'cascading_delete_resources': 'list[str]',
         'cluster_id': 'str',
-        'name': 'str'
+        'name': 'str',
+        'retain_resources': 'list[str]'
     }
 
     attribute_map = {
         'cascading_delete_resources': 'CascadingDeleteResources',
         'cluster_id': 'ClusterId',
-        'name': 'Name'
+        'name': 'Name',
+        'retain_resources': 'RetainResources'
     }
 
-    def __init__(self, cascading_delete_resources=None, cluster_id=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cascading_delete_resources=None, cluster_id=None, name=None, retain_resources=None, _configuration=None):  # noqa: E501
         """DeleteAddonRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,14 +55,15 @@ class DeleteAddonRequest(object):
         self._cascading_delete_resources = None
         self._cluster_id = None
         self._name = None
+        self._retain_resources = None
         self.discriminator = None
 
         if cascading_delete_resources is not None:
             self.cascading_delete_resources = cascading_delete_resources
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
-        if name is not None:
-            self.name = name
+        self.cluster_id = cluster_id
+        self.name = name
+        if retain_resources is not None:
+            self.retain_resources = retain_resources
 
     @property
     def cascading_delete_resources(self):
@@ -109,6 +112,8 @@ class DeleteAddonRequest(object):
         :param cluster_id: The cluster_id of this DeleteAddonRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -130,8 +135,39 @@ class DeleteAddonRequest(object):
         :param name: The name of this DeleteAddonRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def retain_resources(self):
+        """Gets the retain_resources of this DeleteAddonRequest.  # noqa: E501
+
+
+        :return: The retain_resources of this DeleteAddonRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._retain_resources
+
+    @retain_resources.setter
+    def retain_resources(self, retain_resources):
+        """Sets the retain_resources of this DeleteAddonRequest.
+
+
+        :param retain_resources: The retain_resources of this DeleteAddonRequest.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["Crd"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(retain_resources).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `retain_resources` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(retain_resources) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._retain_resources = retain_resources
 
     def to_dict(self):
         """Returns the model properties as a dict"""

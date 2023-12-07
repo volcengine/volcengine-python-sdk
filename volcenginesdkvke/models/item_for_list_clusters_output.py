@@ -33,7 +33,6 @@ class ItemForListClustersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'charge_type': 'str',
         'cluster_config': 'ClusterConfigForListClustersOutput',
         'create_client_token': 'str',
         'create_time': 'str',
@@ -53,7 +52,6 @@ class ItemForListClustersOutput(object):
     }
 
     attribute_map = {
-        'charge_type': 'ChargeType',
         'cluster_config': 'ClusterConfig',
         'create_client_token': 'CreateClientToken',
         'create_time': 'CreateTime',
@@ -72,13 +70,12 @@ class ItemForListClustersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, charge_type=None, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, name=None, node_statistics=None, pods_config=None, services_config=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, name=None, node_statistics=None, pods_config=None, services_config=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._charge_type = None
         self._cluster_config = None
         self._create_client_token = None
         self._create_time = None
@@ -97,8 +94,6 @@ class ItemForListClustersOutput(object):
         self._update_time = None
         self.discriminator = None
 
-        if charge_type is not None:
-            self.charge_type = charge_type
         if cluster_config is not None:
             self.cluster_config = cluster_config
         if create_client_token is not None:
@@ -131,27 +126,6 @@ class ItemForListClustersOutput(object):
             self.update_client_token = update_client_token
         if update_time is not None:
             self.update_time = update_time
-
-    @property
-    def charge_type(self):
-        """Gets the charge_type of this ItemForListClustersOutput.  # noqa: E501
-
-
-        :return: The charge_type of this ItemForListClustersOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._charge_type
-
-    @charge_type.setter
-    def charge_type(self, charge_type):
-        """Sets the charge_type of this ItemForListClustersOutput.
-
-
-        :param charge_type: The charge_type of this ItemForListClustersOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._charge_type = charge_type
 
     @property
     def cluster_config(self):
