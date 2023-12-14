@@ -127,14 +127,6 @@ class SecurityForListNodePoolsOutput(object):
         :param security_strategies: The security_strategies of this SecurityForListNodePoolsOutput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Hids"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(security_strategies).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `security_strategies` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(security_strategies) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._security_strategies = security_strategies
 

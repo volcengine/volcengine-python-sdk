@@ -200,7 +200,7 @@ class AutoScalingForCreateNodePoolInput(object):
         :param subnet_policy: The subnet_policy of this AutoScalingForCreateNodePoolInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Priority", "ZoneBalance"]  # noqa: E501
+        allowed_values = ["ZoneBalance", "Priority"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 subnet_policy not in allowed_values):
             raise ValueError(

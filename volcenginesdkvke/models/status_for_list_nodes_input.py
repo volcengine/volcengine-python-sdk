@@ -75,7 +75,7 @@ class StatusForListNodesInput(object):
         :param conditions_type: The conditions_type of this StatusForListNodesInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Balance", "InitializeFailed", "NotReady", "Ok", "Progressing", "ResourceCleanupFailed", "Security", "Unknown", "Unschedulable"]  # noqa: E501
+        allowed_values = ["Progressing", "Ok", "Unschedulable", "NotReady", "InitializeFailed", "ResourceCleanupFailed", "Security", "Balance", "Unknow"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 conditions_type not in allowed_values):
             raise ValueError(
@@ -103,7 +103,7 @@ class StatusForListNodesInput(object):
         :param phase: The phase of this StatusForListNodesInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Creating", "Deleting", "Failed", "Running", "Starting", "Stopped", "Stopping", "Updating"]  # noqa: E501
+        allowed_values = ["Creating", "Running", "Deleting", "Updating", "Failed", "Starting", "Stopping", "Stopped"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 phase not in allowed_values):
             raise ValueError(

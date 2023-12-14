@@ -55,10 +55,8 @@ class CreateKubeconfigRequest(object):
         self._valid_duration = None
         self.discriminator = None
 
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
-        if type is not None:
-            self.type = type
+        self.cluster_id = cluster_id
+        self.type = type
         if valid_duration is not None:
             self.valid_duration = valid_duration
 
@@ -80,6 +78,8 @@ class CreateKubeconfigRequest(object):
         :param cluster_id: The cluster_id of this CreateKubeconfigRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -101,7 +101,9 @@ class CreateKubeconfigRequest(object):
         :param type: The type of this CreateKubeconfigRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Private", "Public", "TargetCluster"]  # noqa: E501
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["Private", "Public"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 type not in allowed_values):
             raise ValueError(

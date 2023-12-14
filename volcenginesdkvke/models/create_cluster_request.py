@@ -88,8 +88,7 @@ class CreateClusterRequest(object):
             self.kubernetes_version = kubernetes_version
         if logging_config is not None:
             self.logging_config = logging_config
-        if name is not None:
-            self.name = name
+        self.name = name
         if pods_config is not None:
             self.pods_config = pods_config
         if services_config is not None:
@@ -241,6 +240,8 @@ class CreateClusterRequest(object):
         :param name: The name of this CreateClusterRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

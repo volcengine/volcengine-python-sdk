@@ -122,7 +122,7 @@ class DataVolumeForCreateNodePoolInput(object):
         :param type: The type of this DataVolumeForCreateNodePoolInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ESSD", "ESSD_FlexPL", "ESSD_PL0", "ESSD_PL1", "PTSSD"]  # noqa: E501
+        allowed_values = ["ESSD_PL0", "ESSD_FlexPL", "ESSD_PL1", "ESSD", "PTSSD"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 type not in allowed_values):
             raise ValueError(

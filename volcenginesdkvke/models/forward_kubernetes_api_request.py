@@ -63,14 +63,11 @@ class ForwardKubernetesApiRequest(object):
 
         if body is not None:
             self.body = body
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        self.cluster_id = cluster_id
         if headers is not None:
             self.headers = headers
-        if method is not None:
-            self.method = method
-        if path is not None:
-            self.path = path
+        self.method = method
+        self.path = path
 
     @property
     def body(self):
@@ -111,6 +108,8 @@ class ForwardKubernetesApiRequest(object):
         :param cluster_id: The cluster_id of this ForwardKubernetesApiRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -153,6 +152,8 @@ class ForwardKubernetesApiRequest(object):
         :param method: The method of this ForwardKubernetesApiRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and method is None:
+            raise ValueError("Invalid value for `method`, must not be `None`")  # noqa: E501
 
         self._method = method
 
@@ -174,6 +175,8 @@ class ForwardKubernetesApiRequest(object):
         :param path: The path of this ForwardKubernetesApiRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and path is None:
+            raise ValueError("Invalid value for `path`, must not be `None`")  # noqa: E501
 
         self._path = path
 
