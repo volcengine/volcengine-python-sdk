@@ -60,10 +60,8 @@ class UnsubscribeInstanceRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if product is not None:
-            self.product = product
+        self.instance_id = instance_id
+        self.product = product
         if unsubscribe_related_instance is not None:
             self.unsubscribe_related_instance = unsubscribe_related_instance
 
@@ -85,6 +83,9 @@ class UnsubscribeInstanceRequest(object):
         :param client_token: The client_token of this UnsubscribeInstanceRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                client_token is not None and len(client_token) > 36):
+            raise ValueError("Invalid value for `client_token`, length must be less than or equal to `36`")  # noqa: E501
 
         self._client_token = client_token
 
@@ -106,6 +107,8 @@ class UnsubscribeInstanceRequest(object):
         :param instance_id: The instance_id of this UnsubscribeInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -127,6 +130,8 @@ class UnsubscribeInstanceRequest(object):
         :param product: The product of this UnsubscribeInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and product is None:
+            raise ValueError("Invalid value for `product`, must not be `None`")  # noqa: E501
 
         self._product = product
 
