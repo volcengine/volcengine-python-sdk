@@ -103,7 +103,7 @@ class StatusForListClustersInput(object):
         :param phase: The phase of this StatusForListClustersInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Creating", "Deleting", "Failed", "Running", "Starting", "Stopped", "Updating"]  # noqa: E501
+        allowed_values = ["Creating", "Deleting", "Failed", "Running", "Updating", "Starting", "Stopped"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 phase not in allowed_values):
             raise ValueError(

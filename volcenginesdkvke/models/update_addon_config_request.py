@@ -60,12 +60,10 @@ class UpdateAddonConfigRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        self.cluster_id = cluster_id
         if config is not None:
             self.config = config
-        if name is not None:
-            self.name = name
+        self.name = name
 
     @property
     def client_token(self):
@@ -106,6 +104,8 @@ class UpdateAddonConfigRequest(object):
         :param cluster_id: The cluster_id of this UpdateAddonConfigRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -148,6 +148,8 @@ class UpdateAddonConfigRequest(object):
         :param name: The name of this UpdateAddonConfigRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

@@ -69,16 +69,14 @@ class CreateAddonRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        self.cluster_id = cluster_id
         if config is not None:
             self.config = config
         if deploy_mode is not None:
             self.deploy_mode = deploy_mode
         if deploy_node_type is not None:
             self.deploy_node_type = deploy_node_type
-        if name is not None:
-            self.name = name
+        self.name = name
         if version is not None:
             self.version = version
 
@@ -121,6 +119,8 @@ class CreateAddonRequest(object):
         :param cluster_id: The cluster_id of this CreateAddonRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -163,7 +163,7 @@ class CreateAddonRequest(object):
         :param deploy_mode: The deploy_mode of this CreateAddonRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Managed", "Unmanaged"]  # noqa: E501
+        allowed_values = ["Unmanaged", "Managed"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 deploy_mode not in allowed_values):
             raise ValueError(
@@ -191,7 +191,7 @@ class CreateAddonRequest(object):
         :param deploy_node_type: The deploy_node_type of this CreateAddonRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["EdgeNode", "Node", "VirtualNode"]  # noqa: E501
+        allowed_values = ["Node", "VirtualNode", "EdgeNode"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 deploy_node_type not in allowed_values):
             raise ValueError(
@@ -219,6 +219,8 @@ class CreateAddonRequest(object):
         :param name: The name of this CreateAddonRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

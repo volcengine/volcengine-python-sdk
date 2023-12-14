@@ -100,14 +100,6 @@ class ItemForListSupportedAddonsOutput(object):
         :param categories: The categories of this ItemForListSupportedAddonsOutput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Dns", "Gpu", "Image", "Monitor", "Network", "Scheduler", "Security", "Storage"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(categories).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `categories` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(categories) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._categories = categories
 
@@ -150,14 +142,6 @@ class ItemForListSupportedAddonsOutput(object):
         :param deploy_node_types: The deploy_node_types of this ItemForListSupportedAddonsOutput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["EdgeNode", "Node", "VirtualNode"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(deploy_node_types).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `deploy_node_types` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(deploy_node_types) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._deploy_node_types = deploy_node_types
 
@@ -221,14 +205,6 @@ class ItemForListSupportedAddonsOutput(object):
         :param pod_network_modes: The pod_network_modes of this ItemForListSupportedAddonsOutput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["CalicoBgp", "CalicoVxlan", "Flannel", "VpcCniDedicated", "VpcCniShared"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(pod_network_modes).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `pod_network_modes` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(pod_network_modes) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._pod_network_modes = pod_network_modes
 

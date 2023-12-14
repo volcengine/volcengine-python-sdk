@@ -41,7 +41,8 @@ class CreateNodesRequest(object):
         'initialize_script': 'str',
         'instance_ids': 'list[str]',
         'keep_instance_name': 'bool',
-        'kubernetes_config': 'KubernetesConfigForCreateNodesInput'
+        'kubernetes_config': 'KubernetesConfigForCreateNodesInput',
+        'node_pool_id': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class CreateNodesRequest(object):
         'initialize_script': 'InitializeScript',
         'instance_ids': 'InstanceIds',
         'keep_instance_name': 'KeepInstanceName',
-        'kubernetes_config': 'KubernetesConfig'
+        'kubernetes_config': 'KubernetesConfig',
+        'node_pool_id': 'NodePoolId'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, image_id=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, client_token=None, cluster_id=None, container_storage_path=None, image_id=None, initialize_script=None, instance_ids=None, keep_instance_name=None, kubernetes_config=None, node_pool_id=None, _configuration=None):  # noqa: E501
         """CreateNodesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,14 +73,14 @@ class CreateNodesRequest(object):
         self._instance_ids = None
         self._keep_instance_name = None
         self._kubernetes_config = None
+        self._node_pool_id = None
         self.discriminator = None
 
         if additional_container_storage_enabled is not None:
             self.additional_container_storage_enabled = additional_container_storage_enabled
         if client_token is not None:
             self.client_token = client_token
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        self.cluster_id = cluster_id
         if container_storage_path is not None:
             self.container_storage_path = container_storage_path
         if image_id is not None:
@@ -91,6 +93,8 @@ class CreateNodesRequest(object):
             self.keep_instance_name = keep_instance_name
         if kubernetes_config is not None:
             self.kubernetes_config = kubernetes_config
+        if node_pool_id is not None:
+            self.node_pool_id = node_pool_id
 
     @property
     def additional_container_storage_enabled(self):
@@ -152,6 +156,8 @@ class CreateNodesRequest(object):
         :param cluster_id: The cluster_id of this CreateNodesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -280,6 +286,27 @@ class CreateNodesRequest(object):
         """
 
         self._kubernetes_config = kubernetes_config
+
+    @property
+    def node_pool_id(self):
+        """Gets the node_pool_id of this CreateNodesRequest.  # noqa: E501
+
+
+        :return: The node_pool_id of this CreateNodesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_pool_id
+
+    @node_pool_id.setter
+    def node_pool_id(self, node_pool_id):
+        """Sets the node_pool_id of this CreateNodesRequest.
+
+
+        :param node_pool_id: The node_pool_id of this CreateNodesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._node_pool_id = node_pool_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

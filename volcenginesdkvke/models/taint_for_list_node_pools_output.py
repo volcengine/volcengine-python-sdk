@@ -80,6 +80,13 @@ class TaintForListNodePoolsOutput(object):
         :param effect: The effect of this TaintForListNodePoolsOutput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["NoSchedule", "NoExecute", "PreferNoSchedule"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                effect not in allowed_values):
+            raise ValueError(
+                "Invalid value for `effect` ({0}), must be one of {1}"  # noqa: E501
+                .format(effect, allowed_values)
+            )
 
         self._effect = effect
 

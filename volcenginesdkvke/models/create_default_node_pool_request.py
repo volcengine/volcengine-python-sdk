@@ -63,8 +63,7 @@ class CreateDefaultNodePoolRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        self.cluster_id = cluster_id
         if kubernetes_config is not None:
             self.kubernetes_config = kubernetes_config
         if node_config is not None:
@@ -111,6 +110,8 @@ class CreateDefaultNodePoolRequest(object):
         :param cluster_id: The cluster_id of this CreateDefaultNodePoolRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 

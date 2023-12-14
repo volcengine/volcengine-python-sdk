@@ -60,12 +60,9 @@ class UpdateAddonVersionRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
-        if name is not None:
-            self.name = name
-        if version is not None:
-            self.version = version
+        self.cluster_id = cluster_id
+        self.name = name
+        self.version = version
 
     @property
     def client_token(self):
@@ -106,6 +103,8 @@ class UpdateAddonVersionRequest(object):
         :param cluster_id: The cluster_id of this UpdateAddonVersionRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -127,6 +126,8 @@ class UpdateAddonVersionRequest(object):
         :param name: The name of this UpdateAddonVersionRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -148,6 +149,8 @@ class UpdateAddonVersionRequest(object):
         :param version: The version of this UpdateAddonVersionRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and version is None:
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 
