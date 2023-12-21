@@ -36,6 +36,7 @@ class ListBillDetailRequest(object):
         'bill_category': 'list[str]',
         'bill_period': 'str',
         'billing_mode': 'list[str]',
+        'expense_date': 'str',
         'group_period': 'int',
         'group_term': 'int',
         'ignore_zero': 'int',
@@ -50,6 +51,7 @@ class ListBillDetailRequest(object):
         'bill_category': 'BillCategory',
         'bill_period': 'BillPeriod',
         'billing_mode': 'BillingMode',
+        'expense_date': 'ExpenseDate',
         'group_period': 'GroupPeriod',
         'group_term': 'GroupTerm',
         'ignore_zero': 'IgnoreZero',
@@ -60,7 +62,7 @@ class ListBillDetailRequest(object):
         'product': 'Product'
     }
 
-    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, group_period=None, group_term=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, product=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_period=None, billing_mode=None, expense_date=None, group_period=None, group_term=None, ignore_zero=None, instance_no=None, limit=None, need_record_num=None, offset=None, product=None, _configuration=None):  # noqa: E501
         """ListBillDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class ListBillDetailRequest(object):
         self._bill_category = None
         self._bill_period = None
         self._billing_mode = None
+        self._expense_date = None
         self._group_period = None
         self._group_term = None
         self._ignore_zero = None
@@ -84,6 +87,8 @@ class ListBillDetailRequest(object):
         self.bill_period = bill_period
         if billing_mode is not None:
             self.billing_mode = billing_mode
+        if expense_date is not None:
+            self.expense_date = expense_date
         if group_period is not None:
             self.group_period = group_period
         if group_term is not None:
@@ -164,6 +169,27 @@ class ListBillDetailRequest(object):
         """
 
         self._billing_mode = billing_mode
+
+    @property
+    def expense_date(self):
+        """Gets the expense_date of this ListBillDetailRequest.  # noqa: E501
+
+
+        :return: The expense_date of this ListBillDetailRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._expense_date
+
+    @expense_date.setter
+    def expense_date(self, expense_date):
+        """Sets the expense_date of this ListBillDetailRequest.
+
+
+        :param expense_date: The expense_date of this ListBillDetailRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._expense_date = expense_date
 
     @property
     def group_period(self):
