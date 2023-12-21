@@ -36,7 +36,7 @@ class ModifyPrefixListRequest(object):
         'add_prefix_list_entries': 'list[AddPrefixListEntryForModifyPrefixListInput]',
         'client_token': 'str',
         'description': 'str',
-        'dry_run': 'str',
+        'dry_run': 'bool',
         'max_entries': 'int',
         'prefix_list_id': 'str',
         'prefix_list_name': 'str',
@@ -161,7 +161,7 @@ class ModifyPrefixListRequest(object):
 
 
         :return: The dry_run of this ModifyPrefixListRequest.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._dry_run
 
@@ -171,7 +171,7 @@ class ModifyPrefixListRequest(object):
 
 
         :param dry_run: The dry_run of this ModifyPrefixListRequest.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._dry_run = dry_run

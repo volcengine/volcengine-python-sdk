@@ -34,6 +34,7 @@ class DescribeHaVipsResponse(object):
     """
     swagger_types = {
         'ha_vips': 'list[HaVipForDescribeHaVipsOutput]',
+        'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'request_id': 'str',
@@ -42,19 +43,21 @@ class DescribeHaVipsResponse(object):
 
     attribute_map = {
         'ha_vips': 'HaVips',
+        'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'request_id': 'RequestId',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, ha_vips=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, ha_vips=None, next_token=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeHaVipsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._ha_vips = None
+        self._next_token = None
         self._page_number = None
         self._page_size = None
         self._request_id = None
@@ -63,6 +66,8 @@ class DescribeHaVipsResponse(object):
 
         if ha_vips is not None:
             self.ha_vips = ha_vips
+        if next_token is not None:
+            self.next_token = next_token
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -92,6 +97,27 @@ class DescribeHaVipsResponse(object):
         """
 
         self._ha_vips = ha_vips
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this DescribeHaVipsResponse.  # noqa: E501
+
+
+        :return: The next_token of this DescribeHaVipsResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this DescribeHaVipsResponse.
+
+
+        :param next_token: The next_token of this DescribeHaVipsResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def page_number(self):

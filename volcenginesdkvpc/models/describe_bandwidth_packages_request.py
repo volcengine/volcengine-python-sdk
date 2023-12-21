@@ -36,6 +36,8 @@ class DescribeBandwidthPackagesRequest(object):
         'bandwidth_package_ids': 'list[str]',
         'bandwidth_package_name': 'str',
         'isp': 'str',
+        'max_results': 'int',
+        'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -48,6 +50,8 @@ class DescribeBandwidthPackagesRequest(object):
         'bandwidth_package_ids': 'BandwidthPackageIds',
         'bandwidth_package_name': 'BandwidthPackageName',
         'isp': 'ISP',
+        'max_results': 'MaxResults',
+        'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -56,7 +60,7 @@ class DescribeBandwidthPackagesRequest(object):
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, bandwidth_package_ids=None, bandwidth_package_name=None, isp=None, page_number=None, page_size=None, project_name=None, protocol=None, security_protection_enabled=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_package_ids=None, bandwidth_package_name=None, isp=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, protocol=None, security_protection_enabled=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeBandwidthPackagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +69,8 @@ class DescribeBandwidthPackagesRequest(object):
         self._bandwidth_package_ids = None
         self._bandwidth_package_name = None
         self._isp = None
+        self._max_results = None
+        self._next_token = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -79,6 +85,10 @@ class DescribeBandwidthPackagesRequest(object):
             self.bandwidth_package_name = bandwidth_package_name
         if isp is not None:
             self.isp = isp
+        if max_results is not None:
+            self.max_results = max_results
+        if next_token is not None:
+            self.next_token = next_token
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -161,6 +171,54 @@ class DescribeBandwidthPackagesRequest(object):
             )
 
         self._isp = isp
+
+    @property
+    def max_results(self):
+        """Gets the max_results of this DescribeBandwidthPackagesRequest.  # noqa: E501
+
+
+        :return: The max_results of this DescribeBandwidthPackagesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_results
+
+    @max_results.setter
+    def max_results(self, max_results):
+        """Sets the max_results of this DescribeBandwidthPackagesRequest.
+
+
+        :param max_results: The max_results of this DescribeBandwidthPackagesRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results > 100):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value less than or equal to `100`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results < 1):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._max_results = max_results
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this DescribeBandwidthPackagesRequest.  # noqa: E501
+
+
+        :return: The next_token of this DescribeBandwidthPackagesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this DescribeBandwidthPackagesRequest.
+
+
+        :param next_token: The next_token of this DescribeBandwidthPackagesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def page_number(self):
