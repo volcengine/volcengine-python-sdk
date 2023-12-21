@@ -52,8 +52,7 @@ class DeleteKubeconfigsRequest(object):
         self._ids = None
         self.discriminator = None
 
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        self.cluster_id = cluster_id
         if ids is not None:
             self.ids = ids
 
@@ -75,6 +74,8 @@ class DeleteKubeconfigsRequest(object):
         :param cluster_id: The cluster_id of this DeleteKubeconfigsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 

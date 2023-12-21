@@ -71,10 +71,8 @@ class UpdateNodePoolConfigRequest(object):
             self.auto_scaling = auto_scaling
         if client_token is not None:
             self.client_token = client_token
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
-        if id is not None:
-            self.id = id
+        self.cluster_id = cluster_id
+        self.id = id
         if kubernetes_config is not None:
             self.kubernetes_config = kubernetes_config
         if name is not None:
@@ -142,6 +140,8 @@ class UpdateNodePoolConfigRequest(object):
         :param cluster_id: The cluster_id of this UpdateNodePoolConfigRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -163,6 +163,8 @@ class UpdateNodePoolConfigRequest(object):
         :param id: The id of this UpdateNodePoolConfigRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

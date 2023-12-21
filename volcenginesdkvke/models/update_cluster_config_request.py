@@ -78,8 +78,7 @@ class UpdateClusterConfigRequest(object):
             self.delete_protection_enabled = delete_protection_enabled
         if description is not None:
             self.description = description
-        if id is not None:
-            self.id = id
+        self.id = id
         if logging_config is not None:
             self.logging_config = logging_config
         if name is not None:
@@ -189,6 +188,8 @@ class UpdateClusterConfigRequest(object):
         :param id: The id of this UpdateClusterConfigRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

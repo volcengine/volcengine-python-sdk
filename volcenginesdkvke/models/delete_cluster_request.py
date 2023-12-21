@@ -35,16 +35,18 @@ class DeleteClusterRequest(object):
     swagger_types = {
         'cascading_delete_resources': 'list[str]',
         'force': 'bool',
-        'id': 'str'
+        'id': 'str',
+        'retain_resources': 'list[str]'
     }
 
     attribute_map = {
         'cascading_delete_resources': 'CascadingDeleteResources',
         'force': 'Force',
-        'id': 'Id'
+        'id': 'Id',
+        'retain_resources': 'RetainResources'
     }
 
-    def __init__(self, cascading_delete_resources=None, force=None, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cascading_delete_resources=None, force=None, id=None, retain_resources=None, _configuration=None):  # noqa: E501
         """DeleteClusterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,14 +55,16 @@ class DeleteClusterRequest(object):
         self._cascading_delete_resources = None
         self._force = None
         self._id = None
+        self._retain_resources = None
         self.discriminator = None
 
         if cascading_delete_resources is not None:
             self.cascading_delete_resources = cascading_delete_resources
         if force is not None:
             self.force = force
-        if id is not None:
-            self.id = id
+        self.id = id
+        if retain_resources is not None:
+            self.retain_resources = retain_resources
 
     @property
     def cascading_delete_resources(self):
@@ -80,7 +84,7 @@ class DeleteClusterRequest(object):
         :param cascading_delete_resources: The cascading_delete_resources of this DeleteClusterRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Clb", "DefaultNodePoolResource", "Nat", "NodePoolResource", "TryBest"]  # noqa: E501
+        allowed_values = ["DefaultNodePoolResource", "NodePoolResource", "Clb", "Nat", "TryBest"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(cascading_delete_resources).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -130,8 +134,39 @@ class DeleteClusterRequest(object):
         :param id: The id of this DeleteClusterRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def retain_resources(self):
+        """Gets the retain_resources of this DeleteClusterRequest.  # noqa: E501
+
+
+        :return: The retain_resources of this DeleteClusterRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._retain_resources
+
+    @retain_resources.setter
+    def retain_resources(self, retain_resources):
+        """Sets the retain_resources of this DeleteClusterRequest.
+
+
+        :param retain_resources: The retain_resources of this DeleteClusterRequest.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["DefaultNodePoolResource", "NodePoolResource", "Alb", "Clb", "Nat", "SecurityGroup", "All"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(retain_resources).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `retain_resources` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(retain_resources) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._retain_resources = retain_resources
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -71,12 +71,10 @@ class CreateNodePoolRequest(object):
             self.auto_scaling = auto_scaling
         if client_token is not None:
             self.client_token = client_token
-        if cluster_id is not None:
-            self.cluster_id = cluster_id
+        self.cluster_id = cluster_id
         if kubernetes_config is not None:
             self.kubernetes_config = kubernetes_config
-        if name is not None:
-            self.name = name
+        self.name = name
         if node_config is not None:
             self.node_config = node_config
         if tags is not None:
@@ -142,6 +140,8 @@ class CreateNodePoolRequest(object):
         :param cluster_id: The cluster_id of this CreateNodePoolRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and cluster_id is None:
+            raise ValueError("Invalid value for `cluster_id`, must not be `None`")  # noqa: E501
 
         self._cluster_id = cluster_id
 
@@ -184,6 +184,8 @@ class CreateNodePoolRequest(object):
         :param name: The name of this CreateNodePoolRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

@@ -33,6 +33,103 @@ class REDISApi(object):
             api_client = volcenginesdkcore.ApiClient()
         self.api_client = api_client
 
+    def add_tags_to_resource(self, body, **kwargs):  # noqa: E501
+        """add_tags_to_resource  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_tags_to_resource(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddTagsToResourceRequest body: (required)
+        :return: AddTagsToResourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_tags_to_resource_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_tags_to_resource_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def add_tags_to_resource_with_http_info(self, body, **kwargs):  # noqa: E501
+        """add_tags_to_resource  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_tags_to_resource_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddTagsToResourceRequest body: (required)
+        :return: AddTagsToResourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_tags_to_resource" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `add_tags_to_resource`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/AddTagsToResource/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AddTagsToResourceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def associate_allow_list(self, body, **kwargs):  # noqa: E501
         """associate_allow_list  # noqa: E501
 
@@ -115,7 +212,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AssociateAllowList/2020-12-07/redis/post/', 'POST',
+            '/AssociateAllowList/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -212,7 +309,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateAllowList/2020-12-07/redis/post/', 'POST',
+            '/CreateAllowList/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -309,7 +406,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateBackup/2020-12-07/redis/post/', 'POST',
+            '/CreateBackup/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -406,7 +503,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDBAccount/2020-12-07/redis/post/', 'POST',
+            '/CreateDBAccount/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -503,7 +600,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDBEndpointPublicAddress/2020-12-07/redis/post/', 'POST',
+            '/CreateDBEndpointPublicAddress/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -600,7 +697,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDBInstance/2020-12-07/redis/post/', 'POST',
+            '/CreateDBInstance/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -608,6 +705,103 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateDBInstanceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def decrease_db_instance_node_number(self, body, **kwargs):  # noqa: E501
+        """decrease_db_instance_node_number  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.decrease_db_instance_node_number(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DecreaseDBInstanceNodeNumberRequest body: (required)
+        :return: DecreaseDBInstanceNodeNumberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.decrease_db_instance_node_number_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.decrease_db_instance_node_number_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def decrease_db_instance_node_number_with_http_info(self, body, **kwargs):  # noqa: E501
+        """decrease_db_instance_node_number  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.decrease_db_instance_node_number_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DecreaseDBInstanceNodeNumberRequest body: (required)
+        :return: DecreaseDBInstanceNodeNumberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method decrease_db_instance_node_number" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `decrease_db_instance_node_number`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DecreaseDBInstanceNodeNumber/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DecreaseDBInstanceNodeNumberResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -697,7 +891,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteAllowList/2020-12-07/redis/post/', 'POST',
+            '/DeleteAllowList/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -794,7 +988,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDBAccount/2020-12-07/redis/post/', 'POST',
+            '/DeleteDBAccount/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -891,7 +1085,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDBEndpointPublicAddress/2020-12-07/redis/post/', 'POST',
+            '/DeleteDBEndpointPublicAddress/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -988,7 +1182,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDBInstance/2020-12-07/redis/post/', 'POST',
+            '/DeleteDBInstance/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1279,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAllowListDetail/2020-12-07/redis/post/', 'POST',
+            '/DescribeAllowListDetail/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1376,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAllowLists/2020-12-07/redis/post/', 'POST',
+            '/DescribeAllowLists/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1473,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeBackupPlan/2020-12-07/redis/post/', 'POST',
+            '/DescribeBackupPlan/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1570,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeBackupPointDownloadUrls/2020-12-07/redis/post/', 'POST',
+            '/DescribeBackupPointDownloadUrls/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1667,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeBackups/2020-12-07/redis/post/', 'POST',
+            '/DescribeBackups/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1764,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeBigKeys/2020-12-07/redis/post/', 'POST',
+            '/DescribeBigKeys/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1861,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBInstanceDetail/2020-12-07/redis/post/', 'POST',
+            '/DescribeDBInstanceDetail/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1958,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBInstanceParams/2020-12-07/redis/post/', 'POST',
+            '/DescribeDBInstanceParams/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1772,6 +1966,103 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeDBInstanceParamsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_db_instance_shards(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_shards  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_shards(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceShardsRequest body: (required)
+        :return: DescribeDBInstanceShardsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_db_instance_shards_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_db_instance_shards_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_db_instance_shards_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_shards  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_shards_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceShardsRequest body: (required)
+        :return: DescribeDBInstanceShardsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_db_instance_shards" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_db_instance_shards`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeDBInstanceShards/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeDBInstanceShardsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1861,7 +2152,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBInstances/2020-12-07/redis/post/', 'POST',
+            '/DescribeDBInstances/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +2249,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeNodeIds/2020-12-07/redis/post/', 'POST',
+            '/DescribeNodeIds/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2346,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribePitrTimeWindow/2020-12-07/redis/post/', 'POST',
+            '/DescribePitrTimeWindow/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2443,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeRegions/2020-12-07/redis/post/', 'POST',
+            '/DescribeRegions/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2540,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeSlowLogs/2020-12-07/redis/post/', 'POST',
+            '/DescribeSlowLogs/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2257,6 +2548,103 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeSlowLogsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_tags_by_resource(self, body, **kwargs):  # noqa: E501
+        """describe_tags_by_resource  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_tags_by_resource(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTagsByResourceRequest body: (required)
+        :return: DescribeTagsByResourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_tags_by_resource_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_tags_by_resource_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_tags_by_resource_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_tags_by_resource  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_tags_by_resource_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTagsByResourceRequest body: (required)
+        :return: DescribeTagsByResourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_tags_by_resource" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_tags_by_resource`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTagsByResource/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTagsByResourceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2346,7 +2734,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeZones/2020-12-07/redis/post/', 'POST',
+            '/DescribeZones/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +2831,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisassociateAllowList/2020-12-07/redis/post/', 'POST',
+            '/DisassociateAllowList/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2451,6 +2839,297 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DisassociateAllowListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def enable_sharded_cluster(self, body, **kwargs):  # noqa: E501
+        """enable_sharded_cluster  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.enable_sharded_cluster(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param EnableShardedClusterRequest body: (required)
+        :return: EnableShardedClusterResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.enable_sharded_cluster_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.enable_sharded_cluster_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def enable_sharded_cluster_with_http_info(self, body, **kwargs):  # noqa: E501
+        """enable_sharded_cluster  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.enable_sharded_cluster_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param EnableShardedClusterRequest body: (required)
+        :return: EnableShardedClusterResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method enable_sharded_cluster" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `enable_sharded_cluster`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/EnableShardedCluster/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EnableShardedClusterResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def flush_db_instance(self, body, **kwargs):  # noqa: E501
+        """flush_db_instance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.flush_db_instance(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param FlushDBInstanceRequest body: (required)
+        :return: FlushDBInstanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.flush_db_instance_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.flush_db_instance_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def flush_db_instance_with_http_info(self, body, **kwargs):  # noqa: E501
+        """flush_db_instance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.flush_db_instance_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param FlushDBInstanceRequest body: (required)
+        :return: FlushDBInstanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method flush_db_instance" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `flush_db_instance`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/FlushDBInstance/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FlushDBInstanceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def increase_db_instance_node_number(self, body, **kwargs):  # noqa: E501
+        """increase_db_instance_node_number  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.increase_db_instance_node_number(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param IncreaseDBInstanceNodeNumberRequest body: (required)
+        :return: IncreaseDBInstanceNodeNumberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.increase_db_instance_node_number_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.increase_db_instance_node_number_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def increase_db_instance_node_number_with_http_info(self, body, **kwargs):  # noqa: E501
+        """increase_db_instance_node_number  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.increase_db_instance_node_number_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param IncreaseDBInstanceNodeNumberRequest body: (required)
+        :return: IncreaseDBInstanceNodeNumberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method increase_db_instance_node_number" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `increase_db_instance_node_number`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/IncreaseDBInstanceNodeNumber/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='IncreaseDBInstanceNodeNumberResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2540,7 +3219,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ListDBAccount/2020-12-07/redis/post/', 'POST',
+            '/ListDBAccount/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2637,7 +3316,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyAllowList/2020-12-07/redis/post/', 'POST',
+            '/ModifyAllowList/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2734,7 +3413,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyBackupPlan/2020-12-07/redis/post/', 'POST',
+            '/ModifyBackupPlan/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2831,7 +3510,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBAccount/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBAccount/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2839,6 +3518,200 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyDBAccountResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_db_instance_additional_bandwidth_per_shard(self, body, **kwargs):  # noqa: E501
+        """modify_db_instance_additional_bandwidth_per_shard  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_db_instance_additional_bandwidth_per_shard(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyDBInstanceAdditionalBandwidthPerShardRequest body: (required)
+        :return: ModifyDBInstanceAdditionalBandwidthPerShardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_db_instance_additional_bandwidth_per_shard_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_db_instance_additional_bandwidth_per_shard_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_db_instance_additional_bandwidth_per_shard_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_db_instance_additional_bandwidth_per_shard  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_db_instance_additional_bandwidth_per_shard_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyDBInstanceAdditionalBandwidthPerShardRequest body: (required)
+        :return: ModifyDBInstanceAdditionalBandwidthPerShardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_db_instance_additional_bandwidth_per_shard" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_db_instance_additional_bandwidth_per_shard`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyDBInstanceAdditionalBandwidthPerShard/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyDBInstanceAdditionalBandwidthPerShardResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_db_instance_az_configure(self, body, **kwargs):  # noqa: E501
+        """modify_db_instance_az_configure  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_db_instance_az_configure(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyDBInstanceAZConfigureRequest body: (required)
+        :return: ModifyDBInstanceAZConfigureResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_db_instance_az_configure_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_db_instance_az_configure_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_db_instance_az_configure_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_db_instance_az_configure  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_db_instance_az_configure_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyDBInstanceAZConfigureRequest body: (required)
+        :return: ModifyDBInstanceAZConfigureResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_db_instance_az_configure" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_db_instance_az_configure`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyDBInstanceAZConfigure/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyDBInstanceAZConfigureResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2928,7 +3801,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceChargeType/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceChargeType/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3025,7 +3898,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceDeletionProtectionPolicy/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceDeletionProtectionPolicy/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3122,7 +3995,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceName/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceName/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3219,7 +4092,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceNodeNumber/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceNodeNumber/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3316,7 +4189,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceParams/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceParams/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3413,7 +4286,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceShardCapacity/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceShardCapacity/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3510,7 +4383,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceShardNumber/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceShardNumber/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3607,7 +4480,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceSubnet/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceSubnet/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3704,7 +4577,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceVpcAuthMode/2020-12-07/redis/post/', 'POST',
+            '/ModifyDBInstanceVpcAuthMode/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3712,6 +4585,103 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyDBInstanceVpcAuthModeResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def remove_tags_from_resource(self, body, **kwargs):  # noqa: E501
+        """remove_tags_from_resource  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_tags_from_resource(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param RemoveTagsFromResourceRequest body: (required)
+        :return: RemoveTagsFromResourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_tags_from_resource_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_tags_from_resource_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def remove_tags_from_resource_with_http_info(self, body, **kwargs):  # noqa: E501
+        """remove_tags_from_resource  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_tags_from_resource_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param RemoveTagsFromResourceRequest body: (required)
+        :return: RemoveTagsFromResourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_tags_from_resource" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `remove_tags_from_resource`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/RemoveTagsFromResource/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RemoveTagsFromResourceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3801,7 +4771,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RestartDBInstance/2020-12-07/redis/post/', 'POST',
+            '/RestartDBInstance/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3809,6 +4779,103 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='RestartDBInstanceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def restart_db_instance_proxy(self, body, **kwargs):  # noqa: E501
+        """restart_db_instance_proxy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.restart_db_instance_proxy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param RestartDBInstanceProxyRequest body: (required)
+        :return: RestartDBInstanceProxyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.restart_db_instance_proxy_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.restart_db_instance_proxy_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def restart_db_instance_proxy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """restart_db_instance_proxy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.restart_db_instance_proxy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param RestartDBInstanceProxyRequest body: (required)
+        :return: RestartDBInstanceProxyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method restart_db_instance_proxy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `restart_db_instance_proxy`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/RestartDBInstanceProxy/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RestartDBInstanceProxyResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3898,7 +4965,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RestoreDBInstance/2020-12-07/redis/post/', 'POST',
+            '/RestoreDBInstance/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3995,7 +5062,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/StartContinuousBackup/2020-12-07/redis/post/', 'POST',
+            '/StartContinuousBackup/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4092,7 +5159,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/StopContinuousBackup/2020-12-07/redis/post/', 'POST',
+            '/StopContinuousBackup/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4100,6 +5167,103 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='StopContinuousBackupResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def switch_over(self, body, **kwargs):  # noqa: E501
+        """switch_over  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.switch_over(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SwitchOverRequest body: (required)
+        :return: SwitchOverResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.switch_over_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.switch_over_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def switch_over_with_http_info(self, body, **kwargs):  # noqa: E501
+        """switch_over  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.switch_over_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SwitchOverRequest body: (required)
+        :return: SwitchOverResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method switch_over" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `switch_over`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/SwitchOver/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SwitchOverResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4189,7 +5353,7 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpgradeAllowListVersion/2020-12-07/redis/post/', 'POST',
+            '/UpgradeAllowListVersion/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,

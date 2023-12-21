@@ -38,8 +38,10 @@ class InstanceForDescribeDBInstancesOutput(object):
         'create_time': 'str',
         'engine_version': 'str',
         'expired_time': 'str',
+        'instance_class': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
+        'multi_az': 'str',
         'node_number': 'int',
         'project_name': 'str',
         'region_id': 'str',
@@ -58,8 +60,10 @@ class InstanceForDescribeDBInstancesOutput(object):
         'create_time': 'CreateTime',
         'engine_version': 'EngineVersion',
         'expired_time': 'ExpiredTime',
+        'instance_class': 'InstanceClass',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
+        'multi_az': 'MultiAZ',
         'node_number': 'NodeNumber',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
@@ -72,7 +76,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, capacity=None, charge_type=None, create_time=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacity=None, charge_type=None, create_time=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,8 +87,10 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._create_time = None
         self._engine_version = None
         self._expired_time = None
+        self._instance_class = None
         self._instance_id = None
         self._instance_name = None
+        self._multi_az = None
         self._node_number = None
         self._project_name = None
         self._region_id = None
@@ -107,10 +113,14 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.engine_version = engine_version
         if expired_time is not None:
             self.expired_time = expired_time
+        if instance_class is not None:
+            self.instance_class = instance_class
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
+        if multi_az is not None:
+            self.multi_az = multi_az
         if node_number is not None:
             self.node_number = node_number
         if project_name is not None:
@@ -238,6 +248,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._expired_time = expired_time
 
     @property
+    def instance_class(self):
+        """Gets the instance_class of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The instance_class of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_class
+
+    @instance_class.setter
+    def instance_class(self, instance_class):
+        """Sets the instance_class of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param instance_class: The instance_class of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_class = instance_class
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -278,6 +309,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._instance_name = instance_name
+
+    @property
+    def multi_az(self):
+        """Gets the multi_az of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The multi_az of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_az
+
+    @multi_az.setter
+    def multi_az(self, multi_az):
+        """Sets the multi_az of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param multi_az: The multi_az of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._multi_az = multi_az
 
     @property
     def node_number(self):

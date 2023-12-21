@@ -100,7 +100,7 @@ class FilterForListSupportedAddonsInput(object):
         :param categories: The categories of this FilterForListSupportedAddonsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Dns", "Gpu", "Image", "Monitor", "Network", "Scheduler", "Security", "Storage"]  # noqa: E501
+        allowed_values = ["Storage", "Network", "Monitor", "Scheduler", "Dns", "Security", "Gpu", "Image"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(categories).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -129,7 +129,7 @@ class FilterForListSupportedAddonsInput(object):
         :param deploy_modes: The deploy_modes of this FilterForListSupportedAddonsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Either", "Managed", "Unmanaged"]  # noqa: E501
+        allowed_values = ["Managed", "Unmanaged"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(deploy_modes).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -158,7 +158,7 @@ class FilterForListSupportedAddonsInput(object):
         :param deploy_node_types: The deploy_node_types of this FilterForListSupportedAddonsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["EdgeNode", "Node", "VirtualNode"]  # noqa: E501
+        allowed_values = ["Node", "VirtualNode", "EdgeNode"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(deploy_node_types).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -208,7 +208,7 @@ class FilterForListSupportedAddonsInput(object):
         :param necessaries: The necessaries of this FilterForListSupportedAddonsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["OnDemand", "Recommended", "Required"]  # noqa: E501
+        allowed_values = ["Required", "Recommended", "OnDemand"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(necessaries).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -237,7 +237,7 @@ class FilterForListSupportedAddonsInput(object):
         :param pod_network_modes: The pod_network_modes of this FilterForListSupportedAddonsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["CalicoBgp", "CalicoVxlan", "Flannel", "VpcCniDedicated", "VpcCniShared"]  # noqa: E501
+        allowed_values = ["Flannel", "VpcCniShared", "CalicoBgp", "CalicoVxlan", "VpcCniDedicated"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(pod_network_modes).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

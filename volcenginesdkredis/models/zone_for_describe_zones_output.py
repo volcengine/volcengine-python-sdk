@@ -34,15 +34,17 @@ class ZoneForDescribeZonesOutput(object):
     """
     swagger_types = {
         'zone_id': 'str',
-        'zone_name': 'str'
+        'zone_name': 'str',
+        'zone_status': 'int'
     }
 
     attribute_map = {
         'zone_id': 'ZoneId',
-        'zone_name': 'ZoneName'
+        'zone_name': 'ZoneName',
+        'zone_status': 'ZoneStatus'
     }
 
-    def __init__(self, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, zone_id=None, zone_name=None, zone_status=None, _configuration=None):  # noqa: E501
         """ZoneForDescribeZonesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ZoneForDescribeZonesOutput(object):
 
         self._zone_id = None
         self._zone_name = None
+        self._zone_status = None
         self.discriminator = None
 
         if zone_id is not None:
             self.zone_id = zone_id
         if zone_name is not None:
             self.zone_name = zone_name
+        if zone_status is not None:
+            self.zone_status = zone_status
 
     @property
     def zone_id(self):
@@ -98,6 +103,27 @@ class ZoneForDescribeZonesOutput(object):
         """
 
         self._zone_name = zone_name
+
+    @property
+    def zone_status(self):
+        """Gets the zone_status of this ZoneForDescribeZonesOutput.  # noqa: E501
+
+
+        :return: The zone_status of this ZoneForDescribeZonesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._zone_status
+
+    @zone_status.setter
+    def zone_status(self, zone_status):
+        """Sets the zone_status of this ZoneForDescribeZonesOutput.
+
+
+        :param zone_status: The zone_status of this ZoneForDescribeZonesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._zone_status = zone_status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

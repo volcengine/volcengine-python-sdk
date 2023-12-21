@@ -34,33 +34,36 @@ class RestoreDBInstanceRequest(object):
     """
     swagger_types = {
         'backup_type': 'str',
+        'client_token': 'str',
         'instance_id': 'str',
         'time_point': 'str'
     }
 
     attribute_map = {
         'backup_type': 'BackupType',
+        'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
         'time_point': 'TimePoint'
     }
 
-    def __init__(self, backup_type=None, instance_id=None, time_point=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_type=None, client_token=None, instance_id=None, time_point=None, _configuration=None):  # noqa: E501
         """RestoreDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._backup_type = None
+        self._client_token = None
         self._instance_id = None
         self._time_point = None
         self.discriminator = None
 
         if backup_type is not None:
             self.backup_type = backup_type
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if time_point is not None:
-            self.time_point = time_point
+        if client_token is not None:
+            self.client_token = client_token
+        self.instance_id = instance_id
+        self.time_point = time_point
 
     @property
     def backup_type(self):
@@ -84,6 +87,27 @@ class RestoreDBInstanceRequest(object):
         self._backup_type = backup_type
 
     @property
+    def client_token(self):
+        """Gets the client_token of this RestoreDBInstanceRequest.  # noqa: E501
+
+
+        :return: The client_token of this RestoreDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this RestoreDBInstanceRequest.
+
+
+        :param client_token: The client_token of this RestoreDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this RestoreDBInstanceRequest.  # noqa: E501
 
@@ -101,6 +125,8 @@ class RestoreDBInstanceRequest(object):
         :param instance_id: The instance_id of this RestoreDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -122,6 +148,8 @@ class RestoreDBInstanceRequest(object):
         :param time_point: The time_point of this RestoreDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and time_point is None:
+            raise ValueError("Invalid value for `time_point`, must not be `None`")  # noqa: E501
 
         self._time_point = time_point
 
