@@ -41,10 +41,12 @@ class CreateDirectConnectConnectionRequest(object):
         'description': 'str',
         'direct_connect_access_point_id': 'str',
         'direct_connect_connection_name': 'str',
+        'driect_connect_access_point_id': 'str',
         'line_operator': 'str',
         'peer_location': 'str',
         'port_spec': 'str',
         'port_type': 'str',
+        'project_name': 'str',
         'tags': 'list[TagForCreateDirectConnectConnectionInput]'
     }
 
@@ -57,14 +59,16 @@ class CreateDirectConnectConnectionRequest(object):
         'description': 'Description',
         'direct_connect_access_point_id': 'DirectConnectAccessPointId',
         'direct_connect_connection_name': 'DirectConnectConnectionName',
+        'driect_connect_access_point_id': 'DriectConnectAccessPointId',
         'line_operator': 'LineOperator',
         'peer_location': 'PeerLocation',
         'port_spec': 'PortSpec',
         'port_type': 'PortType',
+        'project_name': 'ProjectName',
         'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, client_token=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_name=None, line_operator=None, peer_location=None, port_spec=None, port_type=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, client_token=None, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_access_point_id=None, direct_connect_connection_name=None, driect_connect_access_point_id=None, line_operator=None, peer_location=None, port_spec=None, port_type=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateDirectConnectConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,10 +82,12 @@ class CreateDirectConnectConnectionRequest(object):
         self._description = None
         self._direct_connect_access_point_id = None
         self._direct_connect_connection_name = None
+        self._driect_connect_access_point_id = None
         self._line_operator = None
         self._peer_location = None
         self._port_spec = None
         self._port_type = None
+        self._project_name = None
         self._tags = None
         self.discriminator = None
 
@@ -96,10 +102,14 @@ class CreateDirectConnectConnectionRequest(object):
         self.direct_connect_access_point_id = direct_connect_access_point_id
         if direct_connect_connection_name is not None:
             self.direct_connect_connection_name = direct_connect_connection_name
+        if driect_connect_access_point_id is not None:
+            self.driect_connect_access_point_id = driect_connect_access_point_id
         self.line_operator = line_operator
         self.peer_location = peer_location
         self.port_spec = port_spec
         self.port_type = port_type
+        if project_name is not None:
+            self.project_name = project_name
         if tags is not None:
             self.tags = tags
 
@@ -282,6 +292,27 @@ class CreateDirectConnectConnectionRequest(object):
         self._direct_connect_connection_name = direct_connect_connection_name
 
     @property
+    def driect_connect_access_point_id(self):
+        """Gets the driect_connect_access_point_id of this CreateDirectConnectConnectionRequest.  # noqa: E501
+
+
+        :return: The driect_connect_access_point_id of this CreateDirectConnectConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._driect_connect_access_point_id
+
+    @driect_connect_access_point_id.setter
+    def driect_connect_access_point_id(self, driect_connect_access_point_id):
+        """Sets the driect_connect_access_point_id of this CreateDirectConnectConnectionRequest.
+
+
+        :param driect_connect_access_point_id: The driect_connect_access_point_id of this CreateDirectConnectConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._driect_connect_access_point_id = driect_connect_access_point_id
+
+    @property
     def line_operator(self):
         """Gets the line_operator of this CreateDirectConnectConnectionRequest.  # noqa: E501
 
@@ -372,6 +403,27 @@ class CreateDirectConnectConnectionRequest(object):
             raise ValueError("Invalid value for `port_type`, must not be `None`")  # noqa: E501
 
         self._port_type = port_type
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateDirectConnectConnectionRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateDirectConnectConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateDirectConnectConnectionRequest.
+
+
+        :param project_name: The project_name of this CreateDirectConnectConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def tags(self):

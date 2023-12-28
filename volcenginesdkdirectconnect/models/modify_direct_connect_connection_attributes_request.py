@@ -38,7 +38,8 @@ class ModifyDirectConnectConnectionAttributesRequest(object):
         'customer_name': 'str',
         'description': 'str',
         'direct_connect_connection_id': 'str',
-        'direct_connect_connection_name': 'str'
+        'direct_connect_connection_name': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class ModifyDirectConnectConnectionAttributesRequest(object):
         'customer_name': 'CustomerName',
         'description': 'Description',
         'direct_connect_connection_id': 'DirectConnectConnectionId',
-        'direct_connect_connection_name': 'DirectConnectConnectionName'
+        'direct_connect_connection_name': 'DirectConnectConnectionName',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_connection_id=None, direct_connect_connection_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer_contact_email=None, customer_contact_phone=None, customer_name=None, description=None, direct_connect_connection_id=None, direct_connect_connection_name=None, project_name=None, _configuration=None):  # noqa: E501
         """ModifyDirectConnectConnectionAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ModifyDirectConnectConnectionAttributesRequest(object):
         self._description = None
         self._direct_connect_connection_id = None
         self._direct_connect_connection_name = None
+        self._project_name = None
         self.discriminator = None
 
         if customer_contact_email is not None:
@@ -75,6 +78,8 @@ class ModifyDirectConnectConnectionAttributesRequest(object):
         self.direct_connect_connection_id = direct_connect_connection_id
         if direct_connect_connection_name is not None:
             self.direct_connect_connection_name = direct_connect_connection_name
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def customer_contact_email(self):
@@ -203,6 +208,27 @@ class ModifyDirectConnectConnectionAttributesRequest(object):
         """
 
         self._direct_connect_connection_name = direct_connect_connection_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The project_name of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ModifyDirectConnectConnectionAttributesRequest.
+
+
+        :param project_name: The project_name of this ModifyDirectConnectConnectionAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

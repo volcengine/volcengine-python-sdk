@@ -36,6 +36,7 @@ class CreateDirectConnectGatewayRequest(object):
         'client_token': 'str',
         'description': 'str',
         'direct_connect_gateway_name': 'str',
+        'enable_ipv6': 'bool',
         'tags': 'list[TagForCreateDirectConnectGatewayInput]'
     }
 
@@ -43,10 +44,11 @@ class CreateDirectConnectGatewayRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'direct_connect_gateway_name': 'DirectConnectGatewayName',
+        'enable_ipv6': 'EnableIpv6',
         'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, description=None, direct_connect_gateway_name=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, direct_connect_gateway_name=None, enable_ipv6=None, tags=None, _configuration=None):  # noqa: E501
         """CreateDirectConnectGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class CreateDirectConnectGatewayRequest(object):
         self._client_token = None
         self._description = None
         self._direct_connect_gateway_name = None
+        self._enable_ipv6 = None
         self._tags = None
         self.discriminator = None
 
@@ -62,7 +65,10 @@ class CreateDirectConnectGatewayRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
-        self.direct_connect_gateway_name = direct_connect_gateway_name
+        if direct_connect_gateway_name is not None:
+            self.direct_connect_gateway_name = direct_connect_gateway_name
+        if enable_ipv6 is not None:
+            self.enable_ipv6 = enable_ipv6
         if tags is not None:
             self.tags = tags
 
@@ -126,10 +132,29 @@ class CreateDirectConnectGatewayRequest(object):
         :param direct_connect_gateway_name: The direct_connect_gateway_name of this CreateDirectConnectGatewayRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and direct_connect_gateway_name is None:
-            raise ValueError("Invalid value for `direct_connect_gateway_name`, must not be `None`")  # noqa: E501
 
         self._direct_connect_gateway_name = direct_connect_gateway_name
+
+    @property
+    def enable_ipv6(self):
+        """Gets the enable_ipv6 of this CreateDirectConnectGatewayRequest.  # noqa: E501
+
+
+        :return: The enable_ipv6 of this CreateDirectConnectGatewayRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_ipv6
+
+    @enable_ipv6.setter
+    def enable_ipv6(self, enable_ipv6):
+        """Sets the enable_ipv6 of this CreateDirectConnectGatewayRequest.
+
+
+        :param enable_ipv6: The enable_ipv6 of this CreateDirectConnectGatewayRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_ipv6 = enable_ipv6
 
     @property
     def tags(self):

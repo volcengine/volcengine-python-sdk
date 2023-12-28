@@ -36,6 +36,7 @@ class CreateBgpPeerRequest(object):
         'auth_key': 'str',
         'bgp_peer_name': 'str',
         'description': 'str',
+        'ip_version': 'str',
         'remote_asn': 'int',
         'virtual_interface_id': 'str'
     }
@@ -44,11 +45,12 @@ class CreateBgpPeerRequest(object):
         'auth_key': 'AuthKey',
         'bgp_peer_name': 'BgpPeerName',
         'description': 'Description',
+        'ip_version': 'IpVersion',
         'remote_asn': 'RemoteAsn',
         'virtual_interface_id': 'VirtualInterfaceId'
     }
 
-    def __init__(self, auth_key=None, bgp_peer_name=None, description=None, remote_asn=None, virtual_interface_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_key=None, bgp_peer_name=None, description=None, ip_version=None, remote_asn=None, virtual_interface_id=None, _configuration=None):  # noqa: E501
         """CreateBgpPeerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class CreateBgpPeerRequest(object):
         self._auth_key = None
         self._bgp_peer_name = None
         self._description = None
+        self._ip_version = None
         self._remote_asn = None
         self._virtual_interface_id = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class CreateBgpPeerRequest(object):
             self.bgp_peer_name = bgp_peer_name
         if description is not None:
             self.description = description
+        if ip_version is not None:
+            self.ip_version = ip_version
         self.remote_asn = remote_asn
         self.virtual_interface_id = virtual_interface_id
 
@@ -109,12 +114,6 @@ class CreateBgpPeerRequest(object):
         :param bgp_peer_name: The bgp_peer_name of this CreateBgpPeerRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                bgp_peer_name is not None and len(bgp_peer_name) > 128):
-            raise ValueError("Invalid value for `bgp_peer_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                bgp_peer_name is not None and len(bgp_peer_name) < 1):
-            raise ValueError("Invalid value for `bgp_peer_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._bgp_peer_name = bgp_peer_name
 
@@ -136,14 +135,29 @@ class CreateBgpPeerRequest(object):
         :param description: The description of this CreateBgpPeerRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) > 255):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this CreateBgpPeerRequest.  # noqa: E501
+
+
+        :return: The ip_version of this CreateBgpPeerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this CreateBgpPeerRequest.
+
+
+        :param ip_version: The ip_version of this CreateBgpPeerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
 
     @property
     def remote_asn(self):
