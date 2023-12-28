@@ -42,9 +42,11 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         'enable_bfd': 'bool',
         'enable_nqa': 'bool',
         'local_ip': 'str',
+        'local_ipv6_ip': 'str',
         'nqa_detect_interval': 'int',
         'nqa_detect_multiplier': 'int',
         'peer_ip': 'str',
+        'peer_ipv6_ip': 'str',
         'route_type': 'str',
         'tags': 'list[TagForCreateDirectConnectVirtualInterfaceInput]',
         'virtual_interface_name': 'str',
@@ -61,16 +63,18 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         'enable_bfd': 'EnableBfd',
         'enable_nqa': 'EnableNqa',
         'local_ip': 'LocalIp',
+        'local_ipv6_ip': 'LocalIpv6Ip',
         'nqa_detect_interval': 'NqaDetectInterval',
         'nqa_detect_multiplier': 'NqaDetectMultiplier',
         'peer_ip': 'PeerIp',
+        'peer_ipv6_ip': 'PeerIpv6Ip',
         'route_type': 'RouteType',
         'tags': 'Tags',
         'virtual_interface_name': 'VirtualInterfaceName',
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, description=None, direct_connect_connection_id=None, direct_connect_gateway_id=None, enable_bfd=None, enable_nqa=None, local_ip=None, nqa_detect_interval=None, nqa_detect_multiplier=None, peer_ip=None, route_type=None, tags=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, description=None, direct_connect_connection_id=None, direct_connect_gateway_id=None, enable_bfd=None, enable_nqa=None, local_ip=None, local_ipv6_ip=None, nqa_detect_interval=None, nqa_detect_multiplier=None, peer_ip=None, peer_ipv6_ip=None, route_type=None, tags=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
         """CreateDirectConnectVirtualInterfaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,9 +89,11 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         self._enable_bfd = None
         self._enable_nqa = None
         self._local_ip = None
+        self._local_ipv6_ip = None
         self._nqa_detect_interval = None
         self._nqa_detect_multiplier = None
         self._peer_ip = None
+        self._peer_ipv6_ip = None
         self._route_type = None
         self._tags = None
         self._virtual_interface_name = None
@@ -109,11 +115,15 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         if enable_nqa is not None:
             self.enable_nqa = enable_nqa
         self.local_ip = local_ip
+        if local_ipv6_ip is not None:
+            self.local_ipv6_ip = local_ipv6_ip
         if nqa_detect_interval is not None:
             self.nqa_detect_interval = nqa_detect_interval
         if nqa_detect_multiplier is not None:
             self.nqa_detect_multiplier = nqa_detect_multiplier
         self.peer_ip = peer_ip
+        if peer_ipv6_ip is not None:
+            self.peer_ipv6_ip = peer_ipv6_ip
         if route_type is not None:
             self.route_type = route_type
         if tags is not None:
@@ -161,12 +171,6 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         :param bfd_detect_interval: The bfd_detect_interval of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                bfd_detect_interval is not None and bfd_detect_interval > 1000):  # noqa: E501
-            raise ValueError("Invalid value for `bfd_detect_interval`, must be a value less than or equal to `1000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                bfd_detect_interval is not None and bfd_detect_interval < 200):  # noqa: E501
-            raise ValueError("Invalid value for `bfd_detect_interval`, must be a value greater than or equal to `200`")  # noqa: E501
 
         self._bfd_detect_interval = bfd_detect_interval
 
@@ -188,12 +192,6 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         :param bfd_detect_multiplier: The bfd_detect_multiplier of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                bfd_detect_multiplier is not None and bfd_detect_multiplier > 10):  # noqa: E501
-            raise ValueError("Invalid value for `bfd_detect_multiplier`, must be a value less than or equal to `10`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                bfd_detect_multiplier is not None and bfd_detect_multiplier < 3):  # noqa: E501
-            raise ValueError("Invalid value for `bfd_detect_multiplier`, must be a value greater than or equal to `3`")  # noqa: E501
 
         self._bfd_detect_multiplier = bfd_detect_multiplier
 
@@ -215,12 +213,6 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         :param description: The description of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) > 255):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -336,6 +328,27 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         self._local_ip = local_ip
 
     @property
+    def local_ipv6_ip(self):
+        """Gets the local_ipv6_ip of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
+
+
+        :return: The local_ipv6_ip of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._local_ipv6_ip
+
+    @local_ipv6_ip.setter
+    def local_ipv6_ip(self, local_ipv6_ip):
+        """Sets the local_ipv6_ip of this CreateDirectConnectVirtualInterfaceRequest.
+
+
+        :param local_ipv6_ip: The local_ipv6_ip of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._local_ipv6_ip = local_ipv6_ip
+
+    @property
     def nqa_detect_interval(self):
         """Gets the nqa_detect_interval of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
 
@@ -353,12 +366,6 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         :param nqa_detect_interval: The nqa_detect_interval of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                nqa_detect_interval is not None and nqa_detect_interval > 5000):  # noqa: E501
-            raise ValueError("Invalid value for `nqa_detect_interval`, must be a value less than or equal to `5000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                nqa_detect_interval is not None and nqa_detect_interval < 1000):  # noqa: E501
-            raise ValueError("Invalid value for `nqa_detect_interval`, must be a value greater than or equal to `1000`")  # noqa: E501
 
         self._nqa_detect_interval = nqa_detect_interval
 
@@ -380,12 +387,6 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         :param nqa_detect_multiplier: The nqa_detect_multiplier of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                nqa_detect_multiplier is not None and nqa_detect_multiplier > 8):  # noqa: E501
-            raise ValueError("Invalid value for `nqa_detect_multiplier`, must be a value less than or equal to `8`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                nqa_detect_multiplier is not None and nqa_detect_multiplier < 3):  # noqa: E501
-            raise ValueError("Invalid value for `nqa_detect_multiplier`, must be a value greater than or equal to `3`")  # noqa: E501
 
         self._nqa_detect_multiplier = nqa_detect_multiplier
 
@@ -413,6 +414,27 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         self._peer_ip = peer_ip
 
     @property
+    def peer_ipv6_ip(self):
+        """Gets the peer_ipv6_ip of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
+
+
+        :return: The peer_ipv6_ip of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._peer_ipv6_ip
+
+    @peer_ipv6_ip.setter
+    def peer_ipv6_ip(self, peer_ipv6_ip):
+        """Sets the peer_ipv6_ip of this CreateDirectConnectVirtualInterfaceRequest.
+
+
+        :param peer_ipv6_ip: The peer_ipv6_ip of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._peer_ipv6_ip = peer_ipv6_ip
+
+    @property
     def route_type(self):
         """Gets the route_type of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
 
@@ -430,7 +452,7 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         :param route_type: The route_type of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["STATIC", "BGP"]  # noqa: E501
+        allowed_values = ["BGP", "Static"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 route_type not in allowed_values):
             raise ValueError(
@@ -479,12 +501,6 @@ class CreateDirectConnectVirtualInterfaceRequest(object):
         :param virtual_interface_name: The virtual_interface_name of this CreateDirectConnectVirtualInterfaceRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                virtual_interface_name is not None and len(virtual_interface_name) > 128):
-            raise ValueError("Invalid value for `virtual_interface_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                virtual_interface_name is not None and len(virtual_interface_name) < 1):
-            raise ValueError("Invalid value for `virtual_interface_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._virtual_interface_name = virtual_interface_name
 

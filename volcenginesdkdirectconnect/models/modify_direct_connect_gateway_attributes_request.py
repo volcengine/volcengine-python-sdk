@@ -35,16 +35,18 @@ class ModifyDirectConnectGatewayAttributesRequest(object):
     swagger_types = {
         'description': 'str',
         'direct_connect_gateway_id': 'str',
-        'direct_connect_gateway_name': 'str'
+        'direct_connect_gateway_name': 'str',
+        'enable_ipv6': 'bool'
     }
 
     attribute_map = {
         'description': 'Description',
         'direct_connect_gateway_id': 'DirectConnectGatewayId',
-        'direct_connect_gateway_name': 'DirectConnectGatewayName'
+        'direct_connect_gateway_name': 'DirectConnectGatewayName',
+        'enable_ipv6': 'EnableIpv6'
     }
 
-    def __init__(self, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, enable_ipv6=None, _configuration=None):  # noqa: E501
         """ModifyDirectConnectGatewayAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ModifyDirectConnectGatewayAttributesRequest(object):
         self._description = None
         self._direct_connect_gateway_id = None
         self._direct_connect_gateway_name = None
+        self._enable_ipv6 = None
         self.discriminator = None
 
         if description is not None:
@@ -60,6 +63,8 @@ class ModifyDirectConnectGatewayAttributesRequest(object):
         self.direct_connect_gateway_id = direct_connect_gateway_id
         if direct_connect_gateway_name is not None:
             self.direct_connect_gateway_name = direct_connect_gateway_name
+        if enable_ipv6 is not None:
+            self.enable_ipv6 = enable_ipv6
 
     @property
     def description(self):
@@ -125,6 +130,27 @@ class ModifyDirectConnectGatewayAttributesRequest(object):
         """
 
         self._direct_connect_gateway_name = direct_connect_gateway_name
+
+    @property
+    def enable_ipv6(self):
+        """Gets the enable_ipv6 of this ModifyDirectConnectGatewayAttributesRequest.  # noqa: E501
+
+
+        :return: The enable_ipv6 of this ModifyDirectConnectGatewayAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_ipv6
+
+    @enable_ipv6.setter
+    def enable_ipv6(self, enable_ipv6):
+        """Sets the enable_ipv6 of this ModifyDirectConnectGatewayAttributesRequest.
+
+
+        :param enable_ipv6: The enable_ipv6 of this ModifyDirectConnectGatewayAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_ipv6 = enable_ipv6
 
     def to_dict(self):
         """Returns the model properties as a dict"""

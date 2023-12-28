@@ -36,6 +36,7 @@ class DescribeBgpPeersRequest(object):
         'bgp_peer_ids': 'list[str]',
         'bgp_peer_name': 'str',
         'direct_connect_gateway_id': 'str',
+        'ip_version': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'remote_asn': 'int',
@@ -46,13 +47,14 @@ class DescribeBgpPeersRequest(object):
         'bgp_peer_ids': 'BgpPeerIds',
         'bgp_peer_name': 'BgpPeerName',
         'direct_connect_gateway_id': 'DirectConnectGatewayId',
+        'ip_version': 'IpVersion',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'remote_asn': 'RemoteAsn',
         'virtual_interface_id': 'VirtualInterfaceId'
     }
 
-    def __init__(self, bgp_peer_ids=None, bgp_peer_name=None, direct_connect_gateway_id=None, page_number=None, page_size=None, remote_asn=None, virtual_interface_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgp_peer_ids=None, bgp_peer_name=None, direct_connect_gateway_id=None, ip_version=None, page_number=None, page_size=None, remote_asn=None, virtual_interface_id=None, _configuration=None):  # noqa: E501
         """DescribeBgpPeersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class DescribeBgpPeersRequest(object):
         self._bgp_peer_ids = None
         self._bgp_peer_name = None
         self._direct_connect_gateway_id = None
+        self._ip_version = None
         self._page_number = None
         self._page_size = None
         self._remote_asn = None
@@ -73,6 +76,8 @@ class DescribeBgpPeersRequest(object):
             self.bgp_peer_name = bgp_peer_name
         if direct_connect_gateway_id is not None:
             self.direct_connect_gateway_id = direct_connect_gateway_id
+        if ip_version is not None:
+            self.ip_version = ip_version
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -144,6 +149,27 @@ class DescribeBgpPeersRequest(object):
         """
 
         self._direct_connect_gateway_id = direct_connect_gateway_id
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this DescribeBgpPeersRequest.  # noqa: E501
+
+
+        :return: The ip_version of this DescribeBgpPeersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this DescribeBgpPeersRequest.
+
+
+        :param ip_version: The ip_version of this DescribeBgpPeersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
 
     @property
     def page_number(self):

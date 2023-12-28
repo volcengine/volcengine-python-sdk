@@ -33,54 +33,49 @@ class DescribeDirectConnectConnectionsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_point': 'str',
         'connection_type': 'str',
         'direct_connect_access_point_id': 'str',
         'direct_connect_connection_ids': 'list[str]',
         'direct_connect_connection_name': 'str',
         'line_operator': 'str',
-        'operator': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'peer_location': 'str',
+        'project_name': 'str',
         'tag_filters': 'list[TagFilterForDescribeDirectConnectConnectionsInput]'
     }
 
     attribute_map = {
-        'access_point': 'AccessPoint',
         'connection_type': 'ConnectionType',
         'direct_connect_access_point_id': 'DirectConnectAccessPointId',
         'direct_connect_connection_ids': 'DirectConnectConnectionIds',
         'direct_connect_connection_name': 'DirectConnectConnectionName',
         'line_operator': 'LineOperator',
-        'operator': 'Operator',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'peer_location': 'PeerLocation',
+        'project_name': 'ProjectName',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, access_point=None, connection_type=None, direct_connect_access_point_id=None, direct_connect_connection_ids=None, direct_connect_connection_name=None, line_operator=None, operator=None, page_number=None, page_size=None, peer_location=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_type=None, direct_connect_access_point_id=None, direct_connect_connection_ids=None, direct_connect_connection_name=None, line_operator=None, page_number=None, page_size=None, peer_location=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._access_point = None
         self._connection_type = None
         self._direct_connect_access_point_id = None
         self._direct_connect_connection_ids = None
         self._direct_connect_connection_name = None
         self._line_operator = None
-        self._operator = None
         self._page_number = None
         self._page_size = None
         self._peer_location = None
+        self._project_name = None
         self._tag_filters = None
         self.discriminator = None
 
-        if access_point is not None:
-            self.access_point = access_point
         if connection_type is not None:
             self.connection_type = connection_type
         if direct_connect_access_point_id is not None:
@@ -91,37 +86,16 @@ class DescribeDirectConnectConnectionsRequest(object):
             self.direct_connect_connection_name = direct_connect_connection_name
         if line_operator is not None:
             self.line_operator = line_operator
-        if operator is not None:
-            self.operator = operator
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
         if peer_location is not None:
             self.peer_location = peer_location
+        if project_name is not None:
+            self.project_name = project_name
         if tag_filters is not None:
             self.tag_filters = tag_filters
-
-    @property
-    def access_point(self):
-        """Gets the access_point of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
-
-
-        :return: The access_point of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._access_point
-
-    @access_point.setter
-    def access_point(self, access_point):
-        """Sets the access_point of this DescribeDirectConnectConnectionsRequest.
-
-
-        :param access_point: The access_point of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._access_point = access_point
 
     @property
     def connection_type(self):
@@ -229,27 +203,6 @@ class DescribeDirectConnectConnectionsRequest(object):
         self._line_operator = line_operator
 
     @property
-    def operator(self):
-        """Gets the operator of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
-
-
-        :return: The operator of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._operator
-
-    @operator.setter
-    def operator(self, operator):
-        """Sets the operator of this DescribeDirectConnectConnectionsRequest.
-
-
-        :param operator: The operator of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._operator = operator
-
-    @property
     def page_number(self):
         """Gets the page_number of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
 
@@ -311,6 +264,27 @@ class DescribeDirectConnectConnectionsRequest(object):
         """
 
         self._peer_location = peer_location
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeDirectConnectConnectionsRequest.
+
+
+        :param project_name: The project_name of this DescribeDirectConnectConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def tag_filters(self):
