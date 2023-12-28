@@ -33,6 +33,7 @@ class CreateDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_ids': 'list[str]',
         'auto_renew': 'bool',
         'charge_type': 'str',
         'client_token': 'str',
@@ -52,11 +53,11 @@ class CreateDBInstanceRequest(object):
         'sharded_cluster': 'int',
         'subnet_id': 'str',
         'tags': 'list[TagForCreateDBInstanceInput]',
-        'vpc_id': 'str',
-        'zone_ids': 'list[str]'
+        'vpc_id': 'str'
     }
 
     attribute_map = {
+        'allow_list_ids': 'AllowListIds',
         'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
         'client_token': 'ClientToken',
@@ -76,16 +77,16 @@ class CreateDBInstanceRequest(object):
         'sharded_cluster': 'ShardedCluster',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
-        'vpc_id': 'VpcId',
-        'zone_ids': 'ZoneIds'
+        'vpc_id': 'VpcId'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, client_token=None, configure_nodes=None, deletion_protection=None, engine_version=None, instance_name=None, multi_az=None, node_number=None, password=None, port=None, project_name=None, purchase_months=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, subnet_id=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, client_token=None, configure_nodes=None, deletion_protection=None, engine_version=None, instance_name=None, multi_az=None, node_number=None, password=None, port=None, project_name=None, purchase_months=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_ids = None
         self._auto_renew = None
         self._charge_type = None
         self._client_token = None
@@ -106,9 +107,10 @@ class CreateDBInstanceRequest(object):
         self._subnet_id = None
         self._tags = None
         self._vpc_id = None
-        self._zone_ids = None
         self.discriminator = None
 
+        if allow_list_ids is not None:
+            self.allow_list_ids = allow_list_ids
         if auto_renew is not None:
             self.auto_renew = auto_renew
         if charge_type is not None:
@@ -140,8 +142,27 @@ class CreateDBInstanceRequest(object):
         if tags is not None:
             self.tags = tags
         self.vpc_id = vpc_id
-        if zone_ids is not None:
-            self.zone_ids = zone_ids
+
+    @property
+    def allow_list_ids(self):
+        """Gets the allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_list_ids
+
+    @allow_list_ids.setter
+    def allow_list_ids(self, allow_list_ids):
+        """Sets the allow_list_ids of this CreateDBInstanceRequest.
+
+
+        :param allow_list_ids: The allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_list_ids = allow_list_ids
 
     @property
     def auto_renew(self):
@@ -580,27 +601,6 @@ class CreateDBInstanceRequest(object):
             raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
-
-    @property
-    def zone_ids(self):
-        """Gets the zone_ids of this CreateDBInstanceRequest.  # noqa: E501
-
-
-        :return: The zone_ids of this CreateDBInstanceRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._zone_ids
-
-    @zone_ids.setter
-    def zone_ids(self, zone_ids):
-        """Sets the zone_ids of this CreateDBInstanceRequest.
-
-
-        :param zone_ids: The zone_ids of this CreateDBInstanceRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._zone_ids = zone_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

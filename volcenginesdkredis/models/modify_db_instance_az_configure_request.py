@@ -35,7 +35,7 @@ class ModifyDBInstanceAZConfigureRequest(object):
     swagger_types = {
         'apply_immediately': 'bool',
         'client_token': 'str',
-        'configure_nodes': 'list[str]',
+        'configure_nodes': 'list[ConfigureNodeForModifyDBInstanceAZConfigureInput]',
         'create_backup': 'bool',
         'instance_id': 'str',
         'multi_az': 'str'
@@ -124,7 +124,7 @@ class ModifyDBInstanceAZConfigureRequest(object):
 
 
         :return: The configure_nodes of this ModifyDBInstanceAZConfigureRequest.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[ConfigureNodeForModifyDBInstanceAZConfigureInput]
         """
         return self._configure_nodes
 
@@ -134,7 +134,7 @@ class ModifyDBInstanceAZConfigureRequest(object):
 
 
         :param configure_nodes: The configure_nodes of this ModifyDBInstanceAZConfigureRequest.  # noqa: E501
-        :type: list[str]
+        :type: list[ConfigureNodeForModifyDBInstanceAZConfigureInput]
         """
 
         self._configure_nodes = configure_nodes

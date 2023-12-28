@@ -67,7 +67,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'volcstack-python-sdk/1.0.60'
+        self.user_agent = 'volcstack-python-sdk/1.0.61'
         self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):
