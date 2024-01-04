@@ -36,6 +36,7 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         'account_id': 'str',
         'bandwidth': 'int',
         'billing_type': 'int',
+        'business': 'str',
         'cen_bandwidth_package_id': 'str',
         'cen_bandwidth_package_name': 'str',
         'cen_ids': 'list[str]',
@@ -44,17 +45,20 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         'description': 'str',
         'expired_time': 'str',
         'local_geographic_region_set_id': 'str',
+        'local_geographicl_region_set_id': 'str',
         'peer_geographic_region_set_id': 'str',
         'project_name': 'str',
         'remaining_bandwidth': 'int',
         'status': 'str',
-        'tags': 'list[TagForDescribeCenBandwidthPackagesOutput]'
+        'tags': 'list[TagForDescribeCenBandwidthPackagesOutput]',
+        'updated_at': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
         'bandwidth': 'Bandwidth',
         'billing_type': 'BillingType',
+        'business': 'Business',
         'cen_bandwidth_package_id': 'CenBandwidthPackageId',
         'cen_bandwidth_package_name': 'CenBandwidthPackageName',
         'cen_ids': 'CenIds',
@@ -63,14 +67,16 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         'description': 'Description',
         'expired_time': 'ExpiredTime',
         'local_geographic_region_set_id': 'LocalGeographicRegionSetId',
+        'local_geographicl_region_set_id': 'LocalGeographiclRegionSetId',
         'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
         'project_name': 'ProjectName',
         'remaining_bandwidth': 'RemainingBandwidth',
         'status': 'Status',
-        'tags': 'Tags'
+        'tags': 'Tags',
+        'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, project_name=None, remaining_bandwidth=None, status=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, local_geographicl_region_set_id=None, peer_geographic_region_set_id=None, project_name=None, remaining_bandwidth=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
         """CenBandwidthPackageForDescribeCenBandwidthPackagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +85,7 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         self._account_id = None
         self._bandwidth = None
         self._billing_type = None
+        self._business = None
         self._cen_bandwidth_package_id = None
         self._cen_bandwidth_package_name = None
         self._cen_ids = None
@@ -87,11 +94,13 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         self._description = None
         self._expired_time = None
         self._local_geographic_region_set_id = None
+        self._local_geographicl_region_set_id = None
         self._peer_geographic_region_set_id = None
         self._project_name = None
         self._remaining_bandwidth = None
         self._status = None
         self._tags = None
+        self._updated_at = None
         self.discriminator = None
 
         if account_id is not None:
@@ -100,6 +109,8 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
             self.bandwidth = bandwidth
         if billing_type is not None:
             self.billing_type = billing_type
+        if business is not None:
+            self.business = business
         if cen_bandwidth_package_id is not None:
             self.cen_bandwidth_package_id = cen_bandwidth_package_id
         if cen_bandwidth_package_name is not None:
@@ -116,6 +127,8 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
             self.expired_time = expired_time
         if local_geographic_region_set_id is not None:
             self.local_geographic_region_set_id = local_geographic_region_set_id
+        if local_geographicl_region_set_id is not None:
+            self.local_geographicl_region_set_id = local_geographicl_region_set_id
         if peer_geographic_region_set_id is not None:
             self.peer_geographic_region_set_id = peer_geographic_region_set_id
         if project_name is not None:
@@ -126,6 +139,8 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
             self.status = status
         if tags is not None:
             self.tags = tags
+        if updated_at is not None:
+            self.updated_at = updated_at
 
     @property
     def account_id(self):
@@ -189,6 +204,27 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         """
 
         self._billing_type = billing_type
+
+    @property
+    def business(self):
+        """Gets the business of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+
+
+        :return: The business of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._business
+
+    @business.setter
+    def business(self, business):
+        """Sets the business of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.
+
+
+        :param business: The business of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._business = business
 
     @property
     def cen_bandwidth_package_id(self):
@@ -359,6 +395,27 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         self._local_geographic_region_set_id = local_geographic_region_set_id
 
     @property
+    def local_geographicl_region_set_id(self):
+        """Gets the local_geographicl_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+
+
+        :return: The local_geographicl_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._local_geographicl_region_set_id
+
+    @local_geographicl_region_set_id.setter
+    def local_geographicl_region_set_id(self, local_geographicl_region_set_id):
+        """Sets the local_geographicl_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.
+
+
+        :param local_geographicl_region_set_id: The local_geographicl_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._local_geographicl_region_set_id = local_geographicl_region_set_id
+
+    @property
     def peer_geographic_region_set_id(self):
         """Gets the peer_geographic_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
 
@@ -462,6 +519,27 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+
+
+        :return: The updated_at of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.
+
+
+        :param updated_at: The updated_at of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""
