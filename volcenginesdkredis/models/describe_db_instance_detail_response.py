@@ -53,6 +53,7 @@ class DescribeDBInstanceDetailResponse(object):
         'shard_number': 'int',
         'sharded_cluster': 'int',
         'status': 'str',
+        'subnet_id': 'str',
         'tags': 'list[TagForDescribeDBInstanceDetailOutput]',
         'visit_addrs': 'list[VisitAddrForDescribeDBInstanceDetailOutput]',
         'vpc_auth_mode': 'str',
@@ -81,6 +82,7 @@ class DescribeDBInstanceDetailResponse(object):
         'shard_number': 'ShardNumber',
         'sharded_cluster': 'ShardedCluster',
         'status': 'Status',
+        'subnet_id': 'SubnetId',
         'tags': 'Tags',
         'visit_addrs': 'VisitAddrs',
         'vpc_auth_mode': 'VpcAuthMode',
@@ -88,7 +90,7 @@ class DescribeDBInstanceDetailResponse(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, capacity=None, charge_type=None, create_time=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, capacity=None, charge_type=None, create_time=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -114,6 +116,7 @@ class DescribeDBInstanceDetailResponse(object):
         self._shard_number = None
         self._sharded_cluster = None
         self._status = None
+        self._subnet_id = None
         self._tags = None
         self._visit_addrs = None
         self._vpc_auth_mode = None
@@ -161,6 +164,8 @@ class DescribeDBInstanceDetailResponse(object):
             self.sharded_cluster = sharded_cluster
         if status is not None:
             self.status = status
+        if subnet_id is not None:
+            self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
         if visit_addrs is not None:
@@ -591,6 +596,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._status = status
+
+    @property
+    def subnet_id(self):
+        """Gets the subnet_id of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The subnet_id of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_id
+
+    @subnet_id.setter
+    def subnet_id(self, subnet_id):
+        """Sets the subnet_id of this DescribeDBInstanceDetailResponse.
+
+
+        :param subnet_id: The subnet_id of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_id = subnet_id
 
     @property
     def tags(self):

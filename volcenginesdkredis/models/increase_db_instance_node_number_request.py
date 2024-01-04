@@ -38,7 +38,7 @@ class IncreaseDBInstanceNodeNumberRequest(object):
         'configure_new_nodes': 'list[ConfigureNewNodeForIncreaseDBInstanceNodeNumberInput]',
         'create_backup': 'bool',
         'instance_id': 'str',
-        'nodes_number_to_increase': 'str'
+        'nodes_number_to_increase': 'int'
     }
 
     attribute_map = {
@@ -189,7 +189,7 @@ class IncreaseDBInstanceNodeNumberRequest(object):
 
 
         :return: The nodes_number_to_increase of this IncreaseDBInstanceNodeNumberRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._nodes_number_to_increase
 
@@ -199,7 +199,7 @@ class IncreaseDBInstanceNodeNumberRequest(object):
 
 
         :param nodes_number_to_increase: The nodes_number_to_increase of this IncreaseDBInstanceNodeNumberRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
         if self._configuration.client_side_validation and nodes_number_to_increase is None:
             raise ValueError("Invalid value for `nodes_number_to_increase`, must not be `None`")  # noqa: E501

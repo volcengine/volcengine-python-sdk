@@ -102,6 +102,12 @@ class ModifyBgpPeerAttributesRequest(object):
         :param bgp_peer_name: The bgp_peer_name of this ModifyBgpPeerAttributesRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                bgp_peer_name is not None and len(bgp_peer_name) > 128):
+            raise ValueError("Invalid value for `bgp_peer_name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                bgp_peer_name is not None and len(bgp_peer_name) < 1):
+            raise ValueError("Invalid value for `bgp_peer_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._bgp_peer_name = bgp_peer_name
 
@@ -123,6 +129,12 @@ class ModifyBgpPeerAttributesRequest(object):
         :param description: The description of this ModifyBgpPeerAttributesRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 255):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) < 1):
+            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 

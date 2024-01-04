@@ -36,6 +36,7 @@ class DescribeCenInterRegionBandwidthsResponse(object):
         'inter_region_bandwidths': 'list[InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput]',
         'page_number': 'int',
         'page_size': 'int',
+        'request_id': 'str',
         'total_count': 'int'
     }
 
@@ -43,10 +44,11 @@ class DescribeCenInterRegionBandwidthsResponse(object):
         'inter_region_bandwidths': 'InterRegionBandwidths',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'request_id': 'RequestId',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, inter_region_bandwidths=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, inter_region_bandwidths=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeCenInterRegionBandwidthsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class DescribeCenInterRegionBandwidthsResponse(object):
         self._inter_region_bandwidths = None
         self._page_number = None
         self._page_size = None
+        self._request_id = None
         self._total_count = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class DescribeCenInterRegionBandwidthsResponse(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if request_id is not None:
+            self.request_id = request_id
         if total_count is not None:
             self.total_count = total_count
 
@@ -129,6 +134,27 @@ class DescribeCenInterRegionBandwidthsResponse(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def request_id(self):
+        """Gets the request_id of this DescribeCenInterRegionBandwidthsResponse.  # noqa: E501
+
+
+        :return: The request_id of this DescribeCenInterRegionBandwidthsResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, request_id):
+        """Sets the request_id of this DescribeCenInterRegionBandwidthsResponse.
+
+
+        :param request_id: The request_id of this DescribeCenInterRegionBandwidthsResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._request_id = request_id
 
     @property
     def total_count(self):

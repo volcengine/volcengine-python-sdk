@@ -145,6 +145,12 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         :param bfd_detect_interval: The bfd_detect_interval of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                bfd_detect_interval is not None and bfd_detect_interval > 1000):  # noqa: E501
+            raise ValueError("Invalid value for `bfd_detect_interval`, must be a value less than or equal to `1000`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                bfd_detect_interval is not None and bfd_detect_interval < 200):  # noqa: E501
+            raise ValueError("Invalid value for `bfd_detect_interval`, must be a value greater than or equal to `200`")  # noqa: E501
 
         self._bfd_detect_interval = bfd_detect_interval
 
@@ -166,6 +172,12 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         :param bfd_detect_multiplier: The bfd_detect_multiplier of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                bfd_detect_multiplier is not None and bfd_detect_multiplier > 10):  # noqa: E501
+            raise ValueError("Invalid value for `bfd_detect_multiplier`, must be a value less than or equal to `10`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                bfd_detect_multiplier is not None and bfd_detect_multiplier < 3):  # noqa: E501
+            raise ValueError("Invalid value for `bfd_detect_multiplier`, must be a value greater than or equal to `3`")  # noqa: E501
 
         self._bfd_detect_multiplier = bfd_detect_multiplier
 
@@ -187,6 +199,12 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         :param description: The description of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 255):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) < 1):
+            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -271,6 +289,12 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         :param nqa_detect_interval: The nqa_detect_interval of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                nqa_detect_interval is not None and nqa_detect_interval > 5000):  # noqa: E501
+            raise ValueError("Invalid value for `nqa_detect_interval`, must be a value less than or equal to `5000`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                nqa_detect_interval is not None and nqa_detect_interval < 1000):  # noqa: E501
+            raise ValueError("Invalid value for `nqa_detect_interval`, must be a value greater than or equal to `1000`")  # noqa: E501
 
         self._nqa_detect_interval = nqa_detect_interval
 
@@ -292,6 +316,12 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         :param nqa_detect_multiplier: The nqa_detect_multiplier of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                nqa_detect_multiplier is not None and nqa_detect_multiplier > 8):  # noqa: E501
+            raise ValueError("Invalid value for `nqa_detect_multiplier`, must be a value less than or equal to `8`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                nqa_detect_multiplier is not None and nqa_detect_multiplier < 3):  # noqa: E501
+            raise ValueError("Invalid value for `nqa_detect_multiplier`, must be a value greater than or equal to `3`")  # noqa: E501
 
         self._nqa_detect_multiplier = nqa_detect_multiplier
 
@@ -357,6 +387,12 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         :param virtual_interface_name: The virtual_interface_name of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                virtual_interface_name is not None and len(virtual_interface_name) > 128):
+            raise ValueError("Invalid value for `virtual_interface_name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                virtual_interface_name is not None and len(virtual_interface_name) < 1):
+            raise ValueError("Invalid value for `virtual_interface_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._virtual_interface_name = virtual_interface_name
 

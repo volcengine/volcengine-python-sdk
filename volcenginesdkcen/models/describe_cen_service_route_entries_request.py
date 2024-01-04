@@ -34,6 +34,7 @@ class DescribeCenServiceRouteEntriesRequest(object):
     """
     swagger_types = {
         'cen_id': 'str',
+        'cen_route_entry_ids': 'list[str]',
         'destination_cidr_block': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -43,6 +44,7 @@ class DescribeCenServiceRouteEntriesRequest(object):
 
     attribute_map = {
         'cen_id': 'CenId',
+        'cen_route_entry_ids': 'CenRouteEntryIds',
         'destination_cidr_block': 'DestinationCidrBlock',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -50,13 +52,14 @@ class DescribeCenServiceRouteEntriesRequest(object):
         'service_vpc_id': 'ServiceVpcId'
     }
 
-    def __init__(self, cen_id=None, destination_cidr_block=None, page_number=None, page_size=None, service_region_id=None, service_vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_id=None, cen_route_entry_ids=None, destination_cidr_block=None, page_number=None, page_size=None, service_region_id=None, service_vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeCenServiceRouteEntriesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cen_id = None
+        self._cen_route_entry_ids = None
         self._destination_cidr_block = None
         self._page_number = None
         self._page_size = None
@@ -66,6 +69,8 @@ class DescribeCenServiceRouteEntriesRequest(object):
 
         if cen_id is not None:
             self.cen_id = cen_id
+        if cen_route_entry_ids is not None:
+            self.cen_route_entry_ids = cen_route_entry_ids
         if destination_cidr_block is not None:
             self.destination_cidr_block = destination_cidr_block
         if page_number is not None:
@@ -97,6 +102,27 @@ class DescribeCenServiceRouteEntriesRequest(object):
         """
 
         self._cen_id = cen_id
+
+    @property
+    def cen_route_entry_ids(self):
+        """Gets the cen_route_entry_ids of this DescribeCenServiceRouteEntriesRequest.  # noqa: E501
+
+
+        :return: The cen_route_entry_ids of this DescribeCenServiceRouteEntriesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._cen_route_entry_ids
+
+    @cen_route_entry_ids.setter
+    def cen_route_entry_ids(self, cen_route_entry_ids):
+        """Sets the cen_route_entry_ids of this DescribeCenServiceRouteEntriesRequest.
+
+
+        :param cen_route_entry_ids: The cen_route_entry_ids of this DescribeCenServiceRouteEntriesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._cen_route_entry_ids = cen_route_entry_ids
 
     @property
     def destination_cidr_block(self):

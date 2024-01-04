@@ -36,6 +36,8 @@ class CreateCenServiceRouteEntryRequest(object):
         'cen_id': 'str',
         'description': 'str',
         'destination_cidr_block': 'str',
+        'publish_mode': 'str',
+        'publish_to_instances': 'list[PublishToInstanceForCreateCenServiceRouteEntryInput]',
         'service_region_id': 'str',
         'service_vpc_id': 'str'
     }
@@ -44,11 +46,13 @@ class CreateCenServiceRouteEntryRequest(object):
         'cen_id': 'CenId',
         'description': 'Description',
         'destination_cidr_block': 'DestinationCidrBlock',
+        'publish_mode': 'PublishMode',
+        'publish_to_instances': 'PublishToInstances',
         'service_region_id': 'ServiceRegionId',
         'service_vpc_id': 'ServiceVpcId'
     }
 
-    def __init__(self, cen_id=None, description=None, destination_cidr_block=None, service_region_id=None, service_vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_id=None, description=None, destination_cidr_block=None, publish_mode=None, publish_to_instances=None, service_region_id=None, service_vpc_id=None, _configuration=None):  # noqa: E501
         """CreateCenServiceRouteEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +61,8 @@ class CreateCenServiceRouteEntryRequest(object):
         self._cen_id = None
         self._description = None
         self._destination_cidr_block = None
+        self._publish_mode = None
+        self._publish_to_instances = None
         self._service_region_id = None
         self._service_vpc_id = None
         self.discriminator = None
@@ -65,6 +71,10 @@ class CreateCenServiceRouteEntryRequest(object):
         if description is not None:
             self.description = description
         self.destination_cidr_block = destination_cidr_block
+        if publish_mode is not None:
+            self.publish_mode = publish_mode
+        if publish_to_instances is not None:
+            self.publish_to_instances = publish_to_instances
         self.service_region_id = service_region_id
         self.service_vpc_id = service_vpc_id
 
@@ -134,6 +144,48 @@ class CreateCenServiceRouteEntryRequest(object):
             raise ValueError("Invalid value for `destination_cidr_block`, must not be `None`")  # noqa: E501
 
         self._destination_cidr_block = destination_cidr_block
+
+    @property
+    def publish_mode(self):
+        """Gets the publish_mode of this CreateCenServiceRouteEntryRequest.  # noqa: E501
+
+
+        :return: The publish_mode of this CreateCenServiceRouteEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._publish_mode
+
+    @publish_mode.setter
+    def publish_mode(self, publish_mode):
+        """Sets the publish_mode of this CreateCenServiceRouteEntryRequest.
+
+
+        :param publish_mode: The publish_mode of this CreateCenServiceRouteEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._publish_mode = publish_mode
+
+    @property
+    def publish_to_instances(self):
+        """Gets the publish_to_instances of this CreateCenServiceRouteEntryRequest.  # noqa: E501
+
+
+        :return: The publish_to_instances of this CreateCenServiceRouteEntryRequest.  # noqa: E501
+        :rtype: list[PublishToInstanceForCreateCenServiceRouteEntryInput]
+        """
+        return self._publish_to_instances
+
+    @publish_to_instances.setter
+    def publish_to_instances(self, publish_to_instances):
+        """Sets the publish_to_instances of this CreateCenServiceRouteEntryRequest.
+
+
+        :param publish_to_instances: The publish_to_instances of this CreateCenServiceRouteEntryRequest.  # noqa: E501
+        :type: list[PublishToInstanceForCreateCenServiceRouteEntryInput]
+        """
+
+        self._publish_to_instances = publish_to_instances
 
     @property
     def service_region_id(self):

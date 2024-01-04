@@ -34,31 +34,26 @@ class DeleteDBInstanceRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
-        'create_backup': 'bool',
         'instance_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
-        'create_backup': 'CreateBackup',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, client_token=None, create_backup=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_id=None, _configuration=None):  # noqa: E501
         """DeleteDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
-        self._create_backup = None
         self._instance_id = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
-        if create_backup is not None:
-            self.create_backup = create_backup
         self.instance_id = instance_id
 
     @property
@@ -81,27 +76,6 @@ class DeleteDBInstanceRequest(object):
         """
 
         self._client_token = client_token
-
-    @property
-    def create_backup(self):
-        """Gets the create_backup of this DeleteDBInstanceRequest.  # noqa: E501
-
-
-        :return: The create_backup of this DeleteDBInstanceRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._create_backup
-
-    @create_backup.setter
-    def create_backup(self, create_backup):
-        """Sets the create_backup of this DeleteDBInstanceRequest.
-
-
-        :param create_backup: The create_backup of this DeleteDBInstanceRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._create_backup = create_backup
 
     @property
     def instance_id(self):

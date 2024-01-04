@@ -35,6 +35,7 @@ class InstanceDetailForDescribeBackupsOutput(object):
     swagger_types = {
         'account_id': 'int',
         'arch_type': 'str',
+        'auto_renew': 'bool',
         'charge_type': 'str',
         'engine_version': 'str',
         'expired_time': 'str',
@@ -42,10 +43,8 @@ class InstanceDetailForDescribeBackupsOutput(object):
         'instance_name': 'str',
         'maintenance_time': 'str',
         'network_type': 'str',
-        'project_name': 'str',
         'region_id': 'str',
         'replicas': 'int',
-        'server_cpu': 'int',
         'shard_capacity': 'int',
         'shard_count': 'int',
         'total_capacity': 'int',
@@ -57,6 +56,7 @@ class InstanceDetailForDescribeBackupsOutput(object):
     attribute_map = {
         'account_id': 'AccountId',
         'arch_type': 'ArchType',
+        'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
         'engine_version': 'EngineVersion',
         'expired_time': 'ExpiredTime',
@@ -64,10 +64,8 @@ class InstanceDetailForDescribeBackupsOutput(object):
         'instance_name': 'InstanceName',
         'maintenance_time': 'MaintenanceTime',
         'network_type': 'NetworkType',
-        'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'replicas': 'Replicas',
-        'server_cpu': 'ServerCpu',
         'shard_capacity': 'ShardCapacity',
         'shard_count': 'ShardCount',
         'total_capacity': 'TotalCapacity',
@@ -76,7 +74,7 @@ class InstanceDetailForDescribeBackupsOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, account_id=None, arch_type=None, charge_type=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, maintenance_time=None, network_type=None, project_name=None, region_id=None, replicas=None, server_cpu=None, shard_capacity=None, shard_count=None, total_capacity=None, used_capacity=None, vpc_info=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, arch_type=None, auto_renew=None, charge_type=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, maintenance_time=None, network_type=None, region_id=None, replicas=None, shard_capacity=None, shard_count=None, total_capacity=None, used_capacity=None, vpc_info=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceDetailForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +82,7 @@ class InstanceDetailForDescribeBackupsOutput(object):
 
         self._account_id = None
         self._arch_type = None
+        self._auto_renew = None
         self._charge_type = None
         self._engine_version = None
         self._expired_time = None
@@ -91,10 +90,8 @@ class InstanceDetailForDescribeBackupsOutput(object):
         self._instance_name = None
         self._maintenance_time = None
         self._network_type = None
-        self._project_name = None
         self._region_id = None
         self._replicas = None
-        self._server_cpu = None
         self._shard_capacity = None
         self._shard_count = None
         self._total_capacity = None
@@ -107,6 +104,8 @@ class InstanceDetailForDescribeBackupsOutput(object):
             self.account_id = account_id
         if arch_type is not None:
             self.arch_type = arch_type
+        if auto_renew is not None:
+            self.auto_renew = auto_renew
         if charge_type is not None:
             self.charge_type = charge_type
         if engine_version is not None:
@@ -121,14 +120,10 @@ class InstanceDetailForDescribeBackupsOutput(object):
             self.maintenance_time = maintenance_time
         if network_type is not None:
             self.network_type = network_type
-        if project_name is not None:
-            self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
         if replicas is not None:
             self.replicas = replicas
-        if server_cpu is not None:
-            self.server_cpu = server_cpu
         if shard_capacity is not None:
             self.shard_capacity = shard_capacity
         if shard_count is not None:
@@ -183,6 +178,27 @@ class InstanceDetailForDescribeBackupsOutput(object):
         """
 
         self._arch_type = arch_type
+
+    @property
+    def auto_renew(self):
+        """Gets the auto_renew of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The auto_renew of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_renew
+
+    @auto_renew.setter
+    def auto_renew(self, auto_renew):
+        """Sets the auto_renew of this InstanceDetailForDescribeBackupsOutput.
+
+
+        :param auto_renew: The auto_renew of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_renew = auto_renew
 
     @property
     def charge_type(self):
@@ -332,27 +348,6 @@ class InstanceDetailForDescribeBackupsOutput(object):
         self._network_type = network_type
 
     @property
-    def project_name(self):
-        """Gets the project_name of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The project_name of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_name
-
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this InstanceDetailForDescribeBackupsOutput.
-
-
-        :param project_name: The project_name of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._project_name = project_name
-
-    @property
     def region_id(self):
         """Gets the region_id of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
 
@@ -393,27 +388,6 @@ class InstanceDetailForDescribeBackupsOutput(object):
         """
 
         self._replicas = replicas
-
-    @property
-    def server_cpu(self):
-        """Gets the server_cpu of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The server_cpu of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._server_cpu
-
-    @server_cpu.setter
-    def server_cpu(self, server_cpu):
-        """Sets the server_cpu of this InstanceDetailForDescribeBackupsOutput.
-
-
-        :param server_cpu: The server_cpu of this InstanceDetailForDescribeBackupsOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._server_cpu = server_cpu
 
     @property
     def shard_capacity(self):
