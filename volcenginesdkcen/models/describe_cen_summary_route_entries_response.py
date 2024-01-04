@@ -34,31 +34,41 @@ class DescribeCenSummaryRouteEntriesResponse(object):
     """
     swagger_types = {
         'cen_summary_route_entries': 'list[CenSummaryRouteEntryForDescribeCenSummaryRouteEntriesOutput]',
+        'page_number': 'int',
         'page_size': 'int',
+        'request_id': 'str',
         'total_count': 'int'
     }
 
     attribute_map = {
         'cen_summary_route_entries': 'CenSummaryRouteEntries',
+        'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'request_id': 'RequestId',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, cen_summary_route_entries=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_summary_route_entries=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeCenSummaryRouteEntriesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cen_summary_route_entries = None
+        self._page_number = None
         self._page_size = None
+        self._request_id = None
         self._total_count = None
         self.discriminator = None
 
         if cen_summary_route_entries is not None:
             self.cen_summary_route_entries = cen_summary_route_entries
+        if page_number is not None:
+            self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if request_id is not None:
+            self.request_id = request_id
         if total_count is not None:
             self.total_count = total_count
 
@@ -84,6 +94,27 @@ class DescribeCenSummaryRouteEntriesResponse(object):
         self._cen_summary_route_entries = cen_summary_route_entries
 
     @property
+    def page_number(self):
+        """Gets the page_number of this DescribeCenSummaryRouteEntriesResponse.  # noqa: E501
+
+
+        :return: The page_number of this DescribeCenSummaryRouteEntriesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this DescribeCenSummaryRouteEntriesResponse.
+
+
+        :param page_number: The page_number of this DescribeCenSummaryRouteEntriesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
     def page_size(self):
         """Gets the page_size of this DescribeCenSummaryRouteEntriesResponse.  # noqa: E501
 
@@ -103,6 +134,27 @@ class DescribeCenSummaryRouteEntriesResponse(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def request_id(self):
+        """Gets the request_id of this DescribeCenSummaryRouteEntriesResponse.  # noqa: E501
+
+
+        :return: The request_id of this DescribeCenSummaryRouteEntriesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, request_id):
+        """Sets the request_id of this DescribeCenSummaryRouteEntriesResponse.
+
+
+        :param request_id: The request_id of this DescribeCenSummaryRouteEntriesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._request_id = request_id
 
     @property
     def total_count(self):

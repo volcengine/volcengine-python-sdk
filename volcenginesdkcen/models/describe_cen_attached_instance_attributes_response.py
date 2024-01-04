@@ -38,6 +38,7 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
         'instance_owner_id': 'str',
         'instance_region_id': 'str',
         'instance_type': 'str',
+        'request_id': 'str',
         'status': 'str'
     }
 
@@ -47,10 +48,11 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
         'instance_owner_id': 'InstanceOwnerId',
         'instance_region_id': 'InstanceRegionId',
         'instance_type': 'InstanceType',
+        'request_id': 'RequestId',
         'status': 'Status'
     }
 
-    def __init__(self, cen_id=None, instance_id=None, instance_owner_id=None, instance_region_id=None, instance_type=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_id=None, instance_id=None, instance_owner_id=None, instance_region_id=None, instance_type=None, request_id=None, status=None, _configuration=None):  # noqa: E501
         """DescribeCenAttachedInstanceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
         self._instance_owner_id = None
         self._instance_region_id = None
         self._instance_type = None
+        self._request_id = None
         self._status = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
             self.instance_region_id = instance_region_id
         if instance_type is not None:
             self.instance_type = instance_type
+        if request_id is not None:
+            self.request_id = request_id
         if status is not None:
             self.status = status
 
@@ -181,6 +186,27 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def request_id(self):
+        """Gets the request_id of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
+
+
+        :return: The request_id of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, request_id):
+        """Sets the request_id of this DescribeCenAttachedInstanceAttributesResponse.
+
+
+        :param request_id: The request_id of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._request_id = request_id
 
     @property
     def status(self):

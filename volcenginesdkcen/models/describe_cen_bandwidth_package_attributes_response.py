@@ -48,8 +48,10 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         'peer_geographic_region_set_id': 'str',
         'project_name': 'str',
         'remaining_bandwidth': 'int',
+        'request_id': 'str',
         'status': 'str',
-        'tags': 'list[TagForDescribeCenBandwidthPackageAttributesOutput]'
+        'tags': 'list[TagForDescribeCenBandwidthPackageAttributesOutput]',
+        'updated_at': 'str'
     }
 
     attribute_map = {
@@ -68,11 +70,13 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
         'project_name': 'ProjectName',
         'remaining_bandwidth': 'RemainingBandwidth',
+        'request_id': 'RequestId',
         'status': 'Status',
-        'tags': 'Tags'
+        'tags': 'Tags',
+        'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, project_name=None, remaining_bandwidth=None, status=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, project_name=None, remaining_bandwidth=None, request_id=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
         """DescribeCenBandwidthPackageAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,8 +97,10 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         self._peer_geographic_region_set_id = None
         self._project_name = None
         self._remaining_bandwidth = None
+        self._request_id = None
         self._status = None
         self._tags = None
+        self._updated_at = None
         self.discriminator = None
 
         if account_id is not None:
@@ -127,10 +133,14 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
             self.project_name = project_name
         if remaining_bandwidth is not None:
             self.remaining_bandwidth = remaining_bandwidth
+        if request_id is not None:
+            self.request_id = request_id
         if status is not None:
             self.status = status
         if tags is not None:
             self.tags = tags
+        if updated_at is not None:
+            self.updated_at = updated_at
 
     @property
     def account_id(self):
@@ -448,6 +458,27 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         self._remaining_bandwidth = remaining_bandwidth
 
     @property
+    def request_id(self):
+        """Gets the request_id of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
+
+
+        :return: The request_id of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, request_id):
+        """Sets the request_id of this DescribeCenBandwidthPackageAttributesResponse.
+
+
+        :param request_id: The request_id of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._request_id = request_id
+
+    @property
     def status(self):
         """Gets the status of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
 
@@ -488,6 +519,27 @@ class DescribeCenBandwidthPackageAttributesResponse(object):
         """
 
         self._tags = tags
+
+    @property
+    def updated_at(self):
+        """Gets the updated_at of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
+
+
+        :return: The updated_at of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._updated_at
+
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this DescribeCenBandwidthPackageAttributesResponse.
+
+
+        :param updated_at: The updated_at of this DescribeCenBandwidthPackageAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._updated_at = updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

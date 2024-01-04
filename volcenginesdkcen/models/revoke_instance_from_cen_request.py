@@ -65,8 +65,7 @@ class RevokeInstanceFromCenRequest(object):
         self.cen_owner_id = cen_owner_id
         self.instance_id = instance_id
         self.instance_region_id = instance_region_id
-        if instance_type is not None:
-            self.instance_type = instance_type
+        self.instance_type = instance_type
 
     @property
     def cen_id(self):
@@ -178,6 +177,8 @@ class RevokeInstanceFromCenRequest(object):
         :param instance_type: The instance_type of this RevokeInstanceFromCenRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_type is None:
+            raise ValueError("Invalid value for `instance_type`, must not be `None`")  # noqa: E501
         allowed_values = ["VPC", "DCGW"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_type not in allowed_values):

@@ -33,7 +33,7 @@ class DescribeCensRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cen_ids': 'str',
+        'cen_ids': 'list[str]',
         'cen_name': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -83,7 +83,7 @@ class DescribeCensRequest(object):
 
 
         :return: The cen_ids of this DescribeCensRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._cen_ids
 
@@ -93,7 +93,7 @@ class DescribeCensRequest(object):
 
 
         :param cen_ids: The cen_ids of this DescribeCensRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._cen_ids = cen_ids

@@ -33,34 +33,60 @@ class DescribeCenInterRegionBandwidthsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cen_id': 'str',
         'inter_region_bandwidth_ids': 'list[str]',
         'page_number': 'int',
-        'page_size': 'str'
+        'page_size': 'int'
     }
 
     attribute_map = {
+        'cen_id': 'CenId',
         'inter_region_bandwidth_ids': 'InterRegionBandwidthIds',
         'page_number': 'PageNumber',
         'page_size': 'PageSize'
     }
 
-    def __init__(self, inter_region_bandwidth_ids=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_id=None, inter_region_bandwidth_ids=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
         """DescribeCenInterRegionBandwidthsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cen_id = None
         self._inter_region_bandwidth_ids = None
         self._page_number = None
         self._page_size = None
         self.discriminator = None
 
+        if cen_id is not None:
+            self.cen_id = cen_id
         if inter_region_bandwidth_ids is not None:
             self.inter_region_bandwidth_ids = inter_region_bandwidth_ids
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+
+    @property
+    def cen_id(self):
+        """Gets the cen_id of this DescribeCenInterRegionBandwidthsRequest.  # noqa: E501
+
+
+        :return: The cen_id of this DescribeCenInterRegionBandwidthsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cen_id
+
+    @cen_id.setter
+    def cen_id(self, cen_id):
+        """Sets the cen_id of this DescribeCenInterRegionBandwidthsRequest.
+
+
+        :param cen_id: The cen_id of this DescribeCenInterRegionBandwidthsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cen_id = cen_id
 
     @property
     def inter_region_bandwidth_ids(self):
@@ -110,7 +136,7 @@ class DescribeCenInterRegionBandwidthsRequest(object):
 
 
         :return: The page_size of this DescribeCenInterRegionBandwidthsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._page_size
 
@@ -120,7 +146,7 @@ class DescribeCenInterRegionBandwidthsRequest(object):
 
 
         :param page_size: The page_size of this DescribeCenInterRegionBandwidthsRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._page_size = page_size
