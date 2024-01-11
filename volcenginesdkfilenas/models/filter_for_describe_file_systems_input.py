@@ -75,6 +75,13 @@ class FilterForDescribeFileSystemsInput(object):
         :param key: The key of this FilterForDescribeFileSystemsInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Status", "FileSystemName", "ZoneId", "ProtocolType", "StorageType", "ChargeType", "PermissionGroupId", "MountPointId"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                key not in allowed_values):
+            raise ValueError(
+                "Invalid value for `key` ({0}), must be one of {1}"  # noqa: E501
+                .format(key, allowed_values)
+            )
 
         self._key = key
 

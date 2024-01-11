@@ -39,7 +39,7 @@ class CommonCapacityForDescribeFileSystemStatisticsOutput(object):
 
     attribute_map = {
         'total': 'Total',
-        'used': 'used'
+        'used': 'Used'
     }
 
     def __init__(self, total=None, used=None, _configuration=None):  # noqa: E501

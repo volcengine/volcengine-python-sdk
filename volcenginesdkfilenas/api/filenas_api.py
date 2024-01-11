@@ -115,7 +115,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateFileSystem/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/CreateFileSystem/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateMountPoint/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/CreateMountPoint/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreatePermissionGroup/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/CreatePermissionGroup/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateSnapshot/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/CreateSnapshot/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteFileSystem/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DeleteFileSystem/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteMountPoint/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DeleteMountPoint/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -697,7 +697,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeletePermissionGroup/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DeletePermissionGroup/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -794,7 +794,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteSnapshot/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DeleteSnapshot/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -891,7 +891,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeFileSystemOverview/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribeFileSystemOverview/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -988,7 +988,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeFileSystemStatistics/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribeFileSystemStatistics/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1085,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeFileSystems/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribeFileSystems/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1182,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeMountPoints/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribeMountPoints/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1279,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribePermissionGroups/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribePermissionGroups/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1376,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribePermissionRules/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribePermissionRules/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1473,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeRegions/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribeRegions/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1570,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeSnapshots/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribeSnapshots/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1667,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeZones/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/DescribeZones/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1764,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ExpandFileSystem/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/ExpandFileSystem/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1861,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateFileSystem/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/UpdateFileSystem/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +1958,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateMountPoint/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/UpdateMountPoint/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2055,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdatePermissionGroup/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/UpdatePermissionGroup/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2152,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdatePermissionRule/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/UpdatePermissionRule/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2249,7 @@ class FILENASApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateSnapshot/2022-01-01/FileNAS/post/application_json/', 'POST',
+            '/UpdateSnapshot/2022-01-01/filenas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,

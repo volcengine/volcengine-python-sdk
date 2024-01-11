@@ -205,6 +205,13 @@ class DescribeSnapshotsRequest(object):
         :param snapshot_type: The snapshot_type of this DescribeSnapshotsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Manual", "Auto"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                snapshot_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `snapshot_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(snapshot_type, allowed_values)
+            )
 
         self._snapshot_type = snapshot_type
 
@@ -226,6 +233,13 @@ class DescribeSnapshotsRequest(object):
         :param status: The status of this DescribeSnapshotsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Progressing", "Accomplished", "Failed", "Deleting"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
 
         self._status = status
 

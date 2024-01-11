@@ -49,8 +49,7 @@ class DeleteSnapshotRequest(object):
         self._snapshot_id = None
         self.discriminator = None
 
-        if snapshot_id is not None:
-            self.snapshot_id = snapshot_id
+        self.snapshot_id = snapshot_id
 
     @property
     def snapshot_id(self):
@@ -70,6 +69,8 @@ class DeleteSnapshotRequest(object):
         :param snapshot_id: The snapshot_id of this DeleteSnapshotRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and snapshot_id is None:
+            raise ValueError("Invalid value for `snapshot_id`, must not be `None`")  # noqa: E501
 
         self._snapshot_id = snapshot_id
 
