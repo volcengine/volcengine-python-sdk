@@ -48,6 +48,8 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'bill_category': 'str',
         'bill_id': 'str',
         'bill_period': 'str',
+        'billing_function': 'str',
+        'billing_method_code': 'str',
         'billing_mode': 'str',
         'busi_period': 'str',
         'business_mode': 'str',
@@ -63,12 +65,19 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'daily_amortized_preferential_bill_amount': 'str',
         'daily_amortized_round_amount': 'str',
         'discount_bill_amount': 'str',
+        'discount_biz_billing_function': 'str',
+        'discount_biz_measure_interval': 'str',
+        'discount_biz_unit_price': 'str',
+        'discount_biz_unit_price_interval': 'str',
+        'effective_factor': 'str',
         'element': 'str',
         'expand_field': 'str',
         'expense_time': 'str',
         'factor': 'str',
         'instance_name': 'str',
         'instance_no': 'str',
+        'market_price': 'str',
+        'measure_interval': 'str',
         'now_amortized_coupon_amount': 'str',
         'now_amortized_discount_bill_amount': 'str',
         'now_amortized_original_bill_amount': 'str',
@@ -87,6 +96,7 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'payer_user_name': 'str',
         'preferential_bill_amount': 'str',
         'price': 'str',
+        'price_interval': 'str',
         'price_unit': 'str',
         'product': 'str',
         'product_zh': 'str',
@@ -127,6 +137,8 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'bill_category': 'BillCategory',
         'bill_id': 'BillID',
         'bill_period': 'BillPeriod',
+        'billing_function': 'BillingFunction',
+        'billing_method_code': 'BillingMethodCode',
         'billing_mode': 'BillingMode',
         'busi_period': 'BusiPeriod',
         'business_mode': 'BusinessMode',
@@ -142,12 +154,19 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'daily_amortized_preferential_bill_amount': 'DailyAmortizedPreferentialBillAmount',
         'daily_amortized_round_amount': 'DailyAmortizedRoundAmount',
         'discount_bill_amount': 'DiscountBillAmount',
+        'discount_biz_billing_function': 'DiscountBizBillingFunction',
+        'discount_biz_measure_interval': 'DiscountBizMeasureInterval',
+        'discount_biz_unit_price': 'DiscountBizUnitPrice',
+        'discount_biz_unit_price_interval': 'DiscountBizUnitPriceInterval',
+        'effective_factor': 'EffectiveFactor',
         'element': 'Element',
         'expand_field': 'ExpandField',
         'expense_time': 'ExpenseTime',
         'factor': 'Factor',
         'instance_name': 'InstanceName',
         'instance_no': 'InstanceNo',
+        'market_price': 'MarketPrice',
+        'measure_interval': 'MeasureInterval',
         'now_amortized_coupon_amount': 'NowAmortizedCouponAmount',
         'now_amortized_discount_bill_amount': 'NowAmortizedDiscountBillAmount',
         'now_amortized_original_bill_amount': 'NowAmortizedOriginalBillAmount',
@@ -166,6 +185,7 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'payer_user_name': 'PayerUserName',
         'preferential_bill_amount': 'PreferentialBillAmount',
         'price': 'Price',
+        'price_interval': 'PriceInterval',
         'price_unit': 'PriceUnit',
         'product': 'Product',
         'product_zh': 'ProductZh',
@@ -190,7 +210,7 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         'zone': 'Zone'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day_num=None, amortized_end_time=None, amortized_month=None, amortized_type=None, before_amortized_coupon_amount=None, before_amortized_discount_bill_amount=None, before_amortized_original_bill_amount=None, before_amortized_paid_amount=None, before_amortized_payable_amount=None, before_amortized_preferential_bill_amount=None, before_amortized_round_amount=None, bill_category=None, bill_id=None, bill_period=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, count=None, coupon_amount=None, currency=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_preferential_bill_amount=None, daily_amortized_round_amount=None, discount_bill_amount=None, element=None, expand_field=None, expense_time=None, factor=None, instance_name=None, instance_no=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_preferential_bill_amount=None, now_amortized_round_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, region=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, subject_name=None, tag=None, unamortized_coupon_amount=None, unamortized_discount_bill_amount=None, unamortized_original_bill_amount=None, unamortized_paid_amount=None, unamortized_payable_amount=None, unamortized_preferential_bill_amount=None, unamortized_round_amount=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day_num=None, amortized_end_time=None, amortized_month=None, amortized_type=None, before_amortized_coupon_amount=None, before_amortized_discount_bill_amount=None, before_amortized_original_bill_amount=None, before_amortized_paid_amount=None, before_amortized_payable_amount=None, before_amortized_preferential_bill_amount=None, before_amortized_round_amount=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, count=None, coupon_amount=None, currency=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_preferential_bill_amount=None, daily_amortized_round_amount=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, expand_field=None, expense_time=None, factor=None, instance_name=None, instance_no=None, market_price=None, measure_interval=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_preferential_bill_amount=None, now_amortized_round_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, region=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, subject_name=None, tag=None, unamortized_coupon_amount=None, unamortized_discount_bill_amount=None, unamortized_original_bill_amount=None, unamortized_paid_amount=None, unamortized_payable_amount=None, unamortized_preferential_bill_amount=None, unamortized_round_amount=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillMonthlyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -211,6 +231,8 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         self._bill_category = None
         self._bill_id = None
         self._bill_period = None
+        self._billing_function = None
+        self._billing_method_code = None
         self._billing_mode = None
         self._busi_period = None
         self._business_mode = None
@@ -226,12 +248,19 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         self._daily_amortized_preferential_bill_amount = None
         self._daily_amortized_round_amount = None
         self._discount_bill_amount = None
+        self._discount_biz_billing_function = None
+        self._discount_biz_measure_interval = None
+        self._discount_biz_unit_price = None
+        self._discount_biz_unit_price_interval = None
+        self._effective_factor = None
         self._element = None
         self._expand_field = None
         self._expense_time = None
         self._factor = None
         self._instance_name = None
         self._instance_no = None
+        self._market_price = None
+        self._measure_interval = None
         self._now_amortized_coupon_amount = None
         self._now_amortized_discount_bill_amount = None
         self._now_amortized_original_bill_amount = None
@@ -250,6 +279,7 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         self._payer_user_name = None
         self._preferential_bill_amount = None
         self._price = None
+        self._price_interval = None
         self._price_unit = None
         self._product = None
         self._product_zh = None
@@ -304,6 +334,10 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
             self.bill_id = bill_id
         if bill_period is not None:
             self.bill_period = bill_period
+        if billing_function is not None:
+            self.billing_function = billing_function
+        if billing_method_code is not None:
+            self.billing_method_code = billing_method_code
         if billing_mode is not None:
             self.billing_mode = billing_mode
         if busi_period is not None:
@@ -334,6 +368,16 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
             self.daily_amortized_round_amount = daily_amortized_round_amount
         if discount_bill_amount is not None:
             self.discount_bill_amount = discount_bill_amount
+        if discount_biz_billing_function is not None:
+            self.discount_biz_billing_function = discount_biz_billing_function
+        if discount_biz_measure_interval is not None:
+            self.discount_biz_measure_interval = discount_biz_measure_interval
+        if discount_biz_unit_price is not None:
+            self.discount_biz_unit_price = discount_biz_unit_price
+        if discount_biz_unit_price_interval is not None:
+            self.discount_biz_unit_price_interval = discount_biz_unit_price_interval
+        if effective_factor is not None:
+            self.effective_factor = effective_factor
         if element is not None:
             self.element = element
         if expand_field is not None:
@@ -346,6 +390,10 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
             self.instance_name = instance_name
         if instance_no is not None:
             self.instance_no = instance_no
+        if market_price is not None:
+            self.market_price = market_price
+        if measure_interval is not None:
+            self.measure_interval = measure_interval
         if now_amortized_coupon_amount is not None:
             self.now_amortized_coupon_amount = now_amortized_coupon_amount
         if now_amortized_discount_bill_amount is not None:
@@ -382,6 +430,8 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
             self.preferential_bill_amount = preferential_bill_amount
         if price is not None:
             self.price = price
+        if price_interval is not None:
+            self.price_interval = price_interval
         if price_unit is not None:
             self.price_unit = price_unit
         if product is not None:
@@ -743,6 +793,48 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         self._bill_period = bill_period
 
     @property
+    def billing_function(self):
+        """Gets the billing_function of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The billing_function of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_function
+
+    @billing_function.setter
+    def billing_function(self, billing_function):
+        """Sets the billing_function of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param billing_function: The billing_function of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._billing_function = billing_function
+
+    @property
+    def billing_method_code(self):
+        """Gets the billing_method_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The billing_method_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_method_code
+
+    @billing_method_code.setter
+    def billing_method_code(self, billing_method_code):
+        """Sets the billing_method_code of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param billing_method_code: The billing_method_code of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._billing_method_code = billing_method_code
+
+    @property
     def billing_mode(self):
         """Gets the billing_mode of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
 
@@ -1058,6 +1150,111 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         self._discount_bill_amount = discount_bill_amount
 
     @property
+    def discount_biz_billing_function(self):
+        """Gets the discount_biz_billing_function of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The discount_biz_billing_function of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._discount_biz_billing_function
+
+    @discount_biz_billing_function.setter
+    def discount_biz_billing_function(self, discount_biz_billing_function):
+        """Sets the discount_biz_billing_function of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param discount_biz_billing_function: The discount_biz_billing_function of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._discount_biz_billing_function = discount_biz_billing_function
+
+    @property
+    def discount_biz_measure_interval(self):
+        """Gets the discount_biz_measure_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The discount_biz_measure_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._discount_biz_measure_interval
+
+    @discount_biz_measure_interval.setter
+    def discount_biz_measure_interval(self, discount_biz_measure_interval):
+        """Sets the discount_biz_measure_interval of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param discount_biz_measure_interval: The discount_biz_measure_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._discount_biz_measure_interval = discount_biz_measure_interval
+
+    @property
+    def discount_biz_unit_price(self):
+        """Gets the discount_biz_unit_price of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The discount_biz_unit_price of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._discount_biz_unit_price
+
+    @discount_biz_unit_price.setter
+    def discount_biz_unit_price(self, discount_biz_unit_price):
+        """Sets the discount_biz_unit_price of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param discount_biz_unit_price: The discount_biz_unit_price of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._discount_biz_unit_price = discount_biz_unit_price
+
+    @property
+    def discount_biz_unit_price_interval(self):
+        """Gets the discount_biz_unit_price_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The discount_biz_unit_price_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._discount_biz_unit_price_interval
+
+    @discount_biz_unit_price_interval.setter
+    def discount_biz_unit_price_interval(self, discount_biz_unit_price_interval):
+        """Sets the discount_biz_unit_price_interval of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param discount_biz_unit_price_interval: The discount_biz_unit_price_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._discount_biz_unit_price_interval = discount_biz_unit_price_interval
+
+    @property
+    def effective_factor(self):
+        """Gets the effective_factor of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The effective_factor of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._effective_factor
+
+    @effective_factor.setter
+    def effective_factor(self, effective_factor):
+        """Sets the effective_factor of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param effective_factor: The effective_factor of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._effective_factor = effective_factor
+
+    @property
     def element(self):
         """Gets the element of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
 
@@ -1182,6 +1379,48 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         """
 
         self._instance_no = instance_no
+
+    @property
+    def market_price(self):
+        """Gets the market_price of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The market_price of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._market_price
+
+    @market_price.setter
+    def market_price(self, market_price):
+        """Sets the market_price of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param market_price: The market_price of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._market_price = market_price
+
+    @property
+    def measure_interval(self):
+        """Gets the measure_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The measure_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._measure_interval
+
+    @measure_interval.setter
+    def measure_interval(self, measure_interval):
+        """Sets the measure_interval of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param measure_interval: The measure_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._measure_interval = measure_interval
 
     @property
     def now_amortized_coupon_amount(self):
@@ -1560,6 +1799,27 @@ class ListForListAmortizedCostBillMonthlyOutput(object):
         """
 
         self._price = price
+
+    @property
+    def price_interval(self):
+        """Gets the price_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+
+
+        :return: The price_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._price_interval
+
+    @price_interval.setter
+    def price_interval(self, price_interval):
+        """Sets the price_interval of this ListForListAmortizedCostBillMonthlyOutput.
+
+
+        :param price_interval: The price_interval of this ListForListAmortizedCostBillMonthlyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._price_interval = price_interval
 
     @property
     def price_unit(self):
