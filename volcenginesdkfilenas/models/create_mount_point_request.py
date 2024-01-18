@@ -61,16 +61,11 @@ class CreateMountPointRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
-        if file_system_id is not None:
-            self.file_system_id = file_system_id
-        if mount_point_name is not None:
-            self.mount_point_name = mount_point_name
-        if permission_group_id is not None:
-            self.permission_group_id = permission_group_id
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
+        self.file_system_id = file_system_id
+        self.mount_point_name = mount_point_name
+        self.permission_group_id = permission_group_id
+        self.subnet_id = subnet_id
+        self.vpc_id = vpc_id
 
     @property
     def file_system_id(self):
@@ -90,6 +85,8 @@ class CreateMountPointRequest(object):
         :param file_system_id: The file_system_id of this CreateMountPointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and file_system_id is None:
+            raise ValueError("Invalid value for `file_system_id`, must not be `None`")  # noqa: E501
 
         self._file_system_id = file_system_id
 
@@ -111,6 +108,8 @@ class CreateMountPointRequest(object):
         :param mount_point_name: The mount_point_name of this CreateMountPointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and mount_point_name is None:
+            raise ValueError("Invalid value for `mount_point_name`, must not be `None`")  # noqa: E501
 
         self._mount_point_name = mount_point_name
 
@@ -132,6 +131,8 @@ class CreateMountPointRequest(object):
         :param permission_group_id: The permission_group_id of this CreateMountPointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and permission_group_id is None:
+            raise ValueError("Invalid value for `permission_group_id`, must not be `None`")  # noqa: E501
 
         self._permission_group_id = permission_group_id
 
@@ -153,6 +154,8 @@ class CreateMountPointRequest(object):
         :param subnet_id: The subnet_id of this CreateMountPointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 
@@ -174,6 +177,8 @@ class CreateMountPointRequest(object):
         :param vpc_id: The vpc_id of this CreateMountPointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 

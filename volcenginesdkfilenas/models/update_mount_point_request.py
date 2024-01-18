@@ -58,10 +58,8 @@ class UpdateMountPointRequest(object):
         self._permission_group_id = None
         self.discriminator = None
 
-        if file_system_id is not None:
-            self.file_system_id = file_system_id
-        if mount_point_id is not None:
-            self.mount_point_id = mount_point_id
+        self.file_system_id = file_system_id
+        self.mount_point_id = mount_point_id
         if mount_point_name is not None:
             self.mount_point_name = mount_point_name
         if permission_group_id is not None:
@@ -85,6 +83,8 @@ class UpdateMountPointRequest(object):
         :param file_system_id: The file_system_id of this UpdateMountPointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and file_system_id is None:
+            raise ValueError("Invalid value for `file_system_id`, must not be `None`")  # noqa: E501
 
         self._file_system_id = file_system_id
 
@@ -106,6 +106,8 @@ class UpdateMountPointRequest(object):
         :param mount_point_id: The mount_point_id of this UpdateMountPointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and mount_point_id is None:
+            raise ValueError("Invalid value for `mount_point_id`, must not be `None`")  # noqa: E501
 
         self._mount_point_id = mount_point_id
 

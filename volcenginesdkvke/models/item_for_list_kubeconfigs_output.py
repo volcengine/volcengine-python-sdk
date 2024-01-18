@@ -38,6 +38,7 @@ class ItemForListKubeconfigsOutput(object):
         'expire_time': 'str',
         'id': 'str',
         'kubeconfig': 'str',
+        'role_id': 'int',
         'type': 'str',
         'user_id': 'int'
     }
@@ -48,11 +49,12 @@ class ItemForListKubeconfigsOutput(object):
         'expire_time': 'ExpireTime',
         'id': 'Id',
         'kubeconfig': 'Kubeconfig',
+        'role_id': 'RoleId',
         'type': 'Type',
         'user_id': 'UserId'
     }
 
-    def __init__(self, cluster_id=None, create_time=None, expire_time=None, id=None, kubeconfig=None, type=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_id=None, create_time=None, expire_time=None, id=None, kubeconfig=None, role_id=None, type=None, user_id=None, _configuration=None):  # noqa: E501
         """ItemForListKubeconfigsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class ItemForListKubeconfigsOutput(object):
         self._expire_time = None
         self._id = None
         self._kubeconfig = None
+        self._role_id = None
         self._type = None
         self._user_id = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class ItemForListKubeconfigsOutput(object):
             self.id = id
         if kubeconfig is not None:
             self.kubeconfig = kubeconfig
+        if role_id is not None:
+            self.role_id = role_id
         if type is not None:
             self.type = type
         if user_id is not None:
@@ -186,6 +191,27 @@ class ItemForListKubeconfigsOutput(object):
         """
 
         self._kubeconfig = kubeconfig
+
+    @property
+    def role_id(self):
+        """Gets the role_id of this ItemForListKubeconfigsOutput.  # noqa: E501
+
+
+        :return: The role_id of this ItemForListKubeconfigsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._role_id
+
+    @role_id.setter
+    def role_id(self, role_id):
+        """Sets the role_id of this ItemForListKubeconfigsOutput.
+
+
+        :param role_id: The role_id of this ItemForListKubeconfigsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._role_id = role_id
 
     @property
     def type(self):

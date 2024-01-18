@@ -49,8 +49,7 @@ class DeleteFileSystemRequest(object):
         self._file_system_id = None
         self.discriminator = None
 
-        if file_system_id is not None:
-            self.file_system_id = file_system_id
+        self.file_system_id = file_system_id
 
     @property
     def file_system_id(self):
@@ -70,6 +69,8 @@ class DeleteFileSystemRequest(object):
         :param file_system_id: The file_system_id of this DeleteFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and file_system_id is None:
+            raise ValueError("Invalid value for `file_system_id`, must not be `None`")  # noqa: E501
 
         self._file_system_id = file_system_id
 

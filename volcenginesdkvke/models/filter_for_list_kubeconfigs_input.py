@@ -35,6 +35,7 @@ class FilterForListKubeconfigsInput(object):
     swagger_types = {
         'cluster_ids': 'list[str]',
         'ids': 'list[str]',
+        'role_ids': 'list[int]',
         'types': 'list[str]',
         'user_ids': 'list[int]'
     }
@@ -42,11 +43,12 @@ class FilterForListKubeconfigsInput(object):
     attribute_map = {
         'cluster_ids': 'ClusterIds',
         'ids': 'Ids',
+        'role_ids': 'RoleIds',
         'types': 'Types',
         'user_ids': 'UserIds'
     }
 
-    def __init__(self, cluster_ids=None, ids=None, types=None, user_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_ids=None, ids=None, role_ids=None, types=None, user_ids=None, _configuration=None):  # noqa: E501
         """FilterForListKubeconfigsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class FilterForListKubeconfigsInput(object):
 
         self._cluster_ids = None
         self._ids = None
+        self._role_ids = None
         self._types = None
         self._user_ids = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class FilterForListKubeconfigsInput(object):
             self.cluster_ids = cluster_ids
         if ids is not None:
             self.ids = ids
+        if role_ids is not None:
+            self.role_ids = role_ids
         if types is not None:
             self.types = types
         if user_ids is not None:
@@ -108,6 +113,27 @@ class FilterForListKubeconfigsInput(object):
         """
 
         self._ids = ids
+
+    @property
+    def role_ids(self):
+        """Gets the role_ids of this FilterForListKubeconfigsInput.  # noqa: E501
+
+
+        :return: The role_ids of this FilterForListKubeconfigsInput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._role_ids
+
+    @role_ids.setter
+    def role_ids(self, role_ids):
+        """Sets the role_ids of this FilterForListKubeconfigsInput.
+
+
+        :param role_ids: The role_ids of this FilterForListKubeconfigsInput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._role_ids = role_ids
 
     @property
     def types(self):

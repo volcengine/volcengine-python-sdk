@@ -35,16 +35,18 @@ class KubernetesConfigForCreateNodePoolInput(object):
     swagger_types = {
         'cordon': 'bool',
         'labels': 'list[LabelForCreateNodePoolInput]',
+        'name_prefix': 'str',
         'taints': 'list[TaintForCreateNodePoolInput]'
     }
 
     attribute_map = {
         'cordon': 'Cordon',
         'labels': 'Labels',
+        'name_prefix': 'NamePrefix',
         'taints': 'Taints'
     }
 
-    def __init__(self, cordon=None, labels=None, taints=None, _configuration=None):  # noqa: E501
+    def __init__(self, cordon=None, labels=None, name_prefix=None, taints=None, _configuration=None):  # noqa: E501
         """KubernetesConfigForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class KubernetesConfigForCreateNodePoolInput(object):
 
         self._cordon = None
         self._labels = None
+        self._name_prefix = None
         self._taints = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class KubernetesConfigForCreateNodePoolInput(object):
             self.cordon = cordon
         if labels is not None:
             self.labels = labels
+        if name_prefix is not None:
+            self.name_prefix = name_prefix
         if taints is not None:
             self.taints = taints
 
@@ -103,6 +108,27 @@ class KubernetesConfigForCreateNodePoolInput(object):
         """
 
         self._labels = labels
+
+    @property
+    def name_prefix(self):
+        """Gets the name_prefix of this KubernetesConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The name_prefix of this KubernetesConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name_prefix
+
+    @name_prefix.setter
+    def name_prefix(self, name_prefix):
+        """Sets the name_prefix of this KubernetesConfigForCreateNodePoolInput.
+
+
+        :param name_prefix: The name_prefix of this KubernetesConfigForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._name_prefix = name_prefix
 
     @property
     def taints(self):
