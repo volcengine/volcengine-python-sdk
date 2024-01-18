@@ -57,10 +57,8 @@ class CreateSnapshotRequest(object):
 
         if description is not None:
             self.description = description
-        if file_system_id is not None:
-            self.file_system_id = file_system_id
-        if snapshot_name is not None:
-            self.snapshot_name = snapshot_name
+        self.file_system_id = file_system_id
+        self.snapshot_name = snapshot_name
 
     @property
     def description(self):
@@ -101,6 +99,8 @@ class CreateSnapshotRequest(object):
         :param file_system_id: The file_system_id of this CreateSnapshotRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and file_system_id is None:
+            raise ValueError("Invalid value for `file_system_id`, must not be `None`")  # noqa: E501
 
         self._file_system_id = file_system_id
 
@@ -122,6 +122,8 @@ class CreateSnapshotRequest(object):
         :param snapshot_name: The snapshot_name of this CreateSnapshotRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and snapshot_name is None:
+            raise ValueError("Invalid value for `snapshot_name`, must not be `None`")  # noqa: E501
 
         self._snapshot_name = snapshot_name
 

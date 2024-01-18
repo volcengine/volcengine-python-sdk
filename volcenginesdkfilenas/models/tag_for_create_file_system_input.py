@@ -101,6 +101,13 @@ class TagForCreateFileSystemInput(object):
         :param type: The type of this TagForCreateFileSystemInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Custom", "System"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 

@@ -127,6 +127,13 @@ class PermissionRuleForUpdatePermissionRuleInput(object):
         :param rw_mode: The rw_mode of this PermissionRuleForUpdatePermissionRuleInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["RW", "RO"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                rw_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `rw_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(rw_mode, allowed_values)
+            )
 
         self._rw_mode = rw_mode
 
@@ -148,6 +155,13 @@ class PermissionRuleForUpdatePermissionRuleInput(object):
         :param user_mode: The user_mode of this PermissionRuleForUpdatePermissionRuleInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["All_squash", "No_all_squash", "Root_squash", "No_root_squash"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                user_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `user_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(user_mode, allowed_values)
+            )
 
         self._user_mode = user_mode
 

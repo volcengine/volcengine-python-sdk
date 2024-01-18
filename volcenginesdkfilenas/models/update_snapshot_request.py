@@ -57,8 +57,7 @@ class UpdateSnapshotRequest(object):
 
         if description is not None:
             self.description = description
-        if snapshot_id is not None:
-            self.snapshot_id = snapshot_id
+        self.snapshot_id = snapshot_id
         if snapshot_name is not None:
             self.snapshot_name = snapshot_name
 
@@ -101,6 +100,8 @@ class UpdateSnapshotRequest(object):
         :param snapshot_id: The snapshot_id of this UpdateSnapshotRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and snapshot_id is None:
+            raise ValueError("Invalid value for `snapshot_id`, must not be `None`")  # noqa: E501
 
         self._snapshot_id = snapshot_id
 
