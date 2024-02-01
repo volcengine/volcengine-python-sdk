@@ -34,6 +34,7 @@ class ListForListBillOutput(object):
     """
     swagger_types = {
         'bill_category_parent': 'str',
+        'bill_detail_num': 'str',
         'bill_id': 'str',
         'bill_period': 'str',
         'billing_mode': 'str',
@@ -70,6 +71,7 @@ class ListForListBillOutput(object):
 
     attribute_map = {
         'bill_category_parent': 'BillCategoryParent',
+        'bill_detail_num': 'BillDetailNum',
         'bill_id': 'BillID',
         'bill_period': 'BillPeriod',
         'billing_mode': 'BillingMode',
@@ -104,13 +106,14 @@ class ListForListBillOutput(object):
         'unpaid_amount': 'UnpaidAmount'
     }
 
-    def __init__(self, bill_category_parent=None, bill_id=None, bill_period=None, billing_mode=None, busi_period=None, business_mode=None, coupon_amount=None, credit_carried_amount=None, currency=None, discount_bill_amount=None, expense_begin_time=None, expense_end_time=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, pay_status=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, product=None, product_zh=None, round_bill_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settlement_type=None, subject_name=None, trade_time=None, unpaid_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category_parent=None, bill_detail_num=None, bill_id=None, bill_period=None, billing_mode=None, busi_period=None, business_mode=None, coupon_amount=None, credit_carried_amount=None, currency=None, discount_bill_amount=None, expense_begin_time=None, expense_end_time=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, pay_status=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, product=None, product_zh=None, round_bill_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settlement_type=None, subject_name=None, trade_time=None, unpaid_amount=None, _configuration=None):  # noqa: E501
         """ListForListBillOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bill_category_parent = None
+        self._bill_detail_num = None
         self._bill_id = None
         self._bill_period = None
         self._billing_mode = None
@@ -147,6 +150,8 @@ class ListForListBillOutput(object):
 
         if bill_category_parent is not None:
             self.bill_category_parent = bill_category_parent
+        if bill_detail_num is not None:
+            self.bill_detail_num = bill_detail_num
         if bill_id is not None:
             self.bill_id = bill_id
         if bill_period is not None:
@@ -232,6 +237,27 @@ class ListForListBillOutput(object):
         """
 
         self._bill_category_parent = bill_category_parent
+
+    @property
+    def bill_detail_num(self):
+        """Gets the bill_detail_num of this ListForListBillOutput.  # noqa: E501
+
+
+        :return: The bill_detail_num of this ListForListBillOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bill_detail_num
+
+    @bill_detail_num.setter
+    def bill_detail_num(self, bill_detail_num):
+        """Sets the bill_detail_num of this ListForListBillOutput.
+
+
+        :param bill_detail_num: The bill_detail_num of this ListForListBillOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bill_detail_num = bill_detail_num
 
     @property
     def bill_id(self):
