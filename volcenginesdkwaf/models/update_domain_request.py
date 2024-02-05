@@ -57,7 +57,6 @@ class UpdateDomainRequest(object):
         'proxy_retry': 'int',
         'proxy_write_time_out': 'int',
         'public_real_server': 'int',
-        'redirect_https': 'bool',
         'region': 'str',
         'ssl_ciphers': 'list[str]',
         'ssl_protocols': 'list[str]',
@@ -90,7 +89,6 @@ class UpdateDomainRequest(object):
         'proxy_retry': 'ProxyRetry',
         'proxy_write_time_out': 'ProxyWriteTimeOut',
         'public_real_server': 'PublicRealServer',
-        'redirect_https': 'RedirectHTTPS',
         'region': 'Region',
         'ssl_ciphers': 'SSLCiphers',
         'ssl_protocols': 'SSLProtocols',
@@ -98,7 +96,7 @@ class UpdateDomainRequest(object):
         'vpc_id': 'VpcID'
     }
 
-    def __init__(self, access_mode=None, backend_groups=None, certificate_id=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, custom_header=None, domain=None, enable_http2=None, enable_i_pv6=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, ssl_ciphers=None, ssl_protocols=None, tls_enable=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, backend_groups=None, certificate_id=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, custom_header=None, domain=None, enable_http2=None, enable_i_pv6=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, region=None, ssl_ciphers=None, ssl_protocols=None, tls_enable=None, vpc_id=None, _configuration=None):  # noqa: E501
         """UpdateDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -128,7 +126,6 @@ class UpdateDomainRequest(object):
         self._proxy_retry = None
         self._proxy_write_time_out = None
         self._public_real_server = None
-        self._redirect_https = None
         self._region = None
         self._ssl_ciphers = None
         self._ssl_protocols = None
@@ -182,8 +179,6 @@ class UpdateDomainRequest(object):
             self.proxy_write_time_out = proxy_write_time_out
         if public_real_server is not None:
             self.public_real_server = public_real_server
-        if redirect_https is not None:
-            self.redirect_https = redirect_https
         self.region = region
         if ssl_ciphers is not None:
             self.ssl_ciphers = ssl_ciphers
@@ -701,27 +696,6 @@ class UpdateDomainRequest(object):
         """
 
         self._public_real_server = public_real_server
-
-    @property
-    def redirect_https(self):
-        """Gets the redirect_https of this UpdateDomainRequest.  # noqa: E501
-
-
-        :return: The redirect_https of this UpdateDomainRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._redirect_https
-
-    @redirect_https.setter
-    def redirect_https(self, redirect_https):
-        """Sets the redirect_https of this UpdateDomainRequest.
-
-
-        :param redirect_https: The redirect_https of this UpdateDomainRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._redirect_https = redirect_https
 
     @property
     def region(self):

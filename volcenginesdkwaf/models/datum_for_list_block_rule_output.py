@@ -43,12 +43,11 @@ class DatumForListBlockRuleOutput(object):
         'host': 'str',
         'id': 'int',
         'ip_add_type': 'int',
-        'ip_group_id': 'int',
+        'ip_groups': 'list[IpGroupForListBlockRuleOutput]',
         'ip_type': 'int',
         'isolation_id': 'str',
         'js_conf_id': 'int',
         'name': 'str',
-        'policy': 'int',
         'rule_tag': 'str',
         'update_time': 'str',
         'url': 'str'
@@ -65,18 +64,17 @@ class DatumForListBlockRuleOutput(object):
         'host': 'Host',
         'id': 'Id',
         'ip_add_type': 'IpAddType',
-        'ip_group_id': 'IpGroupId',
+        'ip_groups': 'IpGroups',
         'ip_type': 'IpType',
         'isolation_id': 'IsolationId',
         'js_conf_id': 'JsConfId',
         'name': 'Name',
-        'policy': 'Policy',
         'rule_tag': 'RuleTag',
         'update_time': 'UpdateTime',
         'url': 'Url'
     }
 
-    def __init__(self, action=None, add_src=None, advanced=None, client_ip=None, description=None, enable=None, group_id=None, host=None, id=None, ip_add_type=None, ip_group_id=None, ip_type=None, isolation_id=None, js_conf_id=None, name=None, policy=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, add_src=None, advanced=None, client_ip=None, description=None, enable=None, group_id=None, host=None, id=None, ip_add_type=None, ip_groups=None, ip_type=None, isolation_id=None, js_conf_id=None, name=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
         """DatumForListBlockRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,12 +90,11 @@ class DatumForListBlockRuleOutput(object):
         self._host = None
         self._id = None
         self._ip_add_type = None
-        self._ip_group_id = None
+        self._ip_groups = None
         self._ip_type = None
         self._isolation_id = None
         self._js_conf_id = None
         self._name = None
-        self._policy = None
         self._rule_tag = None
         self._update_time = None
         self._url = None
@@ -123,8 +120,8 @@ class DatumForListBlockRuleOutput(object):
             self.id = id
         if ip_add_type is not None:
             self.ip_add_type = ip_add_type
-        if ip_group_id is not None:
-            self.ip_group_id = ip_group_id
+        if ip_groups is not None:
+            self.ip_groups = ip_groups
         if ip_type is not None:
             self.ip_type = ip_type
         if isolation_id is not None:
@@ -133,8 +130,6 @@ class DatumForListBlockRuleOutput(object):
             self.js_conf_id = js_conf_id
         if name is not None:
             self.name = name
-        if policy is not None:
-            self.policy = policy
         if rule_tag is not None:
             self.rule_tag = rule_tag
         if update_time is not None:
@@ -353,25 +348,25 @@ class DatumForListBlockRuleOutput(object):
         self._ip_add_type = ip_add_type
 
     @property
-    def ip_group_id(self):
-        """Gets the ip_group_id of this DatumForListBlockRuleOutput.  # noqa: E501
+    def ip_groups(self):
+        """Gets the ip_groups of this DatumForListBlockRuleOutput.  # noqa: E501
 
 
-        :return: The ip_group_id of this DatumForListBlockRuleOutput.  # noqa: E501
-        :rtype: int
+        :return: The ip_groups of this DatumForListBlockRuleOutput.  # noqa: E501
+        :rtype: list[IpGroupForListBlockRuleOutput]
         """
-        return self._ip_group_id
+        return self._ip_groups
 
-    @ip_group_id.setter
-    def ip_group_id(self, ip_group_id):
-        """Sets the ip_group_id of this DatumForListBlockRuleOutput.
+    @ip_groups.setter
+    def ip_groups(self, ip_groups):
+        """Sets the ip_groups of this DatumForListBlockRuleOutput.
 
 
-        :param ip_group_id: The ip_group_id of this DatumForListBlockRuleOutput.  # noqa: E501
-        :type: int
+        :param ip_groups: The ip_groups of this DatumForListBlockRuleOutput.  # noqa: E501
+        :type: list[IpGroupForListBlockRuleOutput]
         """
 
-        self._ip_group_id = ip_group_id
+        self._ip_groups = ip_groups
 
     @property
     def ip_type(self):
@@ -456,27 +451,6 @@ class DatumForListBlockRuleOutput(object):
         """
 
         self._name = name
-
-    @property
-    def policy(self):
-        """Gets the policy of this DatumForListBlockRuleOutput.  # noqa: E501
-
-
-        :return: The policy of this DatumForListBlockRuleOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._policy
-
-    @policy.setter
-    def policy(self, policy):
-        """Sets the policy of this DatumForListBlockRuleOutput.
-
-
-        :param policy: The policy of this DatumForListBlockRuleOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._policy = policy
 
     @property
     def rule_tag(self):
