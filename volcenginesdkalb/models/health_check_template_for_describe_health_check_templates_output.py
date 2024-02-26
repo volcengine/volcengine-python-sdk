@@ -36,6 +36,7 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'description': 'str',
         'health_check_domain': 'str',
         'health_check_http_code': 'str',
+        'health_check_http_version': 'str',
         'health_check_interval': 'int',
         'health_check_method': 'str',
         'health_check_protocol': 'str',
@@ -51,6 +52,7 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'description': 'Description',
         'health_check_domain': 'HealthCheckDomain',
         'health_check_http_code': 'HealthCheckHttpCode',
+        'health_check_http_version': 'HealthCheckHttpVersion',
         'health_check_interval': 'HealthCheckInterval',
         'health_check_method': 'HealthCheckMethod',
         'health_check_protocol': 'HealthCheckProtocol',
@@ -62,7 +64,7 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckTemplateForDescribeHealthCheckTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         self._description = None
         self._health_check_domain = None
         self._health_check_http_code = None
+        self._health_check_http_version = None
         self._health_check_interval = None
         self._health_check_method = None
         self._health_check_protocol = None
@@ -88,6 +91,8 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
             self.health_check_domain = health_check_domain
         if health_check_http_code is not None:
             self.health_check_http_code = health_check_http_code
+        if health_check_http_version is not None:
+            self.health_check_http_version = health_check_http_version
         if health_check_interval is not None:
             self.health_check_interval = health_check_interval
         if health_check_method is not None:
@@ -169,6 +174,27 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         """
 
         self._health_check_http_code = health_check_http_code
+
+    @property
+    def health_check_http_version(self):
+        """Gets the health_check_http_version of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+
+
+        :return: The health_check_http_version of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._health_check_http_version
+
+    @health_check_http_version.setter
+    def health_check_http_version(self, health_check_http_version):
+        """Sets the health_check_http_version of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.
+
+
+        :param health_check_http_version: The health_check_http_version of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._health_check_http_version = health_check_http_version
 
     @property
     def health_check_interval(self):

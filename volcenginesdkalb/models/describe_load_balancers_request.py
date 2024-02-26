@@ -33,6 +33,7 @@ class DescribeLoadBalancersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'eip_address': 'str',
         'eni_address': 'str',
         'load_balancer_ids': 'list[str]',
         'load_balancer_name': 'str',
@@ -44,6 +45,7 @@ class DescribeLoadBalancersRequest(object):
     }
 
     attribute_map = {
+        'eip_address': 'EipAddress',
         'eni_address': 'EniAddress',
         'load_balancer_ids': 'LoadBalancerIds',
         'load_balancer_name': 'LoadBalancerName',
@@ -54,12 +56,13 @@ class DescribeLoadBalancersRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_address=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._eip_address = None
         self._eni_address = None
         self._load_balancer_ids = None
         self._load_balancer_name = None
@@ -70,6 +73,8 @@ class DescribeLoadBalancersRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if eip_address is not None:
+            self.eip_address = eip_address
         if eni_address is not None:
             self.eni_address = eni_address
         if load_balancer_ids is not None:
@@ -86,6 +91,27 @@ class DescribeLoadBalancersRequest(object):
             self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def eip_address(self):
+        """Gets the eip_address of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The eip_address of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_address
+
+    @eip_address.setter
+    def eip_address(self, eip_address):
+        """Sets the eip_address of this DescribeLoadBalancersRequest.
+
+
+        :param eip_address: The eip_address of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_address = eip_address
 
     @property
     def eni_address(self):

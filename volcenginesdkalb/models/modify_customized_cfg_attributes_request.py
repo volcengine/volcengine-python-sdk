@@ -58,7 +58,8 @@ class ModifyCustomizedCfgAttributesRequest(object):
         self._description = None
         self.discriminator = None
 
-        self.customized_cfg_content = customized_cfg_content
+        if customized_cfg_content is not None:
+            self.customized_cfg_content = customized_cfg_content
         self.customized_cfg_id = customized_cfg_id
         if customized_cfg_name is not None:
             self.customized_cfg_name = customized_cfg_name
@@ -83,8 +84,6 @@ class ModifyCustomizedCfgAttributesRequest(object):
         :param customized_cfg_content: The customized_cfg_content of this ModifyCustomizedCfgAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and customized_cfg_content is None:
-            raise ValueError("Invalid value for `customized_cfg_content`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 customized_cfg_content is not None and len(customized_cfg_content) > 4096):
             raise ValueError("Invalid value for `customized_cfg_content`, length must be less than or equal to `4096`")  # noqa: E501
