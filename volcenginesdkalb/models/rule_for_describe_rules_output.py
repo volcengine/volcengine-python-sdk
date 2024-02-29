@@ -36,6 +36,8 @@ class RuleForDescribeRulesOutput(object):
         'description': 'str',
         'domain': 'str',
         'redirect_config': 'RedirectConfigForDescribeRulesOutput',
+        'rewrite_config': 'RewriteConfigForDescribeRulesOutput',
+        'rewrite_enabled': 'str',
         'rule_action': 'str',
         'rule_id': 'str',
         'server_group_id': 'str',
@@ -48,6 +50,8 @@ class RuleForDescribeRulesOutput(object):
         'description': 'Description',
         'domain': 'Domain',
         'redirect_config': 'RedirectConfig',
+        'rewrite_config': 'RewriteConfig',
+        'rewrite_enabled': 'RewriteEnabled',
         'rule_action': 'RuleAction',
         'rule_id': 'RuleId',
         'server_group_id': 'ServerGroupId',
@@ -56,7 +60,7 @@ class RuleForDescribeRulesOutput(object):
         'url': 'Url'
     }
 
-    def __init__(self, description=None, domain=None, redirect_config=None, rule_action=None, rule_id=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, domain=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, rule_id=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501
         """RuleForDescribeRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +69,8 @@ class RuleForDescribeRulesOutput(object):
         self._description = None
         self._domain = None
         self._redirect_config = None
+        self._rewrite_config = None
+        self._rewrite_enabled = None
         self._rule_action = None
         self._rule_id = None
         self._server_group_id = None
@@ -79,6 +85,10 @@ class RuleForDescribeRulesOutput(object):
             self.domain = domain
         if redirect_config is not None:
             self.redirect_config = redirect_config
+        if rewrite_config is not None:
+            self.rewrite_config = rewrite_config
+        if rewrite_enabled is not None:
+            self.rewrite_enabled = rewrite_enabled
         if rule_action is not None:
             self.rule_action = rule_action
         if rule_id is not None:
@@ -154,6 +164,48 @@ class RuleForDescribeRulesOutput(object):
         """
 
         self._redirect_config = redirect_config
+
+    @property
+    def rewrite_config(self):
+        """Gets the rewrite_config of this RuleForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The rewrite_config of this RuleForDescribeRulesOutput.  # noqa: E501
+        :rtype: RewriteConfigForDescribeRulesOutput
+        """
+        return self._rewrite_config
+
+    @rewrite_config.setter
+    def rewrite_config(self, rewrite_config):
+        """Sets the rewrite_config of this RuleForDescribeRulesOutput.
+
+
+        :param rewrite_config: The rewrite_config of this RuleForDescribeRulesOutput.  # noqa: E501
+        :type: RewriteConfigForDescribeRulesOutput
+        """
+
+        self._rewrite_config = rewrite_config
+
+    @property
+    def rewrite_enabled(self):
+        """Gets the rewrite_enabled of this RuleForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The rewrite_enabled of this RuleForDescribeRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._rewrite_enabled
+
+    @rewrite_enabled.setter
+    def rewrite_enabled(self, rewrite_enabled):
+        """Sets the rewrite_enabled of this RuleForDescribeRulesOutput.
+
+
+        :param rewrite_enabled: The rewrite_enabled of this RuleForDescribeRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._rewrite_enabled = rewrite_enabled
 
     @property
     def rule_action(self):

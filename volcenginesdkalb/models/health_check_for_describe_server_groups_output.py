@@ -37,6 +37,7 @@ class HealthCheckForDescribeServerGroupsOutput(object):
         'enabled': 'str',
         'healthy_threshold': 'int',
         'http_code': 'str',
+        'http_version': 'str',
         'interval': 'int',
         'method': 'str',
         'protocol': 'str',
@@ -50,6 +51,7 @@ class HealthCheckForDescribeServerGroupsOutput(object):
         'enabled': 'Enabled',
         'healthy_threshold': 'HealthyThreshold',
         'http_code': 'HttpCode',
+        'http_version': 'HttpVersion',
         'interval': 'Interval',
         'method': 'Method',
         'protocol': 'Protocol',
@@ -58,7 +60,7 @@ class HealthCheckForDescribeServerGroupsOutput(object):
         'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, protocol=None, timeout=None, uri=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, http_version=None, interval=None, method=None, protocol=None, timeout=None, uri=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckForDescribeServerGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class HealthCheckForDescribeServerGroupsOutput(object):
         self._enabled = None
         self._healthy_threshold = None
         self._http_code = None
+        self._http_version = None
         self._interval = None
         self._method = None
         self._protocol = None
@@ -84,6 +87,8 @@ class HealthCheckForDescribeServerGroupsOutput(object):
             self.healthy_threshold = healthy_threshold
         if http_code is not None:
             self.http_code = http_code
+        if http_version is not None:
+            self.http_version = http_version
         if interval is not None:
             self.interval = interval
         if method is not None:
@@ -180,6 +185,27 @@ class HealthCheckForDescribeServerGroupsOutput(object):
         """
 
         self._http_code = http_code
+
+    @property
+    def http_version(self):
+        """Gets the http_version of this HealthCheckForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The http_version of this HealthCheckForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._http_version
+
+    @http_version.setter
+    def http_version(self, http_version):
+        """Sets the http_version of this HealthCheckForDescribeServerGroupsOutput.
+
+
+        :param http_version: The http_version of this HealthCheckForDescribeServerGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._http_version = http_version
 
     @property
     def interval(self):

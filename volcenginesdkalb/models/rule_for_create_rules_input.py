@@ -36,6 +36,8 @@ class RuleForCreateRulesInput(object):
         'description': 'str',
         'domain': 'str',
         'redirect_config': 'RedirectConfigForCreateRulesInput',
+        'rewrite_config': 'RewriteConfigForCreateRulesInput',
+        'rewrite_enabled': 'str',
         'rule_action': 'str',
         'server_group_id': 'str',
         'traffic_limit_enabled': 'str',
@@ -47,6 +49,8 @@ class RuleForCreateRulesInput(object):
         'description': 'Description',
         'domain': 'Domain',
         'redirect_config': 'RedirectConfig',
+        'rewrite_config': 'RewriteConfig',
+        'rewrite_enabled': 'RewriteEnabled',
         'rule_action': 'RuleAction',
         'server_group_id': 'ServerGroupId',
         'traffic_limit_enabled': 'TrafficLimitEnabled',
@@ -54,7 +58,7 @@ class RuleForCreateRulesInput(object):
         'url': 'URL'
     }
 
-    def __init__(self, description=None, domain=None, redirect_config=None, rule_action=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, domain=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501
         """RuleForCreateRulesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +67,8 @@ class RuleForCreateRulesInput(object):
         self._description = None
         self._domain = None
         self._redirect_config = None
+        self._rewrite_config = None
+        self._rewrite_enabled = None
         self._rule_action = None
         self._server_group_id = None
         self._traffic_limit_enabled = None
@@ -76,6 +82,10 @@ class RuleForCreateRulesInput(object):
             self.domain = domain
         if redirect_config is not None:
             self.redirect_config = redirect_config
+        if rewrite_config is not None:
+            self.rewrite_config = rewrite_config
+        if rewrite_enabled is not None:
+            self.rewrite_enabled = rewrite_enabled
         if rule_action is not None:
             self.rule_action = rule_action
         if server_group_id is not None:
@@ -149,6 +159,48 @@ class RuleForCreateRulesInput(object):
         """
 
         self._redirect_config = redirect_config
+
+    @property
+    def rewrite_config(self):
+        """Gets the rewrite_config of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The rewrite_config of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: RewriteConfigForCreateRulesInput
+        """
+        return self._rewrite_config
+
+    @rewrite_config.setter
+    def rewrite_config(self, rewrite_config):
+        """Sets the rewrite_config of this RuleForCreateRulesInput.
+
+
+        :param rewrite_config: The rewrite_config of this RuleForCreateRulesInput.  # noqa: E501
+        :type: RewriteConfigForCreateRulesInput
+        """
+
+        self._rewrite_config = rewrite_config
+
+    @property
+    def rewrite_enabled(self):
+        """Gets the rewrite_enabled of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The rewrite_enabled of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._rewrite_enabled
+
+    @rewrite_enabled.setter
+    def rewrite_enabled(self, rewrite_enabled):
+        """Sets the rewrite_enabled of this RuleForCreateRulesInput.
+
+
+        :param rewrite_enabled: The rewrite_enabled of this RuleForCreateRulesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._rewrite_enabled = rewrite_enabled
 
     @property
     def rule_action(self):
