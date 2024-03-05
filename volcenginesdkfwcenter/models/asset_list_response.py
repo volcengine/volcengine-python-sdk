@@ -34,7 +34,7 @@ class AssetListResponse(object):
     """
     swagger_types = {
         'count': 'int',
-        'data': 'list[DatumForAssetListOutput]',
+        'data': 'list[DataForAssetListOutput]',
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
@@ -99,7 +99,7 @@ class AssetListResponse(object):
 
 
         :return: The data of this AssetListResponse.  # noqa: E501
-        :rtype: list[DatumForAssetListOutput]
+        :rtype: list[DataForAssetListOutput]
         """
         return self._data
 
@@ -109,7 +109,7 @@ class AssetListResponse(object):
 
 
         :param data: The data of this AssetListResponse.  # noqa: E501
-        :type: list[DatumForAssetListOutput]
+        :type: list[DataForAssetListOutput]
         """
 
         self._data = data

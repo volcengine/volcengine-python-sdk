@@ -38,13 +38,11 @@ class ModifyControlPolicyRequest(object):
         'dest_port': 'str',
         'dest_port_type': 'str',
         'destination': 'str',
-        'destination_group_type': 'str',
         'destination_type': 'str',
         'direction': 'str',
         'proto': 'str',
         'rule_id': 'str',
         'source': 'str',
-        'source_group_type': 'str',
         'source_type': 'str',
         'status': 'bool'
     }
@@ -55,18 +53,16 @@ class ModifyControlPolicyRequest(object):
         'dest_port': 'DestPort',
         'dest_port_type': 'DestPortType',
         'destination': 'Destination',
-        'destination_group_type': 'DestinationGroupType',
         'destination_type': 'DestinationType',
         'direction': 'Direction',
         'proto': 'Proto',
         'rule_id': 'RuleId',
         'source': 'Source',
-        'source_group_type': 'SourceGroupType',
         'source_type': 'SourceType',
         'status': 'Status'
     }
 
-    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_group_type=None, destination_type=None, direction=None, proto=None, rule_id=None, source=None, source_group_type=None, source_type=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, direction=None, proto=None, rule_id=None, source=None, source_type=None, status=None, _configuration=None):  # noqa: E501
         """ModifyControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,13 +73,11 @@ class ModifyControlPolicyRequest(object):
         self._dest_port = None
         self._dest_port_type = None
         self._destination = None
-        self._destination_group_type = None
         self._destination_type = None
         self._direction = None
         self._proto = None
         self._rule_id = None
         self._source = None
-        self._source_group_type = None
         self._source_type = None
         self._status = None
         self.discriminator = None
@@ -96,15 +90,11 @@ class ModifyControlPolicyRequest(object):
         if dest_port_type is not None:
             self.dest_port_type = dest_port_type
         self.destination = destination
-        if destination_group_type is not None:
-            self.destination_group_type = destination_group_type
         self.destination_type = destination_type
         self.direction = direction
         self.proto = proto
         self.rule_id = rule_id
         self.source = source
-        if source_group_type is not None:
-            self.source_group_type = source_group_type
         self.source_type = source_type
         if status is not None:
             self.status = status
@@ -217,27 +207,6 @@ class ModifyControlPolicyRequest(object):
             raise ValueError("Invalid value for `destination`, must not be `None`")  # noqa: E501
 
         self._destination = destination
-
-    @property
-    def destination_group_type(self):
-        """Gets the destination_group_type of this ModifyControlPolicyRequest.  # noqa: E501
-
-
-        :return: The destination_group_type of this ModifyControlPolicyRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._destination_group_type
-
-    @destination_group_type.setter
-    def destination_group_type(self, destination_group_type):
-        """Sets the destination_group_type of this ModifyControlPolicyRequest.
-
-
-        :param destination_group_type: The destination_group_type of this ModifyControlPolicyRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._destination_group_type = destination_group_type
 
     @property
     def destination_type(self):
@@ -353,27 +322,6 @@ class ModifyControlPolicyRequest(object):
             raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
         self._source = source
-
-    @property
-    def source_group_type(self):
-        """Gets the source_group_type of this ModifyControlPolicyRequest.  # noqa: E501
-
-
-        :return: The source_group_type of this ModifyControlPolicyRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_group_type
-
-    @source_group_type.setter
-    def source_group_type(self, source_group_type):
-        """Sets the source_group_type of this ModifyControlPolicyRequest.
-
-
-        :param source_group_type: The source_group_type of this ModifyControlPolicyRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._source_group_type = source_group_type
 
     @property
     def source_type(self):

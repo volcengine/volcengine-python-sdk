@@ -33,7 +33,7 @@ class DescribeControlPolicyByRuleIdResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[DatumForDescribeControlPolicyByRuleIdOutput]'
+        'data': 'list[DataForDescribeControlPolicyByRuleIdOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class DescribeControlPolicyByRuleIdResponse(object):
 
 
         :return: The data of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
-        :rtype: list[DatumForDescribeControlPolicyByRuleIdOutput]
+        :rtype: list[DataForDescribeControlPolicyByRuleIdOutput]
         """
         return self._data
 
@@ -68,7 +68,7 @@ class DescribeControlPolicyByRuleIdResponse(object):
 
 
         :param data: The data of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
-        :type: list[DatumForDescribeControlPolicyByRuleIdOutput]
+        :type: list[DataForDescribeControlPolicyByRuleIdOutput]
         """
 
         self._data = data

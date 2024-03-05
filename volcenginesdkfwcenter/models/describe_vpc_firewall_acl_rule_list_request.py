@@ -34,10 +34,12 @@ class DescribeVpcFirewallAclRuleListRequest(object):
     """
     swagger_types = {
         'action': 'list[str]',
+        'description': 'str',
         'destination': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'proto': 'list[str]',
+        'rule_id': 'str',
         'source': 'str',
         'status': 'list[bool]',
         'vpc_firewall_id': 'str'
@@ -45,26 +47,30 @@ class DescribeVpcFirewallAclRuleListRequest(object):
 
     attribute_map = {
         'action': 'Action',
+        'description': 'Description',
         'destination': 'Destination',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'proto': 'Proto',
+        'rule_id': 'RuleId',
         'source': 'Source',
         'status': 'Status',
         'vpc_firewall_id': 'VpcFirewallId'
     }
 
-    def __init__(self, action=None, destination=None, page_number=None, page_size=None, proto=None, source=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, destination=None, page_number=None, page_size=None, proto=None, rule_id=None, source=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
         """DescribeVpcFirewallAclRuleListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._action = None
+        self._description = None
         self._destination = None
         self._page_number = None
         self._page_size = None
         self._proto = None
+        self._rule_id = None
         self._source = None
         self._status = None
         self._vpc_firewall_id = None
@@ -72,6 +78,8 @@ class DescribeVpcFirewallAclRuleListRequest(object):
 
         if action is not None:
             self.action = action
+        if description is not None:
+            self.description = description
         if destination is not None:
             self.destination = destination
         if page_number is not None:
@@ -80,6 +88,8 @@ class DescribeVpcFirewallAclRuleListRequest(object):
             self.page_size = page_size
         if proto is not None:
             self.proto = proto
+        if rule_id is not None:
+            self.rule_id = rule_id
         if source is not None:
             self.source = source
         if status is not None:
@@ -106,6 +116,27 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         """
 
         self._action = action
+
+    @property
+    def description(self):
+        """Gets the description of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+
+
+        :return: The description of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this DescribeVpcFirewallAclRuleListRequest.
+
+
+        :param description: The description of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def destination(self):
@@ -190,6 +221,27 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         """
 
         self._proto = proto
+
+    @property
+    def rule_id(self):
+        """Gets the rule_id of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+
+
+        :return: The rule_id of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._rule_id
+
+    @rule_id.setter
+    def rule_id(self, rule_id):
+        """Sets the rule_id of this DescribeVpcFirewallAclRuleListRequest.
+
+
+        :param rule_id: The rule_id of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._rule_id = rule_id
 
     @property
     def source(self):

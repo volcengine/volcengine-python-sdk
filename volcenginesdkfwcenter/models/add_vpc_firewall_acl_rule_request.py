@@ -38,12 +38,10 @@ class AddVpcFirewallAclRuleRequest(object):
         'dest_port': 'str',
         'dest_port_type': 'str',
         'destination': 'str',
-        'destination_group_type': 'str',
         'destination_type': 'str',
         'prio': 'int',
         'proto': 'str',
         'source': 'str',
-        'source_group_type': 'str',
         'source_type': 'str',
         'status': 'bool',
         'vpc_firewall_id': 'str'
@@ -55,18 +53,16 @@ class AddVpcFirewallAclRuleRequest(object):
         'dest_port': 'DestPort',
         'dest_port_type': 'DestPortType',
         'destination': 'Destination',
-        'destination_group_type': 'DestinationGroupType',
         'destination_type': 'DestinationType',
         'prio': 'Prio',
         'proto': 'Proto',
         'source': 'Source',
-        'source_group_type': 'SourceGroupType',
         'source_type': 'SourceType',
         'status': 'Status',
         'vpc_firewall_id': 'VpcFirewallId'
     }
 
-    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_group_type=None, destination_type=None, prio=None, proto=None, source=None, source_group_type=None, source_type=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, prio=None, proto=None, source=None, source_type=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
         """AddVpcFirewallAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,12 +73,10 @@ class AddVpcFirewallAclRuleRequest(object):
         self._dest_port = None
         self._dest_port_type = None
         self._destination = None
-        self._destination_group_type = None
         self._destination_type = None
         self._prio = None
         self._proto = None
         self._source = None
-        self._source_group_type = None
         self._source_type = None
         self._status = None
         self._vpc_firewall_id = None
@@ -96,15 +90,11 @@ class AddVpcFirewallAclRuleRequest(object):
         if dest_port_type is not None:
             self.dest_port_type = dest_port_type
         self.destination = destination
-        if destination_group_type is not None:
-            self.destination_group_type = destination_group_type
         self.destination_type = destination_type
         if prio is not None:
             self.prio = prio
         self.proto = proto
         self.source = source
-        if source_group_type is not None:
-            self.source_group_type = source_group_type
         self.source_type = source_type
         if status is not None:
             self.status = status
@@ -220,27 +210,6 @@ class AddVpcFirewallAclRuleRequest(object):
         self._destination = destination
 
     @property
-    def destination_group_type(self):
-        """Gets the destination_group_type of this AddVpcFirewallAclRuleRequest.  # noqa: E501
-
-
-        :return: The destination_group_type of this AddVpcFirewallAclRuleRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._destination_group_type
-
-    @destination_group_type.setter
-    def destination_group_type(self, destination_group_type):
-        """Sets the destination_group_type of this AddVpcFirewallAclRuleRequest.
-
-
-        :param destination_group_type: The destination_group_type of this AddVpcFirewallAclRuleRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._destination_group_type = destination_group_type
-
-    @property
     def destination_type(self):
         """Gets the destination_type of this AddVpcFirewallAclRuleRequest.  # noqa: E501
 
@@ -329,27 +298,6 @@ class AddVpcFirewallAclRuleRequest(object):
             raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
         self._source = source
-
-    @property
-    def source_group_type(self):
-        """Gets the source_group_type of this AddVpcFirewallAclRuleRequest.  # noqa: E501
-
-
-        :return: The source_group_type of this AddVpcFirewallAclRuleRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_group_type
-
-    @source_group_type.setter
-    def source_group_type(self, source_group_type):
-        """Sets the source_group_type of this AddVpcFirewallAclRuleRequest.
-
-
-        :param source_group_type: The source_group_type of this AddVpcFirewallAclRuleRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._source_group_type = source_group_type
 
     @property
     def source_type(self):
