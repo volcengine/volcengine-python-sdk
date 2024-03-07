@@ -34,7 +34,7 @@ class DescribeVpcFirewallListResponse(object):
     """
     swagger_types = {
         'count': 'int',
-        'data': 'list[DatumForDescribeVpcFirewallListOutput]',
+        'data': 'list[DataForDescribeVpcFirewallListOutput]',
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
@@ -99,7 +99,7 @@ class DescribeVpcFirewallListResponse(object):
 
 
         :return: The data of this DescribeVpcFirewallListResponse.  # noqa: E501
-        :rtype: list[DatumForDescribeVpcFirewallListOutput]
+        :rtype: list[DataForDescribeVpcFirewallListOutput]
         """
         return self._data
 
@@ -109,7 +109,7 @@ class DescribeVpcFirewallListResponse(object):
 
 
         :param data: The data of this DescribeVpcFirewallListResponse.  # noqa: E501
-        :type: list[DatumForDescribeVpcFirewallListOutput]
+        :type: list[DataForDescribeVpcFirewallListOutput]
         """
 
         self._data = data

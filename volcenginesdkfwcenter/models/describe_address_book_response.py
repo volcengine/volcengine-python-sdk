@@ -34,7 +34,7 @@ class DescribeAddressBookResponse(object):
     """
     swagger_types = {
         'count': 'int',
-        'data': 'list[DatumForDescribeAddressBookOutput]',
+        'data': 'list[DataForDescribeAddressBookOutput]',
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
@@ -99,7 +99,7 @@ class DescribeAddressBookResponse(object):
 
 
         :return: The data of this DescribeAddressBookResponse.  # noqa: E501
-        :rtype: list[DatumForDescribeAddressBookOutput]
+        :rtype: list[DataForDescribeAddressBookOutput]
         """
         return self._data
 
@@ -109,7 +109,7 @@ class DescribeAddressBookResponse(object):
 
 
         :param data: The data of this DescribeAddressBookResponse.  # noqa: E501
-        :type: list[DatumForDescribeAddressBookOutput]
+        :type: list[DataForDescribeAddressBookOutput]
         """
 
         self._data = data

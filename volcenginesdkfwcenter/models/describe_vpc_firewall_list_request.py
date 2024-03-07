@@ -37,6 +37,7 @@ class DescribeVpcFirewallListRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'region_code': 'list[str]',
+        'route_mode': 'list[str]',
         'route_policy_status': 'list[str]',
         'transit_router_id': 'str',
         'transit_router_name': 'str',
@@ -49,6 +50,7 @@ class DescribeVpcFirewallListRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'region_code': 'RegionCode',
+        'route_mode': 'RouteMode',
         'route_policy_status': 'RoutePolicyStatus',
         'transit_router_id': 'TransitRouterId',
         'transit_router_name': 'TransitRouterName',
@@ -56,7 +58,7 @@ class DescribeVpcFirewallListRequest(object):
         'vpc_firewall_name': 'VpcFirewallName'
     }
 
-    def __init__(self, firewall_status=None, page_number=None, page_size=None, region_code=None, route_policy_status=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, firewall_status=None, page_number=None, page_size=None, region_code=None, route_mode=None, route_policy_status=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcFirewallListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class DescribeVpcFirewallListRequest(object):
         self._page_number = None
         self._page_size = None
         self._region_code = None
+        self._route_mode = None
         self._route_policy_status = None
         self._transit_router_id = None
         self._transit_router_name = None
@@ -81,6 +84,8 @@ class DescribeVpcFirewallListRequest(object):
             self.page_size = page_size
         if region_code is not None:
             self.region_code = region_code
+        if route_mode is not None:
+            self.route_mode = route_mode
         if route_policy_status is not None:
             self.route_policy_status = route_policy_status
         if transit_router_id is not None:
@@ -175,6 +180,27 @@ class DescribeVpcFirewallListRequest(object):
         """
 
         self._region_code = region_code
+
+    @property
+    def route_mode(self):
+        """Gets the route_mode of this DescribeVpcFirewallListRequest.  # noqa: E501
+
+
+        :return: The route_mode of this DescribeVpcFirewallListRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._route_mode
+
+    @route_mode.setter
+    def route_mode(self, route_mode):
+        """Sets the route_mode of this DescribeVpcFirewallListRequest.
+
+
+        :param route_mode: The route_mode of this DescribeVpcFirewallListRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._route_mode = route_mode
 
     @property
     def route_policy_status(self):

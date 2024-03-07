@@ -34,7 +34,7 @@ class DescribeControlPolicyResponse(object):
     """
     swagger_types = {
         'count': 'int',
-        'data': 'list[DatumForDescribeControlPolicyOutput]',
+        'data': 'list[DataForDescribeControlPolicyOutput]',
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
@@ -99,7 +99,7 @@ class DescribeControlPolicyResponse(object):
 
 
         :return: The data of this DescribeControlPolicyResponse.  # noqa: E501
-        :rtype: list[DatumForDescribeControlPolicyOutput]
+        :rtype: list[DataForDescribeControlPolicyOutput]
         """
         return self._data
 
@@ -109,7 +109,7 @@ class DescribeControlPolicyResponse(object):
 
 
         :param data: The data of this DescribeControlPolicyResponse.  # noqa: E501
-        :type: list[DatumForDescribeControlPolicyOutput]
+        :type: list[DataForDescribeControlPolicyOutput]
         """
 
         self._data = data
