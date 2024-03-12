@@ -37,6 +37,7 @@ class AddressForDescribeDBInstanceDetailOutput(object):
         'domain': 'str',
         'eip_id': 'str',
         'ip_address': 'str',
+        'internet_protocol': 'str',
         'network_type': 'str',
         'port': 'str',
         'subnet_id': 'str'
@@ -47,12 +48,13 @@ class AddressForDescribeDBInstanceDetailOutput(object):
         'domain': 'Domain',
         'eip_id': 'EipId',
         'ip_address': 'IPAddress',
+        'internet_protocol': 'InternetProtocol',
         'network_type': 'NetworkType',
         'port': 'Port',
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, dns_visibility=None, domain=None, eip_id=None, ip_address=None, network_type=None, port=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, dns_visibility=None, domain=None, eip_id=None, ip_address=None, internet_protocol=None, network_type=None, port=None, subnet_id=None, _configuration=None):  # noqa: E501
         """AddressForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class AddressForDescribeDBInstanceDetailOutput(object):
         self._domain = None
         self._eip_id = None
         self._ip_address = None
+        self._internet_protocol = None
         self._network_type = None
         self._port = None
         self._subnet_id = None
@@ -75,6 +78,8 @@ class AddressForDescribeDBInstanceDetailOutput(object):
             self.eip_id = eip_id
         if ip_address is not None:
             self.ip_address = ip_address
+        if internet_protocol is not None:
+            self.internet_protocol = internet_protocol
         if network_type is not None:
             self.network_type = network_type
         if port is not None:
@@ -165,6 +170,27 @@ class AddressForDescribeDBInstanceDetailOutput(object):
         """
 
         self._ip_address = ip_address
+
+    @property
+    def internet_protocol(self):
+        """Gets the internet_protocol of this AddressForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The internet_protocol of this AddressForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_protocol
+
+    @internet_protocol.setter
+    def internet_protocol(self, internet_protocol):
+        """Sets the internet_protocol of this AddressForDescribeDBInstanceDetailOutput.
+
+
+        :param internet_protocol: The internet_protocol of this AddressForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_protocol = internet_protocol
 
     @property
     def network_type(self):

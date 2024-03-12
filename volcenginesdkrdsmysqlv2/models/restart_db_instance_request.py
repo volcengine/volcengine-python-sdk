@@ -33,23 +33,80 @@ class RestartDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_id': 'str'
+        'apply_scope': 'str',
+        'custom_node_ids': 'list[str]',
+        'instance_id': 'str',
+        'switch_type': 'str'
     }
 
     attribute_map = {
-        'instance_id': 'InstanceId'
+        'apply_scope': 'ApplyScope',
+        'custom_node_ids': 'CustomNodeIds',
+        'instance_id': 'InstanceId',
+        'switch_type': 'SwitchType'
     }
 
-    def __init__(self, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_scope=None, custom_node_ids=None, instance_id=None, switch_type=None, _configuration=None):  # noqa: E501
         """RestartDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._apply_scope = None
+        self._custom_node_ids = None
         self._instance_id = None
+        self._switch_type = None
         self.discriminator = None
 
+        if apply_scope is not None:
+            self.apply_scope = apply_scope
+        if custom_node_ids is not None:
+            self.custom_node_ids = custom_node_ids
         self.instance_id = instance_id
+        if switch_type is not None:
+            self.switch_type = switch_type
+
+    @property
+    def apply_scope(self):
+        """Gets the apply_scope of this RestartDBInstanceRequest.  # noqa: E501
+
+
+        :return: The apply_scope of this RestartDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._apply_scope
+
+    @apply_scope.setter
+    def apply_scope(self, apply_scope):
+        """Sets the apply_scope of this RestartDBInstanceRequest.
+
+
+        :param apply_scope: The apply_scope of this RestartDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._apply_scope = apply_scope
+
+    @property
+    def custom_node_ids(self):
+        """Gets the custom_node_ids of this RestartDBInstanceRequest.  # noqa: E501
+
+
+        :return: The custom_node_ids of this RestartDBInstanceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._custom_node_ids
+
+    @custom_node_ids.setter
+    def custom_node_ids(self, custom_node_ids):
+        """Sets the custom_node_ids of this RestartDBInstanceRequest.
+
+
+        :param custom_node_ids: The custom_node_ids of this RestartDBInstanceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._custom_node_ids = custom_node_ids
 
     @property
     def instance_id(self):
@@ -73,6 +130,27 @@ class RestartDBInstanceRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def switch_type(self):
+        """Gets the switch_type of this RestartDBInstanceRequest.  # noqa: E501
+
+
+        :return: The switch_type of this RestartDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._switch_type
+
+    @switch_type.setter
+    def switch_type(self, switch_type):
+        """Sets the switch_type of this RestartDBInstanceRequest.
+
+
+        :param switch_type: The switch_type of this RestartDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._switch_type = switch_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

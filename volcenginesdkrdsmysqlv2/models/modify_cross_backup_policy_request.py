@@ -65,8 +65,7 @@ class ModifyCrossBackupPolicyRequest(object):
             self.backup_enabled = backup_enabled
         if cross_backup_region is not None:
             self.cross_backup_region = cross_backup_region
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if log_backup_enabled is not None:
             self.log_backup_enabled = log_backup_enabled
         if retention is not None:
@@ -132,6 +131,8 @@ class ModifyCrossBackupPolicyRequest(object):
         :param instance_id: The instance_id of this ModifyCrossBackupPolicyRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

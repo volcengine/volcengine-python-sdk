@@ -37,7 +37,6 @@ class CreateDatabaseRequest(object):
         'db_desc': 'str',
         'db_name': 'str',
         'database_privileges': 'list[DatabasePrivilegeForCreateDatabaseInput]',
-        'database_privileges_info': 'list[DatabasePrivilegesInfoForCreateDatabaseInput]',
         'instance_id': 'str'
     }
 
@@ -46,11 +45,10 @@ class CreateDatabaseRequest(object):
         'db_desc': 'DBDesc',
         'db_name': 'DBName',
         'database_privileges': 'DatabasePrivileges',
-        'database_privileges_info': 'DatabasePrivilegesInfo',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, character_set_name=None, db_desc=None, db_name=None, database_privileges=None, database_privileges_info=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, character_set_name=None, db_desc=None, db_name=None, database_privileges=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateDatabaseRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,7 +58,6 @@ class CreateDatabaseRequest(object):
         self._db_desc = None
         self._db_name = None
         self._database_privileges = None
-        self._database_privileges_info = None
         self._instance_id = None
         self.discriminator = None
 
@@ -68,12 +65,9 @@ class CreateDatabaseRequest(object):
             self.character_set_name = character_set_name
         if db_desc is not None:
             self.db_desc = db_desc
-        if db_name is not None:
-            self.db_name = db_name
+        self.db_name = db_name
         if database_privileges is not None:
             self.database_privileges = database_privileges
-        if database_privileges_info is not None:
-            self.database_privileges_info = database_privileges_info
         self.instance_id = instance_id
 
     @property
@@ -136,12 +130,8 @@ class CreateDatabaseRequest(object):
         :param db_name: The db_name of this CreateDatabaseRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                db_name is not None and len(db_name) > 64):
-            raise ValueError("Invalid value for `db_name`, length must be less than or equal to `64`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                db_name is not None and len(db_name) < 2):
-            raise ValueError("Invalid value for `db_name`, length must be greater than or equal to `2`")  # noqa: E501
+        if self._configuration.client_side_validation and db_name is None:
+            raise ValueError("Invalid value for `db_name`, must not be `None`")  # noqa: E501
 
         self._db_name = db_name
 
@@ -165,27 +155,6 @@ class CreateDatabaseRequest(object):
         """
 
         self._database_privileges = database_privileges
-
-    @property
-    def database_privileges_info(self):
-        """Gets the database_privileges_info of this CreateDatabaseRequest.  # noqa: E501
-
-
-        :return: The database_privileges_info of this CreateDatabaseRequest.  # noqa: E501
-        :rtype: list[DatabasePrivilegesInfoForCreateDatabaseInput]
-        """
-        return self._database_privileges_info
-
-    @database_privileges_info.setter
-    def database_privileges_info(self, database_privileges_info):
-        """Sets the database_privileges_info of this CreateDatabaseRequest.
-
-
-        :param database_privileges_info: The database_privileges_info of this CreateDatabaseRequest.  # noqa: E501
-        :type: list[DatabasePrivilegesInfoForCreateDatabaseInput]
-        """
-
-        self._database_privileges_info = database_privileges_info
 
     @property
     def instance_id(self):

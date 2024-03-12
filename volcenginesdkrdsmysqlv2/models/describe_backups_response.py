@@ -34,31 +34,26 @@ class DescribeBackupsResponse(object):
     """
     swagger_types = {
         'backups': 'list[BackupForDescribeBackupsOutput]',
-        'backups_info': 'list[BackupsInfoForDescribeBackupsOutput]',
         'total': 'int'
     }
 
     attribute_map = {
         'backups': 'Backups',
-        'backups_info': 'BackupsInfo',
         'total': 'Total'
     }
 
-    def __init__(self, backups=None, backups_info=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, backups=None, total=None, _configuration=None):  # noqa: E501
         """DescribeBackupsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._backups = None
-        self._backups_info = None
         self._total = None
         self.discriminator = None
 
         if backups is not None:
             self.backups = backups
-        if backups_info is not None:
-            self.backups_info = backups_info
         if total is not None:
             self.total = total
 
@@ -82,27 +77,6 @@ class DescribeBackupsResponse(object):
         """
 
         self._backups = backups
-
-    @property
-    def backups_info(self):
-        """Gets the backups_info of this DescribeBackupsResponse.  # noqa: E501
-
-
-        :return: The backups_info of this DescribeBackupsResponse.  # noqa: E501
-        :rtype: list[BackupsInfoForDescribeBackupsOutput]
-        """
-        return self._backups_info
-
-    @backups_info.setter
-    def backups_info(self, backups_info):
-        """Sets the backups_info of this DescribeBackupsResponse.
-
-
-        :param backups_info: The backups_info of this DescribeBackupsResponse.  # noqa: E501
-        :type: list[BackupsInfoForDescribeBackupsOutput]
-        """
-
-        self._backups_info = backups_info
 
     @property
     def total(self):

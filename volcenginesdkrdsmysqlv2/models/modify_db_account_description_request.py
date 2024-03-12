@@ -35,16 +35,18 @@ class ModifyDBAccountDescriptionRequest(object):
     swagger_types = {
         'account_desc': 'str',
         'account_name': 'str',
+        'host': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
         'account_desc': 'AccountDesc',
         'account_name': 'AccountName',
+        'host': 'Host',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, account_desc=None, account_name=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, host=None, instance_id=None, _configuration=None):  # noqa: E501
         """ModifyDBAccountDescriptionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,12 +54,15 @@ class ModifyDBAccountDescriptionRequest(object):
 
         self._account_desc = None
         self._account_name = None
+        self._host = None
         self._instance_id = None
         self.discriminator = None
 
         if account_desc is not None:
             self.account_desc = account_desc
         self.account_name = account_name
+        if host is not None:
+            self.host = host
         self.instance_id = instance_id
 
     @property
@@ -101,14 +106,29 @@ class ModifyDBAccountDescriptionRequest(object):
         """
         if self._configuration.client_side_validation and account_name is None:
             raise ValueError("Invalid value for `account_name`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                account_name is not None and len(account_name) > 32):
-            raise ValueError("Invalid value for `account_name`, length must be less than or equal to `32`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                account_name is not None and len(account_name) < 2):
-            raise ValueError("Invalid value for `account_name`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._account_name = account_name
+
+    @property
+    def host(self):
+        """Gets the host of this ModifyDBAccountDescriptionRequest.  # noqa: E501
+
+
+        :return: The host of this ModifyDBAccountDescriptionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """Sets the host of this ModifyDBAccountDescriptionRequest.
+
+
+        :param host: The host of this ModifyDBAccountDescriptionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._host = host
 
     @property
     def instance_id(self):

@@ -52,8 +52,7 @@ class GetBackupDownloadLinkRequest(object):
         self._instance_id = None
         self.discriminator = None
 
-        if backup_id is not None:
-            self.backup_id = backup_id
+        self.backup_id = backup_id
         self.instance_id = instance_id
 
     @property
@@ -74,6 +73,8 @@ class GetBackupDownloadLinkRequest(object):
         :param backup_id: The backup_id of this GetBackupDownloadLinkRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and backup_id is None:
+            raise ValueError("Invalid value for `backup_id`, must not be `None`")  # noqa: E501
 
         self._backup_id = backup_id
 

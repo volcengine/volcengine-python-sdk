@@ -61,8 +61,7 @@ class ModifyParameterTemplateRequest(object):
         if template_desc is not None:
             self.template_desc = template_desc
         self.template_id = template_id
-        if template_name is not None:
-            self.template_name = template_name
+        self.template_name = template_name
         if template_params is not None:
             self.template_params = template_params
 
@@ -84,9 +83,6 @@ class ModifyParameterTemplateRequest(object):
         :param template_desc: The template_desc of this ModifyParameterTemplateRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                template_desc is not None and len(template_desc) > 200):
-            raise ValueError("Invalid value for `template_desc`, length must be less than or equal to `200`")  # noqa: E501
 
         self._template_desc = template_desc
 
@@ -131,12 +127,8 @@ class ModifyParameterTemplateRequest(object):
         :param template_name: The template_name of this ModifyParameterTemplateRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                template_name is not None and len(template_name) > 64):
-            raise ValueError("Invalid value for `template_name`, length must be less than or equal to `64`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                template_name is not None and len(template_name) < 2):
-            raise ValueError("Invalid value for `template_name`, length must be greater than or equal to `2`")  # noqa: E501
+        if self._configuration.client_side_validation and template_name is None:
+            raise ValueError("Invalid value for `template_name`, must not be `None`")  # noqa: E501
 
         self._template_name = template_name
 

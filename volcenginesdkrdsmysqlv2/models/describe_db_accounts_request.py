@@ -84,12 +84,6 @@ class DescribeDBAccountsRequest(object):
         :param account_name: The account_name of this DescribeDBAccountsRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                account_name is not None and len(account_name) > 32):
-            raise ValueError("Invalid value for `account_name`, length must be less than or equal to `32`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                account_name is not None and len(account_name) < 2):
-            raise ValueError("Invalid value for `account_name`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._account_name = account_name
 

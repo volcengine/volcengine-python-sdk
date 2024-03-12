@@ -37,7 +37,6 @@ class RestoreToExistedInstanceRequest(object):
         'restore_time': 'str',
         'restore_type': 'str',
         'source_db_instance_id': 'str',
-        'table_level_mode': 'str',
         'table_meta': 'list[TableMetaForRestoreToExistedInstanceInput]'
     }
 
@@ -46,11 +45,10 @@ class RestoreToExistedInstanceRequest(object):
         'restore_time': 'RestoreTime',
         'restore_type': 'RestoreType',
         'source_db_instance_id': 'SourceDBInstanceId',
-        'table_level_mode': 'TableLevelMode',
         'table_meta': 'TableMeta'
     }
 
-    def __init__(self, backup_id=None, restore_time=None, restore_type=None, source_db_instance_id=None, table_level_mode=None, table_meta=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_id=None, restore_time=None, restore_type=None, source_db_instance_id=None, table_meta=None, _configuration=None):  # noqa: E501
         """RestoreToExistedInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,7 +58,6 @@ class RestoreToExistedInstanceRequest(object):
         self._restore_time = None
         self._restore_type = None
         self._source_db_instance_id = None
-        self._table_level_mode = None
         self._table_meta = None
         self.discriminator = None
 
@@ -70,10 +67,7 @@ class RestoreToExistedInstanceRequest(object):
             self.restore_time = restore_time
         if restore_type is not None:
             self.restore_type = restore_type
-        if source_db_instance_id is not None:
-            self.source_db_instance_id = source_db_instance_id
-        if table_level_mode is not None:
-            self.table_level_mode = table_level_mode
+        self.source_db_instance_id = source_db_instance_id
         if table_meta is not None:
             self.table_meta = table_meta
 
@@ -158,29 +152,10 @@ class RestoreToExistedInstanceRequest(object):
         :param source_db_instance_id: The source_db_instance_id of this RestoreToExistedInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and source_db_instance_id is None:
+            raise ValueError("Invalid value for `source_db_instance_id`, must not be `None`")  # noqa: E501
 
         self._source_db_instance_id = source_db_instance_id
-
-    @property
-    def table_level_mode(self):
-        """Gets the table_level_mode of this RestoreToExistedInstanceRequest.  # noqa: E501
-
-
-        :return: The table_level_mode of this RestoreToExistedInstanceRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._table_level_mode
-
-    @table_level_mode.setter
-    def table_level_mode(self, table_level_mode):
-        """Sets the table_level_mode of this RestoreToExistedInstanceRequest.
-
-
-        :param table_level_mode: The table_level_mode of this RestoreToExistedInstanceRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._table_level_mode = table_level_mode
 
     @property
     def table_meta(self):

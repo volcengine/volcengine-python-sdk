@@ -1294,38 +1294,38 @@ class RDSMYSQLV2Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_backup(self, body, **kwargs):  # noqa: E501
-        """delete_backup  # noqa: E501
+    def delete_data_backup(self, body, **kwargs):  # noqa: E501
+        """delete_data_backup  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_backup(body, async_req=True)
+        >>> thread = api.delete_data_backup(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param DeleteBackupRequest body: (required)
-        :return: DeleteBackupResponse
+        :param DeleteDataBackupRequest body: (required)
+        :return: DeleteDataBackupResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_backup_with_http_info(body, **kwargs)  # noqa: E501
+            return self.delete_data_backup_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_backup_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.delete_data_backup_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def delete_backup_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_backup  # noqa: E501
+    def delete_data_backup_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_data_backup  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_backup_with_http_info(body, async_req=True)
+        >>> thread = api.delete_data_backup_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param DeleteBackupRequest body: (required)
-        :return: DeleteBackupResponse
+        :param DeleteDataBackupRequest body: (required)
+        :return: DeleteDataBackupResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1341,14 +1341,14 @@ class RDSMYSQLV2Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_backup" % key
+                    " to method delete_data_backup" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_backup`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_data_backup`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1376,14 +1376,14 @@ class RDSMYSQLV2Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteBackup/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            '/DeleteDataBackup/2022-01-01/rds_mysql/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeleteBackupResponse',  # noqa: E501
+            response_type='DeleteDataBackupResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3428,103 +3428,6 @@ class RDSMYSQLV2Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_db_instance_price_difference(self, body, **kwargs):  # noqa: E501
-        """describe_db_instance_price_difference  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_db_instance_price_difference(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeDBInstancePriceDifferenceRequest body: (required)
-        :return: DescribeDBInstancePriceDifferenceResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.describe_db_instance_price_difference_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.describe_db_instance_price_difference_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def describe_db_instance_price_difference_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_db_instance_price_difference  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_db_instance_price_difference_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeDBInstancePriceDifferenceRequest body: (required)
-        :return: DescribeDBInstancePriceDifferenceResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method describe_db_instance_price_difference" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_db_instance_price_difference`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DescribeDBInstancePriceDifference/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DescribeDBInstancePriceDifferenceResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def describe_db_instance_specs(self, body, **kwargs):  # noqa: E501
         """describe_db_instance_specs  # noqa: E501
 
@@ -4010,38 +3913,38 @@ class RDSMYSQLV2Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_error_logs(self, body, **kwargs):  # noqa: E501
-        """describe_error_logs  # noqa: E501
+    def describe_failover_logs(self, body, **kwargs):  # noqa: E501
+        """describe_failover_logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_error_logs(body, async_req=True)
+        >>> thread = api.describe_failover_logs(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param DescribeErrorLogsRequest body: (required)
-        :return: DescribeErrorLogsResponse
+        :param DescribeFailoverLogsRequest body: (required)
+        :return: DescribeFailoverLogsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.describe_error_logs_with_http_info(body, **kwargs)  # noqa: E501
+            return self.describe_failover_logs_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.describe_error_logs_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.describe_failover_logs_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def describe_error_logs_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_error_logs  # noqa: E501
+    def describe_failover_logs_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_failover_logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_error_logs_with_http_info(body, async_req=True)
+        >>> thread = api.describe_failover_logs_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param DescribeErrorLogsRequest body: (required)
-        :return: DescribeErrorLogsResponse
+        :param DescribeFailoverLogsRequest body: (required)
+        :return: DescribeFailoverLogsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4057,14 +3960,14 @@ class RDSMYSQLV2Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method describe_error_logs" % key
+                    " to method describe_failover_logs" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_error_logs`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_failover_logs`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4092,14 +3995,14 @@ class RDSMYSQLV2Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeErrorLogs/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            '/DescribeFailoverLogs/2022-01-01/rds_mysql/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DescribeErrorLogsResponse',  # noqa: E501
+            response_type='DescribeFailoverLogsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4197,6 +4100,200 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeParameterTemplateResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_planned_events(self, body, **kwargs):  # noqa: E501
+        """describe_planned_events  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_planned_events(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribePlannedEventsRequest body: (required)
+        :return: DescribePlannedEventsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_planned_events_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_planned_events_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_planned_events_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_planned_events  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_planned_events_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribePlannedEventsRequest body: (required)
+        :return: DescribePlannedEventsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_planned_events" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_planned_events`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribePlannedEvents/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribePlannedEventsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_read_only_node_delay(self, body, **kwargs):  # noqa: E501
+        """describe_read_only_node_delay  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_read_only_node_delay(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeReadOnlyNodeDelayRequest body: (required)
+        :return: DescribeReadOnlyNodeDelayResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_read_only_node_delay_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_read_only_node_delay_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_read_only_node_delay_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_read_only_node_delay  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_read_only_node_delay_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeReadOnlyNodeDelayRequest body: (required)
+        :return: DescribeReadOnlyNodeDelayResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_read_only_node_delay" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_read_only_node_delay`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeReadOnlyNodeDelay/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeReadOnlyNodeDelayResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4398,103 +4495,6 @@ class RDSMYSQLV2Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_slow_logs(self, body, **kwargs):  # noqa: E501
-        """describe_slow_logs  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_slow_logs(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeSlowLogsRequest body: (required)
-        :return: DescribeSlowLogsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.describe_slow_logs_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.describe_slow_logs_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def describe_slow_logs_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_slow_logs  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_slow_logs_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeSlowLogsRequest body: (required)
-        :return: DescribeSlowLogsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method describe_slow_logs" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_slow_logs`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DescribeSlowLogs/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DescribeSlowLogsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def describe_tags_by_resource(self, body, **kwargs):  # noqa: E501
         """describe_tags_by_resource  # noqa: E501
 
@@ -4585,6 +4585,103 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeTagsByResourceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_tasks(self, body, **kwargs):  # noqa: E501
+        """describe_tasks  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_tasks(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTasksRequest body: (required)
+        :return: DescribeTasksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_tasks_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_tasks_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_tasks_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_tasks  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_tasks_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTasksRequest body: (required)
+        :return: DescribeTasksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_tasks" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_tasks`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTasks/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTasksResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4779,6 +4876,103 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DownloadBackupResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def download_ssl_certificate(self, body, **kwargs):  # noqa: E501
+        """download_ssl_certificate  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.download_ssl_certificate(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DownloadSSLCertificateRequest body: (required)
+        :return: DownloadSSLCertificateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.download_ssl_certificate_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.download_ssl_certificate_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def download_ssl_certificate_with_http_info(self, body, **kwargs):  # noqa: E501
+        """download_ssl_certificate  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.download_ssl_certificate_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DownloadSSLCertificateRequest body: (required)
+        :return: DownloadSSLCertificateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method download_ssl_certificate" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `download_ssl_certificate`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DownloadSSLCertificate/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DownloadSSLCertificateResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5070,6 +5264,200 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GrantDBAccountPrivilegeResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_parameter_templates(self, body, **kwargs):  # noqa: E501
+        """list_parameter_templates  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_parameter_templates(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ListParameterTemplatesRequest body: (required)
+        :return: ListParameterTemplatesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.list_parameter_templates_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.list_parameter_templates_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def list_parameter_templates_with_http_info(self, body, **kwargs):  # noqa: E501
+        """list_parameter_templates  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_parameter_templates_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ListParameterTemplatesRequest body: (required)
+        :return: ListParameterTemplatesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_parameter_templates" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `list_parameter_templates`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ListParameterTemplates/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ListParameterTemplatesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def migrate_to_other_zone(self, body, **kwargs):  # noqa: E501
+        """migrate_to_other_zone  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.migrate_to_other_zone(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param MigrateToOtherZoneRequest body: (required)
+        :return: MigrateToOtherZoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.migrate_to_other_zone_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.migrate_to_other_zone_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def migrate_to_other_zone_with_http_info(self, body, **kwargs):  # noqa: E501
+        """migrate_to_other_zone  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.migrate_to_other_zone_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param MigrateToOtherZoneRequest body: (required)
+        :return: MigrateToOtherZoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method migrate_to_other_zone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `migrate_to_other_zone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/MigrateToOtherZone/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='MigrateToOtherZoneResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5555,6 +5943,103 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyDBAccountDescriptionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_db_account_host(self, body, **kwargs):  # noqa: E501
+        """modify_db_account_host  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_db_account_host(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyDBAccountHostRequest body: (required)
+        :return: ModifyDBAccountHostResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_db_account_host_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_db_account_host_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_db_account_host_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_db_account_host  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_db_account_host_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyDBAccountHostRequest body: (required)
+        :return: ModifyDBAccountHostResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_db_account_host" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_db_account_host`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyDBAccountHost/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyDBAccountHostResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6823,6 +7308,297 @@ class RDSMYSQLV2Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def modify_planned_event_execute_time(self, body, **kwargs):  # noqa: E501
+        """modify_planned_event_execute_time  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_planned_event_execute_time(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyPlannedEventExecuteTimeRequest body: (required)
+        :return: ModifyPlannedEventExecuteTimeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_planned_event_execute_time_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_planned_event_execute_time_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_planned_event_execute_time_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_planned_event_execute_time  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_planned_event_execute_time_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyPlannedEventExecuteTimeRequest body: (required)
+        :return: ModifyPlannedEventExecuteTimeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_planned_event_execute_time" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_planned_event_execute_time`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyPlannedEventExecuteTime/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyPlannedEventExecuteTimeResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_read_only_node_delay_replication_time(self, body, **kwargs):  # noqa: E501
+        """modify_read_only_node_delay_replication_time  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_read_only_node_delay_replication_time(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyReadOnlyNodeDelayReplicationTimeRequest body: (required)
+        :return: ModifyReadOnlyNodeDelayReplicationTimeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_read_only_node_delay_replication_time_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_read_only_node_delay_replication_time_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_read_only_node_delay_replication_time_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_read_only_node_delay_replication_time  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_read_only_node_delay_replication_time_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyReadOnlyNodeDelayReplicationTimeRequest body: (required)
+        :return: ModifyReadOnlyNodeDelayReplicationTimeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_read_only_node_delay_replication_time" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_read_only_node_delay_replication_time`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyReadOnlyNodeDelayReplicationTime/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyReadOnlyNodeDelayReplicationTimeResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_task(self, body, **kwargs):  # noqa: E501
+        """modify_task  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_task(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTaskRequest body: (required)
+        :return: ModifyTaskResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_task_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_task_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_task_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_task  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_task_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTaskRequest body: (required)
+        :return: ModifyTaskResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_task" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_task`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyTask/2022-01-01/rds_mysql/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyTaskResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def rebuild_db_instance(self, body, **kwargs):  # noqa: E501
         """rebuild_db_instance  # noqa: E501
 
@@ -7204,103 +7980,6 @@ class RDSMYSQLV2Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='RestartDBInstanceResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def restore_to_cross_region_instance(self, body, **kwargs):  # noqa: E501
-        """restore_to_cross_region_instance  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.restore_to_cross_region_instance(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param RestoreToCrossRegionInstanceRequest body: (required)
-        :return: RestoreToCrossRegionInstanceResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.restore_to_cross_region_instance_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.restore_to_cross_region_instance_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def restore_to_cross_region_instance_with_http_info(self, body, **kwargs):  # noqa: E501
-        """restore_to_cross_region_instance  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.restore_to_cross_region_instance_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param RestoreToCrossRegionInstanceRequest body: (required)
-        :return: RestoreToCrossRegionInstanceResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method restore_to_cross_region_instance" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `restore_to_cross_region_instance`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/RestoreToCrossRegionInstance/2022-01-01/rds_mysql/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RestoreToCrossRegionInstanceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

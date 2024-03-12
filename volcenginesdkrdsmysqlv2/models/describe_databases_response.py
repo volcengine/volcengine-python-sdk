@@ -33,32 +33,27 @@ class DescribeDatabasesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'databases': 'list[DatabasForDescribeDatabasesOutput]',
-        'databases_info': 'list[DatabasesInfoForDescribeDatabasesOutput]',
+        'databases': 'list[DatabaseForDescribeDatabasesOutput]',
         'total': 'int'
     }
 
     attribute_map = {
         'databases': 'Databases',
-        'databases_info': 'DatabasesInfo',
         'total': 'Total'
     }
 
-    def __init__(self, databases=None, databases_info=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, databases=None, total=None, _configuration=None):  # noqa: E501
         """DescribeDatabasesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._databases = None
-        self._databases_info = None
         self._total = None
         self.discriminator = None
 
         if databases is not None:
             self.databases = databases
-        if databases_info is not None:
-            self.databases_info = databases_info
         if total is not None:
             self.total = total
 
@@ -68,7 +63,7 @@ class DescribeDatabasesResponse(object):
 
 
         :return: The databases of this DescribeDatabasesResponse.  # noqa: E501
-        :rtype: list[DatabasForDescribeDatabasesOutput]
+        :rtype: list[DatabaseForDescribeDatabasesOutput]
         """
         return self._databases
 
@@ -78,31 +73,10 @@ class DescribeDatabasesResponse(object):
 
 
         :param databases: The databases of this DescribeDatabasesResponse.  # noqa: E501
-        :type: list[DatabasForDescribeDatabasesOutput]
+        :type: list[DatabaseForDescribeDatabasesOutput]
         """
 
         self._databases = databases
-
-    @property
-    def databases_info(self):
-        """Gets the databases_info of this DescribeDatabasesResponse.  # noqa: E501
-
-
-        :return: The databases_info of this DescribeDatabasesResponse.  # noqa: E501
-        :rtype: list[DatabasesInfoForDescribeDatabasesOutput]
-        """
-        return self._databases_info
-
-    @databases_info.setter
-    def databases_info(self, databases_info):
-        """Sets the databases_info of this DescribeDatabasesResponse.
-
-
-        :param databases_info: The databases_info of this DescribeDatabasesResponse.  # noqa: E501
-        :type: list[DatabasesInfoForDescribeDatabasesOutput]
-        """
-
-        self._databases_info = databases_info
 
     @property
     def total(self):

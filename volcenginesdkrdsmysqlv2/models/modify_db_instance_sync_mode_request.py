@@ -53,8 +53,7 @@ class ModifyDBInstanceSyncModeRequest(object):
         self.discriminator = None
 
         self.instance_id = instance_id
-        if sync_mode is not None:
-            self.sync_mode = sync_mode
+        self.sync_mode = sync_mode
 
     @property
     def instance_id(self):
@@ -97,6 +96,8 @@ class ModifyDBInstanceSyncModeRequest(object):
         :param sync_mode: The sync_mode of this ModifyDBInstanceSyncModeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and sync_mode is None:
+            raise ValueError("Invalid value for `sync_mode`, must not be `None`")  # noqa: E501
 
         self._sync_mode = sync_mode
 

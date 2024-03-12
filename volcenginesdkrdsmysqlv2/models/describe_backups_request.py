@@ -39,7 +39,6 @@ class DescribeBackupsRequest(object):
         'backup_start_time': 'str',
         'backup_status': 'str',
         'backup_type': 'str',
-        'create_type': 'str',
         'instance_id': 'str',
         'page_number': 'int',
         'page_size': 'int'
@@ -52,13 +51,12 @@ class DescribeBackupsRequest(object):
         'backup_start_time': 'BackupStartTime',
         'backup_status': 'BackupStatus',
         'backup_type': 'BackupType',
-        'create_type': 'CreateType',
         'instance_id': 'InstanceId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize'
     }
 
-    def __init__(self, backup_end_time=None, backup_id=None, backup_method=None, backup_start_time=None, backup_status=None, backup_type=None, create_type=None, instance_id=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_end_time=None, backup_id=None, backup_method=None, backup_start_time=None, backup_status=None, backup_type=None, instance_id=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
         """DescribeBackupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +68,6 @@ class DescribeBackupsRequest(object):
         self._backup_start_time = None
         self._backup_status = None
         self._backup_type = None
-        self._create_type = None
         self._instance_id = None
         self._page_number = None
         self._page_size = None
@@ -88,8 +85,6 @@ class DescribeBackupsRequest(object):
             self.backup_status = backup_status
         if backup_type is not None:
             self.backup_type = backup_type
-        if create_type is not None:
-            self.create_type = create_type
         self.instance_id = instance_id
         if page_number is not None:
             self.page_number = page_number
@@ -221,27 +216,6 @@ class DescribeBackupsRequest(object):
         """
 
         self._backup_type = backup_type
-
-    @property
-    def create_type(self):
-        """Gets the create_type of this DescribeBackupsRequest.  # noqa: E501
-
-
-        :return: The create_type of this DescribeBackupsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._create_type
-
-    @create_type.setter
-    def create_type(self, create_type):
-        """Sets the create_type of this DescribeBackupsRequest.
-
-
-        :param create_type: The create_type of this DescribeBackupsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._create_type = create_type
 
     @property
     def instance_id(self):

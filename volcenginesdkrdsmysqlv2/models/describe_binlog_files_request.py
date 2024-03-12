@@ -65,12 +65,9 @@ class DescribeBinlogFilesRequest(object):
             self.backup_file_number = backup_file_number
         if context is not None:
             self.context = context
-        if end_time is not None:
-            self.end_time = end_time
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if start_time is not None:
-            self.start_time = start_time
+        self.end_time = end_time
+        self.instance_id = instance_id
+        self.start_time = start_time
 
     @property
     def backup_file_number(self):
@@ -132,6 +129,8 @@ class DescribeBinlogFilesRequest(object):
         :param end_time: The end_time of this DescribeBinlogFilesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and end_time is None:
+            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
 
         self._end_time = end_time
 
@@ -153,6 +152,8 @@ class DescribeBinlogFilesRequest(object):
         :param instance_id: The instance_id of this DescribeBinlogFilesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -174,6 +175,8 @@ class DescribeBinlogFilesRequest(object):
         :param start_time: The start_time of this DescribeBinlogFilesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and start_time is None:
+            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
 

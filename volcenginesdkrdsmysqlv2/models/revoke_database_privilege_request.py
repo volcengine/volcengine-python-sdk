@@ -102,12 +102,6 @@ class RevokeDatabasePrivilegeRequest(object):
         """
         if self._configuration.client_side_validation and db_name is None:
             raise ValueError("Invalid value for `db_name`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                db_name is not None and len(db_name) > 64):
-            raise ValueError("Invalid value for `db_name`, length must be less than or equal to `64`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                db_name is not None and len(db_name) < 2):
-            raise ValueError("Invalid value for `db_name`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._db_name = db_name
 

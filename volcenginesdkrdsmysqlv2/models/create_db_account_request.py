@@ -37,8 +37,8 @@ class CreateDBAccountRequest(object):
         'account_name': 'str',
         'account_password': 'str',
         'account_privileges': 'list[AccountPrivilegeForCreateDBAccountInput]',
-        'account_privileges_info': 'list[AccountPrivilegesInfoForCreateDBAccountInput]',
         'account_type': 'str',
+        'host': 'str',
         'instance_id': 'str'
     }
 
@@ -47,12 +47,12 @@ class CreateDBAccountRequest(object):
         'account_name': 'AccountName',
         'account_password': 'AccountPassword',
         'account_privileges': 'AccountPrivileges',
-        'account_privileges_info': 'AccountPrivilegesInfo',
         'account_type': 'AccountType',
+        'host': 'Host',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, account_desc=None, account_name=None, account_password=None, account_privileges=None, account_privileges_info=None, account_type=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_password=None, account_privileges=None, account_type=None, host=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateDBAccountRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,23 +62,20 @@ class CreateDBAccountRequest(object):
         self._account_name = None
         self._account_password = None
         self._account_privileges = None
-        self._account_privileges_info = None
         self._account_type = None
+        self._host = None
         self._instance_id = None
         self.discriminator = None
 
         if account_desc is not None:
             self.account_desc = account_desc
-        if account_name is not None:
-            self.account_name = account_name
-        if account_password is not None:
-            self.account_password = account_password
+        self.account_name = account_name
+        self.account_password = account_password
         if account_privileges is not None:
             self.account_privileges = account_privileges
-        if account_privileges_info is not None:
-            self.account_privileges_info = account_privileges_info
-        if account_type is not None:
-            self.account_type = account_type
+        self.account_type = account_type
+        if host is not None:
+            self.host = host
         self.instance_id = instance_id
 
     @property
@@ -120,12 +117,8 @@ class CreateDBAccountRequest(object):
         :param account_name: The account_name of this CreateDBAccountRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                account_name is not None and len(account_name) > 32):
-            raise ValueError("Invalid value for `account_name`, length must be less than or equal to `32`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                account_name is not None and len(account_name) < 2):
-            raise ValueError("Invalid value for `account_name`, length must be greater than or equal to `2`")  # noqa: E501
+        if self._configuration.client_side_validation and account_name is None:
+            raise ValueError("Invalid value for `account_name`, must not be `None`")  # noqa: E501
 
         self._account_name = account_name
 
@@ -147,12 +140,8 @@ class CreateDBAccountRequest(object):
         :param account_password: The account_password of this CreateDBAccountRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                account_password is not None and len(account_password) > 32):
-            raise ValueError("Invalid value for `account_password`, length must be less than or equal to `32`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                account_password is not None and len(account_password) < 8):
-            raise ValueError("Invalid value for `account_password`, length must be greater than or equal to `8`")  # noqa: E501
+        if self._configuration.client_side_validation and account_password is None:
+            raise ValueError("Invalid value for `account_password`, must not be `None`")  # noqa: E501
 
         self._account_password = account_password
 
@@ -178,27 +167,6 @@ class CreateDBAccountRequest(object):
         self._account_privileges = account_privileges
 
     @property
-    def account_privileges_info(self):
-        """Gets the account_privileges_info of this CreateDBAccountRequest.  # noqa: E501
-
-
-        :return: The account_privileges_info of this CreateDBAccountRequest.  # noqa: E501
-        :rtype: list[AccountPrivilegesInfoForCreateDBAccountInput]
-        """
-        return self._account_privileges_info
-
-    @account_privileges_info.setter
-    def account_privileges_info(self, account_privileges_info):
-        """Sets the account_privileges_info of this CreateDBAccountRequest.
-
-
-        :param account_privileges_info: The account_privileges_info of this CreateDBAccountRequest.  # noqa: E501
-        :type: list[AccountPrivilegesInfoForCreateDBAccountInput]
-        """
-
-        self._account_privileges_info = account_privileges_info
-
-    @property
     def account_type(self):
         """Gets the account_type of this CreateDBAccountRequest.  # noqa: E501
 
@@ -216,8 +184,31 @@ class CreateDBAccountRequest(object):
         :param account_type: The account_type of this CreateDBAccountRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and account_type is None:
+            raise ValueError("Invalid value for `account_type`, must not be `None`")  # noqa: E501
 
         self._account_type = account_type
+
+    @property
+    def host(self):
+        """Gets the host of this CreateDBAccountRequest.  # noqa: E501
+
+
+        :return: The host of this CreateDBAccountRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """Sets the host of this CreateDBAccountRequest.
+
+
+        :param host: The host of this CreateDBAccountRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._host = host
 
     @property
     def instance_id(self):
