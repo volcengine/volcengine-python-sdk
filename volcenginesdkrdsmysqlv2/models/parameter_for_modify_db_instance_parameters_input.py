@@ -33,29 +33,159 @@ class ParameterForModifyDBInstanceParametersInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'checking_code': 'str',
+        'expression': 'str',
+        'force_restart': 'bool',
+        'parameter_default_value': 'str',
+        'parameter_description': 'str',
         'parameter_name': 'str',
         'parameter_value': 'str'
     }
 
     attribute_map = {
+        'checking_code': 'CheckingCode',
+        'expression': 'Expression',
+        'force_restart': 'ForceRestart',
+        'parameter_default_value': 'ParameterDefaultValue',
+        'parameter_description': 'ParameterDescription',
         'parameter_name': 'ParameterName',
         'parameter_value': 'ParameterValue'
     }
 
-    def __init__(self, parameter_name=None, parameter_value=None, _configuration=None):  # noqa: E501
+    def __init__(self, checking_code=None, expression=None, force_restart=None, parameter_default_value=None, parameter_description=None, parameter_name=None, parameter_value=None, _configuration=None):  # noqa: E501
         """ParameterForModifyDBInstanceParametersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._checking_code = None
+        self._expression = None
+        self._force_restart = None
+        self._parameter_default_value = None
+        self._parameter_description = None
         self._parameter_name = None
         self._parameter_value = None
         self.discriminator = None
 
+        if checking_code is not None:
+            self.checking_code = checking_code
+        if expression is not None:
+            self.expression = expression
+        if force_restart is not None:
+            self.force_restart = force_restart
+        if parameter_default_value is not None:
+            self.parameter_default_value = parameter_default_value
+        if parameter_description is not None:
+            self.parameter_description = parameter_description
         if parameter_name is not None:
             self.parameter_name = parameter_name
         if parameter_value is not None:
             self.parameter_value = parameter_value
+
+    @property
+    def checking_code(self):
+        """Gets the checking_code of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+
+
+        :return: The checking_code of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._checking_code
+
+    @checking_code.setter
+    def checking_code(self, checking_code):
+        """Sets the checking_code of this ParameterForModifyDBInstanceParametersInput.
+
+
+        :param checking_code: The checking_code of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._checking_code = checking_code
+
+    @property
+    def expression(self):
+        """Gets the expression of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+
+
+        :return: The expression of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expression
+
+    @expression.setter
+    def expression(self, expression):
+        """Sets the expression of this ParameterForModifyDBInstanceParametersInput.
+
+
+        :param expression: The expression of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._expression = expression
+
+    @property
+    def force_restart(self):
+        """Gets the force_restart of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+
+
+        :return: The force_restart of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._force_restart
+
+    @force_restart.setter
+    def force_restart(self, force_restart):
+        """Sets the force_restart of this ParameterForModifyDBInstanceParametersInput.
+
+
+        :param force_restart: The force_restart of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._force_restart = force_restart
+
+    @property
+    def parameter_default_value(self):
+        """Gets the parameter_default_value of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+
+
+        :return: The parameter_default_value of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._parameter_default_value
+
+    @parameter_default_value.setter
+    def parameter_default_value(self, parameter_default_value):
+        """Sets the parameter_default_value of this ParameterForModifyDBInstanceParametersInput.
+
+
+        :param parameter_default_value: The parameter_default_value of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._parameter_default_value = parameter_default_value
+
+    @property
+    def parameter_description(self):
+        """Gets the parameter_description of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+
+
+        :return: The parameter_description of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._parameter_description
+
+    @parameter_description.setter
+    def parameter_description(self, parameter_description):
+        """Sets the parameter_description of this ParameterForModifyDBInstanceParametersInput.
+
+
+        :param parameter_description: The parameter_description of this ParameterForModifyDBInstanceParametersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._parameter_description = parameter_description
 
     @property
     def parameter_name(self):

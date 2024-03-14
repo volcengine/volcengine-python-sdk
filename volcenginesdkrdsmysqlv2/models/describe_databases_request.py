@@ -60,8 +60,7 @@ class DescribeDatabasesRequest(object):
 
         if db_name is not None:
             self.db_name = db_name
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -85,12 +84,6 @@ class DescribeDatabasesRequest(object):
         :param db_name: The db_name of this DescribeDatabasesRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                db_name is not None and len(db_name) > 64):
-            raise ValueError("Invalid value for `db_name`, length must be less than or equal to `64`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                db_name is not None and len(db_name) < 2):
-            raise ValueError("Invalid value for `db_name`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._db_name = db_name
 
@@ -112,6 +105,8 @@ class DescribeDatabasesRequest(object):
         :param instance_id: The instance_id of this DescribeDatabasesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

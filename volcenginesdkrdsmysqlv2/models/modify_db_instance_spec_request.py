@@ -36,7 +36,6 @@ class ModifyDBInstanceSpecRequest(object):
         'instance_id': 'str',
         'modify_type': 'str',
         'node_info': 'list[NodeInfoForModifyDBInstanceSpecInput]',
-        'rollback_time': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
         'switch_type': 'str'
@@ -46,13 +45,12 @@ class ModifyDBInstanceSpecRequest(object):
         'instance_id': 'InstanceId',
         'modify_type': 'ModifyType',
         'node_info': 'NodeInfo',
-        'rollback_time': 'RollbackTime',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'switch_type': 'SwitchType'
     }
 
-    def __init__(self, instance_id=None, modify_type=None, node_info=None, rollback_time=None, storage_space=None, storage_type=None, switch_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, modify_type=None, node_info=None, storage_space=None, storage_type=None, switch_type=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +59,6 @@ class ModifyDBInstanceSpecRequest(object):
         self._instance_id = None
         self._modify_type = None
         self._node_info = None
-        self._rollback_time = None
         self._storage_space = None
         self._storage_type = None
         self._switch_type = None
@@ -72,8 +69,6 @@ class ModifyDBInstanceSpecRequest(object):
             self.modify_type = modify_type
         if node_info is not None:
             self.node_info = node_info
-        if rollback_time is not None:
-            self.rollback_time = rollback_time
         if storage_space is not None:
             self.storage_space = storage_space
         if storage_type is not None:
@@ -145,27 +140,6 @@ class ModifyDBInstanceSpecRequest(object):
         """
 
         self._node_info = node_info
-
-    @property
-    def rollback_time(self):
-        """Gets the rollback_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
-
-
-        :return: The rollback_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._rollback_time
-
-    @rollback_time.setter
-    def rollback_time(self, rollback_time):
-        """Sets the rollback_time of this ModifyDBInstanceSpecRequest.
-
-
-        :param rollback_time: The rollback_time of this ModifyDBInstanceSpecRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._rollback_time = rollback_time
 
     @property
     def storage_space(self):

@@ -67,8 +67,7 @@ class DescribeDBInstancePriceDetailRequest(object):
         self._storage_type = None
         self.discriminator = None
 
-        if charge_type is not None:
-            self.charge_type = charge_type
+        self.charge_type = charge_type
         if node_info is not None:
             self.node_info = node_info
         if number is not None:
@@ -77,10 +76,8 @@ class DescribeDBInstancePriceDetailRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
-        if storage_space is not None:
-            self.storage_space = storage_space
-        if storage_type is not None:
-            self.storage_type = storage_type
+        self.storage_space = storage_space
+        self.storage_type = storage_type
 
     @property
     def charge_type(self):
@@ -100,6 +97,8 @@ class DescribeDBInstancePriceDetailRequest(object):
         :param charge_type: The charge_type of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and charge_type is None:
+            raise ValueError("Invalid value for `charge_type`, must not be `None`")  # noqa: E501
 
         self._charge_type = charge_type
 
@@ -205,6 +204,8 @@ class DescribeDBInstancePriceDetailRequest(object):
         :param storage_space: The storage_space of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and storage_space is None:
+            raise ValueError("Invalid value for `storage_space`, must not be `None`")  # noqa: E501
 
         self._storage_space = storage_space
 
@@ -226,6 +227,8 @@ class DescribeDBInstancePriceDetailRequest(object):
         :param storage_type: The storage_type of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and storage_type is None:
+            raise ValueError("Invalid value for `storage_type`, must not be `None`")  # noqa: E501
 
         self._storage_type = storage_type
 

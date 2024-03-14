@@ -49,8 +49,7 @@ class DescribeCrossBackupPolicyRequest(object):
         self._instance_id = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
 
     @property
     def instance_id(self):
@@ -70,6 +69,8 @@ class DescribeCrossBackupPolicyRequest(object):
         :param instance_id: The instance_id of this DescribeCrossBackupPolicyRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

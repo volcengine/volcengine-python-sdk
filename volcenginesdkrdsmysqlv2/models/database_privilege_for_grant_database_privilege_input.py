@@ -35,16 +35,18 @@ class DatabasePrivilegeForGrantDatabasePrivilegeInput(object):
     swagger_types = {
         'account_name': 'str',
         'account_privilege': 'str',
-        'account_privilege_detail': 'str'
+        'account_privilege_detail': 'str',
+        'host': 'str'
     }
 
     attribute_map = {
         'account_name': 'AccountName',
         'account_privilege': 'AccountPrivilege',
-        'account_privilege_detail': 'AccountPrivilegeDetail'
+        'account_privilege_detail': 'AccountPrivilegeDetail',
+        'host': 'Host'
     }
 
-    def __init__(self, account_name=None, account_privilege=None, account_privilege_detail=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, account_privilege=None, account_privilege_detail=None, host=None, _configuration=None):  # noqa: E501
         """DatabasePrivilegeForGrantDatabasePrivilegeInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class DatabasePrivilegeForGrantDatabasePrivilegeInput(object):
         self._account_name = None
         self._account_privilege = None
         self._account_privilege_detail = None
+        self._host = None
         self.discriminator = None
 
         if account_name is not None:
@@ -61,6 +64,8 @@ class DatabasePrivilegeForGrantDatabasePrivilegeInput(object):
             self.account_privilege = account_privilege
         if account_privilege_detail is not None:
             self.account_privilege_detail = account_privilege_detail
+        if host is not None:
+            self.host = host
 
     @property
     def account_name(self):
@@ -124,6 +129,27 @@ class DatabasePrivilegeForGrantDatabasePrivilegeInput(object):
         """
 
         self._account_privilege_detail = account_privilege_detail
+
+    @property
+    def host(self):
+        """Gets the host of this DatabasePrivilegeForGrantDatabasePrivilegeInput.  # noqa: E501
+
+
+        :return: The host of this DatabasePrivilegeForGrantDatabasePrivilegeInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """Sets the host of this DatabasePrivilegeForGrantDatabasePrivilegeInput.
+
+
+        :param host: The host of this DatabasePrivilegeForGrantDatabasePrivilegeInput.  # noqa: E501
+        :type: str
+        """
+
+        self._host = host
 
     def to_dict(self):
         """Returns the model properties as a dict"""

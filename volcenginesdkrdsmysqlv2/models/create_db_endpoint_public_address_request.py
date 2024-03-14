@@ -33,57 +33,31 @@ class CreateDBEndpointPublicAddressRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'domain_prefix': 'str',
         'eip_id': 'str',
         'endpoint_id': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
-        'domain_prefix': 'DomainPrefix',
         'eip_id': 'EipId',
         'endpoint_id': 'EndpointId',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, domain_prefix=None, eip_id=None, endpoint_id=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_id=None, endpoint_id=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateDBEndpointPublicAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._domain_prefix = None
         self._eip_id = None
         self._endpoint_id = None
         self._instance_id = None
         self.discriminator = None
 
-        if domain_prefix is not None:
-            self.domain_prefix = domain_prefix
         self.eip_id = eip_id
         self.endpoint_id = endpoint_id
         self.instance_id = instance_id
-
-    @property
-    def domain_prefix(self):
-        """Gets the domain_prefix of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
-
-
-        :return: The domain_prefix of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._domain_prefix
-
-    @domain_prefix.setter
-    def domain_prefix(self, domain_prefix):
-        """Sets the domain_prefix of this CreateDBEndpointPublicAddressRequest.
-
-
-        :param domain_prefix: The domain_prefix of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._domain_prefix = domain_prefix
 
     @property
     def eip_id(self):

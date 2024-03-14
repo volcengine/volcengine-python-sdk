@@ -33,55 +33,29 @@ class TemplateParamForCreateParameterTemplateInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
         'name': 'str',
         'running_value': 'str'
     }
 
     attribute_map = {
-        'description': 'Description',
         'name': 'Name',
         'running_value': 'RunningValue'
     }
 
-    def __init__(self, description=None, name=None, running_value=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, running_value=None, _configuration=None):  # noqa: E501
         """TemplateParamForCreateParameterTemplateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._description = None
         self._name = None
         self._running_value = None
         self.discriminator = None
 
-        if description is not None:
-            self.description = description
         if name is not None:
             self.name = name
         if running_value is not None:
             self.running_value = running_value
-
-    @property
-    def description(self):
-        """Gets the description of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
-
-
-        :return: The description of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this TemplateParamForCreateParameterTemplateInput.
-
-
-        :param description: The description of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
 
     @property
     def name(self):

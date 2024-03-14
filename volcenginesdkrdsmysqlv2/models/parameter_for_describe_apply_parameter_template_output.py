@@ -36,19 +36,17 @@ class ParameterForDescribeApplyParameterTemplateOutput(object):
         'name': 'str',
         'new_value': 'str',
         'old_value': 'str',
-        'restart': 'bool',
-        'result': 'str'
+        'restart': 'bool'
     }
 
     attribute_map = {
         'name': 'Name',
         'new_value': 'NewValue',
         'old_value': 'OldValue',
-        'restart': 'Restart',
-        'result': 'Result'
+        'restart': 'Restart'
     }
 
-    def __init__(self, name=None, new_value=None, old_value=None, restart=None, result=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, new_value=None, old_value=None, restart=None, _configuration=None):  # noqa: E501
         """ParameterForDescribeApplyParameterTemplateOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,7 +56,6 @@ class ParameterForDescribeApplyParameterTemplateOutput(object):
         self._new_value = None
         self._old_value = None
         self._restart = None
-        self._result = None
         self.discriminator = None
 
         if name is not None:
@@ -69,8 +66,6 @@ class ParameterForDescribeApplyParameterTemplateOutput(object):
             self.old_value = old_value
         if restart is not None:
             self.restart = restart
-        if result is not None:
-            self.result = result
 
     @property
     def name(self):
@@ -155,27 +150,6 @@ class ParameterForDescribeApplyParameterTemplateOutput(object):
         """
 
         self._restart = restart
-
-    @property
-    def result(self):
-        """Gets the result of this ParameterForDescribeApplyParameterTemplateOutput.  # noqa: E501
-
-
-        :return: The result of this ParameterForDescribeApplyParameterTemplateOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._result
-
-    @result.setter
-    def result(self, result):
-        """Sets the result of this ParameterForDescribeApplyParameterTemplateOutput.
-
-
-        :param result: The result of this ParameterForDescribeApplyParameterTemplateOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._result = result
 
     def to_dict(self):
         """Returns the model properties as a dict"""

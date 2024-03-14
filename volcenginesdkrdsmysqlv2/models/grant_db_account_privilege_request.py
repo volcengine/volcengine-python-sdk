@@ -35,16 +35,18 @@ class GrantDBAccountPrivilegeRequest(object):
     swagger_types = {
         'account_name': 'str',
         'account_privileges': 'list[AccountPrivilegeForGrantDBAccountPrivilegeInput]',
+        'host': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
         'account_name': 'AccountName',
         'account_privileges': 'AccountPrivileges',
+        'host': 'Host',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, account_name=None, account_privileges=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, account_privileges=None, host=None, instance_id=None, _configuration=None):  # noqa: E501
         """GrantDBAccountPrivilegeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,12 +54,15 @@ class GrantDBAccountPrivilegeRequest(object):
 
         self._account_name = None
         self._account_privileges = None
+        self._host = None
         self._instance_id = None
         self.discriminator = None
 
         self.account_name = account_name
         if account_privileges is not None:
             self.account_privileges = account_privileges
+        if host is not None:
+            self.host = host
         self.instance_id = instance_id
 
     @property
@@ -80,12 +85,6 @@ class GrantDBAccountPrivilegeRequest(object):
         """
         if self._configuration.client_side_validation and account_name is None:
             raise ValueError("Invalid value for `account_name`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                account_name is not None and len(account_name) > 32):
-            raise ValueError("Invalid value for `account_name`, length must be less than or equal to `32`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                account_name is not None and len(account_name) < 2):
-            raise ValueError("Invalid value for `account_name`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._account_name = account_name
 
@@ -109,6 +108,27 @@ class GrantDBAccountPrivilegeRequest(object):
         """
 
         self._account_privileges = account_privileges
+
+    @property
+    def host(self):
+        """Gets the host of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+
+
+        :return: The host of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """Sets the host of this GrantDBAccountPrivilegeRequest.
+
+
+        :param host: The host of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._host = host
 
     @property
     def instance_id(self):

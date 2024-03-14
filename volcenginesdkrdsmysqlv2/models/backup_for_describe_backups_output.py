@@ -38,12 +38,17 @@ class BackupForDescribeBackupsOutput(object):
         'backup_file_size': 'int',
         'backup_id': 'str',
         'backup_method': 'str',
+        'backup_region': 'str',
         'backup_start_time': 'str',
         'backup_status': 'str',
         'backup_type': 'str',
         'consistent_time': 'str',
         'create_type': 'str',
-        'db_table_infos': 'list[DBTableInfoForDescribeBackupsOutput]'
+        'db_table_infos': 'list[DBTableInfoForDescribeBackupsOutput]',
+        'download_status': 'str',
+        'error_message': 'str',
+        'expired_time': 'str',
+        'is_expired': 'bool'
     }
 
     attribute_map = {
@@ -52,15 +57,20 @@ class BackupForDescribeBackupsOutput(object):
         'backup_file_size': 'BackupFileSize',
         'backup_id': 'BackupId',
         'backup_method': 'BackupMethod',
+        'backup_region': 'BackupRegion',
         'backup_start_time': 'BackupStartTime',
         'backup_status': 'BackupStatus',
         'backup_type': 'BackupType',
         'consistent_time': 'ConsistentTime',
         'create_type': 'CreateType',
-        'db_table_infos': 'DBTableInfos'
+        'db_table_infos': 'DBTableInfos',
+        'download_status': 'DownloadStatus',
+        'error_message': 'ErrorMessage',
+        'expired_time': 'ExpiredTime',
+        'is_expired': 'IsExpired'
     }
 
-    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_table_infos=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_region=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_table_infos=None, download_status=None, error_message=None, expired_time=None, is_expired=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,12 +81,17 @@ class BackupForDescribeBackupsOutput(object):
         self._backup_file_size = None
         self._backup_id = None
         self._backup_method = None
+        self._backup_region = None
         self._backup_start_time = None
         self._backup_status = None
         self._backup_type = None
         self._consistent_time = None
         self._create_type = None
         self._db_table_infos = None
+        self._download_status = None
+        self._error_message = None
+        self._expired_time = None
+        self._is_expired = None
         self.discriminator = None
 
         if backup_end_time is not None:
@@ -89,6 +104,8 @@ class BackupForDescribeBackupsOutput(object):
             self.backup_id = backup_id
         if backup_method is not None:
             self.backup_method = backup_method
+        if backup_region is not None:
+            self.backup_region = backup_region
         if backup_start_time is not None:
             self.backup_start_time = backup_start_time
         if backup_status is not None:
@@ -101,6 +118,14 @@ class BackupForDescribeBackupsOutput(object):
             self.create_type = create_type
         if db_table_infos is not None:
             self.db_table_infos = db_table_infos
+        if download_status is not None:
+            self.download_status = download_status
+        if error_message is not None:
+            self.error_message = error_message
+        if expired_time is not None:
+            self.expired_time = expired_time
+        if is_expired is not None:
+            self.is_expired = is_expired
 
     @property
     def backup_end_time(self):
@@ -206,6 +231,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._backup_method = backup_method
+
+    @property
+    def backup_region(self):
+        """Gets the backup_region of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_region of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_region
+
+    @backup_region.setter
+    def backup_region(self, backup_region):
+        """Sets the backup_region of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_region: The backup_region of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_region = backup_region
 
     @property
     def backup_start_time(self):
@@ -332,6 +378,90 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._db_table_infos = db_table_infos
+
+    @property
+    def download_status(self):
+        """Gets the download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._download_status
+
+    @download_status.setter
+    def download_status(self, download_status):
+        """Sets the download_status of this BackupForDescribeBackupsOutput.
+
+
+        :param download_status: The download_status of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._download_status = download_status
+
+    @property
+    def error_message(self):
+        """Gets the error_message of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The error_message of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_message
+
+    @error_message.setter
+    def error_message(self, error_message):
+        """Sets the error_message of this BackupForDescribeBackupsOutput.
+
+
+        :param error_message: The error_message of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._error_message = error_message
+
+    @property
+    def expired_time(self):
+        """Gets the expired_time of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The expired_time of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expired_time
+
+    @expired_time.setter
+    def expired_time(self, expired_time):
+        """Sets the expired_time of this BackupForDescribeBackupsOutput.
+
+
+        :param expired_time: The expired_time of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._expired_time = expired_time
+
+    @property
+    def is_expired(self):
+        """Gets the is_expired of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The is_expired of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_expired
+
+    @is_expired.setter
+    def is_expired(self, is_expired):
+        """Sets the is_expired of this BackupForDescribeBackupsOutput.
+
+
+        :param is_expired: The is_expired of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_expired = is_expired
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -101,8 +101,7 @@ class CreateDBInstanceRequest(object):
             self.allow_list_ids = allow_list_ids
         if charge_info is not None:
             self.charge_info = charge_info
-        if db_engine_version is not None:
-            self.db_engine_version = db_engine_version
+        self.db_engine_version = db_engine_version
         if db_param_group_id is not None:
             self.db_param_group_id = db_param_group_id
         if db_time_zone is not None:
@@ -119,18 +118,14 @@ class CreateDBInstanceRequest(object):
             self.node_info = node_info
         if project_name is not None:
             self.project_name = project_name
-        if storage_space is not None:
-            self.storage_space = storage_space
-        if storage_type is not None:
-            self.storage_type = storage_type
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
+        self.storage_space = storage_space
+        self.storage_type = storage_type
+        self.subnet_id = subnet_id
         if super_account_name is not None:
             self.super_account_name = super_account_name
         if super_account_password is not None:
             self.super_account_password = super_account_password
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
+        self.vpc_id = vpc_id
 
     @property
     def allow_list_ids(self):
@@ -192,6 +187,8 @@ class CreateDBInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and db_engine_version is None:
+            raise ValueError("Invalid value for `db_engine_version`, must not be `None`")  # noqa: E501
 
         self._db_engine_version = db_engine_version
 
@@ -381,6 +378,8 @@ class CreateDBInstanceRequest(object):
         :param storage_space: The storage_space of this CreateDBInstanceRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and storage_space is None:
+            raise ValueError("Invalid value for `storage_space`, must not be `None`")  # noqa: E501
 
         self._storage_space = storage_space
 
@@ -402,6 +401,8 @@ class CreateDBInstanceRequest(object):
         :param storage_type: The storage_type of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and storage_type is None:
+            raise ValueError("Invalid value for `storage_type`, must not be `None`")  # noqa: E501
 
         self._storage_type = storage_type
 
@@ -423,6 +424,8 @@ class CreateDBInstanceRequest(object):
         :param subnet_id: The subnet_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 
@@ -444,12 +447,6 @@ class CreateDBInstanceRequest(object):
         :param super_account_name: The super_account_name of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                super_account_name is not None and len(super_account_name) > 16):
-            raise ValueError("Invalid value for `super_account_name`, length must be less than or equal to `16`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                super_account_name is not None and len(super_account_name) < 2):
-            raise ValueError("Invalid value for `super_account_name`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._super_account_name = super_account_name
 
@@ -471,12 +468,6 @@ class CreateDBInstanceRequest(object):
         :param super_account_password: The super_account_password of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                super_account_password is not None and len(super_account_password) > 32):
-            raise ValueError("Invalid value for `super_account_password`, length must be less than or equal to `32`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                super_account_password is not None and len(super_account_password) < 8):
-            raise ValueError("Invalid value for `super_account_password`, length must be greater than or equal to `8`")  # noqa: E501
 
         self._super_account_password = super_account_password
 
@@ -498,6 +489,8 @@ class CreateDBInstanceRequest(object):
         :param vpc_id: The vpc_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 

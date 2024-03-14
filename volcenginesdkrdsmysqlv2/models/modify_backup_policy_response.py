@@ -43,6 +43,7 @@ class ModifyBackupPolicyResponse(object):
         'data_full_backup_time': 'str',
         'data_incr_backup_periods': 'list[str]',
         'instance_id': 'str',
+        'lock_ddl_time': 'int',
         'log_backup_retention_day': 'int'
     }
 
@@ -57,10 +58,11 @@ class ModifyBackupPolicyResponse(object):
         'data_full_backup_time': 'DataFullBackupTime',
         'data_incr_backup_periods': 'DataIncrBackupPeriods',
         'instance_id': 'InstanceId',
+        'lock_ddl_time': 'LockDdlTime',
         'log_backup_retention_day': 'LogBackupRetentionDay'
     }
 
-    def __init__(self, binlog_file_counts_enable=None, binlog_limit_count=None, binlog_local_retention_hour=None, binlog_space_limit_enable=None, binlog_storage_percentage=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_time=None, data_incr_backup_periods=None, instance_id=None, log_backup_retention_day=None, _configuration=None):  # noqa: E501
+    def __init__(self, binlog_file_counts_enable=None, binlog_limit_count=None, binlog_local_retention_hour=None, binlog_space_limit_enable=None, binlog_storage_percentage=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_time=None, data_incr_backup_periods=None, instance_id=None, lock_ddl_time=None, log_backup_retention_day=None, _configuration=None):  # noqa: E501
         """ModifyBackupPolicyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class ModifyBackupPolicyResponse(object):
         self._data_full_backup_time = None
         self._data_incr_backup_periods = None
         self._instance_id = None
+        self._lock_ddl_time = None
         self._log_backup_retention_day = None
         self.discriminator = None
 
@@ -99,6 +102,8 @@ class ModifyBackupPolicyResponse(object):
             self.data_incr_backup_periods = data_incr_backup_periods
         if instance_id is not None:
             self.instance_id = instance_id
+        if lock_ddl_time is not None:
+            self.lock_ddl_time = lock_ddl_time
         if log_backup_retention_day is not None:
             self.log_backup_retention_day = log_backup_retention_day
 
@@ -311,6 +316,27 @@ class ModifyBackupPolicyResponse(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def lock_ddl_time(self):
+        """Gets the lock_ddl_time of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The lock_ddl_time of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._lock_ddl_time
+
+    @lock_ddl_time.setter
+    def lock_ddl_time(self, lock_ddl_time):
+        """Sets the lock_ddl_time of this ModifyBackupPolicyResponse.
+
+
+        :param lock_ddl_time: The lock_ddl_time of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._lock_ddl_time = lock_ddl_time
 
     @property
     def log_backup_retention_day(self):

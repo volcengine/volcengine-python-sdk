@@ -73,8 +73,7 @@ class CreateDBEndpointRequest(object):
             self.description = description
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
-        if endpoint_type is not None:
-            self.endpoint_type = endpoint_type
+        self.endpoint_type = endpoint_type
         self.instance_id = instance_id
         if nodes is not None:
             self.nodes = nodes
@@ -162,6 +161,8 @@ class CreateDBEndpointRequest(object):
         :param endpoint_type: The endpoint_type of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and endpoint_type is None:
+            raise ValueError("Invalid value for `endpoint_type`, must not be `None`")  # noqa: E501
 
         self._endpoint_type = endpoint_type
 
