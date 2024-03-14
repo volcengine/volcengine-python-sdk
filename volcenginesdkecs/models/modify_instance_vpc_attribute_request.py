@@ -66,14 +66,12 @@ class ModifyInstanceVpcAttributeRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if primary_ip_address is not None:
             self.primary_ip_address = primary_ip_address
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
+        self.subnet_id = subnet_id
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -116,6 +114,8 @@ class ModifyInstanceVpcAttributeRequest(object):
         :param instance_id: The instance_id of this ModifyInstanceVpcAttributeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -179,6 +179,8 @@ class ModifyInstanceVpcAttributeRequest(object):
         :param subnet_id: The subnet_id of this ModifyInstanceVpcAttributeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 

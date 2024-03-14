@@ -34,31 +34,26 @@ class DescribeDBInstancesResponse(object):
     """
     swagger_types = {
         'instances': 'list[InstanceForDescribeDBInstancesOutput]',
-        'instances_info': 'list[InstancesInfoForDescribeDBInstancesOutput]',
         'total': 'int'
     }
 
     attribute_map = {
         'instances': 'Instances',
-        'instances_info': 'InstancesInfo',
         'total': 'Total'
     }
 
-    def __init__(self, instances=None, instances_info=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, instances=None, total=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instances = None
-        self._instances_info = None
         self._total = None
         self.discriminator = None
 
         if instances is not None:
             self.instances = instances
-        if instances_info is not None:
-            self.instances_info = instances_info
         if total is not None:
             self.total = total
 
@@ -82,27 +77,6 @@ class DescribeDBInstancesResponse(object):
         """
 
         self._instances = instances
-
-    @property
-    def instances_info(self):
-        """Gets the instances_info of this DescribeDBInstancesResponse.  # noqa: E501
-
-
-        :return: The instances_info of this DescribeDBInstancesResponse.  # noqa: E501
-        :rtype: list[InstancesInfoForDescribeDBInstancesOutput]
-        """
-        return self._instances_info
-
-    @instances_info.setter
-    def instances_info(self, instances_info):
-        """Sets the instances_info of this DescribeDBInstancesResponse.
-
-
-        :param instances_info: The instances_info of this DescribeDBInstancesResponse.  # noqa: E501
-        :type: list[InstancesInfoForDescribeDBInstancesOutput]
-        """
-
-        self._instances_info = instances_info
 
     @property
     def total(self):

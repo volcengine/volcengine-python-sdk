@@ -63,8 +63,7 @@ class ModifyDBInstanceMaintenanceWindowRequest(object):
         if day_of_week is not None:
             self.day_of_week = day_of_week
         self.instance_id = instance_id
-        if maintenance_time is not None:
-            self.maintenance_time = maintenance_time
+        self.maintenance_time = maintenance_time
 
     @property
     def day_kind(self):
@@ -149,6 +148,8 @@ class ModifyDBInstanceMaintenanceWindowRequest(object):
         :param maintenance_time: The maintenance_time of this ModifyDBInstanceMaintenanceWindowRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and maintenance_time is None:
+            raise ValueError("Invalid value for `maintenance_time`, must not be `None`")  # noqa: E501
 
         self._maintenance_time = maintenance_time
 

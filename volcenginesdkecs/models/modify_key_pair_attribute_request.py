@@ -60,8 +60,7 @@ class ModifyKeyPairAttributeRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if description is not None:
-            self.description = description
+        self.description = description
         if key_pair_id is not None:
             self.key_pair_id = key_pair_id
         if key_pair_name is not None:
@@ -106,6 +105,8 @@ class ModifyKeyPairAttributeRequest(object):
         :param description: The description of this ModifyKeyPairAttributeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and description is None:
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 

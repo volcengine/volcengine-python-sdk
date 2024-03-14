@@ -49,8 +49,7 @@ class DeleteCommandRequest(object):
         self._command_id = None
         self.discriminator = None
 
-        if command_id is not None:
-            self.command_id = command_id
+        self.command_id = command_id
 
     @property
     def command_id(self):
@@ -70,6 +69,8 @@ class DeleteCommandRequest(object):
         :param command_id: The command_id of this DeleteCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and command_id is None:
+            raise ValueError("Invalid value for `command_id`, must not be `None`")  # noqa: E501
 
         self._command_id = command_id
 

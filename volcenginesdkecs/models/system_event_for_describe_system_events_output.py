@@ -236,13 +236,6 @@ class SystemEventForDescribeSystemEventsOutput(object):
         :param status: The status of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["UnknownStatus", "Executing", "Succeeded", "Failed", "Inquiring", "Scheduled", "Rejected", "Canceled", "Pending", "Recovered"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
 
         self._status = status
 
@@ -264,13 +257,6 @@ class SystemEventForDescribeSystemEventsOutput(object):
         :param type: The type of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["UnknownType", "SystemFailure_Stop", "SystemFailure_Reboot", "SystemFailure_PleaseCheck", "DiskError_Redeploy", "HDDBadSector_Redeploy", "GpuError_Redeploy", "SystemMaintenance_Redeploy", "SystemFailure_Redeploy", "CreateInstance", "RunInstance", "StopInstance", "DeleteInstance", "SpotInstanceInterruption_Delete", "AccountUnbalanced_Stop", "AccountUnbalanced_Delete", "InstanceChargeType_Change", "InstanceConfiguration_Change", "FileSystemReadOnly_Change", "RebootInstance", "InstanceFailure", "ApplicationFailure", "DeploymentSet_Modify", "ServerMigrationTask", "ServerMigration_FirstSync", "ServerMigration_AdditionalSync", "GpuRiskDetected", "ElasticScheduledInstance_Create", "ElasticScheduledInstance_Cancel", "ElasticScheduledInstance_Deliver", "InfrastructureUpgrade_Redeploy", "DiskErrorDetected", "DiskError_ReplaceDisk", "MemoryRiskDetected"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 

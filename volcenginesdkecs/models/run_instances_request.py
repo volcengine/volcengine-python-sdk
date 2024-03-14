@@ -38,9 +38,11 @@ class RunInstancesRequest(object):
         'client_token': 'str',
         'count': 'int',
         'credit_specification': 'str',
+        'deployment_set_group_number': 'int',
         'deployment_set_id': 'str',
         'description': 'str',
         'dry_run': 'bool',
+        'eip_address': 'EipAddressForRunInstancesInput',
         'host_name': 'str',
         'hostname': 'str',
         'hpc_cluster_id': 'str',
@@ -76,9 +78,11 @@ class RunInstancesRequest(object):
         'client_token': 'ClientToken',
         'count': 'Count',
         'credit_specification': 'CreditSpecification',
+        'deployment_set_group_number': 'DeploymentSetGroupNumber',
         'deployment_set_id': 'DeploymentSetId',
         'description': 'Description',
         'dry_run': 'DryRun',
+        'eip_address': 'EipAddress',
         'host_name': 'HostName',
         'hostname': 'Hostname',
         'hpc_cluster_id': 'HpcClusterId',
@@ -108,7 +112,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, deployment_set_id=None, description=None, dry_run=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -119,9 +123,11 @@ class RunInstancesRequest(object):
         self._client_token = None
         self._count = None
         self._credit_specification = None
+        self._deployment_set_group_number = None
         self._deployment_set_id = None
         self._description = None
         self._dry_run = None
+        self._eip_address = None
         self._host_name = None
         self._hostname = None
         self._hpc_cluster_id = None
@@ -161,26 +167,28 @@ class RunInstancesRequest(object):
             self.count = count
         if credit_specification is not None:
             self.credit_specification = credit_specification
+        if deployment_set_group_number is not None:
+            self.deployment_set_group_number = deployment_set_group_number
         if deployment_set_id is not None:
             self.deployment_set_id = deployment_set_id
         if description is not None:
             self.description = description
         if dry_run is not None:
             self.dry_run = dry_run
+        if eip_address is not None:
+            self.eip_address = eip_address
         if host_name is not None:
             self.host_name = host_name
         if hostname is not None:
             self.hostname = hostname
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
-        if image_id is not None:
-            self.image_id = image_id
+        self.image_id = image_id
         if install_run_command_agent is not None:
             self.install_run_command_agent = install_run_command_agent
         if instance_charge_type is not None:
             self.instance_charge_type = instance_charge_type
-        if instance_name is not None:
-            self.instance_name = instance_name
+        self.instance_name = instance_name
         if instance_type is not None:
             self.instance_type = instance_type
         if instance_type_id is not None:
@@ -219,8 +227,7 @@ class RunInstancesRequest(object):
             self.user_data = user_data
         if volumes is not None:
             self.volumes = volumes
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.zone_id = zone_id
 
     @property
     def auto_renew(self):
@@ -328,6 +335,27 @@ class RunInstancesRequest(object):
         self._credit_specification = credit_specification
 
     @property
+    def deployment_set_group_number(self):
+        """Gets the deployment_set_group_number of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The deployment_set_group_number of this RunInstancesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._deployment_set_group_number
+
+    @deployment_set_group_number.setter
+    def deployment_set_group_number(self, deployment_set_group_number):
+        """Sets the deployment_set_group_number of this RunInstancesRequest.
+
+
+        :param deployment_set_group_number: The deployment_set_group_number of this RunInstancesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._deployment_set_group_number = deployment_set_group_number
+
+    @property
     def deployment_set_id(self):
         """Gets the deployment_set_id of this RunInstancesRequest.  # noqa: E501
 
@@ -391,10 +419,30 @@ class RunInstancesRequest(object):
         self._dry_run = dry_run
 
     @property
+    def eip_address(self):
+        """Gets the eip_address of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The eip_address of this RunInstancesRequest.  # noqa: E501
+        :rtype: EipAddressForRunInstancesInput
+        """
+        return self._eip_address
+
+    @eip_address.setter
+    def eip_address(self, eip_address):
+        """Sets the eip_address of this RunInstancesRequest.
+
+
+        :param eip_address: The eip_address of this RunInstancesRequest.  # noqa: E501
+        :type: EipAddressForRunInstancesInput
+        """
+
+        self._eip_address = eip_address
+
+    @property
     def host_name(self):
         """Gets the host_name of this RunInstancesRequest.  # noqa: E501
 
-        this field is deprecated  # noqa: E501
 
         :return: The host_name of this RunInstancesRequest.  # noqa: E501
         :rtype: str
@@ -405,7 +453,6 @@ class RunInstancesRequest(object):
     def host_name(self, host_name):
         """Sets the host_name of this RunInstancesRequest.
 
-        this field is deprecated  # noqa: E501
 
         :param host_name: The host_name of this RunInstancesRequest.  # noqa: E501
         :type: str
@@ -473,6 +520,8 @@ class RunInstancesRequest(object):
         :param image_id: The image_id of this RunInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 
@@ -536,6 +585,8 @@ class RunInstancesRequest(object):
         :param instance_name: The instance_name of this RunInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_name is None:
+            raise ValueError("Invalid value for `instance_name`, must not be `None`")  # noqa: E501
 
         self._instance_name = instance_name
 
@@ -956,6 +1007,8 @@ class RunInstancesRequest(object):
         :param zone_id: The zone_id of this RunInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

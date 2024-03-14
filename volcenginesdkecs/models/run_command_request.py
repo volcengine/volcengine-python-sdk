@@ -82,16 +82,14 @@ class RunCommandRequest(object):
         self._working_dir = None
         self.discriminator = None
 
-        if command_content is not None:
-            self.command_content = command_content
+        self.command_content = command_content
         if frequency is not None:
             self.frequency = frequency
         if instance_ids is not None:
             self.instance_ids = instance_ids
         if invocation_description is not None:
             self.invocation_description = invocation_description
-        if invocation_name is not None:
-            self.invocation_name = invocation_name
+        self.invocation_name = invocation_name
         if launch_time is not None:
             self.launch_time = launch_time
         if recurrence_end_time is not None:
@@ -100,8 +98,7 @@ class RunCommandRequest(object):
             self.repeat_mode = repeat_mode
         if timeout is not None:
             self.timeout = timeout
-        if type is not None:
-            self.type = type
+        self.type = type
         if username is not None:
             self.username = username
         if working_dir is not None:
@@ -125,6 +122,8 @@ class RunCommandRequest(object):
         :param command_content: The command_content of this RunCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and command_content is None:
+            raise ValueError("Invalid value for `command_content`, must not be `None`")  # noqa: E501
 
         self._command_content = command_content
 
@@ -209,6 +208,8 @@ class RunCommandRequest(object):
         :param invocation_name: The invocation_name of this RunCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and invocation_name is None:
+            raise ValueError("Invalid value for `invocation_name`, must not be `None`")  # noqa: E501
 
         self._invocation_name = invocation_name
 
@@ -314,6 +315,8 @@ class RunCommandRequest(object):
         :param type: The type of this RunCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

@@ -36,17 +36,19 @@ class ModifyInstanceSpecRequest(object):
         'client_token': 'str',
         'dry_run': 'bool',
         'instance_id': 'str',
-        'instance_type': 'str'
+        'instance_type': 'str',
+        'instance_type_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'dry_run': 'DryRun',
         'instance_id': 'InstanceId',
-        'instance_type': 'InstanceType'
+        'instance_type': 'InstanceType',
+        'instance_type_id': 'InstanceTypeId'
     }
 
-    def __init__(self, client_token=None, dry_run=None, instance_id=None, instance_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, dry_run=None, instance_id=None, instance_type=None, instance_type_id=None, _configuration=None):  # noqa: E501
         """ModifyInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,16 +58,18 @@ class ModifyInstanceSpecRequest(object):
         self._dry_run = None
         self._instance_id = None
         self._instance_type = None
+        self._instance_type_id = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
         if dry_run is not None:
             self.dry_run = dry_run
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if instance_type is not None:
             self.instance_type = instance_type
+        if instance_type_id is not None:
+            self.instance_type_id = instance_type_id
 
     @property
     def client_token(self):
@@ -127,6 +131,8 @@ class ModifyInstanceSpecRequest(object):
         :param instance_id: The instance_id of this ModifyInstanceSpecRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -150,6 +156,27 @@ class ModifyInstanceSpecRequest(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def instance_type_id(self):
+        """Gets the instance_type_id of this ModifyInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The instance_type_id of this ModifyInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type_id
+
+    @instance_type_id.setter
+    def instance_type_id(self, instance_type_id):
+        """Sets the instance_type_id of this ModifyInstanceSpecRequest.
+
+
+        :param instance_type_id: The instance_type_id of this ModifyInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type_id = instance_type_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -52,8 +52,7 @@ class GetConsoleScreenshotRequest(object):
         self._wake_up = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if wake_up is not None:
             self.wake_up = wake_up
 
@@ -75,6 +74,8 @@ class GetConsoleScreenshotRequest(object):
         :param instance_id: The instance_id of this GetConsoleScreenshotRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

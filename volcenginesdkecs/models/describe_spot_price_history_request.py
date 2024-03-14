@@ -64,8 +64,7 @@ class DescribeSpotPriceHistoryRequest(object):
         self._zone_id = None
         self.discriminator = None
 
-        if instance_type_id is not None:
-            self.instance_type_id = instance_type_id
+        self.instance_type_id = instance_type_id
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
@@ -95,6 +94,8 @@ class DescribeSpotPriceHistoryRequest(object):
         :param instance_type_id: The instance_type_id of this DescribeSpotPriceHistoryRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_type_id is None:
+            raise ValueError("Invalid value for `instance_type_id`, must not be `None`")  # noqa: E501
 
         self._instance_type_id = instance_type_id
 

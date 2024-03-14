@@ -52,8 +52,7 @@ class TagForCreateTagsInput(object):
         self._value = None
         self.discriminator = None
 
-        if key is not None:
-            self.key = key
+        self.key = key
         if value is not None:
             self.value = value
 
@@ -75,6 +74,8 @@ class TagForCreateTagsInput(object):
         :param key: The key of this TagForCreateTagsInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and key is None:
+            raise ValueError("Invalid value for `key`, must not be `None`")  # noqa: E501
 
         self._key = key
 

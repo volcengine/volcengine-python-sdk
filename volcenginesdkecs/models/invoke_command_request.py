@@ -82,8 +82,7 @@ class InvokeCommandRequest(object):
         self._working_dir = None
         self.discriminator = None
 
-        if command_id is not None:
-            self.command_id = command_id
+        self.command_id = command_id
         if frequency is not None:
             self.frequency = frequency
         if instance_ids is not None:
@@ -125,6 +124,8 @@ class InvokeCommandRequest(object):
         :param command_id: The command_id of this InvokeCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and command_id is None:
+            raise ValueError("Invalid value for `command_id`, must not be `None`")  # noqa: E501
 
         self._command_id = command_id
 

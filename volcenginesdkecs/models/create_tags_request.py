@@ -62,8 +62,7 @@ class CreateTagsRequest(object):
             self.client_token = client_token
         if resource_ids is not None:
             self.resource_ids = resource_ids
-        if resource_type is not None:
-            self.resource_type = resource_type
+        self.resource_type = resource_type
         if tags is not None:
             self.tags = tags
 
@@ -127,6 +126,8 @@ class CreateTagsRequest(object):
         :param resource_type: The resource_type of this CreateTagsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and resource_type is None:
+            raise ValueError("Invalid value for `resource_type`, must not be `None`")  # noqa: E501
 
         self._resource_type = resource_type
 

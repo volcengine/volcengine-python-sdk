@@ -34,39 +34,20 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
     """
     swagger_types = {
         'allow_list_version': 'str',
-        'backup_audit_log_size': 'int',
-        'backup_bin_log_size': 'int',
-        'backup_data_size': 'int',
-        'backup_error_log_size': 'int',
-        'backup_log_size': 'int',
-        'backup_slow_log_size': 'int',
         'backup_use': 'float',
         'create_time': 'str',
-        'db_engine': 'str',
         'db_engine_version': 'str',
         'data_sync_mode': 'str',
-        'inner_version': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_type': 'str',
-        'is_latest_version': 'bool',
         'lower_case_table_names': 'str',
-        'maintenance_window': 'MaintenanceWindowForDescribeDBInstanceDetailOutput',
         'memory': 'int',
         'node_number': 'str',
         'node_spec': 'str',
-        'primary_db_account': 'str',
         'project_name': 'str',
         'region_id': 'str',
-        'server_collation': 'str',
-        'shard_number': 'int',
-        'storage_audit_log_size': 'int',
-        'storage_bin_log_size': 'int',
-        'storage_data_size': 'int',
-        'storage_error_log_size': 'int',
-        'storage_log_size': 'int',
-        'storage_slow_log_size': 'int',
         'storage_space': 'int',
         'storage_type': 'str',
         'storage_use': 'float',
@@ -81,39 +62,20 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
 
     attribute_map = {
         'allow_list_version': 'AllowListVersion',
-        'backup_audit_log_size': 'BackupAuditLogSize',
-        'backup_bin_log_size': 'BackupBinLogSize',
-        'backup_data_size': 'BackupDataSize',
-        'backup_error_log_size': 'BackupErrorLogSize',
-        'backup_log_size': 'BackupLogSize',
-        'backup_slow_log_size': 'BackupSlowLogSize',
         'backup_use': 'BackupUse',
         'create_time': 'CreateTime',
-        'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
         'data_sync_mode': 'DataSyncMode',
-        'inner_version': 'InnerVersion',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
-        'is_latest_version': 'IsLatestVersion',
         'lower_case_table_names': 'LowerCaseTableNames',
-        'maintenance_window': 'MaintenanceWindow',
         'memory': 'Memory',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
-        'primary_db_account': 'PrimaryDBAccount',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
-        'server_collation': 'ServerCollation',
-        'shard_number': 'ShardNumber',
-        'storage_audit_log_size': 'StorageAuditLogSize',
-        'storage_bin_log_size': 'StorageBinLogSize',
-        'storage_data_size': 'StorageDataSize',
-        'storage_error_log_size': 'StorageErrorLogSize',
-        'storage_log_size': 'StorageLogSize',
-        'storage_slow_log_size': 'StorageSlowLogSize',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'storage_use': 'StorageUse',
@@ -126,46 +88,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_version=None, backup_audit_log_size=None, backup_bin_log_size=None, backup_data_size=None, backup_error_log_size=None, backup_log_size=None, backup_slow_log_size=None, backup_use=None, create_time=None, db_engine=None, db_engine_version=None, data_sync_mode=None, inner_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, is_latest_version=None, lower_case_table_names=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, primary_db_account=None, project_name=None, region_id=None, server_collation=None, shard_number=None, storage_audit_log_size=None, storage_bin_log_size=None, storage_data_size=None, storage_error_log_size=None, storage_log_size=None, storage_slow_log_size=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_version=None, backup_use=None, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list_version = None
-        self._backup_audit_log_size = None
-        self._backup_bin_log_size = None
-        self._backup_data_size = None
-        self._backup_error_log_size = None
-        self._backup_log_size = None
-        self._backup_slow_log_size = None
         self._backup_use = None
         self._create_time = None
-        self._db_engine = None
         self._db_engine_version = None
         self._data_sync_mode = None
-        self._inner_version = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
         self._instance_type = None
-        self._is_latest_version = None
         self._lower_case_table_names = None
-        self._maintenance_window = None
         self._memory = None
         self._node_number = None
         self._node_spec = None
-        self._primary_db_account = None
         self._project_name = None
         self._region_id = None
-        self._server_collation = None
-        self._shard_number = None
-        self._storage_audit_log_size = None
-        self._storage_bin_log_size = None
-        self._storage_data_size = None
-        self._storage_error_log_size = None
-        self._storage_log_size = None
-        self._storage_slow_log_size = None
         self._storage_space = None
         self._storage_type = None
         self._storage_use = None
@@ -180,30 +123,14 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
 
         if allow_list_version is not None:
             self.allow_list_version = allow_list_version
-        if backup_audit_log_size is not None:
-            self.backup_audit_log_size = backup_audit_log_size
-        if backup_bin_log_size is not None:
-            self.backup_bin_log_size = backup_bin_log_size
-        if backup_data_size is not None:
-            self.backup_data_size = backup_data_size
-        if backup_error_log_size is not None:
-            self.backup_error_log_size = backup_error_log_size
-        if backup_log_size is not None:
-            self.backup_log_size = backup_log_size
-        if backup_slow_log_size is not None:
-            self.backup_slow_log_size = backup_slow_log_size
         if backup_use is not None:
             self.backup_use = backup_use
         if create_time is not None:
             self.create_time = create_time
-        if db_engine is not None:
-            self.db_engine = db_engine
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
         if data_sync_mode is not None:
             self.data_sync_mode = data_sync_mode
-        if inner_version is not None:
-            self.inner_version = inner_version
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -212,40 +139,18 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.instance_status = instance_status
         if instance_type is not None:
             self.instance_type = instance_type
-        if is_latest_version is not None:
-            self.is_latest_version = is_latest_version
         if lower_case_table_names is not None:
             self.lower_case_table_names = lower_case_table_names
-        if maintenance_window is not None:
-            self.maintenance_window = maintenance_window
         if memory is not None:
             self.memory = memory
         if node_number is not None:
             self.node_number = node_number
         if node_spec is not None:
             self.node_spec = node_spec
-        if primary_db_account is not None:
-            self.primary_db_account = primary_db_account
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
-        if server_collation is not None:
-            self.server_collation = server_collation
-        if shard_number is not None:
-            self.shard_number = shard_number
-        if storage_audit_log_size is not None:
-            self.storage_audit_log_size = storage_audit_log_size
-        if storage_bin_log_size is not None:
-            self.storage_bin_log_size = storage_bin_log_size
-        if storage_data_size is not None:
-            self.storage_data_size = storage_data_size
-        if storage_error_log_size is not None:
-            self.storage_error_log_size = storage_error_log_size
-        if storage_log_size is not None:
-            self.storage_log_size = storage_log_size
-        if storage_slow_log_size is not None:
-            self.storage_slow_log_size = storage_slow_log_size
         if storage_space is not None:
             self.storage_space = storage_space
         if storage_type is not None:
@@ -287,132 +192,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._allow_list_version = allow_list_version
-
-    @property
-    def backup_audit_log_size(self):
-        """Gets the backup_audit_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The backup_audit_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._backup_audit_log_size
-
-    @backup_audit_log_size.setter
-    def backup_audit_log_size(self, backup_audit_log_size):
-        """Sets the backup_audit_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param backup_audit_log_size: The backup_audit_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._backup_audit_log_size = backup_audit_log_size
-
-    @property
-    def backup_bin_log_size(self):
-        """Gets the backup_bin_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The backup_bin_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._backup_bin_log_size
-
-    @backup_bin_log_size.setter
-    def backup_bin_log_size(self, backup_bin_log_size):
-        """Sets the backup_bin_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param backup_bin_log_size: The backup_bin_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._backup_bin_log_size = backup_bin_log_size
-
-    @property
-    def backup_data_size(self):
-        """Gets the backup_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The backup_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._backup_data_size
-
-    @backup_data_size.setter
-    def backup_data_size(self, backup_data_size):
-        """Sets the backup_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param backup_data_size: The backup_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._backup_data_size = backup_data_size
-
-    @property
-    def backup_error_log_size(self):
-        """Gets the backup_error_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The backup_error_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._backup_error_log_size
-
-    @backup_error_log_size.setter
-    def backup_error_log_size(self, backup_error_log_size):
-        """Sets the backup_error_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param backup_error_log_size: The backup_error_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._backup_error_log_size = backup_error_log_size
-
-    @property
-    def backup_log_size(self):
-        """Gets the backup_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The backup_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._backup_log_size
-
-    @backup_log_size.setter
-    def backup_log_size(self, backup_log_size):
-        """Sets the backup_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param backup_log_size: The backup_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._backup_log_size = backup_log_size
-
-    @property
-    def backup_slow_log_size(self):
-        """Gets the backup_slow_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The backup_slow_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._backup_slow_log_size
-
-    @backup_slow_log_size.setter
-    def backup_slow_log_size(self, backup_slow_log_size):
-        """Sets the backup_slow_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param backup_slow_log_size: The backup_slow_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._backup_slow_log_size = backup_slow_log_size
 
     @property
     def backup_use(self):
@@ -457,27 +236,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._create_time = create_time
 
     @property
-    def db_engine(self):
-        """Gets the db_engine of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The db_engine of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._db_engine
-
-    @db_engine.setter
-    def db_engine(self, db_engine):
-        """Sets the db_engine of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param db_engine: The db_engine of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._db_engine = db_engine
-
-    @property
     def db_engine_version(self):
         """Gets the db_engine_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -518,27 +276,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._data_sync_mode = data_sync_mode
-
-    @property
-    def inner_version(self):
-        """Gets the inner_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The inner_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._inner_version
-
-    @inner_version.setter
-    def inner_version(self, inner_version):
-        """Sets the inner_version of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param inner_version: The inner_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._inner_version = inner_version
 
     @property
     def instance_id(self):
@@ -625,27 +362,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._instance_type = instance_type
 
     @property
-    def is_latest_version(self):
-        """Gets the is_latest_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The is_latest_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_latest_version
-
-    @is_latest_version.setter
-    def is_latest_version(self, is_latest_version):
-        """Sets the is_latest_version of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param is_latest_version: The is_latest_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_latest_version = is_latest_version
-
-    @property
     def lower_case_table_names(self):
         """Gets the lower_case_table_names of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -665,27 +381,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._lower_case_table_names = lower_case_table_names
-
-    @property
-    def maintenance_window(self):
-        """Gets the maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: MaintenanceWindowForDescribeDBInstanceDetailOutput
-        """
-        return self._maintenance_window
-
-    @maintenance_window.setter
-    def maintenance_window(self, maintenance_window):
-        """Sets the maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param maintenance_window: The maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: MaintenanceWindowForDescribeDBInstanceDetailOutput
-        """
-
-        self._maintenance_window = maintenance_window
 
     @property
     def memory(self):
@@ -751,27 +446,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._node_spec = node_spec
 
     @property
-    def primary_db_account(self):
-        """Gets the primary_db_account of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The primary_db_account of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._primary_db_account
-
-    @primary_db_account.setter
-    def primary_db_account(self, primary_db_account):
-        """Sets the primary_db_account of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param primary_db_account: The primary_db_account of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._primary_db_account = primary_db_account
-
-    @property
     def project_name(self):
         """Gets the project_name of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -812,174 +486,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._region_id = region_id
-
-    @property
-    def server_collation(self):
-        """Gets the server_collation of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The server_collation of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._server_collation
-
-    @server_collation.setter
-    def server_collation(self, server_collation):
-        """Sets the server_collation of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param server_collation: The server_collation of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._server_collation = server_collation
-
-    @property
-    def shard_number(self):
-        """Gets the shard_number of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The shard_number of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._shard_number
-
-    @shard_number.setter
-    def shard_number(self, shard_number):
-        """Sets the shard_number of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param shard_number: The shard_number of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._shard_number = shard_number
-
-    @property
-    def storage_audit_log_size(self):
-        """Gets the storage_audit_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The storage_audit_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._storage_audit_log_size
-
-    @storage_audit_log_size.setter
-    def storage_audit_log_size(self, storage_audit_log_size):
-        """Sets the storage_audit_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param storage_audit_log_size: The storage_audit_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._storage_audit_log_size = storage_audit_log_size
-
-    @property
-    def storage_bin_log_size(self):
-        """Gets the storage_bin_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The storage_bin_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._storage_bin_log_size
-
-    @storage_bin_log_size.setter
-    def storage_bin_log_size(self, storage_bin_log_size):
-        """Sets the storage_bin_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param storage_bin_log_size: The storage_bin_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._storage_bin_log_size = storage_bin_log_size
-
-    @property
-    def storage_data_size(self):
-        """Gets the storage_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The storage_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._storage_data_size
-
-    @storage_data_size.setter
-    def storage_data_size(self, storage_data_size):
-        """Sets the storage_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param storage_data_size: The storage_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._storage_data_size = storage_data_size
-
-    @property
-    def storage_error_log_size(self):
-        """Gets the storage_error_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The storage_error_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._storage_error_log_size
-
-    @storage_error_log_size.setter
-    def storage_error_log_size(self, storage_error_log_size):
-        """Sets the storage_error_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param storage_error_log_size: The storage_error_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._storage_error_log_size = storage_error_log_size
-
-    @property
-    def storage_log_size(self):
-        """Gets the storage_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The storage_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._storage_log_size
-
-    @storage_log_size.setter
-    def storage_log_size(self, storage_log_size):
-        """Sets the storage_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param storage_log_size: The storage_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._storage_log_size = storage_log_size
-
-    @property
-    def storage_slow_log_size(self):
-        """Gets the storage_slow_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The storage_slow_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._storage_slow_log_size
-
-    @storage_slow_log_size.setter
-    def storage_slow_log_size(self, storage_slow_log_size):
-        """Sets the storage_slow_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param storage_slow_log_size: The storage_slow_log_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._storage_slow_log_size = storage_slow_log_size
 
     @property
     def storage_space(self):

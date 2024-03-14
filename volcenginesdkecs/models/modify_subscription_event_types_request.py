@@ -54,8 +54,7 @@ class ModifySubscriptionEventTypesRequest(object):
 
         if event_types is not None:
             self.event_types = event_types
-        if subscription_id is not None:
-            self.subscription_id = subscription_id
+        self.subscription_id = subscription_id
 
     @property
     def event_types(self):
@@ -96,6 +95,8 @@ class ModifySubscriptionEventTypesRequest(object):
         :param subscription_id: The subscription_id of this ModifySubscriptionEventTypesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subscription_id is None:
+            raise ValueError("Invalid value for `subscription_id`, must not be `None`")  # noqa: E501
 
         self._subscription_id = subscription_id
 

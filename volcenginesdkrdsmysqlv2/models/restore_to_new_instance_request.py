@@ -40,19 +40,13 @@ class RestoreToNewInstanceRequest(object):
         'instance_name': 'str',
         'instance_tags': 'list[InstanceTagForRestoreToNewInstanceInput]',
         'node_info': 'list[NodeInfoForRestoreToNewInstanceInput]',
-        'node_number': 'int',
-        'node_spec': 'str',
         'project_name': 'str',
         'restore_time': 'str',
-        'shard_number': 'int',
         'src_instance_id': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
-        'super_account_password': 'str',
-        'table_meta': 'list[TableMetaForRestoreToNewInstanceInput]',
-        'vpc_id': 'str',
-        'zone_id': 'str'
+        'vpc_id': 'str'
     }
 
     attribute_map = {
@@ -63,22 +57,16 @@ class RestoreToNewInstanceRequest(object):
         'instance_name': 'InstanceName',
         'instance_tags': 'InstanceTags',
         'node_info': 'NodeInfo',
-        'node_number': 'NodeNumber',
-        'node_spec': 'NodeSpec',
         'project_name': 'ProjectName',
         'restore_time': 'RestoreTime',
-        'shard_number': 'ShardNumber',
         'src_instance_id': 'SrcInstanceId',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
-        'super_account_password': 'SuperAccountPassword',
-        'table_meta': 'TableMeta',
-        'vpc_id': 'VpcId',
-        'zone_id': 'ZoneId'
+        'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, backup_id=None, charge_info=None, db_param_group_id=None, instance_name=None, instance_tags=None, node_info=None, node_number=None, node_spec=None, project_name=None, restore_time=None, shard_number=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, super_account_password=None, table_meta=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, backup_id=None, charge_info=None, db_param_group_id=None, instance_name=None, instance_tags=None, node_info=None, project_name=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,19 +79,13 @@ class RestoreToNewInstanceRequest(object):
         self._instance_name = None
         self._instance_tags = None
         self._node_info = None
-        self._node_number = None
-        self._node_spec = None
         self._project_name = None
         self._restore_time = None
-        self._shard_number = None
         self._src_instance_id = None
         self._storage_space = None
         self._storage_type = None
         self._subnet_id = None
-        self._super_account_password = None
-        self._table_meta = None
         self._vpc_id = None
-        self._zone_id = None
         self.discriminator = None
 
         if allow_list_ids is not None:
@@ -120,32 +102,16 @@ class RestoreToNewInstanceRequest(object):
             self.instance_tags = instance_tags
         if node_info is not None:
             self.node_info = node_info
-        if node_number is not None:
-            self.node_number = node_number
-        if node_spec is not None:
-            self.node_spec = node_spec
         if project_name is not None:
             self.project_name = project_name
         if restore_time is not None:
             self.restore_time = restore_time
-        if shard_number is not None:
-            self.shard_number = shard_number
-        if src_instance_id is not None:
-            self.src_instance_id = src_instance_id
+        self.src_instance_id = src_instance_id
         if storage_space is not None:
             self.storage_space = storage_space
-        if storage_type is not None:
-            self.storage_type = storage_type
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
-        if super_account_password is not None:
-            self.super_account_password = super_account_password
-        if table_meta is not None:
-            self.table_meta = table_meta
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.storage_type = storage_type
+        self.subnet_id = subnet_id
+        self.vpc_id = vpc_id
 
     @property
     def allow_list_ids(self):
@@ -295,48 +261,6 @@ class RestoreToNewInstanceRequest(object):
         self._node_info = node_info
 
     @property
-    def node_number(self):
-        """Gets the node_number of this RestoreToNewInstanceRequest.  # noqa: E501
-
-
-        :return: The node_number of this RestoreToNewInstanceRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._node_number
-
-    @node_number.setter
-    def node_number(self, node_number):
-        """Sets the node_number of this RestoreToNewInstanceRequest.
-
-
-        :param node_number: The node_number of this RestoreToNewInstanceRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._node_number = node_number
-
-    @property
-    def node_spec(self):
-        """Gets the node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
-
-
-        :return: The node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._node_spec
-
-    @node_spec.setter
-    def node_spec(self, node_spec):
-        """Sets the node_spec of this RestoreToNewInstanceRequest.
-
-
-        :param node_spec: The node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._node_spec = node_spec
-
-    @property
     def project_name(self):
         """Gets the project_name of this RestoreToNewInstanceRequest.  # noqa: E501
 
@@ -379,27 +303,6 @@ class RestoreToNewInstanceRequest(object):
         self._restore_time = restore_time
 
     @property
-    def shard_number(self):
-        """Gets the shard_number of this RestoreToNewInstanceRequest.  # noqa: E501
-
-
-        :return: The shard_number of this RestoreToNewInstanceRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._shard_number
-
-    @shard_number.setter
-    def shard_number(self, shard_number):
-        """Sets the shard_number of this RestoreToNewInstanceRequest.
-
-
-        :param shard_number: The shard_number of this RestoreToNewInstanceRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._shard_number = shard_number
-
-    @property
     def src_instance_id(self):
         """Gets the src_instance_id of this RestoreToNewInstanceRequest.  # noqa: E501
 
@@ -417,6 +320,8 @@ class RestoreToNewInstanceRequest(object):
         :param src_instance_id: The src_instance_id of this RestoreToNewInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and src_instance_id is None:
+            raise ValueError("Invalid value for `src_instance_id`, must not be `None`")  # noqa: E501
 
         self._src_instance_id = src_instance_id
 
@@ -459,6 +364,8 @@ class RestoreToNewInstanceRequest(object):
         :param storage_type: The storage_type of this RestoreToNewInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and storage_type is None:
+            raise ValueError("Invalid value for `storage_type`, must not be `None`")  # noqa: E501
 
         self._storage_type = storage_type
 
@@ -480,50 +387,10 @@ class RestoreToNewInstanceRequest(object):
         :param subnet_id: The subnet_id of this RestoreToNewInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
-
-    @property
-    def super_account_password(self):
-        """Gets the super_account_password of this RestoreToNewInstanceRequest.  # noqa: E501
-
-
-        :return: The super_account_password of this RestoreToNewInstanceRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._super_account_password
-
-    @super_account_password.setter
-    def super_account_password(self, super_account_password):
-        """Sets the super_account_password of this RestoreToNewInstanceRequest.
-
-
-        :param super_account_password: The super_account_password of this RestoreToNewInstanceRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._super_account_password = super_account_password
-
-    @property
-    def table_meta(self):
-        """Gets the table_meta of this RestoreToNewInstanceRequest.  # noqa: E501
-
-
-        :return: The table_meta of this RestoreToNewInstanceRequest.  # noqa: E501
-        :rtype: list[TableMetaForRestoreToNewInstanceInput]
-        """
-        return self._table_meta
-
-    @table_meta.setter
-    def table_meta(self, table_meta):
-        """Sets the table_meta of this RestoreToNewInstanceRequest.
-
-
-        :param table_meta: The table_meta of this RestoreToNewInstanceRequest.  # noqa: E501
-        :type: list[TableMetaForRestoreToNewInstanceInput]
-        """
-
-        self._table_meta = table_meta
 
     @property
     def vpc_id(self):
@@ -543,29 +410,10 @@ class RestoreToNewInstanceRequest(object):
         :param vpc_id: The vpc_id of this RestoreToNewInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
-
-    @property
-    def zone_id(self):
-        """Gets the zone_id of this RestoreToNewInstanceRequest.  # noqa: E501
-
-
-        :return: The zone_id of this RestoreToNewInstanceRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._zone_id
-
-    @zone_id.setter
-    def zone_id(self, zone_id):
-        """Sets the zone_id of this RestoreToNewInstanceRequest.
-
-
-        :param zone_id: The zone_id of this RestoreToNewInstanceRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

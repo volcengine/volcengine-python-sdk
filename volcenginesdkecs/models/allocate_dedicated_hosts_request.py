@@ -102,20 +102,17 @@ class AllocateDedicatedHostsRequest(object):
             self.count = count
         if cpu_overcommit_ratio is not None:
             self.cpu_overcommit_ratio = cpu_overcommit_ratio
-        if dedicated_host_name is not None:
-            self.dedicated_host_name = dedicated_host_name
+        self.dedicated_host_name = dedicated_host_name
         if dedicated_host_recovery is not None:
             self.dedicated_host_recovery = dedicated_host_recovery
-        if dedicated_host_type_id is not None:
-            self.dedicated_host_type_id = dedicated_host_type_id
+        self.dedicated_host_type_id = dedicated_host_type_id
         if description is not None:
             self.description = description
         if period is not None:
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.zone_id = zone_id
 
     @property
     def auto_placement(self):
@@ -282,6 +279,8 @@ class AllocateDedicatedHostsRequest(object):
         :param dedicated_host_name: The dedicated_host_name of this AllocateDedicatedHostsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and dedicated_host_name is None:
+            raise ValueError("Invalid value for `dedicated_host_name`, must not be `None`")  # noqa: E501
 
         self._dedicated_host_name = dedicated_host_name
 
@@ -324,6 +323,8 @@ class AllocateDedicatedHostsRequest(object):
         :param dedicated_host_type_id: The dedicated_host_type_id of this AllocateDedicatedHostsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and dedicated_host_type_id is None:
+            raise ValueError("Invalid value for `dedicated_host_type_id`, must not be `None`")  # noqa: E501
 
         self._dedicated_host_type_id = dedicated_host_type_id
 
@@ -408,6 +409,8 @@ class AllocateDedicatedHostsRequest(object):
         :param zone_id: The zone_id of this AllocateDedicatedHostsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

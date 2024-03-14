@@ -34,25 +34,30 @@ class ModifyDBInstanceSSLRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
+        'reload_ssl_certificate': 'bool',
         'ssl_enable': 'bool'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
+        'reload_ssl_certificate': 'ReloadSSLCertificate',
         'ssl_enable': 'SSLEnable'
     }
 
-    def __init__(self, instance_id=None, ssl_enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, reload_ssl_certificate=None, ssl_enable=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSSLRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._reload_ssl_certificate = None
         self._ssl_enable = None
         self.discriminator = None
 
         self.instance_id = instance_id
+        if reload_ssl_certificate is not None:
+            self.reload_ssl_certificate = reload_ssl_certificate
         if ssl_enable is not None:
             self.ssl_enable = ssl_enable
 
@@ -78,6 +83,27 @@ class ModifyDBInstanceSSLRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def reload_ssl_certificate(self):
+        """Gets the reload_ssl_certificate of this ModifyDBInstanceSSLRequest.  # noqa: E501
+
+
+        :return: The reload_ssl_certificate of this ModifyDBInstanceSSLRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._reload_ssl_certificate
+
+    @reload_ssl_certificate.setter
+    def reload_ssl_certificate(self, reload_ssl_certificate):
+        """Sets the reload_ssl_certificate of this ModifyDBInstanceSSLRequest.
+
+
+        :param reload_ssl_certificate: The reload_ssl_certificate of this ModifyDBInstanceSSLRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._reload_ssl_certificate = reload_ssl_certificate
 
     @property
     def ssl_enable(self):

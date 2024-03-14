@@ -49,8 +49,8 @@ class InstanceForDescribeCloudAssistantStatusOutput(object):
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'last_heartbeat_time': 'LastHeartbeatTime',
-        'os_type': 'OsType',
-        'os_version': 'OsVersion',
+        'os_type': 'OSType',
+        'os_version': 'OSVersion',
         'status': 'Status'
     }
 

@@ -36,21 +36,21 @@ class AccountForDescribeDBAccountsOutput(object):
         'account_desc': 'str',
         'account_name': 'str',
         'account_privileges': 'list[AccountPrivilegeForDescribeDBAccountsOutput]',
-        'account_privileges_info': 'list[AccountPrivilegesInfoForDescribeDBAccountsOutput]',
         'account_status': 'str',
-        'account_type': 'str'
+        'account_type': 'str',
+        'host': 'str'
     }
 
     attribute_map = {
         'account_desc': 'AccountDesc',
         'account_name': 'AccountName',
         'account_privileges': 'AccountPrivileges',
-        'account_privileges_info': 'AccountPrivilegesInfo',
         'account_status': 'AccountStatus',
-        'account_type': 'AccountType'
+        'account_type': 'AccountType',
+        'host': 'Host'
     }
 
-    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_privileges_info=None, account_status=None, account_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_status=None, account_type=None, host=None, _configuration=None):  # noqa: E501
         """AccountForDescribeDBAccountsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,9 +59,9 @@ class AccountForDescribeDBAccountsOutput(object):
         self._account_desc = None
         self._account_name = None
         self._account_privileges = None
-        self._account_privileges_info = None
         self._account_status = None
         self._account_type = None
+        self._host = None
         self.discriminator = None
 
         if account_desc is not None:
@@ -70,12 +70,12 @@ class AccountForDescribeDBAccountsOutput(object):
             self.account_name = account_name
         if account_privileges is not None:
             self.account_privileges = account_privileges
-        if account_privileges_info is not None:
-            self.account_privileges_info = account_privileges_info
         if account_status is not None:
             self.account_status = account_status
         if account_type is not None:
             self.account_type = account_type
+        if host is not None:
+            self.host = host
 
     @property
     def account_desc(self):
@@ -141,27 +141,6 @@ class AccountForDescribeDBAccountsOutput(object):
         self._account_privileges = account_privileges
 
     @property
-    def account_privileges_info(self):
-        """Gets the account_privileges_info of this AccountForDescribeDBAccountsOutput.  # noqa: E501
-
-
-        :return: The account_privileges_info of this AccountForDescribeDBAccountsOutput.  # noqa: E501
-        :rtype: list[AccountPrivilegesInfoForDescribeDBAccountsOutput]
-        """
-        return self._account_privileges_info
-
-    @account_privileges_info.setter
-    def account_privileges_info(self, account_privileges_info):
-        """Sets the account_privileges_info of this AccountForDescribeDBAccountsOutput.
-
-
-        :param account_privileges_info: The account_privileges_info of this AccountForDescribeDBAccountsOutput.  # noqa: E501
-        :type: list[AccountPrivilegesInfoForDescribeDBAccountsOutput]
-        """
-
-        self._account_privileges_info = account_privileges_info
-
-    @property
     def account_status(self):
         """Gets the account_status of this AccountForDescribeDBAccountsOutput.  # noqa: E501
 
@@ -202,6 +181,27 @@ class AccountForDescribeDBAccountsOutput(object):
         """
 
         self._account_type = account_type
+
+    @property
+    def host(self):
+        """Gets the host of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The host of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """Sets the host of this AccountForDescribeDBAccountsOutput.
+
+
+        :param host: The host of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._host = host
 
     def to_dict(self):
         """Returns the model properties as a dict"""

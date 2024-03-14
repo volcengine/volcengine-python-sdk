@@ -36,17 +36,19 @@ class CreateAllowListRequest(object):
         'allow_list': 'str',
         'allow_list_desc': 'str',
         'allow_list_name': 'str',
-        'allow_list_type': 'str'
+        'allow_list_type': 'str',
+        'security_group_ids': 'list[str]'
     }
 
     attribute_map = {
         'allow_list': 'AllowList',
         'allow_list_desc': 'AllowListDesc',
         'allow_list_name': 'AllowListName',
-        'allow_list_type': 'AllowListType'
+        'allow_list_type': 'AllowListType',
+        'security_group_ids': 'SecurityGroupIds'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, security_group_ids=None, _configuration=None):  # noqa: E501
         """CreateAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,14 +58,18 @@ class CreateAllowListRequest(object):
         self._allow_list_desc = None
         self._allow_list_name = None
         self._allow_list_type = None
+        self._security_group_ids = None
         self.discriminator = None
 
-        self.allow_list = allow_list
+        if allow_list is not None:
+            self.allow_list = allow_list
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
         self.allow_list_name = allow_list_name
         if allow_list_type is not None:
             self.allow_list_type = allow_list_type
+        if security_group_ids is not None:
+            self.security_group_ids = security_group_ids
 
     @property
     def allow_list(self):
@@ -83,8 +89,6 @@ class CreateAllowListRequest(object):
         :param allow_list: The allow_list of this CreateAllowListRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and allow_list is None:
-            raise ValueError("Invalid value for `allow_list`, must not be `None`")  # noqa: E501
 
         self._allow_list = allow_list
 
@@ -152,6 +156,27 @@ class CreateAllowListRequest(object):
         """
 
         self._allow_list_type = allow_list_type
+
+    @property
+    def security_group_ids(self):
+        """Gets the security_group_ids of this CreateAllowListRequest.  # noqa: E501
+
+
+        :return: The security_group_ids of this CreateAllowListRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_group_ids
+
+    @security_group_ids.setter
+    def security_group_ids(self, security_group_ids):
+        """Sets the security_group_ids of this CreateAllowListRequest.
+
+
+        :param security_group_ids: The security_group_ids of this CreateAllowListRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_group_ids = security_group_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

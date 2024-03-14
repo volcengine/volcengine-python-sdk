@@ -34,31 +34,26 @@ class DescribeDBAccountsResponse(object):
     """
     swagger_types = {
         'accounts': 'list[AccountForDescribeDBAccountsOutput]',
-        'accounts_info': 'list[AccountsInfoForDescribeDBAccountsOutput]',
         'total': 'int'
     }
 
     attribute_map = {
         'accounts': 'Accounts',
-        'accounts_info': 'AccountsInfo',
         'total': 'Total'
     }
 
-    def __init__(self, accounts=None, accounts_info=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, accounts=None, total=None, _configuration=None):  # noqa: E501
         """DescribeDBAccountsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accounts = None
-        self._accounts_info = None
         self._total = None
         self.discriminator = None
 
         if accounts is not None:
             self.accounts = accounts
-        if accounts_info is not None:
-            self.accounts_info = accounts_info
         if total is not None:
             self.total = total
 
@@ -82,27 +77,6 @@ class DescribeDBAccountsResponse(object):
         """
 
         self._accounts = accounts
-
-    @property
-    def accounts_info(self):
-        """Gets the accounts_info of this DescribeDBAccountsResponse.  # noqa: E501
-
-
-        :return: The accounts_info of this DescribeDBAccountsResponse.  # noqa: E501
-        :rtype: list[AccountsInfoForDescribeDBAccountsOutput]
-        """
-        return self._accounts_info
-
-    @accounts_info.setter
-    def accounts_info(self, accounts_info):
-        """Sets the accounts_info of this DescribeDBAccountsResponse.
-
-
-        :param accounts_info: The accounts_info of this DescribeDBAccountsResponse.  # noqa: E501
-        :type: list[AccountsInfoForDescribeDBAccountsOutput]
-        """
-
-        self._accounts_info = accounts_info
 
     @property
     def total(self):

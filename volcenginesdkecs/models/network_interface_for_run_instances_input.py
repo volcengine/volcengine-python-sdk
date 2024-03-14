@@ -59,8 +59,7 @@ class NetworkInterfaceForRunInstancesInput(object):
             self.primary_ip_address = primary_ip_address
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
+        self.subnet_id = subnet_id
 
     @property
     def primary_ip_address(self):
@@ -122,6 +121,8 @@ class NetworkInterfaceForRunInstancesInput(object):
         :param subnet_id: The subnet_id of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 

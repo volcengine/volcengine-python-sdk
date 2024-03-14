@@ -34,6 +34,7 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
     """
     swagger_types = {
         'checking_code': 'str',
+        'expression': 'str',
         'force_restart': 'bool',
         'parameter_default_value': 'str',
         'parameter_description': 'str',
@@ -43,6 +44,7 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
 
     attribute_map = {
         'checking_code': 'CheckingCode',
+        'expression': 'Expression',
         'force_restart': 'ForceRestart',
         'parameter_default_value': 'ParameterDefaultValue',
         'parameter_description': 'ParameterDescription',
@@ -50,13 +52,14 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
         'parameter_value': 'ParameterValue'
     }
 
-    def __init__(self, checking_code=None, force_restart=None, parameter_default_value=None, parameter_description=None, parameter_name=None, parameter_value=None, _configuration=None):  # noqa: E501
+    def __init__(self, checking_code=None, expression=None, force_restart=None, parameter_default_value=None, parameter_description=None, parameter_name=None, parameter_value=None, _configuration=None):  # noqa: E501
         """ParameterForDescribeDBInstanceParametersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._checking_code = None
+        self._expression = None
         self._force_restart = None
         self._parameter_default_value = None
         self._parameter_description = None
@@ -66,6 +69,8 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
 
         if checking_code is not None:
             self.checking_code = checking_code
+        if expression is not None:
+            self.expression = expression
         if force_restart is not None:
             self.force_restart = force_restart
         if parameter_default_value is not None:
@@ -97,6 +102,27 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
         """
 
         self._checking_code = checking_code
+
+    @property
+    def expression(self):
+        """Gets the expression of this ParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+
+
+        :return: The expression of this ParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expression
+
+    @expression.setter
+    def expression(self, expression):
+        """Sets the expression of this ParameterForDescribeDBInstanceParametersOutput.
+
+
+        :param expression: The expression of this ParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._expression = expression
 
     @property
     def force_restart(self):

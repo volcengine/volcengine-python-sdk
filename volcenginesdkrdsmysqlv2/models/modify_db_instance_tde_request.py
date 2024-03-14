@@ -34,27 +34,36 @@ class ModifyDBInstanceTDERequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
+        'key_name': 'str',
+        'keyring_name': 'str',
         'tde_status': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
+        'key_name': 'KeyName',
+        'keyring_name': 'KeyringName',
         'tde_status': 'TDEStatus'
     }
 
-    def __init__(self, instance_id=None, tde_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, key_name=None, keyring_name=None, tde_status=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceTDERequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._key_name = None
+        self._keyring_name = None
         self._tde_status = None
         self.discriminator = None
 
         self.instance_id = instance_id
-        if tde_status is not None:
-            self.tde_status = tde_status
+        if key_name is not None:
+            self.key_name = key_name
+        if keyring_name is not None:
+            self.keyring_name = keyring_name
+        self.tde_status = tde_status
 
     @property
     def instance_id(self):
@@ -80,6 +89,48 @@ class ModifyDBInstanceTDERequest(object):
         self._instance_id = instance_id
 
     @property
+    def key_name(self):
+        """Gets the key_name of this ModifyDBInstanceTDERequest.  # noqa: E501
+
+
+        :return: The key_name of this ModifyDBInstanceTDERequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._key_name
+
+    @key_name.setter
+    def key_name(self, key_name):
+        """Sets the key_name of this ModifyDBInstanceTDERequest.
+
+
+        :param key_name: The key_name of this ModifyDBInstanceTDERequest.  # noqa: E501
+        :type: str
+        """
+
+        self._key_name = key_name
+
+    @property
+    def keyring_name(self):
+        """Gets the keyring_name of this ModifyDBInstanceTDERequest.  # noqa: E501
+
+
+        :return: The keyring_name of this ModifyDBInstanceTDERequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._keyring_name
+
+    @keyring_name.setter
+    def keyring_name(self, keyring_name):
+        """Sets the keyring_name of this ModifyDBInstanceTDERequest.
+
+
+        :param keyring_name: The keyring_name of this ModifyDBInstanceTDERequest.  # noqa: E501
+        :type: str
+        """
+
+        self._keyring_name = keyring_name
+
+    @property
     def tde_status(self):
         """Gets the tde_status of this ModifyDBInstanceTDERequest.  # noqa: E501
 
@@ -97,6 +148,8 @@ class ModifyDBInstanceTDERequest(object):
         :param tde_status: The tde_status of this ModifyDBInstanceTDERequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and tde_status is None:
+            raise ValueError("Invalid value for `tde_status`, must not be `None`")  # noqa: E501
 
         self._tde_status = tde_status
 

@@ -33,45 +33,17 @@ class CreateBackupResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'backup_id': 'str'
     }
 
     attribute_map = {
-        'backup_id': 'BackupId'
     }
 
-    def __init__(self, backup_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, _configuration=None):  # noqa: E501
         """CreateBackupResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
-
-        self._backup_id = None
         self.discriminator = None
-
-        if backup_id is not None:
-            self.backup_id = backup_id
-
-    @property
-    def backup_id(self):
-        """Gets the backup_id of this CreateBackupResponse.  # noqa: E501
-
-
-        :return: The backup_id of this CreateBackupResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._backup_id
-
-    @backup_id.setter
-    def backup_id(self, backup_id):
-        """Sets the backup_id of this CreateBackupResponse.
-
-
-        :param backup_id: The backup_id of this CreateBackupResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._backup_id = backup_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

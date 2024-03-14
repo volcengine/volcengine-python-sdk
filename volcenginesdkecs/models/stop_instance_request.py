@@ -67,8 +67,7 @@ class StopInstanceRequest(object):
             self.dry_run = dry_run
         if force_stop is not None:
             self.force_stop = force_stop
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if stopped_mode is not None:
             self.stopped_mode = stopped_mode
 
@@ -153,6 +152,8 @@ class StopInstanceRequest(object):
         :param instance_id: The instance_id of this StopInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

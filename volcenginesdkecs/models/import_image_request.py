@@ -82,20 +82,17 @@ class ImportImageRequest(object):
             self.boot_mode = boot_mode
         if description is not None:
             self.description = description
-        if image_name is not None:
-            self.image_name = image_name
+        self.image_name = image_name
         if os_type is not None:
             self.os_type = os_type
-        if platform is not None:
-            self.platform = platform
+        self.platform = platform
         if platform_version is not None:
             self.platform_version = platform_version
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
             self.tags = tags
-        if url is not None:
-            self.url = url
+        self.url = url
 
     @property
     def architecture(self):
@@ -178,6 +175,8 @@ class ImportImageRequest(object):
         :param image_name: The image_name of this ImportImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_name is None:
+            raise ValueError("Invalid value for `image_name`, must not be `None`")  # noqa: E501
 
         self._image_name = image_name
 
@@ -220,6 +219,8 @@ class ImportImageRequest(object):
         :param platform: The platform of this ImportImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and platform is None:
+            raise ValueError("Invalid value for `platform`, must not be `None`")  # noqa: E501
 
         self._platform = platform
 
@@ -304,6 +305,8 @@ class ImportImageRequest(object):
         :param url: The url of this ImportImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and url is None:
+            raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 

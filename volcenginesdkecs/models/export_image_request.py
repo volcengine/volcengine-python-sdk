@@ -55,12 +55,9 @@ class ExportImageRequest(object):
         self._tos_prefix = None
         self.discriminator = None
 
-        if image_id is not None:
-            self.image_id = image_id
-        if tos_bucket is not None:
-            self.tos_bucket = tos_bucket
-        if tos_prefix is not None:
-            self.tos_prefix = tos_prefix
+        self.image_id = image_id
+        self.tos_bucket = tos_bucket
+        self.tos_prefix = tos_prefix
 
     @property
     def image_id(self):
@@ -80,6 +77,8 @@ class ExportImageRequest(object):
         :param image_id: The image_id of this ExportImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 
@@ -101,6 +100,8 @@ class ExportImageRequest(object):
         :param tos_bucket: The tos_bucket of this ExportImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and tos_bucket is None:
+            raise ValueError("Invalid value for `tos_bucket`, must not be `None`")  # noqa: E501
 
         self._tos_bucket = tos_bucket
 
@@ -122,6 +123,8 @@ class ExportImageRequest(object):
         :param tos_prefix: The tos_prefix of this ExportImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and tos_prefix is None:
+            raise ValueError("Invalid value for `tos_prefix`, must not be `None`")  # noqa: E501
 
         self._tos_prefix = tos_prefix
 

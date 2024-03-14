@@ -35,16 +35,18 @@ class VolumeForRunInstancesInput(object):
     swagger_types = {
         'delete_with_instance': 'str',
         'size': 'int',
+        'snapshot_id': 'str',
         'volume_type': 'str'
     }
 
     attribute_map = {
         'delete_with_instance': 'DeleteWithInstance',
         'size': 'Size',
+        'snapshot_id': 'SnapshotId',
         'volume_type': 'VolumeType'
     }
 
-    def __init__(self, delete_with_instance=None, size=None, volume_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_with_instance=None, size=None, snapshot_id=None, volume_type=None, _configuration=None):  # noqa: E501
         """VolumeForRunInstancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,13 +54,15 @@ class VolumeForRunInstancesInput(object):
 
         self._delete_with_instance = None
         self._size = None
+        self._snapshot_id = None
         self._volume_type = None
         self.discriminator = None
 
         if delete_with_instance is not None:
             self.delete_with_instance = delete_with_instance
-        if size is not None:
-            self.size = size
+        self.size = size
+        if snapshot_id is not None:
+            self.snapshot_id = snapshot_id
         if volume_type is not None:
             self.volume_type = volume_type
 
@@ -101,8 +105,31 @@ class VolumeForRunInstancesInput(object):
         :param size: The size of this VolumeForRunInstancesInput.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and size is None:
+            raise ValueError("Invalid value for `size`, must not be `None`")  # noqa: E501
 
         self._size = size
+
+    @property
+    def snapshot_id(self):
+        """Gets the snapshot_id of this VolumeForRunInstancesInput.  # noqa: E501
+
+
+        :return: The snapshot_id of this VolumeForRunInstancesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._snapshot_id
+
+    @snapshot_id.setter
+    def snapshot_id(self, snapshot_id):
+        """Sets the snapshot_id of this VolumeForRunInstancesInput.
+
+
+        :param snapshot_id: The snapshot_id of this VolumeForRunInstancesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._snapshot_id = snapshot_id
 
     @property
     def volume_type(self):

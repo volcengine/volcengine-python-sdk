@@ -77,10 +77,8 @@ class ReplaceSystemVolumeRequest(object):
             self.client_token = client_token
         if dry_run is not None:
             self.dry_run = dry_run
-        if image_id is not None:
-            self.image_id = image_id
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.image_id = image_id
+        self.instance_id = instance_id
         if keep_image_credential is not None:
             self.keep_image_credential = keep_image_credential
         if key_pair_name is not None:
@@ -152,6 +150,8 @@ class ReplaceSystemVolumeRequest(object):
         :param image_id: The image_id of this ReplaceSystemVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 
@@ -173,6 +173,8 @@ class ReplaceSystemVolumeRequest(object):
         :param instance_id: The instance_id of this ReplaceSystemVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
