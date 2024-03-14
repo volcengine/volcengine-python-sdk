@@ -191,7 +191,8 @@ class RunInstancesRequest(object):
         self.instance_name = instance_name
         if instance_type is not None:
             self.instance_type = instance_type
-        self.instance_type_id = instance_type_id
+        if instance_type_id is not None:
+            self.instance_type_id = instance_type_id
         if keep_image_credential is not None:
             self.keep_image_credential = keep_image_credential
         if key_pair_name is not None:
@@ -628,8 +629,6 @@ class RunInstancesRequest(object):
         :param instance_type_id: The instance_type_id of this RunInstancesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and instance_type_id is None:
-            raise ValueError("Invalid value for `instance_type_id`, must not be `None`")  # noqa: E501
 
         self._instance_type_id = instance_type_id
 
