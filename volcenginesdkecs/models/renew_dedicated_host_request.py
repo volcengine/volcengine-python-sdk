@@ -60,12 +60,9 @@ class RenewDedicatedHostRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if dedicated_host_id is not None:
-            self.dedicated_host_id = dedicated_host_id
-        if period is not None:
-            self.period = period
-        if period_unit is not None:
-            self.period_unit = period_unit
+        self.dedicated_host_id = dedicated_host_id
+        self.period = period
+        self.period_unit = period_unit
 
     @property
     def client_token(self):
@@ -106,6 +103,8 @@ class RenewDedicatedHostRequest(object):
         :param dedicated_host_id: The dedicated_host_id of this RenewDedicatedHostRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and dedicated_host_id is None:
+            raise ValueError("Invalid value for `dedicated_host_id`, must not be `None`")  # noqa: E501
 
         self._dedicated_host_id = dedicated_host_id
 
@@ -127,6 +126,8 @@ class RenewDedicatedHostRequest(object):
         :param period: The period of this RenewDedicatedHostRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and period is None:
+            raise ValueError("Invalid value for `period`, must not be `None`")  # noqa: E501
 
         self._period = period
 
@@ -148,6 +149,8 @@ class RenewDedicatedHostRequest(object):
         :param period_unit: The period_unit of this RenewDedicatedHostRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and period_unit is None:
+            raise ValueError("Invalid value for `period_unit`, must not be `None`")  # noqa: E501
 
         self._period_unit = period_unit
 

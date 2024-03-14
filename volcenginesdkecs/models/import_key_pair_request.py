@@ -65,12 +65,10 @@ class ImportKeyPairRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
-        if key_pair_name is not None:
-            self.key_pair_name = key_pair_name
+        self.key_pair_name = key_pair_name
         if project_name is not None:
             self.project_name = project_name
-        if public_key is not None:
-            self.public_key = public_key
+        self.public_key = public_key
 
     @property
     def client_token(self):
@@ -132,6 +130,8 @@ class ImportKeyPairRequest(object):
         :param key_pair_name: The key_pair_name of this ImportKeyPairRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and key_pair_name is None:
+            raise ValueError("Invalid value for `key_pair_name`, must not be `None`")  # noqa: E501
 
         self._key_pair_name = key_pair_name
 
@@ -174,6 +174,8 @@ class ImportKeyPairRequest(object):
         :param public_key: The public_key of this ImportKeyPairRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and public_key is None:
+            raise ValueError("Invalid value for `public_key`, must not be `None`")  # noqa: E501
 
         self._public_key = public_key
 

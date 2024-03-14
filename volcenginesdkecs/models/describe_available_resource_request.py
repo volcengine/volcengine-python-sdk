@@ -64,8 +64,7 @@ class DescribeAvailableResourceRequest(object):
         self._zone_id = None
         self.discriminator = None
 
-        if destination_resource is not None:
-            self.destination_resource = destination_resource
+        self.destination_resource = destination_resource
         if instance_charge_type is not None:
             self.instance_charge_type = instance_charge_type
         if instance_type is not None:
@@ -95,6 +94,8 @@ class DescribeAvailableResourceRequest(object):
         :param destination_resource: The destination_resource of this DescribeAvailableResourceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and destination_resource is None:
+            raise ValueError("Invalid value for `destination_resource`, must not be `None`")  # noqa: E501
 
         self._destination_resource = destination_resource
 

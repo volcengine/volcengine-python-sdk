@@ -54,8 +54,7 @@ class CreateSubscriptionRequest(object):
 
         if event_types is not None:
             self.event_types = event_types
-        if type is not None:
-            self.type = type
+        self.type = type
 
     @property
     def event_types(self):
@@ -96,6 +95,8 @@ class CreateSubscriptionRequest(object):
         :param type: The type of this CreateSubscriptionRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

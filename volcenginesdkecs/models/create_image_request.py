@@ -63,10 +63,8 @@ class CreateImageRequest(object):
 
         if description is not None:
             self.description = description
-        if image_name is not None:
-            self.image_name = image_name
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.image_name = image_name
+        self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
@@ -111,6 +109,8 @@ class CreateImageRequest(object):
         :param image_name: The image_name of this CreateImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_name is None:
+            raise ValueError("Invalid value for `image_name`, must not be `None`")  # noqa: E501
 
         self._image_name = image_name
 
@@ -132,6 +132,8 @@ class CreateImageRequest(object):
         :param instance_id: The instance_id of this CreateImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

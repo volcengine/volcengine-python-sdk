@@ -57,8 +57,7 @@ class ModifyImageSharePermissionRequest(object):
 
         if add_accounts is not None:
             self.add_accounts = add_accounts
-        if image_id is not None:
-            self.image_id = image_id
+        self.image_id = image_id
         if remove_accounts is not None:
             self.remove_accounts = remove_accounts
 
@@ -101,6 +100,8 @@ class ModifyImageSharePermissionRequest(object):
         :param image_id: The image_id of this ModifyImageSharePermissionRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 

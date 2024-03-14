@@ -62,8 +62,7 @@ class DeleteTagsRequest(object):
             self.client_token = client_token
         if resource_ids is not None:
             self.resource_ids = resource_ids
-        if resource_type is not None:
-            self.resource_type = resource_type
+        self.resource_type = resource_type
         if tag_keys is not None:
             self.tag_keys = tag_keys
 
@@ -127,6 +126,8 @@ class DeleteTagsRequest(object):
         :param resource_type: The resource_type of this DeleteTagsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and resource_type is None:
+            raise ValueError("Invalid value for `resource_type`, must not be `None`")  # noqa: E501
 
         self._resource_type = resource_type
 

@@ -210,13 +210,6 @@ class TaskForDescribeTasksOutput(object):
         :param status: The status of this TaskForDescribeTasksOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["UnknownStatus", "Pending", "Running", "Succeeded", "Failed"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
 
         self._status = status
 
@@ -238,13 +231,6 @@ class TaskForDescribeTasksOutput(object):
         :param type: The type of this TaskForDescribeTasksOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["UnknownType", "ExportImage", "CopyImage", "PreheatImage", "ImportImage", "CreateImage"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 

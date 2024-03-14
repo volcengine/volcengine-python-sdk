@@ -62,8 +62,7 @@ class ModifyImageAttributeRequest(object):
             self.boot_mode = boot_mode
         if description is not None:
             self.description = description
-        if image_id is not None:
-            self.image_id = image_id
+        self.image_id = image_id
         if image_name is not None:
             self.image_name = image_name
 
@@ -127,6 +126,8 @@ class ModifyImageAttributeRequest(object):
         :param image_id: The image_id of this ModifyImageAttributeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 

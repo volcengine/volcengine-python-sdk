@@ -54,8 +54,7 @@ class DeleteDedicatedHostClusterRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if dedicated_host_cluster_id is not None:
-            self.dedicated_host_cluster_id = dedicated_host_cluster_id
+        self.dedicated_host_cluster_id = dedicated_host_cluster_id
 
     @property
     def client_token(self):
@@ -96,6 +95,8 @@ class DeleteDedicatedHostClusterRequest(object):
         :param dedicated_host_cluster_id: The dedicated_host_cluster_id of this DeleteDedicatedHostClusterRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and dedicated_host_cluster_id is None:
+            raise ValueError("Invalid value for `dedicated_host_cluster_id`, must not be `None`")  # noqa: E501
 
         self._dedicated_host_cluster_id = dedicated_host_cluster_id
 

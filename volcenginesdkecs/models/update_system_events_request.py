@@ -67,8 +67,7 @@ class UpdateSystemEventsRequest(object):
             self.operated_end_at = operated_end_at
         if operated_start_at is not None:
             self.operated_start_at = operated_start_at
-        if status is not None:
-            self.status = status
+        self.status = status
         if updated_at is not None:
             self.updated_at = updated_at
 
@@ -153,6 +152,8 @@ class UpdateSystemEventsRequest(object):
         :param status: The status of this UpdateSystemEventsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and status is None:
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 

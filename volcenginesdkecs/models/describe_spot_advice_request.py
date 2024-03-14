@@ -41,7 +41,8 @@ class DescribeSpotAdviceRequest(object):
         'memory_size': 'int',
         'min_cpus': 'int',
         'min_memory_size': 'int',
-        'next_token': 'str'
+        'next_token': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class DescribeSpotAdviceRequest(object):
         'memory_size': 'MemorySize',
         'min_cpus': 'MinCpus',
         'min_memory_size': 'MinMemorySize',
-        'next_token': 'NextToken'
+        'next_token': 'NextToken',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpus=None, gpu=None, instance_type_family=None, instance_type_ids=None, max_results=None, memory_size=None, min_cpus=None, min_memory_size=None, next_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpus=None, gpu=None, instance_type_family=None, instance_type_ids=None, max_results=None, memory_size=None, min_cpus=None, min_memory_size=None, next_token=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeSpotAdviceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DescribeSpotAdviceRequest(object):
         self._min_cpus = None
         self._min_memory_size = None
         self._next_token = None
+        self._zone_id = None
         self.discriminator = None
 
         if cpus is not None:
@@ -91,6 +94,8 @@ class DescribeSpotAdviceRequest(object):
             self.min_memory_size = min_memory_size
         if next_token is not None:
             self.next_token = next_token
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def cpus(self):
@@ -280,6 +285,27 @@ class DescribeSpotAdviceRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this DescribeSpotAdviceRequest.  # noqa: E501
+
+
+        :return: The zone_id of this DescribeSpotAdviceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this DescribeSpotAdviceRequest.
+
+
+        :param zone_id: The zone_id of this DescribeSpotAdviceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

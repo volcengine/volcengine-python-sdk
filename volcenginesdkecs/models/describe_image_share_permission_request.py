@@ -55,8 +55,7 @@ class DescribeImageSharePermissionRequest(object):
         self._next_token = None
         self.discriminator = None
 
-        if image_id is not None:
-            self.image_id = image_id
+        self.image_id = image_id
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
@@ -80,6 +79,8 @@ class DescribeImageSharePermissionRequest(object):
         :param image_id: The image_id of this DescribeImageSharePermissionRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 

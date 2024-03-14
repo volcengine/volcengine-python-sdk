@@ -68,12 +68,9 @@ class CopyImageRequest(object):
             self.copy_image_tags = copy_image_tags
         if description is not None:
             self.description = description
-        if destination_region is not None:
-            self.destination_region = destination_region
-        if image_id is not None:
-            self.image_id = image_id
-        if image_name is not None:
-            self.image_name = image_name
+        self.destination_region = destination_region
+        self.image_id = image_id
+        self.image_name = image_name
         if project_name is not None:
             self.project_name = project_name
 
@@ -137,6 +134,8 @@ class CopyImageRequest(object):
         :param destination_region: The destination_region of this CopyImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and destination_region is None:
+            raise ValueError("Invalid value for `destination_region`, must not be `None`")  # noqa: E501
 
         self._destination_region = destination_region
 
@@ -158,6 +157,8 @@ class CopyImageRequest(object):
         :param image_id: The image_id of this CopyImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 
@@ -179,6 +180,8 @@ class CopyImageRequest(object):
         :param image_name: The image_name of this CopyImageRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_name is None:
+            raise ValueError("Invalid value for `image_name`, must not be `None`")  # noqa: E501
 
         self._image_name = image_name
 

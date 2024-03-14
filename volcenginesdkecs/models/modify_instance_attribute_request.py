@@ -68,8 +68,7 @@ class ModifyInstanceAttributeRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
         if password is not None:
@@ -137,6 +136,8 @@ class ModifyInstanceAttributeRequest(object):
         :param instance_id: The instance_id of this ModifyInstanceAttributeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

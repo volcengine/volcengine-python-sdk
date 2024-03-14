@@ -60,12 +60,10 @@ class CreateDedicatedHostClusterRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if dedicated_host_cluster_name is not None:
-            self.dedicated_host_cluster_name = dedicated_host_cluster_name
+        self.dedicated_host_cluster_name = dedicated_host_cluster_name
         if description is not None:
             self.description = description
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.zone_id = zone_id
 
     @property
     def client_token(self):
@@ -106,6 +104,8 @@ class CreateDedicatedHostClusterRequest(object):
         :param dedicated_host_cluster_name: The dedicated_host_cluster_name of this CreateDedicatedHostClusterRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and dedicated_host_cluster_name is None:
+            raise ValueError("Invalid value for `dedicated_host_cluster_name`, must not be `None`")  # noqa: E501
 
         self._dedicated_host_cluster_name = dedicated_host_cluster_name
 
@@ -148,6 +148,8 @@ class CreateDedicatedHostClusterRequest(object):
         :param zone_id: The zone_id of this CreateDedicatedHostClusterRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

@@ -36,7 +36,6 @@ class DescribeCloudAssistantStatusRequest(object):
         'client_version': 'str',
         'instance_ids': 'list[str]',
         'os_type': 'str',
-        'os_version': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'status': 'str'
@@ -45,14 +44,13 @@ class DescribeCloudAssistantStatusRequest(object):
     attribute_map = {
         'client_version': 'ClientVersion',
         'instance_ids': 'InstanceIds',
-        'os_type': 'OsType',
-        'os_version': 'OsVersion',
+        'os_type': 'OSType',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'status': 'Status'
     }
 
-    def __init__(self, client_version=None, instance_ids=None, os_type=None, os_version=None, page_number=None, page_size=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_version=None, instance_ids=None, os_type=None, page_number=None, page_size=None, status=None, _configuration=None):  # noqa: E501
         """DescribeCloudAssistantStatusRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +59,6 @@ class DescribeCloudAssistantStatusRequest(object):
         self._client_version = None
         self._instance_ids = None
         self._os_type = None
-        self._os_version = None
         self._page_number = None
         self._page_size = None
         self._status = None
@@ -73,8 +70,6 @@ class DescribeCloudAssistantStatusRequest(object):
             self.instance_ids = instance_ids
         if os_type is not None:
             self.os_type = os_type
-        if os_version is not None:
-            self.os_version = os_version
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -144,27 +139,6 @@ class DescribeCloudAssistantStatusRequest(object):
         """
 
         self._os_type = os_type
-
-    @property
-    def os_version(self):
-        """Gets the os_version of this DescribeCloudAssistantStatusRequest.  # noqa: E501
-
-
-        :return: The os_version of this DescribeCloudAssistantStatusRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._os_version
-
-    @os_version.setter
-    def os_version(self, os_version):
-        """Sets the os_version of this DescribeCloudAssistantStatusRequest.
-
-
-        :param os_version: The os_version of this DescribeCloudAssistantStatusRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._os_version = os_version
 
     @property
     def page_number(self):

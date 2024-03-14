@@ -73,20 +73,17 @@ class CreateCommandRequest(object):
         self._working_dir = None
         self.discriminator = None
 
-        if command_content is not None:
-            self.command_content = command_content
+        self.command_content = command_content
         if description is not None:
             self.description = description
         if enable_parameter is not None:
             self.enable_parameter = enable_parameter
-        if name is not None:
-            self.name = name
+        self.name = name
         if parameter_definitions is not None:
             self.parameter_definitions = parameter_definitions
         if timeout is not None:
             self.timeout = timeout
-        if type is not None:
-            self.type = type
+        self.type = type
         if username is not None:
             self.username = username
         if working_dir is not None:
@@ -110,6 +107,8 @@ class CreateCommandRequest(object):
         :param command_content: The command_content of this CreateCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and command_content is None:
+            raise ValueError("Invalid value for `command_content`, must not be `None`")  # noqa: E501
 
         self._command_content = command_content
 
@@ -173,6 +172,8 @@ class CreateCommandRequest(object):
         :param name: The name of this CreateCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -236,6 +237,8 @@ class CreateCommandRequest(object):
         :param type: The type of this CreateCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

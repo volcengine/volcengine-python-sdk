@@ -49,8 +49,7 @@ class StopInvocationRequest(object):
         self._invocation_id = None
         self.discriminator = None
 
-        if invocation_id is not None:
-            self.invocation_id = invocation_id
+        self.invocation_id = invocation_id
 
     @property
     def invocation_id(self):
@@ -70,6 +69,8 @@ class StopInvocationRequest(object):
         :param invocation_id: The invocation_id of this StopInvocationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and invocation_id is None:
+            raise ValueError("Invalid value for `invocation_id`, must not be `None`")  # noqa: E501
 
         self._invocation_id = invocation_id
 

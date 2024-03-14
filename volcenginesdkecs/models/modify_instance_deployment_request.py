@@ -34,33 +34,36 @@ class ModifyInstanceDeploymentRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
+        'deployment_set_group_number': 'int',
         'deployment_set_id': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
+        'deployment_set_group_number': 'DeploymentSetGroupNumber',
         'deployment_set_id': 'DeploymentSetId',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, client_token=None, deployment_set_id=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, deployment_set_group_number=None, deployment_set_id=None, instance_id=None, _configuration=None):  # noqa: E501
         """ModifyInstanceDeploymentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
+        self._deployment_set_group_number = None
         self._deployment_set_id = None
         self._instance_id = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
-        if deployment_set_id is not None:
-            self.deployment_set_id = deployment_set_id
-        if instance_id is not None:
-            self.instance_id = instance_id
+        if deployment_set_group_number is not None:
+            self.deployment_set_group_number = deployment_set_group_number
+        self.deployment_set_id = deployment_set_id
+        self.instance_id = instance_id
 
     @property
     def client_token(self):
@@ -84,6 +87,27 @@ class ModifyInstanceDeploymentRequest(object):
         self._client_token = client_token
 
     @property
+    def deployment_set_group_number(self):
+        """Gets the deployment_set_group_number of this ModifyInstanceDeploymentRequest.  # noqa: E501
+
+
+        :return: The deployment_set_group_number of this ModifyInstanceDeploymentRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._deployment_set_group_number
+
+    @deployment_set_group_number.setter
+    def deployment_set_group_number(self, deployment_set_group_number):
+        """Sets the deployment_set_group_number of this ModifyInstanceDeploymentRequest.
+
+
+        :param deployment_set_group_number: The deployment_set_group_number of this ModifyInstanceDeploymentRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._deployment_set_group_number = deployment_set_group_number
+
+    @property
     def deployment_set_id(self):
         """Gets the deployment_set_id of this ModifyInstanceDeploymentRequest.  # noqa: E501
 
@@ -101,6 +125,8 @@ class ModifyInstanceDeploymentRequest(object):
         :param deployment_set_id: The deployment_set_id of this ModifyInstanceDeploymentRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and deployment_set_id is None:
+            raise ValueError("Invalid value for `deployment_set_id`, must not be `None`")  # noqa: E501
 
         self._deployment_set_id = deployment_set_id
 
@@ -122,6 +148,8 @@ class ModifyInstanceDeploymentRequest(object):
         :param instance_id: The instance_id of this ModifyInstanceDeploymentRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

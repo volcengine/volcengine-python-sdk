@@ -57,8 +57,7 @@ class AssociateInstancesIamRoleRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if iam_role_name is not None:
-            self.iam_role_name = iam_role_name
+        self.iam_role_name = iam_role_name
         if instance_ids is not None:
             self.instance_ids = instance_ids
 
@@ -101,6 +100,8 @@ class AssociateInstancesIamRoleRequest(object):
         :param iam_role_name: The iam_role_name of this AssociateInstancesIamRoleRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and iam_role_name is None:
+            raise ValueError("Invalid value for `iam_role_name`, must not be `None`")  # noqa: E501
 
         self._iam_role_name = iam_role_name
 

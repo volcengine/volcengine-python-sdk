@@ -68,8 +68,7 @@ class DescribeInvocationResultsRequest(object):
             self.command_id = command_id
         if instance_id is not None:
             self.instance_id = instance_id
-        if invocation_id is not None:
-            self.invocation_id = invocation_id
+        self.invocation_id = invocation_id
         if invocation_result_status is not None:
             self.invocation_result_status = invocation_result_status
         if page_number is not None:
@@ -137,6 +136,8 @@ class DescribeInvocationResultsRequest(object):
         :param invocation_id: The invocation_id of this DescribeInvocationResultsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and invocation_id is None:
+            raise ValueError("Invalid value for `invocation_id`, must not be `None`")  # noqa: E501
 
         self._invocation_id = invocation_id
 

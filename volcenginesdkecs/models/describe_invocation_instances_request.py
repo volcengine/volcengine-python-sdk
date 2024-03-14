@@ -60,8 +60,7 @@ class DescribeInvocationInstancesRequest(object):
 
         if instance_id is not None:
             self.instance_id = instance_id
-        if invocation_id is not None:
-            self.invocation_id = invocation_id
+        self.invocation_id = invocation_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -106,6 +105,8 @@ class DescribeInvocationInstancesRequest(object):
         :param invocation_id: The invocation_id of this DescribeInvocationInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and invocation_id is None:
+            raise ValueError("Invalid value for `invocation_id`, must not be `None`")  # noqa: E501
 
         self._invocation_id = invocation_id
 

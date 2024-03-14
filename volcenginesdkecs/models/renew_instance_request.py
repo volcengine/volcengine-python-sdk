@@ -60,12 +60,9 @@ class RenewInstanceRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if period is not None:
-            self.period = period
-        if period_unit is not None:
-            self.period_unit = period_unit
+        self.instance_id = instance_id
+        self.period = period
+        self.period_unit = period_unit
 
     @property
     def client_token(self):
@@ -106,6 +103,8 @@ class RenewInstanceRequest(object):
         :param instance_id: The instance_id of this RenewInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -127,6 +126,8 @@ class RenewInstanceRequest(object):
         :param period: The period of this RenewInstanceRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and period is None:
+            raise ValueError("Invalid value for `period`, must not be `None`")  # noqa: E501
 
         self._period = period
 
@@ -148,6 +149,8 @@ class RenewInstanceRequest(object):
         :param period_unit: The period_unit of this RenewInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and period_unit is None:
+            raise ValueError("Invalid value for `period_unit`, must not be `None`")  # noqa: E501
 
         self._period_unit = period_unit
 
