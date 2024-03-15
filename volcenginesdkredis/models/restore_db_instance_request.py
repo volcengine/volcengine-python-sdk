@@ -33,6 +33,7 @@ class RestoreDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_point_id': 'str',
         'backup_type': 'str',
         'client_token': 'str',
         'instance_id': 'str',
@@ -40,30 +41,56 @@ class RestoreDBInstanceRequest(object):
     }
 
     attribute_map = {
+        'backup_point_id': 'BackupPointId',
         'backup_type': 'BackupType',
         'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
         'time_point': 'TimePoint'
     }
 
-    def __init__(self, backup_type=None, client_token=None, instance_id=None, time_point=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_point_id=None, backup_type=None, client_token=None, instance_id=None, time_point=None, _configuration=None):  # noqa: E501
         """RestoreDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_point_id = None
         self._backup_type = None
         self._client_token = None
         self._instance_id = None
         self._time_point = None
         self.discriminator = None
 
+        if backup_point_id is not None:
+            self.backup_point_id = backup_point_id
         if backup_type is not None:
             self.backup_type = backup_type
         if client_token is not None:
             self.client_token = client_token
         self.instance_id = instance_id
-        self.time_point = time_point
+        if time_point is not None:
+            self.time_point = time_point
+
+    @property
+    def backup_point_id(self):
+        """Gets the backup_point_id of this RestoreDBInstanceRequest.  # noqa: E501
+
+
+        :return: The backup_point_id of this RestoreDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_point_id
+
+    @backup_point_id.setter
+    def backup_point_id(self, backup_point_id):
+        """Sets the backup_point_id of this RestoreDBInstanceRequest.
+
+
+        :param backup_point_id: The backup_point_id of this RestoreDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_point_id = backup_point_id
 
     @property
     def backup_type(self):
@@ -148,8 +175,6 @@ class RestoreDBInstanceRequest(object):
         :param time_point: The time_point of this RestoreDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and time_point is None:
-            raise ValueError("Invalid value for `time_point`, must not be `None`")  # noqa: E501
 
         self._time_point = time_point
 

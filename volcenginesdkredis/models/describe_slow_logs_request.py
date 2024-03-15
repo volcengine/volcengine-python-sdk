@@ -39,7 +39,8 @@ class DescribeSlowLogsRequest(object):
         'node_ids': 'list[str]',
         'page_size': 'int',
         'query_end_time': 'str',
-        'query_start_time': 'str'
+        'query_start_time': 'str',
+        'slow_log_type': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DescribeSlowLogsRequest(object):
         'node_ids': 'NodeIds',
         'page_size': 'PageSize',
         'query_end_time': 'QueryEndTime',
-        'query_start_time': 'QueryStartTime'
+        'query_start_time': 'QueryStartTime',
+        'slow_log_type': 'SlowLogType'
     }
 
-    def __init__(self, context=None, db_name=None, instance_id=None, node_ids=None, page_size=None, query_end_time=None, query_start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, context=None, db_name=None, instance_id=None, node_ids=None, page_size=None, query_end_time=None, query_start_time=None, slow_log_type=None, _configuration=None):  # noqa: E501
         """DescribeSlowLogsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeSlowLogsRequest(object):
         self._page_size = None
         self._query_end_time = None
         self._query_start_time = None
+        self._slow_log_type = None
         self.discriminator = None
 
         if context is not None:
@@ -79,6 +82,8 @@ class DescribeSlowLogsRequest(object):
             self.query_end_time = query_end_time
         if query_start_time is not None:
             self.query_start_time = query_start_time
+        if slow_log_type is not None:
+            self.slow_log_type = slow_log_type
 
     @property
     def context(self):
@@ -230,6 +235,27 @@ class DescribeSlowLogsRequest(object):
         """
 
         self._query_start_time = query_start_time
+
+    @property
+    def slow_log_type(self):
+        """Gets the slow_log_type of this DescribeSlowLogsRequest.  # noqa: E501
+
+
+        :return: The slow_log_type of this DescribeSlowLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._slow_log_type
+
+    @slow_log_type.setter
+    def slow_log_type(self, slow_log_type):
+        """Sets the slow_log_type of this DescribeSlowLogsRequest.
+
+
+        :param slow_log_type: The slow_log_type of this DescribeSlowLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._slow_log_type = slow_log_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
