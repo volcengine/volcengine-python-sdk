@@ -33,28 +33,54 @@ class DeleteDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_point_name': 'str',
         'client_token': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
+        'backup_point_name': 'BackupPointName',
         'client_token': 'ClientToken',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, client_token=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_point_name=None, client_token=None, instance_id=None, _configuration=None):  # noqa: E501
         """DeleteDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_point_name = None
         self._client_token = None
         self._instance_id = None
         self.discriminator = None
 
+        if backup_point_name is not None:
+            self.backup_point_name = backup_point_name
         if client_token is not None:
             self.client_token = client_token
         self.instance_id = instance_id
+
+    @property
+    def backup_point_name(self):
+        """Gets the backup_point_name of this DeleteDBInstanceRequest.  # noqa: E501
+
+
+        :return: The backup_point_name of this DeleteDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_point_name
+
+    @backup_point_name.setter
+    def backup_point_name(self, backup_point_name):
+        """Sets the backup_point_name of this DeleteDBInstanceRequest.
+
+
+        :param backup_point_name: The backup_point_name of this DeleteDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_point_name = backup_point_name
 
     @property
     def client_token(self):
