@@ -34,7 +34,7 @@ class CreateSNInOneStepRequest(object):
     """
     swagger_types = {
         'auto_renew': 'bool',
-        'count_of_month': 'str',
+        'count_of_month': 'int',
         'type': 'int'
     }
 
@@ -87,7 +87,7 @@ class CreateSNInOneStepRequest(object):
 
 
         :return: The count_of_month of this CreateSNInOneStepRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._count_of_month
 
@@ -97,7 +97,7 @@ class CreateSNInOneStepRequest(object):
 
 
         :param count_of_month: The count_of_month of this CreateSNInOneStepRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
         if self._configuration.client_side_validation and count_of_month is None:
             raise ValueError("Invalid value for `count_of_month`, must not be `None`")  # noqa: E501
