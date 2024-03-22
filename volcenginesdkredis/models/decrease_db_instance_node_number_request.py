@@ -34,6 +34,7 @@ class DecreaseDBInstanceNodeNumberRequest(object):
     """
     swagger_types = {
         'apply_immediately': 'bool',
+        'backup_point_name': 'str',
         'client_token': 'str',
         'create_backup': 'bool',
         'instance_id': 'str',
@@ -43,6 +44,7 @@ class DecreaseDBInstanceNodeNumberRequest(object):
 
     attribute_map = {
         'apply_immediately': 'ApplyImmediately',
+        'backup_point_name': 'BackupPointName',
         'client_token': 'ClientToken',
         'create_backup': 'CreateBackup',
         'instance_id': 'InstanceId',
@@ -50,13 +52,14 @@ class DecreaseDBInstanceNodeNumberRequest(object):
         'nodes_to_remove': 'NodesToRemove'
     }
 
-    def __init__(self, apply_immediately=None, client_token=None, create_backup=None, instance_id=None, nodes_number_to_decrease=None, nodes_to_remove=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_immediately=None, backup_point_name=None, client_token=None, create_backup=None, instance_id=None, nodes_number_to_decrease=None, nodes_to_remove=None, _configuration=None):  # noqa: E501
         """DecreaseDBInstanceNodeNumberRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._apply_immediately = None
+        self._backup_point_name = None
         self._client_token = None
         self._create_backup = None
         self._instance_id = None
@@ -65,6 +68,8 @@ class DecreaseDBInstanceNodeNumberRequest(object):
         self.discriminator = None
 
         self.apply_immediately = apply_immediately
+        if backup_point_name is not None:
+            self.backup_point_name = backup_point_name
         if client_token is not None:
             self.client_token = client_token
         if create_backup is not None:
@@ -96,6 +101,27 @@ class DecreaseDBInstanceNodeNumberRequest(object):
             raise ValueError("Invalid value for `apply_immediately`, must not be `None`")  # noqa: E501
 
         self._apply_immediately = apply_immediately
+
+    @property
+    def backup_point_name(self):
+        """Gets the backup_point_name of this DecreaseDBInstanceNodeNumberRequest.  # noqa: E501
+
+
+        :return: The backup_point_name of this DecreaseDBInstanceNodeNumberRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_point_name
+
+    @backup_point_name.setter
+    def backup_point_name(self, backup_point_name):
+        """Sets the backup_point_name of this DecreaseDBInstanceNodeNumberRequest.
+
+
+        :param backup_point_name: The backup_point_name of this DecreaseDBInstanceNodeNumberRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_point_name = backup_point_name
 
     @property
     def client_token(self):

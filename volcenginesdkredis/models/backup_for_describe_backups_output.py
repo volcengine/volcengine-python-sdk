@@ -34,47 +34,58 @@ class BackupForDescribeBackupsOutput(object):
     """
     swagger_types = {
         'backup_point_id': 'str',
+        'backup_point_name': 'str',
         'backup_strategy': 'str',
         'backup_type': 'str',
         'end_time': 'str',
         'instance_detail': 'InstanceDetailForDescribeBackupsOutput',
         'instance_id': 'str',
+        'project_name': 'str',
         'size': 'int',
         'start_time': 'str',
-        'status': 'str'
+        'status': 'str',
+        'ttl': 'int'
     }
 
     attribute_map = {
         'backup_point_id': 'BackupPointId',
+        'backup_point_name': 'BackupPointName',
         'backup_strategy': 'BackupStrategy',
         'backup_type': 'BackupType',
         'end_time': 'EndTime',
         'instance_detail': 'InstanceDetail',
         'instance_id': 'InstanceId',
+        'project_name': 'ProjectName',
         'size': 'Size',
         'start_time': 'StartTime',
-        'status': 'Status'
+        'status': 'Status',
+        'ttl': 'TTL'
     }
 
-    def __init__(self, backup_point_id=None, backup_strategy=None, backup_type=None, end_time=None, instance_detail=None, instance_id=None, size=None, start_time=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_point_id=None, backup_point_name=None, backup_strategy=None, backup_type=None, end_time=None, instance_detail=None, instance_id=None, project_name=None, size=None, start_time=None, status=None, ttl=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._backup_point_id = None
+        self._backup_point_name = None
         self._backup_strategy = None
         self._backup_type = None
         self._end_time = None
         self._instance_detail = None
         self._instance_id = None
+        self._project_name = None
         self._size = None
         self._start_time = None
         self._status = None
+        self._ttl = None
         self.discriminator = None
 
         if backup_point_id is not None:
             self.backup_point_id = backup_point_id
+        if backup_point_name is not None:
+            self.backup_point_name = backup_point_name
         if backup_strategy is not None:
             self.backup_strategy = backup_strategy
         if backup_type is not None:
@@ -85,12 +96,16 @@ class BackupForDescribeBackupsOutput(object):
             self.instance_detail = instance_detail
         if instance_id is not None:
             self.instance_id = instance_id
+        if project_name is not None:
+            self.project_name = project_name
         if size is not None:
             self.size = size
         if start_time is not None:
             self.start_time = start_time
         if status is not None:
             self.status = status
+        if ttl is not None:
+            self.ttl = ttl
 
     @property
     def backup_point_id(self):
@@ -112,6 +127,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._backup_point_id = backup_point_id
+
+    @property
+    def backup_point_name(self):
+        """Gets the backup_point_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_point_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_point_name
+
+    @backup_point_name.setter
+    def backup_point_name(self, backup_point_name):
+        """Sets the backup_point_name of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_point_name: The backup_point_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_point_name = backup_point_name
 
     @property
     def backup_strategy(self):
@@ -219,6 +255,27 @@ class BackupForDescribeBackupsOutput(object):
         self._instance_id = instance_id
 
     @property
+    def project_name(self):
+        """Gets the project_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The project_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this BackupForDescribeBackupsOutput.
+
+
+        :param project_name: The project_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def size(self):
         """Gets the size of this BackupForDescribeBackupsOutput.  # noqa: E501
 
@@ -280,6 +337,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def ttl(self):
+        """Gets the ttl of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The ttl of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._ttl
+
+    @ttl.setter
+    def ttl(self, ttl):
+        """Sets the ttl of this BackupForDescribeBackupsOutput.
+
+
+        :param ttl: The ttl of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._ttl = ttl
 
     def to_dict(self):
         """Returns the model properties as a dict"""
