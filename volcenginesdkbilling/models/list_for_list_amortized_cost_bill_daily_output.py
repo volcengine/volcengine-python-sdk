@@ -88,6 +88,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'product': 'str',
         'product_zh': 'str',
         'project': 'str',
+        'project_display_name': 'str',
         'region': 'str',
         'region_code': 'str',
         'round_amount': 'str',
@@ -159,6 +160,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'product': 'Product',
         'product_zh': 'ProductZh',
         'project': 'Project',
+        'project_display_name': 'ProjectDisplayName',
         'region': 'Region',
         'region_code': 'RegionCode',
         'round_amount': 'RoundAmount',
@@ -174,7 +176,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, coupon_amount=None, currency=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_preferential_bill_amount=None, daily_amortized_round_amount=None, discount_bill_amount=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_preferential_bill_amount=None, now_amortized_round_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, region=None, region_code=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, subject_name=None, tag=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, coupon_amount=None, currency=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_preferential_bill_amount=None, daily_amortized_round_amount=None, discount_bill_amount=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_preferential_bill_amount=None, now_amortized_round_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, region=None, region_code=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, subject_name=None, tag=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillDailyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -235,6 +237,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._product = None
         self._product_zh = None
         self._project = None
+        self._project_display_name = None
         self._region = None
         self._region_code = None
         self._round_amount = None
@@ -360,6 +363,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.product_zh = product_zh
         if project is not None:
             self.project = project
+        if project_display_name is not None:
+            self.project_display_name = project_display_name
         if region is not None:
             self.region = region
         if region_code is not None:
@@ -1541,6 +1546,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._project = project
+
+    @property
+    def project_display_name(self):
+        """Gets the project_display_name of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The project_display_name of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_display_name
+
+    @project_display_name.setter
+    def project_display_name(self, project_display_name):
+        """Sets the project_display_name of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param project_display_name: The project_display_name of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_display_name = project_display_name
 
     @property
     def region(self):
