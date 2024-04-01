@@ -74,6 +74,7 @@ class ListForListSplitBillDetailOutput(object):
         'product': 'str',
         'product_zh': 'str',
         'project': 'str',
+        'project_display_name': 'str',
         'region': 'str',
         'region_code': 'str',
         'reservation_instance': 'str',
@@ -139,6 +140,7 @@ class ListForListSplitBillDetailOutput(object):
         'product': 'Product',
         'product_zh': 'ProductZh',
         'project': 'Project',
+        'project_display_name': 'ProjectDisplayName',
         'region': 'Region',
         'region_code': 'RegionCode',
         'reservation_instance': 'ReservationInstance',
@@ -162,7 +164,7 @@ class ListForListSplitBillDetailOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, business_mode=None, config_name=None, configuration_code=None, coupon_deduction_amount=None, credit_carried_amount=None, currency=None, deduction_count=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, market_price=None, measure_interval=None, original_bill_amount=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, region=None, region_code=None, reservation_instance=None, seller_user_name=None, selling_mode=None, settlement_type=None, solution_zh=None, split_bill_detail_id=None, split_item_amount=None, split_item_id=None, split_item_name=None, split_item_ratio=None, subject_name=None, tag=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, business_mode=None, config_name=None, configuration_code=None, coupon_deduction_amount=None, credit_carried_amount=None, currency=None, deduction_count=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, market_price=None, measure_interval=None, original_bill_amount=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, region=None, region_code=None, reservation_instance=None, seller_user_name=None, selling_mode=None, settlement_type=None, solution_zh=None, split_bill_detail_id=None, split_item_amount=None, split_item_id=None, split_item_name=None, split_item_ratio=None, subject_name=None, tag=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListSplitBillDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -209,6 +211,7 @@ class ListForListSplitBillDetailOutput(object):
         self._product = None
         self._product_zh = None
         self._project = None
+        self._project_display_name = None
         self._region = None
         self._region_code = None
         self._reservation_instance = None
@@ -314,6 +317,8 @@ class ListForListSplitBillDetailOutput(object):
             self.product_zh = product_zh
         if project is not None:
             self.project = project
+        if project_display_name is not None:
+            self.project_display_name = project_display_name
         if region is not None:
             self.region = region
         if region_code is not None:
@@ -1217,6 +1222,27 @@ class ListForListSplitBillDetailOutput(object):
         """
 
         self._project = project
+
+    @property
+    def project_display_name(self):
+        """Gets the project_display_name of this ListForListSplitBillDetailOutput.  # noqa: E501
+
+
+        :return: The project_display_name of this ListForListSplitBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_display_name
+
+    @project_display_name.setter
+    def project_display_name(self, project_display_name):
+        """Sets the project_display_name of this ListForListSplitBillDetailOutput.
+
+
+        :param project_display_name: The project_display_name of this ListForListSplitBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_display_name = project_display_name
 
     @property
     def region(self):
