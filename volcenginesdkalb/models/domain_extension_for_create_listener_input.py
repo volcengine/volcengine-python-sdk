@@ -33,29 +33,60 @@ class DomainExtensionForCreateListenerInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'domain': 'str'
     }
 
     attribute_map = {
+        'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'domain': 'Domain'
     }
 
-    def __init__(self, certificate_id=None, domain=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, domain=None, _configuration=None):  # noqa: E501
         """DomainExtensionForCreateListenerInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cert_center_certificate_id = None
         self._certificate_id = None
+        self._certificate_source = None
         self._domain = None
         self.discriminator = None
 
+        if cert_center_certificate_id is not None:
+            self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if domain is not None:
             self.domain = domain
+
+    @property
+    def cert_center_certificate_id(self):
+        """Gets the cert_center_certificate_id of this DomainExtensionForCreateListenerInput.  # noqa: E501
+
+
+        :return: The cert_center_certificate_id of this DomainExtensionForCreateListenerInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cert_center_certificate_id
+
+    @cert_center_certificate_id.setter
+    def cert_center_certificate_id(self, cert_center_certificate_id):
+        """Sets the cert_center_certificate_id of this DomainExtensionForCreateListenerInput.
+
+
+        :param cert_center_certificate_id: The cert_center_certificate_id of this DomainExtensionForCreateListenerInput.  # noqa: E501
+        :type: str
+        """
+
+        self._cert_center_certificate_id = cert_center_certificate_id
 
     @property
     def certificate_id(self):
@@ -77,6 +108,27 @@ class DomainExtensionForCreateListenerInput(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this DomainExtensionForCreateListenerInput.  # noqa: E501
+
+
+        :return: The certificate_source of this DomainExtensionForCreateListenerInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this DomainExtensionForCreateListenerInput.
+
+
+        :param certificate_source: The certificate_source of this DomainExtensionForCreateListenerInput.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def domain(self):

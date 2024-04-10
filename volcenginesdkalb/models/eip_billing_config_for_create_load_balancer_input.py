@@ -36,6 +36,7 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
         'bandwidth': 'int',
         'eip_billing_type': 'int',
         'isp': 'str',
+        'security_protection_instance_id': 'str',
         'security_protection_types': 'str'
     }
 
@@ -43,10 +44,11 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
         'bandwidth': 'Bandwidth',
         'eip_billing_type': 'EipBillingType',
         'isp': 'ISP',
+        'security_protection_instance_id': 'SecurityProtectionInstanceId',
         'security_protection_types': 'SecurityProtectionTypes'
     }
 
-    def __init__(self, bandwidth=None, eip_billing_type=None, isp=None, security_protection_types=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, eip_billing_type=None, isp=None, security_protection_instance_id=None, security_protection_types=None, _configuration=None):  # noqa: E501
         """EipBillingConfigForCreateLoadBalancerInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
         self._bandwidth = None
         self._eip_billing_type = None
         self._isp = None
+        self._security_protection_instance_id = None
         self._security_protection_types = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
             self.eip_billing_type = eip_billing_type
         if isp is not None:
             self.isp = isp
+        if security_protection_instance_id is not None:
+            self.security_protection_instance_id = security_protection_instance_id
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
 
@@ -129,6 +134,27 @@ class EipBillingConfigForCreateLoadBalancerInput(object):
         """
 
         self._isp = isp
+
+    @property
+    def security_protection_instance_id(self):
+        """Gets the security_protection_instance_id of this EipBillingConfigForCreateLoadBalancerInput.  # noqa: E501
+
+
+        :return: The security_protection_instance_id of this EipBillingConfigForCreateLoadBalancerInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_protection_instance_id
+
+    @security_protection_instance_id.setter
+    def security_protection_instance_id(self, security_protection_instance_id):
+        """Sets the security_protection_instance_id of this EipBillingConfigForCreateLoadBalancerInput.
+
+
+        :param security_protection_instance_id: The security_protection_instance_id of this EipBillingConfigForCreateLoadBalancerInput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_protection_instance_id = security_protection_instance_id
 
     @property
     def security_protection_types(self):

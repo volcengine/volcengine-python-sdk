@@ -38,7 +38,8 @@ class DescribeListenersRequest(object):
         'load_balancer_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'project_name': 'str'
+        'project_name': 'str',
+        'protocol': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class DescribeListenersRequest(object):
         'load_balancer_id': 'LoadBalancerId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'protocol': 'Protocol'
     }
 
-    def __init__(self, listener_ids=None, listener_name=None, load_balancer_id=None, page_number=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, listener_ids=None, listener_name=None, load_balancer_id=None, page_number=None, page_size=None, project_name=None, protocol=None, _configuration=None):  # noqa: E501
         """DescribeListenersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DescribeListenersRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._protocol = None
         self.discriminator = None
 
         if listener_ids is not None:
@@ -76,6 +79,8 @@ class DescribeListenersRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if protocol is not None:
+            self.protocol = protocol
 
     @property
     def listener_ids(self):
@@ -202,6 +207,27 @@ class DescribeListenersRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def protocol(self):
+        """Gets the protocol of this DescribeListenersRequest.  # noqa: E501
+
+
+        :return: The protocol of this DescribeListenersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol
+
+    @protocol.setter
+    def protocol(self, protocol):
+        """Sets the protocol of this DescribeListenersRequest.
+
+
+        :param protocol: The protocol of this DescribeListenersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._protocol = protocol
 
     def to_dict(self):
         """Returns the model properties as a dict"""
