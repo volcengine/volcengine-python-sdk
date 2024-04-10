@@ -49,8 +49,7 @@ class StartRegistryRequest(object):
         self._name = None
         self.discriminator = None
 
-        if name is not None:
-            self.name = name
+        self.name = name
 
     @property
     def name(self):
@@ -70,6 +69,8 @@ class StartRegistryRequest(object):
         :param name: The name of this StartRegistryRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

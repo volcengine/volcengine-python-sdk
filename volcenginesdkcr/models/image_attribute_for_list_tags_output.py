@@ -36,17 +36,19 @@ class ImageAttributeForListTagsOutput(object):
         'architecture': 'str',
         'author': 'str',
         'digest': 'str',
-        'os': 'str'
+        'os': 'str',
+        'size': 'int'
     }
 
     attribute_map = {
         'architecture': 'Architecture',
         'author': 'Author',
         'digest': 'Digest',
-        'os': 'Os'
+        'os': 'Os',
+        'size': 'Size'
     }
 
-    def __init__(self, architecture=None, author=None, digest=None, os=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, author=None, digest=None, os=None, size=None, _configuration=None):  # noqa: E501
         """ImageAttributeForListTagsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ImageAttributeForListTagsOutput(object):
         self._author = None
         self._digest = None
         self._os = None
+        self._size = None
         self.discriminator = None
 
         if architecture is not None:
@@ -66,6 +69,8 @@ class ImageAttributeForListTagsOutput(object):
             self.digest = digest
         if os is not None:
             self.os = os
+        if size is not None:
+            self.size = size
 
     @property
     def architecture(self):
@@ -150,6 +155,27 @@ class ImageAttributeForListTagsOutput(object):
         """
 
         self._os = os
+
+    @property
+    def size(self):
+        """Gets the size of this ImageAttributeForListTagsOutput.  # noqa: E501
+
+
+        :return: The size of this ImageAttributeForListTagsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._size
+
+    @size.setter
+    def size(self, size):
+        """Sets the size of this ImageAttributeForListTagsOutput.
+
+
+        :param size: The size of this ImageAttributeForListTagsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._size = size
 
     def to_dict(self):
         """Returns the model properties as a dict"""

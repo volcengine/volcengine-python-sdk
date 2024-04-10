@@ -33,17 +33,71 @@ class DeleteTagsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'failures': 'list[FailureForDeleteTagsOutput]',
+        'successes': 'list[SuccessForDeleteTagsOutput]'
     }
 
     attribute_map = {
+        'failures': 'Failures',
+        'successes': 'Successes'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, failures=None, successes=None, _configuration=None):  # noqa: E501
         """DeleteTagsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._failures = None
+        self._successes = None
         self.discriminator = None
+
+        if failures is not None:
+            self.failures = failures
+        if successes is not None:
+            self.successes = successes
+
+    @property
+    def failures(self):
+        """Gets the failures of this DeleteTagsResponse.  # noqa: E501
+
+
+        :return: The failures of this DeleteTagsResponse.  # noqa: E501
+        :rtype: list[FailureForDeleteTagsOutput]
+        """
+        return self._failures
+
+    @failures.setter
+    def failures(self, failures):
+        """Sets the failures of this DeleteTagsResponse.
+
+
+        :param failures: The failures of this DeleteTagsResponse.  # noqa: E501
+        :type: list[FailureForDeleteTagsOutput]
+        """
+
+        self._failures = failures
+
+    @property
+    def successes(self):
+        """Gets the successes of this DeleteTagsResponse.  # noqa: E501
+
+
+        :return: The successes of this DeleteTagsResponse.  # noqa: E501
+        :rtype: list[SuccessForDeleteTagsOutput]
+        """
+        return self._successes
+
+    @successes.setter
+    def successes(self, successes):
+        """Sets the successes of this DeleteTagsResponse.
+
+
+        :param successes: The successes of this DeleteTagsResponse.  # noqa: E501
+        :type: list[SuccessForDeleteTagsOutput]
+        """
+
+        self._successes = successes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

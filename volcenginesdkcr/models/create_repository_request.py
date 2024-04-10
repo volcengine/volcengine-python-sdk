@@ -70,12 +70,9 @@ class CreateRepositoryRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
-        if name is not None:
-            self.name = name
-        if namespace is not None:
-            self.namespace = namespace
-        if registry is not None:
-            self.registry = registry
+        self.name = name
+        self.namespace = namespace
+        self.registry = registry
 
     @property
     def access_level(self):
@@ -158,6 +155,8 @@ class CreateRepositoryRequest(object):
         :param name: The name of this CreateRepositoryRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -179,6 +178,8 @@ class CreateRepositoryRequest(object):
         :param namespace: The namespace of this CreateRepositoryRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and namespace is None:
+            raise ValueError("Invalid value for `namespace`, must not be `None`")  # noqa: E501
 
         self._namespace = namespace
 
@@ -200,6 +201,8 @@ class CreateRepositoryRequest(object):
         :param registry: The registry of this CreateRepositoryRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 

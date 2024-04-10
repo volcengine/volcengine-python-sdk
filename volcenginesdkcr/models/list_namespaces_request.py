@@ -64,8 +64,7 @@ class ListNamespacesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        if registry is not None:
-            self.registry = registry
+        self.registry = registry
 
     @property
     def filter(self):
@@ -148,6 +147,8 @@ class ListNamespacesRequest(object):
         :param registry: The registry of this ListNamespacesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 

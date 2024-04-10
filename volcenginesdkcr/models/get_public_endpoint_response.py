@@ -33,34 +33,60 @@ class GetPublicEndpointResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'acl_policies': 'list[AclPolicyForGetPublicEndpointOutput]',
         'enabled': 'bool',
         'registry': 'str',
         'status': 'str'
     }
 
     attribute_map = {
+        'acl_policies': 'AclPolicies',
         'enabled': 'Enabled',
         'registry': 'Registry',
         'status': 'Status'
     }
 
-    def __init__(self, enabled=None, registry=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_policies=None, enabled=None, registry=None, status=None, _configuration=None):  # noqa: E501
         """GetPublicEndpointResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._acl_policies = None
         self._enabled = None
         self._registry = None
         self._status = None
         self.discriminator = None
 
+        if acl_policies is not None:
+            self.acl_policies = acl_policies
         if enabled is not None:
             self.enabled = enabled
         if registry is not None:
             self.registry = registry
         if status is not None:
             self.status = status
+
+    @property
+    def acl_policies(self):
+        """Gets the acl_policies of this GetPublicEndpointResponse.  # noqa: E501
+
+
+        :return: The acl_policies of this GetPublicEndpointResponse.  # noqa: E501
+        :rtype: list[AclPolicyForGetPublicEndpointOutput]
+        """
+        return self._acl_policies
+
+    @acl_policies.setter
+    def acl_policies(self, acl_policies):
+        """Sets the acl_policies of this GetPublicEndpointResponse.
+
+
+        :param acl_policies: The acl_policies of this GetPublicEndpointResponse.  # noqa: E501
+        :type: list[AclPolicyForGetPublicEndpointOutput]
+        """
+
+        self._acl_policies = acl_policies
 
     @property
     def enabled(self):

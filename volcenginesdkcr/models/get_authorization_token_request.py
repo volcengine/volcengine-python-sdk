@@ -49,8 +49,7 @@ class GetAuthorizationTokenRequest(object):
         self._registry = None
         self.discriminator = None
 
-        if registry is not None:
-            self.registry = registry
+        self.registry = registry
 
     @property
     def registry(self):
@@ -70,6 +69,8 @@ class GetAuthorizationTokenRequest(object):
         :param registry: The registry of this GetAuthorizationTokenRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 
