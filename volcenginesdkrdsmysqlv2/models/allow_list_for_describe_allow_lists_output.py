@@ -33,37 +33,45 @@ class AllowListForDescribeAllowListsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_category': 'str',
         'allow_list_desc': 'str',
         'allow_list_ip_num': 'int',
         'allow_list_id': 'str',
         'allow_list_name': 'str',
         'allow_list_type': 'str',
-        'associated_instance_num': 'int'
+        'associated_instance_num': 'int',
+        'security_group_bind_infos': 'list[SecurityGroupBindInfoForDescribeAllowListsOutput]'
     }
 
     attribute_map = {
+        'allow_list_category': 'AllowListCategory',
         'allow_list_desc': 'AllowListDesc',
         'allow_list_ip_num': 'AllowListIPNum',
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
         'allow_list_type': 'AllowListType',
-        'associated_instance_num': 'AssociatedInstanceNum'
+        'associated_instance_num': 'AssociatedInstanceNum',
+        'security_group_bind_infos': 'SecurityGroupBindInfos'
     }
 
-    def __init__(self, allow_list_desc=None, allow_list_ip_num=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_category=None, allow_list_desc=None, allow_list_ip_num=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, security_group_bind_infos=None, _configuration=None):  # noqa: E501
         """AllowListForDescribeAllowListsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_category = None
         self._allow_list_desc = None
         self._allow_list_ip_num = None
         self._allow_list_id = None
         self._allow_list_name = None
         self._allow_list_type = None
         self._associated_instance_num = None
+        self._security_group_bind_infos = None
         self.discriminator = None
 
+        if allow_list_category is not None:
+            self.allow_list_category = allow_list_category
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
         if allow_list_ip_num is not None:
@@ -76,6 +84,29 @@ class AllowListForDescribeAllowListsOutput(object):
             self.allow_list_type = allow_list_type
         if associated_instance_num is not None:
             self.associated_instance_num = associated_instance_num
+        if security_group_bind_infos is not None:
+            self.security_group_bind_infos = security_group_bind_infos
+
+    @property
+    def allow_list_category(self):
+        """Gets the allow_list_category of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+
+
+        :return: The allow_list_category of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_category
+
+    @allow_list_category.setter
+    def allow_list_category(self, allow_list_category):
+        """Sets the allow_list_category of this AllowListForDescribeAllowListsOutput.
+
+
+        :param allow_list_category: The allow_list_category of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_category = allow_list_category
 
     @property
     def allow_list_desc(self):
@@ -202,6 +233,27 @@ class AllowListForDescribeAllowListsOutput(object):
         """
 
         self._associated_instance_num = associated_instance_num
+
+    @property
+    def security_group_bind_infos(self):
+        """Gets the security_group_bind_infos of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+
+
+        :return: The security_group_bind_infos of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+        :rtype: list[SecurityGroupBindInfoForDescribeAllowListsOutput]
+        """
+        return self._security_group_bind_infos
+
+    @security_group_bind_infos.setter
+    def security_group_bind_infos(self, security_group_bind_infos):
+        """Sets the security_group_bind_infos of this AllowListForDescribeAllowListsOutput.
+
+
+        :param security_group_bind_infos: The security_group_bind_infos of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+        :type: list[SecurityGroupBindInfoForDescribeAllowListsOutput]
+        """
+
+        self._security_group_bind_infos = security_group_bind_infos
 
     def to_dict(self):
         """Returns the model properties as a dict"""
