@@ -39,6 +39,7 @@ class CreateVolumeRequest(object):
         'kind': 'str',
         'project_name': 'str',
         'size': 'str',
+        'snapshot_id': 'str',
         'tags': 'list[TagForCreateVolumeInput]',
         'volume_charge_type': 'str',
         'volume_name': 'str',
@@ -53,6 +54,7 @@ class CreateVolumeRequest(object):
         'kind': 'Kind',
         'project_name': 'ProjectName',
         'size': 'Size',
+        'snapshot_id': 'SnapshotId',
         'tags': 'Tags',
         'volume_charge_type': 'VolumeChargeType',
         'volume_name': 'VolumeName',
@@ -60,7 +62,7 @@ class CreateVolumeRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, instance_id=None, kind=None, project_name=None, size=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, instance_id=None, kind=None, project_name=None, size=None, snapshot_id=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class CreateVolumeRequest(object):
         self._kind = None
         self._project_name = None
         self._size = None
+        self._snapshot_id = None
         self._tags = None
         self._volume_charge_type = None
         self._volume_name = None
@@ -91,6 +94,8 @@ class CreateVolumeRequest(object):
             self.project_name = project_name
         if size is not None:
             self.size = size
+        if snapshot_id is not None:
+            self.snapshot_id = snapshot_id
         if tags is not None:
             self.tags = tags
         if volume_charge_type is not None:
@@ -227,6 +232,27 @@ class CreateVolumeRequest(object):
         """
 
         self._size = size
+
+    @property
+    def snapshot_id(self):
+        """Gets the snapshot_id of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The snapshot_id of this CreateVolumeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._snapshot_id
+
+    @snapshot_id.setter
+    def snapshot_id(self, snapshot_id):
+        """Sets the snapshot_id of this CreateVolumeRequest.
+
+
+        :param snapshot_id: The snapshot_id of this CreateVolumeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._snapshot_id = snapshot_id
 
     @property
     def tags(self):
