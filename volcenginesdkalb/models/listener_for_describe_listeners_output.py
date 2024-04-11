@@ -37,7 +37,9 @@ class ListenerForDescribeListenersOutput(object):
         'acl_status': 'str',
         'acl_type': 'str',
         'ca_certificate_id': 'str',
+        'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'create_time': 'str',
         'customized_cfg_id': 'str',
         'description': 'str',
@@ -51,6 +53,7 @@ class ListenerForDescribeListenersOutput(object):
         'port': 'int',
         'project_name': 'str',
         'protocol': 'str',
+        'proxy_protocol_disabled': 'str',
         'server_group_id': 'str',
         'server_groups': 'list[ServerGroupForDescribeListenersOutput]',
         'status': 'str',
@@ -62,7 +65,9 @@ class ListenerForDescribeListenersOutput(object):
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
         'ca_certificate_id': 'CACertificateId',
+        'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'create_time': 'CreateTime',
         'customized_cfg_id': 'CustomizedCfgId',
         'description': 'Description',
@@ -76,13 +81,14 @@ class ListenerForDescribeListenersOutput(object):
         'port': 'Port',
         'project_name': 'ProjectName',
         'protocol': 'Protocol',
+        'proxy_protocol_disabled': 'ProxyProtocolDisabled',
         'server_group_id': 'ServerGroupId',
         'server_groups': 'ServerGroups',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, certificate_id=None, create_time=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, load_balancer_id=None, port=None, project_name=None, protocol=None, server_group_id=None, server_groups=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, create_time=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, load_balancer_id=None, port=None, project_name=None, protocol=None, proxy_protocol_disabled=None, server_group_id=None, server_groups=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """ListenerForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,7 +98,9 @@ class ListenerForDescribeListenersOutput(object):
         self._acl_status = None
         self._acl_type = None
         self._ca_certificate_id = None
+        self._cert_center_certificate_id = None
         self._certificate_id = None
+        self._certificate_source = None
         self._create_time = None
         self._customized_cfg_id = None
         self._description = None
@@ -106,6 +114,7 @@ class ListenerForDescribeListenersOutput(object):
         self._port = None
         self._project_name = None
         self._protocol = None
+        self._proxy_protocol_disabled = None
         self._server_group_id = None
         self._server_groups = None
         self._status = None
@@ -120,8 +129,12 @@ class ListenerForDescribeListenersOutput(object):
             self.acl_type = acl_type
         if ca_certificate_id is not None:
             self.ca_certificate_id = ca_certificate_id
+        if cert_center_certificate_id is not None:
+            self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if create_time is not None:
             self.create_time = create_time
         if customized_cfg_id is not None:
@@ -148,6 +161,8 @@ class ListenerForDescribeListenersOutput(object):
             self.project_name = project_name
         if protocol is not None:
             self.protocol = protocol
+        if proxy_protocol_disabled is not None:
+            self.proxy_protocol_disabled = proxy_protocol_disabled
         if server_group_id is not None:
             self.server_group_id = server_group_id
         if server_groups is not None:
@@ -242,6 +257,27 @@ class ListenerForDescribeListenersOutput(object):
         self._ca_certificate_id = ca_certificate_id
 
     @property
+    def cert_center_certificate_id(self):
+        """Gets the cert_center_certificate_id of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The cert_center_certificate_id of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cert_center_certificate_id
+
+    @cert_center_certificate_id.setter
+    def cert_center_certificate_id(self, cert_center_certificate_id):
+        """Sets the cert_center_certificate_id of this ListenerForDescribeListenersOutput.
+
+
+        :param cert_center_certificate_id: The cert_center_certificate_id of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cert_center_certificate_id = cert_center_certificate_id
+
+    @property
     def certificate_id(self):
         """Gets the certificate_id of this ListenerForDescribeListenersOutput.  # noqa: E501
 
@@ -261,6 +297,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The certificate_source of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this ListenerForDescribeListenersOutput.
+
+
+        :param certificate_source: The certificate_source of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def create_time(self):
@@ -534,6 +591,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._protocol = protocol
+
+    @property
+    def proxy_protocol_disabled(self):
+        """Gets the proxy_protocol_disabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The proxy_protocol_disabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_protocol_disabled
+
+    @proxy_protocol_disabled.setter
+    def proxy_protocol_disabled(self, proxy_protocol_disabled):
+        """Sets the proxy_protocol_disabled of this ListenerForDescribeListenersOutput.
+
+
+        :param proxy_protocol_disabled: The proxy_protocol_disabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._proxy_protocol_disabled = proxy_protocol_disabled
 
     @property
     def server_group_id(self):

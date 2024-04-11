@@ -34,34 +34,44 @@ class DomainExtensionForModifyListenerAttributesInput(object):
     """
     swagger_types = {
         'action': 'str',
+        'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'domain': 'str',
         'domain_extension_id': 'str'
     }
 
     attribute_map = {
         'action': 'Action',
+        'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'domain': 'Domain',
         'domain_extension_id': 'DomainExtensionId'
     }
 
-    def __init__(self, action=None, certificate_id=None, domain=None, domain_extension_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, domain=None, domain_extension_id=None, _configuration=None):  # noqa: E501
         """DomainExtensionForModifyListenerAttributesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._action = None
+        self._cert_center_certificate_id = None
         self._certificate_id = None
+        self._certificate_source = None
         self._domain = None
         self._domain_extension_id = None
         self.discriminator = None
 
         if action is not None:
             self.action = action
+        if cert_center_certificate_id is not None:
+            self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if domain is not None:
             self.domain = domain
         if domain_extension_id is not None:
@@ -89,6 +99,27 @@ class DomainExtensionForModifyListenerAttributesInput(object):
         self._action = action
 
     @property
+    def cert_center_certificate_id(self):
+        """Gets the cert_center_certificate_id of this DomainExtensionForModifyListenerAttributesInput.  # noqa: E501
+
+
+        :return: The cert_center_certificate_id of this DomainExtensionForModifyListenerAttributesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cert_center_certificate_id
+
+    @cert_center_certificate_id.setter
+    def cert_center_certificate_id(self, cert_center_certificate_id):
+        """Sets the cert_center_certificate_id of this DomainExtensionForModifyListenerAttributesInput.
+
+
+        :param cert_center_certificate_id: The cert_center_certificate_id of this DomainExtensionForModifyListenerAttributesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._cert_center_certificate_id = cert_center_certificate_id
+
+    @property
     def certificate_id(self):
         """Gets the certificate_id of this DomainExtensionForModifyListenerAttributesInput.  # noqa: E501
 
@@ -108,6 +139,27 @@ class DomainExtensionForModifyListenerAttributesInput(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this DomainExtensionForModifyListenerAttributesInput.  # noqa: E501
+
+
+        :return: The certificate_source of this DomainExtensionForModifyListenerAttributesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this DomainExtensionForModifyListenerAttributesInput.
+
+
+        :param certificate_source: The certificate_source of this DomainExtensionForModifyListenerAttributesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def domain(self):

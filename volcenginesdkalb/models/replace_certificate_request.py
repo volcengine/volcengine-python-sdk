@@ -33,8 +33,10 @@ class ReplaceCertificateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_name': 'str',
+        'certificate_source': 'str',
         'description': 'str',
         'old_certificate_id': 'str',
         'private_key': 'str',
@@ -44,8 +46,10 @@ class ReplaceCertificateRequest(object):
     }
 
     attribute_map = {
+        'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_name': 'CertificateName',
+        'certificate_source': 'CertificateSource',
         'description': 'Description',
         'old_certificate_id': 'OldCertificateId',
         'private_key': 'PrivateKey',
@@ -54,14 +58,16 @@ class ReplaceCertificateRequest(object):
         'update_mode': 'UpdateMode'
     }
 
-    def __init__(self, certificate_id=None, certificate_name=None, description=None, old_certificate_id=None, private_key=None, project_name=None, public_key=None, update_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_center_certificate_id=None, certificate_id=None, certificate_name=None, certificate_source=None, description=None, old_certificate_id=None, private_key=None, project_name=None, public_key=None, update_mode=None, _configuration=None):  # noqa: E501
         """ReplaceCertificateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_name = None
+        self._certificate_source = None
         self._description = None
         self._old_certificate_id = None
         self._private_key = None
@@ -70,10 +76,14 @@ class ReplaceCertificateRequest(object):
         self._update_mode = None
         self.discriminator = None
 
+        if cert_center_certificate_id is not None:
+            self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
             self.certificate_id = certificate_id
         if certificate_name is not None:
             self.certificate_name = certificate_name
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if description is not None:
             self.description = description
         self.old_certificate_id = old_certificate_id
@@ -84,6 +94,27 @@ class ReplaceCertificateRequest(object):
         if public_key is not None:
             self.public_key = public_key
         self.update_mode = update_mode
+
+    @property
+    def cert_center_certificate_id(self):
+        """Gets the cert_center_certificate_id of this ReplaceCertificateRequest.  # noqa: E501
+
+
+        :return: The cert_center_certificate_id of this ReplaceCertificateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cert_center_certificate_id
+
+    @cert_center_certificate_id.setter
+    def cert_center_certificate_id(self, cert_center_certificate_id):
+        """Sets the cert_center_certificate_id of this ReplaceCertificateRequest.
+
+
+        :param cert_center_certificate_id: The cert_center_certificate_id of this ReplaceCertificateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cert_center_certificate_id = cert_center_certificate_id
 
     @property
     def certificate_id(self):
@@ -132,6 +163,27 @@ class ReplaceCertificateRequest(object):
             raise ValueError("Invalid value for `certificate_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._certificate_name = certificate_name
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this ReplaceCertificateRequest.  # noqa: E501
+
+
+        :return: The certificate_source of this ReplaceCertificateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this ReplaceCertificateRequest.
+
+
+        :param certificate_source: The certificate_source of this ReplaceCertificateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def description(self):

@@ -33,29 +33,91 @@ class TemplateParamForDescribeParameterTemplateOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'default_value': 'str',
+        'description': 'str',
         'name': 'str',
-        'running_value': 'str'
+        'restart': 'bool',
+        'running_value': 'str',
+        'value_range': 'str'
     }
 
     attribute_map = {
+        'default_value': 'DefaultValue',
+        'description': 'Description',
         'name': 'Name',
-        'running_value': 'RunningValue'
+        'restart': 'Restart',
+        'running_value': 'RunningValue',
+        'value_range': 'ValueRange'
     }
 
-    def __init__(self, name=None, running_value=None, _configuration=None):  # noqa: E501
+    def __init__(self, default_value=None, description=None, name=None, restart=None, running_value=None, value_range=None, _configuration=None):  # noqa: E501
         """TemplateParamForDescribeParameterTemplateOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._default_value = None
+        self._description = None
         self._name = None
+        self._restart = None
         self._running_value = None
+        self._value_range = None
         self.discriminator = None
 
+        if default_value is not None:
+            self.default_value = default_value
+        if description is not None:
+            self.description = description
         if name is not None:
             self.name = name
+        if restart is not None:
+            self.restart = restart
         if running_value is not None:
             self.running_value = running_value
+        if value_range is not None:
+            self.value_range = value_range
+
+    @property
+    def default_value(self):
+        """Gets the default_value of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+
+
+        :return: The default_value of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_value
+
+    @default_value.setter
+    def default_value(self, default_value):
+        """Sets the default_value of this TemplateParamForDescribeParameterTemplateOutput.
+
+
+        :param default_value: The default_value of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._default_value = default_value
+
+    @property
+    def description(self):
+        """Gets the description of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+
+
+        :return: The description of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this TemplateParamForDescribeParameterTemplateOutput.
+
+
+        :param description: The description of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def name(self):
@@ -79,6 +141,27 @@ class TemplateParamForDescribeParameterTemplateOutput(object):
         self._name = name
 
     @property
+    def restart(self):
+        """Gets the restart of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+
+
+        :return: The restart of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._restart
+
+    @restart.setter
+    def restart(self, restart):
+        """Sets the restart of this TemplateParamForDescribeParameterTemplateOutput.
+
+
+        :param restart: The restart of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._restart = restart
+
+    @property
     def running_value(self):
         """Gets the running_value of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
 
@@ -98,6 +181,27 @@ class TemplateParamForDescribeParameterTemplateOutput(object):
         """
 
         self._running_value = running_value
+
+    @property
+    def value_range(self):
+        """Gets the value_range of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+
+
+        :return: The value_range of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._value_range
+
+    @value_range.setter
+    def value_range(self, value_range):
+        """Sets the value_range of this TemplateParamForDescribeParameterTemplateOutput.
+
+
+        :param value_range: The value_range of this TemplateParamForDescribeParameterTemplateOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._value_range = value_range
 
     def to_dict(self):
         """Returns the model properties as a dict"""

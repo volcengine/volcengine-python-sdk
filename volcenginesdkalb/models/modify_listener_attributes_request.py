@@ -37,7 +37,9 @@ class ModifyListenerAttributesRequest(object):
         'acl_status': 'str',
         'acl_type': 'str',
         'ca_certificate_id': 'str',
+        'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'customized_cfg_id': 'str',
         'description': 'str',
         'domain_extensions': 'list[DomainExtensionForModifyListenerAttributesInput]',
@@ -46,6 +48,7 @@ class ModifyListenerAttributesRequest(object):
         'enabled': 'str',
         'listener_id': 'str',
         'listener_name': 'str',
+        'proxy_protocol_disabled': 'str',
         'server_group_id': 'str'
     }
 
@@ -54,7 +57,9 @@ class ModifyListenerAttributesRequest(object):
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
         'ca_certificate_id': 'CACertificateId',
+        'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'customized_cfg_id': 'CustomizedCfgId',
         'description': 'Description',
         'domain_extensions': 'DomainExtensions',
@@ -63,10 +68,11 @@ class ModifyListenerAttributesRequest(object):
         'enabled': 'Enabled',
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
+        'proxy_protocol_disabled': 'ProxyProtocolDisabled',
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, certificate_id=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,7 +82,9 @@ class ModifyListenerAttributesRequest(object):
         self._acl_status = None
         self._acl_type = None
         self._ca_certificate_id = None
+        self._cert_center_certificate_id = None
         self._certificate_id = None
+        self._certificate_source = None
         self._customized_cfg_id = None
         self._description = None
         self._domain_extensions = None
@@ -85,6 +93,7 @@ class ModifyListenerAttributesRequest(object):
         self._enabled = None
         self._listener_id = None
         self._listener_name = None
+        self._proxy_protocol_disabled = None
         self._server_group_id = None
         self.discriminator = None
 
@@ -96,8 +105,12 @@ class ModifyListenerAttributesRequest(object):
             self.acl_type = acl_type
         if ca_certificate_id is not None:
             self.ca_certificate_id = ca_certificate_id
+        if cert_center_certificate_id is not None:
+            self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if customized_cfg_id is not None:
             self.customized_cfg_id = customized_cfg_id
         if description is not None:
@@ -113,6 +126,8 @@ class ModifyListenerAttributesRequest(object):
         self.listener_id = listener_id
         if listener_name is not None:
             self.listener_name = listener_name
+        if proxy_protocol_disabled is not None:
+            self.proxy_protocol_disabled = proxy_protocol_disabled
         if server_group_id is not None:
             self.server_group_id = server_group_id
 
@@ -201,6 +216,27 @@ class ModifyListenerAttributesRequest(object):
         self._ca_certificate_id = ca_certificate_id
 
     @property
+    def cert_center_certificate_id(self):
+        """Gets the cert_center_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The cert_center_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cert_center_certificate_id
+
+    @cert_center_certificate_id.setter
+    def cert_center_certificate_id(self, cert_center_certificate_id):
+        """Sets the cert_center_certificate_id of this ModifyListenerAttributesRequest.
+
+
+        :param cert_center_certificate_id: The cert_center_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cert_center_certificate_id = cert_center_certificate_id
+
+    @property
     def certificate_id(self):
         """Gets the certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
 
@@ -220,6 +256,27 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this ModifyListenerAttributesRequest.
+
+
+        :param certificate_source: The certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def customized_cfg_id(self):
@@ -396,6 +453,27 @@ class ModifyListenerAttributesRequest(object):
             raise ValueError("Invalid value for `listener_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._listener_name = listener_name
+
+    @property
+    def proxy_protocol_disabled(self):
+        """Gets the proxy_protocol_disabled of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The proxy_protocol_disabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_protocol_disabled
+
+    @proxy_protocol_disabled.setter
+    def proxy_protocol_disabled(self, proxy_protocol_disabled):
+        """Sets the proxy_protocol_disabled of this ModifyListenerAttributesRequest.
+
+
+        :param proxy_protocol_disabled: The proxy_protocol_disabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._proxy_protocol_disabled = proxy_protocol_disabled
 
     @property
     def server_group_id(self):
