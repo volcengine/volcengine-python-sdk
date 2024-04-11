@@ -37,7 +37,9 @@ class CreateListenerRequest(object):
         'acl_status': 'str',
         'acl_type': 'str',
         'ca_certificate_id': 'str',
+        'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'description': 'str',
         'domain_extensions': 'list[DomainExtensionForCreateListenerInput]',
         'enable_http2': 'str',
@@ -47,6 +49,7 @@ class CreateListenerRequest(object):
         'load_balancer_id': 'str',
         'port': 'int',
         'protocol': 'str',
+        'proxy_protocol_disabled': 'str',
         'server_group_id': 'str'
     }
 
@@ -55,7 +58,9 @@ class CreateListenerRequest(object):
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
         'ca_certificate_id': 'CACertificateId',
+        'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'description': 'Description',
         'domain_extensions': 'DomainExtensions',
         'enable_http2': 'EnableHttp2',
@@ -65,10 +70,11 @@ class CreateListenerRequest(object):
         'load_balancer_id': 'LoadBalancerId',
         'port': 'Port',
         'protocol': 'Protocol',
+        'proxy_protocol_disabled': 'ProxyProtocolDisabled',
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, certificate_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, port=None, protocol=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, port=None, protocol=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
         """CreateListenerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,7 +84,9 @@ class CreateListenerRequest(object):
         self._acl_status = None
         self._acl_type = None
         self._ca_certificate_id = None
+        self._cert_center_certificate_id = None
         self._certificate_id = None
+        self._certificate_source = None
         self._description = None
         self._domain_extensions = None
         self._enable_http2 = None
@@ -88,6 +96,7 @@ class CreateListenerRequest(object):
         self._load_balancer_id = None
         self._port = None
         self._protocol = None
+        self._proxy_protocol_disabled = None
         self._server_group_id = None
         self.discriminator = None
 
@@ -99,8 +108,12 @@ class CreateListenerRequest(object):
             self.acl_type = acl_type
         if ca_certificate_id is not None:
             self.ca_certificate_id = ca_certificate_id
+        if cert_center_certificate_id is not None:
+            self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if description is not None:
             self.description = description
         if domain_extensions is not None:
@@ -116,6 +129,8 @@ class CreateListenerRequest(object):
         self.load_balancer_id = load_balancer_id
         self.port = port
         self.protocol = protocol
+        if proxy_protocol_disabled is not None:
+            self.proxy_protocol_disabled = proxy_protocol_disabled
         self.server_group_id = server_group_id
 
     @property
@@ -203,6 +218,27 @@ class CreateListenerRequest(object):
         self._ca_certificate_id = ca_certificate_id
 
     @property
+    def cert_center_certificate_id(self):
+        """Gets the cert_center_certificate_id of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The cert_center_certificate_id of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cert_center_certificate_id
+
+    @cert_center_certificate_id.setter
+    def cert_center_certificate_id(self, cert_center_certificate_id):
+        """Sets the cert_center_certificate_id of this CreateListenerRequest.
+
+
+        :param cert_center_certificate_id: The cert_center_certificate_id of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cert_center_certificate_id = cert_center_certificate_id
+
+    @property
     def certificate_id(self):
         """Gets the certificate_id of this CreateListenerRequest.  # noqa: E501
 
@@ -222,6 +258,27 @@ class CreateListenerRequest(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The certificate_source of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this CreateListenerRequest.
+
+
+        :param certificate_source: The certificate_source of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def description(self):
@@ -423,6 +480,27 @@ class CreateListenerRequest(object):
             raise ValueError("Invalid value for `protocol`, must not be `None`")  # noqa: E501
 
         self._protocol = protocol
+
+    @property
+    def proxy_protocol_disabled(self):
+        """Gets the proxy_protocol_disabled of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The proxy_protocol_disabled of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_protocol_disabled
+
+    @proxy_protocol_disabled.setter
+    def proxy_protocol_disabled(self, proxy_protocol_disabled):
+        """Sets the proxy_protocol_disabled of this CreateListenerRequest.
+
+
+        :param proxy_protocol_disabled: The proxy_protocol_disabled of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._proxy_protocol_disabled = proxy_protocol_disabled
 
     @property
     def server_group_id(self):
