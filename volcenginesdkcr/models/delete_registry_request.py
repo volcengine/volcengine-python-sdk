@@ -54,8 +54,7 @@ class DeleteRegistryRequest(object):
 
         if delete_immediately is not None:
             self.delete_immediately = delete_immediately
-        if name is not None:
-            self.name = name
+        self.name = name
 
     @property
     def delete_immediately(self):
@@ -96,6 +95,8 @@ class DeleteRegistryRequest(object):
         :param name: The name of this DeleteRegistryRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

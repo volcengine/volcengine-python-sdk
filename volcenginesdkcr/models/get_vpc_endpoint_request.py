@@ -54,8 +54,7 @@ class GetVpcEndpointRequest(object):
 
         if filter is not None:
             self.filter = filter
-        if registry is not None:
-            self.registry = registry
+        self.registry = registry
 
     @property
     def filter(self):
@@ -96,6 +95,8 @@ class GetVpcEndpointRequest(object):
         :param registry: The registry of this GetVpcEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 

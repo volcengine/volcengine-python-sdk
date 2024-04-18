@@ -54,8 +54,7 @@ class CreateRegistryRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if name is not None:
-            self.name = name
+        self.name = name
 
     @property
     def client_token(self):
@@ -96,6 +95,8 @@ class CreateRegistryRequest(object):
         :param name: The name of this CreateRegistryRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

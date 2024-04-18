@@ -52,8 +52,7 @@ class UpdateVpcEndpointRequest(object):
         self._vpcs = None
         self.discriminator = None
 
-        if registry is not None:
-            self.registry = registry
+        self.registry = registry
         if vpcs is not None:
             self.vpcs = vpcs
 
@@ -75,6 +74,8 @@ class UpdateVpcEndpointRequest(object):
         :param registry: The registry of this UpdateVpcEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 

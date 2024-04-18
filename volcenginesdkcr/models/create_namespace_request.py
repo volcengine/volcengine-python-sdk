@@ -35,16 +35,18 @@ class CreateNamespaceRequest(object):
     swagger_types = {
         'client_token': 'str',
         'name': 'str',
+        'project': 'str',
         'registry': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'name': 'Name',
+        'project': 'Project',
         'registry': 'Registry'
     }
 
-    def __init__(self, client_token=None, name=None, registry=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, name=None, project=None, registry=None, _configuration=None):  # noqa: E501
         """CreateNamespaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,15 +54,16 @@ class CreateNamespaceRequest(object):
 
         self._client_token = None
         self._name = None
+        self._project = None
         self._registry = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
-        if name is not None:
-            self.name = name
-        if registry is not None:
-            self.registry = registry
+        self.name = name
+        if project is not None:
+            self.project = project
+        self.registry = registry
 
     @property
     def client_token(self):
@@ -101,8 +104,31 @@ class CreateNamespaceRequest(object):
         :param name: The name of this CreateNamespaceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def project(self):
+        """Gets the project of this CreateNamespaceRequest.  # noqa: E501
+
+
+        :return: The project of this CreateNamespaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this CreateNamespaceRequest.
+
+
+        :param project: The project of this CreateNamespaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project = project
 
     @property
     def registry(self):
@@ -122,6 +148,8 @@ class CreateNamespaceRequest(object):
         :param registry: The registry of this CreateNamespaceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 

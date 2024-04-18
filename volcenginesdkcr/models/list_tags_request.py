@@ -66,16 +66,13 @@ class ListTagsRequest(object):
 
         if filter is not None:
             self.filter = filter
-        if namespace is not None:
-            self.namespace = namespace
+        self.namespace = namespace
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        if registry is not None:
-            self.registry = registry
-        if repository is not None:
-            self.repository = repository
+        self.registry = registry
+        self.repository = repository
 
     @property
     def filter(self):
@@ -116,6 +113,8 @@ class ListTagsRequest(object):
         :param namespace: The namespace of this ListTagsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and namespace is None:
+            raise ValueError("Invalid value for `namespace`, must not be `None`")  # noqa: E501
 
         self._namespace = namespace
 
@@ -179,6 +178,8 @@ class ListTagsRequest(object):
         :param registry: The registry of this ListTagsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 
@@ -200,6 +201,8 @@ class ListTagsRequest(object):
         :param repository: The repository of this ListTagsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and repository is None:
+            raise ValueError("Invalid value for `repository`, must not be `None`")  # noqa: E501
 
         self._repository = repository
 

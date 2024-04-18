@@ -54,8 +54,7 @@ class UpdatePublicEndpointRequest(object):
 
         if enabled is not None:
             self.enabled = enabled
-        if registry is not None:
-            self.registry = registry
+        self.registry = registry
 
     @property
     def enabled(self):
@@ -96,6 +95,8 @@ class UpdatePublicEndpointRequest(object):
         :param registry: The registry of this UpdatePublicEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 

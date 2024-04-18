@@ -36,17 +36,19 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
         'addr_type': 'str',
         'address': 'str',
         'eip_id': 'str',
-        'port': 'str'
+        'port': 'str',
+        'vip': 'str'
     }
 
     attribute_map = {
         'addr_type': 'AddrType',
         'address': 'Address',
         'eip_id': 'EipId',
-        'port': 'Port'
+        'port': 'Port',
+        'vip': 'VIP'
     }
 
-    def __init__(self, addr_type=None, address=None, eip_id=None, port=None, _configuration=None):  # noqa: E501
+    def __init__(self, addr_type=None, address=None, eip_id=None, port=None, vip=None, _configuration=None):  # noqa: E501
         """VisitAddrForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
         self._address = None
         self._eip_id = None
         self._port = None
+        self._vip = None
         self.discriminator = None
 
         if addr_type is not None:
@@ -66,6 +69,8 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
             self.eip_id = eip_id
         if port is not None:
             self.port = port
+        if vip is not None:
+            self.vip = vip
 
     @property
     def addr_type(self):
@@ -150,6 +155,27 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
         """
 
         self._port = port
+
+    @property
+    def vip(self):
+        """Gets the vip of this VisitAddrForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The vip of this VisitAddrForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vip
+
+    @vip.setter
+    def vip(self, vip):
+        """Sets the vip of this VisitAddrForDescribeDBInstanceDetailOutput.
+
+
+        :param vip: The vip of this VisitAddrForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vip = vip
 
     def to_dict(self):
         """Returns the model properties as a dict"""
