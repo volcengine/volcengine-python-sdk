@@ -33,29 +33,81 @@ class ItemForListDomainsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'create_time': 'str',
+        'default': 'bool',
         'domain': 'str',
         'type': 'str'
     }
 
     attribute_map = {
+        'create_time': 'CreateTime',
+        'default': 'Default',
         'domain': 'Domain',
         'type': 'Type'
     }
 
-    def __init__(self, domain=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, default=None, domain=None, type=None, _configuration=None):  # noqa: E501
         """ItemForListDomainsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._create_time = None
+        self._default = None
         self._domain = None
         self._type = None
         self.discriminator = None
 
+        if create_time is not None:
+            self.create_time = create_time
+        if default is not None:
+            self.default = default
         if domain is not None:
             self.domain = domain
         if type is not None:
             self.type = type
+
+    @property
+    def create_time(self):
+        """Gets the create_time of this ItemForListDomainsOutput.  # noqa: E501
+
+
+        :return: The create_time of this ItemForListDomainsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this ItemForListDomainsOutput.
+
+
+        :param create_time: The create_time of this ItemForListDomainsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._create_time = create_time
+
+    @property
+    def default(self):
+        """Gets the default of this ItemForListDomainsOutput.  # noqa: E501
+
+
+        :return: The default of this ItemForListDomainsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._default
+
+    @default.setter
+    def default(self, default):
+        """Sets the default of this ItemForListDomainsOutput.
+
+
+        :param default: The default of this ItemForListDomainsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._default = default
 
     @property
     def domain(self):

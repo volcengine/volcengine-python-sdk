@@ -52,10 +52,8 @@ class SetUserRequest(object):
         self._registry = None
         self.discriminator = None
 
-        if password is not None:
-            self.password = password
-        if registry is not None:
-            self.registry = registry
+        self.password = password
+        self.registry = registry
 
     @property
     def password(self):
@@ -75,6 +73,8 @@ class SetUserRequest(object):
         :param password: The password of this SetUserRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and password is None:
+            raise ValueError("Invalid value for `password`, must not be `None`")  # noqa: E501
 
         self._password = password
 
@@ -96,6 +96,8 @@ class SetUserRequest(object):
         :param registry: The registry of this SetUserRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and registry is None:
+            raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
 
         self._registry = registry
 

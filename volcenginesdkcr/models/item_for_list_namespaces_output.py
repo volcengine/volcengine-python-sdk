@@ -34,15 +34,17 @@ class ItemForListNamespacesOutput(object):
     """
     swagger_types = {
         'create_time': 'str',
-        'name': 'str'
+        'name': 'str',
+        'project': 'str'
     }
 
     attribute_map = {
         'create_time': 'CreateTime',
-        'name': 'Name'
+        'name': 'Name',
+        'project': 'Project'
     }
 
-    def __init__(self, create_time=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, name=None, project=None, _configuration=None):  # noqa: E501
         """ItemForListNamespacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ItemForListNamespacesOutput(object):
 
         self._create_time = None
         self._name = None
+        self._project = None
         self.discriminator = None
 
         if create_time is not None:
             self.create_time = create_time
         if name is not None:
             self.name = name
+        if project is not None:
+            self.project = project
 
     @property
     def create_time(self):
@@ -98,6 +103,27 @@ class ItemForListNamespacesOutput(object):
         """
 
         self._name = name
+
+    @property
+    def project(self):
+        """Gets the project of this ItemForListNamespacesOutput.  # noqa: E501
+
+
+        :return: The project of this ItemForListNamespacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this ItemForListNamespacesOutput.
+
+
+        :param project: The project of this ItemForListNamespacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project = project
 
     def to_dict(self):
         """Returns the model properties as a dict"""
