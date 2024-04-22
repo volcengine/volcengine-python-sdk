@@ -52,10 +52,8 @@ class DetachVolumeRequest(object):
         self._volume_id = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if volume_id is not None:
-            self.volume_id = volume_id
+        self.instance_id = instance_id
+        self.volume_id = volume_id
 
     @property
     def instance_id(self):
@@ -75,6 +73,8 @@ class DetachVolumeRequest(object):
         :param instance_id: The instance_id of this DetachVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -96,6 +96,8 @@ class DetachVolumeRequest(object):
         :param volume_id: The volume_id of this DetachVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and volume_id is None:
+            raise ValueError("Invalid value for `volume_id`, must not be `None`")  # noqa: E501
 
         self._volume_id = volume_id
 
