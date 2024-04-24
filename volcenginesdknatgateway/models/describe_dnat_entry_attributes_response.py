@@ -40,6 +40,7 @@ class DescribeDnatEntryAttributesResponse(object):
         'internal_ip': 'str',
         'internal_port': 'str',
         'nat_gateway_id': 'str',
+        'port_type': 'str',
         'protocol': 'str',
         'request_id': 'str',
         'status': 'str'
@@ -53,12 +54,13 @@ class DescribeDnatEntryAttributesResponse(object):
         'internal_ip': 'InternalIp',
         'internal_port': 'InternalPort',
         'nat_gateway_id': 'NatGatewayId',
+        'port_type': 'PortType',
         'protocol': 'Protocol',
         'request_id': 'RequestId',
         'status': 'Status'
     }
 
-    def __init__(self, dnat_entry_id=None, dnat_entry_name=None, external_ip=None, external_port=None, internal_ip=None, internal_port=None, nat_gateway_id=None, protocol=None, request_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, dnat_entry_id=None, dnat_entry_name=None, external_ip=None, external_port=None, internal_ip=None, internal_port=None, nat_gateway_id=None, port_type=None, protocol=None, request_id=None, status=None, _configuration=None):  # noqa: E501
         """DescribeDnatEntryAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DescribeDnatEntryAttributesResponse(object):
         self._internal_ip = None
         self._internal_port = None
         self._nat_gateway_id = None
+        self._port_type = None
         self._protocol = None
         self._request_id = None
         self._status = None
@@ -90,6 +93,8 @@ class DescribeDnatEntryAttributesResponse(object):
             self.internal_port = internal_port
         if nat_gateway_id is not None:
             self.nat_gateway_id = nat_gateway_id
+        if port_type is not None:
+            self.port_type = port_type
         if protocol is not None:
             self.protocol = protocol
         if request_id is not None:
@@ -243,6 +248,27 @@ class DescribeDnatEntryAttributesResponse(object):
         """
 
         self._nat_gateway_id = nat_gateway_id
+
+    @property
+    def port_type(self):
+        """Gets the port_type of this DescribeDnatEntryAttributesResponse.  # noqa: E501
+
+
+        :return: The port_type of this DescribeDnatEntryAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._port_type
+
+    @port_type.setter
+    def port_type(self, port_type):
+        """Sets the port_type of this DescribeDnatEntryAttributesResponse.
+
+
+        :param port_type: The port_type of this DescribeDnatEntryAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._port_type = port_type
 
     @property
     def protocol(self):

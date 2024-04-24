@@ -161,13 +161,6 @@ class ModifyNatGatewayAttributesRequest(object):
         :param spec: The spec of this ModifyNatGatewayAttributesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Small", "Medium", "Large"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                spec not in allowed_values):
-            raise ValueError(
-                "Invalid value for `spec` ({0}), must be one of {1}"  # noqa: E501
-                .format(spec, allowed_values)
-            )
 
         self._spec = spec
 

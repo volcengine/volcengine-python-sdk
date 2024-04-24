@@ -42,6 +42,7 @@ class DescribeDnatEntriesRequest(object):
         'nat_gateway_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'port_type': 'str',
         'protocol': 'str'
     }
 
@@ -55,10 +56,11 @@ class DescribeDnatEntriesRequest(object):
         'nat_gateway_id': 'NatGatewayId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'port_type': 'PortType',
         'protocol': 'Protocol'
     }
 
-    def __init__(self, dnat_entry_ids=None, dnat_entry_name=None, external_ip=None, external_port=None, internal_ip=None, internal_port=None, nat_gateway_id=None, page_number=None, page_size=None, protocol=None, _configuration=None):  # noqa: E501
+    def __init__(self, dnat_entry_ids=None, dnat_entry_name=None, external_ip=None, external_port=None, internal_ip=None, internal_port=None, nat_gateway_id=None, page_number=None, page_size=None, port_type=None, protocol=None, _configuration=None):  # noqa: E501
         """DescribeDnatEntriesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class DescribeDnatEntriesRequest(object):
         self._nat_gateway_id = None
         self._page_number = None
         self._page_size = None
+        self._port_type = None
         self._protocol = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class DescribeDnatEntriesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if port_type is not None:
+            self.port_type = port_type
         if protocol is not None:
             self.protocol = protocol
 
@@ -288,6 +293,27 @@ class DescribeDnatEntriesRequest(object):
             raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def port_type(self):
+        """Gets the port_type of this DescribeDnatEntriesRequest.  # noqa: E501
+
+
+        :return: The port_type of this DescribeDnatEntriesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._port_type
+
+    @port_type.setter
+    def port_type(self, port_type):
+        """Sets the port_type of this DescribeDnatEntriesRequest.
+
+
+        :param port_type: The port_type of this DescribeDnatEntriesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._port_type = port_type
 
     @property
     def protocol(self):

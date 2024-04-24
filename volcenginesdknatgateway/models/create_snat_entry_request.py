@@ -61,7 +61,8 @@ class CreateSnatEntryRequest(object):
         self._subnet_id = None
         self.discriminator = None
 
-        self.eip_id = eip_id
+        if eip_id is not None:
+            self.eip_id = eip_id
         self.nat_gateway_id = nat_gateway_id
         if snat_entry_name is not None:
             self.snat_entry_name = snat_entry_name
@@ -88,8 +89,6 @@ class CreateSnatEntryRequest(object):
         :param eip_id: The eip_id of this CreateSnatEntryRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and eip_id is None:
-            raise ValueError("Invalid value for `eip_id`, must not be `None`")  # noqa: E501
 
         self._eip_id = eip_id
 

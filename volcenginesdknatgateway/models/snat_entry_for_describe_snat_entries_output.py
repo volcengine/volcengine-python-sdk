@@ -36,6 +36,7 @@ class SnatEntryForDescribeSnatEntriesOutput(object):
         'eip_address': 'str',
         'eip_id': 'str',
         'nat_gateway_id': 'str',
+        'nat_ip_id': 'str',
         'snat_entry_id': 'str',
         'snat_entry_name': 'str',
         'source_cidr': 'str',
@@ -47,6 +48,7 @@ class SnatEntryForDescribeSnatEntriesOutput(object):
         'eip_address': 'EipAddress',
         'eip_id': 'EipId',
         'nat_gateway_id': 'NatGatewayId',
+        'nat_ip_id': 'NatIpId',
         'snat_entry_id': 'SnatEntryId',
         'snat_entry_name': 'SnatEntryName',
         'source_cidr': 'SourceCidr',
@@ -54,7 +56,7 @@ class SnatEntryForDescribeSnatEntriesOutput(object):
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, eip_address=None, eip_id=None, nat_gateway_id=None, snat_entry_id=None, snat_entry_name=None, source_cidr=None, status=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_address=None, eip_id=None, nat_gateway_id=None, nat_ip_id=None, snat_entry_id=None, snat_entry_name=None, source_cidr=None, status=None, subnet_id=None, _configuration=None):  # noqa: E501
         """SnatEntryForDescribeSnatEntriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class SnatEntryForDescribeSnatEntriesOutput(object):
         self._eip_address = None
         self._eip_id = None
         self._nat_gateway_id = None
+        self._nat_ip_id = None
         self._snat_entry_id = None
         self._snat_entry_name = None
         self._source_cidr = None
@@ -76,6 +79,8 @@ class SnatEntryForDescribeSnatEntriesOutput(object):
             self.eip_id = eip_id
         if nat_gateway_id is not None:
             self.nat_gateway_id = nat_gateway_id
+        if nat_ip_id is not None:
+            self.nat_ip_id = nat_ip_id
         if snat_entry_id is not None:
             self.snat_entry_id = snat_entry_id
         if snat_entry_name is not None:
@@ -149,6 +154,27 @@ class SnatEntryForDescribeSnatEntriesOutput(object):
         """
 
         self._nat_gateway_id = nat_gateway_id
+
+    @property
+    def nat_ip_id(self):
+        """Gets the nat_ip_id of this SnatEntryForDescribeSnatEntriesOutput.  # noqa: E501
+
+
+        :return: The nat_ip_id of this SnatEntryForDescribeSnatEntriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._nat_ip_id
+
+    @nat_ip_id.setter
+    def nat_ip_id(self, nat_ip_id):
+        """Sets the nat_ip_id of this SnatEntryForDescribeSnatEntriesOutput.
+
+
+        :param nat_ip_id: The nat_ip_id of this SnatEntryForDescribeSnatEntriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._nat_ip_id = nat_ip_id
 
     @property
     def snat_entry_id(self):

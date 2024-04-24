@@ -39,6 +39,7 @@ class CreateDnatEntryRequest(object):
         'internal_ip': 'str',
         'internal_port': 'str',
         'nat_gateway_id': 'str',
+        'port_type': 'str',
         'protocol': 'str'
     }
 
@@ -49,10 +50,11 @@ class CreateDnatEntryRequest(object):
         'internal_ip': 'InternalIp',
         'internal_port': 'InternalPort',
         'nat_gateway_id': 'NatGatewayId',
+        'port_type': 'PortType',
         'protocol': 'Protocol'
     }
 
-    def __init__(self, dnat_entry_name=None, external_ip=None, external_port=None, internal_ip=None, internal_port=None, nat_gateway_id=None, protocol=None, _configuration=None):  # noqa: E501
+    def __init__(self, dnat_entry_name=None, external_ip=None, external_port=None, internal_ip=None, internal_port=None, nat_gateway_id=None, port_type=None, protocol=None, _configuration=None):  # noqa: E501
         """CreateDnatEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class CreateDnatEntryRequest(object):
         self._internal_ip = None
         self._internal_port = None
         self._nat_gateway_id = None
+        self._port_type = None
         self._protocol = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class CreateDnatEntryRequest(object):
         self.internal_ip = internal_ip
         self.internal_port = internal_port
         self.nat_gateway_id = nat_gateway_id
+        if port_type is not None:
+            self.port_type = port_type
         self.protocol = protocol
 
     @property
@@ -217,6 +222,27 @@ class CreateDnatEntryRequest(object):
             raise ValueError("Invalid value for `nat_gateway_id`, must not be `None`")  # noqa: E501
 
         self._nat_gateway_id = nat_gateway_id
+
+    @property
+    def port_type(self):
+        """Gets the port_type of this CreateDnatEntryRequest.  # noqa: E501
+
+
+        :return: The port_type of this CreateDnatEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._port_type
+
+    @port_type.setter
+    def port_type(self, port_type):
+        """Sets the port_type of this CreateDnatEntryRequest.
+
+
+        :param port_type: The port_type of this CreateDnatEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._port_type = port_type
 
     @property
     def protocol(self):
