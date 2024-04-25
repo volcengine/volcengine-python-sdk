@@ -57,10 +57,8 @@ class ExtendVolumeRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if new_size is not None:
-            self.new_size = new_size
-        if volume_id is not None:
-            self.volume_id = volume_id
+        self.new_size = new_size
+        self.volume_id = volume_id
 
     @property
     def client_token(self):
@@ -101,6 +99,8 @@ class ExtendVolumeRequest(object):
         :param new_size: The new_size of this ExtendVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and new_size is None:
+            raise ValueError("Invalid value for `new_size`, must not be `None`")  # noqa: E501
 
         self._new_size = new_size
 
@@ -122,6 +122,8 @@ class ExtendVolumeRequest(object):
         :param volume_id: The volume_id of this ExtendVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and volume_id is None:
+            raise ValueError("Invalid value for `volume_id`, must not be `None`")  # noqa: E501
 
         self._volume_id = volume_id
 
