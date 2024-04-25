@@ -71,8 +71,7 @@ class CreateAutoSnapshotPolicyRequest(object):
             self.repeat_days = repeat_days
         if repeat_weekdays is not None:
             self.repeat_weekdays = repeat_weekdays
-        if retention_days is not None:
-            self.retention_days = retention_days
+        self.retention_days = retention_days
         if time_points is not None:
             self.time_points = time_points
 
@@ -180,6 +179,8 @@ class CreateAutoSnapshotPolicyRequest(object):
         :param retention_days: The retention_days of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and retention_days is None:
+            raise ValueError("Invalid value for `retention_days`, must not be `None`")  # noqa: E501
 
         self._retention_days = retention_days
 

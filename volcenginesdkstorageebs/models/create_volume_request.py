@@ -92,18 +92,15 @@ class CreateVolumeRequest(object):
             self.kind = kind
         if project_name is not None:
             self.project_name = project_name
-        if size is not None:
-            self.size = size
+        self.size = size
         if snapshot_id is not None:
             self.snapshot_id = snapshot_id
         if tags is not None:
             self.tags = tags
         if volume_charge_type is not None:
             self.volume_charge_type = volume_charge_type
-        if volume_name is not None:
-            self.volume_name = volume_name
-        if volume_type is not None:
-            self.volume_type = volume_type
+        self.volume_name = volume_name
+        self.volume_type = volume_type
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -230,6 +227,8 @@ class CreateVolumeRequest(object):
         :param size: The size of this CreateVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and size is None:
+            raise ValueError("Invalid value for `size`, must not be `None`")  # noqa: E501
 
         self._size = size
 
@@ -314,6 +313,8 @@ class CreateVolumeRequest(object):
         :param volume_name: The volume_name of this CreateVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and volume_name is None:
+            raise ValueError("Invalid value for `volume_name`, must not be `None`")  # noqa: E501
 
         self._volume_name = volume_name
 
@@ -335,6 +336,8 @@ class CreateVolumeRequest(object):
         :param volume_type: The volume_type of this CreateVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and volume_type is None:
+            raise ValueError("Invalid value for `volume_type`, must not be `None`")  # noqa: E501
 
         self._volume_type = volume_type
 

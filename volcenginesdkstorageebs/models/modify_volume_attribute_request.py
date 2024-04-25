@@ -62,10 +62,8 @@ class ModifyVolumeAttributeRequest(object):
             self.delete_with_instance = delete_with_instance
         if description is not None:
             self.description = description
-        if volume_id is not None:
-            self.volume_id = volume_id
-        if volume_name is not None:
-            self.volume_name = volume_name
+        self.volume_id = volume_id
+        self.volume_name = volume_name
 
     @property
     def delete_with_instance(self):
@@ -127,6 +125,8 @@ class ModifyVolumeAttributeRequest(object):
         :param volume_id: The volume_id of this ModifyVolumeAttributeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and volume_id is None:
+            raise ValueError("Invalid value for `volume_id`, must not be `None`")  # noqa: E501
 
         self._volume_id = volume_id
 
@@ -148,6 +148,8 @@ class ModifyVolumeAttributeRequest(object):
         :param volume_name: The volume_name of this ModifyVolumeAttributeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and volume_name is None:
+            raise ValueError("Invalid value for `volume_name`, must not be `None`")  # noqa: E501
 
         self._volume_name = volume_name
 
