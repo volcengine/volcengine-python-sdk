@@ -34,7 +34,7 @@ class ListAllowRuleResponse(object):
     """
     swagger_types = {
         'count': 'int',
-        'data': 'list[DatumForListAllowRuleOutput]',
+        'data': 'list[DataForListAllowRuleOutput]',
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
@@ -99,7 +99,7 @@ class ListAllowRuleResponse(object):
 
 
         :return: The data of this ListAllowRuleResponse.  # noqa: E501
-        :rtype: list[DatumForListAllowRuleOutput]
+        :rtype: list[DataForListAllowRuleOutput]
         """
         return self._data
 
@@ -109,7 +109,7 @@ class ListAllowRuleResponse(object):
 
 
         :param data: The data of this ListAllowRuleResponse.  # noqa: E501
-        :type: list[DatumForListAllowRuleOutput]
+        :type: list[DataForListAllowRuleOutput]
         """
 
         self._data = data

@@ -34,7 +34,7 @@ class ListDomainResponse(object):
     """
     swagger_types = {
         'count': 'int',
-        'data': 'list[DatumForListDomainOutput]',
+        'data': 'list[DataForListDomainOutput]',
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
@@ -99,7 +99,7 @@ class ListDomainResponse(object):
 
 
         :return: The data of this ListDomainResponse.  # noqa: E501
-        :rtype: list[DatumForListDomainOutput]
+        :rtype: list[DataForListDomainOutput]
         """
         return self._data
 
@@ -109,7 +109,7 @@ class ListDomainResponse(object):
 
 
         :param data: The data of this ListDomainResponse.  # noqa: E501
-        :type: list[DatumForListDomainOutput]
+        :type: list[DataForListDomainOutput]
         """
 
         self._data = data

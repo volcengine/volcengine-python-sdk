@@ -35,7 +35,7 @@ class ListBlockRuleResponse(object):
     swagger_types = {
         'count': 'int',
         'current_page': 'int',
-        'data': 'list[DatumForListBlockRuleOutput]',
+        'data': 'list[DataForListBlockRuleOutput]',
         'page_size': 'int',
         'total_count': 'int'
     }
@@ -120,7 +120,7 @@ class ListBlockRuleResponse(object):
 
 
         :return: The data of this ListBlockRuleResponse.  # noqa: E501
-        :rtype: list[DatumForListBlockRuleOutput]
+        :rtype: list[DataForListBlockRuleOutput]
         """
         return self._data
 
@@ -130,7 +130,7 @@ class ListBlockRuleResponse(object):
 
 
         :param data: The data of this ListBlockRuleResponse.  # noqa: E501
-        :type: list[DatumForListBlockRuleOutput]
+        :type: list[DataForListBlockRuleOutput]
         """
 
         self._data = data
