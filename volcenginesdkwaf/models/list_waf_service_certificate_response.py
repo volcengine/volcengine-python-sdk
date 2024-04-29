@@ -33,7 +33,7 @@ class ListWafServiceCertificateResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[DatumForListWafServiceCertificateOutput]'
+        'data': 'list[DataForListWafServiceCertificateOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class ListWafServiceCertificateResponse(object):
 
 
         :return: The data of this ListWafServiceCertificateResponse.  # noqa: E501
-        :rtype: list[DatumForListWafServiceCertificateOutput]
+        :rtype: list[DataForListWafServiceCertificateOutput]
         """
         return self._data
 
@@ -68,7 +68,7 @@ class ListWafServiceCertificateResponse(object):
 
 
         :param data: The data of this ListWafServiceCertificateResponse.  # noqa: E501
-        :type: list[DatumForListWafServiceCertificateOutput]
+        :type: list[DataForListWafServiceCertificateOutput]
         """
 
         self._data = data

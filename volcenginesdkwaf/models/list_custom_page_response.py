@@ -34,7 +34,7 @@ class ListCustomPageResponse(object):
     """
     swagger_types = {
         'current_page': 'int',
-        'data': 'list[DatumForListCustomPageOutput]',
+        'data': 'list[DataForListCustomPageOutput]',
         'page_number': 'int',
         'page_size': 'int'
     }
@@ -94,7 +94,7 @@ class ListCustomPageResponse(object):
 
 
         :return: The data of this ListCustomPageResponse.  # noqa: E501
-        :rtype: list[DatumForListCustomPageOutput]
+        :rtype: list[DataForListCustomPageOutput]
         """
         return self._data
 
@@ -104,7 +104,7 @@ class ListCustomPageResponse(object):
 
 
         :param data: The data of this ListCustomPageResponse.  # noqa: E501
-        :type: list[DatumForListCustomPageOutput]
+        :type: list[DataForListCustomPageOutput]
         """
 
         self._data = data
