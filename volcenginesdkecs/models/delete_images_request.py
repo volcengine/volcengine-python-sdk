@@ -33,24 +33,50 @@ class DeleteImagesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'delete_binded_snapshots': 'bool',
         'image_ids': 'list[str]'
     }
 
     attribute_map = {
+        'delete_binded_snapshots': 'DeleteBindedSnapshots',
         'image_ids': 'ImageIds'
     }
 
-    def __init__(self, image_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_binded_snapshots=None, image_ids=None, _configuration=None):  # noqa: E501
         """DeleteImagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._delete_binded_snapshots = None
         self._image_ids = None
         self.discriminator = None
 
+        if delete_binded_snapshots is not None:
+            self.delete_binded_snapshots = delete_binded_snapshots
         if image_ids is not None:
             self.image_ids = image_ids
+
+    @property
+    def delete_binded_snapshots(self):
+        """Gets the delete_binded_snapshots of this DeleteImagesRequest.  # noqa: E501
+
+
+        :return: The delete_binded_snapshots of this DeleteImagesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_binded_snapshots
+
+    @delete_binded_snapshots.setter
+    def delete_binded_snapshots(self, delete_binded_snapshots):
+        """Sets the delete_binded_snapshots of this DeleteImagesRequest.
+
+
+        :param delete_binded_snapshots: The delete_binded_snapshots of this DeleteImagesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._delete_binded_snapshots = delete_binded_snapshots
 
     @property
     def image_ids(self):
