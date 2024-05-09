@@ -33,7 +33,7 @@ class ListLoadBalancerResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[DatumForListLoadBalancerOutput]'
+        'data': 'list[DataForListLoadBalancerOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class ListLoadBalancerResponse(object):
 
 
         :return: The data of this ListLoadBalancerResponse.  # noqa: E501
-        :rtype: list[DatumForListLoadBalancerOutput]
+        :rtype: list[DataForListLoadBalancerOutput]
         """
         return self._data
 
@@ -68,7 +68,7 @@ class ListLoadBalancerResponse(object):
 
 
         :param data: The data of this ListLoadBalancerResponse.  # noqa: E501
-        :type: list[DatumForListLoadBalancerOutput]
+        :type: list[DataForListLoadBalancerOutput]
         """
 
         self._data = data

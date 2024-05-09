@@ -54,8 +54,7 @@ class DeleteVolumeRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if volume_id is not None:
-            self.volume_id = volume_id
+        self.volume_id = volume_id
 
     @property
     def client_token(self):
@@ -96,6 +95,8 @@ class DeleteVolumeRequest(object):
         :param volume_id: The volume_id of this DeleteVolumeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and volume_id is None:
+            raise ValueError("Invalid value for `volume_id`, must not be `None`")  # noqa: E501
 
         self._volume_id = volume_id
 

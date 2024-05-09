@@ -60,10 +60,8 @@ class ModifyVolumeChargeTypeRequest(object):
 
         if auto_pay is not None:
             self.auto_pay = auto_pay
-        if disk_charge_type is not None:
-            self.disk_charge_type = disk_charge_type
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.disk_charge_type = disk_charge_type
+        self.instance_id = instance_id
         if volume_ids is not None:
             self.volume_ids = volume_ids
 
@@ -106,6 +104,8 @@ class ModifyVolumeChargeTypeRequest(object):
         :param disk_charge_type: The disk_charge_type of this ModifyVolumeChargeTypeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and disk_charge_type is None:
+            raise ValueError("Invalid value for `disk_charge_type`, must not be `None`")  # noqa: E501
 
         self._disk_charge_type = disk_charge_type
 
@@ -127,6 +127,8 @@ class ModifyVolumeChargeTypeRequest(object):
         :param instance_id: The instance_id of this ModifyVolumeChargeTypeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
