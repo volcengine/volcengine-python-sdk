@@ -70,11 +70,16 @@ class ModifyDnatEntryAttributesRequest(object):
         self.dnat_entry_id = dnat_entry_id
         if dnat_entry_name is not None:
             self.dnat_entry_name = dnat_entry_name
-        self.external_ip = external_ip
-        self.external_port = external_port
-        self.internal_ip = internal_ip
-        self.internal_port = internal_port
-        self.protocol = protocol
+        if external_ip is not None:
+            self.external_ip = external_ip
+        if external_port is not None:
+            self.external_port = external_port
+        if internal_ip is not None:
+            self.internal_ip = internal_ip
+        if internal_port is not None:
+            self.internal_port = internal_port
+        if protocol is not None:
+            self.protocol = protocol
 
     @property
     def dnat_entry_id(self):
@@ -144,8 +149,6 @@ class ModifyDnatEntryAttributesRequest(object):
         :param external_ip: The external_ip of this ModifyDnatEntryAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and external_ip is None:
-            raise ValueError("Invalid value for `external_ip`, must not be `None`")  # noqa: E501
 
         self._external_ip = external_ip
 
@@ -167,8 +170,6 @@ class ModifyDnatEntryAttributesRequest(object):
         :param external_port: The external_port of this ModifyDnatEntryAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and external_port is None:
-            raise ValueError("Invalid value for `external_port`, must not be `None`")  # noqa: E501
 
         self._external_port = external_port
 
@@ -190,8 +191,6 @@ class ModifyDnatEntryAttributesRequest(object):
         :param internal_ip: The internal_ip of this ModifyDnatEntryAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and internal_ip is None:
-            raise ValueError("Invalid value for `internal_ip`, must not be `None`")  # noqa: E501
 
         self._internal_ip = internal_ip
 
@@ -213,8 +212,6 @@ class ModifyDnatEntryAttributesRequest(object):
         :param internal_port: The internal_port of this ModifyDnatEntryAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and internal_port is None:
-            raise ValueError("Invalid value for `internal_port`, must not be `None`")  # noqa: E501
 
         self._internal_port = internal_port
 
@@ -236,8 +233,6 @@ class ModifyDnatEntryAttributesRequest(object):
         :param protocol: The protocol of this ModifyDnatEntryAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and protocol is None:
-            raise ValueError("Invalid value for `protocol`, must not be `None`")  # noqa: E501
 
         self._protocol = protocol
 
