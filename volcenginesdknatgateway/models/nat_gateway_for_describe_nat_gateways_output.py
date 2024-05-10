@@ -38,14 +38,17 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'creation_time': 'str',
         'deleted_time': 'str',
         'description': 'str',
+        'dnat_entry_ids': 'list[str]',
         'eip_addresses': 'list[EipAddressForDescribeNatGatewaysOutput]',
         'expired_time': 'str',
         'lock_reason': 'str',
         'nat_gateway_id': 'str',
         'nat_gateway_name': 'str',
         'network_interface_id': 'str',
+        'network_type': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
+        'snat_entry_ids': 'list[str]',
         'spec': 'str',
         'status': 'str',
         'subnet_id': 'str',
@@ -61,14 +64,17 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'creation_time': 'CreationTime',
         'deleted_time': 'DeletedTime',
         'description': 'Description',
+        'dnat_entry_ids': 'DnatEntryIds',
         'eip_addresses': 'EipAddresses',
         'expired_time': 'ExpiredTime',
         'lock_reason': 'LockReason',
         'nat_gateway_id': 'NatGatewayId',
         'nat_gateway_name': 'NatGatewayName',
         'network_interface_id': 'NetworkInterfaceId',
+        'network_type': 'NetworkType',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
+        'snat_entry_ids': 'SnatEntryIds',
         'spec': 'Spec',
         'status': 'Status',
         'subnet_id': 'SubnetId',
@@ -78,7 +84,7 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, overdue_time=None, project_name=None, spec=None, status=None, subnet_id=None, tags=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, dnat_entry_ids=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, network_type=None, overdue_time=None, project_name=None, snat_entry_ids=None, spec=None, status=None, subnet_id=None, tags=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """NatGatewayForDescribeNatGatewaysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,14 +95,17 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         self._creation_time = None
         self._deleted_time = None
         self._description = None
+        self._dnat_entry_ids = None
         self._eip_addresses = None
         self._expired_time = None
         self._lock_reason = None
         self._nat_gateway_id = None
         self._nat_gateway_name = None
         self._network_interface_id = None
+        self._network_type = None
         self._overdue_time = None
         self._project_name = None
+        self._snat_entry_ids = None
         self._spec = None
         self._status = None
         self._subnet_id = None
@@ -116,6 +125,8 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
             self.deleted_time = deleted_time
         if description is not None:
             self.description = description
+        if dnat_entry_ids is not None:
+            self.dnat_entry_ids = dnat_entry_ids
         if eip_addresses is not None:
             self.eip_addresses = eip_addresses
         if expired_time is not None:
@@ -128,10 +139,14 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
             self.nat_gateway_name = nat_gateway_name
         if network_interface_id is not None:
             self.network_interface_id = network_interface_id
+        if network_type is not None:
+            self.network_type = network_type
         if overdue_time is not None:
             self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
+        if snat_entry_ids is not None:
+            self.snat_entry_ids = snat_entry_ids
         if spec is not None:
             self.spec = spec
         if status is not None:
@@ -251,6 +266,27 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         """
 
         self._description = description
+
+    @property
+    def dnat_entry_ids(self):
+        """Gets the dnat_entry_ids of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+
+
+        :return: The dnat_entry_ids of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._dnat_entry_ids
+
+    @dnat_entry_ids.setter
+    def dnat_entry_ids(self, dnat_entry_ids):
+        """Sets the dnat_entry_ids of this NatGatewayForDescribeNatGatewaysOutput.
+
+
+        :param dnat_entry_ids: The dnat_entry_ids of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._dnat_entry_ids = dnat_entry_ids
 
     @property
     def eip_addresses(self):
@@ -379,6 +415,27 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         self._network_interface_id = network_interface_id
 
     @property
+    def network_type(self):
+        """Gets the network_type of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+
+
+        :return: The network_type of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_type
+
+    @network_type.setter
+    def network_type(self, network_type):
+        """Sets the network_type of this NatGatewayForDescribeNatGatewaysOutput.
+
+
+        :param network_type: The network_type of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._network_type = network_type
+
+    @property
     def overdue_time(self):
         """Gets the overdue_time of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
 
@@ -419,6 +476,27 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def snat_entry_ids(self):
+        """Gets the snat_entry_ids of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+
+
+        :return: The snat_entry_ids of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._snat_entry_ids
+
+    @snat_entry_ids.setter
+    def snat_entry_ids(self, snat_entry_ids):
+        """Sets the snat_entry_ids of this NatGatewayForDescribeNatGatewaysOutput.
+
+
+        :param snat_entry_ids: The snat_entry_ids of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._snat_entry_ids = snat_entry_ids
 
     @property
     def spec(self):

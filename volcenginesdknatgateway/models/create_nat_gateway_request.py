@@ -120,8 +120,8 @@ class CreateNatGatewayRequest(object):
         :type: int
         """
         if (self._configuration.client_side_validation and
-                billing_type is not None and billing_type > 1):  # noqa: E501
-            raise ValueError("Invalid value for `billing_type`, must be a value less than or equal to `1`")  # noqa: E501
+                billing_type is not None and billing_type > 3):  # noqa: E501
+            raise ValueError("Invalid value for `billing_type`, must be a value less than or equal to `3`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 billing_type is not None and billing_type < 1):  # noqa: E501
             raise ValueError("Invalid value for `billing_type`, must be a value greater than or equal to `1`")  # noqa: E501
@@ -242,13 +242,6 @@ class CreateNatGatewayRequest(object):
         :param period_unit: The period_unit of this CreateNatGatewayRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Month", "Year"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                period_unit not in allowed_values):
-            raise ValueError(
-                "Invalid value for `period_unit` ({0}), must be one of {1}"  # noqa: E501
-                .format(period_unit, allowed_values)
-            )
 
         self._period_unit = period_unit
 
@@ -291,13 +284,6 @@ class CreateNatGatewayRequest(object):
         :param spec: The spec of this CreateNatGatewayRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Small", "Medium", "Large"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                spec not in allowed_values):
-            raise ValueError(
-                "Invalid value for `spec` ({0}), must be one of {1}"  # noqa: E501
-                .format(spec, allowed_values)
-            )
 
         self._spec = spec
 
