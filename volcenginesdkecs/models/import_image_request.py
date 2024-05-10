@@ -37,6 +37,7 @@ class ImportImageRequest(object):
         'boot_mode': 'str',
         'description': 'str',
         'image_name': 'str',
+        'need_detection': 'bool',
         'os_type': 'str',
         'platform': 'str',
         'platform_version': 'str',
@@ -50,6 +51,7 @@ class ImportImageRequest(object):
         'boot_mode': 'BootMode',
         'description': 'Description',
         'image_name': 'ImageName',
+        'need_detection': 'NeedDetection',
         'os_type': 'OsType',
         'platform': 'Platform',
         'platform_version': 'PlatformVersion',
@@ -58,7 +60,7 @@ class ImportImageRequest(object):
         'url': 'Url'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, description=None, image_name=None, os_type=None, platform=None, platform_version=None, project_name=None, tags=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, description=None, image_name=None, need_detection=None, os_type=None, platform=None, platform_version=None, project_name=None, tags=None, url=None, _configuration=None):  # noqa: E501
         """ImportImageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class ImportImageRequest(object):
         self._boot_mode = None
         self._description = None
         self._image_name = None
+        self._need_detection = None
         self._os_type = None
         self._platform = None
         self._platform_version = None
@@ -83,6 +86,8 @@ class ImportImageRequest(object):
         if description is not None:
             self.description = description
         self.image_name = image_name
+        if need_detection is not None:
+            self.need_detection = need_detection
         if os_type is not None:
             self.os_type = os_type
         self.platform = platform
@@ -179,6 +184,27 @@ class ImportImageRequest(object):
             raise ValueError("Invalid value for `image_name`, must not be `None`")  # noqa: E501
 
         self._image_name = image_name
+
+    @property
+    def need_detection(self):
+        """Gets the need_detection of this ImportImageRequest.  # noqa: E501
+
+
+        :return: The need_detection of this ImportImageRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._need_detection
+
+    @need_detection.setter
+    def need_detection(self, need_detection):
+        """Sets the need_detection of this ImportImageRequest.
+
+
+        :param need_detection: The need_detection of this ImportImageRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._need_detection = need_detection
 
     @property
     def os_type(self):

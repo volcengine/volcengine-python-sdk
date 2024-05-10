@@ -36,6 +36,7 @@ class DescribeInstancesRequest(object):
         'dedicated_host_cluster_id': 'str',
         'dedicated_host_id': 'str',
         'deployment_set_ids': 'list[str]',
+        'eip_addresses': 'list[str]',
         'hpc_cluster_id': 'str',
         'instance_charge_type': 'str',
         'instance_ids': 'list[str]',
@@ -58,6 +59,7 @@ class DescribeInstancesRequest(object):
         'dedicated_host_cluster_id': 'DedicatedHostClusterId',
         'dedicated_host_id': 'DedicatedHostId',
         'deployment_set_ids': 'DeploymentSetIds',
+        'eip_addresses': 'EipAddresses',
         'hpc_cluster_id': 'HpcClusterId',
         'instance_charge_type': 'InstanceChargeType',
         'instance_ids': 'InstanceIds',
@@ -76,7 +78,7 @@ class DescribeInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_ids=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_ids=None, eip_addresses=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +87,7 @@ class DescribeInstancesRequest(object):
         self._dedicated_host_cluster_id = None
         self._dedicated_host_id = None
         self._deployment_set_ids = None
+        self._eip_addresses = None
         self._hpc_cluster_id = None
         self._instance_charge_type = None
         self._instance_ids = None
@@ -109,6 +112,8 @@ class DescribeInstancesRequest(object):
             self.dedicated_host_id = dedicated_host_id
         if deployment_set_ids is not None:
             self.deployment_set_ids = deployment_set_ids
+        if eip_addresses is not None:
+            self.eip_addresses = eip_addresses
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
         if instance_charge_type is not None:
@@ -204,6 +209,27 @@ class DescribeInstancesRequest(object):
         """
 
         self._deployment_set_ids = deployment_set_ids
+
+    @property
+    def eip_addresses(self):
+        """Gets the eip_addresses of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The eip_addresses of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._eip_addresses
+
+    @eip_addresses.setter
+    def eip_addresses(self, eip_addresses):
+        """Sets the eip_addresses of this DescribeInstancesRequest.
+
+
+        :param eip_addresses: The eip_addresses of this DescribeInstancesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._eip_addresses = eip_addresses
 
     @property
     def hpc_cluster_id(self):

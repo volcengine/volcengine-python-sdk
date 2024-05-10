@@ -36,7 +36,10 @@ class CreateImageRequest(object):
         'description': 'str',
         'image_name': 'str',
         'instance_id': 'str',
+        'need_detection': 'bool',
         'project_name': 'str',
+        'snapshot_group_id': 'str',
+        'snapshot_id': 'str',
         'tags': 'list[TagForCreateImageInput]'
     }
 
@@ -44,11 +47,14 @@ class CreateImageRequest(object):
         'description': 'Description',
         'image_name': 'ImageName',
         'instance_id': 'InstanceId',
+        'need_detection': 'NeedDetection',
         'project_name': 'ProjectName',
+        'snapshot_group_id': 'SnapshotGroupId',
+        'snapshot_id': 'SnapshotId',
         'tags': 'Tags'
     }
 
-    def __init__(self, description=None, image_name=None, instance_id=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, image_name=None, instance_id=None, need_detection=None, project_name=None, snapshot_group_id=None, snapshot_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateImageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,16 +63,26 @@ class CreateImageRequest(object):
         self._description = None
         self._image_name = None
         self._instance_id = None
+        self._need_detection = None
         self._project_name = None
+        self._snapshot_group_id = None
+        self._snapshot_id = None
         self._tags = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
         self.image_name = image_name
-        self.instance_id = instance_id
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if need_detection is not None:
+            self.need_detection = need_detection
         if project_name is not None:
             self.project_name = project_name
+        if snapshot_group_id is not None:
+            self.snapshot_group_id = snapshot_group_id
+        if snapshot_id is not None:
+            self.snapshot_id = snapshot_id
         if tags is not None:
             self.tags = tags
 
@@ -132,10 +148,29 @@ class CreateImageRequest(object):
         :param instance_id: The instance_id of this CreateImageRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and instance_id is None:
-            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def need_detection(self):
+        """Gets the need_detection of this CreateImageRequest.  # noqa: E501
+
+
+        :return: The need_detection of this CreateImageRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._need_detection
+
+    @need_detection.setter
+    def need_detection(self, need_detection):
+        """Sets the need_detection of this CreateImageRequest.
+
+
+        :param need_detection: The need_detection of this CreateImageRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._need_detection = need_detection
 
     @property
     def project_name(self):
@@ -157,6 +192,48 @@ class CreateImageRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def snapshot_group_id(self):
+        """Gets the snapshot_group_id of this CreateImageRequest.  # noqa: E501
+
+
+        :return: The snapshot_group_id of this CreateImageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._snapshot_group_id
+
+    @snapshot_group_id.setter
+    def snapshot_group_id(self, snapshot_group_id):
+        """Sets the snapshot_group_id of this CreateImageRequest.
+
+
+        :param snapshot_group_id: The snapshot_group_id of this CreateImageRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._snapshot_group_id = snapshot_group_id
+
+    @property
+    def snapshot_id(self):
+        """Gets the snapshot_id of this CreateImageRequest.  # noqa: E501
+
+
+        :return: The snapshot_id of this CreateImageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._snapshot_id
+
+    @snapshot_id.setter
+    def snapshot_id(self, snapshot_id):
+        """Sets the snapshot_id of this CreateImageRequest.
+
+
+        :param snapshot_id: The snapshot_id of this CreateImageRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._snapshot_id = snapshot_id
 
     @property
     def tags(self):

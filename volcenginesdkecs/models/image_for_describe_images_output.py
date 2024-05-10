@@ -37,6 +37,7 @@ class ImageForDescribeImagesOutput(object):
         'boot_mode': 'str',
         'created_at': 'str',
         'description': 'str',
+        'detection_results': 'list[DetectionResultForDescribeImagesOutput]',
         'image_id': 'str',
         'image_name': 'str',
         'image_owner_id': 'str',
@@ -48,6 +49,7 @@ class ImageForDescribeImagesOutput(object):
         'project_name': 'str',
         'share_status': 'str',
         'size': 'int',
+        'snapshots': 'list[SnapshotForDescribeImagesOutput]',
         'status': 'str',
         'tags': 'list[TagForDescribeImagesOutput]',
         'updated_at': 'str',
@@ -60,6 +62,7 @@ class ImageForDescribeImagesOutput(object):
         'boot_mode': 'BootMode',
         'created_at': 'CreatedAt',
         'description': 'Description',
+        'detection_results': 'DetectionResults',
         'image_id': 'ImageId',
         'image_name': 'ImageName',
         'image_owner_id': 'ImageOwnerId',
@@ -71,6 +74,7 @@ class ImageForDescribeImagesOutput(object):
         'project_name': 'ProjectName',
         'share_status': 'ShareStatus',
         'size': 'Size',
+        'snapshots': 'Snapshots',
         'status': 'Status',
         'tags': 'Tags',
         'updated_at': 'UpdatedAt',
@@ -78,7 +82,7 @@ class ImageForDescribeImagesOutput(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +92,7 @@ class ImageForDescribeImagesOutput(object):
         self._boot_mode = None
         self._created_at = None
         self._description = None
+        self._detection_results = None
         self._image_id = None
         self._image_name = None
         self._image_owner_id = None
@@ -99,6 +104,7 @@ class ImageForDescribeImagesOutput(object):
         self._project_name = None
         self._share_status = None
         self._size = None
+        self._snapshots = None
         self._status = None
         self._tags = None
         self._updated_at = None
@@ -114,6 +120,8 @@ class ImageForDescribeImagesOutput(object):
             self.created_at = created_at
         if description is not None:
             self.description = description
+        if detection_results is not None:
+            self.detection_results = detection_results
         if image_id is not None:
             self.image_id = image_id
         if image_name is not None:
@@ -136,6 +144,8 @@ class ImageForDescribeImagesOutput(object):
             self.share_status = share_status
         if size is not None:
             self.size = size
+        if snapshots is not None:
+            self.snapshots = snapshots
         if status is not None:
             self.status = status
         if tags is not None:
@@ -230,6 +240,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._description = description
+
+    @property
+    def detection_results(self):
+        """Gets the detection_results of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The detection_results of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: list[DetectionResultForDescribeImagesOutput]
+        """
+        return self._detection_results
+
+    @detection_results.setter
+    def detection_results(self, detection_results):
+        """Sets the detection_results of this ImageForDescribeImagesOutput.
+
+
+        :param detection_results: The detection_results of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: list[DetectionResultForDescribeImagesOutput]
+        """
+
+        self._detection_results = detection_results
 
     @property
     def image_id(self):
@@ -461,6 +492,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._size = size
+
+    @property
+    def snapshots(self):
+        """Gets the snapshots of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The snapshots of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: list[SnapshotForDescribeImagesOutput]
+        """
+        return self._snapshots
+
+    @snapshots.setter
+    def snapshots(self, snapshots):
+        """Sets the snapshots of this ImageForDescribeImagesOutput.
+
+
+        :param snapshots: The snapshots of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: list[SnapshotForDescribeImagesOutput]
+        """
+
+        self._snapshots = snapshots
 
     @property
     def status(self):
