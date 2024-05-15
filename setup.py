@@ -11,12 +11,7 @@ VERSION = "1.0.79"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = [
-    "certifi>=2017.4.17",
-    "python-dateutil>=2.1",
-    "six>=1.10",
-    "urllib3>=1.23"
-]
+REQUIRES = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.10", "urllib3>=1.23"]
 
 setup(
     name=NAME,
@@ -24,8 +19,16 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    description='Volcengine SDK for Python',
+    description="Volcengine SDK for Python",
     license="Apache License 2.0",
-    platforms='any',
-    url='https://github.com/volcengine/volcengine-python-sdk',
+    platforms="any",
+    url="https://github.com/volcengine/volcengine-python-sdk",
+    extras_require={
+        "ark": [
+            "pydantic>=1.9.0, <3",
+            "httpx>=0.23.0, <1",
+            "anyio>=3.5.0, <5",
+            "cached-property; python_version < '3.8'",
+        ]
+    },
 )

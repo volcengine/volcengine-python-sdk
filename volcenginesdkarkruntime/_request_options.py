@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from typing import Dict, Union, Any, ClassVar, TypedDict, TYPE_CHECKING, cast
+from typing import Dict, Union, Any, TYPE_CHECKING, cast
 
 import pydantic
 from httpx import Timeout
-from typing_extensions import Unpack
+from typing_extensions import Unpack, TypedDict, ClassVar
 
 from ._compat import PYDANTIC_V2, ConfigDict
 from ._models import BaseModel
