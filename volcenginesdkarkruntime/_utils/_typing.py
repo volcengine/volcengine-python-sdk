@@ -1,5 +1,7 @@
-from typing import get_args, cast, get_origin, Annotated
-from typing_extensions import Required
+from __future__ import annotations
+
+from typing import cast
+from typing_extensions import Required, get_args, get_origin, Annotated
 
 
 def extract_type_arg(typ: type, index: int = 0) -> type:

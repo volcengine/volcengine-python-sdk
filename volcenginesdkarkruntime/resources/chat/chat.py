@@ -2,23 +2,20 @@
 
 from __future__ import annotations
 
-from functools import cache
-
 from .completions import Completions, AsyncCompletions
+from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 
 __all__ = ["Chat", "AsyncChat"]
 
 
 class Chat(SyncAPIResource):
-    @property
-    @cache
+    @cached_property
     def completions(self) -> Completions:
         return Completions(self._client)
 
 
 class AsyncChat(AsyncAPIResource):
-    @property
-    @cache
+    @cached_property
     def completions(self) -> AsyncCompletions:
         return AsyncCompletions(self._client)

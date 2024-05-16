@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-from functools import cache
+from typing import Dict, List, Union, Iterable, Optional
 
 import httpx
+from typing_extensions import Literal
 
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
-from typing import Dict, List, Union, Iterable, Optional, overload
-from typing_extensions import Literal
+from ..._compat import cached_property
 
 from ..._response import (
     to_raw_response_wrapper,
@@ -29,13 +29,11 @@ __all__ = ["Completions", "AsyncCompletions"]
 
 
 class Completions(SyncAPIResource):
-    @property
-    @cache
+    @cached_property
     def with_raw_response(self) -> CompletionsWithRawResponse:
         return CompletionsWithRawResponse(self)
 
-    @property
-    @cache
+    @cached_property
     def with_streaming_response(self) -> CompletionsWithStreamingResponse:
         return CompletionsWithStreamingResponse(self)
 
@@ -98,13 +96,11 @@ class Completions(SyncAPIResource):
 
 
 class AsyncCompletions(AsyncAPIResource):
-    @property
-    @cache
+    @cached_property
     def with_raw_response(self) -> AsyncCompletionsWithRawResponse:
         return AsyncCompletionsWithRawResponse(self)
 
-    @property
-    @cache
+    @cached_property
     def with_streaming_response(self) -> AsyncCompletionsWithStreamingResponse:
         return AsyncCompletionsWithStreamingResponse(self)
 

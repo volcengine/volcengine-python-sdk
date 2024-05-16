@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from typing import Literal
-from typing_extensions import override
+from typing_extensions import Literal, override
 
 PropertyFormat = Literal["iso8601", "base64", "custom"]
 
