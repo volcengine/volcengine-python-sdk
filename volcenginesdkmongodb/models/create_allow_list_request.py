@@ -58,14 +58,10 @@ class CreateAllowListRequest(object):
         self._allow_list_type = None
         self.discriminator = None
 
-        if allow_list is not None:
-            self.allow_list = allow_list
-        if allow_list_desc is not None:
-            self.allow_list_desc = allow_list_desc
-        if allow_list_name is not None:
-            self.allow_list_name = allow_list_name
-        if allow_list_type is not None:
-            self.allow_list_type = allow_list_type
+        self.allow_list = allow_list
+        self.allow_list_desc = allow_list_desc
+        self.allow_list_name = allow_list_name
+        self.allow_list_type = allow_list_type
 
     @property
     def allow_list(self):
@@ -85,6 +81,8 @@ class CreateAllowListRequest(object):
         :param allow_list: The allow_list of this CreateAllowListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and allow_list is None:
+            raise ValueError("Invalid value for `allow_list`, must not be `None`")  # noqa: E501
 
         self._allow_list = allow_list
 
@@ -106,6 +104,8 @@ class CreateAllowListRequest(object):
         :param allow_list_desc: The allow_list_desc of this CreateAllowListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and allow_list_desc is None:
+            raise ValueError("Invalid value for `allow_list_desc`, must not be `None`")  # noqa: E501
 
         self._allow_list_desc = allow_list_desc
 
@@ -127,6 +127,8 @@ class CreateAllowListRequest(object):
         :param allow_list_name: The allow_list_name of this CreateAllowListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and allow_list_name is None:
+            raise ValueError("Invalid value for `allow_list_name`, must not be `None`")  # noqa: E501
 
         self._allow_list_name = allow_list_name
 
@@ -148,6 +150,8 @@ class CreateAllowListRequest(object):
         :param allow_list_type: The allow_list_type of this CreateAllowListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and allow_list_type is None:
+            raise ValueError("Invalid value for `allow_list_type`, must not be `None`")  # noqa: E501
 
         self._allow_list_type = allow_list_type
 

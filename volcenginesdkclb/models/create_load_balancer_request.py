@@ -34,10 +34,12 @@ class CreateLoadBalancerRequest(object):
     """
     swagger_types = {
         'address_ip_version': 'str',
+        'allowed_ports': 'list[str]',
         'client_token': 'str',
         'description': 'str',
         'eip_billing_config': 'EipBillingConfigForCreateLoadBalancerInput',
         'eni_address': 'str',
+        'eni_address_num': 'int',
         'eni_ipv6_address': 'str',
         'load_balancer_billing_type': 'int',
         'load_balancer_name': 'str',
@@ -59,10 +61,12 @@ class CreateLoadBalancerRequest(object):
 
     attribute_map = {
         'address_ip_version': 'AddressIpVersion',
+        'allowed_ports': 'AllowedPorts',
         'client_token': 'ClientToken',
         'description': 'Description',
         'eip_billing_config': 'EipBillingConfig',
         'eni_address': 'EniAddress',
+        'eni_address_num': 'EniAddressNum',
         'eni_ipv6_address': 'EniIpv6Address',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
         'load_balancer_name': 'LoadBalancerName',
@@ -82,17 +86,19 @@ class CreateLoadBalancerRequest(object):
         'zone_type': 'ZoneType'
     }
 
-    def __init__(self, address_ip_version=None, client_token=None, description=None, eip_billing_config=None, eni_address=None, eni_ipv6_address=None, load_balancer_billing_type=None, load_balancer_name=None, load_balancer_spec=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, period=None, period_unit=None, project_name=None, region_id=None, slave_zone_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, allowed_ports=None, client_token=None, description=None, eip_billing_config=None, eni_address=None, eni_address_num=None, eni_ipv6_address=None, load_balancer_billing_type=None, load_balancer_name=None, load_balancer_spec=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, period=None, period_unit=None, project_name=None, region_id=None, slave_zone_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_type=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address_ip_version = None
+        self._allowed_ports = None
         self._client_token = None
         self._description = None
         self._eip_billing_config = None
         self._eni_address = None
+        self._eni_address_num = None
         self._eni_ipv6_address = None
         self._load_balancer_billing_type = None
         self._load_balancer_name = None
@@ -114,6 +120,8 @@ class CreateLoadBalancerRequest(object):
 
         if address_ip_version is not None:
             self.address_ip_version = address_ip_version
+        if allowed_ports is not None:
+            self.allowed_ports = allowed_ports
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
@@ -122,6 +130,8 @@ class CreateLoadBalancerRequest(object):
             self.eip_billing_config = eip_billing_config
         if eni_address is not None:
             self.eni_address = eni_address
+        if eni_address_num is not None:
+            self.eni_address_num = eni_address_num
         if eni_ipv6_address is not None:
             self.eni_ipv6_address = eni_ipv6_address
         if load_balancer_billing_type is not None:
@@ -174,6 +184,27 @@ class CreateLoadBalancerRequest(object):
         """
 
         self._address_ip_version = address_ip_version
+
+    @property
+    def allowed_ports(self):
+        """Gets the allowed_ports of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The allowed_ports of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allowed_ports
+
+    @allowed_ports.setter
+    def allowed_ports(self, allowed_ports):
+        """Sets the allowed_ports of this CreateLoadBalancerRequest.
+
+
+        :param allowed_ports: The allowed_ports of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allowed_ports = allowed_ports
 
     @property
     def client_token(self):
@@ -258,6 +289,27 @@ class CreateLoadBalancerRequest(object):
         """
 
         self._eni_address = eni_address
+
+    @property
+    def eni_address_num(self):
+        """Gets the eni_address_num of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The eni_address_num of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._eni_address_num
+
+    @eni_address_num.setter
+    def eni_address_num(self, eni_address_num):
+        """Sets the eni_address_num of this CreateLoadBalancerRequest.
+
+
+        :param eni_address_num: The eni_address_num of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._eni_address_num = eni_address_num
 
     @property
     def eni_ipv6_address(self):

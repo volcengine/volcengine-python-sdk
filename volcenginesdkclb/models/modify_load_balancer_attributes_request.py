@@ -33,6 +33,7 @@ class ModifyLoadBalancerAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allowed_ports': 'list[str]',
         'description': 'str',
         'load_balancer_id': 'str',
         'load_balancer_name': 'str',
@@ -43,6 +44,7 @@ class ModifyLoadBalancerAttributesRequest(object):
     }
 
     attribute_map = {
+        'allowed_ports': 'AllowedPorts',
         'description': 'Description',
         'load_balancer_id': 'LoadBalancerId',
         'load_balancer_name': 'LoadBalancerName',
@@ -52,12 +54,13 @@ class ModifyLoadBalancerAttributesRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, description=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_ports=None, description=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, type=None, _configuration=None):  # noqa: E501
         """ModifyLoadBalancerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allowed_ports = None
         self._description = None
         self._load_balancer_id = None
         self._load_balancer_name = None
@@ -67,6 +70,8 @@ class ModifyLoadBalancerAttributesRequest(object):
         self._type = None
         self.discriminator = None
 
+        if allowed_ports is not None:
+            self.allowed_ports = allowed_ports
         if description is not None:
             self.description = description
         self.load_balancer_id = load_balancer_id
@@ -80,6 +85,27 @@ class ModifyLoadBalancerAttributesRequest(object):
             self.modification_protection_status = modification_protection_status
         if type is not None:
             self.type = type
+
+    @property
+    def allowed_ports(self):
+        """Gets the allowed_ports of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The allowed_ports of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allowed_ports
+
+    @allowed_ports.setter
+    def allowed_ports(self, allowed_ports):
+        """Sets the allowed_ports of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param allowed_ports: The allowed_ports of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allowed_ports = allowed_ports
 
     @property
     def description(self):

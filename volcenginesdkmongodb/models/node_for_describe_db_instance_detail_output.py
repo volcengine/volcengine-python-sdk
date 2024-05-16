@@ -43,7 +43,8 @@ class NodeForDescribeDBInstanceDetailOutput(object):
         'totalv_cpu': 'float',
         'used_memory_gb': 'float',
         'used_storage_gb': 'float',
-        'usedv_cpu': 'float'
+        'usedv_cpu': 'float',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class NodeForDescribeDBInstanceDetailOutput(object):
         'totalv_cpu': 'TotalvCPU',
         'used_memory_gb': 'UsedMemoryGB',
         'used_storage_gb': 'UsedStorageGB',
-        'usedv_cpu': 'UsedvCPU'
+        'usedv_cpu': 'UsedvCPU',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, node_delay_time=None, node_id=None, node_role=None, node_spec=None, node_status=None, total_memory_gb=None, total_storage_gb=None, totalv_cpu=None, used_memory_gb=None, used_storage_gb=None, usedv_cpu=None, _configuration=None):  # noqa: E501
+    def __init__(self, node_delay_time=None, node_id=None, node_role=None, node_spec=None, node_status=None, total_memory_gb=None, total_storage_gb=None, totalv_cpu=None, used_memory_gb=None, used_storage_gb=None, usedv_cpu=None, zone_id=None, _configuration=None):  # noqa: E501
         """NodeForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class NodeForDescribeDBInstanceDetailOutput(object):
         self._used_memory_gb = None
         self._used_storage_gb = None
         self._usedv_cpu = None
+        self._zone_id = None
         self.discriminator = None
 
         if node_delay_time is not None:
@@ -101,6 +104,8 @@ class NodeForDescribeDBInstanceDetailOutput(object):
             self.used_storage_gb = used_storage_gb
         if usedv_cpu is not None:
             self.usedv_cpu = usedv_cpu
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def node_delay_time(self):
@@ -332,6 +337,27 @@ class NodeForDescribeDBInstanceDetailOutput(object):
         """
 
         self._usedv_cpu = usedv_cpu
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The zone_id of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this NodeForDescribeDBInstanceDetailOutput.
+
+
+        :param zone_id: The zone_id of this NodeForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

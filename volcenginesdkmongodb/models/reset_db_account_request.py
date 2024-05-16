@@ -55,10 +55,8 @@ class ResetDBAccountRequest(object):
         self._instance_id = None
         self.discriminator = None
 
-        if account_name is not None:
-            self.account_name = account_name
-        if account_password is not None:
-            self.account_password = account_password
+        self.account_name = account_name
+        self.account_password = account_password
         self.instance_id = instance_id
 
     @property
@@ -79,6 +77,8 @@ class ResetDBAccountRequest(object):
         :param account_name: The account_name of this ResetDBAccountRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and account_name is None:
+            raise ValueError("Invalid value for `account_name`, must not be `None`")  # noqa: E501
 
         self._account_name = account_name
 
@@ -100,6 +100,8 @@ class ResetDBAccountRequest(object):
         :param account_password: The account_password of this ResetDBAccountRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and account_password is None:
+            raise ValueError("Invalid value for `account_password`, must not be `None`")  # noqa: E501
 
         self._account_password = account_password
 

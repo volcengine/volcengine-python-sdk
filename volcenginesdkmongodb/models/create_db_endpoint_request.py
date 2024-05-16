@@ -154,7 +154,7 @@ class CreateDBEndpointRequest(object):
         :param network_type: The network_type of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["InnerPLB", "Private", "Public", "StorageInner"]  # noqa: E501
+        allowed_values = ["Private", "Public", "InnerPLB", "StorageInner"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 network_type not in allowed_values):
             raise ValueError(

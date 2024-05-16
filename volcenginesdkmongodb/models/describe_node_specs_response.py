@@ -33,34 +33,60 @@ class DescribeNodeSpecsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'config_server_node_specs': 'list[ConfigServerNodeSpecForDescribeNodeSpecsOutput]',
         'mongos_node_specs': 'list[MongosNodeSpecForDescribeNodeSpecsOutput]',
         'node_specs': 'list[NodeSpecForDescribeNodeSpecsOutput]',
         'shard_node_specs': 'list[ShardNodeSpecForDescribeNodeSpecsOutput]'
     }
 
     attribute_map = {
+        'config_server_node_specs': 'ConfigServerNodeSpecs',
         'mongos_node_specs': 'MongosNodeSpecs',
         'node_specs': 'NodeSpecs',
         'shard_node_specs': 'ShardNodeSpecs'
     }
 
-    def __init__(self, mongos_node_specs=None, node_specs=None, shard_node_specs=None, _configuration=None):  # noqa: E501
+    def __init__(self, config_server_node_specs=None, mongos_node_specs=None, node_specs=None, shard_node_specs=None, _configuration=None):  # noqa: E501
         """DescribeNodeSpecsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._config_server_node_specs = None
         self._mongos_node_specs = None
         self._node_specs = None
         self._shard_node_specs = None
         self.discriminator = None
 
+        if config_server_node_specs is not None:
+            self.config_server_node_specs = config_server_node_specs
         if mongos_node_specs is not None:
             self.mongos_node_specs = mongos_node_specs
         if node_specs is not None:
             self.node_specs = node_specs
         if shard_node_specs is not None:
             self.shard_node_specs = shard_node_specs
+
+    @property
+    def config_server_node_specs(self):
+        """Gets the config_server_node_specs of this DescribeNodeSpecsResponse.  # noqa: E501
+
+
+        :return: The config_server_node_specs of this DescribeNodeSpecsResponse.  # noqa: E501
+        :rtype: list[ConfigServerNodeSpecForDescribeNodeSpecsOutput]
+        """
+        return self._config_server_node_specs
+
+    @config_server_node_specs.setter
+    def config_server_node_specs(self, config_server_node_specs):
+        """Sets the config_server_node_specs of this DescribeNodeSpecsResponse.
+
+
+        :param config_server_node_specs: The config_server_node_specs of this DescribeNodeSpecsResponse.  # noqa: E501
+        :type: list[ConfigServerNodeSpecForDescribeNodeSpecsOutput]
+        """
+
+        self._config_server_node_specs = config_server_node_specs
 
     @property
     def mongos_node_specs(self):

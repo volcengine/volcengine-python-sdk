@@ -41,6 +41,7 @@ class DescribeServerGroupAttributesResponse(object):
         'server_group_id': 'str',
         'server_group_name': 'str',
         'servers': 'list[ServerForDescribeServerGroupAttributesOutput]',
+        'tags': 'list[TagForDescribeServerGroupAttributesOutput]',
         'type': 'str'
     }
 
@@ -53,10 +54,11 @@ class DescribeServerGroupAttributesResponse(object):
         'server_group_id': 'ServerGroupId',
         'server_group_name': 'ServerGroupName',
         'servers': 'Servers',
+        'tags': 'Tags',
         'type': 'Type'
     }
 
-    def __init__(self, address_ip_version=None, description=None, listeners=None, load_balancer_id=None, request_id=None, server_group_id=None, server_group_name=None, servers=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, description=None, listeners=None, load_balancer_id=None, request_id=None, server_group_id=None, server_group_name=None, servers=None, tags=None, type=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class DescribeServerGroupAttributesResponse(object):
         self._server_group_id = None
         self._server_group_name = None
         self._servers = None
+        self._tags = None
         self._type = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class DescribeServerGroupAttributesResponse(object):
             self.server_group_name = server_group_name
         if servers is not None:
             self.servers = servers
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
 
@@ -259,6 +264,27 @@ class DescribeServerGroupAttributesResponse(object):
         """
 
         self._servers = servers
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeServerGroupAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeServerGroupAttributesResponse.
+
+
+        :param tags: The tags of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeServerGroupAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

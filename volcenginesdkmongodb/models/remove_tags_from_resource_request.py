@@ -34,29 +34,33 @@ class RemoveTagsFromResourceRequest(object):
     """
     swagger_types = {
         'all': 'bool',
+        'instance_id': 'str',
         'instance_ids': 'list[str]',
         'tag_keys': 'list[str]'
     }
 
     attribute_map = {
         'all': 'All',
+        'instance_id': 'InstanceId',
         'instance_ids': 'InstanceIds',
         'tag_keys': 'TagKeys'
     }
 
-    def __init__(self, all=None, instance_ids=None, tag_keys=None, _configuration=None):  # noqa: E501
+    def __init__(self, all=None, instance_id=None, instance_ids=None, tag_keys=None, _configuration=None):  # noqa: E501
         """RemoveTagsFromResourceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._all = None
+        self._instance_id = None
         self._instance_ids = None
         self._tag_keys = None
         self.discriminator = None
 
         if all is not None:
             self.all = all
+        self.instance_id = instance_id
         if instance_ids is not None:
             self.instance_ids = instance_ids
         if tag_keys is not None:
@@ -82,6 +86,29 @@ class RemoveTagsFromResourceRequest(object):
         """
 
         self._all = all
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this RemoveTagsFromResourceRequest.  # noqa: E501
+
+
+        :return: The instance_id of this RemoveTagsFromResourceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this RemoveTagsFromResourceRequest.
+
+
+        :param instance_id: The instance_id of this RemoveTagsFromResourceRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def instance_ids(self):

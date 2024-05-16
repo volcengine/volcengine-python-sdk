@@ -38,6 +38,7 @@ class InstanceParameterForDescribeDBInstanceParametersOutput(object):
         'force_restart': 'bool',
         'parameter_default_value': 'str',
         'parameter_description': 'str',
+        'parameter_names': 'str',
         'parameter_role': 'str',
         'parameter_type': 'str',
         'parameter_value': 'str'
@@ -49,12 +50,13 @@ class InstanceParameterForDescribeDBInstanceParametersOutput(object):
         'force_restart': 'ForceRestart',
         'parameter_default_value': 'ParameterDefaultValue',
         'parameter_description': 'ParameterDescription',
+        'parameter_names': 'ParameterNames',
         'parameter_role': 'ParameterRole',
         'parameter_type': 'ParameterType',
         'parameter_value': 'ParameterValue'
     }
 
-    def __init__(self, checking_code=None, force_modify=None, force_restart=None, parameter_default_value=None, parameter_description=None, parameter_role=None, parameter_type=None, parameter_value=None, _configuration=None):  # noqa: E501
+    def __init__(self, checking_code=None, force_modify=None, force_restart=None, parameter_default_value=None, parameter_description=None, parameter_names=None, parameter_role=None, parameter_type=None, parameter_value=None, _configuration=None):  # noqa: E501
         """InstanceParameterForDescribeDBInstanceParametersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class InstanceParameterForDescribeDBInstanceParametersOutput(object):
         self._force_restart = None
         self._parameter_default_value = None
         self._parameter_description = None
+        self._parameter_names = None
         self._parameter_role = None
         self._parameter_type = None
         self._parameter_value = None
@@ -80,6 +83,8 @@ class InstanceParameterForDescribeDBInstanceParametersOutput(object):
             self.parameter_default_value = parameter_default_value
         if parameter_description is not None:
             self.parameter_description = parameter_description
+        if parameter_names is not None:
+            self.parameter_names = parameter_names
         if parameter_role is not None:
             self.parameter_role = parameter_role
         if parameter_type is not None:
@@ -191,6 +196,27 @@ class InstanceParameterForDescribeDBInstanceParametersOutput(object):
         """
 
         self._parameter_description = parameter_description
+
+    @property
+    def parameter_names(self):
+        """Gets the parameter_names of this InstanceParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+
+
+        :return: The parameter_names of this InstanceParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._parameter_names
+
+    @parameter_names.setter
+    def parameter_names(self, parameter_names):
+        """Sets the parameter_names of this InstanceParameterForDescribeDBInstanceParametersOutput.
+
+
+        :param parameter_names: The parameter_names of this InstanceParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._parameter_names = parameter_names
 
     @property
     def parameter_role(self):
