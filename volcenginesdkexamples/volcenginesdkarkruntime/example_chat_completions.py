@@ -1,10 +1,11 @@
 from volcenginesdkarkruntime import Ark
 
-# gets API Key from environment variable ARK_API_KEY
+# fetch ak&sk from environmental variables "VOLC_ACCESSKEY", "VOLC_SECRETKEY"
+# or specify ak&sk by Ark(ak="${YOUR_AK}", sk="${YOUR_SK}").
+# you can get ak&sk follow this document(https://www.volcengine.com/docs/6291/65568)
 client = Ark()
 
 if __name__ == "__main__":
-
     # Non-streaming:
     print("----- standard request -----")
     completion = client.chat.completions.create(
@@ -14,7 +15,7 @@ if __name__ == "__main__":
                 "role": "user",
                 "content": "Say this is a test",
             },
-        ],
+        ]
     )
     print(completion.choices[0].message.content)
 
@@ -28,7 +29,7 @@ if __name__ == "__main__":
                 "content": "How do I output all files in a directory using Python?",
             },
         ],
-        stream=True,
+        stream=True
     )
     for chunk in stream:
         if not chunk.choices:

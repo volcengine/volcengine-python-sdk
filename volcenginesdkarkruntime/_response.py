@@ -19,14 +19,12 @@ from typing import (
 )
 
 import httpx
-import pydantic
 from typing_extensions import ParamSpec, override, get_origin
 
-from ._constants import CLIENT_REQUEST_HEADER, RAW_RESPONSE_HEADER
-from ._exceptions import ArkError, ArkAPIResponseValidationError
+from ._constants import CLIENT_REQUEST_HEADER, RAW_RESPONSE_HEADER  # type: ignore
+from ._exceptions import ArkError
 from ._streaming import Stream, AsyncStream
-from ._types import ResponseT
-from ._utils import extract_type_arg, is_annotated_type
+from ._utils import extract_type_arg, is_annotated_type  # type: ignore
 
 if TYPE_CHECKING:
     from ._base_client import BaseClient
@@ -34,8 +32,8 @@ if TYPE_CHECKING:
 P = ParamSpec("P")
 R = TypeVar("R")
 _T = TypeVar("_T")
-_APIResponseT = TypeVar("_APIResponseT", bound="APIResponse[Any]")
-_AsyncAPIResponseT = TypeVar("_AsyncAPIResponseT", bound="AsyncAPIResponse[Any]")
+_APIResponseT = TypeVar("_APIResponseT", bound="ArkAPIResponse[Any]")
+_AsyncAPIResponseT = TypeVar("_AsyncAPIResponseT", bound="ArkAsyncAPIResponse[Any]")
 _DefaultStreamT = TypeVar("_DefaultStreamT", bound=Union[Stream[Any], AsyncStream[Any]])
 
 log: logging.Logger = logging.getLogger(__name__)
@@ -118,7 +116,7 @@ class BaseAPIResponse(Generic[R]):
                 self._stream_cls(
                     cast_to=extract_type_arg(self._stream_cls),
                     response=self.http_response,
-                    client=self._client,
+                    client=self._client,  # type: ignore
                 ),
             )
 
@@ -166,7 +164,7 @@ class BaseAPIResponse(Generic[R]):
 
 class ArkAPIResponse(BaseAPIResponse[R]):
     @property
-    def request_id(self) -> str | None:
+    def request_id(self) -> str:
         return self.http_response.headers.get(CLIENT_REQUEST_HEADER, "")
 
     def parse(self) -> R:
@@ -206,7 +204,7 @@ class ArkAPIResponse(BaseAPIResponse[R]):
 
 class ArkAsyncAPIResponse(BaseAPIResponse[R]):
     @property
-    def request_id(self) -> str | None:
+    def request_id(self) -> str:
         return self.http_response.headers.get(CLIENT_REQUEST_HEADER, "")
 
     async def parse(self) -> R:

@@ -6,11 +6,16 @@ from typing import (
     List,
     Union,
     TypeVar,
+    TYPE_CHECKING
 )
 
 import pydantic
 from httpx import Response
-from typing_extensions import override
+from typing_extensions import override, Literal
+
+if TYPE_CHECKING:
+    from ._models import BaseModel
+    from ._response import ArkAPIResponse, ArkAsyncAPIResponse
 
 ModelT = TypeVar("ModelT", bound=pydantic.BaseModel)
 
@@ -24,9 +29,8 @@ ResponseT = TypeVar(
         List[Any],
         Dict[str, Any],
         Response,
-        "APIResponse[Any]",
-        "AsyncAPIResponse[Any]",
-        "HttpxBinaryResponseContent",
+        "ArkAPIResponse[Any]",
+        "ArkAsyncAPIResponse[Any]",
     ],
 )
 

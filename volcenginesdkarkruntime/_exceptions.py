@@ -25,9 +25,9 @@ class ArkError(Exception):
 
 class ArkAPIError(ArkError):
     message: str
-    request: httpx.Request
-    body: object | None
-    request_id: str
+    request: Optional[httpx.Request] = None
+    body: Optional[object] = None
+    request_id: Optional[str] = None
     """The API response body.
 
     If the API responded with a valid JSON structure then this property will be the
@@ -45,10 +45,10 @@ class ArkAPIError(ArkError):
     def __init__(
         self,
         message: str,
-        request: httpx.Request,
+        request: Optional[httpx.Request] = None,
         *,
-        body: object | None,
-        request_id: str,
+        body: Optional[object] = None,
+        request_id: Optional[str] = None,
     ) -> None:
         super().__init__(message)
         self.request = request

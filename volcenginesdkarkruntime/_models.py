@@ -8,7 +8,6 @@ from typing import TYPE_CHECKING, Any, Type, Generic, TypeVar, cast
 import pydantic
 import pydantic.generics
 from pydantic.fields import FieldInfo
-from pydantic.v1.typing import get_origin
 from typing_extensions import (
     Literal,
     ClassVar,
@@ -28,6 +27,7 @@ from ._compat import (
     is_literal_type,
     GenericModel as BaseGenericModel,
     parse_obj,
+    get_origin,
     ConfigDict,
 )
 from ._types import ModelT
@@ -37,7 +37,7 @@ from ._utils._typing import strip_annotated_type
 from ._utils._utils import is_mapping, is_list, coerce_boolean, lru_cache
 
 if TYPE_CHECKING:
-    from pydantic_core.core_schema import ModelField
+    from pydantic_core.core_schema import ModelField, ModelFieldsSchema
 
 __all__ = ["BaseModel", "GenericModel"]
 
