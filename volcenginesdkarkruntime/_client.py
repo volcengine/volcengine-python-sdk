@@ -39,6 +39,7 @@ class Ark(SyncAPIClient):
         ak: str | None = None,
         sk: str | None = None,
         api_key: str | None = None,
+        region: str = "cn-beijing",
         timeout: float | Timeout | None = DEFAULT_TIMEOUT,
         max_retries: int = DEFAULT_MAX_RETRIES,
         http_client: Client | None = None,
@@ -66,6 +67,7 @@ class Ark(SyncAPIClient):
         self.ak = ak
         self.sk = sk
         self.api_key = api_key
+        self.region = region
 
         assert (api_key is not None) or (ak is not None and sk is not None), "you need to support api_key or ak&sk"
 
@@ -81,12 +83,15 @@ class Ark(SyncAPIClient):
         self._sts_token_manager: StsTokenManager | None = None
 
         self.chat = resources.Chat(self)
+        self.embeddings = resources.Embeddings(self)
+        # self.tokenization = resources.Tokenization(self)
+        # self.classification = resources.Classification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
         if self._sts_token_manager is None:
             if self.ak is None or self.sk is None:
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
-            self._sts_token_manager = StsTokenManager(self.ak, self.sk)
+            self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
 
     @property
@@ -105,6 +110,7 @@ class AsyncArk(AsyncAPIClient):
         sk: str | None = None,
         api_key: str | None = None,
         base_url: str | URL = BASE_URL,
+        region: str = "cn-beijing",
         timeout: float | Timeout | None = DEFAULT_TIMEOUT,
         max_retries: int = DEFAULT_MAX_RETRIES,
         http_client: AsyncClient | None = None,
@@ -131,6 +137,7 @@ class AsyncArk(AsyncAPIClient):
         self.ak = ak
         self.sk = sk
         self.api_key = api_key
+        self.region = region
 
         assert (api_key is not None) or (ak is not None and sk is not None), "you need to support api_key or ak&sk"
 
@@ -146,12 +153,15 @@ class AsyncArk(AsyncAPIClient):
         self._sts_token_manager: StsTokenManager | None = None
 
         self.chat = resources.AsyncChat(self)
+        self.embeddings = resources.AsyncEmbeddings(self)
+        # self.tokenization = resources.AsyncTokenization(self)
+        # self.classification = resources.AsyncClassification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
         if self._sts_token_manager is None:
             if self.ak is None or self.sk is None:
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
-            self._sts_token_manager = StsTokenManager(self.ak, self.sk)
+            self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
 
     @property
@@ -169,7 +179,7 @@ class StsTokenManager(object):
     # refreshed credentials.
     _mandatory_refresh_timeout: int = _DEFAULT_MANDATORY_REFRESH_TIMEOUT
 
-    def __init__(self, ak: str, sk: str):
+    def __init__(self, ak: str, sk: str, region: str):
         self._endpoint_sts_tokens: Dict[str, Tuple[str, int]] = defaultdict(lambda: ("", 0))
         self._refresh_lock = threading.Lock()
 
@@ -178,7 +188,8 @@ class StsTokenManager(object):
         configuration = volcenginesdkcore.Configuration()
         configuration.ak = ak
         configuration.sk = sk
-        configuration.region = "cn-beijing"
+        configuration.region = region
+        configuration.schema = "https"
 
         volcenginesdkcore.Configuration.set_default(configuration)
         self.api_instance = volcenginesdkark.ARKApi()
@@ -190,8 +201,8 @@ class StsTokenManager(object):
         return self._endpoint_sts_tokens[ep][1] - time.time() < refresh_in
 
     def _protected_refresh(self, ep: str, ttl: int = _DEFAULT_STS_TIMEOUT, is_mandatory: bool = False):
-        if ttl < _DEFAULT_ADVISORY_REFRESH_TIMEOUT * 2:
-            raise ArkAPIError("ttl should not be under {} seconds.".format(_DEFAULT_ADVISORY_REFRESH_TIMEOUT * 2))
+        if ttl < self._advisory_refresh_timeout * 2:
+            raise ArkAPIError("ttl should not be under {} seconds.".format(self._advisory_refresh_timeout * 2))
 
         try:
             api_key, expired_time = self._load_api_key(
