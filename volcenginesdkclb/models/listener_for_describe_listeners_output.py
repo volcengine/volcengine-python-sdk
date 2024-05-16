@@ -40,9 +40,12 @@ class ListenerForDescribeListenersOutput(object):
         'certificate_id': 'str',
         'connection_drain_enabled': 'str',
         'connection_drain_timeout': 'int',
+        'cookie': 'str',
         'create_time': 'str',
+        'description': 'str',
         'enabled': 'str',
         'health_check': 'HealthCheckForDescribeListenersOutput',
+        'http2_enabled': 'str',
         'listener_id': 'str',
         'listener_name': 'str',
         'persistence_timeout': 'int',
@@ -53,6 +56,7 @@ class ListenerForDescribeListenersOutput(object):
         'scheduler': 'str',
         'server_group_id': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeListenersOutput]',
         'update_time': 'str'
     }
 
@@ -64,9 +68,12 @@ class ListenerForDescribeListenersOutput(object):
         'certificate_id': 'CertificateId',
         'connection_drain_enabled': 'ConnectionDrainEnabled',
         'connection_drain_timeout': 'ConnectionDrainTimeout',
+        'cookie': 'Cookie',
         'create_time': 'CreateTime',
+        'description': 'Description',
         'enabled': 'Enabled',
         'health_check': 'HealthCheck',
+        'http2_enabled': 'Http2Enabled',
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
         'persistence_timeout': 'PersistenceTimeout',
@@ -77,10 +84,11 @@ class ListenerForDescribeListenersOutput(object):
         'scheduler': 'Scheduler',
         'server_group_id': 'ServerGroupId',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, create_time=None, enabled=None, health_check=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, create_time=None, description=None, enabled=None, health_check=None, http2_enabled=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """ListenerForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,9 +101,12 @@ class ListenerForDescribeListenersOutput(object):
         self._certificate_id = None
         self._connection_drain_enabled = None
         self._connection_drain_timeout = None
+        self._cookie = None
         self._create_time = None
+        self._description = None
         self._enabled = None
         self._health_check = None
+        self._http2_enabled = None
         self._listener_id = None
         self._listener_name = None
         self._persistence_timeout = None
@@ -106,6 +117,7 @@ class ListenerForDescribeListenersOutput(object):
         self._scheduler = None
         self._server_group_id = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -123,12 +135,18 @@ class ListenerForDescribeListenersOutput(object):
             self.connection_drain_enabled = connection_drain_enabled
         if connection_drain_timeout is not None:
             self.connection_drain_timeout = connection_drain_timeout
+        if cookie is not None:
+            self.cookie = cookie
         if create_time is not None:
             self.create_time = create_time
+        if description is not None:
+            self.description = description
         if enabled is not None:
             self.enabled = enabled
         if health_check is not None:
             self.health_check = health_check
+        if http2_enabled is not None:
+            self.http2_enabled = http2_enabled
         if listener_id is not None:
             self.listener_id = listener_id
         if listener_name is not None:
@@ -149,6 +167,8 @@ class ListenerForDescribeListenersOutput(object):
             self.server_group_id = server_group_id
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -300,6 +320,27 @@ class ListenerForDescribeListenersOutput(object):
         self._connection_drain_timeout = connection_drain_timeout
 
     @property
+    def cookie(self):
+        """Gets the cookie of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The cookie of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cookie
+
+    @cookie.setter
+    def cookie(self, cookie):
+        """Sets the cookie of this ListenerForDescribeListenersOutput.
+
+
+        :param cookie: The cookie of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cookie = cookie
+
+    @property
     def create_time(self):
         """Gets the create_time of this ListenerForDescribeListenersOutput.  # noqa: E501
 
@@ -319,6 +360,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def description(self):
+        """Gets the description of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The description of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ListenerForDescribeListenersOutput.
+
+
+        :param description: The description of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def enabled(self):
@@ -361,6 +423,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._health_check = health_check
+
+    @property
+    def http2_enabled(self):
+        """Gets the http2_enabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The http2_enabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._http2_enabled
+
+    @http2_enabled.setter
+    def http2_enabled(self, http2_enabled):
+        """Sets the http2_enabled of this ListenerForDescribeListenersOutput.
+
+
+        :param http2_enabled: The http2_enabled of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._http2_enabled = http2_enabled
 
     @property
     def listener_id(self):
@@ -571,6 +654,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The tags of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: list[TagForDescribeListenersOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ListenerForDescribeListenersOutput.
+
+
+        :param tags: The tags of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: list[TagForDescribeListenersOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

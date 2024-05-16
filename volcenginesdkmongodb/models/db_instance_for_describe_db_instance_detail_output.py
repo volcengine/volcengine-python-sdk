@@ -51,10 +51,13 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         'mongos': 'list[MongoForDescribeDBInstanceDetailOutput]',
         'mongos_id': 'str',
         'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]',
+        'private_endpoint': 'str',
         'project_name': 'str',
         'reclaim_time': 'str',
         'shards': 'list[ShardForDescribeDBInstanceDetailOutput]',
+        'storage_type': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeDBInstanceDetailOutput]',
         'update_time': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
@@ -79,16 +82,19 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         'mongos': 'Mongos',
         'mongos_id': 'MongosId',
         'nodes': 'Nodes',
+        'private_endpoint': 'PrivateEndpoint',
         'project_name': 'ProjectName',
         'reclaim_time': 'ReclaimTime',
         'shards': 'Shards',
+        'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, closed_time=None, config_servers=None, config_servers_id=None, create_time=None, db_engine=None, db_engine_version=None, db_engine_version_str=None, expired_time=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, mongos=None, mongos_id=None, nodes=None, project_name=None, reclaim_time=None, shards=None, subnet_id=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, closed_time=None, config_servers=None, config_servers_id=None, create_time=None, db_engine=None, db_engine_version=None, db_engine_version_str=None, expired_time=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, mongos=None, mongos_id=None, nodes=None, private_endpoint=None, project_name=None, reclaim_time=None, shards=None, storage_type=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DBInstanceForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -112,10 +118,13 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         self._mongos = None
         self._mongos_id = None
         self._nodes = None
+        self._private_endpoint = None
         self._project_name = None
         self._reclaim_time = None
         self._shards = None
+        self._storage_type = None
         self._subnet_id = None
+        self._tags = None
         self._update_time = None
         self._vpc_id = None
         self._zone_id = None
@@ -157,14 +166,20 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
             self.mongos_id = mongos_id
         if nodes is not None:
             self.nodes = nodes
+        if private_endpoint is not None:
+            self.private_endpoint = private_endpoint
         if project_name is not None:
             self.project_name = project_name
         if reclaim_time is not None:
             self.reclaim_time = reclaim_time
         if shards is not None:
             self.shards = shards
+        if storage_type is not None:
+            self.storage_type = storage_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vpc_id is not None:
@@ -551,6 +566,27 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         self._nodes = nodes
 
     @property
+    def private_endpoint(self):
+        """Gets the private_endpoint of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The private_endpoint of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_endpoint
+
+    @private_endpoint.setter
+    def private_endpoint(self, private_endpoint):
+        """Sets the private_endpoint of this DBInstanceForDescribeDBInstanceDetailOutput.
+
+
+        :param private_endpoint: The private_endpoint of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._private_endpoint = private_endpoint
+
+    @property
     def project_name(self):
         """Gets the project_name of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -614,6 +650,27 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         self._shards = shards
 
     @property
+    def storage_type(self):
+        """Gets the storage_type of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The storage_type of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this DBInstanceForDescribeDBInstanceDetailOutput.
+
+
+        :param storage_type: The storage_type of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
+
+    @property
     def subnet_id(self):
         """Gets the subnet_id of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -633,6 +690,27 @@ class DBInstanceForDescribeDBInstanceDetailOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The tags of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: list[TagForDescribeDBInstanceDetailOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DBInstanceForDescribeDBInstanceDetailOutput.
+
+
+        :param tags: The tags of this DBInstanceForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: list[TagForDescribeDBInstanceDetailOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

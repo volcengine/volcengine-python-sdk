@@ -39,7 +39,6 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         'closed_time': 'str',
         'config_servers_id': 'str',
         'create_time': 'str',
-        'db_engine': 'str',
         'db_engine_version': 'str',
         'db_engine_version_str': 'str',
         'expired_time': 'str',
@@ -48,9 +47,12 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         'instance_status': 'str',
         'instance_type': 'str',
         'mongos_id': 'str',
+        'private_endpoint': 'str',
         'project_name': 'str',
         'reclaim_time': 'str',
+        'storage_type': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeDBInstancesOutput]',
         'update_time': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
@@ -63,7 +65,6 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         'closed_time': 'ClosedTime',
         'config_servers_id': 'ConfigServersId',
         'create_time': 'CreateTime',
-        'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
         'db_engine_version_str': 'DBEngineVersionStr',
         'expired_time': 'ExpiredTime',
@@ -72,15 +73,18 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
         'mongos_id': 'MongosId',
+        'private_endpoint': 'PrivateEndpoint',
         'project_name': 'ProjectName',
         'reclaim_time': 'ReclaimTime',
+        'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, closed_time=None, config_servers_id=None, create_time=None, db_engine=None, db_engine_version=None, db_engine_version_str=None, expired_time=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, mongos_id=None, project_name=None, reclaim_time=None, subnet_id=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, closed_time=None, config_servers_id=None, create_time=None, db_engine_version=None, db_engine_version_str=None, expired_time=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, mongos_id=None, private_endpoint=None, project_name=None, reclaim_time=None, storage_type=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DBInstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,7 +96,6 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         self._closed_time = None
         self._config_servers_id = None
         self._create_time = None
-        self._db_engine = None
         self._db_engine_version = None
         self._db_engine_version_str = None
         self._expired_time = None
@@ -101,9 +104,12 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         self._instance_status = None
         self._instance_type = None
         self._mongos_id = None
+        self._private_endpoint = None
         self._project_name = None
         self._reclaim_time = None
+        self._storage_type = None
         self._subnet_id = None
+        self._tags = None
         self._update_time = None
         self._vpc_id = None
         self._zone_id = None
@@ -121,8 +127,6 @@ class DBInstanceForDescribeDBInstancesOutput(object):
             self.config_servers_id = config_servers_id
         if create_time is not None:
             self.create_time = create_time
-        if db_engine is not None:
-            self.db_engine = db_engine
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
         if db_engine_version_str is not None:
@@ -139,12 +143,18 @@ class DBInstanceForDescribeDBInstancesOutput(object):
             self.instance_type = instance_type
         if mongos_id is not None:
             self.mongos_id = mongos_id
+        if private_endpoint is not None:
+            self.private_endpoint = private_endpoint
         if project_name is not None:
             self.project_name = project_name
         if reclaim_time is not None:
             self.reclaim_time = reclaim_time
+        if storage_type is not None:
+            self.storage_type = storage_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vpc_id is not None:
@@ -277,27 +287,6 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         """
 
         self._create_time = create_time
-
-    @property
-    def db_engine(self):
-        """Gets the db_engine of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
-
-
-        :return: The db_engine of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._db_engine
-
-    @db_engine.setter
-    def db_engine(self, db_engine):
-        """Sets the db_engine of this DBInstanceForDescribeDBInstancesOutput.
-
-
-        :param db_engine: The db_engine of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._db_engine = db_engine
 
     @property
     def db_engine_version(self):
@@ -468,6 +457,27 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         self._mongos_id = mongos_id
 
     @property
+    def private_endpoint(self):
+        """Gets the private_endpoint of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The private_endpoint of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_endpoint
+
+    @private_endpoint.setter
+    def private_endpoint(self, private_endpoint):
+        """Sets the private_endpoint of this DBInstanceForDescribeDBInstancesOutput.
+
+
+        :param private_endpoint: The private_endpoint of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._private_endpoint = private_endpoint
+
+    @property
     def project_name(self):
         """Gets the project_name of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -510,6 +520,27 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         self._reclaim_time = reclaim_time
 
     @property
+    def storage_type(self):
+        """Gets the storage_type of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The storage_type of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this DBInstanceForDescribeDBInstancesOutput.
+
+
+        :param storage_type: The storage_type of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
+
+    @property
     def subnet_id(self):
         """Gets the subnet_id of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -529,6 +560,27 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The tags of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeDBInstancesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DBInstanceForDescribeDBInstancesOutput.
+
+
+        :param tags: The tags of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[TagForDescribeDBInstancesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

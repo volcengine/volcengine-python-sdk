@@ -38,6 +38,7 @@ class DescribeServerGroupsRequest(object):
         'page_size': 'int',
         'server_group_ids': 'list[str]',
         'server_group_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeServerGroupsInput]',
         'type': 'str'
     }
 
@@ -47,10 +48,11 @@ class DescribeServerGroupsRequest(object):
         'page_size': 'PageSize',
         'server_group_ids': 'ServerGroupIds',
         'server_group_name': 'ServerGroupName',
+        'tag_filters': 'TagFilters',
         'type': 'Type'
     }
 
-    def __init__(self, load_balancer_id=None, page_number=None, page_size=None, server_group_ids=None, server_group_name=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, load_balancer_id=None, page_number=None, page_size=None, server_group_ids=None, server_group_name=None, tag_filters=None, type=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class DescribeServerGroupsRequest(object):
         self._page_size = None
         self._server_group_ids = None
         self._server_group_name = None
+        self._tag_filters = None
         self._type = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class DescribeServerGroupsRequest(object):
             self.server_group_ids = server_group_ids
         if server_group_name is not None:
             self.server_group_name = server_group_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if type is not None:
             self.type = type
 
@@ -181,6 +186,27 @@ class DescribeServerGroupsRequest(object):
         """
 
         self._server_group_name = server_group_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeServerGroupsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeServerGroupsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeServerGroupsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeServerGroupsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeServerGroupsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeServerGroupsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def type(self):

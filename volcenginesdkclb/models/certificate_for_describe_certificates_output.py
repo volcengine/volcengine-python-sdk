@@ -40,7 +40,9 @@ class CertificateForDescribeCertificatesOutput(object):
         'domain_name': 'str',
         'expired_at': 'str',
         'listeners': 'list[str]',
-        'project_name': 'str'
+        'project_name': 'str',
+        'service_managed': 'bool',
+        'tags': 'list[TagForDescribeCertificatesOutput]'
     }
 
     attribute_map = {
@@ -51,10 +53,12 @@ class CertificateForDescribeCertificatesOutput(object):
         'domain_name': 'DomainName',
         'expired_at': 'ExpiredAt',
         'listeners': 'Listeners',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'service_managed': 'ServiceManaged',
+        'tags': 'Tags'
     }
 
-    def __init__(self, certificate_id=None, certificate_name=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_id=None, certificate_name=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, service_managed=None, tags=None, _configuration=None):  # noqa: E501
         """CertificateForDescribeCertificatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +72,8 @@ class CertificateForDescribeCertificatesOutput(object):
         self._expired_at = None
         self._listeners = None
         self._project_name = None
+        self._service_managed = None
+        self._tags = None
         self.discriminator = None
 
         if certificate_id is not None:
@@ -86,6 +92,10 @@ class CertificateForDescribeCertificatesOutput(object):
             self.listeners = listeners
         if project_name is not None:
             self.project_name = project_name
+        if service_managed is not None:
+            self.service_managed = service_managed
+        if tags is not None:
+            self.tags = tags
 
     @property
     def certificate_id(self):
@@ -254,6 +264,48 @@ class CertificateForDescribeCertificatesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def service_managed(self):
+        """Gets the service_managed of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+
+
+        :return: The service_managed of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this CertificateForDescribeCertificatesOutput.
+
+
+        :param service_managed: The service_managed of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._service_managed = service_managed
+
+    @property
+    def tags(self):
+        """Gets the tags of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+
+
+        :return: The tags of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeCertificatesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CertificateForDescribeCertificatesOutput.
+
+
+        :param tags: The tags of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+        :type: list[TagForDescribeCertificatesOutput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

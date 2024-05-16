@@ -33,6 +33,7 @@ class CreateDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_ids': 'list[str]',
         'auto_renew': 'bool',
         'charge_type': 'str',
         'count': 'int',
@@ -58,6 +59,7 @@ class CreateDBInstanceRequest(object):
     }
 
     attribute_map = {
+        'allow_list_ids': 'AllowListIds',
         'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
         'count': 'Count',
@@ -82,12 +84,13 @@ class CreateDBInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_ids = None
         self._auto_renew = None
         self._charge_type = None
         self._count = None
@@ -112,6 +115,8 @@ class CreateDBInstanceRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if allow_list_ids is not None:
+            self.allow_list_ids = allow_list_ids
         if auto_renew is not None:
             self.auto_renew = auto_renew
         if charge_type is not None:
@@ -132,8 +137,7 @@ class CreateDBInstanceRequest(object):
             self.mongos_node_spec = mongos_node_spec
         if node_number is not None:
             self.node_number = node_number
-        if node_spec is not None:
-            self.node_spec = node_spec
+        self.node_spec = node_spec
         if period is not None:
             self.period = period
         if period_unit is not None:
@@ -142,20 +146,37 @@ class CreateDBInstanceRequest(object):
             self.project_name = project_name
         if shard_number is not None:
             self.shard_number = shard_number
-        if storage_space_gb is not None:
-            self.storage_space_gb = storage_space_gb
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
+        self.storage_space_gb = storage_space_gb
+        self.subnet_id = subnet_id
         if super_account_name is not None:
             self.super_account_name = super_account_name
         if super_account_password is not None:
             self.super_account_password = super_account_password
         if tags is not None:
             self.tags = tags
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.vpc_id = vpc_id
+        self.zone_id = zone_id
+
+    @property
+    def allow_list_ids(self):
+        """Gets the allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_list_ids
+
+    @allow_list_ids.setter
+    def allow_list_ids(self, allow_list_ids):
+        """Sets the allow_list_ids of this CreateDBInstanceRequest.
+
+
+        :param allow_list_ids: The allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_list_ids = allow_list_ids
 
     @property
     def auto_renew(self):
@@ -273,7 +294,7 @@ class CreateDBInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0", "MongoDB_5_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -301,9 +322,6 @@ class CreateDBInstanceRequest(object):
         :param instance_name: The instance_name of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                instance_name is not None and len(instance_name) > 64):
-            raise ValueError("Invalid value for `instance_name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._instance_name = instance_name
 
@@ -416,6 +434,8 @@ class CreateDBInstanceRequest(object):
         :param node_spec: The node_spec of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and node_spec is None:
+            raise ValueError("Invalid value for `node_spec`, must not be `None`")  # noqa: E501
 
         self._node_spec = node_spec
 
@@ -458,7 +478,7 @@ class CreateDBInstanceRequest(object):
         :param period_unit: The period_unit of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Month", "Year"]  # noqa: E501
+        allowed_values = ["Year", "Month"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 period_unit not in allowed_values):
             raise ValueError(
@@ -528,6 +548,8 @@ class CreateDBInstanceRequest(object):
         :param storage_space_gb: The storage_space_gb of this CreateDBInstanceRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and storage_space_gb is None:
+            raise ValueError("Invalid value for `storage_space_gb`, must not be `None`")  # noqa: E501
 
         self._storage_space_gb = storage_space_gb
 
@@ -549,6 +571,8 @@ class CreateDBInstanceRequest(object):
         :param subnet_id: The subnet_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 
@@ -633,6 +657,8 @@ class CreateDBInstanceRequest(object):
         :param vpc_id: The vpc_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 
@@ -654,6 +680,8 @@ class CreateDBInstanceRequest(object):
         :param zone_id: The zone_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

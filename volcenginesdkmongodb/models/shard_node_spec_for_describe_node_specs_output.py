@@ -37,6 +37,7 @@ class ShardNodeSpecForDescribeNodeSpecsOutput(object):
         'max_conn': 'int',
         'max_storage': 'int',
         'mem_in_gb': 'float',
+        'min_storage': 'int',
         'spec_name': 'str'
     }
 
@@ -45,10 +46,11 @@ class ShardNodeSpecForDescribeNodeSpecsOutput(object):
         'max_conn': 'MaxConn',
         'max_storage': 'MaxStorage',
         'mem_in_gb': 'MemInGb',
+        'min_storage': 'MinStorage',
         'spec_name': 'SpecName'
     }
 
-    def __init__(self, cpu_num=None, max_conn=None, max_storage=None, mem_in_gb=None, spec_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_num=None, max_conn=None, max_storage=None, mem_in_gb=None, min_storage=None, spec_name=None, _configuration=None):  # noqa: E501
         """ShardNodeSpecForDescribeNodeSpecsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class ShardNodeSpecForDescribeNodeSpecsOutput(object):
         self._max_conn = None
         self._max_storage = None
         self._mem_in_gb = None
+        self._min_storage = None
         self._spec_name = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class ShardNodeSpecForDescribeNodeSpecsOutput(object):
             self.max_storage = max_storage
         if mem_in_gb is not None:
             self.mem_in_gb = mem_in_gb
+        if min_storage is not None:
+            self.min_storage = min_storage
         if spec_name is not None:
             self.spec_name = spec_name
 
@@ -155,6 +160,27 @@ class ShardNodeSpecForDescribeNodeSpecsOutput(object):
         """
 
         self._mem_in_gb = mem_in_gb
+
+    @property
+    def min_storage(self):
+        """Gets the min_storage of this ShardNodeSpecForDescribeNodeSpecsOutput.  # noqa: E501
+
+
+        :return: The min_storage of this ShardNodeSpecForDescribeNodeSpecsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._min_storage
+
+    @min_storage.setter
+    def min_storage(self, min_storage):
+        """Sets the min_storage of this ShardNodeSpecForDescribeNodeSpecsOutput.
+
+
+        :param min_storage: The min_storage of this ShardNodeSpecForDescribeNodeSpecsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._min_storage = min_storage
 
     @property
     def spec_name(self):

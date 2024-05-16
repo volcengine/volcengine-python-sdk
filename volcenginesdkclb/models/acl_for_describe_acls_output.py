@@ -40,6 +40,7 @@ class AclForDescribeAclsOutput(object):
         'description': 'str',
         'listeners': 'list[str]',
         'project_name': 'str',
+        'service_managed': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeAclsOutput]',
         'update_time': 'str'
@@ -53,12 +54,13 @@ class AclForDescribeAclsOutput(object):
         'description': 'Description',
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
+        'service_managed': 'ServiceManaged',
         'status': 'Status',
         'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_entry_count=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, project_name=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_entry_count=None, acl_id=None, acl_name=None, create_time=None, description=None, listeners=None, project_name=None, service_managed=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """AclForDescribeAclsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class AclForDescribeAclsOutput(object):
         self._description = None
         self._listeners = None
         self._project_name = None
+        self._service_managed = None
         self._status = None
         self._tags = None
         self._update_time = None
@@ -90,6 +93,8 @@ class AclForDescribeAclsOutput(object):
             self.listeners = listeners
         if project_name is not None:
             self.project_name = project_name
+        if service_managed is not None:
+            self.service_managed = service_managed
         if status is not None:
             self.status = status
         if tags is not None:
@@ -243,6 +248,27 @@ class AclForDescribeAclsOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def service_managed(self):
+        """Gets the service_managed of this AclForDescribeAclsOutput.  # noqa: E501
+
+
+        :return: The service_managed of this AclForDescribeAclsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this AclForDescribeAclsOutput.
+
+
+        :param service_managed: The service_managed of this AclForDescribeAclsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._service_managed = service_managed
 
     @property
     def status(self):

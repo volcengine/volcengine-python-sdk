@@ -123,7 +123,7 @@ class DescribeDBInstanceParametersRequest(object):
         :param parameter_role: The parameter_role of this DescribeDBInstanceParametersRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ConfigServer", "Mongos", "Node", "Shard", "Unknown"]  # noqa: E501
+        allowed_values = ["Unknown", "Node", "Shard", "ConfigServer", "Mongos"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 parameter_role not in allowed_values):
             raise ValueError(

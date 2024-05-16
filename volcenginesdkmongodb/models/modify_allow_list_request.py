@@ -68,10 +68,8 @@ class ModifyAllowListRequest(object):
             self.allow_list = allow_list
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
-        if allow_list_id is not None:
-            self.allow_list_id = allow_list_id
-        if allow_list_name is not None:
-            self.allow_list_name = allow_list_name
+        self.allow_list_id = allow_list_id
+        self.allow_list_name = allow_list_name
         if apply_instance_num is not None:
             self.apply_instance_num = apply_instance_num
         if modify_mode is not None:
@@ -137,6 +135,8 @@ class ModifyAllowListRequest(object):
         :param allow_list_id: The allow_list_id of this ModifyAllowListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and allow_list_id is None:
+            raise ValueError("Invalid value for `allow_list_id`, must not be `None`")  # noqa: E501
 
         self._allow_list_id = allow_list_id
 
@@ -158,6 +158,8 @@ class ModifyAllowListRequest(object):
         :param allow_list_name: The allow_list_name of this ModifyAllowListRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and allow_list_name is None:
+            raise ValueError("Invalid value for `allow_list_name`, must not be `None`")  # noqa: E501
 
         self._allow_list_name = allow_list_name
 
@@ -200,7 +202,7 @@ class ModifyAllowListRequest(object):
         :param modify_mode: The modify_mode of this ModifyAllowListRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Append", "Cover", "Delete"]  # noqa: E501
+        allowed_values = ["Cover", "Append", "Delete"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 modify_mode not in allowed_values):
             raise ValueError(

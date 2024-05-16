@@ -68,8 +68,7 @@ class ModifyDBInstanceSpecRequest(object):
         self.discriminator = None
 
         self.instance_id = instance_id
-        if instance_type is not None:
-            self.instance_type = instance_type
+        self.instance_type = instance_type
         if mongos_node_number is not None:
             self.mongos_node_number = mongos_node_number
         if mongos_node_spec is not None:
@@ -122,6 +121,8 @@ class ModifyDBInstanceSpecRequest(object):
         :param instance_type: The instance_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_type is None:
+            raise ValueError("Invalid value for `instance_type`, must not be `None`")  # noqa: E501
         allowed_values = ["ReplicaSet", "ShardedCluster"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_type not in allowed_values):

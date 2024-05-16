@@ -33,38 +33,70 @@ class RuleForCreateRulesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action_type': 'str',
         'description': 'str',
         'domain': 'str',
+        'redirect_config': 'RedirectConfigForCreateRulesInput',
         'server_group_id': 'str',
         'url': 'str'
     }
 
     attribute_map = {
+        'action_type': 'ActionType',
         'description': 'Description',
         'domain': 'Domain',
+        'redirect_config': 'RedirectConfig',
         'server_group_id': 'ServerGroupId',
         'url': 'Url'
     }
 
-    def __init__(self, description=None, domain=None, server_group_id=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_type=None, description=None, domain=None, redirect_config=None, server_group_id=None, url=None, _configuration=None):  # noqa: E501
         """RuleForCreateRulesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action_type = None
         self._description = None
         self._domain = None
+        self._redirect_config = None
         self._server_group_id = None
         self._url = None
         self.discriminator = None
 
+        if action_type is not None:
+            self.action_type = action_type
         if description is not None:
             self.description = description
         if domain is not None:
             self.domain = domain
-        self.server_group_id = server_group_id
+        if redirect_config is not None:
+            self.redirect_config = redirect_config
+        if server_group_id is not None:
+            self.server_group_id = server_group_id
         if url is not None:
             self.url = url
+
+    @property
+    def action_type(self):
+        """Gets the action_type of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The action_type of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_type
+
+    @action_type.setter
+    def action_type(self, action_type):
+        """Sets the action_type of this RuleForCreateRulesInput.
+
+
+        :param action_type: The action_type of this RuleForCreateRulesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._action_type = action_type
 
     @property
     def description(self):
@@ -109,6 +141,27 @@ class RuleForCreateRulesInput(object):
         self._domain = domain
 
     @property
+    def redirect_config(self):
+        """Gets the redirect_config of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The redirect_config of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: RedirectConfigForCreateRulesInput
+        """
+        return self._redirect_config
+
+    @redirect_config.setter
+    def redirect_config(self, redirect_config):
+        """Sets the redirect_config of this RuleForCreateRulesInput.
+
+
+        :param redirect_config: The redirect_config of this RuleForCreateRulesInput.  # noqa: E501
+        :type: RedirectConfigForCreateRulesInput
+        """
+
+        self._redirect_config = redirect_config
+
+    @property
     def server_group_id(self):
         """Gets the server_group_id of this RuleForCreateRulesInput.  # noqa: E501
 
@@ -126,8 +179,6 @@ class RuleForCreateRulesInput(object):
         :param server_group_id: The server_group_id of this RuleForCreateRulesInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and server_group_id is None:
-            raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
 

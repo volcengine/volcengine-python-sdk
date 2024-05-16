@@ -53,8 +53,7 @@ class ModifyDBInstanceSSLRequest(object):
         self.discriminator = None
 
         self.instance_id = instance_id
-        if ssl_action is not None:
-            self.ssl_action = ssl_action
+        self.ssl_action = ssl_action
 
     @property
     def instance_id(self):
@@ -97,7 +96,9 @@ class ModifyDBInstanceSSLRequest(object):
         :param ssl_action: The ssl_action of this ModifyDBInstanceSSLRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Close", "Open", "Update"]  # noqa: E501
+        if self._configuration.client_side_validation and ssl_action is None:
+            raise ValueError("Invalid value for `ssl_action`, must not be `None`")  # noqa: E501
+        allowed_values = ["Open", "Close", "Update"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 ssl_action not in allowed_values):
             raise ValueError(

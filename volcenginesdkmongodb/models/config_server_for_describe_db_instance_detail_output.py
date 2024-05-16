@@ -39,7 +39,8 @@ class ConfigServerForDescribeDBInstanceDetailOutput(object):
         'total_memory_gb': 'float',
         'totalv_cpu': 'float',
         'used_memory_gb': 'float',
-        'usedv_cpu': 'float'
+        'usedv_cpu': 'float',
+        'zone_id': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class ConfigServerForDescribeDBInstanceDetailOutput(object):
         'total_memory_gb': 'TotalMemoryGB',
         'totalv_cpu': 'TotalvCPU',
         'used_memory_gb': 'UsedMemoryGB',
-        'usedv_cpu': 'UsedvCPU'
+        'usedv_cpu': 'UsedvCPU',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, config_server_node_id=None, node_role=None, node_status=None, total_memory_gb=None, totalv_cpu=None, used_memory_gb=None, usedv_cpu=None, _configuration=None):  # noqa: E501
+    def __init__(self, config_server_node_id=None, node_role=None, node_status=None, total_memory_gb=None, totalv_cpu=None, used_memory_gb=None, usedv_cpu=None, zone_id=None, _configuration=None):  # noqa: E501
         """ConfigServerForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class ConfigServerForDescribeDBInstanceDetailOutput(object):
         self._totalv_cpu = None
         self._used_memory_gb = None
         self._usedv_cpu = None
+        self._zone_id = None
         self.discriminator = None
 
         if config_server_node_id is not None:
@@ -81,6 +84,8 @@ class ConfigServerForDescribeDBInstanceDetailOutput(object):
             self.used_memory_gb = used_memory_gb
         if usedv_cpu is not None:
             self.usedv_cpu = usedv_cpu
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def config_server_node_id(self):
@@ -228,6 +233,27 @@ class ConfigServerForDescribeDBInstanceDetailOutput(object):
         """
 
         self._usedv_cpu = usedv_cpu
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this ConfigServerForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The zone_id of this ConfigServerForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this ConfigServerForDescribeDBInstanceDetailOutput.
+
+
+        :param zone_id: The zone_id of this ConfigServerForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -40,10 +40,12 @@ class CreateListenerRequest(object):
         'certificate_id': 'str',
         'connection_drain_enabled': 'str',
         'connection_drain_timeout': 'int',
+        'cookie': 'str',
         'description': 'str',
         'enabled': 'str',
         'established_timeout': 'int',
         'health_check': 'HealthCheckForCreateListenerInput',
+        'http2_enabled': 'str',
         'listener_name': 'str',
         'load_balancer_id': 'str',
         'persistence_timeout': 'int',
@@ -52,7 +54,8 @@ class CreateListenerRequest(object):
         'protocol': 'str',
         'proxy_protocol_type': 'str',
         'scheduler': 'str',
-        'server_group_id': 'str'
+        'server_group_id': 'str',
+        'tags': 'list[TagForCreateListenerInput]'
     }
 
     attribute_map = {
@@ -63,10 +66,12 @@ class CreateListenerRequest(object):
         'certificate_id': 'CertificateId',
         'connection_drain_enabled': 'ConnectionDrainEnabled',
         'connection_drain_timeout': 'ConnectionDrainTimeout',
+        'cookie': 'Cookie',
         'description': 'Description',
         'enabled': 'Enabled',
         'established_timeout': 'EstablishedTimeout',
         'health_check': 'HealthCheck',
+        'http2_enabled': 'Http2Enabled',
         'listener_name': 'ListenerName',
         'load_balancer_id': 'LoadBalancerId',
         'persistence_timeout': 'PersistenceTimeout',
@@ -75,10 +80,11 @@ class CreateListenerRequest(object):
         'protocol': 'Protocol',
         'proxy_protocol_type': 'ProxyProtocolType',
         'scheduler': 'Scheduler',
-        'server_group_id': 'ServerGroupId'
+        'server_group_id': 'ServerGroupId',
+        'tags': 'Tags'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, description=None, enabled=None, established_timeout=None, health_check=None, listener_name=None, load_balancer_id=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, description=None, enabled=None, established_timeout=None, health_check=None, http2_enabled=None, listener_name=None, load_balancer_id=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateListenerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,10 +97,12 @@ class CreateListenerRequest(object):
         self._certificate_id = None
         self._connection_drain_enabled = None
         self._connection_drain_timeout = None
+        self._cookie = None
         self._description = None
         self._enabled = None
         self._established_timeout = None
         self._health_check = None
+        self._http2_enabled = None
         self._listener_name = None
         self._load_balancer_id = None
         self._persistence_timeout = None
@@ -104,6 +112,7 @@ class CreateListenerRequest(object):
         self._proxy_protocol_type = None
         self._scheduler = None
         self._server_group_id = None
+        self._tags = None
         self.discriminator = None
 
         if acl_ids is not None:
@@ -120,6 +129,8 @@ class CreateListenerRequest(object):
             self.connection_drain_enabled = connection_drain_enabled
         if connection_drain_timeout is not None:
             self.connection_drain_timeout = connection_drain_timeout
+        if cookie is not None:
+            self.cookie = cookie
         if description is not None:
             self.description = description
         if enabled is not None:
@@ -128,6 +139,8 @@ class CreateListenerRequest(object):
             self.established_timeout = established_timeout
         if health_check is not None:
             self.health_check = health_check
+        if http2_enabled is not None:
+            self.http2_enabled = http2_enabled
         if listener_name is not None:
             self.listener_name = listener_name
         self.load_balancer_id = load_balancer_id
@@ -142,6 +155,8 @@ class CreateListenerRequest(object):
         if scheduler is not None:
             self.scheduler = scheduler
         self.server_group_id = server_group_id
+        if tags is not None:
+            self.tags = tags
 
     @property
     def acl_ids(self):
@@ -291,6 +306,27 @@ class CreateListenerRequest(object):
         self._connection_drain_timeout = connection_drain_timeout
 
     @property
+    def cookie(self):
+        """Gets the cookie of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The cookie of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cookie
+
+    @cookie.setter
+    def cookie(self, cookie):
+        """Sets the cookie of this CreateListenerRequest.
+
+
+        :param cookie: The cookie of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cookie = cookie
+
+    @property
     def description(self):
         """Gets the description of this CreateListenerRequest.  # noqa: E501
 
@@ -373,6 +409,27 @@ class CreateListenerRequest(object):
         """
 
         self._health_check = health_check
+
+    @property
+    def http2_enabled(self):
+        """Gets the http2_enabled of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The http2_enabled of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._http2_enabled
+
+    @http2_enabled.setter
+    def http2_enabled(self, http2_enabled):
+        """Sets the http2_enabled of this CreateListenerRequest.
+
+
+        :param http2_enabled: The http2_enabled of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._http2_enabled = http2_enabled
 
     @property
     def listener_name(self):
@@ -570,6 +627,27 @@ class CreateListenerRequest(object):
             raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateListenerRequest.  # noqa: E501
+        :rtype: list[TagForCreateListenerInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateListenerRequest.
+
+
+        :param tags: The tags of this CreateListenerRequest.  # noqa: E501
+        :type: list[TagForCreateListenerInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
