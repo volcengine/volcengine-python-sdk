@@ -2,6 +2,7 @@ from typing import List, Optional
 from typing_extensions import Literal
 
 from ..._models import BaseModel
+from ..completion_usage import CompletionUsage
 from .chat_completion_token_logprob import ChatCompletionTokenLogprob
 
 __all__ = [
@@ -119,3 +120,11 @@ class ChatCompletionChunk(BaseModel):
 
     object: Literal["chat.completion.chunk"]
     """The object type, which is always `chat.completion.chunk`."""
+
+    usage: Optional[CompletionUsage] = None
+    """
+    An optional field that will only be present when you set
+    `stream_options: {"include_usage": true}` in your request. When present, it
+    contains a null value except for the last chunk which contains the token usage
+    statistics for the entire request.
+    """

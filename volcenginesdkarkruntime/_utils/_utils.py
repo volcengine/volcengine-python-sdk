@@ -4,10 +4,18 @@ import datetime
 import functools
 import random
 import string
-from typing import Mapping, cast, Any
+from typing import (
+    Any,
+    Mapping,
+    Callable,
+    cast,
+    TypeVar,
+)
 from typing_extensions import TypeGuard
 
 from .._types import NotGiven
+
+CallableT = TypeVar("CallableT", bound=Callable[..., Any])
 
 
 def _gen_request_id():
@@ -48,3 +56,30 @@ def strip_not_given(obj: object | None) -> object:
         return obj
 
     return {key: value for key, value in obj.items() if not isinstance(value, NotGiven)}
+
+
+def with_sts_token(func):
+    def wrapper(*args, **kwargs):
+        _insert_sts_token(args, kwargs)
+        return func(*args, **kwargs)
+
+    return wrapper
+
+
+def async_with_sts_token(func):
+    async def wrapper(*args, **kwargs):
+        _insert_sts_token(args, kwargs)
+        return await func(*args, **kwargs)
+
+    return wrapper
+
+
+def _insert_sts_token(args, kwargs):
+    assert len(args) > 0
+    assert "model" in kwargs
+
+    ark_client = args[0]._client
+    model = kwargs.get("model", "")
+    if model and model.startswith("ep-") and ark_client.ak and ark_client.sk:
+        default_auth_header = {"Authorization": "Bearer " + ark_client._get_endpoint_sts_token(model)}
+        kwargs["extra_headers"] = {**default_auth_header, **kwargs.get("extra_headers", {})}

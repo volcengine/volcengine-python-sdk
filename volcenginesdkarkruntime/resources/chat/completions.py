@@ -5,6 +5,7 @@ from typing import Dict, List, Union, Iterable, Optional
 import httpx
 from typing_extensions import Literal
 
+from ..._utils._utils import with_sts_token, async_with_sts_token
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._compat import cached_property
@@ -37,6 +38,7 @@ class Completions(SyncAPIResource):
     def with_streaming_response(self) -> CompletionsWithStreamingResponse:
         return CompletionsWithStreamingResponse(self)
 
+    @with_sts_token
     def create(
         self,
         *,
@@ -57,7 +59,7 @@ class Completions(SyncAPIResource):
         top_logprobs: Optional[int] | None = None,
         top_p: Optional[float] | None = None,
         user: str | None = None,
-        extra_headers: Dict[str, object] | None = None,
+        extra_headers: Dict[str, str] | None = None,
         extra_query: Dict[str, object] | None = None,
         extra_body: Dict[str, object] | None = None,
         timeout: float | httpx.Timeout | None = None,
@@ -104,6 +106,7 @@ class AsyncCompletions(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncCompletionsWithStreamingResponse:
         return AsyncCompletionsWithStreamingResponse(self)
 
+    @async_with_sts_token
     async def create(
         self,
         *,
@@ -124,7 +127,7 @@ class AsyncCompletions(AsyncAPIResource):
         top_logprobs: Optional[int] | None = None,
         top_p: Optional[float] | None = None,
         user: str | None = None,
-        extra_headers: Dict[str, object] | None = None,
+        extra_headers: Dict[str, str] | None = None,
         extra_query: Dict[str, object] | None = None,
         extra_body: Dict[str, object] | None = None,
         timeout: float | httpx.Timeout | None = None,
