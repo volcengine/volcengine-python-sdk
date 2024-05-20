@@ -33,44 +33,75 @@ class RuleForDescribeRulesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action_type': 'str',
         'description': 'str',
         'domain': 'str',
+        'redirect_config': 'RedirectConfigForDescribeRulesOutput',
         'rule_id': 'str',
         'server_group_id': 'str',
         'url': 'str'
     }
 
     attribute_map = {
+        'action_type': 'ActionType',
         'description': 'Description',
         'domain': 'Domain',
+        'redirect_config': 'RedirectConfig',
         'rule_id': 'RuleId',
         'server_group_id': 'ServerGroupId',
         'url': 'Url'
     }
 
-    def __init__(self, description=None, domain=None, rule_id=None, server_group_id=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_type=None, description=None, domain=None, redirect_config=None, rule_id=None, server_group_id=None, url=None, _configuration=None):  # noqa: E501
         """RuleForDescribeRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action_type = None
         self._description = None
         self._domain = None
+        self._redirect_config = None
         self._rule_id = None
         self._server_group_id = None
         self._url = None
         self.discriminator = None
 
+        if action_type is not None:
+            self.action_type = action_type
         if description is not None:
             self.description = description
         if domain is not None:
             self.domain = domain
+        if redirect_config is not None:
+            self.redirect_config = redirect_config
         if rule_id is not None:
             self.rule_id = rule_id
         if server_group_id is not None:
             self.server_group_id = server_group_id
         if url is not None:
             self.url = url
+
+    @property
+    def action_type(self):
+        """Gets the action_type of this RuleForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The action_type of this RuleForDescribeRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_type
+
+    @action_type.setter
+    def action_type(self, action_type):
+        """Sets the action_type of this RuleForDescribeRulesOutput.
+
+
+        :param action_type: The action_type of this RuleForDescribeRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._action_type = action_type
 
     @property
     def description(self):
@@ -113,6 +144,27 @@ class RuleForDescribeRulesOutput(object):
         """
 
         self._domain = domain
+
+    @property
+    def redirect_config(self):
+        """Gets the redirect_config of this RuleForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The redirect_config of this RuleForDescribeRulesOutput.  # noqa: E501
+        :rtype: RedirectConfigForDescribeRulesOutput
+        """
+        return self._redirect_config
+
+    @redirect_config.setter
+    def redirect_config(self, redirect_config):
+        """Sets the redirect_config of this RuleForDescribeRulesOutput.
+
+
+        :param redirect_config: The redirect_config of this RuleForDescribeRulesOutput.  # noqa: E501
+        :type: RedirectConfigForDescribeRulesOutput
+        """
+
+        self._redirect_config = redirect_config
 
     @property
     def rule_id(self):

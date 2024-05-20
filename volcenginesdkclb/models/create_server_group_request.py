@@ -38,6 +38,7 @@ class CreateServerGroupRequest(object):
         'load_balancer_id': 'str',
         'server_group_name': 'str',
         'servers': 'list[ServerForCreateServerGroupInput]',
+        'tags': 'list[TagForCreateServerGroupInput]',
         'type': 'str'
     }
 
@@ -47,10 +48,11 @@ class CreateServerGroupRequest(object):
         'load_balancer_id': 'LoadBalancerId',
         'server_group_name': 'ServerGroupName',
         'servers': 'Servers',
+        'tags': 'Tags',
         'type': 'Type'
     }
 
-    def __init__(self, address_ip_version=None, description=None, load_balancer_id=None, server_group_name=None, servers=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, description=None, load_balancer_id=None, server_group_name=None, servers=None, tags=None, type=None, _configuration=None):  # noqa: E501
         """CreateServerGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class CreateServerGroupRequest(object):
         self._load_balancer_id = None
         self._server_group_name = None
         self._servers = None
+        self._tags = None
         self._type = None
         self.discriminator = None
 
@@ -73,6 +76,8 @@ class CreateServerGroupRequest(object):
             self.server_group_name = server_group_name
         if servers is not None:
             self.servers = servers
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
 
@@ -182,6 +187,27 @@ class CreateServerGroupRequest(object):
         """
 
         self._servers = servers
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: list[TagForCreateServerGroupInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateServerGroupRequest.
+
+
+        :param tags: The tags of this CreateServerGroupRequest.  # noqa: E501
+        :type: list[TagForCreateServerGroupInput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

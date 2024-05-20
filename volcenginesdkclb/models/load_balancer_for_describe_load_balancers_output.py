@@ -33,6 +33,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'str',
         'address_ip_version': 'str',
         'business_status': 'str',
         'create_time': 'str',
@@ -41,8 +42,11 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'eip_address': 'str',
         'eip_id': 'str',
         'eni_address': 'str',
+        'eni_address_num': 'int',
+        'eni_addresses': 'list[EniAddressForDescribeLoadBalancersOutput]',
         'eni_id': 'str',
         'eni_ipv6_address': 'str',
+        'exclusive_cluster_id': 'str',
         'expired_time': 'str',
         'ipv6_eip_id': 'str',
         'load_balancer_billing_type': 'int',
@@ -53,6 +57,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'master_zone_id': 'str',
         'modification_protection_reason': 'str',
         'modification_protection_status': 'str',
+        'new_arch': 'bool',
         'overdue_time': 'str',
         'project_name': 'str',
         'service_managed': 'bool',
@@ -66,6 +71,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
     }
 
     attribute_map = {
+        'account_id': 'AccountId',
         'address_ip_version': 'AddressIpVersion',
         'business_status': 'BusinessStatus',
         'create_time': 'CreateTime',
@@ -74,8 +80,11 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'eip_address': 'EipAddress',
         'eip_id': 'EipID',
         'eni_address': 'EniAddress',
+        'eni_address_num': 'EniAddressNum',
+        'eni_addresses': 'EniAddresses',
         'eni_id': 'EniID',
         'eni_ipv6_address': 'EniIpv6Address',
+        'exclusive_cluster_id': 'ExclusiveClusterId',
         'expired_time': 'ExpiredTime',
         'ipv6_eip_id': 'Ipv6EipId',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
@@ -86,6 +95,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'master_zone_id': 'MasterZoneId',
         'modification_protection_reason': 'ModificationProtectionReason',
         'modification_protection_status': 'ModificationProtectionStatus',
+        'new_arch': 'NewArch',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'service_managed': 'ServiceManaged',
@@ -98,12 +108,13 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, address_ip_version=None, business_status=None, create_time=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, eni_ipv6_address=None, expired_time=None, ipv6_eip_id=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, address_ip_version=None, business_status=None, create_time=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_address_num=None, eni_addresses=None, eni_id=None, eni_ipv6_address=None, exclusive_cluster_id=None, expired_time=None, ipv6_eip_id=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, new_arch=None, overdue_time=None, project_name=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """LoadBalancerForDescribeLoadBalancersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
         self._address_ip_version = None
         self._business_status = None
         self._create_time = None
@@ -112,8 +123,11 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._eip_address = None
         self._eip_id = None
         self._eni_address = None
+        self._eni_address_num = None
+        self._eni_addresses = None
         self._eni_id = None
         self._eni_ipv6_address = None
+        self._exclusive_cluster_id = None
         self._expired_time = None
         self._ipv6_eip_id = None
         self._load_balancer_billing_type = None
@@ -124,6 +138,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._master_zone_id = None
         self._modification_protection_reason = None
         self._modification_protection_status = None
+        self._new_arch = None
         self._overdue_time = None
         self._project_name = None
         self._service_managed = None
@@ -136,6 +151,8 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
         if address_ip_version is not None:
             self.address_ip_version = address_ip_version
         if business_status is not None:
@@ -152,10 +169,16 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.eip_id = eip_id
         if eni_address is not None:
             self.eni_address = eni_address
+        if eni_address_num is not None:
+            self.eni_address_num = eni_address_num
+        if eni_addresses is not None:
+            self.eni_addresses = eni_addresses
         if eni_id is not None:
             self.eni_id = eni_id
         if eni_ipv6_address is not None:
             self.eni_ipv6_address = eni_ipv6_address
+        if exclusive_cluster_id is not None:
+            self.exclusive_cluster_id = exclusive_cluster_id
         if expired_time is not None:
             self.expired_time = expired_time
         if ipv6_eip_id is not None:
@@ -176,6 +199,8 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.modification_protection_reason = modification_protection_reason
         if modification_protection_status is not None:
             self.modification_protection_status = modification_protection_status
+        if new_arch is not None:
+            self.new_arch = new_arch
         if overdue_time is not None:
             self.overdue_time = overdue_time
         if project_name is not None:
@@ -196,6 +221,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.update_time = update_time
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The account_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param account_id: The account_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def address_ip_version(self):
@@ -366,6 +412,48 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._eni_address = eni_address
 
     @property
+    def eni_address_num(self):
+        """Gets the eni_address_num of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The eni_address_num of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._eni_address_num
+
+    @eni_address_num.setter
+    def eni_address_num(self, eni_address_num):
+        """Sets the eni_address_num of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param eni_address_num: The eni_address_num of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._eni_address_num = eni_address_num
+
+    @property
+    def eni_addresses(self):
+        """Gets the eni_addresses of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The eni_addresses of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: list[EniAddressForDescribeLoadBalancersOutput]
+        """
+        return self._eni_addresses
+
+    @eni_addresses.setter
+    def eni_addresses(self, eni_addresses):
+        """Sets the eni_addresses of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param eni_addresses: The eni_addresses of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: list[EniAddressForDescribeLoadBalancersOutput]
+        """
+
+        self._eni_addresses = eni_addresses
+
+    @property
     def eni_id(self):
         """Gets the eni_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
 
@@ -406,6 +494,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         """
 
         self._eni_ipv6_address = eni_ipv6_address
+
+    @property
+    def exclusive_cluster_id(self):
+        """Gets the exclusive_cluster_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The exclusive_cluster_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._exclusive_cluster_id
+
+    @exclusive_cluster_id.setter
+    def exclusive_cluster_id(self, exclusive_cluster_id):
+        """Sets the exclusive_cluster_id of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param exclusive_cluster_id: The exclusive_cluster_id of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._exclusive_cluster_id = exclusive_cluster_id
 
     @property
     def expired_time(self):
@@ -616,6 +725,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         """
 
         self._modification_protection_status = modification_protection_status
+
+    @property
+    def new_arch(self):
+        """Gets the new_arch of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The new_arch of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._new_arch
+
+    @new_arch.setter
+    def new_arch(self, new_arch):
+        """Sets the new_arch of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param new_arch: The new_arch of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._new_arch = new_arch
 
     @property
     def overdue_time(self):

@@ -55,8 +55,7 @@ class DeleteDBEndpointRequest(object):
         self._mongos_node_ids = None
         self.discriminator = None
 
-        if endpoint_id is not None:
-            self.endpoint_id = endpoint_id
+        self.endpoint_id = endpoint_id
         self.instance_id = instance_id
         if mongos_node_ids is not None:
             self.mongos_node_ids = mongos_node_ids
@@ -79,6 +78,8 @@ class DeleteDBEndpointRequest(object):
         :param endpoint_id: The endpoint_id of this DeleteDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and endpoint_id is None:
+            raise ValueError("Invalid value for `endpoint_id`, must not be `None`")  # noqa: E501
 
         self._endpoint_id = endpoint_id
 

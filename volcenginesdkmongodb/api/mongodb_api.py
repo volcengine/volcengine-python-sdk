@@ -115,7 +115,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AddTagsToResource/2022-01-01/mongodb/post/', 'POST',
+            '/AddTagsToResource/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AssociateAllowList/2022-01-01/mongodb/post/', 'POST',
+            '/AssociateAllowList/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateAllowList/2022-01-01/mongodb/post/', 'POST',
+            '/CreateAllowList/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -317,6 +317,103 @@ class MONGODBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateAllowListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_backup(self, body, **kwargs):  # noqa: E501
+        """create_backup  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_backup(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateBackupRequest body: (required)
+        :return: CreateBackupResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_backup_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_backup_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_backup_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_backup  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_backup_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateBackupRequest body: (required)
+        :return: CreateBackupResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_backup" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_backup`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateBackup/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateBackupResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -406,7 +503,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDBEndpoint/2022-01-01/mongodb/post/', 'POST',
+            '/CreateDBEndpoint/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -503,7 +600,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateDBInstance/2022-01-01/mongodb/post/', 'POST',
+            '/CreateDBInstance/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -600,7 +697,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteAllowList/2022-01-01/mongodb/post/', 'POST',
+            '/DeleteAllowList/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -697,7 +794,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDBEndpoint/2022-01-01/mongodb/post/', 'POST',
+            '/DeleteDBEndpoint/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -794,7 +891,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteDBInstance/2022-01-01/mongodb/post/', 'POST',
+            '/DeleteDBInstance/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -891,7 +988,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAllowListDetail/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeAllowListDetail/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -988,7 +1085,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAllowLists/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeAllowLists/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1182,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAvailabilityZones/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeAvailabilityZones/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1093,6 +1190,103 @@ class MONGODBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeAvailabilityZonesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_backups(self, body, **kwargs):  # noqa: E501
+        """describe_backups  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_backups(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeBackupsRequest body: (required)
+        :return: DescribeBackupsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_backups_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_backups_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_backups_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_backups  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_backups_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeBackupsRequest body: (required)
+        :return: DescribeBackupsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_backups" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_backups`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeBackups/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeBackupsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1182,7 +1376,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBAccounts/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeDBAccounts/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1473,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBEndpoint/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeDBEndpoint/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1287,6 +1481,200 @@ class MONGODBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeDBEndpointResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_db_instance_backup_policy(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_backup_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_backup_policy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceBackupPolicyRequest body: (required)
+        :return: DescribeDBInstanceBackupPolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_db_instance_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_db_instance_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_db_instance_backup_policy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_backup_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_backup_policy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceBackupPolicyRequest body: (required)
+        :return: DescribeDBInstanceBackupPolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_db_instance_backup_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_db_instance_backup_policy`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeDBInstanceBackupPolicy/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeDBInstanceBackupPolicyResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_db_instance_backup_url(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_backup_url  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_backup_url(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceBackupURLRequest body: (required)
+        :return: DescribeDBInstanceBackupURLResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_db_instance_backup_url_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_db_instance_backup_url_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_db_instance_backup_url_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_backup_url  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_backup_url_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceBackupURLRequest body: (required)
+        :return: DescribeDBInstanceBackupURLResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_db_instance_backup_url" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_db_instance_backup_url`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeDBInstanceBackupURL/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeDBInstanceBackupURLResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1376,7 +1764,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBInstanceDetail/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeDBInstanceDetail/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1861,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBInstanceParameters/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeDBInstanceParameters/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1958,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBInstanceParametersLog/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeDBInstanceParametersLog/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +2055,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBInstanceSSL/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeDBInstanceSSL/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +2152,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeDBInstances/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeDBInstances/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +2249,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeNodeSpecs/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeNodeSpecs/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1869,6 +2257,200 @@ class MONGODBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeNodeSpecsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_normal_logs(self, body, **kwargs):  # noqa: E501
+        """describe_normal_logs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_normal_logs(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeNormalLogsRequest body: (required)
+        :return: DescribeNormalLogsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_normal_logs_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_normal_logs_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_normal_logs_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_normal_logs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_normal_logs_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeNormalLogsRequest body: (required)
+        :return: DescribeNormalLogsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_normal_logs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_normal_logs`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeNormalLogs/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeNormalLogsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_recoverable_time(self, body, **kwargs):  # noqa: E501
+        """describe_recoverable_time  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_recoverable_time(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeRecoverableTimeRequest body: (required)
+        :return: DescribeRecoverableTimeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_recoverable_time_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_recoverable_time_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_recoverable_time_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_recoverable_time  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_recoverable_time_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeRecoverableTimeRequest body: (required)
+        :return: DescribeRecoverableTimeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_recoverable_time" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_recoverable_time`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeRecoverableTime/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeRecoverableTimeResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1958,7 +2540,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeRegions/2022-01-01/mongodb/post/', 'POST',
+            '/DescribeRegions/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1966,6 +2548,103 @@ class MONGODBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeRegionsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_slow_logs(self, body, **kwargs):  # noqa: E501
+        """describe_slow_logs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_slow_logs(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSlowLogsRequest body: (required)
+        :return: DescribeSlowLogsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_slow_logs_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_slow_logs_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_slow_logs_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_slow_logs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_slow_logs_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeSlowLogsRequest body: (required)
+        :return: DescribeSlowLogsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_slow_logs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_slow_logs`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeSlowLogs/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeSlowLogsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2055,7 +2734,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisassociateAllowList/2022-01-01/mongodb/post/', 'POST',
+            '/DisassociateAllowList/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2831,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyAllowList/2022-01-01/mongodb/post/', 'POST',
+            '/ModifyAllowList/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2160,6 +2839,103 @@ class MONGODBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyAllowListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_db_instance_backup_url(self, body, **kwargs):  # noqa: E501
+        """modify_db_instance_backup_url  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_db_instance_backup_url(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyDBInstanceBackupURLRequest body: (required)
+        :return: ModifyDBInstanceBackupURLResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_db_instance_backup_url_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_db_instance_backup_url_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_db_instance_backup_url_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_db_instance_backup_url  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_db_instance_backup_url_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyDBInstanceBackupURLRequest body: (required)
+        :return: ModifyDBInstanceBackupURLResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_db_instance_backup_url" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_db_instance_backup_url`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyDBInstanceBackupURL/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyDBInstanceBackupURLResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2249,7 +3025,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceChargeType/2022-01-01/mongodb/post/', 'POST',
+            '/ModifyDBInstanceChargeType/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +3122,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceName/2022-01-01/mongodb/post/', 'POST',
+            '/ModifyDBInstanceName/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +3219,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceParameters/2022-01-01/mongodb/post/', 'POST',
+            '/ModifyDBInstanceParameters/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +3316,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceSpec/2022-01-01/mongodb/post/', 'POST',
+            '/ModifyDBInstanceSpec/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2637,7 +3413,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyDBInstanceSSL/2022-01-01/mongodb/post/', 'POST',
+            '/ModifyDBInstanceSSL/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2734,7 +3510,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RemoveTagsFromResource/2022-01-01/mongodb/post/', 'POST',
+            '/RemoveTagsFromResource/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2831,7 +3607,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ResetDBAccount/2022-01-01/mongodb/post/', 'POST',
+            '/ResetDBAccount/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2928,7 +3704,7 @@ class MONGODBApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RestartDBInstance/2022-01-01/mongodb/post/', 'POST',
+            '/RestartDBInstance/2022-01-01/mongodb/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2936,6 +3712,200 @@ class MONGODBApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='RestartDBInstanceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def restore_to_new_instance(self, body, **kwargs):  # noqa: E501
+        """restore_to_new_instance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.restore_to_new_instance(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param RestoreToNewInstanceRequest body: (required)
+        :return: RestoreToNewInstanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.restore_to_new_instance_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.restore_to_new_instance_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def restore_to_new_instance_with_http_info(self, body, **kwargs):  # noqa: E501
+        """restore_to_new_instance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.restore_to_new_instance_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param RestoreToNewInstanceRequest body: (required)
+        :return: RestoreToNewInstanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method restore_to_new_instance" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `restore_to_new_instance`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/RestoreToNewInstance/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RestoreToNewInstanceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def switch_db_master(self, body, **kwargs):  # noqa: E501
+        """switch_db_master  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.switch_db_master(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SwitchDBMasterRequest body: (required)
+        :return: SwitchDBMasterResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.switch_db_master_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.switch_db_master_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def switch_db_master_with_http_info(self, body, **kwargs):  # noqa: E501
+        """switch_db_master  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.switch_db_master_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SwitchDBMasterRequest body: (required)
+        :return: SwitchDBMasterResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method switch_db_master" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `switch_db_master`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/SwitchDBMaster/2022-01-01/mongodb/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SwitchDBMasterResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

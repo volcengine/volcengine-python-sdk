@@ -38,6 +38,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'description': 'str',
         'server_group_id': 'str',
         'server_group_name': 'str',
+        'tags': 'list[TagForDescribeServerGroupsOutput]',
         'type': 'str',
         'update_time': 'str'
     }
@@ -48,11 +49,12 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'description': 'Description',
         'server_group_id': 'ServerGroupId',
         'server_group_name': 'ServerGroupName',
+        'tags': 'Tags',
         'type': 'Type',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, address_ip_version=None, create_time=None, description=None, server_group_id=None, server_group_name=None, type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, create_time=None, description=None, server_group_id=None, server_group_name=None, tags=None, type=None, update_time=None, _configuration=None):  # noqa: E501
         """ServerGroupForDescribeServerGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         self._description = None
         self._server_group_id = None
         self._server_group_name = None
+        self._tags = None
         self._type = None
         self._update_time = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class ServerGroupForDescribeServerGroupsOutput(object):
             self.server_group_id = server_group_id
         if server_group_name is not None:
             self.server_group_name = server_group_name
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if update_time is not None:
@@ -186,6 +191,27 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         """
 
         self._server_group_name = server_group_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The tags of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeServerGroupsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ServerGroupForDescribeServerGroupsOutput.
+
+
+        :param tags: The tags of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :type: list[TagForDescribeServerGroupsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

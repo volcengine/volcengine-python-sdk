@@ -49,8 +49,7 @@ class DescribeAllowListDetailRequest(object):
         self._allow_list_id = None
         self.discriminator = None
 
-        if allow_list_id is not None:
-            self.allow_list_id = allow_list_id
+        self.allow_list_id = allow_list_id
 
     @property
     def allow_list_id(self):
@@ -70,6 +69,8 @@ class DescribeAllowListDetailRequest(object):
         :param allow_list_id: The allow_list_id of this DescribeAllowListDetailRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and allow_list_id is None:
+            raise ValueError("Invalid value for `allow_list_id`, must not be `None`")  # noqa: E501
 
         self._allow_list_id = allow_list_id
 
