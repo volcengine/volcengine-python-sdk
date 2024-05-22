@@ -33,32 +33,59 @@ class ModifyTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'instance_id': 'str',
         'modify_type': 'str',
         'switch_time': 'str',
         'task_id': 'str'
     }
 
     attribute_map = {
+        'instance_id': 'InstanceId',
         'modify_type': 'ModifyType',
         'switch_time': 'SwitchTime',
         'task_id': 'TaskId'
     }
 
-    def __init__(self, modify_type=None, switch_time=None, task_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, modify_type=None, switch_time=None, task_id=None, _configuration=None):  # noqa: E501
         """ModifyTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._instance_id = None
         self._modify_type = None
         self._switch_time = None
         self._task_id = None
         self.discriminator = None
 
+        self.instance_id = instance_id
         self.modify_type = modify_type
         if switch_time is not None:
             self.switch_time = switch_time
         self.task_id = task_id
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this ModifyTaskRequest.  # noqa: E501
+
+
+        :return: The instance_id of this ModifyTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ModifyTaskRequest.
+
+
+        :param instance_id: The instance_id of this ModifyTaskRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     @property
     def modify_type(self):

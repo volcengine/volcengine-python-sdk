@@ -38,6 +38,7 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
         'download_status': 'str',
         'file_name': 'str',
         'file_size': 'int',
+        'node_id': 'str',
         'update_time': 'str'
     }
 
@@ -47,10 +48,11 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
         'download_status': 'DownloadStatus',
         'file_name': 'FileName',
         'file_size': 'FileSize',
+        'node_id': 'NodeId',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, backup_region=None, backup_status=None, download_status=None, file_name=None, file_size=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_region=None, backup_status=None, download_status=None, file_name=None, file_size=None, node_id=None, update_time=None, _configuration=None):  # noqa: E501
         """BinlogFileForDescribeBinlogFilesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
         self._download_status = None
         self._file_name = None
         self._file_size = None
+        self._node_id = None
         self._update_time = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
             self.file_name = file_name
         if file_size is not None:
             self.file_size = file_size
+        if node_id is not None:
+            self.node_id = node_id
         if update_time is not None:
             self.update_time = update_time
 
@@ -181,6 +186,27 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
         """
 
         self._file_size = file_size
+
+    @property
+    def node_id(self):
+        """Gets the node_id of this BinlogFileForDescribeBinlogFilesOutput.  # noqa: E501
+
+
+        :return: The node_id of this BinlogFileForDescribeBinlogFilesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_id
+
+    @node_id.setter
+    def node_id(self, node_id):
+        """Sets the node_id of this BinlogFileForDescribeBinlogFilesOutput.
+
+
+        :param node_id: The node_id of this BinlogFileForDescribeBinlogFilesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._node_id = node_id
 
     @property
     def update_time(self):

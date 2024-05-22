@@ -43,6 +43,7 @@ class CreateDBInstanceRequest(object):
         'instance_type': 'str',
         'lower_case_table_names': 'str',
         'node_info': 'list[NodeInfoForCreateDBInstanceInput]',
+        'port': 'int',
         'project_name': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
@@ -63,6 +64,7 @@ class CreateDBInstanceRequest(object):
         'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
         'node_info': 'NodeInfo',
+        'port': 'Port',
         'project_name': 'ProjectName',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
@@ -72,7 +74,7 @@ class CreateDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, node_info=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, node_info=None, port=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class CreateDBInstanceRequest(object):
         self._instance_type = None
         self._lower_case_table_names = None
         self._node_info = None
+        self._port = None
         self._project_name = None
         self._storage_space = None
         self._storage_type = None
@@ -116,6 +119,8 @@ class CreateDBInstanceRequest(object):
             self.lower_case_table_names = lower_case_table_names
         if node_info is not None:
             self.node_info = node_info
+        if port is not None:
+            self.port = port
         if project_name is not None:
             self.project_name = project_name
         self.storage_space = storage_space
@@ -338,6 +343,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._node_info = node_info
+
+    @property
+    def port(self):
+        """Gets the port of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The port of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this CreateDBInstanceRequest.
+
+
+        :param port: The port of this CreateDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     @property
     def project_name(self):

@@ -40,6 +40,7 @@ class RestoreToNewInstanceRequest(object):
         'instance_name': 'str',
         'instance_tags': 'list[InstanceTagForRestoreToNewInstanceInput]',
         'node_info': 'list[NodeInfoForRestoreToNewInstanceInput]',
+        'port': 'int',
         'project_name': 'str',
         'restore_time': 'str',
         'src_instance_id': 'str',
@@ -57,6 +58,7 @@ class RestoreToNewInstanceRequest(object):
         'instance_name': 'InstanceName',
         'instance_tags': 'InstanceTags',
         'node_info': 'NodeInfo',
+        'port': 'Port',
         'project_name': 'ProjectName',
         'restore_time': 'RestoreTime',
         'src_instance_id': 'SrcInstanceId',
@@ -66,7 +68,7 @@ class RestoreToNewInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, backup_id=None, charge_info=None, db_param_group_id=None, instance_name=None, instance_tags=None, node_info=None, project_name=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, backup_id=None, charge_info=None, db_param_group_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class RestoreToNewInstanceRequest(object):
         self._instance_name = None
         self._instance_tags = None
         self._node_info = None
+        self._port = None
         self._project_name = None
         self._restore_time = None
         self._src_instance_id = None
@@ -102,6 +105,8 @@ class RestoreToNewInstanceRequest(object):
             self.instance_tags = instance_tags
         if node_info is not None:
             self.node_info = node_info
+        if port is not None:
+            self.port = port
         if project_name is not None:
             self.project_name = project_name
         if restore_time is not None:
@@ -259,6 +264,27 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._node_info = node_info
+
+    @property
+    def port(self):
+        """Gets the port of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The port of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this RestoreToNewInstanceRequest.
+
+
+        :param port: The port of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     @property
     def project_name(self):
