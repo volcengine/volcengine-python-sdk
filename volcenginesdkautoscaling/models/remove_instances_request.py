@@ -34,6 +34,7 @@ class RemoveInstancesRequest(object):
     """
     swagger_types = {
         'decrease_desired_capacity': 'bool',
+        'force_delete': 'bool',
         'instance_ids': 'list[str]',
         'lifecycle_hook': 'bool',
         'remove_mode': 'str',
@@ -42,19 +43,21 @@ class RemoveInstancesRequest(object):
 
     attribute_map = {
         'decrease_desired_capacity': 'DecreaseDesiredCapacity',
+        'force_delete': 'ForceDelete',
         'instance_ids': 'InstanceIds',
         'lifecycle_hook': 'LifecycleHook',
         'remove_mode': 'RemoveMode',
         'scaling_group_id': 'ScalingGroupId'
     }
 
-    def __init__(self, decrease_desired_capacity=None, instance_ids=None, lifecycle_hook=None, remove_mode=None, scaling_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, decrease_desired_capacity=None, force_delete=None, instance_ids=None, lifecycle_hook=None, remove_mode=None, scaling_group_id=None, _configuration=None):  # noqa: E501
         """RemoveInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._decrease_desired_capacity = None
+        self._force_delete = None
         self._instance_ids = None
         self._lifecycle_hook = None
         self._remove_mode = None
@@ -63,14 +66,15 @@ class RemoveInstancesRequest(object):
 
         if decrease_desired_capacity is not None:
             self.decrease_desired_capacity = decrease_desired_capacity
+        if force_delete is not None:
+            self.force_delete = force_delete
         if instance_ids is not None:
             self.instance_ids = instance_ids
         if lifecycle_hook is not None:
             self.lifecycle_hook = lifecycle_hook
         if remove_mode is not None:
             self.remove_mode = remove_mode
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
 
     @property
     def decrease_desired_capacity(self):
@@ -92,6 +96,27 @@ class RemoveInstancesRequest(object):
         """
 
         self._decrease_desired_capacity = decrease_desired_capacity
+
+    @property
+    def force_delete(self):
+        """Gets the force_delete of this RemoveInstancesRequest.  # noqa: E501
+
+
+        :return: The force_delete of this RemoveInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._force_delete
+
+    @force_delete.setter
+    def force_delete(self, force_delete):
+        """Sets the force_delete of this RemoveInstancesRequest.
+
+
+        :param force_delete: The force_delete of this RemoveInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._force_delete = force_delete
 
     @property
     def instance_ids(self):
@@ -174,6 +199,8 @@ class RemoveInstancesRequest(object):
         :param scaling_group_id: The scaling_group_id of this RemoveInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

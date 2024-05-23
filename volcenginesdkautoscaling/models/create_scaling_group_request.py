@@ -39,6 +39,7 @@ class CreateScalingGroupRequest(object):
         'desire_instance_number': 'int',
         'health_check_type': 'str',
         'instance_terminate_policy': 'str',
+        'instances_distribution': 'InstancesDistributionForCreateScalingGroupInput',
         'launch_template_id': 'str',
         'launch_template_overrides': 'list[LaunchTemplateOverrideForCreateScalingGroupInput]',
         'launch_template_version': 'str',
@@ -60,6 +61,7 @@ class CreateScalingGroupRequest(object):
         'desire_instance_number': 'DesireInstanceNumber',
         'health_check_type': 'HealthCheckType',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
+        'instances_distribution': 'InstancesDistribution',
         'launch_template_id': 'LaunchTemplateId',
         'launch_template_overrides': 'LaunchTemplateOverrides',
         'launch_template_version': 'LaunchTemplateVersion',
@@ -74,7 +76,7 @@ class CreateScalingGroupRequest(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, project_name=None, scaling_group_name=None, scaling_mode=None, server_group_attributes=None, subnet_ids=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, instances_distribution=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, project_name=None, scaling_group_name=None, scaling_mode=None, server_group_attributes=None, subnet_ids=None, tags=None, _configuration=None):  # noqa: E501
         """CreateScalingGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class CreateScalingGroupRequest(object):
         self._desire_instance_number = None
         self._health_check_type = None
         self._instance_terminate_policy = None
+        self._instances_distribution = None
         self._launch_template_id = None
         self._launch_template_overrides = None
         self._launch_template_version = None
@@ -112,22 +115,21 @@ class CreateScalingGroupRequest(object):
             self.health_check_type = health_check_type
         if instance_terminate_policy is not None:
             self.instance_terminate_policy = instance_terminate_policy
+        if instances_distribution is not None:
+            self.instances_distribution = instances_distribution
         if launch_template_id is not None:
             self.launch_template_id = launch_template_id
         if launch_template_overrides is not None:
             self.launch_template_overrides = launch_template_overrides
         if launch_template_version is not None:
             self.launch_template_version = launch_template_version
-        if max_instance_number is not None:
-            self.max_instance_number = max_instance_number
-        if min_instance_number is not None:
-            self.min_instance_number = min_instance_number
+        self.max_instance_number = max_instance_number
+        self.min_instance_number = min_instance_number
         if multi_az_policy is not None:
             self.multi_az_policy = multi_az_policy
         if project_name is not None:
             self.project_name = project_name
-        if scaling_group_name is not None:
-            self.scaling_group_name = scaling_group_name
+        self.scaling_group_name = scaling_group_name
         if scaling_mode is not None:
             self.scaling_mode = scaling_mode
         if server_group_attributes is not None:
@@ -155,6 +157,9 @@ class CreateScalingGroupRequest(object):
         :param client_token: The client_token of this CreateScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                client_token is not None and len(client_token) > 64):
+            raise ValueError("Invalid value for `client_token`, length must be less than or equal to `64`")  # noqa: E501
 
         self._client_token = client_token
 
@@ -197,6 +202,12 @@ class CreateScalingGroupRequest(object):
         :param default_cooldown: The default_cooldown of this CreateScalingGroupRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                default_cooldown is not None and default_cooldown > 86400):  # noqa: E501
+            raise ValueError("Invalid value for `default_cooldown`, must be a value less than or equal to `86400`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                default_cooldown is not None and default_cooldown < 5):  # noqa: E501
+            raise ValueError("Invalid value for `default_cooldown`, must be a value greater than or equal to `5`")  # noqa: E501
 
         self._default_cooldown = default_cooldown
 
@@ -262,6 +273,27 @@ class CreateScalingGroupRequest(object):
         """
 
         self._instance_terminate_policy = instance_terminate_policy
+
+    @property
+    def instances_distribution(self):
+        """Gets the instances_distribution of this CreateScalingGroupRequest.  # noqa: E501
+
+
+        :return: The instances_distribution of this CreateScalingGroupRequest.  # noqa: E501
+        :rtype: InstancesDistributionForCreateScalingGroupInput
+        """
+        return self._instances_distribution
+
+    @instances_distribution.setter
+    def instances_distribution(self, instances_distribution):
+        """Sets the instances_distribution of this CreateScalingGroupRequest.
+
+
+        :param instances_distribution: The instances_distribution of this CreateScalingGroupRequest.  # noqa: E501
+        :type: InstancesDistributionForCreateScalingGroupInput
+        """
+
+        self._instances_distribution = instances_distribution
 
     @property
     def launch_template_id(self):
@@ -344,6 +376,8 @@ class CreateScalingGroupRequest(object):
         :param max_instance_number: The max_instance_number of this CreateScalingGroupRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and max_instance_number is None:
+            raise ValueError("Invalid value for `max_instance_number`, must not be `None`")  # noqa: E501
 
         self._max_instance_number = max_instance_number
 
@@ -365,6 +399,8 @@ class CreateScalingGroupRequest(object):
         :param min_instance_number: The min_instance_number of this CreateScalingGroupRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and min_instance_number is None:
+            raise ValueError("Invalid value for `min_instance_number`, must not be `None`")  # noqa: E501
 
         self._min_instance_number = min_instance_number
 
@@ -407,6 +443,9 @@ class CreateScalingGroupRequest(object):
         :param project_name: The project_name of this CreateScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._project_name = project_name
 
@@ -428,6 +467,8 @@ class CreateScalingGroupRequest(object):
         :param scaling_group_name: The scaling_group_name of this CreateScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_name is None:
+            raise ValueError("Invalid value for `scaling_group_name`, must not be `None`")  # noqa: E501
 
         self._scaling_group_name = scaling_group_name
 

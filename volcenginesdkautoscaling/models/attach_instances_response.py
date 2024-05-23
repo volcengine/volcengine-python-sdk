@@ -33,17 +33,45 @@ class AttachInstancesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'scaling_activity_id': 'str'
     }
 
     attribute_map = {
+        'scaling_activity_id': 'ScalingActivityId'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, scaling_activity_id=None, _configuration=None):  # noqa: E501
         """AttachInstancesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._scaling_activity_id = None
         self.discriminator = None
+
+        if scaling_activity_id is not None:
+            self.scaling_activity_id = scaling_activity_id
+
+    @property
+    def scaling_activity_id(self):
+        """Gets the scaling_activity_id of this AttachInstancesResponse.  # noqa: E501
+
+
+        :return: The scaling_activity_id of this AttachInstancesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._scaling_activity_id
+
+    @scaling_activity_id.setter
+    def scaling_activity_id(self, scaling_activity_id):
+        """Sets the scaling_activity_id of this AttachInstancesResponse.
+
+
+        :param scaling_activity_id: The scaling_activity_id of this AttachInstancesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._scaling_activity_id = scaling_activity_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

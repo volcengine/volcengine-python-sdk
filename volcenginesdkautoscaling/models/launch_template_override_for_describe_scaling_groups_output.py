@@ -33,24 +33,34 @@ class LaunchTemplateOverrideForDescribeScalingGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_type': 'str'
+        'instance_type': 'str',
+        'price_limit': 'float',
+        'weighted_capacity': 'int'
     }
 
     attribute_map = {
-        'instance_type': 'InstanceType'
+        'instance_type': 'InstanceType',
+        'price_limit': 'PriceLimit',
+        'weighted_capacity': 'WeightedCapacity'
     }
 
-    def __init__(self, instance_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_type=None, price_limit=None, weighted_capacity=None, _configuration=None):  # noqa: E501
         """LaunchTemplateOverrideForDescribeScalingGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_type = None
+        self._price_limit = None
+        self._weighted_capacity = None
         self.discriminator = None
 
         if instance_type is not None:
             self.instance_type = instance_type
+        if price_limit is not None:
+            self.price_limit = price_limit
+        if weighted_capacity is not None:
+            self.weighted_capacity = weighted_capacity
 
     @property
     def instance_type(self):
@@ -72,6 +82,48 @@ class LaunchTemplateOverrideForDescribeScalingGroupsOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def price_limit(self):
+        """Gets the price_limit of this LaunchTemplateOverrideForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The price_limit of this LaunchTemplateOverrideForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._price_limit
+
+    @price_limit.setter
+    def price_limit(self, price_limit):
+        """Sets the price_limit of this LaunchTemplateOverrideForDescribeScalingGroupsOutput.
+
+
+        :param price_limit: The price_limit of this LaunchTemplateOverrideForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._price_limit = price_limit
+
+    @property
+    def weighted_capacity(self):
+        """Gets the weighted_capacity of this LaunchTemplateOverrideForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The weighted_capacity of this LaunchTemplateOverrideForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._weighted_capacity
+
+    @weighted_capacity.setter
+    def weighted_capacity(self, weighted_capacity):
+        """Sets the weighted_capacity of this LaunchTemplateOverrideForDescribeScalingGroupsOutput.
+
+
+        :param weighted_capacity: The weighted_capacity of this LaunchTemplateOverrideForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._weighted_capacity = weighted_capacity
 
     def to_dict(self):
         """Returns the model properties as a dict"""

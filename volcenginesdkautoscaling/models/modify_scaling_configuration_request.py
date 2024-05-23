@@ -39,6 +39,7 @@ class ModifyScalingConfigurationRequest(object):
         'image_id': 'str',
         'instance_description': 'str',
         'instance_name': 'str',
+        'instance_type_overrides': 'list[InstanceTypeOverrideForModifyScalingConfigurationInput]',
         'instance_types': 'list[str]',
         'ipv6_address_count': 'int',
         'key_pair_name': 'str',
@@ -62,6 +63,7 @@ class ModifyScalingConfigurationRequest(object):
         'image_id': 'ImageId',
         'instance_description': 'InstanceDescription',
         'instance_name': 'InstanceName',
+        'instance_type_overrides': 'InstanceTypeOverrides',
         'instance_types': 'InstanceTypes',
         'ipv6_address_count': 'Ipv6AddressCount',
         'key_pair_name': 'KeyPairName',
@@ -78,7 +80,7 @@ class ModifyScalingConfigurationRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, eip=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_description=None, instance_name=None, instance_types=None, ipv6_address_count=None, key_pair_name=None, password=None, project_name=None, scaling_configuration_id=None, scaling_configuration_name=None, security_enhancement_strategy=None, security_group_ids=None, spot_strategy=None, tags=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_description=None, instance_name=None, instance_type_overrides=None, instance_types=None, ipv6_address_count=None, key_pair_name=None, password=None, project_name=None, scaling_configuration_id=None, scaling_configuration_name=None, security_enhancement_strategy=None, security_group_ids=None, spot_strategy=None, tags=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """ModifyScalingConfigurationRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,6 +92,7 @@ class ModifyScalingConfigurationRequest(object):
         self._image_id = None
         self._instance_description = None
         self._instance_name = None
+        self._instance_type_overrides = None
         self._instance_types = None
         self._ipv6_address_count = None
         self._key_pair_name = None
@@ -118,6 +121,8 @@ class ModifyScalingConfigurationRequest(object):
             self.instance_description = instance_description
         if instance_name is not None:
             self.instance_name = instance_name
+        if instance_type_overrides is not None:
+            self.instance_type_overrides = instance_type_overrides
         if instance_types is not None:
             self.instance_types = instance_types
         if ipv6_address_count is not None:
@@ -128,8 +133,7 @@ class ModifyScalingConfigurationRequest(object):
             self.password = password
         if project_name is not None:
             self.project_name = project_name
-        if scaling_configuration_id is not None:
-            self.scaling_configuration_id = scaling_configuration_id
+        self.scaling_configuration_id = scaling_configuration_id
         if scaling_configuration_name is not None:
             self.scaling_configuration_name = scaling_configuration_name
         if security_enhancement_strategy is not None:
@@ -274,6 +278,27 @@ class ModifyScalingConfigurationRequest(object):
         self._instance_name = instance_name
 
     @property
+    def instance_type_overrides(self):
+        """Gets the instance_type_overrides of this ModifyScalingConfigurationRequest.  # noqa: E501
+
+
+        :return: The instance_type_overrides of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :rtype: list[InstanceTypeOverrideForModifyScalingConfigurationInput]
+        """
+        return self._instance_type_overrides
+
+    @instance_type_overrides.setter
+    def instance_type_overrides(self, instance_type_overrides):
+        """Sets the instance_type_overrides of this ModifyScalingConfigurationRequest.
+
+
+        :param instance_type_overrides: The instance_type_overrides of this ModifyScalingConfigurationRequest.  # noqa: E501
+        :type: list[InstanceTypeOverrideForModifyScalingConfigurationInput]
+        """
+
+        self._instance_type_overrides = instance_type_overrides
+
+    @property
     def instance_types(self):
         """Gets the instance_types of this ModifyScalingConfigurationRequest.  # noqa: E501
 
@@ -396,6 +421,8 @@ class ModifyScalingConfigurationRequest(object):
         :param scaling_configuration_id: The scaling_configuration_id of this ModifyScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_configuration_id is None:
+            raise ValueError("Invalid value for `scaling_configuration_id`, must not be `None`")  # noqa: E501
 
         self._scaling_configuration_id = scaling_configuration_id
 
@@ -417,6 +444,12 @@ class ModifyScalingConfigurationRequest(object):
         :param scaling_configuration_name: The scaling_configuration_name of this ModifyScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                scaling_configuration_name is not None and len(scaling_configuration_name) > 128):
+            raise ValueError("Invalid value for `scaling_configuration_name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scaling_configuration_name is not None and len(scaling_configuration_name) < 1):
+            raise ValueError("Invalid value for `scaling_configuration_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._scaling_configuration_name = scaling_configuration_name
 

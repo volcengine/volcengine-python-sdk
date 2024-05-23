@@ -33,6 +33,7 @@ class ModifyLifecycleHookRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'lifecycle_command': 'LifecycleCommandForModifyLifecycleHookInput',
         'lifecycle_hook_id': 'str',
         'lifecycle_hook_policy': 'str',
         'lifecycle_hook_timeout': 'int',
@@ -40,32 +41,56 @@ class ModifyLifecycleHookRequest(object):
     }
 
     attribute_map = {
+        'lifecycle_command': 'LifecycleCommand',
         'lifecycle_hook_id': 'LifecycleHookId',
         'lifecycle_hook_policy': 'LifecycleHookPolicy',
         'lifecycle_hook_timeout': 'LifecycleHookTimeout',
         'lifecycle_hook_type': 'LifecycleHookType'
     }
 
-    def __init__(self, lifecycle_hook_id=None, lifecycle_hook_policy=None, lifecycle_hook_timeout=None, lifecycle_hook_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, lifecycle_command=None, lifecycle_hook_id=None, lifecycle_hook_policy=None, lifecycle_hook_timeout=None, lifecycle_hook_type=None, _configuration=None):  # noqa: E501
         """ModifyLifecycleHookRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._lifecycle_command = None
         self._lifecycle_hook_id = None
         self._lifecycle_hook_policy = None
         self._lifecycle_hook_timeout = None
         self._lifecycle_hook_type = None
         self.discriminator = None
 
-        if lifecycle_hook_id is not None:
-            self.lifecycle_hook_id = lifecycle_hook_id
+        if lifecycle_command is not None:
+            self.lifecycle_command = lifecycle_command
+        self.lifecycle_hook_id = lifecycle_hook_id
         if lifecycle_hook_policy is not None:
             self.lifecycle_hook_policy = lifecycle_hook_policy
         if lifecycle_hook_timeout is not None:
             self.lifecycle_hook_timeout = lifecycle_hook_timeout
         if lifecycle_hook_type is not None:
             self.lifecycle_hook_type = lifecycle_hook_type
+
+    @property
+    def lifecycle_command(self):
+        """Gets the lifecycle_command of this ModifyLifecycleHookRequest.  # noqa: E501
+
+
+        :return: The lifecycle_command of this ModifyLifecycleHookRequest.  # noqa: E501
+        :rtype: LifecycleCommandForModifyLifecycleHookInput
+        """
+        return self._lifecycle_command
+
+    @lifecycle_command.setter
+    def lifecycle_command(self, lifecycle_command):
+        """Sets the lifecycle_command of this ModifyLifecycleHookRequest.
+
+
+        :param lifecycle_command: The lifecycle_command of this ModifyLifecycleHookRequest.  # noqa: E501
+        :type: LifecycleCommandForModifyLifecycleHookInput
+        """
+
+        self._lifecycle_command = lifecycle_command
 
     @property
     def lifecycle_hook_id(self):
@@ -85,6 +110,8 @@ class ModifyLifecycleHookRequest(object):
         :param lifecycle_hook_id: The lifecycle_hook_id of this ModifyLifecycleHookRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and lifecycle_hook_id is None:
+            raise ValueError("Invalid value for `lifecycle_hook_id`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_id = lifecycle_hook_id
 

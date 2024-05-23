@@ -33,7 +33,7 @@ class ListTagResourcesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'max_results': 'str',
+        'max_results': 'int',
         'next_token': 'str',
         'resource_ids': 'list[str]',
         'resource_type': 'str',
@@ -67,8 +67,7 @@ class ListTagResourcesRequest(object):
             self.next_token = next_token
         if resource_ids is not None:
             self.resource_ids = resource_ids
-        if resource_type is not None:
-            self.resource_type = resource_type
+        self.resource_type = resource_type
         if tag_filters is not None:
             self.tag_filters = tag_filters
 
@@ -78,7 +77,7 @@ class ListTagResourcesRequest(object):
 
 
         :return: The max_results of this ListTagResourcesRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._max_results
 
@@ -88,8 +87,14 @@ class ListTagResourcesRequest(object):
 
 
         :param max_results: The max_results of this ListTagResourcesRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results > 100):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value less than or equal to `100`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                max_results is not None and max_results < 1):  # noqa: E501
+            raise ValueError("Invalid value for `max_results`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._max_results = max_results
 
@@ -153,6 +158,8 @@ class ListTagResourcesRequest(object):
         :param resource_type: The resource_type of this ListTagResourcesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and resource_type is None:
+            raise ValueError("Invalid value for `resource_type`, must not be `None`")  # noqa: E501
 
         self._resource_type = resource_type
 

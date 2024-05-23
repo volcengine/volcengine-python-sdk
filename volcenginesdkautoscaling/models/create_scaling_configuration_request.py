@@ -40,6 +40,7 @@ class CreateScalingConfigurationRequest(object):
         'image_id': 'str',
         'instance_description': 'str',
         'instance_name': 'str',
+        'instance_type_overrides': 'list[InstanceTypeOverrideForCreateScalingConfigurationInput]',
         'instance_types': 'list[str]',
         'ipv6_address_count': 'int',
         'key_pair_name': 'str',
@@ -64,6 +65,7 @@ class CreateScalingConfigurationRequest(object):
         'image_id': 'ImageId',
         'instance_description': 'InstanceDescription',
         'instance_name': 'InstanceName',
+        'instance_type_overrides': 'InstanceTypeOverrides',
         'instance_types': 'InstanceTypes',
         'ipv6_address_count': 'Ipv6AddressCount',
         'key_pair_name': 'KeyPairName',
@@ -80,7 +82,7 @@ class CreateScalingConfigurationRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, eip=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_description=None, instance_name=None, instance_types=None, ipv6_address_count=None, key_pair_name=None, password=None, project_name=None, scaling_configuration_name=None, scaling_group_id=None, security_enhancement_strategy=None, security_group_ids=None, spot_strategy=None, tags=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, eip=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_description=None, instance_name=None, instance_type_overrides=None, instance_types=None, ipv6_address_count=None, key_pair_name=None, password=None, project_name=None, scaling_configuration_name=None, scaling_group_id=None, security_enhancement_strategy=None, security_group_ids=None, spot_strategy=None, tags=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateScalingConfigurationRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class CreateScalingConfigurationRequest(object):
         self._image_id = None
         self._instance_description = None
         self._instance_name = None
+        self._instance_type_overrides = None
         self._instance_types = None
         self._ipv6_address_count = None
         self._key_pair_name = None
@@ -117,12 +120,12 @@ class CreateScalingConfigurationRequest(object):
             self.host_name = host_name
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
-        if image_id is not None:
-            self.image_id = image_id
+        self.image_id = image_id
         if instance_description is not None:
             self.instance_description = instance_description
-        if instance_name is not None:
-            self.instance_name = instance_name
+        self.instance_name = instance_name
+        if instance_type_overrides is not None:
+            self.instance_type_overrides = instance_type_overrides
         if instance_types is not None:
             self.instance_types = instance_types
         if ipv6_address_count is not None:
@@ -133,10 +136,8 @@ class CreateScalingConfigurationRequest(object):
             self.password = password
         if project_name is not None:
             self.project_name = project_name
-        if scaling_configuration_name is not None:
-            self.scaling_configuration_name = scaling_configuration_name
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_configuration_name = scaling_configuration_name
+        self.scaling_group_id = scaling_group_id
         if security_enhancement_strategy is not None:
             self.security_enhancement_strategy = security_enhancement_strategy
         if security_group_ids is not None:
@@ -254,6 +255,8 @@ class CreateScalingConfigurationRequest(object):
         :param image_id: The image_id of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and image_id is None:
+            raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
 
@@ -296,8 +299,31 @@ class CreateScalingConfigurationRequest(object):
         :param instance_name: The instance_name of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_name is None:
+            raise ValueError("Invalid value for `instance_name`, must not be `None`")  # noqa: E501
 
         self._instance_name = instance_name
+
+    @property
+    def instance_type_overrides(self):
+        """Gets the instance_type_overrides of this CreateScalingConfigurationRequest.  # noqa: E501
+
+
+        :return: The instance_type_overrides of this CreateScalingConfigurationRequest.  # noqa: E501
+        :rtype: list[InstanceTypeOverrideForCreateScalingConfigurationInput]
+        """
+        return self._instance_type_overrides
+
+    @instance_type_overrides.setter
+    def instance_type_overrides(self, instance_type_overrides):
+        """Sets the instance_type_overrides of this CreateScalingConfigurationRequest.
+
+
+        :param instance_type_overrides: The instance_type_overrides of this CreateScalingConfigurationRequest.  # noqa: E501
+        :type: list[InstanceTypeOverrideForCreateScalingConfigurationInput]
+        """
+
+        self._instance_type_overrides = instance_type_overrides
 
     @property
     def instance_types(self):
@@ -380,6 +406,12 @@ class CreateScalingConfigurationRequest(object):
         :param password: The password of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                password is not None and len(password) > 30):
+            raise ValueError("Invalid value for `password`, length must be less than or equal to `30`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                password is not None and len(password) < 8):
+            raise ValueError("Invalid value for `password`, length must be greater than or equal to `8`")  # noqa: E501
 
         self._password = password
 
@@ -401,6 +433,9 @@ class CreateScalingConfigurationRequest(object):
         :param project_name: The project_name of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._project_name = project_name
 
@@ -422,6 +457,14 @@ class CreateScalingConfigurationRequest(object):
         :param scaling_configuration_name: The scaling_configuration_name of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_configuration_name is None:
+            raise ValueError("Invalid value for `scaling_configuration_name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scaling_configuration_name is not None and len(scaling_configuration_name) > 128):
+            raise ValueError("Invalid value for `scaling_configuration_name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scaling_configuration_name is not None and len(scaling_configuration_name) < 1):
+            raise ValueError("Invalid value for `scaling_configuration_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._scaling_configuration_name = scaling_configuration_name
 
@@ -443,6 +486,8 @@ class CreateScalingConfigurationRequest(object):
         :param scaling_group_id: The scaling_group_id of this CreateScalingConfigurationRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

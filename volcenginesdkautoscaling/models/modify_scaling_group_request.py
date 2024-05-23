@@ -38,6 +38,7 @@ class ModifyScalingGroupRequest(object):
         'desire_instance_number': 'int',
         'health_check_type': 'str',
         'instance_terminate_policy': 'str',
+        'instances_distribution': 'InstancesDistributionForModifyScalingGroupInput',
         'launch_template_id': 'str',
         'launch_template_overrides': 'list[LaunchTemplateOverrideForModifyScalingGroupInput]',
         'launch_template_version': 'str',
@@ -55,6 +56,7 @@ class ModifyScalingGroupRequest(object):
         'desire_instance_number': 'DesireInstanceNumber',
         'health_check_type': 'HealthCheckType',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
+        'instances_distribution': 'InstancesDistribution',
         'launch_template_id': 'LaunchTemplateId',
         'launch_template_overrides': 'LaunchTemplateOverrides',
         'launch_template_version': 'LaunchTemplateVersion',
@@ -66,7 +68,7 @@ class ModifyScalingGroupRequest(object):
         'subnet_ids': 'SubnetIds'
     }
 
-    def __init__(self, active_scaling_configuration_id=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, scaling_group_id=None, scaling_group_name=None, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_scaling_configuration_id=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, instances_distribution=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, scaling_group_id=None, scaling_group_name=None, subnet_ids=None, _configuration=None):  # noqa: E501
         """ModifyScalingGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class ModifyScalingGroupRequest(object):
         self._desire_instance_number = None
         self._health_check_type = None
         self._instance_terminate_policy = None
+        self._instances_distribution = None
         self._launch_template_id = None
         self._launch_template_overrides = None
         self._launch_template_version = None
@@ -98,6 +101,8 @@ class ModifyScalingGroupRequest(object):
             self.health_check_type = health_check_type
         if instance_terminate_policy is not None:
             self.instance_terminate_policy = instance_terminate_policy
+        if instances_distribution is not None:
+            self.instances_distribution = instances_distribution
         if launch_template_id is not None:
             self.launch_template_id = launch_template_id
         if launch_template_overrides is not None:
@@ -110,8 +115,7 @@ class ModifyScalingGroupRequest(object):
             self.min_instance_number = min_instance_number
         if multi_az_policy is not None:
             self.multi_az_policy = multi_az_policy
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
         if scaling_group_name is not None:
             self.scaling_group_name = scaling_group_name
         if subnet_ids is not None:
@@ -221,6 +225,27 @@ class ModifyScalingGroupRequest(object):
         """
 
         self._instance_terminate_policy = instance_terminate_policy
+
+    @property
+    def instances_distribution(self):
+        """Gets the instances_distribution of this ModifyScalingGroupRequest.  # noqa: E501
+
+
+        :return: The instances_distribution of this ModifyScalingGroupRequest.  # noqa: E501
+        :rtype: InstancesDistributionForModifyScalingGroupInput
+        """
+        return self._instances_distribution
+
+    @instances_distribution.setter
+    def instances_distribution(self, instances_distribution):
+        """Sets the instances_distribution of this ModifyScalingGroupRequest.
+
+
+        :param instances_distribution: The instances_distribution of this ModifyScalingGroupRequest.  # noqa: E501
+        :type: InstancesDistributionForModifyScalingGroupInput
+        """
+
+        self._instances_distribution = instances_distribution
 
     @property
     def launch_template_id(self):
@@ -366,6 +391,8 @@ class ModifyScalingGroupRequest(object):
         :param scaling_group_id: The scaling_group_id of this ModifyScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 
@@ -387,6 +414,9 @@ class ModifyScalingGroupRequest(object):
         :param scaling_group_name: The scaling_group_name of this ModifyScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                scaling_group_name is not None and len(scaling_group_name) > 128):
+            raise ValueError("Invalid value for `scaling_group_name`, length must be less than or equal to `128`")  # noqa: E501
 
         self._scaling_group_name = scaling_group_name
 

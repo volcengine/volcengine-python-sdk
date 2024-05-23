@@ -58,8 +58,7 @@ class ScheduledPolicyForCreateScalingPolicyInput(object):
         self._recurrence_value = None
         self.discriminator = None
 
-        if launch_time is not None:
-            self.launch_time = launch_time
+        self.launch_time = launch_time
         if recurrence_end_time is not None:
             self.recurrence_end_time = recurrence_end_time
         if recurrence_type is not None:
@@ -85,6 +84,8 @@ class ScheduledPolicyForCreateScalingPolicyInput(object):
         :param launch_time: The launch_time of this ScheduledPolicyForCreateScalingPolicyInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and launch_time is None:
+            raise ValueError("Invalid value for `launch_time`, must not be `None`")  # noqa: E501
 
         self._launch_time = launch_time
 
