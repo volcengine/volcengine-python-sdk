@@ -36,6 +36,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'capacity': 'CapacityForDescribeDBInstancesOutput',
         'charge_type': 'str',
         'create_time': 'str',
+        'deletion_protection': 'str',
         'engine_version': 'str',
         'expired_time': 'str',
         'instance_class': 'str',
@@ -45,6 +46,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'node_number': 'int',
         'project_name': 'str',
         'region_id': 'str',
+        'service_type': 'str',
         'shard_capacity': 'float',
         'shard_number': 'int',
         'sharded_cluster': 'int',
@@ -58,6 +60,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'capacity': 'Capacity',
         'charge_type': 'ChargeType',
         'create_time': 'CreateTime',
+        'deletion_protection': 'DeletionProtection',
         'engine_version': 'EngineVersion',
         'expired_time': 'ExpiredTime',
         'instance_class': 'InstanceClass',
@@ -67,6 +70,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'node_number': 'NodeNumber',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
+        'service_type': 'ServiceType',
         'shard_capacity': 'ShardCapacity',
         'shard_number': 'ShardNumber',
         'sharded_cluster': 'ShardedCluster',
@@ -76,7 +80,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, capacity=None, charge_type=None, create_time=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacity=None, charge_type=None, create_time=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, multi_az=None, node_number=None, project_name=None, region_id=None, service_type=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +89,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._capacity = None
         self._charge_type = None
         self._create_time = None
+        self._deletion_protection = None
         self._engine_version = None
         self._expired_time = None
         self._instance_class = None
@@ -94,6 +99,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._node_number = None
         self._project_name = None
         self._region_id = None
+        self._service_type = None
         self._shard_capacity = None
         self._shard_number = None
         self._sharded_cluster = None
@@ -109,6 +115,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.charge_type = charge_type
         if create_time is not None:
             self.create_time = create_time
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         if engine_version is not None:
             self.engine_version = engine_version
         if expired_time is not None:
@@ -127,6 +135,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
+        if service_type is not None:
+            self.service_type = service_type
         if shard_capacity is not None:
             self.shard_capacity = shard_capacity
         if shard_number is not None:
@@ -204,6 +214,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param deletion_protection: The deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deletion_protection = deletion_protection
 
     @property
     def engine_version(self):
@@ -393,6 +424,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._region_id = region_id
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The service_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param service_type: The service_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._service_type = service_type
 
     @property
     def shard_capacity(self):

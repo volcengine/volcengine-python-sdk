@@ -38,6 +38,7 @@ class EnableShardedClusterRequest(object):
         'client_token': 'str',
         'create_backup': 'bool',
         'instance_id': 'str',
+        'shard_capacity': 'int',
         'shard_number': 'int',
         'sharded_cluster': 'int'
     }
@@ -48,11 +49,12 @@ class EnableShardedClusterRequest(object):
         'client_token': 'ClientToken',
         'create_backup': 'CreateBackup',
         'instance_id': 'InstanceId',
+        'shard_capacity': 'ShardCapacity',
         'shard_number': 'ShardNumber',
         'sharded_cluster': 'ShardedCluster'
     }
 
-    def __init__(self, apply_immediately=None, backup_point_name=None, client_token=None, create_backup=None, instance_id=None, shard_number=None, sharded_cluster=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_immediately=None, backup_point_name=None, client_token=None, create_backup=None, instance_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, _configuration=None):  # noqa: E501
         """EnableShardedClusterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class EnableShardedClusterRequest(object):
         self._client_token = None
         self._create_backup = None
         self._instance_id = None
+        self._shard_capacity = None
         self._shard_number = None
         self._sharded_cluster = None
         self.discriminator = None
@@ -75,6 +78,8 @@ class EnableShardedClusterRequest(object):
         if create_backup is not None:
             self.create_backup = create_backup
         self.instance_id = instance_id
+        if shard_capacity is not None:
+            self.shard_capacity = shard_capacity
         self.shard_number = shard_number
         self.sharded_cluster = sharded_cluster
 
@@ -186,6 +191,27 @@ class EnableShardedClusterRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def shard_capacity(self):
+        """Gets the shard_capacity of this EnableShardedClusterRequest.  # noqa: E501
+
+
+        :return: The shard_capacity of this EnableShardedClusterRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._shard_capacity
+
+    @shard_capacity.setter
+    def shard_capacity(self, shard_capacity):
+        """Sets the shard_capacity of this EnableShardedClusterRequest.
+
+
+        :param shard_capacity: The shard_capacity of this EnableShardedClusterRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._shard_capacity = shard_capacity
 
     @property
     def shard_number(self):

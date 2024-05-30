@@ -41,6 +41,7 @@ class DescribeDBInstancesRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'region_id': 'str',
+        'service_type': 'str',
         'sharded_cluster': 'int',
         'status': 'str',
         'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
@@ -57,6 +58,7 @@ class DescribeDBInstancesRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
+        'service_type': 'ServiceType',
         'sharded_cluster': 'ShardedCluster',
         'status': 'Status',
         'tag_filters': 'TagFilters',
@@ -64,7 +66,7 @@ class DescribeDBInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, engine_version=None, instance_id=None, instance_name=None, page_number=None, page_size=None, project_name=None, region_id=None, sharded_cluster=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, engine_version=None, instance_id=None, instance_name=None, page_number=None, page_size=None, project_name=None, region_id=None, service_type=None, sharded_cluster=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class DescribeDBInstancesRequest(object):
         self._page_size = None
         self._project_name = None
         self._region_id = None
+        self._service_type = None
         self._sharded_cluster = None
         self._status = None
         self._tag_filters = None
@@ -98,6 +101,8 @@ class DescribeDBInstancesRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.region_id = region_id
+        if service_type is not None:
+            self.service_type = service_type
         if sharded_cluster is not None:
             self.sharded_cluster = sharded_cluster
         if status is not None:
@@ -282,6 +287,27 @@ class DescribeDBInstancesRequest(object):
             raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The service_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this DescribeDBInstancesRequest.
+
+
+        :param service_type: The service_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_type = service_type
 
     @property
     def sharded_cluster(self):
