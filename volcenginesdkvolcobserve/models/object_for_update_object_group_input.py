@@ -34,34 +34,29 @@ class ObjectForUpdateObjectGroupInput(object):
     """
     swagger_types = {
         'dimensions': 'dict(str, list[str])',
-        'id': 'str',
         'namespace': 'str',
         'region': 'str'
     }
 
     attribute_map = {
         'dimensions': 'Dimensions',
-        'id': 'Id',
         'namespace': 'Namespace',
         'region': 'Region'
     }
 
-    def __init__(self, dimensions=None, id=None, namespace=None, region=None, _configuration=None):  # noqa: E501
+    def __init__(self, dimensions=None, namespace=None, region=None, _configuration=None):  # noqa: E501
         """ObjectForUpdateObjectGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._dimensions = None
-        self._id = None
         self._namespace = None
         self._region = None
         self.discriminator = None
 
         if dimensions is not None:
             self.dimensions = dimensions
-        if id is not None:
-            self.id = id
         if namespace is not None:
             self.namespace = namespace
         if region is not None:
@@ -87,27 +82,6 @@ class ObjectForUpdateObjectGroupInput(object):
         """
 
         self._dimensions = dimensions
-
-    @property
-    def id(self):
-        """Gets the id of this ObjectForUpdateObjectGroupInput.  # noqa: E501
-
-
-        :return: The id of this ObjectForUpdateObjectGroupInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this ObjectForUpdateObjectGroupInput.
-
-
-        :param id: The id of this ObjectForUpdateObjectGroupInput.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def namespace(self):

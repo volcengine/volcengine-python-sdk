@@ -38,6 +38,7 @@ class Ark(SyncAPIClient):
         base_url: str | URL = BASE_URL,
         ak: str | None = None,
         sk: str | None = None,
+        api_key: str | None = None,
         timeout: float | Timeout | None = DEFAULT_TIMEOUT,
         max_retries: int = DEFAULT_MAX_RETRIES,
         http_client: Client | None = None,
@@ -48,6 +49,7 @@ class Ark(SyncAPIClient):
             Args:
                 ak: access key id
                 sk: secret access key
+                api_key: api key，this api key will not be refreshed
                 timeout: timeout of client. default httpx.Timeout(timeout=60.0, connect=60.0)
                 max_retries: times of retry when request failed. default 1
                 http_client: specify customized http_client
@@ -59,8 +61,13 @@ class Ark(SyncAPIClient):
             ak = os.environ.get("VOLC_ACCESSKEY")
         if sk is None:
             sk = os.environ.get("VOLC_SECRETKEY")
+        if api_key is None:
+            api_key = os.environ.get("ARK_API_KEY")
         self.ak = ak
         self.sk = sk
+        self.api_key = api_key
+
+        assert (api_key is not None) or (ak is not None and sk is not None), "you need to support api_key or ak&sk"
 
         super().__init__(
             base_url=base_url,
@@ -82,6 +89,11 @@ class Ark(SyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk)
         return self._sts_token_manager.get(endpoint_id)
 
+    @property
+    def auth_headers(self) -> dict[str, str]:
+        api_key = self.api_key
+        return {"Authorization": f"Bearer {api_key}"}
+
 
 class AsyncArk(AsyncAPIClient):
     chat: resources.AsyncChat
@@ -91,6 +103,7 @@ class AsyncArk(AsyncAPIClient):
         *,
         ak: str | None = None,
         sk: str | None = None,
+        api_key: str | None = None,
         base_url: str | URL = BASE_URL,
         timeout: float | Timeout | None = DEFAULT_TIMEOUT,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -101,6 +114,7 @@ class AsyncArk(AsyncAPIClient):
             Args:
                 ak: access key id
                 sk: secret access key
+                api_key: api key，this api key will not be refreshed
                 timeout: timeout of client. default httpx.Timeout(timeout=60.0, connect=60.0)
                 max_retries: times of retry when request failed. default 1
                 http_client: specify customized http_client
@@ -112,8 +126,13 @@ class AsyncArk(AsyncAPIClient):
             ak = os.environ.get("VOLC_ACCESSKEY")
         if sk is None:
             sk = os.environ.get("VOLC_SECRETKEY")
+        if api_key is None:
+            api_key = os.environ.get("ARK_API_KEY")
         self.ak = ak
         self.sk = sk
+        self.api_key = api_key
+
+        assert (api_key is not None) or (ak is not None and sk is not None), "you need to support api_key or ak&sk"
 
         super().__init__(
             base_url=base_url,
@@ -134,6 +153,11 @@ class AsyncArk(AsyncAPIClient):
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
             self._sts_token_manager = StsTokenManager(self.ak, self.sk)
         return self._sts_token_manager.get(endpoint_id)
+
+    @property
+    def auth_headers(self) -> dict[str, str]:
+        api_key = self.api_key
+        return {"Authorization": f"Bearer {api_key}"}
 
 
 class StsTokenManager(object):
