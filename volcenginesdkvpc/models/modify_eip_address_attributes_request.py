@@ -36,17 +36,19 @@ class ModifyEipAddressAttributesRequest(object):
         'allocation_id': 'str',
         'bandwidth': 'int',
         'description': 'str',
-        'name': 'str'
+        'name': 'str',
+        'release_with_instance': 'bool'
     }
 
     attribute_map = {
         'allocation_id': 'AllocationId',
         'bandwidth': 'Bandwidth',
         'description': 'Description',
-        'name': 'Name'
+        'name': 'Name',
+        'release_with_instance': 'ReleaseWithInstance'
     }
 
-    def __init__(self, allocation_id=None, bandwidth=None, description=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, bandwidth=None, description=None, name=None, release_with_instance=None, _configuration=None):  # noqa: E501
         """ModifyEipAddressAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ModifyEipAddressAttributesRequest(object):
         self._bandwidth = None
         self._description = None
         self._name = None
+        self._release_with_instance = None
         self.discriminator = None
 
         self.allocation_id = allocation_id
@@ -65,6 +68,8 @@ class ModifyEipAddressAttributesRequest(object):
             self.description = description
         if name is not None:
             self.name = name
+        if release_with_instance is not None:
+            self.release_with_instance = release_with_instance
 
     @property
     def allocation_id(self):
@@ -169,6 +174,27 @@ class ModifyEipAddressAttributesRequest(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def release_with_instance(self):
+        """Gets the release_with_instance of this ModifyEipAddressAttributesRequest.  # noqa: E501
+
+
+        :return: The release_with_instance of this ModifyEipAddressAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._release_with_instance
+
+    @release_with_instance.setter
+    def release_with_instance(self, release_with_instance):
+        """Sets the release_with_instance of this ModifyEipAddressAttributesRequest.
+
+
+        :param release_with_instance: The release_with_instance of this ModifyEipAddressAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._release_with_instance = release_with_instance
 
     def to_dict(self):
         """Returns the model properties as a dict"""
