@@ -40,6 +40,8 @@ class ListBillOverviewByProdRequest(object):
         'limit': 'int',
         'need_record_num': 'int',
         'offset': 'int',
+        'owner_id': 'list[int]',
+        'payer_id': 'list[int]',
         'product': 'list[str]'
     }
 
@@ -51,10 +53,12 @@ class ListBillOverviewByProdRequest(object):
         'limit': 'Limit',
         'need_record_num': 'NeedRecordNum',
         'offset': 'Offset',
+        'owner_id': 'OwnerID',
+        'payer_id': 'PayerID',
         'product': 'Product'
     }
 
-    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, ignore_zero=None, limit=None, need_record_num=None, offset=None, product=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, ignore_zero=None, limit=None, need_record_num=None, offset=None, owner_id=None, payer_id=None, product=None, _configuration=None):  # noqa: E501
         """ListBillOverviewByProdRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +71,8 @@ class ListBillOverviewByProdRequest(object):
         self._limit = None
         self._need_record_num = None
         self._offset = None
+        self._owner_id = None
+        self._payer_id = None
         self._product = None
         self.discriminator = None
 
@@ -82,6 +88,10 @@ class ListBillOverviewByProdRequest(object):
             self.need_record_num = need_record_num
         if offset is not None:
             self.offset = offset
+        if owner_id is not None:
+            self.owner_id = owner_id
+        if payer_id is not None:
+            self.payer_id = payer_id
         if product is not None:
             self.product = product
 
@@ -235,6 +245,48 @@ class ListBillOverviewByProdRequest(object):
         """
 
         self._offset = offset
+
+    @property
+    def owner_id(self):
+        """Gets the owner_id of this ListBillOverviewByProdRequest.  # noqa: E501
+
+
+        :return: The owner_id of this ListBillOverviewByProdRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._owner_id
+
+    @owner_id.setter
+    def owner_id(self, owner_id):
+        """Sets the owner_id of this ListBillOverviewByProdRequest.
+
+
+        :param owner_id: The owner_id of this ListBillOverviewByProdRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._owner_id = owner_id
+
+    @property
+    def payer_id(self):
+        """Gets the payer_id of this ListBillOverviewByProdRequest.  # noqa: E501
+
+
+        :return: The payer_id of this ListBillOverviewByProdRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._payer_id
+
+    @payer_id.setter
+    def payer_id(self, payer_id):
+        """Sets the payer_id of this ListBillOverviewByProdRequest.
+
+
+        :param payer_id: The payer_id of this ListBillOverviewByProdRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._payer_id = payer_id
 
     @property
     def product(self):
