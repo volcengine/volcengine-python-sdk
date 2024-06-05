@@ -37,6 +37,7 @@ class CreateDeploymentSetRequest(object):
         'deployment_set_name': 'str',
         'description': 'str',
         'granularity': 'str',
+        'group_count': 'int',
         'strategy': 'str'
     }
 
@@ -45,10 +46,11 @@ class CreateDeploymentSetRequest(object):
         'deployment_set_name': 'DeploymentSetName',
         'description': 'Description',
         'granularity': 'Granularity',
+        'group_count': 'GroupCount',
         'strategy': 'Strategy'
     }
 
-    def __init__(self, client_token=None, deployment_set_name=None, description=None, granularity=None, strategy=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, deployment_set_name=None, description=None, granularity=None, group_count=None, strategy=None, _configuration=None):  # noqa: E501
         """CreateDeploymentSetRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CreateDeploymentSetRequest(object):
         self._deployment_set_name = None
         self._description = None
         self._granularity = None
+        self._group_count = None
         self._strategy = None
         self.discriminator = None
 
@@ -68,6 +71,8 @@ class CreateDeploymentSetRequest(object):
             self.description = description
         if granularity is not None:
             self.granularity = granularity
+        if group_count is not None:
+            self.group_count = group_count
         if strategy is not None:
             self.strategy = strategy
 
@@ -156,6 +161,27 @@ class CreateDeploymentSetRequest(object):
         """
 
         self._granularity = granularity
+
+    @property
+    def group_count(self):
+        """Gets the group_count of this CreateDeploymentSetRequest.  # noqa: E501
+
+
+        :return: The group_count of this CreateDeploymentSetRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._group_count
+
+    @group_count.setter
+    def group_count(self, group_count):
+        """Sets the group_count of this CreateDeploymentSetRequest.
+
+
+        :param group_count: The group_count of this CreateDeploymentSetRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._group_count = group_count
 
     @property
     def strategy(self):

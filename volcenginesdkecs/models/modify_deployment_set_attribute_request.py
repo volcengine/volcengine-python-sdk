@@ -61,7 +61,8 @@ class ModifyDeploymentSetAttributeRequest(object):
         if client_token is not None:
             self.client_token = client_token
         self.deployment_set_id = deployment_set_id
-        self.deployment_set_name = deployment_set_name
+        if deployment_set_name is not None:
+            self.deployment_set_name = deployment_set_name
         if description is not None:
             self.description = description
 
@@ -127,8 +128,6 @@ class ModifyDeploymentSetAttributeRequest(object):
         :param deployment_set_name: The deployment_set_name of this ModifyDeploymentSetAttributeRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and deployment_set_name is None:
-            raise ValueError("Invalid value for `deployment_set_name`, must not be `None`")  # noqa: E501
 
         self._deployment_set_name = deployment_set_name
 

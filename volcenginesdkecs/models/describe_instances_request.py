@@ -35,6 +35,7 @@ class DescribeInstancesRequest(object):
     swagger_types = {
         'dedicated_host_cluster_id': 'str',
         'dedicated_host_id': 'str',
+        'deployment_set_group_numbers': 'list[int]',
         'deployment_set_ids': 'list[str]',
         'eip_addresses': 'list[str]',
         'hpc_cluster_id': 'str',
@@ -49,6 +50,7 @@ class DescribeInstancesRequest(object):
         'next_token': 'str',
         'primary_ip_address': 'str',
         'project_name': 'str',
+        'scheduled_instance_id': 'str',
         'status': 'str',
         'tag_filters': 'list[TagFilterForDescribeInstancesInput]',
         'vpc_id': 'str',
@@ -58,6 +60,7 @@ class DescribeInstancesRequest(object):
     attribute_map = {
         'dedicated_host_cluster_id': 'DedicatedHostClusterId',
         'dedicated_host_id': 'DedicatedHostId',
+        'deployment_set_group_numbers': 'DeploymentSetGroupNumbers',
         'deployment_set_ids': 'DeploymentSetIds',
         'eip_addresses': 'EipAddresses',
         'hpc_cluster_id': 'HpcClusterId',
@@ -72,13 +75,14 @@ class DescribeInstancesRequest(object):
         'next_token': 'NextToken',
         'primary_ip_address': 'PrimaryIpAddress',
         'project_name': 'ProjectName',
+        'scheduled_instance_id': 'ScheduledInstanceId',
         'status': 'Status',
         'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_ids=None, eip_addresses=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_group_numbers=None, deployment_set_ids=None, eip_addresses=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, scheduled_instance_id=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +90,7 @@ class DescribeInstancesRequest(object):
 
         self._dedicated_host_cluster_id = None
         self._dedicated_host_id = None
+        self._deployment_set_group_numbers = None
         self._deployment_set_ids = None
         self._eip_addresses = None
         self._hpc_cluster_id = None
@@ -100,6 +105,7 @@ class DescribeInstancesRequest(object):
         self._next_token = None
         self._primary_ip_address = None
         self._project_name = None
+        self._scheduled_instance_id = None
         self._status = None
         self._tag_filters = None
         self._vpc_id = None
@@ -110,6 +116,8 @@ class DescribeInstancesRequest(object):
             self.dedicated_host_cluster_id = dedicated_host_cluster_id
         if dedicated_host_id is not None:
             self.dedicated_host_id = dedicated_host_id
+        if deployment_set_group_numbers is not None:
+            self.deployment_set_group_numbers = deployment_set_group_numbers
         if deployment_set_ids is not None:
             self.deployment_set_ids = deployment_set_ids
         if eip_addresses is not None:
@@ -138,6 +146,8 @@ class DescribeInstancesRequest(object):
             self.primary_ip_address = primary_ip_address
         if project_name is not None:
             self.project_name = project_name
+        if scheduled_instance_id is not None:
+            self.scheduled_instance_id = scheduled_instance_id
         if status is not None:
             self.status = status
         if tag_filters is not None:
@@ -188,6 +198,27 @@ class DescribeInstancesRequest(object):
         """
 
         self._dedicated_host_id = dedicated_host_id
+
+    @property
+    def deployment_set_group_numbers(self):
+        """Gets the deployment_set_group_numbers of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The deployment_set_group_numbers of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._deployment_set_group_numbers
+
+    @deployment_set_group_numbers.setter
+    def deployment_set_group_numbers(self, deployment_set_group_numbers):
+        """Sets the deployment_set_group_numbers of this DescribeInstancesRequest.
+
+
+        :param deployment_set_group_numbers: The deployment_set_group_numbers of this DescribeInstancesRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._deployment_set_group_numbers = deployment_set_group_numbers
 
     @property
     def deployment_set_ids(self):
@@ -482,6 +513,27 @@ class DescribeInstancesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def scheduled_instance_id(self):
+        """Gets the scheduled_instance_id of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The scheduled_instance_id of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduled_instance_id
+
+    @scheduled_instance_id.setter
+    def scheduled_instance_id(self, scheduled_instance_id):
+        """Sets the scheduled_instance_id of this DescribeInstancesRequest.
+
+
+        :param scheduled_instance_id: The scheduled_instance_id of this DescribeInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._scheduled_instance_id = scheduled_instance_id
 
     @property
     def status(self):

@@ -36,12 +36,15 @@ class InstanceForDescribeInstancesOutput(object):
         'cpu_options': 'CpuOptionsForDescribeInstancesOutput',
         'cpus': 'int',
         'created_at': 'str',
+        'deployment_set_group_number': 'int',
         'deployment_set_id': 'str',
         'description': 'str',
         'eip_address': 'EipAddressForDescribeInstancesOutput',
+        'elastic_scheduled_instance_type': 'str',
         'expired_at': 'str',
         'host_name': 'str',
         'hostname': 'str',
+        'hpc_cluster_id': 'str',
         'image_id': 'str',
         'instance_charge_type': 'str',
         'instance_id': 'str',
@@ -57,6 +60,7 @@ class InstanceForDescribeInstancesOutput(object):
         'placement': 'PlacementForDescribeInstancesOutput',
         'project_name': 'str',
         'rdma_ip_addresses': 'list[str]',
+        'scheduled_instance_id': 'str',
         'spot_price_limit': 'float',
         'spot_strategy': 'str',
         'status': 'str',
@@ -72,12 +76,15 @@ class InstanceForDescribeInstancesOutput(object):
         'cpu_options': 'CpuOptions',
         'cpus': 'Cpus',
         'created_at': 'CreatedAt',
+        'deployment_set_group_number': 'DeploymentSetGroupNumber',
         'deployment_set_id': 'DeploymentSetId',
         'description': 'Description',
         'eip_address': 'EipAddress',
+        'elastic_scheduled_instance_type': 'ElasticScheduledInstanceType',
         'expired_at': 'ExpiredAt',
         'host_name': 'HostName',
         'hostname': 'Hostname',
+        'hpc_cluster_id': 'HpcClusterId',
         'image_id': 'ImageId',
         'instance_charge_type': 'InstanceChargeType',
         'instance_id': 'InstanceId',
@@ -93,6 +100,7 @@ class InstanceForDescribeInstancesOutput(object):
         'placement': 'Placement',
         'project_name': 'ProjectName',
         'rdma_ip_addresses': 'RdmaIpAddresses',
+        'scheduled_instance_id': 'ScheduledInstanceId',
         'spot_price_limit': 'SpotPriceLimit',
         'spot_strategy': 'SpotStrategy',
         'status': 'Status',
@@ -104,7 +112,7 @@ class InstanceForDescribeInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpu_options=None, cpus=None, created_at=None, deployment_set_id=None, description=None, eip_address=None, expired_at=None, host_name=None, hostname=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_options=None, cpus=None, created_at=None, deployment_set_group_number=None, deployment_set_id=None, description=None, eip_address=None, elastic_scheduled_instance_type=None, expired_at=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, scheduled_instance_id=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -113,12 +121,15 @@ class InstanceForDescribeInstancesOutput(object):
         self._cpu_options = None
         self._cpus = None
         self._created_at = None
+        self._deployment_set_group_number = None
         self._deployment_set_id = None
         self._description = None
         self._eip_address = None
+        self._elastic_scheduled_instance_type = None
         self._expired_at = None
         self._host_name = None
         self._hostname = None
+        self._hpc_cluster_id = None
         self._image_id = None
         self._instance_charge_type = None
         self._instance_id = None
@@ -134,6 +145,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._placement = None
         self._project_name = None
         self._rdma_ip_addresses = None
+        self._scheduled_instance_id = None
         self._spot_price_limit = None
         self._spot_strategy = None
         self._status = None
@@ -151,18 +163,24 @@ class InstanceForDescribeInstancesOutput(object):
             self.cpus = cpus
         if created_at is not None:
             self.created_at = created_at
+        if deployment_set_group_number is not None:
+            self.deployment_set_group_number = deployment_set_group_number
         if deployment_set_id is not None:
             self.deployment_set_id = deployment_set_id
         if description is not None:
             self.description = description
         if eip_address is not None:
             self.eip_address = eip_address
+        if elastic_scheduled_instance_type is not None:
+            self.elastic_scheduled_instance_type = elastic_scheduled_instance_type
         if expired_at is not None:
             self.expired_at = expired_at
         if host_name is not None:
             self.host_name = host_name
         if hostname is not None:
             self.hostname = hostname
+        if hpc_cluster_id is not None:
+            self.hpc_cluster_id = hpc_cluster_id
         if image_id is not None:
             self.image_id = image_id
         if instance_charge_type is not None:
@@ -193,6 +211,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.project_name = project_name
         if rdma_ip_addresses is not None:
             self.rdma_ip_addresses = rdma_ip_addresses
+        if scheduled_instance_id is not None:
+            self.scheduled_instance_id = scheduled_instance_id
         if spot_price_limit is not None:
             self.spot_price_limit = spot_price_limit
         if spot_strategy is not None:
@@ -276,6 +296,27 @@ class InstanceForDescribeInstancesOutput(object):
         self._created_at = created_at
 
     @property
+    def deployment_set_group_number(self):
+        """Gets the deployment_set_group_number of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The deployment_set_group_number of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._deployment_set_group_number
+
+    @deployment_set_group_number.setter
+    def deployment_set_group_number(self, deployment_set_group_number):
+        """Sets the deployment_set_group_number of this InstanceForDescribeInstancesOutput.
+
+
+        :param deployment_set_group_number: The deployment_set_group_number of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._deployment_set_group_number = deployment_set_group_number
+
+    @property
     def deployment_set_id(self):
         """Gets the deployment_set_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
 
@@ -339,6 +380,27 @@ class InstanceForDescribeInstancesOutput(object):
         self._eip_address = eip_address
 
     @property
+    def elastic_scheduled_instance_type(self):
+        """Gets the elastic_scheduled_instance_type of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The elastic_scheduled_instance_type of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._elastic_scheduled_instance_type
+
+    @elastic_scheduled_instance_type.setter
+    def elastic_scheduled_instance_type(self, elastic_scheduled_instance_type):
+        """Sets the elastic_scheduled_instance_type of this InstanceForDescribeInstancesOutput.
+
+
+        :param elastic_scheduled_instance_type: The elastic_scheduled_instance_type of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._elastic_scheduled_instance_type = elastic_scheduled_instance_type
+
+    @property
     def expired_at(self):
         """Gets the expired_at of this InstanceForDescribeInstancesOutput.  # noqa: E501
 
@@ -400,6 +462,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._hostname = hostname
+
+    @property
+    def hpc_cluster_id(self):
+        """Gets the hpc_cluster_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The hpc_cluster_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._hpc_cluster_id
+
+    @hpc_cluster_id.setter
+    def hpc_cluster_id(self, hpc_cluster_id):
+        """Sets the hpc_cluster_id of this InstanceForDescribeInstancesOutput.
+
+
+        :param hpc_cluster_id: The hpc_cluster_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._hpc_cluster_id = hpc_cluster_id
 
     @property
     def image_id(self):
@@ -715,6 +798,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._rdma_ip_addresses = rdma_ip_addresses
+
+    @property
+    def scheduled_instance_id(self):
+        """Gets the scheduled_instance_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The scheduled_instance_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduled_instance_id
+
+    @scheduled_instance_id.setter
+    def scheduled_instance_id(self, scheduled_instance_id):
+        """Sets the scheduled_instance_id of this InstanceForDescribeInstancesOutput.
+
+
+        :param scheduled_instance_id: The scheduled_instance_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scheduled_instance_id = scheduled_instance_id
 
     @property
     def spot_price_limit(self):

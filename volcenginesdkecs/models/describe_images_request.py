@@ -37,10 +37,12 @@ class DescribeImagesRequest(object):
         'image_name': 'str',
         'image_status': 'str',
         'instance_type_id': 'str',
+        'is_lts': 'bool',
         'is_support_cloud_init': 'bool',
         'max_results': 'int',
         'next_token': 'str',
         'os_type': 'str',
+        'platform': 'str',
         'project_name': 'str',
         'status': 'list[str]',
         'tag_filters': 'list[TagFilterForDescribeImagesInput]',
@@ -52,17 +54,19 @@ class DescribeImagesRequest(object):
         'image_name': 'ImageName',
         'image_status': 'ImageStatus',
         'instance_type_id': 'InstanceTypeId',
+        'is_lts': 'IsLTS',
         'is_support_cloud_init': 'IsSupportCloudInit',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'os_type': 'OsType',
+        'platform': 'Platform',
         'project_name': 'ProjectName',
         'status': 'Status',
         'tag_filters': 'TagFilters',
         'visibility': 'Visibility'
     }
 
-    def __init__(self, image_ids=None, image_name=None, image_status=None, instance_type_id=None, is_support_cloud_init=None, max_results=None, next_token=None, os_type=None, project_name=None, status=None, tag_filters=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, image_ids=None, image_name=None, image_status=None, instance_type_id=None, is_lts=None, is_support_cloud_init=None, max_results=None, next_token=None, os_type=None, platform=None, project_name=None, status=None, tag_filters=None, visibility=None, _configuration=None):  # noqa: E501
         """DescribeImagesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,10 +76,12 @@ class DescribeImagesRequest(object):
         self._image_name = None
         self._image_status = None
         self._instance_type_id = None
+        self._is_lts = None
         self._is_support_cloud_init = None
         self._max_results = None
         self._next_token = None
         self._os_type = None
+        self._platform = None
         self._project_name = None
         self._status = None
         self._tag_filters = None
@@ -90,6 +96,8 @@ class DescribeImagesRequest(object):
             self.image_status = image_status
         if instance_type_id is not None:
             self.instance_type_id = instance_type_id
+        if is_lts is not None:
+            self.is_lts = is_lts
         if is_support_cloud_init is not None:
             self.is_support_cloud_init = is_support_cloud_init
         if max_results is not None:
@@ -98,6 +106,8 @@ class DescribeImagesRequest(object):
             self.next_token = next_token
         if os_type is not None:
             self.os_type = os_type
+        if platform is not None:
+            self.platform = platform
         if project_name is not None:
             self.project_name = project_name
         if status is not None:
@@ -192,6 +202,27 @@ class DescribeImagesRequest(object):
         self._instance_type_id = instance_type_id
 
     @property
+    def is_lts(self):
+        """Gets the is_lts of this DescribeImagesRequest.  # noqa: E501
+
+
+        :return: The is_lts of this DescribeImagesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_lts
+
+    @is_lts.setter
+    def is_lts(self, is_lts):
+        """Sets the is_lts of this DescribeImagesRequest.
+
+
+        :param is_lts: The is_lts of this DescribeImagesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_lts = is_lts
+
+    @property
     def is_support_cloud_init(self):
         """Gets the is_support_cloud_init of this DescribeImagesRequest.  # noqa: E501
 
@@ -274,6 +305,27 @@ class DescribeImagesRequest(object):
         """
 
         self._os_type = os_type
+
+    @property
+    def platform(self):
+        """Gets the platform of this DescribeImagesRequest.  # noqa: E501
+
+
+        :return: The platform of this DescribeImagesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform
+
+    @platform.setter
+    def platform(self, platform):
+        """Sets the platform of this DescribeImagesRequest.
+
+
+        :param platform: The platform of this DescribeImagesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._platform = platform
 
     @property
     def project_name(self):

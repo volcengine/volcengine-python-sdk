@@ -34,37 +34,45 @@ class DescribeAvailableResourceRequest(object):
     """
     swagger_types = {
         'destination_resource': 'str',
+        'elastic_scheduled_instance_type': 'str',
         'instance_charge_type': 'str',
         'instance_type': 'str',
         'instance_type_id': 'str',
         'spot_strategy': 'str',
+        'volume_type': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
         'destination_resource': 'DestinationResource',
+        'elastic_scheduled_instance_type': 'ElasticScheduledInstanceType',
         'instance_charge_type': 'InstanceChargeType',
         'instance_type': 'InstanceType',
         'instance_type_id': 'InstanceTypeId',
         'spot_strategy': 'SpotStrategy',
+        'volume_type': 'VolumeType',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, destination_resource=None, instance_charge_type=None, instance_type=None, instance_type_id=None, spot_strategy=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination_resource=None, elastic_scheduled_instance_type=None, instance_charge_type=None, instance_type=None, instance_type_id=None, spot_strategy=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeAvailableResourceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._destination_resource = None
+        self._elastic_scheduled_instance_type = None
         self._instance_charge_type = None
         self._instance_type = None
         self._instance_type_id = None
         self._spot_strategy = None
+        self._volume_type = None
         self._zone_id = None
         self.discriminator = None
 
         self.destination_resource = destination_resource
+        if elastic_scheduled_instance_type is not None:
+            self.elastic_scheduled_instance_type = elastic_scheduled_instance_type
         if instance_charge_type is not None:
             self.instance_charge_type = instance_charge_type
         if instance_type is not None:
@@ -73,6 +81,8 @@ class DescribeAvailableResourceRequest(object):
             self.instance_type_id = instance_type_id
         if spot_strategy is not None:
             self.spot_strategy = spot_strategy
+        if volume_type is not None:
+            self.volume_type = volume_type
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -98,6 +108,27 @@ class DescribeAvailableResourceRequest(object):
             raise ValueError("Invalid value for `destination_resource`, must not be `None`")  # noqa: E501
 
         self._destination_resource = destination_resource
+
+    @property
+    def elastic_scheduled_instance_type(self):
+        """Gets the elastic_scheduled_instance_type of this DescribeAvailableResourceRequest.  # noqa: E501
+
+
+        :return: The elastic_scheduled_instance_type of this DescribeAvailableResourceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._elastic_scheduled_instance_type
+
+    @elastic_scheduled_instance_type.setter
+    def elastic_scheduled_instance_type(self, elastic_scheduled_instance_type):
+        """Sets the elastic_scheduled_instance_type of this DescribeAvailableResourceRequest.
+
+
+        :param elastic_scheduled_instance_type: The elastic_scheduled_instance_type of this DescribeAvailableResourceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._elastic_scheduled_instance_type = elastic_scheduled_instance_type
 
     @property
     def instance_charge_type(self):
@@ -182,6 +213,27 @@ class DescribeAvailableResourceRequest(object):
         """
 
         self._spot_strategy = spot_strategy
+
+    @property
+    def volume_type(self):
+        """Gets the volume_type of this DescribeAvailableResourceRequest.  # noqa: E501
+
+
+        :return: The volume_type of this DescribeAvailableResourceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._volume_type
+
+    @volume_type.setter
+    def volume_type(self, volume_type):
+        """Sets the volume_type of this DescribeAvailableResourceRequest.
+
+
+        :param volume_type: The volume_type of this DescribeAvailableResourceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._volume_type = volume_type
 
     @property
     def zone_id(self):
