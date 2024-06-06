@@ -66,7 +66,7 @@ class ArkAPIError(ArkError):
             self.type = None
 
     def __str__(self):
-        return f"{self.message} (request_id: {self.request_id})"
+        return f"{self.message}, request_id: {self.request_id}"
 
 
 class ArkAPIResponseValidationError(ArkAPIError):

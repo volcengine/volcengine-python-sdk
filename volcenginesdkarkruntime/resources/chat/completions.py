@@ -5,6 +5,7 @@ from typing import Dict, List, Union, Iterable, Optional
 import httpx
 from typing_extensions import Literal
 
+from ..._types import Body, Query, Headers
 from ..._utils._utils import with_sts_token, async_with_sts_token
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -59,9 +60,9 @@ class Completions(SyncAPIResource):
         top_logprobs: Optional[int] | None = None,
         top_p: Optional[float] | None = None,
         user: str | None = None,
-        extra_headers: Dict[str, str] | None = None,
-        extra_query: Dict[str, object] | None = None,
-        extra_body: Dict[str, object] | None = None,
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         return self._post(
@@ -127,9 +128,9 @@ class AsyncCompletions(AsyncAPIResource):
         top_logprobs: Optional[int] | None = None,
         top_p: Optional[float] | None = None,
         user: str | None = None,
-        extra_headers: Dict[str, str] | None = None,
-        extra_query: Dict[str, object] | None = None,
-        extra_body: Dict[str, object] | None = None,
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         return await self._post(

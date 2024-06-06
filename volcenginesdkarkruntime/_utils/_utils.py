@@ -82,4 +82,5 @@ def _insert_sts_token(args, kwargs):
     model = kwargs.get("model", "")
     if ark_client.api_key is None and model and model.startswith("ep-") and ark_client.ak and ark_client.sk:
         default_auth_header = {"Authorization": "Bearer " + ark_client._get_endpoint_sts_token(model)}
-        kwargs["extra_headers"] = {**default_auth_header, **kwargs.get("extra_headers", {})}
+        extra_headers = kwargs.get("extra_headers") if kwargs.get("extra_headers") else {}
+        kwargs["extra_headers"] = {**default_auth_header, **extra_headers}
