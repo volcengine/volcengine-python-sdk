@@ -38,6 +38,7 @@ class CreateSubnetRequest(object):
         'description': 'str',
         'ipv6_cidr_block': 'int',
         'subnet_name': 'str',
+        'tags': 'list[TagForCreateSubnetInput]',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
@@ -48,11 +49,12 @@ class CreateSubnetRequest(object):
         'description': 'Description',
         'ipv6_cidr_block': 'Ipv6CidrBlock',
         'subnet_name': 'SubnetName',
+        'tags': 'Tags',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cidr_block=None, client_token=None, description=None, ipv6_cidr_block=None, subnet_name=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_block=None, client_token=None, description=None, ipv6_cidr_block=None, subnet_name=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateSubnetRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class CreateSubnetRequest(object):
         self._description = None
         self._ipv6_cidr_block = None
         self._subnet_name = None
+        self._tags = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
@@ -76,6 +79,8 @@ class CreateSubnetRequest(object):
             self.ipv6_cidr_block = ipv6_cidr_block
         if subnet_name is not None:
             self.subnet_name = subnet_name
+        if tags is not None:
+            self.tags = tags
         self.vpc_id = vpc_id
         self.zone_id = zone_id
 
@@ -203,6 +208,27 @@ class CreateSubnetRequest(object):
             raise ValueError("Invalid value for `subnet_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._subnet_name = subnet_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateSubnetRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateSubnetRequest.  # noqa: E501
+        :rtype: list[TagForCreateSubnetInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateSubnetRequest.
+
+
+        :param tags: The tags of this CreateSubnetRequest.  # noqa: E501
+        :type: list[TagForCreateSubnetInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

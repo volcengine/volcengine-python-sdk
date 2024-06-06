@@ -34,15 +34,17 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput(object):
     """
     swagger_types = {
         'allocation_id': 'str',
-        'eip_address': 'str'
+        'eip_address': 'str',
+        'release_with_instance': 'bool'
     }
 
     attribute_map = {
         'allocation_id': 'AllocationId',
-        'eip_address': 'EipAddress'
+        'eip_address': 'EipAddress',
+        'release_with_instance': 'ReleaseWithInstance'
     }
 
-    def __init__(self, allocation_id=None, eip_address=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, eip_address=None, release_with_instance=None, _configuration=None):  # noqa: E501
         """AssociatedElasticIpForDescribeNetworkInterfacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput(object):
 
         self._allocation_id = None
         self._eip_address = None
+        self._release_with_instance = None
         self.discriminator = None
 
         if allocation_id is not None:
             self.allocation_id = allocation_id
         if eip_address is not None:
             self.eip_address = eip_address
+        if release_with_instance is not None:
+            self.release_with_instance = release_with_instance
 
     @property
     def allocation_id(self):
@@ -98,6 +103,27 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput(object):
         """
 
         self._eip_address = eip_address
+
+    @property
+    def release_with_instance(self):
+        """Gets the release_with_instance of this AssociatedElasticIpForDescribeNetworkInterfacesOutput.  # noqa: E501
+
+
+        :return: The release_with_instance of this AssociatedElasticIpForDescribeNetworkInterfacesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._release_with_instance
+
+    @release_with_instance.setter
+    def release_with_instance(self, release_with_instance):
+        """Sets the release_with_instance of this AssociatedElasticIpForDescribeNetworkInterfacesOutput.
+
+
+        :param release_with_instance: The release_with_instance of this AssociatedElasticIpForDescribeNetworkInterfacesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._release_with_instance = release_with_instance
 
     def to_dict(self):
         """Returns the model properties as a dict"""

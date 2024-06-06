@@ -33,40 +33,48 @@ class DescribePrefixListsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ip_version': 'str',
         'max_results': 'int',
         'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'prefix_list_ids': 'list[str]',
         'prefix_list_name': 'str',
+        'project_name': 'str',
         'tag_filters': 'list[TagFilterForDescribePrefixListsInput]'
     }
 
     attribute_map = {
+        'ip_version': 'IpVersion',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'prefix_list_ids': 'PrefixListIds',
         'prefix_list_name': 'PrefixListName',
+        'project_name': 'ProjectName',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, max_results=None, next_token=None, page_number=None, page_size=None, prefix_list_ids=None, prefix_list_name=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_version=None, max_results=None, next_token=None, page_number=None, page_size=None, prefix_list_ids=None, prefix_list_name=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribePrefixListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ip_version = None
         self._max_results = None
         self._next_token = None
         self._page_number = None
         self._page_size = None
         self._prefix_list_ids = None
         self._prefix_list_name = None
+        self._project_name = None
         self._tag_filters = None
         self.discriminator = None
 
+        if ip_version is not None:
+            self.ip_version = ip_version
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
@@ -79,8 +87,31 @@ class DescribePrefixListsRequest(object):
             self.prefix_list_ids = prefix_list_ids
         if prefix_list_name is not None:
             self.prefix_list_name = prefix_list_name
+        if project_name is not None:
+            self.project_name = project_name
         if tag_filters is not None:
             self.tag_filters = tag_filters
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this DescribePrefixListsRequest.  # noqa: E501
+
+
+        :return: The ip_version of this DescribePrefixListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this DescribePrefixListsRequest.
+
+
+        :param ip_version: The ip_version of this DescribePrefixListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
 
     @property
     def max_results(self):
@@ -213,6 +244,27 @@ class DescribePrefixListsRequest(object):
         """
 
         self._prefix_list_name = prefix_list_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribePrefixListsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribePrefixListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribePrefixListsRequest.
+
+
+        :param project_name: The project_name of this DescribePrefixListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def tag_filters(self):
