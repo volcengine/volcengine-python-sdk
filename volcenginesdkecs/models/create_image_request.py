@@ -33,6 +33,7 @@ class CreateImageRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'create_whole_image': 'bool',
         'description': 'str',
         'image_name': 'str',
         'instance_id': 'str',
@@ -44,6 +45,7 @@ class CreateImageRequest(object):
     }
 
     attribute_map = {
+        'create_whole_image': 'CreateWholeImage',
         'description': 'Description',
         'image_name': 'ImageName',
         'instance_id': 'InstanceId',
@@ -54,12 +56,13 @@ class CreateImageRequest(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, description=None, image_name=None, instance_id=None, need_detection=None, project_name=None, snapshot_group_id=None, snapshot_id=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_whole_image=None, description=None, image_name=None, instance_id=None, need_detection=None, project_name=None, snapshot_group_id=None, snapshot_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateImageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._create_whole_image = None
         self._description = None
         self._image_name = None
         self._instance_id = None
@@ -70,6 +73,8 @@ class CreateImageRequest(object):
         self._tags = None
         self.discriminator = None
 
+        if create_whole_image is not None:
+            self.create_whole_image = create_whole_image
         if description is not None:
             self.description = description
         self.image_name = image_name
@@ -85,6 +90,27 @@ class CreateImageRequest(object):
             self.snapshot_id = snapshot_id
         if tags is not None:
             self.tags = tags
+
+    @property
+    def create_whole_image(self):
+        """Gets the create_whole_image of this CreateImageRequest.  # noqa: E501
+
+
+        :return: The create_whole_image of this CreateImageRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._create_whole_image
+
+    @create_whole_image.setter
+    def create_whole_image(self, create_whole_image):
+        """Sets the create_whole_image of this CreateImageRequest.
+
+
+        :param create_whole_image: The create_whole_image of this CreateImageRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._create_whole_image = create_whole_image
 
     @property
     def description(self):

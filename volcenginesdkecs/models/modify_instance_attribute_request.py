@@ -35,6 +35,7 @@ class ModifyInstanceAttributeRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
+        'hostname': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'password': 'str',
@@ -44,13 +45,14 @@ class ModifyInstanceAttributeRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
+        'hostname': 'Hostname',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'password': 'Password',
         'user_data': 'UserData'
     }
 
-    def __init__(self, client_token=None, description=None, instance_id=None, instance_name=None, password=None, user_data=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, hostname=None, instance_id=None, instance_name=None, password=None, user_data=None, _configuration=None):  # noqa: E501
         """ModifyInstanceAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class ModifyInstanceAttributeRequest(object):
 
         self._client_token = None
         self._description = None
+        self._hostname = None
         self._instance_id = None
         self._instance_name = None
         self._password = None
@@ -68,6 +71,8 @@ class ModifyInstanceAttributeRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if hostname is not None:
+            self.hostname = hostname
         self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
@@ -117,6 +122,27 @@ class ModifyInstanceAttributeRequest(object):
         """
 
         self._description = description
+
+    @property
+    def hostname(self):
+        """Gets the hostname of this ModifyInstanceAttributeRequest.  # noqa: E501
+
+
+        :return: The hostname of this ModifyInstanceAttributeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._hostname
+
+    @hostname.setter
+    def hostname(self, hostname):
+        """Sets the hostname of this ModifyInstanceAttributeRequest.
+
+
+        :param hostname: The hostname of this ModifyInstanceAttributeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._hostname = hostname
 
     @property
     def instance_id(self):

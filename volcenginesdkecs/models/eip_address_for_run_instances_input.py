@@ -37,7 +37,9 @@ class EipAddressForRunInstancesInput(object):
         'bandwidth_package_id': 'str',
         'charge_type': 'str',
         'isp': 'str',
-        'release_with_instance': 'bool'
+        'release_with_instance': 'bool',
+        'security_protection_instance_id': 'int',
+        'security_protection_types': 'list[str]'
     }
 
     attribute_map = {
@@ -45,10 +47,12 @@ class EipAddressForRunInstancesInput(object):
         'bandwidth_package_id': 'BandwidthPackageId',
         'charge_type': 'ChargeType',
         'isp': 'ISP',
-        'release_with_instance': 'ReleaseWithInstance'
+        'release_with_instance': 'ReleaseWithInstance',
+        'security_protection_instance_id': 'SecurityProtectionInstanceId',
+        'security_protection_types': 'SecurityProtectionTypes'
     }
 
-    def __init__(self, bandwidth_mbps=None, bandwidth_package_id=None, charge_type=None, isp=None, release_with_instance=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_mbps=None, bandwidth_package_id=None, charge_type=None, isp=None, release_with_instance=None, security_protection_instance_id=None, security_protection_types=None, _configuration=None):  # noqa: E501
         """EipAddressForRunInstancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +63,8 @@ class EipAddressForRunInstancesInput(object):
         self._charge_type = None
         self._isp = None
         self._release_with_instance = None
+        self._security_protection_instance_id = None
+        self._security_protection_types = None
         self.discriminator = None
 
         if bandwidth_mbps is not None:
@@ -71,6 +77,10 @@ class EipAddressForRunInstancesInput(object):
             self.isp = isp
         if release_with_instance is not None:
             self.release_with_instance = release_with_instance
+        if security_protection_instance_id is not None:
+            self.security_protection_instance_id = security_protection_instance_id
+        if security_protection_types is not None:
+            self.security_protection_types = security_protection_types
 
     @property
     def bandwidth_mbps(self):
@@ -176,6 +186,48 @@ class EipAddressForRunInstancesInput(object):
         """
 
         self._release_with_instance = release_with_instance
+
+    @property
+    def security_protection_instance_id(self):
+        """Gets the security_protection_instance_id of this EipAddressForRunInstancesInput.  # noqa: E501
+
+
+        :return: The security_protection_instance_id of this EipAddressForRunInstancesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._security_protection_instance_id
+
+    @security_protection_instance_id.setter
+    def security_protection_instance_id(self, security_protection_instance_id):
+        """Sets the security_protection_instance_id of this EipAddressForRunInstancesInput.
+
+
+        :param security_protection_instance_id: The security_protection_instance_id of this EipAddressForRunInstancesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._security_protection_instance_id = security_protection_instance_id
+
+    @property
+    def security_protection_types(self):
+        """Gets the security_protection_types of this EipAddressForRunInstancesInput.  # noqa: E501
+
+
+        :return: The security_protection_types of this EipAddressForRunInstancesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_protection_types
+
+    @security_protection_types.setter
+    def security_protection_types(self, security_protection_types):
+        """Sets the security_protection_types of this EipAddressForRunInstancesInput.
+
+
+        :param security_protection_types: The security_protection_types of this EipAddressForRunInstancesInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_protection_types = security_protection_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""

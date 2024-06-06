@@ -62,3 +62,7 @@ class NotGiven:
 
 
 NOT_GIVEN = NotGiven()
+
+Headers = Dict[str, str]
+Query = Dict[str, object]
+Body = Dict[str, object]

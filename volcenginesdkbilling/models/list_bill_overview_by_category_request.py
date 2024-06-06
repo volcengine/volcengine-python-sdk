@@ -35,16 +35,20 @@ class ListBillOverviewByCategoryRequest(object):
     swagger_types = {
         'bill_category_parent': 'list[str]',
         'bill_period': 'str',
-        'billing_mode': 'list[str]'
+        'billing_mode': 'list[str]',
+        'owner_id': 'list[int]',
+        'payer_id': 'list[int]'
     }
 
     attribute_map = {
         'bill_category_parent': 'BillCategoryParent',
         'bill_period': 'BillPeriod',
-        'billing_mode': 'BillingMode'
+        'billing_mode': 'BillingMode',
+        'owner_id': 'OwnerID',
+        'payer_id': 'PayerID'
     }
 
-    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, owner_id=None, payer_id=None, _configuration=None):  # noqa: E501
         """ListBillOverviewByCategoryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +57,8 @@ class ListBillOverviewByCategoryRequest(object):
         self._bill_category_parent = None
         self._bill_period = None
         self._billing_mode = None
+        self._owner_id = None
+        self._payer_id = None
         self.discriminator = None
 
         if bill_category_parent is not None:
@@ -60,6 +66,10 @@ class ListBillOverviewByCategoryRequest(object):
         self.bill_period = bill_period
         if billing_mode is not None:
             self.billing_mode = billing_mode
+        if owner_id is not None:
+            self.owner_id = owner_id
+        if payer_id is not None:
+            self.payer_id = payer_id
 
     @property
     def bill_category_parent(self):
@@ -131,6 +141,48 @@ class ListBillOverviewByCategoryRequest(object):
         """
 
         self._billing_mode = billing_mode
+
+    @property
+    def owner_id(self):
+        """Gets the owner_id of this ListBillOverviewByCategoryRequest.  # noqa: E501
+
+
+        :return: The owner_id of this ListBillOverviewByCategoryRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._owner_id
+
+    @owner_id.setter
+    def owner_id(self, owner_id):
+        """Sets the owner_id of this ListBillOverviewByCategoryRequest.
+
+
+        :param owner_id: The owner_id of this ListBillOverviewByCategoryRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._owner_id = owner_id
+
+    @property
+    def payer_id(self):
+        """Gets the payer_id of this ListBillOverviewByCategoryRequest.  # noqa: E501
+
+
+        :return: The payer_id of this ListBillOverviewByCategoryRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._payer_id
+
+    @payer_id.setter
+    def payer_id(self, payer_id):
+        """Sets the payer_id of this ListBillOverviewByCategoryRequest.
+
+
+        :param payer_id: The payer_id of this ListBillOverviewByCategoryRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._payer_id = payer_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

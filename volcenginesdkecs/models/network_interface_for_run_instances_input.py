@@ -34,29 +34,34 @@ class NetworkInterfaceForRunInstancesInput(object):
     """
     swagger_types = {
         'primary_ip_address': 'str',
+        'private_ip_addresses': 'list[str]',
         'security_group_ids': 'list[str]',
         'subnet_id': 'str'
     }
 
     attribute_map = {
         'primary_ip_address': 'PrimaryIpAddress',
+        'private_ip_addresses': 'PrivateIpAddresses',
         'security_group_ids': 'SecurityGroupIds',
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, primary_ip_address=None, security_group_ids=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, primary_ip_address=None, private_ip_addresses=None, security_group_ids=None, subnet_id=None, _configuration=None):  # noqa: E501
         """NetworkInterfaceForRunInstancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._primary_ip_address = None
+        self._private_ip_addresses = None
         self._security_group_ids = None
         self._subnet_id = None
         self.discriminator = None
 
         if primary_ip_address is not None:
             self.primary_ip_address = primary_ip_address
+        if private_ip_addresses is not None:
+            self.private_ip_addresses = private_ip_addresses
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
         self.subnet_id = subnet_id
@@ -81,6 +86,27 @@ class NetworkInterfaceForRunInstancesInput(object):
         """
 
         self._primary_ip_address = primary_ip_address
+
+    @property
+    def private_ip_addresses(self):
+        """Gets the private_ip_addresses of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+
+
+        :return: The private_ip_addresses of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._private_ip_addresses
+
+    @private_ip_addresses.setter
+    def private_ip_addresses(self, private_ip_addresses):
+        """Sets the private_ip_addresses of this NetworkInterfaceForRunInstancesInput.
+
+
+        :param private_ip_addresses: The private_ip_addresses of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._private_ip_addresses = private_ip_addresses
 
     @property
     def security_group_ids(self):

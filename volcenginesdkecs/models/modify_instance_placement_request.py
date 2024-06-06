@@ -36,17 +36,25 @@ class ModifyInstancePlacementRequest(object):
         'affinity': 'str',
         'client_token': 'str',
         'dedicated_host_id': 'str',
-        'instance_id': 'str'
+        'dry_run': 'bool',
+        'instance_id': 'str',
+        'instance_type_id': 'str',
+        'migration_type': 'str',
+        'tenancy': 'str'
     }
 
     attribute_map = {
         'affinity': 'Affinity',
         'client_token': 'ClientToken',
         'dedicated_host_id': 'DedicatedHostId',
-        'instance_id': 'InstanceId'
+        'dry_run': 'DryRun',
+        'instance_id': 'InstanceId',
+        'instance_type_id': 'InstanceTypeId',
+        'migration_type': 'MigrationType',
+        'tenancy': 'Tenancy'
     }
 
-    def __init__(self, affinity=None, client_token=None, dedicated_host_id=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity=None, client_token=None, dedicated_host_id=None, dry_run=None, instance_id=None, instance_type_id=None, migration_type=None, tenancy=None, _configuration=None):  # noqa: E501
         """ModifyInstancePlacementRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,7 +63,11 @@ class ModifyInstancePlacementRequest(object):
         self._affinity = None
         self._client_token = None
         self._dedicated_host_id = None
+        self._dry_run = None
         self._instance_id = None
+        self._instance_type_id = None
+        self._migration_type = None
+        self._tenancy = None
         self.discriminator = None
 
         if affinity is not None:
@@ -64,7 +76,15 @@ class ModifyInstancePlacementRequest(object):
             self.client_token = client_token
         if dedicated_host_id is not None:
             self.dedicated_host_id = dedicated_host_id
+        if dry_run is not None:
+            self.dry_run = dry_run
         self.instance_id = instance_id
+        if instance_type_id is not None:
+            self.instance_type_id = instance_type_id
+        if migration_type is not None:
+            self.migration_type = migration_type
+        if tenancy is not None:
+            self.tenancy = tenancy
 
     @property
     def affinity(self):
@@ -130,6 +150,27 @@ class ModifyInstancePlacementRequest(object):
         self._dedicated_host_id = dedicated_host_id
 
     @property
+    def dry_run(self):
+        """Gets the dry_run of this ModifyInstancePlacementRequest.  # noqa: E501
+
+
+        :return: The dry_run of this ModifyInstancePlacementRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this ModifyInstancePlacementRequest.
+
+
+        :param dry_run: The dry_run of this ModifyInstancePlacementRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this ModifyInstancePlacementRequest.  # noqa: E501
 
@@ -151,6 +192,69 @@ class ModifyInstancePlacementRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def instance_type_id(self):
+        """Gets the instance_type_id of this ModifyInstancePlacementRequest.  # noqa: E501
+
+
+        :return: The instance_type_id of this ModifyInstancePlacementRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type_id
+
+    @instance_type_id.setter
+    def instance_type_id(self, instance_type_id):
+        """Sets the instance_type_id of this ModifyInstancePlacementRequest.
+
+
+        :param instance_type_id: The instance_type_id of this ModifyInstancePlacementRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type_id = instance_type_id
+
+    @property
+    def migration_type(self):
+        """Gets the migration_type of this ModifyInstancePlacementRequest.  # noqa: E501
+
+
+        :return: The migration_type of this ModifyInstancePlacementRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._migration_type
+
+    @migration_type.setter
+    def migration_type(self, migration_type):
+        """Sets the migration_type of this ModifyInstancePlacementRequest.
+
+
+        :param migration_type: The migration_type of this ModifyInstancePlacementRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._migration_type = migration_type
+
+    @property
+    def tenancy(self):
+        """Gets the tenancy of this ModifyInstancePlacementRequest.  # noqa: E501
+
+
+        :return: The tenancy of this ModifyInstancePlacementRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tenancy
+
+    @tenancy.setter
+    def tenancy(self, tenancy):
+        """Sets the tenancy of this ModifyInstancePlacementRequest.
+
+
+        :param tenancy: The tenancy of this ModifyInstancePlacementRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._tenancy = tenancy
 
     def to_dict(self):
         """Returns the model properties as a dict"""
