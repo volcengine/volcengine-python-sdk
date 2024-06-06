@@ -37,10 +37,11 @@ class ImageForDescribeImagesOutput(object):
         'boot_mode': 'str',
         'created_at': 'str',
         'description': 'str',
-        'detection_results': 'list[DetectionResultForDescribeImagesOutput]',
+        'detection_results': 'DetectionResultsForDescribeImagesOutput',
         'image_id': 'str',
         'image_name': 'str',
         'image_owner_id': 'str',
+        'is_lts': 'bool',
         'is_support_cloud_init': 'bool',
         'os_name': 'str',
         'os_type': 'str',
@@ -66,6 +67,7 @@ class ImageForDescribeImagesOutput(object):
         'image_id': 'ImageId',
         'image_name': 'ImageName',
         'image_owner_id': 'ImageOwnerId',
+        'is_lts': 'IsLTS',
         'is_support_cloud_init': 'IsSupportCloudInit',
         'os_name': 'OsName',
         'os_type': 'OsType',
@@ -82,7 +84,7 @@ class ImageForDescribeImagesOutput(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_lts=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class ImageForDescribeImagesOutput(object):
         self._image_id = None
         self._image_name = None
         self._image_owner_id = None
+        self._is_lts = None
         self._is_support_cloud_init = None
         self._os_name = None
         self._os_type = None
@@ -128,6 +131,8 @@ class ImageForDescribeImagesOutput(object):
             self.image_name = image_name
         if image_owner_id is not None:
             self.image_owner_id = image_owner_id
+        if is_lts is not None:
+            self.is_lts = is_lts
         if is_support_cloud_init is not None:
             self.is_support_cloud_init = is_support_cloud_init
         if os_name is not None:
@@ -247,7 +252,7 @@ class ImageForDescribeImagesOutput(object):
 
 
         :return: The detection_results of this ImageForDescribeImagesOutput.  # noqa: E501
-        :rtype: list[DetectionResultForDescribeImagesOutput]
+        :rtype: DetectionResultsForDescribeImagesOutput
         """
         return self._detection_results
 
@@ -257,7 +262,7 @@ class ImageForDescribeImagesOutput(object):
 
 
         :param detection_results: The detection_results of this ImageForDescribeImagesOutput.  # noqa: E501
-        :type: list[DetectionResultForDescribeImagesOutput]
+        :type: DetectionResultsForDescribeImagesOutput
         """
 
         self._detection_results = detection_results
@@ -324,6 +329,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._image_owner_id = image_owner_id
+
+    @property
+    def is_lts(self):
+        """Gets the is_lts of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The is_lts of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_lts
+
+    @is_lts.setter
+    def is_lts(self, is_lts):
+        """Sets the is_lts of this ImageForDescribeImagesOutput.
+
+
+        :param is_lts: The is_lts of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_lts = is_lts
 
     @property
     def is_support_cloud_init(self):

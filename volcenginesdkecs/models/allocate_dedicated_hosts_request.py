@@ -40,10 +40,12 @@ class AllocateDedicatedHostsRequest(object):
         'client_token': 'str',
         'count': 'int',
         'cpu_overcommit_ratio': 'float',
+        'dedicated_host_cluster_id': 'str',
         'dedicated_host_name': 'str',
         'dedicated_host_recovery': 'str',
         'dedicated_host_type_id': 'str',
         'description': 'str',
+        'dry_run': 'bool',
         'period': 'int',
         'period_unit': 'str',
         'zone_id': 'str'
@@ -57,16 +59,18 @@ class AllocateDedicatedHostsRequest(object):
         'client_token': 'ClientToken',
         'count': 'Count',
         'cpu_overcommit_ratio': 'CpuOvercommitRatio',
+        'dedicated_host_cluster_id': 'DedicatedHostClusterId',
         'dedicated_host_name': 'DedicatedHostName',
         'dedicated_host_recovery': 'DedicatedHostRecovery',
         'dedicated_host_type_id': 'DedicatedHostTypeId',
         'description': 'Description',
+        'dry_run': 'DryRun',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_placement=None, auto_renew=None, auto_renew_period=None, charge_type=None, client_token=None, count=None, cpu_overcommit_ratio=None, dedicated_host_name=None, dedicated_host_recovery=None, dedicated_host_type_id=None, description=None, period=None, period_unit=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_placement=None, auto_renew=None, auto_renew_period=None, charge_type=None, client_token=None, count=None, cpu_overcommit_ratio=None, dedicated_host_cluster_id=None, dedicated_host_name=None, dedicated_host_recovery=None, dedicated_host_type_id=None, description=None, dry_run=None, period=None, period_unit=None, zone_id=None, _configuration=None):  # noqa: E501
         """AllocateDedicatedHostsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,10 +83,12 @@ class AllocateDedicatedHostsRequest(object):
         self._client_token = None
         self._count = None
         self._cpu_overcommit_ratio = None
+        self._dedicated_host_cluster_id = None
         self._dedicated_host_name = None
         self._dedicated_host_recovery = None
         self._dedicated_host_type_id = None
         self._description = None
+        self._dry_run = None
         self._period = None
         self._period_unit = None
         self._zone_id = None
@@ -102,12 +108,16 @@ class AllocateDedicatedHostsRequest(object):
             self.count = count
         if cpu_overcommit_ratio is not None:
             self.cpu_overcommit_ratio = cpu_overcommit_ratio
+        if dedicated_host_cluster_id is not None:
+            self.dedicated_host_cluster_id = dedicated_host_cluster_id
         self.dedicated_host_name = dedicated_host_name
         if dedicated_host_recovery is not None:
             self.dedicated_host_recovery = dedicated_host_recovery
         self.dedicated_host_type_id = dedicated_host_type_id
         if description is not None:
             self.description = description
+        if dry_run is not None:
+            self.dry_run = dry_run
         if period is not None:
             self.period = period
         if period_unit is not None:
@@ -262,6 +272,27 @@ class AllocateDedicatedHostsRequest(object):
         self._cpu_overcommit_ratio = cpu_overcommit_ratio
 
     @property
+    def dedicated_host_cluster_id(self):
+        """Gets the dedicated_host_cluster_id of this AllocateDedicatedHostsRequest.  # noqa: E501
+
+
+        :return: The dedicated_host_cluster_id of this AllocateDedicatedHostsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._dedicated_host_cluster_id
+
+    @dedicated_host_cluster_id.setter
+    def dedicated_host_cluster_id(self, dedicated_host_cluster_id):
+        """Sets the dedicated_host_cluster_id of this AllocateDedicatedHostsRequest.
+
+
+        :param dedicated_host_cluster_id: The dedicated_host_cluster_id of this AllocateDedicatedHostsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._dedicated_host_cluster_id = dedicated_host_cluster_id
+
+    @property
     def dedicated_host_name(self):
         """Gets the dedicated_host_name of this AllocateDedicatedHostsRequest.  # noqa: E501
 
@@ -348,6 +379,27 @@ class AllocateDedicatedHostsRequest(object):
         """
 
         self._description = description
+
+    @property
+    def dry_run(self):
+        """Gets the dry_run of this AllocateDedicatedHostsRequest.  # noqa: E501
+
+
+        :return: The dry_run of this AllocateDedicatedHostsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this AllocateDedicatedHostsRequest.
+
+
+        :param dry_run: The dry_run of this AllocateDedicatedHostsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
 
     @property
     def period(self):

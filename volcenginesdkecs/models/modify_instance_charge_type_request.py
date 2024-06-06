@@ -37,6 +37,7 @@ class ModifyInstanceChargeTypeRequest(object):
         'auto_renew': 'bool',
         'auto_renew_period': 'int',
         'client_token': 'str',
+        'dry_run': 'bool',
         'include_data_volumes': 'bool',
         'instance_charge_type': 'str',
         'instance_ids': 'list[str]',
@@ -49,6 +50,7 @@ class ModifyInstanceChargeTypeRequest(object):
         'auto_renew': 'AutoRenew',
         'auto_renew_period': 'AutoRenewPeriod',
         'client_token': 'ClientToken',
+        'dry_run': 'DryRun',
         'include_data_volumes': 'IncludeDataVolumes',
         'instance_charge_type': 'InstanceChargeType',
         'instance_ids': 'InstanceIds',
@@ -56,7 +58,7 @@ class ModifyInstanceChargeTypeRequest(object):
         'period_unit': 'PeriodUnit'
     }
 
-    def __init__(self, auto_pay=None, auto_renew=None, auto_renew_period=None, client_token=None, include_data_volumes=None, instance_charge_type=None, instance_ids=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_pay=None, auto_renew=None, auto_renew_period=None, client_token=None, dry_run=None, include_data_volumes=None, instance_charge_type=None, instance_ids=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
         """ModifyInstanceChargeTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class ModifyInstanceChargeTypeRequest(object):
         self._auto_renew = None
         self._auto_renew_period = None
         self._client_token = None
+        self._dry_run = None
         self._include_data_volumes = None
         self._instance_charge_type = None
         self._instance_ids = None
@@ -81,6 +84,8 @@ class ModifyInstanceChargeTypeRequest(object):
             self.auto_renew_period = auto_renew_period
         if client_token is not None:
             self.client_token = client_token
+        if dry_run is not None:
+            self.dry_run = dry_run
         if include_data_volumes is not None:
             self.include_data_volumes = include_data_volumes
         if instance_charge_type is not None:
@@ -175,6 +180,27 @@ class ModifyInstanceChargeTypeRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def dry_run(self):
+        """Gets the dry_run of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+
+
+        :return: The dry_run of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this ModifyInstanceChargeTypeRequest.
+
+
+        :param dry_run: The dry_run of this ModifyInstanceChargeTypeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
 
     @property
     def include_data_volumes(self):

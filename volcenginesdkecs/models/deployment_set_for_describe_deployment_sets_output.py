@@ -39,6 +39,7 @@ class DeploymentSetForDescribeDeploymentSetsOutput(object):
         'deployment_set_id': 'str',
         'deployment_set_name': 'str',
         'granularity': 'str',
+        'group_count': 'int',
         'instance_amount': 'int',
         'instance_ids': 'list[str]',
         'strategy': 'str'
@@ -51,12 +52,13 @@ class DeploymentSetForDescribeDeploymentSetsOutput(object):
         'deployment_set_id': 'DeploymentSetId',
         'deployment_set_name': 'DeploymentSetName',
         'granularity': 'Granularity',
+        'group_count': 'GroupCount',
         'instance_amount': 'InstanceAmount',
         'instance_ids': 'InstanceIds',
         'strategy': 'Strategy'
     }
 
-    def __init__(self, capacities=None, created_at=None, deployment_set_description=None, deployment_set_id=None, deployment_set_name=None, granularity=None, instance_amount=None, instance_ids=None, strategy=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacities=None, created_at=None, deployment_set_description=None, deployment_set_id=None, deployment_set_name=None, granularity=None, group_count=None, instance_amount=None, instance_ids=None, strategy=None, _configuration=None):  # noqa: E501
         """DeploymentSetForDescribeDeploymentSetsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class DeploymentSetForDescribeDeploymentSetsOutput(object):
         self._deployment_set_id = None
         self._deployment_set_name = None
         self._granularity = None
+        self._group_count = None
         self._instance_amount = None
         self._instance_ids = None
         self._strategy = None
@@ -85,6 +88,8 @@ class DeploymentSetForDescribeDeploymentSetsOutput(object):
             self.deployment_set_name = deployment_set_name
         if granularity is not None:
             self.granularity = granularity
+        if group_count is not None:
+            self.group_count = group_count
         if instance_amount is not None:
             self.instance_amount = instance_amount
         if instance_ids is not None:
@@ -217,6 +222,27 @@ class DeploymentSetForDescribeDeploymentSetsOutput(object):
         """
 
         self._granularity = granularity
+
+    @property
+    def group_count(self):
+        """Gets the group_count of this DeploymentSetForDescribeDeploymentSetsOutput.  # noqa: E501
+
+
+        :return: The group_count of this DeploymentSetForDescribeDeploymentSetsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._group_count
+
+    @group_count.setter
+    def group_count(self, group_count):
+        """Sets the group_count of this DeploymentSetForDescribeDeploymentSetsOutput.
+
+
+        :param group_count: The group_count of this DeploymentSetForDescribeDeploymentSetsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._group_count = group_count
 
     @property
     def instance_amount(self):

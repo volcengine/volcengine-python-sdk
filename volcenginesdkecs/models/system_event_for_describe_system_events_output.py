@@ -33,6 +33,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'category': 'str',
         'created_at': 'str',
         'extra_info': 'dict(str, str)',
         'id': 'str',
@@ -45,6 +46,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
     }
 
     attribute_map = {
+        'category': 'Category',
         'created_at': 'CreatedAt',
         'extra_info': 'ExtraInfo',
         'id': 'Id',
@@ -56,12 +58,13 @@ class SystemEventForDescribeSystemEventsOutput(object):
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, created_at=None, extra_info=None, id=None, operated_end_at=None, operated_start_at=None, resource_id=None, status=None, type=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, category=None, created_at=None, extra_info=None, id=None, operated_end_at=None, operated_start_at=None, resource_id=None, status=None, type=None, updated_at=None, _configuration=None):  # noqa: E501
         """SystemEventForDescribeSystemEventsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._category = None
         self._created_at = None
         self._extra_info = None
         self._id = None
@@ -73,6 +76,8 @@ class SystemEventForDescribeSystemEventsOutput(object):
         self._updated_at = None
         self.discriminator = None
 
+        if category is not None:
+            self.category = category
         if created_at is not None:
             self.created_at = created_at
         if extra_info is not None:
@@ -91,6 +96,27 @@ class SystemEventForDescribeSystemEventsOutput(object):
             self.type = type
         if updated_at is not None:
             self.updated_at = updated_at
+
+    @property
+    def category(self):
+        """Gets the category of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+
+
+        :return: The category of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._category
+
+    @category.setter
+    def category(self, category):
+        """Sets the category of this SystemEventForDescribeSystemEventsOutput.
+
+
+        :param category: The category of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._category = category
 
     @property
     def created_at(self):
