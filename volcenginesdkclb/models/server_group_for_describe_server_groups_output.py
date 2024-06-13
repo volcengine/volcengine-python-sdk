@@ -34,6 +34,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
     """
     swagger_types = {
         'address_ip_version': 'str',
+        'any_port_enabled': 'str',
         'create_time': 'str',
         'description': 'str',
         'server_group_id': 'str',
@@ -45,6 +46,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
 
     attribute_map = {
         'address_ip_version': 'AddressIpVersion',
+        'any_port_enabled': 'AnyPortEnabled',
         'create_time': 'CreateTime',
         'description': 'Description',
         'server_group_id': 'ServerGroupId',
@@ -54,13 +56,14 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, address_ip_version=None, create_time=None, description=None, server_group_id=None, server_group_name=None, tags=None, type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, any_port_enabled=None, create_time=None, description=None, server_group_id=None, server_group_name=None, tags=None, type=None, update_time=None, _configuration=None):  # noqa: E501
         """ServerGroupForDescribeServerGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address_ip_version = None
+        self._any_port_enabled = None
         self._create_time = None
         self._description = None
         self._server_group_id = None
@@ -72,6 +75,8 @@ class ServerGroupForDescribeServerGroupsOutput(object):
 
         if address_ip_version is not None:
             self.address_ip_version = address_ip_version
+        if any_port_enabled is not None:
+            self.any_port_enabled = any_port_enabled
         if create_time is not None:
             self.create_time = create_time
         if description is not None:
@@ -107,6 +112,27 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         """
 
         self._address_ip_version = address_ip_version
+
+    @property
+    def any_port_enabled(self):
+        """Gets the any_port_enabled of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The any_port_enabled of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._any_port_enabled
+
+    @any_port_enabled.setter
+    def any_port_enabled(self, any_port_enabled):
+        """Sets the any_port_enabled of this ServerGroupForDescribeServerGroupsOutput.
+
+
+        :param any_port_enabled: The any_port_enabled of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._any_port_enabled = any_port_enabled
 
     @property
     def create_time(self):
