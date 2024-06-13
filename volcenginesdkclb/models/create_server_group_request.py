@@ -34,6 +34,7 @@ class CreateServerGroupRequest(object):
     """
     swagger_types = {
         'address_ip_version': 'str',
+        'any_port_enabled': 'str',
         'description': 'str',
         'load_balancer_id': 'str',
         'server_group_name': 'str',
@@ -44,6 +45,7 @@ class CreateServerGroupRequest(object):
 
     attribute_map = {
         'address_ip_version': 'AddressIpVersion',
+        'any_port_enabled': 'AnyPortEnabled',
         'description': 'Description',
         'load_balancer_id': 'LoadBalancerId',
         'server_group_name': 'ServerGroupName',
@@ -52,13 +54,14 @@ class CreateServerGroupRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, address_ip_version=None, description=None, load_balancer_id=None, server_group_name=None, servers=None, tags=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, any_port_enabled=None, description=None, load_balancer_id=None, server_group_name=None, servers=None, tags=None, type=None, _configuration=None):  # noqa: E501
         """CreateServerGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address_ip_version = None
+        self._any_port_enabled = None
         self._description = None
         self._load_balancer_id = None
         self._server_group_name = None
@@ -69,6 +72,8 @@ class CreateServerGroupRequest(object):
 
         if address_ip_version is not None:
             self.address_ip_version = address_ip_version
+        if any_port_enabled is not None:
+            self.any_port_enabled = any_port_enabled
         if description is not None:
             self.description = description
         self.load_balancer_id = load_balancer_id
@@ -101,6 +106,27 @@ class CreateServerGroupRequest(object):
         """
 
         self._address_ip_version = address_ip_version
+
+    @property
+    def any_port_enabled(self):
+        """Gets the any_port_enabled of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The any_port_enabled of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._any_port_enabled
+
+    @any_port_enabled.setter
+    def any_port_enabled(self, any_port_enabled):
+        """Sets the any_port_enabled of this CreateServerGroupRequest.
+
+
+        :param any_port_enabled: The any_port_enabled of this CreateServerGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._any_port_enabled = any_port_enabled
 
     @property
     def description(self):

@@ -33,6 +33,8 @@ class CreateLifecycleHookRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
+        'lifecycle_command': 'LifecycleCommandForCreateLifecycleHookInput',
         'lifecycle_hook_name': 'str',
         'lifecycle_hook_policy': 'str',
         'lifecycle_hook_timeout': 'int',
@@ -41,6 +43,8 @@ class CreateLifecycleHookRequest(object):
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
+        'lifecycle_command': 'LifecycleCommand',
         'lifecycle_hook_name': 'LifecycleHookName',
         'lifecycle_hook_policy': 'LifecycleHookPolicy',
         'lifecycle_hook_timeout': 'LifecycleHookTimeout',
@@ -48,12 +52,14 @@ class CreateLifecycleHookRequest(object):
         'scaling_group_id': 'ScalingGroupId'
     }
 
-    def __init__(self, lifecycle_hook_name=None, lifecycle_hook_policy=None, lifecycle_hook_timeout=None, lifecycle_hook_type=None, scaling_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, lifecycle_command=None, lifecycle_hook_name=None, lifecycle_hook_policy=None, lifecycle_hook_timeout=None, lifecycle_hook_type=None, scaling_group_id=None, _configuration=None):  # noqa: E501
         """CreateLifecycleHookRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
+        self._lifecycle_command = None
         self._lifecycle_hook_name = None
         self._lifecycle_hook_policy = None
         self._lifecycle_hook_timeout = None
@@ -61,16 +67,57 @@ class CreateLifecycleHookRequest(object):
         self._scaling_group_id = None
         self.discriminator = None
 
-        if lifecycle_hook_name is not None:
-            self.lifecycle_hook_name = lifecycle_hook_name
-        if lifecycle_hook_policy is not None:
-            self.lifecycle_hook_policy = lifecycle_hook_policy
-        if lifecycle_hook_timeout is not None:
-            self.lifecycle_hook_timeout = lifecycle_hook_timeout
-        if lifecycle_hook_type is not None:
-            self.lifecycle_hook_type = lifecycle_hook_type
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        if client_token is not None:
+            self.client_token = client_token
+        if lifecycle_command is not None:
+            self.lifecycle_command = lifecycle_command
+        self.lifecycle_hook_name = lifecycle_hook_name
+        self.lifecycle_hook_policy = lifecycle_hook_policy
+        self.lifecycle_hook_timeout = lifecycle_hook_timeout
+        self.lifecycle_hook_type = lifecycle_hook_type
+        self.scaling_group_id = scaling_group_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateLifecycleHookRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateLifecycleHookRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateLifecycleHookRequest.
+
+
+        :param client_token: The client_token of this CreateLifecycleHookRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
+
+    @property
+    def lifecycle_command(self):
+        """Gets the lifecycle_command of this CreateLifecycleHookRequest.  # noqa: E501
+
+
+        :return: The lifecycle_command of this CreateLifecycleHookRequest.  # noqa: E501
+        :rtype: LifecycleCommandForCreateLifecycleHookInput
+        """
+        return self._lifecycle_command
+
+    @lifecycle_command.setter
+    def lifecycle_command(self, lifecycle_command):
+        """Sets the lifecycle_command of this CreateLifecycleHookRequest.
+
+
+        :param lifecycle_command: The lifecycle_command of this CreateLifecycleHookRequest.  # noqa: E501
+        :type: LifecycleCommandForCreateLifecycleHookInput
+        """
+
+        self._lifecycle_command = lifecycle_command
 
     @property
     def lifecycle_hook_name(self):
@@ -90,6 +137,8 @@ class CreateLifecycleHookRequest(object):
         :param lifecycle_hook_name: The lifecycle_hook_name of this CreateLifecycleHookRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and lifecycle_hook_name is None:
+            raise ValueError("Invalid value for `lifecycle_hook_name`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_name = lifecycle_hook_name
 
@@ -111,6 +160,8 @@ class CreateLifecycleHookRequest(object):
         :param lifecycle_hook_policy: The lifecycle_hook_policy of this CreateLifecycleHookRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and lifecycle_hook_policy is None:
+            raise ValueError("Invalid value for `lifecycle_hook_policy`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_policy = lifecycle_hook_policy
 
@@ -132,6 +183,8 @@ class CreateLifecycleHookRequest(object):
         :param lifecycle_hook_timeout: The lifecycle_hook_timeout of this CreateLifecycleHookRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and lifecycle_hook_timeout is None:
+            raise ValueError("Invalid value for `lifecycle_hook_timeout`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_timeout = lifecycle_hook_timeout
 
@@ -153,6 +206,8 @@ class CreateLifecycleHookRequest(object):
         :param lifecycle_hook_type: The lifecycle_hook_type of this CreateLifecycleHookRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and lifecycle_hook_type is None:
+            raise ValueError("Invalid value for `lifecycle_hook_type`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_type = lifecycle_hook_type
 
@@ -174,6 +229,8 @@ class CreateLifecycleHookRequest(object):
         :param scaling_group_id: The scaling_group_id of this CreateLifecycleHookRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

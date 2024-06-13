@@ -69,8 +69,7 @@ class DetachInstancesRequest(object):
             self.instance_ids = instance_ids
         if lifecycle_hook is not None:
             self.lifecycle_hook = lifecycle_hook
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
 
     @property
     def decrease_desired_capacity(self):
@@ -174,6 +173,8 @@ class DetachInstancesRequest(object):
         :param scaling_group_id: The scaling_group_id of this DetachInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

@@ -34,33 +34,48 @@ class EipForDescribeScalingConfigurationsOutput(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'bandwidth_package_id': 'str',
         'billing_type': 'str',
-        'isp': 'str'
+        'isp': 'str',
+        'security_protection_instance_id': 'int',
+        'security_protection_types': 'list[str]'
     }
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'bandwidth_package_id': 'BandwidthPackageId',
         'billing_type': 'BillingType',
-        'isp': 'ISP'
+        'isp': 'ISP',
+        'security_protection_instance_id': 'SecurityProtectionInstanceId',
+        'security_protection_types': 'SecurityProtectionTypes'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, isp=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, isp=None, security_protection_instance_id=None, security_protection_types=None, _configuration=None):  # noqa: E501
         """EipForDescribeScalingConfigurationsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._bandwidth_package_id = None
         self._billing_type = None
         self._isp = None
+        self._security_protection_instance_id = None
+        self._security_protection_types = None
         self.discriminator = None
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if bandwidth_package_id is not None:
+            self.bandwidth_package_id = bandwidth_package_id
         if billing_type is not None:
             self.billing_type = billing_type
         if isp is not None:
             self.isp = isp
+        if security_protection_instance_id is not None:
+            self.security_protection_instance_id = security_protection_instance_id
+        if security_protection_types is not None:
+            self.security_protection_types = security_protection_types
 
     @property
     def bandwidth(self):
@@ -82,6 +97,27 @@ class EipForDescribeScalingConfigurationsOutput(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def bandwidth_package_id(self):
+        """Gets the bandwidth_package_id of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The bandwidth_package_id of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bandwidth_package_id
+
+    @bandwidth_package_id.setter
+    def bandwidth_package_id(self, bandwidth_package_id):
+        """Sets the bandwidth_package_id of this EipForDescribeScalingConfigurationsOutput.
+
+
+        :param bandwidth_package_id: The bandwidth_package_id of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bandwidth_package_id = bandwidth_package_id
 
     @property
     def billing_type(self):
@@ -124,6 +160,48 @@ class EipForDescribeScalingConfigurationsOutput(object):
         """
 
         self._isp = isp
+
+    @property
+    def security_protection_instance_id(self):
+        """Gets the security_protection_instance_id of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The security_protection_instance_id of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._security_protection_instance_id
+
+    @security_protection_instance_id.setter
+    def security_protection_instance_id(self, security_protection_instance_id):
+        """Sets the security_protection_instance_id of this EipForDescribeScalingConfigurationsOutput.
+
+
+        :param security_protection_instance_id: The security_protection_instance_id of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._security_protection_instance_id = security_protection_instance_id
+
+    @property
+    def security_protection_types(self):
+        """Gets the security_protection_types of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The security_protection_types of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_protection_types
+
+    @security_protection_types.setter
+    def security_protection_types(self, security_protection_types):
+        """Sets the security_protection_types of this EipForDescribeScalingConfigurationsOutput.
+
+
+        :param security_protection_types: The security_protection_types of this EipForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_protection_types = security_protection_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""

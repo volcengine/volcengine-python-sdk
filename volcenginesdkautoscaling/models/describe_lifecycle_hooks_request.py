@@ -69,8 +69,7 @@ class DescribeLifecycleHooksRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
 
     @property
     def lifecycle_hook_ids(self):
@@ -174,6 +173,8 @@ class DescribeLifecycleHooksRequest(object):
         :param scaling_group_id: The scaling_group_id of this DescribeLifecycleHooksRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

@@ -59,8 +59,7 @@ class DetachDBInstancesRequest(object):
             self.db_instance_ids = db_instance_ids
         if force_detach is not None:
             self.force_detach = force_detach
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
 
     @property
     def db_instance_ids(self):
@@ -122,6 +121,8 @@ class DetachDBInstancesRequest(object):
         :param scaling_group_id: The scaling_group_id of this DetachDBInstancesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 
