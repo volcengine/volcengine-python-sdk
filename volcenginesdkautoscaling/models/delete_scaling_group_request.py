@@ -33,24 +33,49 @@ class DeleteScalingGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'keep_instance': 'bool',
         'scaling_group_id': 'str'
     }
 
     attribute_map = {
+        'keep_instance': 'KeepInstance',
         'scaling_group_id': 'ScalingGroupId'
     }
 
-    def __init__(self, scaling_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, keep_instance=None, scaling_group_id=None, _configuration=None):  # noqa: E501
         """DeleteScalingGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._keep_instance = None
         self._scaling_group_id = None
         self.discriminator = None
 
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        if keep_instance is not None:
+            self.keep_instance = keep_instance
+        self.scaling_group_id = scaling_group_id
+
+    @property
+    def keep_instance(self):
+        """Gets the keep_instance of this DeleteScalingGroupRequest.  # noqa: E501
+
+
+        :return: The keep_instance of this DeleteScalingGroupRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._keep_instance
+
+    @keep_instance.setter
+    def keep_instance(self, keep_instance):
+        """Sets the keep_instance of this DeleteScalingGroupRequest.
+
+
+        :param keep_instance: The keep_instance of this DeleteScalingGroupRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._keep_instance = keep_instance
 
     @property
     def scaling_group_id(self):
@@ -70,6 +95,8 @@ class DeleteScalingGroupRequest(object):
         :param scaling_group_id: The scaling_group_id of this DeleteScalingGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

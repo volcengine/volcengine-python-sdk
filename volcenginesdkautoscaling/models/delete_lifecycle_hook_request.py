@@ -49,8 +49,7 @@ class DeleteLifecycleHookRequest(object):
         self._lifecycle_hook_id = None
         self.discriminator = None
 
-        if lifecycle_hook_id is not None:
-            self.lifecycle_hook_id = lifecycle_hook_id
+        self.lifecycle_hook_id = lifecycle_hook_id
 
     @property
     def lifecycle_hook_id(self):
@@ -70,6 +69,8 @@ class DeleteLifecycleHookRequest(object):
         :param lifecycle_hook_id: The lifecycle_hook_id of this DeleteLifecycleHookRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and lifecycle_hook_id is None:
+            raise ValueError("Invalid value for `lifecycle_hook_id`, must not be `None`")  # noqa: E501
 
         self._lifecycle_hook_id = lifecycle_hook_id
 

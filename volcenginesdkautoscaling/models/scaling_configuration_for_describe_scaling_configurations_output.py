@@ -41,6 +41,7 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         'instance_charge_type': 'str',
         'instance_description': 'str',
         'instance_name': 'str',
+        'instance_type_overrides': 'list[InstanceTypeOverrideForDescribeScalingConfigurationsOutput]',
         'instance_types': 'list[str]',
         'ipv6_address_count': 'int',
         'key_pair_name': 'str',
@@ -68,6 +69,7 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         'instance_charge_type': 'InstanceChargeType',
         'instance_description': 'InstanceDescription',
         'instance_name': 'InstanceName',
+        'instance_type_overrides': 'InstanceTypeOverrides',
         'instance_types': 'InstanceTypes',
         'ipv6_address_count': 'Ipv6AddressCount',
         'key_pair_name': 'KeyPairName',
@@ -86,7 +88,7 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, created_at=None, eip=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_description=None, instance_name=None, instance_types=None, ipv6_address_count=None, key_pair_name=None, lifecycle_state=None, project_name=None, scaling_configuration_id=None, scaling_configuration_name=None, scaling_group_id=None, security_enhancement_strategy=None, security_group_ids=None, spot_strategy=None, tags=None, updated_at=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, eip=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_description=None, instance_name=None, instance_type_overrides=None, instance_types=None, ipv6_address_count=None, key_pair_name=None, lifecycle_state=None, project_name=None, scaling_configuration_id=None, scaling_configuration_name=None, scaling_group_id=None, security_enhancement_strategy=None, security_group_ids=None, spot_strategy=None, tags=None, updated_at=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """ScalingConfigurationForDescribeScalingConfigurationsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +102,7 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         self._instance_charge_type = None
         self._instance_description = None
         self._instance_name = None
+        self._instance_type_overrides = None
         self._instance_types = None
         self._ipv6_address_count = None
         self._key_pair_name = None
@@ -134,6 +137,8 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
             self.instance_description = instance_description
         if instance_name is not None:
             self.instance_name = instance_name
+        if instance_type_overrides is not None:
+            self.instance_type_overrides = instance_type_overrides
         if instance_types is not None:
             self.instance_types = instance_types
         if ipv6_address_count is not None:
@@ -334,6 +339,27 @@ class ScalingConfigurationForDescribeScalingConfigurationsOutput(object):
         """
 
         self._instance_name = instance_name
+
+    @property
+    def instance_type_overrides(self):
+        """Gets the instance_type_overrides of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+
+
+        :return: The instance_type_overrides of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :rtype: list[InstanceTypeOverrideForDescribeScalingConfigurationsOutput]
+        """
+        return self._instance_type_overrides
+
+    @instance_type_overrides.setter
+    def instance_type_overrides(self, instance_type_overrides):
+        """Sets the instance_type_overrides of this ScalingConfigurationForDescribeScalingConfigurationsOutput.
+
+
+        :param instance_type_overrides: The instance_type_overrides of this ScalingConfigurationForDescribeScalingConfigurationsOutput.  # noqa: E501
+        :type: list[InstanceTypeOverrideForDescribeScalingConfigurationsOutput]
+        """
+
+        self._instance_type_overrides = instance_type_overrides
 
     @property
     def instance_types(self):

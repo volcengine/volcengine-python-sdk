@@ -40,10 +40,12 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'desire_instance_number': 'int',
         'health_check_type': 'str',
         'instance_terminate_policy': 'str',
+        'instances_distribution': 'InstancesDistributionForDescribeScalingGroupsOutput',
         'launch_template_id': 'str',
         'launch_template_overrides': 'list[LaunchTemplateOverrideForDescribeScalingGroupsOutput]',
         'launch_template_version': 'str',
         'lifecycle_state': 'str',
+        'load_balancer_health_check_grace_period': 'int',
         'max_instance_number': 'int',
         'min_instance_number': 'int',
         'multi_az_policy': 'str',
@@ -54,6 +56,7 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'server_group_attributes': 'list[ServerGroupAttributeForDescribeScalingGroupsOutput]',
         'stopped_instance_count': 'int',
         'subnet_ids': 'list[str]',
+        'suspended_processes': 'list[str]',
         'tags': 'list[TagForDescribeScalingGroupsOutput]',
         'total_instance_count': 'int',
         'updated_at': 'str',
@@ -68,10 +71,12 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'desire_instance_number': 'DesireInstanceNumber',
         'health_check_type': 'HealthCheckType',
         'instance_terminate_policy': 'InstanceTerminatePolicy',
+        'instances_distribution': 'InstancesDistribution',
         'launch_template_id': 'LaunchTemplateId',
         'launch_template_overrides': 'LaunchTemplateOverrides',
         'launch_template_version': 'LaunchTemplateVersion',
         'lifecycle_state': 'LifecycleState',
+        'load_balancer_health_check_grace_period': 'LoadBalancerHealthCheckGracePeriod',
         'max_instance_number': 'MaxInstanceNumber',
         'min_instance_number': 'MinInstanceNumber',
         'multi_az_policy': 'MultiAZPolicy',
@@ -82,13 +87,14 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         'server_group_attributes': 'ServerGroupAttributes',
         'stopped_instance_count': 'StoppedInstanceCount',
         'subnet_ids': 'SubnetIds',
+        'suspended_processes': 'SuspendedProcesses',
         'tags': 'Tags',
         'total_instance_count': 'TotalInstanceCount',
         'updated_at': 'UpdatedAt',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, active_scaling_configuration_id=None, created_at=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, lifecycle_state=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, project_name=None, scaling_group_id=None, scaling_group_name=None, scaling_mode=None, server_group_attributes=None, stopped_instance_count=None, subnet_ids=None, tags=None, total_instance_count=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_scaling_configuration_id=None, created_at=None, db_instance_ids=None, default_cooldown=None, desire_instance_number=None, health_check_type=None, instance_terminate_policy=None, instances_distribution=None, launch_template_id=None, launch_template_overrides=None, launch_template_version=None, lifecycle_state=None, load_balancer_health_check_grace_period=None, max_instance_number=None, min_instance_number=None, multi_az_policy=None, project_name=None, scaling_group_id=None, scaling_group_name=None, scaling_mode=None, server_group_attributes=None, stopped_instance_count=None, subnet_ids=None, suspended_processes=None, tags=None, total_instance_count=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ScalingGroupForDescribeScalingGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,10 +107,12 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._desire_instance_number = None
         self._health_check_type = None
         self._instance_terminate_policy = None
+        self._instances_distribution = None
         self._launch_template_id = None
         self._launch_template_overrides = None
         self._launch_template_version = None
         self._lifecycle_state = None
+        self._load_balancer_health_check_grace_period = None
         self._max_instance_number = None
         self._min_instance_number = None
         self._multi_az_policy = None
@@ -115,6 +123,7 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._server_group_attributes = None
         self._stopped_instance_count = None
         self._subnet_ids = None
+        self._suspended_processes = None
         self._tags = None
         self._total_instance_count = None
         self._updated_at = None
@@ -135,6 +144,8 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
             self.health_check_type = health_check_type
         if instance_terminate_policy is not None:
             self.instance_terminate_policy = instance_terminate_policy
+        if instances_distribution is not None:
+            self.instances_distribution = instances_distribution
         if launch_template_id is not None:
             self.launch_template_id = launch_template_id
         if launch_template_overrides is not None:
@@ -143,6 +154,8 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
             self.launch_template_version = launch_template_version
         if lifecycle_state is not None:
             self.lifecycle_state = lifecycle_state
+        if load_balancer_health_check_grace_period is not None:
+            self.load_balancer_health_check_grace_period = load_balancer_health_check_grace_period
         if max_instance_number is not None:
             self.max_instance_number = max_instance_number
         if min_instance_number is not None:
@@ -163,6 +176,8 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
             self.stopped_instance_count = stopped_instance_count
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+        if suspended_processes is not None:
+            self.suspended_processes = suspended_processes
         if tags is not None:
             self.tags = tags
         if total_instance_count is not None:
@@ -320,6 +335,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         self._instance_terminate_policy = instance_terminate_policy
 
     @property
+    def instances_distribution(self):
+        """Gets the instances_distribution of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The instances_distribution of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: InstancesDistributionForDescribeScalingGroupsOutput
+        """
+        return self._instances_distribution
+
+    @instances_distribution.setter
+    def instances_distribution(self, instances_distribution):
+        """Sets the instances_distribution of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param instances_distribution: The instances_distribution of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: InstancesDistributionForDescribeScalingGroupsOutput
+        """
+
+        self._instances_distribution = instances_distribution
+
+    @property
     def launch_template_id(self):
         """Gets the launch_template_id of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
 
@@ -402,6 +438,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         """
 
         self._lifecycle_state = lifecycle_state
+
+    @property
+    def load_balancer_health_check_grace_period(self):
+        """Gets the load_balancer_health_check_grace_period of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The load_balancer_health_check_grace_period of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._load_balancer_health_check_grace_period
+
+    @load_balancer_health_check_grace_period.setter
+    def load_balancer_health_check_grace_period(self, load_balancer_health_check_grace_period):
+        """Sets the load_balancer_health_check_grace_period of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param load_balancer_health_check_grace_period: The load_balancer_health_check_grace_period of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._load_balancer_health_check_grace_period = load_balancer_health_check_grace_period
 
     @property
     def max_instance_number(self):
@@ -612,6 +669,27 @@ class ScalingGroupForDescribeScalingGroupsOutput(object):
         """
 
         self._subnet_ids = subnet_ids
+
+    @property
+    def suspended_processes(self):
+        """Gets the suspended_processes of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+
+
+        :return: The suspended_processes of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._suspended_processes
+
+    @suspended_processes.setter
+    def suspended_processes(self, suspended_processes):
+        """Sets the suspended_processes of this ScalingGroupForDescribeScalingGroupsOutput.
+
+
+        :param suspended_processes: The suspended_processes of this ScalingGroupForDescribeScalingGroupsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._suspended_processes = suspended_processes
 
     @property
     def tags(self):

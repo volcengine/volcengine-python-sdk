@@ -33,29 +33,54 @@ class CompleteLifecycleActivityRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'lifecycle_activity_id': 'str',
         'lifecycle_activity_policy': 'str'
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'lifecycle_activity_id': 'LifecycleActivityId',
         'lifecycle_activity_policy': 'LifecycleActivityPolicy'
     }
 
-    def __init__(self, lifecycle_activity_id=None, lifecycle_activity_policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, lifecycle_activity_id=None, lifecycle_activity_policy=None, _configuration=None):  # noqa: E501
         """CompleteLifecycleActivityRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._lifecycle_activity_id = None
         self._lifecycle_activity_policy = None
         self.discriminator = None
 
-        if lifecycle_activity_id is not None:
-            self.lifecycle_activity_id = lifecycle_activity_id
+        if client_token is not None:
+            self.client_token = client_token
+        self.lifecycle_activity_id = lifecycle_activity_id
         if lifecycle_activity_policy is not None:
             self.lifecycle_activity_policy = lifecycle_activity_policy
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CompleteLifecycleActivityRequest.  # noqa: E501
+
+
+        :return: The client_token of this CompleteLifecycleActivityRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CompleteLifecycleActivityRequest.
+
+
+        :param client_token: The client_token of this CompleteLifecycleActivityRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def lifecycle_activity_id(self):
@@ -75,6 +100,8 @@ class CompleteLifecycleActivityRequest(object):
         :param lifecycle_activity_id: The lifecycle_activity_id of this CompleteLifecycleActivityRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and lifecycle_activity_id is None:
+            raise ValueError("Invalid value for `lifecycle_activity_id`, must not be `None`")  # noqa: E501
 
         self._lifecycle_activity_id = lifecycle_activity_id
 

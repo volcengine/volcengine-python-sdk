@@ -35,16 +35,18 @@ class ServerGroupAttributeForAttachServerGroupsInput(object):
     swagger_types = {
         'port': 'int',
         'server_group_id': 'str',
+        'type': 'str',
         'weight': 'int'
     }
 
     attribute_map = {
         'port': 'Port',
         'server_group_id': 'ServerGroupId',
+        'type': 'Type',
         'weight': 'Weight'
     }
 
-    def __init__(self, port=None, server_group_id=None, weight=None, _configuration=None):  # noqa: E501
+    def __init__(self, port=None, server_group_id=None, type=None, weight=None, _configuration=None):  # noqa: E501
         """ServerGroupAttributeForAttachServerGroupsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,15 +54,15 @@ class ServerGroupAttributeForAttachServerGroupsInput(object):
 
         self._port = None
         self._server_group_id = None
+        self._type = None
         self._weight = None
         self.discriminator = None
 
-        if port is not None:
-            self.port = port
-        if server_group_id is not None:
-            self.server_group_id = server_group_id
-        if weight is not None:
-            self.weight = weight
+        self.port = port
+        self.server_group_id = server_group_id
+        if type is not None:
+            self.type = type
+        self.weight = weight
 
     @property
     def port(self):
@@ -80,6 +82,8 @@ class ServerGroupAttributeForAttachServerGroupsInput(object):
         :param port: The port of this ServerGroupAttributeForAttachServerGroupsInput.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and port is None:
+            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
 
         self._port = port
 
@@ -101,8 +105,31 @@ class ServerGroupAttributeForAttachServerGroupsInput(object):
         :param server_group_id: The server_group_id of this ServerGroupAttributeForAttachServerGroupsInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and server_group_id is None:
+            raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
+
+    @property
+    def type(self):
+        """Gets the type of this ServerGroupAttributeForAttachServerGroupsInput.  # noqa: E501
+
+
+        :return: The type of this ServerGroupAttributeForAttachServerGroupsInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ServerGroupAttributeForAttachServerGroupsInput.
+
+
+        :param type: The type of this ServerGroupAttributeForAttachServerGroupsInput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def weight(self):
@@ -122,6 +149,8 @@ class ServerGroupAttributeForAttachServerGroupsInput(object):
         :param weight: The weight of this ServerGroupAttributeForAttachServerGroupsInput.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and weight is None:
+            raise ValueError("Invalid value for `weight`, must not be `None`")  # noqa: E501
 
         self._weight = weight
 
