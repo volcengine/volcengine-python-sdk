@@ -22,6 +22,7 @@ from ._constants import (
     _DEFAULT_ADVISORY_REFRESH_TIMEOUT,
     _DEFAULT_MANDATORY_REFRESH_TIMEOUT,
     _DEFAULT_STS_TIMEOUT,
+    _DEFAULT_RESOURCE_TYPE,
     DEFAULT_TIMEOUT
 )
 from ._streaming import Stream
@@ -31,6 +32,8 @@ __all__ = ["Ark", "AsyncArk"]
 
 class Ark(SyncAPIClient):
     chat: resources.Chat
+    bot_chat: resources.BotChat
+    embeddings: resources.Embeddings
 
     def __init__(
         self,
@@ -83,6 +86,7 @@ class Ark(SyncAPIClient):
         self._sts_token_manager: StsTokenManager | None = None
 
         self.chat = resources.Chat(self)
+        self.bot_chat = resources.BotChat(self)
         self.embeddings = resources.Embeddings(self)
         # self.tokenization = resources.Tokenization(self)
         # self.classification = resources.Classification(self)
@@ -94,6 +98,13 @@ class Ark(SyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
 
+    def _get_bot_sts_token(self, bot_id: str):
+        if self._sts_token_manager is None:
+            if self.ak is None or self.sk is None:
+                raise ArkAPIError("must set ak and sk before get endpoint token.")
+            self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
+        return self._sts_token_manager.get(bot_id, resource_type="bot")
+
     @property
     def auth_headers(self) -> dict[str, str]:
         api_key = self.api_key
@@ -102,6 +113,8 @@ class Ark(SyncAPIClient):
 
 class AsyncArk(AsyncAPIClient):
     chat: resources.AsyncChat
+    bot_chat: resources.AsyncBotChat
+    embeddings: resources.AsyncEmbeddings
 
     def __init__(
         self,
@@ -153,6 +166,7 @@ class AsyncArk(AsyncAPIClient):
         self._sts_token_manager: StsTokenManager | None = None
 
         self.chat = resources.AsyncChat(self)
+        self.bot_chat = resources.AsyncBotChat(self)
         self.embeddings = resources.AsyncEmbeddings(self)
         # self.tokenization = resources.AsyncTokenization(self)
         # self.classification = resources.AsyncClassification(self)
@@ -171,7 +185,6 @@ class AsyncArk(AsyncAPIClient):
 
 
 class StsTokenManager(object):
-
     # The time at which we'll attempt to refresh, but not
     # block if someone else is refreshing.
     _advisory_refresh_timeout: int = _DEFAULT_ADVISORY_REFRESH_TIMEOUT
@@ -200,13 +213,14 @@ class StsTokenManager(object):
 
         return self._endpoint_sts_tokens[ep][1] - time.time() < refresh_in
 
-    def _protected_refresh(self, ep: str, ttl: int = _DEFAULT_STS_TIMEOUT, is_mandatory: bool = False):
+    def _protected_refresh(self, ep: str, ttl: int = _DEFAULT_STS_TIMEOUT, is_mandatory: bool = False,
+                           resource_type: str = _DEFAULT_RESOURCE_TYPE):
         if ttl < self._advisory_refresh_timeout * 2:
             raise ArkAPIError("ttl should not be under {} seconds.".format(self._advisory_refresh_timeout * 2))
 
         try:
             api_key, expired_time = self._load_api_key(
-                ep, ttl
+                ep, ttl, resource_type=resource_type
             )
             self._endpoint_sts_tokens[ep] = (api_key, expired_time)
         except ApiException as e:
@@ -215,7 +229,7 @@ class StsTokenManager(object):
             else:
                 logging.error("load api key cause error: e={}".format(e))
 
-    def _refresh(self, ep: str):
+    def _refresh(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE):
         if not self._need_refresh(ep, self._advisory_refresh_timeout):
             return
 
@@ -228,7 +242,7 @@ class StsTokenManager(object):
                     ep, self._mandatory_refresh_timeout
                 )
 
-                self._protected_refresh(ep, is_mandatory=is_mandatory_refresh)
+                self._protected_refresh(ep, is_mandatory=is_mandatory_refresh, resource_type=resource_type)
                 return
             finally:
                 self._refresh_lock.release()
@@ -237,16 +251,17 @@ class StsTokenManager(object):
                 if not self._need_refresh(ep, self._mandatory_refresh_timeout):
                     return
 
-                self._protected_refresh(ep, is_mandatory=True)
+                self._protected_refresh(ep, is_mandatory=True, resource_type=resource_type)
 
-    def get(self, ep: str) -> str:
-        self._refresh(ep)
+    def get(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE) -> str:
+        self._refresh(ep, resource_type=resource_type)
         return self._endpoint_sts_tokens[ep][0]
 
-    def _load_api_key(self, ep: str, duration_seconds: int) -> Tuple[str, int]:
+    def _load_api_key(self, ep: str, duration_seconds: int,
+                      resource_type: str = _DEFAULT_RESOURCE_TYPE) -> Tuple[str, int]:
         get_api_key_request = volcenginesdkark.GetApiKeyRequest(
             duration_seconds=duration_seconds,
-            resource_type="endpoint",
+            resource_type=resource_type,
             resource_ids=[ep],
         )
         resp: volcenginesdkark.GetApiKeyResponse = self.api_instance.get_api_key(
