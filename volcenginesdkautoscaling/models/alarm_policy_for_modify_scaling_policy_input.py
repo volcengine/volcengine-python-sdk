@@ -101,6 +101,12 @@ class AlarmPolicyForModifyScalingPolicyInput(object):
         :param evaluation_count: The evaluation_count of this AlarmPolicyForModifyScalingPolicyInput.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                evaluation_count is not None and evaluation_count > 180):  # noqa: E501
+            raise ValueError("Invalid value for `evaluation_count`, must be a value less than or equal to `180`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                evaluation_count is not None and evaluation_count < 1):  # noqa: E501
+            raise ValueError("Invalid value for `evaluation_count`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._evaluation_count = evaluation_count
 

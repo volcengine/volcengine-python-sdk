@@ -39,6 +39,7 @@ class HealthCheckForCreateListenerInput(object):
         'http_code': 'str',
         'interval': 'int',
         'method': 'str',
+        'port': 'int',
         'timeout': 'int',
         'uri': 'str',
         'udp_expect': 'str',
@@ -53,6 +54,7 @@ class HealthCheckForCreateListenerInput(object):
         'http_code': 'HttpCode',
         'interval': 'Interval',
         'method': 'Method',
+        'port': 'Port',
         'timeout': 'Timeout',
         'uri': 'URI',
         'udp_expect': 'UdpExpect',
@@ -60,7 +62,7 @@ class HealthCheckForCreateListenerInput(object):
         'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, timeout=None, uri=None, udp_expect=None, udp_request=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, interval=None, method=None, port=None, timeout=None, uri=None, udp_expect=None, udp_request=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckForCreateListenerInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class HealthCheckForCreateListenerInput(object):
         self._http_code = None
         self._interval = None
         self._method = None
+        self._port = None
         self._timeout = None
         self._uri = None
         self._udp_expect = None
@@ -91,6 +94,8 @@ class HealthCheckForCreateListenerInput(object):
             self.interval = interval
         if method is not None:
             self.method = method
+        if port is not None:
+            self.port = port
         if timeout is not None:
             self.timeout = timeout
         if uri is not None:
@@ -227,6 +232,27 @@ class HealthCheckForCreateListenerInput(object):
         """
 
         self._method = method
+
+    @property
+    def port(self):
+        """Gets the port of this HealthCheckForCreateListenerInput.  # noqa: E501
+
+
+        :return: The port of this HealthCheckForCreateListenerInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this HealthCheckForCreateListenerInput.
+
+
+        :param port: The port of this HealthCheckForCreateListenerInput.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     @property
     def timeout(self):

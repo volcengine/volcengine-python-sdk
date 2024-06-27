@@ -57,8 +57,7 @@ class DetachServerGroupsRequest(object):
 
         if client_token is not None:
             self.client_token = client_token
-        if scaling_group_id is not None:
-            self.scaling_group_id = scaling_group_id
+        self.scaling_group_id = scaling_group_id
         if server_group_attributes is not None:
             self.server_group_attributes = server_group_attributes
 
@@ -80,6 +79,9 @@ class DetachServerGroupsRequest(object):
         :param client_token: The client_token of this DetachServerGroupsRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                client_token is not None and len(client_token) > 64):
+            raise ValueError("Invalid value for `client_token`, length must be less than or equal to `64`")  # noqa: E501
 
         self._client_token = client_token
 
@@ -101,6 +103,8 @@ class DetachServerGroupsRequest(object):
         :param scaling_group_id: The scaling_group_id of this DetachServerGroupsRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_group_id is None:
+            raise ValueError("Invalid value for `scaling_group_id`, must not be `None`")  # noqa: E501
 
         self._scaling_group_id = scaling_group_id
 

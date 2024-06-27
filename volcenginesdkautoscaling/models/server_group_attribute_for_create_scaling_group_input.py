@@ -35,16 +35,18 @@ class ServerGroupAttributeForCreateScalingGroupInput(object):
     swagger_types = {
         'port': 'int',
         'server_group_id': 'str',
+        'type': 'str',
         'weight': 'int'
     }
 
     attribute_map = {
         'port': 'Port',
         'server_group_id': 'ServerGroupId',
+        'type': 'Type',
         'weight': 'Weight'
     }
 
-    def __init__(self, port=None, server_group_id=None, weight=None, _configuration=None):  # noqa: E501
+    def __init__(self, port=None, server_group_id=None, type=None, weight=None, _configuration=None):  # noqa: E501
         """ServerGroupAttributeForCreateScalingGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class ServerGroupAttributeForCreateScalingGroupInput(object):
 
         self._port = None
         self._server_group_id = None
+        self._type = None
         self._weight = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class ServerGroupAttributeForCreateScalingGroupInput(object):
             self.port = port
         if server_group_id is not None:
             self.server_group_id = server_group_id
+        if type is not None:
+            self.type = type
         if weight is not None:
             self.weight = weight
 
@@ -103,6 +108,27 @@ class ServerGroupAttributeForCreateScalingGroupInput(object):
         """
 
         self._server_group_id = server_group_id
+
+    @property
+    def type(self):
+        """Gets the type of this ServerGroupAttributeForCreateScalingGroupInput.  # noqa: E501
+
+
+        :return: The type of this ServerGroupAttributeForCreateScalingGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ServerGroupAttributeForCreateScalingGroupInput.
+
+
+        :param type: The type of this ServerGroupAttributeForCreateScalingGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def weight(self):

@@ -38,23 +38,33 @@ class CreateListenerRequest(object):
         'acl_type': 'str',
         'bandwidth': 'int',
         'certificate_id': 'str',
+        'client_body_timeout': 'int',
+        'client_header_timeout': 'int',
         'connection_drain_enabled': 'str',
         'connection_drain_timeout': 'int',
         'cookie': 'str',
         'description': 'str',
         'enabled': 'str',
+        'end_port': 'int',
         'established_timeout': 'int',
         'health_check': 'HealthCheckForCreateListenerInput',
         'http2_enabled': 'str',
+        'keepalive_timeout': 'int',
         'listener_name': 'str',
         'load_balancer_id': 'str',
         'persistence_timeout': 'int',
         'persistence_type': 'str',
         'port': 'int',
         'protocol': 'str',
+        'proxy_connect_timeout': 'int',
         'proxy_protocol_type': 'str',
+        'proxy_read_timeout': 'int',
+        'proxy_send_timeout': 'int',
         'scheduler': 'str',
+        'security_policy_id': 'str',
+        'send_timeout': 'int',
         'server_group_id': 'str',
+        'start_port': 'int',
         'tags': 'list[TagForCreateListenerInput]'
     }
 
@@ -64,27 +74,37 @@ class CreateListenerRequest(object):
         'acl_type': 'AclType',
         'bandwidth': 'Bandwidth',
         'certificate_id': 'CertificateId',
+        'client_body_timeout': 'ClientBodyTimeout',
+        'client_header_timeout': 'ClientHeaderTimeout',
         'connection_drain_enabled': 'ConnectionDrainEnabled',
         'connection_drain_timeout': 'ConnectionDrainTimeout',
         'cookie': 'Cookie',
         'description': 'Description',
         'enabled': 'Enabled',
+        'end_port': 'EndPort',
         'established_timeout': 'EstablishedTimeout',
         'health_check': 'HealthCheck',
         'http2_enabled': 'Http2Enabled',
+        'keepalive_timeout': 'KeepaliveTimeout',
         'listener_name': 'ListenerName',
         'load_balancer_id': 'LoadBalancerId',
         'persistence_timeout': 'PersistenceTimeout',
         'persistence_type': 'PersistenceType',
         'port': 'Port',
         'protocol': 'Protocol',
+        'proxy_connect_timeout': 'ProxyConnectTimeout',
         'proxy_protocol_type': 'ProxyProtocolType',
+        'proxy_read_timeout': 'ProxyReadTimeout',
+        'proxy_send_timeout': 'ProxySendTimeout',
         'scheduler': 'Scheduler',
+        'security_policy_id': 'SecurityPolicyId',
+        'send_timeout': 'SendTimeout',
         'server_group_id': 'ServerGroupId',
+        'start_port': 'StartPort',
         'tags': 'Tags'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, description=None, enabled=None, established_timeout=None, health_check=None, http2_enabled=None, listener_name=None, load_balancer_id=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_protocol_type=None, scheduler=None, server_group_id=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, description=None, enabled=None, end_port=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_name=None, load_balancer_id=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, start_port=None, tags=None, _configuration=None):  # noqa: E501
         """CreateListenerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,23 +115,33 @@ class CreateListenerRequest(object):
         self._acl_type = None
         self._bandwidth = None
         self._certificate_id = None
+        self._client_body_timeout = None
+        self._client_header_timeout = None
         self._connection_drain_enabled = None
         self._connection_drain_timeout = None
         self._cookie = None
         self._description = None
         self._enabled = None
+        self._end_port = None
         self._established_timeout = None
         self._health_check = None
         self._http2_enabled = None
+        self._keepalive_timeout = None
         self._listener_name = None
         self._load_balancer_id = None
         self._persistence_timeout = None
         self._persistence_type = None
         self._port = None
         self._protocol = None
+        self._proxy_connect_timeout = None
         self._proxy_protocol_type = None
+        self._proxy_read_timeout = None
+        self._proxy_send_timeout = None
         self._scheduler = None
+        self._security_policy_id = None
+        self._send_timeout = None
         self._server_group_id = None
+        self._start_port = None
         self._tags = None
         self.discriminator = None
 
@@ -125,6 +155,10 @@ class CreateListenerRequest(object):
             self.bandwidth = bandwidth
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if client_body_timeout is not None:
+            self.client_body_timeout = client_body_timeout
+        if client_header_timeout is not None:
+            self.client_header_timeout = client_header_timeout
         if connection_drain_enabled is not None:
             self.connection_drain_enabled = connection_drain_enabled
         if connection_drain_timeout is not None:
@@ -135,12 +169,16 @@ class CreateListenerRequest(object):
             self.description = description
         if enabled is not None:
             self.enabled = enabled
+        if end_port is not None:
+            self.end_port = end_port
         if established_timeout is not None:
             self.established_timeout = established_timeout
         if health_check is not None:
             self.health_check = health_check
         if http2_enabled is not None:
             self.http2_enabled = http2_enabled
+        if keepalive_timeout is not None:
+            self.keepalive_timeout = keepalive_timeout
         if listener_name is not None:
             self.listener_name = listener_name
         self.load_balancer_id = load_balancer_id
@@ -150,11 +188,23 @@ class CreateListenerRequest(object):
             self.persistence_type = persistence_type
         self.port = port
         self.protocol = protocol
+        if proxy_connect_timeout is not None:
+            self.proxy_connect_timeout = proxy_connect_timeout
         if proxy_protocol_type is not None:
             self.proxy_protocol_type = proxy_protocol_type
+        if proxy_read_timeout is not None:
+            self.proxy_read_timeout = proxy_read_timeout
+        if proxy_send_timeout is not None:
+            self.proxy_send_timeout = proxy_send_timeout
         if scheduler is not None:
             self.scheduler = scheduler
+        if security_policy_id is not None:
+            self.security_policy_id = security_policy_id
+        if send_timeout is not None:
+            self.send_timeout = send_timeout
         self.server_group_id = server_group_id
+        if start_port is not None:
+            self.start_port = start_port
         if tags is not None:
             self.tags = tags
 
@@ -264,6 +314,48 @@ class CreateListenerRequest(object):
         self._certificate_id = certificate_id
 
     @property
+    def client_body_timeout(self):
+        """Gets the client_body_timeout of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The client_body_timeout of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._client_body_timeout
+
+    @client_body_timeout.setter
+    def client_body_timeout(self, client_body_timeout):
+        """Sets the client_body_timeout of this CreateListenerRequest.
+
+
+        :param client_body_timeout: The client_body_timeout of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._client_body_timeout = client_body_timeout
+
+    @property
+    def client_header_timeout(self):
+        """Gets the client_header_timeout of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The client_header_timeout of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._client_header_timeout
+
+    @client_header_timeout.setter
+    def client_header_timeout(self, client_header_timeout):
+        """Sets the client_header_timeout of this CreateListenerRequest.
+
+
+        :param client_header_timeout: The client_header_timeout of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._client_header_timeout = client_header_timeout
+
+    @property
     def connection_drain_enabled(self):
         """Gets the connection_drain_enabled of this CreateListenerRequest.  # noqa: E501
 
@@ -369,6 +461,27 @@ class CreateListenerRequest(object):
         self._enabled = enabled
 
     @property
+    def end_port(self):
+        """Gets the end_port of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The end_port of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._end_port
+
+    @end_port.setter
+    def end_port(self, end_port):
+        """Sets the end_port of this CreateListenerRequest.
+
+
+        :param end_port: The end_port of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._end_port = end_port
+
+    @property
     def established_timeout(self):
         """Gets the established_timeout of this CreateListenerRequest.  # noqa: E501
 
@@ -430,6 +543,27 @@ class CreateListenerRequest(object):
         """
 
         self._http2_enabled = http2_enabled
+
+    @property
+    def keepalive_timeout(self):
+        """Gets the keepalive_timeout of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The keepalive_timeout of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._keepalive_timeout
+
+    @keepalive_timeout.setter
+    def keepalive_timeout(self, keepalive_timeout):
+        """Sets the keepalive_timeout of this CreateListenerRequest.
+
+
+        :param keepalive_timeout: The keepalive_timeout of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._keepalive_timeout = keepalive_timeout
 
     @property
     def listener_name(self):
@@ -564,6 +698,27 @@ class CreateListenerRequest(object):
         self._protocol = protocol
 
     @property
+    def proxy_connect_timeout(self):
+        """Gets the proxy_connect_timeout of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The proxy_connect_timeout of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._proxy_connect_timeout
+
+    @proxy_connect_timeout.setter
+    def proxy_connect_timeout(self, proxy_connect_timeout):
+        """Sets the proxy_connect_timeout of this CreateListenerRequest.
+
+
+        :param proxy_connect_timeout: The proxy_connect_timeout of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._proxy_connect_timeout = proxy_connect_timeout
+
+    @property
     def proxy_protocol_type(self):
         """Gets the proxy_protocol_type of this CreateListenerRequest.  # noqa: E501
 
@@ -583,6 +738,48 @@ class CreateListenerRequest(object):
         """
 
         self._proxy_protocol_type = proxy_protocol_type
+
+    @property
+    def proxy_read_timeout(self):
+        """Gets the proxy_read_timeout of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The proxy_read_timeout of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._proxy_read_timeout
+
+    @proxy_read_timeout.setter
+    def proxy_read_timeout(self, proxy_read_timeout):
+        """Sets the proxy_read_timeout of this CreateListenerRequest.
+
+
+        :param proxy_read_timeout: The proxy_read_timeout of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._proxy_read_timeout = proxy_read_timeout
+
+    @property
+    def proxy_send_timeout(self):
+        """Gets the proxy_send_timeout of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The proxy_send_timeout of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._proxy_send_timeout
+
+    @proxy_send_timeout.setter
+    def proxy_send_timeout(self, proxy_send_timeout):
+        """Sets the proxy_send_timeout of this CreateListenerRequest.
+
+
+        :param proxy_send_timeout: The proxy_send_timeout of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._proxy_send_timeout = proxy_send_timeout
 
     @property
     def scheduler(self):
@@ -606,6 +803,48 @@ class CreateListenerRequest(object):
         self._scheduler = scheduler
 
     @property
+    def security_policy_id(self):
+        """Gets the security_policy_id of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The security_policy_id of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_policy_id
+
+    @security_policy_id.setter
+    def security_policy_id(self, security_policy_id):
+        """Sets the security_policy_id of this CreateListenerRequest.
+
+
+        :param security_policy_id: The security_policy_id of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._security_policy_id = security_policy_id
+
+    @property
+    def send_timeout(self):
+        """Gets the send_timeout of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The send_timeout of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._send_timeout
+
+    @send_timeout.setter
+    def send_timeout(self, send_timeout):
+        """Sets the send_timeout of this CreateListenerRequest.
+
+
+        :param send_timeout: The send_timeout of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._send_timeout = send_timeout
+
+    @property
     def server_group_id(self):
         """Gets the server_group_id of this CreateListenerRequest.  # noqa: E501
 
@@ -627,6 +866,27 @@ class CreateListenerRequest(object):
             raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
+
+    @property
+    def start_port(self):
+        """Gets the start_port of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The start_port of this CreateListenerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._start_port
+
+    @start_port.setter
+    def start_port(self, start_port):
+        """Sets the start_port of this CreateListenerRequest.
+
+
+        :param start_port: The start_port of this CreateListenerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._start_port = start_port
 
     @property
     def tags(self):

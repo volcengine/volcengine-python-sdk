@@ -49,8 +49,7 @@ class DisableScalingPolicyRequest(object):
         self._scaling_policy_id = None
         self.discriminator = None
 
-        if scaling_policy_id is not None:
-            self.scaling_policy_id = scaling_policy_id
+        self.scaling_policy_id = scaling_policy_id
 
     @property
     def scaling_policy_id(self):
@@ -70,6 +69,8 @@ class DisableScalingPolicyRequest(object):
         :param scaling_policy_id: The scaling_policy_id of this DisableScalingPolicyRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and scaling_policy_id is None:
+            raise ValueError("Invalid value for `scaling_policy_id`, must not be `None`")  # noqa: E501
 
         self._scaling_policy_id = scaling_policy_id
 

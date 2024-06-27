@@ -33,8 +33,10 @@ class ModifyLoadBalancerAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_ip_version': 'str',
         'allowed_ports': 'list[str]',
         'description': 'str',
+        'eni_ipv6_address': 'str',
         'load_balancer_id': 'str',
         'load_balancer_name': 'str',
         'load_balancer_spec': 'str',
@@ -44,8 +46,10 @@ class ModifyLoadBalancerAttributesRequest(object):
     }
 
     attribute_map = {
+        'address_ip_version': 'AddressIpVersion',
         'allowed_ports': 'AllowedPorts',
         'description': 'Description',
+        'eni_ipv6_address': 'EniIpv6Address',
         'load_balancer_id': 'LoadBalancerId',
         'load_balancer_name': 'LoadBalancerName',
         'load_balancer_spec': 'LoadBalancerSpec',
@@ -54,14 +58,16 @@ class ModifyLoadBalancerAttributesRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, allowed_ports=None, description=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, allowed_ports=None, description=None, eni_ipv6_address=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, type=None, _configuration=None):  # noqa: E501
         """ModifyLoadBalancerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address_ip_version = None
         self._allowed_ports = None
         self._description = None
+        self._eni_ipv6_address = None
         self._load_balancer_id = None
         self._load_balancer_name = None
         self._load_balancer_spec = None
@@ -70,10 +76,14 @@ class ModifyLoadBalancerAttributesRequest(object):
         self._type = None
         self.discriminator = None
 
+        if address_ip_version is not None:
+            self.address_ip_version = address_ip_version
         if allowed_ports is not None:
             self.allowed_ports = allowed_ports
         if description is not None:
             self.description = description
+        if eni_ipv6_address is not None:
+            self.eni_ipv6_address = eni_ipv6_address
         self.load_balancer_id = load_balancer_id
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
@@ -85,6 +95,27 @@ class ModifyLoadBalancerAttributesRequest(object):
             self.modification_protection_status = modification_protection_status
         if type is not None:
             self.type = type
+
+    @property
+    def address_ip_version(self):
+        """Gets the address_ip_version of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The address_ip_version of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_ip_version
+
+    @address_ip_version.setter
+    def address_ip_version(self, address_ip_version):
+        """Sets the address_ip_version of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param address_ip_version: The address_ip_version of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._address_ip_version = address_ip_version
 
     @property
     def allowed_ports(self):
@@ -127,6 +158,27 @@ class ModifyLoadBalancerAttributesRequest(object):
         """
 
         self._description = description
+
+    @property
+    def eni_ipv6_address(self):
+        """Gets the eni_ipv6_address of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The eni_ipv6_address of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._eni_ipv6_address
+
+    @eni_ipv6_address.setter
+    def eni_ipv6_address(self, eni_ipv6_address):
+        """Sets the eni_ipv6_address of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param eni_ipv6_address: The eni_ipv6_address of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._eni_ipv6_address = eni_ipv6_address
 
     @property
     def load_balancer_id(self):

@@ -33,24 +33,29 @@ class LaunchTemplateOverrideForCreateScalingGroupInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_type': 'str'
+        'instance_type': 'str',
+        'price_limit': 'float'
     }
 
     attribute_map = {
-        'instance_type': 'InstanceType'
+        'instance_type': 'InstanceType',
+        'price_limit': 'PriceLimit'
     }
 
-    def __init__(self, instance_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_type=None, price_limit=None, _configuration=None):  # noqa: E501
         """LaunchTemplateOverrideForCreateScalingGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_type = None
+        self._price_limit = None
         self.discriminator = None
 
         if instance_type is not None:
             self.instance_type = instance_type
+        if price_limit is not None:
+            self.price_limit = price_limit
 
     @property
     def instance_type(self):
@@ -72,6 +77,27 @@ class LaunchTemplateOverrideForCreateScalingGroupInput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def price_limit(self):
+        """Gets the price_limit of this LaunchTemplateOverrideForCreateScalingGroupInput.  # noqa: E501
+
+
+        :return: The price_limit of this LaunchTemplateOverrideForCreateScalingGroupInput.  # noqa: E501
+        :rtype: float
+        """
+        return self._price_limit
+
+    @price_limit.setter
+    def price_limit(self, price_limit):
+        """Sets the price_limit of this LaunchTemplateOverrideForCreateScalingGroupInput.
+
+
+        :param price_limit: The price_limit of this LaunchTemplateOverrideForCreateScalingGroupInput.  # noqa: E501
+        :type: float
+        """
+
+        self._price_limit = price_limit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

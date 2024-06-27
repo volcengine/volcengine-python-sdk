@@ -33,6 +33,7 @@ class LifecycleHookForDescribeLifecycleHooksOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'lifecycle_command': 'LifecycleCommandForDescribeLifecycleHooksOutput',
         'lifecycle_hook_id': 'str',
         'lifecycle_hook_name': 'str',
         'lifecycle_hook_policy': 'str',
@@ -42,6 +43,7 @@ class LifecycleHookForDescribeLifecycleHooksOutput(object):
     }
 
     attribute_map = {
+        'lifecycle_command': 'LifecycleCommand',
         'lifecycle_hook_id': 'LifecycleHookId',
         'lifecycle_hook_name': 'LifecycleHookName',
         'lifecycle_hook_policy': 'LifecycleHookPolicy',
@@ -50,12 +52,13 @@ class LifecycleHookForDescribeLifecycleHooksOutput(object):
         'scaling_group_id': 'ScalingGroupId'
     }
 
-    def __init__(self, lifecycle_hook_id=None, lifecycle_hook_name=None, lifecycle_hook_policy=None, lifecycle_hook_timeout=None, lifecycle_hook_type=None, scaling_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, lifecycle_command=None, lifecycle_hook_id=None, lifecycle_hook_name=None, lifecycle_hook_policy=None, lifecycle_hook_timeout=None, lifecycle_hook_type=None, scaling_group_id=None, _configuration=None):  # noqa: E501
         """LifecycleHookForDescribeLifecycleHooksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._lifecycle_command = None
         self._lifecycle_hook_id = None
         self._lifecycle_hook_name = None
         self._lifecycle_hook_policy = None
@@ -64,6 +67,8 @@ class LifecycleHookForDescribeLifecycleHooksOutput(object):
         self._scaling_group_id = None
         self.discriminator = None
 
+        if lifecycle_command is not None:
+            self.lifecycle_command = lifecycle_command
         if lifecycle_hook_id is not None:
             self.lifecycle_hook_id = lifecycle_hook_id
         if lifecycle_hook_name is not None:
@@ -76,6 +81,27 @@ class LifecycleHookForDescribeLifecycleHooksOutput(object):
             self.lifecycle_hook_type = lifecycle_hook_type
         if scaling_group_id is not None:
             self.scaling_group_id = scaling_group_id
+
+    @property
+    def lifecycle_command(self):
+        """Gets the lifecycle_command of this LifecycleHookForDescribeLifecycleHooksOutput.  # noqa: E501
+
+
+        :return: The lifecycle_command of this LifecycleHookForDescribeLifecycleHooksOutput.  # noqa: E501
+        :rtype: LifecycleCommandForDescribeLifecycleHooksOutput
+        """
+        return self._lifecycle_command
+
+    @lifecycle_command.setter
+    def lifecycle_command(self, lifecycle_command):
+        """Sets the lifecycle_command of this LifecycleHookForDescribeLifecycleHooksOutput.
+
+
+        :param lifecycle_command: The lifecycle_command of this LifecycleHookForDescribeLifecycleHooksOutput.  # noqa: E501
+        :type: LifecycleCommandForDescribeLifecycleHooksOutput
+        """
+
+        self._lifecycle_command = lifecycle_command
 
     @property
     def lifecycle_hook_id(self):

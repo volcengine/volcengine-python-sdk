@@ -33,24 +33,55 @@ class ServerGroupAttributeForDetachServerGroupsInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'server_group_id': 'str'
+        'port': 'int',
+        'server_group_id': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
-        'server_group_id': 'ServerGroupId'
+        'port': 'Port',
+        'server_group_id': 'ServerGroupId',
+        'type': 'Type'
     }
 
-    def __init__(self, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, port=None, server_group_id=None, type=None, _configuration=None):  # noqa: E501
         """ServerGroupAttributeForDetachServerGroupsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._port = None
         self._server_group_id = None
+        self._type = None
         self.discriminator = None
 
-        if server_group_id is not None:
-            self.server_group_id = server_group_id
+        self.port = port
+        self.server_group_id = server_group_id
+        if type is not None:
+            self.type = type
+
+    @property
+    def port(self):
+        """Gets the port of this ServerGroupAttributeForDetachServerGroupsInput.  # noqa: E501
+
+
+        :return: The port of this ServerGroupAttributeForDetachServerGroupsInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this ServerGroupAttributeForDetachServerGroupsInput.
+
+
+        :param port: The port of this ServerGroupAttributeForDetachServerGroupsInput.  # noqa: E501
+        :type: int
+        """
+        if self._configuration.client_side_validation and port is None:
+            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
+
+        self._port = port
 
     @property
     def server_group_id(self):
@@ -70,8 +101,31 @@ class ServerGroupAttributeForDetachServerGroupsInput(object):
         :param server_group_id: The server_group_id of this ServerGroupAttributeForDetachServerGroupsInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and server_group_id is None:
+            raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
+
+    @property
+    def type(self):
+        """Gets the type of this ServerGroupAttributeForDetachServerGroupsInput.  # noqa: E501
+
+
+        :return: The type of this ServerGroupAttributeForDetachServerGroupsInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ServerGroupAttributeForDetachServerGroupsInput.
+
+
+        :param type: The type of this ServerGroupAttributeForDetachServerGroupsInput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
