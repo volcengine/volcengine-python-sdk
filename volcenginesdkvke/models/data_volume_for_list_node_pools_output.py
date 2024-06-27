@@ -33,34 +33,60 @@ class DataVolumeForListNodePoolsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'file_system': 'str',
         'mount_point': 'str',
         'size': 'int',
         'type': 'str'
     }
 
     attribute_map = {
+        'file_system': 'FileSystem',
         'mount_point': 'MountPoint',
         'size': 'Size',
         'type': 'Type'
     }
 
-    def __init__(self, mount_point=None, size=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_system=None, mount_point=None, size=None, type=None, _configuration=None):  # noqa: E501
         """DataVolumeForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._file_system = None
         self._mount_point = None
         self._size = None
         self._type = None
         self.discriminator = None
 
+        if file_system is not None:
+            self.file_system = file_system
         if mount_point is not None:
             self.mount_point = mount_point
         if size is not None:
             self.size = size
         if type is not None:
             self.type = type
+
+    @property
+    def file_system(self):
+        """Gets the file_system of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The file_system of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_system
+
+    @file_system.setter
+    def file_system(self, file_system):
+        """Sets the file_system of this DataVolumeForListNodePoolsOutput.
+
+
+        :param file_system: The file_system of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._file_system = file_system
 
     @property
     def mount_point(self):

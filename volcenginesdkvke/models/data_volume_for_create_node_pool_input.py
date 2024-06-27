@@ -33,34 +33,67 @@ class DataVolumeForCreateNodePoolInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'file_system': 'str',
         'mount_point': 'str',
         'size': 'int',
         'type': 'str'
     }
 
     attribute_map = {
+        'file_system': 'FileSystem',
         'mount_point': 'MountPoint',
         'size': 'Size',
         'type': 'Type'
     }
 
-    def __init__(self, mount_point=None, size=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_system=None, mount_point=None, size=None, type=None, _configuration=None):  # noqa: E501
         """DataVolumeForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._file_system = None
         self._mount_point = None
         self._size = None
         self._type = None
         self.discriminator = None
 
+        if file_system is not None:
+            self.file_system = file_system
         if mount_point is not None:
             self.mount_point = mount_point
         if size is not None:
             self.size = size
         if type is not None:
             self.type = type
+
+    @property
+    def file_system(self):
+        """Gets the file_system of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The file_system of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_system
+
+    @file_system.setter
+    def file_system(self, file_system):
+        """Sets the file_system of this DataVolumeForCreateNodePoolInput.
+
+
+        :param file_system: The file_system of this DataVolumeForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Ext4", "Xfs"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                file_system not in allowed_values):
+            raise ValueError(
+                "Invalid value for `file_system` ({0}), must be one of {1}"  # noqa: E501
+                .format(file_system, allowed_values)
+            )
+
+        self._file_system = file_system
 
     @property
     def mount_point(self):
@@ -122,7 +155,7 @@ class DataVolumeForCreateNodePoolInput(object):
         :param type: The type of this DataVolumeForCreateNodePoolInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ESSD_PL0", "ESSD_FlexPL", "ESSD_PL1", "ESSD", "PTSSD"]  # noqa: E501
+        allowed_values = ["ESSD_PL0", "ESSD_FlexPL"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 type not in allowed_values):
             raise ValueError(
