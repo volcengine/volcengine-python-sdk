@@ -52,7 +52,8 @@ class DescribePermissionRulesRequest(object):
         self._permission_group_id = None
         self.discriminator = None
 
-        self.file_system_type = file_system_type
+        if file_system_type is not None:
+            self.file_system_type = file_system_type
         self.permission_group_id = permission_group_id
 
     @property
@@ -73,9 +74,7 @@ class DescribePermissionRulesRequest(object):
         :param file_system_type: The file_system_type of this DescribePermissionRulesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and file_system_type is None:
-            raise ValueError("Invalid value for `file_system_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Extreme"]  # noqa: E501
+        allowed_values = ["Extreme", "Capacity", "Cache"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 file_system_type not in allowed_values):
             raise ValueError(
