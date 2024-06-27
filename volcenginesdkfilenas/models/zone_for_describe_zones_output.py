@@ -106,13 +106,6 @@ class ZoneForDescribeZonesOutput(object):
         :param status: The status of this ZoneForDescribeZonesOutput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["OnSale", "SoldOut", "UnSold"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
 
         self._status = status
 

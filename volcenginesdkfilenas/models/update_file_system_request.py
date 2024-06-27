@@ -33,6 +33,10 @@ class UpdateFileSystemRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_expand': 'bool',
+        'auto_expand_limit': 'int',
+        'auto_expand_step': 'int',
+        'auto_expand_threshold': 'int',
         'description': 'str',
         'file_system_id': 'str',
         'file_system_name': 'str',
@@ -41,6 +45,10 @@ class UpdateFileSystemRequest(object):
     }
 
     attribute_map = {
+        'auto_expand': 'AutoExpand',
+        'auto_expand_limit': 'AutoExpandLimit',
+        'auto_expand_step': 'AutoExpandStep',
+        'auto_expand_threshold': 'AutoExpandThreshold',
         'description': 'Description',
         'file_system_id': 'FileSystemId',
         'file_system_name': 'FileSystemName',
@@ -48,12 +56,16 @@ class UpdateFileSystemRequest(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, description=None, file_system_id=None, file_system_name=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_expand=None, auto_expand_limit=None, auto_expand_step=None, auto_expand_threshold=None, description=None, file_system_id=None, file_system_name=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """UpdateFileSystemRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_expand = None
+        self._auto_expand_limit = None
+        self._auto_expand_step = None
+        self._auto_expand_threshold = None
         self._description = None
         self._file_system_id = None
         self._file_system_name = None
@@ -61,6 +73,14 @@ class UpdateFileSystemRequest(object):
         self._tags = None
         self.discriminator = None
 
+        if auto_expand is not None:
+            self.auto_expand = auto_expand
+        if auto_expand_limit is not None:
+            self.auto_expand_limit = auto_expand_limit
+        if auto_expand_step is not None:
+            self.auto_expand_step = auto_expand_step
+        if auto_expand_threshold is not None:
+            self.auto_expand_threshold = auto_expand_threshold
         if description is not None:
             self.description = description
         self.file_system_id = file_system_id
@@ -70,6 +90,90 @@ class UpdateFileSystemRequest(object):
             self.project_name = project_name
         if tags is not None:
             self.tags = tags
+
+    @property
+    def auto_expand(self):
+        """Gets the auto_expand of this UpdateFileSystemRequest.  # noqa: E501
+
+
+        :return: The auto_expand of this UpdateFileSystemRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_expand
+
+    @auto_expand.setter
+    def auto_expand(self, auto_expand):
+        """Sets the auto_expand of this UpdateFileSystemRequest.
+
+
+        :param auto_expand: The auto_expand of this UpdateFileSystemRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_expand = auto_expand
+
+    @property
+    def auto_expand_limit(self):
+        """Gets the auto_expand_limit of this UpdateFileSystemRequest.  # noqa: E501
+
+
+        :return: The auto_expand_limit of this UpdateFileSystemRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_expand_limit
+
+    @auto_expand_limit.setter
+    def auto_expand_limit(self, auto_expand_limit):
+        """Sets the auto_expand_limit of this UpdateFileSystemRequest.
+
+
+        :param auto_expand_limit: The auto_expand_limit of this UpdateFileSystemRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_expand_limit = auto_expand_limit
+
+    @property
+    def auto_expand_step(self):
+        """Gets the auto_expand_step of this UpdateFileSystemRequest.  # noqa: E501
+
+
+        :return: The auto_expand_step of this UpdateFileSystemRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_expand_step
+
+    @auto_expand_step.setter
+    def auto_expand_step(self, auto_expand_step):
+        """Sets the auto_expand_step of this UpdateFileSystemRequest.
+
+
+        :param auto_expand_step: The auto_expand_step of this UpdateFileSystemRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_expand_step = auto_expand_step
+
+    @property
+    def auto_expand_threshold(self):
+        """Gets the auto_expand_threshold of this UpdateFileSystemRequest.  # noqa: E501
+
+
+        :return: The auto_expand_threshold of this UpdateFileSystemRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_expand_threshold
+
+    @auto_expand_threshold.setter
+    def auto_expand_threshold(self, auto_expand_threshold):
+        """Sets the auto_expand_threshold of this UpdateFileSystemRequest.
+
+
+        :param auto_expand_threshold: The auto_expand_threshold of this UpdateFileSystemRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_expand_threshold = auto_expand_threshold
 
     @property
     def description(self):
