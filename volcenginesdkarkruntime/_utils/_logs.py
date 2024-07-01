@@ -13,12 +13,8 @@ def _basic_config() -> None:
 
 
 def setup_logging() -> None:
-    env = os.environ.get("ARK_LOG")
-    if env == "debug":
+    level = logging.getLevelNamesMapping().get(os.environ.get("ARK_LOG", "").upper())
+    if level is not None:
         _basic_config()
-        logger.setLevel(logging.DEBUG)
-        httpx_logger.setLevel(logging.DEBUG)
-    elif env == "info":
-        _basic_config()
-        logger.setLevel(logging.INFO)
-        httpx_logger.setLevel(logging.INFO)
+        logger.setLevel(level)
+        httpx_logger.setLevel(level)
