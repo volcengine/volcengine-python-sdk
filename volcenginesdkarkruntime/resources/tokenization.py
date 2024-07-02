@@ -29,6 +29,7 @@ class Tokenization(SyncAPIResource):
         *,
         text: Union[str, List[str]],
         model: str,
+        user: str | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -41,6 +42,7 @@ class Tokenization(SyncAPIResource):
             body={
                 "text": text,
                 "model": model,
+                "user": user,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -63,6 +65,7 @@ class AsyncTokenization(AsyncAPIResource):
         *,
         text: Union[str, List[str]],
         model: str,
+        user: str | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -75,6 +78,7 @@ class AsyncTokenization(AsyncAPIResource):
             body={
                 "text": text,
                 "model": model,
+                "user": user,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
