@@ -40,8 +40,7 @@ class DataForAssetListOutput(object):
         'ip': 'str',
         'name': 'str',
         'region': 'str',
-        'type': 'str',
-        'updatetime': 'int'
+        'type': 'str'
     }
 
     attribute_map = {
@@ -52,11 +51,10 @@ class DataForAssetListOutput(object):
         'ip': 'ip',
         'name': 'name',
         'region': 'region',
-        'type': 'type',
-        'updatetime': 'updatetime'
+        'type': 'type'
     }
 
-    def __init__(self, account_id=None, cluster=None, enable=None, id=None, ip=None, name=None, region=None, type=None, updatetime=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, cluster=None, enable=None, id=None, ip=None, name=None, region=None, type=None, _configuration=None):  # noqa: E501
         """DataForAssetListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +68,6 @@ class DataForAssetListOutput(object):
         self._name = None
         self._region = None
         self._type = None
-        self._updatetime = None
         self.discriminator = None
 
         if account_id is not None:
@@ -89,8 +86,6 @@ class DataForAssetListOutput(object):
             self.region = region
         if type is not None:
             self.type = type
-        if updatetime is not None:
-            self.updatetime = updatetime
 
     @property
     def account_id(self):
@@ -259,27 +254,6 @@ class DataForAssetListOutput(object):
         """
 
         self._type = type
-
-    @property
-    def updatetime(self):
-        """Gets the updatetime of this DataForAssetListOutput.  # noqa: E501
-
-
-        :return: The updatetime of this DataForAssetListOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._updatetime
-
-    @updatetime.setter
-    def updatetime(self, updatetime):
-        """Sets the updatetime of this DataForAssetListOutput.
-
-
-        :param updatetime: The updatetime of this DataForAssetListOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._updatetime = updatetime
 
     def to_dict(self):
         """Returns the model properties as a dict"""
