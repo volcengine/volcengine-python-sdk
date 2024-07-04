@@ -34,8 +34,14 @@ class UpdateWafServiceControlRequest(object):
     """
     swagger_types = {
         'api_enable': 'int',
+        'auto_cc_enable': 'int',
         'black_ip_enable': 'int',
         'black_lct_enable': 'int',
+        'bot_dytoken_enable': 'str',
+        'bot_frequency_enable': 'int',
+        'bot_repeat_enable': 'int',
+        'bot_sequence_default_action': 'int',
+        'bot_sequence_enable': 'int',
         'cc_enable': 'int',
         'custom_bot_enable': 'int',
         'custom_rsp_enable': 'int',
@@ -52,8 +58,14 @@ class UpdateWafServiceControlRequest(object):
 
     attribute_map = {
         'api_enable': 'ApiEnable',
+        'auto_cc_enable': 'AutoCCEnable',
         'black_ip_enable': 'BlackIpEnable',
         'black_lct_enable': 'BlackLctEnable',
+        'bot_dytoken_enable': 'BotDytokenEnable',
+        'bot_frequency_enable': 'BotFrequencyEnable',
+        'bot_repeat_enable': 'BotRepeatEnable',
+        'bot_sequence_default_action': 'BotSequenceDefaultAction',
+        'bot_sequence_enable': 'BotSequenceEnable',
         'cc_enable': 'CcEnable',
         'custom_bot_enable': 'CustomBotEnable',
         'custom_rsp_enable': 'CustomRspEnable',
@@ -68,15 +80,21 @@ class UpdateWafServiceControlRequest(object):
         'white_field_enable': 'WhiteFieldEnable'
     }
 
-    def __init__(self, api_enable=None, black_ip_enable=None, black_lct_enable=None, cc_enable=None, custom_bot_enable=None, custom_rsp_enable=None, dlp_enable=None, host=None, system_bot_enable=None, tls_enable=None, tamper_proof_enable=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_enable=None, auto_cc_enable=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, custom_bot_enable=None, custom_rsp_enable=None, dlp_enable=None, host=None, system_bot_enable=None, tls_enable=None, tamper_proof_enable=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
         """UpdateWafServiceControlRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._api_enable = None
+        self._auto_cc_enable = None
         self._black_ip_enable = None
         self._black_lct_enable = None
+        self._bot_dytoken_enable = None
+        self._bot_frequency_enable = None
+        self._bot_repeat_enable = None
+        self._bot_sequence_default_action = None
+        self._bot_sequence_enable = None
         self._cc_enable = None
         self._custom_bot_enable = None
         self._custom_rsp_enable = None
@@ -93,10 +111,22 @@ class UpdateWafServiceControlRequest(object):
 
         if api_enable is not None:
             self.api_enable = api_enable
+        if auto_cc_enable is not None:
+            self.auto_cc_enable = auto_cc_enable
         if black_ip_enable is not None:
             self.black_ip_enable = black_ip_enable
         if black_lct_enable is not None:
             self.black_lct_enable = black_lct_enable
+        if bot_dytoken_enable is not None:
+            self.bot_dytoken_enable = bot_dytoken_enable
+        if bot_frequency_enable is not None:
+            self.bot_frequency_enable = bot_frequency_enable
+        if bot_repeat_enable is not None:
+            self.bot_repeat_enable = bot_repeat_enable
+        if bot_sequence_default_action is not None:
+            self.bot_sequence_default_action = bot_sequence_default_action
+        if bot_sequence_enable is not None:
+            self.bot_sequence_enable = bot_sequence_enable
         if cc_enable is not None:
             self.cc_enable = cc_enable
         if custom_bot_enable is not None:
@@ -143,6 +173,27 @@ class UpdateWafServiceControlRequest(object):
         self._api_enable = api_enable
 
     @property
+    def auto_cc_enable(self):
+        """Gets the auto_cc_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+
+
+        :return: The auto_cc_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_cc_enable
+
+    @auto_cc_enable.setter
+    def auto_cc_enable(self, auto_cc_enable):
+        """Sets the auto_cc_enable of this UpdateWafServiceControlRequest.
+
+
+        :param auto_cc_enable: The auto_cc_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_cc_enable = auto_cc_enable
+
+    @property
     def black_ip_enable(self):
         """Gets the black_ip_enable of this UpdateWafServiceControlRequest.  # noqa: E501
 
@@ -183,6 +234,111 @@ class UpdateWafServiceControlRequest(object):
         """
 
         self._black_lct_enable = black_lct_enable
+
+    @property
+    def bot_dytoken_enable(self):
+        """Gets the bot_dytoken_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+
+
+        :return: The bot_dytoken_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bot_dytoken_enable
+
+    @bot_dytoken_enable.setter
+    def bot_dytoken_enable(self, bot_dytoken_enable):
+        """Sets the bot_dytoken_enable of this UpdateWafServiceControlRequest.
+
+
+        :param bot_dytoken_enable: The bot_dytoken_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bot_dytoken_enable = bot_dytoken_enable
+
+    @property
+    def bot_frequency_enable(self):
+        """Gets the bot_frequency_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+
+
+        :return: The bot_frequency_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_frequency_enable
+
+    @bot_frequency_enable.setter
+    def bot_frequency_enable(self, bot_frequency_enable):
+        """Sets the bot_frequency_enable of this UpdateWafServiceControlRequest.
+
+
+        :param bot_frequency_enable: The bot_frequency_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_frequency_enable = bot_frequency_enable
+
+    @property
+    def bot_repeat_enable(self):
+        """Gets the bot_repeat_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+
+
+        :return: The bot_repeat_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_repeat_enable
+
+    @bot_repeat_enable.setter
+    def bot_repeat_enable(self, bot_repeat_enable):
+        """Sets the bot_repeat_enable of this UpdateWafServiceControlRequest.
+
+
+        :param bot_repeat_enable: The bot_repeat_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_repeat_enable = bot_repeat_enable
+
+    @property
+    def bot_sequence_default_action(self):
+        """Gets the bot_sequence_default_action of this UpdateWafServiceControlRequest.  # noqa: E501
+
+
+        :return: The bot_sequence_default_action of this UpdateWafServiceControlRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_sequence_default_action
+
+    @bot_sequence_default_action.setter
+    def bot_sequence_default_action(self, bot_sequence_default_action):
+        """Sets the bot_sequence_default_action of this UpdateWafServiceControlRequest.
+
+
+        :param bot_sequence_default_action: The bot_sequence_default_action of this UpdateWafServiceControlRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_sequence_default_action = bot_sequence_default_action
+
+    @property
+    def bot_sequence_enable(self):
+        """Gets the bot_sequence_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+
+
+        :return: The bot_sequence_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_sequence_enable
+
+    @bot_sequence_enable.setter
+    def bot_sequence_enable(self, bot_sequence_enable):
+        """Sets the bot_sequence_enable of this UpdateWafServiceControlRequest.
+
+
+        :param bot_sequence_enable: The bot_sequence_enable of this UpdateWafServiceControlRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_sequence_enable = bot_sequence_enable
 
     @property
     def cc_enable(self):
