@@ -33,6 +33,7 @@ class ListDomainRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alb_instance_id': 'str',
         'accurate_query': 'int',
         'domain': 'str',
         'page': 'int',
@@ -41,6 +42,7 @@ class ListDomainRequest(object):
     }
 
     attribute_map = {
+        'alb_instance_id': 'ALBInstanceID',
         'accurate_query': 'AccurateQuery',
         'domain': 'Domain',
         'page': 'Page',
@@ -48,12 +50,13 @@ class ListDomainRequest(object):
         'region': 'Region'
     }
 
-    def __init__(self, accurate_query=None, domain=None, page=None, page_size=None, region=None, _configuration=None):  # noqa: E501
+    def __init__(self, alb_instance_id=None, accurate_query=None, domain=None, page=None, page_size=None, region=None, _configuration=None):  # noqa: E501
         """ListDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._alb_instance_id = None
         self._accurate_query = None
         self._domain = None
         self._page = None
@@ -61,12 +64,35 @@ class ListDomainRequest(object):
         self._region = None
         self.discriminator = None
 
+        if alb_instance_id is not None:
+            self.alb_instance_id = alb_instance_id
         self.accurate_query = accurate_query
         if domain is not None:
             self.domain = domain
         self.page = page
         self.page_size = page_size
         self.region = region
+
+    @property
+    def alb_instance_id(self):
+        """Gets the alb_instance_id of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The alb_instance_id of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._alb_instance_id
+
+    @alb_instance_id.setter
+    def alb_instance_id(self, alb_instance_id):
+        """Sets the alb_instance_id of this ListDomainRequest.
+
+
+        :param alb_instance_id: The alb_instance_id of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._alb_instance_id = alb_instance_id
 
     @property
     def accurate_query(self):

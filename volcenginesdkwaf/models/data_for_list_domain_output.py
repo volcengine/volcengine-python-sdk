@@ -43,9 +43,15 @@ class DataForListDomainOutput(object):
         'backend_groups': 'list[BackendGroupForListDomainOutput]',
         'black_ip_enable': 'int',
         'black_lct_enable': 'int',
+        'bot_dytoken_enable': 'int',
+        'bot_frequency_enable': 'int',
+        'bot_repeat_enable': 'int',
+        'bot_sequence_default_action': 'int',
+        'bot_sequence_enable': 'int',
         'cc_enable': 'int',
         'certificate_id': 'int',
         'certificate_name': 'str',
+        'certificate_platform': 'str',
         'clb_instance_i_ds': 'str',
         'clb_listener_id': 'str',
         'clb_pool_id': 'str',
@@ -91,6 +97,7 @@ class DataForListDomainOutput(object):
         'tls_enable': 'int',
         'tamper_proof_enable': 'int',
         'update_time': 'str',
+        'volc_certificate_id': 'str',
         'vpc_id': 'str',
         'waf_enable': 'int',
         'waf_white_req_enable': 'int',
@@ -109,9 +116,15 @@ class DataForListDomainOutput(object):
         'backend_groups': 'BackendGroups',
         'black_ip_enable': 'BlackIpEnable',
         'black_lct_enable': 'BlackLctEnable',
+        'bot_dytoken_enable': 'BotDytokenEnable',
+        'bot_frequency_enable': 'BotFrequencyEnable',
+        'bot_repeat_enable': 'BotRepeatEnable',
+        'bot_sequence_default_action': 'BotSequenceDefaultAction',
+        'bot_sequence_enable': 'BotSequenceEnable',
         'cc_enable': 'CcEnable',
         'certificate_id': 'CertificateID',
         'certificate_name': 'CertificateName',
+        'certificate_platform': 'CertificatePlatform',
         'clb_instance_i_ds': 'ClbInstanceIDs',
         'clb_listener_id': 'ClbListenerId',
         'clb_pool_id': 'ClbPoolId',
@@ -157,6 +170,7 @@ class DataForListDomainOutput(object):
         'tls_enable': 'TLSEnable',
         'tamper_proof_enable': 'TamperProofEnable',
         'update_time': 'UpdateTime',
+        'volc_certificate_id': 'VolcCertificateID',
         'vpc_id': 'VpcID',
         'waf_enable': 'WafEnable',
         'waf_white_req_enable': 'WafWhiteReqEnable',
@@ -164,7 +178,7 @@ class DataForListDomainOutput(object):
         'white_field_enable': 'WhiteFieldEnable'
     }
 
-    def __init__(self, access_mode=None, advanced_defense_ip=None, advanced_defense_i_pv6=None, api_enable=None, attack_status=None, auto_cc_enable=None, automatic_black_enable=None, backend_groups=None, black_ip_enable=None, black_lct_enable=None, cc_enable=None, certificate_id=None, certificate_name=None, clb_instance_i_ds=None, clb_listener_id=None, clb_pool_id=None, clb_server_id=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, cname=None, custom_bot_enable=None, custom_header=None, custom_rsp_enable=None, defence_mode=None, dlp_enable=None, domain=None, enable_http2=None, enable_i_pv6=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, port=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, rsp_abnormal_enable=None, ssl_ciphers=None, ssl_protocols=None, server_ips=None, src_ips=None, src_protocol=None, status=None, system_bot_enable=None, tcp_listener_config=None, tls_enable=None, tamper_proof_enable=None, update_time=None, vpc_id=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, advanced_defense_ip=None, advanced_defense_i_pv6=None, api_enable=None, attack_status=None, auto_cc_enable=None, automatic_black_enable=None, backend_groups=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, certificate_id=None, certificate_name=None, certificate_platform=None, clb_instance_i_ds=None, clb_listener_id=None, clb_pool_id=None, clb_server_id=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, cname=None, custom_bot_enable=None, custom_header=None, custom_rsp_enable=None, defence_mode=None, dlp_enable=None, domain=None, enable_http2=None, enable_i_pv6=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, port=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, rsp_abnormal_enable=None, ssl_ciphers=None, ssl_protocols=None, server_ips=None, src_ips=None, src_protocol=None, status=None, system_bot_enable=None, tcp_listener_config=None, tls_enable=None, tamper_proof_enable=None, update_time=None, volc_certificate_id=None, vpc_id=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
         """DataForListDomainOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -180,9 +194,15 @@ class DataForListDomainOutput(object):
         self._backend_groups = None
         self._black_ip_enable = None
         self._black_lct_enable = None
+        self._bot_dytoken_enable = None
+        self._bot_frequency_enable = None
+        self._bot_repeat_enable = None
+        self._bot_sequence_default_action = None
+        self._bot_sequence_enable = None
         self._cc_enable = None
         self._certificate_id = None
         self._certificate_name = None
+        self._certificate_platform = None
         self._clb_instance_i_ds = None
         self._clb_listener_id = None
         self._clb_pool_id = None
@@ -228,6 +248,7 @@ class DataForListDomainOutput(object):
         self._tls_enable = None
         self._tamper_proof_enable = None
         self._update_time = None
+        self._volc_certificate_id = None
         self._vpc_id = None
         self._waf_enable = None
         self._waf_white_req_enable = None
@@ -255,12 +276,24 @@ class DataForListDomainOutput(object):
             self.black_ip_enable = black_ip_enable
         if black_lct_enable is not None:
             self.black_lct_enable = black_lct_enable
+        if bot_dytoken_enable is not None:
+            self.bot_dytoken_enable = bot_dytoken_enable
+        if bot_frequency_enable is not None:
+            self.bot_frequency_enable = bot_frequency_enable
+        if bot_repeat_enable is not None:
+            self.bot_repeat_enable = bot_repeat_enable
+        if bot_sequence_default_action is not None:
+            self.bot_sequence_default_action = bot_sequence_default_action
+        if bot_sequence_enable is not None:
+            self.bot_sequence_enable = bot_sequence_enable
         if cc_enable is not None:
             self.cc_enable = cc_enable
         if certificate_id is not None:
             self.certificate_id = certificate_id
         if certificate_name is not None:
             self.certificate_name = certificate_name
+        if certificate_platform is not None:
+            self.certificate_platform = certificate_platform
         if clb_instance_i_ds is not None:
             self.clb_instance_i_ds = clb_instance_i_ds
         if clb_listener_id is not None:
@@ -351,6 +384,8 @@ class DataForListDomainOutput(object):
             self.tamper_proof_enable = tamper_proof_enable
         if update_time is not None:
             self.update_time = update_time
+        if volc_certificate_id is not None:
+            self.volc_certificate_id = volc_certificate_id
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if waf_enable is not None:
@@ -573,6 +608,111 @@ class DataForListDomainOutput(object):
         self._black_lct_enable = black_lct_enable
 
     @property
+    def bot_dytoken_enable(self):
+        """Gets the bot_dytoken_enable of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The bot_dytoken_enable of this DataForListDomainOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_dytoken_enable
+
+    @bot_dytoken_enable.setter
+    def bot_dytoken_enable(self, bot_dytoken_enable):
+        """Sets the bot_dytoken_enable of this DataForListDomainOutput.
+
+
+        :param bot_dytoken_enable: The bot_dytoken_enable of this DataForListDomainOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_dytoken_enable = bot_dytoken_enable
+
+    @property
+    def bot_frequency_enable(self):
+        """Gets the bot_frequency_enable of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The bot_frequency_enable of this DataForListDomainOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_frequency_enable
+
+    @bot_frequency_enable.setter
+    def bot_frequency_enable(self, bot_frequency_enable):
+        """Sets the bot_frequency_enable of this DataForListDomainOutput.
+
+
+        :param bot_frequency_enable: The bot_frequency_enable of this DataForListDomainOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_frequency_enable = bot_frequency_enable
+
+    @property
+    def bot_repeat_enable(self):
+        """Gets the bot_repeat_enable of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The bot_repeat_enable of this DataForListDomainOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_repeat_enable
+
+    @bot_repeat_enable.setter
+    def bot_repeat_enable(self, bot_repeat_enable):
+        """Sets the bot_repeat_enable of this DataForListDomainOutput.
+
+
+        :param bot_repeat_enable: The bot_repeat_enable of this DataForListDomainOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_repeat_enable = bot_repeat_enable
+
+    @property
+    def bot_sequence_default_action(self):
+        """Gets the bot_sequence_default_action of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The bot_sequence_default_action of this DataForListDomainOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_sequence_default_action
+
+    @bot_sequence_default_action.setter
+    def bot_sequence_default_action(self, bot_sequence_default_action):
+        """Sets the bot_sequence_default_action of this DataForListDomainOutput.
+
+
+        :param bot_sequence_default_action: The bot_sequence_default_action of this DataForListDomainOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_sequence_default_action = bot_sequence_default_action
+
+    @property
+    def bot_sequence_enable(self):
+        """Gets the bot_sequence_enable of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The bot_sequence_enable of this DataForListDomainOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bot_sequence_enable
+
+    @bot_sequence_enable.setter
+    def bot_sequence_enable(self, bot_sequence_enable):
+        """Sets the bot_sequence_enable of this DataForListDomainOutput.
+
+
+        :param bot_sequence_enable: The bot_sequence_enable of this DataForListDomainOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bot_sequence_enable = bot_sequence_enable
+
+    @property
     def cc_enable(self):
         """Gets the cc_enable of this DataForListDomainOutput.  # noqa: E501
 
@@ -634,6 +774,27 @@ class DataForListDomainOutput(object):
         """
 
         self._certificate_name = certificate_name
+
+    @property
+    def certificate_platform(self):
+        """Gets the certificate_platform of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The certificate_platform of this DataForListDomainOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_platform
+
+    @certificate_platform.setter
+    def certificate_platform(self, certificate_platform):
+        """Sets the certificate_platform of this DataForListDomainOutput.
+
+
+        :param certificate_platform: The certificate_platform of this DataForListDomainOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_platform = certificate_platform
 
     @property
     def clb_instance_i_ds(self):
@@ -1579,6 +1740,27 @@ class DataForListDomainOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def volc_certificate_id(self):
+        """Gets the volc_certificate_id of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The volc_certificate_id of this DataForListDomainOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._volc_certificate_id
+
+    @volc_certificate_id.setter
+    def volc_certificate_id(self, volc_certificate_id):
+        """Sets the volc_certificate_id of this DataForListDomainOutput.
+
+
+        :param volc_certificate_id: The volc_certificate_id of this DataForListDomainOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._volc_certificate_id = volc_certificate_id
 
     @property
     def vpc_id(self):

@@ -34,44 +34,39 @@ class ListCustomBotConfigResponse(object):
     """
     swagger_types = {
         'count': 'int',
+        'current_page': 'int',
         'data': 'list[DataForListCustomBotConfigOutput]',
-        'page': 'int',
-        'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
     }
 
     attribute_map = {
         'count': 'Count',
+        'current_page': 'CurrentPage',
         'data': 'Data',
-        'page': 'Page',
-        'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, count=None, data=None, page=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, current_page=None, data=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
         """ListCustomBotConfigResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._count = None
+        self._current_page = None
         self._data = None
-        self._page = None
-        self._page_number = None
         self._page_size = None
         self._total_count = None
         self.discriminator = None
 
         if count is not None:
             self.count = count
+        if current_page is not None:
+            self.current_page = current_page
         if data is not None:
             self.data = data
-        if page is not None:
-            self.page = page
-        if page_number is not None:
-            self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
         if total_count is not None:
@@ -99,6 +94,27 @@ class ListCustomBotConfigResponse(object):
         self._count = count
 
     @property
+    def current_page(self):
+        """Gets the current_page of this ListCustomBotConfigResponse.  # noqa: E501
+
+
+        :return: The current_page of this ListCustomBotConfigResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_page
+
+    @current_page.setter
+    def current_page(self, current_page):
+        """Sets the current_page of this ListCustomBotConfigResponse.
+
+
+        :param current_page: The current_page of this ListCustomBotConfigResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._current_page = current_page
+
+    @property
     def data(self):
         """Gets the data of this ListCustomBotConfigResponse.  # noqa: E501
 
@@ -118,48 +134,6 @@ class ListCustomBotConfigResponse(object):
         """
 
         self._data = data
-
-    @property
-    def page(self):
-        """Gets the page of this ListCustomBotConfigResponse.  # noqa: E501
-
-
-        :return: The page of this ListCustomBotConfigResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._page
-
-    @page.setter
-    def page(self, page):
-        """Sets the page of this ListCustomBotConfigResponse.
-
-
-        :param page: The page of this ListCustomBotConfigResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._page = page
-
-    @property
-    def page_number(self):
-        """Gets the page_number of this ListCustomBotConfigResponse.  # noqa: E501
-
-
-        :return: The page_number of this ListCustomBotConfigResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_number
-
-    @page_number.setter
-    def page_number(self, page_number):
-        """Sets the page_number of this ListCustomBotConfigResponse.
-
-
-        :param page_number: The page_number of this ListCustomBotConfigResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._page_number = page_number
 
     @property
     def page_size(self):
