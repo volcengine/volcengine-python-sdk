@@ -2,7 +2,7 @@
 
 import httpx
 
-VERSION = ""
+VERSION = "1.0.0"
 BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"
 
 RAW_RESPONSE_HEADER = "X-Stainless-Raw-Response"
