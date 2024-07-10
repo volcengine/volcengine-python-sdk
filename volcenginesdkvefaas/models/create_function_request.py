@@ -47,7 +47,6 @@ class CreateFunctionRequest(object):
         'source_access_config': 'SourceAccessConfigForCreateFunctionInput',
         'source_type': 'str',
         'tls_config': 'TlsConfigForCreateFunctionInput',
-        'top_param': 'TopParamForCreateFunctionInput',
         'tos_mount_config': 'TosMountConfigForCreateFunctionInput',
         'vpc_config': 'VpcConfigForCreateFunctionInput'
     }
@@ -67,12 +66,11 @@ class CreateFunctionRequest(object):
         'source_access_config': 'SourceAccessConfig',
         'source_type': 'SourceType',
         'tls_config': 'TlsConfig',
-        'top_param': 'TopParam',
         'tos_mount_config': 'TosMountConfig',
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, description=None, envs=None, exclusive_mode=None, initializer_sec=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tls_config=None, top_param=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, envs=None, exclusive_mode=None, initializer_sec=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,7 +90,6 @@ class CreateFunctionRequest(object):
         self._source_access_config = None
         self._source_type = None
         self._tls_config = None
-        self._top_param = None
         self._tos_mount_config = None
         self._vpc_config = None
         self.discriminator = None
@@ -123,8 +120,6 @@ class CreateFunctionRequest(object):
             self.source_type = source_type
         if tls_config is not None:
             self.tls_config = tls_config
-        if top_param is not None:
-            self.top_param = top_param
         if tos_mount_config is not None:
             self.tos_mount_config = tos_mount_config
         if vpc_config is not None:
@@ -427,27 +422,6 @@ class CreateFunctionRequest(object):
         """
 
         self._tls_config = tls_config
-
-    @property
-    def top_param(self):
-        """Gets the top_param of this CreateFunctionRequest.  # noqa: E501
-
-
-        :return: The top_param of this CreateFunctionRequest.  # noqa: E501
-        :rtype: TopParamForCreateFunctionInput
-        """
-        return self._top_param
-
-    @top_param.setter
-    def top_param(self, top_param):
-        """Sets the top_param of this CreateFunctionRequest.
-
-
-        :param top_param: The top_param of this CreateFunctionRequest.  # noqa: E501
-        :type: TopParamForCreateFunctionInput
-        """
-
-        self._top_param = top_param
 
     @property
     def tos_mount_config(self):
