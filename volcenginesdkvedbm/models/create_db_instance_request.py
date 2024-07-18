@@ -33,109 +33,133 @@ class CreateDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_renew': 'bool',
         'charge_type': 'str',
-        'create_type': 'str',
         'db_engine_version': 'str',
         'db_time_zone': 'str',
         'instance_name': 'str',
         'lower_case_table_names': 'str',
         'node_number': 'int',
         'node_spec': 'str',
+        'number': 'int',
+        'period': 'int',
+        'period_unit': 'str',
+        'pre_paid_storage_in_gb': 'int',
         'project_name': 'str',
-        'storage_pool_name': 'str',
-        'storage_pool_type': 'str',
+        'storage_charge_type': 'str',
         'subnet_id': 'str',
         'super_account_name': 'str',
         'super_account_password': 'str',
         'tags': 'list[TagForCreateDBInstanceInput]',
         'vpc_id': 'str',
-        'zone_ids': 'str',
-        'zone_node_infos': 'list[ZoneNodeInfoForCreateDBInstanceInput]'
+        'zone_ids': 'str'
     }
 
     attribute_map = {
+        'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
-        'create_type': 'CreateType',
         'db_engine_version': 'DBEngineVersion',
         'db_time_zone': 'DBTimeZone',
         'instance_name': 'InstanceName',
         'lower_case_table_names': 'LowerCaseTableNames',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
+        'number': 'Number',
+        'period': 'Period',
+        'period_unit': 'PeriodUnit',
+        'pre_paid_storage_in_gb': 'PrePaidStorageInGB',
         'project_name': 'ProjectName',
-        'storage_pool_name': 'StoragePoolName',
-        'storage_pool_type': 'StoragePoolType',
+        'storage_charge_type': 'StorageChargeType',
         'subnet_id': 'SubnetId',
         'super_account_name': 'SuperAccountName',
         'super_account_password': 'SuperAccountPassword',
         'tags': 'Tags',
         'vpc_id': 'VpcId',
-        'zone_ids': 'ZoneIds',
-        'zone_node_infos': 'ZoneNodeInfos'
+        'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_type=None, create_type=None, db_engine_version=None, db_time_zone=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, project_name=None, storage_pool_name=None, storage_pool_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_ids=None, zone_node_infos=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_time_zone=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_renew = None
         self._charge_type = None
-        self._create_type = None
         self._db_engine_version = None
         self._db_time_zone = None
         self._instance_name = None
         self._lower_case_table_names = None
         self._node_number = None
         self._node_spec = None
+        self._number = None
+        self._period = None
+        self._period_unit = None
+        self._pre_paid_storage_in_gb = None
         self._project_name = None
-        self._storage_pool_name = None
-        self._storage_pool_type = None
+        self._storage_charge_type = None
         self._subnet_id = None
         self._super_account_name = None
         self._super_account_password = None
         self._tags = None
         self._vpc_id = None
         self._zone_ids = None
-        self._zone_node_infos = None
         self.discriminator = None
 
-        if charge_type is not None:
-            self.charge_type = charge_type
-        if create_type is not None:
-            self.create_type = create_type
-        if db_engine_version is not None:
-            self.db_engine_version = db_engine_version
+        if auto_renew is not None:
+            self.auto_renew = auto_renew
+        self.charge_type = charge_type
+        self.db_engine_version = db_engine_version
         if db_time_zone is not None:
             self.db_time_zone = db_time_zone
         if instance_name is not None:
             self.instance_name = instance_name
         if lower_case_table_names is not None:
             self.lower_case_table_names = lower_case_table_names
-        if node_number is not None:
-            self.node_number = node_number
-        if node_spec is not None:
-            self.node_spec = node_spec
+        self.node_number = node_number
+        self.node_spec = node_spec
+        if number is not None:
+            self.number = number
+        if period is not None:
+            self.period = period
+        if period_unit is not None:
+            self.period_unit = period_unit
+        if pre_paid_storage_in_gb is not None:
+            self.pre_paid_storage_in_gb = pre_paid_storage_in_gb
         if project_name is not None:
             self.project_name = project_name
-        if storage_pool_name is not None:
-            self.storage_pool_name = storage_pool_name
-        if storage_pool_type is not None:
-            self.storage_pool_type = storage_pool_type
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
+        if storage_charge_type is not None:
+            self.storage_charge_type = storage_charge_type
+        self.subnet_id = subnet_id
         if super_account_name is not None:
             self.super_account_name = super_account_name
         if super_account_password is not None:
             self.super_account_password = super_account_password
         if tags is not None:
             self.tags = tags
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
-        if zone_ids is not None:
-            self.zone_ids = zone_ids
-        if zone_node_infos is not None:
-            self.zone_node_infos = zone_node_infos
+        self.vpc_id = vpc_id
+        self.zone_ids = zone_ids
+
+    @property
+    def auto_renew(self):
+        """Gets the auto_renew of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_renew of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_renew
+
+    @auto_renew.setter
+    def auto_renew(self, auto_renew):
+        """Sets the auto_renew of this CreateDBInstanceRequest.
+
+
+        :param auto_renew: The auto_renew of this CreateDBInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_renew = auto_renew
 
     @property
     def charge_type(self):
@@ -155,29 +179,17 @@ class CreateDBInstanceRequest(object):
         :param charge_type: The charge_type of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and charge_type is None:
+            raise ValueError("Invalid value for `charge_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(charge_type, allowed_values)
+            )
 
         self._charge_type = charge_type
-
-    @property
-    def create_type(self):
-        """Gets the create_type of this CreateDBInstanceRequest.  # noqa: E501
-
-
-        :return: The create_type of this CreateDBInstanceRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._create_type
-
-    @create_type.setter
-    def create_type(self, create_type):
-        """Sets the create_type of this CreateDBInstanceRequest.
-
-
-        :param create_type: The create_type of this CreateDBInstanceRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._create_type = create_type
 
     @property
     def db_engine_version(self):
@@ -197,6 +209,15 @@ class CreateDBInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and db_engine_version is None:
+            raise ValueError("Invalid value for `db_engine_version`, must not be `None`")  # noqa: E501
+        allowed_values = ["MySQL_8_0"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                db_engine_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `db_engine_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(db_engine_version, allowed_values)
+            )
 
         self._db_engine_version = db_engine_version
 
@@ -260,6 +281,13 @@ class CreateDBInstanceRequest(object):
         :param lower_case_table_names: The lower_case_table_names of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["1", "0"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                lower_case_table_names not in allowed_values):
+            raise ValueError(
+                "Invalid value for `lower_case_table_names` ({0}), must be one of {1}"  # noqa: E501
+                .format(lower_case_table_names, allowed_values)
+            )
 
         self._lower_case_table_names = lower_case_table_names
 
@@ -281,6 +309,14 @@ class CreateDBInstanceRequest(object):
         :param node_number: The node_number of this CreateDBInstanceRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and node_number is None:
+            raise ValueError("Invalid value for `node_number`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                node_number is not None and node_number > 16):  # noqa: E501
+            raise ValueError("Invalid value for `node_number`, must be a value less than or equal to `16`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                node_number is not None and node_number < 2):  # noqa: E501
+            raise ValueError("Invalid value for `node_number`, must be a value greater than or equal to `2`")  # noqa: E501
 
         self._node_number = node_number
 
@@ -302,8 +338,101 @@ class CreateDBInstanceRequest(object):
         :param node_spec: The node_spec of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and node_spec is None:
+            raise ValueError("Invalid value for `node_spec`, must not be `None`")  # noqa: E501
 
         self._node_spec = node_spec
+
+    @property
+    def number(self):
+        """Gets the number of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The number of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._number
+
+    @number.setter
+    def number(self, number):
+        """Sets the number of this CreateDBInstanceRequest.
+
+
+        :param number: The number of this CreateDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._number = number
+
+    @property
+    def period(self):
+        """Gets the period of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The period of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._period
+
+    @period.setter
+    def period(self, period):
+        """Sets the period of this CreateDBInstanceRequest.
+
+
+        :param period: The period of this CreateDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._period = period
+
+    @property
+    def period_unit(self):
+        """Gets the period_unit of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The period_unit of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._period_unit
+
+    @period_unit.setter
+    def period_unit(self, period_unit):
+        """Sets the period_unit of this CreateDBInstanceRequest.
+
+
+        :param period_unit: The period_unit of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Month", "Year"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                period_unit not in allowed_values):
+            raise ValueError(
+                "Invalid value for `period_unit` ({0}), must be one of {1}"  # noqa: E501
+                .format(period_unit, allowed_values)
+            )
+
+        self._period_unit = period_unit
+
+    @property
+    def pre_paid_storage_in_gb(self):
+        """Gets the pre_paid_storage_in_gb of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The pre_paid_storage_in_gb of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._pre_paid_storage_in_gb
+
+    @pre_paid_storage_in_gb.setter
+    def pre_paid_storage_in_gb(self, pre_paid_storage_in_gb):
+        """Sets the pre_paid_storage_in_gb of this CreateDBInstanceRequest.
+
+
+        :param pre_paid_storage_in_gb: The pre_paid_storage_in_gb of this CreateDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._pre_paid_storage_in_gb = pre_paid_storage_in_gb
 
     @property
     def project_name(self):
@@ -327,46 +456,32 @@ class CreateDBInstanceRequest(object):
         self._project_name = project_name
 
     @property
-    def storage_pool_name(self):
-        """Gets the storage_pool_name of this CreateDBInstanceRequest.  # noqa: E501
+    def storage_charge_type(self):
+        """Gets the storage_charge_type of this CreateDBInstanceRequest.  # noqa: E501
 
 
-        :return: The storage_pool_name of this CreateDBInstanceRequest.  # noqa: E501
+        :return: The storage_charge_type of this CreateDBInstanceRequest.  # noqa: E501
         :rtype: str
         """
-        return self._storage_pool_name
+        return self._storage_charge_type
 
-    @storage_pool_name.setter
-    def storage_pool_name(self, storage_pool_name):
-        """Sets the storage_pool_name of this CreateDBInstanceRequest.
+    @storage_charge_type.setter
+    def storage_charge_type(self, storage_charge_type):
+        """Sets the storage_charge_type of this CreateDBInstanceRequest.
 
 
-        :param storage_pool_name: The storage_pool_name of this CreateDBInstanceRequest.  # noqa: E501
+        :param storage_charge_type: The storage_charge_type of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_charge_type, allowed_values)
+            )
 
-        self._storage_pool_name = storage_pool_name
-
-    @property
-    def storage_pool_type(self):
-        """Gets the storage_pool_type of this CreateDBInstanceRequest.  # noqa: E501
-
-
-        :return: The storage_pool_type of this CreateDBInstanceRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._storage_pool_type
-
-    @storage_pool_type.setter
-    def storage_pool_type(self, storage_pool_type):
-        """Sets the storage_pool_type of this CreateDBInstanceRequest.
-
-
-        :param storage_pool_type: The storage_pool_type of this CreateDBInstanceRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._storage_pool_type = storage_pool_type
+        self._storage_charge_type = storage_charge_type
 
     @property
     def subnet_id(self):
@@ -386,6 +501,8 @@ class CreateDBInstanceRequest(object):
         :param subnet_id: The subnet_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 
@@ -470,6 +587,8 @@ class CreateDBInstanceRequest(object):
         :param vpc_id: The vpc_id of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 
@@ -491,29 +610,10 @@ class CreateDBInstanceRequest(object):
         :param zone_ids: The zone_ids of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_ids is None:
+            raise ValueError("Invalid value for `zone_ids`, must not be `None`")  # noqa: E501
 
         self._zone_ids = zone_ids
-
-    @property
-    def zone_node_infos(self):
-        """Gets the zone_node_infos of this CreateDBInstanceRequest.  # noqa: E501
-
-
-        :return: The zone_node_infos of this CreateDBInstanceRequest.  # noqa: E501
-        :rtype: list[ZoneNodeInfoForCreateDBInstanceInput]
-        """
-        return self._zone_node_infos
-
-    @zone_node_infos.setter
-    def zone_node_infos(self, zone_node_infos):
-        """Sets the zone_node_infos of this CreateDBInstanceRequest.
-
-
-        :param zone_node_infos: The zone_node_infos of this CreateDBInstanceRequest.  # noqa: E501
-        :type: list[ZoneNodeInfoForCreateDBInstanceInput]
-        """
-
-        self._zone_node_infos = zone_node_infos
 
     def to_dict(self):
         """Returns the model properties as a dict"""
