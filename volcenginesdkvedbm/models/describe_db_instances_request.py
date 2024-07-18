@@ -130,6 +130,13 @@ class DescribeDBInstancesRequest(object):
         :param charge_type: The charge_type of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(charge_type, allowed_values)
+            )
 
         self._charge_type = charge_type
 
@@ -193,6 +200,13 @@ class DescribeDBInstancesRequest(object):
         :param db_engine_version: The db_engine_version of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["MySQL_8_0"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                db_engine_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `db_engine_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(db_engine_version, allowed_values)
+            )
 
         self._db_engine_version = db_engine_version
 
@@ -256,6 +270,13 @@ class DescribeDBInstancesRequest(object):
         :param instance_status: The instance_status of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["WaitingPaid", "Running", "Creating", "Scaling", "Restarting", "Restoring", "Upgrading", "PrimaryChanging", "Unavailable", "Deleting", "Deleted", "CreateFailed", "Closing", "Expired", "Owing", "Resuming", "AllowListMaintaining", "Error"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                instance_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `instance_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(instance_status, allowed_values)
+            )
 
         self._instance_status = instance_status
 
@@ -298,6 +319,9 @@ class DescribeDBInstancesRequest(object):
         :param page_number: The page_number of this DescribeDBInstancesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_number is not None and page_number < 1):  # noqa: E501
+            raise ValueError("Invalid value for `page_number`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -319,6 +343,12 @@ class DescribeDBInstancesRequest(object):
         :param page_size: The page_size of this DescribeDBInstancesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 1000):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size < 1):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_size = page_size
 

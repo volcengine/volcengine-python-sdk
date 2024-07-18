@@ -43,6 +43,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'pre_paid_storage_in_gb': 'int',
         'project_name': 'str',
         'region_id': 'str',
+        'storage_charge_type': 'str',
         'storage_used_gi_b': 'float',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeDBInstancesOutput]',
@@ -63,6 +64,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'pre_paid_storage_in_gb': 'PrePaidStorageInGB',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
+        'storage_charge_type': 'StorageChargeType',
         'storage_used_gi_b': 'StorageUsedGiB',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
@@ -72,7 +74,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, nodes=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, storage_used_gi_b=None, subnet_id=None, tags=None, tenant_id=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, nodes=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, tags=None, tenant_id=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._pre_paid_storage_in_gb = None
         self._project_name = None
         self._region_id = None
+        self._storage_charge_type = None
         self._storage_used_gi_b = None
         self._subnet_id = None
         self._tags = None
@@ -117,6 +120,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
+        if storage_charge_type is not None:
+            self.storage_charge_type = storage_charge_type
         if storage_used_gi_b is not None:
             self.storage_used_gi_b = storage_used_gi_b
         if subnet_id is not None:
@@ -341,6 +346,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._region_id = region_id
+
+    @property
+    def storage_charge_type(self):
+        """Gets the storage_charge_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The storage_charge_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_charge_type
+
+    @storage_charge_type.setter
+    def storage_charge_type(self, storage_charge_type):
+        """Sets the storage_charge_type of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param storage_charge_type: The storage_charge_type of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_charge_type = storage_charge_type
 
     @property
     def storage_used_gi_b(self):

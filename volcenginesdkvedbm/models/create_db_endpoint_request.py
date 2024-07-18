@@ -96,14 +96,11 @@ class CreateDBEndpointRequest(object):
             self.distributed_transaction = distributed_transaction
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
-        if endpoint_type is not None:
-            self.endpoint_type = endpoint_type
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.endpoint_type = endpoint_type
+        self.instance_id = instance_id
         if master_accept_read_requests is not None:
             self.master_accept_read_requests = master_accept_read_requests
-        if nodes is not None:
-            self.nodes = nodes
+        self.nodes = nodes
         if read_write_mode is not None:
             self.read_write_mode = read_write_mode
 
@@ -146,6 +143,13 @@ class CreateDBEndpointRequest(object):
         :param consist_level: The consist_level of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Eventual", "Session", "Global"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                consist_level not in allowed_values):
+            raise ValueError(
+                "Invalid value for `consist_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(consist_level, allowed_values)
+            )
 
         self._consist_level = consist_level
 
@@ -188,6 +192,13 @@ class CreateDBEndpointRequest(object):
         :param consist_timeout_action: The consist_timeout_action of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ReturnError", "ReadMaster"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                consist_timeout_action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `consist_timeout_action` ({0}), must be one of {1}"  # noqa: E501
+                .format(consist_timeout_action, allowed_values)
+            )
 
         self._consist_timeout_action = consist_timeout_action
 
@@ -272,6 +283,15 @@ class CreateDBEndpointRequest(object):
         :param endpoint_type: The endpoint_type of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and endpoint_type is None:
+            raise ValueError("Invalid value for `endpoint_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["Custom"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                endpoint_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `endpoint_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(endpoint_type, allowed_values)
+            )
 
         self._endpoint_type = endpoint_type
 
@@ -293,6 +313,8 @@ class CreateDBEndpointRequest(object):
         :param instance_id: The instance_id of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -335,6 +357,8 @@ class CreateDBEndpointRequest(object):
         :param nodes: The nodes of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and nodes is None:
+            raise ValueError("Invalid value for `nodes`, must not be `None`")  # noqa: E501
 
         self._nodes = nodes
 
@@ -356,6 +380,13 @@ class CreateDBEndpointRequest(object):
         :param read_write_mode: The read_write_mode of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ReadWrite", " ReadOnly"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                read_write_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `read_write_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(read_write_mode, allowed_values)
+            )
 
         self._read_write_mode = read_write_mode
 

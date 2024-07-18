@@ -41,9 +41,11 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
         'instance_structures': 'list[InstanceStructureForDescribeDBInstanceDetailOutput]',
         'lower_case_table_names': 'str',
         'maintenance_window': 'MaintenanceWindowForDescribeDBInstanceDetailOutput',
+        'pre_paid_storage_in_gb': 'int',
         'project_name': 'str',
         'region_id': 'str',
         'spec_family': 'str',
+        'storage_charge_type': 'str',
         'storage_used_gi_b': 'float',
         'subnet_id': 'str',
         'time_zone': 'str',
@@ -60,9 +62,11 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
         'instance_structures': 'InstanceStructures',
         'lower_case_table_names': 'LowerCaseTableNames',
         'maintenance_window': 'MaintenanceWindow',
+        'pre_paid_storage_in_gb': 'PrePaidStorageInGB',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'spec_family': 'SpecFamily',
+        'storage_charge_type': 'StorageChargeType',
         'storage_used_gi_b': 'StorageUsedGiB',
         'subnet_id': 'SubnetId',
         'time_zone': 'TimeZone',
@@ -70,7 +74,7 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_structures=None, lower_case_table_names=None, maintenance_window=None, project_name=None, region_id=None, spec_family=None, storage_used_gi_b=None, subnet_id=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_structures=None, lower_case_table_names=None, maintenance_window=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, spec_family=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceDetailForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,9 +88,11 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
         self._instance_structures = None
         self._lower_case_table_names = None
         self._maintenance_window = None
+        self._pre_paid_storage_in_gb = None
         self._project_name = None
         self._region_id = None
         self._spec_family = None
+        self._storage_charge_type = None
         self._storage_used_gi_b = None
         self._subnet_id = None
         self._time_zone = None
@@ -110,12 +116,16 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
             self.lower_case_table_names = lower_case_table_names
         if maintenance_window is not None:
             self.maintenance_window = maintenance_window
+        if pre_paid_storage_in_gb is not None:
+            self.pre_paid_storage_in_gb = pre_paid_storage_in_gb
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
         if spec_family is not None:
             self.spec_family = spec_family
+        if storage_charge_type is not None:
+            self.storage_charge_type = storage_charge_type
         if storage_used_gi_b is not None:
             self.storage_used_gi_b = storage_used_gi_b
         if subnet_id is not None:
@@ -296,6 +306,27 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
         self._maintenance_window = maintenance_window
 
     @property
+    def pre_paid_storage_in_gb(self):
+        """Gets the pre_paid_storage_in_gb of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The pre_paid_storage_in_gb of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._pre_paid_storage_in_gb
+
+    @pre_paid_storage_in_gb.setter
+    def pre_paid_storage_in_gb(self, pre_paid_storage_in_gb):
+        """Sets the pre_paid_storage_in_gb of this InstanceDetailForDescribeDBInstanceDetailOutput.
+
+
+        :param pre_paid_storage_in_gb: The pre_paid_storage_in_gb of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._pre_paid_storage_in_gb = pre_paid_storage_in_gb
+
+    @property
     def project_name(self):
         """Gets the project_name of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -357,6 +388,27 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
         """
 
         self._spec_family = spec_family
+
+    @property
+    def storage_charge_type(self):
+        """Gets the storage_charge_type of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The storage_charge_type of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_charge_type
+
+    @storage_charge_type.setter
+    def storage_charge_type(self, storage_charge_type):
+        """Sets the storage_charge_type of this InstanceDetailForDescribeDBInstanceDetailOutput.
+
+
+        :param storage_charge_type: The storage_charge_type of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_charge_type = storage_charge_type
 
     @property
     def storage_used_gi_b(self):
