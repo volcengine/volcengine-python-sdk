@@ -35,18 +35,16 @@ class ModifyDBInstanceSpecRequest(object):
     swagger_types = {
         'instance_id': 'str',
         'node_number': 'int',
-        'node_spec': 'str',
-        'zone_node_infos': 'list[ZoneNodeInfoForModifyDBInstanceSpecInput]'
+        'node_spec': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
         'node_number': 'NodeNumber',
-        'node_spec': 'NodeSpec',
-        'zone_node_infos': 'ZoneNodeInfos'
+        'node_spec': 'NodeSpec'
     }
 
-    def __init__(self, instance_id=None, node_number=None, node_spec=None, zone_node_infos=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, node_number=None, node_spec=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,17 +53,11 @@ class ModifyDBInstanceSpecRequest(object):
         self._instance_id = None
         self._node_number = None
         self._node_spec = None
-        self._zone_node_infos = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if node_number is not None:
-            self.node_number = node_number
-        if node_spec is not None:
-            self.node_spec = node_spec
-        if zone_node_infos is not None:
-            self.zone_node_infos = zone_node_infos
+        self.instance_id = instance_id
+        self.node_number = node_number
+        self.node_spec = node_spec
 
     @property
     def instance_id(self):
@@ -85,6 +77,8 @@ class ModifyDBInstanceSpecRequest(object):
         :param instance_id: The instance_id of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -106,6 +100,14 @@ class ModifyDBInstanceSpecRequest(object):
         :param node_number: The node_number of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and node_number is None:
+            raise ValueError("Invalid value for `node_number`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                node_number is not None and node_number > 16):  # noqa: E501
+            raise ValueError("Invalid value for `node_number`, must be a value less than or equal to `16`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                node_number is not None and node_number < 2):  # noqa: E501
+            raise ValueError("Invalid value for `node_number`, must be a value greater than or equal to `2`")  # noqa: E501
 
         self._node_number = node_number
 
@@ -127,29 +129,10 @@ class ModifyDBInstanceSpecRequest(object):
         :param node_spec: The node_spec of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and node_spec is None:
+            raise ValueError("Invalid value for `node_spec`, must not be `None`")  # noqa: E501
 
         self._node_spec = node_spec
-
-    @property
-    def zone_node_infos(self):
-        """Gets the zone_node_infos of this ModifyDBInstanceSpecRequest.  # noqa: E501
-
-
-        :return: The zone_node_infos of this ModifyDBInstanceSpecRequest.  # noqa: E501
-        :rtype: list[ZoneNodeInfoForModifyDBInstanceSpecInput]
-        """
-        return self._zone_node_infos
-
-    @zone_node_infos.setter
-    def zone_node_infos(self, zone_node_infos):
-        """Sets the zone_node_infos of this ModifyDBInstanceSpecRequest.
-
-
-        :param zone_node_infos: The zone_node_infos of this ModifyDBInstanceSpecRequest.  # noqa: E501
-        :type: list[ZoneNodeInfoForModifyDBInstanceSpecInput]
-        """
-
-        self._zone_node_infos = zone_node_infos
 
     def to_dict(self):
         """Returns the model properties as a dict"""

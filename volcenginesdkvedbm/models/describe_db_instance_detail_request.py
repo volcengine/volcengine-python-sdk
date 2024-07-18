@@ -33,29 +33,23 @@ class DescribeDBInstanceDetailRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_id': 'str',
-        'project_name': 'str'
+        'instance_id': 'str'
     }
 
     attribute_map = {
-        'instance_id': 'InstanceId',
-        'project_name': 'ProjectName'
+        'instance_id': 'InstanceId'
     }
 
-    def __init__(self, instance_id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
-        self._project_name = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if project_name is not None:
-            self.project_name = project_name
+        self.instance_id = instance_id
 
     @property
     def instance_id(self):
@@ -75,29 +69,10 @@ class DescribeDBInstanceDetailRequest(object):
         :param instance_id: The instance_id of this DescribeDBInstanceDetailRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
-
-    @property
-    def project_name(self):
-        """Gets the project_name of this DescribeDBInstanceDetailRequest.  # noqa: E501
-
-
-        :return: The project_name of this DescribeDBInstanceDetailRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_name
-
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this DescribeDBInstanceDetailRequest.
-
-
-        :param project_name: The project_name of this DescribeDBInstanceDetailRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
