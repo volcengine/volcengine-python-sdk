@@ -33,7 +33,6 @@ class UpdateFunctionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'debug_instance_enable': 'bool',
         'description': 'str',
         'envs': 'list[EnvForUpdateFunctionInput]',
         'exclusive_mode': 'bool',
@@ -43,17 +42,16 @@ class UpdateFunctionRequest(object):
         'memory_mb': 'int',
         'nas_storage': 'NasStorageForUpdateFunctionInput',
         'request_timeout': 'int',
+        'runtime': 'str',
         'source': 'str',
         'source_access_config': 'SourceAccessConfigForUpdateFunctionInput',
         'source_type': 'str',
         'tls_config': 'TlsConfigForUpdateFunctionInput',
-        'top_param': 'TopParamForUpdateFunctionInput',
         'tos_mount_config': 'TosMountConfigForUpdateFunctionInput',
         'vpc_config': 'VpcConfigForUpdateFunctionInput'
     }
 
     attribute_map = {
-        'debug_instance_enable': 'DebugInstanceEnable',
         'description': 'Description',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
@@ -63,22 +61,21 @@ class UpdateFunctionRequest(object):
         'memory_mb': 'MemoryMB',
         'nas_storage': 'NasStorage',
         'request_timeout': 'RequestTimeout',
+        'runtime': 'Runtime',
         'source': 'Source',
         'source_access_config': 'SourceAccessConfig',
         'source_type': 'SourceType',
         'tls_config': 'TlsConfig',
-        'top_param': 'TopParam',
         'tos_mount_config': 'TosMountConfig',
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, debug_instance_enable=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, memory_mb=None, nas_storage=None, request_timeout=None, source=None, source_access_config=None, source_type=None, tls_config=None, top_param=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, memory_mb=None, nas_storage=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """UpdateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._debug_instance_enable = None
         self._description = None
         self._envs = None
         self._exclusive_mode = None
@@ -88,17 +85,15 @@ class UpdateFunctionRequest(object):
         self._memory_mb = None
         self._nas_storage = None
         self._request_timeout = None
+        self._runtime = None
         self._source = None
         self._source_access_config = None
         self._source_type = None
         self._tls_config = None
-        self._top_param = None
         self._tos_mount_config = None
         self._vpc_config = None
         self.discriminator = None
 
-        if debug_instance_enable is not None:
-            self.debug_instance_enable = debug_instance_enable
         if description is not None:
             self.description = description
         if envs is not None:
@@ -116,6 +111,8 @@ class UpdateFunctionRequest(object):
             self.nas_storage = nas_storage
         if request_timeout is not None:
             self.request_timeout = request_timeout
+        if runtime is not None:
+            self.runtime = runtime
         if source is not None:
             self.source = source
         if source_access_config is not None:
@@ -124,33 +121,10 @@ class UpdateFunctionRequest(object):
             self.source_type = source_type
         if tls_config is not None:
             self.tls_config = tls_config
-        if top_param is not None:
-            self.top_param = top_param
         if tos_mount_config is not None:
             self.tos_mount_config = tos_mount_config
         if vpc_config is not None:
             self.vpc_config = vpc_config
-
-    @property
-    def debug_instance_enable(self):
-        """Gets the debug_instance_enable of this UpdateFunctionRequest.  # noqa: E501
-
-
-        :return: The debug_instance_enable of this UpdateFunctionRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._debug_instance_enable
-
-    @debug_instance_enable.setter
-    def debug_instance_enable(self, debug_instance_enable):
-        """Sets the debug_instance_enable of this UpdateFunctionRequest.
-
-
-        :param debug_instance_enable: The debug_instance_enable of this UpdateFunctionRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._debug_instance_enable = debug_instance_enable
 
     @property
     def description(self):
@@ -344,6 +318,27 @@ class UpdateFunctionRequest(object):
         self._request_timeout = request_timeout
 
     @property
+    def runtime(self):
+        """Gets the runtime of this UpdateFunctionRequest.  # noqa: E501
+
+
+        :return: The runtime of this UpdateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._runtime
+
+    @runtime.setter
+    def runtime(self, runtime):
+        """Sets the runtime of this UpdateFunctionRequest.
+
+
+        :param runtime: The runtime of this UpdateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._runtime = runtime
+
+    @property
     def source(self):
         """Gets the source of this UpdateFunctionRequest.  # noqa: E501
 
@@ -426,27 +421,6 @@ class UpdateFunctionRequest(object):
         """
 
         self._tls_config = tls_config
-
-    @property
-    def top_param(self):
-        """Gets the top_param of this UpdateFunctionRequest.  # noqa: E501
-
-
-        :return: The top_param of this UpdateFunctionRequest.  # noqa: E501
-        :rtype: TopParamForUpdateFunctionInput
-        """
-        return self._top_param
-
-    @top_param.setter
-    def top_param(self, top_param):
-        """Sets the top_param of this UpdateFunctionRequest.
-
-
-        :param top_param: The top_param of this UpdateFunctionRequest.  # noqa: E501
-        :type: TopParamForUpdateFunctionInput
-        """
-
-        self._top_param = top_param
 
     @property
     def tos_mount_config(self):

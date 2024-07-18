@@ -36,7 +36,6 @@ class CreateFunctionResponse(object):
         'code_size': 'int',
         'code_size_limit': 'int',
         'creation_time': 'str',
-        'debug_instance_enable': 'bool',
         'description': 'str',
         'envs': 'list[EnvForCreateFunctionOutput]',
         'exclusive_mode': 'bool',
@@ -50,14 +49,12 @@ class CreateFunctionResponse(object):
         'nas_storage': 'NasStorageForCreateFunctionOutput',
         'owner': 'str',
         'request_timeout': 'int',
-        'resource_pool_id': 'str',
         'runtime': 'str',
         'source_location': 'str',
         'source_type': 'str',
         'tls_config': 'TlsConfigForCreateFunctionOutput',
         'tos_mount_config': 'TosMountConfigForCreateFunctionOutput',
         'triggers_count': 'int',
-        'use_status': 'str',
         'vpc_config': 'VpcConfigForCreateFunctionOutput'
     }
 
@@ -65,7 +62,6 @@ class CreateFunctionResponse(object):
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
         'creation_time': 'CreationTime',
-        'debug_instance_enable': 'DebugInstanceEnable',
         'description': 'Description',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
@@ -79,18 +75,16 @@ class CreateFunctionResponse(object):
         'nas_storage': 'NasStorage',
         'owner': 'Owner',
         'request_timeout': 'RequestTimeout',
-        'resource_pool_id': 'ResourcePoolId',
         'runtime': 'Runtime',
         'source_location': 'SourceLocation',
         'source_type': 'SourceType',
         'tls_config': 'TlsConfig',
         'tos_mount_config': 'TosMountConfig',
         'triggers_count': 'TriggersCount',
-        'use_status': 'UseStatus',
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, debug_instance_enable=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, request_timeout=None, resource_pool_id=None, runtime=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, use_status=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -99,7 +93,6 @@ class CreateFunctionResponse(object):
         self._code_size = None
         self._code_size_limit = None
         self._creation_time = None
-        self._debug_instance_enable = None
         self._description = None
         self._envs = None
         self._exclusive_mode = None
@@ -113,14 +106,12 @@ class CreateFunctionResponse(object):
         self._nas_storage = None
         self._owner = None
         self._request_timeout = None
-        self._resource_pool_id = None
         self._runtime = None
         self._source_location = None
         self._source_type = None
         self._tls_config = None
         self._tos_mount_config = None
         self._triggers_count = None
-        self._use_status = None
         self._vpc_config = None
         self.discriminator = None
 
@@ -130,8 +121,6 @@ class CreateFunctionResponse(object):
             self.code_size_limit = code_size_limit
         if creation_time is not None:
             self.creation_time = creation_time
-        if debug_instance_enable is not None:
-            self.debug_instance_enable = debug_instance_enable
         if description is not None:
             self.description = description
         if envs is not None:
@@ -158,8 +147,6 @@ class CreateFunctionResponse(object):
             self.owner = owner
         if request_timeout is not None:
             self.request_timeout = request_timeout
-        if resource_pool_id is not None:
-            self.resource_pool_id = resource_pool_id
         if runtime is not None:
             self.runtime = runtime
         if source_location is not None:
@@ -172,8 +159,6 @@ class CreateFunctionResponse(object):
             self.tos_mount_config = tos_mount_config
         if triggers_count is not None:
             self.triggers_count = triggers_count
-        if use_status is not None:
-            self.use_status = use_status
         if vpc_config is not None:
             self.vpc_config = vpc_config
 
@@ -239,27 +224,6 @@ class CreateFunctionResponse(object):
         """
 
         self._creation_time = creation_time
-
-    @property
-    def debug_instance_enable(self):
-        """Gets the debug_instance_enable of this CreateFunctionResponse.  # noqa: E501
-
-
-        :return: The debug_instance_enable of this CreateFunctionResponse.  # noqa: E501
-        :rtype: bool
-        """
-        return self._debug_instance_enable
-
-    @debug_instance_enable.setter
-    def debug_instance_enable(self, debug_instance_enable):
-        """Sets the debug_instance_enable of this CreateFunctionResponse.
-
-
-        :param debug_instance_enable: The debug_instance_enable of this CreateFunctionResponse.  # noqa: E501
-        :type: bool
-        """
-
-        self._debug_instance_enable = debug_instance_enable
 
     @property
     def description(self):
@@ -535,27 +499,6 @@ class CreateFunctionResponse(object):
         self._request_timeout = request_timeout
 
     @property
-    def resource_pool_id(self):
-        """Gets the resource_pool_id of this CreateFunctionResponse.  # noqa: E501
-
-
-        :return: The resource_pool_id of this CreateFunctionResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_pool_id
-
-    @resource_pool_id.setter
-    def resource_pool_id(self, resource_pool_id):
-        """Sets the resource_pool_id of this CreateFunctionResponse.
-
-
-        :param resource_pool_id: The resource_pool_id of this CreateFunctionResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_pool_id = resource_pool_id
-
-    @property
     def runtime(self):
         """Gets the runtime of this CreateFunctionResponse.  # noqa: E501
 
@@ -680,27 +623,6 @@ class CreateFunctionResponse(object):
         """
 
         self._triggers_count = triggers_count
-
-    @property
-    def use_status(self):
-        """Gets the use_status of this CreateFunctionResponse.  # noqa: E501
-
-
-        :return: The use_status of this CreateFunctionResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._use_status
-
-    @use_status.setter
-    def use_status(self, use_status):
-        """Sets the use_status of this CreateFunctionResponse.
-
-
-        :param use_status: The use_status of this CreateFunctionResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._use_status = use_status
 
     @property
     def vpc_config(self):

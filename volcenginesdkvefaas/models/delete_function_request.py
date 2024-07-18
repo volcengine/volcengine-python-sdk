@@ -33,28 +33,23 @@ class DeleteFunctionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str',
-        'top_param': 'TopParamForDeleteFunctionInput'
+        'id': 'str'
     }
 
     attribute_map = {
-        'id': 'Id',
-        'top_param': 'TopParam'
+        'id': 'Id'
     }
 
-    def __init__(self, id=None, top_param=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, _configuration=None):  # noqa: E501
         """DeleteFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._id = None
-        self._top_param = None
         self.discriminator = None
 
         self.id = id
-        if top_param is not None:
-            self.top_param = top_param
 
     @property
     def id(self):
@@ -78,27 +73,6 @@ class DeleteFunctionRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
-
-    @property
-    def top_param(self):
-        """Gets the top_param of this DeleteFunctionRequest.  # noqa: E501
-
-
-        :return: The top_param of this DeleteFunctionRequest.  # noqa: E501
-        :rtype: TopParamForDeleteFunctionInput
-        """
-        return self._top_param
-
-    @top_param.setter
-    def top_param(self, top_param):
-        """Sets the top_param of this DeleteFunctionRequest.
-
-
-        :param top_param: The top_param of this DeleteFunctionRequest.  # noqa: E501
-        :type: TopParamForDeleteFunctionInput
-        """
-
-        self._top_param = top_param
 
     def to_dict(self):
         """Returns the model properties as a dict"""
