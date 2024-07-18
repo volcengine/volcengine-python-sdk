@@ -55,12 +55,9 @@ class CreateDBEndpointPublicAddressRequest(object):
         self._instance_id = None
         self.discriminator = None
 
-        if eip_id is not None:
-            self.eip_id = eip_id
-        if endpoint_id is not None:
-            self.endpoint_id = endpoint_id
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.eip_id = eip_id
+        self.endpoint_id = endpoint_id
+        self.instance_id = instance_id
 
     @property
     def eip_id(self):
@@ -80,6 +77,8 @@ class CreateDBEndpointPublicAddressRequest(object):
         :param eip_id: The eip_id of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and eip_id is None:
+            raise ValueError("Invalid value for `eip_id`, must not be `None`")  # noqa: E501
 
         self._eip_id = eip_id
 
@@ -101,6 +100,8 @@ class CreateDBEndpointPublicAddressRequest(object):
         :param endpoint_id: The endpoint_id of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and endpoint_id is None:
+            raise ValueError("Invalid value for `endpoint_id`, must not be `None`")  # noqa: E501
 
         self._endpoint_id = endpoint_id
 
@@ -122,6 +123,8 @@ class CreateDBEndpointPublicAddressRequest(object):
         :param instance_id: The instance_id of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

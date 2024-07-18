@@ -94,12 +94,10 @@ class ModifyDBEndpointRequest(object):
             self.description = description
         if distributed_transaction is not None:
             self.distributed_transaction = distributed_transaction
-        if endpoint_id is not None:
-            self.endpoint_id = endpoint_id
+        self.endpoint_id = endpoint_id
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
-        if instance_id is not None:
-            self.instance_id = instance_id
+        self.instance_id = instance_id
         if master_accept_read_requests is not None:
             self.master_accept_read_requests = master_accept_read_requests
         if nodes is not None:
@@ -146,6 +144,13 @@ class ModifyDBEndpointRequest(object):
         :param consist_level: The consist_level of this ModifyDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Eventual", "Session", "Global"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                consist_level not in allowed_values):
+            raise ValueError(
+                "Invalid value for `consist_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(consist_level, allowed_values)
+            )
 
         self._consist_level = consist_level
 
@@ -188,6 +193,13 @@ class ModifyDBEndpointRequest(object):
         :param consist_timeout_action: The consist_timeout_action of this ModifyDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ReturnError", "ReadMaster"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                consist_timeout_action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `consist_timeout_action` ({0}), must be one of {1}"  # noqa: E501
+                .format(consist_timeout_action, allowed_values)
+            )
 
         self._consist_timeout_action = consist_timeout_action
 
@@ -251,6 +263,8 @@ class ModifyDBEndpointRequest(object):
         :param endpoint_id: The endpoint_id of this ModifyDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and endpoint_id is None:
+            raise ValueError("Invalid value for `endpoint_id`, must not be `None`")  # noqa: E501
 
         self._endpoint_id = endpoint_id
 
@@ -293,6 +307,8 @@ class ModifyDBEndpointRequest(object):
         :param instance_id: The instance_id of this ModifyDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 

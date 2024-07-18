@@ -52,10 +52,8 @@ class ModifyDBInstanceNameRequest(object):
         self._instance_new_name = None
         self.discriminator = None
 
-        if instance_id is not None:
-            self.instance_id = instance_id
-        if instance_new_name is not None:
-            self.instance_new_name = instance_new_name
+        self.instance_id = instance_id
+        self.instance_new_name = instance_new_name
 
     @property
     def instance_id(self):
@@ -75,6 +73,8 @@ class ModifyDBInstanceNameRequest(object):
         :param instance_id: The instance_id of this ModifyDBInstanceNameRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
 
@@ -96,6 +96,8 @@ class ModifyDBInstanceNameRequest(object):
         :param instance_new_name: The instance_new_name of this ModifyDBInstanceNameRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and instance_new_name is None:
+            raise ValueError("Invalid value for `instance_new_name`, must not be `None`")  # noqa: E501
 
         self._instance_new_name = instance_new_name
 
