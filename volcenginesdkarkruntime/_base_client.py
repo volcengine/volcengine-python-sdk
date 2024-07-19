@@ -633,6 +633,7 @@ class AsyncAPIClient(BaseClient):
         self._client = http_client or AsyncHttpxClientWrapper(
             base_url=self._enforce_trailing_slash(URL(base_url)),
             timeout=cast(Timeout, timeout),
+            http2=True,
         )
 
     async def post(

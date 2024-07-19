@@ -26,7 +26,7 @@ setup(
     extras_require={
         "ark": [
             "pydantic>=1.9.0, <3",
-            "httpx>=0.23.0, <1",
+            "'httpx[http2]'>=0.23.0, <1",
             "anyio>=3.5.0, <5",
             "cached-property; python_version < '3.8'",
         ]
