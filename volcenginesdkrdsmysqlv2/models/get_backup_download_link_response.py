@@ -39,6 +39,7 @@ class GetBackupDownloadLinkResponse(object):
         'backup_id': 'str',
         'backup_type': 'str',
         'download_progress': 'int',
+        'inner_backup_download_link': 'str',
         'instance_id': 'str',
         'link_expired_time': 'str'
     }
@@ -50,11 +51,12 @@ class GetBackupDownloadLinkResponse(object):
         'backup_id': 'BackupId',
         'backup_type': 'BackupType',
         'download_progress': 'DownloadProgress',
+        'inner_backup_download_link': 'InnerBackupDownloadLink',
         'instance_id': 'InstanceId',
         'link_expired_time': 'LinkExpiredTime'
     }
 
-    def __init__(self, backup_download_link=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_type=None, download_progress=None, instance_id=None, link_expired_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_download_link=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_type=None, download_progress=None, inner_backup_download_link=None, instance_id=None, link_expired_time=None, _configuration=None):  # noqa: E501
         """GetBackupDownloadLinkResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class GetBackupDownloadLinkResponse(object):
         self._backup_id = None
         self._backup_type = None
         self._download_progress = None
+        self._inner_backup_download_link = None
         self._instance_id = None
         self._link_expired_time = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class GetBackupDownloadLinkResponse(object):
             self.backup_type = backup_type
         if download_progress is not None:
             self.download_progress = download_progress
+        if inner_backup_download_link is not None:
+            self.inner_backup_download_link = inner_backup_download_link
         if instance_id is not None:
             self.instance_id = instance_id
         if link_expired_time is not None:
@@ -212,6 +217,27 @@ class GetBackupDownloadLinkResponse(object):
         """
 
         self._download_progress = download_progress
+
+    @property
+    def inner_backup_download_link(self):
+        """Gets the inner_backup_download_link of this GetBackupDownloadLinkResponse.  # noqa: E501
+
+
+        :return: The inner_backup_download_link of this GetBackupDownloadLinkResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._inner_backup_download_link
+
+    @inner_backup_download_link.setter
+    def inner_backup_download_link(self, inner_backup_download_link):
+        """Sets the inner_backup_download_link of this GetBackupDownloadLinkResponse.
+
+
+        :param inner_backup_download_link: The inner_backup_download_link of this GetBackupDownloadLinkResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._inner_backup_download_link = inner_backup_download_link
 
     @property
     def instance_id(self):

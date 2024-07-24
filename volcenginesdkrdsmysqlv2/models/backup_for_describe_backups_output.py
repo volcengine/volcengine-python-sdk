@@ -48,6 +48,7 @@ class BackupForDescribeBackupsOutput(object):
         'download_status': 'str',
         'error_message': 'str',
         'expired_time': 'str',
+        'is_encrypted': 'bool',
         'is_expired': 'bool'
     }
 
@@ -67,10 +68,11 @@ class BackupForDescribeBackupsOutput(object):
         'download_status': 'DownloadStatus',
         'error_message': 'ErrorMessage',
         'expired_time': 'ExpiredTime',
+        'is_encrypted': 'IsEncrypted',
         'is_expired': 'IsExpired'
     }
 
-    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_region=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_table_infos=None, download_status=None, error_message=None, expired_time=None, is_expired=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_region=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_table_infos=None, download_status=None, error_message=None, expired_time=None, is_encrypted=None, is_expired=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +93,7 @@ class BackupForDescribeBackupsOutput(object):
         self._download_status = None
         self._error_message = None
         self._expired_time = None
+        self._is_encrypted = None
         self._is_expired = None
         self.discriminator = None
 
@@ -124,6 +127,8 @@ class BackupForDescribeBackupsOutput(object):
             self.error_message = error_message
         if expired_time is not None:
             self.expired_time = expired_time
+        if is_encrypted is not None:
+            self.is_encrypted = is_encrypted
         if is_expired is not None:
             self.is_expired = is_expired
 
@@ -441,6 +446,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._expired_time = expired_time
+
+    @property
+    def is_encrypted(self):
+        """Gets the is_encrypted of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The is_encrypted of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_encrypted
+
+    @is_encrypted.setter
+    def is_encrypted(self, is_encrypted):
+        """Sets the is_encrypted of this BackupForDescribeBackupsOutput.
+
+
+        :param is_encrypted: The is_encrypted of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_encrypted = is_encrypted
 
     @property
     def is_expired(self):
