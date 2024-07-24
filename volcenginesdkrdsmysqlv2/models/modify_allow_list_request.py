@@ -42,6 +42,7 @@ class ModifyAllowListRequest(object):
         'modify_mode': 'str',
         'security_group_bind_infos': 'list[SecurityGroupBindInfoForModifyAllowListInput]',
         'security_group_ids': 'list[str]',
+        'update_security_group': 'bool',
         'user_allow_list': 'str'
     }
 
@@ -55,10 +56,11 @@ class ModifyAllowListRequest(object):
         'modify_mode': 'ModifyMode',
         'security_group_bind_infos': 'SecurityGroupBindInfos',
         'security_group_ids': 'SecurityGroupIds',
+        'update_security_group': 'UpdateSecurityGroup',
         'user_allow_list': 'UserAllowList'
     }
 
-    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, modify_mode=None, security_group_bind_infos=None, security_group_ids=None, user_allow_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, modify_mode=None, security_group_bind_infos=None, security_group_ids=None, update_security_group=None, user_allow_list=None, _configuration=None):  # noqa: E501
         """ModifyAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class ModifyAllowListRequest(object):
         self._modify_mode = None
         self._security_group_bind_infos = None
         self._security_group_ids = None
+        self._update_security_group = None
         self._user_allow_list = None
         self.discriminator = None
 
@@ -92,6 +95,8 @@ class ModifyAllowListRequest(object):
             self.security_group_bind_infos = security_group_bind_infos
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
+        if update_security_group is not None:
+            self.update_security_group = update_security_group
         if user_allow_list is not None:
             self.user_allow_list = user_allow_list
 
@@ -287,6 +292,27 @@ class ModifyAllowListRequest(object):
         """
 
         self._security_group_ids = security_group_ids
+
+    @property
+    def update_security_group(self):
+        """Gets the update_security_group of this ModifyAllowListRequest.  # noqa: E501
+
+
+        :return: The update_security_group of this ModifyAllowListRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._update_security_group
+
+    @update_security_group.setter
+    def update_security_group(self, update_security_group):
+        """Sets the update_security_group of this ModifyAllowListRequest.
+
+
+        :param update_security_group: The update_security_group of this ModifyAllowListRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._update_security_group = update_security_group
 
     @property
     def user_allow_list(self):

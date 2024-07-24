@@ -33,33 +33,64 @@ class DescribeFailoverLogsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'end_time': 'str',
         'instance_id': 'str',
         'limit': 'int',
-        'offset': 'int'
+        'offset': 'int',
+        'start_time': 'str'
     }
 
     attribute_map = {
+        'end_time': 'EndTime',
         'instance_id': 'InstanceId',
         'limit': 'Limit',
-        'offset': 'Offset'
+        'offset': 'Offset',
+        'start_time': 'StartTime'
     }
 
-    def __init__(self, instance_id=None, limit=None, offset=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time=None, instance_id=None, limit=None, offset=None, start_time=None, _configuration=None):  # noqa: E501
         """DescribeFailoverLogsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._end_time = None
         self._instance_id = None
         self._limit = None
         self._offset = None
+        self._start_time = None
         self.discriminator = None
 
+        if end_time is not None:
+            self.end_time = end_time
         self.instance_id = instance_id
         if limit is not None:
             self.limit = limit
         if offset is not None:
             self.offset = offset
+        if start_time is not None:
+            self.start_time = start_time
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this DescribeFailoverLogsRequest.  # noqa: E501
+
+
+        :return: The end_time of this DescribeFailoverLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this DescribeFailoverLogsRequest.
+
+
+        :param end_time: The end_time of this DescribeFailoverLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._end_time = end_time
 
     @property
     def instance_id(self):
@@ -125,6 +156,27 @@ class DescribeFailoverLogsRequest(object):
         """
 
         self._offset = offset
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this DescribeFailoverLogsRequest.  # noqa: E501
+
+
+        :return: The start_time of this DescribeFailoverLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this DescribeFailoverLogsRequest.
+
+
+        :param start_time: The start_time of this DescribeFailoverLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._start_time = start_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

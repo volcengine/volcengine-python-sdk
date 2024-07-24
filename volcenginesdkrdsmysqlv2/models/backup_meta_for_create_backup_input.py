@@ -33,24 +33,29 @@ class BackupMetaForCreateBackupInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'db_name': 'str'
+        'db_name': 'str',
+        'table_names': 'list[str]'
     }
 
     attribute_map = {
-        'db_name': 'DBName'
+        'db_name': 'DBName',
+        'table_names': 'TableNames'
     }
 
-    def __init__(self, db_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, db_name=None, table_names=None, _configuration=None):  # noqa: E501
         """BackupMetaForCreateBackupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._db_name = None
+        self._table_names = None
         self.discriminator = None
 
         if db_name is not None:
             self.db_name = db_name
+        if table_names is not None:
+            self.table_names = table_names
 
     @property
     def db_name(self):
@@ -72,6 +77,27 @@ class BackupMetaForCreateBackupInput(object):
         """
 
         self._db_name = db_name
+
+    @property
+    def table_names(self):
+        """Gets the table_names of this BackupMetaForCreateBackupInput.  # noqa: E501
+
+
+        :return: The table_names of this BackupMetaForCreateBackupInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._table_names
+
+    @table_names.setter
+    def table_names(self, table_names):
+        """Sets the table_names of this BackupMetaForCreateBackupInput.
+
+
+        :param table_names: The table_names of this BackupMetaForCreateBackupInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._table_names = table_names
 
     def to_dict(self):
         """Returns the model properties as a dict"""

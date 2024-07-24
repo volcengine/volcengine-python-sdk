@@ -33,6 +33,7 @@ class DescribeDBInstanceSSLResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address': 'str',
         'instance_id': 'str',
         'is_valid': 'bool',
         'ssl_enable': 'bool',
@@ -41,6 +42,7 @@ class DescribeDBInstanceSSLResponse(object):
     }
 
     attribute_map = {
+        'address': 'Address',
         'instance_id': 'InstanceId',
         'is_valid': 'IsValid',
         'ssl_enable': 'SSLEnable',
@@ -48,12 +50,13 @@ class DescribeDBInstanceSSLResponse(object):
         'tls_version': 'TLSVersion'
     }
 
-    def __init__(self, instance_id=None, is_valid=None, ssl_enable=None, ssl_expire_time=None, tls_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, instance_id=None, is_valid=None, ssl_enable=None, ssl_expire_time=None, tls_version=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceSSLResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address = None
         self._instance_id = None
         self._is_valid = None
         self._ssl_enable = None
@@ -61,6 +64,8 @@ class DescribeDBInstanceSSLResponse(object):
         self._tls_version = None
         self.discriminator = None
 
+        if address is not None:
+            self.address = address
         if instance_id is not None:
             self.instance_id = instance_id
         if is_valid is not None:
@@ -71,6 +76,27 @@ class DescribeDBInstanceSSLResponse(object):
             self.ssl_expire_time = ssl_expire_time
         if tls_version is not None:
             self.tls_version = tls_version
+
+    @property
+    def address(self):
+        """Gets the address of this DescribeDBInstanceSSLResponse.  # noqa: E501
+
+
+        :return: The address of this DescribeDBInstanceSSLResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._address
+
+    @address.setter
+    def address(self, address):
+        """Sets the address of this DescribeDBInstanceSSLResponse.
+
+
+        :param address: The address of this DescribeDBInstanceSSLResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._address = address
 
     @property
     def instance_id(self):
