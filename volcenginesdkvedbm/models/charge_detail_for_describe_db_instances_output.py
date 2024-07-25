@@ -38,7 +38,6 @@ class ChargeDetailForDescribeDBInstancesOutput(object):
         'charge_start_time': 'str',
         'charge_status': 'str',
         'charge_type': 'str',
-        'order_id': 'str',
         'overdue_reclaim_time': 'str',
         'overdue_time': 'str'
     }
@@ -49,12 +48,11 @@ class ChargeDetailForDescribeDBInstancesOutput(object):
         'charge_start_time': 'ChargeStartTime',
         'charge_status': 'ChargeStatus',
         'charge_type': 'ChargeType',
-        'order_id': 'OrderId',
         'overdue_reclaim_time': 'OverdueReclaimTime',
         'overdue_time': 'OverdueTime'
     }
 
-    def __init__(self, auto_renew=None, charge_end_time=None, charge_start_time=None, charge_status=None, charge_type=None, order_id=None, overdue_reclaim_time=None, overdue_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_end_time=None, charge_start_time=None, charge_status=None, charge_type=None, overdue_reclaim_time=None, overdue_time=None, _configuration=None):  # noqa: E501
         """ChargeDetailForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,7 +63,6 @@ class ChargeDetailForDescribeDBInstancesOutput(object):
         self._charge_start_time = None
         self._charge_status = None
         self._charge_type = None
-        self._order_id = None
         self._overdue_reclaim_time = None
         self._overdue_time = None
         self.discriminator = None
@@ -80,8 +77,6 @@ class ChargeDetailForDescribeDBInstancesOutput(object):
             self.charge_status = charge_status
         if charge_type is not None:
             self.charge_type = charge_type
-        if order_id is not None:
-            self.order_id = order_id
         if overdue_reclaim_time is not None:
             self.overdue_reclaim_time = overdue_reclaim_time
         if overdue_time is not None:
@@ -191,27 +186,6 @@ class ChargeDetailForDescribeDBInstancesOutput(object):
         """
 
         self._charge_type = charge_type
-
-    @property
-    def order_id(self):
-        """Gets the order_id of this ChargeDetailForDescribeDBInstancesOutput.  # noqa: E501
-
-
-        :return: The order_id of this ChargeDetailForDescribeDBInstancesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._order_id
-
-    @order_id.setter
-    def order_id(self, order_id):
-        """Sets the order_id of this ChargeDetailForDescribeDBInstancesOutput.
-
-
-        :param order_id: The order_id of this ChargeDetailForDescribeDBInstancesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._order_id = order_id
 
     @property
     def overdue_reclaim_time(self):

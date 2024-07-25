@@ -298,6 +298,13 @@ class DescribeDBInstancesRequest(object):
         :param node_spec: The node_spec of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["vedb.mysql.x4.large", "vedb.mysql.x8.large", "vedb.mysql.x4.xlarge", "vedb.mysql.x8.xlarge", "vedb.mysql.x4.2xlarge", "vedb.mysql.x8.2xlarge", "vedb.mysql.x4.4xlarge", "vedb.mysql.x8.4xlarge", "vedb.mysql.x8.6xlarge", "vedb.mysql.x4.8xlarge", "vedb.mysql.x8.8xlarge", "vedb.mysql.g4.large", "vedb.mysql.g4.xlarge", "vedb.mysql.g4.2xlarge", "vedb.mysql.g8.2xlarge", "vedb.mysql.g4.4xlarge"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                node_spec not in allowed_values):
+            raise ValueError(
+                "Invalid value for `node_spec` ({0}), must be one of {1}"  # noqa: E501
+                .format(node_spec, allowed_values)
+            )
 
         self._node_spec = node_spec
 
@@ -343,12 +350,6 @@ class DescribeDBInstancesRequest(object):
         :param page_size: The page_size of this DescribeDBInstancesRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                page_size is not None and page_size > 1000):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                page_size is not None and page_size < 1):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_size = page_size
 

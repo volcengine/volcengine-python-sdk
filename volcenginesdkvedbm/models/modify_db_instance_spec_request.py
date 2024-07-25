@@ -35,16 +35,18 @@ class ModifyDBInstanceSpecRequest(object):
     swagger_types = {
         'instance_id': 'str',
         'node_number': 'int',
-        'node_spec': 'str'
+        'node_spec': 'str',
+        'pre_paid_storage_in_gb': 'int'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
         'node_number': 'NodeNumber',
-        'node_spec': 'NodeSpec'
+        'node_spec': 'NodeSpec',
+        'pre_paid_storage_in_gb': 'PrePaidStorageInGB'
     }
 
-    def __init__(self, instance_id=None, node_number=None, node_spec=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, node_number=None, node_spec=None, pre_paid_storage_in_gb=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,11 +55,14 @@ class ModifyDBInstanceSpecRequest(object):
         self._instance_id = None
         self._node_number = None
         self._node_spec = None
+        self._pre_paid_storage_in_gb = None
         self.discriminator = None
 
         self.instance_id = instance_id
         self.node_number = node_number
         self.node_spec = node_spec
+        if pre_paid_storage_in_gb is not None:
+            self.pre_paid_storage_in_gb = pre_paid_storage_in_gb
 
     @property
     def instance_id(self):
@@ -102,12 +107,6 @@ class ModifyDBInstanceSpecRequest(object):
         """
         if self._configuration.client_side_validation and node_number is None:
             raise ValueError("Invalid value for `node_number`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                node_number is not None and node_number > 16):  # noqa: E501
-            raise ValueError("Invalid value for `node_number`, must be a value less than or equal to `16`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                node_number is not None and node_number < 2):  # noqa: E501
-            raise ValueError("Invalid value for `node_number`, must be a value greater than or equal to `2`")  # noqa: E501
 
         self._node_number = node_number
 
@@ -131,8 +130,36 @@ class ModifyDBInstanceSpecRequest(object):
         """
         if self._configuration.client_side_validation and node_spec is None:
             raise ValueError("Invalid value for `node_spec`, must not be `None`")  # noqa: E501
+        allowed_values = ["vedb.mysql.x4.large", "vedb.mysql.x8.large", "vedb.mysql.x4.xlarge", "vedb.mysql.x8.xlarge", "vedb.mysql.x4.2xlarge", "vedb.mysql.x8.2xlarge", "vedb.mysql.x4.4xlarge", "vedb.mysql.x8.4xlarge", "vedb.mysql.x8.6xlarge", "vedb.mysql.x4.8xlarge", "vedb.mysql.x8.8xlarge", "vedb.mysql.g4.large", "vedb.mysql.g4.xlarge", "vedb.mysql.g4.2xlarge", "vedb.mysql.g8.2xlarge", "vedb.mysql.g4.4xlarge"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                node_spec not in allowed_values):
+            raise ValueError(
+                "Invalid value for `node_spec` ({0}), must be one of {1}"  # noqa: E501
+                .format(node_spec, allowed_values)
+            )
 
         self._node_spec = node_spec
+
+    @property
+    def pre_paid_storage_in_gb(self):
+        """Gets the pre_paid_storage_in_gb of this ModifyDBInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The pre_paid_storage_in_gb of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._pre_paid_storage_in_gb
+
+    @pre_paid_storage_in_gb.setter
+    def pre_paid_storage_in_gb(self, pre_paid_storage_in_gb):
+        """Sets the pre_paid_storage_in_gb of this ModifyDBInstanceSpecRequest.
+
+
+        :param pre_paid_storage_in_gb: The pre_paid_storage_in_gb of this ModifyDBInstanceSpecRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._pre_paid_storage_in_gb = pre_paid_storage_in_gb
 
     def to_dict(self):
         """Returns the model properties as a dict"""
