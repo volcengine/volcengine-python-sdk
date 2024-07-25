@@ -42,6 +42,7 @@ class CreateDBInstanceRequest(object):
         'instance_tags': 'list[InstanceTagForCreateDBInstanceInput]',
         'instance_type': 'str',
         'lower_case_table_names': 'str',
+        'maintenance_window': 'MaintenanceWindowForCreateDBInstanceInput',
         'node_info': 'list[NodeInfoForCreateDBInstanceInput]',
         'port': 'int',
         'project_name': 'str',
@@ -63,6 +64,7 @@ class CreateDBInstanceRequest(object):
         'instance_tags': 'InstanceTags',
         'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
+        'maintenance_window': 'MaintenanceWindow',
         'node_info': 'NodeInfo',
         'port': 'Port',
         'project_name': 'ProjectName',
@@ -74,7 +76,7 @@ class CreateDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, node_info=None, port=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, port=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class CreateDBInstanceRequest(object):
         self._instance_tags = None
         self._instance_type = None
         self._lower_case_table_names = None
+        self._maintenance_window = None
         self._node_info = None
         self._port = None
         self._project_name = None
@@ -117,6 +120,8 @@ class CreateDBInstanceRequest(object):
             self.instance_type = instance_type
         if lower_case_table_names is not None:
             self.lower_case_table_names = lower_case_table_names
+        if maintenance_window is not None:
+            self.maintenance_window = maintenance_window
         if node_info is not None:
             self.node_info = node_info
         if port is not None:
@@ -322,6 +327,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._lower_case_table_names = lower_case_table_names
+
+    @property
+    def maintenance_window(self):
+        """Gets the maintenance_window of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The maintenance_window of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: MaintenanceWindowForCreateDBInstanceInput
+        """
+        return self._maintenance_window
+
+    @maintenance_window.setter
+    def maintenance_window(self, maintenance_window):
+        """Sets the maintenance_window of this CreateDBInstanceRequest.
+
+
+        :param maintenance_window: The maintenance_window of this CreateDBInstanceRequest.  # noqa: E501
+        :type: MaintenanceWindowForCreateDBInstanceInput
+        """
+
+        self._maintenance_window = maintenance_window
 
     @property
     def node_info(self):

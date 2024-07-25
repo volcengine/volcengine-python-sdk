@@ -33,28 +33,59 @@ class ModifyDBInstanceParametersRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'custom_node_ids': 'list[str]',
         'instance_id': 'str',
+        'param_apply_scope': 'str',
         'parameters': 'list[ParameterForModifyDBInstanceParametersInput]'
     }
 
     attribute_map = {
+        'custom_node_ids': 'CustomNodeIds',
         'instance_id': 'InstanceId',
+        'param_apply_scope': 'ParamApplyScope',
         'parameters': 'Parameters'
     }
 
-    def __init__(self, instance_id=None, parameters=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_node_ids=None, instance_id=None, param_apply_scope=None, parameters=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceParametersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._custom_node_ids = None
         self._instance_id = None
+        self._param_apply_scope = None
         self._parameters = None
         self.discriminator = None
 
+        if custom_node_ids is not None:
+            self.custom_node_ids = custom_node_ids
         self.instance_id = instance_id
+        if param_apply_scope is not None:
+            self.param_apply_scope = param_apply_scope
         if parameters is not None:
             self.parameters = parameters
+
+    @property
+    def custom_node_ids(self):
+        """Gets the custom_node_ids of this ModifyDBInstanceParametersRequest.  # noqa: E501
+
+
+        :return: The custom_node_ids of this ModifyDBInstanceParametersRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._custom_node_ids
+
+    @custom_node_ids.setter
+    def custom_node_ids(self, custom_node_ids):
+        """Sets the custom_node_ids of this ModifyDBInstanceParametersRequest.
+
+
+        :param custom_node_ids: The custom_node_ids of this ModifyDBInstanceParametersRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._custom_node_ids = custom_node_ids
 
     @property
     def instance_id(self):
@@ -78,6 +109,27 @@ class ModifyDBInstanceParametersRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def param_apply_scope(self):
+        """Gets the param_apply_scope of this ModifyDBInstanceParametersRequest.  # noqa: E501
+
+
+        :return: The param_apply_scope of this ModifyDBInstanceParametersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._param_apply_scope
+
+    @param_apply_scope.setter
+    def param_apply_scope(self, param_apply_scope):
+        """Sets the param_apply_scope of this ModifyDBInstanceParametersRequest.
+
+
+        :param param_apply_scope: The param_apply_scope of this ModifyDBInstanceParametersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._param_apply_scope = param_apply_scope
 
     @property
     def parameters(self):
