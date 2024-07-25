@@ -47,7 +47,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         'storage_used_gi_b': 'float',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeDBInstancesOutput]',
-        'tenant_id': 'str',
         'time_zone': 'str',
         'vpc_id': 'str',
         'zone_ids': 'str'
@@ -68,13 +67,12 @@ class InstanceForDescribeDBInstancesOutput(object):
         'storage_used_gi_b': 'StorageUsedGiB',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
-        'tenant_id': 'TenantId',
         'time_zone': 'TimeZone',
         'vpc_id': 'VpcId',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, nodes=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, tags=None, tenant_id=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, nodes=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,7 +92,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._storage_used_gi_b = None
         self._subnet_id = None
         self._tags = None
-        self._tenant_id = None
         self._time_zone = None
         self._vpc_id = None
         self._zone_ids = None
@@ -128,8 +125,6 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
-        if tenant_id is not None:
-            self.tenant_id = tenant_id
         if time_zone is not None:
             self.time_zone = time_zone
         if vpc_id is not None:
@@ -430,27 +425,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._tags = tags
-
-    @property
-    def tenant_id(self):
-        """Gets the tenant_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-
-
-        :return: The tenant_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._tenant_id
-
-    @tenant_id.setter
-    def tenant_id(self, tenant_id):
-        """Sets the tenant_id of this InstanceForDescribeDBInstancesOutput.
-
-
-        :param tenant_id: The tenant_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._tenant_id = tenant_id
 
     @property
     def time_zone(self):
