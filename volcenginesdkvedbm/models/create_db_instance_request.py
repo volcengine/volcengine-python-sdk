@@ -281,13 +281,6 @@ class CreateDBInstanceRequest(object):
         :param lower_case_table_names: The lower_case_table_names of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["1", "0"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                lower_case_table_names not in allowed_values):
-            raise ValueError(
-                "Invalid value for `lower_case_table_names` ({0}), must be one of {1}"  # noqa: E501
-                .format(lower_case_table_names, allowed_values)
-            )
 
         self._lower_case_table_names = lower_case_table_names
 
@@ -311,12 +304,6 @@ class CreateDBInstanceRequest(object):
         """
         if self._configuration.client_side_validation and node_number is None:
             raise ValueError("Invalid value for `node_number`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                node_number is not None and node_number > 16):  # noqa: E501
-            raise ValueError("Invalid value for `node_number`, must be a value less than or equal to `16`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                node_number is not None and node_number < 2):  # noqa: E501
-            raise ValueError("Invalid value for `node_number`, must be a value greater than or equal to `2`")  # noqa: E501
 
         self._node_number = node_number
 
@@ -340,6 +327,13 @@ class CreateDBInstanceRequest(object):
         """
         if self._configuration.client_side_validation and node_spec is None:
             raise ValueError("Invalid value for `node_spec`, must not be `None`")  # noqa: E501
+        allowed_values = ["vedb.mysql.x4.large", "vedb.mysql.x8.large", "vedb.mysql.x4.xlarge", "vedb.mysql.x8.xlarge", "vedb.mysql.x4.2xlarge", "vedb.mysql.x8.2xlarge", "vedb.mysql.x4.4xlarge", "vedb.mysql.x8.4xlarge", "vedb.mysql.x8.6xlarge", "vedb.mysql.x4.8xlarge", "vedb.mysql.x8.8xlarge", "vedb.mysql.g4.large", "vedb.mysql.g4.xlarge", "vedb.mysql.g4.2xlarge", "vedb.mysql.g8.2xlarge", "vedb.mysql.g4.4xlarge"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                node_spec not in allowed_values):
+            raise ValueError(
+                "Invalid value for `node_spec` ({0}), must be one of {1}"  # noqa: E501
+                .format(node_spec, allowed_values)
+            )
 
         self._node_spec = node_spec
 

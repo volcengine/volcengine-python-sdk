@@ -380,7 +380,7 @@ class CreateDBEndpointRequest(object):
         :param read_write_mode: The read_write_mode of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ReadWrite", " ReadOnly"]  # noqa: E501
+        allowed_values = ["ReadWrite", "ReadOnly"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 read_write_mode not in allowed_values):
             raise ValueError(
