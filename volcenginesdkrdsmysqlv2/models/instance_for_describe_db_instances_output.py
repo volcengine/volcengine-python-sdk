@@ -44,16 +44,21 @@ class InstanceForDescribeDBInstancesOutput(object):
         'instance_type': 'str',
         'lower_case_table_names': 'str',
         'maintenance_window': 'MaintenanceWindowForDescribeDBInstancesOutput',
+        'node_cpu_used_percentage': 'float',
+        'node_memory_used_percentage': 'float',
         'node_number': 'int',
+        'node_space_used_percentage': 'float',
         'node_spec': 'str',
         'project_name': 'str',
         'region_id': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeDBInstancesOutput]',
         'time_zone': 'str',
         'vpc_id': 'str',
-        'zone_id': 'str'
+        'zone_id': 'str',
+        'zone_ids': 'list[str]'
     }
 
     attribute_map = {
@@ -68,19 +73,24 @@ class InstanceForDescribeDBInstancesOutput(object):
         'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
         'maintenance_window': 'MaintenanceWindow',
+        'node_cpu_used_percentage': 'NodeCPUUsedPercentage',
+        'node_memory_used_percentage': 'NodeMemoryUsedPercentage',
         'node_number': 'NodeNumber',
+        'node_space_used_percentage': 'NodeSpaceUsedPercentage',
         'node_spec': 'NodeSpec',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'time_zone': 'TimeZone',
         'vpc_id': 'VpcId',
-        'zone_id': 'ZoneId'
+        'zone_id': 'ZoneId',
+        'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, time_zone=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_cpu_used_percentage=None, node_memory_used_percentage=None, node_number=None, node_space_used_percentage=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,16 +107,21 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._instance_type = None
         self._lower_case_table_names = None
         self._maintenance_window = None
+        self._node_cpu_used_percentage = None
+        self._node_memory_used_percentage = None
         self._node_number = None
+        self._node_space_used_percentage = None
         self._node_spec = None
         self._project_name = None
         self._region_id = None
         self._storage_space = None
         self._storage_type = None
         self._subnet_id = None
+        self._tags = None
         self._time_zone = None
         self._vpc_id = None
         self._zone_id = None
+        self._zone_ids = None
         self.discriminator = None
 
         if address_object is not None:
@@ -131,8 +146,14 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.lower_case_table_names = lower_case_table_names
         if maintenance_window is not None:
             self.maintenance_window = maintenance_window
+        if node_cpu_used_percentage is not None:
+            self.node_cpu_used_percentage = node_cpu_used_percentage
+        if node_memory_used_percentage is not None:
+            self.node_memory_used_percentage = node_memory_used_percentage
         if node_number is not None:
             self.node_number = node_number
+        if node_space_used_percentage is not None:
+            self.node_space_used_percentage = node_space_used_percentage
         if node_spec is not None:
             self.node_spec = node_spec
         if project_name is not None:
@@ -145,12 +166,16 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.storage_type = storage_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if time_zone is not None:
             self.time_zone = time_zone
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+        if zone_ids is not None:
+            self.zone_ids = zone_ids
 
     @property
     def address_object(self):
@@ -384,6 +409,48 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._maintenance_window = maintenance_window
 
     @property
+    def node_cpu_used_percentage(self):
+        """Gets the node_cpu_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The node_cpu_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._node_cpu_used_percentage
+
+    @node_cpu_used_percentage.setter
+    def node_cpu_used_percentage(self, node_cpu_used_percentage):
+        """Sets the node_cpu_used_percentage of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param node_cpu_used_percentage: The node_cpu_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._node_cpu_used_percentage = node_cpu_used_percentage
+
+    @property
+    def node_memory_used_percentage(self):
+        """Gets the node_memory_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The node_memory_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._node_memory_used_percentage
+
+    @node_memory_used_percentage.setter
+    def node_memory_used_percentage(self, node_memory_used_percentage):
+        """Sets the node_memory_used_percentage of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param node_memory_used_percentage: The node_memory_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._node_memory_used_percentage = node_memory_used_percentage
+
+    @property
     def node_number(self):
         """Gets the node_number of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -403,6 +470,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._node_number = node_number
+
+    @property
+    def node_space_used_percentage(self):
+        """Gets the node_space_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The node_space_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._node_space_used_percentage
+
+    @node_space_used_percentage.setter
+    def node_space_used_percentage(self, node_space_used_percentage):
+        """Sets the node_space_used_percentage of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param node_space_used_percentage: The node_space_used_percentage of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._node_space_used_percentage = node_space_used_percentage
 
     @property
     def node_spec(self):
@@ -531,6 +619,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._subnet_id = subnet_id
 
     @property
+    def tags(self):
+        """Gets the tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeDBInstancesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param tags: The tags of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[TagForDescribeDBInstancesOutput]
+        """
+
+        self._tags = tags
+
+    @property
     def time_zone(self):
         """Gets the time_zone of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -592,6 +701,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._zone_id = zone_id
+
+    @property
+    def zone_ids(self):
+        """Gets the zone_ids of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The zone_ids of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._zone_ids
+
+    @zone_ids.setter
+    def zone_ids(self, zone_ids):
+        """Sets the zone_ids of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param zone_ids: The zone_ids of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._zone_ids = zone_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

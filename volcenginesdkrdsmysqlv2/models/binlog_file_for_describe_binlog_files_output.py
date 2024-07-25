@@ -38,6 +38,7 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
         'download_status': 'str',
         'file_name': 'str',
         'file_size': 'int',
+        'is_encrypted': 'bool',
         'node_id': 'str',
         'update_time': 'str'
     }
@@ -48,11 +49,12 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
         'download_status': 'DownloadStatus',
         'file_name': 'FileName',
         'file_size': 'FileSize',
+        'is_encrypted': 'IsEncrypted',
         'node_id': 'NodeId',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, backup_region=None, backup_status=None, download_status=None, file_name=None, file_size=None, node_id=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_region=None, backup_status=None, download_status=None, file_name=None, file_size=None, is_encrypted=None, node_id=None, update_time=None, _configuration=None):  # noqa: E501
         """BinlogFileForDescribeBinlogFilesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
         self._download_status = None
         self._file_name = None
         self._file_size = None
+        self._is_encrypted = None
         self._node_id = None
         self._update_time = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
             self.file_name = file_name
         if file_size is not None:
             self.file_size = file_size
+        if is_encrypted is not None:
+            self.is_encrypted = is_encrypted
         if node_id is not None:
             self.node_id = node_id
         if update_time is not None:
@@ -186,6 +191,27 @@ class BinlogFileForDescribeBinlogFilesOutput(object):
         """
 
         self._file_size = file_size
+
+    @property
+    def is_encrypted(self):
+        """Gets the is_encrypted of this BinlogFileForDescribeBinlogFilesOutput.  # noqa: E501
+
+
+        :return: The is_encrypted of this BinlogFileForDescribeBinlogFilesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_encrypted
+
+    @is_encrypted.setter
+    def is_encrypted(self, is_encrypted):
+        """Sets the is_encrypted of this BinlogFileForDescribeBinlogFilesOutput.
+
+
+        :param is_encrypted: The is_encrypted of this BinlogFileForDescribeBinlogFilesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_encrypted = is_encrypted
 
     @property
     def node_id(self):

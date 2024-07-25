@@ -9,7 +9,12 @@
 
 ### Requirements ###
 
-Python版本需要不低于2.7。
+* Python版本需要不低于2.7。
+* 由于 Windows 系统有最长路径限制，可能会导致安装失败，请按照以下方式设置：
+```
+1. 按下 Win+R ，输入 regedit 打开注册表编辑器。
+2. 设置 \HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem 路径下的变量 LongPathsEnabled 为 1 即可。
+```
 
 ### Install ###
 
