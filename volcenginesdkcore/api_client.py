@@ -145,7 +145,7 @@ class ApiClient(object):
             query_params = self.parameters_to_tuples(query_params,
                                                      collection_formats)
 
-        if method != "GET" and "application/x-www-form-urlencoded" in header_params.get("Content-Type"):
+        if method == 'POST' and header_params.get('Content-Type').startswith('application/x-www-form-urlencoded'):
             post_params = self.__req_to_params(body)
             body = None
 

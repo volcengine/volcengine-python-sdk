@@ -18,7 +18,8 @@ class SignerV4(object):
         format_date = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
         headers['X-Date'] = format_date
 
-        if method != "GET" and "application/x-www-form-urlencoded" in headers.get("Content-Type") and post_params:
+        if (method == 'POST' and headers.get('Content-Type').startswith('application/x-www-form-urlencoded')
+                and post_params):
             body = urlencode(post_params)
 
         body_hash = hashlib.sha256(body.encode('utf-8')).hexdigest()
