@@ -65,8 +65,7 @@ class RestoreToExistedInstanceRequest(object):
             self.backup_id = backup_id
         if restore_time is not None:
             self.restore_time = restore_time
-        if restore_type is not None:
-            self.restore_type = restore_type
+        self.restore_type = restore_type
         self.source_db_instance_id = source_db_instance_id
         if table_meta is not None:
             self.table_meta = table_meta
@@ -131,6 +130,8 @@ class RestoreToExistedInstanceRequest(object):
         :param restore_type: The restore_type of this RestoreToExistedInstanceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and restore_type is None:
+            raise ValueError("Invalid value for `restore_type`, must not be `None`")  # noqa: E501
 
         self._restore_type = restore_type
 

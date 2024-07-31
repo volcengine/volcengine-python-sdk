@@ -33,17 +33,71 @@ class DescribeBackupEncryptionStatusResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'data_encryption_status': 'str',
+        'log_encryption_status': 'str'
     }
 
     attribute_map = {
+        'data_encryption_status': 'DataEncryptionStatus',
+        'log_encryption_status': 'LogEncryptionStatus'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, data_encryption_status=None, log_encryption_status=None, _configuration=None):  # noqa: E501
         """DescribeBackupEncryptionStatusResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._data_encryption_status = None
+        self._log_encryption_status = None
         self.discriminator = None
+
+        if data_encryption_status is not None:
+            self.data_encryption_status = data_encryption_status
+        if log_encryption_status is not None:
+            self.log_encryption_status = log_encryption_status
+
+    @property
+    def data_encryption_status(self):
+        """Gets the data_encryption_status of this DescribeBackupEncryptionStatusResponse.  # noqa: E501
+
+
+        :return: The data_encryption_status of this DescribeBackupEncryptionStatusResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_encryption_status
+
+    @data_encryption_status.setter
+    def data_encryption_status(self, data_encryption_status):
+        """Sets the data_encryption_status of this DescribeBackupEncryptionStatusResponse.
+
+
+        :param data_encryption_status: The data_encryption_status of this DescribeBackupEncryptionStatusResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._data_encryption_status = data_encryption_status
+
+    @property
+    def log_encryption_status(self):
+        """Gets the log_encryption_status of this DescribeBackupEncryptionStatusResponse.  # noqa: E501
+
+
+        :return: The log_encryption_status of this DescribeBackupEncryptionStatusResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._log_encryption_status
+
+    @log_encryption_status.setter
+    def log_encryption_status(self, log_encryption_status):
+        """Sets the log_encryption_status of this DescribeBackupEncryptionStatusResponse.
+
+
+        :param log_encryption_status: The log_encryption_status of this DescribeBackupEncryptionStatusResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._log_encryption_status = log_encryption_status
 
     def to_dict(self):
         """Returns the model properties as a dict"""
