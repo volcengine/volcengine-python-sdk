@@ -42,6 +42,7 @@ class DescribeSubnetsRequest(object):
         'route_table_id': 'str',
         'subnet_ids': 'list[str]',
         'subnet_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeSubnetsInput]',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
@@ -56,11 +57,12 @@ class DescribeSubnetsRequest(object):
         'route_table_id': 'RouteTableId',
         'subnet_ids': 'SubnetIds',
         'subnet_name': 'SubnetName',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, is_default=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, route_table_id=None, subnet_ids=None, subnet_name=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_default=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, route_table_id=None, subnet_ids=None, subnet_name=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeSubnetsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class DescribeSubnetsRequest(object):
         self._route_table_id = None
         self._subnet_ids = None
         self._subnet_name = None
+        self._tag_filters = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
@@ -97,6 +100,8 @@ class DescribeSubnetsRequest(object):
             self.subnet_ids = subnet_ids
         if subnet_name is not None:
             self.subnet_name = subnet_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
@@ -293,6 +298,27 @@ class DescribeSubnetsRequest(object):
         """
 
         self._subnet_name = subnet_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeSubnetsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeSubnetsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeSubnetsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeSubnetsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeSubnetsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeSubnetsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):
