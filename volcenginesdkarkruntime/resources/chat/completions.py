@@ -4,6 +4,7 @@ from typing import Dict, List, Union, Iterable, Optional
 
 import httpx
 from typing_extensions import Literal
+from volcenginesdkarkruntime.types.chat import ChatCompletionToolChoiceOptionParam
 
 from ..._types import Body, Query, Headers
 from ..._utils._utils import with_sts_token, async_with_sts_token
@@ -59,6 +60,11 @@ class Completions(SyncAPIResource):
         tools: Iterable[ChatCompletionToolParam] | None = None,
         top_logprobs: Optional[int] | None = None,
         top_p: Optional[float] | None = None,
+        repetition_penalty: Optional[float] | None = None,
+        n: Optional[int] | None = None,
+        tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
+        response_format: completion_create_params.ResponseFormat | None = None,
+        max_prompt_tokens: Optional[int] | None = None,
         user: str | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
@@ -85,6 +91,11 @@ class Completions(SyncAPIResource):
                 "top_logprobs": top_logprobs,
                 "top_p": top_p,
                 "user": user,
+                "repetition_penalty": repetition_penalty,
+                "n": n,
+                "tool_choice": tool_choice,
+                "response_format": response_format,
+                "max_prompt_tokens": max_prompt_tokens,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -128,6 +139,11 @@ class AsyncCompletions(AsyncAPIResource):
         top_logprobs: Optional[int] | None = None,
         top_p: Optional[float] | None = None,
         user: str | None = None,
+        repetition_penalty: Optional[float] | None = None,
+        n: Optional[int] | None = None,
+        tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
+        response_format: completion_create_params.ResponseFormat | None = None,
+        max_prompt_tokens: Optional[int] | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -145,6 +161,7 @@ class AsyncCompletions(AsyncAPIResource):
                 "logprobs": logprobs,
                 "max_tokens": max_tokens,
                 "presence_penalty": presence_penalty,
+                "repetition_penalty": repetition_penalty,
                 "stop": stop,
                 "stream": stream,
                 "stream_options": stream_options,
@@ -153,6 +170,11 @@ class AsyncCompletions(AsyncAPIResource):
                 "top_logprobs": top_logprobs,
                 "top_p": top_p,
                 "user": user,
+                "repetition_penalty": repetition_penalty,
+                "n": n,
+                "tool_choice": tool_choice,
+                "response_format": response_format,
+                "max_prompt_tokens": max_prompt_tokens,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
