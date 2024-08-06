@@ -4,7 +4,6 @@ from typing import Dict, List, Union, Iterable, Optional
 
 import httpx
 from typing_extensions import Literal
-from volcenginesdkarkruntime.types.chat import ChatCompletionToolChoiceOptionParam
 
 from ..._types import Body, Query, Headers
 from ..._utils._utils import with_sts_token, async_with_sts_token
@@ -26,6 +25,7 @@ from ...types.chat import (
     completion_create_params,
     ChatCompletionStreamOptionsParam,
     ChatCompletionToolParam,
+    ChatCompletionToolChoiceOptionParam
 )
 
 __all__ = ["Completions", "AsyncCompletions"]
