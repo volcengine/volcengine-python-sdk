@@ -76,7 +76,7 @@ def async_with_sts_token(func):
 
 def _insert_sts_token(args, kwargs):
     assert len(args) > 0
-    assert "model" in kwargs
+    assert "model" in kwargs, "you need to support model"
 
     ark_client = args[0]._client
     model = kwargs.get("model", "")
