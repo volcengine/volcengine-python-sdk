@@ -41,6 +41,7 @@ class PrefixListForDescribePrefixListsOutput(object):
         'max_entries': 'str',
         'prefix_list_id': 'str',
         'prefix_list_name': 'str',
+        'project_name': 'str',
         'status': 'str',
         'update_time': 'str'
     }
@@ -54,11 +55,12 @@ class PrefixListForDescribePrefixListsOutput(object):
         'max_entries': 'MaxEntries',
         'prefix_list_id': 'PrefixListId',
         'prefix_list_name': 'PrefixListName',
+        'project_name': 'ProjectName',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, association_count=None, cidrs=None, creation_time=None, description=None, ip_version=None, max_entries=None, prefix_list_id=None, prefix_list_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, association_count=None, cidrs=None, creation_time=None, description=None, ip_version=None, max_entries=None, prefix_list_id=None, prefix_list_name=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """PrefixListForDescribePrefixListsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class PrefixListForDescribePrefixListsOutput(object):
         self._max_entries = None
         self._prefix_list_id = None
         self._prefix_list_name = None
+        self._project_name = None
         self._status = None
         self._update_time = None
         self.discriminator = None
@@ -92,6 +95,8 @@ class PrefixListForDescribePrefixListsOutput(object):
             self.prefix_list_id = prefix_list_id
         if prefix_list_name is not None:
             self.prefix_list_name = prefix_list_name
+        if project_name is not None:
+            self.project_name = project_name
         if status is not None:
             self.status = status
         if update_time is not None:
@@ -264,6 +269,27 @@ class PrefixListForDescribePrefixListsOutput(object):
         """
 
         self._prefix_list_name = prefix_list_name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this PrefixListForDescribePrefixListsOutput.  # noqa: E501
+
+
+        :return: The project_name of this PrefixListForDescribePrefixListsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this PrefixListForDescribePrefixListsOutput.
+
+
+        :param project_name: The project_name of this PrefixListForDescribePrefixListsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def status(self):
