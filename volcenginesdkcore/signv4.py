@@ -3,19 +3,24 @@
 import datetime
 import hmac
 import hashlib
-from six.moves.urllib.parse import quote
+
+from six.moves.urllib.parse import quote, urlencode
 
 
 class SignerV4(object):
 
     @staticmethod
-    def sign(path, method, headers, body, query, ak, sk, region, service):
+    def sign(path, method, headers, body, post_params, query, ak, sk, region, service):
         if path == '':
             path = '/'
         if method != 'GET' and not ('Content-Type' in headers):
             headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8'
         format_date = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
         headers['X-Date'] = format_date
+
+        if (method == 'POST' and headers.get('Content-Type').startswith('application/x-www-form-urlencoded')
+                and post_params):
+            body = urlencode(post_params)
 
         body_hash = hashlib.sha256(body.encode('utf-8')).hexdigest()
         headers['X-Content-Sha256'] = body_hash
