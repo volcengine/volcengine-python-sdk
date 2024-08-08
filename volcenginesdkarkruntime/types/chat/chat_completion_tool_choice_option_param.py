@@ -8,5 +8,5 @@ from .chat_completion_named_tool_choice_param import ChatCompletionNamedToolChoi
 __all__ = ["ChatCompletionToolChoiceOptionParam"]
 
 ChatCompletionToolChoiceOptionParam = Union[
-    Literal["none", "auto"], ChatCompletionNamedToolChoiceParam
+    Literal["none", "auto", "required"], ChatCompletionNamedToolChoiceParam
 ]
