@@ -40,7 +40,7 @@ class AclForDescribeAclsOutput(object):
         'description': 'str',
         'listeners': 'list[str]',
         'project_name': 'str',
-        'service_managed': 'str',
+        'service_managed': 'bool',
         'status': 'str',
         'tags': 'list[TagForDescribeAclsOutput]',
         'update_time': 'str'
@@ -255,7 +255,7 @@ class AclForDescribeAclsOutput(object):
 
 
         :return: The service_managed of this AclForDescribeAclsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._service_managed
 
@@ -265,7 +265,7 @@ class AclForDescribeAclsOutput(object):
 
 
         :param service_managed: The service_managed of this AclForDescribeAclsOutput.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._service_managed = service_managed

@@ -27,9 +27,8 @@ class Tokenization(SyncAPIResource):
     def create(
         self,
         *,
-        input: Union[str, List[str]],
+        text: Union[str, List[str]],
         model: str,
-        encoding_format: Literal["float", "base64"] = "float",
         user: str | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -41,10 +40,9 @@ class Tokenization(SyncAPIResource):
         return self._post(
             "/tokenization",
             body={
-                "input": input,
+                "text": text,
                 "model": model,
                 "user": user,
-                "encoding_format": encoding_format,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -65,9 +63,8 @@ class AsyncTokenization(AsyncAPIResource):
     async def create(
         self,
         *,
-        input: Union[str, List[str]],
+        text: Union[str, List[str]],
         model: str,
-        encoding_format: Literal["float", "base64"] = "float",
         user: str | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -79,10 +76,9 @@ class AsyncTokenization(AsyncAPIResource):
         return await self._post(
             "/tokenization",
             body={
-                "input": input,
+                "text": text,
                 "model": model,
                 "user": user,
-                "encoding_format": encoding_format,
             },
             options=make_request_options(
                 extra_headers=extra_headers,

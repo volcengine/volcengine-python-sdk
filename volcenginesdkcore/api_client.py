@@ -67,7 +67,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'volcstack-python-sdk/1.0.94'
+        self.user_agent = 'volcstack-python-sdk/1.0.95'
         self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):
@@ -134,25 +134,9 @@ class ApiClient(object):
             body = self.sanitize_for_serialization(body)
 
         # query parameters
-        if method == "GET":
-            def _build_query(prefix, querys):  # prefix is string and querys is a dict
-                for key, value in querys.items():
-                    if value is None:
-                        continue
-                    if isinstance(value, list):
-                        for index in range(len(value)):
-                            if isinstance(value[index], dict):
-                                _build_query(prefix + key + "." + str((index + 1)) + ".", value[index])
-                            else:
-                                query_params.append((prefix + key + "." + str((index + 1)), value[index]))
-                    elif isinstance(value, dict):
-                        _build_query(prefix + key + ".", value)
-                    else:
-                        query_params.append((prefix + key, value))
+        if method == "GET" and header_params.get("Content-Type") == "text/plain":
+            query_params = self.__req_to_params(body)
 
-            # only for inner api
-            if header_params.get("Content-Type") == "text/plain":
-                _build_query("", body)
         query_params.append(("Action", resource_path.split("/")[1]))
         query_params.append(("Version", resource_path.split("/")[2]))
 
@@ -160,8 +144,12 @@ class ApiClient(object):
             query_params = self.sanitize_for_serialization(query_params)
             query_params = self.parameters_to_tuples(query_params,
                                                      collection_formats)
-        # print(query_params)
-        # post parameters
+
+        if method == 'POST' and header_params.get('Content-Type').startswith('application/x-www-form-urlencoded'):
+            post_params = self.__req_to_params(body)
+            body = None
+
+        # post_params
         if post_params or files:
             post_params = self.prepare_post_parameters(post_params, files)
             post_params = self.sanitize_for_serialization(post_params)
@@ -175,7 +163,7 @@ class ApiClient(object):
         # notice: change query_params from tuple to dict
         self.update_params_for_auth(host=self.configuration.host, path=true_path, method=method,
                                     headers=header_params, querys=query_params,
-                                    auth_settings=auth_settings, body=body, service=service)
+                                    auth_settings=auth_settings, body=body, post_params=post_params, service=service)
 
         # request url
         url = self.configuration.schema + "://" + self.configuration.host + true_path
@@ -203,6 +191,26 @@ class ApiClient(object):
         else:
             return (return_data, response_data.status,
                     response_data.getheaders())
+
+    def __req_to_params(self, req, prefix="", params=None):
+        if params is None:
+            params = []
+
+        for key, value in req.items():
+            if value is None:
+                continue
+            if isinstance(value, list):
+                for index in range(len(value)):
+                    if isinstance(value[index], dict):
+                        self.__req_to_params(value[index], prefix + key + "." + str((index + 1)) + ".", params)
+                    else:
+                        params.append((prefix + key + "." + str((index + 1)), value[index]))
+            elif isinstance(value, dict):
+                self.__req_to_params(value, prefix + key + ".", params)
+            else:
+                params.append((prefix + key, value))
+
+        return params
 
     def sanitize_for_serialization(self, obj):
         """Builds a JSON POST object.
@@ -546,7 +554,7 @@ class ApiClient(object):
         else:
             return content_types[0]
 
-    def update_params_for_auth(self, host, path, method, headers, querys, auth_settings, body, service):
+    def update_params_for_auth(self, host, path, method, headers, querys, auth_settings, body, post_params, service):
         """Updates header and query params based on authentication setting.
 
         :param headers: Header parameters dict to be updated.
@@ -562,7 +570,7 @@ class ApiClient(object):
                 body = json.dumps(body)
             else:
                 body = ""
-            SignerV4.sign(path, method, headers, body, querys,
+            SignerV4.sign(path, method, headers, body, post_params, querys,
                           self.configuration.ak, self.configuration.sk, self.configuration.region, service)
 
     def __deserialize_file(self, response):
@@ -646,7 +654,7 @@ class ApiClient(object):
                 status=0,
                 reason=(
                     "Failed to parse `{0}` as datetime object"
-                        .format(string)
+                    .format(string)
                 )
             )
 

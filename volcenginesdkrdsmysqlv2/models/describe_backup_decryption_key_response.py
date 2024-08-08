@@ -33,17 +33,71 @@ class DescribeBackupDecryptionKeyResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'decryption_key': 'str',
+        'iv': 'str'
     }
 
     attribute_map = {
+        'decryption_key': 'DecryptionKey',
+        'iv': 'Iv'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, decryption_key=None, iv=None, _configuration=None):  # noqa: E501
         """DescribeBackupDecryptionKeyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._decryption_key = None
+        self._iv = None
         self.discriminator = None
+
+        if decryption_key is not None:
+            self.decryption_key = decryption_key
+        if iv is not None:
+            self.iv = iv
+
+    @property
+    def decryption_key(self):
+        """Gets the decryption_key of this DescribeBackupDecryptionKeyResponse.  # noqa: E501
+
+
+        :return: The decryption_key of this DescribeBackupDecryptionKeyResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._decryption_key
+
+    @decryption_key.setter
+    def decryption_key(self, decryption_key):
+        """Sets the decryption_key of this DescribeBackupDecryptionKeyResponse.
+
+
+        :param decryption_key: The decryption_key of this DescribeBackupDecryptionKeyResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._decryption_key = decryption_key
+
+    @property
+    def iv(self):
+        """Gets the iv of this DescribeBackupDecryptionKeyResponse.  # noqa: E501
+
+
+        :return: The iv of this DescribeBackupDecryptionKeyResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._iv
+
+    @iv.setter
+    def iv(self, iv):
+        """Sets the iv of this DescribeBackupDecryptionKeyResponse.
+
+
+        :param iv: The iv of this DescribeBackupDecryptionKeyResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._iv = iv
 
     def to_dict(self):
         """Returns the model properties as a dict"""
