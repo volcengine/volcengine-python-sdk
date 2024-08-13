@@ -37,12 +37,14 @@ class DescribeDBInstancesRequest(object):
         'create_time_end': 'str',
         'create_time_start': 'str',
         'db_engine_version': 'str',
+        'instance_category': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_type': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'primary_instance_id': 'str',
         'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
         'zone_id': 'str'
     }
@@ -52,17 +54,19 @@ class DescribeDBInstancesRequest(object):
         'create_time_end': 'CreateTimeEnd',
         'create_time_start': 'CreateTimeStart',
         'db_engine_version': 'DBEngineVersion',
+        'instance_category': 'InstanceCategory',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'primary_instance_id': 'PrimaryInstanceId',
         'tag_filters': 'TagFilters',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_category=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, primary_instance_id=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,12 +76,14 @@ class DescribeDBInstancesRequest(object):
         self._create_time_end = None
         self._create_time_start = None
         self._db_engine_version = None
+        self._instance_category = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
         self._instance_type = None
         self._page_number = None
         self._page_size = None
+        self._primary_instance_id = None
         self._tag_filters = None
         self._zone_id = None
         self.discriminator = None
@@ -90,6 +96,8 @@ class DescribeDBInstancesRequest(object):
             self.create_time_start = create_time_start
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if instance_category is not None:
+            self.instance_category = instance_category
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -102,6 +110,8 @@ class DescribeDBInstancesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if primary_instance_id is not None:
+            self.primary_instance_id = primary_instance_id
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if zone_id is not None:
@@ -190,6 +200,27 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._db_engine_version = db_engine_version
+
+    @property
+    def instance_category(self):
+        """Gets the instance_category of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The instance_category of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_category
+
+    @instance_category.setter
+    def instance_category(self, instance_category):
+        """Sets the instance_category of this DescribeDBInstancesRequest.
+
+
+        :param instance_category: The instance_category of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_category = instance_category
 
     @property
     def instance_id(self):
@@ -316,6 +347,27 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def primary_instance_id(self):
+        """Gets the primary_instance_id of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The primary_instance_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._primary_instance_id
+
+    @primary_instance_id.setter
+    def primary_instance_id(self, primary_instance_id):
+        """Sets the primary_instance_id of this DescribeDBInstancesRequest.
+
+
+        :param primary_instance_id: The primary_instance_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._primary_instance_id = primary_instance_id
 
     @property
     def tag_filters(self):
