@@ -5,6 +5,7 @@ import json
 import logging
 import time
 from random import random
+from types import TracebackType
 from typing import Type, Dict, TypeVar, Any, Optional, cast, TYPE_CHECKING, Union, Generic
 
 import anyio
@@ -38,6 +39,7 @@ from ._types import ResponseT, NotGiven, NOT_GIVEN
 from ._request_options import RequestOptions, ExtraRequestOptions
 from ._utils._utils import _gen_request_id
 
+_T = TypeVar("_T")
 _StreamT = TypeVar("_StreamT", bound=Stream[Any])
 _AsyncStreamT = TypeVar("_AsyncStreamT", bound=AsyncStream[Any])
 
@@ -813,3 +815,24 @@ class AsyncAPIClient(BaseClient):
             return cast(ResponseT, api_response)
 
         return await api_response.parse()
+
+    def is_closed(self) -> bool:
+        return self._client.is_closed
+
+    async def close(self) -> None:
+        """Close the underlying HTTPX client.
+
+        The client will *not* be usable after this.
+        """
+        await self._client.aclose()
+
+    async def __aenter__(self: _T) -> _T:
+        return self
+
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> None:
+        await self.close()
