@@ -54,6 +54,7 @@ class BaseModel(pydantic.BaseModel):
         model_config: ClassVar[ConfigDict] = ConfigDict(
             extra="allow",
             defer_build=coerce_boolean(os.environ.get("DEFER_PYDANTIC_BUILD", "true")),
+            protected_namespaces=(),
         )
     else:
 
