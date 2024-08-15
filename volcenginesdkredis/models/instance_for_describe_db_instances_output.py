@@ -36,6 +36,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'capacity': 'CapacityForDescribeDBInstancesOutput',
         'charge_type': 'str',
         'create_time': 'str',
+        'data_layout': 'str',
         'deletion_protection': 'str',
         'engine_version': 'str',
         'expired_time': 'str',
@@ -60,6 +61,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'capacity': 'Capacity',
         'charge_type': 'ChargeType',
         'create_time': 'CreateTime',
+        'data_layout': 'DataLayout',
         'deletion_protection': 'DeletionProtection',
         'engine_version': 'EngineVersion',
         'expired_time': 'ExpiredTime',
@@ -80,7 +82,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, capacity=None, charge_type=None, create_time=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, multi_az=None, node_number=None, project_name=None, region_id=None, service_type=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacity=None, charge_type=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, multi_az=None, node_number=None, project_name=None, region_id=None, service_type=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._capacity = None
         self._charge_type = None
         self._create_time = None
+        self._data_layout = None
         self._deletion_protection = None
         self._engine_version = None
         self._expired_time = None
@@ -115,6 +118,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.charge_type = charge_type
         if create_time is not None:
             self.create_time = create_time
+        if data_layout is not None:
+            self.data_layout = data_layout
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
         if engine_version is not None:
@@ -214,6 +219,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def data_layout(self):
+        """Gets the data_layout of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The data_layout of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_layout
+
+    @data_layout.setter
+    def data_layout(self, data_layout):
+        """Sets the data_layout of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param data_layout: The data_layout of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._data_layout = data_layout
 
     @property
     def deletion_protection(self):

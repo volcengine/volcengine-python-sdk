@@ -34,6 +34,7 @@ class DescribeDBInstancesRequest(object):
     """
     swagger_types = {
         'charge_type': 'str',
+        'data_layout': 'str',
         'engine_version': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
@@ -51,6 +52,7 @@ class DescribeDBInstancesRequest(object):
 
     attribute_map = {
         'charge_type': 'ChargeType',
+        'data_layout': 'DataLayout',
         'engine_version': 'EngineVersion',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
@@ -66,13 +68,14 @@ class DescribeDBInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, engine_version=None, instance_id=None, instance_name=None, page_number=None, page_size=None, project_name=None, region_id=None, service_type=None, sharded_cluster=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, data_layout=None, engine_version=None, instance_id=None, instance_name=None, page_number=None, page_size=None, project_name=None, region_id=None, service_type=None, sharded_cluster=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._charge_type = None
+        self._data_layout = None
         self._engine_version = None
         self._instance_id = None
         self._instance_name = None
@@ -90,6 +93,8 @@ class DescribeDBInstancesRequest(object):
 
         if charge_type is not None:
             self.charge_type = charge_type
+        if data_layout is not None:
+            self.data_layout = data_layout
         if engine_version is not None:
             self.engine_version = engine_version
         if instance_id is not None:
@@ -134,6 +139,27 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._charge_type = charge_type
+
+    @property
+    def data_layout(self):
+        """Gets the data_layout of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The data_layout of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_layout
+
+    @data_layout.setter
+    def data_layout(self, data_layout):
+        """Sets the data_layout of this DescribeDBInstancesRequest.
+
+
+        :param data_layout: The data_layout of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._data_layout = data_layout
 
     @property
     def engine_version(self):
