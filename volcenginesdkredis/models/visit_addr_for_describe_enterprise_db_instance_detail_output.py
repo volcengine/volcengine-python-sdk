@@ -34,6 +34,7 @@ class VisitAddrForDescribeEnterpriseDBInstanceDetailOutput(object):
     """
     swagger_types = {
         'addr_type': 'str',
+        'eip_id': 'str',
         'ip_address': 'str',
         'port': 'str',
         'vip': 'str'
@@ -41,18 +42,20 @@ class VisitAddrForDescribeEnterpriseDBInstanceDetailOutput(object):
 
     attribute_map = {
         'addr_type': 'AddrType',
+        'eip_id': 'EipId',
         'ip_address': 'IPAddress',
         'port': 'Port',
         'vip': 'VIP'
     }
 
-    def __init__(self, addr_type=None, ip_address=None, port=None, vip=None, _configuration=None):  # noqa: E501
+    def __init__(self, addr_type=None, eip_id=None, ip_address=None, port=None, vip=None, _configuration=None):  # noqa: E501
         """VisitAddrForDescribeEnterpriseDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._addr_type = None
+        self._eip_id = None
         self._ip_address = None
         self._port = None
         self._vip = None
@@ -60,6 +63,8 @@ class VisitAddrForDescribeEnterpriseDBInstanceDetailOutput(object):
 
         if addr_type is not None:
             self.addr_type = addr_type
+        if eip_id is not None:
+            self.eip_id = eip_id
         if ip_address is not None:
             self.ip_address = ip_address
         if port is not None:
@@ -87,6 +92,27 @@ class VisitAddrForDescribeEnterpriseDBInstanceDetailOutput(object):
         """
 
         self._addr_type = addr_type
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this VisitAddrForDescribeEnterpriseDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The eip_id of this VisitAddrForDescribeEnterpriseDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this VisitAddrForDescribeEnterpriseDBInstanceDetailOutput.
+
+
+        :param eip_id: The eip_id of this VisitAddrForDescribeEnterpriseDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
 
     @property
     def ip_address(self):

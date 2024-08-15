@@ -5,6 +5,7 @@ import json
 import logging
 import time
 from random import random
+from types import TracebackType
 from typing import Type, Dict, TypeVar, Any, Optional, cast, TYPE_CHECKING, Union, Generic
 
 import anyio
@@ -38,6 +39,7 @@ from ._types import ResponseT, NotGiven, NOT_GIVEN
 from ._request_options import RequestOptions, ExtraRequestOptions
 from ._utils._utils import _gen_request_id
 
+_T = TypeVar("_T")
 _StreamT = TypeVar("_StreamT", bound=Stream[Any])
 _AsyncStreamT = TypeVar("_AsyncStreamT", bound=AsyncStream[Any])
 
@@ -572,6 +574,30 @@ class SyncAPIClient(BaseClient):
             remaining_retries=remaining_retries,
         )
 
+    def is_closed(self) -> bool:
+        return self._client.is_closed
+
+    def close(self) -> None:
+        """Close the underlying HTTPX client.
+
+        The client will *not* be usable after this.
+        """
+        # If an error is thrown while constructing a client, self._client
+        # may not be present
+        if hasattr(self, "_client"):
+            self._client.close()
+
+    def __enter__(self: _T) -> _T:
+        return self
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> None:
+        self.close()
+
 
 class _DefaultAsyncHttpxClient(httpx.AsyncClient):
     def __init__(self, **kwargs: Any) -> None:
@@ -813,3 +839,24 @@ class AsyncAPIClient(BaseClient):
             return cast(ResponseT, api_response)
 
         return await api_response.parse()
+
+    def is_closed(self) -> bool:
+        return self._client.is_closed
+
+    async def close(self) -> None:
+        """Close the underlying HTTPX client.
+
+        The client will *not* be usable after this.
+        """
+        await self._client.aclose()
+
+    async def __aenter__(self: _T) -> _T:
+        return self
+
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> None:
+        await self.close()

@@ -37,6 +37,7 @@ class DescribeDBInstanceDetailResponse(object):
         'capacity': 'CapacityForDescribeDBInstanceDetailOutput',
         'charge_type': 'str',
         'create_time': 'str',
+        'data_layout': 'str',
         'deletion_protection': 'str',
         'engine_version': 'str',
         'expired_time': 'str',
@@ -44,6 +45,7 @@ class DescribeDBInstanceDetailResponse(object):
         'instance_id': 'str',
         'instance_name': 'str',
         'maintenance_time': 'str',
+        'max_connections': 'int',
         'multi_az': 'str',
         'node_number': 'int',
         'project_name': 'str',
@@ -66,6 +68,7 @@ class DescribeDBInstanceDetailResponse(object):
         'capacity': 'Capacity',
         'charge_type': 'ChargeType',
         'create_time': 'CreateTime',
+        'data_layout': 'DataLayout',
         'deletion_protection': 'DeletionProtection',
         'engine_version': 'EngineVersion',
         'expired_time': 'ExpiredTime',
@@ -73,6 +76,7 @@ class DescribeDBInstanceDetailResponse(object):
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'maintenance_time': 'MaintenanceTime',
+        'max_connections': 'MaxConnections',
         'multi_az': 'MultiAZ',
         'node_number': 'NodeNumber',
         'project_name': 'ProjectName',
@@ -90,7 +94,7 @@ class DescribeDBInstanceDetailResponse(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, capacity=None, charge_type=None, create_time=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, capacity=None, charge_type=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, max_connections=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +104,7 @@ class DescribeDBInstanceDetailResponse(object):
         self._capacity = None
         self._charge_type = None
         self._create_time = None
+        self._data_layout = None
         self._deletion_protection = None
         self._engine_version = None
         self._expired_time = None
@@ -107,6 +112,7 @@ class DescribeDBInstanceDetailResponse(object):
         self._instance_id = None
         self._instance_name = None
         self._maintenance_time = None
+        self._max_connections = None
         self._multi_az = None
         self._node_number = None
         self._project_name = None
@@ -132,6 +138,8 @@ class DescribeDBInstanceDetailResponse(object):
             self.charge_type = charge_type
         if create_time is not None:
             self.create_time = create_time
+        if data_layout is not None:
+            self.data_layout = data_layout
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
         if engine_version is not None:
@@ -146,6 +154,8 @@ class DescribeDBInstanceDetailResponse(object):
             self.instance_name = instance_name
         if maintenance_time is not None:
             self.maintenance_time = maintenance_time
+        if max_connections is not None:
+            self.max_connections = max_connections
         if multi_az is not None:
             self.multi_az = multi_az
         if node_number is not None:
@@ -260,6 +270,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def data_layout(self):
+        """Gets the data_layout of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The data_layout of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_layout
+
+    @data_layout.setter
+    def data_layout(self, data_layout):
+        """Sets the data_layout of this DescribeDBInstanceDetailResponse.
+
+
+        :param data_layout: The data_layout of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._data_layout = data_layout
 
     @property
     def deletion_protection(self):
@@ -407,6 +438,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._maintenance_time = maintenance_time
+
+    @property
+    def max_connections(self):
+        """Gets the max_connections of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The max_connections of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_connections
+
+    @max_connections.setter
+    def max_connections(self, max_connections):
+        """Sets the max_connections of this DescribeDBInstanceDetailResponse.
+
+
+        :param max_connections: The max_connections of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._max_connections = max_connections
 
     @property
     def multi_az(self):
