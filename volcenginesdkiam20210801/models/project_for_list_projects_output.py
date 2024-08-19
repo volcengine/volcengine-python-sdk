@@ -33,7 +33,7 @@ class ProjectForListProjectsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'account_id': 'str',
+        'account_id': 'int',
         'create_date': 'str',
         'description': 'str',
         'display_name': 'str',
@@ -103,7 +103,7 @@ class ProjectForListProjectsOutput(object):
 
 
         :return: The account_id of this ProjectForListProjectsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._account_id
 
@@ -113,7 +113,7 @@ class ProjectForListProjectsOutput(object):
 
 
         :param account_id: The account_id of this ProjectForListProjectsOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._account_id = account_id

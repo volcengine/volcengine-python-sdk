@@ -90,6 +90,13 @@ class ListProjectIdentitiesRequest(object):
         """
         if self._configuration.client_side_validation and identity_type is None:
             raise ValueError("Invalid value for `identity_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["User", "Role", "UserGroup"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                identity_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `identity_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(identity_type, allowed_values)
+            )
 
         self._identity_type = identity_type
 
