@@ -33,9 +33,9 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'day_kind': 'str',
+        'day_kind': 'int',
         'day_of_month': 'list[int]',
-        'day_of_week': 'list[str]',
+        'day_of_week': 'list[int]',
         'maintenance_time': 'str'
     }
 
@@ -73,7 +73,7 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput(object):
 
 
         :return: The day_kind of this MaintenanceWindowForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._day_kind
 
@@ -83,7 +83,7 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput(object):
 
 
         :param day_kind: The day_kind of this MaintenanceWindowForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._day_kind = day_kind
@@ -115,7 +115,7 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput(object):
 
 
         :return: The day_of_week of this MaintenanceWindowForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[int]
         """
         return self._day_of_week
 
@@ -125,7 +125,7 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput(object):
 
 
         :param day_of_week: The day_of_week of this MaintenanceWindowForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: list[str]
+        :type: list[int]
         """
 
         self._day_of_week = day_of_week
