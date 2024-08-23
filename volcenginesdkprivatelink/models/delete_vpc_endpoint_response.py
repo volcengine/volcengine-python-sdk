@@ -33,24 +33,50 @@ class DeleteVpcEndpointResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'pre_order_numbers': 'list[str]',
         'request_id': 'str'
     }
 
     attribute_map = {
+        'pre_order_numbers': 'PreOrderNumbers',
         'request_id': 'RequestId'
     }
 
-    def __init__(self, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, pre_order_numbers=None, request_id=None, _configuration=None):  # noqa: E501
         """DeleteVpcEndpointResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._pre_order_numbers = None
         self._request_id = None
         self.discriminator = None
 
+        if pre_order_numbers is not None:
+            self.pre_order_numbers = pre_order_numbers
         if request_id is not None:
             self.request_id = request_id
+
+    @property
+    def pre_order_numbers(self):
+        """Gets the pre_order_numbers of this DeleteVpcEndpointResponse.  # noqa: E501
+
+
+        :return: The pre_order_numbers of this DeleteVpcEndpointResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._pre_order_numbers
+
+    @pre_order_numbers.setter
+    def pre_order_numbers(self, pre_order_numbers):
+        """Sets the pre_order_numbers of this DeleteVpcEndpointResponse.
+
+
+        :param pre_order_numbers: The pre_order_numbers of this DeleteVpcEndpointResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._pre_order_numbers = pre_order_numbers
 
     @property
     def request_id(self):

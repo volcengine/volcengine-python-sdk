@@ -40,8 +40,11 @@ class EndpointForDescribeVpcEndpointsOutput(object):
         'description': 'str',
         'endpoint_domain': 'str',
         'endpoint_id': 'str',
+        'endpoint_index': 'int',
         'endpoint_name': 'str',
         'endpoint_type': 'str',
+        'ip_address_versions': 'list[str]',
+        'payer': 'str',
         'private_dns_enabled': 'bool',
         'private_dns_name': 'str',
         'project_name': 'str',
@@ -61,8 +64,11 @@ class EndpointForDescribeVpcEndpointsOutput(object):
         'description': 'Description',
         'endpoint_domain': 'EndpointDomain',
         'endpoint_id': 'EndpointId',
+        'endpoint_index': 'EndpointIndex',
         'endpoint_name': 'EndpointName',
         'endpoint_type': 'EndpointType',
+        'ip_address_versions': 'IpAddressVersions',
+        'payer': 'Payer',
         'private_dns_enabled': 'PrivateDNSEnabled',
         'private_dns_name': 'PrivateDNSName',
         'project_name': 'ProjectName',
@@ -74,7 +80,7 @@ class EndpointForDescribeVpcEndpointsOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, business_status=None, connection_status=None, creation_time=None, deleted_time=None, description=None, endpoint_domain=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, private_dns_enabled=None, private_dns_name=None, project_name=None, service_id=None, service_name=None, status=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, business_status=None, connection_status=None, creation_time=None, deleted_time=None, description=None, endpoint_domain=None, endpoint_id=None, endpoint_index=None, endpoint_name=None, endpoint_type=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, project_name=None, service_id=None, service_name=None, status=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """EndpointForDescribeVpcEndpointsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,8 +93,11 @@ class EndpointForDescribeVpcEndpointsOutput(object):
         self._description = None
         self._endpoint_domain = None
         self._endpoint_id = None
+        self._endpoint_index = None
         self._endpoint_name = None
         self._endpoint_type = None
+        self._ip_address_versions = None
+        self._payer = None
         self._private_dns_enabled = None
         self._private_dns_name = None
         self._project_name = None
@@ -114,10 +123,16 @@ class EndpointForDescribeVpcEndpointsOutput(object):
             self.endpoint_domain = endpoint_domain
         if endpoint_id is not None:
             self.endpoint_id = endpoint_id
+        if endpoint_index is not None:
+            self.endpoint_index = endpoint_index
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
         if endpoint_type is not None:
             self.endpoint_type = endpoint_type
+        if ip_address_versions is not None:
+            self.ip_address_versions = ip_address_versions
+        if payer is not None:
+            self.payer = payer
         if private_dns_enabled is not None:
             self.private_dns_enabled = private_dns_enabled
         if private_dns_name is not None:
@@ -285,6 +300,27 @@ class EndpointForDescribeVpcEndpointsOutput(object):
         self._endpoint_id = endpoint_id
 
     @property
+    def endpoint_index(self):
+        """Gets the endpoint_index of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+
+
+        :return: The endpoint_index of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._endpoint_index
+
+    @endpoint_index.setter
+    def endpoint_index(self, endpoint_index):
+        """Sets the endpoint_index of this EndpointForDescribeVpcEndpointsOutput.
+
+
+        :param endpoint_index: The endpoint_index of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._endpoint_index = endpoint_index
+
+    @property
     def endpoint_name(self):
         """Gets the endpoint_name of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
 
@@ -325,6 +361,48 @@ class EndpointForDescribeVpcEndpointsOutput(object):
         """
 
         self._endpoint_type = endpoint_type
+
+    @property
+    def ip_address_versions(self):
+        """Gets the ip_address_versions of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+
+
+        :return: The ip_address_versions of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_address_versions
+
+    @ip_address_versions.setter
+    def ip_address_versions(self, ip_address_versions):
+        """Sets the ip_address_versions of this EndpointForDescribeVpcEndpointsOutput.
+
+
+        :param ip_address_versions: The ip_address_versions of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_address_versions = ip_address_versions
+
+    @property
+    def payer(self):
+        """Gets the payer of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+
+
+        :return: The payer of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._payer
+
+    @payer.setter
+    def payer(self, payer):
+        """Sets the payer of this EndpointForDescribeVpcEndpointsOutput.
+
+
+        :param payer: The payer of this EndpointForDescribeVpcEndpointsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._payer = payer
 
     @property
     def private_dns_enabled(self):

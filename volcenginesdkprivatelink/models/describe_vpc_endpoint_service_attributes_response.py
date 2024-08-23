@@ -34,63 +34,83 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
     """
     swagger_types = {
         'auto_accept_enabled': 'bool',
+        'billing_type': 'int',
+        'business_status': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'ip_address_versions': 'list[str]',
+        'payer': 'str',
         'private_dns_enabled': 'bool',
         'private_dns_name': 'str',
         'private_dns_name_configuration': 'PrivateDNSNameConfigurationForDescribeVpcEndpointServiceAttributesOutput',
+        'private_dns_type': 'str',
         'project_name': 'str',
         'request_id': 'str',
         'service_domain': 'str',
         'service_id': 'str',
         'service_name': 'str',
+        'service_owner': 'str',
         'service_resource_type': 'str',
         'service_type': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeVpcEndpointServiceAttributesOutput]',
         'update_time': 'str',
         'wildcard_domain_enabled': 'bool',
-        'zone_ids': 'list[str]'
+        'zone_ids': 'list[str]',
+        'zone_ids_n': 'list[str]'
     }
 
     attribute_map = {
         'auto_accept_enabled': 'AutoAcceptEnabled',
+        'billing_type': 'BillingType',
+        'business_status': 'BusinessStatus',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'ip_address_versions': 'IpAddressVersions',
+        'payer': 'Payer',
         'private_dns_enabled': 'PrivateDNSEnabled',
         'private_dns_name': 'PrivateDNSName',
         'private_dns_name_configuration': 'PrivateDNSNameConfiguration',
+        'private_dns_type': 'PrivateDNSType',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'service_domain': 'ServiceDomain',
         'service_id': 'ServiceId',
         'service_name': 'ServiceName',
+        'service_owner': 'ServiceOwner',
         'service_resource_type': 'ServiceResourceType',
         'service_type': 'ServiceType',
         'status': 'Status',
         'tags': 'Tags',
         'update_time': 'UpdateTime',
         'wildcard_domain_enabled': 'WildcardDomainEnabled',
-        'zone_ids': 'ZoneIds'
+        'zone_ids': 'ZoneIds',
+        'zone_ids_n': 'ZoneIds.N'
     }
 
-    def __init__(self, auto_accept_enabled=None, creation_time=None, description=None, private_dns_enabled=None, private_dns_name=None, private_dns_name_configuration=None, project_name=None, request_id=None, service_domain=None, service_id=None, service_name=None, service_resource_type=None, service_type=None, status=None, tags=None, update_time=None, wildcard_domain_enabled=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_accept_enabled=None, billing_type=None, business_status=None, creation_time=None, description=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, private_dns_name_configuration=None, private_dns_type=None, project_name=None, request_id=None, service_domain=None, service_id=None, service_name=None, service_owner=None, service_resource_type=None, service_type=None, status=None, tags=None, update_time=None, wildcard_domain_enabled=None, zone_ids=None, zone_ids_n=None, _configuration=None):  # noqa: E501
         """DescribeVpcEndpointServiceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_accept_enabled = None
+        self._billing_type = None
+        self._business_status = None
         self._creation_time = None
         self._description = None
+        self._ip_address_versions = None
+        self._payer = None
         self._private_dns_enabled = None
         self._private_dns_name = None
         self._private_dns_name_configuration = None
+        self._private_dns_type = None
         self._project_name = None
         self._request_id = None
         self._service_domain = None
         self._service_id = None
         self._service_name = None
+        self._service_owner = None
         self._service_resource_type = None
         self._service_type = None
         self._status = None
@@ -98,20 +118,31 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         self._update_time = None
         self._wildcard_domain_enabled = None
         self._zone_ids = None
+        self._zone_ids_n = None
         self.discriminator = None
 
         if auto_accept_enabled is not None:
             self.auto_accept_enabled = auto_accept_enabled
+        if billing_type is not None:
+            self.billing_type = billing_type
+        if business_status is not None:
+            self.business_status = business_status
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if ip_address_versions is not None:
+            self.ip_address_versions = ip_address_versions
+        if payer is not None:
+            self.payer = payer
         if private_dns_enabled is not None:
             self.private_dns_enabled = private_dns_enabled
         if private_dns_name is not None:
             self.private_dns_name = private_dns_name
         if private_dns_name_configuration is not None:
             self.private_dns_name_configuration = private_dns_name_configuration
+        if private_dns_type is not None:
+            self.private_dns_type = private_dns_type
         if project_name is not None:
             self.project_name = project_name
         if request_id is not None:
@@ -122,6 +153,8 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
             self.service_id = service_id
         if service_name is not None:
             self.service_name = service_name
+        if service_owner is not None:
+            self.service_owner = service_owner
         if service_resource_type is not None:
             self.service_resource_type = service_resource_type
         if service_type is not None:
@@ -136,6 +169,8 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
             self.wildcard_domain_enabled = wildcard_domain_enabled
         if zone_ids is not None:
             self.zone_ids = zone_ids
+        if zone_ids_n is not None:
+            self.zone_ids_n = zone_ids_n
 
     @property
     def auto_accept_enabled(self):
@@ -157,6 +192,48 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         """
 
         self._auto_accept_enabled = auto_accept_enabled
+
+    @property
+    def billing_type(self):
+        """Gets the billing_type of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+
+
+        :return: The billing_type of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._billing_type
+
+    @billing_type.setter
+    def billing_type(self, billing_type):
+        """Sets the billing_type of this DescribeVpcEndpointServiceAttributesResponse.
+
+
+        :param billing_type: The billing_type of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._billing_type = billing_type
+
+    @property
+    def business_status(self):
+        """Gets the business_status of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+
+
+        :return: The business_status of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_status
+
+    @business_status.setter
+    def business_status(self, business_status):
+        """Sets the business_status of this DescribeVpcEndpointServiceAttributesResponse.
+
+
+        :param business_status: The business_status of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._business_status = business_status
 
     @property
     def creation_time(self):
@@ -199,6 +276,48 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         """
 
         self._description = description
+
+    @property
+    def ip_address_versions(self):
+        """Gets the ip_address_versions of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+
+
+        :return: The ip_address_versions of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_address_versions
+
+    @ip_address_versions.setter
+    def ip_address_versions(self, ip_address_versions):
+        """Sets the ip_address_versions of this DescribeVpcEndpointServiceAttributesResponse.
+
+
+        :param ip_address_versions: The ip_address_versions of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_address_versions = ip_address_versions
+
+    @property
+    def payer(self):
+        """Gets the payer of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+
+
+        :return: The payer of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._payer
+
+    @payer.setter
+    def payer(self, payer):
+        """Sets the payer of this DescribeVpcEndpointServiceAttributesResponse.
+
+
+        :param payer: The payer of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._payer = payer
 
     @property
     def private_dns_enabled(self):
@@ -262,6 +381,27 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         """
 
         self._private_dns_name_configuration = private_dns_name_configuration
+
+    @property
+    def private_dns_type(self):
+        """Gets the private_dns_type of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+
+
+        :return: The private_dns_type of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_dns_type
+
+    @private_dns_type.setter
+    def private_dns_type(self, private_dns_type):
+        """Sets the private_dns_type of this DescribeVpcEndpointServiceAttributesResponse.
+
+
+        :param private_dns_type: The private_dns_type of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._private_dns_type = private_dns_type
 
     @property
     def project_name(self):
@@ -367,6 +507,27 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         """
 
         self._service_name = service_name
+
+    @property
+    def service_owner(self):
+        """Gets the service_owner of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+
+
+        :return: The service_owner of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_owner
+
+    @service_owner.setter
+    def service_owner(self, service_owner):
+        """Sets the service_owner of this DescribeVpcEndpointServiceAttributesResponse.
+
+
+        :param service_owner: The service_owner of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._service_owner = service_owner
 
     @property
     def service_resource_type(self):
@@ -514,6 +675,27 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         """
 
         self._zone_ids = zone_ids
+
+    @property
+    def zone_ids_n(self):
+        """Gets the zone_ids_n of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+
+
+        :return: The zone_ids_n of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._zone_ids_n
+
+    @zone_ids_n.setter
+    def zone_ids_n(self, zone_ids_n):
+        """Sets the zone_ids_n of this DescribeVpcEndpointServiceAttributesResponse.
+
+
+        :param zone_ids_n: The zone_ids_n of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._zone_ids_n = zone_ids_n
 
     def to_dict(self):
         """Returns the model properties as a dict"""

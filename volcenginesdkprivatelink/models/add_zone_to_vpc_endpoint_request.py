@@ -35,6 +35,7 @@ class AddZoneToVpcEndpointRequest(object):
     swagger_types = {
         'endpoint_id': 'str',
         'private_ip_address': 'str',
+        'private_ipv6_address': 'str',
         'subnet_id': 'str',
         'zone_id': 'str'
     }
@@ -42,11 +43,12 @@ class AddZoneToVpcEndpointRequest(object):
     attribute_map = {
         'endpoint_id': 'EndpointId',
         'private_ip_address': 'PrivateIpAddress',
+        'private_ipv6_address': 'PrivateIpv6Address',
         'subnet_id': 'SubnetId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, endpoint_id=None, private_ip_address=None, subnet_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint_id=None, private_ip_address=None, private_ipv6_address=None, subnet_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """AddZoneToVpcEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class AddZoneToVpcEndpointRequest(object):
 
         self._endpoint_id = None
         self._private_ip_address = None
+        self._private_ipv6_address = None
         self._subnet_id = None
         self._zone_id = None
         self.discriminator = None
@@ -61,6 +64,8 @@ class AddZoneToVpcEndpointRequest(object):
         self.endpoint_id = endpoint_id
         if private_ip_address is not None:
             self.private_ip_address = private_ip_address
+        if private_ipv6_address is not None:
+            self.private_ipv6_address = private_ipv6_address
         self.subnet_id = subnet_id
         self.zone_id = zone_id
 
@@ -107,6 +112,27 @@ class AddZoneToVpcEndpointRequest(object):
         """
 
         self._private_ip_address = private_ip_address
+
+    @property
+    def private_ipv6_address(self):
+        """Gets the private_ipv6_address of this AddZoneToVpcEndpointRequest.  # noqa: E501
+
+
+        :return: The private_ipv6_address of this AddZoneToVpcEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_ipv6_address
+
+    @private_ipv6_address.setter
+    def private_ipv6_address(self, private_ipv6_address):
+        """Sets the private_ipv6_address of this AddZoneToVpcEndpointRequest.
+
+
+        :param private_ipv6_address: The private_ipv6_address of this AddZoneToVpcEndpointRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_ipv6_address = private_ipv6_address
 
     @property
     def subnet_id(self):
