@@ -34,29 +34,34 @@ class ZoneForCreateVpcEndpointInput(object):
     """
     swagger_types = {
         'private_ip_address': 'str',
+        'private_ipv6_address': 'str',
         'subnet_id': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
         'private_ip_address': 'PrivateIpAddress',
+        'private_ipv6_address': 'PrivateIpv6Address',
         'subnet_id': 'SubnetId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, private_ip_address=None, subnet_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, private_ip_address=None, private_ipv6_address=None, subnet_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """ZoneForCreateVpcEndpointInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._private_ip_address = None
+        self._private_ipv6_address = None
         self._subnet_id = None
         self._zone_id = None
         self.discriminator = None
 
         if private_ip_address is not None:
             self.private_ip_address = private_ip_address
+        if private_ipv6_address is not None:
+            self.private_ipv6_address = private_ipv6_address
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if zone_id is not None:
@@ -82,6 +87,27 @@ class ZoneForCreateVpcEndpointInput(object):
         """
 
         self._private_ip_address = private_ip_address
+
+    @property
+    def private_ipv6_address(self):
+        """Gets the private_ipv6_address of this ZoneForCreateVpcEndpointInput.  # noqa: E501
+
+
+        :return: The private_ipv6_address of this ZoneForCreateVpcEndpointInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_ipv6_address
+
+    @private_ipv6_address.setter
+    def private_ipv6_address(self, private_ipv6_address):
+        """Sets the private_ipv6_address of this ZoneForCreateVpcEndpointInput.
+
+
+        :param private_ipv6_address: The private_ipv6_address of this ZoneForCreateVpcEndpointInput.  # noqa: E501
+        :type: str
+        """
+
+        self._private_ipv6_address = private_ipv6_address
 
     @property
     def subnet_id(self):

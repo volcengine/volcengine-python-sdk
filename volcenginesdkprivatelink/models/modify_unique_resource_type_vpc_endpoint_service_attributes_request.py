@@ -35,6 +35,7 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
     swagger_types = {
         'auto_accept_enabled': 'bool',
         'description': 'str',
+        'ip_address_versions': 'list[str]',
         'resource': 'ResourceForModifyUniqueResourceTypeVpcEndpointServiceAttributesInput',
         'service_id': 'str',
         'zone_i_ds': 'str',
@@ -44,13 +45,14 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
     attribute_map = {
         'auto_accept_enabled': 'AutoAcceptEnabled',
         'description': 'Description',
+        'ip_address_versions': 'IpAddressVersions',
         'resource': 'Resource',
         'service_id': 'ServiceId',
         'zone_i_ds': 'ZoneIDs',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_accept_enabled=None, description=None, resource=None, service_id=None, zone_i_ds=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_accept_enabled=None, description=None, ip_address_versions=None, resource=None, service_id=None, zone_i_ds=None, zone_ids=None, _configuration=None):  # noqa: E501
         """ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
 
         self._auto_accept_enabled = None
         self._description = None
+        self._ip_address_versions = None
         self._resource = None
         self._service_id = None
         self._zone_i_ds = None
@@ -68,6 +71,8 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
             self.auto_accept_enabled = auto_accept_enabled
         if description is not None:
             self.description = description
+        if ip_address_versions is not None:
+            self.ip_address_versions = ip_address_versions
         if resource is not None:
             self.resource = resource
         self.service_id = service_id
@@ -117,6 +122,27 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
         """
 
         self._description = description
+
+    @property
+    def ip_address_versions(self):
+        """Gets the ip_address_versions of this ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.  # noqa: E501
+
+
+        :return: The ip_address_versions of this ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_address_versions
+
+    @ip_address_versions.setter
+    def ip_address_versions(self, ip_address_versions):
+        """Sets the ip_address_versions of this ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.
+
+
+        :param ip_address_versions: The ip_address_versions of this ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_address_versions = ip_address_versions
 
     @property
     def resource(self):

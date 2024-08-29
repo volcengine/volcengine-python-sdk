@@ -33,8 +33,10 @@ class EndpointZoneForDescribeVpcEndpointZonesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ipv6_service_status': 'str',
         'network_interface_ip': 'str',
         'network_interface_id': 'str',
+        'network_interface_ipv6': 'str',
         'service_status': 'str',
         'subnet_id': 'str',
         'zone_domain': 'str',
@@ -43,8 +45,10 @@ class EndpointZoneForDescribeVpcEndpointZonesOutput(object):
     }
 
     attribute_map = {
+        'ipv6_service_status': 'Ipv6ServiceStatus',
         'network_interface_ip': 'NetworkInterfaceIP',
         'network_interface_id': 'NetworkInterfaceId',
+        'network_interface_ipv6': 'NetworkInterfaceIpv6',
         'service_status': 'ServiceStatus',
         'subnet_id': 'SubnetId',
         'zone_domain': 'ZoneDomain',
@@ -52,14 +56,16 @@ class EndpointZoneForDescribeVpcEndpointZonesOutput(object):
         'zone_status': 'ZoneStatus'
     }
 
-    def __init__(self, network_interface_ip=None, network_interface_id=None, service_status=None, subnet_id=None, zone_domain=None, zone_id=None, zone_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_service_status=None, network_interface_ip=None, network_interface_id=None, network_interface_ipv6=None, service_status=None, subnet_id=None, zone_domain=None, zone_id=None, zone_status=None, _configuration=None):  # noqa: E501
         """EndpointZoneForDescribeVpcEndpointZonesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ipv6_service_status = None
         self._network_interface_ip = None
         self._network_interface_id = None
+        self._network_interface_ipv6 = None
         self._service_status = None
         self._subnet_id = None
         self._zone_domain = None
@@ -67,10 +73,14 @@ class EndpointZoneForDescribeVpcEndpointZonesOutput(object):
         self._zone_status = None
         self.discriminator = None
 
+        if ipv6_service_status is not None:
+            self.ipv6_service_status = ipv6_service_status
         if network_interface_ip is not None:
             self.network_interface_ip = network_interface_ip
         if network_interface_id is not None:
             self.network_interface_id = network_interface_id
+        if network_interface_ipv6 is not None:
+            self.network_interface_ipv6 = network_interface_ipv6
         if service_status is not None:
             self.service_status = service_status
         if subnet_id is not None:
@@ -81,6 +91,27 @@ class EndpointZoneForDescribeVpcEndpointZonesOutput(object):
             self.zone_id = zone_id
         if zone_status is not None:
             self.zone_status = zone_status
+
+    @property
+    def ipv6_service_status(self):
+        """Gets the ipv6_service_status of this EndpointZoneForDescribeVpcEndpointZonesOutput.  # noqa: E501
+
+
+        :return: The ipv6_service_status of this EndpointZoneForDescribeVpcEndpointZonesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_service_status
+
+    @ipv6_service_status.setter
+    def ipv6_service_status(self, ipv6_service_status):
+        """Sets the ipv6_service_status of this EndpointZoneForDescribeVpcEndpointZonesOutput.
+
+
+        :param ipv6_service_status: The ipv6_service_status of this EndpointZoneForDescribeVpcEndpointZonesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_service_status = ipv6_service_status
 
     @property
     def network_interface_ip(self):
@@ -123,6 +154,27 @@ class EndpointZoneForDescribeVpcEndpointZonesOutput(object):
         """
 
         self._network_interface_id = network_interface_id
+
+    @property
+    def network_interface_ipv6(self):
+        """Gets the network_interface_ipv6 of this EndpointZoneForDescribeVpcEndpointZonesOutput.  # noqa: E501
+
+
+        :return: The network_interface_ipv6 of this EndpointZoneForDescribeVpcEndpointZonesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_interface_ipv6
+
+    @network_interface_ipv6.setter
+    def network_interface_ipv6(self, network_interface_ipv6):
+        """Sets the network_interface_ipv6 of this EndpointZoneForDescribeVpcEndpointZonesOutput.
+
+
+        :param network_interface_ipv6: The network_interface_ipv6 of this EndpointZoneForDescribeVpcEndpointZonesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._network_interface_ipv6 = network_interface_ipv6
 
     @property
     def service_status(self):

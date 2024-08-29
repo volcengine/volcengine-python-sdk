@@ -34,25 +34,30 @@ class EnableVpcEndpointConnectionRequest(object):
     """
     swagger_types = {
         'endpoint_id': 'str',
+        'resources_allocate': 'list[ResourcesAllocateForEnableVpcEndpointConnectionInput]',
         'service_id': 'str'
     }
 
     attribute_map = {
         'endpoint_id': 'EndpointId',
+        'resources_allocate': 'ResourcesAllocate',
         'service_id': 'ServiceId'
     }
 
-    def __init__(self, endpoint_id=None, service_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint_id=None, resources_allocate=None, service_id=None, _configuration=None):  # noqa: E501
         """EnableVpcEndpointConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._endpoint_id = None
+        self._resources_allocate = None
         self._service_id = None
         self.discriminator = None
 
         self.endpoint_id = endpoint_id
+        if resources_allocate is not None:
+            self.resources_allocate = resources_allocate
         self.service_id = service_id
 
     @property
@@ -77,6 +82,27 @@ class EnableVpcEndpointConnectionRequest(object):
             raise ValueError("Invalid value for `endpoint_id`, must not be `None`")  # noqa: E501
 
         self._endpoint_id = endpoint_id
+
+    @property
+    def resources_allocate(self):
+        """Gets the resources_allocate of this EnableVpcEndpointConnectionRequest.  # noqa: E501
+
+
+        :return: The resources_allocate of this EnableVpcEndpointConnectionRequest.  # noqa: E501
+        :rtype: list[ResourcesAllocateForEnableVpcEndpointConnectionInput]
+        """
+        return self._resources_allocate
+
+    @resources_allocate.setter
+    def resources_allocate(self, resources_allocate):
+        """Sets the resources_allocate of this EnableVpcEndpointConnectionRequest.
+
+
+        :param resources_allocate: The resources_allocate of this EnableVpcEndpointConnectionRequest.  # noqa: E501
+        :type: list[ResourcesAllocateForEnableVpcEndpointConnectionInput]
+        """
+
+        self._resources_allocate = resources_allocate
 
     @property
     def service_id(self):

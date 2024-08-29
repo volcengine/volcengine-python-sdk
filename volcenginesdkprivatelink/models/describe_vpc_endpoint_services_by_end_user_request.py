@@ -33,31 +33,42 @@ class DescribeVpcEndpointServicesByEndUserRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filter_financial_locked': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'service_id': 'str',
-        'service_name': 'str'
+        'service_name': 'str',
+        'service_owner': 'str',
+        'service_type': 'str'
     }
 
     attribute_map = {
+        'filter_financial_locked': 'FilterFinancialLocked',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'service_id': 'ServiceId',
-        'service_name': 'ServiceName'
+        'service_name': 'ServiceName',
+        'service_owner': 'ServiceOwner',
+        'service_type': 'ServiceType'
     }
 
-    def __init__(self, page_number=None, page_size=None, service_id=None, service_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter_financial_locked=None, page_number=None, page_size=None, service_id=None, service_name=None, service_owner=None, service_type=None, _configuration=None):  # noqa: E501
         """DescribeVpcEndpointServicesByEndUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filter_financial_locked = None
         self._page_number = None
         self._page_size = None
         self._service_id = None
         self._service_name = None
+        self._service_owner = None
+        self._service_type = None
         self.discriminator = None
 
+        if filter_financial_locked is not None:
+            self.filter_financial_locked = filter_financial_locked
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -66,6 +77,31 @@ class DescribeVpcEndpointServicesByEndUserRequest(object):
             self.service_id = service_id
         if service_name is not None:
             self.service_name = service_name
+        if service_owner is not None:
+            self.service_owner = service_owner
+        if service_type is not None:
+            self.service_type = service_type
+
+    @property
+    def filter_financial_locked(self):
+        """Gets the filter_financial_locked of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+
+
+        :return: The filter_financial_locked of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._filter_financial_locked
+
+    @filter_financial_locked.setter
+    def filter_financial_locked(self, filter_financial_locked):
+        """Sets the filter_financial_locked of this DescribeVpcEndpointServicesByEndUserRequest.
+
+
+        :param filter_financial_locked: The filter_financial_locked of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._filter_financial_locked = filter_financial_locked
 
     @property
     def page_number(self):
@@ -150,6 +186,48 @@ class DescribeVpcEndpointServicesByEndUserRequest(object):
         """
 
         self._service_name = service_name
+
+    @property
+    def service_owner(self):
+        """Gets the service_owner of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+
+
+        :return: The service_owner of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_owner
+
+    @service_owner.setter
+    def service_owner(self, service_owner):
+        """Sets the service_owner of this DescribeVpcEndpointServicesByEndUserRequest.
+
+
+        :param service_owner: The service_owner of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_owner = service_owner
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+
+
+        :return: The service_type of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this DescribeVpcEndpointServicesByEndUserRequest.
+
+
+        :param service_type: The service_type of this DescribeVpcEndpointServicesByEndUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_type = service_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

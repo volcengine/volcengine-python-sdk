@@ -36,13 +36,17 @@ class CreateVpcEndpointServiceRequest(object):
         'auto_accept_enabled': 'bool',
         'client_token': 'str',
         'description': 'str',
+        'ip_address_versions': 'list[str]',
+        'payer': 'str',
         'private_dns_enabled': 'bool',
         'private_dns_name': 'str',
+        'private_dns_type': 'str',
         'project_name': 'str',
-        'resource_ids': 'list[ResourceIdForCreateVpcEndpointServiceInput]',
         'resources': 'list[ResourceForCreateVpcEndpointServiceInput]',
         'service_name_suffix': 'str',
+        'service_owner': 'str',
         'service_resource_type': 'str',
+        'service_type': 'str',
         'tags': 'list[TagForCreateVpcEndpointServiceInput]',
         'wildcard_domain_enabled': 'bool'
     }
@@ -51,18 +55,22 @@ class CreateVpcEndpointServiceRequest(object):
         'auto_accept_enabled': 'AutoAcceptEnabled',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'ip_address_versions': 'IpAddressVersions',
+        'payer': 'Payer',
         'private_dns_enabled': 'PrivateDNSEnabled',
         'private_dns_name': 'PrivateDNSName',
+        'private_dns_type': 'PrivateDNSType',
         'project_name': 'ProjectName',
-        'resource_ids': 'ResourceIds',
         'resources': 'Resources',
         'service_name_suffix': 'ServiceNameSuffix',
+        'service_owner': 'ServiceOwner',
         'service_resource_type': 'ServiceResourceType',
+        'service_type': 'ServiceType',
         'tags': 'Tags',
         'wildcard_domain_enabled': 'WildcardDomainEnabled'
     }
 
-    def __init__(self, auto_accept_enabled=None, client_token=None, description=None, private_dns_enabled=None, private_dns_name=None, project_name=None, resource_ids=None, resources=None, service_name_suffix=None, service_resource_type=None, tags=None, wildcard_domain_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_accept_enabled=None, client_token=None, description=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, private_dns_type=None, project_name=None, resources=None, service_name_suffix=None, service_owner=None, service_resource_type=None, service_type=None, tags=None, wildcard_domain_enabled=None, _configuration=None):  # noqa: E501
         """CreateVpcEndpointServiceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,13 +79,17 @@ class CreateVpcEndpointServiceRequest(object):
         self._auto_accept_enabled = None
         self._client_token = None
         self._description = None
+        self._ip_address_versions = None
+        self._payer = None
         self._private_dns_enabled = None
         self._private_dns_name = None
+        self._private_dns_type = None
         self._project_name = None
-        self._resource_ids = None
         self._resources = None
         self._service_name_suffix = None
+        self._service_owner = None
         self._service_resource_type = None
+        self._service_type = None
         self._tags = None
         self._wildcard_domain_enabled = None
         self.discriminator = None
@@ -88,20 +100,28 @@ class CreateVpcEndpointServiceRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if ip_address_versions is not None:
+            self.ip_address_versions = ip_address_versions
+        if payer is not None:
+            self.payer = payer
         if private_dns_enabled is not None:
             self.private_dns_enabled = private_dns_enabled
         if private_dns_name is not None:
             self.private_dns_name = private_dns_name
+        if private_dns_type is not None:
+            self.private_dns_type = private_dns_type
         if project_name is not None:
             self.project_name = project_name
-        if resource_ids is not None:
-            self.resource_ids = resource_ids
         if resources is not None:
             self.resources = resources
         if service_name_suffix is not None:
             self.service_name_suffix = service_name_suffix
+        if service_owner is not None:
+            self.service_owner = service_owner
         if service_resource_type is not None:
             self.service_resource_type = service_resource_type
+        if service_type is not None:
+            self.service_type = service_type
         if tags is not None:
             self.tags = tags
         if wildcard_domain_enabled is not None:
@@ -171,6 +191,48 @@ class CreateVpcEndpointServiceRequest(object):
         self._description = description
 
     @property
+    def ip_address_versions(self):
+        """Gets the ip_address_versions of this CreateVpcEndpointServiceRequest.  # noqa: E501
+
+
+        :return: The ip_address_versions of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_address_versions
+
+    @ip_address_versions.setter
+    def ip_address_versions(self, ip_address_versions):
+        """Sets the ip_address_versions of this CreateVpcEndpointServiceRequest.
+
+
+        :param ip_address_versions: The ip_address_versions of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_address_versions = ip_address_versions
+
+    @property
+    def payer(self):
+        """Gets the payer of this CreateVpcEndpointServiceRequest.  # noqa: E501
+
+
+        :return: The payer of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._payer
+
+    @payer.setter
+    def payer(self, payer):
+        """Sets the payer of this CreateVpcEndpointServiceRequest.
+
+
+        :param payer: The payer of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._payer = payer
+
+    @property
     def private_dns_enabled(self):
         """Gets the private_dns_enabled of this CreateVpcEndpointServiceRequest.  # noqa: E501
 
@@ -213,6 +275,27 @@ class CreateVpcEndpointServiceRequest(object):
         self._private_dns_name = private_dns_name
 
     @property
+    def private_dns_type(self):
+        """Gets the private_dns_type of this CreateVpcEndpointServiceRequest.  # noqa: E501
+
+
+        :return: The private_dns_type of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_dns_type
+
+    @private_dns_type.setter
+    def private_dns_type(self, private_dns_type):
+        """Sets the private_dns_type of this CreateVpcEndpointServiceRequest.
+
+
+        :param private_dns_type: The private_dns_type of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_dns_type = private_dns_type
+
+    @property
     def project_name(self):
         """Gets the project_name of this CreateVpcEndpointServiceRequest.  # noqa: E501
 
@@ -232,27 +315,6 @@ class CreateVpcEndpointServiceRequest(object):
         """
 
         self._project_name = project_name
-
-    @property
-    def resource_ids(self):
-        """Gets the resource_ids of this CreateVpcEndpointServiceRequest.  # noqa: E501
-
-
-        :return: The resource_ids of this CreateVpcEndpointServiceRequest.  # noqa: E501
-        :rtype: list[ResourceIdForCreateVpcEndpointServiceInput]
-        """
-        return self._resource_ids
-
-    @resource_ids.setter
-    def resource_ids(self, resource_ids):
-        """Sets the resource_ids of this CreateVpcEndpointServiceRequest.
-
-
-        :param resource_ids: The resource_ids of this CreateVpcEndpointServiceRequest.  # noqa: E501
-        :type: list[ResourceIdForCreateVpcEndpointServiceInput]
-        """
-
-        self._resource_ids = resource_ids
 
     @property
     def resources(self):
@@ -297,6 +359,27 @@ class CreateVpcEndpointServiceRequest(object):
         self._service_name_suffix = service_name_suffix
 
     @property
+    def service_owner(self):
+        """Gets the service_owner of this CreateVpcEndpointServiceRequest.  # noqa: E501
+
+
+        :return: The service_owner of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_owner
+
+    @service_owner.setter
+    def service_owner(self, service_owner):
+        """Sets the service_owner of this CreateVpcEndpointServiceRequest.
+
+
+        :param service_owner: The service_owner of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_owner = service_owner
+
+    @property
     def service_resource_type(self):
         """Gets the service_resource_type of this CreateVpcEndpointServiceRequest.  # noqa: E501
 
@@ -316,6 +399,27 @@ class CreateVpcEndpointServiceRequest(object):
         """
 
         self._service_resource_type = service_resource_type
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this CreateVpcEndpointServiceRequest.  # noqa: E501
+
+
+        :return: The service_type of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this CreateVpcEndpointServiceRequest.
+
+
+        :param service_type: The service_type of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_type = service_type
 
     @property
     def tags(self):

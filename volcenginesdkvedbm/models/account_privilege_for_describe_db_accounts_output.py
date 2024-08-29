@@ -34,26 +34,31 @@ class AccountPrivilegeForDescribeDBAccountsOutput(object):
     """
     swagger_types = {
         'account_privilege': 'str',
+        'account_privilege_detail': 'str',
         'db_name': 'str'
     }
 
     attribute_map = {
         'account_privilege': 'AccountPrivilege',
+        'account_privilege_detail': 'AccountPrivilegeDetail',
         'db_name': 'DBName'
     }
 
-    def __init__(self, account_privilege=None, db_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_privilege=None, account_privilege_detail=None, db_name=None, _configuration=None):  # noqa: E501
         """AccountPrivilegeForDescribeDBAccountsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_privilege = None
+        self._account_privilege_detail = None
         self._db_name = None
         self.discriminator = None
 
         if account_privilege is not None:
             self.account_privilege = account_privilege
+        if account_privilege_detail is not None:
+            self.account_privilege_detail = account_privilege_detail
         if db_name is not None:
             self.db_name = db_name
 
@@ -77,6 +82,27 @@ class AccountPrivilegeForDescribeDBAccountsOutput(object):
         """
 
         self._account_privilege = account_privilege
+
+    @property
+    def account_privilege_detail(self):
+        """Gets the account_privilege_detail of this AccountPrivilegeForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The account_privilege_detail of this AccountPrivilegeForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_privilege_detail
+
+    @account_privilege_detail.setter
+    def account_privilege_detail(self, account_privilege_detail):
+        """Sets the account_privilege_detail of this AccountPrivilegeForDescribeDBAccountsOutput.
+
+
+        :param account_privilege_detail: The account_privilege_detail of this AccountPrivilegeForDescribeDBAccountsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_privilege_detail = account_privilege_detail
 
     @property
     def db_name(self):
