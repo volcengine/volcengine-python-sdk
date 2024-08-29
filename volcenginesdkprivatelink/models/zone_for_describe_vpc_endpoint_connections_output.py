@@ -35,6 +35,7 @@ class ZoneForDescribeVpcEndpointConnectionsOutput(object):
     swagger_types = {
         'network_interface_ip': 'str',
         'network_interface_id': 'str',
+        'network_interface_ipv6': 'str',
         'resource_id': 'str',
         'service_status': 'str',
         'subnet_id': 'str',
@@ -46,6 +47,7 @@ class ZoneForDescribeVpcEndpointConnectionsOutput(object):
     attribute_map = {
         'network_interface_ip': 'NetworkInterfaceIP',
         'network_interface_id': 'NetworkInterfaceId',
+        'network_interface_ipv6': 'NetworkInterfaceIpv6',
         'resource_id': 'ResourceId',
         'service_status': 'ServiceStatus',
         'subnet_id': 'SubnetId',
@@ -54,7 +56,7 @@ class ZoneForDescribeVpcEndpointConnectionsOutput(object):
         'zone_status': 'ZoneStatus'
     }
 
-    def __init__(self, network_interface_ip=None, network_interface_id=None, resource_id=None, service_status=None, subnet_id=None, zone_domain=None, zone_id=None, zone_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, network_interface_ip=None, network_interface_id=None, network_interface_ipv6=None, resource_id=None, service_status=None, subnet_id=None, zone_domain=None, zone_id=None, zone_status=None, _configuration=None):  # noqa: E501
         """ZoneForDescribeVpcEndpointConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ZoneForDescribeVpcEndpointConnectionsOutput(object):
 
         self._network_interface_ip = None
         self._network_interface_id = None
+        self._network_interface_ipv6 = None
         self._resource_id = None
         self._service_status = None
         self._subnet_id = None
@@ -74,6 +77,8 @@ class ZoneForDescribeVpcEndpointConnectionsOutput(object):
             self.network_interface_ip = network_interface_ip
         if network_interface_id is not None:
             self.network_interface_id = network_interface_id
+        if network_interface_ipv6 is not None:
+            self.network_interface_ipv6 = network_interface_ipv6
         if resource_id is not None:
             self.resource_id = resource_id
         if service_status is not None:
@@ -128,6 +133,27 @@ class ZoneForDescribeVpcEndpointConnectionsOutput(object):
         """
 
         self._network_interface_id = network_interface_id
+
+    @property
+    def network_interface_ipv6(self):
+        """Gets the network_interface_ipv6 of this ZoneForDescribeVpcEndpointConnectionsOutput.  # noqa: E501
+
+
+        :return: The network_interface_ipv6 of this ZoneForDescribeVpcEndpointConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_interface_ipv6
+
+    @network_interface_ipv6.setter
+    def network_interface_ipv6(self, network_interface_ipv6):
+        """Sets the network_interface_ipv6 of this ZoneForDescribeVpcEndpointConnectionsOutput.
+
+
+        :param network_interface_ipv6: The network_interface_ipv6 of this ZoneForDescribeVpcEndpointConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._network_interface_ipv6 = network_interface_ipv6
 
     @property
     def resource_id(self):

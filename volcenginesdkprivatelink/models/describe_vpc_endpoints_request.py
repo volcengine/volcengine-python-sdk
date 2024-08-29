@@ -34,7 +34,9 @@ class DescribeVpcEndpointsRequest(object):
     """
     swagger_types = {
         'endpoint_ids': 'list[str]',
+        'endpoint_index': 'int',
         'endpoint_name': 'str',
+        'endpoint_type': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -47,7 +49,9 @@ class DescribeVpcEndpointsRequest(object):
 
     attribute_map = {
         'endpoint_ids': 'EndpointIds',
+        'endpoint_index': 'EndpointIndex',
         'endpoint_name': 'EndpointName',
+        'endpoint_type': 'EndpointType',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -58,14 +62,16 @@ class DescribeVpcEndpointsRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, endpoint_ids=None, endpoint_name=None, page_number=None, page_size=None, project_name=None, service_id=None, service_name=None, status=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint_ids=None, endpoint_index=None, endpoint_name=None, endpoint_type=None, page_number=None, page_size=None, project_name=None, service_id=None, service_name=None, status=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeVpcEndpointsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._endpoint_ids = None
+        self._endpoint_index = None
         self._endpoint_name = None
+        self._endpoint_type = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -78,8 +84,12 @@ class DescribeVpcEndpointsRequest(object):
 
         if endpoint_ids is not None:
             self.endpoint_ids = endpoint_ids
+        if endpoint_index is not None:
+            self.endpoint_index = endpoint_index
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
+        if endpoint_type is not None:
+            self.endpoint_type = endpoint_type
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -119,6 +129,27 @@ class DescribeVpcEndpointsRequest(object):
         self._endpoint_ids = endpoint_ids
 
     @property
+    def endpoint_index(self):
+        """Gets the endpoint_index of this DescribeVpcEndpointsRequest.  # noqa: E501
+
+
+        :return: The endpoint_index of this DescribeVpcEndpointsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._endpoint_index
+
+    @endpoint_index.setter
+    def endpoint_index(self, endpoint_index):
+        """Sets the endpoint_index of this DescribeVpcEndpointsRequest.
+
+
+        :param endpoint_index: The endpoint_index of this DescribeVpcEndpointsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._endpoint_index = endpoint_index
+
+    @property
     def endpoint_name(self):
         """Gets the endpoint_name of this DescribeVpcEndpointsRequest.  # noqa: E501
 
@@ -138,6 +169,27 @@ class DescribeVpcEndpointsRequest(object):
         """
 
         self._endpoint_name = endpoint_name
+
+    @property
+    def endpoint_type(self):
+        """Gets the endpoint_type of this DescribeVpcEndpointsRequest.  # noqa: E501
+
+
+        :return: The endpoint_type of this DescribeVpcEndpointsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._endpoint_type
+
+    @endpoint_type.setter
+    def endpoint_type(self, endpoint_type):
+        """Sets the endpoint_type of this DescribeVpcEndpointsRequest.
+
+
+        :param endpoint_type: The endpoint_type of this DescribeVpcEndpointsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._endpoint_type = endpoint_type
 
     @property
     def page_number(self):

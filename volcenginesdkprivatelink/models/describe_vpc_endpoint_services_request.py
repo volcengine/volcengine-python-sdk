@@ -39,6 +39,7 @@ class DescribeVpcEndpointServicesRequest(object):
         'service_ids': 'list[str]',
         'service_name': 'str',
         'service_resource_type': 'str',
+        'service_type': 'str',
         'tag_filters': 'list[TagFilterForDescribeVpcEndpointServicesInput]'
     }
 
@@ -49,10 +50,11 @@ class DescribeVpcEndpointServicesRequest(object):
         'service_ids': 'ServiceIds',
         'service_name': 'ServiceName',
         'service_resource_type': 'ServiceResourceType',
+        'service_type': 'ServiceType',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, page_number=None, page_size=None, project_name=None, service_ids=None, service_name=None, service_resource_type=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, project_name=None, service_ids=None, service_name=None, service_resource_type=None, service_type=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeVpcEndpointServicesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class DescribeVpcEndpointServicesRequest(object):
         self._service_ids = None
         self._service_name = None
         self._service_resource_type = None
+        self._service_type = None
         self._tag_filters = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class DescribeVpcEndpointServicesRequest(object):
             self.service_name = service_name
         if service_resource_type is not None:
             self.service_resource_type = service_resource_type
+        if service_type is not None:
+            self.service_type = service_type
         if tag_filters is not None:
             self.tag_filters = tag_filters
 
@@ -207,6 +212,27 @@ class DescribeVpcEndpointServicesRequest(object):
         """
 
         self._service_resource_type = service_resource_type
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this DescribeVpcEndpointServicesRequest.  # noqa: E501
+
+
+        :return: The service_type of this DescribeVpcEndpointServicesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this DescribeVpcEndpointServicesRequest.
+
+
+        :param service_type: The service_type of this DescribeVpcEndpointServicesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_type = service_type
 
     @property
     def tag_filters(self):

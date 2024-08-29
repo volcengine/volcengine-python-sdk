@@ -35,20 +35,24 @@ class ModifyVpcEndpointServiceAttributesRequest(object):
     swagger_types = {
         'auto_accept_enabled': 'bool',
         'description': 'str',
+        'ip_address_versions': 'list[str]',
         'private_dns_enabled': 'str',
         'private_dns_name': 'str',
+        'private_dns_type': 'str',
         'service_id': 'str'
     }
 
     attribute_map = {
         'auto_accept_enabled': 'AutoAcceptEnabled',
         'description': 'Description',
+        'ip_address_versions': 'IpAddressVersions',
         'private_dns_enabled': 'PrivateDNSEnabled',
         'private_dns_name': 'PrivateDNSName',
+        'private_dns_type': 'PrivateDNSType',
         'service_id': 'ServiceId'
     }
 
-    def __init__(self, auto_accept_enabled=None, description=None, private_dns_enabled=None, private_dns_name=None, service_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_accept_enabled=None, description=None, ip_address_versions=None, private_dns_enabled=None, private_dns_name=None, private_dns_type=None, service_id=None, _configuration=None):  # noqa: E501
         """ModifyVpcEndpointServiceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,8 +60,10 @@ class ModifyVpcEndpointServiceAttributesRequest(object):
 
         self._auto_accept_enabled = None
         self._description = None
+        self._ip_address_versions = None
         self._private_dns_enabled = None
         self._private_dns_name = None
+        self._private_dns_type = None
         self._service_id = None
         self.discriminator = None
 
@@ -65,10 +71,14 @@ class ModifyVpcEndpointServiceAttributesRequest(object):
             self.auto_accept_enabled = auto_accept_enabled
         if description is not None:
             self.description = description
+        if ip_address_versions is not None:
+            self.ip_address_versions = ip_address_versions
         if private_dns_enabled is not None:
             self.private_dns_enabled = private_dns_enabled
         if private_dns_name is not None:
             self.private_dns_name = private_dns_name
+        if private_dns_type is not None:
+            self.private_dns_type = private_dns_type
         self.service_id = service_id
 
     @property
@@ -114,6 +124,27 @@ class ModifyVpcEndpointServiceAttributesRequest(object):
         self._description = description
 
     @property
+    def ip_address_versions(self):
+        """Gets the ip_address_versions of this ModifyVpcEndpointServiceAttributesRequest.  # noqa: E501
+
+
+        :return: The ip_address_versions of this ModifyVpcEndpointServiceAttributesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_address_versions
+
+    @ip_address_versions.setter
+    def ip_address_versions(self, ip_address_versions):
+        """Sets the ip_address_versions of this ModifyVpcEndpointServiceAttributesRequest.
+
+
+        :param ip_address_versions: The ip_address_versions of this ModifyVpcEndpointServiceAttributesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_address_versions = ip_address_versions
+
+    @property
     def private_dns_enabled(self):
         """Gets the private_dns_enabled of this ModifyVpcEndpointServiceAttributesRequest.  # noqa: E501
 
@@ -154,6 +185,27 @@ class ModifyVpcEndpointServiceAttributesRequest(object):
         """
 
         self._private_dns_name = private_dns_name
+
+    @property
+    def private_dns_type(self):
+        """Gets the private_dns_type of this ModifyVpcEndpointServiceAttributesRequest.  # noqa: E501
+
+
+        :return: The private_dns_type of this ModifyVpcEndpointServiceAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_dns_type
+
+    @private_dns_type.setter
+    def private_dns_type(self, private_dns_type):
+        """Sets the private_dns_type of this ModifyVpcEndpointServiceAttributesRequest.
+
+
+        :param private_dns_type: The private_dns_type of this ModifyVpcEndpointServiceAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_dns_type = private_dns_type
 
     @property
     def service_id(self):

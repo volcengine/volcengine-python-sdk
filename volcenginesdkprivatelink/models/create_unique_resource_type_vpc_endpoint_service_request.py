@@ -36,6 +36,7 @@ class CreateUniqueResourceTypeVpcEndpointServiceRequest(object):
         'auto_accept_enabled': 'bool',
         'client_token': 'str',
         'description': 'str',
+        'ip_address_versions': 'list[str]',
         'project_name': 'str',
         'resource': 'ResourceForCreateUniqueResourceTypeVpcEndpointServiceInput',
         'service_resource_type': 'str',
@@ -47,6 +48,7 @@ class CreateUniqueResourceTypeVpcEndpointServiceRequest(object):
         'auto_accept_enabled': 'AutoAcceptEnabled',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'ip_address_versions': 'IpAddressVersions',
         'project_name': 'ProjectName',
         'resource': 'Resource',
         'service_resource_type': 'ServiceResourceType',
@@ -54,7 +56,7 @@ class CreateUniqueResourceTypeVpcEndpointServiceRequest(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_accept_enabled=None, client_token=None, description=None, project_name=None, resource=None, service_resource_type=None, tags=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_accept_enabled=None, client_token=None, description=None, ip_address_versions=None, project_name=None, resource=None, service_resource_type=None, tags=None, zone_ids=None, _configuration=None):  # noqa: E501
         """CreateUniqueResourceTypeVpcEndpointServiceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class CreateUniqueResourceTypeVpcEndpointServiceRequest(object):
         self._auto_accept_enabled = None
         self._client_token = None
         self._description = None
+        self._ip_address_versions = None
         self._project_name = None
         self._resource = None
         self._service_resource_type = None
@@ -76,6 +79,8 @@ class CreateUniqueResourceTypeVpcEndpointServiceRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if ip_address_versions is not None:
+            self.ip_address_versions = ip_address_versions
         if project_name is not None:
             self.project_name = project_name
         if resource is not None:
@@ -149,6 +154,27 @@ class CreateUniqueResourceTypeVpcEndpointServiceRequest(object):
         """
 
         self._description = description
+
+    @property
+    def ip_address_versions(self):
+        """Gets the ip_address_versions of this CreateUniqueResourceTypeVpcEndpointServiceRequest.  # noqa: E501
+
+
+        :return: The ip_address_versions of this CreateUniqueResourceTypeVpcEndpointServiceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_address_versions
+
+    @ip_address_versions.setter
+    def ip_address_versions(self, ip_address_versions):
+        """Sets the ip_address_versions of this CreateUniqueResourceTypeVpcEndpointServiceRequest.
+
+
+        :param ip_address_versions: The ip_address_versions of this CreateUniqueResourceTypeVpcEndpointServiceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_address_versions = ip_address_versions
 
     @property
     def project_name(self):

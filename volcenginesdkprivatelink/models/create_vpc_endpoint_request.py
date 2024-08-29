@@ -36,6 +36,7 @@ class CreateVpcEndpointRequest(object):
         'client_token': 'str',
         'description': 'str',
         'endpoint_name': 'str',
+        'ip_address_versions': 'list[str]',
         'private_dns_enabled': 'str',
         'project_name': 'str',
         'security_group_ids': 'list[str]',
@@ -50,6 +51,7 @@ class CreateVpcEndpointRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'endpoint_name': 'EndpointName',
+        'ip_address_versions': 'IpAddressVersions',
         'private_dns_enabled': 'PrivateDNSEnabled',
         'project_name': 'ProjectName',
         'security_group_ids': 'SecurityGroupIds',
@@ -60,7 +62,7 @@ class CreateVpcEndpointRequest(object):
         'zones': 'Zones'
     }
 
-    def __init__(self, client_token=None, description=None, endpoint_name=None, private_dns_enabled=None, project_name=None, security_group_ids=None, service_id=None, service_name=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, endpoint_name=None, ip_address_versions=None, private_dns_enabled=None, project_name=None, security_group_ids=None, service_id=None, service_name=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
         """CreateVpcEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class CreateVpcEndpointRequest(object):
         self._client_token = None
         self._description = None
         self._endpoint_name = None
+        self._ip_address_versions = None
         self._private_dns_enabled = None
         self._project_name = None
         self._security_group_ids = None
@@ -85,6 +88,8 @@ class CreateVpcEndpointRequest(object):
             self.description = description
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
+        if ip_address_versions is not None:
+            self.ip_address_versions = ip_address_versions
         if private_dns_enabled is not None:
             self.private_dns_enabled = private_dns_enabled
         if project_name is not None:
@@ -162,6 +167,27 @@ class CreateVpcEndpointRequest(object):
         """
 
         self._endpoint_name = endpoint_name
+
+    @property
+    def ip_address_versions(self):
+        """Gets the ip_address_versions of this CreateVpcEndpointRequest.  # noqa: E501
+
+
+        :return: The ip_address_versions of this CreateVpcEndpointRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_address_versions
+
+    @ip_address_versions.setter
+    def ip_address_versions(self, ip_address_versions):
+        """Sets the ip_address_versions of this CreateVpcEndpointRequest.
+
+
+        :param ip_address_versions: The ip_address_versions of this CreateVpcEndpointRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_address_versions = ip_address_versions
 
     @property
     def private_dns_enabled(self):
