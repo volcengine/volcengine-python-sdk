@@ -34,15 +34,17 @@ class DatabasesPrivilegeForCreateDatabaseInput(object):
     """
     swagger_types = {
         'account_name': 'str',
-        'account_privilege': 'str'
+        'account_privilege': 'str',
+        'account_privilege_detail': 'str'
     }
 
     attribute_map = {
         'account_name': 'AccountName',
-        'account_privilege': 'AccountPrivilege'
+        'account_privilege': 'AccountPrivilege',
+        'account_privilege_detail': 'AccountPrivilegeDetail'
     }
 
-    def __init__(self, account_name=None, account_privilege=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, account_privilege=None, account_privilege_detail=None, _configuration=None):  # noqa: E501
         """DatabasesPrivilegeForCreateDatabaseInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class DatabasesPrivilegeForCreateDatabaseInput(object):
 
         self._account_name = None
         self._account_privilege = None
+        self._account_privilege_detail = None
         self.discriminator = None
 
         if account_name is not None:
             self.account_name = account_name
         if account_privilege is not None:
             self.account_privilege = account_privilege
+        if account_privilege_detail is not None:
+            self.account_privilege_detail = account_privilege_detail
 
     @property
     def account_name(self):
@@ -96,7 +101,7 @@ class DatabasesPrivilegeForCreateDatabaseInput(object):
         :param account_privilege: The account_privilege of this DatabasesPrivilegeForCreateDatabaseInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ReadWrite", "ReadOnly", "DDLOnly", "DMLOnly"]  # noqa: E501
+        allowed_values = ["ReadWrite", "ReadOnly", "DDLOnly", "DMLOnly", "Custom"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 account_privilege not in allowed_values):
             raise ValueError(
@@ -105,6 +110,27 @@ class DatabasesPrivilegeForCreateDatabaseInput(object):
             )
 
         self._account_privilege = account_privilege
+
+    @property
+    def account_privilege_detail(self):
+        """Gets the account_privilege_detail of this DatabasesPrivilegeForCreateDatabaseInput.  # noqa: E501
+
+
+        :return: The account_privilege_detail of this DatabasesPrivilegeForCreateDatabaseInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_privilege_detail
+
+    @account_privilege_detail.setter
+    def account_privilege_detail(self, account_privilege_detail):
+        """Sets the account_privilege_detail of this DatabasesPrivilegeForCreateDatabaseInput.
+
+
+        :param account_privilege_detail: The account_privilege_detail of this DatabasesPrivilegeForCreateDatabaseInput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_privilege_detail = account_privilege_detail
 
     def to_dict(self):
         """Returns the model properties as a dict"""

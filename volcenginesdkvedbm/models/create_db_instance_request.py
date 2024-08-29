@@ -36,6 +36,7 @@ class CreateDBInstanceRequest(object):
         'auto_renew': 'bool',
         'charge_type': 'str',
         'db_engine_version': 'str',
+        'db_minor_version': 'str',
         'db_time_zone': 'str',
         'instance_name': 'str',
         'lower_case_table_names': 'str',
@@ -44,6 +45,7 @@ class CreateDBInstanceRequest(object):
         'number': 'int',
         'period': 'int',
         'period_unit': 'str',
+        'port': 'int',
         'pre_paid_storage_in_gb': 'int',
         'project_name': 'str',
         'storage_charge_type': 'str',
@@ -59,6 +61,7 @@ class CreateDBInstanceRequest(object):
         'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
         'db_engine_version': 'DBEngineVersion',
+        'db_minor_version': 'DBMinorVersion',
         'db_time_zone': 'DBTimeZone',
         'instance_name': 'InstanceName',
         'lower_case_table_names': 'LowerCaseTableNames',
@@ -67,6 +70,7 @@ class CreateDBInstanceRequest(object):
         'number': 'Number',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'port': 'Port',
         'pre_paid_storage_in_gb': 'PrePaidStorageInGB',
         'project_name': 'ProjectName',
         'storage_charge_type': 'StorageChargeType',
@@ -78,7 +82,7 @@ class CreateDBInstanceRequest(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_time_zone=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_minor_version=None, db_time_zone=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +91,7 @@ class CreateDBInstanceRequest(object):
         self._auto_renew = None
         self._charge_type = None
         self._db_engine_version = None
+        self._db_minor_version = None
         self._db_time_zone = None
         self._instance_name = None
         self._lower_case_table_names = None
@@ -95,6 +100,7 @@ class CreateDBInstanceRequest(object):
         self._number = None
         self._period = None
         self._period_unit = None
+        self._port = None
         self._pre_paid_storage_in_gb = None
         self._project_name = None
         self._storage_charge_type = None
@@ -110,6 +116,8 @@ class CreateDBInstanceRequest(object):
             self.auto_renew = auto_renew
         self.charge_type = charge_type
         self.db_engine_version = db_engine_version
+        if db_minor_version is not None:
+            self.db_minor_version = db_minor_version
         if db_time_zone is not None:
             self.db_time_zone = db_time_zone
         if instance_name is not None:
@@ -124,6 +132,8 @@ class CreateDBInstanceRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if port is not None:
+            self.port = port
         if pre_paid_storage_in_gb is not None:
             self.pre_paid_storage_in_gb = pre_paid_storage_in_gb
         if project_name is not None:
@@ -220,6 +230,34 @@ class CreateDBInstanceRequest(object):
             )
 
         self._db_engine_version = db_engine_version
+
+    @property
+    def db_minor_version(self):
+        """Gets the db_minor_version of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The db_minor_version of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_minor_version
+
+    @db_minor_version.setter
+    def db_minor_version(self, db_minor_version):
+        """Sets the db_minor_version of this CreateDBInstanceRequest.
+
+
+        :param db_minor_version: The db_minor_version of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["3.0", "3.1", "3.2"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                db_minor_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `db_minor_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(db_minor_version, allowed_values)
+            )
+
+        self._db_minor_version = db_minor_version
 
     @property
     def db_time_zone(self):
@@ -406,6 +444,27 @@ class CreateDBInstanceRequest(object):
             )
 
         self._period_unit = period_unit
+
+    @property
+    def port(self):
+        """Gets the port of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The port of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this CreateDBInstanceRequest.
+
+
+        :param port: The port of this CreateDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     @property
     def pre_paid_storage_in_gb(self):
