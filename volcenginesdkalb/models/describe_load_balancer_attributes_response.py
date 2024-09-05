@@ -57,6 +57,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'overdue_time': 'str',
         'project_name': 'str',
         'request_id': 'str',
+        'sni_auto_match': 'str',
         'status': 'str',
         'subnet_id': 'str',
         'tls_access_log': 'TLSAccessLogForDescribeLoadBalancerAttributesOutput',
@@ -64,6 +65,8 @@ class DescribeLoadBalancerAttributesResponse(object):
         'type': 'str',
         'update_time': 'str',
         'vpc_id': 'str',
+        'waf_instance_id': 'str',
+        'waf_protection_enabled': 'str',
         'zone_mappings': 'list[ZoneMappingForDescribeLoadBalancerAttributesOutput]'
     }
 
@@ -92,6 +95,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
+        'sni_auto_match': 'SniAutoMatch',
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'tls_access_log': 'TLSAccessLog',
@@ -99,10 +103,12 @@ class DescribeLoadBalancerAttributesResponse(object):
         'type': 'Type',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
+        'waf_instance_id': 'WafInstanceId',
+        'waf_protection_enabled': 'WafProtectionEnabled',
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, health_log=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, status=None, subnet_id=None, tls_access_log=None, tags=None, type=None, update_time=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, health_log=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, sni_auto_match=None, status=None, subnet_id=None, tls_access_log=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -132,6 +138,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._overdue_time = None
         self._project_name = None
         self._request_id = None
+        self._sni_auto_match = None
         self._status = None
         self._subnet_id = None
         self._tls_access_log = None
@@ -139,6 +146,8 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._type = None
         self._update_time = None
         self._vpc_id = None
+        self._waf_instance_id = None
+        self._waf_protection_enabled = None
         self._zone_mappings = None
         self.discriminator = None
 
@@ -190,6 +199,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
+        if sni_auto_match is not None:
+            self.sni_auto_match = sni_auto_match
         if status is not None:
             self.status = status
         if subnet_id is not None:
@@ -204,6 +215,10 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.update_time = update_time
         if vpc_id is not None:
             self.vpc_id = vpc_id
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
+        if waf_protection_enabled is not None:
+            self.waf_protection_enabled = waf_protection_enabled
         if zone_mappings is not None:
             self.zone_mappings = zone_mappings
 
@@ -712,6 +727,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._request_id = request_id
 
     @property
+    def sni_auto_match(self):
+        """Gets the sni_auto_match of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The sni_auto_match of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._sni_auto_match
+
+    @sni_auto_match.setter
+    def sni_auto_match(self, sni_auto_match):
+        """Sets the sni_auto_match of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param sni_auto_match: The sni_auto_match of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._sni_auto_match = sni_auto_match
+
+    @property
     def status(self):
         """Gets the status of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
 
@@ -857,6 +893,48 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._vpc_id = vpc_id
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The waf_instance_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param waf_instance_id: The waf_instance_id of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_instance_id = waf_instance_id
+
+    @property
+    def waf_protection_enabled(self):
+        """Gets the waf_protection_enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The waf_protection_enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_protection_enabled
+
+    @waf_protection_enabled.setter
+    def waf_protection_enabled(self, waf_protection_enabled):
+        """Sets the waf_protection_enabled of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param waf_protection_enabled: The waf_protection_enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._waf_protection_enabled = waf_protection_enabled
 
     @property
     def zone_mappings(self):

@@ -39,7 +39,8 @@ class DescribeListenersRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
-        'protocol': 'str'
+        'protocol': 'str',
+        'tag_filters': 'list[TagFilterForDescribeListenersInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DescribeListenersRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
-        'protocol': 'Protocol'
+        'protocol': 'Protocol',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, listener_ids=None, listener_name=None, load_balancer_id=None, page_number=None, page_size=None, project_name=None, protocol=None, _configuration=None):  # noqa: E501
+    def __init__(self, listener_ids=None, listener_name=None, load_balancer_id=None, page_number=None, page_size=None, project_name=None, protocol=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeListenersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeListenersRequest(object):
         self._page_size = None
         self._project_name = None
         self._protocol = None
+        self._tag_filters = None
         self.discriminator = None
 
         if listener_ids is not None:
@@ -81,6 +84,8 @@ class DescribeListenersRequest(object):
             self.project_name = project_name
         if protocol is not None:
             self.protocol = protocol
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def listener_ids(self):
@@ -228,6 +233,27 @@ class DescribeListenersRequest(object):
         """
 
         self._protocol = protocol
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeListenersRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeListenersRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeListenersInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeListenersRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeListenersRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeListenersInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

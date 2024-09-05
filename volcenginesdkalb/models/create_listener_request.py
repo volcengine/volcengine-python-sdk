@@ -40,6 +40,7 @@ class CreateListenerRequest(object):
         'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_source': 'str',
+        'client_address_transmission_protocol': 'str',
         'description': 'str',
         'domain_extensions': 'list[DomainExtensionForCreateListenerInput]',
         'enable_http2': 'str',
@@ -50,7 +51,8 @@ class CreateListenerRequest(object):
         'port': 'int',
         'protocol': 'str',
         'proxy_protocol_disabled': 'str',
-        'server_group_id': 'str'
+        'server_group_id': 'str',
+        'tags': 'list[TagForCreateListenerInput]'
     }
 
     attribute_map = {
@@ -61,6 +63,7 @@ class CreateListenerRequest(object):
         'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_source': 'CertificateSource',
+        'client_address_transmission_protocol': 'ClientAddressTransmissionProtocol',
         'description': 'Description',
         'domain_extensions': 'DomainExtensions',
         'enable_http2': 'EnableHttp2',
@@ -71,10 +74,11 @@ class CreateListenerRequest(object):
         'port': 'Port',
         'protocol': 'Protocol',
         'proxy_protocol_disabled': 'ProxyProtocolDisabled',
-        'server_group_id': 'ServerGroupId'
+        'server_group_id': 'ServerGroupId',
+        'tags': 'Tags'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, port=None, protocol=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, port=None, protocol=None, proxy_protocol_disabled=None, server_group_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateListenerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +91,7 @@ class CreateListenerRequest(object):
         self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_source = None
+        self._client_address_transmission_protocol = None
         self._description = None
         self._domain_extensions = None
         self._enable_http2 = None
@@ -98,6 +103,7 @@ class CreateListenerRequest(object):
         self._protocol = None
         self._proxy_protocol_disabled = None
         self._server_group_id = None
+        self._tags = None
         self.discriminator = None
 
         if acl_ids is not None:
@@ -114,6 +120,8 @@ class CreateListenerRequest(object):
             self.certificate_id = certificate_id
         if certificate_source is not None:
             self.certificate_source = certificate_source
+        if client_address_transmission_protocol is not None:
+            self.client_address_transmission_protocol = client_address_transmission_protocol
         if description is not None:
             self.description = description
         if domain_extensions is not None:
@@ -132,6 +140,8 @@ class CreateListenerRequest(object):
         if proxy_protocol_disabled is not None:
             self.proxy_protocol_disabled = proxy_protocol_disabled
         self.server_group_id = server_group_id
+        if tags is not None:
+            self.tags = tags
 
     @property
     def acl_ids(self):
@@ -279,6 +289,27 @@ class CreateListenerRequest(object):
         """
 
         self._certificate_source = certificate_source
+
+    @property
+    def client_address_transmission_protocol(self):
+        """Gets the client_address_transmission_protocol of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The client_address_transmission_protocol of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_address_transmission_protocol
+
+    @client_address_transmission_protocol.setter
+    def client_address_transmission_protocol(self, client_address_transmission_protocol):
+        """Sets the client_address_transmission_protocol of this CreateListenerRequest.
+
+
+        :param client_address_transmission_protocol: The client_address_transmission_protocol of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_address_transmission_protocol = client_address_transmission_protocol
 
     @property
     def description(self):
@@ -524,6 +555,27 @@ class CreateListenerRequest(object):
             raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateListenerRequest.  # noqa: E501
+        :rtype: list[TagForCreateListenerInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateListenerRequest.
+
+
+        :param tags: The tags of this CreateListenerRequest.  # noqa: E501
+        :type: list[TagForCreateListenerInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

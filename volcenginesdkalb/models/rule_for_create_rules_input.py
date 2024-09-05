@@ -35,6 +35,7 @@ class RuleForCreateRulesInput(object):
     swagger_types = {
         'description': 'str',
         'domain': 'str',
+        'forward_group_config': 'ForwardGroupConfigForCreateRulesInput',
         'redirect_config': 'RedirectConfigForCreateRulesInput',
         'rewrite_config': 'RewriteConfigForCreateRulesInput',
         'rewrite_enabled': 'str',
@@ -48,6 +49,7 @@ class RuleForCreateRulesInput(object):
     attribute_map = {
         'description': 'Description',
         'domain': 'Domain',
+        'forward_group_config': 'ForwardGroupConfig',
         'redirect_config': 'RedirectConfig',
         'rewrite_config': 'RewriteConfig',
         'rewrite_enabled': 'RewriteEnabled',
@@ -58,7 +60,7 @@ class RuleForCreateRulesInput(object):
         'url': 'URL'
     }
 
-    def __init__(self, description=None, domain=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, domain=None, forward_group_config=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501
         """RuleForCreateRulesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class RuleForCreateRulesInput(object):
 
         self._description = None
         self._domain = None
+        self._forward_group_config = None
         self._redirect_config = None
         self._rewrite_config = None
         self._rewrite_enabled = None
@@ -80,6 +83,8 @@ class RuleForCreateRulesInput(object):
             self.description = description
         if domain is not None:
             self.domain = domain
+        if forward_group_config is not None:
+            self.forward_group_config = forward_group_config
         if redirect_config is not None:
             self.redirect_config = redirect_config
         if rewrite_config is not None:
@@ -138,6 +143,27 @@ class RuleForCreateRulesInput(object):
         """
 
         self._domain = domain
+
+    @property
+    def forward_group_config(self):
+        """Gets the forward_group_config of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The forward_group_config of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: ForwardGroupConfigForCreateRulesInput
+        """
+        return self._forward_group_config
+
+    @forward_group_config.setter
+    def forward_group_config(self, forward_group_config):
+        """Sets the forward_group_config of this RuleForCreateRulesInput.
+
+
+        :param forward_group_config: The forward_group_config of this RuleForCreateRulesInput.  # noqa: E501
+        :type: ForwardGroupConfigForCreateRulesInput
+        """
+
+        self._forward_group_config = forward_group_config
 
     @property
     def redirect_config(self):
