@@ -38,6 +38,7 @@ class KeyringForCreateKeyringOutput(object):
         'id': 'str',
         'keyring_name': 'str',
         'keyring_type': 'str',
+        'trn': 'str',
         'uid': 'str',
         'update_date': 'int'
     }
@@ -48,11 +49,12 @@ class KeyringForCreateKeyringOutput(object):
         'id': 'ID',
         'keyring_name': 'KeyringName',
         'keyring_type': 'KeyringType',
+        'trn': 'TRN',
         'uid': 'UID',
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, creation_date=None, description=None, id=None, keyring_name=None, keyring_type=None, uid=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_date=None, description=None, id=None, keyring_name=None, keyring_type=None, trn=None, uid=None, update_date=None, _configuration=None):  # noqa: E501
         """KeyringForCreateKeyringOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class KeyringForCreateKeyringOutput(object):
         self._id = None
         self._keyring_name = None
         self._keyring_type = None
+        self._trn = None
         self._uid = None
         self._update_date = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class KeyringForCreateKeyringOutput(object):
             self.keyring_name = keyring_name
         if keyring_type is not None:
             self.keyring_type = keyring_type
+        if trn is not None:
+            self.trn = trn
         if uid is not None:
             self.uid = uid
         if update_date is not None:
@@ -186,6 +191,27 @@ class KeyringForCreateKeyringOutput(object):
         """
 
         self._keyring_type = keyring_type
+
+    @property
+    def trn(self):
+        """Gets the trn of this KeyringForCreateKeyringOutput.  # noqa: E501
+
+
+        :return: The trn of this KeyringForCreateKeyringOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._trn
+
+    @trn.setter
+    def trn(self, trn):
+        """Sets the trn of this KeyringForCreateKeyringOutput.
+
+
+        :param trn: The trn of this KeyringForCreateKeyringOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._trn = trn
 
     @property
     def uid(self):
