@@ -36,6 +36,7 @@ class PolicyUserGroupForListEntitiesForPolicyOutput(object):
         'attach_date': 'str',
         'description': 'str',
         'display_name': 'str',
+        'id': 'int',
         'policy_scope': 'list[PolicyScopeForListEntitiesForPolicyOutput]',
         'user_group_name': 'str'
     }
@@ -44,11 +45,12 @@ class PolicyUserGroupForListEntitiesForPolicyOutput(object):
         'attach_date': 'AttachDate',
         'description': 'Description',
         'display_name': 'DisplayName',
+        'id': 'Id',
         'policy_scope': 'PolicyScope',
         'user_group_name': 'UserGroupName'
     }
 
-    def __init__(self, attach_date=None, description=None, display_name=None, policy_scope=None, user_group_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_date=None, description=None, display_name=None, id=None, policy_scope=None, user_group_name=None, _configuration=None):  # noqa: E501
         """PolicyUserGroupForListEntitiesForPolicyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class PolicyUserGroupForListEntitiesForPolicyOutput(object):
         self._attach_date = None
         self._description = None
         self._display_name = None
+        self._id = None
         self._policy_scope = None
         self._user_group_name = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class PolicyUserGroupForListEntitiesForPolicyOutput(object):
             self.description = description
         if display_name is not None:
             self.display_name = display_name
+        if id is not None:
+            self.id = id
         if policy_scope is not None:
             self.policy_scope = policy_scope
         if user_group_name is not None:
@@ -134,6 +139,27 @@ class PolicyUserGroupForListEntitiesForPolicyOutput(object):
         """
 
         self._display_name = display_name
+
+    @property
+    def id(self):
+        """Gets the id of this PolicyUserGroupForListEntitiesForPolicyOutput.  # noqa: E501
+
+
+        :return: The id of this PolicyUserGroupForListEntitiesForPolicyOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this PolicyUserGroupForListEntitiesForPolicyOutput.
+
+
+        :param id: The id of this PolicyUserGroupForListEntitiesForPolicyOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     @property
     def policy_scope(self):

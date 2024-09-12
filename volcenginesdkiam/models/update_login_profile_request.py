@@ -37,6 +37,8 @@ class UpdateLoginProfileRequest(object):
         'password': 'str',
         'password_reset_required': 'bool',
         'safe_auth_exempt_duration': 'int',
+        'safe_auth_exempt_required': 'int',
+        'safe_auth_exempt_unit': 'int',
         'safe_auth_flag': 'bool',
         'safe_auth_type': 'str',
         'user_name': 'str'
@@ -47,12 +49,14 @@ class UpdateLoginProfileRequest(object):
         'password': 'Password',
         'password_reset_required': 'PasswordResetRequired',
         'safe_auth_exempt_duration': 'SafeAuthExemptDuration',
+        'safe_auth_exempt_required': 'SafeAuthExemptRequired',
+        'safe_auth_exempt_unit': 'SafeAuthExemptUnit',
         'safe_auth_flag': 'SafeAuthFlag',
         'safe_auth_type': 'SafeAuthType',
         'user_name': 'UserName'
     }
 
-    def __init__(self, login_allowed=None, password=None, password_reset_required=None, safe_auth_exempt_duration=None, safe_auth_flag=None, safe_auth_type=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, login_allowed=None, password=None, password_reset_required=None, safe_auth_exempt_duration=None, safe_auth_exempt_required=None, safe_auth_exempt_unit=None, safe_auth_flag=None, safe_auth_type=None, user_name=None, _configuration=None):  # noqa: E501
         """UpdateLoginProfileRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +66,8 @@ class UpdateLoginProfileRequest(object):
         self._password = None
         self._password_reset_required = None
         self._safe_auth_exempt_duration = None
+        self._safe_auth_exempt_required = None
+        self._safe_auth_exempt_unit = None
         self._safe_auth_flag = None
         self._safe_auth_type = None
         self._user_name = None
@@ -75,6 +81,10 @@ class UpdateLoginProfileRequest(object):
             self.password_reset_required = password_reset_required
         if safe_auth_exempt_duration is not None:
             self.safe_auth_exempt_duration = safe_auth_exempt_duration
+        if safe_auth_exempt_required is not None:
+            self.safe_auth_exempt_required = safe_auth_exempt_required
+        if safe_auth_exempt_unit is not None:
+            self.safe_auth_exempt_unit = safe_auth_exempt_unit
         if safe_auth_flag is not None:
             self.safe_auth_flag = safe_auth_flag
         if safe_auth_type is not None:
@@ -164,6 +174,48 @@ class UpdateLoginProfileRequest(object):
         """
 
         self._safe_auth_exempt_duration = safe_auth_exempt_duration
+
+    @property
+    def safe_auth_exempt_required(self):
+        """Gets the safe_auth_exempt_required of this UpdateLoginProfileRequest.  # noqa: E501
+
+
+        :return: The safe_auth_exempt_required of this UpdateLoginProfileRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._safe_auth_exempt_required
+
+    @safe_auth_exempt_required.setter
+    def safe_auth_exempt_required(self, safe_auth_exempt_required):
+        """Sets the safe_auth_exempt_required of this UpdateLoginProfileRequest.
+
+
+        :param safe_auth_exempt_required: The safe_auth_exempt_required of this UpdateLoginProfileRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._safe_auth_exempt_required = safe_auth_exempt_required
+
+    @property
+    def safe_auth_exempt_unit(self):
+        """Gets the safe_auth_exempt_unit of this UpdateLoginProfileRequest.  # noqa: E501
+
+
+        :return: The safe_auth_exempt_unit of this UpdateLoginProfileRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._safe_auth_exempt_unit
+
+    @safe_auth_exempt_unit.setter
+    def safe_auth_exempt_unit(self, safe_auth_exempt_unit):
+        """Sets the safe_auth_exempt_unit of this UpdateLoginProfileRequest.
+
+
+        :param safe_auth_exempt_unit: The safe_auth_exempt_unit of this UpdateLoginProfileRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._safe_auth_exempt_unit = safe_auth_exempt_unit
 
     @property
     def safe_auth_flag(self):

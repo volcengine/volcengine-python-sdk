@@ -35,16 +35,18 @@ class ListPoliciesRequest(object):
     swagger_types = {
         'limit': 'int',
         'offset': 'int',
-        'scope': 'str'
+        'scope': 'str',
+        'with_service_role_policy': 'int'
     }
 
     attribute_map = {
         'limit': 'Limit',
         'offset': 'Offset',
-        'scope': 'Scope'
+        'scope': 'Scope',
+        'with_service_role_policy': 'WithServiceRolePolicy'
     }
 
-    def __init__(self, limit=None, offset=None, scope=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, offset=None, scope=None, with_service_role_policy=None, _configuration=None):  # noqa: E501
         """ListPoliciesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ListPoliciesRequest(object):
         self._limit = None
         self._offset = None
         self._scope = None
+        self._with_service_role_policy = None
         self.discriminator = None
 
         if limit is not None:
@@ -61,6 +64,8 @@ class ListPoliciesRequest(object):
             self.offset = offset
         if scope is not None:
             self.scope = scope
+        if with_service_role_policy is not None:
+            self.with_service_role_policy = with_service_role_policy
 
     @property
     def limit(self):
@@ -124,6 +129,27 @@ class ListPoliciesRequest(object):
         """
 
         self._scope = scope
+
+    @property
+    def with_service_role_policy(self):
+        """Gets the with_service_role_policy of this ListPoliciesRequest.  # noqa: E501
+
+
+        :return: The with_service_role_policy of this ListPoliciesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._with_service_role_policy
+
+    @with_service_role_policy.setter
+    def with_service_role_policy(self, with_service_role_policy):
+        """Sets the with_service_role_policy of this ListPoliciesRequest.
+
+
+        :param with_service_role_policy: The with_service_role_policy of this ListPoliciesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._with_service_role_policy = with_service_role_policy
 
     def to_dict(self):
         """Returns the model properties as a dict"""

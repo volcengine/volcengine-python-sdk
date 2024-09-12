@@ -35,6 +35,7 @@ class UserForListUsersForGroupOutput(object):
     swagger_types = {
         'description': 'str',
         'display_name': 'str',
+        'id': 'int',
         'join_date': 'str',
         'user_name': 'str'
     }
@@ -42,11 +43,12 @@ class UserForListUsersForGroupOutput(object):
     attribute_map = {
         'description': 'Description',
         'display_name': 'DisplayName',
+        'id': 'Id',
         'join_date': 'JoinDate',
         'user_name': 'UserName'
     }
 
-    def __init__(self, description=None, display_name=None, join_date=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, display_name=None, id=None, join_date=None, user_name=None, _configuration=None):  # noqa: E501
         """UserForListUsersForGroupOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class UserForListUsersForGroupOutput(object):
 
         self._description = None
         self._display_name = None
+        self._id = None
         self._join_date = None
         self._user_name = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class UserForListUsersForGroupOutput(object):
             self.description = description
         if display_name is not None:
             self.display_name = display_name
+        if id is not None:
+            self.id = id
         if join_date is not None:
             self.join_date = join_date
         if user_name is not None:
@@ -108,6 +113,27 @@ class UserForListUsersForGroupOutput(object):
         """
 
         self._display_name = display_name
+
+    @property
+    def id(self):
+        """Gets the id of this UserForListUsersForGroupOutput.  # noqa: E501
+
+
+        :return: The id of this UserForListUsersForGroupOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this UserForListUsersForGroupOutput.
+
+
+        :param id: The id of this UserForListUsersForGroupOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     @property
     def join_date(self):

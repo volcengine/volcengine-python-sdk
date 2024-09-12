@@ -35,7 +35,7 @@ class ListPoliciesResponse(object):
     swagger_types = {
         'limit': 'int',
         'offset': 'int',
-        'policy_metadata': 'list[PolicyMetadatumForListPoliciesOutput]',
+        'policy_metadata': 'list[PolicyMetadataForListPoliciesOutput]',
         'total': 'int'
     }
 
@@ -115,7 +115,7 @@ class ListPoliciesResponse(object):
 
 
         :return: The policy_metadata of this ListPoliciesResponse.  # noqa: E501
-        :rtype: list[PolicyMetadatumForListPoliciesOutput]
+        :rtype: list[PolicyMetadataForListPoliciesOutput]
         """
         return self._policy_metadata
 
@@ -125,7 +125,7 @@ class ListPoliciesResponse(object):
 
 
         :param policy_metadata: The policy_metadata of this ListPoliciesResponse.  # noqa: E501
-        :type: list[PolicyMetadatumForListPoliciesOutput]
+        :type: list[PolicyMetadataForListPoliciesOutput]
         """
 
         self._policy_metadata = policy_metadata

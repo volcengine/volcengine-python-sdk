@@ -38,6 +38,7 @@ class UserGroupForListGroupsOutput(object):
         'description': 'str',
         'display_name': 'str',
         'update_date': 'str',
+        'user_group_id': 'int',
         'user_group_name': 'str'
     }
 
@@ -47,10 +48,11 @@ class UserGroupForListGroupsOutput(object):
         'description': 'Description',
         'display_name': 'DisplayName',
         'update_date': 'UpdateDate',
+        'user_group_id': 'UserGroupID',
         'user_group_name': 'UserGroupName'
     }
 
-    def __init__(self, account_id=None, create_date=None, description=None, display_name=None, update_date=None, user_group_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, create_date=None, description=None, display_name=None, update_date=None, user_group_id=None, user_group_name=None, _configuration=None):  # noqa: E501
         """UserGroupForListGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class UserGroupForListGroupsOutput(object):
         self._description = None
         self._display_name = None
         self._update_date = None
+        self._user_group_id = None
         self._user_group_name = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class UserGroupForListGroupsOutput(object):
             self.display_name = display_name
         if update_date is not None:
             self.update_date = update_date
+        if user_group_id is not None:
+            self.user_group_id = user_group_id
         if user_group_name is not None:
             self.user_group_name = user_group_name
 
@@ -181,6 +186,27 @@ class UserGroupForListGroupsOutput(object):
         """
 
         self._update_date = update_date
+
+    @property
+    def user_group_id(self):
+        """Gets the user_group_id of this UserGroupForListGroupsOutput.  # noqa: E501
+
+
+        :return: The user_group_id of this UserGroupForListGroupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_group_id
+
+    @user_group_id.setter
+    def user_group_id(self, user_group_id):
+        """Sets the user_group_id of this UserGroupForListGroupsOutput.
+
+
+        :param user_group_id: The user_group_id of this UserGroupForListGroupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._user_group_id = user_group_id
 
     @property
     def user_group_name(self):

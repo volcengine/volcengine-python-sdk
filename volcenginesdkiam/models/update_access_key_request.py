@@ -34,15 +34,17 @@ class UpdateAccessKeyRequest(object):
     """
     swagger_types = {
         'access_key_id': 'str',
-        'status': 'str'
+        'status': 'str',
+        'user_name': 'str'
     }
 
     attribute_map = {
         'access_key_id': 'AccessKeyId',
-        'status': 'Status'
+        'status': 'Status',
+        'user_name': 'UserName'
     }
 
-    def __init__(self, access_key_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key_id=None, status=None, user_name=None, _configuration=None):  # noqa: E501
         """UpdateAccessKeyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,10 +52,13 @@ class UpdateAccessKeyRequest(object):
 
         self._access_key_id = None
         self._status = None
+        self._user_name = None
         self.discriminator = None
 
         self.access_key_id = access_key_id
         self.status = status
+        if user_name is not None:
+            self.user_name = user_name
 
     @property
     def access_key_id(self):
@@ -100,6 +105,27 @@ class UpdateAccessKeyRequest(object):
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
+
+    @property
+    def user_name(self):
+        """Gets the user_name of this UpdateAccessKeyRequest.  # noqa: E501
+
+
+        :return: The user_name of this UpdateAccessKeyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_name
+
+    @user_name.setter
+    def user_name(self, user_name):
+        """Sets the user_name of this UpdateAccessKeyRequest.
+
+
+        :param user_name: The user_name of this UpdateAccessKeyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._user_name = user_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

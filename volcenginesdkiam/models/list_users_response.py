@@ -36,7 +36,7 @@ class ListUsersResponse(object):
         'limit': 'int',
         'offset': 'int',
         'total': 'int',
-        'user_metadata': 'list[UserMetadatumForListUsersOutput]'
+        'user_metadata': 'list[UserMetadataForListUsersOutput]'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class ListUsersResponse(object):
 
 
         :return: The user_metadata of this ListUsersResponse.  # noqa: E501
-        :rtype: list[UserMetadatumForListUsersOutput]
+        :rtype: list[UserMetadataForListUsersOutput]
         """
         return self._user_metadata
 
@@ -146,7 +146,7 @@ class ListUsersResponse(object):
 
 
         :param user_metadata: The user_metadata of this ListUsersResponse.  # noqa: E501
-        :type: list[UserMetadatumForListUsersOutput]
+        :type: list[UserMetadataForListUsersOutput]
         """
 
         self._user_metadata = user_metadata

@@ -61,7 +61,8 @@ class ListEntitiesForPolicyRequest(object):
         self._policy_type = None
         self.discriminator = None
 
-        self.entity_filter = entity_filter
+        if entity_filter is not None:
+            self.entity_filter = entity_filter
         if limit is not None:
             self.limit = limit
         if offset is not None:
@@ -87,8 +88,6 @@ class ListEntitiesForPolicyRequest(object):
         :param entity_filter: The entity_filter of this ListEntitiesForPolicyRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and entity_filter is None:
-            raise ValueError("Invalid value for `entity_filter`, must not be `None`")  # noqa: E501
 
         self._entity_filter = entity_filter
 
@@ -177,6 +176,13 @@ class ListEntitiesForPolicyRequest(object):
         """
         if self._configuration.client_side_validation and policy_type is None:
             raise ValueError("Invalid value for `policy_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["System", "Custom"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                policy_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `policy_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(policy_type, allowed_values)
+            )
 
         self._policy_type = policy_type
 

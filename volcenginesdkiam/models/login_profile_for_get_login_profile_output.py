@@ -41,6 +41,11 @@ class LoginProfileForGetLoginProfileOutput(object):
         'login_locked': 'bool',
         'password_expire_at': 'int',
         'password_reset_required': 'bool',
+        'safe_auth_exempt_duration': 'int',
+        'safe_auth_exempt_required': 'int',
+        'safe_auth_exempt_unit': 'int',
+        'safe_auth_flag': 'bool',
+        'safe_auth_type': 'str',
         'status': 'str',
         'update_date': 'str',
         'user_id': 'int',
@@ -56,13 +61,18 @@ class LoginProfileForGetLoginProfileOutput(object):
         'login_locked': 'LoginLocked',
         'password_expire_at': 'PasswordExpireAt',
         'password_reset_required': 'PasswordResetRequired',
+        'safe_auth_exempt_duration': 'SafeAuthExemptDuration',
+        'safe_auth_exempt_required': 'SafeAuthExemptRequired',
+        'safe_auth_exempt_unit': 'SafeAuthExemptUnit',
+        'safe_auth_flag': 'SafeAuthFlag',
+        'safe_auth_type': 'SafeAuthType',
         'status': 'Status',
         'update_date': 'UpdateDate',
         'user_id': 'UserId',
         'user_name': 'UserName'
     }
 
-    def __init__(self, create_date=None, last_login_date=None, last_login_ip=None, last_reset_password_time=None, login_allowed=None, login_locked=None, password_expire_at=None, password_reset_required=None, status=None, update_date=None, user_id=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_date=None, last_login_date=None, last_login_ip=None, last_reset_password_time=None, login_allowed=None, login_locked=None, password_expire_at=None, password_reset_required=None, safe_auth_exempt_duration=None, safe_auth_exempt_required=None, safe_auth_exempt_unit=None, safe_auth_flag=None, safe_auth_type=None, status=None, update_date=None, user_id=None, user_name=None, _configuration=None):  # noqa: E501
         """LoginProfileForGetLoginProfileOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +86,11 @@ class LoginProfileForGetLoginProfileOutput(object):
         self._login_locked = None
         self._password_expire_at = None
         self._password_reset_required = None
+        self._safe_auth_exempt_duration = None
+        self._safe_auth_exempt_required = None
+        self._safe_auth_exempt_unit = None
+        self._safe_auth_flag = None
+        self._safe_auth_type = None
         self._status = None
         self._update_date = None
         self._user_id = None
@@ -98,6 +113,16 @@ class LoginProfileForGetLoginProfileOutput(object):
             self.password_expire_at = password_expire_at
         if password_reset_required is not None:
             self.password_reset_required = password_reset_required
+        if safe_auth_exempt_duration is not None:
+            self.safe_auth_exempt_duration = safe_auth_exempt_duration
+        if safe_auth_exempt_required is not None:
+            self.safe_auth_exempt_required = safe_auth_exempt_required
+        if safe_auth_exempt_unit is not None:
+            self.safe_auth_exempt_unit = safe_auth_exempt_unit
+        if safe_auth_flag is not None:
+            self.safe_auth_flag = safe_auth_flag
+        if safe_auth_type is not None:
+            self.safe_auth_type = safe_auth_type
         if status is not None:
             self.status = status
         if update_date is not None:
@@ -274,6 +299,111 @@ class LoginProfileForGetLoginProfileOutput(object):
         """
 
         self._password_reset_required = password_reset_required
+
+    @property
+    def safe_auth_exempt_duration(self):
+        """Gets the safe_auth_exempt_duration of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+
+
+        :return: The safe_auth_exempt_duration of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._safe_auth_exempt_duration
+
+    @safe_auth_exempt_duration.setter
+    def safe_auth_exempt_duration(self, safe_auth_exempt_duration):
+        """Sets the safe_auth_exempt_duration of this LoginProfileForGetLoginProfileOutput.
+
+
+        :param safe_auth_exempt_duration: The safe_auth_exempt_duration of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._safe_auth_exempt_duration = safe_auth_exempt_duration
+
+    @property
+    def safe_auth_exempt_required(self):
+        """Gets the safe_auth_exempt_required of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+
+
+        :return: The safe_auth_exempt_required of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._safe_auth_exempt_required
+
+    @safe_auth_exempt_required.setter
+    def safe_auth_exempt_required(self, safe_auth_exempt_required):
+        """Sets the safe_auth_exempt_required of this LoginProfileForGetLoginProfileOutput.
+
+
+        :param safe_auth_exempt_required: The safe_auth_exempt_required of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._safe_auth_exempt_required = safe_auth_exempt_required
+
+    @property
+    def safe_auth_exempt_unit(self):
+        """Gets the safe_auth_exempt_unit of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+
+
+        :return: The safe_auth_exempt_unit of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._safe_auth_exempt_unit
+
+    @safe_auth_exempt_unit.setter
+    def safe_auth_exempt_unit(self, safe_auth_exempt_unit):
+        """Sets the safe_auth_exempt_unit of this LoginProfileForGetLoginProfileOutput.
+
+
+        :param safe_auth_exempt_unit: The safe_auth_exempt_unit of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._safe_auth_exempt_unit = safe_auth_exempt_unit
+
+    @property
+    def safe_auth_flag(self):
+        """Gets the safe_auth_flag of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+
+
+        :return: The safe_auth_flag of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._safe_auth_flag
+
+    @safe_auth_flag.setter
+    def safe_auth_flag(self, safe_auth_flag):
+        """Sets the safe_auth_flag of this LoginProfileForGetLoginProfileOutput.
+
+
+        :param safe_auth_flag: The safe_auth_flag of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._safe_auth_flag = safe_auth_flag
+
+    @property
+    def safe_auth_type(self):
+        """Gets the safe_auth_type of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+
+
+        :return: The safe_auth_type of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._safe_auth_type
+
+    @safe_auth_type.setter
+    def safe_auth_type(self, safe_auth_type):
+        """Sets the safe_auth_type of this LoginProfileForGetLoginProfileOutput.
+
+
+        :param safe_auth_type: The safe_auth_type of this LoginProfileForGetLoginProfileOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._safe_auth_type = safe_auth_type
 
     @property
     def status(self):
