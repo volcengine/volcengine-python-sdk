@@ -33,23 +33,28 @@ class DeleteAccessKeyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_key_id': 'str'
+        'access_key_id': 'str',
+        'user_name': 'str'
     }
 
     attribute_map = {
-        'access_key_id': 'AccessKeyId'
+        'access_key_id': 'AccessKeyId',
+        'user_name': 'UserName'
     }
 
-    def __init__(self, access_key_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key_id=None, user_name=None, _configuration=None):  # noqa: E501
         """DeleteAccessKeyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._access_key_id = None
+        self._user_name = None
         self.discriminator = None
 
         self.access_key_id = access_key_id
+        if user_name is not None:
+            self.user_name = user_name
 
     @property
     def access_key_id(self):
@@ -73,6 +78,27 @@ class DeleteAccessKeyRequest(object):
             raise ValueError("Invalid value for `access_key_id`, must not be `None`")  # noqa: E501
 
         self._access_key_id = access_key_id
+
+    @property
+    def user_name(self):
+        """Gets the user_name of this DeleteAccessKeyRequest.  # noqa: E501
+
+
+        :return: The user_name of this DeleteAccessKeyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_name
+
+    @user_name.setter
+    def user_name(self, user_name):
+        """Sets the user_name of this DeleteAccessKeyRequest.
+
+
+        :param user_name: The user_name of this DeleteAccessKeyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._user_name = user_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

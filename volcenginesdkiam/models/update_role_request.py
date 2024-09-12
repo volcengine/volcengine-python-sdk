@@ -35,6 +35,7 @@ class UpdateRoleRequest(object):
     swagger_types = {
         'description': 'str',
         'display_name': 'str',
+        'max_session_duration': 'int',
         'new_role_name': 'str',
         'role_name': 'str',
         'trust_policy_document': 'str'
@@ -43,12 +44,13 @@ class UpdateRoleRequest(object):
     attribute_map = {
         'description': 'Description',
         'display_name': 'DisplayName',
+        'max_session_duration': 'MaxSessionDuration',
         'new_role_name': 'NewRoleName',
         'role_name': 'RoleName',
         'trust_policy_document': 'TrustPolicyDocument'
     }
 
-    def __init__(self, description=None, display_name=None, new_role_name=None, role_name=None, trust_policy_document=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, display_name=None, max_session_duration=None, new_role_name=None, role_name=None, trust_policy_document=None, _configuration=None):  # noqa: E501
         """UpdateRoleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class UpdateRoleRequest(object):
 
         self._description = None
         self._display_name = None
+        self._max_session_duration = None
         self._new_role_name = None
         self._role_name = None
         self._trust_policy_document = None
@@ -65,6 +68,8 @@ class UpdateRoleRequest(object):
             self.description = description
         if display_name is not None:
             self.display_name = display_name
+        if max_session_duration is not None:
+            self.max_session_duration = max_session_duration
         if new_role_name is not None:
             self.new_role_name = new_role_name
         self.role_name = role_name
@@ -111,6 +116,27 @@ class UpdateRoleRequest(object):
         """
 
         self._display_name = display_name
+
+    @property
+    def max_session_duration(self):
+        """Gets the max_session_duration of this UpdateRoleRequest.  # noqa: E501
+
+
+        :return: The max_session_duration of this UpdateRoleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_session_duration
+
+    @max_session_duration.setter
+    def max_session_duration(self, max_session_duration):
+        """Sets the max_session_duration of this UpdateRoleRequest.
+
+
+        :param max_session_duration: The max_session_duration of this UpdateRoleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._max_session_duration = max_session_duration
 
     @property
     def new_role_name(self):
