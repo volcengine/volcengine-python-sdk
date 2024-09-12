@@ -34,6 +34,7 @@ class RuleForModifyRulesInput(object):
     """
     swagger_types = {
         'description': 'str',
+        'forward_group_config': 'ForwardGroupConfigForModifyRulesInput',
         'redirect_config': 'RedirectConfigForModifyRulesInput',
         'rewrite_config': 'RewriteConfigForModifyRulesInput',
         'rewrite_enabled': 'str',
@@ -46,6 +47,7 @@ class RuleForModifyRulesInput(object):
 
     attribute_map = {
         'description': 'Description',
+        'forward_group_config': 'ForwardGroupConfig',
         'redirect_config': 'RedirectConfig',
         'rewrite_config': 'RewriteConfig',
         'rewrite_enabled': 'RewriteEnabled',
@@ -56,13 +58,14 @@ class RuleForModifyRulesInput(object):
         'traffic_limit_qps': 'TrafficLimitQPS'
     }
 
-    def __init__(self, description=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, rule_id=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, forward_group_config=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, rule_id=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, _configuration=None):  # noqa: E501
         """RuleForModifyRulesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._forward_group_config = None
         self._redirect_config = None
         self._rewrite_config = None
         self._rewrite_enabled = None
@@ -75,6 +78,8 @@ class RuleForModifyRulesInput(object):
 
         if description is not None:
             self.description = description
+        if forward_group_config is not None:
+            self.forward_group_config = forward_group_config
         if redirect_config is not None:
             self.redirect_config = redirect_config
         if rewrite_config is not None:
@@ -111,6 +116,27 @@ class RuleForModifyRulesInput(object):
         """
 
         self._description = description
+
+    @property
+    def forward_group_config(self):
+        """Gets the forward_group_config of this RuleForModifyRulesInput.  # noqa: E501
+
+
+        :return: The forward_group_config of this RuleForModifyRulesInput.  # noqa: E501
+        :rtype: ForwardGroupConfigForModifyRulesInput
+        """
+        return self._forward_group_config
+
+    @forward_group_config.setter
+    def forward_group_config(self, forward_group_config):
+        """Sets the forward_group_config of this RuleForModifyRulesInput.
+
+
+        :param forward_group_config: The forward_group_config of this RuleForModifyRulesInput.  # noqa: E501
+        :type: ForwardGroupConfigForModifyRulesInput
+        """
+
+        self._forward_group_config = forward_group_config
 
     @property
     def redirect_config(self):

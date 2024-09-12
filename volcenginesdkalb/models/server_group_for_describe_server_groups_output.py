@@ -45,6 +45,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'server_group_type': 'str',
         'status': 'str',
         'sticky_session_config': 'StickySessionConfigForDescribeServerGroupsOutput',
+        'tags': 'list[TagForDescribeServerGroupsOutput]',
         'update_time': 'str',
         'vpc_id': 'str'
     }
@@ -62,11 +63,12 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'server_group_type': 'ServerGroupType',
         'status': 'Status',
         'sticky_session_config': 'StickySessionConfig',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, create_time=None, description=None, health_check=None, listeners=None, project_name=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, server_group_type=None, status=None, sticky_session_config=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, health_check=None, listeners=None, project_name=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, server_group_type=None, status=None, sticky_session_config=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ServerGroupForDescribeServerGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +86,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         self._server_group_type = None
         self._status = None
         self._sticky_session_config = None
+        self._tags = None
         self._update_time = None
         self._vpc_id = None
         self.discriminator = None
@@ -112,6 +115,8 @@ class ServerGroupForDescribeServerGroupsOutput(object):
             self.status = status
         if sticky_session_config is not None:
             self.sticky_session_config = sticky_session_config
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vpc_id is not None:
@@ -368,6 +373,27 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         """
 
         self._sticky_session_config = sticky_session_config
+
+    @property
+    def tags(self):
+        """Gets the tags of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The tags of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeServerGroupsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ServerGroupForDescribeServerGroupsOutput.
+
+
+        :param tags: The tags of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :type: list[TagForDescribeServerGroupsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

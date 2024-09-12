@@ -45,6 +45,7 @@ class DescribeServerGroupAttributesResponse(object):
         'servers': 'list[ServerForDescribeServerGroupAttributesOutput]',
         'status': 'str',
         'sticky_session_config': 'StickySessionConfigForDescribeServerGroupAttributesOutput',
+        'tags': 'list[TagForDescribeServerGroupAttributesOutput]',
         'vpc_id': 'str'
     }
 
@@ -61,10 +62,11 @@ class DescribeServerGroupAttributesResponse(object):
         'servers': 'Servers',
         'status': 'Status',
         'sticky_session_config': 'StickySessionConfig',
+        'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, health_check=None, listeners=None, project_name=None, request_id=None, scheduler=None, server_group_id=None, server_group_name=None, server_group_type=None, servers=None, status=None, sticky_session_config=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check=None, listeners=None, project_name=None, request_id=None, scheduler=None, server_group_id=None, server_group_name=None, server_group_type=None, servers=None, status=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class DescribeServerGroupAttributesResponse(object):
         self._servers = None
         self._status = None
         self._sticky_session_config = None
+        self._tags = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -109,6 +112,8 @@ class DescribeServerGroupAttributesResponse(object):
             self.status = status
         if sticky_session_config is not None:
             self.sticky_session_config = sticky_session_config
+        if tags is not None:
+            self.tags = tags
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -363,6 +368,27 @@ class DescribeServerGroupAttributesResponse(object):
         """
 
         self._sticky_session_config = sticky_session_config
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeServerGroupAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeServerGroupAttributesResponse.
+
+
+        :param tags: The tags of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeServerGroupAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):
