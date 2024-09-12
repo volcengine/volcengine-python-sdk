@@ -33,7 +33,7 @@ class ListAttachedUserPoliciesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'attached_policy_metadata': 'list[AttachedPolicyMetadatumForListAttachedUserPoliciesOutput]'
+        'attached_policy_metadata': 'list[AttachedPolicyMetadataForListAttachedUserPoliciesOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class ListAttachedUserPoliciesResponse(object):
 
 
         :return: The attached_policy_metadata of this ListAttachedUserPoliciesResponse.  # noqa: E501
-        :rtype: list[AttachedPolicyMetadatumForListAttachedUserPoliciesOutput]
+        :rtype: list[AttachedPolicyMetadataForListAttachedUserPoliciesOutput]
         """
         return self._attached_policy_metadata
 
@@ -68,7 +68,7 @@ class ListAttachedUserPoliciesResponse(object):
 
 
         :param attached_policy_metadata: The attached_policy_metadata of this ListAttachedUserPoliciesResponse.  # noqa: E501
-        :type: list[AttachedPolicyMetadatumForListAttachedUserPoliciesOutput]
+        :type: list[AttachedPolicyMetadataForListAttachedUserPoliciesOutput]
         """
 
         self._attached_policy_metadata = attached_policy_metadata

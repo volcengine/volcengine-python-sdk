@@ -33,49 +33,23 @@ class GetSecurityConfigRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'origin': 'str',
         'user_name': 'str'
     }
 
     attribute_map = {
-        'origin': 'Origin',
         'user_name': 'UserName'
     }
 
-    def __init__(self, origin=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, user_name=None, _configuration=None):  # noqa: E501
         """GetSecurityConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._origin = None
         self._user_name = None
         self.discriminator = None
 
-        if origin is not None:
-            self.origin = origin
         self.user_name = user_name
-
-    @property
-    def origin(self):
-        """Gets the origin of this GetSecurityConfigRequest.  # noqa: E501
-
-
-        :return: The origin of this GetSecurityConfigRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._origin
-
-    @origin.setter
-    def origin(self, origin):
-        """Sets the origin of this GetSecurityConfigRequest.
-
-
-        :param origin: The origin of this GetSecurityConfigRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._origin = origin
 
     @property
     def user_name(self):

@@ -33,8 +33,11 @@ class PolicyForGetPolicyOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attachment_count': 'int',
+        'category': 'str',
         'create_date': 'str',
         'description': 'str',
+        'is_service_role_policy': 'int',
         'policy_document': 'str',
         'policy_name': 'str',
         'policy_trn': 'str',
@@ -43,8 +46,11 @@ class PolicyForGetPolicyOutput(object):
     }
 
     attribute_map = {
+        'attachment_count': 'AttachmentCount',
+        'category': 'Category',
         'create_date': 'CreateDate',
         'description': 'Description',
+        'is_service_role_policy': 'IsServiceRolePolicy',
         'policy_document': 'PolicyDocument',
         'policy_name': 'PolicyName',
         'policy_trn': 'PolicyTrn',
@@ -52,14 +58,17 @@ class PolicyForGetPolicyOutput(object):
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, create_date=None, description=None, policy_document=None, policy_name=None, policy_trn=None, policy_type=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, attachment_count=None, category=None, create_date=None, description=None, is_service_role_policy=None, policy_document=None, policy_name=None, policy_trn=None, policy_type=None, update_date=None, _configuration=None):  # noqa: E501
         """PolicyForGetPolicyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attachment_count = None
+        self._category = None
         self._create_date = None
         self._description = None
+        self._is_service_role_policy = None
         self._policy_document = None
         self._policy_name = None
         self._policy_trn = None
@@ -67,10 +76,16 @@ class PolicyForGetPolicyOutput(object):
         self._update_date = None
         self.discriminator = None
 
+        if attachment_count is not None:
+            self.attachment_count = attachment_count
+        if category is not None:
+            self.category = category
         if create_date is not None:
             self.create_date = create_date
         if description is not None:
             self.description = description
+        if is_service_role_policy is not None:
+            self.is_service_role_policy = is_service_role_policy
         if policy_document is not None:
             self.policy_document = policy_document
         if policy_name is not None:
@@ -81,6 +96,48 @@ class PolicyForGetPolicyOutput(object):
             self.policy_type = policy_type
         if update_date is not None:
             self.update_date = update_date
+
+    @property
+    def attachment_count(self):
+        """Gets the attachment_count of this PolicyForGetPolicyOutput.  # noqa: E501
+
+
+        :return: The attachment_count of this PolicyForGetPolicyOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._attachment_count
+
+    @attachment_count.setter
+    def attachment_count(self, attachment_count):
+        """Sets the attachment_count of this PolicyForGetPolicyOutput.
+
+
+        :param attachment_count: The attachment_count of this PolicyForGetPolicyOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._attachment_count = attachment_count
+
+    @property
+    def category(self):
+        """Gets the category of this PolicyForGetPolicyOutput.  # noqa: E501
+
+
+        :return: The category of this PolicyForGetPolicyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._category
+
+    @category.setter
+    def category(self, category):
+        """Sets the category of this PolicyForGetPolicyOutput.
+
+
+        :param category: The category of this PolicyForGetPolicyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._category = category
 
     @property
     def create_date(self):
@@ -123,6 +180,27 @@ class PolicyForGetPolicyOutput(object):
         """
 
         self._description = description
+
+    @property
+    def is_service_role_policy(self):
+        """Gets the is_service_role_policy of this PolicyForGetPolicyOutput.  # noqa: E501
+
+
+        :return: The is_service_role_policy of this PolicyForGetPolicyOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_service_role_policy
+
+    @is_service_role_policy.setter
+    def is_service_role_policy(self, is_service_role_policy):
+        """Sets the is_service_role_policy of this PolicyForGetPolicyOutput.
+
+
+        :param is_service_role_policy: The is_service_role_policy of this PolicyForGetPolicyOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_service_role_policy = is_service_role_policy
 
     @property
     def policy_document(self):

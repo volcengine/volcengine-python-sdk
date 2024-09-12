@@ -39,6 +39,7 @@ class DescribeServerGroupsRequest(object):
         'server_group_ids': 'list[str]',
         'server_group_names': 'list[str]',
         'server_group_type': 'str',
+        'tag_filters': 'list[TagFilterForDescribeServerGroupsInput]',
         'vpc_id': 'str'
     }
 
@@ -49,10 +50,11 @@ class DescribeServerGroupsRequest(object):
         'server_group_ids': 'ServerGroupIds',
         'server_group_names': 'ServerGroupNames',
         'server_group_type': 'ServerGroupType',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcID'
     }
 
-    def __init__(self, page_number=None, page_size=None, project_name=None, server_group_ids=None, server_group_names=None, server_group_type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, project_name=None, server_group_ids=None, server_group_names=None, server_group_type=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class DescribeServerGroupsRequest(object):
         self._server_group_ids = None
         self._server_group_names = None
         self._server_group_type = None
+        self._tag_filters = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class DescribeServerGroupsRequest(object):
             self.server_group_names = server_group_names
         if server_group_type is not None:
             self.server_group_type = server_group_type
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -207,6 +212,27 @@ class DescribeServerGroupsRequest(object):
         """
 
         self._server_group_type = server_group_type
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeServerGroupsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeServerGroupsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeServerGroupsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeServerGroupsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeServerGroupsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeServerGroupsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):

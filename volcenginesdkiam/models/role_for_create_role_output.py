@@ -35,22 +35,30 @@ class RoleForCreateRoleOutput(object):
     swagger_types = {
         'create_date': 'str',
         'description': 'str',
+        'display_name': 'str',
+        'is_service_linked_role': 'int',
+        'max_session_duration': 'int',
         'role_id': 'int',
         'role_name': 'str',
         'trn': 'str',
-        'trust_policy_document': 'str'
+        'trust_policy_document': 'str',
+        'update_date': 'str'
     }
 
     attribute_map = {
         'create_date': 'CreateDate',
         'description': 'Description',
+        'display_name': 'DisplayName',
+        'is_service_linked_role': 'IsServiceLinkedRole',
+        'max_session_duration': 'MaxSessionDuration',
         'role_id': 'RoleId',
         'role_name': 'RoleName',
         'trn': 'Trn',
-        'trust_policy_document': 'TrustPolicyDocument'
+        'trust_policy_document': 'TrustPolicyDocument',
+        'update_date': 'UpdateDate'
     }
 
-    def __init__(self, create_date=None, description=None, role_id=None, role_name=None, trn=None, trust_policy_document=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_date=None, description=None, display_name=None, is_service_linked_role=None, max_session_duration=None, role_id=None, role_name=None, trn=None, trust_policy_document=None, update_date=None, _configuration=None):  # noqa: E501
         """RoleForCreateRoleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,16 +66,26 @@ class RoleForCreateRoleOutput(object):
 
         self._create_date = None
         self._description = None
+        self._display_name = None
+        self._is_service_linked_role = None
+        self._max_session_duration = None
         self._role_id = None
         self._role_name = None
         self._trn = None
         self._trust_policy_document = None
+        self._update_date = None
         self.discriminator = None
 
         if create_date is not None:
             self.create_date = create_date
         if description is not None:
             self.description = description
+        if display_name is not None:
+            self.display_name = display_name
+        if is_service_linked_role is not None:
+            self.is_service_linked_role = is_service_linked_role
+        if max_session_duration is not None:
+            self.max_session_duration = max_session_duration
         if role_id is not None:
             self.role_id = role_id
         if role_name is not None:
@@ -76,6 +94,8 @@ class RoleForCreateRoleOutput(object):
             self.trn = trn
         if trust_policy_document is not None:
             self.trust_policy_document = trust_policy_document
+        if update_date is not None:
+            self.update_date = update_date
 
     @property
     def create_date(self):
@@ -118,6 +138,69 @@ class RoleForCreateRoleOutput(object):
         """
 
         self._description = description
+
+    @property
+    def display_name(self):
+        """Gets the display_name of this RoleForCreateRoleOutput.  # noqa: E501
+
+
+        :return: The display_name of this RoleForCreateRoleOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._display_name
+
+    @display_name.setter
+    def display_name(self, display_name):
+        """Sets the display_name of this RoleForCreateRoleOutput.
+
+
+        :param display_name: The display_name of this RoleForCreateRoleOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._display_name = display_name
+
+    @property
+    def is_service_linked_role(self):
+        """Gets the is_service_linked_role of this RoleForCreateRoleOutput.  # noqa: E501
+
+
+        :return: The is_service_linked_role of this RoleForCreateRoleOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_service_linked_role
+
+    @is_service_linked_role.setter
+    def is_service_linked_role(self, is_service_linked_role):
+        """Sets the is_service_linked_role of this RoleForCreateRoleOutput.
+
+
+        :param is_service_linked_role: The is_service_linked_role of this RoleForCreateRoleOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_service_linked_role = is_service_linked_role
+
+    @property
+    def max_session_duration(self):
+        """Gets the max_session_duration of this RoleForCreateRoleOutput.  # noqa: E501
+
+
+        :return: The max_session_duration of this RoleForCreateRoleOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_session_duration
+
+    @max_session_duration.setter
+    def max_session_duration(self, max_session_duration):
+        """Sets the max_session_duration of this RoleForCreateRoleOutput.
+
+
+        :param max_session_duration: The max_session_duration of this RoleForCreateRoleOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_session_duration = max_session_duration
 
     @property
     def role_id(self):
@@ -202,6 +285,27 @@ class RoleForCreateRoleOutput(object):
         """
 
         self._trust_policy_document = trust_policy_document
+
+    @property
+    def update_date(self):
+        """Gets the update_date of this RoleForCreateRoleOutput.  # noqa: E501
+
+
+        :return: The update_date of this RoleForCreateRoleOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_date
+
+    @update_date.setter
+    def update_date(self, update_date):
+        """Sets the update_date of this RoleForCreateRoleOutput.
+
+
+        :param update_date: The update_date of this RoleForCreateRoleOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._update_date = update_date
 
     def to_dict(self):
         """Returns the model properties as a dict"""

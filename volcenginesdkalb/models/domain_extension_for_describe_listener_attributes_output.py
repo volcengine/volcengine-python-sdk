@@ -38,7 +38,8 @@ class DomainExtensionForDescribeListenerAttributesOutput(object):
         'certificate_source': 'str',
         'domain': 'str',
         'domain_extension_id': 'str',
-        'listener_id': 'str'
+        'listener_id': 'str',
+        'san': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class DomainExtensionForDescribeListenerAttributesOutput(object):
         'certificate_source': 'CertificateSource',
         'domain': 'Domain',
         'domain_extension_id': 'DomainExtensionId',
-        'listener_id': 'ListenerId'
+        'listener_id': 'ListenerId',
+        'san': 'San'
     }
 
-    def __init__(self, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, domain=None, domain_extension_id=None, listener_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, domain=None, domain_extension_id=None, listener_id=None, san=None, _configuration=None):  # noqa: E501
         """DomainExtensionForDescribeListenerAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DomainExtensionForDescribeListenerAttributesOutput(object):
         self._domain = None
         self._domain_extension_id = None
         self._listener_id = None
+        self._san = None
         self.discriminator = None
 
         if cert_center_certificate_id is not None:
@@ -76,6 +79,8 @@ class DomainExtensionForDescribeListenerAttributesOutput(object):
             self.domain_extension_id = domain_extension_id
         if listener_id is not None:
             self.listener_id = listener_id
+        if san is not None:
+            self.san = san
 
     @property
     def cert_center_certificate_id(self):
@@ -202,6 +207,27 @@ class DomainExtensionForDescribeListenerAttributesOutput(object):
         """
 
         self._listener_id = listener_id
+
+    @property
+    def san(self):
+        """Gets the san of this DomainExtensionForDescribeListenerAttributesOutput.  # noqa: E501
+
+
+        :return: The san of this DomainExtensionForDescribeListenerAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._san
+
+    @san.setter
+    def san(self, san):
+        """Sets the san of this DomainExtensionForDescribeListenerAttributesOutput.
+
+
+        :param san: The san of this DomainExtensionForDescribeListenerAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._san = san
 
     def to_dict(self):
         """Returns the model properties as a dict"""

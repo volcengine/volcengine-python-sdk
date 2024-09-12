@@ -35,6 +35,7 @@ class CreateRoleRequest(object):
     swagger_types = {
         'description': 'str',
         'display_name': 'str',
+        'max_session_duration': 'int',
         'role_name': 'str',
         'tags': 'list[TagForCreateRoleInput]',
         'trust_policy_document': 'str'
@@ -43,12 +44,13 @@ class CreateRoleRequest(object):
     attribute_map = {
         'description': 'Description',
         'display_name': 'DisplayName',
+        'max_session_duration': 'MaxSessionDuration',
         'role_name': 'RoleName',
         'tags': 'Tags',
         'trust_policy_document': 'TrustPolicyDocument'
     }
 
-    def __init__(self, description=None, display_name=None, role_name=None, tags=None, trust_policy_document=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, display_name=None, max_session_duration=None, role_name=None, tags=None, trust_policy_document=None, _configuration=None):  # noqa: E501
         """CreateRoleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateRoleRequest(object):
 
         self._description = None
         self._display_name = None
+        self._max_session_duration = None
         self._role_name = None
         self._tags = None
         self._trust_policy_document = None
@@ -64,6 +67,8 @@ class CreateRoleRequest(object):
         if description is not None:
             self.description = description
         self.display_name = display_name
+        if max_session_duration is not None:
+            self.max_session_duration = max_session_duration
         self.role_name = role_name
         if tags is not None:
             self.tags = tags
@@ -113,6 +118,27 @@ class CreateRoleRequest(object):
             raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
 
         self._display_name = display_name
+
+    @property
+    def max_session_duration(self):
+        """Gets the max_session_duration of this CreateRoleRequest.  # noqa: E501
+
+
+        :return: The max_session_duration of this CreateRoleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_session_duration
+
+    @max_session_duration.setter
+    def max_session_duration(self, max_session_duration):
+        """Sets the max_session_duration of this CreateRoleRequest.
+
+
+        :param max_session_duration: The max_session_duration of this CreateRoleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._max_session_duration = max_session_duration
 
     @property
     def role_name(self):

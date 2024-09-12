@@ -33,7 +33,7 @@ class ListAccessKeysResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_key_metadata': 'list[AccessKeyMetadatumForListAccessKeysOutput]'
+        'access_key_metadata': 'list[AccessKeyMetadataForListAccessKeysOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class ListAccessKeysResponse(object):
 
 
         :return: The access_key_metadata of this ListAccessKeysResponse.  # noqa: E501
-        :rtype: list[AccessKeyMetadatumForListAccessKeysOutput]
+        :rtype: list[AccessKeyMetadataForListAccessKeysOutput]
         """
         return self._access_key_metadata
 
@@ -68,7 +68,7 @@ class ListAccessKeysResponse(object):
 
 
         :param access_key_metadata: The access_key_metadata of this ListAccessKeysResponse.  # noqa: E501
-        :type: list[AccessKeyMetadatumForListAccessKeysOutput]
+        :type: list[AccessKeyMetadataForListAccessKeysOutput]
         """
 
         self._access_key_metadata = access_key_metadata

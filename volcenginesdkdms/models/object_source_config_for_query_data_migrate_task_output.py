@@ -34,35 +34,43 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
     """
     swagger_types = {
         'bucket_access_config': 'BucketAccessConfigForQueryDataMigrateTaskOutput',
+        'is_excluded': 'bool',
         'key_list_file': 'str',
         'prefix_list': 'list[str]',
         'prefix_list_file': 'str',
-        'scan_with_delimiter': 'bool'
+        'scan_with_delimiter': 'bool',
+        'start_time': 'str'
     }
 
     attribute_map = {
         'bucket_access_config': 'BucketAccessConfig',
+        'is_excluded': 'IsExcluded',
         'key_list_file': 'KeyListFile',
         'prefix_list': 'PrefixList',
         'prefix_list_file': 'PrefixListFile',
-        'scan_with_delimiter': 'ScanWithDelimiter'
+        'scan_with_delimiter': 'ScanWithDelimiter',
+        'start_time': 'StartTime'
     }
 
-    def __init__(self, bucket_access_config=None, key_list_file=None, prefix_list=None, prefix_list_file=None, scan_with_delimiter=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_access_config=None, is_excluded=None, key_list_file=None, prefix_list=None, prefix_list_file=None, scan_with_delimiter=None, start_time=None, _configuration=None):  # noqa: E501
         """ObjectSourceConfigForQueryDataMigrateTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bucket_access_config = None
+        self._is_excluded = None
         self._key_list_file = None
         self._prefix_list = None
         self._prefix_list_file = None
         self._scan_with_delimiter = None
+        self._start_time = None
         self.discriminator = None
 
         if bucket_access_config is not None:
             self.bucket_access_config = bucket_access_config
+        if is_excluded is not None:
+            self.is_excluded = is_excluded
         if key_list_file is not None:
             self.key_list_file = key_list_file
         if prefix_list is not None:
@@ -71,6 +79,8 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
             self.prefix_list_file = prefix_list_file
         if scan_with_delimiter is not None:
             self.scan_with_delimiter = scan_with_delimiter
+        if start_time is not None:
+            self.start_time = start_time
 
     @property
     def bucket_access_config(self):
@@ -92,6 +102,27 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
         """
 
         self._bucket_access_config = bucket_access_config
+
+    @property
+    def is_excluded(self):
+        """Gets the is_excluded of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+
+
+        :return: The is_excluded of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_excluded
+
+    @is_excluded.setter
+    def is_excluded(self, is_excluded):
+        """Sets the is_excluded of this ObjectSourceConfigForQueryDataMigrateTaskOutput.
+
+
+        :param is_excluded: The is_excluded of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_excluded = is_excluded
 
     @property
     def key_list_file(self):
@@ -176,6 +207,27 @@ class ObjectSourceConfigForQueryDataMigrateTaskOutput(object):
         """
 
         self._scan_with_delimiter = scan_with_delimiter
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+
+
+        :return: The start_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.
+
+
+        :param start_time: The start_time of this ObjectSourceConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._start_time = start_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

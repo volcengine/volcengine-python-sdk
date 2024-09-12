@@ -33,23 +33,76 @@ class GetUserRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_key_id': 'str',
+        'id': 'int',
         'user_name': 'str'
     }
 
     attribute_map = {
+        'access_key_id': 'AccessKeyID',
+        'id': 'ID',
         'user_name': 'UserName'
     }
 
-    def __init__(self, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key_id=None, id=None, user_name=None, _configuration=None):  # noqa: E501
         """GetUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._access_key_id = None
+        self._id = None
         self._user_name = None
         self.discriminator = None
 
-        self.user_name = user_name
+        if access_key_id is not None:
+            self.access_key_id = access_key_id
+        if id is not None:
+            self.id = id
+        if user_name is not None:
+            self.user_name = user_name
+
+    @property
+    def access_key_id(self):
+        """Gets the access_key_id of this GetUserRequest.  # noqa: E501
+
+
+        :return: The access_key_id of this GetUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._access_key_id
+
+    @access_key_id.setter
+    def access_key_id(self, access_key_id):
+        """Sets the access_key_id of this GetUserRequest.
+
+
+        :param access_key_id: The access_key_id of this GetUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._access_key_id = access_key_id
+
+    @property
+    def id(self):
+        """Gets the id of this GetUserRequest.  # noqa: E501
+
+
+        :return: The id of this GetUserRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this GetUserRequest.
+
+
+        :param id: The id of this GetUserRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     @property
     def user_name(self):
@@ -69,8 +122,6 @@ class GetUserRequest(object):
         :param user_name: The user_name of this GetUserRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and user_name is None:
-            raise ValueError("Invalid value for `user_name`, must not be `None`")  # noqa: E501
 
         self._user_name = user_name
 

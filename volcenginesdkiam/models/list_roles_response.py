@@ -35,7 +35,7 @@ class ListRolesResponse(object):
     swagger_types = {
         'limit': 'int',
         'offset': 'int',
-        'role_metadata': 'list[RoleMetadatumForListRolesOutput]',
+        'role_metadata': 'list[RoleMetadataForListRolesOutput]',
         'total': 'int'
     }
 
@@ -115,7 +115,7 @@ class ListRolesResponse(object):
 
 
         :return: The role_metadata of this ListRolesResponse.  # noqa: E501
-        :rtype: list[RoleMetadatumForListRolesOutput]
+        :rtype: list[RoleMetadataForListRolesOutput]
         """
         return self._role_metadata
 
@@ -125,7 +125,7 @@ class ListRolesResponse(object):
 
 
         :param role_metadata: The role_metadata of this ListRolesResponse.  # noqa: E501
-        :type: list[RoleMetadatumForListRolesOutput]
+        :type: list[RoleMetadataForListRolesOutput]
         """
 
         self._role_metadata = role_metadata

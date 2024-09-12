@@ -102,7 +102,7 @@ class TagResourcesRequest(object):
         """
         if self._configuration.client_side_validation and resource_type is None:
             raise ValueError("Invalid value for `resource_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["loadbalancer"]  # noqa: E501
+        allowed_values = ["loadbalancer", "listener", "servergroup"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 resource_type not in allowed_values):
             raise ValueError(

@@ -36,17 +36,23 @@ class ModifyLoadBalancerAttributesRequest(object):
         'delete_protection': 'str',
         'description': 'str',
         'load_balancer_id': 'str',
-        'load_balancer_name': 'str'
+        'load_balancer_name': 'str',
+        'waf_instance_id': 'str',
+        'waf_protected_domain': 'str',
+        'waf_protection_enabled': 'str'
     }
 
     attribute_map = {
         'delete_protection': 'DeleteProtection',
         'description': 'Description',
         'load_balancer_id': 'LoadBalancerId',
-        'load_balancer_name': 'LoadBalancerName'
+        'load_balancer_name': 'LoadBalancerName',
+        'waf_instance_id': 'WafInstanceId',
+        'waf_protected_domain': 'WafProtectedDomain',
+        'waf_protection_enabled': 'WafProtectionEnabled'
     }
 
-    def __init__(self, delete_protection=None, description=None, load_balancer_id=None, load_balancer_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_protection=None, description=None, load_balancer_id=None, load_balancer_name=None, waf_instance_id=None, waf_protected_domain=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
         """ModifyLoadBalancerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +62,9 @@ class ModifyLoadBalancerAttributesRequest(object):
         self._description = None
         self._load_balancer_id = None
         self._load_balancer_name = None
+        self._waf_instance_id = None
+        self._waf_protected_domain = None
+        self._waf_protection_enabled = None
         self.discriminator = None
 
         if delete_protection is not None:
@@ -65,6 +74,9 @@ class ModifyLoadBalancerAttributesRequest(object):
         self.load_balancer_id = load_balancer_id
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
+        self.waf_instance_id = waf_instance_id
+        self.waf_protected_domain = waf_protected_domain
+        self.waf_protection_enabled = waf_protection_enabled
 
     @property
     def delete_protection(self):
@@ -151,6 +163,75 @@ class ModifyLoadBalancerAttributesRequest(object):
         """
 
         self._load_balancer_name = load_balancer_name
+
+    @property
+    def waf_instance_id(self):
+        """Gets the waf_instance_id of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The waf_instance_id of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_instance_id
+
+    @waf_instance_id.setter
+    def waf_instance_id(self, waf_instance_id):
+        """Sets the waf_instance_id of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param waf_instance_id: The waf_instance_id of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and waf_instance_id is None:
+            raise ValueError("Invalid value for `waf_instance_id`, must not be `None`")  # noqa: E501
+
+        self._waf_instance_id = waf_instance_id
+
+    @property
+    def waf_protected_domain(self):
+        """Gets the waf_protected_domain of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The waf_protected_domain of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_protected_domain
+
+    @waf_protected_domain.setter
+    def waf_protected_domain(self, waf_protected_domain):
+        """Sets the waf_protected_domain of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param waf_protected_domain: The waf_protected_domain of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and waf_protected_domain is None:
+            raise ValueError("Invalid value for `waf_protected_domain`, must not be `None`")  # noqa: E501
+
+        self._waf_protected_domain = waf_protected_domain
+
+    @property
+    def waf_protection_enabled(self):
+        """Gets the waf_protection_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The waf_protection_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._waf_protection_enabled
+
+    @waf_protection_enabled.setter
+    def waf_protection_enabled(self, waf_protection_enabled):
+        """Sets the waf_protection_enabled of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param waf_protection_enabled: The waf_protection_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and waf_protection_enabled is None:
+            raise ValueError("Invalid value for `waf_protection_enabled`, must not be `None`")  # noqa: E501
+
+        self._waf_protection_enabled = waf_protection_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

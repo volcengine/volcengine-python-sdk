@@ -40,6 +40,7 @@ class ModifyListenerAttributesRequest(object):
         'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_source': 'str',
+        'client_address_transmission_protocol': 'str',
         'customized_cfg_id': 'str',
         'description': 'str',
         'domain_extensions': 'list[DomainExtensionForModifyListenerAttributesInput]',
@@ -60,6 +61,7 @@ class ModifyListenerAttributesRequest(object):
         'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_source': 'CertificateSource',
+        'client_address_transmission_protocol': 'ClientAddressTransmissionProtocol',
         'customized_cfg_id': 'CustomizedCfgId',
         'description': 'Description',
         'domain_extensions': 'DomainExtensions',
@@ -72,7 +74,7 @@ class ModifyListenerAttributesRequest(object):
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +87,7 @@ class ModifyListenerAttributesRequest(object):
         self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_source = None
+        self._client_address_transmission_protocol = None
         self._customized_cfg_id = None
         self._description = None
         self._domain_extensions = None
@@ -111,6 +114,8 @@ class ModifyListenerAttributesRequest(object):
             self.certificate_id = certificate_id
         if certificate_source is not None:
             self.certificate_source = certificate_source
+        if client_address_transmission_protocol is not None:
+            self.client_address_transmission_protocol = client_address_transmission_protocol
         if customized_cfg_id is not None:
             self.customized_cfg_id = customized_cfg_id
         if description is not None:
@@ -277,6 +282,27 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._certificate_source = certificate_source
+
+    @property
+    def client_address_transmission_protocol(self):
+        """Gets the client_address_transmission_protocol of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The client_address_transmission_protocol of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_address_transmission_protocol
+
+    @client_address_transmission_protocol.setter
+    def client_address_transmission_protocol(self, client_address_transmission_protocol):
+        """Sets the client_address_transmission_protocol of this ModifyListenerAttributesRequest.
+
+
+        :param client_address_transmission_protocol: The client_address_transmission_protocol of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_address_transmission_protocol = client_address_transmission_protocol
 
     @property
     def customized_cfg_id(self):

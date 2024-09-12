@@ -42,6 +42,7 @@ class CACertificateForDescribeCACertificatesOutput(object):
         'expired_at': 'str',
         'listeners': 'list[str]',
         'project_name': 'str',
+        'san': 'str',
         'status': 'str'
     }
 
@@ -55,10 +56,11 @@ class CACertificateForDescribeCACertificatesOutput(object):
         'expired_at': 'ExpiredAt',
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
+        'san': 'San',
         'status': 'Status'
     }
 
-    def __init__(self, ca_certificate_id=None, ca_certificate_name=None, certificate_type=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, ca_certificate_id=None, ca_certificate_name=None, certificate_type=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, san=None, status=None, _configuration=None):  # noqa: E501
         """CACertificateForDescribeCACertificatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class CACertificateForDescribeCACertificatesOutput(object):
         self._expired_at = None
         self._listeners = None
         self._project_name = None
+        self._san = None
         self._status = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class CACertificateForDescribeCACertificatesOutput(object):
             self.listeners = listeners
         if project_name is not None:
             self.project_name = project_name
+        if san is not None:
+            self.san = san
         if status is not None:
             self.status = status
 
@@ -285,6 +290,27 @@ class CACertificateForDescribeCACertificatesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def san(self):
+        """Gets the san of this CACertificateForDescribeCACertificatesOutput.  # noqa: E501
+
+
+        :return: The san of this CACertificateForDescribeCACertificatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._san
+
+    @san.setter
+    def san(self, san):
+        """Sets the san of this CACertificateForDescribeCACertificatesOutput.
+
+
+        :param san: The san of this CACertificateForDescribeCACertificatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._san = san
 
     @property
     def status(self):

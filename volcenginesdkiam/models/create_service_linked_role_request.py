@@ -33,23 +33,28 @@ class CreateServiceLinkedRoleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'service_name': 'str'
+        'service_name': 'str',
+        'tags': 'list[TagForCreateServiceLinkedRoleInput]'
     }
 
     attribute_map = {
-        'service_name': 'ServiceName'
+        'service_name': 'ServiceName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, service_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, service_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateServiceLinkedRoleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._service_name = None
+        self._tags = None
         self.discriminator = None
 
         self.service_name = service_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def service_name(self):
@@ -73,6 +78,27 @@ class CreateServiceLinkedRoleRequest(object):
             raise ValueError("Invalid value for `service_name`, must not be `None`")  # noqa: E501
 
         self._service_name = service_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateServiceLinkedRoleRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateServiceLinkedRoleRequest.  # noqa: E501
+        :rtype: list[TagForCreateServiceLinkedRoleInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateServiceLinkedRoleRequest.
+
+
+        :param tags: The tags of this CreateServiceLinkedRoleRequest.  # noqa: E501
+        :type: list[TagForCreateServiceLinkedRoleInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -1,4 +1,4 @@
-from typing import Optional, Dict, Any
+from typing import Optional, Dict
 from ..._models import BaseModel
 
 
@@ -42,7 +42,7 @@ class Reference(BaseModel):
     """
     cover_image stands for the cover image of the search result returned by the browsing plugin
     """
-    extra: Optional[Dict[str, Any]] = None
+    extra: Optional[Dict[str, object]] = None
     """
     extra stands for the non-common fields of the search result returned by the browsing plugin, such as weather
     """

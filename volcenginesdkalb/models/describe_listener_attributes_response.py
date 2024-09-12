@@ -40,6 +40,7 @@ class DescribeListenerAttributesResponse(object):
         'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_source': 'str',
+        'client_address_transmission_protocol': 'str',
         'create_time': 'str',
         'customized_cfg_id': 'str',
         'description': 'str',
@@ -58,6 +59,7 @@ class DescribeListenerAttributesResponse(object):
         'server_group_id': 'str',
         'server_groups': 'list[ServerGroupForDescribeListenerAttributesOutput]',
         'status': 'str',
+        'tags': 'list[TagForDescribeListenerAttributesOutput]',
         'update_time': 'str'
     }
 
@@ -69,6 +71,7 @@ class DescribeListenerAttributesResponse(object):
         'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_source': 'CertificateSource',
+        'client_address_transmission_protocol': 'ClientAddressTransmissionProtocol',
         'create_time': 'CreateTime',
         'customized_cfg_id': 'CustomizedCfgId',
         'description': 'Description',
@@ -87,10 +90,11 @@ class DescribeListenerAttributesResponse(object):
         'server_group_id': 'ServerGroupId',
         'server_groups': 'ServerGroups',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, create_time=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, load_balancer_id=None, port=None, project_name=None, protocol=None, proxy_protocol_disabled=None, request_id=None, server_group_id=None, server_groups=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, create_time=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, load_balancer_id=None, port=None, project_name=None, protocol=None, proxy_protocol_disabled=None, request_id=None, server_group_id=None, server_groups=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeListenerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +107,7 @@ class DescribeListenerAttributesResponse(object):
         self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_source = None
+        self._client_address_transmission_protocol = None
         self._create_time = None
         self._customized_cfg_id = None
         self._description = None
@@ -121,6 +126,7 @@ class DescribeListenerAttributesResponse(object):
         self._server_group_id = None
         self._server_groups = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -138,6 +144,8 @@ class DescribeListenerAttributesResponse(object):
             self.certificate_id = certificate_id
         if certificate_source is not None:
             self.certificate_source = certificate_source
+        if client_address_transmission_protocol is not None:
+            self.client_address_transmission_protocol = client_address_transmission_protocol
         if create_time is not None:
             self.create_time = create_time
         if customized_cfg_id is not None:
@@ -174,6 +182,8 @@ class DescribeListenerAttributesResponse(object):
             self.server_groups = server_groups
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -323,6 +333,27 @@ class DescribeListenerAttributesResponse(object):
         """
 
         self._certificate_source = certificate_source
+
+    @property
+    def client_address_transmission_protocol(self):
+        """Gets the client_address_transmission_protocol of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The client_address_transmission_protocol of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_address_transmission_protocol
+
+    @client_address_transmission_protocol.setter
+    def client_address_transmission_protocol(self, client_address_transmission_protocol):
+        """Sets the client_address_transmission_protocol of this DescribeListenerAttributesResponse.
+
+
+        :param client_address_transmission_protocol: The client_address_transmission_protocol of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._client_address_transmission_protocol = client_address_transmission_protocol
 
     @property
     def create_time(self):
@@ -701,6 +732,27 @@ class DescribeListenerAttributesResponse(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeListenerAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeListenerAttributesResponse.
+
+
+        :param tags: The tags of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeListenerAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):
