@@ -37,6 +37,7 @@ class Ark(SyncAPIClient):
     bot_chat: resources.BotChat
     embeddings: resources.Embeddings
     tokenization: resources.Tokenization
+    context: resources.Context
 
     def __init__(
         self,
@@ -93,6 +94,7 @@ class Ark(SyncAPIClient):
         self.bot_chat = resources.BotChat(self)
         self.embeddings = resources.Embeddings(self)
         self.tokenization = resources.Tokenization(self)
+        self.context = resources.Context(self)
         # self.classification = resources.Classification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
@@ -129,6 +131,7 @@ class AsyncArk(AsyncAPIClient):
     bot_chat: resources.AsyncBotChat
     embeddings: resources.AsyncEmbeddings
     tokenization: resources.AsyncTokenization
+    context: resources.AsyncContext
 
     def __init__(
         self,
@@ -184,6 +187,7 @@ class AsyncArk(AsyncAPIClient):
         self.bot_chat = resources.AsyncBotChat(self)
         self.embeddings = resources.AsyncEmbeddings(self)
         self.tokenization = resources.AsyncTokenization(self)
+        self.context = resources.AsyncContext(self)
         # self.classification = resources.AsyncClassification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
