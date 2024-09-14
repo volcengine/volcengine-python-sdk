@@ -33,6 +33,7 @@ class DescribeBackupsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_point_id': 'str',
         'backup_point_name': 'str',
         'backup_strategy_list': 'list[str]',
         'end_time': 'str',
@@ -45,6 +46,7 @@ class DescribeBackupsRequest(object):
     }
 
     attribute_map = {
+        'backup_point_id': 'BackupPointId',
         'backup_point_name': 'BackupPointName',
         'backup_strategy_list': 'BackupStrategyList',
         'end_time': 'EndTime',
@@ -56,12 +58,13 @@ class DescribeBackupsRequest(object):
         'start_time': 'StartTime'
     }
 
-    def __init__(self, backup_point_name=None, backup_strategy_list=None, end_time=None, instance_id=None, page_number=None, page_size=None, project_name=None, scope=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_point_id=None, backup_point_name=None, backup_strategy_list=None, end_time=None, instance_id=None, page_number=None, page_size=None, project_name=None, scope=None, start_time=None, _configuration=None):  # noqa: E501
         """DescribeBackupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_point_id = None
         self._backup_point_name = None
         self._backup_strategy_list = None
         self._end_time = None
@@ -73,6 +76,8 @@ class DescribeBackupsRequest(object):
         self._start_time = None
         self.discriminator = None
 
+        if backup_point_id is not None:
+            self.backup_point_id = backup_point_id
         if backup_point_name is not None:
             self.backup_point_name = backup_point_name
         if backup_strategy_list is not None:
@@ -91,6 +96,27 @@ class DescribeBackupsRequest(object):
             self.scope = scope
         if start_time is not None:
             self.start_time = start_time
+
+    @property
+    def backup_point_id(self):
+        """Gets the backup_point_id of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The backup_point_id of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_point_id
+
+    @backup_point_id.setter
+    def backup_point_id(self, backup_point_id):
+        """Sets the backup_point_id of this DescribeBackupsRequest.
+
+
+        :param backup_point_id: The backup_point_id of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_point_id = backup_point_id
 
     @property
     def backup_point_name(self):
@@ -257,7 +283,7 @@ class DescribeBackupsRequest(object):
         :param scope: The scope of this DescribeBackupsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["OneInstance", "AccountInstances"]  # noqa: E501
+        allowed_values = ["OneInstance", "DestroyedInstances", "AccountInstances"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 scope not in allowed_values):
             raise ValueError(

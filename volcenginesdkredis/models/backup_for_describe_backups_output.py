@@ -38,8 +38,8 @@ class BackupForDescribeBackupsOutput(object):
         'backup_strategy': 'str',
         'backup_type': 'str',
         'end_time': 'str',
-        'instance_detail': 'InstanceDetailForDescribeBackupsOutput',
         'instance_id': 'str',
+        'instance_info': 'InstanceInfoForDescribeBackupsOutput',
         'project_name': 'str',
         'size': 'int',
         'start_time': 'str',
@@ -53,8 +53,8 @@ class BackupForDescribeBackupsOutput(object):
         'backup_strategy': 'BackupStrategy',
         'backup_type': 'BackupType',
         'end_time': 'EndTime',
-        'instance_detail': 'InstanceDetail',
         'instance_id': 'InstanceId',
+        'instance_info': 'InstanceInfo',
         'project_name': 'ProjectName',
         'size': 'Size',
         'start_time': 'StartTime',
@@ -62,7 +62,7 @@ class BackupForDescribeBackupsOutput(object):
         'ttl': 'TTL'
     }
 
-    def __init__(self, backup_point_id=None, backup_point_name=None, backup_strategy=None, backup_type=None, end_time=None, instance_detail=None, instance_id=None, project_name=None, size=None, start_time=None, status=None, ttl=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_point_id=None, backup_point_name=None, backup_strategy=None, backup_type=None, end_time=None, instance_id=None, instance_info=None, project_name=None, size=None, start_time=None, status=None, ttl=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,8 +73,8 @@ class BackupForDescribeBackupsOutput(object):
         self._backup_strategy = None
         self._backup_type = None
         self._end_time = None
-        self._instance_detail = None
         self._instance_id = None
+        self._instance_info = None
         self._project_name = None
         self._size = None
         self._start_time = None
@@ -92,10 +92,10 @@ class BackupForDescribeBackupsOutput(object):
             self.backup_type = backup_type
         if end_time is not None:
             self.end_time = end_time
-        if instance_detail is not None:
-            self.instance_detail = instance_detail
         if instance_id is not None:
             self.instance_id = instance_id
+        if instance_info is not None:
+            self.instance_info = instance_info
         if project_name is not None:
             self.project_name = project_name
         if size is not None:
@@ -213,27 +213,6 @@ class BackupForDescribeBackupsOutput(object):
         self._end_time = end_time
 
     @property
-    def instance_detail(self):
-        """Gets the instance_detail of this BackupForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The instance_detail of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :rtype: InstanceDetailForDescribeBackupsOutput
-        """
-        return self._instance_detail
-
-    @instance_detail.setter
-    def instance_detail(self, instance_detail):
-        """Sets the instance_detail of this BackupForDescribeBackupsOutput.
-
-
-        :param instance_detail: The instance_detail of this BackupForDescribeBackupsOutput.  # noqa: E501
-        :type: InstanceDetailForDescribeBackupsOutput
-        """
-
-        self._instance_detail = instance_detail
-
-    @property
     def instance_id(self):
         """Gets the instance_id of this BackupForDescribeBackupsOutput.  # noqa: E501
 
@@ -253,6 +232,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def instance_info(self):
+        """Gets the instance_info of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The instance_info of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: InstanceInfoForDescribeBackupsOutput
+        """
+        return self._instance_info
+
+    @instance_info.setter
+    def instance_info(self, instance_info):
+        """Sets the instance_info of this BackupForDescribeBackupsOutput.
+
+
+        :param instance_info: The instance_info of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: InstanceInfoForDescribeBackupsOutput
+        """
+
+        self._instance_info = instance_info
 
     @property
     def project_name(self):
