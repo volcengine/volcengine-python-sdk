@@ -1,16 +1,7 @@
-from typing import List, Optional
-
 from ..._models import BaseModel
-from typing_extensions import Literal
+from .truncation_strategy import TruncationStrategy
 
-__all__ = ["CreateContextResponse", "TruncationStrategy"]
-
-
-class TruncationStrategy(BaseModel):
-    type: Literal["last_history_tokens"]
-    """The truncation strategy to use for the context. The default is last_history_tokens."""
-    last_history_tokens: Optional[int] = None
-    """The number of most recent tokens from the context when constructing the chat completion."""
+__all__ = ["CreateContextResponse"]
 
 
 class CreateContextResponse(BaseModel):

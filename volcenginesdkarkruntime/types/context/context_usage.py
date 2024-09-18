@@ -1,6 +1,8 @@
 from typing import Optional
 from ..._models import BaseModel
 
+__all__ = ["ContextCompletionUsage"]
+
 
 class ContextCompletionUsage(BaseModel):
     prompt_tokens: int = 0
