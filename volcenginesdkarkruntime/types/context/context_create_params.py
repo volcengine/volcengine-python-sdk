@@ -6,7 +6,6 @@ from typing_extensions import Literal, Required, TypedDict
 
 __all__ = [
     "TruncationStrategy",
-    "TTL",
     "TTLTypes",
     "to_optional_ttl"
 ]
