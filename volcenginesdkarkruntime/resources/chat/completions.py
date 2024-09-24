@@ -40,6 +40,16 @@ class Completions(SyncAPIResource):
     def with_streaming_response(self) -> CompletionsWithStreamingResponse:
         return CompletionsWithStreamingResponse(self)
 
+    def encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers):
+        client = self._client._get_endpoint_certificate(model)
+        self._crypto_key, self._crypto_nonce, session_token = client.generate_ecies_key_pair()
+        extra_headers['X-Session-Token'] = session_token
+        for message in messages:
+            if message.get("content", None) is not None:
+                message["content"] = client.encrypt_string_with_key(self._crypto_key,
+                                                                    self._crypto_nonce,
+                                                                    message.get("content"))
+
     @with_sts_token
     def create(
         self,
@@ -68,7 +78,11 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
+        is_encrypt: bool | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
+        if is_encrypt:
+            self.encrypt(model, messages, extra_headers)
+
         return self._post(
             "/chat/completions",
             body={
