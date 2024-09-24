@@ -27,6 +27,8 @@ from ._constants import (
 )
 from ._streaming import Stream
 
+from ._utils._key_agreement import key_agreement_client
+
 __all__ = ["Ark", "AsyncArk"]
 
 
@@ -85,6 +87,7 @@ class Ark(SyncAPIClient):
 
         self._default_stream_cls = Stream
         self._sts_token_manager: StsTokenManager | None = None
+        self._certificate_manager: Dict[str, key_agreement_client] | None = None
 
         self.chat = resources.Chat(self)
         self.bot_chat = resources.BotChat(self)
@@ -98,6 +101,34 @@ class Ark(SyncAPIClient):
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
+
+    def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
+        seed_pem = """-----BEGIN CERTIFICATE-----
+MIICxjCCAm2gAwIBAgIUG8YxEzdBJnYjBEYSc1j2diJ8/uMwCgYIKoZIzj0EAwIw
+gYQxITAfBgNVBAMMGE1hYVMgU0RLIFN1YiBDQSBFQ0MgUDI1NjEbMBkGA1UECgwS
+Vm9sY2FubyBFbmdpbmUgQXJrMREwDwYDVQQLDAhTZWN1cml0eTELMAkGA1UEBhMC
+Q04xEDAOBgNVBAgMB0JlaWppbmcxEDAOBgNVBAcMB0JlaWppbmcwHhcNMjQwMTAz
+MDY1MjM4WhcNMjkwMTAzMDY1MjM4WjCBgjELMAkGA1UEBhMCQ04xEDAOBgNVBAgT
+B0JlaWppbmcxEDAOBgNVBAcTB0JlaWppbmcxGzAZBgNVBAoTElZvbGNhbm8gRW5n
+aW5lIEFyazERMA8GA1UECxMIU2VjdXJpdHkxHzAdBgNVBAMTFk1hYVMgQ3J5cHRv
+IFNESyBPbmxpbmUwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATD7RyZC51FCwuK
+xYKh2ZCwIvbNDvQfosUk3gKc0B/+euemDWDAaVazuBOm8okHsSmUrsEudeksRruG
+LTGu1lBxo4G8MIG5MA4GA1UdDwEB/wQEAwIDiDBYBgNVHR8EUTBPME2gS6BJhkdo
+dHRwOi8vY3JsLnZvbGNjYS5jb20vdm9sYzE/c249NURCNEUwNDNFRjQ3MEY3RDBB
+REU0RDIyMTNBNTU1NTEzMjEyOEM3MzA4BggrBgEFBQcBAQQsMCowKAYIKwYBBQUH
+MAGGHGh0dHA6Ly9vY3NwLnZvbGNjYS5jb20vdm9sYzEwEwYDVR0lBAwwCgYIKwYB
+BQUHAwEwCgYIKoZIzj0EAwIDRwAwRAIgFSel9WBkyPmpdG6YzReb7ShCVKq3scT3
+9T2mfBgooPkCIHpRalKvIJX5S9oSyTf6iQiUcwzfUHd47Ew+PUV7O6aq
+-----END CERTIFICATE-----"""
+        if self._certificate_manager is None:
+            self._certificate_manager = {}
+        if endpoint_id not in self._certificate_manager:
+            if self.ak is None or self.sk is None:
+                raise ArkAPIError("must set ak and sk before get endpoint token.")
+            self._certificate_manager[endpoint_id] = key_agreement_client(
+                certificate_pem_string=seed_pem
+            )
+        return self._certificate_manager[endpoint_id]
 
     def _get_bot_sts_token(self, bot_id: str):
         if self._sts_token_manager is None:
