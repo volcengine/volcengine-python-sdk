@@ -86,6 +86,13 @@ class key_agreement_client():
         ciphertext = aes_gcm_encrypt_base64_string(key, nonce, plaintext)
         return key, nonce, token, ciphertext
 
+    def encrypt_string_with_key(self, key: bytes, nonce: bytes, plaintext: str) -> str:
+        """encrypt_string encrypt plaintext with ECIES DH protocol
+        """
+        # Encrypt message using AES-GCM
+        ciphertext = aes_gcm_encrypt_base64_string(key, nonce, plaintext)
+        return ciphertext
+
     def generate_ecies_key_pair(self) -> tuple[bytes, bytes, str]:
         """generate_ecies_key_pair generate ECIES key pair
         """
