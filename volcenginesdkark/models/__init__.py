@@ -17,3 +17,5 @@ from __future__ import absolute_import
 # import models into model package
 from volcenginesdkark.models.get_api_key_request import GetApiKeyRequest
 from volcenginesdkark.models.get_api_key_response import GetApiKeyResponse
+from volcenginesdkark.models.get_endpoint_certificate_request import GetEndpointCertificateRequest
+from volcenginesdkark.models.get_endpoint_certificate_response import GetEndpointCertificateResponse
