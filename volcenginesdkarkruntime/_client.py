@@ -283,6 +283,7 @@ class StsTokenManager(object):
         return resp.api_key, resp.expired_time
 
 class E2ECertificateManager(object):
+
     def __init__(self, ak: str, sk: str, region: str):
         self._certificate_manager: Dict[str, key_agreement_client] = {}
 
@@ -302,13 +303,14 @@ class E2ECertificateManager(object):
             id=ep
         )
         try:
-            resp: volcenginesdkark.GetEndpointCertificateResponse = self.api_instance.get_endpoint_certificate(get_endpoint_certificate_request)
+            resp: volcenginesdkark.GetEndpointCertificateResponse = self.api_instance.get_endpoint_certificate(
+                get_endpoint_certificate_request)
         except ApiException as e:
-            print("Exception when calling api: %s\n" % e)
+            raise ArkAPIError("Getting Certificate failed: %s\n" % e)
 
         return resp.pca_instance_certificate
 
-    def get(self, ep: str) -> str:
+    def get(self, ep: str) -> key_agreement_client:
         if ep not in self._certificate_manager:
             cert_pem = self._load_api_key(ep)
             self._certificate_manager[ep] = key_agreement_client(
