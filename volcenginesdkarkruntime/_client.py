@@ -282,8 +282,8 @@ class StsTokenManager(object):
 
         return resp.api_key, resp.expired_time
 
-class E2ECertificateManager(object):
 
+class E2ECertificateManager(object):
 
     def __init__(self, ak: str, sk: str, region: str):
         self._certificate_manager: Dict[str, key_agreement_client] = {}
