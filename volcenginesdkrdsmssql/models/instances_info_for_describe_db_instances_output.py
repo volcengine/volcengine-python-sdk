@@ -36,6 +36,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'charge_detail': 'ChargeDetailForDescribeDBInstancesOutput',
         'create_time': 'str',
         'db_engine_version': 'str',
+        'instance_category': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
@@ -43,7 +44,9 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'node_detail_info': 'list[NodeDetailInfoForDescribeDBInstancesOutput]',
         'node_spec': 'str',
         'port': 'str',
+        'primary_instance_id': 'str',
         'project_name': 'str',
+        'read_only_number': 'int',
         'region_id': 'str',
         'server_collation': 'str',
         'storage_space': 'int',
@@ -58,6 +61,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'charge_detail': 'ChargeDetail',
         'create_time': 'CreateTime',
         'db_engine_version': 'DBEngineVersion',
+        'instance_category': 'InstanceCategory',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
@@ -65,7 +69,9 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'node_detail_info': 'NodeDetailInfo',
         'node_spec': 'NodeSpec',
         'port': 'Port',
+        'primary_instance_id': 'PrimaryInstanceId',
         'project_name': 'ProjectName',
+        'read_only_number': 'ReadOnlyNumber',
         'region_id': 'RegionId',
         'server_collation': 'ServerCollation',
         'storage_space': 'StorageSpace',
@@ -76,7 +82,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, node_detail_info=None, node_spec=None, port=None, project_name=None, region_id=None, server_collation=None, storage_space=None, storage_type=None, subnet_id=None, time_zone=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_category=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, node_detail_info=None, node_spec=None, port=None, primary_instance_id=None, project_name=None, read_only_number=None, region_id=None, server_collation=None, storage_space=None, storage_type=None, subnet_id=None, time_zone=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstancesInfoForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +91,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         self._charge_detail = None
         self._create_time = None
         self._db_engine_version = None
+        self._instance_category = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
@@ -92,7 +99,9 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         self._node_detail_info = None
         self._node_spec = None
         self._port = None
+        self._primary_instance_id = None
         self._project_name = None
+        self._read_only_number = None
         self._region_id = None
         self._server_collation = None
         self._storage_space = None
@@ -109,6 +118,8 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
             self.create_time = create_time
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if instance_category is not None:
+            self.instance_category = instance_category
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -123,8 +134,12 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
             self.node_spec = node_spec
         if port is not None:
             self.port = port
+        if primary_instance_id is not None:
+            self.primary_instance_id = primary_instance_id
         if project_name is not None:
             self.project_name = project_name
+        if read_only_number is not None:
+            self.read_only_number = read_only_number
         if region_id is not None:
             self.region_id = region_id
         if server_collation is not None:
@@ -204,6 +219,27 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         """
 
         self._db_engine_version = db_engine_version
+
+    @property
+    def instance_category(self):
+        """Gets the instance_category of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The instance_category of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_category
+
+    @instance_category.setter
+    def instance_category(self, instance_category):
+        """Sets the instance_category of this InstancesInfoForDescribeDBInstancesOutput.
+
+
+        :param instance_category: The instance_category of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_category = instance_category
 
     @property
     def instance_id(self):
@@ -353,6 +389,27 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         self._port = port
 
     @property
+    def primary_instance_id(self):
+        """Gets the primary_instance_id of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The primary_instance_id of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._primary_instance_id
+
+    @primary_instance_id.setter
+    def primary_instance_id(self, primary_instance_id):
+        """Sets the primary_instance_id of this InstancesInfoForDescribeDBInstancesOutput.
+
+
+        :param primary_instance_id: The primary_instance_id of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._primary_instance_id = primary_instance_id
+
+    @property
     def project_name(self):
         """Gets the project_name of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -372,6 +429,27 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def read_only_number(self):
+        """Gets the read_only_number of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The read_only_number of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_only_number
+
+    @read_only_number.setter
+    def read_only_number(self, read_only_number):
+        """Sets the read_only_number of this InstancesInfoForDescribeDBInstancesOutput.
+
+
+        :param read_only_number: The read_only_number of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_only_number = read_only_number
 
     @property
     def region_id(self):

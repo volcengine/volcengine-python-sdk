@@ -68,8 +68,10 @@ class DescribeTosRestoreTasksRequest(object):
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
-        self.page_number = page_number
-        self.page_size = page_size
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         if query_end_time is not None:
             self.query_end_time = query_end_time
         if query_start_time is not None:
@@ -135,8 +137,6 @@ class DescribeTosRestoreTasksRequest(object):
         :param page_number: The page_number of this DescribeTosRestoreTasksRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_number is None:
-            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -158,8 +158,6 @@ class DescribeTosRestoreTasksRequest(object):
         :param page_size: The page_size of this DescribeTosRestoreTasksRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_size is None:
-            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
 
