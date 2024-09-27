@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List, Union, Iterable, Optional
+from typing import Dict, List, Union, Iterable, Optional, Callable
 
 import httpx
 from typing_extensions import Literal
@@ -40,15 +40,37 @@ class Completions(SyncAPIResource):
     def with_streaming_response(self) -> CompletionsWithStreamingResponse:
         return CompletionsWithStreamingResponse(self)
 
-    def encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers):
+    def _process_messages(self, messages: Iterable[ChatCompletionMessageParam],
+                          f: Callable[[str], str]):
+        for message in messages:
+            if message.get("content", None) is not None:
+                if isinstance(message.get("content"), str):
+                    message["content"] = f(message.get("content"))
+                elif isinstance(message.get("content"), Iterable):
+                    content = message.get("content")
+                    for i, c in enumerate(content):
+                        if not isinstance(c, Dict):
+                            raise TypeError("content type {} is not supported end-to-end encryption".
+                                            format(type(c)))
+                        for key in c.keys():
+                            if isinstance(c[key], str):
+                                content[i][key] = f(c[key])
+                            if isinstance(c[key], Dict):
+                                for k in c[key].keys():
+                                    if isinstance(c[key][k], str):
+                                        content[i][key][k] = f(c[key][k])
+                    message["content"] = content
+                else:
+                    raise TypeError("content type {} is not supported end-to-end encryption".
+                                    format(type(message.get('content'))))
+
+    def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers):
         client = self._client._get_endpoint_certificate(model)
         self._crypto_key, self._crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers['X-Session-Token'] = session_token
-        for message in messages:
-            if message.get("content", None) is not None:
-                message["content"] = client.encrypt_string_with_key(self._crypto_key,
-                                                                    self._crypto_nonce,
-                                                                    message.get("content"))
+        self._process_messages(messages, lambda x: client.encrypt_string_with_key(self._crypto_key,
+                                                                                  self._crypto_nonce,
+                                                                                  x))
 
     @with_sts_token
     def create(
@@ -81,7 +103,8 @@ class Completions(SyncAPIResource):
         is_encrypt: bool | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         if is_encrypt:
-            self.encrypt(model, messages, extra_headers)
+            self._encrypt(model, messages, extra_headers)
+        print(messages)
 
         return self._post(
             "/chat/completions",
