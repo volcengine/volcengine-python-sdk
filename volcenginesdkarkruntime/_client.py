@@ -104,8 +104,10 @@ class Ark(SyncAPIClient):
 
     def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
         if self._certificate_manager is None:
-            if self.ak is None or self.sk is None:
-                raise ArkAPIError("must set ak and sk before get endpoint token.")
+            cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
+            if (self.ak is None or self.sk is None) and cert_path is None:
+                raise ArkAPIError("must set (ak and sk) or (E2E_CERTIFICATE_PATH) \
+                                  before get endpoint token.")
             self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region)
         return self._certificate_manager.get(endpoint_id)
 
@@ -299,7 +301,9 @@ class E2ECertificateManager(object):
         volcenginesdkcore.Configuration.set_default(configuration)
         self.api_instance = volcenginesdkark.ARKApi()
 
-    def _load_api_key(self, ep: str) -> str:
+        self.cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
+
+    def _load_cert_by_ak_sk(self, ep: str) -> str:
         get_endpoint_certificate_request = volcenginesdkark.GetEndpointCertificateRequest(
             id=ep
         )
@@ -313,7 +317,11 @@ class E2ECertificateManager(object):
 
     def get(self, ep: str) -> key_agreement_client:
         if ep not in self._certificate_manager:
-            cert_pem = self._load_api_key(ep)
+            if self.cert_path is not None:
+                with open(self.cert_path, 'r') as f:
+                    cert_pem = f.read()
+            else:
+                cert_pem = self._load_cert_by_ak_sk(ep)
             self._certificate_manager[ep] = key_agreement_client(
                 certificate_pem_string=cert_pem
             )

@@ -53,6 +53,8 @@ class Completions(SyncAPIResource):
                             raise TypeError("content type {} is not supported end-to-end encryption".
                                             format(type(c)))
                         for key in c.keys():
+                            if key == 'type':
+                                continue
                             if isinstance(c[key], str):
                                 content[i][key] = f(c[key])
                             if isinstance(c[key], Dict):
@@ -150,8 +152,8 @@ class Completions(SyncAPIResource):
             stream_cls=Stream[ChatCompletionChunk],
         )
 
-        if is_encrypt:
-            return self._decrypt(resp)
+        # if is_encrypt:
+        #     return self._decrypt(resp)
         return resp
 
 
