@@ -66,11 +66,21 @@ class Completions(SyncAPIResource):
 
     def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers):
         client = self._client._get_endpoint_certificate(model)
+        self._ka_client = client
         self._crypto_key, self._crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers['X-Session-Token'] = session_token
         self._process_messages(messages, lambda x: client.encrypt_string_with_key(self._crypto_key,
                                                                                   self._crypto_nonce,
                                                                                   x))
+
+    def _decrypt(self, completion: ChatCompletion):
+        if completion.choices is not None:
+            for choice in completion.choices:
+                if choice.message.content is not None:
+                    if isinstance(choice.message.content, str):
+                        choice.message.content = self._ka_client.decrypt_string_with_key(self._crypto_key,
+                                                                                        self._crypto_nonce,
+                                                                                        choice.message.content)
 
     @with_sts_token
     def create(
@@ -104,9 +114,8 @@ class Completions(SyncAPIResource):
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         if is_encrypt:
             self._encrypt(model, messages, extra_headers)
-        print(messages)
 
-        return self._post(
+        resp = self._post(
             "/chat/completions",
             body={
                 "messages": messages,
@@ -140,6 +149,10 @@ class Completions(SyncAPIResource):
             stream=stream or False,
             stream_cls=Stream[ChatCompletionChunk],
         )
+
+        if is_encrypt:
+            return self._decrypt(resp)
+        return resp
 
 
 class AsyncCompletions(AsyncAPIResource):
