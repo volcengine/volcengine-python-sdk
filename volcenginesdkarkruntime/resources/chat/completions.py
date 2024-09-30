@@ -75,14 +75,32 @@ class Completions(SyncAPIResource):
                                                                                   self._crypto_nonce,
                                                                                   x))
 
-    def _decrypt(self, completion: ChatCompletion):
-        if completion.choices is not None:
-            for choice in completion.choices:
+    def _decrypt(self, completion: ChatCompletion | Stream[ChatCompletionChunk]):
+        if isinstance(completion, ChatCompletion):
+            if completion.choices is not None:
+                choice = completion.choices[0]
                 if choice.message.content is not None:
                     if isinstance(choice.message.content, str):
                         choice.message.content = self._ka_client.decrypt_string_with_key(self._crypto_key,
-                                                                                        self._crypto_nonce,
-                                                                                        choice.message.content)
+                                                                                         self._crypto_nonce,
+                                                                                         choice.message.content)
+                    else:
+                        raise TypeError("content type {} is not supported end-to-end encryption".
+                                        format(type(choice.message.content)))
+                completion.choices[0] = choice
+        elif isinstance(completion, Stream):
+            for chunk in completion:
+                if chunk.choices:
+                    choice = chunk.choices[0]
+                    if choice.delta.content is not None:
+                        if isinstance(choice.delta.content, str):
+                            choice.delta.content = self._ka_client.decrypt_string_with_key(self._crypto_key,
+                                                                                             self._crypto_nonce,
+                                                                                             choice.delta.content)
+                        else:
+                            raise TypeError("content type {} is not supported end-to-end encryption".
+                                            format(type(choice.delta.content)))
+                    chunk.choices[0] = choice
 
     @with_sts_token
     def create(
@@ -115,6 +133,8 @@ class Completions(SyncAPIResource):
         is_encrypt: bool | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         if is_encrypt:
+            if extra_headers is None:
+                extra_headers = dict()
             self._encrypt(model, messages, extra_headers)
 
         resp = self._post(
@@ -152,8 +172,8 @@ class Completions(SyncAPIResource):
             stream_cls=Stream[ChatCompletionChunk],
         )
 
-        # if is_encrypt:
-        #     return self._decrypt(resp)
+        if is_encrypt:
+            self._decrypt(resp)
         return resp
 
 
