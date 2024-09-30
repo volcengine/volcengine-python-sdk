@@ -91,7 +91,7 @@ class key_agreement_client():
         # Encrypt message using AES-GCM
         ciphertext = aes_gcm_encrypt_base64_string(key, nonce, plaintext)
         return ciphertext
-    
+
     def decrypt_string_with_key(self, key: bytes, nonce: bytes, ciphertext: str) -> str:
         """decrypt_string_with_key decrypt ciphertext with ECIES DH protocol
         """
