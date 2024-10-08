@@ -118,7 +118,7 @@ class Completions(SyncAPIResource):
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         is_encrypt = False
-        if extra_headers is not None and extra_headers[ARK_E2E_ENCRYPTION_HEADER] == 'true':
+        if extra_headers is not None and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == 'true':
             is_encrypt = True
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 
@@ -211,7 +211,7 @@ class AsyncCompletions(AsyncAPIResource):
                     if choice.message.content is not None:
                         choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
             resp.choices[0] = choice
-            return await resp
+            return resp
         else:
             return AsyncStream._make_stream_from_iterator(self._decrypt_chunk(key, nonce, resp))
 
@@ -245,7 +245,7 @@ class AsyncCompletions(AsyncAPIResource):
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         is_encrypt = False
-        if extra_headers is not None and extra_headers[ARK_E2E_ENCRYPTION_HEADER] == 'true':
+        if extra_headers is not None and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == 'true':
             is_encrypt = True
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 

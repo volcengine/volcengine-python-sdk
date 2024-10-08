@@ -168,7 +168,7 @@ class AsyncStream(Generic[_T]):
             self._iterator = self.__stream__()
 
     @classmethod
-    def _make_stream_from_iterator(cls, iterator: Iterator[_T]) -> Stream[_T]:
+    def _make_stream_from_iterator(cls, iterator: AsyncIterator[_T]) -> AsyncStream[_T]:
         return AsyncStream(cast_to=None, response=None, client=None, iterator=iterator)
 
     async def __anext__(self) -> _T:
