@@ -46,9 +46,10 @@ class Completions(SyncAPIResource):
                           f: Callable[[str], str]):
         for message in messages:
             if message.get("content", None) is not None:
-                if isinstance(message.get("content"), str):
-                    message["content"] = f(message.get("content"))
-                elif isinstance(message.get("content"), Iterable):
+                current_content = message.get("content")
+                if isinstance(current_content, str):
+                    message["content"] = f(current_content)
+                elif isinstance(current_content, Iterable):
                     raise TypeError("content type {} is not supported end-to-end encryption".
                                     format(type(message.get('content'))))
                 else:
@@ -68,22 +69,20 @@ class Completions(SyncAPIResource):
     def _decrypt_chunk(self, key: bytes, nonce: bytes, resp: Stream[ChatCompletionChunk]) -> Iterator[ChatCompletionChunk]:
         for chunk in resp:
             if chunk.choices is not None:
-                choice = chunk.choices[0]
-                if choice.delta is not None:
-                    if choice.delta.content is not None:
-                        choice.delta.content = aes_gcm_decrypt_base64_string(key, nonce, choice.delta.content)
-            chunk.choices[0] = choice
+                for index, choice in enumerate(chunk.choices):
+                    if choice.delta is not None and choice.delta.content is not None:
+                            choice.delta.content = aes_gcm_decrypt_base64_string(key, nonce, choice.delta.content)
+                    chunk.choices[index] = choice
             yield chunk
 
     def _decrypt(self, key: bytes, nonce: bytes, resp: ChatCompletion | Stream[ChatCompletionChunk]
                  ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         if isinstance(resp, ChatCompletion):
             if resp.choices is not None:
-                if len(resp.choices) > 0:
-                    choice = resp.choices[0]
+                for index, choice in enumerate(resp.choices):
                     if choice.message is not None and choice.message.content is not None:
                         choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
-            resp.choices[0] = choice
+                    resp.choices[index] = choice
             return resp
         else:
             return Stream._make_stream_from_iterator(self._decrypt_chunk(key, nonce, resp))
@@ -175,8 +174,9 @@ class AsyncCompletions(AsyncAPIResource):
                           f: Callable[[str], str]):
         for message in messages:
             if message.get("content", None) is not None:
-                if isinstance(message.get("content"), str):
-                    message["content"] = f(message.get("content"))
+                current_content = message.get("content")
+                if isinstance(current_content, str):
+                    message["content"] = f(current_content)
                 else:
                     raise TypeError("content type {} is not supported end-to-end encryption".
                                     format(type(message.get('content'))))
@@ -195,22 +195,20 @@ class AsyncCompletions(AsyncAPIResource):
                              ) -> AsyncIterator[ChatCompletionChunk]:
         async for chunk in resp:
             if chunk.choices is not None:
-                if len(chunk.choices) > 0:
-                    choice = chunk.choices[0]
+                for index, choice in enumerate(chunk.choices):
                     if choice.delta is not None and choice.delta.content is not None:
                         choice.delta.content = aes_gcm_decrypt_base64_string(key, nonce, choice.delta.content)
-            chunk.choices[0] = choice
+                    chunk.choices[index] = choice
             yield chunk
 
     async def _decrypt(self, key: bytes, nonce: bytes, resp: ChatCompletion | AsyncStream[ChatCompletionChunk]
                        ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         if isinstance(resp, ChatCompletion):
             if resp.choices is not None:
-                choice = resp.choices[0]
-                if choice.message is not None:
-                    if choice.message.content is not None:
+                for index, choice in enumerate(resp.choices):
+                    if choice.message is not None and choice.message.content is not None:
                         choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
-            resp.choices[0] = choice
+                    resp.choices[index] = choice
             return resp
         else:
             return AsyncStream._make_stream_from_iterator(self._decrypt_chunk(key, nonce, resp))
