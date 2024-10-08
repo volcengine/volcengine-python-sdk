@@ -79,9 +79,9 @@ class Completions(SyncAPIResource):
                  ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         if isinstance(resp, ChatCompletion):
             if resp.choices is not None:
-                choice = resp.choices[0]
-                if choice.message is not None:
-                    if choice.message.content is not None:
+                if len(resp.choices) > 0:
+                    choice = resp.choices[0]
+                    if choice.message is not None and choice.message.content is not None:
                         choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
             resp.choices[0] = choice
             return resp
@@ -195,9 +195,9 @@ class AsyncCompletions(AsyncAPIResource):
                              ) -> AsyncIterator[ChatCompletionChunk]:
         async for chunk in resp:
             if chunk.choices is not None:
-                choice = chunk.choices[0]
-                if choice.delta is not None:
-                    if choice.delta.content is not None:
+                if len(chunk.choices) > 0:
+                    choice = chunk.choices[0]
+                    if choice.delta is not None and choice.delta.content is not None:
                         choice.delta.content = aes_gcm_decrypt_base64_string(key, nonce, choice.delta.content)
             chunk.choices[0] = choice
             yield chunk
