@@ -178,6 +178,7 @@ class AsyncArk(AsyncAPIClient):
 
         self._default_stream_cls = Stream
         self._sts_token_manager: StsTokenManager | None = None
+        self._certificate_manager: E2ECertificateManager | None = None
 
         self.chat = resources.AsyncChat(self)
         self.bot_chat = resources.AsyncBotChat(self)
@@ -191,6 +192,15 @@ class AsyncArk(AsyncAPIClient):
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
+
+    def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
+        if self._certificate_manager is None:
+            cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
+            if (self.ak is None or self.sk is None) and cert_path is None:
+                raise ArkAPIError("must set (ak and sk) or (E2E_CERTIFICATE_PATH) \
+                                  before get endpoint token.")
+            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region)
+        return self._certificate_manager.get(endpoint_id)
 
     @property
     def auth_headers(self) -> dict[str, str]:

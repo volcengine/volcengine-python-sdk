@@ -47,21 +47,23 @@ class Completions(SyncAPIResource):
                 if isinstance(message.get("content"), str):
                     message["content"] = f(message.get("content"))
                 elif isinstance(message.get("content"), Iterable):
-                    content = message.get("content")
-                    for i, c in enumerate(content):
-                        if not isinstance(c, Dict):
-                            raise TypeError("content type {} is not supported end-to-end encryption".
-                                            format(type(c)))
-                        for key in c.keys():
-                            if key == 'type':
-                                continue
-                            if isinstance(c[key], str):
-                                content[i][key] = f(c[key])
-                            if isinstance(c[key], Dict):
-                                for k in c[key].keys():
-                                    if isinstance(c[key][k], str):
-                                        content[i][key][k] = f(c[key][k])
-                    message["content"] = content
+                    raise TypeError("content type {} is not supported end-to-end encryption".
+                                    format(type(message.get('content'))))
+                    # content = message.get("content")
+                    # for i, c in enumerate(content):
+                    #     if not isinstance(c, Dict):
+                    #         raise TypeError("content type {} is not supported end-to-end encryption".
+                    #                         format(type(c)))
+                    #     for key in c.keys():
+                    #         if key == 'type':
+                    #             continue
+                    #         if isinstance(c[key], str):
+                    #             content[i][key] = f(c[key])
+                    #         if isinstance(c[key], Dict):
+                    #             for k in c[key].keys():
+                    #                 if isinstance(c[key][k], str):
+                    #                     content[i][key][k] = f(c[key][k])
+                    # message["content"] = content
                 else:
                     raise TypeError("content type {} is not supported end-to-end encryption".
                                     format(type(message.get('content'))))
@@ -160,6 +162,28 @@ class AsyncCompletions(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncCompletionsWithStreamingResponse:
         return AsyncCompletionsWithStreamingResponse(self)
 
+    def _process_messages(self, messages: Iterable[ChatCompletionMessageParam],
+                          f: Callable[[str], str]):
+        for message in messages:
+            if message.get("content", None) is not None:
+                if isinstance(message.get("content"), str):
+                    message["content"] = f(message.get("content"))
+                else:
+                    raise TypeError("content type {} is not supported end-to-end encryption".
+                                    format(type(message.get('content'))))
+
+    def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers):
+        client = self._client._get_endpoint_certificate(model)
+        self._ka_client = client
+        self._crypto_key, self._crypto_nonce, session_token = client.generate_ecies_key_pair()
+        extra_headers['X-Session-Token'] = session_token
+        self._process_messages(messages, lambda x: client.encrypt_string_with_key(self._crypto_key,
+                                                                                  self._crypto_nonce,
+                                                                                  x))
+
+    def decrypt(self, ciphertext: str) -> str:
+        return self._ka_client.decrypt_string_with_key(self._crypto_key, self._crypto_nonce, ciphertext)
+
     @async_with_sts_token
     async def create(
         self,
@@ -188,7 +212,13 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
+        is_encrypt: bool | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
+        if is_encrypt:
+            if extra_headers is None:
+                extra_headers = dict()
+            self._encrypt(model, messages, extra_headers)
+
         return await self._post(
             "/chat/completions",
             body={
