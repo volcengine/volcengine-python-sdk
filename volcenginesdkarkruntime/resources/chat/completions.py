@@ -203,7 +203,7 @@ class AsyncCompletions(AsyncAPIResource):
             yield chunk
 
     async def _decrypt(self, key: bytes, nonce: bytes, resp: ChatCompletion | AsyncStream[ChatCompletionChunk]
-                 ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
+                       ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         if isinstance(resp, ChatCompletion):
             if resp.choices is not None:
                 choice = resp.choices[0]
