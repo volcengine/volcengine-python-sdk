@@ -8,6 +8,7 @@ BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"
 RAW_RESPONSE_HEADER = "X-Stainless-Raw-Response"
 CLIENT_REQUEST_HEADER = "X-Client-Request-Id"
 SERVER_REQUEST_HEADER = "X-Request-Id"
+ARK_E2E_ENCRYPTION_HEADER = "x-is-encrypted"
 
 # default timeout is 1 minutes
 DEFAULT_TIMEOUT = httpx.Timeout(timeout=600.0, connect=60.0)

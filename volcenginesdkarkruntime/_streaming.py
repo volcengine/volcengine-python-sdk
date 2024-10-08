@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import inspect
 from types import TracebackType
-from typing import TYPE_CHECKING, Any, Generic, TypeVar, Iterator, AsyncIterator, cast
+from typing import TYPE_CHECKING, Any, Generic, TypeVar, Iterator, AsyncIterator, cast, Optional
 from typing_extensions import (
     Self,
     Protocol,
@@ -40,12 +40,20 @@ class Stream(Generic[_T]):
         cast_to: type[_T],
         response: httpx.Response,
         client: Ark,
+        iterator: Optional[Iterator[_T]] | None = None,
     ) -> None:
-        self.response = response
-        self._cast_to = cast_to
-        self._client = client
-        self._decoder = client._make_sse_decoder()
-        self._iterator = self.__stream__()
+        if iterator is not None:
+            self._iterator = iterator
+        else:
+            self.response = response
+            self._cast_to = cast_to
+            self._client = client
+            self._decoder = client._make_sse_decoder()
+            self._iterator = self.__stream__()
+
+    @classmethod
+    def _make_stream_from_iterator(cls, iterator: Iterator[_T]) -> Stream[_T]:
+        return Stream(cast_to=None, response=None, client=None, iterator=iterator)
 
     def __next__(self) -> _T:
         return self._iterator.__next__()
@@ -148,12 +156,20 @@ class AsyncStream(Generic[_T]):
         cast_to: type[_T],
         response: httpx.Response,
         client: AsyncArk,
+        iterator: Optional[AsyncIterator[_T]] | None = None,
     ) -> None:
-        self.response = response
-        self._cast_to = cast_to
-        self._client = client
-        self._decoder = client._make_sse_decoder()
-        self._iterator = self.__stream__()
+        if iterator is not None:
+            self._iterator = iterator
+        else:
+            self.response = response
+            self._cast_to = cast_to
+            self._client = client
+            self._decoder = client._make_sse_decoder()
+            self._iterator = self.__stream__()
+
+    @classmethod
+    def _make_stream_from_iterator(cls, iterator: Iterator[_T]) -> Stream[_T]:
+        return AsyncStream(cast_to=None, response=None, client=None, iterator=iterator)
 
     async def __anext__(self) -> _T:
         return await self._iterator.__anext__()
