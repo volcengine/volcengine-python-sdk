@@ -37,6 +37,8 @@ if __name__ == "__main__":
         stream=True
     )
     for chunk in stream:
+        if chunk.usage:
+            print(chunk.usage)
         if not chunk.choices:
             continue
         print(chunk.choices[0].delta.content, end="")
