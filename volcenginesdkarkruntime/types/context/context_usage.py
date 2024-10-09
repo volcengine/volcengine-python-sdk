@@ -17,11 +17,11 @@ class ContextCompletionUsage(BaseModel):
     """
     total_tokens stands for the total tokens of chat completion
     """
-    prompt_hit_cache_count: Optional[int] = None
+    prompt_cache_miss_tokens: Optional[int] = None
     """
-    prompt_hit_cache_count stands for the prompt hit cache count of context chat completion
+    prompt_cache_miss_tokens stands for the prompt miss cache count of context chat completion
     """
-    prompt_miss_cache_count: Optional[int] = None
+    prompt_cache_hit_tokens: Optional[int] = None
     """
-    prompt_miss_cache_count stands for the prompt miss cache count of context chat completion
+    prompt_cache_hit_tokens stands for the prompt hit cache count of context chat completion
     """
