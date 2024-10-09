@@ -71,7 +71,7 @@ class Completions(SyncAPIResource):
             if chunk.choices is not None:
                 for index, choice in enumerate(chunk.choices):
                     if choice.delta is not None and choice.delta.content is not None:
-                            choice.delta.content = aes_gcm_decrypt_base64_string(key, nonce, choice.delta.content)
+                        choice.delta.content = aes_gcm_decrypt_base64_string(key, nonce, choice.delta.content)
                     chunk.choices[index] = choice
             yield chunk
 
