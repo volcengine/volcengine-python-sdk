@@ -113,9 +113,6 @@ class ModifyEipAddressAttributesRequest(object):
         :type: int
         """
         if (self._configuration.client_side_validation and
-                bandwidth is not None and bandwidth > 1000):  # noqa: E501
-            raise ValueError("Invalid value for `bandwidth`, must be a value less than or equal to `1000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
                 bandwidth is not None and bandwidth < 1):  # noqa: E501
             raise ValueError("Invalid value for `bandwidth`, must be a value greater than or equal to `1`")  # noqa: E501
 

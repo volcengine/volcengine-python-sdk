@@ -39,12 +39,15 @@ class AllocateEipAddressRequest(object):
         'client_token': 'str',
         'description': 'str',
         'isp': 'str',
+        'ip_address': 'str',
+        'ip_address_pool_id': 'str',
         'name': 'str',
         'period': 'int',
         'period_unit': 'int',
         'project_name': 'str',
         'renew_period_times': 'int',
         'renew_type': 'int',
+        'security_protection_instance_id': 'int',
         'security_protection_types': 'list[str]',
         'tags': 'list[TagForAllocateEipAddressInput]'
     }
@@ -56,17 +59,20 @@ class AllocateEipAddressRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'isp': 'ISP',
+        'ip_address': 'IpAddress',
+        'ip_address_pool_id': 'IpAddressPoolId',
         'name': 'Name',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
         'renew_period_times': 'RenewPeriodTimes',
         'renew_type': 'RenewType',
+        'security_protection_instance_id': 'SecurityProtectionInstanceId',
         'security_protection_types': 'SecurityProtectionTypes',
         'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, description=None, isp=None, name=None, period=None, period_unit=None, project_name=None, renew_period_times=None, renew_type=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, description=None, isp=None, ip_address=None, ip_address_pool_id=None, name=None, period=None, period_unit=None, project_name=None, renew_period_times=None, renew_type=None, security_protection_instance_id=None, security_protection_types=None, tags=None, _configuration=None):  # noqa: E501
         """AllocateEipAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,12 +84,15 @@ class AllocateEipAddressRequest(object):
         self._client_token = None
         self._description = None
         self._isp = None
+        self._ip_address = None
+        self._ip_address_pool_id = None
         self._name = None
         self._period = None
         self._period_unit = None
         self._project_name = None
         self._renew_period_times = None
         self._renew_type = None
+        self._security_protection_instance_id = None
         self._security_protection_types = None
         self._tags = None
         self.discriminator = None
@@ -100,6 +109,10 @@ class AllocateEipAddressRequest(object):
             self.description = description
         if isp is not None:
             self.isp = isp
+        if ip_address is not None:
+            self.ip_address = ip_address
+        if ip_address_pool_id is not None:
+            self.ip_address_pool_id = ip_address_pool_id
         if name is not None:
             self.name = name
         if period is not None:
@@ -112,6 +125,8 @@ class AllocateEipAddressRequest(object):
             self.renew_period_times = renew_period_times
         if renew_type is not None:
             self.renew_type = renew_type
+        if security_protection_instance_id is not None:
+            self.security_protection_instance_id = security_protection_instance_id
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
         if tags is not None:
@@ -135,9 +150,6 @@ class AllocateEipAddressRequest(object):
         :param bandwidth: The bandwidth of this AllocateEipAddressRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                bandwidth is not None and bandwidth > 500):  # noqa: E501
-            raise ValueError("Invalid value for `bandwidth`, must be a value less than or equal to `500`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 bandwidth is not None and bandwidth < 1):  # noqa: E501
             raise ValueError("Invalid value for `bandwidth`, must be a value greater than or equal to `1`")  # noqa: E501
@@ -267,6 +279,48 @@ class AllocateEipAddressRequest(object):
             )
 
         self._isp = isp
+
+    @property
+    def ip_address(self):
+        """Gets the ip_address of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The ip_address of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address
+
+    @ip_address.setter
+    def ip_address(self, ip_address):
+        """Sets the ip_address of this AllocateEipAddressRequest.
+
+
+        :param ip_address: The ip_address of this AllocateEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address = ip_address
+
+    @property
+    def ip_address_pool_id(self):
+        """Gets the ip_address_pool_id of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The ip_address_pool_id of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address_pool_id
+
+    @ip_address_pool_id.setter
+    def ip_address_pool_id(self, ip_address_pool_id):
+        """Sets the ip_address_pool_id of this AllocateEipAddressRequest.
+
+
+        :param ip_address_pool_id: The ip_address_pool_id of this AllocateEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address_pool_id = ip_address_pool_id
 
     @property
     def name(self):
@@ -411,6 +465,27 @@ class AllocateEipAddressRequest(object):
             raise ValueError("Invalid value for `renew_type`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._renew_type = renew_type
+
+    @property
+    def security_protection_instance_id(self):
+        """Gets the security_protection_instance_id of this AllocateEipAddressRequest.  # noqa: E501
+
+
+        :return: The security_protection_instance_id of this AllocateEipAddressRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._security_protection_instance_id
+
+    @security_protection_instance_id.setter
+    def security_protection_instance_id(self, security_protection_instance_id):
+        """Sets the security_protection_instance_id of this AllocateEipAddressRequest.
+
+
+        :param security_protection_instance_id: The security_protection_instance_id of this AllocateEipAddressRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._security_protection_instance_id = security_protection_instance_id
 
     @property
     def security_protection_types(self):

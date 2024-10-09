@@ -46,6 +46,7 @@ class SubnetForDescribeSubnetsOutput(object):
         'status': 'str',
         'subnet_id': 'str',
         'subnet_name': 'str',
+        'tags': 'list[TagForDescribeSubnetsOutput]',
         'total_ipv4_count': 'int',
         'update_time': 'str',
         'vpc_id': 'str',
@@ -66,13 +67,14 @@ class SubnetForDescribeSubnetsOutput(object):
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'subnet_name': 'SubnetName',
+        'tags': 'Tags',
         'total_ipv4_count': 'TotalIpv4Count',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, ipv6_cidr_block=None, is_default=None, network_acl_id=None, project_name=None, route_table=None, status=None, subnet_id=None, subnet_name=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, available_ip_address_count=None, cidr_block=None, creation_time=None, description=None, ipv6_cidr_block=None, is_default=None, network_acl_id=None, project_name=None, route_table=None, status=None, subnet_id=None, subnet_name=None, tags=None, total_ipv4_count=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """SubnetForDescribeSubnetsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +93,7 @@ class SubnetForDescribeSubnetsOutput(object):
         self._status = None
         self._subnet_id = None
         self._subnet_name = None
+        self._tags = None
         self._total_ipv4_count = None
         self._update_time = None
         self._vpc_id = None
@@ -123,6 +126,8 @@ class SubnetForDescribeSubnetsOutput(object):
             self.subnet_id = subnet_id
         if subnet_name is not None:
             self.subnet_name = subnet_name
+        if tags is not None:
+            self.tags = tags
         if total_ipv4_count is not None:
             self.total_ipv4_count = total_ipv4_count
         if update_time is not None:
@@ -404,6 +409,27 @@ class SubnetForDescribeSubnetsOutput(object):
         """
 
         self._subnet_name = subnet_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+
+
+        :return: The tags of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeSubnetsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this SubnetForDescribeSubnetsOutput.
+
+
+        :param tags: The tags of this SubnetForDescribeSubnetsOutput.  # noqa: E501
+        :type: list[TagForDescribeSubnetsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def total_ipv4_count(self):

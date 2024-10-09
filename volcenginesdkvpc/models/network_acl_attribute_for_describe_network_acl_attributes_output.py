@@ -42,6 +42,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
         'project_name': 'str',
         'resources': 'list[ResourceForDescribeNetworkAclAttributesOutput]',
         'status': 'str',
+        'tags': 'list[TagForDescribeNetworkAclAttributesOutput]',
         'update_time': 'str',
         'vpc_id': 'str'
     }
@@ -56,11 +57,12 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
         'project_name': 'ProjectName',
         'resources': 'Resources',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, egress_acl_entries=None, ingress_acl_entries=None, network_acl_id=None, network_acl_name=None, project_name=None, resources=None, status=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, egress_acl_entries=None, ingress_acl_entries=None, network_acl_id=None, network_acl_name=None, project_name=None, resources=None, status=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """NetworkAclAttributeForDescribeNetworkAclAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
         self._project_name = None
         self._resources = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self._vpc_id = None
         self.discriminator = None
@@ -97,6 +100,8 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
             self.resources = resources
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vpc_id is not None:
@@ -290,6 +295,27 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this NetworkAclAttributeForDescribeNetworkAclAttributesOutput.  # noqa: E501
+
+
+        :return: The tags of this NetworkAclAttributeForDescribeNetworkAclAttributesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeNetworkAclAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this NetworkAclAttributeForDescribeNetworkAclAttributesOutput.
+
+
+        :param tags: The tags of this NetworkAclAttributeForDescribeNetworkAclAttributesOutput.  # noqa: E501
+        :type: list[TagForDescribeNetworkAclAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

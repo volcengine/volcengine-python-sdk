@@ -37,6 +37,7 @@ class CreateNetworkAclRequest(object):
         'description': 'str',
         'network_acl_name': 'str',
         'project_name': 'str',
+        'tags': 'list[TagForCreateNetworkAclInput]',
         'vpc_id': 'str'
     }
 
@@ -45,10 +46,11 @@ class CreateNetworkAclRequest(object):
         'description': 'Description',
         'network_acl_name': 'NetworkAclName',
         'project_name': 'ProjectName',
+        'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, client_token=None, description=None, network_acl_name=None, project_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, network_acl_name=None, project_name=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateNetworkAclRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CreateNetworkAclRequest(object):
         self._description = None
         self._network_acl_name = None
         self._project_name = None
+        self._tags = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class CreateNetworkAclRequest(object):
             self.network_acl_name = network_acl_name
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         self.vpc_id = vpc_id
 
     @property
@@ -166,6 +171,27 @@ class CreateNetworkAclRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateNetworkAclRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateNetworkAclRequest.  # noqa: E501
+        :rtype: list[TagForCreateNetworkAclInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateNetworkAclRequest.
+
+
+        :param tags: The tags of this CreateNetworkAclRequest.  # noqa: E501
+        :type: list[TagForCreateNetworkAclInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

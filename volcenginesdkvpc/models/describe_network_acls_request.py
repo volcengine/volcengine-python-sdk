@@ -41,6 +41,7 @@ class DescribeNetworkAclsRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'subnet_id': 'str',
+        'tag_filters': 'list[TagFilterForDescribeNetworkAclsInput]',
         'vpc_id': 'str'
     }
 
@@ -53,10 +54,11 @@ class DescribeNetworkAclsRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'subnet_id': 'SubnetId',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, max_results=None, network_acl_ids=None, network_acl_name=None, next_token=None, page_number=None, page_size=None, project_name=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_results=None, network_acl_ids=None, network_acl_name=None, next_token=None, page_number=None, page_size=None, project_name=None, subnet_id=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeNetworkAclsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class DescribeNetworkAclsRequest(object):
         self._page_size = None
         self._project_name = None
         self._subnet_id = None
+        self._tag_filters = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class DescribeNetworkAclsRequest(object):
             self.project_name = project_name
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -268,6 +273,27 @@ class DescribeNetworkAclsRequest(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeNetworkAclsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeNetworkAclsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeNetworkAclsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeNetworkAclsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeNetworkAclsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeNetworkAclsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):

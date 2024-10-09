@@ -37,7 +37,8 @@ class CreateHaVipRequest(object):
         'description': 'str',
         'ha_vip_name': 'str',
         'ip_address': 'str',
-        'subnet_id': 'str'
+        'subnet_id': 'str',
+        'tags': 'list[TagForCreateHaVipInput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class CreateHaVipRequest(object):
         'description': 'Description',
         'ha_vip_name': 'HaVipName',
         'ip_address': 'IpAddress',
-        'subnet_id': 'SubnetId'
+        'subnet_id': 'SubnetId',
+        'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, description=None, ha_vip_name=None, ip_address=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, ha_vip_name=None, ip_address=None, subnet_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateHaVipRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateHaVipRequest(object):
         self._ha_vip_name = None
         self._ip_address = None
         self._subnet_id = None
+        self._tags = None
         self.discriminator = None
 
         if client_token is not None:
@@ -70,6 +73,8 @@ class CreateHaVipRequest(object):
         if ip_address is not None:
             self.ip_address = ip_address
         self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
 
     @property
     def client_token(self):
@@ -189,6 +194,27 @@ class CreateHaVipRequest(object):
             raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateHaVipRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateHaVipRequest.  # noqa: E501
+        :rtype: list[TagForCreateHaVipInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateHaVipRequest.
+
+
+        :param tags: The tags of this CreateHaVipRequest.  # noqa: E501
+        :type: list[TagForCreateHaVipInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

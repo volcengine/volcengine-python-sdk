@@ -41,7 +41,8 @@ class DescribeVpcsRequest(object):
         'project_name': 'str',
         'tag_filters': 'list[TagFilterForDescribeVpcsInput]',
         'vpc_ids': 'list[str]',
-        'vpc_name': 'str'
+        'vpc_name': 'str',
+        'vpc_owner_id': 'int'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class DescribeVpcsRequest(object):
         'project_name': 'ProjectName',
         'tag_filters': 'TagFilters',
         'vpc_ids': 'VpcIds',
-        'vpc_name': 'VpcName'
+        'vpc_name': 'VpcName',
+        'vpc_owner_id': 'VpcOwnerId'
     }
 
-    def __init__(self, is_default=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_ids=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_default=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, tag_filters=None, vpc_ids=None, vpc_name=None, vpc_owner_id=None, _configuration=None):  # noqa: E501
         """DescribeVpcsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DescribeVpcsRequest(object):
         self._tag_filters = None
         self._vpc_ids = None
         self._vpc_name = None
+        self._vpc_owner_id = None
         self.discriminator = None
 
         if is_default is not None:
@@ -91,6 +94,8 @@ class DescribeVpcsRequest(object):
             self.vpc_ids = vpc_ids
         if vpc_name is not None:
             self.vpc_name = vpc_name
+        if vpc_owner_id is not None:
+            self.vpc_owner_id = vpc_owner_id
 
     @property
     def is_default(self):
@@ -289,6 +294,27 @@ class DescribeVpcsRequest(object):
         """
 
         self._vpc_name = vpc_name
+
+    @property
+    def vpc_owner_id(self):
+        """Gets the vpc_owner_id of this DescribeVpcsRequest.  # noqa: E501
+
+
+        :return: The vpc_owner_id of this DescribeVpcsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._vpc_owner_id
+
+    @vpc_owner_id.setter
+    def vpc_owner_id(self, vpc_owner_id):
+        """Sets the vpc_owner_id of this DescribeVpcsRequest.
+
+
+        :param vpc_owner_id: The vpc_owner_id of this DescribeVpcsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._vpc_owner_id = vpc_owner_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

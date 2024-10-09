@@ -122,9 +122,6 @@ class CreateBandwidthPackageRequest(object):
         if self._configuration.client_side_validation and bandwidth is None:
             raise ValueError("Invalid value for `bandwidth`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                bandwidth is not None and bandwidth > 5000):  # noqa: E501
-            raise ValueError("Invalid value for `bandwidth`, must be a value less than or equal to `5000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
                 bandwidth is not None and bandwidth < 2):  # noqa: E501
             raise ValueError("Invalid value for `bandwidth`, must be a value greater than or equal to `2`")  # noqa: E501
 

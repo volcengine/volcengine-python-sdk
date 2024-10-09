@@ -39,6 +39,7 @@ class DescribeEipAddressesRequest(object):
         'billing_type': 'int',
         'eip_addresses': 'list[str]',
         'isp': 'str',
+        'ip_address_pool_id': 'str',
         'max_results': 'int',
         'name': 'str',
         'next_token': 'str',
@@ -57,6 +58,7 @@ class DescribeEipAddressesRequest(object):
         'billing_type': 'BillingType',
         'eip_addresses': 'EipAddresses',
         'isp': 'ISP',
+        'ip_address_pool_id': 'IpAddressPoolId',
         'max_results': 'MaxResults',
         'name': 'Name',
         'next_token': 'NextToken',
@@ -68,7 +70,7 @@ class DescribeEipAddressesRequest(object):
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, billing_type=None, eip_addresses=None, isp=None, max_results=None, name=None, next_token=None, page_number=None, page_size=None, project_name=None, security_protection_enabled=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, billing_type=None, eip_addresses=None, isp=None, ip_address_pool_id=None, max_results=None, name=None, next_token=None, page_number=None, page_size=None, project_name=None, security_protection_enabled=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeEipAddressesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class DescribeEipAddressesRequest(object):
         self._billing_type = None
         self._eip_addresses = None
         self._isp = None
+        self._ip_address_pool_id = None
         self._max_results = None
         self._name = None
         self._next_token = None
@@ -103,6 +106,8 @@ class DescribeEipAddressesRequest(object):
             self.eip_addresses = eip_addresses
         if isp is not None:
             self.isp = isp
+        if ip_address_pool_id is not None:
+            self.ip_address_pool_id = ip_address_pool_id
         if max_results is not None:
             self.max_results = max_results
         if name is not None:
@@ -267,6 +272,27 @@ class DescribeEipAddressesRequest(object):
             )
 
         self._isp = isp
+
+    @property
+    def ip_address_pool_id(self):
+        """Gets the ip_address_pool_id of this DescribeEipAddressesRequest.  # noqa: E501
+
+
+        :return: The ip_address_pool_id of this DescribeEipAddressesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address_pool_id
+
+    @ip_address_pool_id.setter
+    def ip_address_pool_id(self, ip_address_pool_id):
+        """Sets the ip_address_pool_id of this DescribeEipAddressesRequest.
+
+
+        :param ip_address_pool_id: The ip_address_pool_id of this DescribeEipAddressesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address_pool_id = ip_address_pool_id
 
     @property
     def max_results(self):

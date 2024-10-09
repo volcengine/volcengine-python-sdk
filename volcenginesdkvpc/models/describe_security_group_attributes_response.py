@@ -33,6 +33,7 @@ class DescribeSecurityGroupAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'str',
         'creation_time': 'str',
         'description': 'str',
         'permissions': 'list[PermissionForDescribeSecurityGroupAttributesOutput]',
@@ -49,6 +50,7 @@ class DescribeSecurityGroupAttributesResponse(object):
     }
 
     attribute_map = {
+        'account_id': 'AccountId',
         'creation_time': 'CreationTime',
         'description': 'Description',
         'permissions': 'Permissions',
@@ -64,12 +66,13 @@ class DescribeSecurityGroupAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, permissions=None, project_name=None, request_id=None, security_group_id=None, security_group_name=None, service_managed=None, status=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, creation_time=None, description=None, permissions=None, project_name=None, request_id=None, security_group_id=None, security_group_name=None, service_managed=None, status=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeSecurityGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
         self._creation_time = None
         self._description = None
         self._permissions = None
@@ -85,6 +88,8 @@ class DescribeSecurityGroupAttributesResponse(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
@@ -111,6 +116,27 @@ class DescribeSecurityGroupAttributesResponse(object):
             self.update_time = update_time
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The account_id of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this DescribeSecurityGroupAttributesResponse.
+
+
+        :param account_id: The account_id of this DescribeSecurityGroupAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
 
     @property
     def creation_time(self):
