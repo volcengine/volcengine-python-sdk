@@ -35,6 +35,7 @@ class UpdateFunctionResponse(object):
     swagger_types = {
         'code_size': 'int',
         'code_size_limit': 'int',
+        'command': 'str',
         'creation_time': 'str',
         'description': 'str',
         'envs': 'list[EnvForUpdateFunctionOutput]',
@@ -48,6 +49,7 @@ class UpdateFunctionResponse(object):
         'name': 'str',
         'nas_storage': 'NasStorageForUpdateFunctionOutput',
         'owner': 'str',
+        'project_name': 'str',
         'request_timeout': 'int',
         'runtime': 'str',
         'source_location': 'str',
@@ -61,6 +63,7 @@ class UpdateFunctionResponse(object):
     attribute_map = {
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
+        'command': 'Command',
         'creation_time': 'CreationTime',
         'description': 'Description',
         'envs': 'Envs',
@@ -74,6 +77,7 @@ class UpdateFunctionResponse(object):
         'name': 'Name',
         'nas_storage': 'NasStorage',
         'owner': 'Owner',
+        'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
         'runtime': 'Runtime',
         'source_location': 'SourceLocation',
@@ -84,7 +88,7 @@ class UpdateFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, command=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """UpdateFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,6 +96,7 @@ class UpdateFunctionResponse(object):
 
         self._code_size = None
         self._code_size_limit = None
+        self._command = None
         self._creation_time = None
         self._description = None
         self._envs = None
@@ -105,6 +110,7 @@ class UpdateFunctionResponse(object):
         self._name = None
         self._nas_storage = None
         self._owner = None
+        self._project_name = None
         self._request_timeout = None
         self._runtime = None
         self._source_location = None
@@ -119,6 +125,8 @@ class UpdateFunctionResponse(object):
             self.code_size = code_size
         if code_size_limit is not None:
             self.code_size_limit = code_size_limit
+        if command is not None:
+            self.command = command
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
@@ -145,6 +153,8 @@ class UpdateFunctionResponse(object):
             self.nas_storage = nas_storage
         if owner is not None:
             self.owner = owner
+        if project_name is not None:
+            self.project_name = project_name
         if request_timeout is not None:
             self.request_timeout = request_timeout
         if runtime is not None:
@@ -203,6 +213,27 @@ class UpdateFunctionResponse(object):
         """
 
         self._code_size_limit = code_size_limit
+
+    @property
+    def command(self):
+        """Gets the command of this UpdateFunctionResponse.  # noqa: E501
+
+
+        :return: The command of this UpdateFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._command
+
+    @command.setter
+    def command(self, command):
+        """Sets the command of this UpdateFunctionResponse.
+
+
+        :param command: The command of this UpdateFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._command = command
 
     @property
     def creation_time(self):
@@ -476,6 +507,27 @@ class UpdateFunctionResponse(object):
         """
 
         self._owner = owner
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this UpdateFunctionResponse.  # noqa: E501
+
+
+        :return: The project_name of this UpdateFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this UpdateFunctionResponse.
+
+
+        :param project_name: The project_name of this UpdateFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def request_timeout(self):

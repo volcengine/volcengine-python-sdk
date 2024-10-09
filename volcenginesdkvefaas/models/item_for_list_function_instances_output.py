@@ -33,6 +33,7 @@ class ItemForListFunctionInstancesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'availability_zone': 'str',
         'creation_time': 'str',
         'id': 'str',
         'instance_name': 'str',
@@ -41,6 +42,7 @@ class ItemForListFunctionInstancesOutput(object):
     }
 
     attribute_map = {
+        'availability_zone': 'AvailabilityZone',
         'creation_time': 'CreationTime',
         'id': 'Id',
         'instance_name': 'InstanceName',
@@ -48,12 +50,13 @@ class ItemForListFunctionInstancesOutput(object):
         'revision_number': 'RevisionNumber'
     }
 
-    def __init__(self, creation_time=None, id=None, instance_name=None, instance_status=None, revision_number=None, _configuration=None):  # noqa: E501
+    def __init__(self, availability_zone=None, creation_time=None, id=None, instance_name=None, instance_status=None, revision_number=None, _configuration=None):  # noqa: E501
         """ItemForListFunctionInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._availability_zone = None
         self._creation_time = None
         self._id = None
         self._instance_name = None
@@ -61,6 +64,8 @@ class ItemForListFunctionInstancesOutput(object):
         self._revision_number = None
         self.discriminator = None
 
+        if availability_zone is not None:
+            self.availability_zone = availability_zone
         if creation_time is not None:
             self.creation_time = creation_time
         if id is not None:
@@ -71,6 +76,27 @@ class ItemForListFunctionInstancesOutput(object):
             self.instance_status = instance_status
         if revision_number is not None:
             self.revision_number = revision_number
+
+    @property
+    def availability_zone(self):
+        """Gets the availability_zone of this ItemForListFunctionInstancesOutput.  # noqa: E501
+
+
+        :return: The availability_zone of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._availability_zone
+
+    @availability_zone.setter
+    def availability_zone(self, availability_zone):
+        """Sets the availability_zone of this ItemForListFunctionInstancesOutput.
+
+
+        :param availability_zone: The availability_zone of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._availability_zone = availability_zone
 
     @property
     def creation_time(self):
