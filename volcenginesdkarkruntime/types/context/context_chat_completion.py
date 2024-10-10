@@ -1,4 +1,5 @@
-from typing import List, Optional, Literal
+from typing import List, Optional
+from typing_extensions import Literal
 
 from ..._models import BaseModel
 from ..chat.chat_completion import Choice
