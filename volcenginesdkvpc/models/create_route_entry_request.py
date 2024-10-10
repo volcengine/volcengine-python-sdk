@@ -38,6 +38,7 @@ class CreateRouteEntryRequest(object):
         'destination_cidr_block': 'str',
         'destination_prefix_list_id': 'str',
         'next_hop_id': 'str',
+        'next_hop_name': 'str',
         'next_hop_type': 'str',
         'route_entry_name': 'str',
         'route_table_id': 'str'
@@ -49,12 +50,13 @@ class CreateRouteEntryRequest(object):
         'destination_cidr_block': 'DestinationCidrBlock',
         'destination_prefix_list_id': 'DestinationPrefixListId',
         'next_hop_id': 'NextHopId',
+        'next_hop_name': 'NextHopName',
         'next_hop_type': 'NextHopType',
         'route_entry_name': 'RouteEntryName',
         'route_table_id': 'RouteTableId'
     }
 
-    def __init__(self, client_token=None, description=None, destination_cidr_block=None, destination_prefix_list_id=None, next_hop_id=None, next_hop_type=None, route_entry_name=None, route_table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, destination_cidr_block=None, destination_prefix_list_id=None, next_hop_id=None, next_hop_name=None, next_hop_type=None, route_entry_name=None, route_table_id=None, _configuration=None):  # noqa: E501
         """CreateRouteEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class CreateRouteEntryRequest(object):
         self._destination_cidr_block = None
         self._destination_prefix_list_id = None
         self._next_hop_id = None
+        self._next_hop_name = None
         self._next_hop_type = None
         self._route_entry_name = None
         self._route_table_id = None
@@ -79,6 +82,8 @@ class CreateRouteEntryRequest(object):
         if destination_prefix_list_id is not None:
             self.destination_prefix_list_id = destination_prefix_list_id
         self.next_hop_id = next_hop_id
+        if next_hop_name is not None:
+            self.next_hop_name = next_hop_name
         self.next_hop_type = next_hop_type
         if route_entry_name is not None:
             self.route_entry_name = route_entry_name
@@ -196,6 +201,27 @@ class CreateRouteEntryRequest(object):
             raise ValueError("Invalid value for `next_hop_id`, must not be `None`")  # noqa: E501
 
         self._next_hop_id = next_hop_id
+
+    @property
+    def next_hop_name(self):
+        """Gets the next_hop_name of this CreateRouteEntryRequest.  # noqa: E501
+
+
+        :return: The next_hop_name of this CreateRouteEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_hop_name
+
+    @next_hop_name.setter
+    def next_hop_name(self, next_hop_name):
+        """Sets the next_hop_name of this CreateRouteEntryRequest.
+
+
+        :param next_hop_name: The next_hop_name of this CreateRouteEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_hop_name = next_hop_name
 
     @property
     def next_hop_type(self):

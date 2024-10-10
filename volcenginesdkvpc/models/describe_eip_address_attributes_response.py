@@ -46,6 +46,8 @@ class DescribeEipAddressAttributesResponse(object):
         'isp': 'str',
         'instance_id': 'str',
         'instance_type': 'str',
+        'ip_address_pool_id': 'str',
+        'is_blocked': 'bool',
         'lock_reason': 'str',
         'name': 'str',
         'overdue_time': 'str',
@@ -53,6 +55,7 @@ class DescribeEipAddressAttributesResponse(object):
         'release_with_instance': 'bool',
         'request_id': 'str',
         'security_protection_types': 'list[str]',
+        'service_managed': 'bool',
         'status': 'str',
         'tags': 'list[TagForDescribeEipAddressAttributesOutput]',
         'updated_at': 'str'
@@ -72,6 +75,8 @@ class DescribeEipAddressAttributesResponse(object):
         'isp': 'ISP',
         'instance_id': 'InstanceId',
         'instance_type': 'InstanceType',
+        'ip_address_pool_id': 'IpAddressPoolId',
+        'is_blocked': 'IsBlocked',
         'lock_reason': 'LockReason',
         'name': 'Name',
         'overdue_time': 'OverdueTime',
@@ -79,12 +84,13 @@ class DescribeEipAddressAttributesResponse(object):
         'release_with_instance': 'ReleaseWithInstance',
         'request_id': 'RequestId',
         'security_protection_types': 'SecurityProtectionTypes',
+        'service_managed': 'ServiceManaged',
         'status': 'Status',
         'tags': 'Tags',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, allocation_id=None, allocation_time=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, deleted_time=None, description=None, eip_address=None, expired_time=None, isp=None, instance_id=None, instance_type=None, lock_reason=None, name=None, overdue_time=None, project_name=None, release_with_instance=None, request_id=None, security_protection_types=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, allocation_time=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, deleted_time=None, description=None, eip_address=None, expired_time=None, isp=None, instance_id=None, instance_type=None, ip_address_pool_id=None, is_blocked=None, lock_reason=None, name=None, overdue_time=None, project_name=None, release_with_instance=None, request_id=None, security_protection_types=None, service_managed=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
         """DescribeEipAddressAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +109,8 @@ class DescribeEipAddressAttributesResponse(object):
         self._isp = None
         self._instance_id = None
         self._instance_type = None
+        self._ip_address_pool_id = None
+        self._is_blocked = None
         self._lock_reason = None
         self._name = None
         self._overdue_time = None
@@ -110,6 +118,7 @@ class DescribeEipAddressAttributesResponse(object):
         self._release_with_instance = None
         self._request_id = None
         self._security_protection_types = None
+        self._service_managed = None
         self._status = None
         self._tags = None
         self._updated_at = None
@@ -141,6 +150,10 @@ class DescribeEipAddressAttributesResponse(object):
             self.instance_id = instance_id
         if instance_type is not None:
             self.instance_type = instance_type
+        if ip_address_pool_id is not None:
+            self.ip_address_pool_id = ip_address_pool_id
+        if is_blocked is not None:
+            self.is_blocked = is_blocked
         if lock_reason is not None:
             self.lock_reason = lock_reason
         if name is not None:
@@ -155,6 +168,8 @@ class DescribeEipAddressAttributesResponse(object):
             self.request_id = request_id
         if security_protection_types is not None:
             self.security_protection_types = security_protection_types
+        if service_managed is not None:
+            self.service_managed = service_managed
         if status is not None:
             self.status = status
         if tags is not None:
@@ -436,6 +451,48 @@ class DescribeEipAddressAttributesResponse(object):
         self._instance_type = instance_type
 
     @property
+    def ip_address_pool_id(self):
+        """Gets the ip_address_pool_id of this DescribeEipAddressAttributesResponse.  # noqa: E501
+
+
+        :return: The ip_address_pool_id of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address_pool_id
+
+    @ip_address_pool_id.setter
+    def ip_address_pool_id(self, ip_address_pool_id):
+        """Sets the ip_address_pool_id of this DescribeEipAddressAttributesResponse.
+
+
+        :param ip_address_pool_id: The ip_address_pool_id of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address_pool_id = ip_address_pool_id
+
+    @property
+    def is_blocked(self):
+        """Gets the is_blocked of this DescribeEipAddressAttributesResponse.  # noqa: E501
+
+
+        :return: The is_blocked of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_blocked
+
+    @is_blocked.setter
+    def is_blocked(self, is_blocked):
+        """Sets the is_blocked of this DescribeEipAddressAttributesResponse.
+
+
+        :param is_blocked: The is_blocked of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_blocked = is_blocked
+
+    @property
     def lock_reason(self):
         """Gets the lock_reason of this DescribeEipAddressAttributesResponse.  # noqa: E501
 
@@ -581,6 +638,27 @@ class DescribeEipAddressAttributesResponse(object):
         """
 
         self._security_protection_types = security_protection_types
+
+    @property
+    def service_managed(self):
+        """Gets the service_managed of this DescribeEipAddressAttributesResponse.  # noqa: E501
+
+
+        :return: The service_managed of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this DescribeEipAddressAttributesResponse.
+
+
+        :param service_managed: The service_managed of this DescribeEipAddressAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._service_managed = service_managed
 
     @property
     def status(self):

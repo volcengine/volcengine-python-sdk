@@ -42,6 +42,7 @@ class DescribeSubnetsRequest(object):
         'route_table_id': 'str',
         'subnet_ids': 'list[str]',
         'subnet_name': 'str',
+        'subnet_owner_id': 'str',
         'tag_filters': 'list[TagFilterForDescribeSubnetsInput]',
         'vpc_id': 'str',
         'zone_id': 'str'
@@ -57,12 +58,13 @@ class DescribeSubnetsRequest(object):
         'route_table_id': 'RouteTableId',
         'subnet_ids': 'SubnetIds',
         'subnet_name': 'SubnetName',
+        'subnet_owner_id': 'SubnetOwnerId',
         'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, is_default=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, route_table_id=None, subnet_ids=None, subnet_name=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_default=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, route_table_id=None, subnet_ids=None, subnet_name=None, subnet_owner_id=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeSubnetsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class DescribeSubnetsRequest(object):
         self._route_table_id = None
         self._subnet_ids = None
         self._subnet_name = None
+        self._subnet_owner_id = None
         self._tag_filters = None
         self._vpc_id = None
         self._zone_id = None
@@ -100,6 +103,8 @@ class DescribeSubnetsRequest(object):
             self.subnet_ids = subnet_ids
         if subnet_name is not None:
             self.subnet_name = subnet_name
+        if subnet_owner_id is not None:
+            self.subnet_owner_id = subnet_owner_id
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if vpc_id is not None:
@@ -298,6 +303,27 @@ class DescribeSubnetsRequest(object):
         """
 
         self._subnet_name = subnet_name
+
+    @property
+    def subnet_owner_id(self):
+        """Gets the subnet_owner_id of this DescribeSubnetsRequest.  # noqa: E501
+
+
+        :return: The subnet_owner_id of this DescribeSubnetsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_owner_id
+
+    @subnet_owner_id.setter
+    def subnet_owner_id(self, subnet_owner_id):
+        """Sets the subnet_owner_id of this DescribeSubnetsRequest.
+
+
+        :param subnet_owner_id: The subnet_owner_id of this DescribeSubnetsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_owner_id = subnet_owner_id
 
     @property
     def tag_filters(self):

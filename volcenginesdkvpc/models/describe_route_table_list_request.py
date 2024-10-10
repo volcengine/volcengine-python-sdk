@@ -40,6 +40,7 @@ class DescribeRouteTableListRequest(object):
         'project_name': 'str',
         'route_table_id': 'str',
         'route_table_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeRouteTableListInput]',
         'vpc_id': 'str'
     }
 
@@ -51,10 +52,11 @@ class DescribeRouteTableListRequest(object):
         'project_name': 'ProjectName',
         'route_table_id': 'RouteTableId',
         'route_table_name': 'RouteTableName',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, route_table_id=None, route_table_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, route_table_id=None, route_table_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeRouteTableListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class DescribeRouteTableListRequest(object):
         self._project_name = None
         self._route_table_id = None
         self._route_table_name = None
+        self._tag_filters = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class DescribeRouteTableListRequest(object):
             self.route_table_id = route_table_id
         if route_table_name is not None:
             self.route_table_name = route_table_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -236,6 +241,27 @@ class DescribeRouteTableListRequest(object):
         """
 
         self._route_table_name = route_table_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeRouteTableListRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeRouteTableListRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeRouteTableListInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeRouteTableListRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeRouteTableListRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeRouteTableListInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):
