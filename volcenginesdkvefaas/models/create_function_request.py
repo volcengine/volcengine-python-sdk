@@ -33,14 +33,18 @@ class CreateFunctionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'command': 'str',
+        'cpu_strategy': 'str',
         'description': 'str',
         'envs': 'list[EnvForCreateFunctionInput]',
         'exclusive_mode': 'bool',
         'initializer_sec': 'int',
+        'instance_type': 'str',
         'max_concurrency': 'int',
         'memory_mb': 'int',
         'name': 'str',
         'nas_storage': 'NasStorageForCreateFunctionInput',
+        'project_name': 'str',
         'request_timeout': 'int',
         'runtime': 'str',
         'source': 'str',
@@ -52,14 +56,18 @@ class CreateFunctionRequest(object):
     }
 
     attribute_map = {
+        'command': 'Command',
+        'cpu_strategy': 'CpuStrategy',
         'description': 'Description',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
         'initializer_sec': 'InitializerSec',
+        'instance_type': 'InstanceType',
         'max_concurrency': 'MaxConcurrency',
         'memory_mb': 'MemoryMB',
         'name': 'Name',
         'nas_storage': 'NasStorage',
+        'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
         'runtime': 'Runtime',
         'source': 'Source',
@@ -70,20 +78,24 @@ class CreateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, description=None, envs=None, exclusive_mode=None, initializer_sec=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, command=None, cpu_strategy=None, description=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, project_name=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._command = None
+        self._cpu_strategy = None
         self._description = None
         self._envs = None
         self._exclusive_mode = None
         self._initializer_sec = None
+        self._instance_type = None
         self._max_concurrency = None
         self._memory_mb = None
         self._name = None
         self._nas_storage = None
+        self._project_name = None
         self._request_timeout = None
         self._runtime = None
         self._source = None
@@ -94,6 +106,10 @@ class CreateFunctionRequest(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if command is not None:
+            self.command = command
+        if cpu_strategy is not None:
+            self.cpu_strategy = cpu_strategy
         if description is not None:
             self.description = description
         if envs is not None:
@@ -102,6 +118,8 @@ class CreateFunctionRequest(object):
             self.exclusive_mode = exclusive_mode
         if initializer_sec is not None:
             self.initializer_sec = initializer_sec
+        if instance_type is not None:
+            self.instance_type = instance_type
         if max_concurrency is not None:
             self.max_concurrency = max_concurrency
         if memory_mb is not None:
@@ -109,6 +127,8 @@ class CreateFunctionRequest(object):
         self.name = name
         if nas_storage is not None:
             self.nas_storage = nas_storage
+        if project_name is not None:
+            self.project_name = project_name
         if request_timeout is not None:
             self.request_timeout = request_timeout
         self.runtime = runtime
@@ -124,6 +144,48 @@ class CreateFunctionRequest(object):
             self.tos_mount_config = tos_mount_config
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def command(self):
+        """Gets the command of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The command of this CreateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._command
+
+    @command.setter
+    def command(self, command):
+        """Sets the command of this CreateFunctionRequest.
+
+
+        :param command: The command of this CreateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._command = command
+
+    @property
+    def cpu_strategy(self):
+        """Gets the cpu_strategy of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The cpu_strategy of this CreateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cpu_strategy
+
+    @cpu_strategy.setter
+    def cpu_strategy(self, cpu_strategy):
+        """Sets the cpu_strategy of this CreateFunctionRequest.
+
+
+        :param cpu_strategy: The cpu_strategy of this CreateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cpu_strategy = cpu_strategy
 
     @property
     def description(self):
@@ -210,6 +272,27 @@ class CreateFunctionRequest(object):
         self._initializer_sec = initializer_sec
 
     @property
+    def instance_type(self):
+        """Gets the instance_type of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The instance_type of this CreateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this CreateFunctionRequest.
+
+
+        :param instance_type: The instance_type of this CreateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type = instance_type
+
+    @property
     def max_concurrency(self):
         """Gets the max_concurrency of this CreateFunctionRequest.  # noqa: E501
 
@@ -294,6 +377,27 @@ class CreateFunctionRequest(object):
         """
 
         self._nas_storage = nas_storage
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateFunctionRequest.
+
+
+        :param project_name: The project_name of this CreateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def request_timeout(self):
