@@ -41,6 +41,7 @@ class ItemForListRevisionsOutput(object):
         'exclusive_mode': 'bool',
         'id': 'str',
         'initializer_sec': 'int',
+        'instance_type': 'str',
         'max_concurrency': 'int',
         'max_replicas': 'int',
         'memory_mb': 'int',
@@ -68,6 +69,7 @@ class ItemForListRevisionsOutput(object):
         'exclusive_mode': 'ExclusiveMode',
         'id': 'Id',
         'initializer_sec': 'InitializerSec',
+        'instance_type': 'InstanceType',
         'max_concurrency': 'MaxConcurrency',
         'max_replicas': 'MaxReplicas',
         'memory_mb': 'MemoryMB',
@@ -86,7 +88,7 @@ class ItemForListRevisionsOutput(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """ItemForListRevisionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +102,7 @@ class ItemForListRevisionsOutput(object):
         self._exclusive_mode = None
         self._id = None
         self._initializer_sec = None
+        self._instance_type = None
         self._max_concurrency = None
         self._max_replicas = None
         self._memory_mb = None
@@ -134,6 +137,8 @@ class ItemForListRevisionsOutput(object):
             self.id = id
         if initializer_sec is not None:
             self.initializer_sec = initializer_sec
+        if instance_type is not None:
+            self.instance_type = instance_type
         if max_concurrency is not None:
             self.max_concurrency = max_concurrency
         if max_replicas is not None:
@@ -334,6 +339,27 @@ class ItemForListRevisionsOutput(object):
         """
 
         self._initializer_sec = initializer_sec
+
+    @property
+    def instance_type(self):
+        """Gets the instance_type of this ItemForListRevisionsOutput.  # noqa: E501
+
+
+        :return: The instance_type of this ItemForListRevisionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this ItemForListRevisionsOutput.
+
+
+        :param instance_type: The instance_type of this ItemForListRevisionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type = instance_type
 
     @property
     def max_concurrency(self):

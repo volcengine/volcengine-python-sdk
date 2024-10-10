@@ -43,6 +43,7 @@ class DescribeHaVipsRequest(object):
         'project_name': 'str',
         'status': 'str',
         'subnet_id': 'str',
+        'tag_filters': 'list[TagFilterForDescribeHaVipsInput]',
         'vpc_id': 'str'
     }
 
@@ -57,10 +58,11 @@ class DescribeHaVipsRequest(object):
         'project_name': 'ProjectName',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, ha_vip_ids=None, ha_vip_name=None, ip_address=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, status=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ha_vip_ids=None, ha_vip_name=None, ip_address=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, status=None, subnet_id=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeHaVipsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class DescribeHaVipsRequest(object):
         self._project_name = None
         self._status = None
         self._subnet_id = None
+        self._tag_filters = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -99,6 +102,8 @@ class DescribeHaVipsRequest(object):
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -320,6 +325,27 @@ class DescribeHaVipsRequest(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeHaVipsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeHaVipsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeHaVipsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeHaVipsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeHaVipsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeHaVipsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):

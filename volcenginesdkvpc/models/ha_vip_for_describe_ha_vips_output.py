@@ -47,6 +47,7 @@ class HaVipForDescribeHaVipsOutput(object):
         'project_name': 'str',
         'status': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeHaVipsOutput]',
         'updated_at': 'str',
         'vpc_id': 'str'
     }
@@ -66,11 +67,12 @@ class HaVipForDescribeHaVipsOutput(object):
         'project_name': 'ProjectName',
         'status': 'Status',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'updated_at': 'UpdatedAt',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, associated_eip_address=None, associated_eip_id=None, associated_instance_ids=None, associated_instance_type=None, created_at=None, description=None, ha_vip_id=None, ha_vip_name=None, ip_address=None, master_instance_id=None, project_name=None, status=None, subnet_id=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associated_eip_address=None, associated_eip_id=None, associated_instance_ids=None, associated_instance_type=None, created_at=None, description=None, ha_vip_id=None, ha_vip_name=None, ip_address=None, master_instance_id=None, project_name=None, status=None, subnet_id=None, tags=None, updated_at=None, vpc_id=None, _configuration=None):  # noqa: E501
         """HaVipForDescribeHaVipsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,6 +92,7 @@ class HaVipForDescribeHaVipsOutput(object):
         self._project_name = None
         self._status = None
         self._subnet_id = None
+        self._tags = None
         self._updated_at = None
         self._vpc_id = None
         self.discriminator = None
@@ -122,6 +125,8 @@ class HaVipForDescribeHaVipsOutput(object):
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
         if vpc_id is not None:
@@ -420,6 +425,27 @@ class HaVipForDescribeHaVipsOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+
+
+        :return: The tags of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeHaVipsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this HaVipForDescribeHaVipsOutput.
+
+
+        :param tags: The tags of this HaVipForDescribeHaVipsOutput.  # noqa: E501
+        :type: list[TagForDescribeHaVipsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):

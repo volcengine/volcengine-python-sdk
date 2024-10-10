@@ -37,6 +37,7 @@ class CreateRouteTableRequest(object):
         'description': 'str',
         'project_name': 'str',
         'route_table_name': 'str',
+        'tags': 'list[TagForCreateRouteTableInput]',
         'vpc_id': 'str'
     }
 
@@ -45,10 +46,11 @@ class CreateRouteTableRequest(object):
         'description': 'Description',
         'project_name': 'ProjectName',
         'route_table_name': 'RouteTableName',
+        'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, client_token=None, description=None, project_name=None, route_table_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, project_name=None, route_table_name=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateRouteTableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CreateRouteTableRequest(object):
         self._description = None
         self._project_name = None
         self._route_table_name = None
+        self._tags = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class CreateRouteTableRequest(object):
             self.project_name = project_name
         if route_table_name is not None:
             self.route_table_name = route_table_name
+        if tags is not None:
+            self.tags = tags
         self.vpc_id = vpc_id
 
     @property
@@ -166,6 +171,27 @@ class CreateRouteTableRequest(object):
             raise ValueError("Invalid value for `route_table_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._route_table_name = route_table_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateRouteTableRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateRouteTableRequest.  # noqa: E501
+        :rtype: list[TagForCreateRouteTableInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateRouteTableRequest.
+
+
+        :param tags: The tags of this CreateRouteTableRequest.  # noqa: E501
+        :type: list[TagForCreateRouteTableInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

@@ -33,23 +33,28 @@ class ReleaseEipAddressRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allocation_id': 'str'
+        'allocation_id': 'str',
+        'client_token': 'str'
     }
 
     attribute_map = {
-        'allocation_id': 'AllocationId'
+        'allocation_id': 'AllocationId',
+        'client_token': 'ClientToken'
     }
 
-    def __init__(self, allocation_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, client_token=None, _configuration=None):  # noqa: E501
         """ReleaseEipAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allocation_id = None
+        self._client_token = None
         self.discriminator = None
 
         self.allocation_id = allocation_id
+        if client_token is not None:
+            self.client_token = client_token
 
     @property
     def allocation_id(self):
@@ -73,6 +78,27 @@ class ReleaseEipAddressRequest(object):
             raise ValueError("Invalid value for `allocation_id`, must not be `None`")  # noqa: E501
 
         self._allocation_id = allocation_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ReleaseEipAddressRequest.  # noqa: E501
+
+
+        :return: The client_token of this ReleaseEipAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ReleaseEipAddressRequest.
+
+
+        :param client_token: The client_token of this ReleaseEipAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -41,8 +41,8 @@ class UpdateFunctionRequest(object):
         'max_concurrency': 'int',
         'memory_mb': 'int',
         'nas_storage': 'NasStorageForUpdateFunctionInput',
+        'project_name': 'str',
         'request_timeout': 'int',
-        'runtime': 'str',
         'source': 'str',
         'source_access_config': 'SourceAccessConfigForUpdateFunctionInput',
         'source_type': 'str',
@@ -60,8 +60,8 @@ class UpdateFunctionRequest(object):
         'max_concurrency': 'MaxConcurrency',
         'memory_mb': 'MemoryMB',
         'nas_storage': 'NasStorage',
+        'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
-        'runtime': 'Runtime',
         'source': 'Source',
         'source_access_config': 'SourceAccessConfig',
         'source_type': 'SourceType',
@@ -70,7 +70,7 @@ class UpdateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, memory_mb=None, nas_storage=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, memory_mb=None, nas_storage=None, project_name=None, request_timeout=None, source=None, source_access_config=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """UpdateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,8 +84,8 @@ class UpdateFunctionRequest(object):
         self._max_concurrency = None
         self._memory_mb = None
         self._nas_storage = None
+        self._project_name = None
         self._request_timeout = None
-        self._runtime = None
         self._source = None
         self._source_access_config = None
         self._source_type = None
@@ -109,10 +109,10 @@ class UpdateFunctionRequest(object):
             self.memory_mb = memory_mb
         if nas_storage is not None:
             self.nas_storage = nas_storage
+        if project_name is not None:
+            self.project_name = project_name
         if request_timeout is not None:
             self.request_timeout = request_timeout
-        if runtime is not None:
-            self.runtime = runtime
         if source is not None:
             self.source = source
         if source_access_config is not None:
@@ -297,6 +297,27 @@ class UpdateFunctionRequest(object):
         self._nas_storage = nas_storage
 
     @property
+    def project_name(self):
+        """Gets the project_name of this UpdateFunctionRequest.  # noqa: E501
+
+
+        :return: The project_name of this UpdateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this UpdateFunctionRequest.
+
+
+        :param project_name: The project_name of this UpdateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def request_timeout(self):
         """Gets the request_timeout of this UpdateFunctionRequest.  # noqa: E501
 
@@ -316,27 +337,6 @@ class UpdateFunctionRequest(object):
         """
 
         self._request_timeout = request_timeout
-
-    @property
-    def runtime(self):
-        """Gets the runtime of this UpdateFunctionRequest.  # noqa: E501
-
-
-        :return: The runtime of this UpdateFunctionRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._runtime
-
-    @runtime.setter
-    def runtime(self, runtime):
-        """Sets the runtime of this UpdateFunctionRequest.
-
-
-        :param runtime: The runtime of this UpdateFunctionRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._runtime = runtime
 
     @property
     def source(self):

@@ -33,38 +33,69 @@ class ModifyNetworkInterfaceAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'delete_on_termination': 'bool',
         'description': 'str',
         'network_interface_id': 'str',
         'network_interface_name': 'str',
+        'port_security_enabled': 'bool',
         'security_group_ids': 'list[str]'
     }
 
     attribute_map = {
+        'delete_on_termination': 'DeleteOnTermination',
         'description': 'Description',
         'network_interface_id': 'NetworkInterfaceId',
         'network_interface_name': 'NetworkInterfaceName',
+        'port_security_enabled': 'PortSecurityEnabled',
         'security_group_ids': 'SecurityGroupIds'
     }
 
-    def __init__(self, description=None, network_interface_id=None, network_interface_name=None, security_group_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_on_termination=None, description=None, network_interface_id=None, network_interface_name=None, port_security_enabled=None, security_group_ids=None, _configuration=None):  # noqa: E501
         """ModifyNetworkInterfaceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._delete_on_termination = None
         self._description = None
         self._network_interface_id = None
         self._network_interface_name = None
+        self._port_security_enabled = None
         self._security_group_ids = None
         self.discriminator = None
 
+        if delete_on_termination is not None:
+            self.delete_on_termination = delete_on_termination
         if description is not None:
             self.description = description
         self.network_interface_id = network_interface_id
         if network_interface_name is not None:
             self.network_interface_name = network_interface_name
+        if port_security_enabled is not None:
+            self.port_security_enabled = port_security_enabled
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
+
+    @property
+    def delete_on_termination(self):
+        """Gets the delete_on_termination of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The delete_on_termination of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_on_termination
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, delete_on_termination):
+        """Sets the delete_on_termination of this ModifyNetworkInterfaceAttributesRequest.
+
+
+        :param delete_on_termination: The delete_on_termination of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._delete_on_termination = delete_on_termination
 
     @property
     def description(self):
@@ -142,6 +173,27 @@ class ModifyNetworkInterfaceAttributesRequest(object):
             raise ValueError("Invalid value for `network_interface_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._network_interface_name = network_interface_name
+
+    @property
+    def port_security_enabled(self):
+        """Gets the port_security_enabled of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The port_security_enabled of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._port_security_enabled
+
+    @port_security_enabled.setter
+    def port_security_enabled(self, port_security_enabled):
+        """Sets the port_security_enabled of this ModifyNetworkInterfaceAttributesRequest.
+
+
+        :param port_security_enabled: The port_security_enabled of this ModifyNetworkInterfaceAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._port_security_enabled = port_security_enabled
 
     @property
     def security_group_ids(self):

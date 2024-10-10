@@ -41,6 +41,7 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         'route_table_name': 'str',
         'route_table_type': 'str',
         'subnet_ids': 'list[str]',
+        'tags': 'list[TagForDescribeRouteTableListOutput]',
         'update_time': 'str',
         'vpc_id': 'str',
         'vpc_name': 'str'
@@ -55,12 +56,13 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         'route_table_name': 'RouteTableName',
         'route_table_type': 'RouteTableType',
         'subnet_ids': 'SubnetIds',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, creation_time=None, description=None, project_name=None, route_table_id=None, route_table_name=None, route_table_type=None, subnet_ids=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, creation_time=None, description=None, project_name=None, route_table_id=None, route_table_name=None, route_table_type=None, subnet_ids=None, tags=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """RouterTableListForDescribeRouteTableListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         self._route_table_name = None
         self._route_table_type = None
         self._subnet_ids = None
+        self._tags = None
         self._update_time = None
         self._vpc_id = None
         self._vpc_name = None
@@ -95,6 +98,8 @@ class RouterTableListForDescribeRouteTableListOutput(object):
             self.route_table_type = route_table_type
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vpc_id is not None:
@@ -269,6 +274,27 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         """
 
         self._subnet_ids = subnet_ids
+
+    @property
+    def tags(self):
+        """Gets the tags of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+
+
+        :return: The tags of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :rtype: list[TagForDescribeRouteTableListOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RouterTableListForDescribeRouteTableListOutput.
+
+
+        :param tags: The tags of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :type: list[TagForDescribeRouteTableListOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

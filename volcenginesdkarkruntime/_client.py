@@ -27,6 +27,8 @@ from ._constants import (
 )
 from ._streaming import Stream
 
+from ._utils._key_agreement import key_agreement_client
+
 __all__ = ["Ark", "AsyncArk"]
 
 
@@ -85,6 +87,7 @@ class Ark(SyncAPIClient):
 
         self._default_stream_cls = Stream
         self._sts_token_manager: StsTokenManager | None = None
+        self._certificate_manager: E2ECertificateManager | None = None
 
         self.chat = resources.Chat(self)
         self.bot_chat = resources.BotChat(self)
@@ -98,6 +101,15 @@ class Ark(SyncAPIClient):
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
+
+    def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
+        if self._certificate_manager is None:
+            cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
+            if (self.ak is None or self.sk is None) and cert_path is None:
+                raise ArkAPIError("must set (ak and sk) or (E2E_CERTIFICATE_PATH) \
+                                  before get endpoint token.")
+            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region)
+        return self._certificate_manager.get(endpoint_id)
 
     def _get_bot_sts_token(self, bot_id: str):
         if self._sts_token_manager is None:
@@ -166,6 +178,7 @@ class AsyncArk(AsyncAPIClient):
 
         self._default_stream_cls = Stream
         self._sts_token_manager: StsTokenManager | None = None
+        self._certificate_manager: E2ECertificateManager | None = None
 
         self.chat = resources.AsyncChat(self)
         self.bot_chat = resources.AsyncBotChat(self)
@@ -179,6 +192,15 @@ class AsyncArk(AsyncAPIClient):
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
+
+    def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
+        if self._certificate_manager is None:
+            cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
+            if (self.ak is None or self.sk is None) and cert_path is None:
+                raise ArkAPIError("must set (ak and sk) or (E2E_CERTIFICATE_PATH) \
+                                  before get endpoint token.")
+            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region)
+        return self._certificate_manager.get(endpoint_id)
 
     @property
     def auth_headers(self) -> dict[str, str]:
@@ -271,3 +293,46 @@ class StsTokenManager(object):
         )
 
         return resp.api_key, resp.expired_time
+
+
+class E2ECertificateManager(object):
+
+    def __init__(self, ak: str, sk: str, region: str):
+        self._certificate_manager: Dict[str, key_agreement_client] = {}
+
+        import volcenginesdkcore
+
+        configuration = volcenginesdkcore.Configuration()
+        configuration.ak = ak
+        configuration.sk = sk
+        configuration.region = region
+        configuration.schema = "https"
+
+        volcenginesdkcore.Configuration.set_default(configuration)
+        self.api_instance = volcenginesdkark.ARKApi()
+
+        self.cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
+
+    def _load_cert_by_ak_sk(self, ep: str) -> str:
+        get_endpoint_certificate_request = volcenginesdkark.GetEndpointCertificateRequest(
+            id=ep
+        )
+        try:
+            resp: volcenginesdkark.GetEndpointCertificateResponse = self.api_instance.get_endpoint_certificate(
+                get_endpoint_certificate_request)
+        except ApiException as e:
+            raise ArkAPIError("Getting Certificate failed: %s\n" % e)
+
+        return resp.pca_instance_certificate
+
+    def get(self, ep: str) -> key_agreement_client:
+        if ep not in self._certificate_manager:
+            if self.cert_path is not None:
+                with open(self.cert_path, 'r') as f:
+                    cert_pem = f.read()
+            else:
+                cert_pem = self._load_cert_by_ak_sk(ep)
+            self._certificate_manager[ep] = key_agreement_client(
+                certificate_pem_string=cert_pem
+            )
+        return self._certificate_manager[ep]

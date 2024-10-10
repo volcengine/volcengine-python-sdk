@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "volcengine-python-sdk"
-VERSION = "1.0.103"
+VERSION = "1.0.104"
 # To install the library, run the following
 #
 # python setup.py install
@@ -29,6 +29,7 @@ setup(
             "httpx>=0.23.0, <1",
             "anyio>=3.5.0, <5",
             "cached-property; python_version < '3.8'",
+            "cryptography>=38.0.4, <39.0.0"
         ]
     },
 )

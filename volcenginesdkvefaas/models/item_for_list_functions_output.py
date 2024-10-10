@@ -48,10 +48,12 @@ class ItemForListFunctionsOutput(object):
         'name': 'str',
         'nas_storage': 'NasStorageForListFunctionsOutput',
         'owner': 'str',
+        'project_name': 'str',
         'request_timeout': 'int',
         'runtime': 'str',
         'source_location': 'str',
         'source_type': 'str',
+        'tags': 'list[TagForListFunctionsOutput]',
         'tls_config': 'TlsConfigForListFunctionsOutput',
         'tos_mount_config': 'TosMountConfigForListFunctionsOutput',
         'triggers_count': 'int',
@@ -74,17 +76,19 @@ class ItemForListFunctionsOutput(object):
         'name': 'Name',
         'nas_storage': 'NasStorage',
         'owner': 'Owner',
+        'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
         'runtime': 'Runtime',
         'source_location': 'SourceLocation',
         'source_type': 'SourceType',
+        'tags': 'Tags',
         'tls_config': 'TlsConfig',
         'tos_mount_config': 'TosMountConfig',
         'triggers_count': 'TriggersCount',
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """ItemForListFunctionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,10 +109,12 @@ class ItemForListFunctionsOutput(object):
         self._name = None
         self._nas_storage = None
         self._owner = None
+        self._project_name = None
         self._request_timeout = None
         self._runtime = None
         self._source_location = None
         self._source_type = None
+        self._tags = None
         self._tls_config = None
         self._tos_mount_config = None
         self._triggers_count = None
@@ -145,6 +151,8 @@ class ItemForListFunctionsOutput(object):
             self.nas_storage = nas_storage
         if owner is not None:
             self.owner = owner
+        if project_name is not None:
+            self.project_name = project_name
         if request_timeout is not None:
             self.request_timeout = request_timeout
         if runtime is not None:
@@ -153,6 +161,8 @@ class ItemForListFunctionsOutput(object):
             self.source_location = source_location
         if source_type is not None:
             self.source_type = source_type
+        if tags is not None:
+            self.tags = tags
         if tls_config is not None:
             self.tls_config = tls_config
         if tos_mount_config is not None:
@@ -478,6 +488,27 @@ class ItemForListFunctionsOutput(object):
         self._owner = owner
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ItemForListFunctionsOutput.  # noqa: E501
+
+
+        :return: The project_name of this ItemForListFunctionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ItemForListFunctionsOutput.
+
+
+        :param project_name: The project_name of this ItemForListFunctionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def request_timeout(self):
         """Gets the request_timeout of this ItemForListFunctionsOutput.  # noqa: E501
 
@@ -560,6 +591,27 @@ class ItemForListFunctionsOutput(object):
         """
 
         self._source_type = source_type
+
+    @property
+    def tags(self):
+        """Gets the tags of this ItemForListFunctionsOutput.  # noqa: E501
+
+
+        :return: The tags of this ItemForListFunctionsOutput.  # noqa: E501
+        :rtype: list[TagForListFunctionsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ItemForListFunctionsOutput.
+
+
+        :param tags: The tags of this ItemForListFunctionsOutput.  # noqa: E501
+        :type: list[TagForListFunctionsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def tls_config(self):
