@@ -1,7 +1,7 @@
 from ..._models import BaseModel
 from .truncation_strategy import TruncationStrategy
 
-__all__ = ["CreateContextResponse"]
+__all__ = ["CreateContextResponse", "CloneContextResponse"]
 
 
 class CreateContextResponse(BaseModel):
@@ -16,3 +16,7 @@ class CreateContextResponse(BaseModel):
     Controls for how a context will be truncated prior to the run. 
     Use this to control the context window for the chat completion.
     """
+
+
+class CloneContextResponse(CreateContextResponse):
+    pass

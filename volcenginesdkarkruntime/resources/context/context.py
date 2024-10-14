@@ -13,7 +13,7 @@ from ..._utils._utils import with_sts_token, async_with_sts_token
 from ..._base_client import (
     make_request_options,
 )
-from ...types.context import CreateContextResponse
+from ...types.context import CreateContextResponse, CloneContextResponse
 from ...types.context.context_create_params import TTLTypes, TruncationStrategy, to_optional_ttl
 from ...types.chat import ChatCompletionMessageParam
 
@@ -54,6 +54,30 @@ class Context(SyncAPIResource):
                 timeout=timeout,
             ),
             cast_to=CreateContextResponse,
+        )
+
+    @with_sts_token
+    def clone(
+            self,
+            *,
+            context_id: str,
+            extra_headers: Headers | None = None,
+            extra_query: Query | None = None,
+            extra_body: Body | None = None,
+            timeout: float | httpx.Timeout | None = None,
+    ) -> CloneContextResponse:
+        return self._post(
+            "/context/clone",
+            body={
+                "context_id": context_id,
+            },
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+            ),
+            cast_to=CloneContextResponse,
         )
 
 
