@@ -40,24 +40,3 @@ if __name__ == "__main__":
 
         print(chunk.choices[0].delta.content, end="")
     print()
-
-    # image input:
-    response = client.chat.completions.create(
-        model="${YOUR_ENDPOINT_ID}",
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": "这是哪里？"},
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
-                        }
-                    },
-                ],
-            }
-        ]
-    )
-
-    print(response.choices[0])
