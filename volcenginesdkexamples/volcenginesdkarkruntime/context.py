@@ -42,3 +42,26 @@ if __name__ == "__main__":
         if not chunk.choices:
             continue
         print(chunk.choices[0].delta.content, end="")
+
+    # Clone:
+    print("----- clone context -----")
+    clone_response = client.context.clone(
+        context_id=response.id,
+    )
+    print(clone_response)
+
+    print("----- streaming request -----")
+    stream = client.context.completions.create(
+        context_id=clone_response.id,
+        model="${YOUR_ENDPOINT_ID}",
+        messages=[
+            {"role": "user", "content": "刚才你说了什么？"},
+        ],
+        stream=True
+    )
+    for chunk in stream:
+        if chunk.usage:
+            print(chunk.usage)
+        if not chunk.choices:
+            continue
+        print(chunk.choices[0].delta.content, end="")

@@ -56,7 +56,6 @@ class Context(SyncAPIResource):
             cast_to=CreateContextResponse,
         )
 
-    @with_sts_token
     def clone(
             self,
             *,
