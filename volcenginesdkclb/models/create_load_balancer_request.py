@@ -35,6 +35,7 @@ class CreateLoadBalancerRequest(object):
     swagger_types = {
         'address_ip_version': 'str',
         'allowed_ports': 'list[str]',
+        'bypass_security_group_enabled': 'str',
         'client_token': 'str',
         'description': 'str',
         'eip_billing_config': 'EipBillingConfigForCreateLoadBalancerInput',
@@ -62,6 +63,7 @@ class CreateLoadBalancerRequest(object):
     attribute_map = {
         'address_ip_version': 'AddressIpVersion',
         'allowed_ports': 'AllowedPorts',
+        'bypass_security_group_enabled': 'BypassSecurityGroupEnabled',
         'client_token': 'ClientToken',
         'description': 'Description',
         'eip_billing_config': 'EipBillingConfig',
@@ -86,7 +88,7 @@ class CreateLoadBalancerRequest(object):
         'zone_type': 'ZoneType'
     }
 
-    def __init__(self, address_ip_version=None, allowed_ports=None, client_token=None, description=None, eip_billing_config=None, eni_address=None, eni_address_num=None, eni_ipv6_address=None, load_balancer_billing_type=None, load_balancer_name=None, load_balancer_spec=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, period=None, period_unit=None, project_name=None, region_id=None, slave_zone_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, allowed_ports=None, bypass_security_group_enabled=None, client_token=None, description=None, eip_billing_config=None, eni_address=None, eni_address_num=None, eni_ipv6_address=None, load_balancer_billing_type=None, load_balancer_name=None, load_balancer_spec=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, period=None, period_unit=None, project_name=None, region_id=None, slave_zone_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_type=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,6 +96,7 @@ class CreateLoadBalancerRequest(object):
 
         self._address_ip_version = None
         self._allowed_ports = None
+        self._bypass_security_group_enabled = None
         self._client_token = None
         self._description = None
         self._eip_billing_config = None
@@ -122,6 +125,8 @@ class CreateLoadBalancerRequest(object):
             self.address_ip_version = address_ip_version
         if allowed_ports is not None:
             self.allowed_ports = allowed_ports
+        if bypass_security_group_enabled is not None:
+            self.bypass_security_group_enabled = bypass_security_group_enabled
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
@@ -205,6 +210,27 @@ class CreateLoadBalancerRequest(object):
         """
 
         self._allowed_ports = allowed_ports
+
+    @property
+    def bypass_security_group_enabled(self):
+        """Gets the bypass_security_group_enabled of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The bypass_security_group_enabled of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bypass_security_group_enabled
+
+    @bypass_security_group_enabled.setter
+    def bypass_security_group_enabled(self, bypass_security_group_enabled):
+        """Sets the bypass_security_group_enabled of this CreateLoadBalancerRequest.
+
+
+        :param bypass_security_group_enabled: The bypass_security_group_enabled of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bypass_security_group_enabled = bypass_security_group_enabled
 
     @property
     def client_token(self):

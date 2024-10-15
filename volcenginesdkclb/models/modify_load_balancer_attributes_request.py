@@ -35,6 +35,7 @@ class ModifyLoadBalancerAttributesRequest(object):
     swagger_types = {
         'address_ip_version': 'str',
         'allowed_ports': 'list[str]',
+        'bypass_security_group_enabled': 'str',
         'description': 'str',
         'eni_ipv6_address': 'str',
         'load_balancer_id': 'str',
@@ -48,6 +49,7 @@ class ModifyLoadBalancerAttributesRequest(object):
     attribute_map = {
         'address_ip_version': 'AddressIpVersion',
         'allowed_ports': 'AllowedPorts',
+        'bypass_security_group_enabled': 'BypassSecurityGroupEnabled',
         'description': 'Description',
         'eni_ipv6_address': 'EniIpv6Address',
         'load_balancer_id': 'LoadBalancerId',
@@ -58,7 +60,7 @@ class ModifyLoadBalancerAttributesRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, address_ip_version=None, allowed_ports=None, description=None, eni_ipv6_address=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, allowed_ports=None, bypass_security_group_enabled=None, description=None, eni_ipv6_address=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, modification_protection_reason=None, modification_protection_status=None, type=None, _configuration=None):  # noqa: E501
         """ModifyLoadBalancerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class ModifyLoadBalancerAttributesRequest(object):
 
         self._address_ip_version = None
         self._allowed_ports = None
+        self._bypass_security_group_enabled = None
         self._description = None
         self._eni_ipv6_address = None
         self._load_balancer_id = None
@@ -80,6 +83,8 @@ class ModifyLoadBalancerAttributesRequest(object):
             self.address_ip_version = address_ip_version
         if allowed_ports is not None:
             self.allowed_ports = allowed_ports
+        if bypass_security_group_enabled is not None:
+            self.bypass_security_group_enabled = bypass_security_group_enabled
         if description is not None:
             self.description = description
         if eni_ipv6_address is not None:
@@ -137,6 +142,27 @@ class ModifyLoadBalancerAttributesRequest(object):
         """
 
         self._allowed_ports = allowed_ports
+
+    @property
+    def bypass_security_group_enabled(self):
+        """Gets the bypass_security_group_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The bypass_security_group_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bypass_security_group_enabled
+
+    @bypass_security_group_enabled.setter
+    def bypass_security_group_enabled(self, bypass_security_group_enabled):
+        """Sets the bypass_security_group_enabled of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param bypass_security_group_enabled: The bypass_security_group_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bypass_security_group_enabled = bypass_security_group_enabled
 
     @property
     def description(self):
