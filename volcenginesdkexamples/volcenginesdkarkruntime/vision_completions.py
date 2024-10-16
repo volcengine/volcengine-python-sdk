@@ -6,7 +6,8 @@ from volcenginesdkarkruntime import Ark
 # Note: If you use an API key, this API key will not be refreshed.
 # To prevent the API from expiring and failing after some time, choose an API key with no expiration date.
 
-# 2.If you authorize your endpoint with Volcengine Identity and Access Management（IAM), set your api key to environment variable "VOLC_ACCESSKEY", "VOLC_SECRETKEY"
+# 2.If you authorize your endpoint with Volcengine Identity and Access Management（IAM),
+# set your api key to environment variable "VOLC_ACCESSKEY", "VOLC_SECRETKEY"
 # or specify ak&sk by Ark(ak="${YOUR_AK}", sk="${YOUR_SK}").
 # To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
 # For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
