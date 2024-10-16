@@ -23,7 +23,7 @@ response = client.chat.completions.create(
                 {
                     "type": "image_url",
                     "image_url": {
-                        "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
+                        "url": "https://ark-project.tos-cn-beijing.ivolces.com/images/view.jpeg"
                     }
                 },
             ],
