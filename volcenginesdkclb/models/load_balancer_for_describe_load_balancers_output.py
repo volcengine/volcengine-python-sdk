@@ -36,6 +36,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'account_id': 'str',
         'address_ip_version': 'str',
         'business_status': 'str',
+        'bypass_security_group_enabled': 'str',
         'create_time': 'str',
         'deleted_time': 'str',
         'description': 'str',
@@ -74,6 +75,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'account_id': 'AccountId',
         'address_ip_version': 'AddressIpVersion',
         'business_status': 'BusinessStatus',
+        'bypass_security_group_enabled': 'BypassSecurityGroupEnabled',
         'create_time': 'CreateTime',
         'deleted_time': 'DeletedTime',
         'description': 'Description',
@@ -108,7 +110,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, address_ip_version=None, business_status=None, create_time=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_address_num=None, eni_addresses=None, eni_id=None, eni_ipv6_address=None, exclusive_cluster_id=None, expired_time=None, ipv6_eip_id=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, new_arch=None, overdue_time=None, project_name=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, address_ip_version=None, business_status=None, bypass_security_group_enabled=None, create_time=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_address_num=None, eni_addresses=None, eni_id=None, eni_ipv6_address=None, exclusive_cluster_id=None, expired_time=None, ipv6_eip_id=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, new_arch=None, overdue_time=None, project_name=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """LoadBalancerForDescribeLoadBalancersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -117,6 +119,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._account_id = None
         self._address_ip_version = None
         self._business_status = None
+        self._bypass_security_group_enabled = None
         self._create_time = None
         self._deleted_time = None
         self._description = None
@@ -157,6 +160,8 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.address_ip_version = address_ip_version
         if business_status is not None:
             self.business_status = business_status
+        if bypass_security_group_enabled is not None:
+            self.bypass_security_group_enabled = bypass_security_group_enabled
         if create_time is not None:
             self.create_time = create_time
         if deleted_time is not None:
@@ -284,6 +289,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         """
 
         self._business_status = business_status
+
+    @property
+    def bypass_security_group_enabled(self):
+        """Gets the bypass_security_group_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The bypass_security_group_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bypass_security_group_enabled
+
+    @bypass_security_group_enabled.setter
+    def bypass_security_group_enabled(self, bypass_security_group_enabled):
+        """Sets the bypass_security_group_enabled of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param bypass_security_group_enabled: The bypass_security_group_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bypass_security_group_enabled = bypass_security_group_enabled
 
     @property
     def create_time(self):
