@@ -42,6 +42,7 @@ class CertificateForDescribeCertificatesOutput(object):
         'listeners': 'list[str]',
         'project_name': 'str',
         'service_managed': 'bool',
+        'subject_alternative_names': 'list[str]',
         'tags': 'list[TagForDescribeCertificatesOutput]'
     }
 
@@ -55,10 +56,11 @@ class CertificateForDescribeCertificatesOutput(object):
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
         'service_managed': 'ServiceManaged',
+        'subject_alternative_names': 'SubjectAlternativeNames',
         'tags': 'Tags'
     }
 
-    def __init__(self, certificate_id=None, certificate_name=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, service_managed=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_id=None, certificate_name=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, service_managed=None, subject_alternative_names=None, tags=None, _configuration=None):  # noqa: E501
         """CertificateForDescribeCertificatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class CertificateForDescribeCertificatesOutput(object):
         self._listeners = None
         self._project_name = None
         self._service_managed = None
+        self._subject_alternative_names = None
         self._tags = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class CertificateForDescribeCertificatesOutput(object):
             self.project_name = project_name
         if service_managed is not None:
             self.service_managed = service_managed
+        if subject_alternative_names is not None:
+            self.subject_alternative_names = subject_alternative_names
         if tags is not None:
             self.tags = tags
 
@@ -285,6 +290,27 @@ class CertificateForDescribeCertificatesOutput(object):
         """
 
         self._service_managed = service_managed
+
+    @property
+    def subject_alternative_names(self):
+        """Gets the subject_alternative_names of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+
+
+        :return: The subject_alternative_names of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._subject_alternative_names
+
+    @subject_alternative_names.setter
+    def subject_alternative_names(self, subject_alternative_names):
+        """Sets the subject_alternative_names of this CertificateForDescribeCertificatesOutput.
+
+
+        :param subject_alternative_names: The subject_alternative_names of this CertificateForDescribeCertificatesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._subject_alternative_names = subject_alternative_names
 
     @property
     def tags(self):
