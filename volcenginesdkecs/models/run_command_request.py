@@ -39,8 +39,10 @@ class RunCommandRequest(object):
         'invocation_description': 'str',
         'invocation_name': 'str',
         'launch_time': 'str',
+        'project_name': 'str',
         'recurrence_end_time': 'str',
         'repeat_mode': 'str',
+        'tags': 'list[TagForRunCommandInput]',
         'timeout': 'int',
         'type': 'str',
         'username': 'str',
@@ -54,15 +56,17 @@ class RunCommandRequest(object):
         'invocation_description': 'InvocationDescription',
         'invocation_name': 'InvocationName',
         'launch_time': 'LaunchTime',
+        'project_name': 'ProjectName',
         'recurrence_end_time': 'RecurrenceEndTime',
         'repeat_mode': 'RepeatMode',
+        'tags': 'Tags',
         'timeout': 'Timeout',
         'type': 'Type',
         'username': 'Username',
         'working_dir': 'WorkingDir'
     }
 
-    def __init__(self, command_content=None, frequency=None, instance_ids=None, invocation_description=None, invocation_name=None, launch_time=None, recurrence_end_time=None, repeat_mode=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_content=None, frequency=None, instance_ids=None, invocation_description=None, invocation_name=None, launch_time=None, project_name=None, recurrence_end_time=None, repeat_mode=None, tags=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
         """RunCommandRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,8 +78,10 @@ class RunCommandRequest(object):
         self._invocation_description = None
         self._invocation_name = None
         self._launch_time = None
+        self._project_name = None
         self._recurrence_end_time = None
         self._repeat_mode = None
+        self._tags = None
         self._timeout = None
         self._type = None
         self._username = None
@@ -92,10 +98,14 @@ class RunCommandRequest(object):
         self.invocation_name = invocation_name
         if launch_time is not None:
             self.launch_time = launch_time
+        if project_name is not None:
+            self.project_name = project_name
         if recurrence_end_time is not None:
             self.recurrence_end_time = recurrence_end_time
         if repeat_mode is not None:
             self.repeat_mode = repeat_mode
+        if tags is not None:
+            self.tags = tags
         if timeout is not None:
             self.timeout = timeout
         self.type = type
@@ -235,6 +245,27 @@ class RunCommandRequest(object):
         self._launch_time = launch_time
 
     @property
+    def project_name(self):
+        """Gets the project_name of this RunCommandRequest.  # noqa: E501
+
+
+        :return: The project_name of this RunCommandRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this RunCommandRequest.
+
+
+        :param project_name: The project_name of this RunCommandRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def recurrence_end_time(self):
         """Gets the recurrence_end_time of this RunCommandRequest.  # noqa: E501
 
@@ -275,6 +306,27 @@ class RunCommandRequest(object):
         """
 
         self._repeat_mode = repeat_mode
+
+    @property
+    def tags(self):
+        """Gets the tags of this RunCommandRequest.  # noqa: E501
+
+
+        :return: The tags of this RunCommandRequest.  # noqa: E501
+        :rtype: list[TagForRunCommandInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RunCommandRequest.
+
+
+        :param tags: The tags of this RunCommandRequest.  # noqa: E501
+        :type: list[TagForRunCommandInput]
+        """
+
+        self._tags = tags
 
     @property
     def timeout(self):

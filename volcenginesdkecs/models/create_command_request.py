@@ -38,6 +38,8 @@ class CreateCommandRequest(object):
         'enable_parameter': 'bool',
         'name': 'str',
         'parameter_definitions': 'list[ParameterDefinitionForCreateCommandInput]',
+        'project_name': 'str',
+        'tags': 'list[TagForCreateCommandInput]',
         'timeout': 'int',
         'type': 'str',
         'username': 'str',
@@ -50,13 +52,15 @@ class CreateCommandRequest(object):
         'enable_parameter': 'EnableParameter',
         'name': 'Name',
         'parameter_definitions': 'ParameterDefinitions',
+        'project_name': 'ProjectName',
+        'tags': 'Tags',
         'timeout': 'Timeout',
         'type': 'Type',
         'username': 'Username',
         'working_dir': 'WorkingDir'
     }
 
-    def __init__(self, command_content=None, description=None, enable_parameter=None, name=None, parameter_definitions=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_content=None, description=None, enable_parameter=None, name=None, parameter_definitions=None, project_name=None, tags=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
         """CreateCommandRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +71,8 @@ class CreateCommandRequest(object):
         self._enable_parameter = None
         self._name = None
         self._parameter_definitions = None
+        self._project_name = None
+        self._tags = None
         self._timeout = None
         self._type = None
         self._username = None
@@ -81,6 +87,10 @@ class CreateCommandRequest(object):
         self.name = name
         if parameter_definitions is not None:
             self.parameter_definitions = parameter_definitions
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         if timeout is not None:
             self.timeout = timeout
         self.type = type
@@ -197,6 +207,48 @@ class CreateCommandRequest(object):
         """
 
         self._parameter_definitions = parameter_definitions
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateCommandRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateCommandRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateCommandRequest.
+
+
+        :param project_name: The project_name of this CreateCommandRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateCommandRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateCommandRequest.  # noqa: E501
+        :rtype: list[TagForCreateCommandInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateCommandRequest.
+
+
+        :param tags: The tags of this CreateCommandRequest.  # noqa: E501
+        :type: list[TagForCreateCommandInput]
+        """
+
+        self._tags = tags
 
     @property
     def timeout(self):

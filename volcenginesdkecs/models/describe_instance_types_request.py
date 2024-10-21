@@ -33,6 +33,7 @@ class DescribeInstanceTypesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'image_id': 'str',
         'instance_type_ids': 'list[str]',
         'instance_types': 'list[str]',
         'max_results': 'int',
@@ -40,24 +41,28 @@ class DescribeInstanceTypesRequest(object):
     }
 
     attribute_map = {
+        'image_id': 'ImageId',
         'instance_type_ids': 'InstanceTypeIds',
         'instance_types': 'InstanceTypes',
         'max_results': 'MaxResults',
         'next_token': 'NextToken'
     }
 
-    def __init__(self, instance_type_ids=None, instance_types=None, max_results=None, next_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, image_id=None, instance_type_ids=None, instance_types=None, max_results=None, next_token=None, _configuration=None):  # noqa: E501
         """DescribeInstanceTypesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._image_id = None
         self._instance_type_ids = None
         self._instance_types = None
         self._max_results = None
         self._next_token = None
         self.discriminator = None
 
+        if image_id is not None:
+            self.image_id = image_id
         if instance_type_ids is not None:
             self.instance_type_ids = instance_type_ids
         if instance_types is not None:
@@ -66,6 +71,27 @@ class DescribeInstanceTypesRequest(object):
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
+
+    @property
+    def image_id(self):
+        """Gets the image_id of this DescribeInstanceTypesRequest.  # noqa: E501
+
+
+        :return: The image_id of this DescribeInstanceTypesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_id
+
+    @image_id.setter
+    def image_id(self, image_id):
+        """Sets the image_id of this DescribeInstanceTypesRequest.
+
+
+        :param image_id: The image_id of this DescribeInstanceTypesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._image_id = image_id
 
     @property
     def instance_type_ids(self):

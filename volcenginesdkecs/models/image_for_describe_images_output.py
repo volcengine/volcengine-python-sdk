@@ -41,8 +41,11 @@ class ImageForDescribeImagesOutput(object):
         'image_id': 'str',
         'image_name': 'str',
         'image_owner_id': 'str',
+        'is_install_run_command_agent': 'bool',
         'is_lts': 'bool',
         'is_support_cloud_init': 'bool',
+        'kernel': 'str',
+        'license_type': 'str',
         'os_name': 'str',
         'os_type': 'str',
         'platform': 'str',
@@ -67,8 +70,11 @@ class ImageForDescribeImagesOutput(object):
         'image_id': 'ImageId',
         'image_name': 'ImageName',
         'image_owner_id': 'ImageOwnerId',
+        'is_install_run_command_agent': 'IsInstallRunCommandAgent',
         'is_lts': 'IsLTS',
         'is_support_cloud_init': 'IsSupportCloudInit',
+        'kernel': 'Kernel',
+        'license_type': 'LicenseType',
         'os_name': 'OsName',
         'os_type': 'OsType',
         'platform': 'Platform',
@@ -84,7 +90,7 @@ class ImageForDescribeImagesOutput(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_lts=None, is_support_cloud_init=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_install_run_command_agent=None, is_lts=None, is_support_cloud_init=None, kernel=None, license_type=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,8 +104,11 @@ class ImageForDescribeImagesOutput(object):
         self._image_id = None
         self._image_name = None
         self._image_owner_id = None
+        self._is_install_run_command_agent = None
         self._is_lts = None
         self._is_support_cloud_init = None
+        self._kernel = None
+        self._license_type = None
         self._os_name = None
         self._os_type = None
         self._platform = None
@@ -131,10 +140,16 @@ class ImageForDescribeImagesOutput(object):
             self.image_name = image_name
         if image_owner_id is not None:
             self.image_owner_id = image_owner_id
+        if is_install_run_command_agent is not None:
+            self.is_install_run_command_agent = is_install_run_command_agent
         if is_lts is not None:
             self.is_lts = is_lts
         if is_support_cloud_init is not None:
             self.is_support_cloud_init = is_support_cloud_init
+        if kernel is not None:
+            self.kernel = kernel
+        if license_type is not None:
+            self.license_type = license_type
         if os_name is not None:
             self.os_name = os_name
         if os_type is not None:
@@ -331,6 +346,27 @@ class ImageForDescribeImagesOutput(object):
         self._image_owner_id = image_owner_id
 
     @property
+    def is_install_run_command_agent(self):
+        """Gets the is_install_run_command_agent of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The is_install_run_command_agent of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_install_run_command_agent
+
+    @is_install_run_command_agent.setter
+    def is_install_run_command_agent(self, is_install_run_command_agent):
+        """Sets the is_install_run_command_agent of this ImageForDescribeImagesOutput.
+
+
+        :param is_install_run_command_agent: The is_install_run_command_agent of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_install_run_command_agent = is_install_run_command_agent
+
+    @property
     def is_lts(self):
         """Gets the is_lts of this ImageForDescribeImagesOutput.  # noqa: E501
 
@@ -371,6 +407,48 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._is_support_cloud_init = is_support_cloud_init
+
+    @property
+    def kernel(self):
+        """Gets the kernel of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The kernel of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._kernel
+
+    @kernel.setter
+    def kernel(self, kernel):
+        """Sets the kernel of this ImageForDescribeImagesOutput.
+
+
+        :param kernel: The kernel of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._kernel = kernel
+
+    @property
+    def license_type(self):
+        """Gets the license_type of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The license_type of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this ImageForDescribeImagesOutput.
+
+
+        :param license_type: The license_type of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._license_type = license_type
 
     @property
     def os_name(self):

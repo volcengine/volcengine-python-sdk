@@ -34,6 +34,9 @@ class VolumeForCreateScheduledInstancesInput(object):
     """
     swagger_types = {
         'delete_with_instance': 'bool',
+        'extra_performance_iops': 'int',
+        'extra_performance_throughput_mb': 'int',
+        'extra_performance_type_id': 'str',
         'size': 'int',
         'snapshot_id': 'str',
         'volume_type': 'str'
@@ -41,18 +44,24 @@ class VolumeForCreateScheduledInstancesInput(object):
 
     attribute_map = {
         'delete_with_instance': 'DeleteWithInstance',
+        'extra_performance_iops': 'ExtraPerformanceIOPS',
+        'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMB',
+        'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'size': 'Size',
         'snapshot_id': 'SnapshotId',
         'volume_type': 'VolumeType'
     }
 
-    def __init__(self, delete_with_instance=None, size=None, snapshot_id=None, volume_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_with_instance=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, size=None, snapshot_id=None, volume_type=None, _configuration=None):  # noqa: E501
         """VolumeForCreateScheduledInstancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._delete_with_instance = None
+        self._extra_performance_iops = None
+        self._extra_performance_throughput_mb = None
+        self._extra_performance_type_id = None
         self._size = None
         self._snapshot_id = None
         self._volume_type = None
@@ -60,6 +69,12 @@ class VolumeForCreateScheduledInstancesInput(object):
 
         if delete_with_instance is not None:
             self.delete_with_instance = delete_with_instance
+        if extra_performance_iops is not None:
+            self.extra_performance_iops = extra_performance_iops
+        if extra_performance_throughput_mb is not None:
+            self.extra_performance_throughput_mb = extra_performance_throughput_mb
+        if extra_performance_type_id is not None:
+            self.extra_performance_type_id = extra_performance_type_id
         self.size = size
         if snapshot_id is not None:
             self.snapshot_id = snapshot_id
@@ -86,6 +101,69 @@ class VolumeForCreateScheduledInstancesInput(object):
         """
 
         self._delete_with_instance = delete_with_instance
+
+    @property
+    def extra_performance_iops(self):
+        """Gets the extra_performance_iops of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+
+
+        :return: The extra_performance_iops of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_iops
+
+    @extra_performance_iops.setter
+    def extra_performance_iops(self, extra_performance_iops):
+        """Sets the extra_performance_iops of this VolumeForCreateScheduledInstancesInput.
+
+
+        :param extra_performance_iops: The extra_performance_iops of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_iops = extra_performance_iops
+
+    @property
+    def extra_performance_throughput_mb(self):
+        """Gets the extra_performance_throughput_mb of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+
+
+        :return: The extra_performance_throughput_mb of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_throughput_mb
+
+    @extra_performance_throughput_mb.setter
+    def extra_performance_throughput_mb(self, extra_performance_throughput_mb):
+        """Sets the extra_performance_throughput_mb of this VolumeForCreateScheduledInstancesInput.
+
+
+        :param extra_performance_throughput_mb: The extra_performance_throughput_mb of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_throughput_mb = extra_performance_throughput_mb
+
+    @property
+    def extra_performance_type_id(self):
+        """Gets the extra_performance_type_id of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+
+
+        :return: The extra_performance_type_id of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._extra_performance_type_id
+
+    @extra_performance_type_id.setter
+    def extra_performance_type_id(self, extra_performance_type_id):
+        """Sets the extra_performance_type_id of this VolumeForCreateScheduledInstancesInput.
+
+
+        :param extra_performance_type_id: The extra_performance_type_id of this VolumeForCreateScheduledInstancesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._extra_performance_type_id = extra_performance_type_id
 
     @property
     def size(self):

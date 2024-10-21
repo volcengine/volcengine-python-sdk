@@ -33,6 +33,7 @@ class NetworkInterfaceForRunInstancesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ipv6_address_count': 'int',
         'primary_ip_address': 'str',
         'private_ip_addresses': 'list[str]',
         'security_group_ids': 'list[str]',
@@ -40,24 +41,28 @@ class NetworkInterfaceForRunInstancesInput(object):
     }
 
     attribute_map = {
+        'ipv6_address_count': 'Ipv6AddressCount',
         'primary_ip_address': 'PrimaryIpAddress',
         'private_ip_addresses': 'PrivateIpAddresses',
         'security_group_ids': 'SecurityGroupIds',
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, primary_ip_address=None, private_ip_addresses=None, security_group_ids=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_address_count=None, primary_ip_address=None, private_ip_addresses=None, security_group_ids=None, subnet_id=None, _configuration=None):  # noqa: E501
         """NetworkInterfaceForRunInstancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ipv6_address_count = None
         self._primary_ip_address = None
         self._private_ip_addresses = None
         self._security_group_ids = None
         self._subnet_id = None
         self.discriminator = None
 
+        if ipv6_address_count is not None:
+            self.ipv6_address_count = ipv6_address_count
         if primary_ip_address is not None:
             self.primary_ip_address = primary_ip_address
         if private_ip_addresses is not None:
@@ -65,6 +70,27 @@ class NetworkInterfaceForRunInstancesInput(object):
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
         self.subnet_id = subnet_id
+
+    @property
+    def ipv6_address_count(self):
+        """Gets the ipv6_address_count of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+
+
+        :return: The ipv6_address_count of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._ipv6_address_count
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, ipv6_address_count):
+        """Sets the ipv6_address_count of this NetworkInterfaceForRunInstancesInput.
+
+
+        :param ipv6_address_count: The ipv6_address_count of this NetworkInterfaceForRunInstancesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._ipv6_address_count = ipv6_address_count
 
     @property
     def primary_ip_address(self):

@@ -36,6 +36,7 @@ class PurchaseReservedInstancesRequest(object):
         'auto_renew': 'bool',
         'auto_renew_period': 'int',
         'client_token': 'str',
+        'description': 'str',
         'hpc_cluster_id': 'str',
         'instance_count': 'int',
         'instance_type_id': 'str',
@@ -53,6 +54,7 @@ class PurchaseReservedInstancesRequest(object):
         'auto_renew': 'AutoRenew',
         'auto_renew_period': 'AutoRenewPeriod',
         'client_token': 'ClientToken',
+        'description': 'Description',
         'hpc_cluster_id': 'HpcClusterId',
         'instance_count': 'InstanceCount',
         'instance_type_id': 'InstanceTypeId',
@@ -66,7 +68,7 @@ class PurchaseReservedInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, hpc_cluster_id=None, instance_count=None, instance_type_id=None, period=None, period_unit=None, project_name=None, region_id=None, reserved_instance_name=None, scope=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, description=None, hpc_cluster_id=None, instance_count=None, instance_type_id=None, period=None, period_unit=None, project_name=None, region_id=None, reserved_instance_name=None, scope=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
         """PurchaseReservedInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class PurchaseReservedInstancesRequest(object):
         self._auto_renew = None
         self._auto_renew_period = None
         self._client_token = None
+        self._description = None
         self._hpc_cluster_id = None
         self._instance_count = None
         self._instance_type_id = None
@@ -94,6 +97,8 @@ class PurchaseReservedInstancesRequest(object):
             self.auto_renew_period = auto_renew_period
         if client_token is not None:
             self.client_token = client_token
+        if description is not None:
+            self.description = description
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
         if instance_count is not None:
@@ -177,6 +182,27 @@ class PurchaseReservedInstancesRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def description(self):
+        """Gets the description of this PurchaseReservedInstancesRequest.  # noqa: E501
+
+
+        :return: The description of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this PurchaseReservedInstancesRequest.
+
+
+        :param description: The description of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def hpc_cluster_id(self):

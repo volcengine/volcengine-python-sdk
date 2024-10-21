@@ -38,7 +38,7 @@ class EipAddressForDescribeScheduledInstancesOutput(object):
         'charge_type': 'str',
         'isp': 'str',
         'release_with_instance': 'bool',
-        'security_protection_instance_id': 'int',
+        'security_protection_instance_id': 'str',
         'security_protection_types': 'list[str]'
     }
 
@@ -193,7 +193,7 @@ class EipAddressForDescribeScheduledInstancesOutput(object):
 
 
         :return: The security_protection_instance_id of this EipAddressForDescribeScheduledInstancesOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._security_protection_instance_id
 
@@ -203,7 +203,7 @@ class EipAddressForDescribeScheduledInstancesOutput(object):
 
 
         :param security_protection_instance_id: The security_protection_instance_id of this EipAddressForDescribeScheduledInstancesOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._security_protection_instance_id = security_protection_instance_id

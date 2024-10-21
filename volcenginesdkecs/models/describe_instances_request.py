@@ -45,6 +45,7 @@ class DescribeInstancesRequest(object):
         'instance_type_families': 'list[str]',
         'instance_type_ids': 'list[str]',
         'instance_types': 'list[str]',
+        'ipv6_addresses': 'list[str]',
         'key_pair_name': 'str',
         'max_results': 'int',
         'next_token': 'str',
@@ -70,6 +71,7 @@ class DescribeInstancesRequest(object):
         'instance_type_families': 'InstanceTypeFamilies',
         'instance_type_ids': 'InstanceTypeIds',
         'instance_types': 'InstanceTypes',
+        'ipv6_addresses': 'Ipv6Addresses',
         'key_pair_name': 'KeyPairName',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
@@ -82,7 +84,7 @@ class DescribeInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_group_numbers=None, deployment_set_ids=None, eip_addresses=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, scheduled_instance_id=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_group_numbers=None, deployment_set_ids=None, eip_addresses=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, ipv6_addresses=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, scheduled_instance_id=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +102,7 @@ class DescribeInstancesRequest(object):
         self._instance_type_families = None
         self._instance_type_ids = None
         self._instance_types = None
+        self._ipv6_addresses = None
         self._key_pair_name = None
         self._max_results = None
         self._next_token = None
@@ -136,6 +139,8 @@ class DescribeInstancesRequest(object):
             self.instance_type_ids = instance_type_ids
         if instance_types is not None:
             self.instance_types = instance_types
+        if ipv6_addresses is not None:
+            self.ipv6_addresses = ipv6_addresses
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
         if max_results is not None:
@@ -408,6 +413,27 @@ class DescribeInstancesRequest(object):
         """
 
         self._instance_types = instance_types
+
+    @property
+    def ipv6_addresses(self):
+        """Gets the ipv6_addresses of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The ipv6_addresses of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv6_addresses
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, ipv6_addresses):
+        """Sets the ipv6_addresses of this DescribeInstancesRequest.
+
+
+        :param ipv6_addresses: The ipv6_addresses of this DescribeInstancesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv6_addresses = ipv6_addresses
 
     @property
     def key_pair_name(self):
