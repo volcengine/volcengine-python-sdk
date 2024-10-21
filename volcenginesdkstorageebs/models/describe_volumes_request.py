@@ -33,6 +33,7 @@ class DescribeVolumesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'billing_type': 'int',
         'instance_id': 'str',
         'kind': 'str',
         'page_number': 'int',
@@ -47,6 +48,7 @@ class DescribeVolumesRequest(object):
     }
 
     attribute_map = {
+        'billing_type': 'BillingType',
         'instance_id': 'InstanceId',
         'kind': 'Kind',
         'page_number': 'PageNumber',
@@ -60,12 +62,13 @@ class DescribeVolumesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, instance_id=None, kind=None, page_number=None, page_size=None, project_name=None, tag_filters=None, volume_ids=None, volume_name=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, instance_id=None, kind=None, page_number=None, page_size=None, project_name=None, tag_filters=None, volume_ids=None, volume_name=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeVolumesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._billing_type = None
         self._instance_id = None
         self._kind = None
         self._page_number = None
@@ -79,6 +82,8 @@ class DescribeVolumesRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if billing_type is not None:
+            self.billing_type = billing_type
         if instance_id is not None:
             self.instance_id = instance_id
         if kind is not None:
@@ -101,6 +106,27 @@ class DescribeVolumesRequest(object):
             self.volume_type = volume_type
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def billing_type(self):
+        """Gets the billing_type of this DescribeVolumesRequest.  # noqa: E501
+
+
+        :return: The billing_type of this DescribeVolumesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._billing_type
+
+    @billing_type.setter
+    def billing_type(self, billing_type):
+        """Sets the billing_type of this DescribeVolumesRequest.
+
+
+        :param billing_type: The billing_type of this DescribeVolumesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._billing_type = billing_type
 
     @property
     def instance_id(self):

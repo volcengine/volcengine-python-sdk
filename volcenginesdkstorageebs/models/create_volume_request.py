@@ -35,6 +35,9 @@ class CreateVolumeRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
+        'extra_performance_iops': 'int',
+        'extra_performance_throughput_mb': 'int',
+        'extra_performance_type_id': 'str',
         'instance_id': 'str',
         'kind': 'str',
         'project_name': 'str',
@@ -50,6 +53,9 @@ class CreateVolumeRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
+        'extra_performance_iops': 'ExtraPerformanceIOPS',
+        'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMB',
+        'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'instance_id': 'InstanceId',
         'kind': 'Kind',
         'project_name': 'ProjectName',
@@ -62,7 +68,7 @@ class CreateVolumeRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, instance_id=None, kind=None, project_name=None, size=None, snapshot_id=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, instance_id=None, kind=None, project_name=None, size=None, snapshot_id=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +76,9 @@ class CreateVolumeRequest(object):
 
         self._client_token = None
         self._description = None
+        self._extra_performance_iops = None
+        self._extra_performance_throughput_mb = None
+        self._extra_performance_type_id = None
         self._instance_id = None
         self._kind = None
         self._project_name = None
@@ -86,6 +95,12 @@ class CreateVolumeRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if extra_performance_iops is not None:
+            self.extra_performance_iops = extra_performance_iops
+        if extra_performance_throughput_mb is not None:
+            self.extra_performance_throughput_mb = extra_performance_throughput_mb
+        if extra_performance_type_id is not None:
+            self.extra_performance_type_id = extra_performance_type_id
         if instance_id is not None:
             self.instance_id = instance_id
         if kind is not None:
@@ -145,6 +160,69 @@ class CreateVolumeRequest(object):
         """
 
         self._description = description
+
+    @property
+    def extra_performance_iops(self):
+        """Gets the extra_performance_iops of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The extra_performance_iops of this CreateVolumeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_iops
+
+    @extra_performance_iops.setter
+    def extra_performance_iops(self, extra_performance_iops):
+        """Sets the extra_performance_iops of this CreateVolumeRequest.
+
+
+        :param extra_performance_iops: The extra_performance_iops of this CreateVolumeRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_iops = extra_performance_iops
+
+    @property
+    def extra_performance_throughput_mb(self):
+        """Gets the extra_performance_throughput_mb of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The extra_performance_throughput_mb of this CreateVolumeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_throughput_mb
+
+    @extra_performance_throughput_mb.setter
+    def extra_performance_throughput_mb(self, extra_performance_throughput_mb):
+        """Sets the extra_performance_throughput_mb of this CreateVolumeRequest.
+
+
+        :param extra_performance_throughput_mb: The extra_performance_throughput_mb of this CreateVolumeRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_throughput_mb = extra_performance_throughput_mb
+
+    @property
+    def extra_performance_type_id(self):
+        """Gets the extra_performance_type_id of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The extra_performance_type_id of this CreateVolumeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._extra_performance_type_id
+
+    @extra_performance_type_id.setter
+    def extra_performance_type_id(self, extra_performance_type_id):
+        """Sets the extra_performance_type_id of this CreateVolumeRequest.
+
+
+        :param extra_performance_type_id: The extra_performance_type_id of this CreateVolumeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._extra_performance_type_id = extra_performance_type_id
 
     @property
     def instance_id(self):
