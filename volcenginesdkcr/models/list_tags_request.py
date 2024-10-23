@@ -115,6 +115,12 @@ class ListTagsRequest(object):
         """
         if self._configuration.client_side_validation and namespace is None:
             raise ValueError("Invalid value for `namespace`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                namespace is not None and len(namespace) > 90):
+            raise ValueError("Invalid value for `namespace`, length must be less than or equal to `90`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                namespace is not None and len(namespace) < 2):
+            raise ValueError("Invalid value for `namespace`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._namespace = namespace
 
@@ -157,6 +163,12 @@ class ListTagsRequest(object):
         :param page_size: The page_size of this ListTagsRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 100):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size < 1):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -180,6 +192,12 @@ class ListTagsRequest(object):
         """
         if self._configuration.client_side_validation and registry is None:
             raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                registry is not None and len(registry) > 30):
+            raise ValueError("Invalid value for `registry`, length must be less than or equal to `30`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                registry is not None and len(registry) < 3):
+            raise ValueError("Invalid value for `registry`, length must be greater than or equal to `3`")  # noqa: E501
 
         self._registry = registry
 

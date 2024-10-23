@@ -180,6 +180,12 @@ class CreateRepositoryRequest(object):
         """
         if self._configuration.client_side_validation and namespace is None:
             raise ValueError("Invalid value for `namespace`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                namespace is not None and len(namespace) > 90):
+            raise ValueError("Invalid value for `namespace`, length must be less than or equal to `90`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                namespace is not None and len(namespace) < 2):
+            raise ValueError("Invalid value for `namespace`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._namespace = namespace
 
@@ -203,6 +209,12 @@ class CreateRepositoryRequest(object):
         """
         if self._configuration.client_side_validation and registry is None:
             raise ValueError("Invalid value for `registry`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                registry is not None and len(registry) > 30):
+            raise ValueError("Invalid value for `registry`, length must be less than or equal to `30`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                registry is not None and len(registry) < 3):
+            raise ValueError("Invalid value for `registry`, length must be greater than or equal to `3`")  # noqa: E501
 
         self._registry = registry
 
