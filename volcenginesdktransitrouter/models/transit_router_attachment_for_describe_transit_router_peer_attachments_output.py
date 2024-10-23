@@ -47,6 +47,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'transit_router_forward_policy_table_id': 'str',
         'transit_router_id': 'str',
         'transit_router_route_table_id': 'str',
+        'transit_router_traffic_qos_marking_policy_id': 'str',
+        'transit_router_traffic_qos_queue_policy_id': 'str',
         'update_time': 'str'
     }
 
@@ -65,10 +67,12 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'transit_router_forward_policy_table_id': 'TransitRouterForwardPolicyTableId',
         'transit_router_id': 'TransitRouterId',
         'transit_router_route_table_id': 'TransitRouterRouteTableId',
+        'transit_router_traffic_qos_marking_policy_id': 'TransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_policy_id': 'TransitRouterTrafficQosQueuePolicyId',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, auto_publish_route_enabled=None, bandwidth=None, creation_time=None, description=None, peer_transit_router_id=None, peer_transit_router_region_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_publish_route_enabled=None, bandwidth=None, creation_time=None, description=None, peer_transit_router_id=None, peer_transit_router_region_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +92,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         self._transit_router_forward_policy_table_id = None
         self._transit_router_id = None
         self._transit_router_route_table_id = None
+        self._transit_router_traffic_qos_marking_policy_id = None
+        self._transit_router_traffic_qos_queue_policy_id = None
         self._update_time = None
         self.discriminator = None
 
@@ -119,6 +125,10 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
             self.transit_router_id = transit_router_id
         if transit_router_route_table_id is not None:
             self.transit_router_route_table_id = transit_router_route_table_id
+        if transit_router_traffic_qos_marking_policy_id is not None:
+            self.transit_router_traffic_qos_marking_policy_id = transit_router_traffic_qos_marking_policy_id
+        if transit_router_traffic_qos_queue_policy_id is not None:
+            self.transit_router_traffic_qos_queue_policy_id = transit_router_traffic_qos_queue_policy_id
         if update_time is not None:
             self.update_time = update_time
 
@@ -415,6 +425,48 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         """
 
         self._transit_router_route_table_id = transit_router_route_table_id
+
+    @property
+    def transit_router_traffic_qos_marking_policy_id(self):
+        """Gets the transit_router_traffic_qos_marking_policy_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+
+
+        :return: The transit_router_traffic_qos_marking_policy_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_traffic_qos_marking_policy_id
+
+    @transit_router_traffic_qos_marking_policy_id.setter
+    def transit_router_traffic_qos_marking_policy_id(self, transit_router_traffic_qos_marking_policy_id):
+        """Sets the transit_router_traffic_qos_marking_policy_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.
+
+
+        :param transit_router_traffic_qos_marking_policy_id: The transit_router_traffic_qos_marking_policy_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_traffic_qos_marking_policy_id = transit_router_traffic_qos_marking_policy_id
+
+    @property
+    def transit_router_traffic_qos_queue_policy_id(self):
+        """Gets the transit_router_traffic_qos_queue_policy_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+
+
+        :return: The transit_router_traffic_qos_queue_policy_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_traffic_qos_queue_policy_id
+
+    @transit_router_traffic_qos_queue_policy_id.setter
+    def transit_router_traffic_qos_queue_policy_id(self, transit_router_traffic_qos_queue_policy_id):
+        """Sets the transit_router_traffic_qos_queue_policy_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.
+
+
+        :param transit_router_traffic_qos_queue_policy_id: The transit_router_traffic_qos_queue_policy_id of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_traffic_qos_queue_policy_id = transit_router_traffic_qos_queue_policy_id
 
     @property
     def update_time(self):
