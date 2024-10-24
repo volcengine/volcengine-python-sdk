@@ -42,6 +42,9 @@ class VolumeForDescribeVolumesOutput(object):
         'device_name': 'str',
         'error_detail': 'str',
         'expired_time': 'str',
+        'extra_performance_iops': 'int',
+        'extra_performance_throughput_mb': 'int',
+        'extra_performance_type_id': 'str',
         'image_id': 'str',
         'instance_id': 'str',
         'kind': 'str',
@@ -73,6 +76,9 @@ class VolumeForDescribeVolumesOutput(object):
         'device_name': 'DeviceName',
         'error_detail': 'ErrorDetail',
         'expired_time': 'ExpiredTime',
+        'extra_performance_iops': 'ExtraPerformanceIOPS',
+        'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMB',
+        'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'image_id': 'ImageId',
         'instance_id': 'InstanceId',
         'kind': 'Kind',
@@ -94,7 +100,7 @@ class VolumeForDescribeVolumesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """VolumeForDescribeVolumesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -109,6 +115,9 @@ class VolumeForDescribeVolumesOutput(object):
         self._device_name = None
         self._error_detail = None
         self._expired_time = None
+        self._extra_performance_iops = None
+        self._extra_performance_throughput_mb = None
+        self._extra_performance_type_id = None
         self._image_id = None
         self._instance_id = None
         self._kind = None
@@ -148,6 +157,12 @@ class VolumeForDescribeVolumesOutput(object):
             self.error_detail = error_detail
         if expired_time is not None:
             self.expired_time = expired_time
+        if extra_performance_iops is not None:
+            self.extra_performance_iops = extra_performance_iops
+        if extra_performance_throughput_mb is not None:
+            self.extra_performance_throughput_mb = extra_performance_throughput_mb
+        if extra_performance_type_id is not None:
+            self.extra_performance_type_id = extra_performance_type_id
         if image_id is not None:
             self.image_id = image_id
         if instance_id is not None:
@@ -375,6 +390,69 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._expired_time = expired_time
+
+    @property
+    def extra_performance_iops(self):
+        """Gets the extra_performance_iops of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The extra_performance_iops of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_iops
+
+    @extra_performance_iops.setter
+    def extra_performance_iops(self, extra_performance_iops):
+        """Sets the extra_performance_iops of this VolumeForDescribeVolumesOutput.
+
+
+        :param extra_performance_iops: The extra_performance_iops of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_iops = extra_performance_iops
+
+    @property
+    def extra_performance_throughput_mb(self):
+        """Gets the extra_performance_throughput_mb of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The extra_performance_throughput_mb of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_throughput_mb
+
+    @extra_performance_throughput_mb.setter
+    def extra_performance_throughput_mb(self, extra_performance_throughput_mb):
+        """Sets the extra_performance_throughput_mb of this VolumeForDescribeVolumesOutput.
+
+
+        :param extra_performance_throughput_mb: The extra_performance_throughput_mb of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_throughput_mb = extra_performance_throughput_mb
+
+    @property
+    def extra_performance_type_id(self):
+        """Gets the extra_performance_type_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The extra_performance_type_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._extra_performance_type_id
+
+    @extra_performance_type_id.setter
+    def extra_performance_type_id(self, extra_performance_type_id):
+        """Sets the extra_performance_type_id of this VolumeForDescribeVolumesOutput.
+
+
+        :param extra_performance_type_id: The extra_performance_type_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._extra_performance_type_id = extra_performance_type_id
 
     @property
     def image_id(self):

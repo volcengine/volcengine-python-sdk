@@ -38,6 +38,7 @@ class CreateAutoSnapshotPolicyRequest(object):
         'repeat_days': 'int',
         'repeat_weekdays': 'list[str]',
         'retention_days': 'int',
+        'tags': 'list[TagForCreateAutoSnapshotPolicyInput]',
         'time_points': 'list[str]'
     }
 
@@ -47,10 +48,11 @@ class CreateAutoSnapshotPolicyRequest(object):
         'repeat_days': 'RepeatDays',
         'repeat_weekdays': 'RepeatWeekdays',
         'retention_days': 'RetentionDays',
+        'tags': 'Tags',
         'time_points': 'TimePoints'
     }
 
-    def __init__(self, auto_snapshot_policy_name=None, project_name=None, repeat_days=None, repeat_weekdays=None, retention_days=None, time_points=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_name=None, project_name=None, repeat_days=None, repeat_weekdays=None, retention_days=None, tags=None, time_points=None, _configuration=None):  # noqa: E501
         """CreateAutoSnapshotPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class CreateAutoSnapshotPolicyRequest(object):
         self._repeat_days = None
         self._repeat_weekdays = None
         self._retention_days = None
+        self._tags = None
         self._time_points = None
         self.discriminator = None
 
@@ -72,6 +75,8 @@ class CreateAutoSnapshotPolicyRequest(object):
         if repeat_weekdays is not None:
             self.repeat_weekdays = repeat_weekdays
         self.retention_days = retention_days
+        if tags is not None:
+            self.tags = tags
         if time_points is not None:
             self.time_points = time_points
 
@@ -183,6 +188,27 @@ class CreateAutoSnapshotPolicyRequest(object):
             raise ValueError("Invalid value for `retention_days`, must not be `None`")  # noqa: E501
 
         self._retention_days = retention_days
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+        :rtype: list[TagForCreateAutoSnapshotPolicyInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateAutoSnapshotPolicyRequest.
+
+
+        :param tags: The tags of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+        :type: list[TagForCreateAutoSnapshotPolicyInput]
+        """
+
+        self._tags = tags
 
     @property
     def time_points(self):

@@ -38,6 +38,7 @@ class CreateTransitRouterVpnAttachmentRequest(object):
         'tags': 'list[TagForCreateTransitRouterVpnAttachmentInput]',
         'transit_router_attachment_name': 'str',
         'transit_router_id': 'str',
+        'transit_router_route_table_id': 'str',
         'vpn_connection_id': 'str',
         'zone_id': 'str'
     }
@@ -48,11 +49,12 @@ class CreateTransitRouterVpnAttachmentRequest(object):
         'tags': 'Tags',
         'transit_router_attachment_name': 'TransitRouterAttachmentName',
         'transit_router_id': 'TransitRouterId',
+        'transit_router_route_table_id': 'TransitRouterRouteTableId',
         'vpn_connection_id': 'VpnConnectionId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, tags=None, transit_router_attachment_name=None, transit_router_id=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, tags=None, transit_router_attachment_name=None, transit_router_id=None, transit_router_route_table_id=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterVpnAttachmentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class CreateTransitRouterVpnAttachmentRequest(object):
         self._tags = None
         self._transit_router_attachment_name = None
         self._transit_router_id = None
+        self._transit_router_route_table_id = None
         self._vpn_connection_id = None
         self._zone_id = None
         self.discriminator = None
@@ -76,6 +79,8 @@ class CreateTransitRouterVpnAttachmentRequest(object):
         if transit_router_attachment_name is not None:
             self.transit_router_attachment_name = transit_router_attachment_name
         self.transit_router_id = transit_router_id
+        if transit_router_route_table_id is not None:
+            self.transit_router_route_table_id = transit_router_route_table_id
         self.vpn_connection_id = vpn_connection_id
         self.zone_id = zone_id
 
@@ -185,6 +190,27 @@ class CreateTransitRouterVpnAttachmentRequest(object):
             raise ValueError("Invalid value for `transit_router_id`, must not be `None`")  # noqa: E501
 
         self._transit_router_id = transit_router_id
+
+    @property
+    def transit_router_route_table_id(self):
+        """Gets the transit_router_route_table_id of this CreateTransitRouterVpnAttachmentRequest.  # noqa: E501
+
+
+        :return: The transit_router_route_table_id of this CreateTransitRouterVpnAttachmentRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_route_table_id
+
+    @transit_router_route_table_id.setter
+    def transit_router_route_table_id(self, transit_router_route_table_id):
+        """Sets the transit_router_route_table_id of this CreateTransitRouterVpnAttachmentRequest.
+
+
+        :param transit_router_route_table_id: The transit_router_route_table_id of this CreateTransitRouterVpnAttachmentRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_route_table_id = transit_router_route_table_id
 
     @property
     def vpn_connection_id(self):

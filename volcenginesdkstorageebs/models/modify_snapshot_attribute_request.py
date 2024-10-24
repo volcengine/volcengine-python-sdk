@@ -34,29 +34,34 @@ class ModifySnapshotAttributeRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'retention_days': 'int',
         'snapshot_id': 'str',
         'snapshot_name': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'retention_days': 'RetentionDays',
         'snapshot_id': 'SnapshotId',
         'snapshot_name': 'SnapshotName'
     }
 
-    def __init__(self, description=None, snapshot_id=None, snapshot_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, retention_days=None, snapshot_id=None, snapshot_name=None, _configuration=None):  # noqa: E501
         """ModifySnapshotAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._retention_days = None
         self._snapshot_id = None
         self._snapshot_name = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if retention_days is not None:
+            self.retention_days = retention_days
         self.snapshot_id = snapshot_id
         if snapshot_name is not None:
             self.snapshot_name = snapshot_name
@@ -81,6 +86,33 @@ class ModifySnapshotAttributeRequest(object):
         """
 
         self._description = description
+
+    @property
+    def retention_days(self):
+        """Gets the retention_days of this ModifySnapshotAttributeRequest.  # noqa: E501
+
+
+        :return: The retention_days of this ModifySnapshotAttributeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._retention_days
+
+    @retention_days.setter
+    def retention_days(self, retention_days):
+        """Sets the retention_days of this ModifySnapshotAttributeRequest.
+
+
+        :param retention_days: The retention_days of this ModifySnapshotAttributeRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                retention_days is not None and retention_days > 65536):  # noqa: E501
+            raise ValueError("Invalid value for `retention_days`, must be a value less than or equal to `65536`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                retention_days is not None and retention_days < 1):  # noqa: E501
+            raise ValueError("Invalid value for `retention_days`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._retention_days = retention_days
 
     @property
     def snapshot_id(self):

@@ -421,6 +421,200 @@ class TRANSITROUTERApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def associate_transit_router_traffic_qos_marking_policy_to_attachment(self, body, **kwargs):  # noqa: E501
+        """associate_transit_router_traffic_qos_marking_policy_to_attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.associate_transit_router_traffic_qos_marking_policy_to_attachment(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest body: (required)
+        :return: AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.associate_transit_router_traffic_qos_marking_policy_to_attachment_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.associate_transit_router_traffic_qos_marking_policy_to_attachment_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def associate_transit_router_traffic_qos_marking_policy_to_attachment_with_http_info(self, body, **kwargs):  # noqa: E501
+        """associate_transit_router_traffic_qos_marking_policy_to_attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.associate_transit_router_traffic_qos_marking_policy_to_attachment_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest body: (required)
+        :return: AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method associate_transit_router_traffic_qos_marking_policy_to_attachment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `associate_transit_router_traffic_qos_marking_policy_to_attachment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/AssociateTransitRouterTrafficQosMarkingPolicyToAttachment/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def associate_transit_router_traffic_qos_queue_policy_to_attachment(self, body, **kwargs):  # noqa: E501
+        """associate_transit_router_traffic_qos_queue_policy_to_attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.associate_transit_router_traffic_qos_queue_policy_to_attachment(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest body: (required)
+        :return: AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.associate_transit_router_traffic_qos_queue_policy_to_attachment_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.associate_transit_router_traffic_qos_queue_policy_to_attachment_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def associate_transit_router_traffic_qos_queue_policy_to_attachment_with_http_info(self, body, **kwargs):  # noqa: E501
+        """associate_transit_router_traffic_qos_queue_policy_to_attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.associate_transit_router_traffic_qos_queue_policy_to_attachment_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest body: (required)
+        :return: AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method associate_transit_router_traffic_qos_queue_policy_to_attachment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `associate_transit_router_traffic_qos_queue_policy_to_attachment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/AssociateTransitRouterTrafficQosQueuePolicyToAttachment/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_transit_router(self, body, **kwargs):  # noqa: E501
         """create_transit_router  # noqa: E501
 
@@ -1481,6 +1675,394 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateTransitRouterRouteTableResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_transit_router_traffic_qos_marking_entry(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_traffic_qos_marking_entry  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_traffic_qos_marking_entry(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterTrafficQosMarkingEntryRequest body: (required)
+        :return: CreateTransitRouterTrafficQosMarkingEntryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_transit_router_traffic_qos_marking_entry_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_transit_router_traffic_qos_marking_entry_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_transit_router_traffic_qos_marking_entry_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_traffic_qos_marking_entry  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_traffic_qos_marking_entry_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterTrafficQosMarkingEntryRequest body: (required)
+        :return: CreateTransitRouterTrafficQosMarkingEntryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_transit_router_traffic_qos_marking_entry" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_transit_router_traffic_qos_marking_entry`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateTransitRouterTrafficQosMarkingEntry/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateTransitRouterTrafficQosMarkingEntryResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_transit_router_traffic_qos_marking_policy(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_traffic_qos_marking_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_traffic_qos_marking_policy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterTrafficQosMarkingPolicyRequest body: (required)
+        :return: CreateTransitRouterTrafficQosMarkingPolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_transit_router_traffic_qos_marking_policy_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_transit_router_traffic_qos_marking_policy_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_transit_router_traffic_qos_marking_policy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_traffic_qos_marking_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_traffic_qos_marking_policy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterTrafficQosMarkingPolicyRequest body: (required)
+        :return: CreateTransitRouterTrafficQosMarkingPolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_transit_router_traffic_qos_marking_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_transit_router_traffic_qos_marking_policy`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateTransitRouterTrafficQosMarkingPolicy/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateTransitRouterTrafficQosMarkingPolicyResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_transit_router_traffic_qos_queue_entry(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_traffic_qos_queue_entry  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_traffic_qos_queue_entry(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterTrafficQosQueueEntryRequest body: (required)
+        :return: CreateTransitRouterTrafficQosQueueEntryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_transit_router_traffic_qos_queue_entry_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_transit_router_traffic_qos_queue_entry_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_transit_router_traffic_qos_queue_entry_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_traffic_qos_queue_entry  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_traffic_qos_queue_entry_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterTrafficQosQueueEntryRequest body: (required)
+        :return: CreateTransitRouterTrafficQosQueueEntryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_transit_router_traffic_qos_queue_entry" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_transit_router_traffic_qos_queue_entry`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateTransitRouterTrafficQosQueueEntry/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateTransitRouterTrafficQosQueueEntryResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_transit_router_traffic_qos_queue_policy(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_traffic_qos_queue_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_traffic_qos_queue_policy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterTrafficQosQueuePolicyRequest body: (required)
+        :return: CreateTransitRouterTrafficQosQueuePolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_transit_router_traffic_qos_queue_policy_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_transit_router_traffic_qos_queue_policy_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_transit_router_traffic_qos_queue_policy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_traffic_qos_queue_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_traffic_qos_queue_policy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterTrafficQosQueuePolicyRequest body: (required)
+        :return: CreateTransitRouterTrafficQosQueuePolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_transit_router_traffic_qos_queue_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_transit_router_traffic_qos_queue_policy`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateTransitRouterTrafficQosQueuePolicy/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateTransitRouterTrafficQosQueuePolicyResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2742,6 +3324,394 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeleteTransitRouterRouteTableResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_transit_router_traffic_qos_marking_entry(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_traffic_qos_marking_entry  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_traffic_qos_marking_entry(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterTrafficQosMarkingEntryRequest body: (required)
+        :return: DeleteTransitRouterTrafficQosMarkingEntryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_transit_router_traffic_qos_marking_entry_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_transit_router_traffic_qos_marking_entry_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_transit_router_traffic_qos_marking_entry_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_traffic_qos_marking_entry  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_traffic_qos_marking_entry_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterTrafficQosMarkingEntryRequest body: (required)
+        :return: DeleteTransitRouterTrafficQosMarkingEntryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_transit_router_traffic_qos_marking_entry" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_transit_router_traffic_qos_marking_entry`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteTransitRouterTrafficQosMarkingEntry/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteTransitRouterTrafficQosMarkingEntryResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_transit_router_traffic_qos_marking_policy(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_traffic_qos_marking_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_traffic_qos_marking_policy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterTrafficQosMarkingPolicyRequest body: (required)
+        :return: DeleteTransitRouterTrafficQosMarkingPolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_transit_router_traffic_qos_marking_policy_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_transit_router_traffic_qos_marking_policy_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_transit_router_traffic_qos_marking_policy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_traffic_qos_marking_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_traffic_qos_marking_policy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterTrafficQosMarkingPolicyRequest body: (required)
+        :return: DeleteTransitRouterTrafficQosMarkingPolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_transit_router_traffic_qos_marking_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_transit_router_traffic_qos_marking_policy`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteTransitRouterTrafficQosMarkingPolicy/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteTransitRouterTrafficQosMarkingPolicyResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_transit_router_traffic_qos_queue_entry(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_traffic_qos_queue_entry  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_traffic_qos_queue_entry(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterTrafficQosQueueEntryRequest body: (required)
+        :return: DeleteTransitRouterTrafficQosQueueEntryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_transit_router_traffic_qos_queue_entry_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_transit_router_traffic_qos_queue_entry_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_transit_router_traffic_qos_queue_entry_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_traffic_qos_queue_entry  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_traffic_qos_queue_entry_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterTrafficQosQueueEntryRequest body: (required)
+        :return: DeleteTransitRouterTrafficQosQueueEntryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_transit_router_traffic_qos_queue_entry" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_transit_router_traffic_qos_queue_entry`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteTransitRouterTrafficQosQueueEntry/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteTransitRouterTrafficQosQueueEntryResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_transit_router_traffic_qos_queue_policy(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_traffic_qos_queue_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_traffic_qos_queue_policy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterTrafficQosQueuePolicyRequest body: (required)
+        :return: DeleteTransitRouterTrafficQosQueuePolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_transit_router_traffic_qos_queue_policy_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_transit_router_traffic_qos_queue_policy_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_transit_router_traffic_qos_queue_policy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_traffic_qos_queue_policy  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_traffic_qos_queue_policy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterTrafficQosQueuePolicyRequest body: (required)
+        :return: DeleteTransitRouterTrafficQosQueuePolicyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_transit_router_traffic_qos_queue_policy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_transit_router_traffic_qos_queue_policy`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteTransitRouterTrafficQosQueuePolicy/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteTransitRouterTrafficQosQueuePolicyResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4398,6 +5368,394 @@ class TRANSITROUTERApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def describe_transit_router_traffic_qos_marking_entries(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_traffic_qos_marking_entries  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_traffic_qos_marking_entries(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterTrafficQosMarkingEntriesRequest body: (required)
+        :return: DescribeTransitRouterTrafficQosMarkingEntriesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_transit_router_traffic_qos_marking_entries_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_transit_router_traffic_qos_marking_entries_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_transit_router_traffic_qos_marking_entries_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_traffic_qos_marking_entries  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_traffic_qos_marking_entries_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterTrafficQosMarkingEntriesRequest body: (required)
+        :return: DescribeTransitRouterTrafficQosMarkingEntriesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_transit_router_traffic_qos_marking_entries" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_transit_router_traffic_qos_marking_entries`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTransitRouterTrafficQosMarkingEntries/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTransitRouterTrafficQosMarkingEntriesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_transit_router_traffic_qos_marking_policies(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_traffic_qos_marking_policies  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_traffic_qos_marking_policies(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterTrafficQosMarkingPoliciesRequest body: (required)
+        :return: DescribeTransitRouterTrafficQosMarkingPoliciesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_transit_router_traffic_qos_marking_policies_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_transit_router_traffic_qos_marking_policies_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_transit_router_traffic_qos_marking_policies_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_traffic_qos_marking_policies  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_traffic_qos_marking_policies_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterTrafficQosMarkingPoliciesRequest body: (required)
+        :return: DescribeTransitRouterTrafficQosMarkingPoliciesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_transit_router_traffic_qos_marking_policies" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_transit_router_traffic_qos_marking_policies`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTransitRouterTrafficQosMarkingPolicies/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTransitRouterTrafficQosMarkingPoliciesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_transit_router_traffic_qos_queue_entries(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_traffic_qos_queue_entries  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_traffic_qos_queue_entries(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterTrafficQosQueueEntriesRequest body: (required)
+        :return: DescribeTransitRouterTrafficQosQueueEntriesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_transit_router_traffic_qos_queue_entries_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_transit_router_traffic_qos_queue_entries_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_transit_router_traffic_qos_queue_entries_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_traffic_qos_queue_entries  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_traffic_qos_queue_entries_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterTrafficQosQueueEntriesRequest body: (required)
+        :return: DescribeTransitRouterTrafficQosQueueEntriesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_transit_router_traffic_qos_queue_entries" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_transit_router_traffic_qos_queue_entries`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTransitRouterTrafficQosQueueEntries/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTransitRouterTrafficQosQueueEntriesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_transit_router_traffic_qos_queue_policies(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_traffic_qos_queue_policies  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_traffic_qos_queue_policies(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterTrafficQosQueuePoliciesRequest body: (required)
+        :return: DescribeTransitRouterTrafficQosQueuePoliciesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_transit_router_traffic_qos_queue_policies_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_transit_router_traffic_qos_queue_policies_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_transit_router_traffic_qos_queue_policies_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_traffic_qos_queue_policies  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_traffic_qos_queue_policies_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterTrafficQosQueuePoliciesRequest body: (required)
+        :return: DescribeTransitRouterTrafficQosQueuePoliciesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_transit_router_traffic_qos_queue_policies" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_transit_router_traffic_qos_queue_policies`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTransitRouterTrafficQosQueuePolicies/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTransitRouterTrafficQosQueuePoliciesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def describe_transit_router_vpc_attachments(self, body, **kwargs):  # noqa: E501
         """describe_transit_router_vpc_attachments  # noqa: E501
 
@@ -5070,6 +6428,200 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DissociateTransitRouterRoutePolicyFromRouteTableResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def dissociate_transit_router_traffic_qos_marking_policy_from_attachment(self, body, **kwargs):  # noqa: E501
+        """dissociate_transit_router_traffic_qos_marking_policy_from_attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.dissociate_transit_router_traffic_qos_marking_policy_from_attachment(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest body: (required)
+        :return: DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.dissociate_transit_router_traffic_qos_marking_policy_from_attachment_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.dissociate_transit_router_traffic_qos_marking_policy_from_attachment_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def dissociate_transit_router_traffic_qos_marking_policy_from_attachment_with_http_info(self, body, **kwargs):  # noqa: E501
+        """dissociate_transit_router_traffic_qos_marking_policy_from_attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.dissociate_transit_router_traffic_qos_marking_policy_from_attachment_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest body: (required)
+        :return: DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method dissociate_transit_router_traffic_qos_marking_policy_from_attachment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `dissociate_transit_router_traffic_qos_marking_policy_from_attachment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DissociateTransitRouterTrafficQosMarkingPolicyFromAttachment/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def dissociate_transit_router_traffic_qos_queue_policy_from_attachment(self, body, **kwargs):  # noqa: E501
+        """dissociate_transit_router_traffic_qos_queue_policy_from_attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.dissociate_transit_router_traffic_qos_queue_policy_from_attachment(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest body: (required)
+        :return: DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.dissociate_transit_router_traffic_qos_queue_policy_from_attachment_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.dissociate_transit_router_traffic_qos_queue_policy_from_attachment_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def dissociate_transit_router_traffic_qos_queue_policy_from_attachment_with_http_info(self, body, **kwargs):  # noqa: E501
+        """dissociate_transit_router_traffic_qos_queue_policy_from_attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.dissociate_transit_router_traffic_qos_queue_policy_from_attachment_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest body: (required)
+        :return: DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method dissociate_transit_router_traffic_qos_queue_policy_from_attachment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `dissociate_transit_router_traffic_qos_queue_policy_from_attachment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DissociateTransitRouterTrafficQosQueuePolicyFromAttachment/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6622,6 +8174,394 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyTransitRouterRouteTableAttributesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_transit_router_traffic_qos_marking_policy_association(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_traffic_qos_marking_policy_association  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_traffic_qos_marking_policy_association(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest body: (required)
+        :return: ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_transit_router_traffic_qos_marking_policy_association_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_transit_router_traffic_qos_marking_policy_association_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_transit_router_traffic_qos_marking_policy_association_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_traffic_qos_marking_policy_association  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_traffic_qos_marking_policy_association_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest body: (required)
+        :return: ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_transit_router_traffic_qos_marking_policy_association" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_transit_router_traffic_qos_marking_policy_association`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyTransitRouterTrafficQosMarkingPolicyAssociation/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_transit_router_traffic_qos_marking_policy_attributes(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_traffic_qos_marking_policy_attributes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_traffic_qos_marking_policy_attributes(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest body: (required)
+        :return: ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_transit_router_traffic_qos_marking_policy_attributes_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_transit_router_traffic_qos_marking_policy_attributes_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_transit_router_traffic_qos_marking_policy_attributes_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_traffic_qos_marking_policy_attributes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_traffic_qos_marking_policy_attributes_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest body: (required)
+        :return: ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_transit_router_traffic_qos_marking_policy_attributes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_transit_router_traffic_qos_marking_policy_attributes`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyTransitRouterTrafficQosMarkingPolicyAttributes/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_transit_router_traffic_qos_queue_policy_association(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_traffic_qos_queue_policy_association  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_traffic_qos_queue_policy_association(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest body: (required)
+        :return: ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_transit_router_traffic_qos_queue_policy_association_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_transit_router_traffic_qos_queue_policy_association_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_transit_router_traffic_qos_queue_policy_association_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_traffic_qos_queue_policy_association  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_traffic_qos_queue_policy_association_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest body: (required)
+        :return: ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_transit_router_traffic_qos_queue_policy_association" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_transit_router_traffic_qos_queue_policy_association`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyTransitRouterTrafficQosQueuePolicyAssociation/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_transit_router_traffic_qos_queue_policy_attributes(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_traffic_qos_queue_policy_attributes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_traffic_qos_queue_policy_attributes(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest body: (required)
+        :return: ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_transit_router_traffic_qos_queue_policy_attributes_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_transit_router_traffic_qos_queue_policy_attributes_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_transit_router_traffic_qos_queue_policy_attributes_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_traffic_qos_queue_policy_attributes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_traffic_qos_queue_policy_attributes_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest body: (required)
+        :return: ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_transit_router_traffic_qos_queue_policy_attributes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_transit_router_traffic_qos_queue_policy_attributes`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyTransitRouterTrafficQosQueuePolicyAttributes/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
