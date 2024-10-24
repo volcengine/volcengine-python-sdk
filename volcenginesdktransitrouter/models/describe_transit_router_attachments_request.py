@@ -40,7 +40,9 @@ class DescribeTransitRouterAttachmentsRequest(object):
         'tag_filters': 'list[TagFilterForDescribeTransitRouterAttachmentsInput]',
         'transit_router_attachment_ids': 'list[str]',
         'transit_router_forward_policy_table_id': 'str',
-        'transit_router_id': 'str'
+        'transit_router_id': 'str',
+        'transit_router_traffic_qos_marking_policy_id': 'str',
+        'transit_router_traffic_qos_queue_policy_id': 'str'
     }
 
     attribute_map = {
@@ -51,10 +53,12 @@ class DescribeTransitRouterAttachmentsRequest(object):
         'tag_filters': 'TagFilters',
         'transit_router_attachment_ids': 'TransitRouterAttachmentIds',
         'transit_router_forward_policy_table_id': 'TransitRouterForwardPolicyTableId',
-        'transit_router_id': 'TransitRouterId'
+        'transit_router_id': 'TransitRouterId',
+        'transit_router_traffic_qos_marking_policy_id': 'TransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_policy_id': 'TransitRouterTrafficQosQueuePolicyId'
     }
 
-    def __init__(self, page_number=None, page_size=None, resource_id=None, resource_type=None, tag_filters=None, transit_router_attachment_ids=None, transit_router_forward_policy_table_id=None, transit_router_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, resource_id=None, resource_type=None, tag_filters=None, transit_router_attachment_ids=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, _configuration=None):  # noqa: E501
         """DescribeTransitRouterAttachmentsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +72,8 @@ class DescribeTransitRouterAttachmentsRequest(object):
         self._transit_router_attachment_ids = None
         self._transit_router_forward_policy_table_id = None
         self._transit_router_id = None
+        self._transit_router_traffic_qos_marking_policy_id = None
+        self._transit_router_traffic_qos_queue_policy_id = None
         self.discriminator = None
 
         if page_number is not None:
@@ -86,6 +92,10 @@ class DescribeTransitRouterAttachmentsRequest(object):
             self.transit_router_forward_policy_table_id = transit_router_forward_policy_table_id
         if transit_router_id is not None:
             self.transit_router_id = transit_router_id
+        if transit_router_traffic_qos_marking_policy_id is not None:
+            self.transit_router_traffic_qos_marking_policy_id = transit_router_traffic_qos_marking_policy_id
+        if transit_router_traffic_qos_queue_policy_id is not None:
+            self.transit_router_traffic_qos_queue_policy_id = transit_router_traffic_qos_queue_policy_id
 
     @property
     def page_number(self):
@@ -254,6 +264,48 @@ class DescribeTransitRouterAttachmentsRequest(object):
         """
 
         self._transit_router_id = transit_router_id
+
+    @property
+    def transit_router_traffic_qos_marking_policy_id(self):
+        """Gets the transit_router_traffic_qos_marking_policy_id of this DescribeTransitRouterAttachmentsRequest.  # noqa: E501
+
+
+        :return: The transit_router_traffic_qos_marking_policy_id of this DescribeTransitRouterAttachmentsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_traffic_qos_marking_policy_id
+
+    @transit_router_traffic_qos_marking_policy_id.setter
+    def transit_router_traffic_qos_marking_policy_id(self, transit_router_traffic_qos_marking_policy_id):
+        """Sets the transit_router_traffic_qos_marking_policy_id of this DescribeTransitRouterAttachmentsRequest.
+
+
+        :param transit_router_traffic_qos_marking_policy_id: The transit_router_traffic_qos_marking_policy_id of this DescribeTransitRouterAttachmentsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_traffic_qos_marking_policy_id = transit_router_traffic_qos_marking_policy_id
+
+    @property
+    def transit_router_traffic_qos_queue_policy_id(self):
+        """Gets the transit_router_traffic_qos_queue_policy_id of this DescribeTransitRouterAttachmentsRequest.  # noqa: E501
+
+
+        :return: The transit_router_traffic_qos_queue_policy_id of this DescribeTransitRouterAttachmentsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_traffic_qos_queue_policy_id
+
+    @transit_router_traffic_qos_queue_policy_id.setter
+    def transit_router_traffic_qos_queue_policy_id(self, transit_router_traffic_qos_queue_policy_id):
+        """Sets the transit_router_traffic_qos_queue_policy_id of this DescribeTransitRouterAttachmentsRequest.
+
+
+        :param transit_router_traffic_qos_queue_policy_id: The transit_router_traffic_qos_queue_policy_id of this DescribeTransitRouterAttachmentsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_traffic_qos_queue_policy_id = transit_router_traffic_qos_queue_policy_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

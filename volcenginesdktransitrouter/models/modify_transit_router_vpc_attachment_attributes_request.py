@@ -36,6 +36,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest(object):
         'attach_points': 'list[AttachPointForModifyTransitRouterVpcAttachmentAttributesInput]',
         'auto_publish_route_enabled': 'bool',
         'description': 'str',
+        'ipv6_enabled': 'bool',
         'transit_router_attachment_id': 'str',
         'transit_router_attachment_name': 'str'
     }
@@ -44,11 +45,12 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest(object):
         'attach_points': 'AttachPoints',
         'auto_publish_route_enabled': 'AutoPublishRouteEnabled',
         'description': 'Description',
+        'ipv6_enabled': 'Ipv6Enabled',
         'transit_router_attachment_id': 'TransitRouterAttachmentId',
         'transit_router_attachment_name': 'TransitRouterAttachmentName'
     }
 
-    def __init__(self, attach_points=None, auto_publish_route_enabled=None, description=None, transit_router_attachment_id=None, transit_router_attachment_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_points=None, auto_publish_route_enabled=None, description=None, ipv6_enabled=None, transit_router_attachment_id=None, transit_router_attachment_name=None, _configuration=None):  # noqa: E501
         """ModifyTransitRouterVpcAttachmentAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest(object):
         self._attach_points = None
         self._auto_publish_route_enabled = None
         self._description = None
+        self._ipv6_enabled = None
         self._transit_router_attachment_id = None
         self._transit_router_attachment_name = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest(object):
             self.auto_publish_route_enabled = auto_publish_route_enabled
         if description is not None:
             self.description = description
+        if ipv6_enabled is not None:
+            self.ipv6_enabled = ipv6_enabled
         self.transit_router_attachment_id = transit_router_attachment_id
         if transit_router_attachment_name is not None:
             self.transit_router_attachment_name = transit_router_attachment_name
@@ -133,6 +138,27 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest(object):
         """
 
         self._description = description
+
+    @property
+    def ipv6_enabled(self):
+        """Gets the ipv6_enabled of this ModifyTransitRouterVpcAttachmentAttributesRequest.  # noqa: E501
+
+
+        :return: The ipv6_enabled of this ModifyTransitRouterVpcAttachmentAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ipv6_enabled
+
+    @ipv6_enabled.setter
+    def ipv6_enabled(self, ipv6_enabled):
+        """Sets the ipv6_enabled of this ModifyTransitRouterVpcAttachmentAttributesRequest.
+
+
+        :param ipv6_enabled: The ipv6_enabled of this ModifyTransitRouterVpcAttachmentAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ipv6_enabled = ipv6_enabled
 
     @property
     def transit_router_attachment_id(self):
