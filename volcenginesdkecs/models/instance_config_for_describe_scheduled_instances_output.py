@@ -40,8 +40,8 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         'instance_name': 'str',
         'instance_type_id': 'str',
         'key_pair_name': 'str',
+        'network_interfaces_res': 'list[NetworkInterfacesReForDescribeScheduledInstancesOutput]',
         'project_name': 'str',
-        'scheduled_network_interfaces_open_res': 'ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput',
         'tags': 'list[TagForDescribeScheduledInstancesOutput]',
         'volumes': 'list[VolumeForDescribeScheduledInstancesOutput]',
         'zone_id': 'str'
@@ -55,14 +55,14 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         'instance_name': 'InstanceName',
         'instance_type_id': 'InstanceTypeId',
         'key_pair_name': 'KeyPairName',
+        'network_interfaces_res': 'NetworkInterfacesRes',
         'project_name': 'ProjectName',
-        'scheduled_network_interfaces_open_res': 'ScheduledNetworkInterfacesOpenRes',
         'tags': 'Tags',
         'volumes': 'Volumes',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, description=None, eip_address=None, host_name=None, image_id=None, instance_name=None, instance_type_id=None, key_pair_name=None, project_name=None, scheduled_network_interfaces_open_res=None, tags=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, eip_address=None, host_name=None, image_id=None, instance_name=None, instance_type_id=None, key_pair_name=None, network_interfaces_res=None, project_name=None, tags=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceConfigForDescribeScheduledInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,8 +75,8 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         self._instance_name = None
         self._instance_type_id = None
         self._key_pair_name = None
+        self._network_interfaces_res = None
         self._project_name = None
-        self._scheduled_network_interfaces_open_res = None
         self._tags = None
         self._volumes = None
         self._zone_id = None
@@ -96,10 +96,10 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
             self.instance_type_id = instance_type_id
         if key_pair_name is not None:
             self.key_pair_name = key_pair_name
+        if network_interfaces_res is not None:
+            self.network_interfaces_res = network_interfaces_res
         if project_name is not None:
             self.project_name = project_name
-        if scheduled_network_interfaces_open_res is not None:
-            self.scheduled_network_interfaces_open_res = scheduled_network_interfaces_open_res
         if tags is not None:
             self.tags = tags
         if volumes is not None:
@@ -255,6 +255,27 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         self._key_pair_name = key_pair_name
 
     @property
+    def network_interfaces_res(self):
+        """Gets the network_interfaces_res of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
+
+
+        :return: The network_interfaces_res of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
+        :rtype: list[NetworkInterfacesReForDescribeScheduledInstancesOutput]
+        """
+        return self._network_interfaces_res
+
+    @network_interfaces_res.setter
+    def network_interfaces_res(self, network_interfaces_res):
+        """Sets the network_interfaces_res of this InstanceConfigForDescribeScheduledInstancesOutput.
+
+
+        :param network_interfaces_res: The network_interfaces_res of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
+        :type: list[NetworkInterfacesReForDescribeScheduledInstancesOutput]
+        """
+
+        self._network_interfaces_res = network_interfaces_res
+
+    @property
     def project_name(self):
         """Gets the project_name of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
 
@@ -274,27 +295,6 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         """
 
         self._project_name = project_name
-
-    @property
-    def scheduled_network_interfaces_open_res(self):
-        """Gets the scheduled_network_interfaces_open_res of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
-
-
-        :return: The scheduled_network_interfaces_open_res of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
-        :rtype: ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput
-        """
-        return self._scheduled_network_interfaces_open_res
-
-    @scheduled_network_interfaces_open_res.setter
-    def scheduled_network_interfaces_open_res(self, scheduled_network_interfaces_open_res):
-        """Sets the scheduled_network_interfaces_open_res of this InstanceConfigForDescribeScheduledInstancesOutput.
-
-
-        :param scheduled_network_interfaces_open_res: The scheduled_network_interfaces_open_res of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
-        :type: ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput
-        """
-
-        self._scheduled_network_interfaces_open_res = scheduled_network_interfaces_open_res
 
     @property
     def tags(self):

@@ -41,7 +41,9 @@ class DescribeInvocationsRequest(object):
         'invocation_status': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'repeat_mode': 'str'
+        'project_name': 'str',
+        'repeat_mode': 'str',
+        'tag_filters': 'list[TagFilterForDescribeInvocationsInput]'
     }
 
     attribute_map = {
@@ -53,10 +55,12 @@ class DescribeInvocationsRequest(object):
         'invocation_status': 'InvocationStatus',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'repeat_mode': 'RepeatMode'
+        'project_name': 'ProjectName',
+        'repeat_mode': 'RepeatMode',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, command_id=None, command_name=None, command_type=None, invocation_id=None, invocation_name=None, invocation_status=None, page_number=None, page_size=None, repeat_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_id=None, command_name=None, command_type=None, invocation_id=None, invocation_name=None, invocation_status=None, page_number=None, page_size=None, project_name=None, repeat_mode=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeInvocationsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +74,9 @@ class DescribeInvocationsRequest(object):
         self._invocation_status = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._repeat_mode = None
+        self._tag_filters = None
         self.discriminator = None
 
         if command_id is not None:
@@ -89,8 +95,12 @@ class DescribeInvocationsRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if repeat_mode is not None:
             self.repeat_mode = repeat_mode
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def command_id(self):
@@ -261,6 +271,27 @@ class DescribeInvocationsRequest(object):
         self._page_size = page_size
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeInvocationsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeInvocationsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeInvocationsRequest.
+
+
+        :param project_name: The project_name of this DescribeInvocationsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def repeat_mode(self):
         """Gets the repeat_mode of this DescribeInvocationsRequest.  # noqa: E501
 
@@ -280,6 +311,27 @@ class DescribeInvocationsRequest(object):
         """
 
         self._repeat_mode = repeat_mode
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeInvocationsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeInvocationsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeInvocationsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeInvocationsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeInvocationsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeInvocationsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

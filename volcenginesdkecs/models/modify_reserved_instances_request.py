@@ -37,6 +37,7 @@ class ModifyReservedInstancesRequest(object):
         'auto_renew_period': 'int',
         'client_token': 'str',
         'configurations': 'list[ConfigurationForModifyReservedInstancesInput]',
+        'description': 'str',
         'project_name': 'str',
         'region_id': 'str',
         'reserved_instance_ids': 'list[str]',
@@ -48,13 +49,14 @@ class ModifyReservedInstancesRequest(object):
         'auto_renew_period': 'AutoRenewPeriod',
         'client_token': 'ClientToken',
         'configurations': 'Configurations',
+        'description': 'Description',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'reserved_instance_ids': 'ReservedInstanceIds',
         'tags': 'Tags'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, configurations=None, project_name=None, region_id=None, reserved_instance_ids=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, configurations=None, description=None, project_name=None, region_id=None, reserved_instance_ids=None, tags=None, _configuration=None):  # noqa: E501
         """ModifyReservedInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class ModifyReservedInstancesRequest(object):
         self._auto_renew_period = None
         self._client_token = None
         self._configurations = None
+        self._description = None
         self._project_name = None
         self._region_id = None
         self._reserved_instance_ids = None
@@ -78,6 +81,8 @@ class ModifyReservedInstancesRequest(object):
             self.client_token = client_token
         if configurations is not None:
             self.configurations = configurations
+        if description is not None:
+            self.description = description
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
@@ -170,6 +175,27 @@ class ModifyReservedInstancesRequest(object):
         """
 
         self._configurations = configurations
+
+    @property
+    def description(self):
+        """Gets the description of this ModifyReservedInstancesRequest.  # noqa: E501
+
+
+        :return: The description of this ModifyReservedInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ModifyReservedInstancesRequest.
+
+
+        :param description: The description of this ModifyReservedInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def project_name(self):
