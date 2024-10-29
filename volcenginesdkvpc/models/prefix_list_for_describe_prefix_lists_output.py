@@ -38,7 +38,7 @@ class PrefixListForDescribePrefixListsOutput(object):
         'creation_time': 'str',
         'description': 'str',
         'ip_version': 'str',
-        'max_entries': 'str',
+        'max_entries': 'int',
         'prefix_list_id': 'str',
         'prefix_list_name': 'str',
         'project_name': 'str',
@@ -218,7 +218,7 @@ class PrefixListForDescribePrefixListsOutput(object):
 
 
         :return: The max_entries of this PrefixListForDescribePrefixListsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._max_entries
 
@@ -228,7 +228,7 @@ class PrefixListForDescribePrefixListsOutput(object):
 
 
         :param max_entries: The max_entries of this PrefixListForDescribePrefixListsOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._max_entries = max_entries

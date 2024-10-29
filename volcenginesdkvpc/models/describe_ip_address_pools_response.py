@@ -35,20 +35,16 @@ class DescribeIpAddressPoolsResponse(object):
     swagger_types = {
         'ip_address_pools': 'list[IpAddressPoolForDescribeIpAddressPoolsOutput]',
         'next_token': 'str',
-        'page_number': 'int',
-        'request_id': 'str',
-        'total_count': 'int'
+        'request_id': 'str'
     }
 
     attribute_map = {
         'ip_address_pools': 'IpAddressPools',
         'next_token': 'NextToken',
-        'page_number': 'PageNumber',
-        'request_id': 'RequestId',
-        'total_count': 'TotalCount'
+        'request_id': 'RequestId'
     }
 
-    def __init__(self, ip_address_pools=None, next_token=None, page_number=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_address_pools=None, next_token=None, request_id=None, _configuration=None):  # noqa: E501
         """DescribeIpAddressPoolsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,21 +52,15 @@ class DescribeIpAddressPoolsResponse(object):
 
         self._ip_address_pools = None
         self._next_token = None
-        self._page_number = None
         self._request_id = None
-        self._total_count = None
         self.discriminator = None
 
         if ip_address_pools is not None:
             self.ip_address_pools = ip_address_pools
         if next_token is not None:
             self.next_token = next_token
-        if page_number is not None:
-            self.page_number = page_number
         if request_id is not None:
             self.request_id = request_id
-        if total_count is not None:
-            self.total_count = total_count
 
     @property
     def ip_address_pools(self):
@@ -115,27 +105,6 @@ class DescribeIpAddressPoolsResponse(object):
         self._next_token = next_token
 
     @property
-    def page_number(self):
-        """Gets the page_number of this DescribeIpAddressPoolsResponse.  # noqa: E501
-
-
-        :return: The page_number of this DescribeIpAddressPoolsResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_number
-
-    @page_number.setter
-    def page_number(self, page_number):
-        """Sets the page_number of this DescribeIpAddressPoolsResponse.
-
-
-        :param page_number: The page_number of this DescribeIpAddressPoolsResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._page_number = page_number
-
-    @property
     def request_id(self):
         """Gets the request_id of this DescribeIpAddressPoolsResponse.  # noqa: E501
 
@@ -155,27 +124,6 @@ class DescribeIpAddressPoolsResponse(object):
         """
 
         self._request_id = request_id
-
-    @property
-    def total_count(self):
-        """Gets the total_count of this DescribeIpAddressPoolsResponse.  # noqa: E501
-
-
-        :return: The total_count of this DescribeIpAddressPoolsResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._total_count
-
-    @total_count.setter
-    def total_count(self, total_count):
-        """Sets the total_count of this DescribeIpAddressPoolsResponse.
-
-
-        :param total_count: The total_count of this DescribeIpAddressPoolsResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._total_count = total_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

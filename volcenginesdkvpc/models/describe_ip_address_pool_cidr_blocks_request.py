@@ -36,21 +36,17 @@ class DescribeIpAddressPoolCidrBlocksRequest(object):
         'cidr_block': 'str',
         'ip_address_pool_id': 'str',
         'max_results': 'int',
-        'next_token': 'str',
-        'page_number': 'int',
-        'page_size': 'int'
+        'next_token': 'str'
     }
 
     attribute_map = {
         'cidr_block': 'CidrBlock',
         'ip_address_pool_id': 'IpAddressPoolId',
         'max_results': 'MaxResults',
-        'next_token': 'NextToken',
-        'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'next_token': 'NextToken'
     }
 
-    def __init__(self, cidr_block=None, ip_address_pool_id=None, max_results=None, next_token=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, cidr_block=None, ip_address_pool_id=None, max_results=None, next_token=None, _configuration=None):  # noqa: E501
         """DescribeIpAddressPoolCidrBlocksRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,8 +56,6 @@ class DescribeIpAddressPoolCidrBlocksRequest(object):
         self._ip_address_pool_id = None
         self._max_results = None
         self._next_token = None
-        self._page_number = None
-        self._page_size = None
         self.discriminator = None
 
         if cidr_block is not None:
@@ -71,10 +65,6 @@ class DescribeIpAddressPoolCidrBlocksRequest(object):
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
-        if page_number is not None:
-            self.page_number = page_number
-        if page_size is not None:
-            self.page_size = page_size
 
     @property
     def cidr_block(self):
@@ -161,51 +151,6 @@ class DescribeIpAddressPoolCidrBlocksRequest(object):
         """
 
         self._next_token = next_token
-
-    @property
-    def page_number(self):
-        """Gets the page_number of this DescribeIpAddressPoolCidrBlocksRequest.  # noqa: E501
-
-
-        :return: The page_number of this DescribeIpAddressPoolCidrBlocksRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_number
-
-    @page_number.setter
-    def page_number(self, page_number):
-        """Sets the page_number of this DescribeIpAddressPoolCidrBlocksRequest.
-
-
-        :param page_number: The page_number of this DescribeIpAddressPoolCidrBlocksRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._page_number = page_number
-
-    @property
-    def page_size(self):
-        """Gets the page_size of this DescribeIpAddressPoolCidrBlocksRequest.  # noqa: E501
-
-
-        :return: The page_size of this DescribeIpAddressPoolCidrBlocksRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_size
-
-    @page_size.setter
-    def page_size(self, page_size):
-        """Sets the page_size of this DescribeIpAddressPoolCidrBlocksRequest.
-
-
-        :param page_size: The page_size of this DescribeIpAddressPoolCidrBlocksRequest.  # noqa: E501
-        :type: int
-        """
-        if (self._configuration.client_side_validation and
-                page_size is not None and page_size > 100):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
-
-        self._page_size = page_size
 
     def to_dict(self):
         """Returns the model properties as a dict"""

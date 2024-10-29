@@ -37,8 +37,6 @@ class DescribeIpAddressPoolsRequest(object):
         'ip_address_pool_ids': 'list[str]',
         'max_results': 'int',
         'next_token': 'str',
-        'page_number': 'int',
-        'page_size': 'int',
         'project_name': 'str',
         'status': 'str',
         'tag_filters': 'list[TagFilterForDescribeIpAddressPoolsInput]'
@@ -49,14 +47,12 @@ class DescribeIpAddressPoolsRequest(object):
         'ip_address_pool_ids': 'IpAddressPoolIds',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
-        'page_number': 'PageNumber',
-        'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'status': 'Status',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, isp=None, ip_address_pool_ids=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, isp=None, ip_address_pool_ids=None, max_results=None, next_token=None, project_name=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeIpAddressPoolsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,8 +62,6 @@ class DescribeIpAddressPoolsRequest(object):
         self._ip_address_pool_ids = None
         self._max_results = None
         self._next_token = None
-        self._page_number = None
-        self._page_size = None
         self._project_name = None
         self._status = None
         self._tag_filters = None
@@ -81,10 +75,6 @@ class DescribeIpAddressPoolsRequest(object):
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
-        if page_number is not None:
-            self.page_number = page_number
-        if page_size is not None:
-            self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
         if status is not None:
@@ -175,51 +165,6 @@ class DescribeIpAddressPoolsRequest(object):
         """
 
         self._next_token = next_token
-
-    @property
-    def page_number(self):
-        """Gets the page_number of this DescribeIpAddressPoolsRequest.  # noqa: E501
-
-
-        :return: The page_number of this DescribeIpAddressPoolsRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_number
-
-    @page_number.setter
-    def page_number(self, page_number):
-        """Sets the page_number of this DescribeIpAddressPoolsRequest.
-
-
-        :param page_number: The page_number of this DescribeIpAddressPoolsRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._page_number = page_number
-
-    @property
-    def page_size(self):
-        """Gets the page_size of this DescribeIpAddressPoolsRequest.  # noqa: E501
-
-
-        :return: The page_size of this DescribeIpAddressPoolsRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_size
-
-    @page_size.setter
-    def page_size(self, page_size):
-        """Sets the page_size of this DescribeIpAddressPoolsRequest.
-
-
-        :param page_size: The page_size of this DescribeIpAddressPoolsRequest.  # noqa: E501
-        :type: int
-        """
-        if (self._configuration.client_side_validation and
-                page_size is not None and page_size > 100):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
-
-        self._page_size = page_size
 
     @property
     def project_name(self):
