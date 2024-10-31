@@ -35,6 +35,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
     swagger_types = {
         'allow_list_version': 'str',
         'backup_use': 'float',
+        'basic_backup_binlog_size': 'int',
+        'basic_backup_data_size': 'int',
         'create_time': 'str',
         'db_engine_version': 'str',
         'data_sync_mode': 'str',
@@ -43,6 +45,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'instance_status': 'str',
         'instance_type': 'str',
         'lower_case_table_names': 'str',
+        'maintenance_window': 'MaintenanceWindowForDescribeDBInstanceDetailOutput',
         'memory': 'int',
         'node_number': 'str',
         'node_spec': 'str',
@@ -63,6 +66,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
     attribute_map = {
         'allow_list_version': 'AllowListVersion',
         'backup_use': 'BackupUse',
+        'basic_backup_binlog_size': 'BasicBackupBinlogSize',
+        'basic_backup_data_size': 'BasicBackupDataSize',
         'create_time': 'CreateTime',
         'db_engine_version': 'DBEngineVersion',
         'data_sync_mode': 'DataSyncMode',
@@ -71,6 +76,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
+        'maintenance_window': 'MaintenanceWindow',
         'memory': 'Memory',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
@@ -88,7 +94,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_version=None, backup_use=None, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_version=None, backup_use=None, basic_backup_binlog_size=None, basic_backup_data_size=None, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +102,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
 
         self._allow_list_version = None
         self._backup_use = None
+        self._basic_backup_binlog_size = None
+        self._basic_backup_data_size = None
         self._create_time = None
         self._db_engine_version = None
         self._data_sync_mode = None
@@ -104,6 +112,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._instance_status = None
         self._instance_type = None
         self._lower_case_table_names = None
+        self._maintenance_window = None
         self._memory = None
         self._node_number = None
         self._node_spec = None
@@ -125,6 +134,10 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.allow_list_version = allow_list_version
         if backup_use is not None:
             self.backup_use = backup_use
+        if basic_backup_binlog_size is not None:
+            self.basic_backup_binlog_size = basic_backup_binlog_size
+        if basic_backup_data_size is not None:
+            self.basic_backup_data_size = basic_backup_data_size
         if create_time is not None:
             self.create_time = create_time
         if db_engine_version is not None:
@@ -141,6 +154,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.instance_type = instance_type
         if lower_case_table_names is not None:
             self.lower_case_table_names = lower_case_table_names
+        if maintenance_window is not None:
+            self.maintenance_window = maintenance_window
         if memory is not None:
             self.memory = memory
         if node_number is not None:
@@ -213,6 +228,48 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._backup_use = backup_use
+
+    @property
+    def basic_backup_binlog_size(self):
+        """Gets the basic_backup_binlog_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The basic_backup_binlog_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._basic_backup_binlog_size
+
+    @basic_backup_binlog_size.setter
+    def basic_backup_binlog_size(self, basic_backup_binlog_size):
+        """Sets the basic_backup_binlog_size of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param basic_backup_binlog_size: The basic_backup_binlog_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._basic_backup_binlog_size = basic_backup_binlog_size
+
+    @property
+    def basic_backup_data_size(self):
+        """Gets the basic_backup_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The basic_backup_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._basic_backup_data_size
+
+    @basic_backup_data_size.setter
+    def basic_backup_data_size(self, basic_backup_data_size):
+        """Sets the basic_backup_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param basic_backup_data_size: The basic_backup_data_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._basic_backup_data_size = basic_backup_data_size
 
     @property
     def create_time(self):
@@ -381,6 +438,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._lower_case_table_names = lower_case_table_names
+
+    @property
+    def maintenance_window(self):
+        """Gets the maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: MaintenanceWindowForDescribeDBInstanceDetailOutput
+        """
+        return self._maintenance_window
+
+    @maintenance_window.setter
+    def maintenance_window(self, maintenance_window):
+        """Sets the maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param maintenance_window: The maintenance_window of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: MaintenanceWindowForDescribeDBInstanceDetailOutput
+        """
+
+        self._maintenance_window = maintenance_window
 
     @property
     def memory(self):

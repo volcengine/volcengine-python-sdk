@@ -128,6 +128,13 @@ class ModifyDBInstanceParametersRequest(object):
         :param param_apply_scope: The param_apply_scope of this ModifyDBInstanceParametersRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["AllNode", "OnlyMasterSlaveNode", "OnlyReadOnlyNode", "CustomNode"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                param_apply_scope not in allowed_values):
+            raise ValueError(
+                "Invalid value for `param_apply_scope` ({0}), must be one of {1}"  # noqa: E501
+                .format(param_apply_scope, allowed_values)
+            )
 
         self._param_apply_scope = param_apply_scope
 

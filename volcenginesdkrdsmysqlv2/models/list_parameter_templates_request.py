@@ -137,6 +137,13 @@ class ListParameterTemplatesRequest(object):
         :param template_category: The template_category of this ListParameterTemplatesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["DBEngine", "Proxy"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                template_category not in allowed_values):
+            raise ValueError(
+                "Invalid value for `template_category` ({0}), must be one of {1}"  # noqa: E501
+                .format(template_category, allowed_values)
+            )
 
         self._template_category = template_category
 
@@ -158,6 +165,13 @@ class ListParameterTemplatesRequest(object):
         :param template_source: The template_source of this ListParameterTemplatesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["System", "User"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                template_source not in allowed_values):
+            raise ValueError(
+                "Invalid value for `template_source` ({0}), must be one of {1}"  # noqa: E501
+                .format(template_source, allowed_values)
+            )
 
         self._template_source = template_source
 
@@ -179,6 +193,13 @@ class ListParameterTemplatesRequest(object):
         :param template_type: The template_type of this ListParameterTemplatesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Mysql", "Postgresql", "Sqlserver"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                template_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `template_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(template_type, allowed_values)
+            )
 
         self._template_type = template_type
 
@@ -200,6 +221,13 @@ class ListParameterTemplatesRequest(object):
         :param template_type_version: The template_type_version of this ListParameterTemplatesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["MySQL_5_7", "MySQL_8_0", "MySQL_5_6", "SQLServer_2019_Ent", "SQLServer_2019_Std", "SQLServer_2019_Web"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                template_type_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `template_type_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(template_type_version, allowed_values)
+            )
 
         self._template_type_version = template_type_version
 

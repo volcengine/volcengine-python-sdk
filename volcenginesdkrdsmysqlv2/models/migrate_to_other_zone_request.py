@@ -123,6 +123,13 @@ class MigrateToOtherZoneRequest(object):
         :param switch_type: The switch_type of this MigrateToOtherZoneRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Immediate", "MaintainTime", "SpecifiedTime"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                switch_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `switch_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(switch_type, allowed_values)
+            )
 
         self._switch_type = switch_type
 

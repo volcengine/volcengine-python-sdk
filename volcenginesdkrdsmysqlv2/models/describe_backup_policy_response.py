@@ -58,7 +58,7 @@ class DescribeBackupPolicyResponse(object):
         'data_full_backup_time': 'DataFullBackupTime',
         'data_incr_backup_periods': 'DataIncrBackupPeriods',
         'instance_id': 'InstanceId',
-        'lock_ddl_time': 'LockDdlTime',
+        'lock_ddl_time': 'LockDDLTime',
         'log_backup_retention_day': 'LogBackupRetentionDay'
     }
 

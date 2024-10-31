@@ -101,6 +101,13 @@ class ReadOnlyNodeWeightForModifyDBEndpointInput(object):
         :param node_type: The node_type of this ReadOnlyNodeWeightForModifyDBEndpointInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Primary", "Secondary", "ReadOnly"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                node_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `node_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(node_type, allowed_values)
+            )
 
         self._node_type = node_type
 

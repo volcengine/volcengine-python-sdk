@@ -392,6 +392,13 @@ class RestoreToNewInstanceRequest(object):
         """
         if self._configuration.client_side_validation and storage_type is None:
             raise ValueError("Invalid value for `storage_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["LocalSSD", "CloudStorage", "ESSDPL1", "ESSDPL2"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_type, allowed_values)
+            )
 
         self._storage_type = storage_type
 
