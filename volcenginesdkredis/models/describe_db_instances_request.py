@@ -101,11 +101,14 @@ class DescribeDBInstancesRequest(object):
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
-        self.page_number = page_number
-        self.page_size = page_size
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
-        self.region_id = region_id
+        if region_id is not None:
+            self.region_id = region_id
         if service_type is not None:
             self.service_type = service_type
         if sharded_cluster is not None:
@@ -242,8 +245,6 @@ class DescribeDBInstancesRequest(object):
         :param page_number: The page_number of this DescribeDBInstancesRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_number is None:
-            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
         self._page_number = page_number
 
@@ -265,8 +266,6 @@ class DescribeDBInstancesRequest(object):
         :param page_size: The page_size of this DescribeDBInstancesRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and page_size is None:
-            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -309,8 +308,6 @@ class DescribeDBInstancesRequest(object):
         :param region_id: The region_id of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and region_id is None:
-            raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
 

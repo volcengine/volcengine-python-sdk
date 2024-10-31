@@ -45,6 +45,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'instance_name': 'str',
         'multi_az': 'str',
         'node_number': 'int',
+        'private_address': 'str',
         'project_name': 'str',
         'region_id': 'str',
         'service_type': 'str',
@@ -53,6 +54,8 @@ class InstanceForDescribeDBInstancesOutput(object):
         'sharded_cluster': 'int',
         'status': 'str',
         'tags': 'list[TagForDescribeDBInstancesOutput]',
+        'vip': 'str',
+        'vipv6': 'str',
         'vpc_id': 'str',
         'zone_ids': 'list[str]'
     }
@@ -70,6 +73,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'instance_name': 'InstanceName',
         'multi_az': 'MultiAZ',
         'node_number': 'NodeNumber',
+        'private_address': 'PrivateAddress',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'service_type': 'ServiceType',
@@ -78,11 +82,13 @@ class InstanceForDescribeDBInstancesOutput(object):
         'sharded_cluster': 'ShardedCluster',
         'status': 'Status',
         'tags': 'Tags',
+        'vip': 'VIP',
+        'vipv6': 'VIPv6',
         'vpc_id': 'VpcId',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, capacity=None, charge_type=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, multi_az=None, node_number=None, project_name=None, region_id=None, service_type=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacity=None, charge_type=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, multi_az=None, node_number=None, private_address=None, project_name=None, region_id=None, service_type=None, shard_capacity=None, shard_number=None, sharded_cluster=None, status=None, tags=None, vip=None, vipv6=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +106,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._instance_name = None
         self._multi_az = None
         self._node_number = None
+        self._private_address = None
         self._project_name = None
         self._region_id = None
         self._service_type = None
@@ -108,6 +115,8 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._sharded_cluster = None
         self._status = None
         self._tags = None
+        self._vip = None
+        self._vipv6 = None
         self._vpc_id = None
         self._zone_ids = None
         self.discriminator = None
@@ -136,6 +145,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.multi_az = multi_az
         if node_number is not None:
             self.node_number = node_number
+        if private_address is not None:
+            self.private_address = private_address
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
@@ -152,6 +163,10 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.status = status
         if tags is not None:
             self.tags = tags
+        if vip is not None:
+            self.vip = vip
+        if vipv6 is not None:
+            self.vipv6 = vipv6
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_ids is not None:
@@ -410,6 +425,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._node_number = node_number
 
     @property
+    def private_address(self):
+        """Gets the private_address of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The private_address of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_address
+
+    @private_address.setter
+    def private_address(self, private_address):
+        """Sets the private_address of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param private_address: The private_address of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._private_address = private_address
+
+    @property
     def project_name(self):
         """Gets the project_name of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -576,6 +612,48 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def vip(self):
+        """Gets the vip of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The vip of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vip
+
+    @vip.setter
+    def vip(self, vip):
+        """Sets the vip of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param vip: The vip of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vip = vip
+
+    @property
+    def vipv6(self):
+        """Gets the vipv6 of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The vipv6 of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vipv6
+
+    @vipv6.setter
+    def vipv6(self, vipv6):
+        """Sets the vipv6 of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param vipv6: The vipv6 of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vipv6 = vipv6
 
     @property
     def vpc_id(self):

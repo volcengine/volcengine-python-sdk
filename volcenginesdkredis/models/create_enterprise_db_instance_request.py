@@ -38,6 +38,7 @@ class CreateEnterpriseDBInstanceRequest(object):
         'charge_type': 'str',
         'client_token': 'str',
         'configure_nodes': 'list[ConfigureNodeForCreateEnterpriseDBInstanceInput]',
+        'data_layout': 'str',
         'deletion_protection': 'str',
         'flash_per_shard': 'int',
         'instance_name': 'str',
@@ -60,6 +61,7 @@ class CreateEnterpriseDBInstanceRequest(object):
         'charge_type': 'ChargeType',
         'client_token': 'ClientToken',
         'configure_nodes': 'ConfigureNodes',
+        'data_layout': 'DataLayout',
         'deletion_protection': 'DeletionProtection',
         'flash_per_shard': 'FlashPerShard',
         'instance_name': 'InstanceName',
@@ -76,7 +78,7 @@ class CreateEnterpriseDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, client_token=None, configure_nodes=None, deletion_protection=None, flash_per_shard=None, instance_name=None, modules=None, multi_az=None, password=None, project_name=None, purchase_months=None, ram_per_shard=None, region_id=None, shard_number=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, client_token=None, configure_nodes=None, data_layout=None, deletion_protection=None, flash_per_shard=None, instance_name=None, modules=None, multi_az=None, password=None, project_name=None, purchase_months=None, ram_per_shard=None, region_id=None, shard_number=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateEnterpriseDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class CreateEnterpriseDBInstanceRequest(object):
         self._charge_type = None
         self._client_token = None
         self._configure_nodes = None
+        self._data_layout = None
         self._deletion_protection = None
         self._flash_per_shard = None
         self._instance_name = None
@@ -105,12 +108,14 @@ class CreateEnterpriseDBInstanceRequest(object):
 
         if allow_list_ids is not None:
             self.allow_list_ids = allow_list_ids
-        self.auto_renew = auto_renew
+        if auto_renew is not None:
+            self.auto_renew = auto_renew
         self.charge_type = charge_type
         if client_token is not None:
             self.client_token = client_token
         if configure_nodes is not None:
             self.configure_nodes = configure_nodes
+        self.data_layout = data_layout
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
         self.flash_per_shard = flash_per_shard
@@ -124,7 +129,8 @@ class CreateEnterpriseDBInstanceRequest(object):
             self.password = password
         if project_name is not None:
             self.project_name = project_name
-        self.purchase_months = purchase_months
+        if purchase_months is not None:
+            self.purchase_months = purchase_months
         self.ram_per_shard = ram_per_shard
         self.region_id = region_id
         self.shard_number = shard_number
@@ -172,8 +178,6 @@ class CreateEnterpriseDBInstanceRequest(object):
         :param auto_renew: The auto_renew of this CreateEnterpriseDBInstanceRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and auto_renew is None:
-            raise ValueError("Invalid value for `auto_renew`, must not be `None`")  # noqa: E501
 
         self._auto_renew = auto_renew
 
@@ -241,6 +245,29 @@ class CreateEnterpriseDBInstanceRequest(object):
         """
 
         self._configure_nodes = configure_nodes
+
+    @property
+    def data_layout(self):
+        """Gets the data_layout of this CreateEnterpriseDBInstanceRequest.  # noqa: E501
+
+
+        :return: The data_layout of this CreateEnterpriseDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_layout
+
+    @data_layout.setter
+    def data_layout(self, data_layout):
+        """Sets the data_layout of this CreateEnterpriseDBInstanceRequest.
+
+
+        :param data_layout: The data_layout of this CreateEnterpriseDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and data_layout is None:
+            raise ValueError("Invalid value for `data_layout`, must not be `None`")  # noqa: E501
+
+        self._data_layout = data_layout
 
     @property
     def deletion_protection(self):
@@ -409,8 +436,6 @@ class CreateEnterpriseDBInstanceRequest(object):
         :param purchase_months: The purchase_months of this CreateEnterpriseDBInstanceRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and purchase_months is None:
-            raise ValueError("Invalid value for `purchase_months`, must not be `None`")  # noqa: E501
 
         self._purchase_months = purchase_months
 

@@ -34,26 +34,31 @@ class DescribeAllowListsRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
+        'query_default': 'bool',
         'region_id': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
+        'query_default': 'QueryDefault',
         'region_id': 'RegionId'
     }
 
-    def __init__(self, instance_id=None, region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, query_default=None, region_id=None, _configuration=None):  # noqa: E501
         """DescribeAllowListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._query_default = None
         self._region_id = None
         self.discriminator = None
 
         if instance_id is not None:
             self.instance_id = instance_id
+        if query_default is not None:
+            self.query_default = query_default
         self.region_id = region_id
 
     @property
@@ -76,6 +81,27 @@ class DescribeAllowListsRequest(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def query_default(self):
+        """Gets the query_default of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The query_default of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._query_default
+
+    @query_default.setter
+    def query_default(self, query_default):
+        """Sets the query_default of this DescribeAllowListsRequest.
+
+
+        :param query_default: The query_default of this DescribeAllowListsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._query_default = query_default
 
     @property
     def region_id(self):
