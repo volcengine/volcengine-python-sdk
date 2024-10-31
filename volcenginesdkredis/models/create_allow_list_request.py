@@ -34,6 +34,7 @@ class CreateAllowListRequest(object):
     """
     swagger_types = {
         'allow_list': 'str',
+        'allow_list_category': 'str',
         'allow_list_desc': 'str',
         'allow_list_name': 'str',
         'allow_list_type': 'str',
@@ -42,19 +43,21 @@ class CreateAllowListRequest(object):
 
     attribute_map = {
         'allow_list': 'AllowList',
+        'allow_list_category': 'AllowListCategory',
         'allow_list_desc': 'AllowListDesc',
         'allow_list_name': 'AllowListName',
         'allow_list_type': 'AllowListType',
         'client_token': 'ClientToken'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, client_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, client_token=None, _configuration=None):  # noqa: E501
         """CreateAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list = None
+        self._allow_list_category = None
         self._allow_list_desc = None
         self._allow_list_name = None
         self._allow_list_type = None
@@ -62,6 +65,8 @@ class CreateAllowListRequest(object):
         self.discriminator = None
 
         self.allow_list = allow_list
+        if allow_list_category is not None:
+            self.allow_list_category = allow_list_category
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
         self.allow_list_name = allow_list_name
@@ -92,6 +97,34 @@ class CreateAllowListRequest(object):
             raise ValueError("Invalid value for `allow_list`, must not be `None`")  # noqa: E501
 
         self._allow_list = allow_list
+
+    @property
+    def allow_list_category(self):
+        """Gets the allow_list_category of this CreateAllowListRequest.  # noqa: E501
+
+
+        :return: The allow_list_category of this CreateAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_category
+
+    @allow_list_category.setter
+    def allow_list_category(self, allow_list_category):
+        """Sets the allow_list_category of this CreateAllowListRequest.
+
+
+        :param allow_list_category: The allow_list_category of this CreateAllowListRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Ordinary", "Default"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                allow_list_category not in allowed_values):
+            raise ValueError(
+                "Invalid value for `allow_list_category` ({0}), must be one of {1}"  # noqa: E501
+                .format(allow_list_category, allowed_values)
+            )
+
+        self._allow_list_category = allow_list_category
 
     @property
     def allow_list_desc(self):
