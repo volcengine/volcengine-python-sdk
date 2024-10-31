@@ -47,6 +47,7 @@ class UpdateWafServiceControlRequest(object):
         'custom_rsp_enable': 'int',
         'dlp_enable': 'int',
         'host': 'str',
+        'project_name': 'str',
         'system_bot_enable': 'int',
         'tls_enable': 'int',
         'tamper_proof_enable': 'int',
@@ -71,6 +72,7 @@ class UpdateWafServiceControlRequest(object):
         'custom_rsp_enable': 'CustomRspEnable',
         'dlp_enable': 'DlpEnable',
         'host': 'Host',
+        'project_name': 'ProjectName',
         'system_bot_enable': 'SystemBotEnable',
         'tls_enable': 'TLSEnable',
         'tamper_proof_enable': 'TamperProofEnable',
@@ -80,7 +82,7 @@ class UpdateWafServiceControlRequest(object):
         'white_field_enable': 'WhiteFieldEnable'
     }
 
-    def __init__(self, api_enable=None, auto_cc_enable=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, custom_bot_enable=None, custom_rsp_enable=None, dlp_enable=None, host=None, system_bot_enable=None, tls_enable=None, tamper_proof_enable=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_enable=None, auto_cc_enable=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, custom_bot_enable=None, custom_rsp_enable=None, dlp_enable=None, host=None, project_name=None, system_bot_enable=None, tls_enable=None, tamper_proof_enable=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
         """UpdateWafServiceControlRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +102,7 @@ class UpdateWafServiceControlRequest(object):
         self._custom_rsp_enable = None
         self._dlp_enable = None
         self._host = None
+        self._project_name = None
         self._system_bot_enable = None
         self._tls_enable = None
         self._tamper_proof_enable = None
@@ -136,6 +139,8 @@ class UpdateWafServiceControlRequest(object):
         if dlp_enable is not None:
             self.dlp_enable = dlp_enable
         self.host = host
+        if project_name is not None:
+            self.project_name = project_name
         if system_bot_enable is not None:
             self.system_bot_enable = system_bot_enable
         if tls_enable is not None:
@@ -446,6 +451,27 @@ class UpdateWafServiceControlRequest(object):
             raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this UpdateWafServiceControlRequest.  # noqa: E501
+
+
+        :return: The project_name of this UpdateWafServiceControlRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this UpdateWafServiceControlRequest.
+
+
+        :param project_name: The project_name of this UpdateWafServiceControlRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def system_bot_enable(self):

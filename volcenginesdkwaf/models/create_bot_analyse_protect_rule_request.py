@@ -44,6 +44,7 @@ class CreateBotAnalyseProtectRuleRequest(object):
         'name': 'str',
         'path': 'str',
         'path_threshold': 'int',
+        'project_name': 'str',
         'rule_priority': 'int',
         'single_proportion': 'str',
         'single_threshold': 'int',
@@ -63,6 +64,7 @@ class CreateBotAnalyseProtectRuleRequest(object):
         'name': 'Name',
         'path': 'Path',
         'path_threshold': 'PathThreshold',
+        'project_name': 'ProjectName',
         'rule_priority': 'RulePriority',
         'single_proportion': 'SingleProportion',
         'single_threshold': 'SingleThreshold',
@@ -70,7 +72,7 @@ class CreateBotAnalyseProtectRuleRequest(object):
         'statistical_type': 'StatisticalType'
     }
 
-    def __init__(self, accurate_group=None, action_after_verification=None, action_type=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, name=None, path=None, path_threshold=None, rule_priority=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, action_after_verification=None, action_type=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, name=None, path=None, path_threshold=None, project_name=None, rule_priority=None, single_proportion=None, single_threshold=None, statistical_duration=None, statistical_type=None, _configuration=None):  # noqa: E501
         """CreateBotAnalyseProtectRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class CreateBotAnalyseProtectRuleRequest(object):
         self._name = None
         self._path = None
         self._path_threshold = None
+        self._project_name = None
         self._rule_priority = None
         self._single_proportion = None
         self._single_threshold = None
@@ -109,6 +112,8 @@ class CreateBotAnalyseProtectRuleRequest(object):
         self.path = path
         if path_threshold is not None:
             self.path_threshold = path_threshold
+        if project_name is not None:
+            self.project_name = project_name
         self.rule_priority = rule_priority
         if single_proportion is not None:
             self.single_proportion = single_proportion
@@ -360,6 +365,27 @@ class CreateBotAnalyseProtectRuleRequest(object):
         """
 
         self._path_threshold = path_threshold
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateBotAnalyseProtectRuleRequest.
+
+
+        :param project_name: The project_name of this CreateBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def rule_priority(self):

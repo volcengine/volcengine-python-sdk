@@ -36,6 +36,7 @@ class ListAllIpGroupsRequest(object):
         'ip': 'str',
         'page': 'str',
         'page_size': 'int',
+        'project_name': 'str',
         'rule_tag': 'str',
         'time_order_by': 'str'
     }
@@ -44,11 +45,12 @@ class ListAllIpGroupsRequest(object):
         'ip': 'Ip',
         'page': 'Page',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'rule_tag': 'RuleTag',
         'time_order_by': 'TimeOrderBy'
     }
 
-    def __init__(self, ip=None, page=None, page_size=None, rule_tag=None, time_order_by=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip=None, page=None, page_size=None, project_name=None, rule_tag=None, time_order_by=None, _configuration=None):  # noqa: E501
         """ListAllIpGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class ListAllIpGroupsRequest(object):
         self._ip = None
         self._page = None
         self._page_size = None
+        self._project_name = None
         self._rule_tag = None
         self._time_order_by = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class ListAllIpGroupsRequest(object):
             self.page = page
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if rule_tag is not None:
             self.rule_tag = rule_tag
         self.time_order_by = time_order_by
@@ -133,6 +138,27 @@ class ListAllIpGroupsRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListAllIpGroupsRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListAllIpGroupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListAllIpGroupsRequest.
+
+
+        :param project_name: The project_name of this ListAllIpGroupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def rule_tag(self):

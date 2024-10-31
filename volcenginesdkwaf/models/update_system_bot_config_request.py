@@ -36,17 +36,19 @@ class UpdateSystemBotConfigRequest(object):
         'action': 'str',
         'bot_type': 'str',
         'enable': 'int',
-        'host': 'str'
+        'host': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'action': 'Action',
         'bot_type': 'BotType',
         'enable': 'Enable',
-        'host': 'Host'
+        'host': 'Host',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, action=None, bot_type=None, enable=None, host=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, bot_type=None, enable=None, host=None, project_name=None, _configuration=None):  # noqa: E501
         """UpdateSystemBotConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class UpdateSystemBotConfigRequest(object):
         self._bot_type = None
         self._enable = None
         self._host = None
+        self._project_name = None
         self.discriminator = None
 
         if action is not None:
@@ -64,6 +67,8 @@ class UpdateSystemBotConfigRequest(object):
         if enable is not None:
             self.enable = enable
         self.host = host
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def action(self):
@@ -152,6 +157,27 @@ class UpdateSystemBotConfigRequest(object):
             raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this UpdateSystemBotConfigRequest.  # noqa: E501
+
+
+        :return: The project_name of this UpdateSystemBotConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this UpdateSystemBotConfigRequest.
+
+
+        :param project_name: The project_name of this UpdateSystemBotConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

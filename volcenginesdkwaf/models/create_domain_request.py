@@ -46,12 +46,16 @@ class CreateDomainRequest(object):
         'client_max_body_size': 'int',
         'cloud_access_config': 'list[CloudAccessConfigForCreateDomainInput]',
         'custom_header': 'list[str]',
+        'custom_sni': 'str',
         'domain': 'str',
+        'enable_custom_redirect': 'int',
         'enable_http2': 'int',
         'enable_i_pv6': 'int',
+        'enable_sni': 'int',
         'keep_alive_request': 'int',
         'keep_alive_time_out': 'int',
         'lb_algorithm': 'str',
+        'project_name': 'str',
         'protocol_follow': 'int',
         'protocol_ports': 'ProtocolPortsForCreateDomainInput',
         'protocols': 'list[str]',
@@ -68,6 +72,7 @@ class CreateDomainRequest(object):
         'ssl_ciphers': 'list[str]',
         'ssl_protocols': 'list[str]',
         'tls_enable': 'int',
+        'tls_fields_config': 'TLSFieldsConfigForCreateDomainInput',
         'volc_certificate_id': 'str',
         'vpc_id': 'str'
     }
@@ -86,12 +91,16 @@ class CreateDomainRequest(object):
         'client_max_body_size': 'ClientMaxBodySize',
         'cloud_access_config': 'CloudAccessConfig',
         'custom_header': 'CustomHeader',
+        'custom_sni': 'CustomSNI',
         'domain': 'Domain',
+        'enable_custom_redirect': 'EnableCustomRedirect',
         'enable_http2': 'EnableHTTP2',
         'enable_i_pv6': 'EnableIPv6',
+        'enable_sni': 'EnableSNI',
         'keep_alive_request': 'KeepAliveRequest',
         'keep_alive_time_out': 'KeepAliveTimeOut',
         'lb_algorithm': 'LBAlgorithm',
+        'project_name': 'ProjectName',
         'protocol_follow': 'ProtocolFollow',
         'protocol_ports': 'ProtocolPorts',
         'protocols': 'Protocols',
@@ -108,11 +117,12 @@ class CreateDomainRequest(object):
         'ssl_ciphers': 'SSLCiphers',
         'ssl_protocols': 'SSLProtocols',
         'tls_enable': 'TLSEnable',
+        'tls_fields_config': 'TLSFieldsConfig',
         'volc_certificate_id': 'VolcCertificateID',
         'vpc_id': 'VpcID'
     }
 
-    def __init__(self, access_mode=None, backend_groups=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, certificate_id=None, certificate_platform=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, custom_header=None, domain=None, enable_http2=None, enable_i_pv6=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, ssl_ciphers=None, ssl_protocols=None, tls_enable=None, volc_certificate_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, backend_groups=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, certificate_id=None, certificate_platform=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, custom_header=None, custom_sni=None, domain=None, enable_custom_redirect=None, enable_http2=None, enable_i_pv6=None, enable_sni=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, project_name=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, ssl_ciphers=None, ssl_protocols=None, tls_enable=None, tls_fields_config=None, volc_certificate_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -131,12 +141,16 @@ class CreateDomainRequest(object):
         self._client_max_body_size = None
         self._cloud_access_config = None
         self._custom_header = None
+        self._custom_sni = None
         self._domain = None
+        self._enable_custom_redirect = None
         self._enable_http2 = None
         self._enable_i_pv6 = None
+        self._enable_sni = None
         self._keep_alive_request = None
         self._keep_alive_time_out = None
         self._lb_algorithm = None
+        self._project_name = None
         self._protocol_follow = None
         self._protocol_ports = None
         self._protocols = None
@@ -153,6 +167,7 @@ class CreateDomainRequest(object):
         self._ssl_ciphers = None
         self._ssl_protocols = None
         self._tls_enable = None
+        self._tls_fields_config = None
         self._volc_certificate_id = None
         self._vpc_id = None
         self.discriminator = None
@@ -182,17 +197,25 @@ class CreateDomainRequest(object):
             self.cloud_access_config = cloud_access_config
         if custom_header is not None:
             self.custom_header = custom_header
+        if custom_sni is not None:
+            self.custom_sni = custom_sni
         self.domain = domain
+        if enable_custom_redirect is not None:
+            self.enable_custom_redirect = enable_custom_redirect
         if enable_http2 is not None:
             self.enable_http2 = enable_http2
         if enable_i_pv6 is not None:
             self.enable_i_pv6 = enable_i_pv6
+        if enable_sni is not None:
+            self.enable_sni = enable_sni
         if keep_alive_request is not None:
             self.keep_alive_request = keep_alive_request
         if keep_alive_time_out is not None:
             self.keep_alive_time_out = keep_alive_time_out
         if lb_algorithm is not None:
             self.lb_algorithm = lb_algorithm
+        if project_name is not None:
+            self.project_name = project_name
         if protocol_follow is not None:
             self.protocol_follow = protocol_follow
         if protocol_ports is not None:
@@ -224,6 +247,8 @@ class CreateDomainRequest(object):
             self.ssl_protocols = ssl_protocols
         if tls_enable is not None:
             self.tls_enable = tls_enable
+        if tls_fields_config is not None:
+            self.tls_fields_config = tls_fields_config
         if volc_certificate_id is not None:
             self.volc_certificate_id = volc_certificate_id
         if vpc_id is not None:
@@ -505,6 +530,27 @@ class CreateDomainRequest(object):
         self._custom_header = custom_header
 
     @property
+    def custom_sni(self):
+        """Gets the custom_sni of this CreateDomainRequest.  # noqa: E501
+
+
+        :return: The custom_sni of this CreateDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_sni
+
+    @custom_sni.setter
+    def custom_sni(self, custom_sni):
+        """Sets the custom_sni of this CreateDomainRequest.
+
+
+        :param custom_sni: The custom_sni of this CreateDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_sni = custom_sni
+
+    @property
     def domain(self):
         """Gets the domain of this CreateDomainRequest.  # noqa: E501
 
@@ -526,6 +572,27 @@ class CreateDomainRequest(object):
             raise ValueError("Invalid value for `domain`, must not be `None`")  # noqa: E501
 
         self._domain = domain
+
+    @property
+    def enable_custom_redirect(self):
+        """Gets the enable_custom_redirect of this CreateDomainRequest.  # noqa: E501
+
+
+        :return: The enable_custom_redirect of this CreateDomainRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._enable_custom_redirect
+
+    @enable_custom_redirect.setter
+    def enable_custom_redirect(self, enable_custom_redirect):
+        """Sets the enable_custom_redirect of this CreateDomainRequest.
+
+
+        :param enable_custom_redirect: The enable_custom_redirect of this CreateDomainRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._enable_custom_redirect = enable_custom_redirect
 
     @property
     def enable_http2(self):
@@ -568,6 +635,27 @@ class CreateDomainRequest(object):
         """
 
         self._enable_i_pv6 = enable_i_pv6
+
+    @property
+    def enable_sni(self):
+        """Gets the enable_sni of this CreateDomainRequest.  # noqa: E501
+
+
+        :return: The enable_sni of this CreateDomainRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._enable_sni
+
+    @enable_sni.setter
+    def enable_sni(self, enable_sni):
+        """Sets the enable_sni of this CreateDomainRequest.
+
+
+        :param enable_sni: The enable_sni of this CreateDomainRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._enable_sni = enable_sni
 
     @property
     def keep_alive_request(self):
@@ -631,6 +719,27 @@ class CreateDomainRequest(object):
         """
 
         self._lb_algorithm = lb_algorithm
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateDomainRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateDomainRequest.
+
+
+        :param project_name: The project_name of this CreateDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def protocol_follow(self):
@@ -969,6 +1078,27 @@ class CreateDomainRequest(object):
         """
 
         self._tls_enable = tls_enable
+
+    @property
+    def tls_fields_config(self):
+        """Gets the tls_fields_config of this CreateDomainRequest.  # noqa: E501
+
+
+        :return: The tls_fields_config of this CreateDomainRequest.  # noqa: E501
+        :rtype: TLSFieldsConfigForCreateDomainInput
+        """
+        return self._tls_fields_config
+
+    @tls_fields_config.setter
+    def tls_fields_config(self, tls_fields_config):
+        """Sets the tls_fields_config of this CreateDomainRequest.
+
+
+        :param tls_fields_config: The tls_fields_config of this CreateDomainRequest.  # noqa: E501
+        :type: TLSFieldsConfigForCreateDomainInput
+        """
+
+        self._tls_fields_config = tls_fields_config
 
     @property
     def volc_certificate_id(self):

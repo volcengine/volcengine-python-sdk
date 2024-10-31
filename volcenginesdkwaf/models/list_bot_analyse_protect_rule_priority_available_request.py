@@ -37,7 +37,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         'host': 'str',
         'page': 'int',
         'page_size': 'int',
-        'path': 'str'
+        'path': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         'host': 'Host',
         'page': 'Page',
         'page_size': 'PageSize',
-        'path': 'Path'
+        'path': 'Path',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, bot_space=None, host=None, page=None, page_size=None, path=None, _configuration=None):  # noqa: E501
+    def __init__(self, bot_space=None, host=None, page=None, page_size=None, path=None, project_name=None, _configuration=None):  # noqa: E501
         """ListBotAnalyseProtectRulePriorityAvailableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         self._page = None
         self._page_size = None
         self._path = None
+        self._project_name = None
         self.discriminator = None
 
         self.bot_space = bot_space
@@ -68,6 +71,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
         if page_size is not None:
             self.page_size = page_size
         self.path = path
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def bot_space(self):
@@ -179,6 +184,27 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest(object):
             raise ValueError("Invalid value for `path`, must not be `None`")  # noqa: E501
 
         self._path = path
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListBotAnalyseProtectRulePriorityAvailableRequest.
+
+
+        :param project_name: The project_name of this ListBotAnalyseProtectRulePriorityAvailableRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

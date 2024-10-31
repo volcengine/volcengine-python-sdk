@@ -35,16 +35,18 @@ class QueryCertificateIfReplaceRequest(object):
     swagger_types = {
         'certificate_id': 'int',
         'domain': 'str',
+        'project_name': 'str',
         'public_real_server': 'int'
     }
 
     attribute_map = {
         'certificate_id': 'CertificateID',
         'domain': 'Domain',
+        'project_name': 'ProjectName',
         'public_real_server': 'PublicRealServer'
     }
 
-    def __init__(self, certificate_id=None, domain=None, public_real_server=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_id=None, domain=None, project_name=None, public_real_server=None, _configuration=None):  # noqa: E501
         """QueryCertificateIfReplaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,11 +54,14 @@ class QueryCertificateIfReplaceRequest(object):
 
         self._certificate_id = None
         self._domain = None
+        self._project_name = None
         self._public_real_server = None
         self.discriminator = None
 
         self.certificate_id = certificate_id
         self.domain = domain
+        if project_name is not None:
+            self.project_name = project_name
         if public_real_server is not None:
             self.public_real_server = public_real_server
 
@@ -105,6 +110,27 @@ class QueryCertificateIfReplaceRequest(object):
             raise ValueError("Invalid value for `domain`, must not be `None`")  # noqa: E501
 
         self._domain = domain
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this QueryCertificateIfReplaceRequest.  # noqa: E501
+
+
+        :return: The project_name of this QueryCertificateIfReplaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this QueryCertificateIfReplaceRequest.
+
+
+        :param project_name: The project_name of this QueryCertificateIfReplaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def public_real_server(self):
