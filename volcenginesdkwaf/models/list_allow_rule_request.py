@@ -36,6 +36,7 @@ class ListAllowRuleRequest(object):
         'client_ip': 'str',
         'group_id': 'int',
         'host': 'str',
+        'project_name': 'str',
         'url': 'str'
     }
 
@@ -43,10 +44,11 @@ class ListAllowRuleRequest(object):
         'client_ip': 'ClientIP',
         'group_id': 'GroupID',
         'host': 'Host',
+        'project_name': 'ProjectName',
         'url': 'Url'
     }
 
-    def __init__(self, client_ip=None, group_id=None, host=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_ip=None, group_id=None, host=None, project_name=None, url=None, _configuration=None):  # noqa: E501
         """ListAllowRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class ListAllowRuleRequest(object):
         self._client_ip = None
         self._group_id = None
         self._host = None
+        self._project_name = None
         self._url = None
         self.discriminator = None
 
@@ -63,6 +66,8 @@ class ListAllowRuleRequest(object):
         if group_id is not None:
             self.group_id = group_id
         self.host = host
+        if project_name is not None:
+            self.project_name = project_name
         if url is not None:
             self.url = url
 
@@ -130,6 +135,27 @@ class ListAllowRuleRequest(object):
             raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListAllowRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListAllowRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListAllowRuleRequest.
+
+
+        :param project_name: The project_name of this ListAllowRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def url(self):

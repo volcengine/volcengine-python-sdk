@@ -34,15 +34,17 @@ class DeleteBlockRuleRequest(object):
     """
     swagger_types = {
         'host': 'str',
-        'id': 'str'
+        'id': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'host': 'Host',
-        'id': 'Id'
+        'id': 'Id',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, host=None, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, id=None, project_name=None, _configuration=None):  # noqa: E501
         """DeleteBlockRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,10 +52,13 @@ class DeleteBlockRuleRequest(object):
 
         self._host = None
         self._id = None
+        self._project_name = None
         self.discriminator = None
 
         self.host = host
         self.id = id
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def host(self):
@@ -100,6 +105,27 @@ class DeleteBlockRuleRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DeleteBlockRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this DeleteBlockRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DeleteBlockRuleRequest.
+
+
+        :param project_name: The project_name of this DeleteBlockRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,15 +34,17 @@ class DeleteCustomBotConfigRequest(object):
     """
     swagger_types = {
         'bot_id': 'int',
-        'host': 'str'
+        'host': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'bot_id': 'BotID',
-        'host': 'Host'
+        'host': 'Host',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, bot_id=None, host=None, _configuration=None):  # noqa: E501
+    def __init__(self, bot_id=None, host=None, project_name=None, _configuration=None):  # noqa: E501
         """DeleteCustomBotConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,10 +52,13 @@ class DeleteCustomBotConfigRequest(object):
 
         self._bot_id = None
         self._host = None
+        self._project_name = None
         self.discriminator = None
 
         self.bot_id = bot_id
         self.host = host
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def bot_id(self):
@@ -100,6 +105,27 @@ class DeleteCustomBotConfigRequest(object):
             raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DeleteCustomBotConfigRequest.  # noqa: E501
+
+
+        :return: The project_name of this DeleteCustomBotConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DeleteCustomBotConfigRequest.
+
+
+        :param project_name: The project_name of this DeleteCustomBotConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

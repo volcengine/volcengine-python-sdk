@@ -34,15 +34,17 @@ class ListCertificateServicesRequest(object):
     """
     swagger_types = {
         'clb_certificate_id': 'str',
-        'id': 'int'
+        'id': 'int',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'clb_certificate_id': 'ClbCertificateId',
-        'id': 'Id'
+        'id': 'Id',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, clb_certificate_id=None, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, clb_certificate_id=None, id=None, project_name=None, _configuration=None):  # noqa: E501
         """ListCertificateServicesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,11 +52,14 @@ class ListCertificateServicesRequest(object):
 
         self._clb_certificate_id = None
         self._id = None
+        self._project_name = None
         self.discriminator = None
 
         if clb_certificate_id is not None:
             self.clb_certificate_id = clb_certificate_id
         self.id = id
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def clb_certificate_id(self):
@@ -99,6 +104,27 @@ class ListCertificateServicesRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListCertificateServicesRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListCertificateServicesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListCertificateServicesRequest.
+
+
+        :param project_name: The project_name of this ListCertificateServicesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
