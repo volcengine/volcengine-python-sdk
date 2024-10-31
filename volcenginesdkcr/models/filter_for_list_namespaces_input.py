@@ -33,24 +33,55 @@ class FilterForListNamespacesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'names': 'list[str]'
+        'in_project': 'bool',
+        'names': 'list[str]',
+        'projects': 'list[str]'
     }
 
     attribute_map = {
-        'names': 'Names'
+        'in_project': 'InProject',
+        'names': 'Names',
+        'projects': 'Projects'
     }
 
-    def __init__(self, names=None, _configuration=None):  # noqa: E501
+    def __init__(self, in_project=None, names=None, projects=None, _configuration=None):  # noqa: E501
         """FilterForListNamespacesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._in_project = None
         self._names = None
+        self._projects = None
         self.discriminator = None
 
+        if in_project is not None:
+            self.in_project = in_project
         if names is not None:
             self.names = names
+        if projects is not None:
+            self.projects = projects
+
+    @property
+    def in_project(self):
+        """Gets the in_project of this FilterForListNamespacesInput.  # noqa: E501
+
+
+        :return: The in_project of this FilterForListNamespacesInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._in_project
+
+    @in_project.setter
+    def in_project(self, in_project):
+        """Sets the in_project of this FilterForListNamespacesInput.
+
+
+        :param in_project: The in_project of this FilterForListNamespacesInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._in_project = in_project
 
     @property
     def names(self):
@@ -72,6 +103,27 @@ class FilterForListNamespacesInput(object):
         """
 
         self._names = names
+
+    @property
+    def projects(self):
+        """Gets the projects of this FilterForListNamespacesInput.  # noqa: E501
+
+
+        :return: The projects of this FilterForListNamespacesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._projects
+
+    @projects.setter
+    def projects(self, projects):
+        """Sets the projects of this FilterForListNamespacesInput.
+
+
+        :param projects: The projects of this FilterForListNamespacesInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._projects = projects
 
     def to_dict(self):
         """Returns the model properties as a dict"""

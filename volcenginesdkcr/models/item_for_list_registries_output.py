@@ -35,7 +35,13 @@ class ItemForListRegistriesOutput(object):
     swagger_types = {
         'charge_type': 'str',
         'create_time': 'str',
+        'expire_time': 'str',
         'name': 'str',
+        'project': 'str',
+        'proxy_cache': 'ProxyCacheForListRegistriesOutput',
+        'proxy_cache_enabled': 'bool',
+        'renew_type': 'str',
+        'resource_tags': 'list[ResourceTagForListRegistriesOutput]',
         'status': 'StatusForListRegistriesOutput',
         'type': 'str'
     }
@@ -43,12 +49,18 @@ class ItemForListRegistriesOutput(object):
     attribute_map = {
         'charge_type': 'ChargeType',
         'create_time': 'CreateTime',
+        'expire_time': 'ExpireTime',
         'name': 'Name',
+        'project': 'Project',
+        'proxy_cache': 'ProxyCache',
+        'proxy_cache_enabled': 'ProxyCacheEnabled',
+        'renew_type': 'RenewType',
+        'resource_tags': 'ResourceTags',
         'status': 'Status',
         'type': 'Type'
     }
 
-    def __init__(self, charge_type=None, create_time=None, name=None, status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time=None, expire_time=None, name=None, project=None, proxy_cache=None, proxy_cache_enabled=None, renew_type=None, resource_tags=None, status=None, type=None, _configuration=None):  # noqa: E501
         """ItemForListRegistriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,7 +68,13 @@ class ItemForListRegistriesOutput(object):
 
         self._charge_type = None
         self._create_time = None
+        self._expire_time = None
         self._name = None
+        self._project = None
+        self._proxy_cache = None
+        self._proxy_cache_enabled = None
+        self._renew_type = None
+        self._resource_tags = None
         self._status = None
         self._type = None
         self.discriminator = None
@@ -65,8 +83,20 @@ class ItemForListRegistriesOutput(object):
             self.charge_type = charge_type
         if create_time is not None:
             self.create_time = create_time
+        if expire_time is not None:
+            self.expire_time = expire_time
         if name is not None:
             self.name = name
+        if project is not None:
+            self.project = project
+        if proxy_cache is not None:
+            self.proxy_cache = proxy_cache
+        if proxy_cache_enabled is not None:
+            self.proxy_cache_enabled = proxy_cache_enabled
+        if renew_type is not None:
+            self.renew_type = renew_type
+        if resource_tags is not None:
+            self.resource_tags = resource_tags
         if status is not None:
             self.status = status
         if type is not None:
@@ -115,6 +145,27 @@ class ItemForListRegistriesOutput(object):
         self._create_time = create_time
 
     @property
+    def expire_time(self):
+        """Gets the expire_time of this ItemForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The expire_time of this ItemForListRegistriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expire_time
+
+    @expire_time.setter
+    def expire_time(self, expire_time):
+        """Sets the expire_time of this ItemForListRegistriesOutput.
+
+
+        :param expire_time: The expire_time of this ItemForListRegistriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._expire_time = expire_time
+
+    @property
     def name(self):
         """Gets the name of this ItemForListRegistriesOutput.  # noqa: E501
 
@@ -134,6 +185,111 @@ class ItemForListRegistriesOutput(object):
         """
 
         self._name = name
+
+    @property
+    def project(self):
+        """Gets the project of this ItemForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The project of this ItemForListRegistriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this ItemForListRegistriesOutput.
+
+
+        :param project: The project of this ItemForListRegistriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project = project
+
+    @property
+    def proxy_cache(self):
+        """Gets the proxy_cache of this ItemForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The proxy_cache of this ItemForListRegistriesOutput.  # noqa: E501
+        :rtype: ProxyCacheForListRegistriesOutput
+        """
+        return self._proxy_cache
+
+    @proxy_cache.setter
+    def proxy_cache(self, proxy_cache):
+        """Sets the proxy_cache of this ItemForListRegistriesOutput.
+
+
+        :param proxy_cache: The proxy_cache of this ItemForListRegistriesOutput.  # noqa: E501
+        :type: ProxyCacheForListRegistriesOutput
+        """
+
+        self._proxy_cache = proxy_cache
+
+    @property
+    def proxy_cache_enabled(self):
+        """Gets the proxy_cache_enabled of this ItemForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The proxy_cache_enabled of this ItemForListRegistriesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._proxy_cache_enabled
+
+    @proxy_cache_enabled.setter
+    def proxy_cache_enabled(self, proxy_cache_enabled):
+        """Sets the proxy_cache_enabled of this ItemForListRegistriesOutput.
+
+
+        :param proxy_cache_enabled: The proxy_cache_enabled of this ItemForListRegistriesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._proxy_cache_enabled = proxy_cache_enabled
+
+    @property
+    def renew_type(self):
+        """Gets the renew_type of this ItemForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The renew_type of this ItemForListRegistriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._renew_type
+
+    @renew_type.setter
+    def renew_type(self, renew_type):
+        """Sets the renew_type of this ItemForListRegistriesOutput.
+
+
+        :param renew_type: The renew_type of this ItemForListRegistriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._renew_type = renew_type
+
+    @property
+    def resource_tags(self):
+        """Gets the resource_tags of this ItemForListRegistriesOutput.  # noqa: E501
+
+
+        :return: The resource_tags of this ItemForListRegistriesOutput.  # noqa: E501
+        :rtype: list[ResourceTagForListRegistriesOutput]
+        """
+        return self._resource_tags
+
+    @resource_tags.setter
+    def resource_tags(self, resource_tags):
+        """Sets the resource_tags of this ItemForListRegistriesOutput.
+
+
+        :param resource_tags: The resource_tags of this ItemForListRegistriesOutput.  # noqa: E501
+        :type: list[ResourceTagForListRegistriesOutput]
+        """
+
+        self._resource_tags = resource_tags
 
     @property
     def status(self):

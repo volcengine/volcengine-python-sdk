@@ -34,29 +34,34 @@ class FilterForListRegistriesInput(object):
     """
     swagger_types = {
         'names': 'list[str]',
+        'projects': 'list[str]',
         'statuses': 'list[StatusForListRegistriesInput]',
         'types': 'list[str]'
     }
 
     attribute_map = {
         'names': 'Names',
+        'projects': 'Projects',
         'statuses': 'Statuses',
         'types': 'Types'
     }
 
-    def __init__(self, names=None, statuses=None, types=None, _configuration=None):  # noqa: E501
+    def __init__(self, names=None, projects=None, statuses=None, types=None, _configuration=None):  # noqa: E501
         """FilterForListRegistriesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._names = None
+        self._projects = None
         self._statuses = None
         self._types = None
         self.discriminator = None
 
         if names is not None:
             self.names = names
+        if projects is not None:
+            self.projects = projects
         if statuses is not None:
             self.statuses = statuses
         if types is not None:
@@ -82,6 +87,27 @@ class FilterForListRegistriesInput(object):
         """
 
         self._names = names
+
+    @property
+    def projects(self):
+        """Gets the projects of this FilterForListRegistriesInput.  # noqa: E501
+
+
+        :return: The projects of this FilterForListRegistriesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._projects
+
+    @projects.setter
+    def projects(self, projects):
+        """Sets the projects of this FilterForListRegistriesInput.
+
+
+        :param projects: The projects of this FilterForListRegistriesInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._projects = projects
 
     @property
     def statuses(self):
