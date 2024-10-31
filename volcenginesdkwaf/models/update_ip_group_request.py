@@ -36,17 +36,19 @@ class UpdateIpGroupRequest(object):
         'add_type': 'str',
         'ip_group_id': 'int',
         'ip_list': 'list[str]',
-        'name': 'str'
+        'name': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'add_type': 'AddType',
         'ip_group_id': 'IpGroupId',
         'ip_list': 'IpList',
-        'name': 'Name'
+        'name': 'Name',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, add_type=None, ip_group_id=None, ip_list=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, add_type=None, ip_group_id=None, ip_list=None, name=None, project_name=None, _configuration=None):  # noqa: E501
         """UpdateIpGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class UpdateIpGroupRequest(object):
         self._ip_group_id = None
         self._ip_list = None
         self._name = None
+        self._project_name = None
         self.discriminator = None
 
         self.add_type = add_type
@@ -63,6 +66,8 @@ class UpdateIpGroupRequest(object):
         if ip_list is not None:
             self.ip_list = ip_list
         self.name = name
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def add_type(self):
@@ -153,6 +158,27 @@ class UpdateIpGroupRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this UpdateIpGroupRequest.  # noqa: E501
+
+
+        :return: The project_name of this UpdateIpGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this UpdateIpGroupRequest.
+
+
+        :param project_name: The project_name of this UpdateIpGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -41,6 +41,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'endpoint_id': 'str',
         'endpoint_name': 'str',
         'endpoint_type': 'str',
+        'idle_connection_reclaim': 'bool',
         'read_only_node_weight': 'list[ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput]',
         'read_write_mode': 'str'
     }
@@ -54,11 +55,12 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'endpoint_id': 'EndpointId',
         'endpoint_name': 'EndpointName',
         'endpoint_type': 'EndpointType',
+        'idle_connection_reclaim': 'IdleConnectionReclaim',
         'read_only_node_weight': 'ReadOnlyNodeWeight',
         'read_write_mode': 'ReadWriteMode'
     }
 
-    def __init__(self, addresses=None, auto_add_new_nodes=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, addresses=None, auto_add_new_nodes=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
         """EndpointForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         self._endpoint_id = None
         self._endpoint_name = None
         self._endpoint_type = None
+        self._idle_connection_reclaim = None
         self._read_only_node_weight = None
         self._read_write_mode = None
         self.discriminator = None
@@ -92,6 +95,8 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
             self.endpoint_name = endpoint_name
         if endpoint_type is not None:
             self.endpoint_type = endpoint_type
+        if idle_connection_reclaim is not None:
+            self.idle_connection_reclaim = idle_connection_reclaim
         if read_only_node_weight is not None:
             self.read_only_node_weight = read_only_node_weight
         if read_write_mode is not None:
@@ -264,6 +269,27 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._endpoint_type = endpoint_type
+
+    @property
+    def idle_connection_reclaim(self):
+        """Gets the idle_connection_reclaim of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The idle_connection_reclaim of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._idle_connection_reclaim
+
+    @idle_connection_reclaim.setter
+    def idle_connection_reclaim(self, idle_connection_reclaim):
+        """Sets the idle_connection_reclaim of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param idle_connection_reclaim: The idle_connection_reclaim of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._idle_connection_reclaim = idle_connection_reclaim
 
     @property
     def read_only_node_weight(self):

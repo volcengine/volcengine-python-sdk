@@ -34,25 +34,30 @@ class UpdateCustomSystemVulRuleRequest(object):
     """
     swagger_types = {
         'host': 'str',
+        'project_name': 'str',
         'system_rule_switch': 'list[SystemRuleSwitchForUpdateCustomSystemVulRuleInput]'
     }
 
     attribute_map = {
         'host': 'Host',
+        'project_name': 'ProjectName',
         'system_rule_switch': 'SystemRuleSwitch'
     }
 
-    def __init__(self, host=None, system_rule_switch=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, project_name=None, system_rule_switch=None, _configuration=None):  # noqa: E501
         """UpdateCustomSystemVulRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._host = None
+        self._project_name = None
         self._system_rule_switch = None
         self.discriminator = None
 
         self.host = host
+        if project_name is not None:
+            self.project_name = project_name
         if system_rule_switch is not None:
             self.system_rule_switch = system_rule_switch
 
@@ -78,6 +83,27 @@ class UpdateCustomSystemVulRuleRequest(object):
             raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this UpdateCustomSystemVulRuleRequest.
+
+
+        :param project_name: The project_name of this UpdateCustomSystemVulRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def system_rule_switch(self):

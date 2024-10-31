@@ -33,66 +33,141 @@ class ListDomainRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'alb_instance_id': 'str',
+        'access_mode': 'list[int]',
         'accurate_query': 'int',
+        'attack_status': 'list[int]',
+        'client_ip': 'str',
+        'defence_mode': 'list[int]',
         'domain': 'str',
+        'domain_or_path': 'str',
+        'lb_info': 'list[LBInfoForListDomainInput]',
         'page': 'int',
         'page_size': 'int',
-        'region': 'str'
+        'public_real_server': 'list[int]',
+        'region': 'str',
+        'sort_by_create_time': 'str',
+        'sort_by_domain_name': 'str',
+        'sort_by_update_time': 'str',
+        'status': 'list[int]',
+        'tls_enable': 'list[int]',
+        'vpc_id': 'str',
+        'vpc_name': 'str',
+        'vpc_owner_id': 'str',
+        'vpc_owner_name': 'str'
     }
 
     attribute_map = {
-        'alb_instance_id': 'ALBInstanceID',
+        'access_mode': 'AccessMode',
         'accurate_query': 'AccurateQuery',
+        'attack_status': 'AttackStatus',
+        'client_ip': 'ClientIp',
+        'defence_mode': 'DefenceMode',
         'domain': 'Domain',
+        'domain_or_path': 'DomainOrPath',
+        'lb_info': 'LBInfo',
         'page': 'Page',
         'page_size': 'PageSize',
-        'region': 'Region'
+        'public_real_server': 'PublicRealServer',
+        'region': 'Region',
+        'sort_by_create_time': 'SortByCreateTime',
+        'sort_by_domain_name': 'SortByDomainName',
+        'sort_by_update_time': 'SortByUpdateTime',
+        'status': 'Status',
+        'tls_enable': 'TLSEnable',
+        'vpc_id': 'VpcId',
+        'vpc_name': 'VpcName',
+        'vpc_owner_id': 'VpcOwnerId',
+        'vpc_owner_name': 'VpcOwnerName'
     }
 
-    def __init__(self, alb_instance_id=None, accurate_query=None, domain=None, page=None, page_size=None, region=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, accurate_query=None, attack_status=None, client_ip=None, defence_mode=None, domain=None, domain_or_path=None, lb_info=None, page=None, page_size=None, public_real_server=None, region=None, sort_by_create_time=None, sort_by_domain_name=None, sort_by_update_time=None, status=None, tls_enable=None, vpc_id=None, vpc_name=None, vpc_owner_id=None, vpc_owner_name=None, _configuration=None):  # noqa: E501
         """ListDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._alb_instance_id = None
+        self._access_mode = None
         self._accurate_query = None
+        self._attack_status = None
+        self._client_ip = None
+        self._defence_mode = None
         self._domain = None
+        self._domain_or_path = None
+        self._lb_info = None
         self._page = None
         self._page_size = None
+        self._public_real_server = None
         self._region = None
+        self._sort_by_create_time = None
+        self._sort_by_domain_name = None
+        self._sort_by_update_time = None
+        self._status = None
+        self._tls_enable = None
+        self._vpc_id = None
+        self._vpc_name = None
+        self._vpc_owner_id = None
+        self._vpc_owner_name = None
         self.discriminator = None
 
-        if alb_instance_id is not None:
-            self.alb_instance_id = alb_instance_id
+        if access_mode is not None:
+            self.access_mode = access_mode
         self.accurate_query = accurate_query
+        if attack_status is not None:
+            self.attack_status = attack_status
+        if client_ip is not None:
+            self.client_ip = client_ip
+        if defence_mode is not None:
+            self.defence_mode = defence_mode
         if domain is not None:
             self.domain = domain
+        if domain_or_path is not None:
+            self.domain_or_path = domain_or_path
+        if lb_info is not None:
+            self.lb_info = lb_info
         self.page = page
         self.page_size = page_size
+        if public_real_server is not None:
+            self.public_real_server = public_real_server
         self.region = region
+        if sort_by_create_time is not None:
+            self.sort_by_create_time = sort_by_create_time
+        if sort_by_domain_name is not None:
+            self.sort_by_domain_name = sort_by_domain_name
+        if sort_by_update_time is not None:
+            self.sort_by_update_time = sort_by_update_time
+        if status is not None:
+            self.status = status
+        if tls_enable is not None:
+            self.tls_enable = tls_enable
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
+        if vpc_name is not None:
+            self.vpc_name = vpc_name
+        if vpc_owner_id is not None:
+            self.vpc_owner_id = vpc_owner_id
+        if vpc_owner_name is not None:
+            self.vpc_owner_name = vpc_owner_name
 
     @property
-    def alb_instance_id(self):
-        """Gets the alb_instance_id of this ListDomainRequest.  # noqa: E501
+    def access_mode(self):
+        """Gets the access_mode of this ListDomainRequest.  # noqa: E501
 
 
-        :return: The alb_instance_id of this ListDomainRequest.  # noqa: E501
-        :rtype: str
+        :return: The access_mode of this ListDomainRequest.  # noqa: E501
+        :rtype: list[int]
         """
-        return self._alb_instance_id
+        return self._access_mode
 
-    @alb_instance_id.setter
-    def alb_instance_id(self, alb_instance_id):
-        """Sets the alb_instance_id of this ListDomainRequest.
+    @access_mode.setter
+    def access_mode(self, access_mode):
+        """Sets the access_mode of this ListDomainRequest.
 
 
-        :param alb_instance_id: The alb_instance_id of this ListDomainRequest.  # noqa: E501
-        :type: str
+        :param access_mode: The access_mode of this ListDomainRequest.  # noqa: E501
+        :type: list[int]
         """
 
-        self._alb_instance_id = alb_instance_id
+        self._access_mode = access_mode
 
     @property
     def accurate_query(self):
@@ -118,6 +193,69 @@ class ListDomainRequest(object):
         self._accurate_query = accurate_query
 
     @property
+    def attack_status(self):
+        """Gets the attack_status of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The attack_status of this ListDomainRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._attack_status
+
+    @attack_status.setter
+    def attack_status(self, attack_status):
+        """Sets the attack_status of this ListDomainRequest.
+
+
+        :param attack_status: The attack_status of this ListDomainRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._attack_status = attack_status
+
+    @property
+    def client_ip(self):
+        """Gets the client_ip of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The client_ip of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_ip
+
+    @client_ip.setter
+    def client_ip(self, client_ip):
+        """Sets the client_ip of this ListDomainRequest.
+
+
+        :param client_ip: The client_ip of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_ip = client_ip
+
+    @property
+    def defence_mode(self):
+        """Gets the defence_mode of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The defence_mode of this ListDomainRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._defence_mode
+
+    @defence_mode.setter
+    def defence_mode(self, defence_mode):
+        """Sets the defence_mode of this ListDomainRequest.
+
+
+        :param defence_mode: The defence_mode of this ListDomainRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._defence_mode = defence_mode
+
+    @property
     def domain(self):
         """Gets the domain of this ListDomainRequest.  # noqa: E501
 
@@ -137,6 +275,48 @@ class ListDomainRequest(object):
         """
 
         self._domain = domain
+
+    @property
+    def domain_or_path(self):
+        """Gets the domain_or_path of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The domain_or_path of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_or_path
+
+    @domain_or_path.setter
+    def domain_or_path(self, domain_or_path):
+        """Sets the domain_or_path of this ListDomainRequest.
+
+
+        :param domain_or_path: The domain_or_path of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._domain_or_path = domain_or_path
+
+    @property
+    def lb_info(self):
+        """Gets the lb_info of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The lb_info of this ListDomainRequest.  # noqa: E501
+        :rtype: list[LBInfoForListDomainInput]
+        """
+        return self._lb_info
+
+    @lb_info.setter
+    def lb_info(self, lb_info):
+        """Sets the lb_info of this ListDomainRequest.
+
+
+        :param lb_info: The lb_info of this ListDomainRequest.  # noqa: E501
+        :type: list[LBInfoForListDomainInput]
+        """
+
+        self._lb_info = lb_info
 
     @property
     def page(self):
@@ -185,6 +365,27 @@ class ListDomainRequest(object):
         self._page_size = page_size
 
     @property
+    def public_real_server(self):
+        """Gets the public_real_server of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The public_real_server of this ListDomainRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._public_real_server
+
+    @public_real_server.setter
+    def public_real_server(self, public_real_server):
+        """Sets the public_real_server of this ListDomainRequest.
+
+
+        :param public_real_server: The public_real_server of this ListDomainRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._public_real_server = public_real_server
+
+    @property
     def region(self):
         """Gets the region of this ListDomainRequest.  # noqa: E501
 
@@ -206,6 +407,195 @@ class ListDomainRequest(object):
             raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
 
         self._region = region
+
+    @property
+    def sort_by_create_time(self):
+        """Gets the sort_by_create_time of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The sort_by_create_time of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_by_create_time
+
+    @sort_by_create_time.setter
+    def sort_by_create_time(self, sort_by_create_time):
+        """Sets the sort_by_create_time of this ListDomainRequest.
+
+
+        :param sort_by_create_time: The sort_by_create_time of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_by_create_time = sort_by_create_time
+
+    @property
+    def sort_by_domain_name(self):
+        """Gets the sort_by_domain_name of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The sort_by_domain_name of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_by_domain_name
+
+    @sort_by_domain_name.setter
+    def sort_by_domain_name(self, sort_by_domain_name):
+        """Sets the sort_by_domain_name of this ListDomainRequest.
+
+
+        :param sort_by_domain_name: The sort_by_domain_name of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_by_domain_name = sort_by_domain_name
+
+    @property
+    def sort_by_update_time(self):
+        """Gets the sort_by_update_time of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The sort_by_update_time of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_by_update_time
+
+    @sort_by_update_time.setter
+    def sort_by_update_time(self, sort_by_update_time):
+        """Sets the sort_by_update_time of this ListDomainRequest.
+
+
+        :param sort_by_update_time: The sort_by_update_time of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_by_update_time = sort_by_update_time
+
+    @property
+    def status(self):
+        """Gets the status of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The status of this ListDomainRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this ListDomainRequest.
+
+
+        :param status: The status of this ListDomainRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._status = status
+
+    @property
+    def tls_enable(self):
+        """Gets the tls_enable of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The tls_enable of this ListDomainRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._tls_enable
+
+    @tls_enable.setter
+    def tls_enable(self, tls_enable):
+        """Sets the tls_enable of this ListDomainRequest.
+
+
+        :param tls_enable: The tls_enable of this ListDomainRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._tls_enable = tls_enable
+
+    @property
+    def vpc_id(self):
+        """Gets the vpc_id of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The vpc_id of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_id
+
+    @vpc_id.setter
+    def vpc_id(self, vpc_id):
+        """Sets the vpc_id of this ListDomainRequest.
+
+
+        :param vpc_id: The vpc_id of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_id = vpc_id
+
+    @property
+    def vpc_name(self):
+        """Gets the vpc_name of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The vpc_name of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_name
+
+    @vpc_name.setter
+    def vpc_name(self, vpc_name):
+        """Sets the vpc_name of this ListDomainRequest.
+
+
+        :param vpc_name: The vpc_name of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_name = vpc_name
+
+    @property
+    def vpc_owner_id(self):
+        """Gets the vpc_owner_id of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The vpc_owner_id of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_owner_id
+
+    @vpc_owner_id.setter
+    def vpc_owner_id(self, vpc_owner_id):
+        """Sets the vpc_owner_id of this ListDomainRequest.
+
+
+        :param vpc_owner_id: The vpc_owner_id of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_owner_id = vpc_owner_id
+
+    @property
+    def vpc_owner_name(self):
+        """Gets the vpc_owner_name of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The vpc_owner_name of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_owner_name
+
+    @vpc_owner_name.setter
+    def vpc_owner_name(self, vpc_owner_name):
+        """Sets the vpc_owner_name of this ListDomainRequest.
+
+
+        :param vpc_owner_name: The vpc_owner_name of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_owner_name = vpc_owner_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

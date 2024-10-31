@@ -37,6 +37,7 @@ class ModifyDBEndpointRequest(object):
         'description': 'str',
         'endpoint_id': 'str',
         'endpoint_name': 'str',
+        'idle_connection_reclaim': 'bool',
         'instance_id': 'str',
         'nodes': 'str',
         'read_only_node_distribution_type': 'str',
@@ -51,6 +52,7 @@ class ModifyDBEndpointRequest(object):
         'description': 'Description',
         'endpoint_id': 'EndpointId',
         'endpoint_name': 'EndpointName',
+        'idle_connection_reclaim': 'IdleConnectionReclaim',
         'instance_id': 'InstanceId',
         'nodes': 'Nodes',
         'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
@@ -60,7 +62,7 @@ class ModifyDBEndpointRequest(object):
         'read_write_spliting': 'ReadWriteSpliting'
     }
 
-    def __init__(self, auto_add_new_nodes=None, description=None, endpoint_id=None, endpoint_name=None, instance_id=None, nodes=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, description=None, endpoint_id=None, endpoint_name=None, idle_connection_reclaim=None, instance_id=None, nodes=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
         """ModifyDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class ModifyDBEndpointRequest(object):
         self._description = None
         self._endpoint_id = None
         self._endpoint_name = None
+        self._idle_connection_reclaim = None
         self._instance_id = None
         self._nodes = None
         self._read_only_node_distribution_type = None
@@ -86,6 +89,8 @@ class ModifyDBEndpointRequest(object):
         self.endpoint_id = endpoint_id
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
+        if idle_connection_reclaim is not None:
+            self.idle_connection_reclaim = idle_connection_reclaim
         self.instance_id = instance_id
         if nodes is not None:
             self.nodes = nodes
@@ -187,6 +192,27 @@ class ModifyDBEndpointRequest(object):
         self._endpoint_name = endpoint_name
 
     @property
+    def idle_connection_reclaim(self):
+        """Gets the idle_connection_reclaim of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The idle_connection_reclaim of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._idle_connection_reclaim
+
+    @idle_connection_reclaim.setter
+    def idle_connection_reclaim(self, idle_connection_reclaim):
+        """Sets the idle_connection_reclaim of this ModifyDBEndpointRequest.
+
+
+        :param idle_connection_reclaim: The idle_connection_reclaim of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._idle_connection_reclaim = idle_connection_reclaim
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this ModifyDBEndpointRequest.  # noqa: E501
 
@@ -248,6 +274,13 @@ class ModifyDBEndpointRequest(object):
         :param read_only_node_distribution_type: The read_only_node_distribution_type of this ModifyDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Default", "Custom", "RoundRobin", "LoadSchedule"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                read_only_node_distribution_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `read_only_node_distribution_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(read_only_node_distribution_type, allowed_values)
+            )
 
         self._read_only_node_distribution_type = read_only_node_distribution_type
 
@@ -311,6 +344,13 @@ class ModifyDBEndpointRequest(object):
         :param read_write_mode: The read_write_mode of this ModifyDBEndpointRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ReadWrite", "ReadOnly"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                read_write_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `read_write_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(read_write_mode, allowed_values)
+            )
 
         self._read_write_mode = read_write_mode
 

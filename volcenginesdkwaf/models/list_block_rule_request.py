@@ -35,16 +35,18 @@ class ListBlockRuleRequest(object):
     swagger_types = {
         'host': 'str',
         'page': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'host': 'Host',
         'page': 'Page',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, host=None, page=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, host=None, page=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
         """ListBlockRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ListBlockRuleRequest(object):
         self._host = None
         self._page = None
         self._page_size = None
+        self._project_name = None
         self.discriminator = None
 
         self.host = host
@@ -60,6 +63,8 @@ class ListBlockRuleRequest(object):
             self.page = page
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def host(self):
@@ -125,6 +130,27 @@ class ListBlockRuleRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListBlockRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListBlockRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListBlockRuleRequest.
+
+
+        :param project_name: The project_name of this ListBlockRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

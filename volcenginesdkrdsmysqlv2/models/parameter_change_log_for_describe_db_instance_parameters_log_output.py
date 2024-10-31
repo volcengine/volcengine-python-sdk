@@ -33,44 +33,75 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'custom_node_ids': 'list[str]',
         'modify_time': 'str',
         'new_parameter_value': 'str',
         'old_parameter_value': 'str',
+        'param_apply_scope': 'str',
         'parameter_name': 'str',
         'status': 'str'
     }
 
     attribute_map = {
+        'custom_node_ids': 'CustomNodeIds',
         'modify_time': 'ModifyTime',
         'new_parameter_value': 'NewParameterValue',
         'old_parameter_value': 'OldParameterValue',
+        'param_apply_scope': 'ParamApplyScope',
         'parameter_name': 'ParameterName',
         'status': 'Status'
     }
 
-    def __init__(self, modify_time=None, new_parameter_value=None, old_parameter_value=None, parameter_name=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_node_ids=None, modify_time=None, new_parameter_value=None, old_parameter_value=None, param_apply_scope=None, parameter_name=None, status=None, _configuration=None):  # noqa: E501
         """ParameterChangeLogForDescribeDBInstanceParametersLogOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._custom_node_ids = None
         self._modify_time = None
         self._new_parameter_value = None
         self._old_parameter_value = None
+        self._param_apply_scope = None
         self._parameter_name = None
         self._status = None
         self.discriminator = None
 
+        if custom_node_ids is not None:
+            self.custom_node_ids = custom_node_ids
         if modify_time is not None:
             self.modify_time = modify_time
         if new_parameter_value is not None:
             self.new_parameter_value = new_parameter_value
         if old_parameter_value is not None:
             self.old_parameter_value = old_parameter_value
+        if param_apply_scope is not None:
+            self.param_apply_scope = param_apply_scope
         if parameter_name is not None:
             self.parameter_name = parameter_name
         if status is not None:
             self.status = status
+
+    @property
+    def custom_node_ids(self):
+        """Gets the custom_node_ids of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+
+
+        :return: The custom_node_ids of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._custom_node_ids
+
+    @custom_node_ids.setter
+    def custom_node_ids(self, custom_node_ids):
+        """Sets the custom_node_ids of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.
+
+
+        :param custom_node_ids: The custom_node_ids of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._custom_node_ids = custom_node_ids
 
     @property
     def modify_time(self):
@@ -134,6 +165,27 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput(object):
         """
 
         self._old_parameter_value = old_parameter_value
+
+    @property
+    def param_apply_scope(self):
+        """Gets the param_apply_scope of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+
+
+        :return: The param_apply_scope of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._param_apply_scope
+
+    @param_apply_scope.setter
+    def param_apply_scope(self, param_apply_scope):
+        """Sets the param_apply_scope of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.
+
+
+        :param param_apply_scope: The param_apply_scope of this ParameterChangeLogForDescribeDBInstanceParametersLogOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._param_apply_scope = param_apply_scope
 
     @property
     def parameter_name(self):

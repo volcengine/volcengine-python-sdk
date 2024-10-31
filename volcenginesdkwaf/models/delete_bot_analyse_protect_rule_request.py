@@ -33,23 +33,28 @@ class DeleteBotAnalyseProtectRuleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int'
+        'id': 'int',
+        'project_name': 'str'
     }
 
     attribute_map = {
-        'id': 'Id'
+        'id': 'Id',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, project_name=None, _configuration=None):  # noqa: E501
         """DeleteBotAnalyseProtectRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._id = None
+        self._project_name = None
         self.discriminator = None
 
         self.id = id
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def id(self):
@@ -73,6 +78,27 @@ class DeleteBotAnalyseProtectRuleRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DeleteBotAnalyseProtectRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this DeleteBotAnalyseProtectRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DeleteBotAnalyseProtectRuleRequest.
+
+
+        :param project_name: The project_name of this DeleteBotAnalyseProtectRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -66,10 +66,8 @@ class CreateParameterTemplateRequest(object):
         self.template_name = template_name
         if template_params is not None:
             self.template_params = template_params
-        if template_type is not None:
-            self.template_type = template_type
-        if template_type_version is not None:
-            self.template_type_version = template_type_version
+        self.template_type = template_type
+        self.template_type_version = template_type_version
 
     @property
     def template_desc(self):
@@ -154,6 +152,15 @@ class CreateParameterTemplateRequest(object):
         :param template_type: The template_type of this CreateParameterTemplateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and template_type is None:
+            raise ValueError("Invalid value for `template_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["Mysql", "Postgresql", "Sqlserver"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                template_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `template_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(template_type, allowed_values)
+            )
 
         self._template_type = template_type
 
@@ -175,6 +182,15 @@ class CreateParameterTemplateRequest(object):
         :param template_type_version: The template_type_version of this CreateParameterTemplateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and template_type_version is None:
+            raise ValueError("Invalid value for `template_type_version`, must not be `None`")  # noqa: E501
+        allowed_values = ["MySQL_5_7", "MySQL_8_0", "MySQL_5_6", "SQLServer_2019_Ent", "SQLServer_2019_Std", "SQLServer_2019_Web"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                template_type_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `template_type_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(template_type_version, allowed_values)
+            )
 
         self._template_type_version = template_type_version
 

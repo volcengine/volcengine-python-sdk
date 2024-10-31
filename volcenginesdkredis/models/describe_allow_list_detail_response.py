@@ -34,6 +34,7 @@ class DescribeAllowListDetailResponse(object):
     """
     swagger_types = {
         'allow_list': 'str',
+        'allow_list_category': 'str',
         'allow_list_desc': 'str',
         'allow_list_id': 'str',
         'allow_list_name': 'str',
@@ -43,6 +44,7 @@ class DescribeAllowListDetailResponse(object):
 
     attribute_map = {
         'allow_list': 'AllowList',
+        'allow_list_category': 'AllowListCategory',
         'allow_list_desc': 'AllowListDesc',
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
@@ -50,13 +52,14 @@ class DescribeAllowListDetailResponse(object):
         'associated_instances': 'AssociatedInstances'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instances=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instances=None, _configuration=None):  # noqa: E501
         """DescribeAllowListDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list = None
+        self._allow_list_category = None
         self._allow_list_desc = None
         self._allow_list_id = None
         self._allow_list_name = None
@@ -66,6 +69,8 @@ class DescribeAllowListDetailResponse(object):
 
         if allow_list is not None:
             self.allow_list = allow_list
+        if allow_list_category is not None:
+            self.allow_list_category = allow_list_category
         if allow_list_desc is not None:
             self.allow_list_desc = allow_list_desc
         if allow_list_id is not None:
@@ -97,6 +102,27 @@ class DescribeAllowListDetailResponse(object):
         """
 
         self._allow_list = allow_list
+
+    @property
+    def allow_list_category(self):
+        """Gets the allow_list_category of this DescribeAllowListDetailResponse.  # noqa: E501
+
+
+        :return: The allow_list_category of this DescribeAllowListDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_category
+
+    @allow_list_category.setter
+    def allow_list_category(self, allow_list_category):
+        """Sets the allow_list_category of this DescribeAllowListDetailResponse.
+
+
+        :param allow_list_category: The allow_list_category of this DescribeAllowListDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_category = allow_list_category
 
     @property
     def allow_list_desc(self):

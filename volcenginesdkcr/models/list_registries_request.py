@@ -35,16 +35,18 @@ class ListRegistriesRequest(object):
     swagger_types = {
         'filter': 'FilterForListRegistriesInput',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'resource_tag_filters': 'list[ResourceTagFilterForListRegistriesInput]'
     }
 
     attribute_map = {
         'filter': 'Filter',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'resource_tag_filters': 'ResourceTagFilters'
     }
 
-    def __init__(self, filter=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, page_number=None, page_size=None, resource_tag_filters=None, _configuration=None):  # noqa: E501
         """ListRegistriesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ListRegistriesRequest(object):
         self._filter = None
         self._page_number = None
         self._page_size = None
+        self._resource_tag_filters = None
         self.discriminator = None
 
         if filter is not None:
@@ -61,6 +64,8 @@ class ListRegistriesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if resource_tag_filters is not None:
+            self.resource_tag_filters = resource_tag_filters
 
     @property
     def filter(self):
@@ -122,8 +127,35 @@ class ListRegistriesRequest(object):
         :param page_size: The page_size of this ListRegistriesRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 100):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size < 1):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def resource_tag_filters(self):
+        """Gets the resource_tag_filters of this ListRegistriesRequest.  # noqa: E501
+
+
+        :return: The resource_tag_filters of this ListRegistriesRequest.  # noqa: E501
+        :rtype: list[ResourceTagFilterForListRegistriesInput]
+        """
+        return self._resource_tag_filters
+
+    @resource_tag_filters.setter
+    def resource_tag_filters(self, resource_tag_filters):
+        """Sets the resource_tag_filters of this ListRegistriesRequest.
+
+
+        :param resource_tag_filters: The resource_tag_filters of this ListRegistriesRequest.  # noqa: E501
+        :type: list[ResourceTagFilterForListRegistriesInput]
+        """
+
+        self._resource_tag_filters = resource_tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

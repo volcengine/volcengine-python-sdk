@@ -36,6 +36,7 @@ class UpdateAreaBlockRuleRequest(object):
         'action': 'str',
         'country': 'list[str]',
         'host': 'str',
+        'project_name': 'str',
         'sub_region': 'list[str]'
     }
 
@@ -43,10 +44,11 @@ class UpdateAreaBlockRuleRequest(object):
         'action': 'Action',
         'country': 'Country',
         'host': 'Host',
+        'project_name': 'ProjectName',
         'sub_region': 'SubRegion'
     }
 
-    def __init__(self, action=None, country=None, host=None, sub_region=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, country=None, host=None, project_name=None, sub_region=None, _configuration=None):  # noqa: E501
         """UpdateAreaBlockRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class UpdateAreaBlockRuleRequest(object):
         self._action = None
         self._country = None
         self._host = None
+        self._project_name = None
         self._sub_region = None
         self.discriminator = None
 
@@ -62,6 +65,8 @@ class UpdateAreaBlockRuleRequest(object):
         if country is not None:
             self.country = country
         self.host = host
+        if project_name is not None:
+            self.project_name = project_name
         if sub_region is not None:
             self.sub_region = sub_region
 
@@ -131,6 +136,27 @@ class UpdateAreaBlockRuleRequest(object):
             raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this UpdateAreaBlockRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this UpdateAreaBlockRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this UpdateAreaBlockRuleRequest.
+
+
+        :param project_name: The project_name of this UpdateAreaBlockRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def sub_region(self):

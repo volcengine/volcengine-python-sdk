@@ -44,6 +44,7 @@ class UpdateBlockRuleRequest(object):
         'ip_add_type': 'int',
         'ip_group_id': 'list[int]',
         'name': 'str',
+        'project_name': 'str',
         'url': 'str'
     }
 
@@ -59,10 +60,11 @@ class UpdateBlockRuleRequest(object):
         'ip_add_type': 'IpAddType',
         'ip_group_id': 'IpGroupId',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'url': 'Url'
     }
 
-    def __init__(self, accurate=None, action=None, advanced=None, client_ip=None, description=None, enable=None, host=None, id=None, ip_add_type=None, ip_group_id=None, name=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate=None, action=None, advanced=None, client_ip=None, description=None, enable=None, host=None, id=None, ip_add_type=None, ip_group_id=None, name=None, project_name=None, url=None, _configuration=None):  # noqa: E501
         """UpdateBlockRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class UpdateBlockRuleRequest(object):
         self._ip_add_type = None
         self._ip_group_id = None
         self._name = None
+        self._project_name = None
         self._url = None
         self.discriminator = None
 
@@ -99,6 +102,8 @@ class UpdateBlockRuleRequest(object):
         if ip_group_id is not None:
             self.ip_group_id = ip_group_id
         self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         self.url = url
 
     @property
@@ -348,6 +353,27 @@ class UpdateBlockRuleRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this UpdateBlockRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this UpdateBlockRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this UpdateBlockRuleRequest.
+
+
+        :param project_name: The project_name of this UpdateBlockRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def url(self):

@@ -34,15 +34,21 @@ class CreateRegistryRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
-        'name': 'str'
+        'name': 'str',
+        'project': 'str',
+        'resource_tags': 'list[ResourceTagForCreateRegistryInput]',
+        'type': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
-        'name': 'Name'
+        'name': 'Name',
+        'project': 'Project',
+        'resource_tags': 'ResourceTags',
+        'type': 'Type'
     }
 
-    def __init__(self, client_token=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, name=None, project=None, resource_tags=None, type=None, _configuration=None):  # noqa: E501
         """CreateRegistryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,11 +56,20 @@ class CreateRegistryRequest(object):
 
         self._client_token = None
         self._name = None
+        self._project = None
+        self._resource_tags = None
+        self._type = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
         self.name = name
+        if project is not None:
+            self.project = project
+        if resource_tags is not None:
+            self.resource_tags = resource_tags
+        if type is not None:
+            self.type = type
 
     @property
     def client_token(self):
@@ -99,6 +114,69 @@ class CreateRegistryRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def project(self):
+        """Gets the project of this CreateRegistryRequest.  # noqa: E501
+
+
+        :return: The project of this CreateRegistryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this CreateRegistryRequest.
+
+
+        :param project: The project of this CreateRegistryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project = project
+
+    @property
+    def resource_tags(self):
+        """Gets the resource_tags of this CreateRegistryRequest.  # noqa: E501
+
+
+        :return: The resource_tags of this CreateRegistryRequest.  # noqa: E501
+        :rtype: list[ResourceTagForCreateRegistryInput]
+        """
+        return self._resource_tags
+
+    @resource_tags.setter
+    def resource_tags(self, resource_tags):
+        """Sets the resource_tags of this CreateRegistryRequest.
+
+
+        :param resource_tags: The resource_tags of this CreateRegistryRequest.  # noqa: E501
+        :type: list[ResourceTagForCreateRegistryInput]
+        """
+
+        self._resource_tags = resource_tags
+
+    @property
+    def type(self):
+        """Gets the type of this CreateRegistryRequest.  # noqa: E501
+
+
+        :return: The type of this CreateRegistryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this CreateRegistryRequest.
+
+
+        :param type: The type of this CreateRegistryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
