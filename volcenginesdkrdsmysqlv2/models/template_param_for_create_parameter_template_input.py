@@ -35,6 +35,8 @@ class TemplateParamForCreateParameterTemplateInput(object):
     swagger_types = {
         'default_value': 'str',
         'description': 'str',
+        'expect_value': 'str',
+        'expression': 'str',
         'name': 'str',
         'restart': 'bool',
         'running_value': 'str',
@@ -44,13 +46,15 @@ class TemplateParamForCreateParameterTemplateInput(object):
     attribute_map = {
         'default_value': 'DefaultValue',
         'description': 'Description',
+        'expect_value': 'ExpectValue',
+        'expression': 'Expression',
         'name': 'Name',
         'restart': 'Restart',
         'running_value': 'RunningValue',
         'value_range': 'ValueRange'
     }
 
-    def __init__(self, default_value=None, description=None, name=None, restart=None, running_value=None, value_range=None, _configuration=None):  # noqa: E501
+    def __init__(self, default_value=None, description=None, expect_value=None, expression=None, name=None, restart=None, running_value=None, value_range=None, _configuration=None):  # noqa: E501
         """TemplateParamForCreateParameterTemplateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +62,8 @@ class TemplateParamForCreateParameterTemplateInput(object):
 
         self._default_value = None
         self._description = None
+        self._expect_value = None
+        self._expression = None
         self._name = None
         self._restart = None
         self._running_value = None
@@ -68,6 +74,10 @@ class TemplateParamForCreateParameterTemplateInput(object):
             self.default_value = default_value
         if description is not None:
             self.description = description
+        if expect_value is not None:
+            self.expect_value = expect_value
+        if expression is not None:
+            self.expression = expression
         if name is not None:
             self.name = name
         if restart is not None:
@@ -118,6 +128,48 @@ class TemplateParamForCreateParameterTemplateInput(object):
         """
 
         self._description = description
+
+    @property
+    def expect_value(self):
+        """Gets the expect_value of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
+
+
+        :return: The expect_value of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expect_value
+
+    @expect_value.setter
+    def expect_value(self, expect_value):
+        """Sets the expect_value of this TemplateParamForCreateParameterTemplateInput.
+
+
+        :param expect_value: The expect_value of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
+        :type: str
+        """
+
+        self._expect_value = expect_value
+
+    @property
+    def expression(self):
+        """Gets the expression of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
+
+
+        :return: The expression of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expression
+
+    @expression.setter
+    def expression(self, expression):
+        """Sets the expression of this TemplateParamForCreateParameterTemplateInput.
+
+
+        :param expression: The expression of this TemplateParamForCreateParameterTemplateInput.  # noqa: E501
+        :type: str
+        """
+
+        self._expression = expression
 
     @property
     def name(self):

@@ -71,8 +71,7 @@ class ModifyDBInstanceSpecRequest(object):
             self.node_info = node_info
         if storage_space is not None:
             self.storage_space = storage_space
-        if storage_type is not None:
-            self.storage_type = storage_type
+        self.storage_type = storage_type
         if switch_type is not None:
             self.switch_type = switch_type
 
@@ -117,6 +116,13 @@ class ModifyDBInstanceSpecRequest(object):
         :param modify_type: The modify_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Usually", "Temporary"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                modify_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `modify_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(modify_type, allowed_values)
+            )
 
         self._modify_type = modify_type
 
@@ -180,6 +186,15 @@ class ModifyDBInstanceSpecRequest(object):
         :param storage_type: The storage_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and storage_type is None:
+            raise ValueError("Invalid value for `storage_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["LocalSSD", "CloudStorage", "ESSDPL1", "ESSDPL2"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_type, allowed_values)
+            )
 
         self._storage_type = storage_type
 
@@ -201,6 +216,13 @@ class ModifyDBInstanceSpecRequest(object):
         :param switch_type: The switch_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Immediate", "MaintainTime", "SpecifiedTime"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                switch_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `switch_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(switch_type, allowed_values)
+            )
 
         self._switch_type = switch_type
 
