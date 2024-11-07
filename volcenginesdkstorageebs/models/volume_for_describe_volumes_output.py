@@ -35,6 +35,7 @@ class VolumeForDescribeVolumesOutput(object):
     swagger_types = {
         'auto_snapshot_policy_id': 'str',
         'auto_snapshot_policy_name': 'str',
+        'baseline_performance': 'BaselinePerformanceForDescribeVolumesOutput',
         'billing_type': 'int',
         'created_at': 'str',
         'delete_with_instance': 'bool',
@@ -42,6 +43,7 @@ class VolumeForDescribeVolumesOutput(object):
         'device_name': 'str',
         'error_detail': 'str',
         'expired_time': 'str',
+        'extra_performance': 'ExtraPerformanceForDescribeVolumesOutput',
         'extra_performance_iops': 'int',
         'extra_performance_throughput_mb': 'int',
         'extra_performance_type_id': 'str',
@@ -58,6 +60,7 @@ class VolumeForDescribeVolumesOutput(object):
         'source_snapshot_id': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeVolumesOutput]',
+        'total_performance': 'TotalPerformanceForDescribeVolumesOutput',
         'trade_status': 'int',
         'updated_at': 'str',
         'volume_id': 'str',
@@ -69,6 +72,7 @@ class VolumeForDescribeVolumesOutput(object):
     attribute_map = {
         'auto_snapshot_policy_id': 'AutoSnapshotPolicyId',
         'auto_snapshot_policy_name': 'AutoSnapshotPolicyName',
+        'baseline_performance': 'BaselinePerformance',
         'billing_type': 'BillingType',
         'created_at': 'CreatedAt',
         'delete_with_instance': 'DeleteWithInstance',
@@ -76,6 +80,7 @@ class VolumeForDescribeVolumesOutput(object):
         'device_name': 'DeviceName',
         'error_detail': 'ErrorDetail',
         'expired_time': 'ExpiredTime',
+        'extra_performance': 'ExtraPerformance',
         'extra_performance_iops': 'ExtraPerformanceIOPS',
         'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMB',
         'extra_performance_type_id': 'ExtraPerformanceTypeId',
@@ -92,6 +97,7 @@ class VolumeForDescribeVolumesOutput(object):
         'source_snapshot_id': 'SourceSnapshotId',
         'status': 'Status',
         'tags': 'Tags',
+        'total_performance': 'TotalPerformance',
         'trade_status': 'TradeStatus',
         'updated_at': 'UpdatedAt',
         'volume_id': 'VolumeId',
@@ -100,7 +106,7 @@ class VolumeForDescribeVolumesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, extra_performance=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """VolumeForDescribeVolumesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -108,6 +114,7 @@ class VolumeForDescribeVolumesOutput(object):
 
         self._auto_snapshot_policy_id = None
         self._auto_snapshot_policy_name = None
+        self._baseline_performance = None
         self._billing_type = None
         self._created_at = None
         self._delete_with_instance = None
@@ -115,6 +122,7 @@ class VolumeForDescribeVolumesOutput(object):
         self._device_name = None
         self._error_detail = None
         self._expired_time = None
+        self._extra_performance = None
         self._extra_performance_iops = None
         self._extra_performance_throughput_mb = None
         self._extra_performance_type_id = None
@@ -131,6 +139,7 @@ class VolumeForDescribeVolumesOutput(object):
         self._source_snapshot_id = None
         self._status = None
         self._tags = None
+        self._total_performance = None
         self._trade_status = None
         self._updated_at = None
         self._volume_id = None
@@ -143,6 +152,8 @@ class VolumeForDescribeVolumesOutput(object):
             self.auto_snapshot_policy_id = auto_snapshot_policy_id
         if auto_snapshot_policy_name is not None:
             self.auto_snapshot_policy_name = auto_snapshot_policy_name
+        if baseline_performance is not None:
+            self.baseline_performance = baseline_performance
         if billing_type is not None:
             self.billing_type = billing_type
         if created_at is not None:
@@ -157,6 +168,8 @@ class VolumeForDescribeVolumesOutput(object):
             self.error_detail = error_detail
         if expired_time is not None:
             self.expired_time = expired_time
+        if extra_performance is not None:
+            self.extra_performance = extra_performance
         if extra_performance_iops is not None:
             self.extra_performance_iops = extra_performance_iops
         if extra_performance_throughput_mb is not None:
@@ -189,6 +202,8 @@ class VolumeForDescribeVolumesOutput(object):
             self.status = status
         if tags is not None:
             self.tags = tags
+        if total_performance is not None:
+            self.total_performance = total_performance
         if trade_status is not None:
             self.trade_status = trade_status
         if updated_at is not None:
@@ -243,6 +258,27 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._auto_snapshot_policy_name = auto_snapshot_policy_name
+
+    @property
+    def baseline_performance(self):
+        """Gets the baseline_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The baseline_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: BaselinePerformanceForDescribeVolumesOutput
+        """
+        return self._baseline_performance
+
+    @baseline_performance.setter
+    def baseline_performance(self, baseline_performance):
+        """Sets the baseline_performance of this VolumeForDescribeVolumesOutput.
+
+
+        :param baseline_performance: The baseline_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: BaselinePerformanceForDescribeVolumesOutput
+        """
+
+        self._baseline_performance = baseline_performance
 
     @property
     def billing_type(self):
@@ -390,6 +426,27 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._expired_time = expired_time
+
+    @property
+    def extra_performance(self):
+        """Gets the extra_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The extra_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: ExtraPerformanceForDescribeVolumesOutput
+        """
+        return self._extra_performance
+
+    @extra_performance.setter
+    def extra_performance(self, extra_performance):
+        """Sets the extra_performance of this VolumeForDescribeVolumesOutput.
+
+
+        :param extra_performance: The extra_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: ExtraPerformanceForDescribeVolumesOutput
+        """
+
+        self._extra_performance = extra_performance
 
     @property
     def extra_performance_iops(self):
@@ -726,6 +783,27 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def total_performance(self):
+        """Gets the total_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The total_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: TotalPerformanceForDescribeVolumesOutput
+        """
+        return self._total_performance
+
+    @total_performance.setter
+    def total_performance(self, total_performance):
+        """Sets the total_performance of this VolumeForDescribeVolumesOutput.
+
+
+        :param total_performance: The total_performance of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: TotalPerformanceForDescribeVolumesOutput
+        """
+
+        self._total_performance = total_performance
 
     @property
     def trade_status(self):
