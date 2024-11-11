@@ -111,7 +111,8 @@ class Ark(SyncAPIClient):
             if (self.ak is None or self.sk is None) and cert_path is None and self.api_key is None:
                 raise ArkAPIError("must set (ak and sk) or (E2E_CERTIFICATE_PATH) \
                                   or (api_key) before get endpoint token.")
-            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region, self, self._base_url, self.api_key)
+            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region, 
+                                                              self._base_url, self.api_key)
         return self._certificate_manager.get(endpoint_id)
 
     def _get_bot_sts_token(self, bot_id: str):
@@ -205,7 +206,7 @@ class AsyncArk(AsyncAPIClient):
             if (self.ak is None or self.sk is None) and cert_path is None and self.api_key is None:
                 raise ArkAPIError("must set (ak and sk) or (E2E_CERTIFICATE_PATH) \
                                   or (api_key) before get endpoint token.")
-            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region, self, self._base_url, self.api_key)
+            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region, self._base_url, self.api_key)
         return self._certificate_manager.get(endpoint_id)
 
     @property
@@ -309,6 +310,7 @@ class E2ECertificateManager(object):
 
     def __init__(self, ak: str, sk: str, region: str, base_url: str | URL = BASE_URL, api_key: str | None = None):
         self._certificate_manager: Dict[str, key_agreement_client] = {}
+        self._init_local_cert_cache()
 
         import volcenginesdkcore
 
@@ -355,15 +357,43 @@ class E2ECertificateManager(object):
         except Exception as e:
             raise ArkAPIError("Getting Certificate failed: %s\n" % e)
         return resp['Certificate']
+    
+    def _save_cert_to_file(self, ep: str, cert_pem: str):
+        cert_file_path = os.path.join(self._cert_storage_path, f"{ep}.pem")
+        with open(cert_file_path, 'w') as f:
+            f.write(cert_pem)
+
+    def _load_cert_locally(self, ep: str) -> str | None:
+        cert_file_path = os.path.join(self._cert_storage_path, f"{ep}.pem")
+        if os.path.exists(cert_file_path):
+            last_modified_time = os.path.getmtime(cert_file_path)
+            current_time = time.time()
+            time_difference = current_time - last_modified_time
+            if time_difference <= self._cert_expiration_seconds:
+                with open(cert_file_path, 'r') as f:
+                    return f.read()
+            else:
+                os.remove(cert_file_path)
+        return None
+
+    def _init_local_cert_cache(self):
+        self._cert_storage_path = "/tmp/ark/certificates"
+        self._cert_expiration_seconds = 14 * 24 * 60 * 60 # 14 days
+
+        if not os.path.exists(self._cert_storage_path):
+            os.makedirs(self._cert_storage_path)
 
     def get(self, ep: str) -> key_agreement_client:
         if ep not in self._certificate_manager:
-            if self.cert_path is not None:
-                cert_pem = self._load_cert_by_cert_path()
-            elif self._api_instance_enabled:
-                cert_pem = self._load_cert_by_ak_sk(ep)
-            else:
-                cert_pem = self._sync_load_cert_by_auth(ep)
+            cert_pem = self._load_cert_locally(ep)
+            if cert_pem is None:
+                if self.cert_path is not None:
+                    cert_pem = self._load_cert_by_cert_path()
+                elif self._api_instance_enabled:
+                    cert_pem = self._load_cert_by_ak_sk(ep)
+                else:
+                    cert_pem = self._sync_load_cert_by_auth(ep)
+                self._save_cert_to_file(ep, cert_pem)
             self._certificate_manager[ep] = key_agreement_client(
                 certificate_pem_string=cert_pem
             )
