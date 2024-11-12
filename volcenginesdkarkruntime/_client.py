@@ -330,7 +330,8 @@ class E2ECertificateManager(object):
 
         self.client = Ark(
             base_url=base_url,
-            api_key=api_key
+            api_key=api_key,
+            ak=ak, sk=sk,
         )
         self._e2e_uri = "/e2e/get/certificate"
 
