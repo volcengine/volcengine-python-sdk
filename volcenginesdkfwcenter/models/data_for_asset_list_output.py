@@ -34,56 +34,66 @@ class DataForAssetListOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
-        'cluster': 'int',
+        'instance_id': 'str',
+        'eip_id': 'str',
         'enable': 'bool',
-        'id': 'int',
         'ip': 'str',
+        'latest_7_days_peak_traffic': 'int',
         'name': 'str',
         'region': 'str',
+        'region_n': 'str',
         'type': 'str'
     }
 
     attribute_map = {
-        'account_id': 'account_id',
-        'cluster': 'cluster',
+        'account_id': 'AccountID',
+        'instance_id': 'InstanceID',
+        'eip_id': 'eip_id',
         'enable': 'enable',
-        'id': 'id',
         'ip': 'ip',
+        'latest_7_days_peak_traffic': 'latest_7_days_peak_traffic',
         'name': 'name',
         'region': 'region',
+        'region_n': 'regionN',
         'type': 'type'
     }
 
-    def __init__(self, account_id=None, cluster=None, enable=None, id=None, ip=None, name=None, region=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, instance_id=None, eip_id=None, enable=None, ip=None, latest_7_days_peak_traffic=None, name=None, region=None, region_n=None, type=None, _configuration=None):  # noqa: E501
         """DataForAssetListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
-        self._cluster = None
+        self._instance_id = None
+        self._eip_id = None
         self._enable = None
-        self._id = None
         self._ip = None
+        self._latest_7_days_peak_traffic = None
         self._name = None
         self._region = None
+        self._region_n = None
         self._type = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
-        if cluster is not None:
-            self.cluster = cluster
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if eip_id is not None:
+            self.eip_id = eip_id
         if enable is not None:
             self.enable = enable
-        if id is not None:
-            self.id = id
         if ip is not None:
             self.ip = ip
+        if latest_7_days_peak_traffic is not None:
+            self.latest_7_days_peak_traffic = latest_7_days_peak_traffic
         if name is not None:
             self.name = name
         if region is not None:
             self.region = region
+        if region_n is not None:
+            self.region_n = region_n
         if type is not None:
             self.type = type
 
@@ -109,25 +119,46 @@ class DataForAssetListOutput(object):
         self._account_id = account_id
 
     @property
-    def cluster(self):
-        """Gets the cluster of this DataForAssetListOutput.  # noqa: E501
+    def instance_id(self):
+        """Gets the instance_id of this DataForAssetListOutput.  # noqa: E501
 
 
-        :return: The cluster of this DataForAssetListOutput.  # noqa: E501
-        :rtype: int
+        :return: The instance_id of this DataForAssetListOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._cluster
+        return self._instance_id
 
-    @cluster.setter
-    def cluster(self, cluster):
-        """Sets the cluster of this DataForAssetListOutput.
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this DataForAssetListOutput.
 
 
-        :param cluster: The cluster of this DataForAssetListOutput.  # noqa: E501
-        :type: int
+        :param instance_id: The instance_id of this DataForAssetListOutput.  # noqa: E501
+        :type: str
         """
 
-        self._cluster = cluster
+        self._instance_id = instance_id
+
+    @property
+    def eip_id(self):
+        """Gets the eip_id of this DataForAssetListOutput.  # noqa: E501
+
+
+        :return: The eip_id of this DataForAssetListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_id
+
+    @eip_id.setter
+    def eip_id(self, eip_id):
+        """Sets the eip_id of this DataForAssetListOutput.
+
+
+        :param eip_id: The eip_id of this DataForAssetListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_id = eip_id
 
     @property
     def enable(self):
@@ -151,27 +182,6 @@ class DataForAssetListOutput(object):
         self._enable = enable
 
     @property
-    def id(self):
-        """Gets the id of this DataForAssetListOutput.  # noqa: E501
-
-
-        :return: The id of this DataForAssetListOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this DataForAssetListOutput.
-
-
-        :param id: The id of this DataForAssetListOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._id = id
-
-    @property
     def ip(self):
         """Gets the ip of this DataForAssetListOutput.  # noqa: E501
 
@@ -191,6 +201,27 @@ class DataForAssetListOutput(object):
         """
 
         self._ip = ip
+
+    @property
+    def latest_7_days_peak_traffic(self):
+        """Gets the latest_7_days_peak_traffic of this DataForAssetListOutput.  # noqa: E501
+
+
+        :return: The latest_7_days_peak_traffic of this DataForAssetListOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._latest_7_days_peak_traffic
+
+    @latest_7_days_peak_traffic.setter
+    def latest_7_days_peak_traffic(self, latest_7_days_peak_traffic):
+        """Sets the latest_7_days_peak_traffic of this DataForAssetListOutput.
+
+
+        :param latest_7_days_peak_traffic: The latest_7_days_peak_traffic of this DataForAssetListOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._latest_7_days_peak_traffic = latest_7_days_peak_traffic
 
     @property
     def name(self):
@@ -233,6 +264,27 @@ class DataForAssetListOutput(object):
         """
 
         self._region = region
+
+    @property
+    def region_n(self):
+        """Gets the region_n of this DataForAssetListOutput.  # noqa: E501
+
+
+        :return: The region_n of this DataForAssetListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._region_n
+
+    @region_n.setter
+    def region_n(self, region_n):
+        """Sets the region_n of this DataForAssetListOutput.
+
+
+        :param region_n: The region_n of this DataForAssetListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._region_n = region_n
 
     @property
     def type(self):

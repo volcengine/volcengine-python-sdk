@@ -33,17 +33,45 @@ class UpdateControlPolicySwitchResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'rule_ids': 'list[str]'
     }
 
     attribute_map = {
+        'rule_ids': 'RuleIds'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, rule_ids=None, _configuration=None):  # noqa: E501
         """UpdateControlPolicySwitchResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._rule_ids = None
         self.discriminator = None
+
+        if rule_ids is not None:
+            self.rule_ids = rule_ids
+
+    @property
+    def rule_ids(self):
+        """Gets the rule_ids of this UpdateControlPolicySwitchResponse.  # noqa: E501
+
+
+        :return: The rule_ids of this UpdateControlPolicySwitchResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._rule_ids
+
+    @rule_ids.setter
+    def rule_ids(self, rule_ids):
+        """Sets the rule_ids of this UpdateControlPolicySwitchResponse.
+
+
+        :param rule_ids: The rule_ids of this UpdateControlPolicySwitchResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._rule_ids = rule_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

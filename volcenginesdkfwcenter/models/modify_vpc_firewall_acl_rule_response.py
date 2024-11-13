@@ -33,17 +33,45 @@ class ModifyVpcFirewallAclRuleResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'rule_id': 'str'
     }
 
     attribute_map = {
+        'rule_id': 'RuleId'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, rule_id=None, _configuration=None):  # noqa: E501
         """ModifyVpcFirewallAclRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._rule_id = None
         self.discriminator = None
+
+        if rule_id is not None:
+            self.rule_id = rule_id
+
+    @property
+    def rule_id(self):
+        """Gets the rule_id of this ModifyVpcFirewallAclRuleResponse.  # noqa: E501
+
+
+        :return: The rule_id of this ModifyVpcFirewallAclRuleResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._rule_id
+
+    @rule_id.setter
+    def rule_id(self, rule_id):
+        """Sets the rule_id of this ModifyVpcFirewallAclRuleResponse.
+
+
+        :param rule_id: The rule_id of this ModifyVpcFirewallAclRuleResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._rule_id = rule_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

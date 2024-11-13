@@ -92,6 +92,9 @@ class ModifyDnsControlPolicyRequest(object):
         :param description: The description of this ModifyDnsControlPolicyRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 100):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `100`")  # noqa: E501
 
         self._description = description
 
@@ -138,6 +141,13 @@ class ModifyDnsControlPolicyRequest(object):
         """
         if self._configuration.client_side_validation and destination_type is None:
             raise ValueError("Invalid value for `destination_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["group", "domain"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                destination_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `destination_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(destination_type, allowed_values)
+            )
 
         self._destination_type = destination_type
 
