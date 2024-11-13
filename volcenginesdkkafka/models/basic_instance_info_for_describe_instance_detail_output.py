@@ -48,7 +48,7 @@ class BasicInstanceInfoForDescribeInstanceDetailOutput(object):
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
-        'tags': 'TagsForDescribeInstanceDetailOutput',
+        'tags': 'dict(str, str)',
         'usable_group_number': 'int',
         'usable_partition_number': 'int',
         'used_group_number': 'int',
@@ -493,7 +493,7 @@ class BasicInstanceInfoForDescribeInstanceDetailOutput(object):
 
 
         :return: The tags of this BasicInstanceInfoForDescribeInstanceDetailOutput.  # noqa: E501
-        :rtype: TagsForDescribeInstanceDetailOutput
+        :rtype: dict(str, str)
         """
         return self._tags
 
@@ -503,7 +503,7 @@ class BasicInstanceInfoForDescribeInstanceDetailOutput(object):
 
 
         :param tags: The tags of this BasicInstanceInfoForDescribeInstanceDetailOutput.  # noqa: E501
-        :type: TagsForDescribeInstanceDetailOutput
+        :type: dict(str, str)
         """
 
         self._tags = tags

@@ -33,49 +33,95 @@ class TopicsInfoForDescribeTopicsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cleanup_policy': 'str',
         'create_time': 'str',
         'description': 'str',
+        'log_retention_hours': 'int',
         'partition_number': 'int',
         'replica_number': 'int',
         'status': 'str',
-        'topic_name': 'str'
+        'tags': 'TagsForDescribeTopicsOutput',
+        'topic_name': 'str',
+        'used_storage_percentage_in_instance': 'float',
+        'used_storage_space_in_bytes': 'int'
     }
 
     attribute_map = {
+        'cleanup_policy': 'CleanupPolicy',
         'create_time': 'CreateTime',
         'description': 'Description',
+        'log_retention_hours': 'LogRetentionHours',
         'partition_number': 'PartitionNumber',
         'replica_number': 'ReplicaNumber',
         'status': 'Status',
-        'topic_name': 'TopicName'
+        'tags': 'Tags',
+        'topic_name': 'TopicName',
+        'used_storage_percentage_in_instance': 'UsedStoragePercentageInInstance',
+        'used_storage_space_in_bytes': 'UsedStorageSpaceInBytes'
     }
 
-    def __init__(self, create_time=None, description=None, partition_number=None, replica_number=None, status=None, topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cleanup_policy=None, create_time=None, description=None, log_retention_hours=None, partition_number=None, replica_number=None, status=None, tags=None, topic_name=None, used_storage_percentage_in_instance=None, used_storage_space_in_bytes=None, _configuration=None):  # noqa: E501
         """TopicsInfoForDescribeTopicsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cleanup_policy = None
         self._create_time = None
         self._description = None
+        self._log_retention_hours = None
         self._partition_number = None
         self._replica_number = None
         self._status = None
+        self._tags = None
         self._topic_name = None
+        self._used_storage_percentage_in_instance = None
+        self._used_storage_space_in_bytes = None
         self.discriminator = None
 
+        if cleanup_policy is not None:
+            self.cleanup_policy = cleanup_policy
         if create_time is not None:
             self.create_time = create_time
         if description is not None:
             self.description = description
+        if log_retention_hours is not None:
+            self.log_retention_hours = log_retention_hours
         if partition_number is not None:
             self.partition_number = partition_number
         if replica_number is not None:
             self.replica_number = replica_number
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if topic_name is not None:
             self.topic_name = topic_name
+        if used_storage_percentage_in_instance is not None:
+            self.used_storage_percentage_in_instance = used_storage_percentage_in_instance
+        if used_storage_space_in_bytes is not None:
+            self.used_storage_space_in_bytes = used_storage_space_in_bytes
+
+    @property
+    def cleanup_policy(self):
+        """Gets the cleanup_policy of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+
+
+        :return: The cleanup_policy of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cleanup_policy
+
+    @cleanup_policy.setter
+    def cleanup_policy(self, cleanup_policy):
+        """Sets the cleanup_policy of this TopicsInfoForDescribeTopicsOutput.
+
+
+        :param cleanup_policy: The cleanup_policy of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cleanup_policy = cleanup_policy
 
     @property
     def create_time(self):
@@ -118,6 +164,27 @@ class TopicsInfoForDescribeTopicsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def log_retention_hours(self):
+        """Gets the log_retention_hours of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+
+
+        :return: The log_retention_hours of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._log_retention_hours
+
+    @log_retention_hours.setter
+    def log_retention_hours(self, log_retention_hours):
+        """Sets the log_retention_hours of this TopicsInfoForDescribeTopicsOutput.
+
+
+        :param log_retention_hours: The log_retention_hours of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._log_retention_hours = log_retention_hours
 
     @property
     def partition_number(self):
@@ -183,6 +250,27 @@ class TopicsInfoForDescribeTopicsOutput(object):
         self._status = status
 
     @property
+    def tags(self):
+        """Gets the tags of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+
+
+        :return: The tags of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :rtype: TagsForDescribeTopicsOutput
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this TopicsInfoForDescribeTopicsOutput.
+
+
+        :param tags: The tags of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :type: TagsForDescribeTopicsOutput
+        """
+
+        self._tags = tags
+
+    @property
     def topic_name(self):
         """Gets the topic_name of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
 
@@ -202,6 +290,48 @@ class TopicsInfoForDescribeTopicsOutput(object):
         """
 
         self._topic_name = topic_name
+
+    @property
+    def used_storage_percentage_in_instance(self):
+        """Gets the used_storage_percentage_in_instance of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+
+
+        :return: The used_storage_percentage_in_instance of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._used_storage_percentage_in_instance
+
+    @used_storage_percentage_in_instance.setter
+    def used_storage_percentage_in_instance(self, used_storage_percentage_in_instance):
+        """Sets the used_storage_percentage_in_instance of this TopicsInfoForDescribeTopicsOutput.
+
+
+        :param used_storage_percentage_in_instance: The used_storage_percentage_in_instance of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._used_storage_percentage_in_instance = used_storage_percentage_in_instance
+
+    @property
+    def used_storage_space_in_bytes(self):
+        """Gets the used_storage_space_in_bytes of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+
+
+        :return: The used_storage_space_in_bytes of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._used_storage_space_in_bytes
+
+    @used_storage_space_in_bytes.setter
+    def used_storage_space_in_bytes(self, used_storage_space_in_bytes):
+        """Sets the used_storage_space_in_bytes of this TopicsInfoForDescribeTopicsOutput.
+
+
+        :param used_storage_space_in_bytes: The used_storage_space_in_bytes of this TopicsInfoForDescribeTopicsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._used_storage_space_in_bytes = used_storage_space_in_bytes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

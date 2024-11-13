@@ -35,26 +35,30 @@ class CreateTopicRequest(object):
     swagger_types = {
         'access_policies': 'list[AccessPolicyForCreateTopicInput]',
         'all_authority': 'bool',
+        'cleanup_policy': 'list[str]',
         'description': 'str',
         'instance_id': 'str',
         'parameters': 'str',
         'partition_number': 'int',
         'replica_number': 'int',
+        'tags': 'list[TagForCreateTopicInput]',
         'topic_name': 'str'
     }
 
     attribute_map = {
         'access_policies': 'AccessPolicies',
         'all_authority': 'AllAuthority',
+        'cleanup_policy': 'CleanupPolicy',
         'description': 'Description',
         'instance_id': 'InstanceId',
         'parameters': 'Parameters',
         'partition_number': 'PartitionNumber',
         'replica_number': 'ReplicaNumber',
+        'tags': 'Tags',
         'topic_name': 'TopicName'
     }
 
-    def __init__(self, access_policies=None, all_authority=None, description=None, instance_id=None, parameters=None, partition_number=None, replica_number=None, topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_policies=None, all_authority=None, cleanup_policy=None, description=None, instance_id=None, parameters=None, partition_number=None, replica_number=None, tags=None, topic_name=None, _configuration=None):  # noqa: E501
         """CreateTopicRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,11 +66,13 @@ class CreateTopicRequest(object):
 
         self._access_policies = None
         self._all_authority = None
+        self._cleanup_policy = None
         self._description = None
         self._instance_id = None
         self._parameters = None
         self._partition_number = None
         self._replica_number = None
+        self._tags = None
         self._topic_name = None
         self.discriminator = None
 
@@ -74,6 +80,8 @@ class CreateTopicRequest(object):
             self.access_policies = access_policies
         if all_authority is not None:
             self.all_authority = all_authority
+        if cleanup_policy is not None:
+            self.cleanup_policy = cleanup_policy
         if description is not None:
             self.description = description
         self.instance_id = instance_id
@@ -82,6 +90,8 @@ class CreateTopicRequest(object):
         self.partition_number = partition_number
         if replica_number is not None:
             self.replica_number = replica_number
+        if tags is not None:
+            self.tags = tags
         self.topic_name = topic_name
 
     @property
@@ -125,6 +135,35 @@ class CreateTopicRequest(object):
         """
 
         self._all_authority = all_authority
+
+    @property
+    def cleanup_policy(self):
+        """Gets the cleanup_policy of this CreateTopicRequest.  # noqa: E501
+
+
+        :return: The cleanup_policy of this CreateTopicRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._cleanup_policy
+
+    @cleanup_policy.setter
+    def cleanup_policy(self, cleanup_policy):
+        """Sets the cleanup_policy of this CreateTopicRequest.
+
+
+        :param cleanup_policy: The cleanup_policy of this CreateTopicRequest.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["delete", "compact"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(cleanup_policy).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `cleanup_policy` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(cleanup_policy) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._cleanup_policy = cleanup_policy
 
     @property
     def description(self):
@@ -234,6 +273,27 @@ class CreateTopicRequest(object):
         """
 
         self._replica_number = replica_number
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateTopicRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateTopicRequest.  # noqa: E501
+        :rtype: list[TagForCreateTopicInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateTopicRequest.
+
+
+        :param tags: The tags of this CreateTopicRequest.  # noqa: E501
+        :type: list[TagForCreateTopicInput]
+        """
+
+        self._tags = tags
 
     @property
     def topic_name(self):

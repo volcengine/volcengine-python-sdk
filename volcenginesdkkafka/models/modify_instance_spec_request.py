@@ -33,6 +33,7 @@ class ModifyInstanceSpecRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'compute_spec': 'str',
         'instance_id': 'str',
         'need_rebalance': 'bool',
@@ -42,6 +43,7 @@ class ModifyInstanceSpecRequest(object):
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'compute_spec': 'ComputeSpec',
         'instance_id': 'InstanceId',
         'need_rebalance': 'NeedRebalance',
@@ -50,12 +52,13 @@ class ModifyInstanceSpecRequest(object):
         'storage_space': 'StorageSpace'
     }
 
-    def __init__(self, compute_spec=None, instance_id=None, need_rebalance=None, partition_number=None, rebalance_time=None, storage_space=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, compute_spec=None, instance_id=None, need_rebalance=None, partition_number=None, rebalance_time=None, storage_space=None, _configuration=None):  # noqa: E501
         """ModifyInstanceSpecRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._compute_spec = None
         self._instance_id = None
         self._need_rebalance = None
@@ -64,6 +67,8 @@ class ModifyInstanceSpecRequest(object):
         self._storage_space = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if compute_spec is not None:
             self.compute_spec = compute_spec
         self.instance_id = instance_id
@@ -75,6 +80,27 @@ class ModifyInstanceSpecRequest(object):
             self.rebalance_time = rebalance_time
         if storage_space is not None:
             self.storage_space = storage_space
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this ModifyInstanceSpecRequest.  # noqa: E501
+
+
+        :return: The client_token of this ModifyInstanceSpecRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this ModifyInstanceSpecRequest.
+
+
+        :param client_token: The client_token of this ModifyInstanceSpecRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def compute_spec(self):

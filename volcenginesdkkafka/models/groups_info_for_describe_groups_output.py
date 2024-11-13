@@ -33,29 +33,91 @@ class GroupsInfoForDescribeGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'balance_algorithm': 'str',
+        'description': 'str',
         'group_id': 'str',
-        'state': 'str'
+        'protocol_type': 'str',
+        'state': 'str',
+        'tags': 'TagsForDescribeGroupsOutput'
     }
 
     attribute_map = {
+        'balance_algorithm': 'BalanceAlgorithm',
+        'description': 'Description',
         'group_id': 'GroupId',
-        'state': 'State'
+        'protocol_type': 'ProtocolType',
+        'state': 'State',
+        'tags': 'Tags'
     }
 
-    def __init__(self, group_id=None, state=None, _configuration=None):  # noqa: E501
+    def __init__(self, balance_algorithm=None, description=None, group_id=None, protocol_type=None, state=None, tags=None, _configuration=None):  # noqa: E501
         """GroupsInfoForDescribeGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._balance_algorithm = None
+        self._description = None
         self._group_id = None
+        self._protocol_type = None
         self._state = None
+        self._tags = None
         self.discriminator = None
 
+        if balance_algorithm is not None:
+            self.balance_algorithm = balance_algorithm
+        if description is not None:
+            self.description = description
         if group_id is not None:
             self.group_id = group_id
+        if protocol_type is not None:
+            self.protocol_type = protocol_type
         if state is not None:
             self.state = state
+        if tags is not None:
+            self.tags = tags
+
+    @property
+    def balance_algorithm(self):
+        """Gets the balance_algorithm of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+
+
+        :return: The balance_algorithm of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._balance_algorithm
+
+    @balance_algorithm.setter
+    def balance_algorithm(self, balance_algorithm):
+        """Sets the balance_algorithm of this GroupsInfoForDescribeGroupsOutput.
+
+
+        :param balance_algorithm: The balance_algorithm of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._balance_algorithm = balance_algorithm
+
+    @property
+    def description(self):
+        """Gets the description of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+
+
+        :return: The description of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this GroupsInfoForDescribeGroupsOutput.
+
+
+        :param description: The description of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def group_id(self):
@@ -79,6 +141,27 @@ class GroupsInfoForDescribeGroupsOutput(object):
         self._group_id = group_id
 
     @property
+    def protocol_type(self):
+        """Gets the protocol_type of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+
+
+        :return: The protocol_type of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol_type
+
+    @protocol_type.setter
+    def protocol_type(self, protocol_type):
+        """Sets the protocol_type of this GroupsInfoForDescribeGroupsOutput.
+
+
+        :param protocol_type: The protocol_type of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._protocol_type = protocol_type
+
+    @property
     def state(self):
         """Gets the state of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
 
@@ -98,6 +181,27 @@ class GroupsInfoForDescribeGroupsOutput(object):
         """
 
         self._state = state
+
+    @property
+    def tags(self):
+        """Gets the tags of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+
+
+        :return: The tags of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+        :rtype: TagsForDescribeGroupsOutput
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this GroupsInfoForDescribeGroupsOutput.
+
+
+        :param tags: The tags of this GroupsInfoForDescribeGroupsOutput.  # noqa: E501
+        :type: TagsForDescribeGroupsOutput
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

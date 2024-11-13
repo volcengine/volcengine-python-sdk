@@ -38,7 +38,8 @@ class DescribeInstancesRequest(object):
         'instance_status': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'tags': 'TagsForDescribeInstancesInput',
+        'project': 'str',
+        'tags': 'dict(str, list[str])',
         'zone_id': 'str'
     }
 
@@ -48,11 +49,12 @@ class DescribeInstancesRequest(object):
         'instance_status': 'InstanceStatus',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project': 'Project',
         'tags': 'Tags',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class DescribeInstancesRequest(object):
         self._instance_status = None
         self._page_number = None
         self._page_size = None
+        self._project = None
         self._tags = None
         self._zone_id = None
         self.discriminator = None
@@ -75,6 +78,8 @@ class DescribeInstancesRequest(object):
             self.instance_status = instance_status
         self.page_number = page_number
         self.page_size = page_size
+        if project is not None:
+            self.project = project
         if tags is not None:
             self.tags = tags
         if zone_id is not None:
@@ -190,12 +195,33 @@ class DescribeInstancesRequest(object):
         self._page_size = page_size
 
     @property
+    def project(self):
+        """Gets the project of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The project of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this DescribeInstancesRequest.
+
+
+        :param project: The project of this DescribeInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project = project
+
+    @property
     def tags(self):
         """Gets the tags of this DescribeInstancesRequest.  # noqa: E501
 
 
         :return: The tags of this DescribeInstancesRequest.  # noqa: E501
-        :rtype: TagsForDescribeInstancesInput
+        :rtype: dict(str, list[str])
         """
         return self._tags
 
@@ -205,7 +231,7 @@ class DescribeInstancesRequest(object):
 
 
         :param tags: The tags of this DescribeInstancesRequest.  # noqa: E501
-        :type: TagsForDescribeInstancesInput
+        :type: dict(str, list[str])
         """
 
         self._tags = tags

@@ -38,6 +38,7 @@ class DescribeTopicsRequest(object):
         'page_size': 'int',
         'partition_number': 'int',
         'replica_number': 'int',
+        'tag_filters': 'list[TagFilterForDescribeTopicsInput]',
         'topic_name': 'str'
     }
 
@@ -47,10 +48,11 @@ class DescribeTopicsRequest(object):
         'page_size': 'PageSize',
         'partition_number': 'PartitionNumber',
         'replica_number': 'ReplicaNumber',
+        'tag_filters': 'TagFilters',
         'topic_name': 'TopicName'
     }
 
-    def __init__(self, instance_id=None, page_number=None, page_size=None, partition_number=None, replica_number=None, topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, page_number=None, page_size=None, partition_number=None, replica_number=None, tag_filters=None, topic_name=None, _configuration=None):  # noqa: E501
         """DescribeTopicsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class DescribeTopicsRequest(object):
         self._page_size = None
         self._partition_number = None
         self._replica_number = None
+        self._tag_filters = None
         self._topic_name = None
         self.discriminator = None
 
@@ -71,6 +74,8 @@ class DescribeTopicsRequest(object):
             self.partition_number = partition_number
         if replica_number is not None:
             self.replica_number = replica_number
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if topic_name is not None:
             self.topic_name = topic_name
 
@@ -184,6 +189,27 @@ class DescribeTopicsRequest(object):
         """
 
         self._replica_number = replica_number
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeTopicsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeTopicsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeTopicsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeTopicsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeTopicsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeTopicsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def topic_name(self):

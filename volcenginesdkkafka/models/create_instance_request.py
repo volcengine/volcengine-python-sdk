@@ -34,6 +34,7 @@ class CreateInstanceRequest(object):
     """
     swagger_types = {
         'charge_info': 'ChargeInfoForCreateInstanceInput',
+        'client_token': 'str',
         'compute_spec': 'str',
         'eip_id': 'str',
         'instance_description': 'str',
@@ -45,7 +46,7 @@ class CreateInstanceRequest(object):
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
-        'tags': 'TagsForCreateInstanceInput',
+        'tags': 'dict(str, str)',
         'user_name': 'str',
         'user_password': 'str',
         'version': 'str',
@@ -55,6 +56,7 @@ class CreateInstanceRequest(object):
 
     attribute_map = {
         'charge_info': 'ChargeInfo',
+        'client_token': 'ClientToken',
         'compute_spec': 'ComputeSpec',
         'eip_id': 'EipId',
         'instance_description': 'InstanceDescription',
@@ -74,13 +76,14 @@ class CreateInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_info=None, compute_spec=None, eip_id=None, instance_description=None, instance_name=None, ip_white_list=None, parameters=None, partition_number=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, user_name=None, user_password=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_info=None, client_token=None, compute_spec=None, eip_id=None, instance_description=None, instance_name=None, ip_white_list=None, parameters=None, partition_number=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, user_name=None, user_password=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._charge_info = None
+        self._client_token = None
         self._compute_spec = None
         self._eip_id = None
         self._instance_description = None
@@ -102,6 +105,8 @@ class CreateInstanceRequest(object):
 
         if charge_info is not None:
             self.charge_info = charge_info
+        if client_token is not None:
+            self.client_token = client_token
         self.compute_spec = compute_spec
         if eip_id is not None:
             self.eip_id = eip_id
@@ -124,8 +129,10 @@ class CreateInstanceRequest(object):
         self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
-        self.user_name = user_name
-        self.user_password = user_password
+        if user_name is not None:
+            self.user_name = user_name
+        if user_password is not None:
+            self.user_password = user_password
         self.version = version
         self.vpc_id = vpc_id
         self.zone_id = zone_id
@@ -150,6 +157,27 @@ class CreateInstanceRequest(object):
         """
 
         self._charge_info = charge_info
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateInstanceRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateInstanceRequest.
+
+
+        :param client_token: The client_token of this CreateInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def compute_spec(self):
@@ -392,7 +420,7 @@ class CreateInstanceRequest(object):
 
 
         :return: The tags of this CreateInstanceRequest.  # noqa: E501
-        :rtype: TagsForCreateInstanceInput
+        :rtype: dict(str, str)
         """
         return self._tags
 
@@ -402,7 +430,7 @@ class CreateInstanceRequest(object):
 
 
         :param tags: The tags of this CreateInstanceRequest.  # noqa: E501
-        :type: TagsForCreateInstanceInput
+        :type: dict(str, str)
         """
 
         self._tags = tags
@@ -425,8 +453,6 @@ class CreateInstanceRequest(object):
         :param user_name: The user_name of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and user_name is None:
-            raise ValueError("Invalid value for `user_name`, must not be `None`")  # noqa: E501
 
         self._user_name = user_name
 
@@ -448,8 +474,6 @@ class CreateInstanceRequest(object):
         :param user_password: The user_password of this CreateInstanceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and user_password is None:
-            raise ValueError("Invalid value for `user_password`, must not be `None`")  # noqa: E501
 
         self._user_password = user_password
 
