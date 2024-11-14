@@ -40,10 +40,16 @@ class ModifyControlPolicyRequest(object):
         'destination': 'str',
         'destination_type': 'str',
         'direction': 'str',
+        'end_time': 'int',
         'proto': 'str',
+        'repeat_days': 'list[int]',
+        'repeat_end_time': 'str',
+        'repeat_start_time': 'str',
+        'repeat_type': 'str',
         'rule_id': 'str',
         'source': 'str',
         'source_type': 'str',
+        'start_time': 'int',
         'status': 'bool'
     }
 
@@ -55,14 +61,20 @@ class ModifyControlPolicyRequest(object):
         'destination': 'Destination',
         'destination_type': 'DestinationType',
         'direction': 'Direction',
+        'end_time': 'EndTime',
         'proto': 'Proto',
+        'repeat_days': 'RepeatDays',
+        'repeat_end_time': 'RepeatEndTime',
+        'repeat_start_time': 'RepeatStartTime',
+        'repeat_type': 'RepeatType',
         'rule_id': 'RuleId',
         'source': 'Source',
         'source_type': 'SourceType',
+        'start_time': 'StartTime',
         'status': 'Status'
     }
 
-    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, direction=None, proto=None, rule_id=None, source=None, source_type=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, direction=None, end_time=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_type=None, start_time=None, status=None, _configuration=None):  # noqa: E501
         """ModifyControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,10 +87,16 @@ class ModifyControlPolicyRequest(object):
         self._destination = None
         self._destination_type = None
         self._direction = None
+        self._end_time = None
         self._proto = None
+        self._repeat_days = None
+        self._repeat_end_time = None
+        self._repeat_start_time = None
+        self._repeat_type = None
         self._rule_id = None
         self._source = None
         self._source_type = None
+        self._start_time = None
         self._status = None
         self.discriminator = None
 
@@ -92,10 +110,22 @@ class ModifyControlPolicyRequest(object):
         self.destination = destination
         self.destination_type = destination_type
         self.direction = direction
+        if end_time is not None:
+            self.end_time = end_time
         self.proto = proto
+        if repeat_days is not None:
+            self.repeat_days = repeat_days
+        if repeat_end_time is not None:
+            self.repeat_end_time = repeat_end_time
+        if repeat_start_time is not None:
+            self.repeat_start_time = repeat_start_time
+        if repeat_type is not None:
+            self.repeat_type = repeat_type
         self.rule_id = rule_id
         self.source = source
         self.source_type = source_type
+        if start_time is not None:
+            self.start_time = start_time
         if status is not None:
             self.status = status
 
@@ -119,6 +149,13 @@ class ModifyControlPolicyRequest(object):
         """
         if self._configuration.client_side_validation and action is None:
             raise ValueError("Invalid value for `action`, must not be `None`")  # noqa: E501
+        allowed_values = ["accept", "deny", "monitor"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `action` ({0}), must be one of {1}"  # noqa: E501
+                .format(action, allowed_values)
+            )
 
         self._action = action
 
@@ -182,6 +219,13 @@ class ModifyControlPolicyRequest(object):
         :param dest_port_type: The dest_port_type of this ModifyControlPolicyRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["port", "group"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                dest_port_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `dest_port_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(dest_port_type, allowed_values)
+            )
 
         self._dest_port_type = dest_port_type
 
@@ -228,6 +272,13 @@ class ModifyControlPolicyRequest(object):
         """
         if self._configuration.client_side_validation and destination_type is None:
             raise ValueError("Invalid value for `destination_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["net", "location", "group", "domain"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                destination_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `destination_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(destination_type, allowed_values)
+            )
 
         self._destination_type = destination_type
 
@@ -251,8 +302,36 @@ class ModifyControlPolicyRequest(object):
         """
         if self._configuration.client_side_validation and direction is None:
             raise ValueError("Invalid value for `direction`, must not be `None`")  # noqa: E501
+        allowed_values = ["in", "out"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                direction not in allowed_values):
+            raise ValueError(
+                "Invalid value for `direction` ({0}), must be one of {1}"  # noqa: E501
+                .format(direction, allowed_values)
+            )
 
         self._direction = direction
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this ModifyControlPolicyRequest.  # noqa: E501
+
+
+        :return: The end_time of this ModifyControlPolicyRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this ModifyControlPolicyRequest.
+
+
+        :param end_time: The end_time of this ModifyControlPolicyRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._end_time = end_time
 
     @property
     def proto(self):
@@ -274,8 +353,106 @@ class ModifyControlPolicyRequest(object):
         """
         if self._configuration.client_side_validation and proto is None:
             raise ValueError("Invalid value for `proto`, must not be `None`")  # noqa: E501
+        allowed_values = ["ICMP", "TCP", "UDP", "ANY"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                proto not in allowed_values):
+            raise ValueError(
+                "Invalid value for `proto` ({0}), must be one of {1}"  # noqa: E501
+                .format(proto, allowed_values)
+            )
 
         self._proto = proto
+
+    @property
+    def repeat_days(self):
+        """Gets the repeat_days of this ModifyControlPolicyRequest.  # noqa: E501
+
+
+        :return: The repeat_days of this ModifyControlPolicyRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._repeat_days
+
+    @repeat_days.setter
+    def repeat_days(self, repeat_days):
+        """Sets the repeat_days of this ModifyControlPolicyRequest.
+
+
+        :param repeat_days: The repeat_days of this ModifyControlPolicyRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._repeat_days = repeat_days
+
+    @property
+    def repeat_end_time(self):
+        """Gets the repeat_end_time of this ModifyControlPolicyRequest.  # noqa: E501
+
+
+        :return: The repeat_end_time of this ModifyControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._repeat_end_time
+
+    @repeat_end_time.setter
+    def repeat_end_time(self, repeat_end_time):
+        """Sets the repeat_end_time of this ModifyControlPolicyRequest.
+
+
+        :param repeat_end_time: The repeat_end_time of this ModifyControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._repeat_end_time = repeat_end_time
+
+    @property
+    def repeat_start_time(self):
+        """Gets the repeat_start_time of this ModifyControlPolicyRequest.  # noqa: E501
+
+
+        :return: The repeat_start_time of this ModifyControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._repeat_start_time
+
+    @repeat_start_time.setter
+    def repeat_start_time(self, repeat_start_time):
+        """Sets the repeat_start_time of this ModifyControlPolicyRequest.
+
+
+        :param repeat_start_time: The repeat_start_time of this ModifyControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._repeat_start_time = repeat_start_time
+
+    @property
+    def repeat_type(self):
+        """Gets the repeat_type of this ModifyControlPolicyRequest.  # noqa: E501
+
+
+        :return: The repeat_type of this ModifyControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._repeat_type
+
+    @repeat_type.setter
+    def repeat_type(self, repeat_type):
+        """Sets the repeat_type of this ModifyControlPolicyRequest.
+
+
+        :param repeat_type: The repeat_type of this ModifyControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Permanent", "Once", "Daily", "Weekly", "Monthly"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                repeat_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `repeat_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(repeat_type, allowed_values)
+            )
+
+        self._repeat_type = repeat_type
 
     @property
     def rule_id(self):
@@ -343,8 +520,36 @@ class ModifyControlPolicyRequest(object):
         """
         if self._configuration.client_side_validation and source_type is None:
             raise ValueError("Invalid value for `source_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["net", "location", "group"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                source_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `source_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(source_type, allowed_values)
+            )
 
         self._source_type = source_type
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this ModifyControlPolicyRequest.  # noqa: E501
+
+
+        :return: The start_time of this ModifyControlPolicyRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this ModifyControlPolicyRequest.
+
+
+        :param start_time: The start_time of this ModifyControlPolicyRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._start_time = start_time
 
     @property
     def status(self):

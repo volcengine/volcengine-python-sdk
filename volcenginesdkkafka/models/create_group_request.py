@@ -35,16 +35,18 @@ class CreateGroupRequest(object):
     swagger_types = {
         'description': 'str',
         'group_id': 'str',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'tags': 'list[TagForCreateGroupInput]'
     }
 
     attribute_map = {
         'description': 'Description',
         'group_id': 'GroupId',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'tags': 'Tags'
     }
 
-    def __init__(self, description=None, group_id=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, group_id=None, instance_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,15 @@ class CreateGroupRequest(object):
         self._description = None
         self._group_id = None
         self._instance_id = None
+        self._tags = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
         self.group_id = group_id
         self.instance_id = instance_id
+        if tags is not None:
+            self.tags = tags
 
     @property
     def description(self):
@@ -126,6 +131,27 @@ class CreateGroupRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateGroupRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateGroupRequest.  # noqa: E501
+        :rtype: list[TagForCreateGroupInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateGroupRequest.
+
+
+        :param tags: The tags of this CreateGroupRequest.  # noqa: E501
+        :type: list[TagForCreateGroupInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

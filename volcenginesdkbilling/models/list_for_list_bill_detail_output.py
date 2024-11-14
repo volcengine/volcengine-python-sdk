@@ -64,6 +64,7 @@ class ListForListBillDetailOutput(object):
         'expense_end_time': 'str',
         'factor': 'str',
         'factor_code': 'str',
+        'formula': 'str',
         'instance_name': 'str',
         'instance_no': 'str',
         'market_price': 'str',
@@ -138,6 +139,7 @@ class ListForListBillDetailOutput(object):
         'expense_end_time': 'ExpenseEndTime',
         'factor': 'Factor',
         'factor_code': 'FactorCode',
+        'formula': 'Formula',
         'instance_name': 'InstanceName',
         'instance_no': 'InstanceNo',
         'market_price': 'MarketPrice',
@@ -180,7 +182,7 @@ class ListForListBillDetailOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, bill_category=None, bill_detail_id=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, coupon_amount=None, credit_carried_amount=None, currency=None, deduction_count=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_begin_time=None, expense_date=None, expense_end_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, market_price=None, measure_interval=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, region=None, region_code=None, reservation_instance=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, selling_mode=None, settlement_type=None, solution_zh=None, subject_name=None, tag=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_detail_id=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, coupon_amount=None, credit_carried_amount=None, currency=None, deduction_count=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_begin_time=None, expense_date=None, expense_end_time=None, factor=None, factor_code=None, formula=None, instance_name=None, instance_no=None, market_price=None, measure_interval=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, region=None, region_code=None, reservation_instance=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, selling_mode=None, settlement_type=None, solution_zh=None, subject_name=None, tag=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListBillDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -217,6 +219,7 @@ class ListForListBillDetailOutput(object):
         self._expense_end_time = None
         self._factor = None
         self._factor_code = None
+        self._formula = None
         self._instance_name = None
         self._instance_no = None
         self._market_price = None
@@ -321,6 +324,8 @@ class ListForListBillDetailOutput(object):
             self.factor = factor
         if factor_code is not None:
             self.factor_code = factor_code
+        if formula is not None:
+            self.formula = formula
         if instance_name is not None:
             self.instance_name = instance_name
         if instance_no is not None:
@@ -1052,6 +1057,27 @@ class ListForListBillDetailOutput(object):
         """
 
         self._factor_code = factor_code
+
+    @property
+    def formula(self):
+        """Gets the formula of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The formula of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._formula
+
+    @formula.setter
+    def formula(self, formula):
+        """Sets the formula of this ListForListBillDetailOutput.
+
+
+        :param formula: The formula of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._formula = formula
 
     @property
     def instance_name(self):

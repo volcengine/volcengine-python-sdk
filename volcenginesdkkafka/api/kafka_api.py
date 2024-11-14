@@ -115,7 +115,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AddTagsToResource/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/AddTagsToResource/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -212,7 +212,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/AssociateAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/AssociateAllowList/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -309,7 +309,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateAcl/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/CreateAcl/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -406,7 +406,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/CreateAllowList/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -503,7 +503,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateGroup/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/CreateGroup/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -600,7 +600,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateInstance/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/CreateInstance/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -608,6 +608,103 @@ class KAFKAApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateInstanceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_migrate_sub_tasks(self, body, **kwargs):  # noqa: E501
+        """create_migrate_sub_tasks  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_migrate_sub_tasks(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateMigrateSubTasksRequest body: (required)
+        :return: CreateMigrateSubTasksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_migrate_sub_tasks_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_migrate_sub_tasks_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_migrate_sub_tasks_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_migrate_sub_tasks  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_migrate_sub_tasks_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateMigrateSubTasksRequest body: (required)
+        :return: CreateMigrateSubTasksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_migrate_sub_tasks" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_migrate_sub_tasks`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateMigrateSubTasks/2022-05-01/kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateMigrateSubTasksResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -697,7 +794,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreatePublicAddress/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/CreatePublicAddress/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -794,7 +891,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateTopic/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/CreateTopic/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -891,7 +988,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateUser/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/CreateUser/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -988,7 +1085,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteAcl/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DeleteAcl/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1085,7 +1182,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DeleteAllowList/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1182,7 +1279,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteGroup/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DeleteGroup/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1279,7 +1376,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteInstance/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DeleteInstance/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1376,7 +1473,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeletePublicAddress/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DeletePublicAddress/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1473,7 +1570,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteTopic/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DeleteTopic/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1570,7 +1667,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteUser/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DeleteUser/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1667,7 +1764,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAcls/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeAcls/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1764,7 +1861,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAllowListDetail/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeAllowListDetail/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1861,7 +1958,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAllowLists/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeAllowLists/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1958,7 +2055,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeAvailabilityZones/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeAvailabilityZones/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2055,7 +2152,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeConsumedPartitions/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeConsumedPartitions/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2152,7 +2249,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeConsumedTopics/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeConsumedTopics/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2249,7 +2346,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeGroups/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeGroups/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2346,7 +2443,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstanceDetail/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeInstanceDetail/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2443,7 +2540,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeInstances/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeInstances/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2540,7 +2637,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeRegions/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeRegions/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2637,7 +2734,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTagsByResource/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeTagsByResource/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2734,7 +2831,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTopicAccessPolicies/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeTopicAccessPolicies/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2831,7 +2928,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTopicParameters/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeTopicParameters/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2928,7 +3025,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTopicPartitions/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeTopicPartitions/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3025,7 +3122,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeTopics/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeTopics/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3122,7 +3219,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeUsers/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DescribeUsers/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3219,7 +3316,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisassociateAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/DisassociateAllowList/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3316,7 +3413,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyAllowList/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyAllowList/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3413,7 +3510,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyGroup/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyGroup/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3510,7 +3607,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceAttributes/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyInstanceAttributes/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3607,7 +3704,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceChargeType/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyInstanceChargeType/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3704,7 +3801,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceParameters/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyInstanceParameters/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3801,7 +3898,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyInstanceSpec/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyInstanceSpec/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3898,7 +3995,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyTopicAccessPolicies/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyTopicAccessPolicies/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3995,7 +4092,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyTopicAttributes/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyTopicAttributes/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4092,7 +4189,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyTopicParameters/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyTopicParameters/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4189,7 +4286,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyUserAuthority/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ModifyUserAuthority/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4197,6 +4294,103 @@ class KAFKAApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyUserAuthorityResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def query_message_by_timestamp(self, body, **kwargs):  # noqa: E501
+        """query_message_by_timestamp  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_message_by_timestamp(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param QueryMessageByTimestampRequest body: (required)
+        :return: QueryMessageByTimestampResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.query_message_by_timestamp_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.query_message_by_timestamp_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def query_message_by_timestamp_with_http_info(self, body, **kwargs):  # noqa: E501
+        """query_message_by_timestamp  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_message_by_timestamp_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param QueryMessageByTimestampRequest body: (required)
+        :return: QueryMessageByTimestampResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method query_message_by_timestamp" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `query_message_by_timestamp`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/QueryMessageByTimestamp/2022-05-01/kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryMessageByTimestampResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4286,7 +4480,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/RemoveTagsFromResource/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/RemoveTagsFromResource/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4383,7 +4577,7 @@ class KAFKAApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ResetConsumedOffsets/2022-05-01/Kafka/post/application_json/', 'POST',
+            '/ResetConsumedOffsets/2022-05-01/kafka/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4391,6 +4585,200 @@ class KAFKAApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ResetConsumedOffsetsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_migrate_task_status(self, body, **kwargs):  # noqa: E501
+        """update_migrate_task_status  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_migrate_task_status(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param UpdateMigrateTaskStatusRequest body: (required)
+        :return: UpdateMigrateTaskStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_migrate_task_status_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_migrate_task_status_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def update_migrate_task_status_with_http_info(self, body, **kwargs):  # noqa: E501
+        """update_migrate_task_status  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_migrate_task_status_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param UpdateMigrateTaskStatusRequest body: (required)
+        :return: UpdateMigrateTaskStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_migrate_task_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_migrate_task_status`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/UpdateMigrateTaskStatus/2022-05-01/kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UpdateMigrateTaskStatusResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def verify_migrate_sub_tasks(self, body, **kwargs):  # noqa: E501
+        """verify_migrate_sub_tasks  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.verify_migrate_sub_tasks(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VerifyMigrateSubTasksRequest body: (required)
+        :return: VerifyMigrateSubTasksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.verify_migrate_sub_tasks_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.verify_migrate_sub_tasks_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def verify_migrate_sub_tasks_with_http_info(self, body, **kwargs):  # noqa: E501
+        """verify_migrate_sub_tasks  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.verify_migrate_sub_tasks_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VerifyMigrateSubTasksRequest body: (required)
+        :return: VerifyMigrateSubTasksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method verify_migrate_sub_tasks" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `verify_migrate_sub_tasks`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/VerifyMigrateSubTasks/2022-05-01/kafka/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VerifyMigrateSubTasksResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

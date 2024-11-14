@@ -85,6 +85,13 @@ class DescribeAddressBookRequest(object):
         :param group_type: The group_type of this DescribeAddressBookRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ip", "port", "domain"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                group_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `group_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(group_type, allowed_values)
+            )
 
         self._group_type = group_type
 
@@ -106,6 +113,9 @@ class DescribeAddressBookRequest(object):
         :param page_number: The page_number of this DescribeAddressBookRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_number is not None and page_number > 100):  # noqa: E501
+            raise ValueError("Invalid value for `page_number`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_number = page_number
 

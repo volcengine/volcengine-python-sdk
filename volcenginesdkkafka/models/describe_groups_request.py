@@ -36,17 +36,19 @@ class DescribeGroupsRequest(object):
         'group_id': 'str',
         'instance_id': 'str',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'tag_filters': 'list[TagFilterForDescribeGroupsInput]'
     }
 
     attribute_map = {
         'group_id': 'GroupId',
         'instance_id': 'InstanceId',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, group_id=None, instance_id=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, group_id=None, instance_id=None, page_number=None, page_size=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DescribeGroupsRequest(object):
         self._instance_id = None
         self._page_number = None
         self._page_size = None
+        self._tag_filters = None
         self.discriminator = None
 
         if group_id is not None:
@@ -63,6 +66,8 @@ class DescribeGroupsRequest(object):
         self.instance_id = instance_id
         self.page_number = page_number
         self.page_size = page_size
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def group_id(self):
@@ -153,6 +158,27 @@ class DescribeGroupsRequest(object):
             raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeGroupsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeGroupsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeGroupsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeGroupsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeGroupsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeGroupsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

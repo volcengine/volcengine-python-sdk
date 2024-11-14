@@ -40,6 +40,7 @@ class DescribeControlPolicyRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'proto': 'list[str]',
+        'repeat_type': 'list[str]',
         'rule_id': 'str',
         'source': 'str',
         'status': 'list[bool]'
@@ -53,12 +54,13 @@ class DescribeControlPolicyRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'proto': 'Proto',
+        'repeat_type': 'RepeatType',
         'rule_id': 'RuleId',
         'source': 'Source',
         'status': 'Status'
     }
 
-    def __init__(self, action=None, description=None, destination=None, direction=None, page_number=None, page_size=None, proto=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, destination=None, direction=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
         """DescribeControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DescribeControlPolicyRequest(object):
         self._page_number = None
         self._page_size = None
         self._proto = None
+        self._repeat_type = None
         self._rule_id = None
         self._source = None
         self._status = None
@@ -89,6 +92,8 @@ class DescribeControlPolicyRequest(object):
             self.page_size = page_size
         if proto is not None:
             self.proto = proto
+        if repeat_type is not None:
+            self.repeat_type = repeat_type
         if rule_id is not None:
             self.rule_id = rule_id
         if source is not None:
@@ -179,6 +184,13 @@ class DescribeControlPolicyRequest(object):
         """
         if self._configuration.client_side_validation and direction is None:
             raise ValueError("Invalid value for `direction`, must not be `None`")  # noqa: E501
+        allowed_values = ["in", "out"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                direction not in allowed_values):
+            raise ValueError(
+                "Invalid value for `direction` ({0}), must be one of {1}"  # noqa: E501
+                .format(direction, allowed_values)
+            )
 
         self._direction = direction
 
@@ -221,6 +233,9 @@ class DescribeControlPolicyRequest(object):
         :param page_size: The page_size of this DescribeControlPolicyRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 100):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -244,6 +259,27 @@ class DescribeControlPolicyRequest(object):
         """
 
         self._proto = proto
+
+    @property
+    def repeat_type(self):
+        """Gets the repeat_type of this DescribeControlPolicyRequest.  # noqa: E501
+
+
+        :return: The repeat_type of this DescribeControlPolicyRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._repeat_type
+
+    @repeat_type.setter
+    def repeat_type(self, repeat_type):
+        """Sets the repeat_type of this DescribeControlPolicyRequest.
+
+
+        :param repeat_type: The repeat_type of this DescribeControlPolicyRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._repeat_type = repeat_type
 
     @property
     def rule_id(self):

@@ -33,6 +33,8 @@ class DataForDescribeVpcFirewallListOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bandwidth': 'int',
+        'bypass_status': 'str',
         'err_message': 'str',
         'firewall_status': 'str',
         'peak_traffic_within7_day': 'int',
@@ -47,6 +49,8 @@ class DataForDescribeVpcFirewallListOutput(object):
     }
 
     attribute_map = {
+        'bandwidth': 'Bandwidth',
+        'bypass_status': 'BypassStatus',
         'err_message': 'ErrMessage',
         'firewall_status': 'FirewallStatus',
         'peak_traffic_within7_day': 'PeakTrafficWithin7Day',
@@ -60,12 +64,14 @@ class DataForDescribeVpcFirewallListOutput(object):
         'vpc_firewall_name': 'VpcFirewallName'
     }
 
-    def __init__(self, err_message=None, firewall_status=None, peak_traffic_within7_day=None, region=None, route_mode=None, route_policy_status=None, transit_router_description=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bypass_status=None, err_message=None, firewall_status=None, peak_traffic_within7_day=None, region=None, route_mode=None, route_policy_status=None, transit_router_description=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
         """DataForDescribeVpcFirewallListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bandwidth = None
+        self._bypass_status = None
         self._err_message = None
         self._firewall_status = None
         self._peak_traffic_within7_day = None
@@ -79,6 +85,10 @@ class DataForDescribeVpcFirewallListOutput(object):
         self._vpc_firewall_name = None
         self.discriminator = None
 
+        if bandwidth is not None:
+            self.bandwidth = bandwidth
+        if bypass_status is not None:
+            self.bypass_status = bypass_status
         if err_message is not None:
             self.err_message = err_message
         if firewall_status is not None:
@@ -101,6 +111,48 @@ class DataForDescribeVpcFirewallListOutput(object):
             self.vpc_firewall_id = vpc_firewall_id
         if vpc_firewall_name is not None:
             self.vpc_firewall_name = vpc_firewall_name
+
+    @property
+    def bandwidth(self):
+        """Gets the bandwidth of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The bandwidth of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bandwidth
+
+    @bandwidth.setter
+    def bandwidth(self, bandwidth):
+        """Sets the bandwidth of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param bandwidth: The bandwidth of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bandwidth = bandwidth
+
+    @property
+    def bypass_status(self):
+        """Gets the bypass_status of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The bypass_status of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bypass_status
+
+    @bypass_status.setter
+    def bypass_status(self, bypass_status):
+        """Sets the bypass_status of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param bypass_status: The bypass_status of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bypass_status = bypass_status
 
     @property
     def err_message(self):

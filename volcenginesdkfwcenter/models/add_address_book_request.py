@@ -127,6 +127,9 @@ class AddAddressBookRequest(object):
         """
         if self._configuration.client_side_validation and group_name is None:
             raise ValueError("Invalid value for `group_name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                group_name is not None and len(group_name) > 64):
+            raise ValueError("Invalid value for `group_name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._group_name = group_name
 
@@ -150,6 +153,13 @@ class AddAddressBookRequest(object):
         """
         if self._configuration.client_side_validation and group_type is None:
             raise ValueError("Invalid value for `group_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["ip", "domain", "port"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                group_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `group_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(group_type, allowed_values)
+            )
 
         self._group_type = group_type
 

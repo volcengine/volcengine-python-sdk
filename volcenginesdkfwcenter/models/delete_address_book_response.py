@@ -33,17 +33,45 @@ class DeleteAddressBookResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'group_uuid': 'str'
     }
 
     attribute_map = {
+        'group_uuid': 'GroupUuid'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, group_uuid=None, _configuration=None):  # noqa: E501
         """DeleteAddressBookResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._group_uuid = None
         self.discriminator = None
+
+        if group_uuid is not None:
+            self.group_uuid = group_uuid
+
+    @property
+    def group_uuid(self):
+        """Gets the group_uuid of this DeleteAddressBookResponse.  # noqa: E501
+
+
+        :return: The group_uuid of this DeleteAddressBookResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_uuid
+
+    @group_uuid.setter
+    def group_uuid(self, group_uuid):
+        """Sets the group_uuid of this DeleteAddressBookResponse.
+
+
+        :param group_uuid: The group_uuid of this DeleteAddressBookResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._group_uuid = group_uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

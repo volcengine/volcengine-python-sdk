@@ -48,7 +48,7 @@ class InstancesInfoForDescribeInstancesOutput(object):
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
-        'tags': 'TagsForDescribeInstancesOutput',
+        'tags': 'dict(str, str)',
         'usable_group_number': 'int',
         'usable_partition_number': 'int',
         'used_group_number': 'int',
@@ -493,7 +493,7 @@ class InstancesInfoForDescribeInstancesOutput(object):
 
 
         :return: The tags of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
-        :rtype: TagsForDescribeInstancesOutput
+        :rtype: dict(str, str)
         """
         return self._tags
 
@@ -503,7 +503,7 @@ class InstancesInfoForDescribeInstancesOutput(object):
 
 
         :param tags: The tags of this InstancesInfoForDescribeInstancesOutput.  # noqa: E501
-        :type: TagsForDescribeInstancesOutput
+        :type: dict(str, str)
         """
 
         self._tags = tags
