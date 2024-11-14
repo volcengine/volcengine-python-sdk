@@ -35,6 +35,7 @@ class ItemForListFunctionsOutput(object):
     swagger_types = {
         'code_size': 'int',
         'code_size_limit': 'int',
+        'command': 'str',
         'creation_time': 'str',
         'description': 'str',
         'envs': 'list[EnvForListFunctionsOutput]',
@@ -63,6 +64,7 @@ class ItemForListFunctionsOutput(object):
     attribute_map = {
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
+        'command': 'Command',
         'creation_time': 'CreationTime',
         'description': 'Description',
         'envs': 'Envs',
@@ -88,7 +90,7 @@ class ItemForListFunctionsOutput(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, command=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """ItemForListFunctionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class ItemForListFunctionsOutput(object):
 
         self._code_size = None
         self._code_size_limit = None
+        self._command = None
         self._creation_time = None
         self._description = None
         self._envs = None
@@ -125,6 +128,8 @@ class ItemForListFunctionsOutput(object):
             self.code_size = code_size
         if code_size_limit is not None:
             self.code_size_limit = code_size_limit
+        if command is not None:
+            self.command = command
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
@@ -213,6 +218,27 @@ class ItemForListFunctionsOutput(object):
         """
 
         self._code_size_limit = code_size_limit
+
+    @property
+    def command(self):
+        """Gets the command of this ItemForListFunctionsOutput.  # noqa: E501
+
+
+        :return: The command of this ItemForListFunctionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._command
+
+    @command.setter
+    def command(self, command):
+        """Sets the command of this ItemForListFunctionsOutput.
+
+
+        :param command: The command of this ItemForListFunctionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._command = command
 
     @property
     def creation_time(self):
