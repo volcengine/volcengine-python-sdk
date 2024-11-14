@@ -79,6 +79,9 @@ class ModifyVpcFirewallAclRulePositionRequest(object):
         """
         if self._configuration.client_side_validation and new_prio is None:
             raise ValueError("Invalid value for `new_prio`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                new_prio is not None and new_prio < 1):  # noqa: E501
+            raise ValueError("Invalid value for `new_prio`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._new_prio = new_prio
 

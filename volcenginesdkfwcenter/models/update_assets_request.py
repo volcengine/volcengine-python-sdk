@@ -54,7 +54,8 @@ class UpdateAssetsRequest(object):
 
         if asset_ips is not None:
             self.asset_ips = asset_ips
-        self.enable = enable
+        if enable is not None:
+            self.enable = enable
 
     @property
     def asset_ips(self):
@@ -95,8 +96,6 @@ class UpdateAssetsRequest(object):
         :param enable: The enable of this UpdateAssetsRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and enable is None:
-            raise ValueError("Invalid value for `enable`, must not be `None`")  # noqa: E501
 
         self._enable = enable
 

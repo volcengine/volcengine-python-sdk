@@ -33,24 +33,65 @@ class DescribeControlPolicyByRuleIdResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[DataForDescribeControlPolicyByRuleIdOutput]'
+        'count': 'int',
+        'data': 'list[DataForDescribeControlPolicyByRuleIdOutput]',
+        'page_number': 'int',
+        'page_size': 'int',
+        'total_count': 'int'
     }
 
     attribute_map = {
-        'data': 'Data'
+        'count': 'Count',
+        'data': 'Data',
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize',
+        'total_count': 'TotalCount'
     }
 
-    def __init__(self, data=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, data=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeControlPolicyByRuleIdResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._count = None
         self._data = None
+        self._page_number = None
+        self._page_size = None
+        self._total_count = None
         self.discriminator = None
 
+        if count is not None:
+            self.count = count
         if data is not None:
             self.data = data
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
+        if total_count is not None:
+            self.total_count = total_count
+
+    @property
+    def count(self):
+        """Gets the count of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+
+
+        :return: The count of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._count
+
+    @count.setter
+    def count(self, count):
+        """Sets the count of this DescribeControlPolicyByRuleIdResponse.
+
+
+        :param count: The count of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._count = count
 
     @property
     def data(self):
@@ -72,6 +113,69 @@ class DescribeControlPolicyByRuleIdResponse(object):
         """
 
         self._data = data
+
+    @property
+    def page_number(self):
+        """Gets the page_number of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+
+
+        :return: The page_number of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this DescribeControlPolicyByRuleIdResponse.
+
+
+        :param page_number: The page_number of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+
+
+        :return: The page_size of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this DescribeControlPolicyByRuleIdResponse.
+
+
+        :param page_size: The page_size of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
+
+    @property
+    def total_count(self):
+        """Gets the total_count of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+
+
+        :return: The total_count of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count
+
+    @total_count.setter
+    def total_count(self, total_count):
+        """Sets the total_count of this DescribeControlPolicyByRuleIdResponse.
+
+
+        :param total_count: The total_count of this DescribeControlPolicyByRuleIdResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_count = total_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

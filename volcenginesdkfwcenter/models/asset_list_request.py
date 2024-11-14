@@ -36,6 +36,7 @@ class AssetListRequest(object):
         'asset': 'str',
         'asset_type': 'list[str]',
         'current_page': 'int',
+        'order_dir': 'str',
         'page_size': 'int',
         'stat': 'int'
     }
@@ -44,11 +45,12 @@ class AssetListRequest(object):
         'asset': 'asset',
         'asset_type': 'asset_type',
         'current_page': 'current_page',
+        'order_dir': 'order_dir',
         'page_size': 'page_size',
         'stat': 'stat'
     }
 
-    def __init__(self, asset=None, asset_type=None, current_page=None, page_size=None, stat=None, _configuration=None):  # noqa: E501
+    def __init__(self, asset=None, asset_type=None, current_page=None, order_dir=None, page_size=None, stat=None, _configuration=None):  # noqa: E501
         """AssetListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class AssetListRequest(object):
         self._asset = None
         self._asset_type = None
         self._current_page = None
+        self._order_dir = None
         self._page_size = None
         self._stat = None
         self.discriminator = None
@@ -67,9 +70,12 @@ class AssetListRequest(object):
             self.asset_type = asset_type
         if current_page is not None:
             self.current_page = current_page
+        if order_dir is not None:
+            self.order_dir = order_dir
         if page_size is not None:
             self.page_size = page_size
-        self.stat = stat
+        if stat is not None:
+            self.stat = stat
 
     @property
     def asset(self):
@@ -135,6 +141,34 @@ class AssetListRequest(object):
         self._current_page = current_page
 
     @property
+    def order_dir(self):
+        """Gets the order_dir of this AssetListRequest.  # noqa: E501
+
+
+        :return: The order_dir of this AssetListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_dir
+
+    @order_dir.setter
+    def order_dir(self, order_dir):
+        """Sets the order_dir of this AssetListRequest.
+
+
+        :param order_dir: The order_dir of this AssetListRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["asc", "desc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                order_dir not in allowed_values):
+            raise ValueError(
+                "Invalid value for `order_dir` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_dir, allowed_values)
+            )
+
+        self._order_dir = order_dir
+
+    @property
     def page_size(self):
         """Gets the page_size of this AssetListRequest.  # noqa: E501
 
@@ -152,6 +186,9 @@ class AssetListRequest(object):
         :param page_size: The page_size of this AssetListRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 1000000):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000000`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -173,8 +210,6 @@ class AssetListRequest(object):
         :param stat: The stat of this AssetListRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and stat is None:
-            raise ValueError("Invalid value for `stat`, must not be `None`")  # noqa: E501
 
         self._stat = stat
 
