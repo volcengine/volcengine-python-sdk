@@ -36,7 +36,7 @@ class KeyringForDescribeKeyringsOutput(object):
         'creation_date': 'int',
         'description': 'str',
         'id': 'str',
-        'key_count': 'str',
+        'key_count': 'int',
         'keyring_name': 'str',
         'keyring_type': 'str',
         'trn': 'str',
@@ -161,7 +161,7 @@ class KeyringForDescribeKeyringsOutput(object):
 
 
         :return: The key_count of this KeyringForDescribeKeyringsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._key_count
 
@@ -171,7 +171,7 @@ class KeyringForDescribeKeyringsOutput(object):
 
 
         :param key_count: The key_count of this KeyringForDescribeKeyringsOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._key_count = key_count
