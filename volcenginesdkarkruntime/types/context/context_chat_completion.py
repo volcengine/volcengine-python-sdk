@@ -3,7 +3,7 @@ from typing_extensions import Literal
 
 from ..._models import BaseModel
 from ..chat.chat_completion import Choice
-from ..context.context_usage import ContextCompletionUsage
+from ..completion_usage import CompletionUsage
 
 __all__ = [
     "ContextChatCompletion",
@@ -29,5 +29,5 @@ class ContextChatCompletion(BaseModel):
     object: Literal["chat.completion"]
     """The object type, which is always `chat.completion`."""
 
-    usage: Optional[ContextCompletionUsage] = None
+    usage: Optional[CompletionUsage] = None
     """Usage statistics for the completion request."""

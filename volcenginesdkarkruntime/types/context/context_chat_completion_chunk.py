@@ -3,7 +3,7 @@ from typing_extensions import Literal
 
 from ..._models import BaseModel
 from ..chat.chat_completion_chunk import Choice
-from ..context.context_usage import ContextCompletionUsage
+from ..completion_usage import CompletionUsage
 
 __all__ = [
     "ContextChatCompletionChunk",
@@ -32,7 +32,7 @@ class ContextChatCompletionChunk(BaseModel):
     object: Literal["chat.completion.chunk"]
     """The object type, which is always `chat.completion.chunk`."""
 
-    usage: Optional[ContextCompletionUsage] = None
+    usage: Optional[CompletionUsage] = None
     """
     An optional field that will only be present when you set
     `stream_options: {"include_usage": true}` in your request. When present, it

@@ -15,47 +15,38 @@ from volcenginesdkarkruntime import Ark
 client = Ark(api_key="${YOUR_API_KEY}")
 
 if __name__ == "__main__":
-    # Create context with 30 minutes cache:
+    # Create context with 60 minutes cache:
     print("----- create context -----")
     response = client.context.create(
         model="${YOUR_ENDPOINT_ID}",
         messages=[
             {"role": "system", "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手"},
         ],
-        ttl=datetime.timedelta(minutes=30),
+        ttl=datetime.timedelta(minutes=60),
+        truncation_strategy={
+            'type': 'last_history_tokens',
+            'last_history_tokens': 4096
+        }
     )
     print(response)
 
-    # Streaming:
-    print("----- streaming request -----")
-    stream = client.context.completions.create(
+    print("----- chat round 1 (non-stream) -----")
+    chat_response = client.context.completions.create(
         context_id=response.id,
         model="${YOUR_ENDPOINT_ID}",
         messages=[
-            {"role": "user", "content": "你是谁？"},
+            {"role": "user", "content": "我是方方"},
         ],
-        stream=True
+        stream=False
     )
-    for chunk in stream:
-        if chunk.usage:
-            print(chunk.usage)
-        if not chunk.choices:
-            continue
-        print(chunk.choices[0].delta.content, end="")
+    print(chat_response.choices[0].message.content)
 
-    # Clone:
-    print("----- clone context -----")
-    clone_response = client.context.clone(
-        context_id=response.id,
-    )
-    print(clone_response)
-
-    print("----- streaming request -----")
+    print("----- chat round 2 (streaming) -----")
     stream = client.context.completions.create(
-        context_id=clone_response.id,
+        context_id=response.id,
         model="${YOUR_ENDPOINT_ID}",
         messages=[
-            {"role": "user", "content": "刚才你说了什么？"},
+            {"role": "user", "content": "我是谁？"},
         ],
         stream=True
     )
