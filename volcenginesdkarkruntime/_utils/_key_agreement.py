@@ -5,8 +5,8 @@ __fixed_version__ = "43.0.3"
 try:
     from cryptography import __version__
     if __version__ != __fixed_version__:
-        raise Exception("ark sdk dependency cryptography version is only support {}, \
-                        Please install the cryptography package by using pip install cryptography=={}".
+        raise Exception("The cryptography package of Ark SDK only supports version {}, "
+                        "please install the cryptography package by using pip install cryptography=={}".
                         format(__fixed_version__, __fixed_version__))
 except ImportError:
     raise Exception("Please install the cryptography package by using pip install cryptography=={}".format(__fixed_version__))
