@@ -1,6 +1,16 @@
 from __future__ import annotations
 
 import base64
+__fixed_version__ = "43.0.3"
+try:
+    from cryptography import __version__
+    if __version__ != __fixed_version__:
+        raise Exception("ark sdk dependency cryptography version is only support {}, \
+                        Please install the cryptography package by using pip install cryptography=={}".
+                        format(__fixed_version__, __fixed_version__))
+except ImportError:
+    raise Exception("Please install the cryptography package by using pip install cryptography=={}".format(__fixed_version__))
+
 from cryptography import x509
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import ec
@@ -73,7 +83,7 @@ class key_agreement_client():
         pem_data = certificate_pem_string.encode()
         self._cert = x509.load_pem_x509_certificate(pem_data)
         cert_pub = self._cert.public_key().public_numbers()
-        self._curve = ec._CURVE_TYPES[self._cert.public_key().curve.name]()
+        self._curve = ec._CURVE_TYPES[self._cert.public_key().curve.name]
         self._public_key = ec.EllipticCurvePublicNumbers(
             cert_pub.x, cert_pub.y, self._curve).public_key()
 
