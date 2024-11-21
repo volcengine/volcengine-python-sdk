@@ -1,17 +1,13 @@
 from __future__ import annotations
 
 import base64
-from cryptography import x509
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.asymmetric import ec
-from cryptography.hazmat.primitives.kdf.hkdf import HKDF
-from cryptography.hazmat.primitives.ciphers import (
-    Cipher, algorithms, modes
-)
 
 
 def aes_gcm_encrypt_bytes(key: bytes, iv: bytes, plain_bytes: bytes, associated_data: bytes = b"") -> bytes:
     # aes_gcm_encrypt_bytes encrypt message using AES-GCM
+    from cryptography.hazmat.primitives.ciphers import (
+        Cipher, algorithms, modes
+    )
     encryptor = Cipher(
         algorithms.AES(key),
         modes.GCM(iv),
@@ -37,6 +33,9 @@ def aes_gcm_encrypt_base64_string(key: bytes, nonce: bytes, plaintext: str) -> s
 def aes_gcm_decrypt_bytes(key: bytes, iv: bytes, cipher_bytes: bytes, associated_data: bytes = b"") -> bytes:
     """aes_gcm_decrypt_bytes Decrypt message from bytes to bytes using AES-GCM
     """
+    from cryptography.hazmat.primitives.ciphers import (
+        Cipher, algorithms, modes
+    )
     tag_length = 16  # default aes gcm tag length
     cipher = cipher_bytes[:-tag_length]
     tag = cipher_bytes[-tag_length:]
@@ -60,7 +59,7 @@ def aes_gcm_decrypt_base64_string(key: bytes, nonce: bytes, ciphertext: str) -> 
     return aes_gcm_decrypt_bytes(key, nonce, cipher_bytes).decode()
 
 
-def marshal_cryptography_pub_key(key: ec.EllipticCurvePublicNumbers) -> bytes:
+def marshal_cryptography_pub_key(key) -> bytes:
     # python version of crypto/elliptic/elliptic.go Marshal
     # without point on curve check
     return bytes([4]) + key.x.to_bytes(32, 'big') + key.y.to_bytes(32, 'big')
@@ -76,6 +75,8 @@ class key_agreement_client():
             raise Exception("The cryptography package of Ark SDK only supports version {}, "
                             "please install the cryptography package by using pip install cryptography=={}".
                             format(__fixed_version__, __fixed_version__))
+        from cryptography import x509
+        from cryptography.hazmat.primitives.asymmetric import ec
 
         pem_data = certificate_pem_string.encode()
         self._cert = x509.load_pem_x509_certificate(pem_data)
@@ -108,6 +109,9 @@ class key_agreement_client():
     def generate_ecies_key_pair(self) -> tuple[bytes, bytes, str]:
         """generate_ecies_key_pair generate ECIES key pair
         """
+        from cryptography.hazmat.primitives import hashes
+        from cryptography.hazmat.primitives.kdf.hkdf import HKDF
+        from cryptography.hazmat.primitives.asymmetric import ec
         # Generate an ephemeral elliptic curve scalar and point
         peer_private_key = ec.generate_private_key(self._curve)
         dh = peer_private_key.exchange(ec.ECDH(), self._public_key)
