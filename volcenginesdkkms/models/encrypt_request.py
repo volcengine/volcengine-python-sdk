@@ -33,7 +33,7 @@ class EncryptRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'encryption_context': 'str',
+        'encryption_context': 'dict(str, str)',
         'key_id': 'str',
         'key_name': 'str',
         'keyring_name': 'str',
@@ -77,7 +77,7 @@ class EncryptRequest(object):
 
 
         :return: The encryption_context of this EncryptRequest.  # noqa: E501
-        :rtype: str
+        :rtype: dict(str, str)
         """
         return self._encryption_context
 
@@ -87,7 +87,7 @@ class EncryptRequest(object):
 
 
         :param encryption_context: The encryption_context of this EncryptRequest.  # noqa: E501
-        :type: str
+        :type: dict(str, str)
         """
 
         self._encryption_context = encryption_context
