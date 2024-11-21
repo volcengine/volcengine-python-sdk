@@ -34,29 +34,34 @@ class DescribeKeysRequest(object):
     """
     swagger_types = {
         'current_page': 'int',
+        'filters': 'str',
         'keyring_name': 'str',
         'page_size': 'int'
     }
 
     attribute_map = {
         'current_page': 'CurrentPage',
+        'filters': 'Filters',
         'keyring_name': 'KeyringName',
         'page_size': 'PageSize'
     }
 
-    def __init__(self, current_page=None, keyring_name=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, current_page=None, filters=None, keyring_name=None, page_size=None, _configuration=None):  # noqa: E501
         """DescribeKeysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._current_page = None
+        self._filters = None
         self._keyring_name = None
         self._page_size = None
         self.discriminator = None
 
         if current_page is not None:
             self.current_page = current_page
+        if filters is not None:
+            self.filters = filters
         self.keyring_name = keyring_name
         if page_size is not None:
             self.page_size = page_size
@@ -84,6 +89,30 @@ class DescribeKeysRequest(object):
             raise ValueError("Invalid value for `current_page`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._current_page = current_page
+
+    @property
+    def filters(self):
+        """Gets the filters of this DescribeKeysRequest.  # noqa: E501
+
+
+        :return: The filters of this DescribeKeysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._filters
+
+    @filters.setter
+    def filters(self, filters):
+        """Sets the filters of this DescribeKeysRequest.
+
+
+        :param filters: The filters of this DescribeKeysRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                filters is not None and len(filters) > 2048):
+            raise ValueError("Invalid value for `filters`, length must be less than or equal to `2048`")  # noqa: E501
+
+        self._filters = filters
 
     @property
     def keyring_name(self):
