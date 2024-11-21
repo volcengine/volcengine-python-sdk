@@ -34,7 +34,7 @@ class DecryptRequest(object):
     """
     swagger_types = {
         'ciphertext_blob': 'str',
-        'encryption_context': 'str'
+        'encryption_context': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -88,7 +88,7 @@ class DecryptRequest(object):
 
 
         :return: The encryption_context of this DecryptRequest.  # noqa: E501
-        :rtype: str
+        :rtype: dict(str, str)
         """
         return self._encryption_context
 
@@ -98,7 +98,7 @@ class DecryptRequest(object):
 
 
         :param encryption_context: The encryption_context of this DecryptRequest.  # noqa: E501
-        :type: str
+        :type: dict(str, str)
         """
 
         self._encryption_context = encryption_context

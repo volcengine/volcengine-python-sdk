@@ -34,10 +34,10 @@ class ReEncryptRequest(object):
     """
     swagger_types = {
         'ciphertext_blob': 'str',
-        'new_encryption_context': 'str',
+        'new_encryption_context': 'dict(str, str)',
         'new_key_name': 'str',
         'new_keyring_name': 'str',
-        'old_encryption_context': 'str'
+        'old_encryption_context': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -101,7 +101,7 @@ class ReEncryptRequest(object):
 
 
         :return: The new_encryption_context of this ReEncryptRequest.  # noqa: E501
-        :rtype: str
+        :rtype: dict(str, str)
         """
         return self._new_encryption_context
 
@@ -111,7 +111,7 @@ class ReEncryptRequest(object):
 
 
         :param new_encryption_context: The new_encryption_context of this ReEncryptRequest.  # noqa: E501
-        :type: str
+        :type: dict(str, str)
         """
 
         self._new_encryption_context = new_encryption_context
@@ -180,7 +180,7 @@ class ReEncryptRequest(object):
 
 
         :return: The old_encryption_context of this ReEncryptRequest.  # noqa: E501
-        :rtype: str
+        :rtype: dict(str, str)
         """
         return self._old_encryption_context
 
@@ -190,7 +190,7 @@ class ReEncryptRequest(object):
 
 
         :param old_encryption_context: The old_encryption_context of this ReEncryptRequest.  # noqa: E501
-        :type: str
+        :type: dict(str, str)
         """
 
         self._old_encryption_context = old_encryption_context
