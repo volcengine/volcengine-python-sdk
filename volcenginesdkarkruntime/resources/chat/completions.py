@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Dict, List, Union, Iterable, Optional, Callable, Iterator, AsyncIterator
 
 import httpx
+import logging
 from typing_extensions import Literal
 
 from ..._types import Body, Query, Headers
@@ -32,6 +33,7 @@ from ..._constants import ARK_E2E_ENCRYPTION_HEADER
 
 __all__ = ["Completions", "AsyncCompletions"]
 
+log: logging.Logger = logging.getLogger(__name__)
 
 class Completions(SyncAPIResource):
     @cached_property
@@ -50,8 +52,17 @@ class Completions(SyncAPIResource):
                 if isinstance(current_content, str):
                     message["content"] = f(current_content)
                 elif isinstance(current_content, Iterable):
-                    raise TypeError("content type {} is not supported end-to-end encryption".
-                                    format(type(message.get('content'))))
+                    for part in current_content:
+                        if part.get("type", None) == "text":
+                            part["text"] = f(part["text"])
+                        elif part.get("type", None) == "image_url":
+                            if part["image_url"]["url"].startswith('data:'):
+                                part["image_url"]["url"] = f(part["image_url"]["url"])
+                            else:
+                                log.warning("image url is not supported end-to-end encryption")
+                        else:
+                            raise TypeError("content type {} is not supported end-to-end encryption".
+                                            format(type(part)))
                 else:
                     raise TypeError("content type {} is not supported end-to-end encryption".
                                     format(type(message.get('content'))))
@@ -177,6 +188,18 @@ class AsyncCompletions(AsyncAPIResource):
                 current_content = message.get("content")
                 if isinstance(current_content, str):
                     message["content"] = f(current_content)
+                elif isinstance(current_content, Iterable):
+                    for part in current_content:
+                        if part.get("type", None) == "text":
+                            part["text"] = f(part["text"])
+                        elif part.get("type", None) == "image_url":
+                            if part["image_url"]["url"].startswith('data:'):
+                                part["image_url"]["url"] = f(part["image_url"]["url"])
+                            else:
+                                log.warning("image url is not supported end-to-end encryption")
+                        else:
+                            raise TypeError("content type {} is not supported end-to-end encryption".
+                                            format(type(part)))
                 else:
                     raise TypeError("content type {} is not supported end-to-end encryption".
                                     format(type(message.get('content'))))
