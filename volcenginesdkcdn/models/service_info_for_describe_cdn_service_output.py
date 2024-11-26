@@ -40,6 +40,7 @@ class ServiceInfoForDescribeCdnServiceOutput(object):
         'billing_desc': 'str',
         'create_time': 'str',
         'instance_category': 'str',
+        'instance_no': 'str',
         'instance_type': 'str',
         'metric_type': 'str',
         'service_region': 'str',
@@ -55,6 +56,7 @@ class ServiceInfoForDescribeCdnServiceOutput(object):
         'billing_desc': 'BillingDesc',
         'create_time': 'CreateTime',
         'instance_category': 'InstanceCategory',
+        'instance_no': 'InstanceNo',
         'instance_type': 'InstanceType',
         'metric_type': 'MetricType',
         'service_region': 'ServiceRegion',
@@ -62,7 +64,7 @@ class ServiceInfoForDescribeCdnServiceOutput(object):
         'status': 'Status'
     }
 
-    def __init__(self, begin_time=None, billing_code=None, billing_cycle=None, billing_data=None, billing_desc=None, create_time=None, instance_category=None, instance_type=None, metric_type=None, service_region=None, start_time=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, begin_time=None, billing_code=None, billing_cycle=None, billing_data=None, billing_desc=None, create_time=None, instance_category=None, instance_no=None, instance_type=None, metric_type=None, service_region=None, start_time=None, status=None, _configuration=None):  # noqa: E501
         """ServiceInfoForDescribeCdnServiceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class ServiceInfoForDescribeCdnServiceOutput(object):
         self._billing_desc = None
         self._create_time = None
         self._instance_category = None
+        self._instance_no = None
         self._instance_type = None
         self._metric_type = None
         self._service_region = None
@@ -96,6 +99,8 @@ class ServiceInfoForDescribeCdnServiceOutput(object):
             self.create_time = create_time
         if instance_category is not None:
             self.instance_category = instance_category
+        if instance_no is not None:
+            self.instance_no = instance_no
         if instance_type is not None:
             self.instance_type = instance_type
         if metric_type is not None:
@@ -253,6 +258,27 @@ class ServiceInfoForDescribeCdnServiceOutput(object):
         """
 
         self._instance_category = instance_category
+
+    @property
+    def instance_no(self):
+        """Gets the instance_no of this ServiceInfoForDescribeCdnServiceOutput.  # noqa: E501
+
+
+        :return: The instance_no of this ServiceInfoForDescribeCdnServiceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_no
+
+    @instance_no.setter
+    def instance_no(self, instance_no):
+        """Sets the instance_no of this ServiceInfoForDescribeCdnServiceOutput.
+
+
+        :param instance_no: The instance_no of this ServiceInfoForDescribeCdnServiceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_no = instance_no
 
     @property
     def instance_type(self):

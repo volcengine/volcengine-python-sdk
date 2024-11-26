@@ -37,6 +37,7 @@ class DescribeCdnEdgeIpRequest(object):
         'ip_version': 'str',
         'isp': 'str',
         'region': 'str',
+        'rs_ip': 'bool',
         'status': 'str'
     }
 
@@ -45,10 +46,11 @@ class DescribeCdnEdgeIpRequest(object):
         'ip_version': 'IpVersion',
         'isp': 'Isp',
         'region': 'Region',
+        'rs_ip': 'RsIp',
         'status': 'Status'
     }
 
-    def __init__(self, domain=None, ip_version=None, isp=None, region=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, ip_version=None, isp=None, region=None, rs_ip=None, status=None, _configuration=None):  # noqa: E501
         """DescribeCdnEdgeIpRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class DescribeCdnEdgeIpRequest(object):
         self._ip_version = None
         self._isp = None
         self._region = None
+        self._rs_ip = None
         self._status = None
         self.discriminator = None
 
@@ -68,6 +71,8 @@ class DescribeCdnEdgeIpRequest(object):
             self.isp = isp
         if region is not None:
             self.region = region
+        if rs_ip is not None:
+            self.rs_ip = rs_ip
         if status is not None:
             self.status = status
 
@@ -156,6 +161,27 @@ class DescribeCdnEdgeIpRequest(object):
         """
 
         self._region = region
+
+    @property
+    def rs_ip(self):
+        """Gets the rs_ip of this DescribeCdnEdgeIpRequest.  # noqa: E501
+
+
+        :return: The rs_ip of this DescribeCdnEdgeIpRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._rs_ip
+
+    @rs_ip.setter
+    def rs_ip(self, rs_ip):
+        """Sets the rs_ip of this DescribeCdnEdgeIpRequest.
+
+
+        :param rs_ip: The rs_ip of this DescribeCdnEdgeIpRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._rs_ip = rs_ip
 
     @property
     def status(self):

@@ -43,7 +43,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         'ip_access_rule_locked': 'bool',
         'negative_cache_locked': 'bool',
         'origin_access_rule_locked': 'bool',
+        'origin_arg_locked': 'bool',
         'origin_locked': 'bool',
+        'origin_response_header_locked': 'bool',
         'origin_rewrite_locked': 'bool',
         'quic_locked': 'bool',
         'redirection_rewrite_locked': 'bool',
@@ -52,6 +54,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         'request_block_rule_locked': 'bool',
         'request_header_locked': 'bool',
         'response_header_locked': 'bool',
+        'rule_engine_locked': 'bool',
         'share_cache_locked': 'bool',
         'sign_url_auth_locked': 'bool',
         'ua_access_rule_locked': 'bool'
@@ -68,7 +71,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         'ip_access_rule_locked': 'IpAccessRuleLocked',
         'negative_cache_locked': 'NegativeCacheLocked',
         'origin_access_rule_locked': 'OriginAccessRuleLocked',
+        'origin_arg_locked': 'OriginArgLocked',
         'origin_locked': 'OriginLocked',
+        'origin_response_header_locked': 'OriginResponseHeaderLocked',
         'origin_rewrite_locked': 'OriginRewriteLocked',
         'quic_locked': 'QuicLocked',
         'redirection_rewrite_locked': 'RedirectionRewriteLocked',
@@ -77,12 +82,13 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         'request_block_rule_locked': 'RequestBlockRuleLocked',
         'request_header_locked': 'RequestHeaderLocked',
         'response_header_locked': 'ResponseHeaderLocked',
+        'rule_engine_locked': 'RuleEngineLocked',
         'share_cache_locked': 'ShareCacheLocked',
         'sign_url_auth_locked': 'SignUrlAuthLocked',
         'ua_access_rule_locked': 'UAAccessRuleLocked'
     }
 
-    def __init__(self, browser_cache_locked=None, cache_key_locked=None, cache_locked=None, compression_locked=None, customize_access_rule_locked=None, download_speed_limit_locked=None, error_page_locked=None, ip_access_rule_locked=None, negative_cache_locked=None, origin_access_rule_locked=None, origin_locked=None, origin_rewrite_locked=None, quic_locked=None, redirection_rewrite_locked=None, referer_access_rule_locked=None, remote_auth_locked=None, request_block_rule_locked=None, request_header_locked=None, response_header_locked=None, share_cache_locked=None, sign_url_auth_locked=None, ua_access_rule_locked=None, _configuration=None):  # noqa: E501
+    def __init__(self, browser_cache_locked=None, cache_key_locked=None, cache_locked=None, compression_locked=None, customize_access_rule_locked=None, download_speed_limit_locked=None, error_page_locked=None, ip_access_rule_locked=None, negative_cache_locked=None, origin_access_rule_locked=None, origin_arg_locked=None, origin_locked=None, origin_response_header_locked=None, origin_rewrite_locked=None, quic_locked=None, redirection_rewrite_locked=None, referer_access_rule_locked=None, remote_auth_locked=None, request_block_rule_locked=None, request_header_locked=None, response_header_locked=None, rule_engine_locked=None, share_cache_locked=None, sign_url_auth_locked=None, ua_access_rule_locked=None, _configuration=None):  # noqa: E501
         """ModuleLockConfigForDescribeCdnConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,7 +104,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         self._ip_access_rule_locked = None
         self._negative_cache_locked = None
         self._origin_access_rule_locked = None
+        self._origin_arg_locked = None
         self._origin_locked = None
+        self._origin_response_header_locked = None
         self._origin_rewrite_locked = None
         self._quic_locked = None
         self._redirection_rewrite_locked = None
@@ -107,6 +115,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         self._request_block_rule_locked = None
         self._request_header_locked = None
         self._response_header_locked = None
+        self._rule_engine_locked = None
         self._share_cache_locked = None
         self._sign_url_auth_locked = None
         self._ua_access_rule_locked = None
@@ -132,8 +141,12 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
             self.negative_cache_locked = negative_cache_locked
         if origin_access_rule_locked is not None:
             self.origin_access_rule_locked = origin_access_rule_locked
+        if origin_arg_locked is not None:
+            self.origin_arg_locked = origin_arg_locked
         if origin_locked is not None:
             self.origin_locked = origin_locked
+        if origin_response_header_locked is not None:
+            self.origin_response_header_locked = origin_response_header_locked
         if origin_rewrite_locked is not None:
             self.origin_rewrite_locked = origin_rewrite_locked
         if quic_locked is not None:
@@ -150,6 +163,8 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
             self.request_header_locked = request_header_locked
         if response_header_locked is not None:
             self.response_header_locked = response_header_locked
+        if rule_engine_locked is not None:
+            self.rule_engine_locked = rule_engine_locked
         if share_cache_locked is not None:
             self.share_cache_locked = share_cache_locked
         if sign_url_auth_locked is not None:
@@ -368,6 +383,27 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         self._origin_access_rule_locked = origin_access_rule_locked
 
     @property
+    def origin_arg_locked(self):
+        """Gets the origin_arg_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+
+
+        :return: The origin_arg_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._origin_arg_locked
+
+    @origin_arg_locked.setter
+    def origin_arg_locked(self, origin_arg_locked):
+        """Sets the origin_arg_locked of this ModuleLockConfigForDescribeCdnConfigOutput.
+
+
+        :param origin_arg_locked: The origin_arg_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._origin_arg_locked = origin_arg_locked
+
+    @property
     def origin_locked(self):
         """Gets the origin_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
 
@@ -387,6 +423,27 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         """
 
         self._origin_locked = origin_locked
+
+    @property
+    def origin_response_header_locked(self):
+        """Gets the origin_response_header_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+
+
+        :return: The origin_response_header_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._origin_response_header_locked
+
+    @origin_response_header_locked.setter
+    def origin_response_header_locked(self, origin_response_header_locked):
+        """Sets the origin_response_header_locked of this ModuleLockConfigForDescribeCdnConfigOutput.
+
+
+        :param origin_response_header_locked: The origin_response_header_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._origin_response_header_locked = origin_response_header_locked
 
     @property
     def origin_rewrite_locked(self):
@@ -555,6 +612,27 @@ class ModuleLockConfigForDescribeCdnConfigOutput(object):
         """
 
         self._response_header_locked = response_header_locked
+
+    @property
+    def rule_engine_locked(self):
+        """Gets the rule_engine_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+
+
+        :return: The rule_engine_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._rule_engine_locked
+
+    @rule_engine_locked.setter
+    def rule_engine_locked(self, rule_engine_locked):
+        """Sets the rule_engine_locked of this ModuleLockConfigForDescribeCdnConfigOutput.
+
+
+        :param rule_engine_locked: The rule_engine_locked of this ModuleLockConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._rule_engine_locked = rule_engine_locked
 
     @property
     def share_cache_locked(self):

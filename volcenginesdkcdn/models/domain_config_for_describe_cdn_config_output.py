@@ -57,7 +57,9 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         'ip_speed_limit': 'IpSpeedLimitForDescribeCdnConfigOutput',
         'lock_status': 'str',
         'method_denied_rule': 'MethodDeniedRuleForDescribeCdnConfigOutput',
+        'multi_range': 'MultiRangeForDescribeCdnConfigOutput',
         'negative_cache': 'list[NegativeCacheForDescribeCdnConfigOutput]',
+        'offline_cache': 'OfflineCacheForDescribeCdnConfigOutput',
         'origin': 'list[OriginForDescribeCdnConfigOutput]',
         'origin_access_rule': 'OriginAccessRuleForDescribeCdnConfigOutput',
         'origin_arg': 'list[OriginArgForDescribeCdnConfigOutput]',
@@ -78,6 +80,7 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         'request_block_rule': 'RequestBlockRuleForDescribeCdnConfigOutput',
         'request_header': 'list[RequestHeaderForDescribeCdnConfigOutput]',
         'response_header': 'list[ResponseHeaderForDescribeCdnConfigOutput]',
+        'rewrite_hls': 'RewriteHLSForDescribeCdnConfigOutput',
         'service_region': 'str',
         'service_type': 'str',
         'signed_url_auth': 'SignedUrlAuthForDescribeCdnConfigOutput',
@@ -114,7 +117,9 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         'ip_speed_limit': 'IpSpeedLimit',
         'lock_status': 'LockStatus',
         'method_denied_rule': 'MethodDeniedRule',
+        'multi_range': 'MultiRange',
         'negative_cache': 'NegativeCache',
+        'offline_cache': 'OfflineCache',
         'origin': 'Origin',
         'origin_access_rule': 'OriginAccessRule',
         'origin_arg': 'OriginArg',
@@ -135,6 +140,7 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         'request_block_rule': 'RequestBlockRule',
         'request_header': 'RequestHeader',
         'response_header': 'ResponseHeader',
+        'rewrite_hls': 'RewriteHLS',
         'service_region': 'ServiceRegion',
         'service_type': 'ServiceType',
         'signed_url_auth': 'SignedUrlAuth',
@@ -146,7 +152,7 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         'video_drag': 'VideoDrag'
     }
 
-    def __init__(self, area_access_rule=None, backup_cname=None, bandwidth_limit=None, browser_cache=None, cache=None, cache_host=None, cache_key=None, cname=None, compression=None, conditional_origin=None, create_time=None, custom_error_page=None, customize_access_rule=None, domain=None, download_speed_limit=None, follow_redirect=None, https=None, http_forced_redirect=None, ipv6=None, ip_access_rule=None, ip_freq_limit=None, ip_speed_limit=None, lock_status=None, method_denied_rule=None, negative_cache=None, origin=None, origin_access_rule=None, origin_arg=None, origin_cert_check=None, origin_host=None, origin_ipv6=None, origin_protocol=None, origin_range=None, origin_retry=None, origin_rewrite=None, origin_sni=None, page_optimization=None, project=None, quic=None, redirection_rewrite=None, referer_access_rule=None, remote_auth=None, request_block_rule=None, request_header=None, response_header=None, service_region=None, service_type=None, signed_url_auth=None, status=None, timeout=None, ua_access_rule=None, update_time=None, url_normalize=None, video_drag=None, _configuration=None):  # noqa: E501
+    def __init__(self, area_access_rule=None, backup_cname=None, bandwidth_limit=None, browser_cache=None, cache=None, cache_host=None, cache_key=None, cname=None, compression=None, conditional_origin=None, create_time=None, custom_error_page=None, customize_access_rule=None, domain=None, download_speed_limit=None, follow_redirect=None, https=None, http_forced_redirect=None, ipv6=None, ip_access_rule=None, ip_freq_limit=None, ip_speed_limit=None, lock_status=None, method_denied_rule=None, multi_range=None, negative_cache=None, offline_cache=None, origin=None, origin_access_rule=None, origin_arg=None, origin_cert_check=None, origin_host=None, origin_ipv6=None, origin_protocol=None, origin_range=None, origin_retry=None, origin_rewrite=None, origin_sni=None, page_optimization=None, project=None, quic=None, redirection_rewrite=None, referer_access_rule=None, remote_auth=None, request_block_rule=None, request_header=None, response_header=None, rewrite_hls=None, service_region=None, service_type=None, signed_url_auth=None, status=None, timeout=None, ua_access_rule=None, update_time=None, url_normalize=None, video_drag=None, _configuration=None):  # noqa: E501
         """DomainConfigForDescribeCdnConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -176,7 +182,9 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         self._ip_speed_limit = None
         self._lock_status = None
         self._method_denied_rule = None
+        self._multi_range = None
         self._negative_cache = None
+        self._offline_cache = None
         self._origin = None
         self._origin_access_rule = None
         self._origin_arg = None
@@ -197,6 +205,7 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         self._request_block_rule = None
         self._request_header = None
         self._response_header = None
+        self._rewrite_hls = None
         self._service_region = None
         self._service_type = None
         self._signed_url_auth = None
@@ -256,8 +265,12 @@ class DomainConfigForDescribeCdnConfigOutput(object):
             self.lock_status = lock_status
         if method_denied_rule is not None:
             self.method_denied_rule = method_denied_rule
+        if multi_range is not None:
+            self.multi_range = multi_range
         if negative_cache is not None:
             self.negative_cache = negative_cache
+        if offline_cache is not None:
+            self.offline_cache = offline_cache
         if origin is not None:
             self.origin = origin
         if origin_access_rule is not None:
@@ -298,6 +311,8 @@ class DomainConfigForDescribeCdnConfigOutput(object):
             self.request_header = request_header
         if response_header is not None:
             self.response_header = response_header
+        if rewrite_hls is not None:
+            self.rewrite_hls = rewrite_hls
         if service_region is not None:
             self.service_region = service_region
         if service_type is not None:
@@ -822,6 +837,27 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         self._method_denied_rule = method_denied_rule
 
     @property
+    def multi_range(self):
+        """Gets the multi_range of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+
+
+        :return: The multi_range of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :rtype: MultiRangeForDescribeCdnConfigOutput
+        """
+        return self._multi_range
+
+    @multi_range.setter
+    def multi_range(self, multi_range):
+        """Sets the multi_range of this DomainConfigForDescribeCdnConfigOutput.
+
+
+        :param multi_range: The multi_range of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :type: MultiRangeForDescribeCdnConfigOutput
+        """
+
+        self._multi_range = multi_range
+
+    @property
     def negative_cache(self):
         """Gets the negative_cache of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
 
@@ -841,6 +877,27 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         """
 
         self._negative_cache = negative_cache
+
+    @property
+    def offline_cache(self):
+        """Gets the offline_cache of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+
+
+        :return: The offline_cache of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :rtype: OfflineCacheForDescribeCdnConfigOutput
+        """
+        return self._offline_cache
+
+    @offline_cache.setter
+    def offline_cache(self, offline_cache):
+        """Sets the offline_cache of this DomainConfigForDescribeCdnConfigOutput.
+
+
+        :param offline_cache: The offline_cache of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :type: OfflineCacheForDescribeCdnConfigOutput
+        """
+
+        self._offline_cache = offline_cache
 
     @property
     def origin(self):
@@ -1261,6 +1318,27 @@ class DomainConfigForDescribeCdnConfigOutput(object):
         """
 
         self._response_header = response_header
+
+    @property
+    def rewrite_hls(self):
+        """Gets the rewrite_hls of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+
+
+        :return: The rewrite_hls of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :rtype: RewriteHLSForDescribeCdnConfigOutput
+        """
+        return self._rewrite_hls
+
+    @rewrite_hls.setter
+    def rewrite_hls(self, rewrite_hls):
+        """Sets the rewrite_hls of this DomainConfigForDescribeCdnConfigOutput.
+
+
+        :param rewrite_hls: The rewrite_hls of this DomainConfigForDescribeCdnConfigOutput.  # noqa: E501
+        :type: RewriteHLSForDescribeCdnConfigOutput
+        """
+
+        self._rewrite_hls = rewrite_hls
 
     @property
     def service_region(self):
