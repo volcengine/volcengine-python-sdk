@@ -33,29 +33,55 @@ class ValueForDescribeEdgeDataOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'item': 'str',
         'time_stamp': 'int',
         'value': 'float'
     }
 
     attribute_map = {
+        'item': 'Item',
         'time_stamp': 'TimeStamp',
         'value': 'Value'
     }
 
-    def __init__(self, time_stamp=None, value=None, _configuration=None):  # noqa: E501
+    def __init__(self, item=None, time_stamp=None, value=None, _configuration=None):  # noqa: E501
         """ValueForDescribeEdgeDataOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._item = None
         self._time_stamp = None
         self._value = None
         self.discriminator = None
 
+        if item is not None:
+            self.item = item
         if time_stamp is not None:
             self.time_stamp = time_stamp
         if value is not None:
             self.value = value
+
+    @property
+    def item(self):
+        """Gets the item of this ValueForDescribeEdgeDataOutput.  # noqa: E501
+
+
+        :return: The item of this ValueForDescribeEdgeDataOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._item
+
+    @item.setter
+    def item(self, item):
+        """Sets the item of this ValueForDescribeEdgeDataOutput.
+
+
+        :param item: The item of this ValueForDescribeEdgeDataOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._item = item
 
     @property
     def time_stamp(self):

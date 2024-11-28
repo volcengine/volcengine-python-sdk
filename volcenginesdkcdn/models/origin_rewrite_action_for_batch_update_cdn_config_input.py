@@ -33,29 +33,55 @@ class OriginRewriteActionForBatchUpdateCdnConfigInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'rewrite_type': 'str',
         'source_path': 'str',
         'target_path': 'str'
     }
 
     attribute_map = {
+        'rewrite_type': 'RewriteType',
         'source_path': 'SourcePath',
         'target_path': 'TargetPath'
     }
 
-    def __init__(self, source_path=None, target_path=None, _configuration=None):  # noqa: E501
+    def __init__(self, rewrite_type=None, source_path=None, target_path=None, _configuration=None):  # noqa: E501
         """OriginRewriteActionForBatchUpdateCdnConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._rewrite_type = None
         self._source_path = None
         self._target_path = None
         self.discriminator = None
 
+        if rewrite_type is not None:
+            self.rewrite_type = rewrite_type
         if source_path is not None:
             self.source_path = source_path
         if target_path is not None:
             self.target_path = target_path
+
+    @property
+    def rewrite_type(self):
+        """Gets the rewrite_type of this OriginRewriteActionForBatchUpdateCdnConfigInput.  # noqa: E501
+
+
+        :return: The rewrite_type of this OriginRewriteActionForBatchUpdateCdnConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._rewrite_type
+
+    @rewrite_type.setter
+    def rewrite_type(self, rewrite_type):
+        """Sets the rewrite_type of this OriginRewriteActionForBatchUpdateCdnConfigInput.
+
+
+        :param rewrite_type: The rewrite_type of this OriginRewriteActionForBatchUpdateCdnConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._rewrite_type = rewrite_type
 
     @property
     def source_path(self):
