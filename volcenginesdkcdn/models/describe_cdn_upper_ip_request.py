@@ -34,15 +34,17 @@ class DescribeCdnUpperIpRequest(object):
     """
     swagger_types = {
         'domain': 'str',
-        'ip_version': 'str'
+        'ip_version': 'str',
+        'rs_ip': 'bool'
     }
 
     attribute_map = {
         'domain': 'Domain',
-        'ip_version': 'IpVersion'
+        'ip_version': 'IpVersion',
+        'rs_ip': 'RsIp'
     }
 
-    def __init__(self, domain=None, ip_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, ip_version=None, rs_ip=None, _configuration=None):  # noqa: E501
         """DescribeCdnUpperIpRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,11 +52,14 @@ class DescribeCdnUpperIpRequest(object):
 
         self._domain = None
         self._ip_version = None
+        self._rs_ip = None
         self.discriminator = None
 
         self.domain = domain
         if ip_version is not None:
             self.ip_version = ip_version
+        if rs_ip is not None:
+            self.rs_ip = rs_ip
 
     @property
     def domain(self):
@@ -99,6 +104,27 @@ class DescribeCdnUpperIpRequest(object):
         """
 
         self._ip_version = ip_version
+
+    @property
+    def rs_ip(self):
+        """Gets the rs_ip of this DescribeCdnUpperIpRequest.  # noqa: E501
+
+
+        :return: The rs_ip of this DescribeCdnUpperIpRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._rs_ip
+
+    @rs_ip.setter
+    def rs_ip(self, rs_ip):
+        """Sets the rs_ip of this DescribeCdnUpperIpRequest.
+
+
+        :param rs_ip: The rs_ip of this DescribeCdnUpperIpRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._rs_ip = rs_ip
 
     def to_dict(self):
         """Returns the model properties as a dict"""

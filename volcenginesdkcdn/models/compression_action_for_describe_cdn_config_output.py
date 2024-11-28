@@ -36,6 +36,7 @@ class CompressionActionForDescribeCdnConfigOutput(object):
         'compression_format': 'str',
         'compression_target': 'str',
         'compression_type': 'list[str]',
+        'max_file_size_kb': 'int',
         'min_file_size_kb': 'int'
     }
 
@@ -43,10 +44,11 @@ class CompressionActionForDescribeCdnConfigOutput(object):
         'compression_format': 'CompressionFormat',
         'compression_target': 'CompressionTarget',
         'compression_type': 'CompressionType',
+        'max_file_size_kb': 'MaxFileSizeKB',
         'min_file_size_kb': 'MinFileSizeKB'
     }
 
-    def __init__(self, compression_format=None, compression_target=None, compression_type=None, min_file_size_kb=None, _configuration=None):  # noqa: E501
+    def __init__(self, compression_format=None, compression_target=None, compression_type=None, max_file_size_kb=None, min_file_size_kb=None, _configuration=None):  # noqa: E501
         """CompressionActionForDescribeCdnConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class CompressionActionForDescribeCdnConfigOutput(object):
         self._compression_format = None
         self._compression_target = None
         self._compression_type = None
+        self._max_file_size_kb = None
         self._min_file_size_kb = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class CompressionActionForDescribeCdnConfigOutput(object):
             self.compression_target = compression_target
         if compression_type is not None:
             self.compression_type = compression_type
+        if max_file_size_kb is not None:
+            self.max_file_size_kb = max_file_size_kb
         if min_file_size_kb is not None:
             self.min_file_size_kb = min_file_size_kb
 
@@ -129,6 +134,27 @@ class CompressionActionForDescribeCdnConfigOutput(object):
         """
 
         self._compression_type = compression_type
+
+    @property
+    def max_file_size_kb(self):
+        """Gets the max_file_size_kb of this CompressionActionForDescribeCdnConfigOutput.  # noqa: E501
+
+
+        :return: The max_file_size_kb of this CompressionActionForDescribeCdnConfigOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_file_size_kb
+
+    @max_file_size_kb.setter
+    def max_file_size_kb(self, max_file_size_kb):
+        """Sets the max_file_size_kb of this CompressionActionForDescribeCdnConfigOutput.
+
+
+        :param max_file_size_kb: The max_file_size_kb of this CompressionActionForDescribeCdnConfigOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_file_size_kb = max_file_size_kb
 
     @property
     def min_file_size_kb(self):

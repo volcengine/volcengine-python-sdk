@@ -52,7 +52,9 @@ class UpdateCdnConfigRequest(object):
         'ip_access_rule': 'IpAccessRuleForUpdateCdnConfigInput',
         'ip_freq_limit': 'IpFreqLimitForUpdateCdnConfigInput',
         'method_denied_rule': 'MethodDeniedRuleForUpdateCdnConfigInput',
+        'multi_range': 'MultiRangeForUpdateCdnConfigInput',
         'negative_cache': 'list[NegativeCacheForUpdateCdnConfigInput]',
+        'offline_cache': 'OfflineCacheForUpdateCdnConfigInput',
         'origin': 'list[OriginForUpdateCdnConfigInput]',
         'origin_access_rule': 'OriginAccessRuleForUpdateCdnConfigInput',
         'origin_arg': 'list[OriginArgForUpdateCdnConfigInput]',
@@ -72,6 +74,7 @@ class UpdateCdnConfigRequest(object):
         'request_block_rule': 'RequestBlockRuleForUpdateCdnConfigInput',
         'request_header': 'list[RequestHeaderForUpdateCdnConfigInput]',
         'response_header': 'list[ResponseHeaderForUpdateCdnConfigInput]',
+        'rewrite_hls': 'RewriteHLSForUpdateCdnConfigInput',
         'service_region': 'str',
         'signed_url_auth': 'SignedUrlAuthForUpdateCdnConfigInput',
         'timeout': 'TimeoutForUpdateCdnConfigInput',
@@ -100,7 +103,9 @@ class UpdateCdnConfigRequest(object):
         'ip_access_rule': 'IpAccessRule',
         'ip_freq_limit': 'IpFreqLimit',
         'method_denied_rule': 'MethodDeniedRule',
+        'multi_range': 'MultiRange',
         'negative_cache': 'NegativeCache',
+        'offline_cache': 'OfflineCache',
         'origin': 'Origin',
         'origin_access_rule': 'OriginAccessRule',
         'origin_arg': 'OriginArg',
@@ -120,6 +125,7 @@ class UpdateCdnConfigRequest(object):
         'request_block_rule': 'RequestBlockRule',
         'request_header': 'RequestHeader',
         'response_header': 'ResponseHeader',
+        'rewrite_hls': 'RewriteHLS',
         'service_region': 'ServiceRegion',
         'signed_url_auth': 'SignedUrlAuth',
         'timeout': 'Timeout',
@@ -128,7 +134,7 @@ class UpdateCdnConfigRequest(object):
         'video_drag': 'VideoDrag'
     }
 
-    def __init__(self, area_access_rule=None, bandwidth_limit=None, browser_cache=None, cache=None, cache_host=None, cache_key=None, compression=None, conditional_origin=None, custom_error_page=None, customize_access_rule=None, domain=None, download_speed_limit=None, follow_redirect=None, https=None, http_forced_redirect=None, ipv6=None, ip_access_rule=None, ip_freq_limit=None, method_denied_rule=None, negative_cache=None, origin=None, origin_access_rule=None, origin_arg=None, origin_cert_check=None, origin_host=None, origin_ipv6=None, origin_protocol=None, origin_range=None, origin_retry=None, origin_rewrite=None, origin_sni=None, page_optimization=None, quic=None, redirection_rewrite=None, referer_access_rule=None, remote_auth=None, request_block_rule=None, request_header=None, response_header=None, service_region=None, signed_url_auth=None, timeout=None, ua_access_rule=None, url_normalize=None, video_drag=None, _configuration=None):  # noqa: E501
+    def __init__(self, area_access_rule=None, bandwidth_limit=None, browser_cache=None, cache=None, cache_host=None, cache_key=None, compression=None, conditional_origin=None, custom_error_page=None, customize_access_rule=None, domain=None, download_speed_limit=None, follow_redirect=None, https=None, http_forced_redirect=None, ipv6=None, ip_access_rule=None, ip_freq_limit=None, method_denied_rule=None, multi_range=None, negative_cache=None, offline_cache=None, origin=None, origin_access_rule=None, origin_arg=None, origin_cert_check=None, origin_host=None, origin_ipv6=None, origin_protocol=None, origin_range=None, origin_retry=None, origin_rewrite=None, origin_sni=None, page_optimization=None, quic=None, redirection_rewrite=None, referer_access_rule=None, remote_auth=None, request_block_rule=None, request_header=None, response_header=None, rewrite_hls=None, service_region=None, signed_url_auth=None, timeout=None, ua_access_rule=None, url_normalize=None, video_drag=None, _configuration=None):  # noqa: E501
         """UpdateCdnConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -153,7 +159,9 @@ class UpdateCdnConfigRequest(object):
         self._ip_access_rule = None
         self._ip_freq_limit = None
         self._method_denied_rule = None
+        self._multi_range = None
         self._negative_cache = None
+        self._offline_cache = None
         self._origin = None
         self._origin_access_rule = None
         self._origin_arg = None
@@ -173,6 +181,7 @@ class UpdateCdnConfigRequest(object):
         self._request_block_rule = None
         self._request_header = None
         self._response_header = None
+        self._rewrite_hls = None
         self._service_region = None
         self._signed_url_auth = None
         self._timeout = None
@@ -218,8 +227,12 @@ class UpdateCdnConfigRequest(object):
             self.ip_freq_limit = ip_freq_limit
         if method_denied_rule is not None:
             self.method_denied_rule = method_denied_rule
+        if multi_range is not None:
+            self.multi_range = multi_range
         if negative_cache is not None:
             self.negative_cache = negative_cache
+        if offline_cache is not None:
+            self.offline_cache = offline_cache
         if origin is not None:
             self.origin = origin
         if origin_access_rule is not None:
@@ -258,6 +271,8 @@ class UpdateCdnConfigRequest(object):
             self.request_header = request_header
         if response_header is not None:
             self.response_header = response_header
+        if rewrite_hls is not None:
+            self.rewrite_hls = rewrite_hls
         if service_region is not None:
             self.service_region = service_region
         if signed_url_auth is not None:
@@ -673,6 +688,27 @@ class UpdateCdnConfigRequest(object):
         self._method_denied_rule = method_denied_rule
 
     @property
+    def multi_range(self):
+        """Gets the multi_range of this UpdateCdnConfigRequest.  # noqa: E501
+
+
+        :return: The multi_range of this UpdateCdnConfigRequest.  # noqa: E501
+        :rtype: MultiRangeForUpdateCdnConfigInput
+        """
+        return self._multi_range
+
+    @multi_range.setter
+    def multi_range(self, multi_range):
+        """Sets the multi_range of this UpdateCdnConfigRequest.
+
+
+        :param multi_range: The multi_range of this UpdateCdnConfigRequest.  # noqa: E501
+        :type: MultiRangeForUpdateCdnConfigInput
+        """
+
+        self._multi_range = multi_range
+
+    @property
     def negative_cache(self):
         """Gets the negative_cache of this UpdateCdnConfigRequest.  # noqa: E501
 
@@ -692,6 +728,27 @@ class UpdateCdnConfigRequest(object):
         """
 
         self._negative_cache = negative_cache
+
+    @property
+    def offline_cache(self):
+        """Gets the offline_cache of this UpdateCdnConfigRequest.  # noqa: E501
+
+
+        :return: The offline_cache of this UpdateCdnConfigRequest.  # noqa: E501
+        :rtype: OfflineCacheForUpdateCdnConfigInput
+        """
+        return self._offline_cache
+
+    @offline_cache.setter
+    def offline_cache(self, offline_cache):
+        """Sets the offline_cache of this UpdateCdnConfigRequest.
+
+
+        :param offline_cache: The offline_cache of this UpdateCdnConfigRequest.  # noqa: E501
+        :type: OfflineCacheForUpdateCdnConfigInput
+        """
+
+        self._offline_cache = offline_cache
 
     @property
     def origin(self):
@@ -1091,6 +1148,27 @@ class UpdateCdnConfigRequest(object):
         """
 
         self._response_header = response_header
+
+    @property
+    def rewrite_hls(self):
+        """Gets the rewrite_hls of this UpdateCdnConfigRequest.  # noqa: E501
+
+
+        :return: The rewrite_hls of this UpdateCdnConfigRequest.  # noqa: E501
+        :rtype: RewriteHLSForUpdateCdnConfigInput
+        """
+        return self._rewrite_hls
+
+    @rewrite_hls.setter
+    def rewrite_hls(self, rewrite_hls):
+        """Sets the rewrite_hls of this UpdateCdnConfigRequest.
+
+
+        :param rewrite_hls: The rewrite_hls of this UpdateCdnConfigRequest.  # noqa: E501
+        :type: RewriteHLSForUpdateCdnConfigInput
+        """
+
+        self._rewrite_hls = rewrite_hls
 
     @property
     def service_region(self):
