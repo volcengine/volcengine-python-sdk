@@ -33,34 +33,65 @@ class ObjectForCreateObjectGroupInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'dimension_conditions': 'DimensionConditionsForCreateObjectGroupInput',
         'dimensions': 'dict(str, list[str])',
         'namespace': 'str',
-        'region': 'str'
+        'region': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
+        'dimension_conditions': 'DimensionConditions',
         'dimensions': 'Dimensions',
         'namespace': 'Namespace',
-        'region': 'Region'
+        'region': 'Region',
+        'type': 'Type'
     }
 
-    def __init__(self, dimensions=None, namespace=None, region=None, _configuration=None):  # noqa: E501
+    def __init__(self, dimension_conditions=None, dimensions=None, namespace=None, region=None, type=None, _configuration=None):  # noqa: E501
         """ObjectForCreateObjectGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._dimension_conditions = None
         self._dimensions = None
         self._namespace = None
         self._region = None
+        self._type = None
         self.discriminator = None
 
+        if dimension_conditions is not None:
+            self.dimension_conditions = dimension_conditions
         if dimensions is not None:
             self.dimensions = dimensions
         if namespace is not None:
             self.namespace = namespace
         if region is not None:
             self.region = region
+        if type is not None:
+            self.type = type
+
+    @property
+    def dimension_conditions(self):
+        """Gets the dimension_conditions of this ObjectForCreateObjectGroupInput.  # noqa: E501
+
+
+        :return: The dimension_conditions of this ObjectForCreateObjectGroupInput.  # noqa: E501
+        :rtype: DimensionConditionsForCreateObjectGroupInput
+        """
+        return self._dimension_conditions
+
+    @dimension_conditions.setter
+    def dimension_conditions(self, dimension_conditions):
+        """Sets the dimension_conditions of this ObjectForCreateObjectGroupInput.
+
+
+        :param dimension_conditions: The dimension_conditions of this ObjectForCreateObjectGroupInput.  # noqa: E501
+        :type: DimensionConditionsForCreateObjectGroupInput
+        """
+
+        self._dimension_conditions = dimension_conditions
 
     @property
     def dimensions(self):
@@ -124,6 +155,27 @@ class ObjectForCreateObjectGroupInput(object):
         """
 
         self._region = region
+
+    @property
+    def type(self):
+        """Gets the type of this ObjectForCreateObjectGroupInput.  # noqa: E501
+
+
+        :return: The type of this ObjectForCreateObjectGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ObjectForCreateObjectGroupInput.
+
+
+        :param type: The type of this ObjectForCreateObjectGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

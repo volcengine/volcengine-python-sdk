@@ -76,16 +76,13 @@ class GetMetricDataRequest(object):
             self.group_by = group_by
         if instances is not None:
             self.instances = instances
-        if metric_name is not None:
-            self.metric_name = metric_name
-        if namespace is not None:
-            self.namespace = namespace
+        self.metric_name = metric_name
+        self.namespace = namespace
         if period is not None:
             self.period = period
         if start_time is not None:
             self.start_time = start_time
-        if sub_namespace is not None:
-            self.sub_namespace = sub_namespace
+        self.sub_namespace = sub_namespace
 
     @property
     def end_time(self):
@@ -168,6 +165,8 @@ class GetMetricDataRequest(object):
         :param metric_name: The metric_name of this GetMetricDataRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and metric_name is None:
+            raise ValueError("Invalid value for `metric_name`, must not be `None`")  # noqa: E501
 
         self._metric_name = metric_name
 
@@ -189,6 +188,8 @@ class GetMetricDataRequest(object):
         :param namespace: The namespace of this GetMetricDataRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and namespace is None:
+            raise ValueError("Invalid value for `namespace`, must not be `None`")  # noqa: E501
 
         self._namespace = namespace
 
@@ -252,6 +253,8 @@ class GetMetricDataRequest(object):
         :param sub_namespace: The sub_namespace of this GetMetricDataRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and sub_namespace is None:
+            raise ValueError("Invalid value for `sub_namespace`, must not be `None`")  # noqa: E501
 
         self._sub_namespace = sub_namespace
 

@@ -40,7 +40,6 @@ class ListWebhooksRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'rule_id': 'str',
-        'total_count': 'int',
         'type': 'str',
         'url': 'str'
     }
@@ -53,12 +52,11 @@ class ListWebhooksRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'rule_id': 'RuleId',
-        'total_count': 'TotalCount',
         'type': 'Type',
         'url': 'Url'
     }
 
-    def __init__(self, asc=None, event_rule_id=None, name=None, order_by=None, page_number=None, page_size=None, rule_id=None, total_count=None, type=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, asc=None, event_rule_id=None, name=None, order_by=None, page_number=None, page_size=None, rule_id=None, type=None, url=None, _configuration=None):  # noqa: E501
         """ListWebhooksRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,7 +69,6 @@ class ListWebhooksRequest(object):
         self._page_number = None
         self._page_size = None
         self._rule_id = None
-        self._total_count = None
         self._type = None
         self._url = None
         self.discriminator = None
@@ -90,8 +87,6 @@ class ListWebhooksRequest(object):
             self.page_size = page_size
         if rule_id is not None:
             self.rule_id = rule_id
-        if total_count is not None:
-            self.total_count = total_count
         if type is not None:
             self.type = type
         if url is not None:
@@ -243,27 +238,6 @@ class ListWebhooksRequest(object):
         """
 
         self._rule_id = rule_id
-
-    @property
-    def total_count(self):
-        """Gets the total_count of this ListWebhooksRequest.  # noqa: E501
-
-
-        :return: The total_count of this ListWebhooksRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._total_count
-
-    @total_count.setter
-    def total_count(self, total_count):
-        """Sets the total_count of this ListWebhooksRequest.
-
-
-        :param total_count: The total_count of this ListWebhooksRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._total_count = total_count
 
     @property
     def type(self):
