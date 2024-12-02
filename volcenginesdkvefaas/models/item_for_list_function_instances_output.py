@@ -38,7 +38,10 @@ class ItemForListFunctionInstancesOutput(object):
         'id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
-        'revision_number': 'int'
+        'instance_type': 'str',
+        'revision_number': 'int',
+        'user_vpc_ip': 'str',
+        'user_vpc_ipv6': 'str'
     }
 
     attribute_map = {
@@ -47,10 +50,13 @@ class ItemForListFunctionInstancesOutput(object):
         'id': 'Id',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
-        'revision_number': 'RevisionNumber'
+        'instance_type': 'InstanceType',
+        'revision_number': 'RevisionNumber',
+        'user_vpc_ip': 'UserVpcIP',
+        'user_vpc_ipv6': 'UserVpcIPv6'
     }
 
-    def __init__(self, availability_zone=None, creation_time=None, id=None, instance_name=None, instance_status=None, revision_number=None, _configuration=None):  # noqa: E501
+    def __init__(self, availability_zone=None, creation_time=None, id=None, instance_name=None, instance_status=None, instance_type=None, revision_number=None, user_vpc_ip=None, user_vpc_ipv6=None, _configuration=None):  # noqa: E501
         """ItemForListFunctionInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +67,10 @@ class ItemForListFunctionInstancesOutput(object):
         self._id = None
         self._instance_name = None
         self._instance_status = None
+        self._instance_type = None
         self._revision_number = None
+        self._user_vpc_ip = None
+        self._user_vpc_ipv6 = None
         self.discriminator = None
 
         if availability_zone is not None:
@@ -74,8 +83,14 @@ class ItemForListFunctionInstancesOutput(object):
             self.instance_name = instance_name
         if instance_status is not None:
             self.instance_status = instance_status
+        if instance_type is not None:
+            self.instance_type = instance_type
         if revision_number is not None:
             self.revision_number = revision_number
+        if user_vpc_ip is not None:
+            self.user_vpc_ip = user_vpc_ip
+        if user_vpc_ipv6 is not None:
+            self.user_vpc_ipv6 = user_vpc_ipv6
 
     @property
     def availability_zone(self):
@@ -183,6 +198,27 @@ class ItemForListFunctionInstancesOutput(object):
         self._instance_status = instance_status
 
     @property
+    def instance_type(self):
+        """Gets the instance_type of this ItemForListFunctionInstancesOutput.  # noqa: E501
+
+
+        :return: The instance_type of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this ItemForListFunctionInstancesOutput.
+
+
+        :param instance_type: The instance_type of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type = instance_type
+
+    @property
     def revision_number(self):
         """Gets the revision_number of this ItemForListFunctionInstancesOutput.  # noqa: E501
 
@@ -202,6 +238,48 @@ class ItemForListFunctionInstancesOutput(object):
         """
 
         self._revision_number = revision_number
+
+    @property
+    def user_vpc_ip(self):
+        """Gets the user_vpc_ip of this ItemForListFunctionInstancesOutput.  # noqa: E501
+
+
+        :return: The user_vpc_ip of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_vpc_ip
+
+    @user_vpc_ip.setter
+    def user_vpc_ip(self, user_vpc_ip):
+        """Sets the user_vpc_ip of this ItemForListFunctionInstancesOutput.
+
+
+        :param user_vpc_ip: The user_vpc_ip of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._user_vpc_ip = user_vpc_ip
+
+    @property
+    def user_vpc_ipv6(self):
+        """Gets the user_vpc_ipv6 of this ItemForListFunctionInstancesOutput.  # noqa: E501
+
+
+        :return: The user_vpc_ipv6 of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_vpc_ipv6
+
+    @user_vpc_ipv6.setter
+    def user_vpc_ipv6(self, user_vpc_ipv6):
+        """Sets the user_vpc_ipv6 of this ItemForListFunctionInstancesOutput.
+
+
+        :param user_vpc_ipv6: The user_vpc_ipv6 of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._user_vpc_ipv6 = user_vpc_ipv6
 
     def to_dict(self):
         """Returns the model properties as a dict"""
