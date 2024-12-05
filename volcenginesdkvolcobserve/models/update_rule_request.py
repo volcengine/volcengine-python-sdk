@@ -38,6 +38,7 @@ class UpdateRuleRequest(object):
         'conditions': 'list[ConditionForUpdateRuleInput]',
         'contact_group_ids': 'list[str]',
         'description': 'str',
+        'dimension_conditions': 'DimensionConditionsForUpdateRuleInput',
         'effect_end_at': 'str',
         'effect_start_at': 'str',
         'enable_state': 'str',
@@ -64,6 +65,7 @@ class UpdateRuleRequest(object):
         'conditions': 'Conditions',
         'contact_group_ids': 'ContactGroupIds',
         'description': 'Description',
+        'dimension_conditions': 'DimensionConditions',
         'effect_end_at': 'EffectEndAt',
         'effect_start_at': 'EffectStartAt',
         'enable_state': 'EnableState',
@@ -84,7 +86,7 @@ class UpdateRuleRequest(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, multiple_conditions=None, namespace=None, no_data=None, original_dimensions=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, multiple_conditions=None, namespace=None, no_data=None, original_dimensions=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """UpdateRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +97,7 @@ class UpdateRuleRequest(object):
         self._conditions = None
         self._contact_group_ids = None
         self._description = None
+        self._dimension_conditions = None
         self._effect_end_at = None
         self._effect_start_at = None
         self._enable_state = None
@@ -125,6 +128,8 @@ class UpdateRuleRequest(object):
             self.contact_group_ids = contact_group_ids
         if description is not None:
             self.description = description
+        if dimension_conditions is not None:
+            self.dimension_conditions = dimension_conditions
         self.effect_end_at = effect_end_at
         self.effect_start_at = effect_start_at
         self.enable_state = enable_state
@@ -263,6 +268,27 @@ class UpdateRuleRequest(object):
         """
 
         self._description = description
+
+    @property
+    def dimension_conditions(self):
+        """Gets the dimension_conditions of this UpdateRuleRequest.  # noqa: E501
+
+
+        :return: The dimension_conditions of this UpdateRuleRequest.  # noqa: E501
+        :rtype: DimensionConditionsForUpdateRuleInput
+        """
+        return self._dimension_conditions
+
+    @dimension_conditions.setter
+    def dimension_conditions(self, dimension_conditions):
+        """Sets the dimension_conditions of this UpdateRuleRequest.
+
+
+        :param dimension_conditions: The dimension_conditions of this UpdateRuleRequest.  # noqa: E501
+        :type: DimensionConditionsForUpdateRuleInput
+        """
+
+        self._dimension_conditions = dimension_conditions
 
     @property
     def effect_end_at(self):
@@ -573,7 +599,7 @@ class UpdateRuleRequest(object):
         """
         if self._configuration.client_side_validation and rule_type is None:
             raise ValueError("Invalid value for `rule_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["static"]  # noqa: E501
+        allowed_values = ["static", "dynamic"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 rule_type not in allowed_values):
             raise ValueError(

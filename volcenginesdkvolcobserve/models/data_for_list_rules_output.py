@@ -40,6 +40,7 @@ class DataForListRulesOutput(object):
         'contact_group_ids': 'list[str]',
         'created_at': 'str',
         'description': 'str',
+        'dimension_conditions': 'DimensionConditionsForListRulesOutput',
         'effect_end_at': 'str',
         'effect_start_at': 'str',
         'enable_state': 'str',
@@ -52,6 +53,7 @@ class DataForListRulesOutput(object):
         'recovery_notify': 'RecoveryNotifyForListRulesOutput',
         'regions': 'list[str]',
         'rule_name': 'str',
+        'rule_type': 'str',
         'silence_time': 'int',
         'sub_namespace': 'str',
         'updated_at': 'str',
@@ -67,6 +69,7 @@ class DataForListRulesOutput(object):
         'contact_group_ids': 'ContactGroupIds',
         'created_at': 'CreatedAt',
         'description': 'Description',
+        'dimension_conditions': 'DimensionConditions',
         'effect_end_at': 'EffectEndAt',
         'effect_start_at': 'EffectStartAt',
         'enable_state': 'EnableState',
@@ -79,6 +82,7 @@ class DataForListRulesOutput(object):
         'recovery_notify': 'RecoveryNotify',
         'regions': 'Regions',
         'rule_name': 'RuleName',
+        'rule_type': 'RuleType',
         'silence_time': 'SilenceTime',
         'sub_namespace': 'SubNamespace',
         'updated_at': 'UpdatedAt',
@@ -86,7 +90,7 @@ class DataForListRulesOutput(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, multiple_conditions=None, namespace=None, original_dimensions=None, recovery_notify=None, regions=None, rule_name=None, silence_time=None, sub_namespace=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, multiple_conditions=None, namespace=None, original_dimensions=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """DataForListRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -99,6 +103,7 @@ class DataForListRulesOutput(object):
         self._contact_group_ids = None
         self._created_at = None
         self._description = None
+        self._dimension_conditions = None
         self._effect_end_at = None
         self._effect_start_at = None
         self._enable_state = None
@@ -111,6 +116,7 @@ class DataForListRulesOutput(object):
         self._recovery_notify = None
         self._regions = None
         self._rule_name = None
+        self._rule_type = None
         self._silence_time = None
         self._sub_namespace = None
         self._updated_at = None
@@ -132,6 +138,8 @@ class DataForListRulesOutput(object):
             self.created_at = created_at
         if description is not None:
             self.description = description
+        if dimension_conditions is not None:
+            self.dimension_conditions = dimension_conditions
         if effect_end_at is not None:
             self.effect_end_at = effect_end_at
         if effect_start_at is not None:
@@ -156,6 +164,8 @@ class DataForListRulesOutput(object):
             self.regions = regions
         if rule_name is not None:
             self.rule_name = rule_name
+        if rule_type is not None:
+            self.rule_type = rule_type
         if silence_time is not None:
             self.silence_time = silence_time
         if sub_namespace is not None:
@@ -313,6 +323,27 @@ class DataForListRulesOutput(object):
         """
 
         self._description = description
+
+    @property
+    def dimension_conditions(self):
+        """Gets the dimension_conditions of this DataForListRulesOutput.  # noqa: E501
+
+
+        :return: The dimension_conditions of this DataForListRulesOutput.  # noqa: E501
+        :rtype: DimensionConditionsForListRulesOutput
+        """
+        return self._dimension_conditions
+
+    @dimension_conditions.setter
+    def dimension_conditions(self, dimension_conditions):
+        """Sets the dimension_conditions of this DataForListRulesOutput.
+
+
+        :param dimension_conditions: The dimension_conditions of this DataForListRulesOutput.  # noqa: E501
+        :type: DimensionConditionsForListRulesOutput
+        """
+
+        self._dimension_conditions = dimension_conditions
 
     @property
     def effect_end_at(self):
@@ -565,6 +596,27 @@ class DataForListRulesOutput(object):
         """
 
         self._rule_name = rule_name
+
+    @property
+    def rule_type(self):
+        """Gets the rule_type of this DataForListRulesOutput.  # noqa: E501
+
+
+        :return: The rule_type of this DataForListRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._rule_type
+
+    @rule_type.setter
+    def rule_type(self, rule_type):
+        """Sets the rule_type of this DataForListRulesOutput.
+
+
+        :param rule_type: The rule_type of this DataForListRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._rule_type = rule_type
 
     @property
     def silence_time(self):

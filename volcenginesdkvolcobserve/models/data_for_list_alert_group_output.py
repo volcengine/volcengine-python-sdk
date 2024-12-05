@@ -33,97 +33,74 @@ class DataForListAlertGroupOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'alert_count': 'int',
         'alert_state': 'str',
+        'alert_type': 'str',
         'dimension': 'str',
         'duration': 'str',
         'end_at': 'str',
-        'id': 'str',
         'level': 'str',
         'namespace': 'str',
         'region': 'str',
         'resource_id': 'str',
         'resource_name': 'str',
-        'resource_status': 'str',
-        'resource_status_cn': 'str',
-        'resource_tags': 'list[ResourceTagForListAlertGroupOutput]',
         'resource_type': 'str',
         'rule_id': 'str',
         'rule_name': 'str',
-        'rule_status': 'str',
-        'rule_trigger_condition': 'str',
-        'send_alert_count': 'int',
         'start_at': 'str',
         'sub_namespace': 'str'
     }
 
     attribute_map = {
-        'alert_count': 'AlertCount',
         'alert_state': 'AlertState',
+        'alert_type': 'AlertType',
         'dimension': 'Dimension',
         'duration': 'Duration',
         'end_at': 'EndAt',
-        'id': 'Id',
         'level': 'Level',
         'namespace': 'Namespace',
         'region': 'Region',
         'resource_id': 'ResourceId',
         'resource_name': 'ResourceName',
-        'resource_status': 'ResourceStatus',
-        'resource_status_cn': 'ResourceStatusCN',
-        'resource_tags': 'ResourceTags',
         'resource_type': 'ResourceType',
         'rule_id': 'RuleId',
         'rule_name': 'RuleName',
-        'rule_status': 'RuleStatus',
-        'rule_trigger_condition': 'RuleTriggerCondition',
-        'send_alert_count': 'SendAlertCount',
         'start_at': 'StartAt',
         'sub_namespace': 'SubNamespace'
     }
 
-    def __init__(self, alert_count=None, alert_state=None, dimension=None, duration=None, end_at=None, id=None, level=None, namespace=None, region=None, resource_id=None, resource_name=None, resource_status=None, resource_status_cn=None, resource_tags=None, resource_type=None, rule_id=None, rule_name=None, rule_status=None, rule_trigger_condition=None, send_alert_count=None, start_at=None, sub_namespace=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_state=None, alert_type=None, dimension=None, duration=None, end_at=None, level=None, namespace=None, region=None, resource_id=None, resource_name=None, resource_type=None, rule_id=None, rule_name=None, start_at=None, sub_namespace=None, _configuration=None):  # noqa: E501
         """DataForListAlertGroupOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._alert_count = None
         self._alert_state = None
+        self._alert_type = None
         self._dimension = None
         self._duration = None
         self._end_at = None
-        self._id = None
         self._level = None
         self._namespace = None
         self._region = None
         self._resource_id = None
         self._resource_name = None
-        self._resource_status = None
-        self._resource_status_cn = None
-        self._resource_tags = None
         self._resource_type = None
         self._rule_id = None
         self._rule_name = None
-        self._rule_status = None
-        self._rule_trigger_condition = None
-        self._send_alert_count = None
         self._start_at = None
         self._sub_namespace = None
         self.discriminator = None
 
-        if alert_count is not None:
-            self.alert_count = alert_count
         if alert_state is not None:
             self.alert_state = alert_state
+        if alert_type is not None:
+            self.alert_type = alert_type
         if dimension is not None:
             self.dimension = dimension
         if duration is not None:
             self.duration = duration
         if end_at is not None:
             self.end_at = end_at
-        if id is not None:
-            self.id = id
         if level is not None:
             self.level = level
         if namespace is not None:
@@ -134,49 +111,16 @@ class DataForListAlertGroupOutput(object):
             self.resource_id = resource_id
         if resource_name is not None:
             self.resource_name = resource_name
-        if resource_status is not None:
-            self.resource_status = resource_status
-        if resource_status_cn is not None:
-            self.resource_status_cn = resource_status_cn
-        if resource_tags is not None:
-            self.resource_tags = resource_tags
         if resource_type is not None:
             self.resource_type = resource_type
         if rule_id is not None:
             self.rule_id = rule_id
         if rule_name is not None:
             self.rule_name = rule_name
-        if rule_status is not None:
-            self.rule_status = rule_status
-        if rule_trigger_condition is not None:
-            self.rule_trigger_condition = rule_trigger_condition
-        if send_alert_count is not None:
-            self.send_alert_count = send_alert_count
         if start_at is not None:
             self.start_at = start_at
         if sub_namespace is not None:
             self.sub_namespace = sub_namespace
-
-    @property
-    def alert_count(self):
-        """Gets the alert_count of this DataForListAlertGroupOutput.  # noqa: E501
-
-
-        :return: The alert_count of this DataForListAlertGroupOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._alert_count
-
-    @alert_count.setter
-    def alert_count(self, alert_count):
-        """Sets the alert_count of this DataForListAlertGroupOutput.
-
-
-        :param alert_count: The alert_count of this DataForListAlertGroupOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._alert_count = alert_count
 
     @property
     def alert_state(self):
@@ -198,6 +142,27 @@ class DataForListAlertGroupOutput(object):
         """
 
         self._alert_state = alert_state
+
+    @property
+    def alert_type(self):
+        """Gets the alert_type of this DataForListAlertGroupOutput.  # noqa: E501
+
+
+        :return: The alert_type of this DataForListAlertGroupOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._alert_type
+
+    @alert_type.setter
+    def alert_type(self, alert_type):
+        """Sets the alert_type of this DataForListAlertGroupOutput.
+
+
+        :param alert_type: The alert_type of this DataForListAlertGroupOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._alert_type = alert_type
 
     @property
     def dimension(self):
@@ -261,27 +226,6 @@ class DataForListAlertGroupOutput(object):
         """
 
         self._end_at = end_at
-
-    @property
-    def id(self):
-        """Gets the id of this DataForListAlertGroupOutput.  # noqa: E501
-
-
-        :return: The id of this DataForListAlertGroupOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this DataForListAlertGroupOutput.
-
-
-        :param id: The id of this DataForListAlertGroupOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def level(self):
@@ -389,69 +333,6 @@ class DataForListAlertGroupOutput(object):
         self._resource_name = resource_name
 
     @property
-    def resource_status(self):
-        """Gets the resource_status of this DataForListAlertGroupOutput.  # noqa: E501
-
-
-        :return: The resource_status of this DataForListAlertGroupOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_status
-
-    @resource_status.setter
-    def resource_status(self, resource_status):
-        """Sets the resource_status of this DataForListAlertGroupOutput.
-
-
-        :param resource_status: The resource_status of this DataForListAlertGroupOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_status = resource_status
-
-    @property
-    def resource_status_cn(self):
-        """Gets the resource_status_cn of this DataForListAlertGroupOutput.  # noqa: E501
-
-
-        :return: The resource_status_cn of this DataForListAlertGroupOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_status_cn
-
-    @resource_status_cn.setter
-    def resource_status_cn(self, resource_status_cn):
-        """Sets the resource_status_cn of this DataForListAlertGroupOutput.
-
-
-        :param resource_status_cn: The resource_status_cn of this DataForListAlertGroupOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_status_cn = resource_status_cn
-
-    @property
-    def resource_tags(self):
-        """Gets the resource_tags of this DataForListAlertGroupOutput.  # noqa: E501
-
-
-        :return: The resource_tags of this DataForListAlertGroupOutput.  # noqa: E501
-        :rtype: list[ResourceTagForListAlertGroupOutput]
-        """
-        return self._resource_tags
-
-    @resource_tags.setter
-    def resource_tags(self, resource_tags):
-        """Sets the resource_tags of this DataForListAlertGroupOutput.
-
-
-        :param resource_tags: The resource_tags of this DataForListAlertGroupOutput.  # noqa: E501
-        :type: list[ResourceTagForListAlertGroupOutput]
-        """
-
-        self._resource_tags = resource_tags
-
-    @property
     def resource_type(self):
         """Gets the resource_type of this DataForListAlertGroupOutput.  # noqa: E501
 
@@ -513,69 +394,6 @@ class DataForListAlertGroupOutput(object):
         """
 
         self._rule_name = rule_name
-
-    @property
-    def rule_status(self):
-        """Gets the rule_status of this DataForListAlertGroupOutput.  # noqa: E501
-
-
-        :return: The rule_status of this DataForListAlertGroupOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._rule_status
-
-    @rule_status.setter
-    def rule_status(self, rule_status):
-        """Sets the rule_status of this DataForListAlertGroupOutput.
-
-
-        :param rule_status: The rule_status of this DataForListAlertGroupOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._rule_status = rule_status
-
-    @property
-    def rule_trigger_condition(self):
-        """Gets the rule_trigger_condition of this DataForListAlertGroupOutput.  # noqa: E501
-
-
-        :return: The rule_trigger_condition of this DataForListAlertGroupOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._rule_trigger_condition
-
-    @rule_trigger_condition.setter
-    def rule_trigger_condition(self, rule_trigger_condition):
-        """Sets the rule_trigger_condition of this DataForListAlertGroupOutput.
-
-
-        :param rule_trigger_condition: The rule_trigger_condition of this DataForListAlertGroupOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._rule_trigger_condition = rule_trigger_condition
-
-    @property
-    def send_alert_count(self):
-        """Gets the send_alert_count of this DataForListAlertGroupOutput.  # noqa: E501
-
-
-        :return: The send_alert_count of this DataForListAlertGroupOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._send_alert_count
-
-    @send_alert_count.setter
-    def send_alert_count(self, send_alert_count):
-        """Sets the send_alert_count of this DataForListAlertGroupOutput.
-
-
-        :param send_alert_count: The send_alert_count of this DataForListAlertGroupOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._send_alert_count = send_alert_count
 
     @property
     def start_at(self):
