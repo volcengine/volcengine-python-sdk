@@ -33,34 +33,24 @@ class ListWebhooksByIdsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[DataForListWebhooksByIdsOutput]',
-        'page_number': 'int',
-        'page_size': 'int'
+        'data': 'list[DataForListWebhooksByIdsOutput]'
     }
 
     attribute_map = {
-        'data': 'Data',
-        'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'data': 'Data'
     }
 
-    def __init__(self, data=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """ListWebhooksByIdsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._data = None
-        self._page_number = None
-        self._page_size = None
         self.discriminator = None
 
         if data is not None:
             self.data = data
-        if page_number is not None:
-            self.page_number = page_number
-        if page_size is not None:
-            self.page_size = page_size
 
     @property
     def data(self):
@@ -82,48 +72,6 @@ class ListWebhooksByIdsResponse(object):
         """
 
         self._data = data
-
-    @property
-    def page_number(self):
-        """Gets the page_number of this ListWebhooksByIdsResponse.  # noqa: E501
-
-
-        :return: The page_number of this ListWebhooksByIdsResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_number
-
-    @page_number.setter
-    def page_number(self, page_number):
-        """Sets the page_number of this ListWebhooksByIdsResponse.
-
-
-        :param page_number: The page_number of this ListWebhooksByIdsResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._page_number = page_number
-
-    @property
-    def page_size(self):
-        """Gets the page_size of this ListWebhooksByIdsResponse.  # noqa: E501
-
-
-        :return: The page_size of this ListWebhooksByIdsResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_size
-
-    @page_size.setter
-    def page_size(self, page_size):
-        """Sets the page_size of this ListWebhooksByIdsResponse.
-
-
-        :param page_size: The page_size of this ListWebhooksByIdsResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._page_size = page_size
 
     def to_dict(self):
         """Returns the model properties as a dict"""

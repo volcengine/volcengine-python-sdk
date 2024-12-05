@@ -33,6 +33,7 @@ class ObjectForListObjectGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'dimension_conditions': 'str',
         'dimensions': 'dict(str, list[str])',
         'id': 'str',
         'namespace': 'str',
@@ -41,6 +42,7 @@ class ObjectForListObjectGroupsOutput(object):
     }
 
     attribute_map = {
+        'dimension_conditions': 'DimensionConditions',
         'dimensions': 'Dimensions',
         'id': 'Id',
         'namespace': 'Namespace',
@@ -48,12 +50,13 @@ class ObjectForListObjectGroupsOutput(object):
         'type': 'Type'
     }
 
-    def __init__(self, dimensions=None, id=None, namespace=None, region=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, dimension_conditions=None, dimensions=None, id=None, namespace=None, region=None, type=None, _configuration=None):  # noqa: E501
         """ObjectForListObjectGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._dimension_conditions = None
         self._dimensions = None
         self._id = None
         self._namespace = None
@@ -61,6 +64,8 @@ class ObjectForListObjectGroupsOutput(object):
         self._type = None
         self.discriminator = None
 
+        if dimension_conditions is not None:
+            self.dimension_conditions = dimension_conditions
         if dimensions is not None:
             self.dimensions = dimensions
         if id is not None:
@@ -71,6 +76,27 @@ class ObjectForListObjectGroupsOutput(object):
             self.region = region
         if type is not None:
             self.type = type
+
+    @property
+    def dimension_conditions(self):
+        """Gets the dimension_conditions of this ObjectForListObjectGroupsOutput.  # noqa: E501
+
+
+        :return: The dimension_conditions of this ObjectForListObjectGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dimension_conditions
+
+    @dimension_conditions.setter
+    def dimension_conditions(self, dimension_conditions):
+        """Sets the dimension_conditions of this ObjectForListObjectGroupsOutput.
+
+
+        :param dimension_conditions: The dimension_conditions of this ObjectForListObjectGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._dimension_conditions = dimension_conditions
 
     @property
     def dimensions(self):
