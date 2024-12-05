@@ -12,10 +12,12 @@ __all__ = [
 
 
 class TruncationStrategy(TypedDict, total=False):
-    type: Required[Literal["last_history_tokens"]]
+    type: Required[Literal["last_history_tokens", "rolling_tokens"]]
     """The truncation strategy to use for the context. The default is last_history_tokens."""
     last_history_tokens: Optional[int]
     """The number of most recent tokens from the context when constructing the chat completion."""
+    rolling_tokens: Optional[bool]
+    """If true, the context will not rolling when reach the max tokens limit."""
 
 
 TTLTypes = Union[int, datetime.timedelta]

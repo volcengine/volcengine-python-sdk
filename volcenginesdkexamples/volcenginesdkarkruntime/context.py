@@ -19,14 +19,11 @@ if __name__ == "__main__":
     print("----- create context -----")
     response = client.context.create(
         model="${YOUR_ENDPOINT_ID}",
+        mode="session",
         messages=[
             {"role": "system", "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手"},
         ],
         ttl=datetime.timedelta(minutes=60),
-        truncation_strategy={
-            'type': 'last_history_tokens',
-            'last_history_tokens': 4096
-        }
     )
     print(response)
 
@@ -40,6 +37,7 @@ if __name__ == "__main__":
         stream=False
     )
     print(chat_response.choices[0].message.content)
+    print(chat_response.usage)
 
     print("----- chat round 2 (streaming) -----")
     stream = client.context.completions.create(
@@ -48,6 +46,9 @@ if __name__ == "__main__":
         messages=[
             {"role": "user", "content": "我是谁？"},
         ],
+        stream_options={
+            'include_usage': True,
+        },
         stream=True
     )
     for chunk in stream:
