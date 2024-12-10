@@ -49,6 +49,7 @@ class EndpointForDescribeVpcEndpointAttributesOutput(object):
         'private_dns_name': 'str',
         'project_name': 'str',
         'service_id': 'str',
+        'service_managed': 'bool',
         'service_name': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeVpcEndpointAttributesOutput]',
@@ -73,6 +74,7 @@ class EndpointForDescribeVpcEndpointAttributesOutput(object):
         'private_dns_name': 'PrivateDNSName',
         'project_name': 'ProjectName',
         'service_id': 'ServiceId',
+        'service_managed': 'ServiceManaged',
         'service_name': 'ServiceName',
         'status': 'Status',
         'tags': 'Tags',
@@ -80,7 +82,7 @@ class EndpointForDescribeVpcEndpointAttributesOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, business_status=None, connection_status=None, creation_time=None, deleted_time=None, description=None, endpoint_domain=None, endpoint_id=None, endpoint_index=None, endpoint_name=None, endpoint_type=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, project_name=None, service_id=None, service_name=None, status=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, business_status=None, connection_status=None, creation_time=None, deleted_time=None, description=None, endpoint_domain=None, endpoint_id=None, endpoint_index=None, endpoint_name=None, endpoint_type=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, project_name=None, service_id=None, service_managed=None, service_name=None, status=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """EndpointForDescribeVpcEndpointAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -102,6 +104,7 @@ class EndpointForDescribeVpcEndpointAttributesOutput(object):
         self._private_dns_name = None
         self._project_name = None
         self._service_id = None
+        self._service_managed = None
         self._service_name = None
         self._status = None
         self._tags = None
@@ -141,6 +144,8 @@ class EndpointForDescribeVpcEndpointAttributesOutput(object):
             self.project_name = project_name
         if service_id is not None:
             self.service_id = service_id
+        if service_managed is not None:
+            self.service_managed = service_managed
         if service_name is not None:
             self.service_name = service_name
         if status is not None:
@@ -487,6 +492,27 @@ class EndpointForDescribeVpcEndpointAttributesOutput(object):
         """
 
         self._service_id = service_id
+
+    @property
+    def service_managed(self):
+        """Gets the service_managed of this EndpointForDescribeVpcEndpointAttributesOutput.  # noqa: E501
+
+
+        :return: The service_managed of this EndpointForDescribeVpcEndpointAttributesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this EndpointForDescribeVpcEndpointAttributesOutput.
+
+
+        :param service_managed: The service_managed of this EndpointForDescribeVpcEndpointAttributesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._service_managed = service_managed
 
     @property
     def service_name(self):

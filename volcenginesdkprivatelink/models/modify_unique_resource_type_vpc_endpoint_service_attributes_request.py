@@ -38,7 +38,6 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
         'ip_address_versions': 'list[str]',
         'resource': 'ResourceForModifyUniqueResourceTypeVpcEndpointServiceAttributesInput',
         'service_id': 'str',
-        'zone_i_ds': 'str',
         'zone_ids': 'list[str]'
     }
 
@@ -48,11 +47,10 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
         'ip_address_versions': 'IpAddressVersions',
         'resource': 'Resource',
         'service_id': 'ServiceId',
-        'zone_i_ds': 'ZoneIDs',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_accept_enabled=None, description=None, ip_address_versions=None, resource=None, service_id=None, zone_i_ds=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_accept_enabled=None, description=None, ip_address_versions=None, resource=None, service_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,7 +61,6 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
         self._ip_address_versions = None
         self._resource = None
         self._service_id = None
-        self._zone_i_ds = None
         self._zone_ids = None
         self.discriminator = None
 
@@ -76,8 +73,6 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
         if resource is not None:
             self.resource = resource
         self.service_id = service_id
-        if zone_i_ds is not None:
-            self.zone_i_ds = zone_i_ds
         if zone_ids is not None:
             self.zone_ids = zone_ids
 
@@ -187,27 +182,6 @@ class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest(object):
             raise ValueError("Invalid value for `service_id`, must not be `None`")  # noqa: E501
 
         self._service_id = service_id
-
-    @property
-    def zone_i_ds(self):
-        """Gets the zone_i_ds of this ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.  # noqa: E501
-
-
-        :return: The zone_i_ds of this ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._zone_i_ds
-
-    @zone_i_ds.setter
-    def zone_i_ds(self, zone_i_ds):
-        """Sets the zone_i_ds of this ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.
-
-
-        :param zone_i_ds: The zone_i_ds of this ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._zone_i_ds = zone_i_ds
 
     @property
     def zone_ids(self):
