@@ -43,6 +43,7 @@ class CreateVpcEndpointServiceRequest(object):
         'private_dns_type': 'str',
         'project_name': 'str',
         'resources': 'list[ResourceForCreateVpcEndpointServiceInput]',
+        'service_name_managed': 'str',
         'service_name_suffix': 'str',
         'service_owner': 'str',
         'service_resource_type': 'str',
@@ -62,6 +63,7 @@ class CreateVpcEndpointServiceRequest(object):
         'private_dns_type': 'PrivateDNSType',
         'project_name': 'ProjectName',
         'resources': 'Resources',
+        'service_name_managed': 'ServiceNameManaged',
         'service_name_suffix': 'ServiceNameSuffix',
         'service_owner': 'ServiceOwner',
         'service_resource_type': 'ServiceResourceType',
@@ -70,7 +72,7 @@ class CreateVpcEndpointServiceRequest(object):
         'wildcard_domain_enabled': 'WildcardDomainEnabled'
     }
 
-    def __init__(self, auto_accept_enabled=None, client_token=None, description=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, private_dns_type=None, project_name=None, resources=None, service_name_suffix=None, service_owner=None, service_resource_type=None, service_type=None, tags=None, wildcard_domain_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_accept_enabled=None, client_token=None, description=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, private_dns_type=None, project_name=None, resources=None, service_name_managed=None, service_name_suffix=None, service_owner=None, service_resource_type=None, service_type=None, tags=None, wildcard_domain_enabled=None, _configuration=None):  # noqa: E501
         """CreateVpcEndpointServiceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class CreateVpcEndpointServiceRequest(object):
         self._private_dns_type = None
         self._project_name = None
         self._resources = None
+        self._service_name_managed = None
         self._service_name_suffix = None
         self._service_owner = None
         self._service_resource_type = None
@@ -114,6 +117,8 @@ class CreateVpcEndpointServiceRequest(object):
             self.project_name = project_name
         if resources is not None:
             self.resources = resources
+        if service_name_managed is not None:
+            self.service_name_managed = service_name_managed
         if service_name_suffix is not None:
             self.service_name_suffix = service_name_suffix
         if service_owner is not None:
@@ -336,6 +341,27 @@ class CreateVpcEndpointServiceRequest(object):
         """
 
         self._resources = resources
+
+    @property
+    def service_name_managed(self):
+        """Gets the service_name_managed of this CreateVpcEndpointServiceRequest.  # noqa: E501
+
+
+        :return: The service_name_managed of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_name_managed
+
+    @service_name_managed.setter
+    def service_name_managed(self, service_name_managed):
+        """Sets the service_name_managed of this CreateVpcEndpointServiceRequest.
+
+
+        :param service_name_managed: The service_name_managed of this CreateVpcEndpointServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_name_managed = service_name_managed
 
     @property
     def service_name_suffix(self):

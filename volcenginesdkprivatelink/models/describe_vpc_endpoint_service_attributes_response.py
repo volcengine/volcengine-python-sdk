@@ -49,6 +49,7 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         'service_domain': 'str',
         'service_id': 'str',
         'service_name': 'str',
+        'service_name_managed': 'str',
         'service_owner': 'str',
         'service_resource_type': 'str',
         'service_type': 'str',
@@ -77,6 +78,7 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         'service_domain': 'ServiceDomain',
         'service_id': 'ServiceId',
         'service_name': 'ServiceName',
+        'service_name_managed': 'ServiceNameManaged',
         'service_owner': 'ServiceOwner',
         'service_resource_type': 'ServiceResourceType',
         'service_type': 'ServiceType',
@@ -88,7 +90,7 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         'zone_ids_n': 'ZoneIds.N'
     }
 
-    def __init__(self, auto_accept_enabled=None, billing_type=None, business_status=None, creation_time=None, description=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, private_dns_name_configuration=None, private_dns_type=None, project_name=None, request_id=None, service_domain=None, service_id=None, service_name=None, service_owner=None, service_resource_type=None, service_type=None, status=None, tags=None, update_time=None, wildcard_domain_enabled=None, zone_ids=None, zone_ids_n=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_accept_enabled=None, billing_type=None, business_status=None, creation_time=None, description=None, ip_address_versions=None, payer=None, private_dns_enabled=None, private_dns_name=None, private_dns_name_configuration=None, private_dns_type=None, project_name=None, request_id=None, service_domain=None, service_id=None, service_name=None, service_name_managed=None, service_owner=None, service_resource_type=None, service_type=None, status=None, tags=None, update_time=None, wildcard_domain_enabled=None, zone_ids=None, zone_ids_n=None, _configuration=None):  # noqa: E501
         """DescribeVpcEndpointServiceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -110,6 +112,7 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         self._service_domain = None
         self._service_id = None
         self._service_name = None
+        self._service_name_managed = None
         self._service_owner = None
         self._service_resource_type = None
         self._service_type = None
@@ -153,6 +156,8 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
             self.service_id = service_id
         if service_name is not None:
             self.service_name = service_name
+        if service_name_managed is not None:
+            self.service_name_managed = service_name_managed
         if service_owner is not None:
             self.service_owner = service_owner
         if service_resource_type is not None:
@@ -507,6 +512,27 @@ class DescribeVpcEndpointServiceAttributesResponse(object):
         """
 
         self._service_name = service_name
+
+    @property
+    def service_name_managed(self):
+        """Gets the service_name_managed of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+
+
+        :return: The service_name_managed of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_name_managed
+
+    @service_name_managed.setter
+    def service_name_managed(self, service_name_managed):
+        """Sets the service_name_managed of this DescribeVpcEndpointServiceAttributesResponse.
+
+
+        :param service_name_managed: The service_name_managed of this DescribeVpcEndpointServiceAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._service_name_managed = service_name_managed
 
     @property
     def service_owner(self):

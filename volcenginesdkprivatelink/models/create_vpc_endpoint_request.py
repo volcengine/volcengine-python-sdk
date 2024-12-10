@@ -41,6 +41,7 @@ class CreateVpcEndpointRequest(object):
         'project_name': 'str',
         'security_group_ids': 'list[str]',
         'service_id': 'str',
+        'service_managed': 'bool',
         'service_name': 'str',
         'tags': 'list[TagForCreateVpcEndpointInput]',
         'vpc_id': 'str',
@@ -56,13 +57,14 @@ class CreateVpcEndpointRequest(object):
         'project_name': 'ProjectName',
         'security_group_ids': 'SecurityGroupIds',
         'service_id': 'ServiceId',
+        'service_managed': 'ServiceManaged',
         'service_name': 'ServiceName',
         'tags': 'Tags',
         'vpc_id': 'VpcId',
         'zones': 'Zones'
     }
 
-    def __init__(self, client_token=None, description=None, endpoint_name=None, ip_address_versions=None, private_dns_enabled=None, project_name=None, security_group_ids=None, service_id=None, service_name=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, endpoint_name=None, ip_address_versions=None, private_dns_enabled=None, project_name=None, security_group_ids=None, service_id=None, service_managed=None, service_name=None, tags=None, vpc_id=None, zones=None, _configuration=None):  # noqa: E501
         """CreateVpcEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class CreateVpcEndpointRequest(object):
         self._project_name = None
         self._security_group_ids = None
         self._service_id = None
+        self._service_managed = None
         self._service_name = None
         self._tags = None
         self._vpc_id = None
@@ -97,6 +100,8 @@ class CreateVpcEndpointRequest(object):
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
         self.service_id = service_id
+        if service_managed is not None:
+            self.service_managed = service_managed
         if service_name is not None:
             self.service_name = service_name
         if tags is not None:
@@ -274,6 +279,27 @@ class CreateVpcEndpointRequest(object):
             raise ValueError("Invalid value for `service_id`, must not be `None`")  # noqa: E501
 
         self._service_id = service_id
+
+    @property
+    def service_managed(self):
+        """Gets the service_managed of this CreateVpcEndpointRequest.  # noqa: E501
+
+
+        :return: The service_managed of this CreateVpcEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._service_managed
+
+    @service_managed.setter
+    def service_managed(self, service_managed):
+        """Sets the service_managed of this CreateVpcEndpointRequest.
+
+
+        :param service_managed: The service_managed of this CreateVpcEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._service_managed = service_managed
 
     @property
     def service_name(self):
