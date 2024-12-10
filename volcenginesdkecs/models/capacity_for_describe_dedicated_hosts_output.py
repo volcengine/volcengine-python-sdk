@@ -35,6 +35,7 @@ class CapacityForDescribeDedicatedHostsOutput(object):
     swagger_types = {
         'available_memory': 'int',
         'available_vcpus': 'int',
+        'local_volume_capacities': 'list[LocalVolumeCapacityForDescribeDedicatedHostsOutput]',
         'total_memory': 'int',
         'total_vcpus': 'int'
     }
@@ -42,11 +43,12 @@ class CapacityForDescribeDedicatedHostsOutput(object):
     attribute_map = {
         'available_memory': 'AvailableMemory',
         'available_vcpus': 'AvailableVcpus',
+        'local_volume_capacities': 'LocalVolumeCapacities',
         'total_memory': 'TotalMemory',
         'total_vcpus': 'TotalVcpus'
     }
 
-    def __init__(self, available_memory=None, available_vcpus=None, total_memory=None, total_vcpus=None, _configuration=None):  # noqa: E501
+    def __init__(self, available_memory=None, available_vcpus=None, local_volume_capacities=None, total_memory=None, total_vcpus=None, _configuration=None):  # noqa: E501
         """CapacityForDescribeDedicatedHostsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class CapacityForDescribeDedicatedHostsOutput(object):
 
         self._available_memory = None
         self._available_vcpus = None
+        self._local_volume_capacities = None
         self._total_memory = None
         self._total_vcpus = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class CapacityForDescribeDedicatedHostsOutput(object):
             self.available_memory = available_memory
         if available_vcpus is not None:
             self.available_vcpus = available_vcpus
+        if local_volume_capacities is not None:
+            self.local_volume_capacities = local_volume_capacities
         if total_memory is not None:
             self.total_memory = total_memory
         if total_vcpus is not None:
@@ -108,6 +113,27 @@ class CapacityForDescribeDedicatedHostsOutput(object):
         """
 
         self._available_vcpus = available_vcpus
+
+    @property
+    def local_volume_capacities(self):
+        """Gets the local_volume_capacities of this CapacityForDescribeDedicatedHostsOutput.  # noqa: E501
+
+
+        :return: The local_volume_capacities of this CapacityForDescribeDedicatedHostsOutput.  # noqa: E501
+        :rtype: list[LocalVolumeCapacityForDescribeDedicatedHostsOutput]
+        """
+        return self._local_volume_capacities
+
+    @local_volume_capacities.setter
+    def local_volume_capacities(self, local_volume_capacities):
+        """Sets the local_volume_capacities of this CapacityForDescribeDedicatedHostsOutput.
+
+
+        :param local_volume_capacities: The local_volume_capacities of this CapacityForDescribeDedicatedHostsOutput.  # noqa: E501
+        :type: list[LocalVolumeCapacityForDescribeDedicatedHostsOutput]
+        """
+
+        self._local_volume_capacities = local_volume_capacities
 
     @property
     def total_memory(self):

@@ -34,29 +34,34 @@ class ScheduledInstanceStockForDescribeScheduledInstanceStockOutput(object):
     """
     swagger_types = {
         'end_delivery_at': 'str',
+        'release_status': 'str',
         'start_delivery_at': 'str',
         'status': 'str'
     }
 
     attribute_map = {
         'end_delivery_at': 'EndDeliveryAt',
+        'release_status': 'ReleaseStatus',
         'start_delivery_at': 'StartDeliveryAt',
         'status': 'Status'
     }
 
-    def __init__(self, end_delivery_at=None, start_delivery_at=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_delivery_at=None, release_status=None, start_delivery_at=None, status=None, _configuration=None):  # noqa: E501
         """ScheduledInstanceStockForDescribeScheduledInstanceStockOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._end_delivery_at = None
+        self._release_status = None
         self._start_delivery_at = None
         self._status = None
         self.discriminator = None
 
         if end_delivery_at is not None:
             self.end_delivery_at = end_delivery_at
+        if release_status is not None:
+            self.release_status = release_status
         if start_delivery_at is not None:
             self.start_delivery_at = start_delivery_at
         if status is not None:
@@ -82,6 +87,27 @@ class ScheduledInstanceStockForDescribeScheduledInstanceStockOutput(object):
         """
 
         self._end_delivery_at = end_delivery_at
+
+    @property
+    def release_status(self):
+        """Gets the release_status of this ScheduledInstanceStockForDescribeScheduledInstanceStockOutput.  # noqa: E501
+
+
+        :return: The release_status of this ScheduledInstanceStockForDescribeScheduledInstanceStockOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._release_status
+
+    @release_status.setter
+    def release_status(self, release_status):
+        """Sets the release_status of this ScheduledInstanceStockForDescribeScheduledInstanceStockOutput.
+
+
+        :param release_status: The release_status of this ScheduledInstanceStockForDescribeScheduledInstanceStockOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._release_status = release_status
 
     @property
     def start_delivery_at(self):

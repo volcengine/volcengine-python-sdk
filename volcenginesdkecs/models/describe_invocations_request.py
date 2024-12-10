@@ -36,6 +36,7 @@ class DescribeInvocationsRequest(object):
         'command_id': 'str',
         'command_name': 'str',
         'command_type': 'str',
+        'content_encoding': 'str',
         'invocation_id': 'str',
         'invocation_name': 'str',
         'invocation_status': 'str',
@@ -50,6 +51,7 @@ class DescribeInvocationsRequest(object):
         'command_id': 'CommandId',
         'command_name': 'CommandName',
         'command_type': 'CommandType',
+        'content_encoding': 'ContentEncoding',
         'invocation_id': 'InvocationId',
         'invocation_name': 'InvocationName',
         'invocation_status': 'InvocationStatus',
@@ -60,7 +62,7 @@ class DescribeInvocationsRequest(object):
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, command_id=None, command_name=None, command_type=None, invocation_id=None, invocation_name=None, invocation_status=None, page_number=None, page_size=None, project_name=None, repeat_mode=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_id=None, command_name=None, command_type=None, content_encoding=None, invocation_id=None, invocation_name=None, invocation_status=None, page_number=None, page_size=None, project_name=None, repeat_mode=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeInvocationsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class DescribeInvocationsRequest(object):
         self._command_id = None
         self._command_name = None
         self._command_type = None
+        self._content_encoding = None
         self._invocation_id = None
         self._invocation_name = None
         self._invocation_status = None
@@ -85,6 +88,8 @@ class DescribeInvocationsRequest(object):
             self.command_name = command_name
         if command_type is not None:
             self.command_type = command_type
+        if content_encoding is not None:
+            self.content_encoding = content_encoding
         if invocation_id is not None:
             self.invocation_id = invocation_id
         if invocation_name is not None:
@@ -164,6 +169,27 @@ class DescribeInvocationsRequest(object):
         """
 
         self._command_type = command_type
+
+    @property
+    def content_encoding(self):
+        """Gets the content_encoding of this DescribeInvocationsRequest.  # noqa: E501
+
+
+        :return: The content_encoding of this DescribeInvocationsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_encoding
+
+    @content_encoding.setter
+    def content_encoding(self, content_encoding):
+        """Sets the content_encoding of this DescribeInvocationsRequest.
+
+
+        :param content_encoding: The content_encoding of this DescribeInvocationsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._content_encoding = content_encoding
 
     @property
     def invocation_id(self):

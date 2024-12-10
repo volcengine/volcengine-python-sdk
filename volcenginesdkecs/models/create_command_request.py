@@ -34,6 +34,7 @@ class CreateCommandRequest(object):
     """
     swagger_types = {
         'command_content': 'str',
+        'content_encoding': 'str',
         'description': 'str',
         'enable_parameter': 'bool',
         'name': 'str',
@@ -48,6 +49,7 @@ class CreateCommandRequest(object):
 
     attribute_map = {
         'command_content': 'CommandContent',
+        'content_encoding': 'ContentEncoding',
         'description': 'Description',
         'enable_parameter': 'EnableParameter',
         'name': 'Name',
@@ -60,13 +62,14 @@ class CreateCommandRequest(object):
         'working_dir': 'WorkingDir'
     }
 
-    def __init__(self, command_content=None, description=None, enable_parameter=None, name=None, parameter_definitions=None, project_name=None, tags=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_content=None, content_encoding=None, description=None, enable_parameter=None, name=None, parameter_definitions=None, project_name=None, tags=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
         """CreateCommandRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._command_content = None
+        self._content_encoding = None
         self._description = None
         self._enable_parameter = None
         self._name = None
@@ -80,6 +83,8 @@ class CreateCommandRequest(object):
         self.discriminator = None
 
         self.command_content = command_content
+        if content_encoding is not None:
+            self.content_encoding = content_encoding
         if description is not None:
             self.description = description
         if enable_parameter is not None:
@@ -121,6 +126,27 @@ class CreateCommandRequest(object):
             raise ValueError("Invalid value for `command_content`, must not be `None`")  # noqa: E501
 
         self._command_content = command_content
+
+    @property
+    def content_encoding(self):
+        """Gets the content_encoding of this CreateCommandRequest.  # noqa: E501
+
+
+        :return: The content_encoding of this CreateCommandRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_encoding
+
+    @content_encoding.setter
+    def content_encoding(self, content_encoding):
+        """Sets the content_encoding of this CreateCommandRequest.
+
+
+        :param content_encoding: The content_encoding of this CreateCommandRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._content_encoding = content_encoding
 
     @property
     def description(self):
