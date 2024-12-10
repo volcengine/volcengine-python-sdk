@@ -37,7 +37,8 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
         'address': 'str',
         'eip_id': 'str',
         'port': 'str',
-        'vip': 'str'
+        'vip': 'str',
+        'vipv6': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
         'address': 'Address',
         'eip_id': 'EipId',
         'port': 'Port',
-        'vip': 'VIP'
+        'vip': 'VIP',
+        'vipv6': 'VIPv6'
     }
 
-    def __init__(self, addr_type=None, address=None, eip_id=None, port=None, vip=None, _configuration=None):  # noqa: E501
+    def __init__(self, addr_type=None, address=None, eip_id=None, port=None, vip=None, vipv6=None, _configuration=None):  # noqa: E501
         """VisitAddrForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
         self._eip_id = None
         self._port = None
         self._vip = None
+        self._vipv6 = None
         self.discriminator = None
 
         if addr_type is not None:
@@ -71,6 +74,8 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
             self.port = port
         if vip is not None:
             self.vip = vip
+        if vipv6 is not None:
+            self.vipv6 = vipv6
 
     @property
     def addr_type(self):
@@ -176,6 +181,27 @@ class VisitAddrForDescribeDBInstanceDetailOutput(object):
         """
 
         self._vip = vip
+
+    @property
+    def vipv6(self):
+        """Gets the vipv6 of this VisitAddrForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The vipv6 of this VisitAddrForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vipv6
+
+    @vipv6.setter
+    def vipv6(self, vipv6):
+        """Sets the vipv6 of this VisitAddrForDescribeDBInstanceDetailOutput.
+
+
+        :param vipv6: The vipv6 of this VisitAddrForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vipv6 = vipv6
 
     def to_dict(self):
         """Returns the model properties as a dict"""

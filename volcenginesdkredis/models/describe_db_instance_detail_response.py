@@ -36,6 +36,7 @@ class DescribeDBInstanceDetailResponse(object):
         'auto_renew': 'bool',
         'capacity': 'CapacityForDescribeDBInstanceDetailOutput',
         'charge_type': 'str',
+        'configure_nodes': 'list[ConfigureNodeForDescribeDBInstanceDetailOutput]',
         'create_time': 'str',
         'data_layout': 'str',
         'deletion_protection': 'str',
@@ -67,6 +68,7 @@ class DescribeDBInstanceDetailResponse(object):
         'auto_renew': 'AutoRenew',
         'capacity': 'Capacity',
         'charge_type': 'ChargeType',
+        'configure_nodes': 'ConfigureNodes',
         'create_time': 'CreateTime',
         'data_layout': 'DataLayout',
         'deletion_protection': 'DeletionProtection',
@@ -94,7 +96,7 @@ class DescribeDBInstanceDetailResponse(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, capacity=None, charge_type=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, max_connections=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, capacity=None, charge_type=None, configure_nodes=None, create_time=None, data_layout=None, deletion_protection=None, engine_version=None, expired_time=None, instance_class=None, instance_id=None, instance_name=None, maintenance_time=None, max_connections=None, multi_az=None, node_number=None, project_name=None, region_id=None, shard_capacity=None, shard_capacity_v2=None, shard_number=None, sharded_cluster=None, status=None, subnet_id=None, tags=None, visit_addrs=None, vpc_auth_mode=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +105,7 @@ class DescribeDBInstanceDetailResponse(object):
         self._auto_renew = None
         self._capacity = None
         self._charge_type = None
+        self._configure_nodes = None
         self._create_time = None
         self._data_layout = None
         self._deletion_protection = None
@@ -136,6 +139,8 @@ class DescribeDBInstanceDetailResponse(object):
             self.capacity = capacity
         if charge_type is not None:
             self.charge_type = charge_type
+        if configure_nodes is not None:
+            self.configure_nodes = configure_nodes
         if create_time is not None:
             self.create_time = create_time
         if data_layout is not None:
@@ -249,6 +254,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._charge_type = charge_type
+
+    @property
+    def configure_nodes(self):
+        """Gets the configure_nodes of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The configure_nodes of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: list[ConfigureNodeForDescribeDBInstanceDetailOutput]
+        """
+        return self._configure_nodes
+
+    @configure_nodes.setter
+    def configure_nodes(self, configure_nodes):
+        """Sets the configure_nodes of this DescribeDBInstanceDetailResponse.
+
+
+        :param configure_nodes: The configure_nodes of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: list[ConfigureNodeForDescribeDBInstanceDetailOutput]
+        """
+
+        self._configure_nodes = configure_nodes
 
     @property
     def create_time(self):
