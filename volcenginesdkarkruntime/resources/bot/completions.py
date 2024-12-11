@@ -27,6 +27,7 @@ from ...types.chat import (
     completion_create_params,
     ChatCompletionStreamOptionsParam,
     ChatCompletionToolParam,
+    ChatCompletionToolChoiceOptionParam,
 )
 
 __all__ = ["Completions", "AsyncCompletions"]
@@ -49,7 +50,6 @@ class Completions(SyncAPIResource):
             model: str,
             frequency_penalty: Optional[float] | None = None,
             function_call: completion_create_params.FunctionCall | None = None,
-            functions: Iterable[completion_create_params.Function] | None = None,
             logit_bias: Optional[Dict[str, int]] | None = None,
             logprobs: Optional[bool] | None = None,
             max_tokens: Optional[int] | None = None,
@@ -61,6 +61,10 @@ class Completions(SyncAPIResource):
             tools: Iterable[ChatCompletionToolParam] | None = None,
             top_logprobs: Optional[int] | None = None,
             top_p: Optional[float] | None = None,
+            repetition_penalty: Optional[float] | None = None,
+            n: Optional[int] | None = None,
+            tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
+            response_format: completion_create_params.ResponseFormat | None = None,
             user: str | None = None,
             metadata: Dict[str, object] | None = None,
             extra_headers: Headers | None = None,
@@ -75,7 +79,6 @@ class Completions(SyncAPIResource):
                 "model": model,
                 "frequency_penalty": frequency_penalty,
                 "function_call": function_call,
-                "functions": functions,
                 "logit_bias": logit_bias,
                 "logprobs": logprobs,
                 "max_tokens": max_tokens,
@@ -88,6 +91,10 @@ class Completions(SyncAPIResource):
                 "top_logprobs": top_logprobs,
                 "top_p": top_p,
                 "user": user,
+                "repetition_penalty": repetition_penalty,
+                "n": n,
+                "tool_choice": tool_choice,
+                "response_format": response_format,
                 "metadata": metadata
             },
             options=make_request_options(
@@ -119,7 +126,6 @@ class AsyncCompletions(AsyncAPIResource):
             model: str,
             frequency_penalty: Optional[float] | None = None,
             function_call: completion_create_params.FunctionCall | None = None,
-            functions: Iterable[completion_create_params.Function] | None = None,
             logit_bias: Optional[Dict[str, int]] | None = None,
             logprobs: Optional[bool] | None = None,
             max_tokens: Optional[int] | None = None,
@@ -131,6 +137,10 @@ class AsyncCompletions(AsyncAPIResource):
             tools: Iterable[ChatCompletionToolParam] | None = None,
             top_logprobs: Optional[int] | None = None,
             top_p: Optional[float] | None = None,
+            repetition_penalty: Optional[float] | None = None,
+            n: Optional[int] | None = None,
+            tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
+            response_format: completion_create_params.ResponseFormat | None = None,
             user: str | None = None,
             metadata: Dict[str, object] | None = None,
             extra_headers: Headers | None = None,
@@ -145,7 +155,6 @@ class AsyncCompletions(AsyncAPIResource):
                 "model": model,
                 "frequency_penalty": frequency_penalty,
                 "function_call": function_call,
-                "functions": functions,
                 "logit_bias": logit_bias,
                 "logprobs": logprobs,
                 "max_tokens": max_tokens,
@@ -158,6 +167,10 @@ class AsyncCompletions(AsyncAPIResource):
                 "top_logprobs": top_logprobs,
                 "top_p": top_p,
                 "user": user,
+                "repetition_penalty": repetition_penalty,
+                "n": n,
+                "tool_choice": tool_choice,
+                "response_format": response_format,
                 "metadata": metadata
             },
             options=make_request_options(
