@@ -37,7 +37,8 @@ class ImportKeyPairRequest(object):
         'description': 'str',
         'key_pair_name': 'str',
         'project_name': 'str',
-        'public_key': 'str'
+        'public_key': 'str',
+        'tags': 'list[TagForImportKeyPairInput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ImportKeyPairRequest(object):
         'description': 'Description',
         'key_pair_name': 'KeyPairName',
         'project_name': 'ProjectName',
-        'public_key': 'PublicKey'
+        'public_key': 'PublicKey',
+        'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, description=None, key_pair_name=None, project_name=None, public_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, key_pair_name=None, project_name=None, public_key=None, tags=None, _configuration=None):  # noqa: E501
         """ImportKeyPairRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ImportKeyPairRequest(object):
         self._key_pair_name = None
         self._project_name = None
         self._public_key = None
+        self._tags = None
         self.discriminator = None
 
         if client_token is not None:
@@ -69,6 +72,8 @@ class ImportKeyPairRequest(object):
         if project_name is not None:
             self.project_name = project_name
         self.public_key = public_key
+        if tags is not None:
+            self.tags = tags
 
     @property
     def client_token(self):
@@ -178,6 +183,27 @@ class ImportKeyPairRequest(object):
             raise ValueError("Invalid value for `public_key`, must not be `None`")  # noqa: E501
 
         self._public_key = public_key
+
+    @property
+    def tags(self):
+        """Gets the tags of this ImportKeyPairRequest.  # noqa: E501
+
+
+        :return: The tags of this ImportKeyPairRequest.  # noqa: E501
+        :rtype: list[TagForImportKeyPairInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ImportKeyPairRequest.
+
+
+        :param tags: The tags of this ImportKeyPairRequest.  # noqa: E501
+        :type: list[TagForImportKeyPairInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

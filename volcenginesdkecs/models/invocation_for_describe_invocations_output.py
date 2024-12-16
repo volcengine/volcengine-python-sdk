@@ -50,9 +50,11 @@ class InvocationForDescribeInvocationsOutput(object):
         'launch_time': 'str',
         'parameter_definitions': 'list[ParameterDefinitionForDescribeInvocationsOutput]',
         'parameters': 'str',
+        'project_name': 'str',
         'recurrence_end_time': 'str',
         'repeat_mode': 'str',
         'start_time': 'str',
+        'tags': 'list[TagForDescribeInvocationsOutput]',
         'timeout': 'int',
         'username': 'str',
         'working_dir': 'str'
@@ -76,15 +78,17 @@ class InvocationForDescribeInvocationsOutput(object):
         'launch_time': 'LaunchTime',
         'parameter_definitions': 'ParameterDefinitions',
         'parameters': 'Parameters',
+        'project_name': 'ProjectName',
         'recurrence_end_time': 'RecurrenceEndTime',
         'repeat_mode': 'RepeatMode',
         'start_time': 'StartTime',
+        'tags': 'Tags',
         'timeout': 'Timeout',
         'username': 'Username',
         'working_dir': 'WorkingDir'
     }
 
-    def __init__(self, command_content=None, command_description=None, command_id=None, command_name=None, command_provider=None, command_type=None, enable_parameter=None, end_time=None, frequency=None, instance_number=None, invocation_description=None, invocation_id=None, invocation_name=None, invocation_status=None, launch_time=None, parameter_definitions=None, parameters=None, recurrence_end_time=None, repeat_mode=None, start_time=None, timeout=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_content=None, command_description=None, command_id=None, command_name=None, command_provider=None, command_type=None, enable_parameter=None, end_time=None, frequency=None, instance_number=None, invocation_description=None, invocation_id=None, invocation_name=None, invocation_status=None, launch_time=None, parameter_definitions=None, parameters=None, project_name=None, recurrence_end_time=None, repeat_mode=None, start_time=None, tags=None, timeout=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
         """InvocationForDescribeInvocationsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -107,9 +111,11 @@ class InvocationForDescribeInvocationsOutput(object):
         self._launch_time = None
         self._parameter_definitions = None
         self._parameters = None
+        self._project_name = None
         self._recurrence_end_time = None
         self._repeat_mode = None
         self._start_time = None
+        self._tags = None
         self._timeout = None
         self._username = None
         self._working_dir = None
@@ -149,12 +155,16 @@ class InvocationForDescribeInvocationsOutput(object):
             self.parameter_definitions = parameter_definitions
         if parameters is not None:
             self.parameters = parameters
+        if project_name is not None:
+            self.project_name = project_name
         if recurrence_end_time is not None:
             self.recurrence_end_time = recurrence_end_time
         if repeat_mode is not None:
             self.repeat_mode = repeat_mode
         if start_time is not None:
             self.start_time = start_time
+        if tags is not None:
+            self.tags = tags
         if timeout is not None:
             self.timeout = timeout
         if username is not None:
@@ -520,6 +530,27 @@ class InvocationForDescribeInvocationsOutput(object):
         self._parameters = parameters
 
     @property
+    def project_name(self):
+        """Gets the project_name of this InvocationForDescribeInvocationsOutput.  # noqa: E501
+
+
+        :return: The project_name of this InvocationForDescribeInvocationsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this InvocationForDescribeInvocationsOutput.
+
+
+        :param project_name: The project_name of this InvocationForDescribeInvocationsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def recurrence_end_time(self):
         """Gets the recurrence_end_time of this InvocationForDescribeInvocationsOutput.  # noqa: E501
 
@@ -581,6 +612,27 @@ class InvocationForDescribeInvocationsOutput(object):
         """
 
         self._start_time = start_time
+
+    @property
+    def tags(self):
+        """Gets the tags of this InvocationForDescribeInvocationsOutput.  # noqa: E501
+
+
+        :return: The tags of this InvocationForDescribeInvocationsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeInvocationsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this InvocationForDescribeInvocationsOutput.
+
+
+        :param tags: The tags of this InvocationForDescribeInvocationsOutput.  # noqa: E501
+        :type: list[TagForDescribeInvocationsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def timeout(self):

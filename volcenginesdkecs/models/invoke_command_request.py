@@ -95,8 +95,7 @@ class InvokeCommandRequest(object):
             self.instance_ids = instance_ids
         if invocation_description is not None:
             self.invocation_description = invocation_description
-        if invocation_name is not None:
-            self.invocation_name = invocation_name
+        self.invocation_name = invocation_name
         if launch_time is not None:
             self.launch_time = launch_time
         if parameters is not None:
@@ -220,6 +219,8 @@ class InvokeCommandRequest(object):
         :param invocation_name: The invocation_name of this InvokeCommandRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and invocation_name is None:
+            raise ValueError("Invalid value for `invocation_name`, must not be `None`")  # noqa: E501
 
         self._invocation_name = invocation_name
 

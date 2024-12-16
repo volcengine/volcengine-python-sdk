@@ -39,7 +39,8 @@ class DescribeKeyPairsRequest(object):
         'key_pair_names': 'list[str]',
         'max_results': 'int',
         'next_token': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeKeyPairsInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DescribeKeyPairsRequest(object):
         'key_pair_names': 'KeyPairNames',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, finger_print=None, key_pair_ids=None, key_pair_name=None, key_pair_names=None, max_results=None, next_token=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, finger_print=None, key_pair_ids=None, key_pair_name=None, key_pair_names=None, max_results=None, next_token=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeKeyPairsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeKeyPairsRequest(object):
         self._max_results = None
         self._next_token = None
         self._project_name = None
+        self._tag_filters = None
         self.discriminator = None
 
         if finger_print is not None:
@@ -81,6 +84,8 @@ class DescribeKeyPairsRequest(object):
             self.next_token = next_token
         if project_name is not None:
             self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def finger_print(self):
@@ -228,6 +233,27 @@ class DescribeKeyPairsRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeKeyPairsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeKeyPairsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeKeyPairsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeKeyPairsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeKeyPairsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeKeyPairsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,11 +34,15 @@ class RunCommandRequest(object):
     """
     swagger_types = {
         'command_content': 'str',
+        'content_encoding': 'str',
+        'enable_parameter': 'bool',
         'frequency': 'str',
         'instance_ids': 'list[str]',
         'invocation_description': 'str',
         'invocation_name': 'str',
         'launch_time': 'str',
+        'parameter_definitions': 'list[ParameterDefinitionForRunCommandInput]',
+        'parameters': 'str',
         'project_name': 'str',
         'recurrence_end_time': 'str',
         'repeat_mode': 'str',
@@ -51,11 +55,15 @@ class RunCommandRequest(object):
 
     attribute_map = {
         'command_content': 'CommandContent',
+        'content_encoding': 'ContentEncoding',
+        'enable_parameter': 'EnableParameter',
         'frequency': 'Frequency',
         'instance_ids': 'InstanceIds',
         'invocation_description': 'InvocationDescription',
         'invocation_name': 'InvocationName',
         'launch_time': 'LaunchTime',
+        'parameter_definitions': 'ParameterDefinitions',
+        'parameters': 'Parameters',
         'project_name': 'ProjectName',
         'recurrence_end_time': 'RecurrenceEndTime',
         'repeat_mode': 'RepeatMode',
@@ -66,18 +74,22 @@ class RunCommandRequest(object):
         'working_dir': 'WorkingDir'
     }
 
-    def __init__(self, command_content=None, frequency=None, instance_ids=None, invocation_description=None, invocation_name=None, launch_time=None, project_name=None, recurrence_end_time=None, repeat_mode=None, tags=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_content=None, content_encoding=None, enable_parameter=None, frequency=None, instance_ids=None, invocation_description=None, invocation_name=None, launch_time=None, parameter_definitions=None, parameters=None, project_name=None, recurrence_end_time=None, repeat_mode=None, tags=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
         """RunCommandRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._command_content = None
+        self._content_encoding = None
+        self._enable_parameter = None
         self._frequency = None
         self._instance_ids = None
         self._invocation_description = None
         self._invocation_name = None
         self._launch_time = None
+        self._parameter_definitions = None
+        self._parameters = None
         self._project_name = None
         self._recurrence_end_time = None
         self._repeat_mode = None
@@ -89,6 +101,10 @@ class RunCommandRequest(object):
         self.discriminator = None
 
         self.command_content = command_content
+        if content_encoding is not None:
+            self.content_encoding = content_encoding
+        if enable_parameter is not None:
+            self.enable_parameter = enable_parameter
         if frequency is not None:
             self.frequency = frequency
         if instance_ids is not None:
@@ -98,6 +114,10 @@ class RunCommandRequest(object):
         self.invocation_name = invocation_name
         if launch_time is not None:
             self.launch_time = launch_time
+        if parameter_definitions is not None:
+            self.parameter_definitions = parameter_definitions
+        if parameters is not None:
+            self.parameters = parameters
         if project_name is not None:
             self.project_name = project_name
         if recurrence_end_time is not None:
@@ -136,6 +156,48 @@ class RunCommandRequest(object):
             raise ValueError("Invalid value for `command_content`, must not be `None`")  # noqa: E501
 
         self._command_content = command_content
+
+    @property
+    def content_encoding(self):
+        """Gets the content_encoding of this RunCommandRequest.  # noqa: E501
+
+
+        :return: The content_encoding of this RunCommandRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_encoding
+
+    @content_encoding.setter
+    def content_encoding(self, content_encoding):
+        """Sets the content_encoding of this RunCommandRequest.
+
+
+        :param content_encoding: The content_encoding of this RunCommandRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._content_encoding = content_encoding
+
+    @property
+    def enable_parameter(self):
+        """Gets the enable_parameter of this RunCommandRequest.  # noqa: E501
+
+
+        :return: The enable_parameter of this RunCommandRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_parameter
+
+    @enable_parameter.setter
+    def enable_parameter(self, enable_parameter):
+        """Sets the enable_parameter of this RunCommandRequest.
+
+
+        :param enable_parameter: The enable_parameter of this RunCommandRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_parameter = enable_parameter
 
     @property
     def frequency(self):
@@ -243,6 +305,48 @@ class RunCommandRequest(object):
         """
 
         self._launch_time = launch_time
+
+    @property
+    def parameter_definitions(self):
+        """Gets the parameter_definitions of this RunCommandRequest.  # noqa: E501
+
+
+        :return: The parameter_definitions of this RunCommandRequest.  # noqa: E501
+        :rtype: list[ParameterDefinitionForRunCommandInput]
+        """
+        return self._parameter_definitions
+
+    @parameter_definitions.setter
+    def parameter_definitions(self, parameter_definitions):
+        """Sets the parameter_definitions of this RunCommandRequest.
+
+
+        :param parameter_definitions: The parameter_definitions of this RunCommandRequest.  # noqa: E501
+        :type: list[ParameterDefinitionForRunCommandInput]
+        """
+
+        self._parameter_definitions = parameter_definitions
+
+    @property
+    def parameters(self):
+        """Gets the parameters of this RunCommandRequest.  # noqa: E501
+
+
+        :return: The parameters of this RunCommandRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._parameters
+
+    @parameters.setter
+    def parameters(self, parameters):
+        """Sets the parameters of this RunCommandRequest.
+
+
+        :param parameters: The parameters of this RunCommandRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._parameters = parameters
 
     @property
     def project_name(self):
