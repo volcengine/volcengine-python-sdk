@@ -33,75 +33,212 @@ class VpnGatewayForDescribeVpnGatewaysBillingOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'billing_status': 'int',
+        'account_id': 'str',
+        'asn': 'int',
+        'bandwidth': 'int',
         'billing_type': 'int',
+        'business_status': 'str',
+        'connection_count': 'int',
+        'creation_time': 'str',
+        'deleted_time': 'str',
+        'description': 'str',
         'expired_time': 'str',
-        'reclaim_time': 'str',
-        'remain_renew_times': 'int',
-        'renew_type': 'int',
-        'vpn_gateway_id': 'str'
+        'ip_address': 'str',
+        'ipsec_enabled': 'bool',
+        'is_blocked': 'bool',
+        'lock_reason': 'str',
+        'overdue_time': 'str',
+        'project_name': 'str',
+        'route_count': 'int',
+        'ssl_enabled': 'bool',
+        'ssl_max_connections': 'int',
+        'status': 'str',
+        'subnet_id': 'str',
+        'tags': 'list[TagForDescribeVpnGatewaysBillingOutput]',
+        'update_time': 'str',
+        'vpc_id': 'str',
+        'vpn_gateway_id': 'str',
+        'vpn_gateway_name': 'str'
     }
 
     attribute_map = {
-        'billing_status': 'BillingStatus',
+        'account_id': 'AccountId',
+        'asn': 'Asn',
+        'bandwidth': 'Bandwidth',
         'billing_type': 'BillingType',
+        'business_status': 'BusinessStatus',
+        'connection_count': 'ConnectionCount',
+        'creation_time': 'CreationTime',
+        'deleted_time': 'DeletedTime',
+        'description': 'Description',
         'expired_time': 'ExpiredTime',
-        'reclaim_time': 'ReclaimTime',
-        'remain_renew_times': 'RemainRenewTimes',
-        'renew_type': 'RenewType',
-        'vpn_gateway_id': 'VpnGatewayId'
+        'ip_address': 'IpAddress',
+        'ipsec_enabled': 'IpsecEnabled',
+        'is_blocked': 'IsBlocked',
+        'lock_reason': 'LockReason',
+        'overdue_time': 'OverdueTime',
+        'project_name': 'ProjectName',
+        'route_count': 'RouteCount',
+        'ssl_enabled': 'SslEnabled',
+        'ssl_max_connections': 'SslMaxConnections',
+        'status': 'Status',
+        'subnet_id': 'SubnetId',
+        'tags': 'Tags',
+        'update_time': 'UpdateTime',
+        'vpc_id': 'VpcId',
+        'vpn_gateway_id': 'VpnGatewayId',
+        'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, billing_status=None, billing_type=None, expired_time=None, reclaim_time=None, remain_renew_times=None, renew_type=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, expired_time=None, ip_address=None, ipsec_enabled=None, is_blocked=None, lock_reason=None, overdue_time=None, project_name=None, route_count=None, ssl_enabled=None, ssl_max_connections=None, status=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """VpnGatewayForDescribeVpnGatewaysBillingOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._billing_status = None
+        self._account_id = None
+        self._asn = None
+        self._bandwidth = None
         self._billing_type = None
+        self._business_status = None
+        self._connection_count = None
+        self._creation_time = None
+        self._deleted_time = None
+        self._description = None
         self._expired_time = None
-        self._reclaim_time = None
-        self._remain_renew_times = None
-        self._renew_type = None
+        self._ip_address = None
+        self._ipsec_enabled = None
+        self._is_blocked = None
+        self._lock_reason = None
+        self._overdue_time = None
+        self._project_name = None
+        self._route_count = None
+        self._ssl_enabled = None
+        self._ssl_max_connections = None
+        self._status = None
+        self._subnet_id = None
+        self._tags = None
+        self._update_time = None
+        self._vpc_id = None
         self._vpn_gateway_id = None
+        self._vpn_gateway_name = None
         self.discriminator = None
 
-        if billing_status is not None:
-            self.billing_status = billing_status
+        if account_id is not None:
+            self.account_id = account_id
+        if asn is not None:
+            self.asn = asn
+        if bandwidth is not None:
+            self.bandwidth = bandwidth
         if billing_type is not None:
             self.billing_type = billing_type
+        if business_status is not None:
+            self.business_status = business_status
+        if connection_count is not None:
+            self.connection_count = connection_count
+        if creation_time is not None:
+            self.creation_time = creation_time
+        if deleted_time is not None:
+            self.deleted_time = deleted_time
+        if description is not None:
+            self.description = description
         if expired_time is not None:
             self.expired_time = expired_time
-        if reclaim_time is not None:
-            self.reclaim_time = reclaim_time
-        if remain_renew_times is not None:
-            self.remain_renew_times = remain_renew_times
-        if renew_type is not None:
-            self.renew_type = renew_type
+        if ip_address is not None:
+            self.ip_address = ip_address
+        if ipsec_enabled is not None:
+            self.ipsec_enabled = ipsec_enabled
+        if is_blocked is not None:
+            self.is_blocked = is_blocked
+        if lock_reason is not None:
+            self.lock_reason = lock_reason
+        if overdue_time is not None:
+            self.overdue_time = overdue_time
+        if project_name is not None:
+            self.project_name = project_name
+        if route_count is not None:
+            self.route_count = route_count
+        if ssl_enabled is not None:
+            self.ssl_enabled = ssl_enabled
+        if ssl_max_connections is not None:
+            self.ssl_max_connections = ssl_max_connections
+        if status is not None:
+            self.status = status
+        if subnet_id is not None:
+            self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
+        if update_time is not None:
+            self.update_time = update_time
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
         if vpn_gateway_id is not None:
             self.vpn_gateway_id = vpn_gateway_id
+        if vpn_gateway_name is not None:
+            self.vpn_gateway_name = vpn_gateway_name
 
     @property
-    def billing_status(self):
-        """Gets the billing_status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+    def account_id(self):
+        """Gets the account_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
 
 
-        :return: The billing_status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :return: The account_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param account_id: The account_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_id = account_id
+
+    @property
+    def asn(self):
+        """Gets the asn of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The asn of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
         :rtype: int
         """
-        return self._billing_status
+        return self._asn
 
-    @billing_status.setter
-    def billing_status(self, billing_status):
-        """Sets the billing_status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+    @asn.setter
+    def asn(self, asn):
+        """Sets the asn of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
 
 
-        :param billing_status: The billing_status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :param asn: The asn of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
         :type: int
         """
 
-        self._billing_status = billing_status
+        self._asn = asn
+
+    @property
+    def bandwidth(self):
+        """Gets the bandwidth of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The bandwidth of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bandwidth
+
+    @bandwidth.setter
+    def bandwidth(self, bandwidth):
+        """Sets the bandwidth of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param bandwidth: The bandwidth of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bandwidth = bandwidth
 
     @property
     def billing_type(self):
@@ -125,6 +262,111 @@ class VpnGatewayForDescribeVpnGatewaysBillingOutput(object):
         self._billing_type = billing_type
 
     @property
+    def business_status(self):
+        """Gets the business_status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The business_status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_status
+
+    @business_status.setter
+    def business_status(self, business_status):
+        """Sets the business_status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param business_status: The business_status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._business_status = business_status
+
+    @property
+    def connection_count(self):
+        """Gets the connection_count of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The connection_count of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._connection_count
+
+    @connection_count.setter
+    def connection_count(self, connection_count):
+        """Sets the connection_count of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param connection_count: The connection_count of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._connection_count = connection_count
+
+    @property
+    def creation_time(self):
+        """Gets the creation_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The creation_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._creation_time
+
+    @creation_time.setter
+    def creation_time(self, creation_time):
+        """Sets the creation_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param creation_time: The creation_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._creation_time = creation_time
+
+    @property
+    def deleted_time(self):
+        """Gets the deleted_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The deleted_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deleted_time
+
+    @deleted_time.setter
+    def deleted_time(self, deleted_time):
+        """Sets the deleted_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param deleted_time: The deleted_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deleted_time = deleted_time
+
+    @property
+    def description(self):
+        """Gets the description of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The description of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param description: The description of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
     def expired_time(self):
         """Gets the expired_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
 
@@ -146,67 +388,298 @@ class VpnGatewayForDescribeVpnGatewaysBillingOutput(object):
         self._expired_time = expired_time
 
     @property
-    def reclaim_time(self):
-        """Gets the reclaim_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+    def ip_address(self):
+        """Gets the ip_address of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
 
 
-        :return: The reclaim_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :return: The ip_address of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
         :rtype: str
         """
-        return self._reclaim_time
+        return self._ip_address
 
-    @reclaim_time.setter
-    def reclaim_time(self, reclaim_time):
-        """Sets the reclaim_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+    @ip_address.setter
+    def ip_address(self, ip_address):
+        """Sets the ip_address of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
 
 
-        :param reclaim_time: The reclaim_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :param ip_address: The ip_address of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
         :type: str
         """
 
-        self._reclaim_time = reclaim_time
+        self._ip_address = ip_address
 
     @property
-    def remain_renew_times(self):
-        """Gets the remain_renew_times of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+    def ipsec_enabled(self):
+        """Gets the ipsec_enabled of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
 
 
-        :return: The remain_renew_times of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :return: The ipsec_enabled of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ipsec_enabled
+
+    @ipsec_enabled.setter
+    def ipsec_enabled(self, ipsec_enabled):
+        """Sets the ipsec_enabled of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param ipsec_enabled: The ipsec_enabled of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._ipsec_enabled = ipsec_enabled
+
+    @property
+    def is_blocked(self):
+        """Gets the is_blocked of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The is_blocked of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_blocked
+
+    @is_blocked.setter
+    def is_blocked(self, is_blocked):
+        """Sets the is_blocked of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param is_blocked: The is_blocked of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_blocked = is_blocked
+
+    @property
+    def lock_reason(self):
+        """Gets the lock_reason of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The lock_reason of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._lock_reason
+
+    @lock_reason.setter
+    def lock_reason(self, lock_reason):
+        """Sets the lock_reason of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param lock_reason: The lock_reason of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._lock_reason = lock_reason
+
+    @property
+    def overdue_time(self):
+        """Gets the overdue_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The overdue_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._overdue_time
+
+    @overdue_time.setter
+    def overdue_time(self, overdue_time):
+        """Sets the overdue_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param overdue_time: The overdue_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._overdue_time = overdue_time
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The project_name of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param project_name: The project_name of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def route_count(self):
+        """Gets the route_count of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The route_count of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
         :rtype: int
         """
-        return self._remain_renew_times
+        return self._route_count
 
-    @remain_renew_times.setter
-    def remain_renew_times(self, remain_renew_times):
-        """Sets the remain_renew_times of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+    @route_count.setter
+    def route_count(self, route_count):
+        """Sets the route_count of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
 
 
-        :param remain_renew_times: The remain_renew_times of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :param route_count: The route_count of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
         :type: int
         """
 
-        self._remain_renew_times = remain_renew_times
+        self._route_count = route_count
 
     @property
-    def renew_type(self):
-        """Gets the renew_type of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+    def ssl_enabled(self):
+        """Gets the ssl_enabled of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
 
 
-        :return: The renew_type of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :return: The ssl_enabled of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ssl_enabled
+
+    @ssl_enabled.setter
+    def ssl_enabled(self, ssl_enabled):
+        """Sets the ssl_enabled of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param ssl_enabled: The ssl_enabled of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._ssl_enabled = ssl_enabled
+
+    @property
+    def ssl_max_connections(self):
+        """Gets the ssl_max_connections of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The ssl_max_connections of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
         :rtype: int
         """
-        return self._renew_type
+        return self._ssl_max_connections
 
-    @renew_type.setter
-    def renew_type(self, renew_type):
-        """Sets the renew_type of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+    @ssl_max_connections.setter
+    def ssl_max_connections(self, ssl_max_connections):
+        """Sets the ssl_max_connections of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
 
 
-        :param renew_type: The renew_type of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :param ssl_max_connections: The ssl_max_connections of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
         :type: int
         """
 
-        self._renew_type = renew_type
+        self._ssl_max_connections = ssl_max_connections
+
+    @property
+    def status(self):
+        """Gets the status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param status: The status of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
+
+    @property
+    def subnet_id(self):
+        """Gets the subnet_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The subnet_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_id
+
+    @subnet_id.setter
+    def subnet_id(self, subnet_id):
+        """Sets the subnet_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param subnet_id: The subnet_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The tags of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: list[TagForDescribeVpnGatewaysBillingOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param tags: The tags of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: list[TagForDescribeVpnGatewaysBillingOutput]
+        """
+
+        self._tags = tags
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The update_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param update_time: The update_time of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._update_time = update_time
+
+    @property
+    def vpc_id(self):
+        """Gets the vpc_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The vpc_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_id
+
+    @vpc_id.setter
+    def vpc_id(self, vpc_id):
+        """Sets the vpc_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param vpc_id: The vpc_id of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_id = vpc_id
 
     @property
     def vpn_gateway_id(self):
@@ -228,6 +701,27 @@ class VpnGatewayForDescribeVpnGatewaysBillingOutput(object):
         """
 
         self._vpn_gateway_id = vpn_gateway_id
+
+    @property
+    def vpn_gateway_name(self):
+        """Gets the vpn_gateway_name of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+
+
+        :return: The vpn_gateway_name of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpn_gateway_name
+
+    @vpn_gateway_name.setter
+    def vpn_gateway_name(self, vpn_gateway_name):
+        """Sets the vpn_gateway_name of this VpnGatewayForDescribeVpnGatewaysBillingOutput.
+
+
+        :param vpn_gateway_name: The vpn_gateway_name of this VpnGatewayForDescribeVpnGatewaysBillingOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vpn_gateway_name = vpn_gateway_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

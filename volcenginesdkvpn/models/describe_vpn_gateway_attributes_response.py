@@ -34,6 +34,7 @@ class DescribeVpnGatewayAttributesResponse(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'asn': 'int',
         'bandwidth': 'int',
         'billing_type': 'int',
         'business_status': 'str',
@@ -43,10 +44,16 @@ class DescribeVpnGatewayAttributesResponse(object):
         'description': 'str',
         'expired_time': 'str',
         'ip_address': 'str',
+        'ipsec_enabled': 'bool',
+        'is_blocked': 'bool',
         'lock_reason': 'str',
+        'overdue_time': 'str',
         'project_name': 'str',
         'request_id': 'str',
         'route_count': 'int',
+        'ssl_enabled': 'bool',
+        'ssl_max_connection': 'int',
+        'ssl_max_connections': 'int',
         'status': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeVpnGatewayAttributesOutput]',
@@ -58,6 +65,7 @@ class DescribeVpnGatewayAttributesResponse(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'asn': 'Asn',
         'bandwidth': 'Bandwidth',
         'billing_type': 'BillingType',
         'business_status': 'BusinessStatus',
@@ -67,10 +75,16 @@ class DescribeVpnGatewayAttributesResponse(object):
         'description': 'Description',
         'expired_time': 'ExpiredTime',
         'ip_address': 'IpAddress',
+        'ipsec_enabled': 'IpsecEnabled',
+        'is_blocked': 'IsBlocked',
         'lock_reason': 'LockReason',
+        'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'route_count': 'RouteCount',
+        'ssl_enabled': 'SslEnabled',
+        'ssl_max_connection': 'SslMaxConnection',
+        'ssl_max_connections': 'SslMaxConnections',
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
@@ -80,13 +94,14 @@ class DescribeVpnGatewayAttributesResponse(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, expired_time=None, ip_address=None, lock_reason=None, project_name=None, request_id=None, route_count=None, status=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, expired_time=None, ip_address=None, ipsec_enabled=None, is_blocked=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, route_count=None, ssl_enabled=None, ssl_max_connection=None, ssl_max_connections=None, status=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._asn = None
         self._bandwidth = None
         self._billing_type = None
         self._business_status = None
@@ -96,10 +111,16 @@ class DescribeVpnGatewayAttributesResponse(object):
         self._description = None
         self._expired_time = None
         self._ip_address = None
+        self._ipsec_enabled = None
+        self._is_blocked = None
         self._lock_reason = None
+        self._overdue_time = None
         self._project_name = None
         self._request_id = None
         self._route_count = None
+        self._ssl_enabled = None
+        self._ssl_max_connection = None
+        self._ssl_max_connections = None
         self._status = None
         self._subnet_id = None
         self._tags = None
@@ -111,6 +132,8 @@ class DescribeVpnGatewayAttributesResponse(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if asn is not None:
+            self.asn = asn
         if bandwidth is not None:
             self.bandwidth = bandwidth
         if billing_type is not None:
@@ -129,14 +152,26 @@ class DescribeVpnGatewayAttributesResponse(object):
             self.expired_time = expired_time
         if ip_address is not None:
             self.ip_address = ip_address
+        if ipsec_enabled is not None:
+            self.ipsec_enabled = ipsec_enabled
+        if is_blocked is not None:
+            self.is_blocked = is_blocked
         if lock_reason is not None:
             self.lock_reason = lock_reason
+        if overdue_time is not None:
+            self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if route_count is not None:
             self.route_count = route_count
+        if ssl_enabled is not None:
+            self.ssl_enabled = ssl_enabled
+        if ssl_max_connection is not None:
+            self.ssl_max_connection = ssl_max_connection
+        if ssl_max_connections is not None:
+            self.ssl_max_connections = ssl_max_connections
         if status is not None:
             self.status = status
         if subnet_id is not None:
@@ -172,6 +207,27 @@ class DescribeVpnGatewayAttributesResponse(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def asn(self):
+        """Gets the asn of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The asn of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._asn
+
+    @asn.setter
+    def asn(self, asn):
+        """Sets the asn of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param asn: The asn of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._asn = asn
 
     @property
     def bandwidth(self):
@@ -363,6 +419,48 @@ class DescribeVpnGatewayAttributesResponse(object):
         self._ip_address = ip_address
 
     @property
+    def ipsec_enabled(self):
+        """Gets the ipsec_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The ipsec_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ipsec_enabled
+
+    @ipsec_enabled.setter
+    def ipsec_enabled(self, ipsec_enabled):
+        """Sets the ipsec_enabled of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param ipsec_enabled: The ipsec_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._ipsec_enabled = ipsec_enabled
+
+    @property
+    def is_blocked(self):
+        """Gets the is_blocked of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The is_blocked of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_blocked
+
+    @is_blocked.setter
+    def is_blocked(self, is_blocked):
+        """Sets the is_blocked of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param is_blocked: The is_blocked of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_blocked = is_blocked
+
+    @property
     def lock_reason(self):
         """Gets the lock_reason of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
 
@@ -382,6 +480,27 @@ class DescribeVpnGatewayAttributesResponse(object):
         """
 
         self._lock_reason = lock_reason
+
+    @property
+    def overdue_time(self):
+        """Gets the overdue_time of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The overdue_time of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._overdue_time
+
+    @overdue_time.setter
+    def overdue_time(self, overdue_time):
+        """Sets the overdue_time of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param overdue_time: The overdue_time of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._overdue_time = overdue_time
 
     @property
     def project_name(self):
@@ -445,6 +564,69 @@ class DescribeVpnGatewayAttributesResponse(object):
         """
 
         self._route_count = route_count
+
+    @property
+    def ssl_enabled(self):
+        """Gets the ssl_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The ssl_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ssl_enabled
+
+    @ssl_enabled.setter
+    def ssl_enabled(self, ssl_enabled):
+        """Sets the ssl_enabled of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param ssl_enabled: The ssl_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._ssl_enabled = ssl_enabled
+
+    @property
+    def ssl_max_connection(self):
+        """Gets the ssl_max_connection of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The ssl_max_connection of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._ssl_max_connection
+
+    @ssl_max_connection.setter
+    def ssl_max_connection(self, ssl_max_connection):
+        """Sets the ssl_max_connection of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param ssl_max_connection: The ssl_max_connection of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._ssl_max_connection = ssl_max_connection
+
+    @property
+    def ssl_max_connections(self):
+        """Gets the ssl_max_connections of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The ssl_max_connections of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._ssl_max_connections
+
+    @ssl_max_connections.setter
+    def ssl_max_connections(self, ssl_max_connections):
+        """Sets the ssl_max_connections of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param ssl_max_connections: The ssl_max_connections of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._ssl_max_connections = ssl_max_connections
 
     @property
     def status(self):

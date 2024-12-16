@@ -39,6 +39,8 @@ class DescribeVpnConnectionsRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'spec': 'str',
+        'status': 'str',
         'transit_router_id': 'str',
         'vpn_connection_ids': 'list[str]',
         'vpn_connection_name': 'str',
@@ -52,13 +54,15 @@ class DescribeVpnConnectionsRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'spec': 'Spec',
+        'status': 'Status',
         'transit_router_id': 'TransitRouterId',
         'vpn_connection_ids': 'VpnConnectionIds',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, attach_status=None, attach_type=None, customer_gateway_id=None, page_number=None, page_size=None, project_name=None, transit_router_id=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_status=None, attach_type=None, customer_gateway_id=None, page_number=None, page_size=None, project_name=None, spec=None, status=None, transit_router_id=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +74,8 @@ class DescribeVpnConnectionsRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._spec = None
+        self._status = None
         self._transit_router_id = None
         self._vpn_connection_ids = None
         self._vpn_connection_name = None
@@ -88,6 +94,10 @@ class DescribeVpnConnectionsRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if spec is not None:
+            self.spec = spec
+        if status is not None:
+            self.status = status
         if transit_router_id is not None:
             self.transit_router_id = transit_router_id
         if vpn_connection_ids is not None:
@@ -115,13 +125,6 @@ class DescribeVpnConnectionsRequest(object):
         :param attach_status: The attach_status of this DescribeVpnConnectionsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Attached", "Attaching", "Detached", "Detaching"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                attach_status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `attach_status` ({0}), must be one of {1}"  # noqa: E501
-                .format(attach_status, allowed_values)
-            )
 
         self._attach_status = attach_status
 
@@ -143,13 +146,6 @@ class DescribeVpnConnectionsRequest(object):
         :param attach_type: The attach_type of this DescribeVpnConnectionsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["VpnGateway", "TransitRouter"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                attach_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `attach_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(attach_type, allowed_values)
-            )
 
         self._attach_type = attach_type
 
@@ -236,6 +232,48 @@ class DescribeVpnConnectionsRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def spec(self):
+        """Gets the spec of this DescribeVpnConnectionsRequest.  # noqa: E501
+
+
+        :return: The spec of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._spec
+
+    @spec.setter
+    def spec(self, spec):
+        """Sets the spec of this DescribeVpnConnectionsRequest.
+
+
+        :param spec: The spec of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._spec = spec
+
+    @property
+    def status(self):
+        """Gets the status of this DescribeVpnConnectionsRequest.  # noqa: E501
+
+
+        :return: The status of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this DescribeVpnConnectionsRequest.
+
+
+        :param status: The status of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     @property
     def transit_router_id(self):

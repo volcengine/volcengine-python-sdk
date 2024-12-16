@@ -35,16 +35,18 @@ class DescribeVpnGatewaysBillingRequest(object):
     swagger_types = {
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'vpn_gateway_ids': 'list[str]'
     }
 
     attribute_map = {
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'vpn_gateway_ids': 'VpnGatewayIds'
     }
 
-    def __init__(self, page_number=None, page_size=None, vpn_gateway_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, project_name=None, vpn_gateway_ids=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewaysBillingRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class DescribeVpnGatewaysBillingRequest(object):
 
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._vpn_gateway_ids = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class DescribeVpnGatewaysBillingRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if vpn_gateway_ids is not None:
             self.vpn_gateway_ids = vpn_gateway_ids
 
@@ -101,11 +106,29 @@ class DescribeVpnGatewaysBillingRequest(object):
         :param page_size: The page_size of this DescribeVpnGatewaysBillingRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                page_size is not None and page_size > 100):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeVpnGatewaysBillingRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeVpnGatewaysBillingRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeVpnGatewaysBillingRequest.
+
+
+        :param project_name: The project_name of this DescribeVpnGatewaysBillingRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def vpn_gateway_ids(self):

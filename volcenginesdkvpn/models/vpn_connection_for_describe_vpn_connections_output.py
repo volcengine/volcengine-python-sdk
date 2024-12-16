@@ -36,6 +36,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'account_id': 'str',
         'attach_status': 'str',
         'attach_type': 'str',
+        'bgp_info': 'BgpInfoForDescribeVpnConnectionsOutput',
         'business_status': 'str',
         'connect_status': 'str',
         'creation_time': 'str',
@@ -43,9 +44,11 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'deleted_time': 'str',
         'description': 'str',
         'dpd_action': 'str',
+        'health_checkers': 'list[HealthCheckerForDescribeVpnConnectionsOutput]',
         'ike_config': 'IkeConfigForDescribeVpnConnectionsOutput',
         'ip_address': 'str',
         'ipsec_config': 'IpsecConfigForDescribeVpnConnectionsOutput',
+        'is_blocked': 'bool',
         'local_subnet': 'list[str]',
         'log_enabled': 'bool',
         'nat_traversal': 'bool',
@@ -53,6 +56,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'overdue_time': 'str',
         'project_name': 'str',
         'remote_subnet': 'list[str]',
+        'request_id': 'str',
+        'spec': 'str',
         'status': 'str',
         'transit_router_id': 'str',
         'update_time': 'str',
@@ -66,6 +71,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'account_id': 'AccountId',
         'attach_status': 'AttachStatus',
         'attach_type': 'AttachType',
+        'bgp_info': 'BgpInfo',
         'business_status': 'BusinessStatus',
         'connect_status': 'ConnectStatus',
         'creation_time': 'CreationTime',
@@ -73,9 +79,11 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'deleted_time': 'DeletedTime',
         'description': 'Description',
         'dpd_action': 'DpdAction',
+        'health_checkers': 'HealthCheckers',
         'ike_config': 'IkeConfig',
         'ip_address': 'IpAddress',
         'ipsec_config': 'IpsecConfig',
+        'is_blocked': 'IsBlocked',
         'local_subnet': 'LocalSubnet',
         'log_enabled': 'LogEnabled',
         'nat_traversal': 'NatTraversal',
@@ -83,6 +91,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'remote_subnet': 'RemoteSubnet',
+        'request_id': 'RequestId',
+        'spec': 'Spec',
         'status': 'Status',
         'transit_router_id': 'TransitRouterId',
         'update_time': 'UpdateTime',
@@ -92,7 +102,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, attach_status=None, attach_type=None, business_status=None, connect_status=None, creation_time=None, customer_gateway_id=None, deleted_time=None, description=None, dpd_action=None, ike_config=None, ip_address=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, overdue_time=None, project_name=None, remote_subnet=None, status=None, transit_router_id=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, attach_status=None, attach_type=None, bgp_info=None, business_status=None, connect_status=None, creation_time=None, customer_gateway_id=None, deleted_time=None, description=None, dpd_action=None, health_checkers=None, ike_config=None, ip_address=None, ipsec_config=None, is_blocked=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, overdue_time=None, project_name=None, remote_subnet=None, request_id=None, spec=None, status=None, transit_router_id=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """VpnConnectionForDescribeVpnConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,6 +111,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._account_id = None
         self._attach_status = None
         self._attach_type = None
+        self._bgp_info = None
         self._business_status = None
         self._connect_status = None
         self._creation_time = None
@@ -108,9 +119,11 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._deleted_time = None
         self._description = None
         self._dpd_action = None
+        self._health_checkers = None
         self._ike_config = None
         self._ip_address = None
         self._ipsec_config = None
+        self._is_blocked = None
         self._local_subnet = None
         self._log_enabled = None
         self._nat_traversal = None
@@ -118,6 +131,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._overdue_time = None
         self._project_name = None
         self._remote_subnet = None
+        self._request_id = None
+        self._spec = None
         self._status = None
         self._transit_router_id = None
         self._update_time = None
@@ -133,6 +148,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
             self.attach_status = attach_status
         if attach_type is not None:
             self.attach_type = attach_type
+        if bgp_info is not None:
+            self.bgp_info = bgp_info
         if business_status is not None:
             self.business_status = business_status
         if connect_status is not None:
@@ -147,12 +164,16 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
             self.description = description
         if dpd_action is not None:
             self.dpd_action = dpd_action
+        if health_checkers is not None:
+            self.health_checkers = health_checkers
         if ike_config is not None:
             self.ike_config = ike_config
         if ip_address is not None:
             self.ip_address = ip_address
         if ipsec_config is not None:
             self.ipsec_config = ipsec_config
+        if is_blocked is not None:
+            self.is_blocked = is_blocked
         if local_subnet is not None:
             self.local_subnet = local_subnet
         if log_enabled is not None:
@@ -167,6 +188,10 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
             self.project_name = project_name
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
+        if request_id is not None:
+            self.request_id = request_id
+        if spec is not None:
+            self.spec = spec
         if status is not None:
             self.status = status
         if transit_router_id is not None:
@@ -244,6 +269,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._attach_type = attach_type
+
+    @property
+    def bgp_info(self):
+        """Gets the bgp_info of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The bgp_info of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: BgpInfoForDescribeVpnConnectionsOutput
+        """
+        return self._bgp_info
+
+    @bgp_info.setter
+    def bgp_info(self, bgp_info):
+        """Sets the bgp_info of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param bgp_info: The bgp_info of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: BgpInfoForDescribeVpnConnectionsOutput
+        """
+
+        self._bgp_info = bgp_info
 
     @property
     def business_status(self):
@@ -393,6 +439,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._dpd_action = dpd_action
 
     @property
+    def health_checkers(self):
+        """Gets the health_checkers of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The health_checkers of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: list[HealthCheckerForDescribeVpnConnectionsOutput]
+        """
+        return self._health_checkers
+
+    @health_checkers.setter
+    def health_checkers(self, health_checkers):
+        """Sets the health_checkers of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param health_checkers: The health_checkers of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: list[HealthCheckerForDescribeVpnConnectionsOutput]
+        """
+
+        self._health_checkers = health_checkers
+
+    @property
     def ike_config(self):
         """Gets the ike_config of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
 
@@ -454,6 +521,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._ipsec_config = ipsec_config
+
+    @property
+    def is_blocked(self):
+        """Gets the is_blocked of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The is_blocked of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_blocked
+
+    @is_blocked.setter
+    def is_blocked(self, is_blocked):
+        """Sets the is_blocked of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param is_blocked: The is_blocked of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_blocked = is_blocked
 
     @property
     def local_subnet(self):
@@ -601,6 +689,48 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._remote_subnet = remote_subnet
+
+    @property
+    def request_id(self):
+        """Gets the request_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The request_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, request_id):
+        """Sets the request_id of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param request_id: The request_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._request_id = request_id
+
+    @property
+    def spec(self):
+        """Gets the spec of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The spec of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._spec
+
+    @spec.setter
+    def spec(self, spec):
+        """Sets the spec of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param spec: The spec of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._spec = spec
 
     @property
     def status(self):
