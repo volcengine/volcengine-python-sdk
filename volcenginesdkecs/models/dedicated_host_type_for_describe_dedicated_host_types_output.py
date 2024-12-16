@@ -36,6 +36,7 @@ class DedicatedHostTypeForDescribeDedicatedHostTypesOutput(object):
         'cores': 'int',
         'dedicated_host_type_id': 'str',
         'is_supported_cpu_overcommit_ratio': 'bool',
+        'local_volumes': 'list[LocalVolumeForDescribeDedicatedHostTypesOutput]',
         'max_cpu_overcommit_ratio': 'float',
         'processor_model': 'str',
         'sockets': 'int',
@@ -49,6 +50,7 @@ class DedicatedHostTypeForDescribeDedicatedHostTypesOutput(object):
         'cores': 'Cores',
         'dedicated_host_type_id': 'DedicatedHostTypeId',
         'is_supported_cpu_overcommit_ratio': 'IsSupportedCpuOvercommitRatio',
+        'local_volumes': 'LocalVolumes',
         'max_cpu_overcommit_ratio': 'MaxCpuOvercommitRatio',
         'processor_model': 'ProcessorModel',
         'sockets': 'Sockets',
@@ -58,7 +60,7 @@ class DedicatedHostTypeForDescribeDedicatedHostTypesOutput(object):
         'total_vcpus': 'TotalVcpus'
     }
 
-    def __init__(self, cores=None, dedicated_host_type_id=None, is_supported_cpu_overcommit_ratio=None, max_cpu_overcommit_ratio=None, processor_model=None, sockets=None, support_instance_type_families=None, support_instance_types_list=None, total_memory=None, total_vcpus=None, _configuration=None):  # noqa: E501
+    def __init__(self, cores=None, dedicated_host_type_id=None, is_supported_cpu_overcommit_ratio=None, local_volumes=None, max_cpu_overcommit_ratio=None, processor_model=None, sockets=None, support_instance_type_families=None, support_instance_types_list=None, total_memory=None, total_vcpus=None, _configuration=None):  # noqa: E501
         """DedicatedHostTypeForDescribeDedicatedHostTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class DedicatedHostTypeForDescribeDedicatedHostTypesOutput(object):
         self._cores = None
         self._dedicated_host_type_id = None
         self._is_supported_cpu_overcommit_ratio = None
+        self._local_volumes = None
         self._max_cpu_overcommit_ratio = None
         self._processor_model = None
         self._sockets = None
@@ -82,6 +85,8 @@ class DedicatedHostTypeForDescribeDedicatedHostTypesOutput(object):
             self.dedicated_host_type_id = dedicated_host_type_id
         if is_supported_cpu_overcommit_ratio is not None:
             self.is_supported_cpu_overcommit_ratio = is_supported_cpu_overcommit_ratio
+        if local_volumes is not None:
+            self.local_volumes = local_volumes
         if max_cpu_overcommit_ratio is not None:
             self.max_cpu_overcommit_ratio = max_cpu_overcommit_ratio
         if processor_model is not None:
@@ -159,6 +164,27 @@ class DedicatedHostTypeForDescribeDedicatedHostTypesOutput(object):
         """
 
         self._is_supported_cpu_overcommit_ratio = is_supported_cpu_overcommit_ratio
+
+    @property
+    def local_volumes(self):
+        """Gets the local_volumes of this DedicatedHostTypeForDescribeDedicatedHostTypesOutput.  # noqa: E501
+
+
+        :return: The local_volumes of this DedicatedHostTypeForDescribeDedicatedHostTypesOutput.  # noqa: E501
+        :rtype: list[LocalVolumeForDescribeDedicatedHostTypesOutput]
+        """
+        return self._local_volumes
+
+    @local_volumes.setter
+    def local_volumes(self, local_volumes):
+        """Sets the local_volumes of this DedicatedHostTypeForDescribeDedicatedHostTypesOutput.
+
+
+        :param local_volumes: The local_volumes of this DedicatedHostTypeForDescribeDedicatedHostTypesOutput.  # noqa: E501
+        :type: list[LocalVolumeForDescribeDedicatedHostTypesOutput]
+        """
+
+        self._local_volumes = local_volumes
 
     @property
     def max_cpu_overcommit_ratio(self):

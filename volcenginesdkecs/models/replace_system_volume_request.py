@@ -36,6 +36,7 @@ class ReplaceSystemVolumeRequest(object):
         'client_token': 'str',
         'dry_run': 'bool',
         'image_id': 'str',
+        'image_release_version': 'str',
         'instance_id': 'str',
         'keep_image_credential': 'bool',
         'key_pair_name': 'str',
@@ -48,6 +49,7 @@ class ReplaceSystemVolumeRequest(object):
         'client_token': 'ClientToken',
         'dry_run': 'DryRun',
         'image_id': 'ImageId',
+        'image_release_version': 'ImageReleaseVersion',
         'instance_id': 'InstanceId',
         'keep_image_credential': 'KeepImageCredential',
         'key_pair_name': 'KeyPairName',
@@ -56,7 +58,7 @@ class ReplaceSystemVolumeRequest(object):
         'user_data': 'UserData'
     }
 
-    def __init__(self, client_token=None, dry_run=None, image_id=None, instance_id=None, keep_image_credential=None, key_pair_name=None, password=None, size=None, user_data=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, dry_run=None, image_id=None, image_release_version=None, instance_id=None, keep_image_credential=None, key_pair_name=None, password=None, size=None, user_data=None, _configuration=None):  # noqa: E501
         """ReplaceSystemVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class ReplaceSystemVolumeRequest(object):
         self._client_token = None
         self._dry_run = None
         self._image_id = None
+        self._image_release_version = None
         self._instance_id = None
         self._keep_image_credential = None
         self._key_pair_name = None
@@ -78,6 +81,8 @@ class ReplaceSystemVolumeRequest(object):
         if dry_run is not None:
             self.dry_run = dry_run
         self.image_id = image_id
+        if image_release_version is not None:
+            self.image_release_version = image_release_version
         self.instance_id = instance_id
         if keep_image_credential is not None:
             self.keep_image_credential = keep_image_credential
@@ -154,6 +159,27 @@ class ReplaceSystemVolumeRequest(object):
             raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
+
+    @property
+    def image_release_version(self):
+        """Gets the image_release_version of this ReplaceSystemVolumeRequest.  # noqa: E501
+
+
+        :return: The image_release_version of this ReplaceSystemVolumeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_release_version
+
+    @image_release_version.setter
+    def image_release_version(self, image_release_version):
+        """Sets the image_release_version of this ReplaceSystemVolumeRequest.
+
+
+        :param image_release_version: The image_release_version of this ReplaceSystemVolumeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._image_release_version = image_release_version
 
     @property
     def instance_id(self):

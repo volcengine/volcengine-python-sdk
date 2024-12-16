@@ -47,6 +47,7 @@ class RunInstancesRequest(object):
         'hostname': 'str',
         'hpc_cluster_id': 'str',
         'image_id': 'str',
+        'image_release_version': 'str',
         'install_run_command_agent': 'bool',
         'instance_charge_type': 'str',
         'instance_name': 'str',
@@ -87,6 +88,7 @@ class RunInstancesRequest(object):
         'hostname': 'Hostname',
         'hpc_cluster_id': 'HpcClusterId',
         'image_id': 'ImageId',
+        'image_release_version': 'ImageReleaseVersion',
         'install_run_command_agent': 'InstallRunCommandAgent',
         'instance_charge_type': 'InstanceChargeType',
         'instance_name': 'InstanceName',
@@ -112,7 +114,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, credit_specification=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, image_release_version=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -132,6 +134,7 @@ class RunInstancesRequest(object):
         self._hostname = None
         self._hpc_cluster_id = None
         self._image_id = None
+        self._image_release_version = None
         self._install_run_command_agent = None
         self._instance_charge_type = None
         self._instance_name = None
@@ -184,6 +187,8 @@ class RunInstancesRequest(object):
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
         self.image_id = image_id
+        if image_release_version is not None:
+            self.image_release_version = image_release_version
         if install_run_command_agent is not None:
             self.install_run_command_agent = install_run_command_agent
         if instance_charge_type is not None:
@@ -524,6 +529,27 @@ class RunInstancesRequest(object):
             raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
 
         self._image_id = image_id
+
+    @property
+    def image_release_version(self):
+        """Gets the image_release_version of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The image_release_version of this RunInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_release_version
+
+    @image_release_version.setter
+    def image_release_version(self, image_release_version):
+        """Sets the image_release_version of this RunInstancesRequest.
+
+
+        :param image_release_version: The image_release_version of this RunInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._image_release_version = image_release_version
 
     @property
     def install_run_command_agent(self):

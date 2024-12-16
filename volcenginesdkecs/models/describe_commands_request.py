@@ -34,6 +34,7 @@ class DescribeCommandsRequest(object):
     """
     swagger_types = {
         'command_id': 'str',
+        'content_encoding': 'str',
         'name': 'str',
         'order': 'str',
         'page_number': 'int',
@@ -46,6 +47,7 @@ class DescribeCommandsRequest(object):
 
     attribute_map = {
         'command_id': 'CommandId',
+        'content_encoding': 'ContentEncoding',
         'name': 'Name',
         'order': 'Order',
         'page_number': 'PageNumber',
@@ -56,13 +58,14 @@ class DescribeCommandsRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, command_id=None, name=None, order=None, page_number=None, page_size=None, project_name=None, provider=None, tag_filters=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_id=None, content_encoding=None, name=None, order=None, page_number=None, page_size=None, project_name=None, provider=None, tag_filters=None, type=None, _configuration=None):  # noqa: E501
         """DescribeCommandsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._command_id = None
+        self._content_encoding = None
         self._name = None
         self._order = None
         self._page_number = None
@@ -75,6 +78,8 @@ class DescribeCommandsRequest(object):
 
         if command_id is not None:
             self.command_id = command_id
+        if content_encoding is not None:
+            self.content_encoding = content_encoding
         if name is not None:
             self.name = name
         if order is not None:
@@ -112,6 +117,27 @@ class DescribeCommandsRequest(object):
         """
 
         self._command_id = command_id
+
+    @property
+    def content_encoding(self):
+        """Gets the content_encoding of this DescribeCommandsRequest.  # noqa: E501
+
+
+        :return: The content_encoding of this DescribeCommandsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_encoding
+
+    @content_encoding.setter
+    def content_encoding(self, content_encoding):
+        """Sets the content_encoding of this DescribeCommandsRequest.
+
+
+        :param content_encoding: The content_encoding of this DescribeCommandsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._content_encoding = content_encoding
 
     @property
     def name(self):

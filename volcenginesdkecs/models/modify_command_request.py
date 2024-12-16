@@ -35,6 +35,7 @@ class ModifyCommandRequest(object):
     swagger_types = {
         'command_content': 'str',
         'command_id': 'str',
+        'content_encoding': 'str',
         'description': 'str',
         'enable_parameter': 'bool',
         'name': 'str',
@@ -48,6 +49,7 @@ class ModifyCommandRequest(object):
     attribute_map = {
         'command_content': 'CommandContent',
         'command_id': 'CommandId',
+        'content_encoding': 'ContentEncoding',
         'description': 'Description',
         'enable_parameter': 'EnableParameter',
         'name': 'Name',
@@ -58,7 +60,7 @@ class ModifyCommandRequest(object):
         'working_dir': 'WorkingDir'
     }
 
-    def __init__(self, command_content=None, command_id=None, description=None, enable_parameter=None, name=None, parameter_definitions=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_content=None, command_id=None, content_encoding=None, description=None, enable_parameter=None, name=None, parameter_definitions=None, timeout=None, type=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
         """ModifyCommandRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class ModifyCommandRequest(object):
 
         self._command_content = None
         self._command_id = None
+        self._content_encoding = None
         self._description = None
         self._enable_parameter = None
         self._name = None
@@ -79,6 +82,8 @@ class ModifyCommandRequest(object):
         if command_content is not None:
             self.command_content = command_content
         self.command_id = command_id
+        if content_encoding is not None:
+            self.content_encoding = content_encoding
         if description is not None:
             self.description = description
         if enable_parameter is not None:
@@ -139,6 +144,27 @@ class ModifyCommandRequest(object):
             raise ValueError("Invalid value for `command_id`, must not be `None`")  # noqa: E501
 
         self._command_id = command_id
+
+    @property
+    def content_encoding(self):
+        """Gets the content_encoding of this ModifyCommandRequest.  # noqa: E501
+
+
+        :return: The content_encoding of this ModifyCommandRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_encoding
+
+    @content_encoding.setter
+    def content_encoding(self, content_encoding):
+        """Sets the content_encoding of this ModifyCommandRequest.
+
+
+        :param content_encoding: The content_encoding of this ModifyCommandRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._content_encoding = content_encoding
 
     @property
     def description(self):

@@ -39,7 +39,8 @@ class DescribeAllowListDetailResponse(object):
         'allow_list_id': 'str',
         'allow_list_name': 'str',
         'allow_list_type': 'str',
-        'associated_instances': 'list[AssociatedInstanceForDescribeAllowListDetailOutput]'
+        'associated_instances': 'list[AssociatedInstanceForDescribeAllowListDetailOutput]',
+        'security_group_bind_infos': 'list[SecurityGroupBindInfoForDescribeAllowListDetailOutput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DescribeAllowListDetailResponse(object):
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
         'allow_list_type': 'AllowListType',
-        'associated_instances': 'AssociatedInstances'
+        'associated_instances': 'AssociatedInstances',
+        'security_group_bind_infos': 'SecurityGroupBindInfos'
     }
 
-    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instances=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instances=None, security_group_bind_infos=None, _configuration=None):  # noqa: E501
         """DescribeAllowListDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeAllowListDetailResponse(object):
         self._allow_list_name = None
         self._allow_list_type = None
         self._associated_instances = None
+        self._security_group_bind_infos = None
         self.discriminator = None
 
         if allow_list is not None:
@@ -81,6 +84,8 @@ class DescribeAllowListDetailResponse(object):
             self.allow_list_type = allow_list_type
         if associated_instances is not None:
             self.associated_instances = associated_instances
+        if security_group_bind_infos is not None:
+            self.security_group_bind_infos = security_group_bind_infos
 
     @property
     def allow_list(self):
@@ -228,6 +233,27 @@ class DescribeAllowListDetailResponse(object):
         """
 
         self._associated_instances = associated_instances
+
+    @property
+    def security_group_bind_infos(self):
+        """Gets the security_group_bind_infos of this DescribeAllowListDetailResponse.  # noqa: E501
+
+
+        :return: The security_group_bind_infos of this DescribeAllowListDetailResponse.  # noqa: E501
+        :rtype: list[SecurityGroupBindInfoForDescribeAllowListDetailOutput]
+        """
+        return self._security_group_bind_infos
+
+    @security_group_bind_infos.setter
+    def security_group_bind_infos(self, security_group_bind_infos):
+        """Sets the security_group_bind_infos of this DescribeAllowListDetailResponse.
+
+
+        :param security_group_bind_infos: The security_group_bind_infos of this DescribeAllowListDetailResponse.  # noqa: E501
+        :type: list[SecurityGroupBindInfoForDescribeAllowListDetailOutput]
+        """
+
+        self._security_group_bind_infos = security_group_bind_infos
 
     def to_dict(self):
         """Returns the model properties as a dict"""

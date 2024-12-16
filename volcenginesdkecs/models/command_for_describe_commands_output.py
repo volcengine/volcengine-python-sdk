@@ -41,7 +41,9 @@ class CommandForDescribeCommandsOutput(object):
         'invocation_times': 'int',
         'name': 'str',
         'parameter_definitions': 'list[ParameterDefinitionForDescribeCommandsOutput]',
+        'project_name': 'str',
         'provider': 'str',
+        'tags': 'list[TagForDescribeCommandsOutput]',
         'timeout': 'int',
         'type': 'str',
         'updated_at': 'str',
@@ -58,7 +60,9 @@ class CommandForDescribeCommandsOutput(object):
         'invocation_times': 'InvocationTimes',
         'name': 'Name',
         'parameter_definitions': 'ParameterDefinitions',
+        'project_name': 'ProjectName',
         'provider': 'Provider',
+        'tags': 'Tags',
         'timeout': 'Timeout',
         'type': 'Type',
         'updated_at': 'UpdatedAt',
@@ -66,7 +70,7 @@ class CommandForDescribeCommandsOutput(object):
         'working_dir': 'WorkingDir'
     }
 
-    def __init__(self, command_content=None, command_id=None, created_at=None, description=None, enable_parameter=None, invocation_times=None, name=None, parameter_definitions=None, provider=None, timeout=None, type=None, updated_at=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
+    def __init__(self, command_content=None, command_id=None, created_at=None, description=None, enable_parameter=None, invocation_times=None, name=None, parameter_definitions=None, project_name=None, provider=None, tags=None, timeout=None, type=None, updated_at=None, username=None, working_dir=None, _configuration=None):  # noqa: E501
         """CommandForDescribeCommandsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,7 +84,9 @@ class CommandForDescribeCommandsOutput(object):
         self._invocation_times = None
         self._name = None
         self._parameter_definitions = None
+        self._project_name = None
         self._provider = None
+        self._tags = None
         self._timeout = None
         self._type = None
         self._updated_at = None
@@ -104,8 +110,12 @@ class CommandForDescribeCommandsOutput(object):
             self.name = name
         if parameter_definitions is not None:
             self.parameter_definitions = parameter_definitions
+        if project_name is not None:
+            self.project_name = project_name
         if provider is not None:
             self.provider = provider
+        if tags is not None:
+            self.tags = tags
         if timeout is not None:
             self.timeout = timeout
         if type is not None:
@@ -286,6 +296,27 @@ class CommandForDescribeCommandsOutput(object):
         self._parameter_definitions = parameter_definitions
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CommandForDescribeCommandsOutput.  # noqa: E501
+
+
+        :return: The project_name of this CommandForDescribeCommandsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CommandForDescribeCommandsOutput.
+
+
+        :param project_name: The project_name of this CommandForDescribeCommandsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def provider(self):
         """Gets the provider of this CommandForDescribeCommandsOutput.  # noqa: E501
 
@@ -305,6 +336,27 @@ class CommandForDescribeCommandsOutput(object):
         """
 
         self._provider = provider
+
+    @property
+    def tags(self):
+        """Gets the tags of this CommandForDescribeCommandsOutput.  # noqa: E501
+
+
+        :return: The tags of this CommandForDescribeCommandsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeCommandsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CommandForDescribeCommandsOutput.
+
+
+        :param tags: The tags of this CommandForDescribeCommandsOutput.  # noqa: E501
+        :type: list[TagForDescribeCommandsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def timeout(self):
