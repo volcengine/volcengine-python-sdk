@@ -75,6 +75,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'status': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForDescribeLoadBalancerAttributesOutput]',
+        'timestamp_remove_enabled': 'str',
         'type': 'str',
         'update_time': 'str',
         'vpc_id': 'str'
@@ -123,12 +124,13 @@ class DescribeLoadBalancerAttributesResponse(object):
         'status': 'Status',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
+        'timestamp_remove_enabled': 'TimestampRemoveEnabled',
         'type': 'Type',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, access_log=None, account_id=None, address_ip_version=None, allowed_ports=None, business_status=None, bypass_security_group_enabled=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_address_num=None, eni_addresses=None, eni_id=None, eni_ipv6_address=None, exclusive_cluster_id=None, expired_time=None, ipv6_address_bandwidth=None, ipv6_eip_id=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, new_arch=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, account_id=None, address_ip_version=None, allowed_ports=None, business_status=None, bypass_security_group_enabled=None, create_time=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_address_num=None, eni_addresses=None, eni_id=None, eni_ipv6_address=None, exclusive_cluster_id=None, expired_time=None, ipv6_address_bandwidth=None, ipv6_eip_id=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, load_balancer_spec=None, lock_reason=None, log_topic_id=None, master_zone_id=None, modification_protection_reason=None, modification_protection_status=None, new_arch=None, overdue_time=None, project_name=None, request_id=None, server_groups=None, service_managed=None, slave_zone_id=None, status=None, subnet_id=None, tags=None, timestamp_remove_enabled=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -176,6 +178,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._status = None
         self._subnet_id = None
         self._tags = None
+        self._timestamp_remove_enabled = None
         self._type = None
         self._update_time = None
         self._vpc_id = None
@@ -265,6 +268,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
+        if timestamp_remove_enabled is not None:
+            self.timestamp_remove_enabled = timestamp_remove_enabled
         if type is not None:
             self.type = type
         if update_time is not None:
@@ -1153,6 +1158,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._tags = tags
+
+    @property
+    def timestamp_remove_enabled(self):
+        """Gets the timestamp_remove_enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The timestamp_remove_enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._timestamp_remove_enabled
+
+    @timestamp_remove_enabled.setter
+    def timestamp_remove_enabled(self, timestamp_remove_enabled):
+        """Sets the timestamp_remove_enabled of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param timestamp_remove_enabled: The timestamp_remove_enabled of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._timestamp_remove_enabled = timestamp_remove_enabled
 
     @property
     def type(self):

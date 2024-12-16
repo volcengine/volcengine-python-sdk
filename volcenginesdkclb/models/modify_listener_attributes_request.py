@@ -37,7 +37,9 @@ class ModifyListenerAttributesRequest(object):
         'acl_status': 'str',
         'acl_type': 'str',
         'bandwidth': 'int',
+        'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'client_body_timeout': 'int',
         'client_header_timeout': 'int',
         'connection_drain_enabled': 'str',
@@ -68,7 +70,9 @@ class ModifyListenerAttributesRequest(object):
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
         'bandwidth': 'Bandwidth',
+        'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'client_body_timeout': 'ClientBodyTimeout',
         'client_header_timeout': 'ClientHeaderTimeout',
         'connection_drain_enabled': 'ConnectionDrainEnabled',
@@ -94,7 +98,7 @@ class ModifyListenerAttributesRequest(object):
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, certificate_id=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, description=None, enabled=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, description=None, enabled=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -104,7 +108,9 @@ class ModifyListenerAttributesRequest(object):
         self._acl_status = None
         self._acl_type = None
         self._bandwidth = None
+        self._cert_center_certificate_id = None
         self._certificate_id = None
+        self._certificate_source = None
         self._client_body_timeout = None
         self._client_header_timeout = None
         self._connection_drain_enabled = None
@@ -138,8 +144,12 @@ class ModifyListenerAttributesRequest(object):
             self.acl_type = acl_type
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if cert_center_certificate_id is not None:
+            self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if client_body_timeout is not None:
             self.client_body_timeout = client_body_timeout
         if client_header_timeout is not None:
@@ -271,6 +281,27 @@ class ModifyListenerAttributesRequest(object):
         self._bandwidth = bandwidth
 
     @property
+    def cert_center_certificate_id(self):
+        """Gets the cert_center_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The cert_center_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cert_center_certificate_id
+
+    @cert_center_certificate_id.setter
+    def cert_center_certificate_id(self, cert_center_certificate_id):
+        """Sets the cert_center_certificate_id of this ModifyListenerAttributesRequest.
+
+
+        :param cert_center_certificate_id: The cert_center_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cert_center_certificate_id = cert_center_certificate_id
+
+    @property
     def certificate_id(self):
         """Gets the certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
 
@@ -290,6 +321,27 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this ModifyListenerAttributesRequest.
+
+
+        :param certificate_source: The certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def client_body_timeout(self):
