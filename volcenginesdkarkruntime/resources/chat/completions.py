@@ -59,12 +59,12 @@ class Completions(SyncAPIResource):
                             if part["image_url"]["url"].startswith('data:'):
                                 part["image_url"]["url"] = f(part["image_url"]["url"])
                             else:
-                                log.warning("image url is not supported end-to-end encryption")
+                                log.warning("end-to-end encryption is not supported for image url")
                         else:
-                            raise TypeError("content type {} is not supported end-to-end encryption".
+                            raise TypeError("end-to-end encryption is not supported for content type {}".
                                             format(type(part)))
                 else:
-                    raise TypeError("content type {} is not supported end-to-end encryption".
+                    raise TypeError("end-to-end encryption is not supported for content type {}".
                                     format(type(message.get('content'))))
 
     def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
@@ -196,12 +196,12 @@ class AsyncCompletions(AsyncAPIResource):
                             if part["image_url"]["url"].startswith('data:'):
                                 part["image_url"]["url"] = f(part["image_url"]["url"])
                             else:
-                                log.warning("image url is not supported end-to-end encryption")
+                                log.warning("end-to-end encryption is not supported for image url")
                         else:
-                            raise TypeError("content type {} is not supported end-to-end encryption".
+                            raise TypeError("end-to-end encryption is not supported for content type {}".
                                             format(type(part)))
                 else:
-                    raise TypeError("content type {} is not supported end-to-end encryption".
+                    raise TypeError("end-to-end encryption is not supported for content type {}".
                                     format(type(message.get('content'))))
 
     def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers

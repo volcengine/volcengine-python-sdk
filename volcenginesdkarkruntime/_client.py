@@ -325,7 +325,7 @@ class E2ECertificateManager(object):
             resp: volcenginesdkark.GetEndpointCertificateResponse = self.api_instance.get_endpoint_certificate(
                 get_endpoint_certificate_request)
         except ApiException as e:
-            raise ArkAPIError("Getting Certificate failed: %s\n" % e)
+            raise ArkAPIError("Getting end-to-end encryption certificate failed: %s\n" % e)
 
         return resp.pca_instance_certificate
 
