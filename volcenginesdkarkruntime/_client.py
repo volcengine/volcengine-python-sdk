@@ -109,10 +109,9 @@ class Ark(SyncAPIClient):
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (self.ak is None or self.sk is None) and cert_path is None and self.api_key is None:
-                raise ArkAPIError("must set (ak and sk) or (E2E_CERTIFICATE_PATH) \
-                                  or (api_key) before get endpoint token.")
-            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region, 
-                                                              self._base_url, self.api_key)
+                raise ArkAPIError("must set (api_key) or (ak and sk) \
+                                  or (E2E_CERTIFICATE_PATH) before get endpoint token.")
+            self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region, self._base_url, self.api_key)
         return self._certificate_manager.get(endpoint_id)
 
     def _get_bot_sts_token(self, bot_id: str):
@@ -204,8 +203,8 @@ class AsyncArk(AsyncAPIClient):
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (self.ak is None or self.sk is None) and cert_path is None and self.api_key is None:
-                raise ArkAPIError("must set (ak and sk) or (E2E_CERTIFICATE_PATH) \
-                                  or (api_key) before get endpoint token.")
+                raise ArkAPIError("must set (api_key) or (ak and sk) \
+                                  or (E2E_CERTIFICATE_PATH) before get endpoint token.")
             self._certificate_manager = E2ECertificateManager(self.ak, self.sk, self.region, self._base_url, self.api_key)
         return self._certificate_manager.get(endpoint_id)
 
@@ -310,10 +309,12 @@ class E2ECertificateManager(object):
 
     def __init__(self, ak: str, sk: str, region: str, base_url: str | URL = BASE_URL, api_key: str | None = None):
         self._certificate_manager: Dict[str, key_agreement_client] = {}
+
+        # local cache prepare
         self._init_local_cert_cache()
 
+        # api instance prepare
         import volcenginesdkcore
-
         self._api_instance_enabled = True
         if ak is None or sk is None:
             self._api_instance_enabled = False
@@ -322,18 +323,20 @@ class E2ECertificateManager(object):
         configuration.sk = sk
         configuration.region = region
         configuration.schema = "https"
-
         volcenginesdkcore.Configuration.set_default(configuration)
         self.api_instance = volcenginesdkark.ARKApi()
 
+        # global cert path prepare
         self.cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
 
+        # ark client prepare
         self.client = Ark(
             base_url=base_url,
             api_key=api_key,
             ak=ak, sk=sk,
         )
         self._e2e_uri = "/e2e/get/certificate"
+        self._x_session_token = {'X-Session-Token': self._e2e_uri}
 
     def _load_cert_by_cert_path(self) -> str:
         with open(self.cert_path, 'r') as f:
@@ -353,12 +356,13 @@ class E2ECertificateManager(object):
         return resp.pca_instance_certificate
 
     def _sync_load_cert_by_auth(self, ep: str) -> str:
-        try:
-            resp = self.client.post(self._e2e_uri, body={"model": ep}, cast_to=self.CertificateResponse)
+        try:  # try to make request with session header (used for header statistic)
+            resp = self.client.post(self._e2e_uri, options={"headers": self._x_session_token},
+                                    body={"model": ep}, cast_to=self.CertificateResponse)
         except Exception as e:
             raise ArkAPIError("Getting Certificate failed: %s\n" % e)
         return resp['Certificate']
-    
+
     def _save_cert_to_file(self, ep: str, cert_pem: str):
         cert_file_path = os.path.join(self._cert_storage_path, f"{ep}.pem")
         with open(cert_file_path, 'w') as f:
@@ -379,7 +383,7 @@ class E2ECertificateManager(object):
 
     def _init_local_cert_cache(self):
         self._cert_storage_path = "/tmp/ark/certificates"
-        self._cert_expiration_seconds = 14 * 24 * 60 * 60 # 14 days
+        self._cert_expiration_seconds = 14 * 24 * 60 * 60  # 14 days
 
         if not os.path.exists(self._cert_storage_path):
             os.makedirs(self._cert_storage_path)
