@@ -58,7 +58,7 @@ class Completions(SyncAPIResource):
                                 part["image_url"]["url"] = f(part["image_url"]["url"])
                             else:
                                 warnings.warn("encryption is not supported for image url, "
-                                            "please use base64 image if you want encryption")
+                                              "please use base64 image if you want encryption")
                         else:
                             raise TypeError("encryption is not supported for content type {}".
                                             format(type(part)))
@@ -196,7 +196,7 @@ class AsyncCompletions(AsyncAPIResource):
                                 part["image_url"]["url"] = f(part["image_url"]["url"])
                             else:
                                 warnings.warn("encryption is not supported for image url, "
-                                            "please use base64 image if you want encryption")
+                                              "please use base64 image if you want encryption")
                         else:
                             raise TypeError("encryption is not supported for content type {}".
                                             format(type(part)))
