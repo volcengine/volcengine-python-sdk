@@ -361,6 +361,8 @@ class E2ECertificateManager(object):
                                     body={"model": ep}, cast_to=self.CertificateResponse)
         except Exception as e:
             raise ArkAPIError("Getting Certificate failed: %s\n" % e)
+        if 'error' in resp:
+            raise ArkAPIError("Getting Certificate failed: %s\n" % resp['error'])
         return resp['Certificate']
 
     def _save_cert_to_file(self, ep: str, cert_pem: str):
