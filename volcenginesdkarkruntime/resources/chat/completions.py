@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Dict, List, Union, Iterable, Optional, Callable, Iterator, AsyncIterator
 
 import httpx
-import logging
+import warnings
 from typing_extensions import Literal
 
 from ..._types import Body, Query, Headers
@@ -33,8 +33,6 @@ from ..._constants import ARK_E2E_ENCRYPTION_HEADER
 
 __all__ = ["Completions", "AsyncCompletions"]
 
-log: logging.Logger = logging.getLogger(__name__)
-
 class Completions(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> CompletionsWithRawResponse:
@@ -59,7 +57,7 @@ class Completions(SyncAPIResource):
                             if part["image_url"]["url"].startswith('data:'):
                                 part["image_url"]["url"] = f(part["image_url"]["url"])
                             else:
-                                log.warning("end-to-end encryption is not supported for image url, "
+                                warnings.warn("end-to-end encryption is not supported for image url, "
                                             "please use base64 image if you want encryption")
                         else:
                             raise TypeError("end-to-end encryption is not supported for content type {}".
@@ -197,7 +195,7 @@ class AsyncCompletions(AsyncAPIResource):
                             if part["image_url"]["url"].startswith('data:'):
                                 part["image_url"]["url"] = f(part["image_url"]["url"])
                             else:
-                                log.warning("end-to-end encryption is not supported for image url, "
+                                warnings.warn("end-to-end encryption is not supported for image url, "
                                             "please use base64 image if you want encryption")
                         else:
                             raise TypeError("end-to-end encryption is not supported for content type {}".

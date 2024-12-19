@@ -22,4 +22,3 @@ def setup_logging() -> None:
         _basic_config()
         logger.setLevel(logging.INFO)
         httpx_logger.setLevel(logging.INFO)
-    _basic_config()
