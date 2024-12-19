@@ -59,7 +59,8 @@ class Completions(SyncAPIResource):
                             if part["image_url"]["url"].startswith('data:'):
                                 part["image_url"]["url"] = f(part["image_url"]["url"])
                             else:
-                                log.warning("end-to-end encryption is not supported for image url")
+                                log.warning("end-to-end encryption is not supported for image url, "
+                                            "please use base64 image if you want encryption")
                         else:
                             raise TypeError("end-to-end encryption is not supported for content type {}".
                                             format(type(part)))
@@ -196,7 +197,8 @@ class AsyncCompletions(AsyncAPIResource):
                             if part["image_url"]["url"].startswith('data:'):
                                 part["image_url"]["url"] = f(part["image_url"]["url"])
                             else:
-                                log.warning("end-to-end encryption is not supported for image url")
+                                log.warning("end-to-end encryption is not supported for image url, "
+                                            "please use base64 image if you want encryption")
                         else:
                             raise TypeError("end-to-end encryption is not supported for content type {}".
                                             format(type(part)))
