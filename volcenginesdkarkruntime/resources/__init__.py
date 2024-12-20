@@ -3,6 +3,7 @@ from .embeddings import Embeddings, AsyncEmbeddings
 from .tokenization import Tokenization, AsyncTokenization
 from .classification import Classification, AsyncClassification
 from .bot import BotChat, AsyncBotChat
+from .context import Context, AsyncContext
 
 __all__ = [
     "Chat",
@@ -12,5 +13,7 @@ __all__ = [
     "Embeddings",
     "AsyncEmbeddings",
     "Tokenization",
-    "AsyncTokenization"
+    "AsyncTokenization",
+    "Context",
+    "AsyncContext"
 ]
