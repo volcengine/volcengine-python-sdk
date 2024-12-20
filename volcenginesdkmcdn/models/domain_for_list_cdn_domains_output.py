@@ -41,7 +41,6 @@ class DomainForListCdnDomainsOutput(object):
         'cloud_account_id': 'str',
         'cloud_account_name': 'str',
         'cname': 'str',
-        'config_sync_detail': 'ConfigSyncDetailForListCdnDomainsOutput',
         'created_at': 'str',
         'id': 'str',
         'imported_at': 'str',
@@ -49,16 +48,13 @@ class DomainForListCdnDomainsOutput(object):
         'networks': 'list[NetworkForListCdnDomainsOutput]',
         'region': 'str',
         'schedule_created': 'bool',
-        'schedule_id': 'str',
         'status': 'str',
         'sub_product': 'str',
-        'sync_status': 'str',
         'synced_at': 'str',
         'tags': 'list[TagForListCdnDomainsOutput]',
         'top_account_id': 'str',
         'updated_at': 'str',
         'vendor': 'str',
-        'vendor_cdn_type': 'str',
         'vendor_id': 'str'
     }
 
@@ -71,7 +67,6 @@ class DomainForListCdnDomainsOutput(object):
         'cloud_account_id': 'CloudAccountId',
         'cloud_account_name': 'CloudAccountName',
         'cname': 'Cname',
-        'config_sync_detail': 'ConfigSyncDetail',
         'created_at': 'CreatedAt',
         'id': 'Id',
         'imported_at': 'ImportedAt',
@@ -79,20 +74,17 @@ class DomainForListCdnDomainsOutput(object):
         'networks': 'Networks',
         'region': 'Region',
         'schedule_created': 'ScheduleCreated',
-        'schedule_id': 'ScheduleId',
         'status': 'Status',
         'sub_product': 'SubProduct',
-        'sync_status': 'SyncStatus',
         'synced_at': 'SyncedAt',
         'tags': 'Tags',
         'top_account_id': 'TopAccountId',
         'updated_at': 'UpdatedAt',
         'vendor': 'Vendor',
-        'vendor_cdn_type': 'VendorCdnType',
         'vendor_id': 'VendorId'
     }
 
-    def __init__(self, biz_node_id=None, biz_node_name=None, biz_node_path=None, cdn_type=None, certificates=None, cloud_account_id=None, cloud_account_name=None, cname=None, config_sync_detail=None, created_at=None, id=None, imported_at=None, name=None, networks=None, region=None, schedule_created=None, schedule_id=None, status=None, sub_product=None, sync_status=None, synced_at=None, tags=None, top_account_id=None, updated_at=None, vendor=None, vendor_cdn_type=None, vendor_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, biz_node_id=None, biz_node_name=None, biz_node_path=None, cdn_type=None, certificates=None, cloud_account_id=None, cloud_account_name=None, cname=None, created_at=None, id=None, imported_at=None, name=None, networks=None, region=None, schedule_created=None, status=None, sub_product=None, synced_at=None, tags=None, top_account_id=None, updated_at=None, vendor=None, vendor_id=None, _configuration=None):  # noqa: E501
         """DomainForListCdnDomainsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,7 +98,6 @@ class DomainForListCdnDomainsOutput(object):
         self._cloud_account_id = None
         self._cloud_account_name = None
         self._cname = None
-        self._config_sync_detail = None
         self._created_at = None
         self._id = None
         self._imported_at = None
@@ -114,16 +105,13 @@ class DomainForListCdnDomainsOutput(object):
         self._networks = None
         self._region = None
         self._schedule_created = None
-        self._schedule_id = None
         self._status = None
         self._sub_product = None
-        self._sync_status = None
         self._synced_at = None
         self._tags = None
         self._top_account_id = None
         self._updated_at = None
         self._vendor = None
-        self._vendor_cdn_type = None
         self._vendor_id = None
         self.discriminator = None
 
@@ -143,8 +131,6 @@ class DomainForListCdnDomainsOutput(object):
             self.cloud_account_name = cloud_account_name
         if cname is not None:
             self.cname = cname
-        if config_sync_detail is not None:
-            self.config_sync_detail = config_sync_detail
         if created_at is not None:
             self.created_at = created_at
         if id is not None:
@@ -159,14 +145,10 @@ class DomainForListCdnDomainsOutput(object):
             self.region = region
         if schedule_created is not None:
             self.schedule_created = schedule_created
-        if schedule_id is not None:
-            self.schedule_id = schedule_id
         if status is not None:
             self.status = status
         if sub_product is not None:
             self.sub_product = sub_product
-        if sync_status is not None:
-            self.sync_status = sync_status
         if synced_at is not None:
             self.synced_at = synced_at
         if tags is not None:
@@ -177,8 +159,6 @@ class DomainForListCdnDomainsOutput(object):
             self.updated_at = updated_at
         if vendor is not None:
             self.vendor = vendor
-        if vendor_cdn_type is not None:
-            self.vendor_cdn_type = vendor_cdn_type
         if vendor_id is not None:
             self.vendor_id = vendor_id
 
@@ -351,27 +331,6 @@ class DomainForListCdnDomainsOutput(object):
         self._cname = cname
 
     @property
-    def config_sync_detail(self):
-        """Gets the config_sync_detail of this DomainForListCdnDomainsOutput.  # noqa: E501
-
-
-        :return: The config_sync_detail of this DomainForListCdnDomainsOutput.  # noqa: E501
-        :rtype: ConfigSyncDetailForListCdnDomainsOutput
-        """
-        return self._config_sync_detail
-
-    @config_sync_detail.setter
-    def config_sync_detail(self, config_sync_detail):
-        """Sets the config_sync_detail of this DomainForListCdnDomainsOutput.
-
-
-        :param config_sync_detail: The config_sync_detail of this DomainForListCdnDomainsOutput.  # noqa: E501
-        :type: ConfigSyncDetailForListCdnDomainsOutput
-        """
-
-        self._config_sync_detail = config_sync_detail
-
-    @property
     def created_at(self):
         """Gets the created_at of this DomainForListCdnDomainsOutput.  # noqa: E501
 
@@ -519,27 +478,6 @@ class DomainForListCdnDomainsOutput(object):
         self._schedule_created = schedule_created
 
     @property
-    def schedule_id(self):
-        """Gets the schedule_id of this DomainForListCdnDomainsOutput.  # noqa: E501
-
-
-        :return: The schedule_id of this DomainForListCdnDomainsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._schedule_id
-
-    @schedule_id.setter
-    def schedule_id(self, schedule_id):
-        """Sets the schedule_id of this DomainForListCdnDomainsOutput.
-
-
-        :param schedule_id: The schedule_id of this DomainForListCdnDomainsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._schedule_id = schedule_id
-
-    @property
     def status(self):
         """Gets the status of this DomainForListCdnDomainsOutput.  # noqa: E501
 
@@ -580,27 +518,6 @@ class DomainForListCdnDomainsOutput(object):
         """
 
         self._sub_product = sub_product
-
-    @property
-    def sync_status(self):
-        """Gets the sync_status of this DomainForListCdnDomainsOutput.  # noqa: E501
-
-
-        :return: The sync_status of this DomainForListCdnDomainsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._sync_status
-
-    @sync_status.setter
-    def sync_status(self, sync_status):
-        """Sets the sync_status of this DomainForListCdnDomainsOutput.
-
-
-        :param sync_status: The sync_status of this DomainForListCdnDomainsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._sync_status = sync_status
 
     @property
     def synced_at(self):
@@ -706,27 +623,6 @@ class DomainForListCdnDomainsOutput(object):
         """
 
         self._vendor = vendor
-
-    @property
-    def vendor_cdn_type(self):
-        """Gets the vendor_cdn_type of this DomainForListCdnDomainsOutput.  # noqa: E501
-
-
-        :return: The vendor_cdn_type of this DomainForListCdnDomainsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._vendor_cdn_type
-
-    @vendor_cdn_type.setter
-    def vendor_cdn_type(self, vendor_cdn_type):
-        """Sets the vendor_cdn_type of this DomainForListCdnDomainsOutput.
-
-
-        :param vendor_cdn_type: The vendor_cdn_type of this DomainForListCdnDomainsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._vendor_cdn_type = vendor_cdn_type
 
     @property
     def vendor_id(self):

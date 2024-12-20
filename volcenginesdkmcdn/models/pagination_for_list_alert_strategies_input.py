@@ -34,17 +34,15 @@ class PaginationForListAlertStrategiesInput(object):
     """
     swagger_types = {
         'page_num': 'int',
-        'page_size': 'int',
-        'total': 'int'
+        'page_size': 'int'
     }
 
     attribute_map = {
         'page_num': 'PageNum',
-        'page_size': 'PageSize',
-        'total': 'Total'
+        'page_size': 'PageSize'
     }
 
-    def __init__(self, page_num=None, page_size=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_num=None, page_size=None, _configuration=None):  # noqa: E501
         """PaginationForListAlertStrategiesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,15 +50,12 @@ class PaginationForListAlertStrategiesInput(object):
 
         self._page_num = None
         self._page_size = None
-        self._total = None
         self.discriminator = None
 
         if page_num is not None:
             self.page_num = page_num
         if page_size is not None:
             self.page_size = page_size
-        if total is not None:
-            self.total = total
 
     @property
     def page_num(self):
@@ -103,27 +98,6 @@ class PaginationForListAlertStrategiesInput(object):
         """
 
         self._page_size = page_size
-
-    @property
-    def total(self):
-        """Gets the total of this PaginationForListAlertStrategiesInput.  # noqa: E501
-
-
-        :return: The total of this PaginationForListAlertStrategiesInput.  # noqa: E501
-        :rtype: int
-        """
-        return self._total
-
-    @total.setter
-    def total(self, total):
-        """Sets the total of this PaginationForListAlertStrategiesInput.
-
-
-        :param total: The total of this PaginationForListAlertStrategiesInput.  # noqa: E501
-        :type: int
-        """
-
-        self._total = total
 
     def to_dict(self):
         """Returns the model properties as a dict"""

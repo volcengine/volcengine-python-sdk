@@ -40,6 +40,7 @@ class DescribeCdnOriginDataOfflineRequest(object):
         'end_time': 'int',
         'group_by': 'str',
         'interval': 'str',
+        'is_trim_latest_data': 'bool',
         'metric': 'str',
         'start_time': 'int',
         'sub_products': 'list[str]',
@@ -54,13 +55,14 @@ class DescribeCdnOriginDataOfflineRequest(object):
         'end_time': 'EndTime',
         'group_by': 'GroupBy',
         'interval': 'Interval',
+        'is_trim_latest_data': 'IsTrimLatestData',
         'metric': 'Metric',
         'start_time': 'StartTime',
         'sub_products': 'SubProducts',
         'vendors': 'Vendors'
     }
 
-    def __init__(self, cdn_types=None, cloud_account_ids=None, domain_ids=None, domains=None, end_time=None, group_by=None, interval=None, metric=None, start_time=None, sub_products=None, vendors=None, _configuration=None):  # noqa: E501
+    def __init__(self, cdn_types=None, cloud_account_ids=None, domain_ids=None, domains=None, end_time=None, group_by=None, interval=None, is_trim_latest_data=None, metric=None, start_time=None, sub_products=None, vendors=None, _configuration=None):  # noqa: E501
         """DescribeCdnOriginDataOfflineRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class DescribeCdnOriginDataOfflineRequest(object):
         self._end_time = None
         self._group_by = None
         self._interval = None
+        self._is_trim_latest_data = None
         self._metric = None
         self._start_time = None
         self._sub_products = None
@@ -91,6 +94,8 @@ class DescribeCdnOriginDataOfflineRequest(object):
         if group_by is not None:
             self.group_by = group_by
         self.interval = interval
+        if is_trim_latest_data is not None:
+            self.is_trim_latest_data = is_trim_latest_data
         self.metric = metric
         self.start_time = start_time
         if sub_products is not None:
@@ -248,6 +253,27 @@ class DescribeCdnOriginDataOfflineRequest(object):
             raise ValueError("Invalid value for `interval`, must not be `None`")  # noqa: E501
 
         self._interval = interval
+
+    @property
+    def is_trim_latest_data(self):
+        """Gets the is_trim_latest_data of this DescribeCdnOriginDataOfflineRequest.  # noqa: E501
+
+
+        :return: The is_trim_latest_data of this DescribeCdnOriginDataOfflineRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_trim_latest_data
+
+    @is_trim_latest_data.setter
+    def is_trim_latest_data(self, is_trim_latest_data):
+        """Sets the is_trim_latest_data of this DescribeCdnOriginDataOfflineRequest.
+
+
+        :param is_trim_latest_data: The is_trim_latest_data of this DescribeCdnOriginDataOfflineRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_trim_latest_data = is_trim_latest_data
 
     @property
     def metric(self):
