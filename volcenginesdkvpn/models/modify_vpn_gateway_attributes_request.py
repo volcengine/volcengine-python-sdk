@@ -33,43 +33,79 @@ class ModifyVpnGatewayAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'asn': 'int',
         'bandwidth': 'int',
         'description': 'str',
-        'negotiate_instantly': 'str',
+        'ipsec_enabled': 'bool',
+        'ssl_enabled': 'bool',
+        'ssl_max_connections': 'int',
         'vpn_gateway_id': 'str',
         'vpn_gateway_name': 'str'
     }
 
     attribute_map = {
+        'asn': 'Asn',
         'bandwidth': 'Bandwidth',
         'description': 'Description',
-        'negotiate_instantly': 'NegotiateInstantly',
+        'ipsec_enabled': 'IpsecEnabled',
+        'ssl_enabled': 'SslEnabled',
+        'ssl_max_connections': 'SslMaxConnections',
         'vpn_gateway_id': 'VpnGatewayId',
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, bandwidth=None, description=None, negotiate_instantly=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, asn=None, bandwidth=None, description=None, ipsec_enabled=None, ssl_enabled=None, ssl_max_connections=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """ModifyVpnGatewayAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._asn = None
         self._bandwidth = None
         self._description = None
-        self._negotiate_instantly = None
+        self._ipsec_enabled = None
+        self._ssl_enabled = None
+        self._ssl_max_connections = None
         self._vpn_gateway_id = None
         self._vpn_gateway_name = None
         self.discriminator = None
 
+        if asn is not None:
+            self.asn = asn
         if bandwidth is not None:
             self.bandwidth = bandwidth
         if description is not None:
             self.description = description
-        if negotiate_instantly is not None:
-            self.negotiate_instantly = negotiate_instantly
+        if ipsec_enabled is not None:
+            self.ipsec_enabled = ipsec_enabled
+        if ssl_enabled is not None:
+            self.ssl_enabled = ssl_enabled
+        if ssl_max_connections is not None:
+            self.ssl_max_connections = ssl_max_connections
         self.vpn_gateway_id = vpn_gateway_id
         if vpn_gateway_name is not None:
             self.vpn_gateway_name = vpn_gateway_name
+
+    @property
+    def asn(self):
+        """Gets the asn of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+
+
+        :return: The asn of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._asn
+
+    @asn.setter
+    def asn(self, asn):
+        """Sets the asn of this ModifyVpnGatewayAttributesRequest.
+
+
+        :param asn: The asn of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._asn = asn
 
     @property
     def bandwidth(self):
@@ -89,12 +125,6 @@ class ModifyVpnGatewayAttributesRequest(object):
         :param bandwidth: The bandwidth of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                bandwidth is not None and bandwidth > 1000):  # noqa: E501
-            raise ValueError("Invalid value for `bandwidth`, must be a value less than or equal to `1000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                bandwidth is not None and bandwidth < 5):  # noqa: E501
-            raise ValueError("Invalid value for `bandwidth`, must be a value greater than or equal to `5`")  # noqa: E501
 
         self._bandwidth = bandwidth
 
@@ -116,35 +146,71 @@ class ModifyVpnGatewayAttributesRequest(object):
         :param description: The description of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) > 255):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
     @property
-    def negotiate_instantly(self):
-        """Gets the negotiate_instantly of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+    def ipsec_enabled(self):
+        """Gets the ipsec_enabled of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
 
 
-        :return: The negotiate_instantly of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
-        :rtype: str
+        :return: The ipsec_enabled of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :rtype: bool
         """
-        return self._negotiate_instantly
+        return self._ipsec_enabled
 
-    @negotiate_instantly.setter
-    def negotiate_instantly(self, negotiate_instantly):
-        """Sets the negotiate_instantly of this ModifyVpnGatewayAttributesRequest.
+    @ipsec_enabled.setter
+    def ipsec_enabled(self, ipsec_enabled):
+        """Sets the ipsec_enabled of this ModifyVpnGatewayAttributesRequest.
 
 
-        :param negotiate_instantly: The negotiate_instantly of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
-        :type: str
+        :param ipsec_enabled: The ipsec_enabled of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :type: bool
         """
 
-        self._negotiate_instantly = negotiate_instantly
+        self._ipsec_enabled = ipsec_enabled
+
+    @property
+    def ssl_enabled(self):
+        """Gets the ssl_enabled of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+
+
+        :return: The ssl_enabled of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ssl_enabled
+
+    @ssl_enabled.setter
+    def ssl_enabled(self, ssl_enabled):
+        """Sets the ssl_enabled of this ModifyVpnGatewayAttributesRequest.
+
+
+        :param ssl_enabled: The ssl_enabled of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ssl_enabled = ssl_enabled
+
+    @property
+    def ssl_max_connections(self):
+        """Gets the ssl_max_connections of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+
+
+        :return: The ssl_max_connections of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ssl_max_connections
+
+    @ssl_max_connections.setter
+    def ssl_max_connections(self, ssl_max_connections):
+        """Sets the ssl_max_connections of this ModifyVpnGatewayAttributesRequest.
+
+
+        :param ssl_max_connections: The ssl_max_connections of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ssl_max_connections = ssl_max_connections
 
     @property
     def vpn_gateway_id(self):
@@ -187,12 +253,6 @@ class ModifyVpnGatewayAttributesRequest(object):
         :param vpn_gateway_name: The vpn_gateway_name of this ModifyVpnGatewayAttributesRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                vpn_gateway_name is not None and len(vpn_gateway_name) > 128):
-            raise ValueError("Invalid value for `vpn_gateway_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                vpn_gateway_name is not None and len(vpn_gateway_name) < 1):
-            raise ValueError("Invalid value for `vpn_gateway_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vpn_gateway_name = vpn_gateway_name
 

@@ -34,9 +34,11 @@ class DescribeVpnGatewaysRequest(object):
     """
     swagger_types = {
         'ip_address': 'str',
+        'ipsec_enabled': 'bool',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'ssl_enabled': 'bool',
         'subnet_id': 'str',
         'tag_filters': 'list[TagFilterForDescribeVpnGatewaysInput]',
         'vpc_id': 'str',
@@ -46,9 +48,11 @@ class DescribeVpnGatewaysRequest(object):
 
     attribute_map = {
         'ip_address': 'IpAddress',
+        'ipsec_enabled': 'IpsecEnabled',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'ssl_enabled': 'SslEnabled',
         'subnet_id': 'SubnetId',
         'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId',
@@ -56,16 +60,18 @@ class DescribeVpnGatewaysRequest(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, ip_address=None, page_number=None, page_size=None, project_name=None, subnet_id=None, tag_filters=None, vpc_id=None, vpn_gateway_ids=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_address=None, ipsec_enabled=None, page_number=None, page_size=None, project_name=None, ssl_enabled=None, subnet_id=None, tag_filters=None, vpc_id=None, vpn_gateway_ids=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._ip_address = None
+        self._ipsec_enabled = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._ssl_enabled = None
         self._subnet_id = None
         self._tag_filters = None
         self._vpc_id = None
@@ -75,12 +81,16 @@ class DescribeVpnGatewaysRequest(object):
 
         if ip_address is not None:
             self.ip_address = ip_address
+        if ipsec_enabled is not None:
+            self.ipsec_enabled = ipsec_enabled
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if ssl_enabled is not None:
+            self.ssl_enabled = ssl_enabled
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if tag_filters is not None:
@@ -112,6 +122,27 @@ class DescribeVpnGatewaysRequest(object):
         """
 
         self._ip_address = ip_address
+
+    @property
+    def ipsec_enabled(self):
+        """Gets the ipsec_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+
+
+        :return: The ipsec_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ipsec_enabled
+
+    @ipsec_enabled.setter
+    def ipsec_enabled(self, ipsec_enabled):
+        """Sets the ipsec_enabled of this DescribeVpnGatewaysRequest.
+
+
+        :param ipsec_enabled: The ipsec_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ipsec_enabled = ipsec_enabled
 
     @property
     def page_number(self):
@@ -175,6 +206,27 @@ class DescribeVpnGatewaysRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def ssl_enabled(self):
+        """Gets the ssl_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+
+
+        :return: The ssl_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ssl_enabled
+
+    @ssl_enabled.setter
+    def ssl_enabled(self, ssl_enabled):
+        """Sets the ssl_enabled of this DescribeVpnGatewaysRequest.
+
+
+        :param ssl_enabled: The ssl_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ssl_enabled = ssl_enabled
 
     @property
     def subnet_id(self):

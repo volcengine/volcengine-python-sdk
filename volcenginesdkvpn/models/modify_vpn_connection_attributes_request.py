@@ -33,10 +33,12 @@ class ModifyVpnConnectionAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bgp_config': 'BgpConfigForModifyVpnConnectionAttributesInput',
+        'customer_gateway_id': 'str',
         'description': 'str',
         'dpd_action': 'str',
-        'ike_config': 'str',
-        'ipsec_config': 'str',
+        'ike_config': 'IkeConfigForModifyVpnConnectionAttributesInput',
+        'ipsec_config': 'IpsecConfigForModifyVpnConnectionAttributesInput',
         'local_subnet': 'list[str]',
         'log_enabled': 'bool',
         'nat_traversal': 'bool',
@@ -47,6 +49,8 @@ class ModifyVpnConnectionAttributesRequest(object):
     }
 
     attribute_map = {
+        'bgp_config': 'BgpConfig',
+        'customer_gateway_id': 'CustomerGatewayId',
         'description': 'Description',
         'dpd_action': 'DpdAction',
         'ike_config': 'IkeConfig',
@@ -60,12 +64,14 @@ class ModifyVpnConnectionAttributesRequest(object):
         'vpn_connection_name': 'VpnConnectionName'
     }
 
-    def __init__(self, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgp_config=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
         """ModifyVpnConnectionAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bgp_config = None
+        self._customer_gateway_id = None
         self._description = None
         self._dpd_action = None
         self._ike_config = None
@@ -79,6 +85,10 @@ class ModifyVpnConnectionAttributesRequest(object):
         self._vpn_connection_name = None
         self.discriminator = None
 
+        if bgp_config is not None:
+            self.bgp_config = bgp_config
+        if customer_gateway_id is not None:
+            self.customer_gateway_id = customer_gateway_id
         if description is not None:
             self.description = description
         if dpd_action is not None:
@@ -102,6 +112,48 @@ class ModifyVpnConnectionAttributesRequest(object):
             self.vpn_connection_name = vpn_connection_name
 
     @property
+    def bgp_config(self):
+        """Gets the bgp_config of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The bgp_config of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: BgpConfigForModifyVpnConnectionAttributesInput
+        """
+        return self._bgp_config
+
+    @bgp_config.setter
+    def bgp_config(self, bgp_config):
+        """Sets the bgp_config of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param bgp_config: The bgp_config of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: BgpConfigForModifyVpnConnectionAttributesInput
+        """
+
+        self._bgp_config = bgp_config
+
+    @property
+    def customer_gateway_id(self):
+        """Gets the customer_gateway_id of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The customer_gateway_id of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_gateway_id
+
+    @customer_gateway_id.setter
+    def customer_gateway_id(self, customer_gateway_id):
+        """Sets the customer_gateway_id of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param customer_gateway_id: The customer_gateway_id of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_gateway_id = customer_gateway_id
+
+    @property
     def description(self):
         """Gets the description of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
 
@@ -119,12 +171,6 @@ class ModifyVpnConnectionAttributesRequest(object):
         :param description: The description of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) > 255):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -146,13 +192,6 @@ class ModifyVpnConnectionAttributesRequest(object):
         :param dpd_action: The dpd_action of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["none", "clear", "hold", "restart"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                dpd_action not in allowed_values):
-            raise ValueError(
-                "Invalid value for `dpd_action` ({0}), must be one of {1}"  # noqa: E501
-                .format(dpd_action, allowed_values)
-            )
 
         self._dpd_action = dpd_action
 
@@ -162,7 +201,7 @@ class ModifyVpnConnectionAttributesRequest(object):
 
 
         :return: The ike_config of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
-        :rtype: str
+        :rtype: IkeConfigForModifyVpnConnectionAttributesInput
         """
         return self._ike_config
 
@@ -172,7 +211,7 @@ class ModifyVpnConnectionAttributesRequest(object):
 
 
         :param ike_config: The ike_config of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
-        :type: str
+        :type: IkeConfigForModifyVpnConnectionAttributesInput
         """
 
         self._ike_config = ike_config
@@ -183,7 +222,7 @@ class ModifyVpnConnectionAttributesRequest(object):
 
 
         :return: The ipsec_config of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
-        :rtype: str
+        :rtype: IpsecConfigForModifyVpnConnectionAttributesInput
         """
         return self._ipsec_config
 
@@ -193,7 +232,7 @@ class ModifyVpnConnectionAttributesRequest(object):
 
 
         :param ipsec_config: The ipsec_config of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
-        :type: str
+        :type: IpsecConfigForModifyVpnConnectionAttributesInput
         """
 
         self._ipsec_config = ipsec_config
@@ -344,12 +383,6 @@ class ModifyVpnConnectionAttributesRequest(object):
         :param vpn_connection_name: The vpn_connection_name of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                vpn_connection_name is not None and len(vpn_connection_name) > 128):
-            raise ValueError("Invalid value for `vpn_connection_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                vpn_connection_name is not None and len(vpn_connection_name) < 1):
-            raise ValueError("Invalid value for `vpn_connection_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vpn_connection_name = vpn_connection_name
 

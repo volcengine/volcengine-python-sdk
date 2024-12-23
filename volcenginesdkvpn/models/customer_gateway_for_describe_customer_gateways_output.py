@@ -34,6 +34,7 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'asn': 'int',
         'connection_count': 'int',
         'creation_time': 'str',
         'customer_gateway_id': 'str',
@@ -47,6 +48,7 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'asn': 'Asn',
         'connection_count': 'ConnectionCount',
         'creation_time': 'CreationTime',
         'customer_gateway_id': 'CustomerGatewayId',
@@ -58,13 +60,14 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, connection_count=None, creation_time=None, customer_gateway_id=None, customer_gateway_name=None, description=None, ip_address=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, connection_count=None, creation_time=None, customer_gateway_id=None, customer_gateway_name=None, description=None, ip_address=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """CustomerGatewayForDescribeCustomerGatewaysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._asn = None
         self._connection_count = None
         self._creation_time = None
         self._customer_gateway_id = None
@@ -78,6 +81,8 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if asn is not None:
+            self.asn = asn
         if connection_count is not None:
             self.connection_count = connection_count
         if creation_time is not None:
@@ -117,6 +122,27 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def asn(self):
+        """Gets the asn of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+
+
+        :return: The asn of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._asn
+
+    @asn.setter
+    def asn(self, asn):
+        """Sets the asn of this CustomerGatewayForDescribeCustomerGatewaysOutput.
+
+
+        :param asn: The asn of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._asn = asn
 
     @property
     def connection_count(self):

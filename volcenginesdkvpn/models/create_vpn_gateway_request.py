@@ -33,12 +33,17 @@ class CreateVpnGatewayRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'asn': 'int',
         'bandwidth': 'int',
         'billing_type': 'int',
+        'client_token': 'str',
         'description': 'str',
+        'ipsec_enabled': 'bool',
         'period': 'int',
         'period_unit': 'str',
         'project_name': 'str',
+        'ssl_enabled': 'bool',
+        'ssl_max_connections': 'int',
         'subnet_id': 'str',
         'tags': 'list[TagForCreateVpnGatewayInput]',
         'vpc_id': 'str',
@@ -46,53 +51,94 @@ class CreateVpnGatewayRequest(object):
     }
 
     attribute_map = {
+        'asn': 'Asn',
         'bandwidth': 'Bandwidth',
         'billing_type': 'BillingType',
+        'client_token': 'ClientToken',
         'description': 'Description',
+        'ipsec_enabled': 'IpsecEnabled',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
+        'ssl_enabled': 'SslEnabled',
+        'ssl_max_connections': 'SslMaxConnections',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
         'vpc_id': 'VpcId',
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, description=None, period=None, period_unit=None, project_name=None, subnet_id=None, tags=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, asn=None, bandwidth=None, billing_type=None, client_token=None, description=None, ipsec_enabled=None, period=None, period_unit=None, project_name=None, ssl_enabled=None, ssl_max_connections=None, subnet_id=None, tags=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """CreateVpnGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._asn = None
         self._bandwidth = None
         self._billing_type = None
+        self._client_token = None
         self._description = None
+        self._ipsec_enabled = None
         self._period = None
         self._period_unit = None
         self._project_name = None
+        self._ssl_enabled = None
+        self._ssl_max_connections = None
         self._subnet_id = None
         self._tags = None
         self._vpc_id = None
         self._vpn_gateway_name = None
         self.discriminator = None
 
+        if asn is not None:
+            self.asn = asn
         self.bandwidth = bandwidth
         if billing_type is not None:
             self.billing_type = billing_type
+        if client_token is not None:
+            self.client_token = client_token
         if description is not None:
             self.description = description
+        if ipsec_enabled is not None:
+            self.ipsec_enabled = ipsec_enabled
         if period is not None:
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
         if project_name is not None:
             self.project_name = project_name
+        if ssl_enabled is not None:
+            self.ssl_enabled = ssl_enabled
+        if ssl_max_connections is not None:
+            self.ssl_max_connections = ssl_max_connections
         self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
         self.vpc_id = vpc_id
         if vpn_gateway_name is not None:
             self.vpn_gateway_name = vpn_gateway_name
+
+    @property
+    def asn(self):
+        """Gets the asn of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The asn of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._asn
+
+    @asn.setter
+    def asn(self, asn):
+        """Sets the asn of this CreateVpnGatewayRequest.
+
+
+        :param asn: The asn of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._asn = asn
 
     @property
     def bandwidth(self):
@@ -114,12 +160,6 @@ class CreateVpnGatewayRequest(object):
         """
         if self._configuration.client_side_validation and bandwidth is None:
             raise ValueError("Invalid value for `bandwidth`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                bandwidth is not None and bandwidth > 1000):  # noqa: E501
-            raise ValueError("Invalid value for `bandwidth`, must be a value less than or equal to `1000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                bandwidth is not None and bandwidth < 5):  # noqa: E501
-            raise ValueError("Invalid value for `bandwidth`, must be a value greater than or equal to `5`")  # noqa: E501
 
         self._bandwidth = bandwidth
 
@@ -141,14 +181,29 @@ class CreateVpnGatewayRequest(object):
         :param billing_type: The billing_type of this CreateVpnGatewayRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                billing_type is not None and billing_type > 1):  # noqa: E501
-            raise ValueError("Invalid value for `billing_type`, must be a value less than or equal to `1`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                billing_type is not None and billing_type < 1):  # noqa: E501
-            raise ValueError("Invalid value for `billing_type`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._billing_type = billing_type
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateVpnGatewayRequest.
+
+
+        :param client_token: The client_token of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def description(self):
@@ -168,14 +223,29 @@ class CreateVpnGatewayRequest(object):
         :param description: The description of this CreateVpnGatewayRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) > 255):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def ipsec_enabled(self):
+        """Gets the ipsec_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The ipsec_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ipsec_enabled
+
+    @ipsec_enabled.setter
+    def ipsec_enabled(self, ipsec_enabled):
+        """Sets the ipsec_enabled of this CreateVpnGatewayRequest.
+
+
+        :param ipsec_enabled: The ipsec_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ipsec_enabled = ipsec_enabled
 
     @property
     def period(self):
@@ -216,13 +286,6 @@ class CreateVpnGatewayRequest(object):
         :param period_unit: The period_unit of this CreateVpnGatewayRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Month", "Year"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                period_unit not in allowed_values):
-            raise ValueError(
-                "Invalid value for `period_unit` ({0}), must be one of {1}"  # noqa: E501
-                .format(period_unit, allowed_values)
-            )
 
         self._period_unit = period_unit
 
@@ -246,6 +309,48 @@ class CreateVpnGatewayRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def ssl_enabled(self):
+        """Gets the ssl_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The ssl_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ssl_enabled
+
+    @ssl_enabled.setter
+    def ssl_enabled(self, ssl_enabled):
+        """Sets the ssl_enabled of this CreateVpnGatewayRequest.
+
+
+        :param ssl_enabled: The ssl_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ssl_enabled = ssl_enabled
+
+    @property
+    def ssl_max_connections(self):
+        """Gets the ssl_max_connections of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The ssl_max_connections of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._ssl_max_connections
+
+    @ssl_max_connections.setter
+    def ssl_max_connections(self, ssl_max_connections):
+        """Sets the ssl_max_connections of this CreateVpnGatewayRequest.
+
+
+        :param ssl_max_connections: The ssl_max_connections of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._ssl_max_connections = ssl_max_connections
 
     @property
     def subnet_id(self):
@@ -332,12 +437,6 @@ class CreateVpnGatewayRequest(object):
         :param vpn_gateway_name: The vpn_gateway_name of this CreateVpnGatewayRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                vpn_gateway_name is not None and len(vpn_gateway_name) > 128):
-            raise ValueError("Invalid value for `vpn_gateway_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                vpn_gateway_name is not None and len(vpn_gateway_name) < 1):
-            raise ValueError("Invalid value for `vpn_gateway_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vpn_gateway_name = vpn_gateway_name
 

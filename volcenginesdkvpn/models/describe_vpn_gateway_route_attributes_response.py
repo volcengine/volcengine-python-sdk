@@ -33,10 +33,12 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'as_path': 'list[AsPathForDescribeVpnGatewayRouteAttributesOutput]',
         'creation_time': 'str',
         'destination_cidr_block': 'str',
         'next_hop_id': 'str',
         'request_id': 'str',
+        'route_type': 'str',
         'status': 'str',
         'update_time': 'str',
         'vpn_gateway_id': 'str',
@@ -44,32 +46,38 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
     }
 
     attribute_map = {
+        'as_path': 'AsPath',
         'creation_time': 'CreationTime',
         'destination_cidr_block': 'DestinationCidrBlock',
         'next_hop_id': 'NextHopId',
         'request_id': 'RequestId',
+        'route_type': 'RouteType',
         'status': 'Status',
         'update_time': 'UpdateTime',
         'vpn_gateway_id': 'VpnGatewayId',
         'vpn_gateway_route_id': 'VpnGatewayRouteId'
     }
 
-    def __init__(self, creation_time=None, destination_cidr_block=None, next_hop_id=None, request_id=None, status=None, update_time=None, vpn_gateway_id=None, vpn_gateway_route_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, as_path=None, creation_time=None, destination_cidr_block=None, next_hop_id=None, request_id=None, route_type=None, status=None, update_time=None, vpn_gateway_id=None, vpn_gateway_route_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewayRouteAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._as_path = None
         self._creation_time = None
         self._destination_cidr_block = None
         self._next_hop_id = None
         self._request_id = None
+        self._route_type = None
         self._status = None
         self._update_time = None
         self._vpn_gateway_id = None
         self._vpn_gateway_route_id = None
         self.discriminator = None
 
+        if as_path is not None:
+            self.as_path = as_path
         if creation_time is not None:
             self.creation_time = creation_time
         if destination_cidr_block is not None:
@@ -78,6 +86,8 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
             self.next_hop_id = next_hop_id
         if request_id is not None:
             self.request_id = request_id
+        if route_type is not None:
+            self.route_type = route_type
         if status is not None:
             self.status = status
         if update_time is not None:
@@ -86,6 +96,27 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
             self.vpn_gateway_id = vpn_gateway_id
         if vpn_gateway_route_id is not None:
             self.vpn_gateway_route_id = vpn_gateway_route_id
+
+    @property
+    def as_path(self):
+        """Gets the as_path of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+
+
+        :return: The as_path of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+        :rtype: list[AsPathForDescribeVpnGatewayRouteAttributesOutput]
+        """
+        return self._as_path
+
+    @as_path.setter
+    def as_path(self, as_path):
+        """Sets the as_path of this DescribeVpnGatewayRouteAttributesResponse.
+
+
+        :param as_path: The as_path of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+        :type: list[AsPathForDescribeVpnGatewayRouteAttributesOutput]
+        """
+
+        self._as_path = as_path
 
     @property
     def creation_time(self):
@@ -170,6 +201,27 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def route_type(self):
+        """Gets the route_type of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+
+
+        :return: The route_type of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._route_type
+
+    @route_type.setter
+    def route_type(self, route_type):
+        """Sets the route_type of this DescribeVpnGatewayRouteAttributesResponse.
+
+
+        :param route_type: The route_type of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._route_type = route_type
 
     @property
     def status(self):
