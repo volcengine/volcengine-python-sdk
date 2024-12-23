@@ -127,12 +127,6 @@ class SetVpnGatewayRenewalRequest(object):
         """
         if self._configuration.client_side_validation and renew_type is None:
             raise ValueError("Invalid value for `renew_type`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                renew_type is not None and renew_type > 3):  # noqa: E501
-            raise ValueError("Invalid value for `renew_type`, must be a value less than or equal to `3`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                renew_type is not None and renew_type < 1):  # noqa: E501
-            raise ValueError("Invalid value for `renew_type`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._renew_type = renew_type
 

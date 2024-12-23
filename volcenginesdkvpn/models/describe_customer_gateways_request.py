@@ -38,7 +38,8 @@ class DescribeCustomerGatewaysRequest(object):
         'ip_address': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'project_name': 'str'
+        'project_name': 'str',
+        'status': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class DescribeCustomerGatewaysRequest(object):
         'ip_address': 'IpAddress',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'status': 'Status'
     }
 
-    def __init__(self, customer_gateway_ids=None, customer_gateway_name=None, ip_address=None, page_number=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer_gateway_ids=None, customer_gateway_name=None, ip_address=None, page_number=None, page_size=None, project_name=None, status=None, _configuration=None):  # noqa: E501
         """DescribeCustomerGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DescribeCustomerGatewaysRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._status = None
         self.discriminator = None
 
         if customer_gateway_ids is not None:
@@ -76,6 +79,8 @@ class DescribeCustomerGatewaysRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if status is not None:
+            self.status = status
 
     @property
     def customer_gateway_ids(self):
@@ -202,6 +207,27 @@ class DescribeCustomerGatewaysRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def status(self):
+        """Gets the status of this DescribeCustomerGatewaysRequest.  # noqa: E501
+
+
+        :return: The status of this DescribeCustomerGatewaysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this DescribeCustomerGatewaysRequest.
+
+
+        :param status: The status of this DescribeCustomerGatewaysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

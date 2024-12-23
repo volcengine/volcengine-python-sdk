@@ -41,8 +41,6 @@ class ListCdnDomainsRequest(object):
         'pagination': 'PaginationForListCdnDomainsInput',
         'region': 'list[str]',
         'schedule_created': 'bool',
-        'sort_by': 'str',
-        'sort_order': 'str',
         'status': 'list[str]',
         'tag_filters': 'list[TagFilterForListCdnDomainsInput]',
         'vendor': 'list[str]'
@@ -57,14 +55,12 @@ class ListCdnDomainsRequest(object):
         'pagination': 'Pagination',
         'region': 'Region',
         'schedule_created': 'ScheduleCreated',
-        'sort_by': 'SortBy',
-        'sort_order': 'SortOrder',
         'status': 'Status',
         'tag_filters': 'TagFilters',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, biz_node_ids=None, cdn_type=None, cloud_account_id=None, exact_name=None, name=None, pagination=None, region=None, schedule_created=None, sort_by=None, sort_order=None, status=None, tag_filters=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, biz_node_ids=None, cdn_type=None, cloud_account_id=None, exact_name=None, name=None, pagination=None, region=None, schedule_created=None, status=None, tag_filters=None, vendor=None, _configuration=None):  # noqa: E501
         """ListCdnDomainsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,8 +74,6 @@ class ListCdnDomainsRequest(object):
         self._pagination = None
         self._region = None
         self._schedule_created = None
-        self._sort_by = None
-        self._sort_order = None
         self._status = None
         self._tag_filters = None
         self._vendor = None
@@ -101,10 +95,6 @@ class ListCdnDomainsRequest(object):
             self.region = region
         if schedule_created is not None:
             self.schedule_created = schedule_created
-        if sort_by is not None:
-            self.sort_by = sort_by
-        if sort_order is not None:
-            self.sort_order = sort_order
         if status is not None:
             self.status = status
         if tag_filters is not None:
@@ -279,48 +269,6 @@ class ListCdnDomainsRequest(object):
         """
 
         self._schedule_created = schedule_created
-
-    @property
-    def sort_by(self):
-        """Gets the sort_by of this ListCdnDomainsRequest.  # noqa: E501
-
-
-        :return: The sort_by of this ListCdnDomainsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._sort_by
-
-    @sort_by.setter
-    def sort_by(self, sort_by):
-        """Sets the sort_by of this ListCdnDomainsRequest.
-
-
-        :param sort_by: The sort_by of this ListCdnDomainsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._sort_by = sort_by
-
-    @property
-    def sort_order(self):
-        """Gets the sort_order of this ListCdnDomainsRequest.  # noqa: E501
-
-
-        :return: The sort_order of this ListCdnDomainsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._sort_order
-
-    @sort_order.setter
-    def sort_order(self, sort_order):
-        """Sets the sort_order of this ListCdnDomainsRequest.
-
-
-        :param sort_order: The sort_order of this ListCdnDomainsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._sort_order = sort_order
 
     @property
     def status(self):

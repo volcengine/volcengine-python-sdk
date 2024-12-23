@@ -41,7 +41,8 @@ class DnsScheduleForListDnsSchedulesOutput(object):
         'schedule_cname': 'str',
         'schedule_status': 'str',
         'schedule_strategies': 'list[str]',
-        'updated_at': 'int'
+        'updated_at': 'int',
+        'vendors': 'list[str]'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class DnsScheduleForListDnsSchedulesOutput(object):
         'schedule_cname': 'ScheduleCname',
         'schedule_status': 'ScheduleStatus',
         'schedule_strategies': 'ScheduleStrategies',
-        'updated_at': 'UpdatedAt'
+        'updated_at': 'UpdatedAt',
+        'vendors': 'Vendors'
     }
 
-    def __init__(self, cloud_account_ids=None, created_at=None, domain_name=None, id=None, region=None, schedule_cname=None, schedule_status=None, schedule_strategies=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_account_ids=None, created_at=None, domain_name=None, id=None, region=None, schedule_cname=None, schedule_status=None, schedule_strategies=None, updated_at=None, vendors=None, _configuration=None):  # noqa: E501
         """DnsScheduleForListDnsSchedulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DnsScheduleForListDnsSchedulesOutput(object):
         self._schedule_status = None
         self._schedule_strategies = None
         self._updated_at = None
+        self._vendors = None
         self.discriminator = None
 
         if cloud_account_ids is not None:
@@ -91,6 +94,8 @@ class DnsScheduleForListDnsSchedulesOutput(object):
             self.schedule_strategies = schedule_strategies
         if updated_at is not None:
             self.updated_at = updated_at
+        if vendors is not None:
+            self.vendors = vendors
 
     @property
     def cloud_account_ids(self):
@@ -280,6 +285,27 @@ class DnsScheduleForListDnsSchedulesOutput(object):
         """
 
         self._updated_at = updated_at
+
+    @property
+    def vendors(self):
+        """Gets the vendors of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+
+
+        :return: The vendors of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._vendors
+
+    @vendors.setter
+    def vendors(self, vendors):
+        """Sets the vendors of this DnsScheduleForListDnsSchedulesOutput.
+
+
+        :param vendors: The vendors of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._vendors = vendors
 
     def to_dict(self):
         """Returns the model properties as a dict"""

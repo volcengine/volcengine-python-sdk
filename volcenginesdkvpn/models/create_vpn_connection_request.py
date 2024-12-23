@@ -34,24 +34,27 @@ class CreateVpnConnectionRequest(object):
     """
     swagger_types = {
         'attach_type': 'str',
+        'bgp_config': 'BgpConfigForCreateVpnConnectionInput',
         'client_token': 'str',
         'customer_gateway_id': 'str',
         'description': 'str',
         'dpd_action': 'str',
-        'ike_config': 'str',
-        'ipsec_config': 'str',
+        'ike_config': 'IkeConfigForCreateVpnConnectionInput',
+        'ipsec_config': 'IpsecConfigForCreateVpnConnectionInput',
         'local_subnet': 'list[str]',
         'log_enabled': 'bool',
         'nat_traversal': 'bool',
         'negotiate_instantly': 'bool',
         'project_name': 'str',
         'remote_subnet': 'list[str]',
+        'spec': 'str',
         'vpn_connection_name': 'str',
         'vpn_gateway_id': 'str'
     }
 
     attribute_map = {
         'attach_type': 'AttachType',
+        'bgp_config': 'BgpConfig',
         'client_token': 'ClientToken',
         'customer_gateway_id': 'CustomerGatewayId',
         'description': 'Description',
@@ -64,17 +67,19 @@ class CreateVpnConnectionRequest(object):
         'negotiate_instantly': 'NegotiateInstantly',
         'project_name': 'ProjectName',
         'remote_subnet': 'RemoteSubnet',
+        'spec': 'Spec',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, attach_type=None, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_type=None, bgp_config=None, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, spec=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateVpnConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._attach_type = None
+        self._bgp_config = None
         self._client_token = None
         self._customer_gateway_id = None
         self._description = None
@@ -87,12 +92,15 @@ class CreateVpnConnectionRequest(object):
         self._negotiate_instantly = None
         self._project_name = None
         self._remote_subnet = None
+        self._spec = None
         self._vpn_connection_name = None
         self._vpn_gateway_id = None
         self.discriminator = None
 
         if attach_type is not None:
             self.attach_type = attach_type
+        if bgp_config is not None:
+            self.bgp_config = bgp_config
         if client_token is not None:
             self.client_token = client_token
         self.customer_gateway_id = customer_gateway_id
@@ -116,6 +124,8 @@ class CreateVpnConnectionRequest(object):
             self.project_name = project_name
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
+        if spec is not None:
+            self.spec = spec
         if vpn_connection_name is not None:
             self.vpn_connection_name = vpn_connection_name
         self.vpn_gateway_id = vpn_gateway_id
@@ -138,15 +148,29 @@ class CreateVpnConnectionRequest(object):
         :param attach_type: The attach_type of this CreateVpnConnectionRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["VpnGateway", "TransitRouter"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                attach_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `attach_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(attach_type, allowed_values)
-            )
 
         self._attach_type = attach_type
+
+    @property
+    def bgp_config(self):
+        """Gets the bgp_config of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The bgp_config of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: BgpConfigForCreateVpnConnectionInput
+        """
+        return self._bgp_config
+
+    @bgp_config.setter
+    def bgp_config(self, bgp_config):
+        """Sets the bgp_config of this CreateVpnConnectionRequest.
+
+
+        :param bgp_config: The bgp_config of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: BgpConfigForCreateVpnConnectionInput
+        """
+
+        self._bgp_config = bgp_config
 
     @property
     def client_token(self):
@@ -210,12 +234,6 @@ class CreateVpnConnectionRequest(object):
         :param description: The description of this CreateVpnConnectionRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) > 255):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -237,13 +255,6 @@ class CreateVpnConnectionRequest(object):
         :param dpd_action: The dpd_action of this CreateVpnConnectionRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["none", "clear", "hold", "restart"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                dpd_action not in allowed_values):
-            raise ValueError(
-                "Invalid value for `dpd_action` ({0}), must be one of {1}"  # noqa: E501
-                .format(dpd_action, allowed_values)
-            )
 
         self._dpd_action = dpd_action
 
@@ -253,7 +264,7 @@ class CreateVpnConnectionRequest(object):
 
 
         :return: The ike_config of this CreateVpnConnectionRequest.  # noqa: E501
-        :rtype: str
+        :rtype: IkeConfigForCreateVpnConnectionInput
         """
         return self._ike_config
 
@@ -263,7 +274,7 @@ class CreateVpnConnectionRequest(object):
 
 
         :param ike_config: The ike_config of this CreateVpnConnectionRequest.  # noqa: E501
-        :type: str
+        :type: IkeConfigForCreateVpnConnectionInput
         """
 
         self._ike_config = ike_config
@@ -274,7 +285,7 @@ class CreateVpnConnectionRequest(object):
 
 
         :return: The ipsec_config of this CreateVpnConnectionRequest.  # noqa: E501
-        :rtype: str
+        :rtype: IpsecConfigForCreateVpnConnectionInput
         """
         return self._ipsec_config
 
@@ -284,7 +295,7 @@ class CreateVpnConnectionRequest(object):
 
 
         :param ipsec_config: The ipsec_config of this CreateVpnConnectionRequest.  # noqa: E501
-        :type: str
+        :type: IpsecConfigForCreateVpnConnectionInput
         """
 
         self._ipsec_config = ipsec_config
@@ -416,6 +427,27 @@ class CreateVpnConnectionRequest(object):
         self._remote_subnet = remote_subnet
 
     @property
+    def spec(self):
+        """Gets the spec of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The spec of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._spec
+
+    @spec.setter
+    def spec(self, spec):
+        """Sets the spec of this CreateVpnConnectionRequest.
+
+
+        :param spec: The spec of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._spec = spec
+
+    @property
     def vpn_connection_name(self):
         """Gets the vpn_connection_name of this CreateVpnConnectionRequest.  # noqa: E501
 
@@ -433,12 +465,6 @@ class CreateVpnConnectionRequest(object):
         :param vpn_connection_name: The vpn_connection_name of this CreateVpnConnectionRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                vpn_connection_name is not None and len(vpn_connection_name) > 128):
-            raise ValueError("Invalid value for `vpn_connection_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                vpn_connection_name is not None and len(vpn_connection_name) < 1):
-            raise ValueError("Invalid value for `vpn_connection_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vpn_connection_name = vpn_connection_name
 

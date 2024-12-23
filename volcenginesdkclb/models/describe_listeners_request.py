@@ -38,6 +38,7 @@ class DescribeListenersRequest(object):
         'load_balancer_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'protocol': 'str',
         'tag_filters': 'list[TagFilterForDescribeListenersInput]'
     }
 
@@ -47,10 +48,11 @@ class DescribeListenersRequest(object):
         'load_balancer_id': 'LoadBalancerId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'protocol': 'Protocol',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, listener_ids=None, listener_name=None, load_balancer_id=None, page_number=None, page_size=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, listener_ids=None, listener_name=None, load_balancer_id=None, page_number=None, page_size=None, protocol=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeListenersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class DescribeListenersRequest(object):
         self._load_balancer_id = None
         self._page_number = None
         self._page_size = None
+        self._protocol = None
         self._tag_filters = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class DescribeListenersRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if protocol is not None:
+            self.protocol = protocol
         if tag_filters is not None:
             self.tag_filters = tag_filters
 
@@ -181,6 +186,27 @@ class DescribeListenersRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def protocol(self):
+        """Gets the protocol of this DescribeListenersRequest.  # noqa: E501
+
+
+        :return: The protocol of this DescribeListenersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol
+
+    @protocol.setter
+    def protocol(self, protocol):
+        """Sets the protocol of this DescribeListenersRequest.
+
+
+        :param protocol: The protocol of this DescribeListenersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._protocol = protocol
 
     @property
     def tag_filters(self):

@@ -102,12 +102,6 @@ class ModifyCustomerGatewayAttributesRequest(object):
         :param customer_gateway_name: The customer_gateway_name of this ModifyCustomerGatewayAttributesRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                customer_gateway_name is not None and len(customer_gateway_name) > 128):
-            raise ValueError("Invalid value for `customer_gateway_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                customer_gateway_name is not None and len(customer_gateway_name) < 1):
-            raise ValueError("Invalid value for `customer_gateway_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._customer_gateway_name = customer_gateway_name
 
@@ -129,12 +123,6 @@ class ModifyCustomerGatewayAttributesRequest(object):
         :param description: The description of this ModifyCustomerGatewayAttributesRequest.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) > 255):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
