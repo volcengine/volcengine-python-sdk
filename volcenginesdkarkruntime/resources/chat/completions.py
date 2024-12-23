@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Dict, List, Union, Iterable, Optional, Callable, Iterator, AsyncIterator
 
 import httpx
+import warnings
 from typing_extensions import Literal
 
 from ..._types import Body, Query, Headers
@@ -32,7 +33,6 @@ from ..._constants import ARK_E2E_ENCRYPTION_HEADER
 
 __all__ = ["Completions", "AsyncCompletions"]
 
-
 class Completions(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> CompletionsWithRawResponse:
@@ -50,10 +50,20 @@ class Completions(SyncAPIResource):
                 if isinstance(current_content, str):
                     message["content"] = f(current_content)
                 elif isinstance(current_content, Iterable):
-                    raise TypeError("content type {} is not supported end-to-end encryption".
-                                    format(type(message.get('content'))))
+                    for part in current_content:
+                        if part.get("type", None) == "text":
+                            part["text"] = f(part["text"])
+                        elif part.get("type", None) == "image_url":
+                            if part["image_url"]["url"].startswith('data:'):
+                                part["image_url"]["url"] = f(part["image_url"]["url"])
+                            else:
+                                warnings.warn("encryption is not supported for image url, "
+                                              "please use base64 image if you want encryption")
+                        else:
+                            raise TypeError("encryption is not supported for content type {}".
+                                            format(type(part)))
                 else:
-                    raise TypeError("content type {} is not supported end-to-end encryption".
+                    raise TypeError("encryption is not supported for content type {}".
                                     format(type(message.get('content'))))
 
     def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
@@ -177,8 +187,21 @@ class AsyncCompletions(AsyncAPIResource):
                 current_content = message.get("content")
                 if isinstance(current_content, str):
                     message["content"] = f(current_content)
+                elif isinstance(current_content, Iterable):
+                    for part in current_content:
+                        if part.get("type", None) == "text":
+                            part["text"] = f(part["text"])
+                        elif part.get("type", None) == "image_url":
+                            if part["image_url"]["url"].startswith('data:'):
+                                part["image_url"]["url"] = f(part["image_url"]["url"])
+                            else:
+                                warnings.warn("encryption is not supported for image url, "
+                                              "please use base64 image if you want encryption")
+                        else:
+                            raise TypeError("encryption is not supported for content type {}".
+                                            format(type(part)))
                 else:
-                    raise TypeError("content type {} is not supported end-to-end encryption".
+                    raise TypeError("encryption is not supported for content type {}".
                                     format(type(message.get('content'))))
 
     def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
