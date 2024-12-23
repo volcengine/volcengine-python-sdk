@@ -33,50 +33,24 @@ class SyncDetailForListCdnDomainsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'errors': 'list[ErrorForListCdnDomainsOutput]',
         'synced_at': 'str'
     }
 
     attribute_map = {
-        'errors': 'Errors',
         'synced_at': 'SyncedAt'
     }
 
-    def __init__(self, errors=None, synced_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, synced_at=None, _configuration=None):  # noqa: E501
         """SyncDetailForListCdnDomainsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._errors = None
         self._synced_at = None
         self.discriminator = None
 
-        if errors is not None:
-            self.errors = errors
         if synced_at is not None:
             self.synced_at = synced_at
-
-    @property
-    def errors(self):
-        """Gets the errors of this SyncDetailForListCdnDomainsOutput.  # noqa: E501
-
-
-        :return: The errors of this SyncDetailForListCdnDomainsOutput.  # noqa: E501
-        :rtype: list[ErrorForListCdnDomainsOutput]
-        """
-        return self._errors
-
-    @errors.setter
-    def errors(self, errors):
-        """Sets the errors of this SyncDetailForListCdnDomainsOutput.
-
-
-        :param errors: The errors of this SyncDetailForListCdnDomainsOutput.  # noqa: E501
-        :type: list[ErrorForListCdnDomainsOutput]
-        """
-
-        self._errors = errors
 
     @property
     def synced_at(self):

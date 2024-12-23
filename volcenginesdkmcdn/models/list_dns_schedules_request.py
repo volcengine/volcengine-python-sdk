@@ -41,7 +41,8 @@ class ListDnsSchedulesRequest(object):
         'schedule_status': 'str',
         'schedule_strategy': 'str',
         'sort_by': 'str',
-        'sort_order': 'str'
+        'sort_order': 'str',
+        'vendors': 'list[str]'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class ListDnsSchedulesRequest(object):
         'schedule_status': 'ScheduleStatus',
         'schedule_strategy': 'ScheduleStrategy',
         'sort_by': 'SortBy',
-        'sort_order': 'SortOrder'
+        'sort_order': 'SortOrder',
+        'vendors': 'Vendors'
     }
 
-    def __init__(self, cloud_account_ids=None, domain_name=None, exact_domain_name=None, pagination=None, region=None, schedule_status=None, schedule_strategy=None, sort_by=None, sort_order=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_account_ids=None, domain_name=None, exact_domain_name=None, pagination=None, region=None, schedule_status=None, schedule_strategy=None, sort_by=None, sort_order=None, vendors=None, _configuration=None):  # noqa: E501
         """ListDnsSchedulesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class ListDnsSchedulesRequest(object):
         self._schedule_strategy = None
         self._sort_by = None
         self._sort_order = None
+        self._vendors = None
         self.discriminator = None
 
         if cloud_account_ids is not None:
@@ -91,6 +94,8 @@ class ListDnsSchedulesRequest(object):
             self.sort_by = sort_by
         if sort_order is not None:
             self.sort_order = sort_order
+        if vendors is not None:
+            self.vendors = vendors
 
     @property
     def cloud_account_ids(self):
@@ -280,6 +285,27 @@ class ListDnsSchedulesRequest(object):
         """
 
         self._sort_order = sort_order
+
+    @property
+    def vendors(self):
+        """Gets the vendors of this ListDnsSchedulesRequest.  # noqa: E501
+
+
+        :return: The vendors of this ListDnsSchedulesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._vendors
+
+    @vendors.setter
+    def vendors(self, vendors):
+        """Sets the vendors of this ListDnsSchedulesRequest.
+
+
+        :param vendors: The vendors of this ListDnsSchedulesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._vendors = vendors
 
     def to_dict(self):
         """Returns the model properties as a dict"""

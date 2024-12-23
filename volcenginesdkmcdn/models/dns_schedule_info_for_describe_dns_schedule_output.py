@@ -41,7 +41,9 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         'region': 'str',
         'schedule_cname': 'str',
         'schedule_status': 'str',
-        'updated_at': 'int'
+        'schedule_strategies': 'list[str]',
+        'updated_at': 'int',
+        'vendors': 'list[str]'
     }
 
     attribute_map = {
@@ -53,10 +55,12 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         'region': 'Region',
         'schedule_cname': 'ScheduleCname',
         'schedule_status': 'ScheduleStatus',
-        'updated_at': 'UpdatedAt'
+        'schedule_strategies': 'ScheduleStrategies',
+        'updated_at': 'UpdatedAt',
+        'vendors': 'Vendors'
     }
 
-    def __init__(self, created_at=None, domain_name=None, domestic_domains=None, global_domains=None, id=None, region=None, schedule_cname=None, schedule_status=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, domain_name=None, domestic_domains=None, global_domains=None, id=None, region=None, schedule_cname=None, schedule_status=None, schedule_strategies=None, updated_at=None, vendors=None, _configuration=None):  # noqa: E501
         """DnsScheduleInfoForDescribeDnsScheduleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +74,9 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         self._region = None
         self._schedule_cname = None
         self._schedule_status = None
+        self._schedule_strategies = None
         self._updated_at = None
+        self._vendors = None
         self.discriminator = None
 
         if created_at is not None:
@@ -89,8 +95,12 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
             self.schedule_cname = schedule_cname
         if schedule_status is not None:
             self.schedule_status = schedule_status
+        if schedule_strategies is not None:
+            self.schedule_strategies = schedule_strategies
         if updated_at is not None:
             self.updated_at = updated_at
+        if vendors is not None:
+            self.vendors = vendors
 
     @property
     def created_at(self):
@@ -261,6 +271,27 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         self._schedule_status = schedule_status
 
     @property
+    def schedule_strategies(self):
+        """Gets the schedule_strategies of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+
+
+        :return: The schedule_strategies of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._schedule_strategies
+
+    @schedule_strategies.setter
+    def schedule_strategies(self, schedule_strategies):
+        """Sets the schedule_strategies of this DnsScheduleInfoForDescribeDnsScheduleOutput.
+
+
+        :param schedule_strategies: The schedule_strategies of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._schedule_strategies = schedule_strategies
+
+    @property
     def updated_at(self):
         """Gets the updated_at of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
 
@@ -280,6 +311,27 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         """
 
         self._updated_at = updated_at
+
+    @property
+    def vendors(self):
+        """Gets the vendors of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+
+
+        :return: The vendors of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._vendors
+
+    @vendors.setter
+    def vendors(self, vendors):
+        """Sets the vendors of this DnsScheduleInfoForDescribeDnsScheduleOutput.
+
+
+        :param vendors: The vendors of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._vendors = vendors
 
     def to_dict(self):
         """Returns the model properties as a dict"""

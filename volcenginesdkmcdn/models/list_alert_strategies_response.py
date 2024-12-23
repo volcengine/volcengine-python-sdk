@@ -33,7 +33,7 @@ class ListAlertStrategiesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'DataForListAlertStrategiesOutput',
+        'data': 'list[DataForListAlertStrategiesOutput]',
         'pagination': 'PaginationForListAlertStrategiesOutput'
     }
 
@@ -63,7 +63,7 @@ class ListAlertStrategiesResponse(object):
 
 
         :return: The data of this ListAlertStrategiesResponse.  # noqa: E501
-        :rtype: DataForListAlertStrategiesOutput
+        :rtype: list[DataForListAlertStrategiesOutput]
         """
         return self._data
 
@@ -73,7 +73,7 @@ class ListAlertStrategiesResponse(object):
 
 
         :param data: The data of this ListAlertStrategiesResponse.  # noqa: E501
-        :type: DataForListAlertStrategiesOutput
+        :type: list[DataForListAlertStrategiesOutput]
         """
 
         self._data = data
