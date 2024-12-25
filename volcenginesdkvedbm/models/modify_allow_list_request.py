@@ -38,7 +38,7 @@ class ModifyAllowListRequest(object):
         'allow_list_id': 'str',
         'allow_list_name': 'str',
         'apply_instance_num': 'int',
-        'modify_mode': 'int'
+        'modify_mode': 'str'
     }
 
     attribute_map = {
@@ -190,7 +190,7 @@ class ModifyAllowListRequest(object):
 
 
         :return: The modify_mode of this ModifyAllowListRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._modify_mode
 
@@ -200,8 +200,15 @@ class ModifyAllowListRequest(object):
 
 
         :param modify_mode: The modify_mode of this ModifyAllowListRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
+        allowed_values = ["Cover", "Append", "Delete"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                modify_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `modify_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(modify_mode, allowed_values)
+            )
 
         self._modify_mode = modify_mode
 

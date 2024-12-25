@@ -326,9 +326,6 @@ class DescribeDBInstancesRequest(object):
         :param page_number: The page_number of this DescribeDBInstancesRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                page_number is not None and page_number < 1):  # noqa: E501
-            raise ValueError("Invalid value for `page_number`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_number = page_number
 

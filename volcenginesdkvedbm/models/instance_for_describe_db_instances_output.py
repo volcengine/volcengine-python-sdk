@@ -36,13 +36,17 @@ class InstanceForDescribeDBInstancesOutput(object):
         'charge_detail': 'ChargeDetailForDescribeDBInstancesOutput',
         'create_time': 'str',
         'db_engine_version': 'str',
+        'db_revision_version': 'str',
+        'deletion_protection': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
+        'lower_case_table_names': 'str',
         'nodes': 'list[NodeForDescribeDBInstancesOutput]',
         'pre_paid_storage_in_gb': 'int',
         'project_name': 'str',
         'region_id': 'str',
+        'spec_family': 'str',
         'storage_charge_type': 'str',
         'storage_used_gi_b': 'float',
         'subnet_id': 'str',
@@ -56,13 +60,17 @@ class InstanceForDescribeDBInstancesOutput(object):
         'charge_detail': 'ChargeDetail',
         'create_time': 'CreateTime',
         'db_engine_version': 'DBEngineVersion',
+        'db_revision_version': 'DBRevisionVersion',
+        'deletion_protection': 'DeletionProtection',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
+        'lower_case_table_names': 'LowerCaseTableNames',
         'nodes': 'Nodes',
         'pre_paid_storage_in_gb': 'PrePaidStorageInGB',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
+        'spec_family': 'SpecFamily',
         'storage_charge_type': 'StorageChargeType',
         'storage_used_gi_b': 'StorageUsedGiB',
         'subnet_id': 'SubnetId',
@@ -72,7 +80,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, nodes=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, db_revision_version=None, deletion_protection=None, instance_id=None, instance_name=None, instance_status=None, lower_case_table_names=None, nodes=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, spec_family=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,13 +89,17 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._charge_detail = None
         self._create_time = None
         self._db_engine_version = None
+        self._db_revision_version = None
+        self._deletion_protection = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
+        self._lower_case_table_names = None
         self._nodes = None
         self._pre_paid_storage_in_gb = None
         self._project_name = None
         self._region_id = None
+        self._spec_family = None
         self._storage_charge_type = None
         self._storage_used_gi_b = None
         self._subnet_id = None
@@ -103,12 +115,18 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.create_time = create_time
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if db_revision_version is not None:
+            self.db_revision_version = db_revision_version
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
         if instance_status is not None:
             self.instance_status = instance_status
+        if lower_case_table_names is not None:
+            self.lower_case_table_names = lower_case_table_names
         if nodes is not None:
             self.nodes = nodes
         if pre_paid_storage_in_gb is not None:
@@ -117,6 +135,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
+        if spec_family is not None:
+            self.spec_family = spec_family
         if storage_charge_type is not None:
             self.storage_charge_type = storage_charge_type
         if storage_used_gi_b is not None:
@@ -196,6 +216,48 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._db_engine_version = db_engine_version
 
     @property
+    def db_revision_version(self):
+        """Gets the db_revision_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The db_revision_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_revision_version
+
+    @db_revision_version.setter
+    def db_revision_version(self, db_revision_version):
+        """Sets the db_revision_version of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param db_revision_version: The db_revision_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._db_revision_version = db_revision_version
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param deletion_protection: The deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deletion_protection = deletion_protection
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -257,6 +319,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._instance_status = instance_status
+
+    @property
+    def lower_case_table_names(self):
+        """Gets the lower_case_table_names of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The lower_case_table_names of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._lower_case_table_names
+
+    @lower_case_table_names.setter
+    def lower_case_table_names(self, lower_case_table_names):
+        """Sets the lower_case_table_names of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param lower_case_table_names: The lower_case_table_names of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._lower_case_table_names = lower_case_table_names
 
     @property
     def nodes(self):
@@ -341,6 +424,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._region_id = region_id
+
+    @property
+    def spec_family(self):
+        """Gets the spec_family of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The spec_family of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._spec_family
+
+    @spec_family.setter
+    def spec_family(self, spec_family):
+        """Sets the spec_family of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param spec_family: The spec_family of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._spec_family = spec_family
 
     @property
     def storage_charge_type(self):
