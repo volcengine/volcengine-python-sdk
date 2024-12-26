@@ -36,10 +36,8 @@ class RuleForListAclRuleOutput(object):
         'accurate_group': 'AccurateGroupForListAclRuleOutput',
         'action': 'str',
         'advanced': 'int',
-        'client_ip': 'str',
         'description': 'str',
         'enable': 'int',
-        'host': 'str',
         'host_add_type': 'int',
         'host_group_id': 'list[int]',
         'host_groups': 'list[HostGroupForListAclRuleOutput]',
@@ -51,17 +49,16 @@ class RuleForListAclRuleOutput(object):
         'name': 'list[str]',
         'prefix_switch': 'list[str]',
         'rule_tag': 'str',
-        'update_time': 'str'
+        'update_time': 'str',
+        'url': 'str'
     }
 
     attribute_map = {
         'accurate_group': 'AccurateGroup',
         'action': 'Action',
         'advanced': 'Advanced',
-        'client_ip': 'ClientIp',
         'description': 'Description',
         'enable': 'Enable',
-        'host': 'Host',
         'host_add_type': 'HostAddType',
         'host_group_id': 'HostGroupId',
         'host_groups': 'HostGroups',
@@ -73,10 +70,11 @@ class RuleForListAclRuleOutput(object):
         'name': 'Name',
         'prefix_switch': 'PrefixSwitch',
         'rule_tag': 'RuleTag',
-        'update_time': 'UpdateTime'
+        'update_time': 'UpdateTime',
+        'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, action=None, advanced=None, client_ip=None, description=None, enable=None, host=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_groups=None, ip_list=None, ip_location_country=None, name=None, prefix_switch=None, rule_tag=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_groups=None, ip_list=None, ip_location_country=None, name=None, prefix_switch=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
         """RuleForListAclRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,10 +83,8 @@ class RuleForListAclRuleOutput(object):
         self._accurate_group = None
         self._action = None
         self._advanced = None
-        self._client_ip = None
         self._description = None
         self._enable = None
-        self._host = None
         self._host_add_type = None
         self._host_group_id = None
         self._host_groups = None
@@ -101,6 +97,7 @@ class RuleForListAclRuleOutput(object):
         self._prefix_switch = None
         self._rule_tag = None
         self._update_time = None
+        self._url = None
         self.discriminator = None
 
         if accurate_group is not None:
@@ -109,14 +106,10 @@ class RuleForListAclRuleOutput(object):
             self.action = action
         if advanced is not None:
             self.advanced = advanced
-        if client_ip is not None:
-            self.client_ip = client_ip
         if description is not None:
             self.description = description
         if enable is not None:
             self.enable = enable
-        if host is not None:
-            self.host = host
         if host_add_type is not None:
             self.host_add_type = host_add_type
         if host_group_id is not None:
@@ -141,6 +134,8 @@ class RuleForListAclRuleOutput(object):
             self.rule_tag = rule_tag
         if update_time is not None:
             self.update_time = update_time
+        if url is not None:
+            self.url = url
 
     @property
     def accurate_group(self):
@@ -206,27 +201,6 @@ class RuleForListAclRuleOutput(object):
         self._advanced = advanced
 
     @property
-    def client_ip(self):
-        """Gets the client_ip of this RuleForListAclRuleOutput.  # noqa: E501
-
-
-        :return: The client_ip of this RuleForListAclRuleOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._client_ip
-
-    @client_ip.setter
-    def client_ip(self, client_ip):
-        """Sets the client_ip of this RuleForListAclRuleOutput.
-
-
-        :param client_ip: The client_ip of this RuleForListAclRuleOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._client_ip = client_ip
-
-    @property
     def description(self):
         """Gets the description of this RuleForListAclRuleOutput.  # noqa: E501
 
@@ -267,27 +241,6 @@ class RuleForListAclRuleOutput(object):
         """
 
         self._enable = enable
-
-    @property
-    def host(self):
-        """Gets the host of this RuleForListAclRuleOutput.  # noqa: E501
-
-
-        :return: The host of this RuleForListAclRuleOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._host
-
-    @host.setter
-    def host(self, host):
-        """Sets the host of this RuleForListAclRuleOutput.
-
-
-        :param host: The host of this RuleForListAclRuleOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._host = host
 
     @property
     def host_add_type(self):
@@ -540,6 +493,27 @@ class RuleForListAclRuleOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def url(self):
+        """Gets the url of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The url of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this RuleForListAclRuleOutput.
+
+
+        :param url: The url of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
 
     def to_dict(self):
         """Returns the model properties as a dict"""
