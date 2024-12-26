@@ -38,6 +38,7 @@ class CreateDBInstanceRequest(object):
         'db_engine_version': 'str',
         'db_minor_version': 'str',
         'db_time_zone': 'str',
+        'deletion_protection': 'str',
         'instance_name': 'str',
         'lower_case_table_names': 'str',
         'node_number': 'int',
@@ -63,6 +64,7 @@ class CreateDBInstanceRequest(object):
         'db_engine_version': 'DBEngineVersion',
         'db_minor_version': 'DBMinorVersion',
         'db_time_zone': 'DBTimeZone',
+        'deletion_protection': 'DeletionProtection',
         'instance_name': 'InstanceName',
         'lower_case_table_names': 'LowerCaseTableNames',
         'node_number': 'NodeNumber',
@@ -82,7 +84,7 @@ class CreateDBInstanceRequest(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_minor_version=None, db_time_zone=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_minor_version=None, db_time_zone=None, deletion_protection=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class CreateDBInstanceRequest(object):
         self._db_engine_version = None
         self._db_minor_version = None
         self._db_time_zone = None
+        self._deletion_protection = None
         self._instance_name = None
         self._lower_case_table_names = None
         self._node_number = None
@@ -120,6 +123,8 @@ class CreateDBInstanceRequest(object):
             self.db_minor_version = db_minor_version
         if db_time_zone is not None:
             self.db_time_zone = db_time_zone
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         if instance_name is not None:
             self.instance_name = instance_name
         if lower_case_table_names is not None:
@@ -279,6 +284,34 @@ class CreateDBInstanceRequest(object):
         """
 
         self._db_time_zone = db_time_zone
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The deletion_protection of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this CreateDBInstanceRequest.
+
+
+        :param deletion_protection: The deletion_protection of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["disabled", "enabled"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                deletion_protection not in allowed_values):
+            raise ValueError(
+                "Invalid value for `deletion_protection` ({0}), must be one of {1}"  # noqa: E501
+                .format(deletion_protection, allowed_values)
+            )
+
+        self._deletion_protection = deletion_protection
 
     @property
     def instance_name(self):

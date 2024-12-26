@@ -74,7 +74,7 @@ class DeleteDBInstanceRequest(object):
         :param data_keep_policy: The data_keep_policy of this DeleteDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["None", "All", "Last"]  # noqa: E501
+        allowed_values = ["Last"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 data_keep_policy not in allowed_values):
             raise ValueError(
