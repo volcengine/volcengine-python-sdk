@@ -38,7 +38,8 @@ class AllowListForDescribeAllowListsOutput(object):
         'allow_list_id': 'str',
         'allow_list_name': 'str',
         'allow_list_type': 'str',
-        'associated_instance_num': 'int'
+        'associated_instance_num': 'int',
+        'project_name': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class AllowListForDescribeAllowListsOutput(object):
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
         'allow_list_type': 'AllowListType',
-        'associated_instance_num': 'AssociatedInstanceNum'
+        'associated_instance_num': 'AssociatedInstanceNum',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, allow_list_desc=None, allow_list_ip_num=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_desc=None, allow_list_ip_num=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, project_name=None, _configuration=None):  # noqa: E501
         """AllowListForDescribeAllowListsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class AllowListForDescribeAllowListsOutput(object):
         self._allow_list_name = None
         self._allow_list_type = None
         self._associated_instance_num = None
+        self._project_name = None
         self.discriminator = None
 
         if allow_list_desc is not None:
@@ -76,6 +79,8 @@ class AllowListForDescribeAllowListsOutput(object):
             self.allow_list_type = allow_list_type
         if associated_instance_num is not None:
             self.associated_instance_num = associated_instance_num
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def allow_list_desc(self):
@@ -202,6 +207,27 @@ class AllowListForDescribeAllowListsOutput(object):
         """
 
         self._associated_instance_num = associated_instance_num
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+
+
+        :return: The project_name of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this AllowListForDescribeAllowListsOutput.
+
+
+        :param project_name: The project_name of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

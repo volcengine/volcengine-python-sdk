@@ -3,7 +3,8 @@
 from __future__ import annotations
 import httpx
 
-from typing import Iterable, Optional, Literal
+from typing import Iterable, Optional
+from typing_extensions import Literal
 
 from ..._types import Body, Query, Headers
 from .completions import Completions, AsyncCompletions

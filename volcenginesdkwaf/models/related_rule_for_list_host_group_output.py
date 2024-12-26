@@ -33,60 +33,34 @@ class RelatedRuleForListHostGroupOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'host': 'str',
         'rule_name': 'str',
         'rule_tag': 'str',
         'rule_type': 'str'
     }
 
     attribute_map = {
-        'host': 'Host',
         'rule_name': 'RuleName',
         'rule_tag': 'RuleTag',
         'rule_type': 'RuleType'
     }
 
-    def __init__(self, host=None, rule_name=None, rule_tag=None, rule_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, rule_name=None, rule_tag=None, rule_type=None, _configuration=None):  # noqa: E501
         """RelatedRuleForListHostGroupOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._host = None
         self._rule_name = None
         self._rule_tag = None
         self._rule_type = None
         self.discriminator = None
 
-        if host is not None:
-            self.host = host
         if rule_name is not None:
             self.rule_name = rule_name
         if rule_tag is not None:
             self.rule_tag = rule_tag
         if rule_type is not None:
             self.rule_type = rule_type
-
-    @property
-    def host(self):
-        """Gets the host of this RelatedRuleForListHostGroupOutput.  # noqa: E501
-
-
-        :return: The host of this RelatedRuleForListHostGroupOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._host
-
-    @host.setter
-    def host(self, host):
-        """Sets the host of this RelatedRuleForListHostGroupOutput.
-
-
-        :param host: The host of this RelatedRuleForListHostGroupOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._host = host
 
     @property
     def rule_name(self):

@@ -38,7 +38,9 @@ class DescribeAllowListDetailResponse(object):
         'allow_list_id': 'str',
         'allow_list_name': 'str',
         'allow_list_type': 'str',
-        'associated_instances': 'list[AssociatedInstanceForDescribeAllowListDetailOutput]'
+        'associated_instance_num': 'int',
+        'associated_instances': 'list[AssociatedInstanceForDescribeAllowListDetailOutput]',
+        'project_name': 'str'
     }
 
     attribute_map = {
@@ -47,10 +49,12 @@ class DescribeAllowListDetailResponse(object):
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
         'allow_list_type': 'AllowListType',
-        'associated_instances': 'AssociatedInstances'
+        'associated_instance_num': 'AssociatedInstanceNum',
+        'associated_instances': 'AssociatedInstances',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instances=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, associated_instances=None, project_name=None, _configuration=None):  # noqa: E501
         """DescribeAllowListDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +65,9 @@ class DescribeAllowListDetailResponse(object):
         self._allow_list_id = None
         self._allow_list_name = None
         self._allow_list_type = None
+        self._associated_instance_num = None
         self._associated_instances = None
+        self._project_name = None
         self.discriminator = None
 
         if allow_list is not None:
@@ -74,8 +80,12 @@ class DescribeAllowListDetailResponse(object):
             self.allow_list_name = allow_list_name
         if allow_list_type is not None:
             self.allow_list_type = allow_list_type
+        if associated_instance_num is not None:
+            self.associated_instance_num = associated_instance_num
         if associated_instances is not None:
             self.associated_instances = associated_instances
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def allow_list(self):
@@ -183,6 +193,27 @@ class DescribeAllowListDetailResponse(object):
         self._allow_list_type = allow_list_type
 
     @property
+    def associated_instance_num(self):
+        """Gets the associated_instance_num of this DescribeAllowListDetailResponse.  # noqa: E501
+
+
+        :return: The associated_instance_num of this DescribeAllowListDetailResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._associated_instance_num
+
+    @associated_instance_num.setter
+    def associated_instance_num(self, associated_instance_num):
+        """Sets the associated_instance_num of this DescribeAllowListDetailResponse.
+
+
+        :param associated_instance_num: The associated_instance_num of this DescribeAllowListDetailResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._associated_instance_num = associated_instance_num
+
+    @property
     def associated_instances(self):
         """Gets the associated_instances of this DescribeAllowListDetailResponse.  # noqa: E501
 
@@ -202,6 +233,27 @@ class DescribeAllowListDetailResponse(object):
         """
 
         self._associated_instances = associated_instances
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeAllowListDetailResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeAllowListDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeAllowListDetailResponse.
+
+
+        :param project_name: The project_name of this DescribeAllowListDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

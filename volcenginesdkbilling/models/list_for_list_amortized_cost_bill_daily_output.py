@@ -57,6 +57,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'daily_amortized_payable_amount': 'str',
         'daily_amortized_preferential_bill_amount': 'str',
         'daily_amortized_round_amount': 'str',
+        'deduction_use_duration': 'str',
         'discount_bill_amount': 'str',
         'element': 'str',
         'element_code': 'str',
@@ -95,6 +96,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'seller_customer_name': 'str',
         'seller_id': 'str',
         'seller_user_name': 'str',
+        'split_item_id': 'str',
+        'split_item_name': 'str',
         'subject_name': 'str',
         'tag': 'str',
         'unit': 'str',
@@ -129,6 +132,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'daily_amortized_payable_amount': 'DailyAmortizedPayableAmount',
         'daily_amortized_preferential_bill_amount': 'DailyAmortizedPreferentialBillAmount',
         'daily_amortized_round_amount': 'DailyAmortizedRoundAmount',
+        'deduction_use_duration': 'DeductionUseDuration',
         'discount_bill_amount': 'DiscountBillAmount',
         'element': 'Element',
         'element_code': 'ElementCode',
@@ -167,6 +171,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'seller_customer_name': 'SellerCustomerName',
         'seller_id': 'SellerID',
         'seller_user_name': 'SellerUserName',
+        'split_item_id': 'SplitItemID',
+        'split_item_name': 'SplitItemName',
         'subject_name': 'SubjectName',
         'tag': 'Tag',
         'unit': 'Unit',
@@ -176,7 +182,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, coupon_amount=None, currency=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_preferential_bill_amount=None, daily_amortized_round_amount=None, discount_bill_amount=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_preferential_bill_amount=None, now_amortized_round_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, region=None, region_code=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, subject_name=None, tag=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, coupon_amount=None, currency=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_preferential_bill_amount=None, daily_amortized_round_amount=None, deduction_use_duration=None, discount_bill_amount=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_preferential_bill_amount=None, now_amortized_round_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, region=None, region_code=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillDailyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -206,6 +212,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._daily_amortized_payable_amount = None
         self._daily_amortized_preferential_bill_amount = None
         self._daily_amortized_round_amount = None
+        self._deduction_use_duration = None
         self._discount_bill_amount = None
         self._element = None
         self._element_code = None
@@ -244,6 +251,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._seller_customer_name = None
         self._seller_id = None
         self._seller_user_name = None
+        self._split_item_id = None
+        self._split_item_name = None
         self._subject_name = None
         self._tag = None
         self._unit = None
@@ -301,6 +310,8 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.daily_amortized_preferential_bill_amount = daily_amortized_preferential_bill_amount
         if daily_amortized_round_amount is not None:
             self.daily_amortized_round_amount = daily_amortized_round_amount
+        if deduction_use_duration is not None:
+            self.deduction_use_duration = deduction_use_duration
         if discount_bill_amount is not None:
             self.discount_bill_amount = discount_bill_amount
         if element is not None:
@@ -377,6 +388,10 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.seller_id = seller_id
         if seller_user_name is not None:
             self.seller_user_name = seller_user_name
+        if split_item_id is not None:
+            self.split_item_id = split_item_id
+        if split_item_name is not None:
+            self.split_item_name = split_item_name
         if subject_name is not None:
             self.subject_name = subject_name
         if tag is not None:
@@ -895,6 +910,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._daily_amortized_round_amount = daily_amortized_round_amount
+
+    @property
+    def deduction_use_duration(self):
+        """Gets the deduction_use_duration of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The deduction_use_duration of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deduction_use_duration
+
+    @deduction_use_duration.setter
+    def deduction_use_duration(self, deduction_use_duration):
+        """Sets the deduction_use_duration of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param deduction_use_duration: The deduction_use_duration of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deduction_use_duration = deduction_use_duration
 
     @property
     def discount_bill_amount(self):
@@ -1693,6 +1729,48 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._seller_user_name = seller_user_name
+
+    @property
+    def split_item_id(self):
+        """Gets the split_item_id of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The split_item_id of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._split_item_id
+
+    @split_item_id.setter
+    def split_item_id(self, split_item_id):
+        """Sets the split_item_id of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param split_item_id: The split_item_id of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._split_item_id = split_item_id
+
+    @property
+    def split_item_name(self):
+        """Gets the split_item_name of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The split_item_name of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._split_item_name
+
+    @split_item_name.setter
+    def split_item_name(self, split_item_name):
+        """Sets the split_item_name of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param split_item_name: The split_item_name of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._split_item_name = split_item_name
 
     @property
     def subject_name(self):

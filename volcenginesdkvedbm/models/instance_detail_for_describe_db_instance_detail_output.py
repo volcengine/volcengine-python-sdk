@@ -35,6 +35,7 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
     swagger_types = {
         'create_time': 'str',
         'db_engine_version': 'str',
+        'deletion_protection': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
@@ -56,6 +57,7 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
     attribute_map = {
         'create_time': 'CreateTime',
         'db_engine_version': 'DBEngineVersion',
+        'deletion_protection': 'DeletionProtection',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
@@ -74,7 +76,7 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_structures=None, lower_case_table_names=None, maintenance_window=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, spec_family=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, db_engine_version=None, deletion_protection=None, instance_id=None, instance_name=None, instance_status=None, instance_structures=None, lower_case_table_names=None, maintenance_window=None, pre_paid_storage_in_gb=None, project_name=None, region_id=None, spec_family=None, storage_charge_type=None, storage_used_gi_b=None, subnet_id=None, time_zone=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceDetailForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
 
         self._create_time = None
         self._db_engine_version = None
+        self._deletion_protection = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
@@ -104,6 +107,8 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
             self.create_time = create_time
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -178,6 +183,27 @@ class InstanceDetailForDescribeDBInstanceDetailOutput(object):
         """
 
         self._db_engine_version = db_engine_version
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The deletion_protection of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this InstanceDetailForDescribeDBInstanceDetailOutput.
+
+
+        :param deletion_protection: The deletion_protection of this InstanceDetailForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deletion_protection = deletion_protection
 
     @property
     def instance_id(self):

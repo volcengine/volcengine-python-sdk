@@ -34,26 +34,31 @@ class UnsubscribeInstanceResponse(object):
     """
     swagger_types = {
         'order_id': 'str',
+        'order_id_list': 'list[str]',
         'success_instance_infos': 'list[SuccessInstanceInfoForUnsubscribeInstanceOutput]'
     }
 
     attribute_map = {
         'order_id': 'OrderID',
+        'order_id_list': 'OrderIDList',
         'success_instance_infos': 'SuccessInstanceInfos'
     }
 
-    def __init__(self, order_id=None, success_instance_infos=None, _configuration=None):  # noqa: E501
+    def __init__(self, order_id=None, order_id_list=None, success_instance_infos=None, _configuration=None):  # noqa: E501
         """UnsubscribeInstanceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._order_id = None
+        self._order_id_list = None
         self._success_instance_infos = None
         self.discriminator = None
 
         if order_id is not None:
             self.order_id = order_id
+        if order_id_list is not None:
+            self.order_id_list = order_id_list
         if success_instance_infos is not None:
             self.success_instance_infos = success_instance_infos
 
@@ -77,6 +82,27 @@ class UnsubscribeInstanceResponse(object):
         """
 
         self._order_id = order_id
+
+    @property
+    def order_id_list(self):
+        """Gets the order_id_list of this UnsubscribeInstanceResponse.  # noqa: E501
+
+
+        :return: The order_id_list of this UnsubscribeInstanceResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._order_id_list
+
+    @order_id_list.setter
+    def order_id_list(self, order_id_list):
+        """Sets the order_id_list of this UnsubscribeInstanceResponse.
+
+
+        :param order_id_list: The order_id_list of this UnsubscribeInstanceResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._order_id_list = order_id_list
 
     @property
     def success_instance_infos(self):
