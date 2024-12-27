@@ -33,6 +33,31 @@ from ..._constants import ARK_E2E_ENCRYPTION_HEADER
 
 __all__ = ["Completions", "AsyncCompletions"]
 
+
+def _process_messages(messages: Iterable[ChatCompletionMessageParam],
+                      f: Callable[[str], str]):
+    for message in messages:
+        if message.get("content", None) is not None:
+            current_content = message.get("content")
+            if isinstance(current_content, str):
+                message["content"] = f(current_content)
+            elif isinstance(current_content, Iterable):
+                for part in current_content:
+                    if part.get("type", None) == "text":
+                        part["text"] = f(part["text"])
+                    elif part.get("type", None) == "image_url":
+                        if part["image_url"]["url"].startswith('data:'):
+                            part["image_url"]["url"] = f(part["image_url"]["url"])
+                        else:
+                            warnings.warn("encryption is not supported for image url, "
+                                          "please use base64 image if you want encryption")
+                    else:
+                        raise TypeError("encryption is not supported for content type {}".
+                                        format(type(part)))
+            else:
+                raise TypeError("encryption is not supported for content type {}".
+                                format(type(message.get('content'))))
+
 class Completions(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> CompletionsWithRawResponse:
@@ -42,38 +67,12 @@ class Completions(SyncAPIResource):
     def with_streaming_response(self) -> CompletionsWithStreamingResponse:
         return CompletionsWithStreamingResponse(self)
 
-    def _process_messages(self, messages: Iterable[ChatCompletionMessageParam],
-                          f: Callable[[str], str]):
-        for message in messages:
-            if message.get("content", None) is not None:
-                current_content = message.get("content")
-                if isinstance(current_content, str):
-                    message["content"] = f(current_content)
-                elif isinstance(current_content, Iterable):
-                    for part in current_content:
-                        if part.get("type", None) == "text":
-                            part["text"] = f(part["text"])
-                        elif part.get("type", None) == "image_url":
-                            if part["image_url"]["url"].startswith('data:'):
-                                part["image_url"]["url"] = f(part["image_url"]["url"])
-                            else:
-                                warnings.warn("encryption is not supported for image url, "
-                                              "please use base64 image if you want encryption")
-                        else:
-                            raise TypeError("encryption is not supported for content type {}".
-                                            format(type(part)))
-                else:
-                    raise TypeError("encryption is not supported for content type {}".
-                                    format(type(message.get('content'))))
-
     def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
                  ) -> tuple[bytes, bytes]:
         client = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers['X-Session-Token'] = session_token
-        self._process_messages(messages, lambda x: client.encrypt_string_with_key(_crypto_key,
-                                                                                  _crypto_nonce,
-                                                                                  x))
+        _process_messages(messages, lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x))
         return _crypto_key, _crypto_nonce
 
     def _decrypt_chunk(self, key: bytes, nonce: bytes, resp: Stream[ChatCompletionChunk]) -> Iterator[ChatCompletionChunk]:
@@ -180,38 +179,12 @@ class AsyncCompletions(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncCompletionsWithStreamingResponse:
         return AsyncCompletionsWithStreamingResponse(self)
 
-    def _process_messages(self, messages: Iterable[ChatCompletionMessageParam],
-                          f: Callable[[str], str]):
-        for message in messages:
-            if message.get("content", None) is not None:
-                current_content = message.get("content")
-                if isinstance(current_content, str):
-                    message["content"] = f(current_content)
-                elif isinstance(current_content, Iterable):
-                    for part in current_content:
-                        if part.get("type", None) == "text":
-                            part["text"] = f(part["text"])
-                        elif part.get("type", None) == "image_url":
-                            if part["image_url"]["url"].startswith('data:'):
-                                part["image_url"]["url"] = f(part["image_url"]["url"])
-                            else:
-                                warnings.warn("encryption is not supported for image url, "
-                                              "please use base64 image if you want encryption")
-                        else:
-                            raise TypeError("encryption is not supported for content type {}".
-                                            format(type(part)))
-                else:
-                    raise TypeError("encryption is not supported for content type {}".
-                                    format(type(message.get('content'))))
-
     def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
                  ) -> tuple[bytes, bytes]:
         client = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers['X-Session-Token'] = session_token
-        self._process_messages(messages, lambda x: client.encrypt_string_with_key(_crypto_key,
-                                                                                  _crypto_nonce,
-                                                                                  x))
+        _process_messages(messages, lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x))
         return _crypto_key, _crypto_nonce
 
     async def _decrypt_chunk(self, key: bytes, nonce: bytes, resp: AsyncStream[ChatCompletionChunk]
