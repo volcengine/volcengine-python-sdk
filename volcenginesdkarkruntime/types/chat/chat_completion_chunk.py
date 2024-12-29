@@ -92,6 +92,11 @@ class Choice(BaseModel):
     (deprecated) if the model called a function.
     """
 
+    moderation_hit_type: Optional[
+        Literal["violence", "severe_violation"]
+    ] = None
+    """The type of content moderation service hit."""
+
     index: int
     """The index of the choice in the list of choices."""
 
