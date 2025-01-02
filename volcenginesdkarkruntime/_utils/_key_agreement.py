@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import base64
-
+from typing import Tuple
 
 def aes_gcm_encrypt_bytes(key: bytes, iv: bytes, plain_bytes: bytes, associated_data: bytes = b"") -> bytes:
     # aes_gcm_encrypt_bytes encrypt message using AES-GCM
@@ -85,7 +85,7 @@ class key_agreement_client():
         self._public_key = ec.EllipticCurvePublicNumbers(
             cert_pub.x, cert_pub.y, self._curve).public_key()
 
-    def encrypt_string(self, plaintext: str) -> tuple[bytes, bytes, str, str]:
+    def encrypt_string(self, plaintext: str) -> Tuple[bytes, bytes, str, str]:
         """encrypt_string encrypt plaintext with ECIES DH protocol
         """
         key, nonce, token = self.generate_ecies_key_pair()
@@ -106,7 +106,7 @@ class key_agreement_client():
         # Decrypt message using AES-GCM
         return aes_gcm_decrypt_base64_string(key, nonce, ciphertext)
 
-    def generate_ecies_key_pair(self) -> tuple[bytes, bytes, str]:
+    def generate_ecies_key_pair(self) -> Tuple[bytes, bytes, str]:
         """generate_ecies_key_pair generate ECIES key pair
         """
         from cryptography.hazmat.primitives import hashes
