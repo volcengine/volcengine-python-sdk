@@ -4,6 +4,7 @@ from typing import Iterable, Union, List
 import httpx
 
 from ..._types import Body, Query, Headers
+from ..._utils._utils import disallow_aksk
 from ...types.content_generation.content_generation_task import ContentGenerationTask
 from ...types.content_generation.content_generation_task_id import ContentGenerationTaskID
 from volcenginesdkarkruntime._base_client import make_request_options
@@ -13,6 +14,8 @@ from ...types.content_generation.list_content_generation_tasks_response import L
 
 
 class Tasks(SyncAPIResource):
+
+    @disallow_aksk
     def create(
             self,
             *,
@@ -39,7 +42,7 @@ class Tasks(SyncAPIResource):
         )
         return resp
 
-
+    @disallow_aksk
     def get(
             self,
             *,
@@ -61,6 +64,7 @@ class Tasks(SyncAPIResource):
         )
         return resp
 
+    @disallow_aksk
     def list(
             self,
             page_num: int | None = None,
@@ -102,6 +106,7 @@ class Tasks(SyncAPIResource):
         )
         return resp
 
+    @disallow_aksk
     def delete(
             self,
             task_id: str,
