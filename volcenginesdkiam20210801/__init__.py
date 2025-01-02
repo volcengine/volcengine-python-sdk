@@ -16,7 +16,7 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
-from volcenginesdkiam20210801.api.iam20210801_api import IAMApi
+from volcenginesdkiam20210801.api.iam_api import IAMApi
 
 # import models into sdk package
 from volcenginesdkiam20210801.models.get_project_request import GetProjectRequest
