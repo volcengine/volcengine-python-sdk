@@ -40,6 +40,7 @@ class RoleForGetRoleOutput(object):
         'max_session_duration': 'int',
         'role_id': 'int',
         'role_name': 'str',
+        'tags': 'list[TagForGetRoleOutput]',
         'trn': 'str',
         'trust_policy_document': 'str',
         'update_date': 'str'
@@ -53,12 +54,13 @@ class RoleForGetRoleOutput(object):
         'max_session_duration': 'MaxSessionDuration',
         'role_id': 'RoleId',
         'role_name': 'RoleName',
+        'tags': 'Tags',
         'trn': 'Trn',
         'trust_policy_document': 'TrustPolicyDocument',
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, create_date=None, description=None, display_name=None, is_service_linked_role=None, max_session_duration=None, role_id=None, role_name=None, trn=None, trust_policy_document=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_date=None, description=None, display_name=None, is_service_linked_role=None, max_session_duration=None, role_id=None, role_name=None, tags=None, trn=None, trust_policy_document=None, update_date=None, _configuration=None):  # noqa: E501
         """RoleForGetRoleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class RoleForGetRoleOutput(object):
         self._max_session_duration = None
         self._role_id = None
         self._role_name = None
+        self._tags = None
         self._trn = None
         self._trust_policy_document = None
         self._update_date = None
@@ -90,6 +93,8 @@ class RoleForGetRoleOutput(object):
             self.role_id = role_id
         if role_name is not None:
             self.role_name = role_name
+        if tags is not None:
+            self.tags = tags
         if trn is not None:
             self.trn = trn
         if trust_policy_document is not None:
@@ -243,6 +248,27 @@ class RoleForGetRoleOutput(object):
         """
 
         self._role_name = role_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this RoleForGetRoleOutput.  # noqa: E501
+
+
+        :return: The tags of this RoleForGetRoleOutput.  # noqa: E501
+        :rtype: list[TagForGetRoleOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RoleForGetRoleOutput.
+
+
+        :param tags: The tags of this RoleForGetRoleOutput.  # noqa: E501
+        :type: list[TagForGetRoleOutput]
+        """
+
+        self._tags = tags
 
     @property
     def trn(self):

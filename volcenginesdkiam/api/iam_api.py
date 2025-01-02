@@ -421,103 +421,6 @@ class IAMApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def change_secure_contact_info(self, body, **kwargs):  # noqa: E501
-        """change_secure_contact_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.change_secure_contact_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ChangeSecureContactInfoRequest body: (required)
-        :return: ChangeSecureContactInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.change_secure_contact_info_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.change_secure_contact_info_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def change_secure_contact_info_with_http_info(self, body, **kwargs):  # noqa: E501
-        """change_secure_contact_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.change_secure_contact_info_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ChangeSecureContactInfoRequest body: (required)
-        :return: ChangeSecureContactInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method change_secure_contact_info" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `change_secure_contact_info`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ChangeSecureContactInfo/2018-01-01/iam/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ChangeSecureContactInfoResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def create_access_key(self, body, **kwargs):  # noqa: E501
         """create_access_key  # noqa: E501
 
@@ -2458,6 +2361,103 @@ class IAMApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_access_key_last_used(self, body, **kwargs):  # noqa: E501
+        """get_access_key_last_used  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_access_key_last_used(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetAccessKeyLastUsedRequest body: (required)
+        :return: GetAccessKeyLastUsedResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_access_key_last_used_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_access_key_last_used_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def get_access_key_last_used_with_http_info(self, body, **kwargs):  # noqa: E501
+        """get_access_key_last_used  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_access_key_last_used_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetAccessKeyLastUsedRequest body: (required)
+        :return: GetAccessKeyLastUsedResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_access_key_last_used" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `get_access_key_last_used`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/GetAccessKeyLastUsed/2018-01-01/iam/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetAccessKeyLastUsedResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_group(self, body, **kwargs):  # noqa: E501
         """get_group  # noqa: E501
 
@@ -3130,103 +3130,6 @@ class IAMApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GetSecurityConfigResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_security_contact(self, body, **kwargs):  # noqa: E501
-        """get_security_contact  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_security_contact(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetSecurityContactRequest body: (required)
-        :return: GetSecurityContactResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_security_contact_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_security_contact_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_security_contact_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_security_contact  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_security_contact_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetSecurityContactRequest body: (required)
-        :return: GetSecurityContactResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_security_contact" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_security_contact`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetSecurityContact/2018-01-01/iam/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetSecurityContactResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4398,6 +4301,103 @@ class IAMApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def list_tags_for_resources(self, body, **kwargs):  # noqa: E501
+        """list_tags_for_resources  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_tags_for_resources(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ListTagsForResourcesRequest body: (required)
+        :return: ListTagsForResourcesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.list_tags_for_resources_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.list_tags_for_resources_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def list_tags_for_resources_with_http_info(self, body, **kwargs):  # noqa: E501
+        """list_tags_for_resources  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_tags_for_resources_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ListTagsForResourcesRequest body: (required)
+        :return: ListTagsForResourcesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_tags_for_resources" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `list_tags_for_resources`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ListTagsForResources/2018-01-01/iam/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ListTagsForResourcesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def list_users(self, body, **kwargs):  # noqa: E501
         """list_users  # noqa: E501
 
@@ -4689,103 +4689,6 @@ class IAMApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def send_code_for_change_secure_contact_info(self, body, **kwargs):  # noqa: E501
-        """send_code_for_change_secure_contact_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_code_for_change_secure_contact_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param SendCodeForChangeSecureContactInfoRequest body: (required)
-        :return: SendCodeForChangeSecureContactInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.send_code_for_change_secure_contact_info_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.send_code_for_change_secure_contact_info_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def send_code_for_change_secure_contact_info_with_http_info(self, body, **kwargs):  # noqa: E501
-        """send_code_for_change_secure_contact_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_code_for_change_secure_contact_info_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param SendCodeForChangeSecureContactInfoRequest body: (required)
-        :return: SendCodeForChangeSecureContactInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method send_code_for_change_secure_contact_info" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `send_code_for_change_secure_contact_info`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/SendCodeForChangeSecureContactInfo/2018-01-01/iam/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='SendCodeForChangeSecureContactInfoResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def set_security_config(self, body, **kwargs):  # noqa: E501
         """set_security_config  # noqa: E501
 
@@ -4876,6 +4779,200 @@ class IAMApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='SetSecurityConfigResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def tag_resources(self, body, **kwargs):  # noqa: E501
+        """tag_resources  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tag_resources(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param TagResourcesRequest body: (required)
+        :return: TagResourcesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.tag_resources_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.tag_resources_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def tag_resources_with_http_info(self, body, **kwargs):  # noqa: E501
+        """tag_resources  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tag_resources_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param TagResourcesRequest body: (required)
+        :return: TagResourcesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method tag_resources" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `tag_resources`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/TagResources/2018-01-01/iam/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='TagResourcesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def untag_resources(self, body, **kwargs):  # noqa: E501
+        """untag_resources  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.untag_resources(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param UntagResourcesRequest body: (required)
+        :return: UntagResourcesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.untag_resources_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.untag_resources_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def untag_resources_with_http_info(self, body, **kwargs):  # noqa: E501
+        """untag_resources  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.untag_resources_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param UntagResourcesRequest body: (required)
+        :return: UntagResourcesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method untag_resources" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `untag_resources`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/UntagResources/2018-01-01/iam/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UntagResourcesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5368,103 +5465,6 @@ class IAMApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_secure_contact_info(self, body, **kwargs):  # noqa: E501
-        """update_secure_contact_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_secure_contact_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateSecureContactInfoRequest body: (required)
-        :return: UpdateSecureContactInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_secure_contact_info_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_secure_contact_info_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def update_secure_contact_info_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_secure_contact_info  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_secure_contact_info_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateSecureContactInfoRequest body: (required)
-        :return: UpdateSecureContactInfoResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_secure_contact_info" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_secure_contact_info`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/UpdateSecureContactInfo/2018-01-01/iam/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UpdateSecureContactInfoResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def update_user(self, body, **kwargs):  # noqa: E501
         """update_user  # noqa: E501
 
@@ -5561,7 +5561,6 @@ class IAMApi(object):
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
-
     def add_saml_provider_certificate(self, body, **kwargs):  # noqa: E501
         """add_saml_provider_certificate  # noqa: E501
 

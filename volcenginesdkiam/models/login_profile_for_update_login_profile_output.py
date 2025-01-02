@@ -46,7 +46,6 @@ class LoginProfileForUpdateLoginProfileOutput(object):
         'safe_auth_exempt_unit': 'int',
         'safe_auth_flag': 'bool',
         'safe_auth_type': 'str',
-        'status': 'str',
         'update_date': 'str',
         'user_id': 'int',
         'user_name': 'str'
@@ -66,13 +65,12 @@ class LoginProfileForUpdateLoginProfileOutput(object):
         'safe_auth_exempt_unit': 'SafeAuthExemptUnit',
         'safe_auth_flag': 'SafeAuthFlag',
         'safe_auth_type': 'SafeAuthType',
-        'status': 'Status',
         'update_date': 'UpdateDate',
         'user_id': 'UserId',
         'user_name': 'UserName'
     }
 
-    def __init__(self, create_date=None, last_login_date=None, last_login_ip=None, last_reset_password_time=None, login_allowed=None, login_locked=None, password_expire_at=None, password_reset_required=None, safe_auth_exempt_duration=None, safe_auth_exempt_required=None, safe_auth_exempt_unit=None, safe_auth_flag=None, safe_auth_type=None, status=None, update_date=None, user_id=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_date=None, last_login_date=None, last_login_ip=None, last_reset_password_time=None, login_allowed=None, login_locked=None, password_expire_at=None, password_reset_required=None, safe_auth_exempt_duration=None, safe_auth_exempt_required=None, safe_auth_exempt_unit=None, safe_auth_flag=None, safe_auth_type=None, update_date=None, user_id=None, user_name=None, _configuration=None):  # noqa: E501
         """LoginProfileForUpdateLoginProfileOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,7 +89,6 @@ class LoginProfileForUpdateLoginProfileOutput(object):
         self._safe_auth_exempt_unit = None
         self._safe_auth_flag = None
         self._safe_auth_type = None
-        self._status = None
         self._update_date = None
         self._user_id = None
         self._user_name = None
@@ -123,8 +120,6 @@ class LoginProfileForUpdateLoginProfileOutput(object):
             self.safe_auth_flag = safe_auth_flag
         if safe_auth_type is not None:
             self.safe_auth_type = safe_auth_type
-        if status is not None:
-            self.status = status
         if update_date is not None:
             self.update_date = update_date
         if user_id is not None:
@@ -404,27 +399,6 @@ class LoginProfileForUpdateLoginProfileOutput(object):
         """
 
         self._safe_auth_type = safe_auth_type
-
-    @property
-    def status(self):
-        """Gets the status of this LoginProfileForUpdateLoginProfileOutput.  # noqa: E501
-
-
-        :return: The status of this LoginProfileForUpdateLoginProfileOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this LoginProfileForUpdateLoginProfileOutput.
-
-
-        :param status: The status of this LoginProfileForUpdateLoginProfileOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._status = status
 
     @property
     def update_date(self):
