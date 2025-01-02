@@ -10,6 +10,8 @@ class SyncAPIResource:
     def __init__(self, client: "Ark") -> None:
         self._client = client
         self._post = client.post
+        self._get = client.get
+        self._delete = client.delete
 
 
 class AsyncAPIResource:

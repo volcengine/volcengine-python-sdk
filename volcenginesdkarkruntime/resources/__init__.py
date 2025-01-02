@@ -4,6 +4,7 @@ from .tokenization import Tokenization, AsyncTokenization
 from .classification import Classification, AsyncClassification
 from .bot import BotChat, AsyncBotChat
 from .context import Context, AsyncContext
+from .content_generation import ContentGeneration
 
 __all__ = [
     "Chat",
@@ -15,5 +16,6 @@ __all__ = [
     "Tokenization",
     "AsyncTokenization",
     "Context",
-    "AsyncContext"
+    "AsyncContext",
+    "ContentGeneration"
 ]

@@ -38,6 +38,7 @@ class Ark(SyncAPIClient):
     embeddings: resources.Embeddings
     tokenization: resources.Tokenization
     context: resources.Context
+    content_generation: resources.ContentGeneration
 
     def __init__(
         self,
@@ -96,6 +97,7 @@ class Ark(SyncAPIClient):
         self.embeddings = resources.Embeddings(self)
         self.tokenization = resources.Tokenization(self)
         self.context = resources.Context(self)
+        self.content_generation = resources.ContentGeneration(self)
         # self.classification = resources.Classification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
