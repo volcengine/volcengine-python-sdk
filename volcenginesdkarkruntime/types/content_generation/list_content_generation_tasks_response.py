@@ -1,5 +1,6 @@
 from typing import List
-from pydantic import BaseModel
+
+from volcenginesdkarkruntime._models import BaseModel
 
 __all__ = ["ListContentGenerationTasksResponse"]
 

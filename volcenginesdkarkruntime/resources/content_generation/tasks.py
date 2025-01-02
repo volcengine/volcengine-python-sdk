@@ -42,6 +42,7 @@ class Tasks(SyncAPIResource):
 
     def get(
             self,
+            *,
             task_id: str,
             extra_headers: Headers | None = None,
             extra_query: Query | None = None,
@@ -108,7 +109,7 @@ class Tasks(SyncAPIResource):
             extra_query: Query | None = None,
             extra_body: Body | None = None,
             timeout: float | httpx.Timeout | None = None,
-    ):
+    ) -> None:
         resp = self._delete(
             path=f"/contents/generations/tasks/{task_id}",
             options=make_request_options(
