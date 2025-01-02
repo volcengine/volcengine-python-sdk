@@ -34,15 +34,17 @@ class DeleteAclRuleRequest(object):
     """
     swagger_types = {
         'acl_type': 'str',
-        'id': 'int'
+        'id': 'int',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'acl_type': 'AclType',
-        'id': 'ID'
+        'id': 'ID',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, acl_type=None, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_type=None, id=None, project_name=None, _configuration=None):  # noqa: E501
         """DeleteAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,10 +52,13 @@ class DeleteAclRuleRequest(object):
 
         self._acl_type = None
         self._id = None
+        self._project_name = None
         self.discriminator = None
 
         self.acl_type = acl_type
         self.id = id
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def acl_type(self):
@@ -100,6 +105,27 @@ class DeleteAclRuleRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DeleteAclRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this DeleteAclRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DeleteAclRuleRequest.
+
+
+        :param project_name: The project_name of this DeleteAclRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

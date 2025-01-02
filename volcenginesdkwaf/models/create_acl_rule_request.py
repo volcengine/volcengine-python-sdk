@@ -49,6 +49,7 @@ class CreateAclRuleRequest(object):
         'ip_location_subregion': 'list[str]',
         'name': 'str',
         'prefix_switch': 'int',
+        'project_name': 'str',
         'url': 'str'
     }
 
@@ -69,10 +70,11 @@ class CreateAclRuleRequest(object):
         'ip_location_subregion': 'IpLocationSubregion',
         'name': 'Name',
         'prefix_switch': 'PrefixSwitch',
+        'project_name': 'ProjectName',
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, acl_type=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_list=None, ip_add_type=None, ip_group_id=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, prefix_switch=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, acl_type=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_list=None, ip_add_type=None, ip_group_id=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, prefix_switch=None, project_name=None, url=None, _configuration=None):  # noqa: E501
         """CreateAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,6 +96,7 @@ class CreateAclRuleRequest(object):
         self._ip_location_subregion = None
         self._name = None
         self._prefix_switch = None
+        self._project_name = None
         self._url = None
         self.discriminator = None
 
@@ -124,6 +127,8 @@ class CreateAclRuleRequest(object):
         self.name = name
         if prefix_switch is not None:
             self.prefix_switch = prefix_switch
+        if project_name is not None:
+            self.project_name = project_name
         self.url = url
 
     @property
@@ -471,6 +476,27 @@ class CreateAclRuleRequest(object):
         """
 
         self._prefix_switch = prefix_switch
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateAclRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateAclRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateAclRuleRequest.
+
+
+        :param project_name: The project_name of this CreateAclRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def url(self):

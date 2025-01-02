@@ -39,6 +39,7 @@ class ListRulesRequest(object):
         'namespace': 'list[str]',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'rule_name': 'str'
     }
 
@@ -49,10 +50,11 @@ class ListRulesRequest(object):
         'namespace': 'Namespace',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'rule_name': 'RuleName'
     }
 
-    def __init__(self, alert_state=None, enable_state=None, level=None, namespace=None, page_number=None, page_size=None, rule_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_state=None, enable_state=None, level=None, namespace=None, page_number=None, page_size=None, project_name=None, rule_name=None, _configuration=None):  # noqa: E501
         """ListRulesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class ListRulesRequest(object):
         self._namespace = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._rule_name = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class ListRulesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if rule_name is not None:
             self.rule_name = rule_name
 
@@ -207,6 +212,27 @@ class ListRulesRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListRulesRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListRulesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListRulesRequest.
+
+
+        :param project_name: The project_name of this ListRulesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def rule_name(self):

@@ -73,7 +73,8 @@ class UpdateRoleRequest(object):
         if new_role_name is not None:
             self.new_role_name = new_role_name
         self.role_name = role_name
-        self.trust_policy_document = trust_policy_document
+        if trust_policy_document is not None:
+            self.trust_policy_document = trust_policy_document
 
     @property
     def description(self):
@@ -200,8 +201,6 @@ class UpdateRoleRequest(object):
         :param trust_policy_document: The trust_policy_document of this UpdateRoleRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and trust_policy_document is None:
-            raise ValueError("Invalid value for `trust_policy_document`, must not be `None`")  # noqa: E501
 
         self._trust_policy_document = trust_policy_document
 

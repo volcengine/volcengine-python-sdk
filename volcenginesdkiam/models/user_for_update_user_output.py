@@ -42,6 +42,7 @@ class UserForUpdateUserOutput(object):
         'id': 'int',
         'mobile_phone': 'str',
         'mobile_phone_is_verify': 'bool',
+        'tags': 'list[TagForUpdateUserOutput]',
         'trn': 'str',
         'update_date': 'str',
         'user_name': 'str'
@@ -57,12 +58,13 @@ class UserForUpdateUserOutput(object):
         'id': 'Id',
         'mobile_phone': 'MobilePhone',
         'mobile_phone_is_verify': 'MobilePhoneIsVerify',
+        'tags': 'Tags',
         'trn': 'Trn',
         'update_date': 'UpdateDate',
         'user_name': 'UserName'
     }
 
-    def __init__(self, account_id=None, create_date=None, description=None, display_name=None, email=None, email_is_verify=None, id=None, mobile_phone=None, mobile_phone_is_verify=None, trn=None, update_date=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, create_date=None, description=None, display_name=None, email=None, email_is_verify=None, id=None, mobile_phone=None, mobile_phone_is_verify=None, tags=None, trn=None, update_date=None, user_name=None, _configuration=None):  # noqa: E501
         """UserForUpdateUserOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class UserForUpdateUserOutput(object):
         self._id = None
         self._mobile_phone = None
         self._mobile_phone_is_verify = None
+        self._tags = None
         self._trn = None
         self._update_date = None
         self._user_name = None
@@ -100,6 +103,8 @@ class UserForUpdateUserOutput(object):
             self.mobile_phone = mobile_phone
         if mobile_phone_is_verify is not None:
             self.mobile_phone_is_verify = mobile_phone_is_verify
+        if tags is not None:
+            self.tags = tags
         if trn is not None:
             self.trn = trn
         if update_date is not None:
@@ -295,6 +300,27 @@ class UserForUpdateUserOutput(object):
         """
 
         self._mobile_phone_is_verify = mobile_phone_is_verify
+
+    @property
+    def tags(self):
+        """Gets the tags of this UserForUpdateUserOutput.  # noqa: E501
+
+
+        :return: The tags of this UserForUpdateUserOutput.  # noqa: E501
+        :rtype: list[TagForUpdateUserOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this UserForUpdateUserOutput.
+
+
+        :param tags: The tags of this UserForUpdateUserOutput.  # noqa: E501
+        :type: list[TagForUpdateUserOutput]
+        """
+
+        self._tags = tags
 
     @property
     def trn(self):

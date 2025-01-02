@@ -43,9 +43,12 @@ class RuleForListAclRuleOutput(object):
         'host_groups': 'list[HostGroupForListAclRuleOutput]',
         'host_list': 'list[str]',
         'id': 'int',
-        'ip_groups': 'int',
+        'ip_add_type': 'int',
+        'ip_group_id': 'list[int]',
+        'ip_groups': 'list[IpGroupForListAclRuleOutput]',
         'ip_list': 'list[str]',
         'ip_location_country': 'list[str]',
+        'ip_location_subregion': 'list[str]',
         'name': 'list[str]',
         'prefix_switch': 'list[str]',
         'rule_tag': 'str',
@@ -64,9 +67,12 @@ class RuleForListAclRuleOutput(object):
         'host_groups': 'HostGroups',
         'host_list': 'HostList',
         'id': 'ID',
+        'ip_add_type': 'IpAddType',
+        'ip_group_id': 'IpGroupId',
         'ip_groups': 'IpGroups',
         'ip_list': 'IpList',
         'ip_location_country': 'IpLocationCountry',
+        'ip_location_subregion': 'IpLocationSubregion',
         'name': 'Name',
         'prefix_switch': 'PrefixSwitch',
         'rule_tag': 'RuleTag',
@@ -74,7 +80,7 @@ class RuleForListAclRuleOutput(object):
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_groups=None, ip_list=None, ip_location_country=None, name=None, prefix_switch=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_groups=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, prefix_switch=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
         """RuleForListAclRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,9 +96,12 @@ class RuleForListAclRuleOutput(object):
         self._host_groups = None
         self._host_list = None
         self._id = None
+        self._ip_add_type = None
+        self._ip_group_id = None
         self._ip_groups = None
         self._ip_list = None
         self._ip_location_country = None
+        self._ip_location_subregion = None
         self._name = None
         self._prefix_switch = None
         self._rule_tag = None
@@ -120,12 +129,18 @@ class RuleForListAclRuleOutput(object):
             self.host_list = host_list
         if id is not None:
             self.id = id
+        if ip_add_type is not None:
+            self.ip_add_type = ip_add_type
+        if ip_group_id is not None:
+            self.ip_group_id = ip_group_id
         if ip_groups is not None:
             self.ip_groups = ip_groups
         if ip_list is not None:
             self.ip_list = ip_list
         if ip_location_country is not None:
             self.ip_location_country = ip_location_country
+        if ip_location_subregion is not None:
+            self.ip_location_subregion = ip_location_subregion
         if name is not None:
             self.name = name
         if prefix_switch is not None:
@@ -348,12 +363,54 @@ class RuleForListAclRuleOutput(object):
         self._id = id
 
     @property
+    def ip_add_type(self):
+        """Gets the ip_add_type of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The ip_add_type of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._ip_add_type
+
+    @ip_add_type.setter
+    def ip_add_type(self, ip_add_type):
+        """Sets the ip_add_type of this RuleForListAclRuleOutput.
+
+
+        :param ip_add_type: The ip_add_type of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._ip_add_type = ip_add_type
+
+    @property
+    def ip_group_id(self):
+        """Gets the ip_group_id of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The ip_group_id of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._ip_group_id
+
+    @ip_group_id.setter
+    def ip_group_id(self, ip_group_id):
+        """Sets the ip_group_id of this RuleForListAclRuleOutput.
+
+
+        :param ip_group_id: The ip_group_id of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._ip_group_id = ip_group_id
+
+    @property
     def ip_groups(self):
         """Gets the ip_groups of this RuleForListAclRuleOutput.  # noqa: E501
 
 
         :return: The ip_groups of this RuleForListAclRuleOutput.  # noqa: E501
-        :rtype: int
+        :rtype: list[IpGroupForListAclRuleOutput]
         """
         return self._ip_groups
 
@@ -363,7 +420,7 @@ class RuleForListAclRuleOutput(object):
 
 
         :param ip_groups: The ip_groups of this RuleForListAclRuleOutput.  # noqa: E501
-        :type: int
+        :type: list[IpGroupForListAclRuleOutput]
         """
 
         self._ip_groups = ip_groups
@@ -409,6 +466,27 @@ class RuleForListAclRuleOutput(object):
         """
 
         self._ip_location_country = ip_location_country
+
+    @property
+    def ip_location_subregion(self):
+        """Gets the ip_location_subregion of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The ip_location_subregion of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_location_subregion
+
+    @ip_location_subregion.setter
+    def ip_location_subregion(self, ip_location_subregion):
+        """Sets the ip_location_subregion of this RuleForListAclRuleOutput.
+
+
+        :param ip_location_subregion: The ip_location_subregion of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_location_subregion = ip_location_subregion
 
     @property
     def name(self):
