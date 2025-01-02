@@ -50,6 +50,7 @@ class DataForListRulesByIdsOutput(object):
         'multiple_conditions': 'bool',
         'namespace': 'str',
         'original_dimensions': 'dict(str, list[str])',
+        'project_name': 'str',
         'recovery_notify': 'RecoveryNotifyForListRulesByIdsOutput',
         'regions': 'list[str]',
         'rule_name': 'str',
@@ -79,6 +80,7 @@ class DataForListRulesByIdsOutput(object):
         'multiple_conditions': 'MultipleConditions',
         'namespace': 'Namespace',
         'original_dimensions': 'OriginalDimensions',
+        'project_name': 'ProjectName',
         'recovery_notify': 'RecoveryNotify',
         'regions': 'Regions',
         'rule_name': 'RuleName',
@@ -90,7 +92,7 @@ class DataForListRulesByIdsOutput(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, multiple_conditions=None, namespace=None, original_dimensions=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, multiple_conditions=None, namespace=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """DataForListRulesByIdsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -113,6 +115,7 @@ class DataForListRulesByIdsOutput(object):
         self._multiple_conditions = None
         self._namespace = None
         self._original_dimensions = None
+        self._project_name = None
         self._recovery_notify = None
         self._regions = None
         self._rule_name = None
@@ -158,6 +161,8 @@ class DataForListRulesByIdsOutput(object):
             self.namespace = namespace
         if original_dimensions is not None:
             self.original_dimensions = original_dimensions
+        if project_name is not None:
+            self.project_name = project_name
         if recovery_notify is not None:
             self.recovery_notify = recovery_notify
         if regions is not None:
@@ -533,6 +538,27 @@ class DataForListRulesByIdsOutput(object):
         """
 
         self._original_dimensions = original_dimensions
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DataForListRulesByIdsOutput.  # noqa: E501
+
+
+        :return: The project_name of this DataForListRulesByIdsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DataForListRulesByIdsOutput.
+
+
+        :param project_name: The project_name of this DataForListRulesByIdsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def recovery_notify(self):
