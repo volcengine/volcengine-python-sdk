@@ -755,8 +755,6 @@ class AsyncAPIClient(BaseClient):
 
         return await self.request(cast_to, opts)
 
-        return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
-
     async def request(
             self,
             cast_to: Type[ResponseT],
