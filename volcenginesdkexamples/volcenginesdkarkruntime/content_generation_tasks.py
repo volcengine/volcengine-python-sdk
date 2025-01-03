@@ -13,11 +13,11 @@ if __name__ == "__main__":
         model="${YOUR_MODEL_EP}",
         content=[
             {
-                "type":"text",
-                "text":"龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原"
+                "type": "text",
+                "text": "龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原"
             },
             {
-                "type":"image_url",
+                "type": "image_url",
                 "image_url": {
                     "url": "${YOUR_IMAGE_URL}"
                 },

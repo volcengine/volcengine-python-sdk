@@ -11,6 +11,7 @@ from typing import (
     cast,
     TypeVar,
 )
+
 from typing_extensions import TypeGuard
 
 from .._types import NotGiven
@@ -97,6 +98,7 @@ def disallow_aksk(func):
 
     return wrapper
 
+
 def async_disallow_aksk(func):
     async def wrapper(*args, **kwargs):
         _restrict_aksk(args, kwargs)
@@ -104,8 +106,10 @@ def async_disallow_aksk(func):
 
     return wrapper
 
+
 def _restrict_aksk(args, kwargs):
     assert len(args) > 0
 
     ark_client = args[0]._client
-    assert ark_client.api_key is not None, "ak&sk authentication is currently not supported for this method, please use api key instead"
+    assert ark_client.api_key is not None, \
+        "ak&sk authentication is currently not supported for this method, please use api key instead"

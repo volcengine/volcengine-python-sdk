@@ -47,4 +47,3 @@ class ListContentGenerationTasksResponse(BaseModel):
 
     items: List[Item]
     """List of content generation task items."""
-

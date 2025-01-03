@@ -2,16 +2,17 @@ from __future__ import annotations
 
 from functools import cached_property
 from typing import Iterable, Union, List
+
 import httpx
 
+from volcenginesdkarkruntime._base_client import make_request_options
+from volcenginesdkarkruntime._resource import SyncAPIResource, AsyncAPIResource
+from volcenginesdkarkruntime.types.content_generation.create_task_content_param import CreateTaskContentParam
 from ..._response import to_raw_response_wrapper, async_to_raw_response_wrapper
 from ..._types import Body, Query, Headers
 from ..._utils._utils import disallow_aksk, async_disallow_aksk
 from ...types.content_generation.content_generation_task import ContentGenerationTask
 from ...types.content_generation.content_generation_task_id import ContentGenerationTaskID
-from volcenginesdkarkruntime._base_client import make_request_options
-from volcenginesdkarkruntime._resource import SyncAPIResource, AsyncAPIResource
-from volcenginesdkarkruntime.types.content_generation.create_task_content_param import CreateTaskContentParam
 from ...types.content_generation.list_content_generation_tasks_response import ListContentGenerationTasksResponse
 
 
@@ -56,7 +57,7 @@ class Tasks(SyncAPIResource):
             extra_query: Query | None = None,
             extra_body: Body | None = None,
             timeout: float | httpx.Timeout | None = None,
-            ) -> ContentGenerationTask:
+    ) -> ContentGenerationTask:
         resp = self._get(
             path=f"/contents/generations/tasks/{task_id}",
             options=make_request_options(
@@ -75,13 +76,13 @@ class Tasks(SyncAPIResource):
             page_num: int | None = None,
             page_size: int | None = None,
             status: str | None = None,
-            task_ids : Union[List[str], str] | None = None,
+            task_ids: Union[List[str], str] | None = None,
             model: str | None = None,
             extra_headers: Headers | None = None,
             extra_body: Body | None = None,
             extra_query: Query | None = None,
             timeout: float | httpx.Timeout | None = None,
-             ) -> ListContentGenerationTasksResponse:
+    ) -> ListContentGenerationTasksResponse:
 
         query_params = []
         if page_num:
@@ -138,7 +139,6 @@ class AsyncTasks(AsyncAPIResource):
     def with_raw_response(self) -> AsyncTasksWithRawResponse:
         return AsyncTasksWithRawResponse(self)
 
-
     @async_disallow_aksk
     async def create(
             self,
@@ -165,7 +165,6 @@ class AsyncTasks(AsyncAPIResource):
             cast_to=ContentGenerationTaskID,
         )
         return resp
-
 
     @async_disallow_aksk
     async def get(
@@ -195,7 +194,7 @@ class AsyncTasks(AsyncAPIResource):
             page_num: int | None = None,
             page_size: int | None = None,
             status: str | None = None,
-            task_ids : Union[List[str], str] | None = None,
+            task_ids: Union[List[str], str] | None = None,
             model: str | None = None,
             extra_headers: Headers | None = None,
             extra_body: Body | None = None,
@@ -260,6 +259,7 @@ class TasksWithRawResponse:
         self.create = to_raw_response_wrapper(
             tasks.create,
         )
+
 
 class AsyncTasksWithRawResponse:
     def __init__(self, tasks: AsyncTasks) -> None:

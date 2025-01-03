@@ -1,4 +1,3 @@
-
 __all__ = ["ContentGenerationTask"]
 
 from volcenginesdkarkruntime._models import BaseModel
@@ -8,9 +7,11 @@ class Usage(BaseModel):
     completion_tokens: int
     """The number of tokens used for completion."""
 
+
 class Content(BaseModel):
     video_url: str
     """The URL of the generated video, if any."""
+
 
 class ContentGenerationTask(BaseModel):
     id: str
