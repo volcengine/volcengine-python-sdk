@@ -97,6 +97,13 @@ def disallow_aksk(func):
 
     return wrapper
 
+def async_disallow_aksk(func):
+    async def wrapper(*args, **kwargs):
+        _restrict_aksk(args, kwargs)
+        return await func(*args, **kwargs)
+
+    return wrapper
+
 def _restrict_aksk(args, kwargs):
     assert len(args) > 0
 

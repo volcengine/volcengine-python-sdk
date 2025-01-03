@@ -135,6 +135,7 @@ class AsyncArk(AsyncAPIClient):
     embeddings: resources.AsyncEmbeddings
     tokenization: resources.AsyncTokenization
     context: resources.AsyncContext
+    content_generation: resources.AsyncContentGeneration
 
     def __init__(
         self,
@@ -192,6 +193,7 @@ class AsyncArk(AsyncAPIClient):
         self.embeddings = resources.AsyncEmbeddings(self)
         self.tokenization = resources.AsyncTokenization(self)
         self.context = resources.AsyncContext(self)
+        self.content_generation = resources.AsyncContentGeneration(self)
         # self.classification = resources.AsyncClassification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):

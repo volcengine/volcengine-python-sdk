@@ -20,3 +20,5 @@ class AsyncAPIResource:
     def __init__(self, client: "AsyncArk") -> None:
         self._client = client
         self._post = client.post
+        self._get = client.get
+        self._delete = client.delete
