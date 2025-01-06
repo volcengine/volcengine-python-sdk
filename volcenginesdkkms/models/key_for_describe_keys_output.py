@@ -35,7 +35,6 @@ class KeyForDescribeKeysOutput(object):
     swagger_types = {
         'creation_date': 'int',
         'description': 'str',
-        'encryption_algorithms': 'str',
         'id': 'str',
         'key_material_expire_time': 'str',
         'key_name': 'str',
@@ -55,7 +54,6 @@ class KeyForDescribeKeysOutput(object):
     attribute_map = {
         'creation_date': 'CreationDate',
         'description': 'Description',
-        'encryption_algorithms': 'EncryptionAlgorithms',
         'id': 'ID',
         'key_material_expire_time': 'KeyMaterialExpireTime',
         'key_name': 'KeyName',
@@ -72,7 +70,7 @@ class KeyForDescribeKeysOutput(object):
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, creation_date=None, description=None, encryption_algorithms=None, id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, last_rotation_time=None, origin=None, protection_level=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_date=None, description=None, id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, last_rotation_time=None, origin=None, protection_level=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
         """KeyForDescribeKeysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,7 +78,6 @@ class KeyForDescribeKeysOutput(object):
 
         self._creation_date = None
         self._description = None
-        self._encryption_algorithms = None
         self._id = None
         self._key_material_expire_time = None
         self._key_name = None
@@ -101,8 +98,6 @@ class KeyForDescribeKeysOutput(object):
             self.creation_date = creation_date
         if description is not None:
             self.description = description
-        if encryption_algorithms is not None:
-            self.encryption_algorithms = encryption_algorithms
         if id is not None:
             self.id = id
         if key_material_expire_time is not None:
@@ -173,27 +168,6 @@ class KeyForDescribeKeysOutput(object):
         """
 
         self._description = description
-
-    @property
-    def encryption_algorithms(self):
-        """Gets the encryption_algorithms of this KeyForDescribeKeysOutput.  # noqa: E501
-
-
-        :return: The encryption_algorithms of this KeyForDescribeKeysOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._encryption_algorithms
-
-    @encryption_algorithms.setter
-    def encryption_algorithms(self, encryption_algorithms):
-        """Sets the encryption_algorithms of this KeyForDescribeKeysOutput.
-
-
-        :param encryption_algorithms: The encryption_algorithms of this KeyForDescribeKeysOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._encryption_algorithms = encryption_algorithms
 
     @property
     def id(self):

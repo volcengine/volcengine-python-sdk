@@ -33,23 +33,50 @@ class QueryKeyringRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'keyring_id': 'str',
         'keyring_name': 'str'
     }
 
     attribute_map = {
+        'keyring_id': 'KeyringID',
         'keyring_name': 'KeyringName'
     }
 
-    def __init__(self, keyring_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, keyring_id=None, keyring_name=None, _configuration=None):  # noqa: E501
         """QueryKeyringRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._keyring_id = None
         self._keyring_name = None
         self.discriminator = None
 
-        self.keyring_name = keyring_name
+        if keyring_id is not None:
+            self.keyring_id = keyring_id
+        if keyring_name is not None:
+            self.keyring_name = keyring_name
+
+    @property
+    def keyring_id(self):
+        """Gets the keyring_id of this QueryKeyringRequest.  # noqa: E501
+
+
+        :return: The keyring_id of this QueryKeyringRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._keyring_id
+
+    @keyring_id.setter
+    def keyring_id(self, keyring_id):
+        """Sets the keyring_id of this QueryKeyringRequest.
+
+
+        :param keyring_id: The keyring_id of this QueryKeyringRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._keyring_id = keyring_id
 
     @property
     def keyring_name(self):
@@ -69,8 +96,6 @@ class QueryKeyringRequest(object):
         :param keyring_name: The keyring_name of this QueryKeyringRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and keyring_name is None:
-            raise ValueError("Invalid value for `keyring_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 keyring_name is not None and len(keyring_name) > 31):
             raise ValueError("Invalid value for `keyring_name`, length must be less than or equal to `31`")  # noqa: E501
