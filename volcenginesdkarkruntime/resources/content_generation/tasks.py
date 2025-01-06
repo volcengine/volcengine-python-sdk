@@ -10,7 +10,7 @@ from volcenginesdkarkruntime._resource import SyncAPIResource, AsyncAPIResource
 from volcenginesdkarkruntime.types.content_generation.create_task_content_param import CreateTaskContentParam
 from ..._response import to_raw_response_wrapper, async_to_raw_response_wrapper
 from ..._types import Body, Query, Headers
-from ..._utils._utils import disallow_aksk, async_disallow_aksk
+from ..._utils._utils import apikey_required, async_apikey_required
 from ...types.content_generation.content_generation_task import ContentGenerationTask
 from ...types.content_generation.content_generation_task_id import ContentGenerationTaskID
 from ...types.content_generation.list_content_generation_tasks_response import ListContentGenerationTasksResponse
@@ -21,7 +21,7 @@ class Tasks(SyncAPIResource):
     def with_raw_response(self) -> TasksWithRawResponse:
         return TasksWithRawResponse(self)
 
-    @disallow_aksk
+    @apikey_required
     def create(
             self,
             *,
@@ -48,7 +48,7 @@ class Tasks(SyncAPIResource):
         )
         return resp
 
-    @disallow_aksk
+    @apikey_required
     def get(
             self,
             *,
@@ -70,7 +70,7 @@ class Tasks(SyncAPIResource):
         )
         return resp
 
-    @disallow_aksk
+    @apikey_required
     def list(
             self,
             page_num: int | None = None,
@@ -112,7 +112,7 @@ class Tasks(SyncAPIResource):
         )
         return resp
 
-    @disallow_aksk
+    @apikey_required
     def delete(
             self,
             task_id: str,
@@ -139,7 +139,7 @@ class AsyncTasks(AsyncAPIResource):
     def with_raw_response(self) -> AsyncTasksWithRawResponse:
         return AsyncTasksWithRawResponse(self)
 
-    @async_disallow_aksk
+    @async_apikey_required
     async def create(
             self,
             *,
@@ -166,7 +166,7 @@ class AsyncTasks(AsyncAPIResource):
         )
         return resp
 
-    @async_disallow_aksk
+    @async_apikey_required
     async def get(
             self,
             *,
@@ -188,7 +188,7 @@ class AsyncTasks(AsyncAPIResource):
         )
         return resp
 
-    @async_disallow_aksk
+    @async_apikey_required
     async def list(
             self,
             page_num: int | None = None,
@@ -230,7 +230,7 @@ class AsyncTasks(AsyncAPIResource):
         )
         return resp
 
-    @async_disallow_aksk
+    @async_apikey_required
     async def delete(
             self,
             task_id: str,

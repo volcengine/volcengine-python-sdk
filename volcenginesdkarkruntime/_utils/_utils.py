@@ -91,23 +91,23 @@ def _insert_sts_token(args, kwargs):
         kwargs["extra_headers"] = {**default_auth_header, **extra_headers}
 
 
-def disallow_aksk(func):
+def apikey_required(func):
     def wrapper(*args, **kwargs):
-        _restrict_aksk(args, kwargs)
+        _assert_apikey(args, kwargs)
         return func(*args, **kwargs)
 
     return wrapper
 
 
-def async_disallow_aksk(func):
+def async_apikey_required(func):
     async def wrapper(*args, **kwargs):
-        _restrict_aksk(args, kwargs)
+        _assert_apikey(args, kwargs)
         return await func(*args, **kwargs)
 
     return wrapper
 
 
-def _restrict_aksk(args, kwargs):
+def _assert_apikey(args, kwargs):
     assert len(args) > 0
 
     ark_client = args[0]._client
