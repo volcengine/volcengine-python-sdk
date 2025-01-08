@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from functools import cached_property
 from typing import Iterable, Union, List
 
 import httpx
@@ -8,6 +7,7 @@ import httpx
 from volcenginesdkarkruntime._base_client import make_request_options
 from volcenginesdkarkruntime._resource import SyncAPIResource, AsyncAPIResource
 from volcenginesdkarkruntime.types.content_generation.create_task_content_param import CreateTaskContentParam
+from ..._compat import cached_property
 from ..._response import to_raw_response_wrapper, async_to_raw_response_wrapper
 from ..._types import Body, Query, Headers
 from ..._utils._utils import apikey_required, async_apikey_required
