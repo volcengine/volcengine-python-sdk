@@ -36,6 +36,7 @@ class RuleForListAclRuleOutput(object):
         'accurate_group': 'AccurateGroupForListAclRuleOutput',
         'action': 'str',
         'advanced': 'int',
+        'client_ip': 'str',
         'description': 'str',
         'enable': 'int',
         'host_add_type': 'int',
@@ -60,6 +61,7 @@ class RuleForListAclRuleOutput(object):
         'accurate_group': 'AccurateGroup',
         'action': 'Action',
         'advanced': 'Advanced',
+        'client_ip': 'ClientIp',
         'description': 'Description',
         'enable': 'Enable',
         'host_add_type': 'HostAddType',
@@ -80,7 +82,7 @@ class RuleForListAclRuleOutput(object):
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_groups=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, prefix_switch=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, action=None, advanced=None, client_ip=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_groups=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, prefix_switch=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
         """RuleForListAclRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class RuleForListAclRuleOutput(object):
         self._accurate_group = None
         self._action = None
         self._advanced = None
+        self._client_ip = None
         self._description = None
         self._enable = None
         self._host_add_type = None
@@ -115,6 +118,8 @@ class RuleForListAclRuleOutput(object):
             self.action = action
         if advanced is not None:
             self.advanced = advanced
+        if client_ip is not None:
+            self.client_ip = client_ip
         if description is not None:
             self.description = description
         if enable is not None:
@@ -214,6 +219,27 @@ class RuleForListAclRuleOutput(object):
         """
 
         self._advanced = advanced
+
+    @property
+    def client_ip(self):
+        """Gets the client_ip of this RuleForListAclRuleOutput.  # noqa: E501
+
+
+        :return: The client_ip of this RuleForListAclRuleOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_ip
+
+    @client_ip.setter
+    def client_ip(self, client_ip):
+        """Sets the client_ip of this RuleForListAclRuleOutput.
+
+
+        :param client_ip: The client_ip of this RuleForListAclRuleOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._client_ip = client_ip
 
     @property
     def description(self):

@@ -111,7 +111,8 @@ class ListDomainRequest(object):
 
         if access_mode is not None:
             self.access_mode = access_mode
-        self.accurate_query = accurate_query
+        if accurate_query is not None:
+            self.accurate_query = accurate_query
         if attack_status is not None:
             self.attack_status = attack_status
         if client_ip is not None:
@@ -187,8 +188,6 @@ class ListDomainRequest(object):
         :param accurate_query: The accurate_query of this ListDomainRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and accurate_query is None:
-            raise ValueError("Invalid value for `accurate_query`, must not be `None`")  # noqa: E501
 
         self._accurate_query = accurate_query
 
