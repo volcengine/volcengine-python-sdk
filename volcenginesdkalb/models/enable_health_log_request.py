@@ -55,9 +55,12 @@ class EnableHealthLogRequest(object):
         self._topic_id = None
         self.discriminator = None
 
-        self.load_balancer_id = load_balancer_id
-        self.project_id = project_id
-        self.topic_id = topic_id
+        if load_balancer_id is not None:
+            self.load_balancer_id = load_balancer_id
+        if project_id is not None:
+            self.project_id = project_id
+        if topic_id is not None:
+            self.topic_id = topic_id
 
     @property
     def load_balancer_id(self):
@@ -77,8 +80,6 @@ class EnableHealthLogRequest(object):
         :param load_balancer_id: The load_balancer_id of this EnableHealthLogRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and load_balancer_id is None:
-            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 
@@ -100,8 +101,6 @@ class EnableHealthLogRequest(object):
         :param project_id: The project_id of this EnableHealthLogRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and project_id is None:
-            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
 
         self._project_id = project_id
 
@@ -123,8 +122,6 @@ class EnableHealthLogRequest(object):
         :param topic_id: The topic_id of this EnableHealthLogRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and topic_id is None:
-            raise ValueError("Invalid value for `topic_id`, must not be `None`")  # noqa: E501
 
         self._topic_id = topic_id
 

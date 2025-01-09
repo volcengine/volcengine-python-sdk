@@ -38,6 +38,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'health_check': 'HealthCheckForDescribeServerGroupsOutput',
         'listeners': 'list[str]',
         'project_name': 'str',
+        'protocol': 'str',
         'scheduler': 'str',
         'server_count': 'int',
         'server_group_id': 'str',
@@ -56,6 +57,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'health_check': 'HealthCheck',
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
+        'protocol': 'Protocol',
         'scheduler': 'Scheduler',
         'server_count': 'ServerCount',
         'server_group_id': 'ServerGroupId',
@@ -68,7 +70,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, create_time=None, description=None, health_check=None, listeners=None, project_name=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, server_group_type=None, status=None, sticky_session_config=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, health_check=None, listeners=None, project_name=None, protocol=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, server_group_type=None, status=None, sticky_session_config=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ServerGroupForDescribeServerGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         self._health_check = None
         self._listeners = None
         self._project_name = None
+        self._protocol = None
         self._scheduler = None
         self._server_count = None
         self._server_group_id = None
@@ -101,6 +104,8 @@ class ServerGroupForDescribeServerGroupsOutput(object):
             self.listeners = listeners
         if project_name is not None:
             self.project_name = project_name
+        if protocol is not None:
+            self.protocol = protocol
         if scheduler is not None:
             self.scheduler = scheduler
         if server_count is not None:
@@ -226,6 +231,27 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def protocol(self):
+        """Gets the protocol of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The protocol of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol
+
+    @protocol.setter
+    def protocol(self, protocol):
+        """Sets the protocol of this ServerGroupForDescribeServerGroupsOutput.
+
+
+        :param protocol: The protocol of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._protocol = protocol
 
     @property
     def scheduler(self):

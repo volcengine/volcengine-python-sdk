@@ -35,8 +35,11 @@ class ModifyLoadBalancerAttributesRequest(object):
     swagger_types = {
         'delete_protection': 'str',
         'description': 'str',
+        'global_accelerator': 'GlobalAcceleratorForModifyLoadBalancerAttributesInput',
         'load_balancer_id': 'str',
         'load_balancer_name': 'str',
+        'modification_protection_reason': 'str',
+        'modification_protection_status': 'str',
         'waf_instance_id': 'str',
         'waf_protected_domain': 'str',
         'waf_protection_enabled': 'str'
@@ -45,14 +48,17 @@ class ModifyLoadBalancerAttributesRequest(object):
     attribute_map = {
         'delete_protection': 'DeleteProtection',
         'description': 'Description',
+        'global_accelerator': 'GlobalAccelerator',
         'load_balancer_id': 'LoadBalancerId',
         'load_balancer_name': 'LoadBalancerName',
+        'modification_protection_reason': 'ModificationProtectionReason',
+        'modification_protection_status': 'ModificationProtectionStatus',
         'waf_instance_id': 'WafInstanceId',
         'waf_protected_domain': 'WafProtectedDomain',
         'waf_protection_enabled': 'WafProtectionEnabled'
     }
 
-    def __init__(self, delete_protection=None, description=None, load_balancer_id=None, load_balancer_name=None, waf_instance_id=None, waf_protected_domain=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_protection=None, description=None, global_accelerator=None, load_balancer_id=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, waf_instance_id=None, waf_protected_domain=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
         """ModifyLoadBalancerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,8 +66,11 @@ class ModifyLoadBalancerAttributesRequest(object):
 
         self._delete_protection = None
         self._description = None
+        self._global_accelerator = None
         self._load_balancer_id = None
         self._load_balancer_name = None
+        self._modification_protection_reason = None
+        self._modification_protection_status = None
         self._waf_instance_id = None
         self._waf_protected_domain = None
         self._waf_protection_enabled = None
@@ -71,12 +80,22 @@ class ModifyLoadBalancerAttributesRequest(object):
             self.delete_protection = delete_protection
         if description is not None:
             self.description = description
-        self.load_balancer_id = load_balancer_id
+        if global_accelerator is not None:
+            self.global_accelerator = global_accelerator
+        if load_balancer_id is not None:
+            self.load_balancer_id = load_balancer_id
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
-        self.waf_instance_id = waf_instance_id
-        self.waf_protected_domain = waf_protected_domain
-        self.waf_protection_enabled = waf_protection_enabled
+        if modification_protection_reason is not None:
+            self.modification_protection_reason = modification_protection_reason
+        if modification_protection_status is not None:
+            self.modification_protection_status = modification_protection_status
+        if waf_instance_id is not None:
+            self.waf_instance_id = waf_instance_id
+        if waf_protected_domain is not None:
+            self.waf_protected_domain = waf_protected_domain
+        if waf_protection_enabled is not None:
+            self.waf_protection_enabled = waf_protection_enabled
 
     @property
     def delete_protection(self):
@@ -121,6 +140,27 @@ class ModifyLoadBalancerAttributesRequest(object):
         self._description = description
 
     @property
+    def global_accelerator(self):
+        """Gets the global_accelerator of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The global_accelerator of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: GlobalAcceleratorForModifyLoadBalancerAttributesInput
+        """
+        return self._global_accelerator
+
+    @global_accelerator.setter
+    def global_accelerator(self, global_accelerator):
+        """Sets the global_accelerator of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param global_accelerator: The global_accelerator of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: GlobalAcceleratorForModifyLoadBalancerAttributesInput
+        """
+
+        self._global_accelerator = global_accelerator
+
+    @property
     def load_balancer_id(self):
         """Gets the load_balancer_id of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
 
@@ -138,8 +178,6 @@ class ModifyLoadBalancerAttributesRequest(object):
         :param load_balancer_id: The load_balancer_id of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and load_balancer_id is None:
-            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 
@@ -165,6 +203,48 @@ class ModifyLoadBalancerAttributesRequest(object):
         self._load_balancer_name = load_balancer_name
 
     @property
+    def modification_protection_reason(self):
+        """Gets the modification_protection_reason of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The modification_protection_reason of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._modification_protection_reason
+
+    @modification_protection_reason.setter
+    def modification_protection_reason(self, modification_protection_reason):
+        """Sets the modification_protection_reason of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param modification_protection_reason: The modification_protection_reason of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._modification_protection_reason = modification_protection_reason
+
+    @property
+    def modification_protection_status(self):
+        """Gets the modification_protection_status of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The modification_protection_status of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._modification_protection_status
+
+    @modification_protection_status.setter
+    def modification_protection_status(self, modification_protection_status):
+        """Sets the modification_protection_status of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param modification_protection_status: The modification_protection_status of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._modification_protection_status = modification_protection_status
+
+    @property
     def waf_instance_id(self):
         """Gets the waf_instance_id of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
 
@@ -182,8 +262,6 @@ class ModifyLoadBalancerAttributesRequest(object):
         :param waf_instance_id: The waf_instance_id of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and waf_instance_id is None:
-            raise ValueError("Invalid value for `waf_instance_id`, must not be `None`")  # noqa: E501
 
         self._waf_instance_id = waf_instance_id
 
@@ -205,8 +283,6 @@ class ModifyLoadBalancerAttributesRequest(object):
         :param waf_protected_domain: The waf_protected_domain of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and waf_protected_domain is None:
-            raise ValueError("Invalid value for `waf_protected_domain`, must not be `None`")  # noqa: E501
 
         self._waf_protected_domain = waf_protected_domain
 
@@ -228,8 +304,6 @@ class ModifyLoadBalancerAttributesRequest(object):
         :param waf_protection_enabled: The waf_protection_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and waf_protection_enabled is None:
-            raise ValueError("Invalid value for `waf_protection_enabled`, must not be `None`")  # noqa: E501
 
         self._waf_protection_enabled = waf_protection_enabled
 
