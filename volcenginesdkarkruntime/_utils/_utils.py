@@ -11,6 +11,7 @@ from typing import (
     cast,
     TypeVar,
 )
+
 from typing_extensions import TypeGuard
 
 from .._types import NotGiven
@@ -88,3 +89,27 @@ def _insert_sts_token(args, kwargs):
         default_auth_header = {"Authorization": "Bearer " + ark_client._get_bot_sts_token(model)}
         extra_headers = kwargs.get("extra_headers") if kwargs.get("extra_headers") else {}
         kwargs["extra_headers"] = {**default_auth_header, **extra_headers}
+
+
+def apikey_required(func):
+    def wrapper(*args, **kwargs):
+        _assert_apikey(args, kwargs)
+        return func(*args, **kwargs)
+
+    return wrapper
+
+
+def async_apikey_required(func):
+    async def wrapper(*args, **kwargs):
+        _assert_apikey(args, kwargs)
+        return await func(*args, **kwargs)
+
+    return wrapper
+
+
+def _assert_apikey(args, kwargs):
+    assert len(args) > 0
+
+    ark_client = args[0]._client
+    assert ark_client.api_key is not None, \
+        "ak&sk authentication is currently not supported for this method, please use api key instead"
