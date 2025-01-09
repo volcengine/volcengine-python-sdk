@@ -34,6 +34,7 @@ class ListAllIpGroupsResponse(object):
     """
     swagger_types = {
         'count': 'int',
+        'current_page': 'int',
         'ip_group_count': 'int',
         'ip_group_list': 'list[IpGroupListForListAllIpGroupsOutput]',
         'ip_group_quota': 'int',
@@ -45,6 +46,7 @@ class ListAllIpGroupsResponse(object):
 
     attribute_map = {
         'count': 'Count',
+        'current_page': 'CurrentPage',
         'ip_group_count': 'IpGroupCount',
         'ip_group_list': 'IpGroupList',
         'ip_group_quota': 'IpGroupQuota',
@@ -54,13 +56,14 @@ class ListAllIpGroupsResponse(object):
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, count=None, ip_group_count=None, ip_group_list=None, ip_group_quota=None, ip_limit_quota=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, current_page=None, ip_group_count=None, ip_group_list=None, ip_group_quota=None, ip_limit_quota=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
         """ListAllIpGroupsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._count = None
+        self._current_page = None
         self._ip_group_count = None
         self._ip_group_list = None
         self._ip_group_quota = None
@@ -72,6 +75,8 @@ class ListAllIpGroupsResponse(object):
 
         if count is not None:
             self.count = count
+        if current_page is not None:
+            self.current_page = current_page
         if ip_group_count is not None:
             self.ip_group_count = ip_group_count
         if ip_group_list is not None:
@@ -107,6 +112,27 @@ class ListAllIpGroupsResponse(object):
         """
 
         self._count = count
+
+    @property
+    def current_page(self):
+        """Gets the current_page of this ListAllIpGroupsResponse.  # noqa: E501
+
+
+        :return: The current_page of this ListAllIpGroupsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_page
+
+    @current_page.setter
+    def current_page(self, current_page):
+        """Sets the current_page of this ListAllIpGroupsResponse.
+
+
+        :param current_page: The current_page of this ListAllIpGroupsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._current_page = current_page
 
     @property
     def ip_group_count(self):

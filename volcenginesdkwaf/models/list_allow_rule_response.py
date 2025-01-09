@@ -34,6 +34,7 @@ class ListAllowRuleResponse(object):
     """
     swagger_types = {
         'count': 'int',
+        'current_page': 'int',
         'data': 'list[DataForListAllowRuleOutput]',
         'page_number': 'int',
         'page_size': 'int',
@@ -42,19 +43,21 @@ class ListAllowRuleResponse(object):
 
     attribute_map = {
         'count': 'Count',
+        'current_page': 'CurrentPage',
         'data': 'Data',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, count=None, data=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, current_page=None, data=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
         """ListAllowRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._count = None
+        self._current_page = None
         self._data = None
         self._page_number = None
         self._page_size = None
@@ -63,6 +66,8 @@ class ListAllowRuleResponse(object):
 
         if count is not None:
             self.count = count
+        if current_page is not None:
+            self.current_page = current_page
         if data is not None:
             self.data = data
         if page_number is not None:
@@ -92,6 +97,27 @@ class ListAllowRuleResponse(object):
         """
 
         self._count = count
+
+    @property
+    def current_page(self):
+        """Gets the current_page of this ListAllowRuleResponse.  # noqa: E501
+
+
+        :return: The current_page of this ListAllowRuleResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_page
+
+    @current_page.setter
+    def current_page(self, current_page):
+        """Sets the current_page of this ListAllowRuleResponse.
+
+
+        :param current_page: The current_page of this ListAllowRuleResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._current_page = current_page
 
     @property
     def data(self):

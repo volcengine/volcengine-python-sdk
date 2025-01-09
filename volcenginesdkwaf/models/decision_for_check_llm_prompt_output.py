@@ -33,34 +33,91 @@ class DecisionForCheckLLMPromptOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action': 'int',
+        'custom_matches': 'list[CustomMatchForCheckLLMPromptOutput]',
         'err_code': 'int',
         'err_msg': 'str',
-        'labels': 'list[str]'
+        'labels': 'list[str]',
+        'matches': 'list[MatchForCheckLLMPromptOutput]'
     }
 
     attribute_map = {
+        'action': 'Action',
+        'custom_matches': 'CustomMatches',
         'err_code': 'ErrCode',
         'err_msg': 'ErrMsg',
-        'labels': 'Labels'
+        'labels': 'Labels',
+        'matches': 'Matches'
     }
 
-    def __init__(self, err_code=None, err_msg=None, labels=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, custom_matches=None, err_code=None, err_msg=None, labels=None, matches=None, _configuration=None):  # noqa: E501
         """DecisionForCheckLLMPromptOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._action = None
+        self._custom_matches = None
         self._err_code = None
         self._err_msg = None
         self._labels = None
+        self._matches = None
         self.discriminator = None
 
+        if action is not None:
+            self.action = action
+        if custom_matches is not None:
+            self.custom_matches = custom_matches
         if err_code is not None:
             self.err_code = err_code
         if err_msg is not None:
             self.err_msg = err_msg
         if labels is not None:
             self.labels = labels
+        if matches is not None:
+            self.matches = matches
+
+    @property
+    def action(self):
+        """Gets the action of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+
+
+        :return: The action of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._action
+
+    @action.setter
+    def action(self, action):
+        """Sets the action of this DecisionForCheckLLMPromptOutput.
+
+
+        :param action: The action of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._action = action
+
+    @property
+    def custom_matches(self):
+        """Gets the custom_matches of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+
+
+        :return: The custom_matches of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+        :rtype: list[CustomMatchForCheckLLMPromptOutput]
+        """
+        return self._custom_matches
+
+    @custom_matches.setter
+    def custom_matches(self, custom_matches):
+        """Sets the custom_matches of this DecisionForCheckLLMPromptOutput.
+
+
+        :param custom_matches: The custom_matches of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+        :type: list[CustomMatchForCheckLLMPromptOutput]
+        """
+
+        self._custom_matches = custom_matches
 
     @property
     def err_code(self):
@@ -124,6 +181,27 @@ class DecisionForCheckLLMPromptOutput(object):
         """
 
         self._labels = labels
+
+    @property
+    def matches(self):
+        """Gets the matches of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+
+
+        :return: The matches of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+        :rtype: list[MatchForCheckLLMPromptOutput]
+        """
+        return self._matches
+
+    @matches.setter
+    def matches(self, matches):
+        """Sets the matches of this DecisionForCheckLLMPromptOutput.
+
+
+        :param matches: The matches of this DecisionForCheckLLMPromptOutput.  # noqa: E501
+        :type: list[MatchForCheckLLMPromptOutput]
+        """
+
+        self._matches = matches
 
     def to_dict(self):
         """Returns the model properties as a dict"""
