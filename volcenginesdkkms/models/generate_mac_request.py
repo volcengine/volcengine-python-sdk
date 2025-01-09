@@ -36,17 +36,19 @@ class GenerateMacRequest(object):
         'key_id': 'str',
         'key_name': 'str',
         'keyring_name': 'str',
-        'mac_algorithm': 'str'
+        'mac_algorithm': 'str',
+        'message': 'str'
     }
 
     attribute_map = {
         'key_id': 'KeyID',
         'key_name': 'KeyName',
         'keyring_name': 'KeyringName',
-        'mac_algorithm': 'MacAlgorithm'
+        'mac_algorithm': 'MacAlgorithm',
+        'message': 'Message'
     }
 
-    def __init__(self, key_id=None, key_name=None, keyring_name=None, mac_algorithm=None, _configuration=None):  # noqa: E501
+    def __init__(self, key_id=None, key_name=None, keyring_name=None, mac_algorithm=None, message=None, _configuration=None):  # noqa: E501
         """GenerateMacRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class GenerateMacRequest(object):
         self._key_name = None
         self._keyring_name = None
         self._mac_algorithm = None
+        self._message = None
         self.discriminator = None
 
         if key_id is not None:
@@ -65,6 +68,7 @@ class GenerateMacRequest(object):
         if keyring_name is not None:
             self.keyring_name = keyring_name
         self.mac_algorithm = mac_algorithm
+        self.message = message
 
     @property
     def key_id(self):
@@ -163,6 +167,35 @@ class GenerateMacRequest(object):
             raise ValueError("Invalid value for `mac_algorithm`, must not be `None`")  # noqa: E501
 
         self._mac_algorithm = mac_algorithm
+
+    @property
+    def message(self):
+        """Gets the message of this GenerateMacRequest.  # noqa: E501
+
+
+        :return: The message of this GenerateMacRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this GenerateMacRequest.
+
+
+        :param message: The message of this GenerateMacRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and message is None:
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                message is not None and len(message) > 4096):
+            raise ValueError("Invalid value for `message`, length must be less than or equal to `4096`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                message is not None and len(message) < 1):
+            raise ValueError("Invalid value for `message`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._message = message
 
     def to_dict(self):
         """Returns the model properties as a dict"""

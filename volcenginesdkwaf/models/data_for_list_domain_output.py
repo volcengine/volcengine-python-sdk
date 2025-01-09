@@ -74,7 +74,7 @@ class DataForListDomainOutput(object):
         'port': 'int',
         'protocol_follow': 'int',
         'protocol_ports': 'ProtocolPortsForListDomainOutput',
-        'protocols': 'list[str]',
+        'protocols': 'str',
         'proxy_config': 'int',
         'proxy_connect_time_out': 'int',
         'proxy_keep_alive': 'int',
@@ -1264,7 +1264,7 @@ class DataForListDomainOutput(object):
 
 
         :return: The protocols of this DataForListDomainOutput.  # noqa: E501
-        :rtype: list[str]
+        :rtype: str
         """
         return self._protocols
 
@@ -1274,7 +1274,7 @@ class DataForListDomainOutput(object):
 
 
         :param protocols: The protocols of this DataForListDomainOutput.  # noqa: E501
-        :type: list[str]
+        :type: str
         """
 
         self._protocols = protocols

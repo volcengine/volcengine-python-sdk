@@ -557,6 +557,44 @@ class SyncAPIClient(BaseClient):
             ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
         )
 
+    def get(
+            self,
+            path: str,
+            *,
+            cast_to: Type[ResponseT],
+            params: list[tuple[str, str]] | None = None,
+            options: ExtraRequestOptions = {},
+            stream: bool = False,
+            stream_cls: type[_StreamT] | None = None,
+    ) -> ResponseT | _StreamT:
+        opts = RequestOptions.construct(
+            method="get",
+            url=path,
+            params=params,
+            **options,
+        )
+
+        return cast(
+            ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+        )
+
+    def delete(
+            self,
+            path: str,
+            *,
+            cast_to: Type[ResponseT],
+            params: list[tuple[str, str]] | None = None,
+            options: ExtraRequestOptions = {},
+    ) -> ResponseT:
+        opts = RequestOptions.construct(  # type: ignore
+            method="delete",
+            url=path,
+            params=params,
+            **options,
+        )
+
+        return cast(ResponseT, self.request(cast_to, opts))
+
     def request(
             self,
             cast_to: Type[ResponseT],
@@ -680,6 +718,42 @@ class AsyncAPIClient(BaseClient):
         )
 
         return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+
+    async def get(
+            self,
+            path: str,
+            *,
+            cast_to: Type[ResponseT],
+            params: list[tuple[str, str]] | None = None,
+            options: ExtraRequestOptions = {},
+            stream: bool = False,
+            stream_cls: type[_AsyncStreamT] | None = None,
+    ) -> ResponseT | _AsyncStreamT:
+        opts = RequestOptions.construct(
+            method="get",
+            url=path,
+            params=params,
+            **options,
+        )
+
+        return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+
+    async def delete(
+            self,
+            path: str,
+            *,
+            cast_to: Type[ResponseT],
+            params: list[tuple[str, str]] | None = None,
+            options: ExtraRequestOptions = {},
+    ) -> ResponseT:
+        opts = RequestOptions.construct(
+            method="delete",
+            url=path,
+            params=params,
+            **options,
+        )
+
+        return await self.request(cast_to, opts)
 
     async def request(
             self,

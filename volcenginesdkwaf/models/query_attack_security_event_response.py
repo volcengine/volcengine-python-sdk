@@ -35,6 +35,7 @@ class QueryAttackSecurityEventResponse(object):
     swagger_types = {
         'attack_count': 'int',
         'count': 'int',
+        'current_page': 'int',
         'event_end_time': 'int',
         'event_id': 'str',
         'event_start_time': 'int',
@@ -49,6 +50,7 @@ class QueryAttackSecurityEventResponse(object):
     attribute_map = {
         'attack_count': 'AttackCount',
         'count': 'Count',
+        'current_page': 'CurrentPage',
         'event_end_time': 'EventEndTime',
         'event_id': 'EventId',
         'event_start_time': 'EventStartTime',
@@ -60,7 +62,7 @@ class QueryAttackSecurityEventResponse(object):
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, attack_count=None, count=None, event_end_time=None, event_id=None, event_start_time=None, event_type=None, host=None, page_number=None, page_size=None, security_level=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, attack_count=None, count=None, current_page=None, event_end_time=None, event_id=None, event_start_time=None, event_type=None, host=None, page_number=None, page_size=None, security_level=None, total_count=None, _configuration=None):  # noqa: E501
         """QueryAttackSecurityEventResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class QueryAttackSecurityEventResponse(object):
 
         self._attack_count = None
         self._count = None
+        self._current_page = None
         self._event_end_time = None
         self._event_id = None
         self._event_start_time = None
@@ -83,6 +86,8 @@ class QueryAttackSecurityEventResponse(object):
             self.attack_count = attack_count
         if count is not None:
             self.count = count
+        if current_page is not None:
+            self.current_page = current_page
         if event_end_time is not None:
             self.event_end_time = event_end_time
         if event_id is not None:
@@ -143,6 +148,27 @@ class QueryAttackSecurityEventResponse(object):
         """
 
         self._count = count
+
+    @property
+    def current_page(self):
+        """Gets the current_page of this QueryAttackSecurityEventResponse.  # noqa: E501
+
+
+        :return: The current_page of this QueryAttackSecurityEventResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_page
+
+    @current_page.setter
+    def current_page(self, current_page):
+        """Sets the current_page of this QueryAttackSecurityEventResponse.
+
+
+        :param current_page: The current_page of this QueryAttackSecurityEventResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._current_page = current_page
 
     @property
     def event_end_time(self):
