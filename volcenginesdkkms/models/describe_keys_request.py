@@ -35,6 +35,7 @@ class DescribeKeysRequest(object):
     swagger_types = {
         'current_page': 'int',
         'filters': 'str',
+        'keyring_id': 'str',
         'keyring_name': 'str',
         'page_size': 'int'
     }
@@ -42,11 +43,12 @@ class DescribeKeysRequest(object):
     attribute_map = {
         'current_page': 'CurrentPage',
         'filters': 'Filters',
+        'keyring_id': 'KeyringID',
         'keyring_name': 'KeyringName',
         'page_size': 'PageSize'
     }
 
-    def __init__(self, current_page=None, filters=None, keyring_name=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, current_page=None, filters=None, keyring_id=None, keyring_name=None, page_size=None, _configuration=None):  # noqa: E501
         """DescribeKeysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class DescribeKeysRequest(object):
 
         self._current_page = None
         self._filters = None
+        self._keyring_id = None
         self._keyring_name = None
         self._page_size = None
         self.discriminator = None
@@ -62,7 +65,10 @@ class DescribeKeysRequest(object):
             self.current_page = current_page
         if filters is not None:
             self.filters = filters
-        self.keyring_name = keyring_name
+        if keyring_id is not None:
+            self.keyring_id = keyring_id
+        if keyring_name is not None:
+            self.keyring_name = keyring_name
         if page_size is not None:
             self.page_size = page_size
 
@@ -115,6 +121,27 @@ class DescribeKeysRequest(object):
         self._filters = filters
 
     @property
+    def keyring_id(self):
+        """Gets the keyring_id of this DescribeKeysRequest.  # noqa: E501
+
+
+        :return: The keyring_id of this DescribeKeysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._keyring_id
+
+    @keyring_id.setter
+    def keyring_id(self, keyring_id):
+        """Sets the keyring_id of this DescribeKeysRequest.
+
+
+        :param keyring_id: The keyring_id of this DescribeKeysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._keyring_id = keyring_id
+
+    @property
     def keyring_name(self):
         """Gets the keyring_name of this DescribeKeysRequest.  # noqa: E501
 
@@ -132,8 +159,6 @@ class DescribeKeysRequest(object):
         :param keyring_name: The keyring_name of this DescribeKeysRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and keyring_name is None:
-            raise ValueError("Invalid value for `keyring_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 keyring_name is not None and len(keyring_name) > 31):
             raise ValueError("Invalid value for `keyring_name`, length must be less than or equal to `31`")  # noqa: E501

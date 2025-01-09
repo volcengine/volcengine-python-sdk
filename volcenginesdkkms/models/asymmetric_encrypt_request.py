@@ -189,8 +189,8 @@ class AsymmetricEncryptRequest(object):
         if self._configuration.client_side_validation and plaintext is None:
             raise ValueError("Invalid value for `plaintext`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                plaintext is not None and len(plaintext) > 4096):
-            raise ValueError("Invalid value for `plaintext`, length must be less than or equal to `4096`")  # noqa: E501
+                plaintext is not None and len(plaintext) > 1024):
+            raise ValueError("Invalid value for `plaintext`, length must be less than or equal to `1024`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 plaintext is not None and len(plaintext) < 1):
             raise ValueError("Invalid value for `plaintext`, length must be greater than or equal to `1`")  # noqa: E501

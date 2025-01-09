@@ -35,6 +35,7 @@ class ReEncryptRequest(object):
     swagger_types = {
         'ciphertext_blob': 'str',
         'new_encryption_context': 'dict(str, str)',
+        'new_key_id': 'str',
         'new_key_name': 'str',
         'new_keyring_name': 'str',
         'old_encryption_context': 'dict(str, str)'
@@ -43,12 +44,13 @@ class ReEncryptRequest(object):
     attribute_map = {
         'ciphertext_blob': 'CiphertextBlob',
         'new_encryption_context': 'NewEncryptionContext',
+        'new_key_id': 'NewKeyID',
         'new_key_name': 'NewKeyName',
         'new_keyring_name': 'NewKeyringName',
         'old_encryption_context': 'OldEncryptionContext'
     }
 
-    def __init__(self, ciphertext_blob=None, new_encryption_context=None, new_key_name=None, new_keyring_name=None, old_encryption_context=None, _configuration=None):  # noqa: E501
+    def __init__(self, ciphertext_blob=None, new_encryption_context=None, new_key_id=None, new_key_name=None, new_keyring_name=None, old_encryption_context=None, _configuration=None):  # noqa: E501
         """ReEncryptRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ReEncryptRequest(object):
 
         self._ciphertext_blob = None
         self._new_encryption_context = None
+        self._new_key_id = None
         self._new_key_name = None
         self._new_keyring_name = None
         self._old_encryption_context = None
@@ -64,8 +67,12 @@ class ReEncryptRequest(object):
         self.ciphertext_blob = ciphertext_blob
         if new_encryption_context is not None:
             self.new_encryption_context = new_encryption_context
-        self.new_key_name = new_key_name
-        self.new_keyring_name = new_keyring_name
+        if new_key_id is not None:
+            self.new_key_id = new_key_id
+        if new_key_name is not None:
+            self.new_key_name = new_key_name
+        if new_keyring_name is not None:
+            self.new_keyring_name = new_keyring_name
         if old_encryption_context is not None:
             self.old_encryption_context = old_encryption_context
 
@@ -117,6 +124,27 @@ class ReEncryptRequest(object):
         self._new_encryption_context = new_encryption_context
 
     @property
+    def new_key_id(self):
+        """Gets the new_key_id of this ReEncryptRequest.  # noqa: E501
+
+
+        :return: The new_key_id of this ReEncryptRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_key_id
+
+    @new_key_id.setter
+    def new_key_id(self, new_key_id):
+        """Sets the new_key_id of this ReEncryptRequest.
+
+
+        :param new_key_id: The new_key_id of this ReEncryptRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._new_key_id = new_key_id
+
+    @property
     def new_key_name(self):
         """Gets the new_key_name of this ReEncryptRequest.  # noqa: E501
 
@@ -134,8 +162,6 @@ class ReEncryptRequest(object):
         :param new_key_name: The new_key_name of this ReEncryptRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and new_key_name is None:
-            raise ValueError("Invalid value for `new_key_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 new_key_name is not None and len(new_key_name) > 31):
             raise ValueError("Invalid value for `new_key_name`, length must be less than or equal to `31`")  # noqa: E501
@@ -163,8 +189,6 @@ class ReEncryptRequest(object):
         :param new_keyring_name: The new_keyring_name of this ReEncryptRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and new_keyring_name is None:
-            raise ValueError("Invalid value for `new_keyring_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 new_keyring_name is not None and len(new_keyring_name) > 31):
             raise ValueError("Invalid value for `new_keyring_name`, length must be less than or equal to `31`")  # noqa: E501

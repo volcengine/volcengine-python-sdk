@@ -36,6 +36,7 @@ class ImportKeyMaterialRequest(object):
         'encrypted_key_material': 'str',
         'expiration_model': 'str',
         'import_token': 'str',
+        'key_id': 'str',
         'key_name': 'str',
         'keyring_name': 'str',
         'valid_to': 'int'
@@ -45,12 +46,13 @@ class ImportKeyMaterialRequest(object):
         'encrypted_key_material': 'EncryptedKeyMaterial',
         'expiration_model': 'ExpirationModel',
         'import_token': 'ImportToken',
+        'key_id': 'KeyID',
         'key_name': 'KeyName',
         'keyring_name': 'KeyringName',
         'valid_to': 'ValidTo'
     }
 
-    def __init__(self, encrypted_key_material=None, expiration_model=None, import_token=None, key_name=None, keyring_name=None, valid_to=None, _configuration=None):  # noqa: E501
+    def __init__(self, encrypted_key_material=None, expiration_model=None, import_token=None, key_id=None, key_name=None, keyring_name=None, valid_to=None, _configuration=None):  # noqa: E501
         """ImportKeyMaterialRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ImportKeyMaterialRequest(object):
         self._encrypted_key_material = None
         self._expiration_model = None
         self._import_token = None
+        self._key_id = None
         self._key_name = None
         self._keyring_name = None
         self._valid_to = None
@@ -68,8 +71,12 @@ class ImportKeyMaterialRequest(object):
         if expiration_model is not None:
             self.expiration_model = expiration_model
         self.import_token = import_token
-        self.key_name = key_name
-        self.keyring_name = keyring_name
+        if key_id is not None:
+            self.key_id = key_id
+        if key_name is not None:
+            self.key_name = key_name
+        if keyring_name is not None:
+            self.keyring_name = keyring_name
         if valid_to is not None:
             self.valid_to = valid_to
 
@@ -141,6 +148,27 @@ class ImportKeyMaterialRequest(object):
         self._import_token = import_token
 
     @property
+    def key_id(self):
+        """Gets the key_id of this ImportKeyMaterialRequest.  # noqa: E501
+
+
+        :return: The key_id of this ImportKeyMaterialRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._key_id
+
+    @key_id.setter
+    def key_id(self, key_id):
+        """Sets the key_id of this ImportKeyMaterialRequest.
+
+
+        :param key_id: The key_id of this ImportKeyMaterialRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._key_id = key_id
+
+    @property
     def key_name(self):
         """Gets the key_name of this ImportKeyMaterialRequest.  # noqa: E501
 
@@ -158,8 +186,6 @@ class ImportKeyMaterialRequest(object):
         :param key_name: The key_name of this ImportKeyMaterialRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and key_name is None:
-            raise ValueError("Invalid value for `key_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 key_name is not None and len(key_name) > 31):
             raise ValueError("Invalid value for `key_name`, length must be less than or equal to `31`")  # noqa: E501
@@ -187,8 +213,6 @@ class ImportKeyMaterialRequest(object):
         :param keyring_name: The keyring_name of this ImportKeyMaterialRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and keyring_name is None:
-            raise ValueError("Invalid value for `keyring_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 keyring_name is not None and len(keyring_name) > 31):
             raise ValueError("Invalid value for `keyring_name`, length must be less than or equal to `31`")  # noqa: E501

@@ -109,13 +109,13 @@ class KMSApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ArchiveKey/2021-02-18/kms/post/application_json/', 'POST',
+            '/ArchiveKey/2021-02-18/kms/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2437,13 +2437,13 @@ class KMSApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DisableKeyRotation/2021-02-18/kms/post/application_json/', 'POST',
+            '/DisableKeyRotation/2021-02-18/kms/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2534,13 +2534,13 @@ class KMSApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/EnableKey/2021-02-18/kms/post/application_json/', 'POST',
+            '/EnableKey/2021-02-18/kms/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3407,13 +3407,13 @@ class KMSApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/QueryKeyring/2021-02-18/kms/post/application_json/', 'POST',
+            '/QueryKeyring/2021-02-18/kms/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4183,13 +4183,13 @@ class KMSApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateKeyring/2021-02-18/kms/post/application_json/', 'POST',
+            '/UpdateKeyring/2021-02-18/kms/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,

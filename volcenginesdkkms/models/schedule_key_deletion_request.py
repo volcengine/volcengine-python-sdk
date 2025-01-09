@@ -33,32 +33,60 @@ class ScheduleKeyDeletionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'key_id': 'str',
         'key_name': 'str',
         'keyring_name': 'str',
         'pending_window_in_days': 'int'
     }
 
     attribute_map = {
+        'key_id': 'KeyID',
         'key_name': 'KeyName',
         'keyring_name': 'KeyringName',
         'pending_window_in_days': 'PendingWindowInDays'
     }
 
-    def __init__(self, key_name=None, keyring_name=None, pending_window_in_days=None, _configuration=None):  # noqa: E501
+    def __init__(self, key_id=None, key_name=None, keyring_name=None, pending_window_in_days=None, _configuration=None):  # noqa: E501
         """ScheduleKeyDeletionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._key_id = None
         self._key_name = None
         self._keyring_name = None
         self._pending_window_in_days = None
         self.discriminator = None
 
-        self.key_name = key_name
-        self.keyring_name = keyring_name
+        if key_id is not None:
+            self.key_id = key_id
+        if key_name is not None:
+            self.key_name = key_name
+        if keyring_name is not None:
+            self.keyring_name = keyring_name
         if pending_window_in_days is not None:
             self.pending_window_in_days = pending_window_in_days
+
+    @property
+    def key_id(self):
+        """Gets the key_id of this ScheduleKeyDeletionRequest.  # noqa: E501
+
+
+        :return: The key_id of this ScheduleKeyDeletionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._key_id
+
+    @key_id.setter
+    def key_id(self, key_id):
+        """Sets the key_id of this ScheduleKeyDeletionRequest.
+
+
+        :param key_id: The key_id of this ScheduleKeyDeletionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._key_id = key_id
 
     @property
     def key_name(self):
@@ -78,8 +106,6 @@ class ScheduleKeyDeletionRequest(object):
         :param key_name: The key_name of this ScheduleKeyDeletionRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and key_name is None:
-            raise ValueError("Invalid value for `key_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 key_name is not None and len(key_name) > 31):
             raise ValueError("Invalid value for `key_name`, length must be less than or equal to `31`")  # noqa: E501
@@ -107,8 +133,6 @@ class ScheduleKeyDeletionRequest(object):
         :param keyring_name: The keyring_name of this ScheduleKeyDeletionRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and keyring_name is None:
-            raise ValueError("Invalid value for `keyring_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 keyring_name is not None and len(keyring_name) > 31):
             raise ValueError("Invalid value for `keyring_name`, length must be less than or equal to `31`")  # noqa: E501
