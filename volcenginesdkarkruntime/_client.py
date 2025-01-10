@@ -40,6 +40,7 @@ class Ark(SyncAPIClient):
     embeddings: resources.Embeddings
     tokenization: resources.Tokenization
     context: resources.Context
+    multimodal_embeddings: resources.MultimodalEmbeddings
     content_generation: resources.ContentGeneration
     batch_chat: resources.BatchChat
     model_breaker_map: dict[str, ModelBreaker]
@@ -102,6 +103,7 @@ class Ark(SyncAPIClient):
         self.embeddings = resources.Embeddings(self)
         self.tokenization = resources.Tokenization(self)
         self.context = resources.Context(self)
+        self.multimodal_embeddings = resources.MultimodalEmbeddings(self)
         self.content_generation = resources.ContentGeneration(self)
         self.batch_chat = resources.BatchChat(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
@@ -146,6 +148,7 @@ class AsyncArk(AsyncAPIClient):
     embeddings: resources.AsyncEmbeddings
     tokenization: resources.AsyncTokenization
     context: resources.AsyncContext
+    multimodal_embeddings: resources.AsyncMultimodalEmbeddings
     content_generation: resources.AsyncContentGeneration
     batch_chat: resources.AsyncBatchChat
     model_breaker_map: dict[str, ModelBreaker]
@@ -207,6 +210,7 @@ class AsyncArk(AsyncAPIClient):
         self.embeddings = resources.AsyncEmbeddings(self)
         self.tokenization = resources.AsyncTokenization(self)
         self.context = resources.AsyncContext(self)
+        self.multimodal_embeddings = resources.AsyncMultimodalEmbeddings(self)
         self.content_generation = resources.AsyncContentGeneration(self)
         self.batch_chat = resources.AsyncBatchChat(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
