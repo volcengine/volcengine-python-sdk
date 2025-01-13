@@ -28,6 +28,7 @@ from ._constants import (
 from ._streaming import Stream
 
 from ._utils._key_agreement import key_agreement_client
+from ._utils._model_breaker import ModelBreaker
 
 __all__ = ["Ark", "AsyncArk"]
 
@@ -39,6 +40,9 @@ class Ark(SyncAPIClient):
     tokenization: resources.Tokenization
     context: resources.Context
     content_generation: resources.ContentGeneration
+    batch_chat: resources.BatchChat
+    model_breaker_map: dict[str, ModelBreaker]
+    model_breaker_lock: threading.Lock
 
     def __init__(
         self,
@@ -98,6 +102,9 @@ class Ark(SyncAPIClient):
         self.tokenization = resources.Tokenization(self)
         self.context = resources.Context(self)
         self.content_generation = resources.ContentGeneration(self)
+        self.batch_chat = resources.BatchChat(self)
+        self.model_breaker_map = defaultdict(ModelBreaker)
+        self.model_breaker_lock = threading.Lock()
         # self.classification = resources.Classification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
@@ -128,6 +135,9 @@ class Ark(SyncAPIClient):
         api_key = self.api_key
         return {"Authorization": f"Bearer {api_key}"}
 
+    def get_model_breaker(self, model_name: str) -> ModelBreaker:
+        with self.model_breaker_lock:
+            return self.model_breaker_map[model_name]
 
 class AsyncArk(AsyncAPIClient):
     chat: resources.AsyncChat
@@ -136,6 +146,9 @@ class AsyncArk(AsyncAPIClient):
     tokenization: resources.AsyncTokenization
     context: resources.AsyncContext
     content_generation: resources.AsyncContentGeneration
+    batch_chat: resources.AsyncBatchChat
+    model_breaker_map: dict[str, ModelBreaker]
+    model_breaker_lock: threading.Lock
 
     def __init__(
         self,
@@ -194,6 +207,9 @@ class AsyncArk(AsyncAPIClient):
         self.tokenization = resources.AsyncTokenization(self)
         self.context = resources.AsyncContext(self)
         self.content_generation = resources.AsyncContentGeneration(self)
+        self.batch_chat = resources.AsyncBatchChat(self)
+        self.model_breaker_map = defaultdict(ModelBreaker)
+        self.model_breaker_lock = threading.Lock()
         # self.classification = resources.AsyncClassification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
@@ -216,6 +232,10 @@ class AsyncArk(AsyncAPIClient):
     def auth_headers(self) -> dict[str, str]:
         api_key = self.api_key
         return {"Authorization": f"Bearer {api_key}"}
+
+    def get_model_breaker(self, model_name: str) -> ModelBreaker:
+        with self.model_breaker_lock:
+            return self.model_breaker_map[model_name]
 
 
 class StsTokenManager(object):

@@ -478,6 +478,57 @@ class SyncAPIClient(BaseClient):
             stream_cls=stream_cls,
         )
 
+    def _request_without_retry(self,
+            *,
+            cast_to: Type[ResponseT],
+            options: RequestOptions,
+            stream: bool,
+            stream_cls: type[_StreamT] | None,
+    ) -> ResponseT | _StreamT:
+        request = self._build_request(options)
+        req_id = request.headers.get(CLIENT_REQUEST_HEADER, "")
+        try:
+            response = self._client.send(
+                request,
+                stream=stream or self._should_stream_response_body(request=request),
+            )
+        except httpx.TimeoutException as err:
+            log.debug("Raising timeout error")
+            raise ArkAPITimeoutError(request=request, request_id=req_id) from err
+        except Exception as err:
+            log.debug("Encountered Exception", exc_info=True)
+            log.debug("Raising connection error")
+            raise ArkAPIConnectionError(request=request, request_id=req_id) from err
+
+        log.debug(
+            'HTTP Request: %s %s "%i %s"',
+            request.method,
+            request.url,
+            response.status_code,
+            response.reason_phrase,
+        )
+
+        try:
+            response.raise_for_status()
+        except httpx.HTTPStatusError as err:  # thrown on 4xx and 5xx status code
+            log.debug("Encountered httpx.HTTPStatusError", exc_info=True)
+            # If the response is streamed then we need to explicitly read the response
+            # to completion before attempting to access the response text.
+            if not err.response.is_closed:
+                err.response.read()
+
+            log.debug("Re-raising status error")
+            raise self._make_status_error_from_response(
+                err.response, request_id=req_id
+            ) from None
+
+        return self._process_response(
+            cast_to=cast_to,
+            response=response,
+            stream=stream,
+            stream_cls=stream_cls,
+        )
+
     def _retry_request(
             self,
             options: RequestOptions,
@@ -595,6 +646,28 @@ class SyncAPIClient(BaseClient):
 
         return cast(ResponseT, self.request(cast_to, opts))
 
+    def post_without_retry(
+            self,
+            path: str,
+            *,
+            cast_to: Type[ResponseT],
+            body: Dict | None = None,
+            options: ExtraRequestOptions = {},
+            files: RequestFiles | None = None,
+            stream: bool = False,
+            stream_cls: type[_StreamT] | None = None,
+    ) -> ResponseT | _StreamT:
+        opts = RequestOptions.construct(  # type: ignore
+            method="post",
+            url=path,
+            body=body,
+            **options,
+        )
+
+        return cast(
+            ResponseT, self.request_without_retry(cast_to, opts, stream=stream, stream_cls=stream_cls)
+        )
+
     def request(
             self,
             cast_to: Type[ResponseT],
@@ -610,6 +683,21 @@ class SyncAPIClient(BaseClient):
             stream=stream,
             stream_cls=stream_cls,
             remaining_retries=remaining_retries,
+        )
+
+    def request_without_retry(
+            self,
+            cast_to: Type[ResponseT],
+            options: RequestOptions,
+            *,
+            stream: bool = False,
+            stream_cls: type[_StreamT] | None = None,
+    ) -> ResponseT | _StreamT:
+        return self._request_without_retry(
+            cast_to=cast_to,
+            options=options,
+            stream=stream,
+            stream_cls=stream_cls,
         )
 
     def is_closed(self) -> bool:
@@ -755,6 +843,27 @@ class AsyncAPIClient(BaseClient):
 
         return await self.request(cast_to, opts)
 
+
+    async def post_without_retry(
+            self,
+            path: str,
+            *,
+            cast_to: Type[ResponseT],
+            body: Dict | None = None,
+            options: ExtraRequestOptions = {},
+            files: RequestFiles | None = None,
+            stream: bool = False,
+            stream_cls: type[_AsyncStreamT] | None = None,
+    ) -> ResponseT | _AsyncStreamT:
+        opts = RequestOptions.construct(
+            method="post",
+            url=path,
+            body=body,
+            **options,
+        )
+
+        return await self.request_without_retry(cast_to, opts, stream=stream, stream_cls=stream_cls)
+
     async def request(
             self,
             cast_to: Type[ResponseT],
@@ -770,6 +879,21 @@ class AsyncAPIClient(BaseClient):
             stream=stream,
             stream_cls=stream_cls,
             remaining_retries=remaining_retries,
+        )
+
+    async def request_without_retry(
+            self,
+            cast_to: Type[ResponseT],
+            options: RequestOptions,
+            *,
+            stream: bool = False,
+            stream_cls: type[_StreamT] | None = None,
+    ) -> ResponseT | _StreamT:
+        return await self._request_without_retry(
+            cast_to=cast_to,
+            options=options,
+            stream=stream,
+            stream_cls=stream_cls,
         )
 
     async def _request(
@@ -841,6 +965,57 @@ class AsyncAPIClient(BaseClient):
                     stream=stream,
                     stream_cls=stream_cls,
                 )
+
+            # If the response is streamed then we need to explicitly read the response
+            # to completion before attempting to access the response text.
+            if not err.response.is_closed:
+                await err.response.aread()
+
+            log.debug("Re-raising status error")
+            raise self._make_status_error_from_response(
+                err.response, request_id=req_id
+            ) from None
+
+        return await self._process_response(
+            cast_to=cast_to,
+            response=response,
+            stream=stream,
+            stream_cls=stream_cls,
+        )
+
+    async def _request_without_retry(
+            self,
+            *,
+            cast_to: Type[ResponseT],
+            options: RequestOptions,
+            stream: bool,
+            stream_cls: type[_AsyncStreamT] | None,
+    ) -> ResponseT | _AsyncStreamT:
+        request = self._build_request(options)
+        req_id = request.headers.get(CLIENT_REQUEST_HEADER, "")
+        try:
+            response = await self._client.send(
+                request,
+                stream=stream or self._should_stream_response_body(request=request),
+            )
+        except httpx.TimeoutException as err:
+            log.debug("Raising timeout error")
+            raise ArkAPITimeoutError(request=request, request_id=req_id) from err
+        except Exception as err:
+            log.debug("Encountered Exception", exc_info=True)
+            log.debug("Raising connection error")
+            raise ArkAPIConnectionError(request=request, request_id=req_id) from err
+        log.debug(
+            'HTTP Request: %s %s "%i %s"',
+            request.method,
+            request.url,
+            response.status_code,
+            response.reason_phrase,
+        )
+        try:
+            response.raise_for_status()
+        except httpx.HTTPStatusError as err:  # thrown on 4xx and 5xx status code
+            log.debug("Encountered httpx.HTTPStatusError", exc_info=True)
 
             # If the response is streamed then we need to explicitly read the response
             # to completion before attempting to access the response text.
