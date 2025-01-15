@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import time
 from datetime import timedelta, datetime
 from random import random
@@ -142,9 +143,7 @@ class Completions(SyncAPIResource):
             is_encrypt = True
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
         retryTimes = 0
-        if timeout is None:
-            timeout = self._client.timeout
-        last_time = datetime.now() + timedelta(seconds=timeout.read)
+        last_time = self._get_request_last_time(timeout)
         model_breaker = self._client.get_model_breaker(model)
         while True:
             while not model_breaker.allow():
@@ -203,6 +202,19 @@ class Completions(SyncAPIResource):
                 resp = self._decrypt(e2e_key, e2e_nonce, resp)
             return resp
 
+    def _get_request_last_time(self, timeout):
+        if timeout is None:
+            timeout = self._client.timeout
+        timeoutSeconds = 0
+        if isinstance(timeout, httpx.Timeout):
+            timeoutSeconds = timeout.read
+        elif isinstance(timeout, float):
+            timeoutSeconds = timeout
+        elif isinstance(self._client.timeout, int):
+            timeoutSeconds = timeout
+        else:
+            raise TypeError("timeout type {} is not supported".format(type(self._client.timeout)))
+        return datetime.now() + timedelta(seconds=timeoutSeconds)
 
 class AsyncCompletions(AsyncAPIResource):
     @cached_property
@@ -272,15 +284,13 @@ class AsyncCompletions(AsyncAPIResource):
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 
         retryTimes = 0
-        if timeout is None:
-            timeout = self._client.timeout
-        last_time = datetime.now() + timedelta(seconds=timeout.read)
+        last_time = self._get_request_last_time(timeout)
         model_breaker = self._client.get_model_breaker(model)
         while True:
             while not model_breaker.allow():
                 if datetime.now() + timedelta(seconds=model_breaker.get_allowed_duration().total_seconds()) > last_time:
                     raise ArkAPITimeoutError()
-                time.sleep(model_breaker.get_allowed_duration().total_seconds())
+                await asyncio.sleep(model_breaker.get_allowed_duration().total_seconds())
             if datetime.now() > last_time:
                 raise ArkAPITimeoutError()
             try:
@@ -318,7 +328,7 @@ class AsyncCompletions(AsyncAPIResource):
                 waitTime = _calculate_retry_timeout(retryTimes)
                 if datetime.now() + timedelta(seconds=waitTime) > last_time:
                     raise ArkAPITimeoutError()
-                time.sleep(waitTime)
+                await asyncio.sleep(waitTime)
                 retryTimes = retryTimes + 1
                 continue
             except ArkAPIStatusError as err:
@@ -335,6 +345,19 @@ class AsyncCompletions(AsyncAPIResource):
                     resp = await self._decrypt(e2e_key, e2e_nonce, resp)
             return resp
 
+    def _get_request_last_time(self, timeout):
+        if timeout is None:
+            timeout = self._client.timeout
+        timeoutSeconds = 0
+        if isinstance(timeout, httpx.Timeout):
+            timeoutSeconds = timeout.read
+        elif isinstance(timeout, float):
+            timeoutSeconds = timeout
+        elif isinstance(self._client.timeout, int):
+            timeoutSeconds = timeout
+        else:
+            raise TypeError("timeout type {} is not supported".format(type(self._client.timeout)))
+        return datetime.now() + timedelta(seconds=timeoutSeconds)
 
 class CompletionsWithRawResponse:
     def __init__(self, completions: Completions) -> None:
