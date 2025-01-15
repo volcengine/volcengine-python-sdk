@@ -234,8 +234,8 @@ class AsyncArk(AsyncAPIClient):
         api_key = self.api_key
         return {"Authorization": f"Bearer {api_key}"}
 
-    def get_model_breaker(self, model_name: str) -> ModelBreaker:
-        with self.model_breaker_lock:
+    async def get_model_breaker(self, model_name: str) -> ModelBreaker:
+        async with self.model_breaker_lock:
             return self.model_breaker_map[model_name]
 
 

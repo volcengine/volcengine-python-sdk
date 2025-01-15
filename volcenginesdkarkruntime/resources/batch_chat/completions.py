@@ -286,7 +286,7 @@ class AsyncCompletions(AsyncAPIResource):
 
         retryTimes = 0
         last_time = self._get_request_last_time(timeout)
-        model_breaker = self._client.get_model_breaker(model)
+        model_breaker = await self._client.get_model_breaker(model)
         while True:
             while not model_breaker.allow():
                 if datetime.now() + timedelta(seconds=model_breaker.get_allowed_duration().total_seconds()) > last_time:
