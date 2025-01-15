@@ -216,6 +216,7 @@ class Completions(SyncAPIResource):
             raise TypeError("timeout type {} is not supported".format(type(self._client.timeout)))
         return datetime.now() + timedelta(seconds=timeoutSeconds)
 
+
 class AsyncCompletions(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncCompletionsWithRawResponse:
@@ -358,6 +359,7 @@ class AsyncCompletions(AsyncAPIResource):
         else:
             raise TypeError("timeout type {} is not supported".format(type(self._client.timeout)))
         return datetime.now() + timedelta(seconds=timeoutSeconds)
+
 
 class CompletionsWithRawResponse:
     def __init__(self, completions: Completions) -> None:
