@@ -15,6 +15,7 @@ from volcenginesdkarkruntime import AsyncArk
 # For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
 client = AsyncArk()
 
+
 async def worker(semaphore, worker_id, task_num):
     async with semaphore:
         print(f"Worker {worker_id} is starting.")
@@ -34,6 +35,7 @@ async def worker(semaphore, worker_id, task_num):
             else:
                 print(f"Worker {worker_id} task {i} is completed.")
         print(f"Worker {worker_id} is completed.")
+
 
 async def main():
     start = datetime.now()

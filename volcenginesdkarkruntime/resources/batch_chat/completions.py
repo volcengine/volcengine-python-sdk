@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 import time
-from datetime import timedelta,datetime
+from datetime import timedelta, datetime
 from random import random
-from typing import Dict, List, Union, Iterable, Optional, Callable, Iterator, AsyncIterator
+from typing import Dict, List, Union, Iterable, Optional, Callable
 
 import httpx
-from typing_extensions import Literal
 
 from ..._exceptions import ArkAPITimeoutError, ArkAPIConnectionError, ArkAPIStatusError
 from ..._types import Body, Query, Headers
@@ -30,14 +29,14 @@ from ...types.chat import (
 from ..._constants import (
     ARK_E2E_ENCRYPTION_HEADER,
     INITIAL_RETRY_DELAY,
-    MAX_RETRY_DELAY, DEFAULT_TIMEOUT
+    MAX_RETRY_DELAY,
 )
 
 __all__ = ["Completions", "AsyncCompletions"]
 
 
 def _calculate_retry_timeout(retry_times) -> float:
-    nbRetries = min(retry_times, MAX_RETRY_DELAY/INITIAL_RETRY_DELAY)
+    nbRetries = min(retry_times, MAX_RETRY_DELAY / INITIAL_RETRY_DELAY)
     sleep_seconds = min(INITIAL_RETRY_DELAY * pow(2, nbRetries), MAX_RETRY_DELAY)
     # Apply some jitter, plus-or-minus half a second.
     jitter = 1 - 0.25 * random()
@@ -101,7 +100,6 @@ class Completions(SyncAPIResource):
                                                                                   _crypto_nonce,
                                                                                   x))
         return _crypto_key, _crypto_nonce
-
 
     def _decrypt(self, key: bytes, nonce: bytes, resp: ChatCompletion
                  ) -> ChatCompletion:
@@ -240,7 +238,6 @@ class AsyncCompletions(AsyncAPIResource):
                     choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
                 resp.choices[index] = choice
         return resp
-
 
     @async_with_sts_token
     async def create(
