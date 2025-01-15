@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import logging
 import os
 import threading
@@ -148,7 +149,7 @@ class AsyncArk(AsyncAPIClient):
     content_generation: resources.AsyncContentGeneration
     batch_chat: resources.AsyncBatchChat
     model_breaker_map: dict[str, ModelBreaker]
-    model_breaker_lock: threading.Lock
+    model_breaker_lock: asyncio.Lock
 
     def __init__(
         self,
@@ -209,7 +210,7 @@ class AsyncArk(AsyncAPIClient):
         self.content_generation = resources.AsyncContentGeneration(self)
         self.batch_chat = resources.AsyncBatchChat(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
-        self.model_breaker_lock = threading.Lock()
+        self.model_breaker_lock = asyncio.Lock()
         # self.classification = resources.AsyncClassification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
