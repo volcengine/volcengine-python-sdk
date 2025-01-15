@@ -16,10 +16,9 @@ from volcenginesdkarkruntime import AsyncArk
 # or specify ak&sk by Ark(ak="${YOUR_AK}", sk="${YOUR_SK}").
 # To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
 # For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
-client = AsyncArk()
-
 
 async def worker(worker_id, task_num):
+    client = AsyncArk()
     print(f"Worker {worker_id} is starting.")
     for i in range(task_num):
         print(f"Worker {worker_id} task {i} is running.")
