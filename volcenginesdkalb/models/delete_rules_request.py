@@ -52,7 +52,8 @@ class DeleteRulesRequest(object):
         self._rule_ids = None
         self.discriminator = None
 
-        self.listener_id = listener_id
+        if listener_id is not None:
+            self.listener_id = listener_id
         if rule_ids is not None:
             self.rule_ids = rule_ids
 
@@ -74,8 +75,6 @@ class DeleteRulesRequest(object):
         :param listener_id: The listener_id of this DeleteRulesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and listener_id is None:
-            raise ValueError("Invalid value for `listener_id`, must not be `None`")  # noqa: E501
 
         self._listener_id = listener_id
 

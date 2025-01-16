@@ -55,7 +55,8 @@ class ModifyAclAttributesRequest(object):
         self._description = None
         self.discriminator = None
 
-        self.acl_id = acl_id
+        if acl_id is not None:
+            self.acl_id = acl_id
         if acl_name is not None:
             self.acl_name = acl_name
         if description is not None:
@@ -79,8 +80,6 @@ class ModifyAclAttributesRequest(object):
         :param acl_id: The acl_id of this ModifyAclAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and acl_id is None:
-            raise ValueError("Invalid value for `acl_id`, must not be `None`")  # noqa: E501
 
         self._acl_id = acl_id
 

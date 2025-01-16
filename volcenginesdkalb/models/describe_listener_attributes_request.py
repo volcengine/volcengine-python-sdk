@@ -49,7 +49,8 @@ class DescribeListenerAttributesRequest(object):
         self._listener_id = None
         self.discriminator = None
 
-        self.listener_id = listener_id
+        if listener_id is not None:
+            self.listener_id = listener_id
 
     @property
     def listener_id(self):
@@ -69,8 +70,6 @@ class DescribeListenerAttributesRequest(object):
         :param listener_id: The listener_id of this DescribeListenerAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and listener_id is None:
-            raise ValueError("Invalid value for `listener_id`, must not be `None`")  # noqa: E501
 
         self._listener_id = listener_id
 

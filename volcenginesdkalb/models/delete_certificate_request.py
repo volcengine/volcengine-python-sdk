@@ -49,7 +49,8 @@ class DeleteCertificateRequest(object):
         self._certificate_id = None
         self.discriminator = None
 
-        self.certificate_id = certificate_id
+        if certificate_id is not None:
+            self.certificate_id = certificate_id
 
     @property
     def certificate_id(self):
@@ -69,8 +70,6 @@ class DeleteCertificateRequest(object):
         :param certificate_id: The certificate_id of this DeleteCertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and certificate_id is None:
-            raise ValueError("Invalid value for `certificate_id`, must not be `None`")  # noqa: E501
 
         self._certificate_id = certificate_id
 

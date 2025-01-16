@@ -36,10 +36,12 @@ class CreateServerGroupRequest(object):
         'description': 'str',
         'health_check': 'HealthCheckForCreateServerGroupInput',
         'project_name': 'str',
+        'protocol': 'str',
         'scheduler': 'str',
         'server_group_name': 'str',
         'server_group_type': 'str',
         'sticky_session_config': 'StickySessionConfigForCreateServerGroupInput',
+        'tags': 'list[TagForCreateServerGroupInput]',
         'vpc_id': 'str'
     }
 
@@ -47,14 +49,16 @@ class CreateServerGroupRequest(object):
         'description': 'Description',
         'health_check': 'HealthCheck',
         'project_name': 'ProjectName',
+        'protocol': 'Protocol',
         'scheduler': 'Scheduler',
         'server_group_name': 'ServerGroupName',
         'server_group_type': 'ServerGroupType',
         'sticky_session_config': 'StickySessionConfig',
+        'tags': 'Tags',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, health_check=None, project_name=None, scheduler=None, server_group_name=None, server_group_type=None, sticky_session_config=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check=None, project_name=None, protocol=None, scheduler=None, server_group_name=None, server_group_type=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateServerGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,10 +67,12 @@ class CreateServerGroupRequest(object):
         self._description = None
         self._health_check = None
         self._project_name = None
+        self._protocol = None
         self._scheduler = None
         self._server_group_name = None
         self._server_group_type = None
         self._sticky_session_config = None
+        self._tags = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -76,6 +82,8 @@ class CreateServerGroupRequest(object):
             self.health_check = health_check
         if project_name is not None:
             self.project_name = project_name
+        if protocol is not None:
+            self.protocol = protocol
         if scheduler is not None:
             self.scheduler = scheduler
         if server_group_name is not None:
@@ -84,7 +92,10 @@ class CreateServerGroupRequest(object):
             self.server_group_type = server_group_type
         if sticky_session_config is not None:
             self.sticky_session_config = sticky_session_config
-        self.vpc_id = vpc_id
+        if tags is not None:
+            self.tags = tags
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
 
     @property
     def description(self):
@@ -148,6 +159,27 @@ class CreateServerGroupRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def protocol(self):
+        """Gets the protocol of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The protocol of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol
+
+    @protocol.setter
+    def protocol(self, protocol):
+        """Sets the protocol of this CreateServerGroupRequest.
+
+
+        :param protocol: The protocol of this CreateServerGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._protocol = protocol
 
     @property
     def scheduler(self):
@@ -240,6 +272,27 @@ class CreateServerGroupRequest(object):
         self._sticky_session_config = sticky_session_config
 
     @property
+    def tags(self):
+        """Gets the tags of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: list[TagForCreateServerGroupInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateServerGroupRequest.
+
+
+        :param tags: The tags of this CreateServerGroupRequest.  # noqa: E501
+        :type: list[TagForCreateServerGroupInput]
+        """
+
+        self._tags = tags
+
+    @property
     def vpc_id(self):
         """Gets the vpc_id of this CreateServerGroupRequest.  # noqa: E501
 
@@ -257,8 +310,6 @@ class CreateServerGroupRequest(object):
         :param vpc_id: The vpc_id of this CreateServerGroupRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and vpc_id is None:
-            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 

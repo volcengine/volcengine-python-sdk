@@ -66,13 +66,16 @@ class UploadCertificateRequest(object):
 
         if certificate_name is not None:
             self.certificate_name = certificate_name
-        self.certificate_type = certificate_type
+        if certificate_type is not None:
+            self.certificate_type = certificate_type
         if description is not None:
             self.description = description
-        self.private_key = private_key
+        if private_key is not None:
+            self.private_key = private_key
         if project_name is not None:
             self.project_name = project_name
-        self.public_key = public_key
+        if public_key is not None:
+            self.public_key = public_key
 
     @property
     def certificate_name(self):
@@ -119,8 +122,6 @@ class UploadCertificateRequest(object):
         :param certificate_type: The certificate_type of this UploadCertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and certificate_type is None:
-            raise ValueError("Invalid value for `certificate_type`, must not be `None`")  # noqa: E501
 
         self._certificate_type = certificate_type
 
@@ -163,8 +164,6 @@ class UploadCertificateRequest(object):
         :param private_key: The private_key of this UploadCertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and private_key is None:
-            raise ValueError("Invalid value for `private_key`, must not be `None`")  # noqa: E501
 
         self._private_key = private_key
 
@@ -207,8 +206,6 @@ class UploadCertificateRequest(object):
         :param public_key: The public_key of this UploadCertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and public_key is None:
-            raise ValueError("Invalid value for `public_key`, must not be `None`")  # noqa: E501
 
         self._public_key = public_key
 
