@@ -47,6 +47,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'enabled': 'bool',
         'eni_address': 'str',
         'eni_id': 'str',
+        'global_accelerators': 'GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput',
         'health_log': 'HealthLogForDescribeLoadBalancerAttributesOutput',
         'listeners': 'list[ListenerForDescribeLoadBalancerAttributesOutput]',
         'load_balancer_billing_type': 'int',
@@ -54,6 +55,8 @@ class DescribeLoadBalancerAttributesResponse(object):
         'load_balancer_name': 'str',
         'local_addresses': 'list[str]',
         'lock_reason': 'str',
+        'modification_protection_reason': 'str',
+        'modification_protection_status': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
         'request_id': 'str',
@@ -85,6 +88,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'enabled': 'Enabled',
         'eni_address': 'EniAddress',
         'eni_id': 'EniId',
+        'global_accelerators': 'GlobalAccelerators',
         'health_log': 'HealthLog',
         'listeners': 'Listeners',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
@@ -92,6 +96,8 @@ class DescribeLoadBalancerAttributesResponse(object):
         'load_balancer_name': 'LoadBalancerName',
         'local_addresses': 'LocalAddresses',
         'lock_reason': 'LockReason',
+        'modification_protection_reason': 'ModificationProtectionReason',
+        'modification_protection_status': 'ModificationProtectionStatus',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
@@ -108,7 +114,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, health_log=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, sni_auto_match=None, status=None, subnet_id=None, tls_access_log=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip=None, eip_address=None, eip_id=None, enabled=None, eni_address=None, eni_id=None, global_accelerators=None, health_log=None, listeners=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, request_id=None, sni_auto_match=None, status=None, subnet_id=None, tls_access_log=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -128,6 +134,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._enabled = None
         self._eni_address = None
         self._eni_id = None
+        self._global_accelerators = None
         self._health_log = None
         self._listeners = None
         self._load_balancer_billing_type = None
@@ -135,6 +142,8 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._load_balancer_name = None
         self._local_addresses = None
         self._lock_reason = None
+        self._modification_protection_reason = None
+        self._modification_protection_status = None
         self._overdue_time = None
         self._project_name = None
         self._request_id = None
@@ -179,6 +188,8 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.eni_address = eni_address
         if eni_id is not None:
             self.eni_id = eni_id
+        if global_accelerators is not None:
+            self.global_accelerators = global_accelerators
         if health_log is not None:
             self.health_log = health_log
         if listeners is not None:
@@ -193,6 +204,10 @@ class DescribeLoadBalancerAttributesResponse(object):
             self.local_addresses = local_addresses
         if lock_reason is not None:
             self.lock_reason = lock_reason
+        if modification_protection_reason is not None:
+            self.modification_protection_reason = modification_protection_reason
+        if modification_protection_status is not None:
+            self.modification_protection_status = modification_protection_status
         if overdue_time is not None:
             self.overdue_time = overdue_time
         if project_name is not None:
@@ -517,6 +532,27 @@ class DescribeLoadBalancerAttributesResponse(object):
         self._eni_id = eni_id
 
     @property
+    def global_accelerators(self):
+        """Gets the global_accelerators of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The global_accelerators of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput
+        """
+        return self._global_accelerators
+
+    @global_accelerators.setter
+    def global_accelerators(self, global_accelerators):
+        """Sets the global_accelerators of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param global_accelerators: The global_accelerators of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput
+        """
+
+        self._global_accelerators = global_accelerators
+
+    @property
     def health_log(self):
         """Gets the health_log of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
 
@@ -662,6 +698,48 @@ class DescribeLoadBalancerAttributesResponse(object):
         """
 
         self._lock_reason = lock_reason
+
+    @property
+    def modification_protection_reason(self):
+        """Gets the modification_protection_reason of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The modification_protection_reason of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._modification_protection_reason
+
+    @modification_protection_reason.setter
+    def modification_protection_reason(self, modification_protection_reason):
+        """Sets the modification_protection_reason of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param modification_protection_reason: The modification_protection_reason of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._modification_protection_reason = modification_protection_reason
+
+    @property
+    def modification_protection_status(self):
+        """Gets the modification_protection_status of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The modification_protection_status of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._modification_protection_status
+
+    @modification_protection_status.setter
+    def modification_protection_status(self, modification_protection_status):
+        """Sets the modification_protection_status of this DescribeLoadBalancerAttributesResponse.
+
+
+        :param modification_protection_status: The modification_protection_status of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._modification_protection_status = modification_protection_status
 
     @property
     def overdue_time(self):

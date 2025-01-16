@@ -67,17 +67,20 @@ class ReplaceCACertificateRequest(object):
         self._update_mode = None
         self.discriminator = None
 
-        self.ca_certificate = ca_certificate
+        if ca_certificate is not None:
+            self.ca_certificate = ca_certificate
         if ca_certificate_id is not None:
             self.ca_certificate_id = ca_certificate_id
         if ca_certificate_name is not None:
             self.ca_certificate_name = ca_certificate_name
         if description is not None:
             self.description = description
-        self.old_ca_certificate_id = old_ca_certificate_id
+        if old_ca_certificate_id is not None:
+            self.old_ca_certificate_id = old_ca_certificate_id
         if project_name is not None:
             self.project_name = project_name
-        self.update_mode = update_mode
+        if update_mode is not None:
+            self.update_mode = update_mode
 
     @property
     def ca_certificate(self):
@@ -97,8 +100,6 @@ class ReplaceCACertificateRequest(object):
         :param ca_certificate: The ca_certificate of this ReplaceCACertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and ca_certificate is None:
-            raise ValueError("Invalid value for `ca_certificate`, must not be `None`")  # noqa: E501
 
         self._ca_certificate = ca_certificate
 
@@ -189,8 +190,6 @@ class ReplaceCACertificateRequest(object):
         :param old_ca_certificate_id: The old_ca_certificate_id of this ReplaceCACertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and old_ca_certificate_id is None:
-            raise ValueError("Invalid value for `old_ca_certificate_id`, must not be `None`")  # noqa: E501
 
         self._old_ca_certificate_id = old_ca_certificate_id
 
@@ -233,8 +232,6 @@ class ReplaceCACertificateRequest(object):
         :param update_mode: The update_mode of this ReplaceCACertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and update_mode is None:
-            raise ValueError("Invalid value for `update_mode`, must not be `None`")  # noqa: E501
 
         self._update_mode = update_mode
 

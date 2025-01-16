@@ -86,14 +86,16 @@ class ReplaceCertificateRequest(object):
             self.certificate_source = certificate_source
         if description is not None:
             self.description = description
-        self.old_certificate_id = old_certificate_id
+        if old_certificate_id is not None:
+            self.old_certificate_id = old_certificate_id
         if private_key is not None:
             self.private_key = private_key
         if project_name is not None:
             self.project_name = project_name
         if public_key is not None:
             self.public_key = public_key
-        self.update_mode = update_mode
+        if update_mode is not None:
+            self.update_mode = update_mode
 
     @property
     def cert_center_certificate_id(self):
@@ -224,8 +226,6 @@ class ReplaceCertificateRequest(object):
         :param old_certificate_id: The old_certificate_id of this ReplaceCertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and old_certificate_id is None:
-            raise ValueError("Invalid value for `old_certificate_id`, must not be `None`")  # noqa: E501
 
         self._old_certificate_id = old_certificate_id
 
@@ -310,8 +310,6 @@ class ReplaceCertificateRequest(object):
         :param update_mode: The update_mode of this ReplaceCertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and update_mode is None:
-            raise ValueError("Invalid value for `update_mode`, must not be `None`")  # noqa: E501
 
         self._update_mode = update_mode
 

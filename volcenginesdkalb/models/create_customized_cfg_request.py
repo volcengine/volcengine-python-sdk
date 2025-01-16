@@ -58,8 +58,10 @@ class CreateCustomizedCfgRequest(object):
         self._project_name = None
         self.discriminator = None
 
-        self.customized_cfg_content = customized_cfg_content
-        self.customized_cfg_name = customized_cfg_name
+        if customized_cfg_content is not None:
+            self.customized_cfg_content = customized_cfg_content
+        if customized_cfg_name is not None:
+            self.customized_cfg_name = customized_cfg_name
         if description is not None:
             self.description = description
         if project_name is not None:
@@ -83,8 +85,6 @@ class CreateCustomizedCfgRequest(object):
         :param customized_cfg_content: The customized_cfg_content of this CreateCustomizedCfgRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and customized_cfg_content is None:
-            raise ValueError("Invalid value for `customized_cfg_content`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 customized_cfg_content is not None and len(customized_cfg_content) > 4096):
             raise ValueError("Invalid value for `customized_cfg_content`, length must be less than or equal to `4096`")  # noqa: E501
@@ -112,8 +112,6 @@ class CreateCustomizedCfgRequest(object):
         :param customized_cfg_name: The customized_cfg_name of this CreateCustomizedCfgRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and customized_cfg_name is None:
-            raise ValueError("Invalid value for `customized_cfg_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 customized_cfg_name is not None and len(customized_cfg_name) > 128):
             raise ValueError("Invalid value for `customized_cfg_name`, length must be less than or equal to `128`")  # noqa: E501

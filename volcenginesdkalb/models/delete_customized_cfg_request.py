@@ -49,7 +49,8 @@ class DeleteCustomizedCfgRequest(object):
         self._customized_cfg_id = None
         self.discriminator = None
 
-        self.customized_cfg_id = customized_cfg_id
+        if customized_cfg_id is not None:
+            self.customized_cfg_id = customized_cfg_id
 
     @property
     def customized_cfg_id(self):
@@ -69,8 +70,6 @@ class DeleteCustomizedCfgRequest(object):
         :param customized_cfg_id: The customized_cfg_id of this DeleteCustomizedCfgRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and customized_cfg_id is None:
-            raise ValueError("Invalid value for `customized_cfg_id`, must not be `None`")  # noqa: E501
 
         self._customized_cfg_id = customized_cfg_id
 

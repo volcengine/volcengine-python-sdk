@@ -33,6 +33,7 @@ class ModifyListenerAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_log_record_customized_headers_enabled': 'str',
         'acl_ids': 'list[str]',
         'acl_status': 'str',
         'acl_type': 'str',
@@ -54,6 +55,7 @@ class ModifyListenerAttributesRequest(object):
     }
 
     attribute_map = {
+        'access_log_record_customized_headers_enabled': 'AccessLogRecordCustomizedHeadersEnabled',
         'acl_ids': 'AclIds',
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
@@ -74,12 +76,13 @@ class ModifyListenerAttributesRequest(object):
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._access_log_record_customized_headers_enabled = None
         self._acl_ids = None
         self._acl_status = None
         self._acl_type = None
@@ -100,6 +103,8 @@ class ModifyListenerAttributesRequest(object):
         self._server_group_id = None
         self.discriminator = None
 
+        if access_log_record_customized_headers_enabled is not None:
+            self.access_log_record_customized_headers_enabled = access_log_record_customized_headers_enabled
         if acl_ids is not None:
             self.acl_ids = acl_ids
         if acl_status is not None:
@@ -128,13 +133,35 @@ class ModifyListenerAttributesRequest(object):
             self.enable_quic = enable_quic
         if enabled is not None:
             self.enabled = enabled
-        self.listener_id = listener_id
+        if listener_id is not None:
+            self.listener_id = listener_id
         if listener_name is not None:
             self.listener_name = listener_name
         if proxy_protocol_disabled is not None:
             self.proxy_protocol_disabled = proxy_protocol_disabled
         if server_group_id is not None:
             self.server_group_id = server_group_id
+
+    @property
+    def access_log_record_customized_headers_enabled(self):
+        """Gets the access_log_record_customized_headers_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The access_log_record_customized_headers_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._access_log_record_customized_headers_enabled
+
+    @access_log_record_customized_headers_enabled.setter
+    def access_log_record_customized_headers_enabled(self, access_log_record_customized_headers_enabled):
+        """Sets the access_log_record_customized_headers_enabled of this ModifyListenerAttributesRequest.
+
+
+        :param access_log_record_customized_headers_enabled: The access_log_record_customized_headers_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._access_log_record_customized_headers_enabled = access_log_record_customized_headers_enabled
 
     @property
     def acl_ids(self):
@@ -448,8 +475,6 @@ class ModifyListenerAttributesRequest(object):
         :param listener_id: The listener_id of this ModifyListenerAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and listener_id is None:
-            raise ValueError("Invalid value for `listener_id`, must not be `None`")  # noqa: E501
 
         self._listener_id = listener_id
 

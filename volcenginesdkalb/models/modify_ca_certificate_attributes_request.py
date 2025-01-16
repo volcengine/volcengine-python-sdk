@@ -55,7 +55,8 @@ class ModifyCACertificateAttributesRequest(object):
         self._description = None
         self.discriminator = None
 
-        self.ca_certificate_id = ca_certificate_id
+        if ca_certificate_id is not None:
+            self.ca_certificate_id = ca_certificate_id
         if ca_certificate_name is not None:
             self.ca_certificate_name = ca_certificate_name
         if description is not None:
@@ -79,8 +80,6 @@ class ModifyCACertificateAttributesRequest(object):
         :param ca_certificate_id: The ca_certificate_id of this ModifyCACertificateAttributesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and ca_certificate_id is None:
-            raise ValueError("Invalid value for `ca_certificate_id`, must not be `None`")  # noqa: E501
 
         self._ca_certificate_id = ca_certificate_id
 

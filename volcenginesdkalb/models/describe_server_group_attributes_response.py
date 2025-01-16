@@ -37,6 +37,7 @@ class DescribeServerGroupAttributesResponse(object):
         'health_check': 'HealthCheckForDescribeServerGroupAttributesOutput',
         'listeners': 'list[str]',
         'project_name': 'str',
+        'protocol': 'str',
         'request_id': 'str',
         'scheduler': 'str',
         'server_group_id': 'str',
@@ -54,6 +55,7 @@ class DescribeServerGroupAttributesResponse(object):
         'health_check': 'HealthCheck',
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
+        'protocol': 'Protocol',
         'request_id': 'RequestId',
         'scheduler': 'Scheduler',
         'server_group_id': 'ServerGroupId',
@@ -66,7 +68,7 @@ class DescribeServerGroupAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, health_check=None, listeners=None, project_name=None, request_id=None, scheduler=None, server_group_id=None, server_group_name=None, server_group_type=None, servers=None, status=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check=None, listeners=None, project_name=None, protocol=None, request_id=None, scheduler=None, server_group_id=None, server_group_name=None, server_group_type=None, servers=None, status=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class DescribeServerGroupAttributesResponse(object):
         self._health_check = None
         self._listeners = None
         self._project_name = None
+        self._protocol = None
         self._request_id = None
         self._scheduler = None
         self._server_group_id = None
@@ -96,6 +99,8 @@ class DescribeServerGroupAttributesResponse(object):
             self.listeners = listeners
         if project_name is not None:
             self.project_name = project_name
+        if protocol is not None:
+            self.protocol = protocol
         if request_id is not None:
             self.request_id = request_id
         if scheduler is not None:
@@ -200,6 +205,27 @@ class DescribeServerGroupAttributesResponse(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def protocol(self):
+        """Gets the protocol of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The protocol of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._protocol
+
+    @protocol.setter
+    def protocol(self, protocol):
+        """Sets the protocol of this DescribeServerGroupAttributesResponse.
+
+
+        :param protocol: The protocol of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._protocol = protocol
 
     @property
     def request_id(self):

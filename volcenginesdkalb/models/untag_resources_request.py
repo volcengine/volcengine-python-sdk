@@ -57,7 +57,8 @@ class UntagResourcesRequest(object):
 
         if resource_ids is not None:
             self.resource_ids = resource_ids
-        self.resource_type = resource_type
+        if resource_type is not None:
+            self.resource_type = resource_type
         if tag_keys is not None:
             self.tag_keys = tag_keys
 
@@ -100,8 +101,6 @@ class UntagResourcesRequest(object):
         :param resource_type: The resource_type of this UntagResourcesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and resource_type is None:
-            raise ValueError("Invalid value for `resource_type`, must not be `None`")  # noqa: E501
         allowed_values = ["loadbalancer", "listener", "servergroup"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 resource_type not in allowed_values):

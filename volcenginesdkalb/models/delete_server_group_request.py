@@ -49,7 +49,8 @@ class DeleteServerGroupRequest(object):
         self._server_group_id = None
         self.discriminator = None
 
-        self.server_group_id = server_group_id
+        if server_group_id is not None:
+            self.server_group_id = server_group_id
 
     @property
     def server_group_id(self):
@@ -69,8 +70,6 @@ class DeleteServerGroupRequest(object):
         :param server_group_id: The server_group_id of this DeleteServerGroupRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and server_group_id is None:
-            raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
 

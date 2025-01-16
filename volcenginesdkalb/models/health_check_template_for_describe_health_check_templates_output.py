@@ -45,6 +45,7 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'health_check_timeout': 'int',
         'health_check_uri': 'str',
         'healthy_threshold': 'int',
+        'port': 'int',
         'unhealthy_threshold': 'int'
     }
 
@@ -61,10 +62,11 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'health_check_timeout': 'HealthCheckTimeout',
         'health_check_uri': 'HealthCheckURI',
         'healthy_threshold': 'HealthyThreshold',
+        'port': 'Port',
         'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, port=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckTemplateForDescribeHealthCheckTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         self._health_check_timeout = None
         self._health_check_uri = None
         self._healthy_threshold = None
+        self._port = None
         self._unhealthy_threshold = None
         self.discriminator = None
 
@@ -109,6 +112,8 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
             self.health_check_uri = health_check_uri
         if healthy_threshold is not None:
             self.healthy_threshold = healthy_threshold
+        if port is not None:
+            self.port = port
         if unhealthy_threshold is not None:
             self.unhealthy_threshold = unhealthy_threshold
 
@@ -363,6 +368,27 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         """
 
         self._healthy_threshold = healthy_threshold
+
+    @property
+    def port(self):
+        """Gets the port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+
+
+        :return: The port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.
+
+
+        :param port: The port of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     @property
     def unhealthy_threshold(self):

@@ -40,6 +40,7 @@ class HealthCheckForModifyServerGroupAttributesInput(object):
         'http_version': 'str',
         'interval': 'str',
         'method': 'str',
+        'port': 'int',
         'protocol': 'str',
         'timeout': 'str',
         'uri': 'str',
@@ -54,13 +55,14 @@ class HealthCheckForModifyServerGroupAttributesInput(object):
         'http_version': 'HttpVersion',
         'interval': 'Interval',
         'method': 'Method',
+        'port': 'Port',
         'protocol': 'Protocol',
         'timeout': 'Timeout',
         'uri': 'URI',
         'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, http_version=None, interval=None, method=None, protocol=None, timeout=None, uri=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain=None, enabled=None, healthy_threshold=None, http_code=None, http_version=None, interval=None, method=None, port=None, protocol=None, timeout=None, uri=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckForModifyServerGroupAttributesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class HealthCheckForModifyServerGroupAttributesInput(object):
         self._http_version = None
         self._interval = None
         self._method = None
+        self._port = None
         self._protocol = None
         self._timeout = None
         self._uri = None
@@ -93,6 +96,7 @@ class HealthCheckForModifyServerGroupAttributesInput(object):
             self.interval = interval
         if method is not None:
             self.method = method
+        self.port = port
         if protocol is not None:
             self.protocol = protocol
         if timeout is not None:
@@ -248,6 +252,35 @@ class HealthCheckForModifyServerGroupAttributesInput(object):
         """
 
         self._method = method
+
+    @property
+    def port(self):
+        """Gets the port of this HealthCheckForModifyServerGroupAttributesInput.  # noqa: E501
+
+
+        :return: The port of this HealthCheckForModifyServerGroupAttributesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this HealthCheckForModifyServerGroupAttributesInput.
+
+
+        :param port: The port of this HealthCheckForModifyServerGroupAttributesInput.  # noqa: E501
+        :type: int
+        """
+        if self._configuration.client_side_validation and port is None:
+            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                port is not None and port > 65535):  # noqa: E501
+            raise ValueError("Invalid value for `port`, must be a value less than or equal to `65535`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                port is not None and port < 0):  # noqa: E501
+            raise ValueError("Invalid value for `port`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._port = port
 
     @property
     def protocol(self):

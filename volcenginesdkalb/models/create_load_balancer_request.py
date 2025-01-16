@@ -41,6 +41,8 @@ class CreateLoadBalancerRequest(object):
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfigForCreateLoadBalancerInput',
         'load_balancer_billing_type': 'int',
         'load_balancer_name': 'str',
+        'modification_protection_reason': 'str',
+        'modification_protection_status': 'str',
         'project_name': 'str',
         'region_id': 'str',
         'subnet_id': 'str',
@@ -59,6 +61,8 @@ class CreateLoadBalancerRequest(object):
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfig',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
         'load_balancer_name': 'LoadBalancerName',
+        'modification_protection_reason': 'ModificationProtectionReason',
+        'modification_protection_status': 'ModificationProtectionStatus',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'subnet_id': 'SubnetId',
@@ -68,7 +72,7 @@ class CreateLoadBalancerRequest(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, address_ip_version=None, bandwidth_package_id=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_name=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, bandwidth_package_id=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +86,8 @@ class CreateLoadBalancerRequest(object):
         self._ipv6_eip_billing_config = None
         self._load_balancer_billing_type = None
         self._load_balancer_name = None
+        self._modification_protection_reason = None
+        self._modification_protection_status = None
         self._project_name = None
         self._region_id = None
         self._subnet_id = None
@@ -107,14 +113,20 @@ class CreateLoadBalancerRequest(object):
             self.load_balancer_billing_type = load_balancer_billing_type
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
+        if modification_protection_reason is not None:
+            self.modification_protection_reason = modification_protection_reason
+        if modification_protection_status is not None:
+            self.modification_protection_status = modification_protection_status
         if project_name is not None:
             self.project_name = project_name
-        self.region_id = region_id
+        if region_id is not None:
+            self.region_id = region_id
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
-        self.type = type
+        if type is not None:
+            self.type = type
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_mappings is not None:
@@ -289,6 +301,48 @@ class CreateLoadBalancerRequest(object):
         self._load_balancer_name = load_balancer_name
 
     @property
+    def modification_protection_reason(self):
+        """Gets the modification_protection_reason of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The modification_protection_reason of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._modification_protection_reason
+
+    @modification_protection_reason.setter
+    def modification_protection_reason(self, modification_protection_reason):
+        """Sets the modification_protection_reason of this CreateLoadBalancerRequest.
+
+
+        :param modification_protection_reason: The modification_protection_reason of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._modification_protection_reason = modification_protection_reason
+
+    @property
+    def modification_protection_status(self):
+        """Gets the modification_protection_status of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The modification_protection_status of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._modification_protection_status
+
+    @modification_protection_status.setter
+    def modification_protection_status(self, modification_protection_status):
+        """Sets the modification_protection_status of this CreateLoadBalancerRequest.
+
+
+        :param modification_protection_status: The modification_protection_status of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._modification_protection_status = modification_protection_status
+
+    @property
     def project_name(self):
         """Gets the project_name of this CreateLoadBalancerRequest.  # noqa: E501
 
@@ -327,8 +381,6 @@ class CreateLoadBalancerRequest(object):
         :param region_id: The region_id of this CreateLoadBalancerRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and region_id is None:
-            raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
 
@@ -392,8 +444,6 @@ class CreateLoadBalancerRequest(object):
         :param type: The type of this CreateLoadBalancerRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
