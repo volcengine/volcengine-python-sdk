@@ -10,8 +10,11 @@ CLIENT_REQUEST_HEADER = "X-Client-Request-Id"
 SERVER_REQUEST_HEADER = "X-Request-Id"
 ARK_E2E_ENCRYPTION_HEADER = "x-is-encrypted"
 
+DEFAULT_TIMEOUT_SECONDS = 600.0
+DEFAULT_CONNECT_TIMEOUT_SECONDS = 60.0
 # default timeout is 1 minutes
-DEFAULT_TIMEOUT = httpx.Timeout(timeout=600.0, connect=60.0)
+DEFAULT_TIMEOUT = httpx.Timeout(timeout=DEFAULT_TIMEOUT_SECONDS, connect=DEFAULT_CONNECT_TIMEOUT_SECONDS)
+
 DEFAULT_MAX_RETRIES = 2
 DEFAULT_CONNECTION_LIMITS = httpx.Limits(
     max_connections=1000, max_keepalive_connections=100

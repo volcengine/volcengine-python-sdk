@@ -595,6 +595,28 @@ class SyncAPIClient(BaseClient):
 
         return cast(ResponseT, self.request(cast_to, opts))
 
+    def post_without_retry(
+            self,
+            path: str,
+            *,
+            cast_to: Type[ResponseT],
+            body: Dict | None = None,
+            options: ExtraRequestOptions = {},
+            files: RequestFiles | None = None,
+            stream: bool = False,
+            stream_cls: type[_StreamT] | None = None,
+    ) -> ResponseT | _StreamT:
+        opts = RequestOptions.construct(  # type: ignore
+            method="post",
+            url=path,
+            body=body,
+            **options,
+        )
+
+        return cast(
+            ResponseT, self.request(cast_to, opts, remaining_retries=0, stream=stream, stream_cls=stream_cls)
+        )
+
     def request(
             self,
             cast_to: Type[ResponseT],
@@ -754,6 +776,26 @@ class AsyncAPIClient(BaseClient):
         )
 
         return await self.request(cast_to, opts)
+
+    async def post_without_retry(
+            self,
+            path: str,
+            *,
+            cast_to: Type[ResponseT],
+            body: Dict | None = None,
+            options: ExtraRequestOptions = {},
+            files: RequestFiles | None = None,
+            stream: bool = False,
+            stream_cls: type[_AsyncStreamT] | None = None,
+    ) -> ResponseT | _AsyncStreamT:
+        opts = RequestOptions.construct(
+            method="post",
+            url=path,
+            body=body,
+            **options,
+        )
+
+        return await self.request(cast_to, opts, remaining_retries=0, stream=stream, stream_cls=stream_cls)
 
     async def request(
             self,

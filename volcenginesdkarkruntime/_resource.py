@@ -12,6 +12,7 @@ class SyncAPIResource:
         self._post = client.post
         self._get = client.get
         self._delete = client.delete
+        self._post_without_retry = client.post_without_retry
 
 
 class AsyncAPIResource:
@@ -22,3 +23,4 @@ class AsyncAPIResource:
         self._post = client.post
         self._get = client.get
         self._delete = client.delete
+        self._post_without_retry = client.post_without_retry
