@@ -38,6 +38,7 @@ class CreateKeyRequest(object):
         'key_spec': 'str',
         'key_usage': 'str',
         'keyring_name': 'str',
+        'multi_region': 'bool',
         'origin': 'str',
         'protection_level': 'str',
         'rotate_state': 'str'
@@ -49,12 +50,13 @@ class CreateKeyRequest(object):
         'key_spec': 'KeySpec',
         'key_usage': 'KeyUsage',
         'keyring_name': 'KeyringName',
+        'multi_region': 'MultiRegion',
         'origin': 'Origin',
         'protection_level': 'ProtectionLevel',
         'rotate_state': 'RotateState'
     }
 
-    def __init__(self, description=None, key_name=None, key_spec=None, key_usage=None, keyring_name=None, origin=None, protection_level=None, rotate_state=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, key_name=None, key_spec=None, key_usage=None, keyring_name=None, multi_region=None, origin=None, protection_level=None, rotate_state=None, _configuration=None):  # noqa: E501
         """CreateKeyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class CreateKeyRequest(object):
         self._key_spec = None
         self._key_usage = None
         self._keyring_name = None
+        self._multi_region = None
         self._origin = None
         self._protection_level = None
         self._rotate_state = None
@@ -78,6 +81,8 @@ class CreateKeyRequest(object):
         if key_usage is not None:
             self.key_usage = key_usage
         self.keyring_name = keyring_name
+        if multi_region is not None:
+            self.multi_region = multi_region
         if origin is not None:
             self.origin = origin
         if protection_level is not None:
@@ -208,6 +213,27 @@ class CreateKeyRequest(object):
             raise ValueError("Invalid value for `keyring_name`, length must be greater than or equal to `2`")  # noqa: E501
 
         self._keyring_name = keyring_name
+
+    @property
+    def multi_region(self):
+        """Gets the multi_region of this CreateKeyRequest.  # noqa: E501
+
+
+        :return: The multi_region of this CreateKeyRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._multi_region
+
+    @multi_region.setter
+    def multi_region(self, multi_region):
+        """Sets the multi_region of this CreateKeyRequest.
+
+
+        :param multi_region: The multi_region of this CreateKeyRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._multi_region = multi_region
 
     @property
     def origin(self):
