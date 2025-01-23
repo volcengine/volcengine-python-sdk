@@ -42,6 +42,8 @@ class KeyForDescribeKeyOutput(object):
         'key_state': 'str',
         'key_usage': 'str',
         'last_rotation_time': 'str',
+        'multi_region': 'str',
+        'multi_region_configuration': 'MultiRegionConfigurationForDescribeKeyOutput',
         'origin': 'str',
         'protection_level': 'str',
         'rotation_state': 'str',
@@ -61,6 +63,8 @@ class KeyForDescribeKeyOutput(object):
         'key_state': 'KeyState',
         'key_usage': 'KeyUsage',
         'last_rotation_time': 'LastRotationTime',
+        'multi_region': 'MultiRegion',
+        'multi_region_configuration': 'MultiRegionConfiguration',
         'origin': 'Origin',
         'protection_level': 'ProtectionLevel',
         'rotation_state': 'RotationState',
@@ -70,7 +74,7 @@ class KeyForDescribeKeyOutput(object):
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, creation_date=None, description=None, id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, last_rotation_time=None, origin=None, protection_level=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_date=None, description=None, id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, last_rotation_time=None, multi_region=None, multi_region_configuration=None, origin=None, protection_level=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
         """KeyForDescribeKeyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +89,8 @@ class KeyForDescribeKeyOutput(object):
         self._key_state = None
         self._key_usage = None
         self._last_rotation_time = None
+        self._multi_region = None
+        self._multi_region_configuration = None
         self._origin = None
         self._protection_level = None
         self._rotation_state = None
@@ -112,6 +118,10 @@ class KeyForDescribeKeyOutput(object):
             self.key_usage = key_usage
         if last_rotation_time is not None:
             self.last_rotation_time = last_rotation_time
+        if multi_region is not None:
+            self.multi_region = multi_region
+        if multi_region_configuration is not None:
+            self.multi_region_configuration = multi_region_configuration
         if origin is not None:
             self.origin = origin
         if protection_level is not None:
@@ -315,6 +325,48 @@ class KeyForDescribeKeyOutput(object):
         """
 
         self._last_rotation_time = last_rotation_time
+
+    @property
+    def multi_region(self):
+        """Gets the multi_region of this KeyForDescribeKeyOutput.  # noqa: E501
+
+
+        :return: The multi_region of this KeyForDescribeKeyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_region
+
+    @multi_region.setter
+    def multi_region(self, multi_region):
+        """Sets the multi_region of this KeyForDescribeKeyOutput.
+
+
+        :param multi_region: The multi_region of this KeyForDescribeKeyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._multi_region = multi_region
+
+    @property
+    def multi_region_configuration(self):
+        """Gets the multi_region_configuration of this KeyForDescribeKeyOutput.  # noqa: E501
+
+
+        :return: The multi_region_configuration of this KeyForDescribeKeyOutput.  # noqa: E501
+        :rtype: MultiRegionConfigurationForDescribeKeyOutput
+        """
+        return self._multi_region_configuration
+
+    @multi_region_configuration.setter
+    def multi_region_configuration(self, multi_region_configuration):
+        """Sets the multi_region_configuration of this KeyForDescribeKeyOutput.
+
+
+        :param multi_region_configuration: The multi_region_configuration of this KeyForDescribeKeyOutput.  # noqa: E501
+        :type: MultiRegionConfigurationForDescribeKeyOutput
+        """
+
+        self._multi_region_configuration = multi_region_configuration
 
     @property
     def origin(self):
