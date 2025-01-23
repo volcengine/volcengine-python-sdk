@@ -18,16 +18,13 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ..._streaming import Stream, AsyncStream
-from ...types.context import (
-    ContextChatCompletion,
-    ContextChatCompletionChunk
-)
+from ...types.context import ContextChatCompletion, ContextChatCompletionChunk
 from ...types.chat import (
     ChatCompletionMessageParam,
     completion_create_params,
     ChatCompletionStreamOptionsParam,
     ChatCompletionToolParam,
-    ChatCompletionToolChoiceOptionParam
+    ChatCompletionToolChoiceOptionParam,
 )
 
 __all__ = ["Completions", "AsyncCompletions"]

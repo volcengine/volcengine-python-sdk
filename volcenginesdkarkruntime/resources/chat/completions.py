@@ -1,6 +1,15 @@
 from __future__ import annotations
 
-from typing import Dict, List, Union, Iterable, Optional, Callable, Iterator, AsyncIterator
+from typing import (
+    Dict,
+    List,
+    Union,
+    Iterable,
+    Optional,
+    Callable,
+    Iterator,
+    AsyncIterator,
+)
 
 import httpx
 import warnings
@@ -27,15 +36,16 @@ from ...types.chat import (
     completion_create_params,
     ChatCompletionStreamOptionsParam,
     ChatCompletionToolParam,
-    ChatCompletionToolChoiceOptionParam
+    ChatCompletionToolChoiceOptionParam,
 )
 from ..._constants import ARK_E2E_ENCRYPTION_HEADER
 
 __all__ = ["Completions", "AsyncCompletions"]
 
 
-def _process_messages(messages: Iterable[ChatCompletionMessageParam],
-                      f: Callable[[str], str]):
+def _process_messages(
+    messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
+):
     for message in messages:
         if message.get("content", None) is not None:
             current_content = message.get("content")
@@ -46,17 +56,26 @@ def _process_messages(messages: Iterable[ChatCompletionMessageParam],
                     if part.get("type", None) == "text":
                         part["text"] = f(part["text"])
                     elif part.get("type", None) == "image_url":
-                        if part["image_url"]["url"].startswith('data:'):
+                        if part["image_url"]["url"].startswith("data:"):
                             part["image_url"]["url"] = f(part["image_url"]["url"])
                         else:
-                            warnings.warn("encryption is not supported for image url, "
-                                          "please use base64 image if you want encryption")
+                            warnings.warn(
+                                "encryption is not supported for image url, "
+                                "please use base64 image if you want encryption"
+                            )
                     else:
-                        raise TypeError("encryption is not supported for content type {}".
-                                        format(type(part)))
+                        raise TypeError(
+                            "encryption is not supported for content type {}".format(
+                                type(part)
+                            )
+                        )
             else:
-                raise TypeError("encryption is not supported for content type {}".
-                                format(type(message.get('content'))))
+                raise TypeError(
+                    "encryption is not supported for content type {}".format(
+                        type(message.get("content"))
+                    )
+                )
+
 
 class Completions(SyncAPIResource):
     @cached_property
@@ -67,34 +86,56 @@ class Completions(SyncAPIResource):
     def with_streaming_response(self) -> CompletionsWithStreamingResponse:
         return CompletionsWithStreamingResponse(self)
 
-    def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
-                 ) -> tuple[bytes, bytes]:
+    def _encrypt(
+        self,
+        model: str,
+        messages: Iterable[ChatCompletionMessageParam],
+        extra_headers: Headers,
+    ) -> tuple[bytes, bytes]:
         client = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
-        extra_headers['X-Session-Token'] = session_token
-        _process_messages(messages, lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x))
+        extra_headers["X-Session-Token"] = session_token
+        _process_messages(
+            messages,
+            lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
+        )
         return _crypto_key, _crypto_nonce
 
-    def _decrypt_chunk(self, key: bytes, nonce: bytes, resp: Stream[ChatCompletionChunk]) -> Iterator[ChatCompletionChunk]:
+    def _decrypt_chunk(
+        self, key: bytes, nonce: bytes, resp: Stream[ChatCompletionChunk]
+    ) -> Iterator[ChatCompletionChunk]:
         for chunk in resp:
             if chunk.choices is not None:
                 for index, choice in enumerate(chunk.choices):
                     if choice.delta is not None and choice.delta.content is not None:
-                        choice.delta.content = aes_gcm_decrypt_base64_string(key, nonce, choice.delta.content)
+                        choice.delta.content = aes_gcm_decrypt_base64_string(
+                            key, nonce, choice.delta.content
+                        )
                     chunk.choices[index] = choice
             yield chunk
 
-    def _decrypt(self, key: bytes, nonce: bytes, resp: ChatCompletion | Stream[ChatCompletionChunk]
-                 ) -> ChatCompletion | Stream[ChatCompletionChunk]:
+    def _decrypt(
+        self,
+        key: bytes,
+        nonce: bytes,
+        resp: ChatCompletion | Stream[ChatCompletionChunk],
+    ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         if isinstance(resp, ChatCompletion):
             if resp.choices is not None:
                 for index, choice in enumerate(resp.choices):
-                    if choice.message is not None and choice.message.content is not None:
-                        choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
+                    if (
+                        choice.message is not None
+                        and choice.message.content is not None
+                    ):
+                        choice.message.content = aes_gcm_decrypt_base64_string(
+                            key, nonce, choice.message.content
+                        )
                     resp.choices[index] = choice
             return resp
         else:
-            return Stream._make_stream_from_iterator(self._decrypt_chunk(key, nonce, resp))
+            return Stream._make_stream_from_iterator(
+                self._decrypt_chunk(key, nonce, resp)
+            )
 
     @with_sts_token
     def create(
@@ -126,7 +167,10 @@ class Completions(SyncAPIResource):
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         is_encrypt = False
-        if extra_headers is not None and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == 'true':
+        if (
+            extra_headers is not None
+            and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
+        ):
             is_encrypt = True
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 
@@ -179,35 +223,56 @@ class AsyncCompletions(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncCompletionsWithStreamingResponse:
         return AsyncCompletionsWithStreamingResponse(self)
 
-    def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
-                 ) -> tuple[bytes, bytes]:
+    def _encrypt(
+        self,
+        model: str,
+        messages: Iterable[ChatCompletionMessageParam],
+        extra_headers: Headers,
+    ) -> tuple[bytes, bytes]:
         client = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
-        extra_headers['X-Session-Token'] = session_token
-        _process_messages(messages, lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x))
+        extra_headers["X-Session-Token"] = session_token
+        _process_messages(
+            messages,
+            lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
+        )
         return _crypto_key, _crypto_nonce
 
-    async def _decrypt_chunk(self, key: bytes, nonce: bytes, resp: AsyncStream[ChatCompletionChunk]
-                             ) -> AsyncIterator[ChatCompletionChunk]:
+    async def _decrypt_chunk(
+        self, key: bytes, nonce: bytes, resp: AsyncStream[ChatCompletionChunk]
+    ) -> AsyncIterator[ChatCompletionChunk]:
         async for chunk in resp:
             if chunk.choices is not None:
                 for index, choice in enumerate(chunk.choices):
                     if choice.delta is not None and choice.delta.content is not None:
-                        choice.delta.content = aes_gcm_decrypt_base64_string(key, nonce, choice.delta.content)
+                        choice.delta.content = aes_gcm_decrypt_base64_string(
+                            key, nonce, choice.delta.content
+                        )
                     chunk.choices[index] = choice
             yield chunk
 
-    async def _decrypt(self, key: bytes, nonce: bytes, resp: ChatCompletion | AsyncStream[ChatCompletionChunk]
-                       ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
+    async def _decrypt(
+        self,
+        key: bytes,
+        nonce: bytes,
+        resp: ChatCompletion | AsyncStream[ChatCompletionChunk],
+    ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         if isinstance(resp, ChatCompletion):
             if resp.choices is not None:
                 for index, choice in enumerate(resp.choices):
-                    if choice.message is not None and choice.message.content is not None:
-                        choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
+                    if (
+                        choice.message is not None
+                        and choice.message.content is not None
+                    ):
+                        choice.message.content = aes_gcm_decrypt_base64_string(
+                            key, nonce, choice.message.content
+                        )
                     resp.choices[index] = choice
             return resp
         else:
-            return AsyncStream._make_stream_from_iterator(self._decrypt_chunk(key, nonce, resp))
+            return AsyncStream._make_stream_from_iterator(
+                self._decrypt_chunk(key, nonce, resp)
+            )
 
     @async_with_sts_token
     async def create(
@@ -239,7 +304,10 @@ class AsyncCompletions(AsyncAPIResource):
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         is_encrypt = False
-        if extra_headers is not None and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == 'true':
+        if (
+            extra_headers is not None
+            and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
+        ):
             is_encrypt = True
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 
