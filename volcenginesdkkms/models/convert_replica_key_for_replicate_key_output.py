@@ -42,7 +42,7 @@ class ConvertReplicaKeyForReplicateKeyOutput(object):
         'key_state': 'str',
         'key_usage': 'str',
         'last_rotation_time': 'str',
-        'multi_region': 'str',
+        'multi_region': 'bool',
         'multi_region_configuration': 'MultiRegionConfigurationForReplicateKeyOutput',
         'origin': 'str',
         'protection_level': 'str',
@@ -332,7 +332,7 @@ class ConvertReplicaKeyForReplicateKeyOutput(object):
 
 
         :return: The multi_region of this ConvertReplicaKeyForReplicateKeyOutput.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._multi_region
 
@@ -342,7 +342,7 @@ class ConvertReplicaKeyForReplicateKeyOutput(object):
 
 
         :param multi_region: The multi_region of this ConvertReplicaKeyForReplicateKeyOutput.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._multi_region = multi_region
