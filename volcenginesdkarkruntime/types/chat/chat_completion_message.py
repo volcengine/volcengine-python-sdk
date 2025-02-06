@@ -40,3 +40,6 @@ class ChatCompletionMessage(BaseModel):
 
     audio: Optional[ChatCompletionAudio] = None
     """Audio response from the model."""
+
+    reasoning_content: Optional[str] = None
+    """The reasoning content of the message."""

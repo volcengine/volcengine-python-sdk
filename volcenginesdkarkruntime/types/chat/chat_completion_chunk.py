@@ -70,6 +70,9 @@ class ChoiceDelta(BaseModel):
 
     tool_calls: Optional[List[ChoiceDeltaToolCall]] = None
 
+    reasoning_content: Optional[str] = None
+    """The reasoning content of the message."""
+
 
 class ChoiceLogprobs(BaseModel):
     content: Optional[List[ChatCompletionTokenLogprob]] = None
