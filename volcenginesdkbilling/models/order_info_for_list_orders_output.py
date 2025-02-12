@@ -38,6 +38,7 @@ class OrderInfoForListOrdersOutput(object):
         'coupon_amount': 'str',
         'create_time': 'str',
         'discount_amount': 'str',
+        'order_fail_refund_info': 'OrderFailRefundInfoForListOrdersOutput',
         'order_id': 'str',
         'order_type': 'str',
         'original_amount': 'str',
@@ -57,6 +58,7 @@ class OrderInfoForListOrdersOutput(object):
         'coupon_amount': 'CouponAmount',
         'create_time': 'CreateTime',
         'discount_amount': 'DiscountAmount',
+        'order_fail_refund_info': 'OrderFailRefundInfo',
         'order_id': 'OrderID',
         'order_type': 'OrderType',
         'original_amount': 'OriginalAmount',
@@ -70,7 +72,7 @@ class OrderInfoForListOrdersOutput(object):
         'subject_no': 'SubjectNo'
     }
 
-    def __init__(self, buyer_customer_name=None, buyer_id=None, coupon_amount=None, create_time=None, discount_amount=None, order_id=None, order_type=None, original_amount=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, seller_customer_name=None, seller_id=None, status=None, subject_no=None, _configuration=None):  # noqa: E501
+    def __init__(self, buyer_customer_name=None, buyer_id=None, coupon_amount=None, create_time=None, discount_amount=None, order_fail_refund_info=None, order_id=None, order_type=None, original_amount=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, seller_customer_name=None, seller_id=None, status=None, subject_no=None, _configuration=None):  # noqa: E501
         """OrderInfoForListOrdersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class OrderInfoForListOrdersOutput(object):
         self._coupon_amount = None
         self._create_time = None
         self._discount_amount = None
+        self._order_fail_refund_info = None
         self._order_id = None
         self._order_type = None
         self._original_amount = None
@@ -104,6 +107,8 @@ class OrderInfoForListOrdersOutput(object):
             self.create_time = create_time
         if discount_amount is not None:
             self.discount_amount = discount_amount
+        if order_fail_refund_info is not None:
+            self.order_fail_refund_info = order_fail_refund_info
         if order_id is not None:
             self.order_id = order_id
         if order_type is not None:
@@ -231,6 +236,27 @@ class OrderInfoForListOrdersOutput(object):
         """
 
         self._discount_amount = discount_amount
+
+    @property
+    def order_fail_refund_info(self):
+        """Gets the order_fail_refund_info of this OrderInfoForListOrdersOutput.  # noqa: E501
+
+
+        :return: The order_fail_refund_info of this OrderInfoForListOrdersOutput.  # noqa: E501
+        :rtype: OrderFailRefundInfoForListOrdersOutput
+        """
+        return self._order_fail_refund_info
+
+    @order_fail_refund_info.setter
+    def order_fail_refund_info(self, order_fail_refund_info):
+        """Sets the order_fail_refund_info of this OrderInfoForListOrdersOutput.
+
+
+        :param order_fail_refund_info: The order_fail_refund_info of this OrderInfoForListOrdersOutput.  # noqa: E501
+        :type: OrderFailRefundInfoForListOrdersOutput
+        """
+
+        self._order_fail_refund_info = order_fail_refund_info
 
     @property
     def order_id(self):
