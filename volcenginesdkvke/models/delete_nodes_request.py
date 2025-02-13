@@ -66,8 +66,7 @@ class DeleteNodesRequest(object):
         self.cluster_id = cluster_id
         if ids is not None:
             self.ids = ids
-        if node_pool_id is not None:
-            self.node_pool_id = node_pool_id
+        self.node_pool_id = node_pool_id
         if retain_resources is not None:
             self.retain_resources = retain_resources
 
@@ -162,6 +161,8 @@ class DeleteNodesRequest(object):
         :param node_pool_id: The node_pool_id of this DeleteNodesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and node_pool_id is None:
+            raise ValueError("Invalid value for `node_pool_id`, must not be `None`")  # noqa: E501
 
         self._node_pool_id = node_pool_id
 

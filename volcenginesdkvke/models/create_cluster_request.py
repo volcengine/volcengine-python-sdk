@@ -41,6 +41,7 @@ class CreateClusterRequest(object):
         'logging_config': 'LoggingConfigForCreateClusterInput',
         'name': 'str',
         'pods_config': 'PodsConfigForCreateClusterInput',
+        'project_name': 'str',
         'services_config': 'ServicesConfigForCreateClusterInput',
         'tags': 'list[TagForCreateClusterInput]'
     }
@@ -54,11 +55,12 @@ class CreateClusterRequest(object):
         'logging_config': 'LoggingConfig',
         'name': 'Name',
         'pods_config': 'PodsConfig',
+        'project_name': 'ProjectName',
         'services_config': 'ServicesConfig',
         'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, kubernetes_version=None, logging_config=None, name=None, pods_config=None, services_config=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, kubernetes_version=None, logging_config=None, name=None, pods_config=None, project_name=None, services_config=None, tags=None, _configuration=None):  # noqa: E501
         """CreateClusterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class CreateClusterRequest(object):
         self._logging_config = None
         self._name = None
         self._pods_config = None
+        self._project_name = None
         self._services_config = None
         self._tags = None
         self.discriminator = None
@@ -91,6 +94,8 @@ class CreateClusterRequest(object):
         self.name = name
         if pods_config is not None:
             self.pods_config = pods_config
+        if project_name is not None:
+            self.project_name = project_name
         if services_config is not None:
             self.services_config = services_config
         if tags is not None:
@@ -265,6 +270,27 @@ class CreateClusterRequest(object):
         """
 
         self._pods_config = pods_config
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateClusterRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateClusterRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateClusterRequest.
+
+
+        :param project_name: The project_name of this CreateClusterRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def services_config(self):

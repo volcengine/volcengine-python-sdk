@@ -33,6 +33,7 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_sync_disabled': 'bool',
         'cordon': 'bool',
         'labels': 'list[LabelForUpdateNodePoolConfigInput]',
         'name_prefix': 'str',
@@ -40,24 +41,28 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
     }
 
     attribute_map = {
+        'auto_sync_disabled': 'AutoSyncDisabled',
         'cordon': 'Cordon',
         'labels': 'Labels',
         'name_prefix': 'NamePrefix',
         'taints': 'Taints'
     }
 
-    def __init__(self, cordon=None, labels=None, name_prefix=None, taints=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_sync_disabled=None, cordon=None, labels=None, name_prefix=None, taints=None, _configuration=None):  # noqa: E501
         """KubernetesConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_sync_disabled = None
         self._cordon = None
         self._labels = None
         self._name_prefix = None
         self._taints = None
         self.discriminator = None
 
+        if auto_sync_disabled is not None:
+            self.auto_sync_disabled = auto_sync_disabled
         if cordon is not None:
             self.cordon = cordon
         if labels is not None:
@@ -66,6 +71,27 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
             self.name_prefix = name_prefix
         if taints is not None:
             self.taints = taints
+
+    @property
+    def auto_sync_disabled(self):
+        """Gets the auto_sync_disabled of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The auto_sync_disabled of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_sync_disabled
+
+    @auto_sync_disabled.setter
+    def auto_sync_disabled(self, auto_sync_disabled):
+        """Sets the auto_sync_disabled of this KubernetesConfigForUpdateNodePoolConfigInput.
+
+
+        :param auto_sync_disabled: The auto_sync_disabled of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_sync_disabled = auto_sync_disabled
 
     @property
     def cordon(self):

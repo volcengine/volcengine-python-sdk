@@ -38,6 +38,7 @@ class AutoScalingForListNodePoolsOutput(object):
         'max_replicas': 'int',
         'min_replicas': 'int',
         'priority': 'int',
+        'scaling_group_id': 'str',
         'subnet_policy': 'str'
     }
 
@@ -47,10 +48,11 @@ class AutoScalingForListNodePoolsOutput(object):
         'max_replicas': 'MaxReplicas',
         'min_replicas': 'MinReplicas',
         'priority': 'Priority',
+        'scaling_group_id': 'ScalingGroupId',
         'subnet_policy': 'SubnetPolicy'
     }
 
-    def __init__(self, desired_replicas=None, enabled=None, max_replicas=None, min_replicas=None, priority=None, subnet_policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, desired_replicas=None, enabled=None, max_replicas=None, min_replicas=None, priority=None, scaling_group_id=None, subnet_policy=None, _configuration=None):  # noqa: E501
         """AutoScalingForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class AutoScalingForListNodePoolsOutput(object):
         self._max_replicas = None
         self._min_replicas = None
         self._priority = None
+        self._scaling_group_id = None
         self._subnet_policy = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class AutoScalingForListNodePoolsOutput(object):
             self.min_replicas = min_replicas
         if priority is not None:
             self.priority = priority
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
         if subnet_policy is not None:
             self.subnet_policy = subnet_policy
 
@@ -181,6 +186,27 @@ class AutoScalingForListNodePoolsOutput(object):
         """
 
         self._priority = priority
+
+    @property
+    def scaling_group_id(self):
+        """Gets the scaling_group_id of this AutoScalingForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The scaling_group_id of this AutoScalingForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scaling_group_id
+
+    @scaling_group_id.setter
+    def scaling_group_id(self, scaling_group_id):
+        """Sets the scaling_group_id of this AutoScalingForListNodePoolsOutput.
+
+
+        :param scaling_group_id: The scaling_group_id of this AutoScalingForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scaling_group_id = scaling_group_id
 
     @property
     def subnet_policy(self):

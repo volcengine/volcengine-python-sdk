@@ -100,7 +100,7 @@ class FilterForListSupportedAddonsInput(object):
         :param categories: The categories of this FilterForListSupportedAddonsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Storage", "Network", "Monitor", "Scheduler", "Dns", "Security", "Gpu", "Image"]  # noqa: E501
+        allowed_values = ["Monitor", "Dns", "Storage", "Scheduler", "Network", "Security", "Gpu", "Image"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(categories).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -237,7 +237,7 @@ class FilterForListSupportedAddonsInput(object):
         :param pod_network_modes: The pod_network_modes of this FilterForListSupportedAddonsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Flannel", "VpcCniShared", "CalicoBgp", "CalicoVxlan", "VpcCniDedicated"]  # noqa: E501
+        allowed_values = ["Flannel", "VpcCniShared"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(pod_network_modes).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

@@ -75,7 +75,7 @@ class StatusForListClustersInput(object):
         :param conditions_type: The conditions_type of this StatusForListClustersInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Balance", "ClusterVersionUpgrading", "CreateError", "Degraded", "Disconnected", "InvalidCertificate", "LimitedByQuota", "Ok", "Progressing", "ResourceCleanupFailed", "Security", "SetByProvider", "SetByUser", "StockOut", "Unknown", "Waiting"]  # noqa: E501
+        allowed_values = ["Ok", "CreateError", "Progressing", "ClusterVersionUpgrading", "Disconnected", "InvalidCertificate", "SetByProvider", "StockOut", "LimitedByQuota", "SetByUser", "Security", "Balance", "Degraded", "Waiting", "ResourceCleanupFailed", "Unknown"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 conditions_type not in allowed_values):
             raise ValueError(
@@ -103,7 +103,7 @@ class StatusForListClustersInput(object):
         :param phase: The phase of this StatusForListClustersInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Creating", "Deleting", "Failed", "Running", "Updating", "Starting", "Stopped"]  # noqa: E501
+        allowed_values = ["Running", "Starting", "Stopped", "Failed", "Updating", "Creating", "Deleting"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 phase not in allowed_values):
             raise ValueError(

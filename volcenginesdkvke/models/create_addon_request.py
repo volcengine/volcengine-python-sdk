@@ -163,7 +163,7 @@ class CreateAddonRequest(object):
         :param deploy_mode: The deploy_mode of this CreateAddonRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Unmanaged", "Managed"]  # noqa: E501
+        allowed_values = ["Managed", "Unmanaged"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 deploy_mode not in allowed_values):
             raise ValueError(
