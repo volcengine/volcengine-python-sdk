@@ -80,7 +80,7 @@ class TaintForCreateNodePoolInput(object):
         :param effect: The effect of this TaintForCreateNodePoolInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["NoSchedule", "NoExecute", "PreferNoSchedule"]  # noqa: E501
+        allowed_values = ["NoSchedule", "PreferNoSchedule", "NoExecute"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 effect not in allowed_values):
             raise ValueError(

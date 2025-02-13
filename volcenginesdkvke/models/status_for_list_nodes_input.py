@@ -75,7 +75,7 @@ class StatusForListNodesInput(object):
         :param conditions_type: The conditions_type of this StatusForListNodesInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Progressing", "Ok", "Unschedulable", "NotReady", "InitializeFailed", "ResourceCleanupFailed", "Security", "Balance", "Unknow"]  # noqa: E501
+        allowed_values = ["Ok", "Unschedulable", "NotReady", "InitializeFailed", "ResourceCleanupFailed", "Security", "Balance", "Unknown", "Progressing"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 conditions_type not in allowed_values):
             raise ValueError(

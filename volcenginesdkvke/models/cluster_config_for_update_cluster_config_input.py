@@ -34,15 +34,17 @@ class ClusterConfigForUpdateClusterConfigInput(object):
     """
     swagger_types = {
         'api_server_public_access_config': 'ApiServerPublicAccessConfigForUpdateClusterConfigInput',
-        'api_server_public_access_enabled': 'bool'
+        'api_server_public_access_enabled': 'bool',
+        'subnet_ids': 'list[str]'
     }
 
     attribute_map = {
         'api_server_public_access_config': 'ApiServerPublicAccessConfig',
-        'api_server_public_access_enabled': 'ApiServerPublicAccessEnabled'
+        'api_server_public_access_enabled': 'ApiServerPublicAccessEnabled',
+        'subnet_ids': 'SubnetIds'
     }
 
-    def __init__(self, api_server_public_access_config=None, api_server_public_access_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_server_public_access_config=None, api_server_public_access_enabled=None, subnet_ids=None, _configuration=None):  # noqa: E501
         """ClusterConfigForUpdateClusterConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ClusterConfigForUpdateClusterConfigInput(object):
 
         self._api_server_public_access_config = None
         self._api_server_public_access_enabled = None
+        self._subnet_ids = None
         self.discriminator = None
 
         if api_server_public_access_config is not None:
             self.api_server_public_access_config = api_server_public_access_config
         if api_server_public_access_enabled is not None:
             self.api_server_public_access_enabled = api_server_public_access_enabled
+        if subnet_ids is not None:
+            self.subnet_ids = subnet_ids
 
     @property
     def api_server_public_access_config(self):
@@ -98,6 +103,27 @@ class ClusterConfigForUpdateClusterConfigInput(object):
         """
 
         self._api_server_public_access_enabled = api_server_public_access_enabled
+
+    @property
+    def subnet_ids(self):
+        """Gets the subnet_ids of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+
+
+        :return: The subnet_ids of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._subnet_ids
+
+    @subnet_ids.setter
+    def subnet_ids(self, subnet_ids):
+        """Sets the subnet_ids of this ClusterConfigForUpdateClusterConfigInput.
+
+
+        :param subnet_ids: The subnet_ids of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._subnet_ids = subnet_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

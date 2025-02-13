@@ -122,7 +122,7 @@ class LogSetupForCreateClusterInput(object):
         :param log_type: The log_type of this LogSetupForCreateClusterInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Audit", "CloudControllerManager", "Etcd", "KubeApiServer", "KubeControllerManager", "KubeScheduler"]  # noqa: E501
+        allowed_values = ["Audit", "KubeApiServer", "KubeScheduler", "KubeControllerManager", "CloudControllerManager", "Etcd"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 log_type not in allowed_values):
             raise ValueError(
