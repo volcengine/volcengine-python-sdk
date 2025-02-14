@@ -48,6 +48,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'lock_reason': 'str',
         'network_type': 'str',
         'overdue_time': 'str',
+        'project_name': 'str',
         'request_id': 'str',
         'service_managed': 'bool',
         'status': 'str',
@@ -70,13 +71,14 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'lock_reason': 'LockReason',
         'network_type': 'NetworkType',
         'overdue_time': 'OverdueTime',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'service_managed': 'ServiceManaged',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, delete_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, request_id=None, service_managed=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, delete_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, request_id=None, service_managed=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeIpv6AddressBandwidthAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         self._lock_reason = None
         self._network_type = None
         self._overdue_time = None
+        self._project_name = None
         self._request_id = None
         self._service_managed = None
         self._status = None
@@ -133,6 +136,8 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
             self.network_type = network_type
         if overdue_time is not None:
             self.overdue_time = overdue_time
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if service_managed is not None:
@@ -456,6 +461,27 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         """
 
         self._overdue_time = overdue_time
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeIpv6AddressBandwidthAttributesResponse.
+
+
+        :param project_name: The project_name of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def request_id(self):

@@ -42,6 +42,7 @@ class DescribeIpv6AddressBandwidthsRequest(object):
         'max_results': 'int',
         'network_type': 'str',
         'next_token': 'str',
+        'project_name': 'str',
         'vpc_id': 'str'
     }
 
@@ -55,10 +56,11 @@ class DescribeIpv6AddressBandwidthsRequest(object):
         'max_results': 'MaxResults',
         'network_type': 'NetworkType',
         'next_token': 'NextToken',
+        'project_name': 'ProjectName',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, bandwidth_package_id=None, isp=None, ipv6_addresses=None, max_results=None, network_type=None, next_token=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, bandwidth_package_id=None, isp=None, ipv6_addresses=None, max_results=None, network_type=None, next_token=None, project_name=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeIpv6AddressBandwidthsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class DescribeIpv6AddressBandwidthsRequest(object):
         self._max_results = None
         self._network_type = None
         self._next_token = None
+        self._project_name = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class DescribeIpv6AddressBandwidthsRequest(object):
             self.network_type = network_type
         if next_token is not None:
             self.next_token = next_token
+        if project_name is not None:
+            self.project_name = project_name
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -285,6 +290,27 @@ class DescribeIpv6AddressBandwidthsRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeIpv6AddressBandwidthsRequest.
+
+
+        :param project_name: The project_name of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def vpc_id(self):
