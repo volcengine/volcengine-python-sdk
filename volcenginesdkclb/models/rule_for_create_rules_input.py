@@ -38,6 +38,7 @@ class RuleForCreateRulesInput(object):
         'domain': 'str',
         'redirect_config': 'RedirectConfigForCreateRulesInput',
         'server_group_id': 'str',
+        'tags': 'list[RulesTagForCreateRulesInput]',
         'url': 'str'
     }
 
@@ -47,10 +48,11 @@ class RuleForCreateRulesInput(object):
         'domain': 'Domain',
         'redirect_config': 'RedirectConfig',
         'server_group_id': 'ServerGroupId',
+        'tags': 'Tags',
         'url': 'Url'
     }
 
-    def __init__(self, action_type=None, description=None, domain=None, redirect_config=None, server_group_id=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_type=None, description=None, domain=None, redirect_config=None, server_group_id=None, tags=None, url=None, _configuration=None):  # noqa: E501
         """RuleForCreateRulesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class RuleForCreateRulesInput(object):
         self._domain = None
         self._redirect_config = None
         self._server_group_id = None
+        self._tags = None
         self._url = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class RuleForCreateRulesInput(object):
             self.redirect_config = redirect_config
         if server_group_id is not None:
             self.server_group_id = server_group_id
+        if tags is not None:
+            self.tags = tags
         if url is not None:
             self.url = url
 
@@ -181,6 +186,27 @@ class RuleForCreateRulesInput(object):
         """
 
         self._server_group_id = server_group_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The tags of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: list[RulesTagForCreateRulesInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RuleForCreateRulesInput.
+
+
+        :param tags: The tags of this RuleForCreateRulesInput.  # noqa: E501
+        :type: list[RulesTagForCreateRulesInput]
+        """
+
+        self._tags = tags
 
     @property
     def url(self):

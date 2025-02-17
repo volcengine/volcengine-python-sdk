@@ -33,23 +33,28 @@ class DescribeRulesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'listener_id': 'str'
+        'listener_id': 'str',
+        'tag_filters': 'list[TagFilterForDescribeRulesInput]'
     }
 
     attribute_map = {
-        'listener_id': 'ListenerId'
+        'listener_id': 'ListenerId',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, listener_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, listener_id=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeRulesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._listener_id = None
+        self._tag_filters = None
         self.discriminator = None
 
         self.listener_id = listener_id
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def listener_id(self):
@@ -73,6 +78,27 @@ class DescribeRulesRequest(object):
             raise ValueError("Invalid value for `listener_id`, must not be `None`")  # noqa: E501
 
         self._listener_id = listener_id
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeRulesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeRulesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeRulesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeRulesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeRulesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeRulesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""
