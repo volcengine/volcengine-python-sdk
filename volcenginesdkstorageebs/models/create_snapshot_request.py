@@ -36,6 +36,7 @@ class CreateSnapshotRequest(object):
         'client_token': 'str',
         'description': 'str',
         'project_name': 'str',
+        'retention_days': 'int',
         'snapshot_name': 'str',
         'tags': 'list[TagForCreateSnapshotInput]',
         'volume_id': 'str'
@@ -45,12 +46,13 @@ class CreateSnapshotRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'project_name': 'ProjectName',
+        'retention_days': 'RetentionDays',
         'snapshot_name': 'SnapshotName',
         'tags': 'Tags',
         'volume_id': 'VolumeId'
     }
 
-    def __init__(self, client_token=None, description=None, project_name=None, snapshot_name=None, tags=None, volume_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, project_name=None, retention_days=None, snapshot_name=None, tags=None, volume_id=None, _configuration=None):  # noqa: E501
         """CreateSnapshotRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateSnapshotRequest(object):
         self._client_token = None
         self._description = None
         self._project_name = None
+        self._retention_days = None
         self._snapshot_name = None
         self._tags = None
         self._volume_id = None
@@ -70,6 +73,8 @@ class CreateSnapshotRequest(object):
             self.description = description
         if project_name is not None:
             self.project_name = project_name
+        if retention_days is not None:
+            self.retention_days = retention_days
         self.snapshot_name = snapshot_name
         if tags is not None:
             self.tags = tags
@@ -137,6 +142,27 @@ class CreateSnapshotRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def retention_days(self):
+        """Gets the retention_days of this CreateSnapshotRequest.  # noqa: E501
+
+
+        :return: The retention_days of this CreateSnapshotRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._retention_days
+
+    @retention_days.setter
+    def retention_days(self, retention_days):
+        """Sets the retention_days of this CreateSnapshotRequest.
+
+
+        :param retention_days: The retention_days of this CreateSnapshotRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._retention_days = retention_days
 
     @property
     def snapshot_name(self):
