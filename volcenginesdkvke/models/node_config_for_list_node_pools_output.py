@@ -44,6 +44,7 @@ class NodeConfigForListNodePoolsOutput(object):
         'instance_type_ids': 'list[str]',
         'name_prefix': 'str',
         'period': 'int',
+        'project_name': 'str',
         'security': 'SecurityForListNodePoolsOutput',
         'subnet_ids': 'list[str]',
         'system_volume': 'SystemVolumeForListNodePoolsOutput',
@@ -62,13 +63,14 @@ class NodeConfigForListNodePoolsOutput(object):
         'instance_type_ids': 'InstanceTypeIds',
         'name_prefix': 'NamePrefix',
         'period': 'Period',
+        'project_name': 'ProjectName',
         'security': 'Security',
         'subnet_ids': 'SubnetIds',
         'system_volume': 'SystemVolume',
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, project_name=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +87,7 @@ class NodeConfigForListNodePoolsOutput(object):
         self._instance_type_ids = None
         self._name_prefix = None
         self._period = None
+        self._project_name = None
         self._security = None
         self._subnet_ids = None
         self._system_volume = None
@@ -113,6 +116,8 @@ class NodeConfigForListNodePoolsOutput(object):
             self.name_prefix = name_prefix
         if period is not None:
             self.period = period
+        if project_name is not None:
+            self.project_name = project_name
         if security is not None:
             self.security = security
         if subnet_ids is not None:
@@ -352,6 +357,27 @@ class NodeConfigForListNodePoolsOutput(object):
         """
 
         self._period = period
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The project_name of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this NodeConfigForListNodePoolsOutput.
+
+
+        :param project_name: The project_name of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def security(self):

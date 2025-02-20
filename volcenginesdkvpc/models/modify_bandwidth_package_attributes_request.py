@@ -35,16 +35,18 @@ class ModifyBandwidthPackageAttributesRequest(object):
     swagger_types = {
         'bandwidth_package_id': 'str',
         'bandwidth_package_name': 'str',
-        'description': 'str'
+        'description': 'str',
+        'enable_dual_stack': 'bool'
     }
 
     attribute_map = {
         'bandwidth_package_id': 'BandwidthPackageId',
         'bandwidth_package_name': 'BandwidthPackageName',
-        'description': 'Description'
+        'description': 'Description',
+        'enable_dual_stack': 'EnableDualStack'
     }
 
-    def __init__(self, bandwidth_package_id=None, bandwidth_package_name=None, description=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth_package_id=None, bandwidth_package_name=None, description=None, enable_dual_stack=None, _configuration=None):  # noqa: E501
         """ModifyBandwidthPackageAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ModifyBandwidthPackageAttributesRequest(object):
         self._bandwidth_package_id = None
         self._bandwidth_package_name = None
         self._description = None
+        self._enable_dual_stack = None
         self.discriminator = None
 
         self.bandwidth_package_id = bandwidth_package_id
@@ -60,6 +63,8 @@ class ModifyBandwidthPackageAttributesRequest(object):
             self.bandwidth_package_name = bandwidth_package_name
         if description is not None:
             self.description = description
+        if enable_dual_stack is not None:
+            self.enable_dual_stack = enable_dual_stack
 
     @property
     def bandwidth_package_id(self):
@@ -137,6 +142,27 @@ class ModifyBandwidthPackageAttributesRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def enable_dual_stack(self):
+        """Gets the enable_dual_stack of this ModifyBandwidthPackageAttributesRequest.  # noqa: E501
+
+
+        :return: The enable_dual_stack of this ModifyBandwidthPackageAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_dual_stack
+
+    @enable_dual_stack.setter
+    def enable_dual_stack(self, enable_dual_stack):
+        """Sets the enable_dual_stack of this ModifyBandwidthPackageAttributesRequest.
+
+
+        :param enable_dual_stack: The enable_dual_stack of this ModifyBandwidthPackageAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_dual_stack = enable_dual_stack
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -44,9 +44,11 @@ class CreateRuleRequest(object):
         'enable_state': 'str',
         'evaluation_count': 'int',
         'level': 'str',
+        'level_conditions': 'list[LevelConditionForCreateRuleInput]',
         'multiple_conditions': 'bool',
         'namespace': 'str',
         'no_data': 'NoDataForCreateRuleInput',
+        'notification_id': 'str',
         'original_dimensions': 'dict(str, list[str])',
         'project_name': 'str',
         'recovery_notify': 'RecoveryNotifyForCreateRuleInput',
@@ -71,9 +73,11 @@ class CreateRuleRequest(object):
         'enable_state': 'EnableState',
         'evaluation_count': 'EvaluationCount',
         'level': 'Level',
+        'level_conditions': 'LevelConditions',
         'multiple_conditions': 'MultipleConditions',
         'namespace': 'Namespace',
         'no_data': 'NoData',
+        'notification_id': 'NotificationId',
         'original_dimensions': 'OriginalDimensions',
         'project_name': 'ProjectName',
         'recovery_notify': 'RecoveryNotify',
@@ -86,7 +90,7 @@ class CreateRuleRequest(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, level=None, multiple_conditions=None, namespace=None, no_data=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """CreateRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,9 +107,11 @@ class CreateRuleRequest(object):
         self._enable_state = None
         self._evaluation_count = None
         self._level = None
+        self._level_conditions = None
         self._multiple_conditions = None
         self._namespace = None
         self._no_data = None
+        self._notification_id = None
         self._original_dimensions = None
         self._project_name = None
         self._recovery_notify = None
@@ -135,11 +141,15 @@ class CreateRuleRequest(object):
         self.enable_state = enable_state
         self.evaluation_count = evaluation_count
         self.level = level
+        if level_conditions is not None:
+            self.level_conditions = level_conditions
         if multiple_conditions is not None:
             self.multiple_conditions = multiple_conditions
         self.namespace = namespace
         if no_data is not None:
             self.no_data = no_data
+        if notification_id is not None:
+            self.notification_id = notification_id
         if original_dimensions is not None:
             self.original_dimensions = original_dimensions
         if project_name is not None:
@@ -407,6 +417,27 @@ class CreateRuleRequest(object):
         self._level = level
 
     @property
+    def level_conditions(self):
+        """Gets the level_conditions of this CreateRuleRequest.  # noqa: E501
+
+
+        :return: The level_conditions of this CreateRuleRequest.  # noqa: E501
+        :rtype: list[LevelConditionForCreateRuleInput]
+        """
+        return self._level_conditions
+
+    @level_conditions.setter
+    def level_conditions(self, level_conditions):
+        """Sets the level_conditions of this CreateRuleRequest.
+
+
+        :param level_conditions: The level_conditions of this CreateRuleRequest.  # noqa: E501
+        :type: list[LevelConditionForCreateRuleInput]
+        """
+
+        self._level_conditions = level_conditions
+
+    @property
     def multiple_conditions(self):
         """Gets the multiple_conditions of this CreateRuleRequest.  # noqa: E501
 
@@ -470,6 +501,27 @@ class CreateRuleRequest(object):
         """
 
         self._no_data = no_data
+
+    @property
+    def notification_id(self):
+        """Gets the notification_id of this CreateRuleRequest.  # noqa: E501
+
+
+        :return: The notification_id of this CreateRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._notification_id
+
+    @notification_id.setter
+    def notification_id(self, notification_id):
+        """Sets the notification_id of this CreateRuleRequest.
+
+
+        :param notification_id: The notification_id of this CreateRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._notification_id = notification_id
 
     @property
     def original_dimensions(self):

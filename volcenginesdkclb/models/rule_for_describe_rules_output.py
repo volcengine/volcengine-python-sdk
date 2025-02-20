@@ -39,6 +39,7 @@ class RuleForDescribeRulesOutput(object):
         'redirect_config': 'RedirectConfigForDescribeRulesOutput',
         'rule_id': 'str',
         'server_group_id': 'str',
+        'tags': 'list[TagForDescribeRulesOutput]',
         'url': 'str'
     }
 
@@ -49,10 +50,11 @@ class RuleForDescribeRulesOutput(object):
         'redirect_config': 'RedirectConfig',
         'rule_id': 'RuleId',
         'server_group_id': 'ServerGroupId',
+        'tags': 'Tags',
         'url': 'Url'
     }
 
-    def __init__(self, action_type=None, description=None, domain=None, redirect_config=None, rule_id=None, server_group_id=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_type=None, description=None, domain=None, redirect_config=None, rule_id=None, server_group_id=None, tags=None, url=None, _configuration=None):  # noqa: E501
         """RuleForDescribeRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class RuleForDescribeRulesOutput(object):
         self._redirect_config = None
         self._rule_id = None
         self._server_group_id = None
+        self._tags = None
         self._url = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class RuleForDescribeRulesOutput(object):
             self.rule_id = rule_id
         if server_group_id is not None:
             self.server_group_id = server_group_id
+        if tags is not None:
+            self.tags = tags
         if url is not None:
             self.url = url
 
@@ -207,6 +212,27 @@ class RuleForDescribeRulesOutput(object):
         """
 
         self._server_group_id = server_group_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this RuleForDescribeRulesOutput.  # noqa: E501
+
+
+        :return: The tags of this RuleForDescribeRulesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeRulesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RuleForDescribeRulesOutput.
+
+
+        :param tags: The tags of this RuleForDescribeRulesOutput.  # noqa: E501
+        :type: list[TagForDescribeRulesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def url(self):

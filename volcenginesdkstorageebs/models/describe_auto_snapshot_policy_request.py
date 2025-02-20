@@ -127,6 +127,9 @@ class DescribeAutoSnapshotPolicyRequest(object):
         :param page_size: The page_size of this DescribeAutoSnapshotPolicyRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 100):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_size = page_size
 

@@ -33,55 +33,55 @@ class DescribeIpAddressPoolCidrBlocksResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'ip_address_poo_cidr_blocks': 'list[IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput]',
+        'ip_address_pool_cidr_blocks': 'list[IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput]',
         'next_token': 'str',
         'request_id': 'str'
     }
 
     attribute_map = {
-        'ip_address_poo_cidr_blocks': 'IpAddressPooCidrBlocks',
+        'ip_address_pool_cidr_blocks': 'IpAddressPoolCidrBlocks',
         'next_token': 'NextToken',
         'request_id': 'RequestId'
     }
 
-    def __init__(self, ip_address_poo_cidr_blocks=None, next_token=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_address_pool_cidr_blocks=None, next_token=None, request_id=None, _configuration=None):  # noqa: E501
         """DescribeIpAddressPoolCidrBlocksResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._ip_address_poo_cidr_blocks = None
+        self._ip_address_pool_cidr_blocks = None
         self._next_token = None
         self._request_id = None
         self.discriminator = None
 
-        if ip_address_poo_cidr_blocks is not None:
-            self.ip_address_poo_cidr_blocks = ip_address_poo_cidr_blocks
+        if ip_address_pool_cidr_blocks is not None:
+            self.ip_address_pool_cidr_blocks = ip_address_pool_cidr_blocks
         if next_token is not None:
             self.next_token = next_token
         if request_id is not None:
             self.request_id = request_id
 
     @property
-    def ip_address_poo_cidr_blocks(self):
-        """Gets the ip_address_poo_cidr_blocks of this DescribeIpAddressPoolCidrBlocksResponse.  # noqa: E501
+    def ip_address_pool_cidr_blocks(self):
+        """Gets the ip_address_pool_cidr_blocks of this DescribeIpAddressPoolCidrBlocksResponse.  # noqa: E501
 
 
-        :return: The ip_address_poo_cidr_blocks of this DescribeIpAddressPoolCidrBlocksResponse.  # noqa: E501
-        :rtype: list[IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput]
+        :return: The ip_address_pool_cidr_blocks of this DescribeIpAddressPoolCidrBlocksResponse.  # noqa: E501
+        :rtype: list[IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput]
         """
-        return self._ip_address_poo_cidr_blocks
+        return self._ip_address_pool_cidr_blocks
 
-    @ip_address_poo_cidr_blocks.setter
-    def ip_address_poo_cidr_blocks(self, ip_address_poo_cidr_blocks):
-        """Sets the ip_address_poo_cidr_blocks of this DescribeIpAddressPoolCidrBlocksResponse.
+    @ip_address_pool_cidr_blocks.setter
+    def ip_address_pool_cidr_blocks(self, ip_address_pool_cidr_blocks):
+        """Sets the ip_address_pool_cidr_blocks of this DescribeIpAddressPoolCidrBlocksResponse.
 
 
-        :param ip_address_poo_cidr_blocks: The ip_address_poo_cidr_blocks of this DescribeIpAddressPoolCidrBlocksResponse.  # noqa: E501
-        :type: list[IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput]
+        :param ip_address_pool_cidr_blocks: The ip_address_pool_cidr_blocks of this DescribeIpAddressPoolCidrBlocksResponse.  # noqa: E501
+        :type: list[IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput]
         """
 
-        self._ip_address_poo_cidr_blocks = ip_address_poo_cidr_blocks
+        self._ip_address_pool_cidr_blocks = ip_address_pool_cidr_blocks
 
     @property
     def next_token(self):

@@ -44,6 +44,7 @@ class ItemForListClustersOutput(object):
         'name': 'str',
         'node_statistics': 'NodeStatisticsForListClustersOutput',
         'pods_config': 'PodsConfigForListClustersOutput',
+        'project_name': 'str',
         'services_config': 'ServicesConfigForListClustersOutput',
         'status': 'StatusForListClustersOutput',
         'tags': 'list[TagForListClustersOutput]',
@@ -63,6 +64,7 @@ class ItemForListClustersOutput(object):
         'name': 'Name',
         'node_statistics': 'NodeStatistics',
         'pods_config': 'PodsConfig',
+        'project_name': 'ProjectName',
         'services_config': 'ServicesConfig',
         'status': 'Status',
         'tags': 'Tags',
@@ -70,7 +72,7 @@ class ItemForListClustersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, name=None, node_statistics=None, pods_config=None, services_config=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, services_config=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class ItemForListClustersOutput(object):
         self._name = None
         self._node_statistics = None
         self._pods_config = None
+        self._project_name = None
         self._services_config = None
         self._status = None
         self._tags = None
@@ -116,6 +119,8 @@ class ItemForListClustersOutput(object):
             self.node_statistics = node_statistics
         if pods_config is not None:
             self.pods_config = pods_config
+        if project_name is not None:
+            self.project_name = project_name
         if services_config is not None:
             self.services_config = services_config
         if status is not None:
@@ -357,6 +362,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._pods_config = pods_config
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The project_name of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ItemForListClustersOutput.
+
+
+        :param project_name: The project_name of this ItemForListClustersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def services_config(self):

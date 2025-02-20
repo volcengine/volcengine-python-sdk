@@ -47,8 +47,10 @@ class DataForListRulesByIdsOutput(object):
         'evaluation_count': 'int',
         'id': 'str',
         'level': 'str',
+        'level_conditions': 'list[LevelConditionForListRulesByIdsOutput]',
         'multiple_conditions': 'bool',
         'namespace': 'str',
+        'notification_id': 'str',
         'original_dimensions': 'dict(str, list[str])',
         'project_name': 'str',
         'recovery_notify': 'RecoveryNotifyForListRulesByIdsOutput',
@@ -77,8 +79,10 @@ class DataForListRulesByIdsOutput(object):
         'evaluation_count': 'EvaluationCount',
         'id': 'Id',
         'level': 'Level',
+        'level_conditions': 'LevelConditions',
         'multiple_conditions': 'MultipleConditions',
         'namespace': 'Namespace',
+        'notification_id': 'NotificationId',
         'original_dimensions': 'OriginalDimensions',
         'project_name': 'ProjectName',
         'recovery_notify': 'RecoveryNotify',
@@ -92,7 +96,7 @@ class DataForListRulesByIdsOutput(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, multiple_conditions=None, namespace=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, notification_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """DataForListRulesByIdsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -112,8 +116,10 @@ class DataForListRulesByIdsOutput(object):
         self._evaluation_count = None
         self._id = None
         self._level = None
+        self._level_conditions = None
         self._multiple_conditions = None
         self._namespace = None
+        self._notification_id = None
         self._original_dimensions = None
         self._project_name = None
         self._recovery_notify = None
@@ -155,10 +161,14 @@ class DataForListRulesByIdsOutput(object):
             self.id = id
         if level is not None:
             self.level = level
+        if level_conditions is not None:
+            self.level_conditions = level_conditions
         if multiple_conditions is not None:
             self.multiple_conditions = multiple_conditions
         if namespace is not None:
             self.namespace = namespace
+        if notification_id is not None:
+            self.notification_id = notification_id
         if original_dimensions is not None:
             self.original_dimensions = original_dimensions
         if project_name is not None:
@@ -477,6 +487,27 @@ class DataForListRulesByIdsOutput(object):
         self._level = level
 
     @property
+    def level_conditions(self):
+        """Gets the level_conditions of this DataForListRulesByIdsOutput.  # noqa: E501
+
+
+        :return: The level_conditions of this DataForListRulesByIdsOutput.  # noqa: E501
+        :rtype: list[LevelConditionForListRulesByIdsOutput]
+        """
+        return self._level_conditions
+
+    @level_conditions.setter
+    def level_conditions(self, level_conditions):
+        """Sets the level_conditions of this DataForListRulesByIdsOutput.
+
+
+        :param level_conditions: The level_conditions of this DataForListRulesByIdsOutput.  # noqa: E501
+        :type: list[LevelConditionForListRulesByIdsOutput]
+        """
+
+        self._level_conditions = level_conditions
+
+    @property
     def multiple_conditions(self):
         """Gets the multiple_conditions of this DataForListRulesByIdsOutput.  # noqa: E501
 
@@ -517,6 +548,27 @@ class DataForListRulesByIdsOutput(object):
         """
 
         self._namespace = namespace
+
+    @property
+    def notification_id(self):
+        """Gets the notification_id of this DataForListRulesByIdsOutput.  # noqa: E501
+
+
+        :return: The notification_id of this DataForListRulesByIdsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._notification_id
+
+    @notification_id.setter
+    def notification_id(self, notification_id):
+        """Sets the notification_id of this DataForListRulesByIdsOutput.
+
+
+        :param notification_id: The notification_id of this DataForListRulesByIdsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._notification_id = notification_id
 
     @property
     def original_dimensions(self):

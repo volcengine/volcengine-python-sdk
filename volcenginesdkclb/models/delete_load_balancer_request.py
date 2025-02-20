@@ -33,23 +33,49 @@ class DeleteLoadBalancerRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'force_delete': 'bool',
         'load_balancer_id': 'str'
     }
 
     attribute_map = {
+        'force_delete': 'ForceDelete',
         'load_balancer_id': 'LoadBalancerId'
     }
 
-    def __init__(self, load_balancer_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, force_delete=None, load_balancer_id=None, _configuration=None):  # noqa: E501
         """DeleteLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._force_delete = None
         self._load_balancer_id = None
         self.discriminator = None
 
+        if force_delete is not None:
+            self.force_delete = force_delete
         self.load_balancer_id = load_balancer_id
+
+    @property
+    def force_delete(self):
+        """Gets the force_delete of this DeleteLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The force_delete of this DeleteLoadBalancerRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._force_delete
+
+    @force_delete.setter
+    def force_delete(self, force_delete):
+        """Sets the force_delete of this DeleteLoadBalancerRequest.
+
+
+        :param force_delete: The force_delete of this DeleteLoadBalancerRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._force_delete = force_delete
 
     @property
     def load_balancer_id(self):

@@ -37,6 +37,8 @@ class DescribeIpv6GatewaysRequest(object):
         'max_results': 'int',
         'name': 'str',
         'next_token': 'str',
+        'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeIpv6GatewaysInput]',
         'vpc_ids': 'str'
     }
 
@@ -45,10 +47,12 @@ class DescribeIpv6GatewaysRequest(object):
         'max_results': 'MaxResults',
         'name': 'Name',
         'next_token': 'NextToken',
+        'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters',
         'vpc_ids': 'VpcIds'
     }
 
-    def __init__(self, ipv6_gateway_ids=None, max_results=None, name=None, next_token=None, vpc_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_gateway_ids=None, max_results=None, name=None, next_token=None, project_name=None, tag_filters=None, vpc_ids=None, _configuration=None):  # noqa: E501
         """DescribeIpv6GatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +62,8 @@ class DescribeIpv6GatewaysRequest(object):
         self._max_results = None
         self._name = None
         self._next_token = None
+        self._project_name = None
+        self._tag_filters = None
         self._vpc_ids = None
         self.discriminator = None
 
@@ -69,6 +75,10 @@ class DescribeIpv6GatewaysRequest(object):
             self.name = name
         if next_token is not None:
             self.next_token = next_token
+        if project_name is not None:
+            self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_ids is not None:
             self.vpc_ids = vpc_ids
 
@@ -155,6 +165,48 @@ class DescribeIpv6GatewaysRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeIpv6GatewaysRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeIpv6GatewaysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeIpv6GatewaysRequest.
+
+
+        :param project_name: The project_name of this DescribeIpv6GatewaysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeIpv6GatewaysRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeIpv6GatewaysRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeIpv6GatewaysInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeIpv6GatewaysRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeIpv6GatewaysRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeIpv6GatewaysInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_ids(self):

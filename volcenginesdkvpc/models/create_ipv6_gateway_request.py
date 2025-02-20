@@ -36,6 +36,7 @@ class CreateIpv6GatewayRequest(object):
         'client_token': 'str',
         'description': 'str',
         'name': 'str',
+        'project_name': 'str',
         'vpc_id': 'str'
     }
 
@@ -43,10 +44,11 @@ class CreateIpv6GatewayRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, client_token=None, description=None, name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, name=None, project_name=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateIpv6GatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class CreateIpv6GatewayRequest(object):
         self._client_token = None
         self._description = None
         self._name = None
+        self._project_name = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class CreateIpv6GatewayRequest(object):
             self.description = description
         if name is not None:
             self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         self.vpc_id = vpc_id
 
     @property
@@ -128,6 +133,27 @@ class CreateIpv6GatewayRequest(object):
         """
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateIpv6GatewayRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateIpv6GatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateIpv6GatewayRequest.
+
+
+        :param project_name: The project_name of this CreateIpv6GatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def vpc_id(self):

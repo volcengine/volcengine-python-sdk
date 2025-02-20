@@ -34,6 +34,9 @@ class CreateAutoSnapshotPolicyRequest(object):
     """
     swagger_types = {
         'auto_snapshot_policy_name': 'str',
+        'destination_region': 'str',
+        'destination_retention_days': 'int',
+        'enable_copy': 'bool',
         'project_name': 'str',
         'repeat_days': 'int',
         'repeat_weekdays': 'list[str]',
@@ -44,6 +47,9 @@ class CreateAutoSnapshotPolicyRequest(object):
 
     attribute_map = {
         'auto_snapshot_policy_name': 'AutoSnapshotPolicyName',
+        'destination_region': 'DestinationRegion',
+        'destination_retention_days': 'DestinationRetentionDays',
+        'enable_copy': 'EnableCopy',
         'project_name': 'ProjectName',
         'repeat_days': 'RepeatDays',
         'repeat_weekdays': 'RepeatWeekdays',
@@ -52,13 +58,16 @@ class CreateAutoSnapshotPolicyRequest(object):
         'time_points': 'TimePoints'
     }
 
-    def __init__(self, auto_snapshot_policy_name=None, project_name=None, repeat_days=None, repeat_weekdays=None, retention_days=None, tags=None, time_points=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_name=None, destination_region=None, destination_retention_days=None, enable_copy=None, project_name=None, repeat_days=None, repeat_weekdays=None, retention_days=None, tags=None, time_points=None, _configuration=None):  # noqa: E501
         """CreateAutoSnapshotPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_snapshot_policy_name = None
+        self._destination_region = None
+        self._destination_retention_days = None
+        self._enable_copy = None
         self._project_name = None
         self._repeat_days = None
         self._repeat_weekdays = None
@@ -68,6 +77,12 @@ class CreateAutoSnapshotPolicyRequest(object):
         self.discriminator = None
 
         self.auto_snapshot_policy_name = auto_snapshot_policy_name
+        if destination_region is not None:
+            self.destination_region = destination_region
+        if destination_retention_days is not None:
+            self.destination_retention_days = destination_retention_days
+        if enable_copy is not None:
+            self.enable_copy = enable_copy
         if project_name is not None:
             self.project_name = project_name
         if repeat_days is not None:
@@ -102,6 +117,75 @@ class CreateAutoSnapshotPolicyRequest(object):
             raise ValueError("Invalid value for `auto_snapshot_policy_name`, must not be `None`")  # noqa: E501
 
         self._auto_snapshot_policy_name = auto_snapshot_policy_name
+
+    @property
+    def destination_region(self):
+        """Gets the destination_region of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+
+
+        :return: The destination_region of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_region
+
+    @destination_region.setter
+    def destination_region(self, destination_region):
+        """Sets the destination_region of this CreateAutoSnapshotPolicyRequest.
+
+
+        :param destination_region: The destination_region of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_region = destination_region
+
+    @property
+    def destination_retention_days(self):
+        """Gets the destination_retention_days of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+
+
+        :return: The destination_retention_days of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._destination_retention_days
+
+    @destination_retention_days.setter
+    def destination_retention_days(self, destination_retention_days):
+        """Sets the destination_retention_days of this CreateAutoSnapshotPolicyRequest.
+
+
+        :param destination_retention_days: The destination_retention_days of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                destination_retention_days is not None and destination_retention_days > 65536):  # noqa: E501
+            raise ValueError("Invalid value for `destination_retention_days`, must be a value less than or equal to `65536`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                destination_retention_days is not None and destination_retention_days < -1):  # noqa: E501
+            raise ValueError("Invalid value for `destination_retention_days`, must be a value greater than or equal to `-1`")  # noqa: E501
+
+        self._destination_retention_days = destination_retention_days
+
+    @property
+    def enable_copy(self):
+        """Gets the enable_copy of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+
+
+        :return: The enable_copy of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_copy
+
+    @enable_copy.setter
+    def enable_copy(self, enable_copy):
+        """Sets the enable_copy of this CreateAutoSnapshotPolicyRequest.
+
+
+        :param enable_copy: The enable_copy of this CreateAutoSnapshotPolicyRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_copy = enable_copy
 
     @property
     def project_name(self):

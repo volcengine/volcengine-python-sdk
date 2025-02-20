@@ -37,6 +37,8 @@ class ModifyListenerAttributesRequest(object):
         'acl_status': 'str',
         'acl_type': 'str',
         'bandwidth': 'int',
+        'ca_certificate_id': 'str',
+        'ca_enabled': 'str',
         'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_source': 'str',
@@ -70,6 +72,8 @@ class ModifyListenerAttributesRequest(object):
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
         'bandwidth': 'Bandwidth',
+        'ca_certificate_id': 'CACertificateId',
+        'ca_enabled': 'CAEnabled',
         'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_source': 'CertificateSource',
@@ -98,7 +102,7 @@ class ModifyListenerAttributesRequest(object):
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, description=None, enabled=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, ca_certificate_id=None, ca_enabled=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, description=None, enabled=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -108,6 +112,8 @@ class ModifyListenerAttributesRequest(object):
         self._acl_status = None
         self._acl_type = None
         self._bandwidth = None
+        self._ca_certificate_id = None
+        self._ca_enabled = None
         self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_source = None
@@ -144,6 +150,10 @@ class ModifyListenerAttributesRequest(object):
             self.acl_type = acl_type
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if ca_certificate_id is not None:
+            self.ca_certificate_id = ca_certificate_id
+        if ca_enabled is not None:
+            self.ca_enabled = ca_enabled
         if cert_center_certificate_id is not None:
             self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
@@ -279,6 +289,48 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def ca_certificate_id(self):
+        """Gets the ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ca_certificate_id
+
+    @ca_certificate_id.setter
+    def ca_certificate_id(self, ca_certificate_id):
+        """Sets the ca_certificate_id of this ModifyListenerAttributesRequest.
+
+
+        :param ca_certificate_id: The ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ca_certificate_id = ca_certificate_id
+
+    @property
+    def ca_enabled(self):
+        """Gets the ca_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The ca_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ca_enabled
+
+    @ca_enabled.setter
+    def ca_enabled(self, ca_enabled):
+        """Sets the ca_enabled of this ModifyListenerAttributesRequest.
+
+
+        :param ca_enabled: The ca_enabled of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ca_enabled = ca_enabled
 
     @property
     def cert_center_certificate_id(self):
