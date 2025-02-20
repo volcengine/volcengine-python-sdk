@@ -34,6 +34,7 @@ class CreateInstanceRequest(object):
     """
     swagger_types = {
         'allow_list_ids': 'list[str]',
+        'bind_tags': 'list[BindTagForCreateInstanceInput]',
         'charge_info': 'ChargeInfoForCreateInstanceInput',
         'client_token': 'str',
         'compute_spec': 'str',
@@ -48,7 +49,6 @@ class CreateInstanceRequest(object):
         'ssl_mode': 'str',
         'storage_space': 'int',
         'subnet_id': 'str',
-        'tags': 'dict(str, str)',
         'version': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
@@ -56,6 +56,7 @@ class CreateInstanceRequest(object):
 
     attribute_map = {
         'allow_list_ids': 'AllowListIds',
+        'bind_tags': 'BindTags',
         'charge_info': 'ChargeInfo',
         'client_token': 'ClientToken',
         'compute_spec': 'ComputeSpec',
@@ -70,19 +71,19 @@ class CreateInstanceRequest(object):
         'ssl_mode': 'SSLMode',
         'storage_space': 'StorageSpace',
         'subnet_id': 'SubnetId',
-        'tags': 'Tags',
         'version': 'Version',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_ids=None, charge_info=None, client_token=None, compute_spec=None, eip_id=None, enable_ssl=None, file_reserved_time=None, ip_version_type=None, instance_description=None, instance_name=None, network_types=None, project_name=None, ssl_mode=None, storage_space=None, subnet_id=None, tags=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, bind_tags=None, charge_info=None, client_token=None, compute_spec=None, eip_id=None, enable_ssl=None, file_reserved_time=None, ip_version_type=None, instance_description=None, instance_name=None, network_types=None, project_name=None, ssl_mode=None, storage_space=None, subnet_id=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list_ids = None
+        self._bind_tags = None
         self._charge_info = None
         self._client_token = None
         self._compute_spec = None
@@ -97,7 +98,6 @@ class CreateInstanceRequest(object):
         self._ssl_mode = None
         self._storage_space = None
         self._subnet_id = None
-        self._tags = None
         self._version = None
         self._vpc_id = None
         self._zone_id = None
@@ -105,6 +105,8 @@ class CreateInstanceRequest(object):
 
         if allow_list_ids is not None:
             self.allow_list_ids = allow_list_ids
+        if bind_tags is not None:
+            self.bind_tags = bind_tags
         if charge_info is not None:
             self.charge_info = charge_info
         if client_token is not None:
@@ -128,8 +130,6 @@ class CreateInstanceRequest(object):
             self.ssl_mode = ssl_mode
         self.storage_space = storage_space
         self.subnet_id = subnet_id
-        if tags is not None:
-            self.tags = tags
         self.version = version
         self.vpc_id = vpc_id
         self.zone_id = zone_id
@@ -154,6 +154,27 @@ class CreateInstanceRequest(object):
         """
 
         self._allow_list_ids = allow_list_ids
+
+    @property
+    def bind_tags(self):
+        """Gets the bind_tags of this CreateInstanceRequest.  # noqa: E501
+
+
+        :return: The bind_tags of this CreateInstanceRequest.  # noqa: E501
+        :rtype: list[BindTagForCreateInstanceInput]
+        """
+        return self._bind_tags
+
+    @bind_tags.setter
+    def bind_tags(self, bind_tags):
+        """Sets the bind_tags of this CreateInstanceRequest.
+
+
+        :param bind_tags: The bind_tags of this CreateInstanceRequest.  # noqa: E501
+        :type: list[BindTagForCreateInstanceInput]
+        """
+
+        self._bind_tags = bind_tags
 
     @property
     def charge_info(self):
@@ -458,27 +479,6 @@ class CreateInstanceRequest(object):
             raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
-
-    @property
-    def tags(self):
-        """Gets the tags of this CreateInstanceRequest.  # noqa: E501
-
-
-        :return: The tags of this CreateInstanceRequest.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this CreateInstanceRequest.
-
-
-        :param tags: The tags of this CreateInstanceRequest.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._tags = tags
 
     @property
     def version(self):
