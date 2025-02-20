@@ -37,7 +37,8 @@ class AllocateIpv6AddressBandwidthRequest(object):
         'bandwidth_package_id': 'str',
         'billing_type': 'int',
         'client_token': 'str',
-        'ipv6_address': 'str'
+        'ipv6_address': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class AllocateIpv6AddressBandwidthRequest(object):
         'bandwidth_package_id': 'BandwidthPackageId',
         'billing_type': 'BillingType',
         'client_token': 'ClientToken',
-        'ipv6_address': 'Ipv6Address'
+        'ipv6_address': 'Ipv6Address',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, ipv6_address=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, ipv6_address=None, project_name=None, _configuration=None):  # noqa: E501
         """AllocateIpv6AddressBandwidthRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class AllocateIpv6AddressBandwidthRequest(object):
         self._billing_type = None
         self._client_token = None
         self._ipv6_address = None
+        self._project_name = None
         self.discriminator = None
 
         if bandwidth is not None:
@@ -69,6 +72,8 @@ class AllocateIpv6AddressBandwidthRequest(object):
         if client_token is not None:
             self.client_token = client_token
         self.ipv6_address = ipv6_address
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def bandwidth(self):
@@ -181,6 +186,27 @@ class AllocateIpv6AddressBandwidthRequest(object):
             raise ValueError("Invalid value for `ipv6_address`, must not be `None`")  # noqa: E501
 
         self._ipv6_address = ipv6_address
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this AllocateIpv6AddressBandwidthRequest.  # noqa: E501
+
+
+        :return: The project_name of this AllocateIpv6AddressBandwidthRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this AllocateIpv6AddressBandwidthRequest.
+
+
+        :param project_name: The project_name of this AllocateIpv6AddressBandwidthRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

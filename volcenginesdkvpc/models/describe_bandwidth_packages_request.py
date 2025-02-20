@@ -304,7 +304,7 @@ class DescribeBandwidthPackagesRequest(object):
         :param protocol: The protocol of this DescribeBandwidthPackagesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["IPv4", "IPv6"]  # noqa: E501
+        allowed_values = ["IPv4", "Dual-stack", "IPv6"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 protocol not in allowed_values):
             raise ValueError(

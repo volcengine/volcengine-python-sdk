@@ -37,6 +37,7 @@ class DescribeIpv6GatewayAttributeResponse(object):
         'description': 'str',
         'ipv6_gateway_id': 'str',
         'name': 'str',
+        'project_name': 'str',
         'request_id': 'str',
         'status': 'str',
         'update_time': 'str',
@@ -48,13 +49,14 @@ class DescribeIpv6GatewayAttributeResponse(object):
         'description': 'Description',
         'ipv6_gateway_id': 'Ipv6GatewayId',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'status': 'Status',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, ipv6_gateway_id=None, name=None, request_id=None, status=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, ipv6_gateway_id=None, name=None, project_name=None, request_id=None, status=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeIpv6GatewayAttributeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class DescribeIpv6GatewayAttributeResponse(object):
         self._description = None
         self._ipv6_gateway_id = None
         self._name = None
+        self._project_name = None
         self._request_id = None
         self._status = None
         self._update_time = None
@@ -78,6 +81,8 @@ class DescribeIpv6GatewayAttributeResponse(object):
             self.ipv6_gateway_id = ipv6_gateway_id
         if name is not None:
             self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
         if status is not None:
@@ -170,6 +175,27 @@ class DescribeIpv6GatewayAttributeResponse(object):
         """
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+
+
+        :return: The project_name of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeIpv6GatewayAttributeResponse.
+
+
+        :param project_name: The project_name of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def request_id(self):
