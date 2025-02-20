@@ -40,6 +40,7 @@ class DescribeSnapshotsRequest(object):
         'snapshot_ids': 'list[str]',
         'snapshot_name': 'str',
         'snapshot_status': 'list[str]',
+        'snapshot_types': 'list[str]',
         'volume_id': 'str',
         'zone_id': 'str'
     }
@@ -52,11 +53,12 @@ class DescribeSnapshotsRequest(object):
         'snapshot_ids': 'SnapshotIds',
         'snapshot_name': 'SnapshotName',
         'snapshot_status': 'SnapshotStatus',
+        'snapshot_types': 'SnapshotTypes',
         'volume_id': 'VolumeId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, filter=None, page_number=None, page_size=None, project_name=None, snapshot_ids=None, snapshot_name=None, snapshot_status=None, volume_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, page_number=None, page_size=None, project_name=None, snapshot_ids=None, snapshot_name=None, snapshot_status=None, snapshot_types=None, volume_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeSnapshotsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class DescribeSnapshotsRequest(object):
         self._snapshot_ids = None
         self._snapshot_name = None
         self._snapshot_status = None
+        self._snapshot_types = None
         self._volume_id = None
         self._zone_id = None
         self.discriminator = None
@@ -87,6 +90,8 @@ class DescribeSnapshotsRequest(object):
             self.snapshot_name = snapshot_name
         if snapshot_status is not None:
             self.snapshot_status = snapshot_status
+        if snapshot_types is not None:
+            self.snapshot_types = snapshot_types
         if volume_id is not None:
             self.volume_id = volume_id
         if zone_id is not None:
@@ -152,6 +157,9 @@ class DescribeSnapshotsRequest(object):
         :param page_size: The page_size of this DescribeSnapshotsRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 100):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_size = page_size
 
@@ -238,6 +246,27 @@ class DescribeSnapshotsRequest(object):
         """
 
         self._snapshot_status = snapshot_status
+
+    @property
+    def snapshot_types(self):
+        """Gets the snapshot_types of this DescribeSnapshotsRequest.  # noqa: E501
+
+
+        :return: The snapshot_types of this DescribeSnapshotsRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._snapshot_types
+
+    @snapshot_types.setter
+    def snapshot_types(self, snapshot_types):
+        """Sets the snapshot_types of this DescribeSnapshotsRequest.
+
+
+        :param snapshot_types: The snapshot_types of this DescribeSnapshotsRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._snapshot_types = snapshot_types
 
     @property
     def volume_id(self):

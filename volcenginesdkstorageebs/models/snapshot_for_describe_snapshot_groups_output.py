@@ -39,6 +39,7 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         'progress': 'int',
         'project_name': 'str',
         'retention_days': 'int',
+        'shared': 'bool',
         'snapshot_group_id': 'str',
         'snapshot_id': 'str',
         'snapshot_name': 'str',
@@ -61,6 +62,7 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         'progress': 'Progress',
         'project_name': 'ProjectName',
         'retention_days': 'RetentionDays',
+        'shared': 'Shared',
         'snapshot_group_id': 'SnapshotGroupId',
         'snapshot_id': 'SnapshotId',
         'snapshot_name': 'SnapshotName',
@@ -76,7 +78,7 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, creation_time=None, description=None, image_id=None, progress=None, project_name=None, retention_days=None, snapshot_group_id=None, snapshot_id=None, snapshot_name=None, snapshot_type=None, status=None, tags=None, volume_id=None, volume_kind=None, volume_name=None, volume_size=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, image_id=None, progress=None, project_name=None, retention_days=None, shared=None, snapshot_group_id=None, snapshot_id=None, snapshot_name=None, snapshot_type=None, status=None, tags=None, volume_id=None, volume_kind=None, volume_name=None, volume_size=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """SnapshotForDescribeSnapshotGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         self._progress = None
         self._project_name = None
         self._retention_days = None
+        self._shared = None
         self._snapshot_group_id = None
         self._snapshot_id = None
         self._snapshot_name = None
@@ -115,6 +118,8 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
             self.project_name = project_name
         if retention_days is not None:
             self.retention_days = retention_days
+        if shared is not None:
+            self.shared = shared
         if snapshot_group_id is not None:
             self.snapshot_group_id = snapshot_group_id
         if snapshot_id is not None:
@@ -267,6 +272,27 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         """
 
         self._retention_days = retention_days
+
+    @property
+    def shared(self):
+        """Gets the shared of this SnapshotForDescribeSnapshotGroupsOutput.  # noqa: E501
+
+
+        :return: The shared of this SnapshotForDescribeSnapshotGroupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._shared
+
+    @shared.setter
+    def shared(self, shared):
+        """Sets the shared of this SnapshotForDescribeSnapshotGroupsOutput.
+
+
+        :param shared: The shared of this SnapshotForDescribeSnapshotGroupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._shared = shared
 
     @property
     def snapshot_group_id(self):

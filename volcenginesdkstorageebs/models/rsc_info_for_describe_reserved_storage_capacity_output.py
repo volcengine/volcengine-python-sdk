@@ -37,7 +37,9 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         'expired_time': 'str',
         'id': 'str',
         'name': 'str',
+        'rsc_auto_renew_period': 'int',
         'remaining_size': 'int',
+        'renewal_status': 'str',
         'size': 'int',
         'status': 'str',
         'take_effect_time': 'str',
@@ -50,7 +52,9 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         'expired_time': 'ExpiredTime',
         'id': 'Id',
         'name': 'Name',
+        'rsc_auto_renew_period': 'RSCAutoRenewPeriod',
         'remaining_size': 'RemainingSize',
+        'renewal_status': 'RenewalStatus',
         'size': 'Size',
         'status': 'Status',
         'take_effect_time': 'TakeEffectTime',
@@ -58,7 +62,7 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, expired_time=None, id=None, name=None, remaining_size=None, size=None, status=None, take_effect_time=None, type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, expired_time=None, id=None, name=None, rsc_auto_renew_period=None, remaining_size=None, renewal_status=None, size=None, status=None, take_effect_time=None, type=None, zone_id=None, _configuration=None):  # noqa: E501
         """RscInfoForDescribeReservedStorageCapacityOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,7 +72,9 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         self._expired_time = None
         self._id = None
         self._name = None
+        self._rsc_auto_renew_period = None
         self._remaining_size = None
+        self._renewal_status = None
         self._size = None
         self._status = None
         self._take_effect_time = None
@@ -84,8 +90,12 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
             self.id = id
         if name is not None:
             self.name = name
+        if rsc_auto_renew_period is not None:
+            self.rsc_auto_renew_period = rsc_auto_renew_period
         if remaining_size is not None:
             self.remaining_size = remaining_size
+        if renewal_status is not None:
+            self.renewal_status = renewal_status
         if size is not None:
             self.size = size
         if status is not None:
@@ -182,6 +192,27 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         self._name = name
 
     @property
+    def rsc_auto_renew_period(self):
+        """Gets the rsc_auto_renew_period of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+
+
+        :return: The rsc_auto_renew_period of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._rsc_auto_renew_period
+
+    @rsc_auto_renew_period.setter
+    def rsc_auto_renew_period(self, rsc_auto_renew_period):
+        """Sets the rsc_auto_renew_period of this RscInfoForDescribeReservedStorageCapacityOutput.
+
+
+        :param rsc_auto_renew_period: The rsc_auto_renew_period of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._rsc_auto_renew_period = rsc_auto_renew_period
+
+    @property
     def remaining_size(self):
         """Gets the remaining_size of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
 
@@ -201,6 +232,27 @@ class RscInfoForDescribeReservedStorageCapacityOutput(object):
         """
 
         self._remaining_size = remaining_size
+
+    @property
+    def renewal_status(self):
+        """Gets the renewal_status of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+
+
+        :return: The renewal_status of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._renewal_status
+
+    @renewal_status.setter
+    def renewal_status(self, renewal_status):
+        """Sets the renewal_status of this RscInfoForDescribeReservedStorageCapacityOutput.
+
+
+        :param renewal_status: The renewal_status of this RscInfoForDescribeReservedStorageCapacityOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._renewal_status = renewal_status
 
     @property
     def size(self):
