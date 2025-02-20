@@ -43,7 +43,7 @@ class DescribeInstancesRequest(object):
         'sort_by': 'str',
         'sort_order': 'str',
         'spec': 'str',
-        'tags': 'dict(str, list[str])',
+        'tag_filters': 'list[TagFilterForDescribeInstancesInput]',
         'version': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
@@ -60,13 +60,13 @@ class DescribeInstancesRequest(object):
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
         'spec': 'Spec',
-        'tags': 'Tags',
+        'tag_filters': 'TagFilters',
         'version': 'Version',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project_name=None, sort_by=None, sort_order=None, spec=None, tags=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project_name=None, sort_by=None, sort_order=None, spec=None, tag_filters=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,7 +82,7 @@ class DescribeInstancesRequest(object):
         self._sort_by = None
         self._sort_order = None
         self._spec = None
-        self._tags = None
+        self._tag_filters = None
         self._version = None
         self._vpc_id = None
         self._zone_id = None
@@ -106,8 +106,8 @@ class DescribeInstancesRequest(object):
             self.sort_order = sort_order
         if spec is not None:
             self.spec = spec
-        if tags is not None:
-            self.tags = tags
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if version is not None:
             self.version = version
         if vpc_id is not None:
@@ -330,25 +330,25 @@ class DescribeInstancesRequest(object):
         self._spec = spec
 
     @property
-    def tags(self):
-        """Gets the tags of this DescribeInstancesRequest.  # noqa: E501
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeInstancesRequest.  # noqa: E501
 
 
-        :return: The tags of this DescribeInstancesRequest.  # noqa: E501
-        :rtype: dict(str, list[str])
+        :return: The tag_filters of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeInstancesInput]
         """
-        return self._tags
+        return self._tag_filters
 
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this DescribeInstancesRequest.
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeInstancesRequest.
 
 
-        :param tags: The tags of this DescribeInstancesRequest.  # noqa: E501
-        :type: dict(str, list[str])
+        :param tag_filters: The tag_filters of this DescribeInstancesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeInstancesInput]
         """
 
-        self._tags = tags
+        self._tag_filters = tag_filters
 
     @property
     def version(self):

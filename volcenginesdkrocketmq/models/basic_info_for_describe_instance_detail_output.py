@@ -46,12 +46,12 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
+        'instance_tags': 'list[InstanceTagForDescribeInstanceDetailOutput]',
         'project_name': 'str',
         'region_id': 'str',
         'ssl_mode': 'str',
         'storage_space': 'int',
         'subnet_id': 'str',
-        'tags': 'dict(str, str)',
         'used_group_number': 'int',
         'used_queue_number': 'int',
         'used_storage_space': 'int',
@@ -75,12 +75,12 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
+        'instance_tags': 'InstanceTags',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
         'ssl_mode': 'SSLMode',
         'storage_space': 'StorageSpace',
         'subnet_id': 'SubnetId',
-        'tags': 'Tags',
         'used_group_number': 'UsedGroupNumber',
         'used_queue_number': 'UsedQueueNumber',
         'used_storage_space': 'UsedStorageSpace',
@@ -90,7 +90,7 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, apply_private_dnsto_public=None, available_queue_number=None, charge_detail=None, compute_spec=None, create_time=None, eip_id=None, enable_ssl=None, file_reserved_time=None, instance_description=None, instance_id=None, instance_name=None, instance_status=None, project_name=None, region_id=None, ssl_mode=None, storage_space=None, subnet_id=None, tags=None, used_group_number=None, used_queue_number=None, used_storage_space=None, used_topic_number=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, apply_private_dnsto_public=None, available_queue_number=None, charge_detail=None, compute_spec=None, create_time=None, eip_id=None, enable_ssl=None, file_reserved_time=None, instance_description=None, instance_id=None, instance_name=None, instance_status=None, instance_tags=None, project_name=None, region_id=None, ssl_mode=None, storage_space=None, subnet_id=None, used_group_number=None, used_queue_number=None, used_storage_space=None, used_topic_number=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -109,12 +109,12 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
+        self._instance_tags = None
         self._project_name = None
         self._region_id = None
         self._ssl_mode = None
         self._storage_space = None
         self._subnet_id = None
-        self._tags = None
         self._used_group_number = None
         self._used_queue_number = None
         self._used_storage_space = None
@@ -150,6 +150,8 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
             self.instance_name = instance_name
         if instance_status is not None:
             self.instance_status = instance_status
+        if instance_tags is not None:
+            self.instance_tags = instance_tags
         if project_name is not None:
             self.project_name = project_name
         if region_id is not None:
@@ -160,8 +162,6 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
             self.storage_space = storage_space
         if subnet_id is not None:
             self.subnet_id = subnet_id
-        if tags is not None:
-            self.tags = tags
         if used_group_number is not None:
             self.used_group_number = used_group_number
         if used_queue_number is not None:
@@ -451,6 +451,27 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         self._instance_status = instance_status
 
     @property
+    def instance_tags(self):
+        """Gets the instance_tags of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The instance_tags of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :rtype: list[InstanceTagForDescribeInstanceDetailOutput]
+        """
+        return self._instance_tags
+
+    @instance_tags.setter
+    def instance_tags(self, instance_tags):
+        """Sets the instance_tags of this BasicInfoForDescribeInstanceDetailOutput.
+
+
+        :param instance_tags: The instance_tags of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
+        :type: list[InstanceTagForDescribeInstanceDetailOutput]
+        """
+
+        self._instance_tags = instance_tags
+
+    @property
     def project_name(self):
         """Gets the project_name of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
 
@@ -554,27 +575,6 @@ class BasicInfoForDescribeInstanceDetailOutput(object):
         """
 
         self._subnet_id = subnet_id
-
-    @property
-    def tags(self):
-        """Gets the tags of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The tags of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this BasicInfoForDescribeInstanceDetailOutput.
-
-
-        :param tags: The tags of this BasicInfoForDescribeInstanceDetailOutput.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._tags = tags
 
     @property
     def used_group_number(self):
