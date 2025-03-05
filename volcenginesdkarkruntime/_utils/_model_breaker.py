@@ -1,32 +1,37 @@
 import asyncio
 import time
 import uuid
+import threading
 
 
 class _QuerySet(object):
     def __init__(self):
         self._items = list()
         self._index = dict()
+        self._lock = threading.Lock()
 
     def add(self, item: int) -> None:
-        if item in self._index:
-            return
+        with self._lock:
+            if item in self._index:
+                return
 
-        self._items.append(item)
-        self._index[item] = len(self._items) - 1
+            self._items.append(item)
+            self._index[item] = len(self._items) - 1
 
     def remove(self, item: int) -> None:
-        if item not in self._index:
-            return
+        with self._lock:
+            if item not in self._index:
+                return
 
-        index = self._index[item]
-        self._items[index] = self._items[-1]
-        self._index[self._items[-1]] = index
-        self._items.pop()
-        del self._index[item]
+            index = self._index[item]
+            self._items[index] = self._items[-1]
+            self._index[self._items[-1]] = index
+            self._items.pop()
+            del self._index[item]
 
     def query(self, item: int) -> int:
-        return self._index[item]
+        with self._lock:
+            return self._index[item]
 
 
 class ModelBreaker(object):
