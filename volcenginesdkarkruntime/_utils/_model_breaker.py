@@ -1,29 +1,56 @@
-from datetime import datetime, timedelta
-import random
+import asyncio
+import math
+import time
 
 
-class ModelBreaker:
+class ModelBreaker(object):
     def __init__(self):
         # 初始化 allow_time 为当前时间
-        self.allow_time = datetime.now()
+        self._allow_time = time.perf_counter()
 
-    def allow(self):
+        self._waiters = 0
+        self._permits = 0
+        self._base = 0
+
+    def _allow(self) -> bool:
         # 检查当前时间是否在 allow_time 之后
-        return datetime.now() > self.allow_time
+        return time.perf_counter() > self._allow_time
 
-    def reset(self, duration):
-        # 将 allow_time 重置为当前时间加上指定的持续时间
-        self.allow_time = datetime.now() + timedelta(seconds=duration.total_seconds())
-
-    def get_allowed_duration(self):
+    def _get_allowed_duration(self) -> float:
         # 计算当前时间与 allow_time 之间的持续时间
-        allow_duration = self.allow_time - datetime.now()
+        allow_duration = self._allow_time - time.perf_counter()
 
-        # 添加一个随机抖动，该抖动的范围为 0 到 10 秒，概率密度函数为 f(x) = x/50 (0 <= x <= 10)
-        # 约有 1/100 的请求会在结束熔断的第一秒内发起重试
-        jitter = timedelta(seconds=random.triangular(0, 10, 10))
+        # 如果持续时间为负，返回零
+        if allow_duration < 0:
+            return 0
+        return allow_duration
 
-        # 如果持续时间为负，则返回一个零时长的 timedelta 对象
-        if allow_duration.total_seconds() < 0:
-            return timedelta(0) + jitter
-        return allow_duration + jitter
+    def _acquire(self) -> int:
+        self._waiters += 1
+        return self._waiters
+
+    def _release(self) -> None:
+        self._waiters -= 1
+        self._permits += 1
+
+    def _jitter(self, i: int) -> float:
+        if i <= self._base:
+            return 0
+        return math.log2(i - self._base)
+
+    def reset(self, duration: float) -> None:
+        # 将 allow_time 重置为当前时间加上指定的持续时间
+        self._allow_time = time.perf_counter() + duration
+        self._base = self._permits
+
+    def wait(self) -> None:
+        i = self._acquire()
+        while not self._allow():
+            time.sleep(self._get_allowed_duration() + self._jitter(i))
+        self._release()
+
+    async def asyncwait(self) -> None:
+        i = self._acquire()
+        while not self._allow():
+            await asyncio.sleep(self._get_allowed_duration() + self._jitter(i))
+        self._release()
