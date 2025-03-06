@@ -34,10 +34,13 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
     """
     swagger_types = {
         'allow_list_version': 'str',
+        'auto_upgrade_minor_version': 'str',
+        'backup_free_quota_size': 'int',
         'backup_use': 'float',
         'basic_backup_binlog_size': 'int',
         'basic_backup_data_size': 'int',
         'create_time': 'str',
+        'current_kernel_version': 'str',
         'db_engine_version': 'str',
         'data_sync_mode': 'str',
         'instance_id': 'str',
@@ -65,10 +68,13 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
 
     attribute_map = {
         'allow_list_version': 'AllowListVersion',
+        'auto_upgrade_minor_version': 'AutoUpgradeMinorVersion',
+        'backup_free_quota_size': 'BackupFreeQuotaSize',
         'backup_use': 'BackupUse',
         'basic_backup_binlog_size': 'BasicBackupBinlogSize',
         'basic_backup_data_size': 'BasicBackupDataSize',
         'create_time': 'CreateTime',
+        'current_kernel_version': 'CurrentKernelVersion',
         'db_engine_version': 'DBEngineVersion',
         'data_sync_mode': 'DataSyncMode',
         'instance_id': 'InstanceId',
@@ -94,17 +100,20 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_version=None, backup_use=None, basic_backup_binlog_size=None, basic_backup_data_size=None, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_version=None, auto_upgrade_minor_version=None, backup_free_quota_size=None, backup_use=None, basic_backup_binlog_size=None, basic_backup_data_size=None, create_time=None, current_kernel_version=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list_version = None
+        self._auto_upgrade_minor_version = None
+        self._backup_free_quota_size = None
         self._backup_use = None
         self._basic_backup_binlog_size = None
         self._basic_backup_data_size = None
         self._create_time = None
+        self._current_kernel_version = None
         self._db_engine_version = None
         self._data_sync_mode = None
         self._instance_id = None
@@ -132,6 +141,10 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
 
         if allow_list_version is not None:
             self.allow_list_version = allow_list_version
+        if auto_upgrade_minor_version is not None:
+            self.auto_upgrade_minor_version = auto_upgrade_minor_version
+        if backup_free_quota_size is not None:
+            self.backup_free_quota_size = backup_free_quota_size
         if backup_use is not None:
             self.backup_use = backup_use
         if basic_backup_binlog_size is not None:
@@ -140,6 +153,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.basic_backup_data_size = basic_backup_data_size
         if create_time is not None:
             self.create_time = create_time
+        if current_kernel_version is not None:
+            self.current_kernel_version = current_kernel_version
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
         if data_sync_mode is not None:
@@ -207,6 +222,48 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._allow_list_version = allow_list_version
+
+    @property
+    def auto_upgrade_minor_version(self):
+        """Gets the auto_upgrade_minor_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The auto_upgrade_minor_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_upgrade_minor_version
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, auto_upgrade_minor_version):
+        """Sets the auto_upgrade_minor_version of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param auto_upgrade_minor_version: The auto_upgrade_minor_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._auto_upgrade_minor_version = auto_upgrade_minor_version
+
+    @property
+    def backup_free_quota_size(self):
+        """Gets the backup_free_quota_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The backup_free_quota_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._backup_free_quota_size
+
+    @backup_free_quota_size.setter
+    def backup_free_quota_size(self, backup_free_quota_size):
+        """Sets the backup_free_quota_size of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param backup_free_quota_size: The backup_free_quota_size of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._backup_free_quota_size = backup_free_quota_size
 
     @property
     def backup_use(self):
@@ -291,6 +348,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def current_kernel_version(self):
+        """Gets the current_kernel_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The current_kernel_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_kernel_version
+
+    @current_kernel_version.setter
+    def current_kernel_version(self, current_kernel_version):
+        """Sets the current_kernel_version of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param current_kernel_version: The current_kernel_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._current_kernel_version = current_kernel_version
 
     @property
     def db_engine_version(self):

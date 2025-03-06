@@ -41,8 +41,10 @@ class DescribeBackupsRequest(object):
         'backup_type': 'str',
         'create_type': 'str',
         'instance_id': 'str',
+        'option': 'OptionForDescribeBackupsInput',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'project_name': 'str'
     }
 
     attribute_map = {
@@ -54,11 +56,13 @@ class DescribeBackupsRequest(object):
         'backup_type': 'BackupType',
         'create_type': 'CreateType',
         'instance_id': 'InstanceId',
+        'option': 'Option',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, backup_end_time=None, backup_id=None, backup_method=None, backup_start_time=None, backup_status=None, backup_type=None, create_type=None, instance_id=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_end_time=None, backup_id=None, backup_method=None, backup_start_time=None, backup_status=None, backup_type=None, create_type=None, instance_id=None, option=None, page_number=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
         """DescribeBackupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,8 +76,10 @@ class DescribeBackupsRequest(object):
         self._backup_type = None
         self._create_type = None
         self._instance_id = None
+        self._option = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self.discriminator = None
 
         if backup_end_time is not None:
@@ -90,11 +96,16 @@ class DescribeBackupsRequest(object):
             self.backup_type = backup_type
         if create_type is not None:
             self.create_type = create_type
-        self.instance_id = instance_id
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if option is not None:
+            self.option = option
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def backup_end_time(self):
@@ -261,10 +272,29 @@ class DescribeBackupsRequest(object):
         :param instance_id: The instance_id of this DescribeBackupsRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and instance_id is None:
-            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def option(self):
+        """Gets the option of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The option of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: OptionForDescribeBackupsInput
+        """
+        return self._option
+
+    @option.setter
+    def option(self, option):
+        """Sets the option of this DescribeBackupsRequest.
+
+
+        :param option: The option of this DescribeBackupsRequest.  # noqa: E501
+        :type: OptionForDescribeBackupsInput
+        """
+
+        self._option = option
 
     @property
     def page_number(self):
@@ -307,6 +337,27 @@ class DescribeBackupsRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeBackupsRequest.
+
+
+        :param project_name: The project_name of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

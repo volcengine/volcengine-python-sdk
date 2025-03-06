@@ -128,8 +128,7 @@ class CreateDBInstanceRequest(object):
             self.port = port
         if project_name is not None:
             self.project_name = project_name
-        if storage_space is not None:
-            self.storage_space = storage_space
+        self.storage_space = storage_space
         self.storage_type = storage_type
         self.subnet_id = subnet_id
         if super_account_name is not None:
@@ -431,6 +430,8 @@ class CreateDBInstanceRequest(object):
         :param storage_space: The storage_space of this CreateDBInstanceRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and storage_space is None:
+            raise ValueError("Invalid value for `storage_space`, must not be `None`")  # noqa: E501
 
         self._storage_space = storage_space
 
@@ -454,13 +455,6 @@ class CreateDBInstanceRequest(object):
         """
         if self._configuration.client_side_validation and storage_type is None:
             raise ValueError("Invalid value for `storage_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["LocalSSD", "CloudStorage", "ESSDPL1", "ESSDPL2"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                storage_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(storage_type, allowed_values)
-            )
 
         self._storage_type = storage_type
 

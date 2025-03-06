@@ -33,6 +33,7 @@ class CreateParameterTemplateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'project_name': 'str',
         'template_desc': 'str',
         'template_name': 'str',
         'template_params': 'list[TemplateParamForCreateParameterTemplateInput]',
@@ -41,6 +42,7 @@ class CreateParameterTemplateRequest(object):
     }
 
     attribute_map = {
+        'project_name': 'ProjectName',
         'template_desc': 'TemplateDesc',
         'template_name': 'TemplateName',
         'template_params': 'TemplateParams',
@@ -48,12 +50,13 @@ class CreateParameterTemplateRequest(object):
         'template_type_version': 'TemplateTypeVersion'
     }
 
-    def __init__(self, template_desc=None, template_name=None, template_params=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_name=None, template_desc=None, template_name=None, template_params=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
         """CreateParameterTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._project_name = None
         self._template_desc = None
         self._template_name = None
         self._template_params = None
@@ -61,6 +64,8 @@ class CreateParameterTemplateRequest(object):
         self._template_type_version = None
         self.discriminator = None
 
+        if project_name is not None:
+            self.project_name = project_name
         if template_desc is not None:
             self.template_desc = template_desc
         self.template_name = template_name
@@ -68,6 +73,27 @@ class CreateParameterTemplateRequest(object):
             self.template_params = template_params
         self.template_type = template_type
         self.template_type_version = template_type_version
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateParameterTemplateRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateParameterTemplateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateParameterTemplateRequest.
+
+
+        :param project_name: The project_name of this CreateParameterTemplateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def template_desc(self):
@@ -154,13 +180,6 @@ class CreateParameterTemplateRequest(object):
         """
         if self._configuration.client_side_validation and template_type is None:
             raise ValueError("Invalid value for `template_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Mysql", "Postgresql", "Sqlserver"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                template_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `template_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(template_type, allowed_values)
-            )
 
         self._template_type = template_type
 
@@ -184,13 +203,6 @@ class CreateParameterTemplateRequest(object):
         """
         if self._configuration.client_side_validation and template_type_version is None:
             raise ValueError("Invalid value for `template_type_version`, must not be `None`")  # noqa: E501
-        allowed_values = ["MySQL_5_7", "MySQL_8_0", "MySQL_5_6", "SQLServer_2019_Ent", "SQLServer_2019_Std", "SQLServer_2019_Web"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                template_type_version not in allowed_values):
-            raise ValueError(
-                "Invalid value for `template_type_version` ({0}), must be one of {1}"  # noqa: E501
-                .format(template_type_version, allowed_values)
-            )
 
         self._template_type_version = template_type_version
 

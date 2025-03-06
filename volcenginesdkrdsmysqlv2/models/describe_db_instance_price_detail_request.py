@@ -38,6 +38,7 @@ class DescribeDBInstancePriceDetailRequest(object):
         'number': 'int',
         'period': 'int',
         'period_unit': 'str',
+        'project_name': 'str',
         'storage_space': 'int',
         'storage_type': 'str'
     }
@@ -48,11 +49,12 @@ class DescribeDBInstancePriceDetailRequest(object):
         'number': 'Number',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType'
     }
 
-    def __init__(self, charge_type=None, node_info=None, number=None, period=None, period_unit=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, node_info=None, number=None, period=None, period_unit=None, project_name=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancePriceDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class DescribeDBInstancePriceDetailRequest(object):
         self._number = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
         self._storage_space = None
         self._storage_type = None
         self.discriminator = None
@@ -76,6 +79,8 @@ class DescribeDBInstancePriceDetailRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         self.storage_space = storage_space
         self.storage_type = storage_type
 
@@ -99,13 +104,6 @@ class DescribeDBInstancePriceDetailRequest(object):
         """
         if self._configuration.client_side_validation and charge_type is None:
             raise ValueError("Invalid value for `charge_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["NotEnabled", "PostPaid", "PrePaid"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                charge_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(charge_type, allowed_values)
-            )
 
         self._charge_type = charge_type
 
@@ -190,15 +188,29 @@ class DescribeDBInstancePriceDetailRequest(object):
         :param period_unit: The period_unit of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Month", "Year"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                period_unit not in allowed_values):
-            raise ValueError(
-                "Invalid value for `period_unit` ({0}), must be one of {1}"  # noqa: E501
-                .format(period_unit, allowed_values)
-            )
 
         self._period_unit = period_unit
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeDBInstancePriceDetailRequest.
+
+
+        :param project_name: The project_name of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def storage_space(self):
@@ -243,13 +255,6 @@ class DescribeDBInstancePriceDetailRequest(object):
         """
         if self._configuration.client_side_validation and storage_type is None:
             raise ValueError("Invalid value for `storage_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["LocalSSD", "CloudStorage", "ESSDPL1", "ESSDPL2"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                storage_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(storage_type, allowed_values)
-            )
 
         self._storage_type = storage_type
 

@@ -37,6 +37,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'allow_list_version': 'str',
         'charge_detail': 'ChargeDetailForDescribeDBInstancesOutput',
         'create_time': 'str',
+        'current_kernel_version': 'str',
         'db_engine_version': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
@@ -66,6 +67,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'allow_list_version': 'AllowListVersion',
         'charge_detail': 'ChargeDetail',
         'create_time': 'CreateTime',
+        'current_kernel_version': 'CurrentKernelVersion',
         'db_engine_version': 'DBEngineVersion',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
@@ -90,7 +92,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_cpu_used_percentage=None, node_memory_used_percentage=None, node_number=None, node_space_used_percentage=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, current_kernel_version=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_cpu_used_percentage=None, node_memory_used_percentage=None, node_number=None, node_space_used_percentage=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +102,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._allow_list_version = None
         self._charge_detail = None
         self._create_time = None
+        self._current_kernel_version = None
         self._db_engine_version = None
         self._instance_id = None
         self._instance_name = None
@@ -132,6 +135,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.charge_detail = charge_detail
         if create_time is not None:
             self.create_time = create_time
+        if current_kernel_version is not None:
+            self.current_kernel_version = current_kernel_version
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
         if instance_id is not None:
@@ -260,6 +265,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def current_kernel_version(self):
+        """Gets the current_kernel_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The current_kernel_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_kernel_version
+
+    @current_kernel_version.setter
+    def current_kernel_version(self, current_kernel_version):
+        """Sets the current_kernel_version of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param current_kernel_version: The current_kernel_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._current_kernel_version = current_kernel_version
 
     @property
     def db_engine_version(self):

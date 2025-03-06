@@ -39,7 +39,9 @@ class ModifyAllowListRequest(object):
         'allow_list_id': 'str',
         'allow_list_name': 'str',
         'apply_instance_num': 'int',
+        'ignore_instance_status': 'bool',
         'modify_mode': 'str',
+        'project_name': 'str',
         'security_group_bind_infos': 'list[SecurityGroupBindInfoForModifyAllowListInput]',
         'security_group_ids': 'list[str]',
         'update_security_group': 'bool',
@@ -53,14 +55,16 @@ class ModifyAllowListRequest(object):
         'allow_list_id': 'AllowListId',
         'allow_list_name': 'AllowListName',
         'apply_instance_num': 'ApplyInstanceNum',
+        'ignore_instance_status': 'IgnoreInstanceStatus',
         'modify_mode': 'ModifyMode',
+        'project_name': 'ProjectName',
         'security_group_bind_infos': 'SecurityGroupBindInfos',
         'security_group_ids': 'SecurityGroupIds',
         'update_security_group': 'UpdateSecurityGroup',
         'user_allow_list': 'UserAllowList'
     }
 
-    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, modify_mode=None, security_group_bind_infos=None, security_group_ids=None, update_security_group=None, user_allow_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, apply_instance_num=None, ignore_instance_status=None, modify_mode=None, project_name=None, security_group_bind_infos=None, security_group_ids=None, update_security_group=None, user_allow_list=None, _configuration=None):  # noqa: E501
         """ModifyAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,7 +76,9 @@ class ModifyAllowListRequest(object):
         self._allow_list_id = None
         self._allow_list_name = None
         self._apply_instance_num = None
+        self._ignore_instance_status = None
         self._modify_mode = None
+        self._project_name = None
         self._security_group_bind_infos = None
         self._security_group_ids = None
         self._update_security_group = None
@@ -89,8 +95,12 @@ class ModifyAllowListRequest(object):
         self.allow_list_name = allow_list_name
         if apply_instance_num is not None:
             self.apply_instance_num = apply_instance_num
+        if ignore_instance_status is not None:
+            self.ignore_instance_status = ignore_instance_status
         if modify_mode is not None:
             self.modify_mode = modify_mode
+        if project_name is not None:
+            self.project_name = project_name
         if security_group_bind_infos is not None:
             self.security_group_bind_infos = security_group_bind_infos
         if security_group_ids is not None:
@@ -231,6 +241,27 @@ class ModifyAllowListRequest(object):
         self._apply_instance_num = apply_instance_num
 
     @property
+    def ignore_instance_status(self):
+        """Gets the ignore_instance_status of this ModifyAllowListRequest.  # noqa: E501
+
+
+        :return: The ignore_instance_status of this ModifyAllowListRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_instance_status
+
+    @ignore_instance_status.setter
+    def ignore_instance_status(self, ignore_instance_status):
+        """Sets the ignore_instance_status of this ModifyAllowListRequest.
+
+
+        :param ignore_instance_status: The ignore_instance_status of this ModifyAllowListRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_instance_status = ignore_instance_status
+
+    @property
     def modify_mode(self):
         """Gets the modify_mode of this ModifyAllowListRequest.  # noqa: E501
 
@@ -250,6 +281,27 @@ class ModifyAllowListRequest(object):
         """
 
         self._modify_mode = modify_mode
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ModifyAllowListRequest.  # noqa: E501
+
+
+        :return: The project_name of this ModifyAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ModifyAllowListRequest.
+
+
+        :param project_name: The project_name of this ModifyAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def security_group_bind_infos(self):

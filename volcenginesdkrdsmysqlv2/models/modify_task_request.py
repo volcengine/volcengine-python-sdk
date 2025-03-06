@@ -34,34 +34,54 @@ class ModifyTaskRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
+        'modify_begin_time': 'str',
+        'modify_end_time': 'str',
         'modify_type': 'str',
+        'project_name': 'str',
         'switch_time': 'str',
+        'task_event_operation': 'str',
         'task_id': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
+        'modify_begin_time': 'ModifyBeginTime',
+        'modify_end_time': 'ModifyEndTime',
         'modify_type': 'ModifyType',
+        'project_name': 'ProjectName',
         'switch_time': 'SwitchTime',
+        'task_event_operation': 'TaskEventOperation',
         'task_id': 'TaskId'
     }
 
-    def __init__(self, instance_id=None, modify_type=None, switch_time=None, task_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, modify_begin_time=None, modify_end_time=None, modify_type=None, project_name=None, switch_time=None, task_event_operation=None, task_id=None, _configuration=None):  # noqa: E501
         """ModifyTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._modify_begin_time = None
+        self._modify_end_time = None
         self._modify_type = None
+        self._project_name = None
         self._switch_time = None
+        self._task_event_operation = None
         self._task_id = None
         self.discriminator = None
 
         self.instance_id = instance_id
-        self.modify_type = modify_type
+        if modify_begin_time is not None:
+            self.modify_begin_time = modify_begin_time
+        if modify_end_time is not None:
+            self.modify_end_time = modify_end_time
+        if modify_type is not None:
+            self.modify_type = modify_type
+        if project_name is not None:
+            self.project_name = project_name
         if switch_time is not None:
             self.switch_time = switch_time
+        self.task_event_operation = task_event_operation
         self.task_id = task_id
 
     @property
@@ -88,6 +108,48 @@ class ModifyTaskRequest(object):
         self._instance_id = instance_id
 
     @property
+    def modify_begin_time(self):
+        """Gets the modify_begin_time of this ModifyTaskRequest.  # noqa: E501
+
+
+        :return: The modify_begin_time of this ModifyTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._modify_begin_time
+
+    @modify_begin_time.setter
+    def modify_begin_time(self, modify_begin_time):
+        """Sets the modify_begin_time of this ModifyTaskRequest.
+
+
+        :param modify_begin_time: The modify_begin_time of this ModifyTaskRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._modify_begin_time = modify_begin_time
+
+    @property
+    def modify_end_time(self):
+        """Gets the modify_end_time of this ModifyTaskRequest.  # noqa: E501
+
+
+        :return: The modify_end_time of this ModifyTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._modify_end_time
+
+    @modify_end_time.setter
+    def modify_end_time(self, modify_end_time):
+        """Sets the modify_end_time of this ModifyTaskRequest.
+
+
+        :param modify_end_time: The modify_end_time of this ModifyTaskRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._modify_end_time = modify_end_time
+
+    @property
     def modify_type(self):
         """Gets the modify_type of this ModifyTaskRequest.  # noqa: E501
 
@@ -105,10 +167,29 @@ class ModifyTaskRequest(object):
         :param modify_type: The modify_type of this ModifyTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and modify_type is None:
-            raise ValueError("Invalid value for `modify_type`, must not be `None`")  # noqa: E501
 
         self._modify_type = modify_type
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ModifyTaskRequest.  # noqa: E501
+
+
+        :return: The project_name of this ModifyTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ModifyTaskRequest.
+
+
+        :param project_name: The project_name of this ModifyTaskRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def switch_time(self):
@@ -130,6 +211,29 @@ class ModifyTaskRequest(object):
         """
 
         self._switch_time = switch_time
+
+    @property
+    def task_event_operation(self):
+        """Gets the task_event_operation of this ModifyTaskRequest.  # noqa: E501
+
+
+        :return: The task_event_operation of this ModifyTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._task_event_operation
+
+    @task_event_operation.setter
+    def task_event_operation(self, task_event_operation):
+        """Sets the task_event_operation of this ModifyTaskRequest.
+
+
+        :param task_event_operation: The task_event_operation of this ModifyTaskRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and task_event_operation is None:
+            raise ValueError("Invalid value for `task_event_operation`, must not be `None`")  # noqa: E501
+
+        self._task_event_operation = task_event_operation
 
     @property
     def task_id(self):

@@ -35,6 +35,8 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
     swagger_types = {
         'addresses': 'list[AddressForDescribeDBInstanceDetailOutput]',
         'auto_add_new_nodes': 'str',
+        'connection_mode': 'str',
+        'connection_pool_type': 'str',
         'description': 'str',
         'enable_read_only': 'str',
         'enable_read_write_splitting': 'str',
@@ -42,6 +44,9 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'endpoint_name': 'str',
         'endpoint_type': 'str',
         'idle_connection_reclaim': 'bool',
+        'multi_statements_mode': 'str',
+        'read_only_node_distribution_type': 'str',
+        'read_only_node_max_delay_time': 'int',
         'read_only_node_weight': 'list[ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput]',
         'read_write_mode': 'str'
     }
@@ -49,6 +54,8 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
     attribute_map = {
         'addresses': 'Addresses',
         'auto_add_new_nodes': 'AutoAddNewNodes',
+        'connection_mode': 'ConnectionMode',
+        'connection_pool_type': 'ConnectionPoolType',
         'description': 'Description',
         'enable_read_only': 'EnableReadOnly',
         'enable_read_write_splitting': 'EnableReadWriteSplitting',
@@ -56,11 +63,14 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'endpoint_name': 'EndpointName',
         'endpoint_type': 'EndpointType',
         'idle_connection_reclaim': 'IdleConnectionReclaim',
+        'multi_statements_mode': 'MultiStatementsMode',
+        'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
+        'read_only_node_max_delay_time': 'ReadOnlyNodeMaxDelayTime',
         'read_only_node_weight': 'ReadOnlyNodeWeight',
         'read_write_mode': 'ReadWriteMode'
     }
 
-    def __init__(self, addresses=None, auto_add_new_nodes=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, addresses=None, auto_add_new_nodes=None, connection_mode=None, connection_pool_type=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, multi_statements_mode=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
         """EndpointForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +78,8 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
 
         self._addresses = None
         self._auto_add_new_nodes = None
+        self._connection_mode = None
+        self._connection_pool_type = None
         self._description = None
         self._enable_read_only = None
         self._enable_read_write_splitting = None
@@ -75,6 +87,9 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         self._endpoint_name = None
         self._endpoint_type = None
         self._idle_connection_reclaim = None
+        self._multi_statements_mode = None
+        self._read_only_node_distribution_type = None
+        self._read_only_node_max_delay_time = None
         self._read_only_node_weight = None
         self._read_write_mode = None
         self.discriminator = None
@@ -83,6 +98,10 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
             self.addresses = addresses
         if auto_add_new_nodes is not None:
             self.auto_add_new_nodes = auto_add_new_nodes
+        if connection_mode is not None:
+            self.connection_mode = connection_mode
+        if connection_pool_type is not None:
+            self.connection_pool_type = connection_pool_type
         if description is not None:
             self.description = description
         if enable_read_only is not None:
@@ -97,6 +116,12 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
             self.endpoint_type = endpoint_type
         if idle_connection_reclaim is not None:
             self.idle_connection_reclaim = idle_connection_reclaim
+        if multi_statements_mode is not None:
+            self.multi_statements_mode = multi_statements_mode
+        if read_only_node_distribution_type is not None:
+            self.read_only_node_distribution_type = read_only_node_distribution_type
+        if read_only_node_max_delay_time is not None:
+            self.read_only_node_max_delay_time = read_only_node_max_delay_time
         if read_only_node_weight is not None:
             self.read_only_node_weight = read_only_node_weight
         if read_write_mode is not None:
@@ -143,6 +168,48 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._auto_add_new_nodes = auto_add_new_nodes
+
+    @property
+    def connection_mode(self):
+        """Gets the connection_mode of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The connection_mode of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_mode
+
+    @connection_mode.setter
+    def connection_mode(self, connection_mode):
+        """Sets the connection_mode of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param connection_mode: The connection_mode of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._connection_mode = connection_mode
+
+    @property
+    def connection_pool_type(self):
+        """Gets the connection_pool_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The connection_pool_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_pool_type
+
+    @connection_pool_type.setter
+    def connection_pool_type(self, connection_pool_type):
+        """Sets the connection_pool_type of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param connection_pool_type: The connection_pool_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._connection_pool_type = connection_pool_type
 
     @property
     def description(self):
@@ -290,6 +357,69 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._idle_connection_reclaim = idle_connection_reclaim
+
+    @property
+    def multi_statements_mode(self):
+        """Gets the multi_statements_mode of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The multi_statements_mode of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_statements_mode
+
+    @multi_statements_mode.setter
+    def multi_statements_mode(self, multi_statements_mode):
+        """Sets the multi_statements_mode of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param multi_statements_mode: The multi_statements_mode of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._multi_statements_mode = multi_statements_mode
+
+    @property
+    def read_only_node_distribution_type(self):
+        """Gets the read_only_node_distribution_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The read_only_node_distribution_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._read_only_node_distribution_type
+
+    @read_only_node_distribution_type.setter
+    def read_only_node_distribution_type(self, read_only_node_distribution_type):
+        """Sets the read_only_node_distribution_type of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param read_only_node_distribution_type: The read_only_node_distribution_type of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._read_only_node_distribution_type = read_only_node_distribution_type
+
+    @property
+    def read_only_node_max_delay_time(self):
+        """Gets the read_only_node_max_delay_time of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The read_only_node_max_delay_time of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_only_node_max_delay_time
+
+    @read_only_node_max_delay_time.setter
+    def read_only_node_max_delay_time(self, read_only_node_max_delay_time):
+        """Sets the read_only_node_max_delay_time of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param read_only_node_max_delay_time: The read_only_node_max_delay_time of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_only_node_max_delay_time = read_only_node_max_delay_time
 
     @property
     def read_only_node_weight(self):
