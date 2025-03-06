@@ -37,6 +37,7 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
         'mac_address': 'str',
         'network_interface_id': 'str',
         'primary_ip_address': 'str',
+        'security_group_ids': 'list[str]',
         'subnet_id': 'str',
         'type': 'str',
         'vpc_id': 'str'
@@ -47,12 +48,13 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
         'mac_address': 'MacAddress',
         'network_interface_id': 'NetworkInterfaceId',
         'primary_ip_address': 'PrimaryIpAddress',
+        'security_group_ids': 'SecurityGroupIds',
         'subnet_id': 'SubnetId',
         'type': 'Type',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, ipv6_addresses=None, mac_address=None, network_interface_id=None, primary_ip_address=None, subnet_id=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ipv6_addresses=None, mac_address=None, network_interface_id=None, primary_ip_address=None, security_group_ids=None, subnet_id=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """NetworkInterfaceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
         self._mac_address = None
         self._network_interface_id = None
         self._primary_ip_address = None
+        self._security_group_ids = None
         self._subnet_id = None
         self._type = None
         self._vpc_id = None
@@ -75,6 +78,8 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
             self.network_interface_id = network_interface_id
         if primary_ip_address is not None:
             self.primary_ip_address = primary_ip_address
+        if security_group_ids is not None:
+            self.security_group_ids = security_group_ids
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if type is not None:
@@ -165,6 +170,27 @@ class NetworkInterfaceForDescribeInstancesOutput(object):
         """
 
         self._primary_ip_address = primary_ip_address
+
+    @property
+    def security_group_ids(self):
+        """Gets the security_group_ids of this NetworkInterfaceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The security_group_ids of this NetworkInterfaceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._security_group_ids
+
+    @security_group_ids.setter
+    def security_group_ids(self, security_group_ids):
+        """Sets the security_group_ids of this NetworkInterfaceForDescribeInstancesOutput.
+
+
+        :param security_group_ids: The security_group_ids of this NetworkInterfaceForDescribeInstancesOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._security_group_ids = security_group_ids
 
     @property
     def subnet_id(self):
