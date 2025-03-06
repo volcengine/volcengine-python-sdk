@@ -31,6 +31,13 @@ class ChatCompletionAssistantMessageParam(TypedDict, total=False):
     Required unless `tool_calls` or `function_call` is specified.
     """
 
+    name: Optional[str]
+    """An optional name for the participant.
+
+    Provides the model information to differentiate between participants of the same
+    role.
+    """
+
     function_call: FunctionCall
     """Deprecated and replaced by `tool_calls`.
 

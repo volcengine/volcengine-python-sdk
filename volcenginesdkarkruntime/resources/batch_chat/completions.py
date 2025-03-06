@@ -5,6 +5,7 @@ import time
 from datetime import timedelta, datetime
 from random import random
 from typing import Dict, List, Union, Iterable, Optional, Callable
+from typing_extensions import Literal
 
 import httpx
 
@@ -130,6 +131,8 @@ class Completions(SyncAPIResource):
         top_p: Optional[float] | None = None,
         repetition_penalty: Optional[float] | None = None,
         n: Optional[int] | None = None,
+        parallel_tool_calls: Optional[bool] | None = None,
+        service_tier: Optional[Literal["auto", "default"]] | None = None,
         tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
         response_format: completion_create_params.ResponseFormat | None = None,
         user: str | None = None,
@@ -172,6 +175,8 @@ class Completions(SyncAPIResource):
                         "user": user,
                         "repetition_penalty": repetition_penalty,
                         "n": n,
+                        "parallel_tool_calls": parallel_tool_calls,
+                        "service_tier": service_tier,
                         "tool_choice": tool_choice,
                         "response_format": response_format,
                     },
@@ -272,6 +277,8 @@ class AsyncCompletions(AsyncAPIResource):
         user: str | None = None,
         repetition_penalty: Optional[float] | None = None,
         n: Optional[int] | None = None,
+        parallel_tool_calls: Optional[bool] | None = None,
+        service_tier: Optional[Literal["auto", "default"]] | None = None,
         tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
         response_format: completion_create_params.ResponseFormat | None = None,
         extra_headers: Headers | None = None,
@@ -314,6 +321,8 @@ class AsyncCompletions(AsyncAPIResource):
                         "user": user,
                         "repetition_penalty": repetition_penalty,
                         "n": n,
+                        "parallel_tool_calls": parallel_tool_calls,
+                        "service_tier": service_tier,
                         "tool_choice": tool_choice,
                         "response_format": response_format,
                     },
