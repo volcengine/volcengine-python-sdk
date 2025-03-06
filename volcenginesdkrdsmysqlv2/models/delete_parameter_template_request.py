@@ -33,23 +33,49 @@ class DeleteParameterTemplateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'project_name': 'str',
         'template_id': 'str'
     }
 
     attribute_map = {
+        'project_name': 'ProjectName',
         'template_id': 'TemplateId'
     }
 
-    def __init__(self, template_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_name=None, template_id=None, _configuration=None):  # noqa: E501
         """DeleteParameterTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._project_name = None
         self._template_id = None
         self.discriminator = None
 
+        if project_name is not None:
+            self.project_name = project_name
         self.template_id = template_id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DeleteParameterTemplateRequest.  # noqa: E501
+
+
+        :return: The project_name of this DeleteParameterTemplateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DeleteParameterTemplateRequest.
+
+
+        :param project_name: The project_name of this DeleteParameterTemplateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def template_id(self):

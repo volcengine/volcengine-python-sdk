@@ -33,55 +33,94 @@ class ModifyBackupPolicyResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'binlog_backup_all_retention': 'bool',
+        'binlog_backup_enabled': 'bool',
+        'binlog_backup_encryption_enabled': 'bool',
         'binlog_file_counts_enable': 'bool',
         'binlog_limit_count': 'int',
         'binlog_local_retention_hour': 'int',
         'binlog_space_limit_enable': 'bool',
         'binlog_storage_percentage': 'int',
+        'data_backup_all_retention': 'bool',
+        'data_backup_encryption_enabled': 'bool',
         'data_backup_retention_day': 'int',
         'data_full_backup_periods': 'list[str]',
+        'data_full_backup_start_utc_hour': 'int',
         'data_full_backup_time': 'str',
         'data_incr_backup_periods': 'list[str]',
+        'data_keep_days_after_released': 'int',
+        'data_keep_policy_after_released': 'str',
+        'hourly_incr_backup_enable': 'bool',
+        'incr_backup_hour_period': 'int',
         'instance_id': 'str',
         'lock_ddl_time': 'int',
-        'log_backup_retention_day': 'int'
+        'log_backup_retention_day': 'int',
+        'retention_policy_synced': 'bool'
     }
 
     attribute_map = {
+        'binlog_backup_all_retention': 'BinlogBackupAllRetention',
+        'binlog_backup_enabled': 'BinlogBackupEnabled',
+        'binlog_backup_encryption_enabled': 'BinlogBackupEncryptionEnabled',
         'binlog_file_counts_enable': 'BinlogFileCountsEnable',
         'binlog_limit_count': 'BinlogLimitCount',
         'binlog_local_retention_hour': 'BinlogLocalRetentionHour',
         'binlog_space_limit_enable': 'BinlogSpaceLimitEnable',
         'binlog_storage_percentage': 'BinlogStoragePercentage',
+        'data_backup_all_retention': 'DataBackupAllRetention',
+        'data_backup_encryption_enabled': 'DataBackupEncryptionEnabled',
         'data_backup_retention_day': 'DataBackupRetentionDay',
         'data_full_backup_periods': 'DataFullBackupPeriods',
+        'data_full_backup_start_utc_hour': 'DataFullBackupStartUTCHour',
         'data_full_backup_time': 'DataFullBackupTime',
         'data_incr_backup_periods': 'DataIncrBackupPeriods',
+        'data_keep_days_after_released': 'DataKeepDaysAfterReleased',
+        'data_keep_policy_after_released': 'DataKeepPolicyAfterReleased',
+        'hourly_incr_backup_enable': 'HourlyIncrBackupEnable',
+        'incr_backup_hour_period': 'IncrBackupHourPeriod',
         'instance_id': 'InstanceId',
-        'lock_ddl_time': 'LockDdlTime',
-        'log_backup_retention_day': 'LogBackupRetentionDay'
+        'lock_ddl_time': 'LockDDLTime',
+        'log_backup_retention_day': 'LogBackupRetentionDay',
+        'retention_policy_synced': 'RetentionPolicySynced'
     }
 
-    def __init__(self, binlog_file_counts_enable=None, binlog_limit_count=None, binlog_local_retention_hour=None, binlog_space_limit_enable=None, binlog_storage_percentage=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_time=None, data_incr_backup_periods=None, instance_id=None, lock_ddl_time=None, log_backup_retention_day=None, _configuration=None):  # noqa: E501
+    def __init__(self, binlog_backup_all_retention=None, binlog_backup_enabled=None, binlog_backup_encryption_enabled=None, binlog_file_counts_enable=None, binlog_limit_count=None, binlog_local_retention_hour=None, binlog_space_limit_enable=None, binlog_storage_percentage=None, data_backup_all_retention=None, data_backup_encryption_enabled=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_start_utc_hour=None, data_full_backup_time=None, data_incr_backup_periods=None, data_keep_days_after_released=None, data_keep_policy_after_released=None, hourly_incr_backup_enable=None, incr_backup_hour_period=None, instance_id=None, lock_ddl_time=None, log_backup_retention_day=None, retention_policy_synced=None, _configuration=None):  # noqa: E501
         """ModifyBackupPolicyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._binlog_backup_all_retention = None
+        self._binlog_backup_enabled = None
+        self._binlog_backup_encryption_enabled = None
         self._binlog_file_counts_enable = None
         self._binlog_limit_count = None
         self._binlog_local_retention_hour = None
         self._binlog_space_limit_enable = None
         self._binlog_storage_percentage = None
+        self._data_backup_all_retention = None
+        self._data_backup_encryption_enabled = None
         self._data_backup_retention_day = None
         self._data_full_backup_periods = None
+        self._data_full_backup_start_utc_hour = None
         self._data_full_backup_time = None
         self._data_incr_backup_periods = None
+        self._data_keep_days_after_released = None
+        self._data_keep_policy_after_released = None
+        self._hourly_incr_backup_enable = None
+        self._incr_backup_hour_period = None
         self._instance_id = None
         self._lock_ddl_time = None
         self._log_backup_retention_day = None
+        self._retention_policy_synced = None
         self.discriminator = None
 
+        if binlog_backup_all_retention is not None:
+            self.binlog_backup_all_retention = binlog_backup_all_retention
+        if binlog_backup_enabled is not None:
+            self.binlog_backup_enabled = binlog_backup_enabled
+        if binlog_backup_encryption_enabled is not None:
+            self.binlog_backup_encryption_enabled = binlog_backup_encryption_enabled
         if binlog_file_counts_enable is not None:
             self.binlog_file_counts_enable = binlog_file_counts_enable
         if binlog_limit_count is not None:
@@ -92,20 +131,99 @@ class ModifyBackupPolicyResponse(object):
             self.binlog_space_limit_enable = binlog_space_limit_enable
         if binlog_storage_percentage is not None:
             self.binlog_storage_percentage = binlog_storage_percentage
+        if data_backup_all_retention is not None:
+            self.data_backup_all_retention = data_backup_all_retention
+        if data_backup_encryption_enabled is not None:
+            self.data_backup_encryption_enabled = data_backup_encryption_enabled
         if data_backup_retention_day is not None:
             self.data_backup_retention_day = data_backup_retention_day
         if data_full_backup_periods is not None:
             self.data_full_backup_periods = data_full_backup_periods
+        if data_full_backup_start_utc_hour is not None:
+            self.data_full_backup_start_utc_hour = data_full_backup_start_utc_hour
         if data_full_backup_time is not None:
             self.data_full_backup_time = data_full_backup_time
         if data_incr_backup_periods is not None:
             self.data_incr_backup_periods = data_incr_backup_periods
+        if data_keep_days_after_released is not None:
+            self.data_keep_days_after_released = data_keep_days_after_released
+        if data_keep_policy_after_released is not None:
+            self.data_keep_policy_after_released = data_keep_policy_after_released
+        if hourly_incr_backup_enable is not None:
+            self.hourly_incr_backup_enable = hourly_incr_backup_enable
+        if incr_backup_hour_period is not None:
+            self.incr_backup_hour_period = incr_backup_hour_period
         if instance_id is not None:
             self.instance_id = instance_id
         if lock_ddl_time is not None:
             self.lock_ddl_time = lock_ddl_time
         if log_backup_retention_day is not None:
             self.log_backup_retention_day = log_backup_retention_day
+        if retention_policy_synced is not None:
+            self.retention_policy_synced = retention_policy_synced
+
+    @property
+    def binlog_backup_all_retention(self):
+        """Gets the binlog_backup_all_retention of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The binlog_backup_all_retention of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._binlog_backup_all_retention
+
+    @binlog_backup_all_retention.setter
+    def binlog_backup_all_retention(self, binlog_backup_all_retention):
+        """Sets the binlog_backup_all_retention of this ModifyBackupPolicyResponse.
+
+
+        :param binlog_backup_all_retention: The binlog_backup_all_retention of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._binlog_backup_all_retention = binlog_backup_all_retention
+
+    @property
+    def binlog_backup_enabled(self):
+        """Gets the binlog_backup_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The binlog_backup_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._binlog_backup_enabled
+
+    @binlog_backup_enabled.setter
+    def binlog_backup_enabled(self, binlog_backup_enabled):
+        """Sets the binlog_backup_enabled of this ModifyBackupPolicyResponse.
+
+
+        :param binlog_backup_enabled: The binlog_backup_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._binlog_backup_enabled = binlog_backup_enabled
+
+    @property
+    def binlog_backup_encryption_enabled(self):
+        """Gets the binlog_backup_encryption_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The binlog_backup_encryption_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._binlog_backup_encryption_enabled
+
+    @binlog_backup_encryption_enabled.setter
+    def binlog_backup_encryption_enabled(self, binlog_backup_encryption_enabled):
+        """Sets the binlog_backup_encryption_enabled of this ModifyBackupPolicyResponse.
+
+
+        :param binlog_backup_encryption_enabled: The binlog_backup_encryption_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._binlog_backup_encryption_enabled = binlog_backup_encryption_enabled
 
     @property
     def binlog_file_counts_enable(self):
@@ -213,6 +331,48 @@ class ModifyBackupPolicyResponse(object):
         self._binlog_storage_percentage = binlog_storage_percentage
 
     @property
+    def data_backup_all_retention(self):
+        """Gets the data_backup_all_retention of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The data_backup_all_retention of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._data_backup_all_retention
+
+    @data_backup_all_retention.setter
+    def data_backup_all_retention(self, data_backup_all_retention):
+        """Sets the data_backup_all_retention of this ModifyBackupPolicyResponse.
+
+
+        :param data_backup_all_retention: The data_backup_all_retention of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._data_backup_all_retention = data_backup_all_retention
+
+    @property
+    def data_backup_encryption_enabled(self):
+        """Gets the data_backup_encryption_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The data_backup_encryption_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._data_backup_encryption_enabled
+
+    @data_backup_encryption_enabled.setter
+    def data_backup_encryption_enabled(self, data_backup_encryption_enabled):
+        """Sets the data_backup_encryption_enabled of this ModifyBackupPolicyResponse.
+
+
+        :param data_backup_encryption_enabled: The data_backup_encryption_enabled of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._data_backup_encryption_enabled = data_backup_encryption_enabled
+
+    @property
     def data_backup_retention_day(self):
         """Gets the data_backup_retention_day of this ModifyBackupPolicyResponse.  # noqa: E501
 
@@ -255,6 +415,27 @@ class ModifyBackupPolicyResponse(object):
         self._data_full_backup_periods = data_full_backup_periods
 
     @property
+    def data_full_backup_start_utc_hour(self):
+        """Gets the data_full_backup_start_utc_hour of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The data_full_backup_start_utc_hour of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._data_full_backup_start_utc_hour
+
+    @data_full_backup_start_utc_hour.setter
+    def data_full_backup_start_utc_hour(self, data_full_backup_start_utc_hour):
+        """Sets the data_full_backup_start_utc_hour of this ModifyBackupPolicyResponse.
+
+
+        :param data_full_backup_start_utc_hour: The data_full_backup_start_utc_hour of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._data_full_backup_start_utc_hour = data_full_backup_start_utc_hour
+
+    @property
     def data_full_backup_time(self):
         """Gets the data_full_backup_time of this ModifyBackupPolicyResponse.  # noqa: E501
 
@@ -295,6 +476,90 @@ class ModifyBackupPolicyResponse(object):
         """
 
         self._data_incr_backup_periods = data_incr_backup_periods
+
+    @property
+    def data_keep_days_after_released(self):
+        """Gets the data_keep_days_after_released of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The data_keep_days_after_released of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._data_keep_days_after_released
+
+    @data_keep_days_after_released.setter
+    def data_keep_days_after_released(self, data_keep_days_after_released):
+        """Sets the data_keep_days_after_released of this ModifyBackupPolicyResponse.
+
+
+        :param data_keep_days_after_released: The data_keep_days_after_released of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._data_keep_days_after_released = data_keep_days_after_released
+
+    @property
+    def data_keep_policy_after_released(self):
+        """Gets the data_keep_policy_after_released of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The data_keep_policy_after_released of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_keep_policy_after_released
+
+    @data_keep_policy_after_released.setter
+    def data_keep_policy_after_released(self, data_keep_policy_after_released):
+        """Sets the data_keep_policy_after_released of this ModifyBackupPolicyResponse.
+
+
+        :param data_keep_policy_after_released: The data_keep_policy_after_released of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._data_keep_policy_after_released = data_keep_policy_after_released
+
+    @property
+    def hourly_incr_backup_enable(self):
+        """Gets the hourly_incr_backup_enable of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The hourly_incr_backup_enable of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hourly_incr_backup_enable
+
+    @hourly_incr_backup_enable.setter
+    def hourly_incr_backup_enable(self, hourly_incr_backup_enable):
+        """Sets the hourly_incr_backup_enable of this ModifyBackupPolicyResponse.
+
+
+        :param hourly_incr_backup_enable: The hourly_incr_backup_enable of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._hourly_incr_backup_enable = hourly_incr_backup_enable
+
+    @property
+    def incr_backup_hour_period(self):
+        """Gets the incr_backup_hour_period of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The incr_backup_hour_period of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._incr_backup_hour_period
+
+    @incr_backup_hour_period.setter
+    def incr_backup_hour_period(self, incr_backup_hour_period):
+        """Sets the incr_backup_hour_period of this ModifyBackupPolicyResponse.
+
+
+        :param incr_backup_hour_period: The incr_backup_hour_period of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._incr_backup_hour_period = incr_backup_hour_period
 
     @property
     def instance_id(self):
@@ -358,6 +623,27 @@ class ModifyBackupPolicyResponse(object):
         """
 
         self._log_backup_retention_day = log_backup_retention_day
+
+    @property
+    def retention_policy_synced(self):
+        """Gets the retention_policy_synced of this ModifyBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The retention_policy_synced of this ModifyBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._retention_policy_synced
+
+    @retention_policy_synced.setter
+    def retention_policy_synced(self, retention_policy_synced):
+        """Sets the retention_policy_synced of this ModifyBackupPolicyResponse.
+
+
+        :param retention_policy_synced: The retention_policy_synced of this ModifyBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._retention_policy_synced = retention_policy_synced
 
     def to_dict(self):
         """Returns the model properties as a dict"""

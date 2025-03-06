@@ -33,24 +33,29 @@ class PurchaseReservedInstancesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'reserved_instance_id': 'str'
+        'reserved_instance_id': 'str',
+        'reserved_storage_capacity_id': 'str'
     }
 
     attribute_map = {
-        'reserved_instance_id': 'ReservedInstanceId'
+        'reserved_instance_id': 'ReservedInstanceId',
+        'reserved_storage_capacity_id': 'ReservedStorageCapacityId'
     }
 
-    def __init__(self, reserved_instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, reserved_instance_id=None, reserved_storage_capacity_id=None, _configuration=None):  # noqa: E501
         """PurchaseReservedInstancesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._reserved_instance_id = None
+        self._reserved_storage_capacity_id = None
         self.discriminator = None
 
         if reserved_instance_id is not None:
             self.reserved_instance_id = reserved_instance_id
+        if reserved_storage_capacity_id is not None:
+            self.reserved_storage_capacity_id = reserved_storage_capacity_id
 
     @property
     def reserved_instance_id(self):
@@ -72,6 +77,27 @@ class PurchaseReservedInstancesResponse(object):
         """
 
         self._reserved_instance_id = reserved_instance_id
+
+    @property
+    def reserved_storage_capacity_id(self):
+        """Gets the reserved_storage_capacity_id of this PurchaseReservedInstancesResponse.  # noqa: E501
+
+
+        :return: The reserved_storage_capacity_id of this PurchaseReservedInstancesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._reserved_storage_capacity_id
+
+    @reserved_storage_capacity_id.setter
+    def reserved_storage_capacity_id(self, reserved_storage_capacity_id):
+        """Sets the reserved_storage_capacity_id of this PurchaseReservedInstancesResponse.
+
+
+        :param reserved_storage_capacity_id: The reserved_storage_capacity_id of this PurchaseReservedInstancesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._reserved_storage_capacity_id = reserved_storage_capacity_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

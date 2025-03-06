@@ -34,11 +34,13 @@ class ModifyDBEndpointRequest(object):
     """
     swagger_types = {
         'auto_add_new_nodes': 'bool',
+        'connection_pool_type': 'str',
         'description': 'str',
         'endpoint_id': 'str',
         'endpoint_name': 'str',
         'idle_connection_reclaim': 'bool',
         'instance_id': 'str',
+        'multi_statements_mode': 'str',
         'nodes': 'str',
         'read_only_node_distribution_type': 'str',
         'read_only_node_max_delay_time': 'int',
@@ -49,11 +51,13 @@ class ModifyDBEndpointRequest(object):
 
     attribute_map = {
         'auto_add_new_nodes': 'AutoAddNewNodes',
+        'connection_pool_type': 'ConnectionPoolType',
         'description': 'Description',
         'endpoint_id': 'EndpointId',
         'endpoint_name': 'EndpointName',
         'idle_connection_reclaim': 'IdleConnectionReclaim',
         'instance_id': 'InstanceId',
+        'multi_statements_mode': 'MultiStatementsMode',
         'nodes': 'Nodes',
         'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
         'read_only_node_max_delay_time': 'ReadOnlyNodeMaxDelayTime',
@@ -62,18 +66,20 @@ class ModifyDBEndpointRequest(object):
         'read_write_spliting': 'ReadWriteSpliting'
     }
 
-    def __init__(self, auto_add_new_nodes=None, description=None, endpoint_id=None, endpoint_name=None, idle_connection_reclaim=None, instance_id=None, nodes=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, connection_pool_type=None, description=None, endpoint_id=None, endpoint_name=None, idle_connection_reclaim=None, instance_id=None, multi_statements_mode=None, nodes=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
         """ModifyDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_add_new_nodes = None
+        self._connection_pool_type = None
         self._description = None
         self._endpoint_id = None
         self._endpoint_name = None
         self._idle_connection_reclaim = None
         self._instance_id = None
+        self._multi_statements_mode = None
         self._nodes = None
         self._read_only_node_distribution_type = None
         self._read_only_node_max_delay_time = None
@@ -84,6 +90,8 @@ class ModifyDBEndpointRequest(object):
 
         if auto_add_new_nodes is not None:
             self.auto_add_new_nodes = auto_add_new_nodes
+        if connection_pool_type is not None:
+            self.connection_pool_type = connection_pool_type
         if description is not None:
             self.description = description
         self.endpoint_id = endpoint_id
@@ -92,6 +100,8 @@ class ModifyDBEndpointRequest(object):
         if idle_connection_reclaim is not None:
             self.idle_connection_reclaim = idle_connection_reclaim
         self.instance_id = instance_id
+        if multi_statements_mode is not None:
+            self.multi_statements_mode = multi_statements_mode
         if nodes is not None:
             self.nodes = nodes
         if read_only_node_distribution_type is not None:
@@ -125,6 +135,27 @@ class ModifyDBEndpointRequest(object):
         """
 
         self._auto_add_new_nodes = auto_add_new_nodes
+
+    @property
+    def connection_pool_type(self):
+        """Gets the connection_pool_type of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The connection_pool_type of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_pool_type
+
+    @connection_pool_type.setter
+    def connection_pool_type(self, connection_pool_type):
+        """Sets the connection_pool_type of this ModifyDBEndpointRequest.
+
+
+        :param connection_pool_type: The connection_pool_type of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._connection_pool_type = connection_pool_type
 
     @property
     def description(self):
@@ -236,6 +267,27 @@ class ModifyDBEndpointRequest(object):
         self._instance_id = instance_id
 
     @property
+    def multi_statements_mode(self):
+        """Gets the multi_statements_mode of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The multi_statements_mode of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_statements_mode
+
+    @multi_statements_mode.setter
+    def multi_statements_mode(self, multi_statements_mode):
+        """Sets the multi_statements_mode of this ModifyDBEndpointRequest.
+
+
+        :param multi_statements_mode: The multi_statements_mode of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._multi_statements_mode = multi_statements_mode
+
+    @property
     def nodes(self):
         """Gets the nodes of this ModifyDBEndpointRequest.  # noqa: E501
 
@@ -274,13 +326,6 @@ class ModifyDBEndpointRequest(object):
         :param read_only_node_distribution_type: The read_only_node_distribution_type of this ModifyDBEndpointRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Default", "Custom", "RoundRobin", "LoadSchedule"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                read_only_node_distribution_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `read_only_node_distribution_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(read_only_node_distribution_type, allowed_values)
-            )
 
         self._read_only_node_distribution_type = read_only_node_distribution_type
 
@@ -344,13 +389,6 @@ class ModifyDBEndpointRequest(object):
         :param read_write_mode: The read_write_mode of this ModifyDBEndpointRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ReadWrite", "ReadOnly"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                read_write_mode not in allowed_values):
-            raise ValueError(
-                "Invalid value for `read_write_mode` ({0}), must be one of {1}"  # noqa: E501
-                .format(read_write_mode, allowed_values)
-            )
 
         self._read_write_mode = read_write_mode
 

@@ -35,6 +35,7 @@ class GrantDBAccountPrivilegeRequest(object):
     swagger_types = {
         'account_name': 'str',
         'account_privileges': 'list[AccountPrivilegeForGrantDBAccountPrivilegeInput]',
+        'dry_run': 'bool',
         'host': 'str',
         'instance_id': 'str'
     }
@@ -42,11 +43,12 @@ class GrantDBAccountPrivilegeRequest(object):
     attribute_map = {
         'account_name': 'AccountName',
         'account_privileges': 'AccountPrivileges',
+        'dry_run': 'DryRun',
         'host': 'Host',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, account_name=None, account_privileges=None, host=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, account_privileges=None, dry_run=None, host=None, instance_id=None, _configuration=None):  # noqa: E501
         """GrantDBAccountPrivilegeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class GrantDBAccountPrivilegeRequest(object):
 
         self._account_name = None
         self._account_privileges = None
+        self._dry_run = None
         self._host = None
         self._instance_id = None
         self.discriminator = None
@@ -61,6 +64,8 @@ class GrantDBAccountPrivilegeRequest(object):
         self.account_name = account_name
         if account_privileges is not None:
             self.account_privileges = account_privileges
+        if dry_run is not None:
+            self.dry_run = dry_run
         if host is not None:
             self.host = host
         self.instance_id = instance_id
@@ -108,6 +113,27 @@ class GrantDBAccountPrivilegeRequest(object):
         """
 
         self._account_privileges = account_privileges
+
+    @property
+    def dry_run(self):
+        """Gets the dry_run of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+
+
+        :return: The dry_run of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dry_run
+
+    @dry_run.setter
+    def dry_run(self, dry_run):
+        """Sets the dry_run of this GrantDBAccountPrivilegeRequest.
+
+
+        :param dry_run: The dry_run of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dry_run = dry_run
 
     @property
     def host(self):

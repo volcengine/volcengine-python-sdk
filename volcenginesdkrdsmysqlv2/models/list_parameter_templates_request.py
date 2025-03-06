@@ -35,6 +35,7 @@ class ListParameterTemplatesRequest(object):
     swagger_types = {
         'limit': 'int',
         'offset': 'int',
+        'project_name': 'str',
         'template_category': 'str',
         'template_source': 'str',
         'template_type': 'str',
@@ -44,13 +45,14 @@ class ListParameterTemplatesRequest(object):
     attribute_map = {
         'limit': 'Limit',
         'offset': 'Offset',
+        'project_name': 'ProjectName',
         'template_category': 'TemplateCategory',
         'template_source': 'TemplateSource',
         'template_type': 'TemplateType',
         'template_type_version': 'TemplateTypeVersion'
     }
 
-    def __init__(self, limit=None, offset=None, template_category=None, template_source=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, offset=None, project_name=None, template_category=None, template_source=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
         """ListParameterTemplatesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class ListParameterTemplatesRequest(object):
 
         self._limit = None
         self._offset = None
+        self._project_name = None
         self._template_category = None
         self._template_source = None
         self._template_type = None
@@ -68,6 +71,8 @@ class ListParameterTemplatesRequest(object):
             self.limit = limit
         if offset is not None:
             self.offset = offset
+        if project_name is not None:
+            self.project_name = project_name
         if template_category is not None:
             self.template_category = template_category
         if template_source is not None:
@@ -120,6 +125,27 @@ class ListParameterTemplatesRequest(object):
         self._offset = offset
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ListParameterTemplatesRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListParameterTemplatesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListParameterTemplatesRequest.
+
+
+        :param project_name: The project_name of this ListParameterTemplatesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def template_category(self):
         """Gets the template_category of this ListParameterTemplatesRequest.  # noqa: E501
 
@@ -137,13 +163,6 @@ class ListParameterTemplatesRequest(object):
         :param template_category: The template_category of this ListParameterTemplatesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["DBEngine", "Proxy"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                template_category not in allowed_values):
-            raise ValueError(
-                "Invalid value for `template_category` ({0}), must be one of {1}"  # noqa: E501
-                .format(template_category, allowed_values)
-            )
 
         self._template_category = template_category
 
@@ -165,13 +184,6 @@ class ListParameterTemplatesRequest(object):
         :param template_source: The template_source of this ListParameterTemplatesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["System", "User"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                template_source not in allowed_values):
-            raise ValueError(
-                "Invalid value for `template_source` ({0}), must be one of {1}"  # noqa: E501
-                .format(template_source, allowed_values)
-            )
 
         self._template_source = template_source
 
@@ -193,13 +205,6 @@ class ListParameterTemplatesRequest(object):
         :param template_type: The template_type of this ListParameterTemplatesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Mysql", "Postgresql", "Sqlserver"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                template_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `template_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(template_type, allowed_values)
-            )
 
         self._template_type = template_type
 
@@ -221,13 +226,6 @@ class ListParameterTemplatesRequest(object):
         :param template_type_version: The template_type_version of this ListParameterTemplatesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MySQL_5_7", "MySQL_8_0", "MySQL_5_6", "SQLServer_2019_Ent", "SQLServer_2019_Std", "SQLServer_2019_Web"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                template_type_version not in allowed_values):
-            raise ValueError(
-                "Invalid value for `template_type_version` ({0}), must be one of {1}"  # noqa: E501
-                .format(template_type_version, allowed_values)
-            )
 
         self._template_type_version = template_type_version
 

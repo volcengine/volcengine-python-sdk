@@ -36,17 +36,19 @@ class DescribeDBInstanceDetailResponse(object):
         'basic_info': 'BasicInfoForDescribeDBInstanceDetailOutput',
         'charge_detail': 'ChargeDetailForDescribeDBInstanceDetailOutput',
         'endpoints': 'list[EndpointForDescribeDBInstanceDetailOutput]',
-        'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]'
+        'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]',
+        'proxy_detail': 'ProxyDetailForDescribeDBInstanceDetailOutput'
     }
 
     attribute_map = {
         'basic_info': 'BasicInfo',
         'charge_detail': 'ChargeDetail',
         'endpoints': 'Endpoints',
-        'nodes': 'Nodes'
+        'nodes': 'Nodes',
+        'proxy_detail': 'ProxyDetail'
     }
 
-    def __init__(self, basic_info=None, charge_detail=None, endpoints=None, nodes=None, _configuration=None):  # noqa: E501
+    def __init__(self, basic_info=None, charge_detail=None, endpoints=None, nodes=None, proxy_detail=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DescribeDBInstanceDetailResponse(object):
         self._charge_detail = None
         self._endpoints = None
         self._nodes = None
+        self._proxy_detail = None
         self.discriminator = None
 
         if basic_info is not None:
@@ -66,6 +69,8 @@ class DescribeDBInstanceDetailResponse(object):
             self.endpoints = endpoints
         if nodes is not None:
             self.nodes = nodes
+        if proxy_detail is not None:
+            self.proxy_detail = proxy_detail
 
     @property
     def basic_info(self):
@@ -150,6 +155,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._nodes = nodes
+
+    @property
+    def proxy_detail(self):
+        """Gets the proxy_detail of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The proxy_detail of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: ProxyDetailForDescribeDBInstanceDetailOutput
+        """
+        return self._proxy_detail
+
+    @proxy_detail.setter
+    def proxy_detail(self, proxy_detail):
+        """Sets the proxy_detail of this DescribeDBInstanceDetailResponse.
+
+
+        :param proxy_detail: The proxy_detail of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: ProxyDetailForDescribeDBInstanceDetailOutput
+        """
+
+        self._proxy_detail = proxy_detail
 
     def to_dict(self):
         """Returns the model properties as a dict"""

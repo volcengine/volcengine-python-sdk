@@ -33,17 +33,45 @@ class GrantDBAccountPrivilegeResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'grant_privilege_sql': 'list[str]'
     }
 
     attribute_map = {
+        'grant_privilege_sql': 'GrantPrivilegeSQL'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, grant_privilege_sql=None, _configuration=None):  # noqa: E501
         """GrantDBAccountPrivilegeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._grant_privilege_sql = None
         self.discriminator = None
+
+        if grant_privilege_sql is not None:
+            self.grant_privilege_sql = grant_privilege_sql
+
+    @property
+    def grant_privilege_sql(self):
+        """Gets the grant_privilege_sql of this GrantDBAccountPrivilegeResponse.  # noqa: E501
+
+
+        :return: The grant_privilege_sql of this GrantDBAccountPrivilegeResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._grant_privilege_sql
+
+    @grant_privilege_sql.setter
+    def grant_privilege_sql(self, grant_privilege_sql):
+        """Sets the grant_privilege_sql of this GrantDBAccountPrivilegeResponse.
+
+
+        :param grant_privilege_sql: The grant_privilege_sql of this GrantDBAccountPrivilegeResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._grant_privilege_sql = grant_privilege_sql
 
     def to_dict(self):
         """Returns the model properties as a dict"""

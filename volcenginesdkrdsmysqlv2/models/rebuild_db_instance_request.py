@@ -34,15 +34,17 @@ class RebuildDBInstanceRequest(object):
     """
     swagger_types = {
         'instance_id': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'request_source': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'request_source': 'RequestSource'
     }
 
-    def __init__(self, instance_id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, project_name=None, request_source=None, _configuration=None):  # noqa: E501
         """RebuildDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,11 +52,14 @@ class RebuildDBInstanceRequest(object):
 
         self._instance_id = None
         self._project_name = None
+        self._request_source = None
         self.discriminator = None
 
         self.instance_id = instance_id
         if project_name is not None:
             self.project_name = project_name
+        if request_source is not None:
+            self.request_source = request_source
 
     @property
     def instance_id(self):
@@ -99,6 +104,27 @@ class RebuildDBInstanceRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def request_source(self):
+        """Gets the request_source of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The request_source of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_source
+
+    @request_source.setter
+    def request_source(self, request_source):
+        """Sets the request_source of this RebuildDBInstanceRequest.
+
+
+        :param request_source: The request_source of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._request_source = request_source
 
     def to_dict(self):
         """Returns the model properties as a dict"""

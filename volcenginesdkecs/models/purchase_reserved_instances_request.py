@@ -44,9 +44,14 @@ class PurchaseReservedInstancesRequest(object):
         'period_unit': 'str',
         'project_name': 'str',
         'region_id': 'str',
+        'reserved_capacity': 'int',
         'reserved_instance_name': 'str',
+        'reserved_storage_capacity_name': 'str',
+        'rsc_auto_renew': 'bool',
+        'rsc_auto_renew_period': 'int',
         'scope': 'str',
         'tags': 'list[TagForPurchaseReservedInstancesInput]',
+        'volume_type': 'str',
         'zone_id': 'str'
     }
 
@@ -62,13 +67,18 @@ class PurchaseReservedInstancesRequest(object):
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
+        'reserved_capacity': 'ReservedCapacity',
         'reserved_instance_name': 'ReservedInstanceName',
+        'reserved_storage_capacity_name': 'ReservedStorageCapacityName',
+        'rsc_auto_renew': 'RscAutoRenew',
+        'rsc_auto_renew_period': 'RscAutoRenewPeriod',
         'scope': 'Scope',
         'tags': 'Tags',
+        'volume_type': 'VolumeType',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, description=None, hpc_cluster_id=None, instance_count=None, instance_type_id=None, period=None, period_unit=None, project_name=None, region_id=None, reserved_instance_name=None, scope=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, description=None, hpc_cluster_id=None, instance_count=None, instance_type_id=None, period=None, period_unit=None, project_name=None, region_id=None, reserved_capacity=None, reserved_instance_name=None, reserved_storage_capacity_name=None, rsc_auto_renew=None, rsc_auto_renew_period=None, scope=None, tags=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """PurchaseReservedInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,9 +95,14 @@ class PurchaseReservedInstancesRequest(object):
         self._period_unit = None
         self._project_name = None
         self._region_id = None
+        self._reserved_capacity = None
         self._reserved_instance_name = None
+        self._reserved_storage_capacity_name = None
+        self._rsc_auto_renew = None
+        self._rsc_auto_renew_period = None
         self._scope = None
         self._tags = None
+        self._volume_type = None
         self._zone_id = None
         self.discriminator = None
 
@@ -112,11 +127,21 @@ class PurchaseReservedInstancesRequest(object):
             self.project_name = project_name
         if region_id is not None:
             self.region_id = region_id
+        if reserved_capacity is not None:
+            self.reserved_capacity = reserved_capacity
         self.reserved_instance_name = reserved_instance_name
+        if reserved_storage_capacity_name is not None:
+            self.reserved_storage_capacity_name = reserved_storage_capacity_name
+        if rsc_auto_renew is not None:
+            self.rsc_auto_renew = rsc_auto_renew
+        if rsc_auto_renew_period is not None:
+            self.rsc_auto_renew_period = rsc_auto_renew_period
         if scope is not None:
             self.scope = scope
         if tags is not None:
             self.tags = tags
+        if volume_type is not None:
+            self.volume_type = volume_type
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -354,6 +379,27 @@ class PurchaseReservedInstancesRequest(object):
         self._region_id = region_id
 
     @property
+    def reserved_capacity(self):
+        """Gets the reserved_capacity of this PurchaseReservedInstancesRequest.  # noqa: E501
+
+
+        :return: The reserved_capacity of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._reserved_capacity
+
+    @reserved_capacity.setter
+    def reserved_capacity(self, reserved_capacity):
+        """Sets the reserved_capacity of this PurchaseReservedInstancesRequest.
+
+
+        :param reserved_capacity: The reserved_capacity of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._reserved_capacity = reserved_capacity
+
+    @property
     def reserved_instance_name(self):
         """Gets the reserved_instance_name of this PurchaseReservedInstancesRequest.  # noqa: E501
 
@@ -375,6 +421,69 @@ class PurchaseReservedInstancesRequest(object):
             raise ValueError("Invalid value for `reserved_instance_name`, must not be `None`")  # noqa: E501
 
         self._reserved_instance_name = reserved_instance_name
+
+    @property
+    def reserved_storage_capacity_name(self):
+        """Gets the reserved_storage_capacity_name of this PurchaseReservedInstancesRequest.  # noqa: E501
+
+
+        :return: The reserved_storage_capacity_name of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._reserved_storage_capacity_name
+
+    @reserved_storage_capacity_name.setter
+    def reserved_storage_capacity_name(self, reserved_storage_capacity_name):
+        """Sets the reserved_storage_capacity_name of this PurchaseReservedInstancesRequest.
+
+
+        :param reserved_storage_capacity_name: The reserved_storage_capacity_name of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._reserved_storage_capacity_name = reserved_storage_capacity_name
+
+    @property
+    def rsc_auto_renew(self):
+        """Gets the rsc_auto_renew of this PurchaseReservedInstancesRequest.  # noqa: E501
+
+
+        :return: The rsc_auto_renew of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._rsc_auto_renew
+
+    @rsc_auto_renew.setter
+    def rsc_auto_renew(self, rsc_auto_renew):
+        """Sets the rsc_auto_renew of this PurchaseReservedInstancesRequest.
+
+
+        :param rsc_auto_renew: The rsc_auto_renew of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._rsc_auto_renew = rsc_auto_renew
+
+    @property
+    def rsc_auto_renew_period(self):
+        """Gets the rsc_auto_renew_period of this PurchaseReservedInstancesRequest.  # noqa: E501
+
+
+        :return: The rsc_auto_renew_period of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._rsc_auto_renew_period
+
+    @rsc_auto_renew_period.setter
+    def rsc_auto_renew_period(self, rsc_auto_renew_period):
+        """Sets the rsc_auto_renew_period of this PurchaseReservedInstancesRequest.
+
+
+        :param rsc_auto_renew_period: The rsc_auto_renew_period of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._rsc_auto_renew_period = rsc_auto_renew_period
 
     @property
     def scope(self):
@@ -417,6 +526,27 @@ class PurchaseReservedInstancesRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def volume_type(self):
+        """Gets the volume_type of this PurchaseReservedInstancesRequest.  # noqa: E501
+
+
+        :return: The volume_type of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._volume_type
+
+    @volume_type.setter
+    def volume_type(self, volume_type):
+        """Sets the volume_type of this PurchaseReservedInstancesRequest.
+
+
+        :param volume_type: The volume_type of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._volume_type = volume_type
 
     @property
     def zone_id(self):

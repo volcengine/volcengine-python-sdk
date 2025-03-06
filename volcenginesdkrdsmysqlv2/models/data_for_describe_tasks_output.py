@@ -33,12 +33,15 @@ class DataForDescribeTasksOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'config_infos': 'list[ConfigInfoForDescribeTasksOutput]',
         'cost_time_ms': 'int',
         'create_time': 'str',
         'finish_time': 'str',
         'progress': 'int',
         'related_instance_infos': 'RelatedInstanceInfosForDescribeTasksOutput',
+        'scheduled_execute_end_time': 'str',
+        'scheduled_execute_start_time': 'str',
+        'scheduled_switch_end_time': 'str',
+        'scheduled_switch_start_time': 'str',
         'start_time': 'str',
         'task_action': 'str',
         'task_category': 'str',
@@ -51,12 +54,15 @@ class DataForDescribeTasksOutput(object):
     }
 
     attribute_map = {
-        'config_infos': 'ConfigInfos',
         'cost_time_ms': 'CostTimeMS',
         'create_time': 'CreateTime',
         'finish_time': 'FinishTime',
         'progress': 'Progress',
         'related_instance_infos': 'RelatedInstanceInfos',
+        'scheduled_execute_end_time': 'ScheduledExecuteEndTime',
+        'scheduled_execute_start_time': 'ScheduledExecuteStartTime',
+        'scheduled_switch_end_time': 'ScheduledSwitchEndTime',
+        'scheduled_switch_start_time': 'ScheduledSwitchStartTime',
         'start_time': 'StartTime',
         'task_action': 'TaskAction',
         'task_category': 'TaskCategory',
@@ -68,18 +74,21 @@ class DataForDescribeTasksOutput(object):
         'task_status': 'TaskStatus'
     }
 
-    def __init__(self, config_infos=None, cost_time_ms=None, create_time=None, finish_time=None, progress=None, related_instance_infos=None, start_time=None, task_action=None, task_category=None, task_desc=None, task_id=None, task_params=None, task_progress=None, task_source=None, task_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cost_time_ms=None, create_time=None, finish_time=None, progress=None, related_instance_infos=None, scheduled_execute_end_time=None, scheduled_execute_start_time=None, scheduled_switch_end_time=None, scheduled_switch_start_time=None, start_time=None, task_action=None, task_category=None, task_desc=None, task_id=None, task_params=None, task_progress=None, task_source=None, task_status=None, _configuration=None):  # noqa: E501
         """DataForDescribeTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._config_infos = None
         self._cost_time_ms = None
         self._create_time = None
         self._finish_time = None
         self._progress = None
         self._related_instance_infos = None
+        self._scheduled_execute_end_time = None
+        self._scheduled_execute_start_time = None
+        self._scheduled_switch_end_time = None
+        self._scheduled_switch_start_time = None
         self._start_time = None
         self._task_action = None
         self._task_category = None
@@ -91,8 +100,6 @@ class DataForDescribeTasksOutput(object):
         self._task_status = None
         self.discriminator = None
 
-        if config_infos is not None:
-            self.config_infos = config_infos
         if cost_time_ms is not None:
             self.cost_time_ms = cost_time_ms
         if create_time is not None:
@@ -103,6 +110,14 @@ class DataForDescribeTasksOutput(object):
             self.progress = progress
         if related_instance_infos is not None:
             self.related_instance_infos = related_instance_infos
+        if scheduled_execute_end_time is not None:
+            self.scheduled_execute_end_time = scheduled_execute_end_time
+        if scheduled_execute_start_time is not None:
+            self.scheduled_execute_start_time = scheduled_execute_start_time
+        if scheduled_switch_end_time is not None:
+            self.scheduled_switch_end_time = scheduled_switch_end_time
+        if scheduled_switch_start_time is not None:
+            self.scheduled_switch_start_time = scheduled_switch_start_time
         if start_time is not None:
             self.start_time = start_time
         if task_action is not None:
@@ -121,27 +136,6 @@ class DataForDescribeTasksOutput(object):
             self.task_source = task_source
         if task_status is not None:
             self.task_status = task_status
-
-    @property
-    def config_infos(self):
-        """Gets the config_infos of this DataForDescribeTasksOutput.  # noqa: E501
-
-
-        :return: The config_infos of this DataForDescribeTasksOutput.  # noqa: E501
-        :rtype: list[ConfigInfoForDescribeTasksOutput]
-        """
-        return self._config_infos
-
-    @config_infos.setter
-    def config_infos(self, config_infos):
-        """Sets the config_infos of this DataForDescribeTasksOutput.
-
-
-        :param config_infos: The config_infos of this DataForDescribeTasksOutput.  # noqa: E501
-        :type: list[ConfigInfoForDescribeTasksOutput]
-        """
-
-        self._config_infos = config_infos
 
     @property
     def cost_time_ms(self):
@@ -247,6 +241,90 @@ class DataForDescribeTasksOutput(object):
         """
 
         self._related_instance_infos = related_instance_infos
+
+    @property
+    def scheduled_execute_end_time(self):
+        """Gets the scheduled_execute_end_time of this DataForDescribeTasksOutput.  # noqa: E501
+
+
+        :return: The scheduled_execute_end_time of this DataForDescribeTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduled_execute_end_time
+
+    @scheduled_execute_end_time.setter
+    def scheduled_execute_end_time(self, scheduled_execute_end_time):
+        """Sets the scheduled_execute_end_time of this DataForDescribeTasksOutput.
+
+
+        :param scheduled_execute_end_time: The scheduled_execute_end_time of this DataForDescribeTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scheduled_execute_end_time = scheduled_execute_end_time
+
+    @property
+    def scheduled_execute_start_time(self):
+        """Gets the scheduled_execute_start_time of this DataForDescribeTasksOutput.  # noqa: E501
+
+
+        :return: The scheduled_execute_start_time of this DataForDescribeTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduled_execute_start_time
+
+    @scheduled_execute_start_time.setter
+    def scheduled_execute_start_time(self, scheduled_execute_start_time):
+        """Sets the scheduled_execute_start_time of this DataForDescribeTasksOutput.
+
+
+        :param scheduled_execute_start_time: The scheduled_execute_start_time of this DataForDescribeTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scheduled_execute_start_time = scheduled_execute_start_time
+
+    @property
+    def scheduled_switch_end_time(self):
+        """Gets the scheduled_switch_end_time of this DataForDescribeTasksOutput.  # noqa: E501
+
+
+        :return: The scheduled_switch_end_time of this DataForDescribeTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduled_switch_end_time
+
+    @scheduled_switch_end_time.setter
+    def scheduled_switch_end_time(self, scheduled_switch_end_time):
+        """Sets the scheduled_switch_end_time of this DataForDescribeTasksOutput.
+
+
+        :param scheduled_switch_end_time: The scheduled_switch_end_time of this DataForDescribeTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scheduled_switch_end_time = scheduled_switch_end_time
+
+    @property
+    def scheduled_switch_start_time(self):
+        """Gets the scheduled_switch_start_time of this DataForDescribeTasksOutput.  # noqa: E501
+
+
+        :return: The scheduled_switch_start_time of this DataForDescribeTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduled_switch_start_time
+
+    @scheduled_switch_start_time.setter
+    def scheduled_switch_start_time(self, scheduled_switch_start_time):
+        """Sets the scheduled_switch_start_time of this DataForDescribeTasksOutput.
+
+
+        :param scheduled_switch_start_time: The scheduled_switch_start_time of this DataForDescribeTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scheduled_switch_start_time = scheduled_switch_start_time
 
     @property
     def start_time(self):

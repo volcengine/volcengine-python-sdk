@@ -36,6 +36,7 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         'creation_time': 'str',
         'description': 'str',
         'image_id': 'str',
+        'instant_access': 'bool',
         'progress': 'int',
         'project_name': 'str',
         'retention_days': 'int',
@@ -59,6 +60,7 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         'creation_time': 'CreationTime',
         'description': 'Description',
         'image_id': 'ImageId',
+        'instant_access': 'InstantAccess',
         'progress': 'Progress',
         'project_name': 'ProjectName',
         'retention_days': 'RetentionDays',
@@ -78,7 +80,7 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, creation_time=None, description=None, image_id=None, progress=None, project_name=None, retention_days=None, shared=None, snapshot_group_id=None, snapshot_id=None, snapshot_name=None, snapshot_type=None, status=None, tags=None, volume_id=None, volume_kind=None, volume_name=None, volume_size=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, image_id=None, instant_access=None, progress=None, project_name=None, retention_days=None, shared=None, snapshot_group_id=None, snapshot_id=None, snapshot_name=None, snapshot_type=None, status=None, tags=None, volume_id=None, volume_kind=None, volume_name=None, volume_size=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """SnapshotForDescribeSnapshotGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         self._creation_time = None
         self._description = None
         self._image_id = None
+        self._instant_access = None
         self._progress = None
         self._project_name = None
         self._retention_days = None
@@ -112,6 +115,8 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
             self.description = description
         if image_id is not None:
             self.image_id = image_id
+        if instant_access is not None:
+            self.instant_access = instant_access
         if progress is not None:
             self.progress = progress
         if project_name is not None:
@@ -209,6 +214,27 @@ class SnapshotForDescribeSnapshotGroupsOutput(object):
         """
 
         self._image_id = image_id
+
+    @property
+    def instant_access(self):
+        """Gets the instant_access of this SnapshotForDescribeSnapshotGroupsOutput.  # noqa: E501
+
+
+        :return: The instant_access of this SnapshotForDescribeSnapshotGroupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._instant_access
+
+    @instant_access.setter
+    def instant_access(self, instant_access):
+        """Sets the instant_access of this SnapshotForDescribeSnapshotGroupsOutput.
+
+
+        :param instant_access: The instant_access of this SnapshotForDescribeSnapshotGroupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._instant_access = instant_access
 
     @property
     def progress(self):

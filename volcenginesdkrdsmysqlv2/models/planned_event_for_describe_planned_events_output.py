@@ -41,13 +41,14 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         'event_type': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
-        'is_urgent': 'bool',
         'max_delay_time': 'str',
         'origin_begin_time': 'str',
         'planned_begin_time': 'str',
         'planned_end_time': 'str',
         'planned_event_description': 'str',
         'planned_event_reason': 'str',
+        'planned_switch_begin_time': 'str',
+        'planned_switch_end_time': 'str',
         'region': 'str',
         'status': 'str'
     }
@@ -61,18 +62,19 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         'event_type': 'EventType',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
-        'is_urgent': 'IsUrgent',
         'max_delay_time': 'MaxDelayTime',
         'origin_begin_time': 'OriginBeginTime',
         'planned_begin_time': 'PlannedBeginTime',
         'planned_end_time': 'PlannedEndTime',
         'planned_event_description': 'PlannedEventDescription',
         'planned_event_reason': 'PlannedEventReason',
+        'planned_switch_begin_time': 'PlannedSwitchBeginTime',
+        'planned_switch_end_time': 'PlannedSwitchEndTime',
         'region': 'Region',
         'status': 'Status'
     }
 
-    def __init__(self, business_impact=None, db_engine=None, event_action=None, event_id=None, event_name=None, event_type=None, instance_id=None, instance_name=None, is_urgent=None, max_delay_time=None, origin_begin_time=None, planned_begin_time=None, planned_end_time=None, planned_event_description=None, planned_event_reason=None, region=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, business_impact=None, db_engine=None, event_action=None, event_id=None, event_name=None, event_type=None, instance_id=None, instance_name=None, max_delay_time=None, origin_begin_time=None, planned_begin_time=None, planned_end_time=None, planned_event_description=None, planned_event_reason=None, planned_switch_begin_time=None, planned_switch_end_time=None, region=None, status=None, _configuration=None):  # noqa: E501
         """PlannedEventForDescribePlannedEventsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,13 +88,14 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         self._event_type = None
         self._instance_id = None
         self._instance_name = None
-        self._is_urgent = None
         self._max_delay_time = None
         self._origin_begin_time = None
         self._planned_begin_time = None
         self._planned_end_time = None
         self._planned_event_description = None
         self._planned_event_reason = None
+        self._planned_switch_begin_time = None
+        self._planned_switch_end_time = None
         self._region = None
         self._status = None
         self.discriminator = None
@@ -113,8 +116,6 @@ class PlannedEventForDescribePlannedEventsOutput(object):
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
-        if is_urgent is not None:
-            self.is_urgent = is_urgent
         if max_delay_time is not None:
             self.max_delay_time = max_delay_time
         if origin_begin_time is not None:
@@ -127,6 +128,10 @@ class PlannedEventForDescribePlannedEventsOutput(object):
             self.planned_event_description = planned_event_description
         if planned_event_reason is not None:
             self.planned_event_reason = planned_event_reason
+        if planned_switch_begin_time is not None:
+            self.planned_switch_begin_time = planned_switch_begin_time
+        if planned_switch_end_time is not None:
+            self.planned_switch_end_time = planned_switch_end_time
         if region is not None:
             self.region = region
         if status is not None:
@@ -301,27 +306,6 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         self._instance_name = instance_name
 
     @property
-    def is_urgent(self):
-        """Gets the is_urgent of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
-
-
-        :return: The is_urgent of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_urgent
-
-    @is_urgent.setter
-    def is_urgent(self, is_urgent):
-        """Sets the is_urgent of this PlannedEventForDescribePlannedEventsOutput.
-
-
-        :param is_urgent: The is_urgent of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_urgent = is_urgent
-
-    @property
     def max_delay_time(self):
         """Gets the max_delay_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
 
@@ -446,6 +430,48 @@ class PlannedEventForDescribePlannedEventsOutput(object):
         """
 
         self._planned_event_reason = planned_event_reason
+
+    @property
+    def planned_switch_begin_time(self):
+        """Gets the planned_switch_begin_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+
+
+        :return: The planned_switch_begin_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._planned_switch_begin_time
+
+    @planned_switch_begin_time.setter
+    def planned_switch_begin_time(self, planned_switch_begin_time):
+        """Sets the planned_switch_begin_time of this PlannedEventForDescribePlannedEventsOutput.
+
+
+        :param planned_switch_begin_time: The planned_switch_begin_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._planned_switch_begin_time = planned_switch_begin_time
+
+    @property
+    def planned_switch_end_time(self):
+        """Gets the planned_switch_end_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+
+
+        :return: The planned_switch_end_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._planned_switch_end_time
+
+    @planned_switch_end_time.setter
+    def planned_switch_end_time(self, planned_switch_end_time):
+        """Sets the planned_switch_end_time of this PlannedEventForDescribePlannedEventsOutput.
+
+
+        :param planned_switch_end_time: The planned_switch_end_time of this PlannedEventForDescribePlannedEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._planned_switch_end_time = planned_switch_end_time
 
     @property
     def region(self):

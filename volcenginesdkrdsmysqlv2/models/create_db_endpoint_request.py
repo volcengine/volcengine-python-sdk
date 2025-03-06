@@ -34,51 +34,91 @@ class CreateDBEndpointRequest(object):
     """
     swagger_types = {
         'auto_add_new_nodes': 'bool',
+        'connection_mode': 'str',
+        'connection_pool_type': 'str',
         'description': 'str',
         'endpoint_name': 'str',
         'endpoint_type': 'str',
+        'idle_connection_reclaim': 'bool',
         'instance_id': 'str',
+        'multi_statements_mode': 'str',
         'nodes': 'str',
-        'read_write_mode': 'str'
+        'read_only_node_distribution_type': 'str',
+        'read_only_node_max_delay_time': 'int',
+        'read_only_node_weight': 'list[ReadOnlyNodeWeightForCreateDBEndpointInput]',
+        'read_write_mode': 'str',
+        'read_write_spliting': 'bool'
     }
 
     attribute_map = {
         'auto_add_new_nodes': 'AutoAddNewNodes',
+        'connection_mode': 'ConnectionMode',
+        'connection_pool_type': 'ConnectionPoolType',
         'description': 'Description',
         'endpoint_name': 'EndpointName',
         'endpoint_type': 'EndpointType',
+        'idle_connection_reclaim': 'IdleConnectionReclaim',
         'instance_id': 'InstanceId',
+        'multi_statements_mode': 'MultiStatementsMode',
         'nodes': 'Nodes',
-        'read_write_mode': 'ReadWriteMode'
+        'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
+        'read_only_node_max_delay_time': 'ReadOnlyNodeMaxDelayTime',
+        'read_only_node_weight': 'ReadOnlyNodeWeight',
+        'read_write_mode': 'ReadWriteMode',
+        'read_write_spliting': 'ReadWriteSpliting'
     }
 
-    def __init__(self, auto_add_new_nodes=None, description=None, endpoint_name=None, endpoint_type=None, instance_id=None, nodes=None, read_write_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, connection_mode=None, connection_pool_type=None, description=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, instance_id=None, multi_statements_mode=None, nodes=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
         """CreateDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_add_new_nodes = None
+        self._connection_mode = None
+        self._connection_pool_type = None
         self._description = None
         self._endpoint_name = None
         self._endpoint_type = None
+        self._idle_connection_reclaim = None
         self._instance_id = None
+        self._multi_statements_mode = None
         self._nodes = None
+        self._read_only_node_distribution_type = None
+        self._read_only_node_max_delay_time = None
+        self._read_only_node_weight = None
         self._read_write_mode = None
+        self._read_write_spliting = None
         self.discriminator = None
 
         if auto_add_new_nodes is not None:
             self.auto_add_new_nodes = auto_add_new_nodes
+        if connection_mode is not None:
+            self.connection_mode = connection_mode
+        if connection_pool_type is not None:
+            self.connection_pool_type = connection_pool_type
         if description is not None:
             self.description = description
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
         self.endpoint_type = endpoint_type
+        if idle_connection_reclaim is not None:
+            self.idle_connection_reclaim = idle_connection_reclaim
         self.instance_id = instance_id
+        if multi_statements_mode is not None:
+            self.multi_statements_mode = multi_statements_mode
         if nodes is not None:
             self.nodes = nodes
+        if read_only_node_distribution_type is not None:
+            self.read_only_node_distribution_type = read_only_node_distribution_type
+        if read_only_node_max_delay_time is not None:
+            self.read_only_node_max_delay_time = read_only_node_max_delay_time
+        if read_only_node_weight is not None:
+            self.read_only_node_weight = read_only_node_weight
         if read_write_mode is not None:
             self.read_write_mode = read_write_mode
+        if read_write_spliting is not None:
+            self.read_write_spliting = read_write_spliting
 
     @property
     def auto_add_new_nodes(self):
@@ -100,6 +140,48 @@ class CreateDBEndpointRequest(object):
         """
 
         self._auto_add_new_nodes = auto_add_new_nodes
+
+    @property
+    def connection_mode(self):
+        """Gets the connection_mode of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The connection_mode of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_mode
+
+    @connection_mode.setter
+    def connection_mode(self, connection_mode):
+        """Sets the connection_mode of this CreateDBEndpointRequest.
+
+
+        :param connection_mode: The connection_mode of this CreateDBEndpointRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._connection_mode = connection_mode
+
+    @property
+    def connection_pool_type(self):
+        """Gets the connection_pool_type of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The connection_pool_type of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_pool_type
+
+    @connection_pool_type.setter
+    def connection_pool_type(self, connection_pool_type):
+        """Sets the connection_pool_type of this CreateDBEndpointRequest.
+
+
+        :param connection_pool_type: The connection_pool_type of this CreateDBEndpointRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._connection_pool_type = connection_pool_type
 
     @property
     def description(self):
@@ -167,6 +249,27 @@ class CreateDBEndpointRequest(object):
         self._endpoint_type = endpoint_type
 
     @property
+    def idle_connection_reclaim(self):
+        """Gets the idle_connection_reclaim of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The idle_connection_reclaim of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._idle_connection_reclaim
+
+    @idle_connection_reclaim.setter
+    def idle_connection_reclaim(self, idle_connection_reclaim):
+        """Sets the idle_connection_reclaim of this CreateDBEndpointRequest.
+
+
+        :param idle_connection_reclaim: The idle_connection_reclaim of this CreateDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._idle_connection_reclaim = idle_connection_reclaim
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this CreateDBEndpointRequest.  # noqa: E501
 
@@ -190,6 +293,27 @@ class CreateDBEndpointRequest(object):
         self._instance_id = instance_id
 
     @property
+    def multi_statements_mode(self):
+        """Gets the multi_statements_mode of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The multi_statements_mode of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._multi_statements_mode
+
+    @multi_statements_mode.setter
+    def multi_statements_mode(self, multi_statements_mode):
+        """Sets the multi_statements_mode of this CreateDBEndpointRequest.
+
+
+        :param multi_statements_mode: The multi_statements_mode of this CreateDBEndpointRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._multi_statements_mode = multi_statements_mode
+
+    @property
     def nodes(self):
         """Gets the nodes of this CreateDBEndpointRequest.  # noqa: E501
 
@@ -211,6 +335,69 @@ class CreateDBEndpointRequest(object):
         self._nodes = nodes
 
     @property
+    def read_only_node_distribution_type(self):
+        """Gets the read_only_node_distribution_type of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The read_only_node_distribution_type of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._read_only_node_distribution_type
+
+    @read_only_node_distribution_type.setter
+    def read_only_node_distribution_type(self, read_only_node_distribution_type):
+        """Sets the read_only_node_distribution_type of this CreateDBEndpointRequest.
+
+
+        :param read_only_node_distribution_type: The read_only_node_distribution_type of this CreateDBEndpointRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._read_only_node_distribution_type = read_only_node_distribution_type
+
+    @property
+    def read_only_node_max_delay_time(self):
+        """Gets the read_only_node_max_delay_time of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The read_only_node_max_delay_time of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_only_node_max_delay_time
+
+    @read_only_node_max_delay_time.setter
+    def read_only_node_max_delay_time(self, read_only_node_max_delay_time):
+        """Sets the read_only_node_max_delay_time of this CreateDBEndpointRequest.
+
+
+        :param read_only_node_max_delay_time: The read_only_node_max_delay_time of this CreateDBEndpointRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._read_only_node_max_delay_time = read_only_node_max_delay_time
+
+    @property
+    def read_only_node_weight(self):
+        """Gets the read_only_node_weight of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The read_only_node_weight of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: list[ReadOnlyNodeWeightForCreateDBEndpointInput]
+        """
+        return self._read_only_node_weight
+
+    @read_only_node_weight.setter
+    def read_only_node_weight(self, read_only_node_weight):
+        """Sets the read_only_node_weight of this CreateDBEndpointRequest.
+
+
+        :param read_only_node_weight: The read_only_node_weight of this CreateDBEndpointRequest.  # noqa: E501
+        :type: list[ReadOnlyNodeWeightForCreateDBEndpointInput]
+        """
+
+        self._read_only_node_weight = read_only_node_weight
+
+    @property
     def read_write_mode(self):
         """Gets the read_write_mode of this CreateDBEndpointRequest.  # noqa: E501
 
@@ -230,6 +417,27 @@ class CreateDBEndpointRequest(object):
         """
 
         self._read_write_mode = read_write_mode
+
+    @property
+    def read_write_spliting(self):
+        """Gets the read_write_spliting of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The read_write_spliting of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._read_write_spliting
+
+    @read_write_spliting.setter
+    def read_write_spliting(self, read_write_spliting):
+        """Sets the read_write_spliting of this CreateDBEndpointRequest.
+
+
+        :param read_write_spliting: The read_write_spliting of this CreateDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._read_write_spliting = read_write_spliting
 
     def to_dict(self):
         """Returns the model properties as a dict"""

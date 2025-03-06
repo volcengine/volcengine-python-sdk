@@ -55,7 +55,8 @@ class ListLoadBalancerRequest(object):
         self._type = None
         self.discriminator = None
 
-        self.host = host
+        if host is not None:
+            self.host = host
         if project_name is not None:
             self.project_name = project_name
         if type is not None:
@@ -79,8 +80,6 @@ class ListLoadBalancerRequest(object):
         :param host: The host of this ListLoadBalancerRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and host is None:
-            raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
 

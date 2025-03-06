@@ -36,8 +36,10 @@ class AccountForDescribeDBAccountsOutput(object):
         'account_desc': 'str',
         'account_name': 'str',
         'account_privileges': 'list[AccountPrivilegeForDescribeDBAccountsOutput]',
+        'account_privileges_sql': 'list[str]',
         'account_status': 'str',
         'account_type': 'str',
+        'global_account_privileges': 'list[str]',
         'host': 'str'
     }
 
@@ -45,12 +47,14 @@ class AccountForDescribeDBAccountsOutput(object):
         'account_desc': 'AccountDesc',
         'account_name': 'AccountName',
         'account_privileges': 'AccountPrivileges',
+        'account_privileges_sql': 'AccountPrivilegesSQL',
         'account_status': 'AccountStatus',
         'account_type': 'AccountType',
+        'global_account_privileges': 'GlobalAccountPrivileges',
         'host': 'Host'
     }
 
-    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_status=None, account_type=None, host=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_privileges_sql=None, account_status=None, account_type=None, global_account_privileges=None, host=None, _configuration=None):  # noqa: E501
         """AccountForDescribeDBAccountsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,8 +63,10 @@ class AccountForDescribeDBAccountsOutput(object):
         self._account_desc = None
         self._account_name = None
         self._account_privileges = None
+        self._account_privileges_sql = None
         self._account_status = None
         self._account_type = None
+        self._global_account_privileges = None
         self._host = None
         self.discriminator = None
 
@@ -70,10 +76,14 @@ class AccountForDescribeDBAccountsOutput(object):
             self.account_name = account_name
         if account_privileges is not None:
             self.account_privileges = account_privileges
+        if account_privileges_sql is not None:
+            self.account_privileges_sql = account_privileges_sql
         if account_status is not None:
             self.account_status = account_status
         if account_type is not None:
             self.account_type = account_type
+        if global_account_privileges is not None:
+            self.global_account_privileges = global_account_privileges
         if host is not None:
             self.host = host
 
@@ -141,6 +151,27 @@ class AccountForDescribeDBAccountsOutput(object):
         self._account_privileges = account_privileges
 
     @property
+    def account_privileges_sql(self):
+        """Gets the account_privileges_sql of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The account_privileges_sql of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._account_privileges_sql
+
+    @account_privileges_sql.setter
+    def account_privileges_sql(self, account_privileges_sql):
+        """Sets the account_privileges_sql of this AccountForDescribeDBAccountsOutput.
+
+
+        :param account_privileges_sql: The account_privileges_sql of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._account_privileges_sql = account_privileges_sql
+
+    @property
     def account_status(self):
         """Gets the account_status of this AccountForDescribeDBAccountsOutput.  # noqa: E501
 
@@ -181,6 +212,27 @@ class AccountForDescribeDBAccountsOutput(object):
         """
 
         self._account_type = account_type
+
+    @property
+    def global_account_privileges(self):
+        """Gets the global_account_privileges of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The global_account_privileges of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._global_account_privileges
+
+    @global_account_privileges.setter
+    def global_account_privileges(self, global_account_privileges):
+        """Sets the global_account_privileges of this AccountForDescribeDBAccountsOutput.
+
+
+        :param global_account_privileges: The global_account_privileges of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._global_account_privileges = global_account_privileges
 
     @property
     def host(self):

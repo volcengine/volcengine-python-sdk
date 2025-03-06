@@ -41,9 +41,12 @@ class DescribeDBInstancesRequest(object):
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_type': 'str',
+        'kernel_version': 'list[str]',
         'node_spec': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'private_network_ip_address': 'str',
+        'private_network_vpc_id': 'str',
         'project_name': 'str',
         'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
         'zone_id': 'str'
@@ -58,15 +61,18 @@ class DescribeDBInstancesRequest(object):
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
+        'kernel_version': 'KernelVersion',
         'node_spec': 'NodeSpec',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'private_network_ip_address': 'PrivateNetworkIpAddress',
+        'private_network_vpc_id': 'PrivateNetworkVpcId',
         'project_name': 'ProjectName',
         'tag_filters': 'TagFilters',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, node_spec=None, page_number=None, page_size=None, project_name=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, kernel_version=None, node_spec=None, page_number=None, page_size=None, private_network_ip_address=None, private_network_vpc_id=None, project_name=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,9 +86,12 @@ class DescribeDBInstancesRequest(object):
         self._instance_name = None
         self._instance_status = None
         self._instance_type = None
+        self._kernel_version = None
         self._node_spec = None
         self._page_number = None
         self._page_size = None
+        self._private_network_ip_address = None
+        self._private_network_vpc_id = None
         self._project_name = None
         self._tag_filters = None
         self._zone_id = None
@@ -104,12 +113,18 @@ class DescribeDBInstancesRequest(object):
             self.instance_status = instance_status
         if instance_type is not None:
             self.instance_type = instance_type
+        if kernel_version is not None:
+            self.kernel_version = kernel_version
         if node_spec is not None:
             self.node_spec = node_spec
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if private_network_ip_address is not None:
+            self.private_network_ip_address = private_network_ip_address
+        if private_network_vpc_id is not None:
+            self.private_network_vpc_id = private_network_vpc_id
         if project_name is not None:
             self.project_name = project_name
         if tag_filters is not None:
@@ -286,6 +301,27 @@ class DescribeDBInstancesRequest(object):
         self._instance_type = instance_type
 
     @property
+    def kernel_version(self):
+        """Gets the kernel_version of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The kernel_version of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._kernel_version
+
+    @kernel_version.setter
+    def kernel_version(self, kernel_version):
+        """Sets the kernel_version of this DescribeDBInstancesRequest.
+
+
+        :param kernel_version: The kernel_version of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._kernel_version = kernel_version
+
+    @property
     def node_spec(self):
         """Gets the node_spec of this DescribeDBInstancesRequest.  # noqa: E501
 
@@ -347,6 +383,48 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def private_network_ip_address(self):
+        """Gets the private_network_ip_address of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The private_network_ip_address of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_network_ip_address
+
+    @private_network_ip_address.setter
+    def private_network_ip_address(self, private_network_ip_address):
+        """Sets the private_network_ip_address of this DescribeDBInstancesRequest.
+
+
+        :param private_network_ip_address: The private_network_ip_address of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_network_ip_address = private_network_ip_address
+
+    @property
+    def private_network_vpc_id(self):
+        """Gets the private_network_vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The private_network_vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_network_vpc_id
+
+    @private_network_vpc_id.setter
+    def private_network_vpc_id(self, private_network_vpc_id):
+        """Sets the private_network_vpc_id of this DescribeDBInstancesRequest.
+
+
+        :param private_network_vpc_id: The private_network_vpc_id of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._private_network_vpc_id = private_network_vpc_id
 
     @property
     def project_name(self):

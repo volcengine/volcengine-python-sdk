@@ -34,26 +34,31 @@ class CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput(object):
     """
     swagger_types = {
         'allowed': 'bool',
+        'message': 'str',
         'reason': 'str'
     }
 
     attribute_map = {
         'allowed': 'Allowed',
+        'message': 'Message',
         'reason': 'Reason'
     }
 
-    def __init__(self, allowed=None, reason=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed=None, message=None, reason=None, _configuration=None):  # noqa: E501
         """CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allowed = None
+        self._message = None
         self._reason = None
         self.discriminator = None
 
         if allowed is not None:
             self.allowed = allowed
+        if message is not None:
+            self.message = message
         if reason is not None:
             self.reason = reason
 
@@ -77,6 +82,27 @@ class CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput(object):
         """
 
         self._allowed = allowed
+
+    @property
+    def message(self):
+        """Gets the message of this CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput.  # noqa: E501
+
+
+        :return: The message of this CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput.
+
+
+        :param message: The message of this CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
 
     @property
     def reason(self):
