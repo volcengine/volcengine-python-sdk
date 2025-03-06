@@ -37,6 +37,7 @@ class DescribeBinlogFilesRequest(object):
         'context': 'str',
         'end_time': 'str',
         'instance_id': 'str',
+        'result_sorter': 'str',
         'start_time': 'str'
     }
 
@@ -45,10 +46,11 @@ class DescribeBinlogFilesRequest(object):
         'context': 'Context',
         'end_time': 'EndTime',
         'instance_id': 'InstanceId',
+        'result_sorter': 'ResultSorter',
         'start_time': 'StartTime'
     }
 
-    def __init__(self, backup_file_number=None, context=None, end_time=None, instance_id=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_file_number=None, context=None, end_time=None, instance_id=None, result_sorter=None, start_time=None, _configuration=None):  # noqa: E501
         """DescribeBinlogFilesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class DescribeBinlogFilesRequest(object):
         self._context = None
         self._end_time = None
         self._instance_id = None
+        self._result_sorter = None
         self._start_time = None
         self.discriminator = None
 
@@ -67,6 +70,8 @@ class DescribeBinlogFilesRequest(object):
             self.context = context
         self.end_time = end_time
         self.instance_id = instance_id
+        if result_sorter is not None:
+            self.result_sorter = result_sorter
         self.start_time = start_time
 
     @property
@@ -156,6 +161,27 @@ class DescribeBinlogFilesRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def result_sorter(self):
+        """Gets the result_sorter of this DescribeBinlogFilesRequest.  # noqa: E501
+
+
+        :return: The result_sorter of this DescribeBinlogFilesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._result_sorter
+
+    @result_sorter.setter
+    def result_sorter(self, result_sorter):
+        """Sets the result_sorter of this DescribeBinlogFilesRequest.
+
+
+        :param result_sorter: The result_sorter of this DescribeBinlogFilesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._result_sorter = result_sorter
 
     @property
     def start_time(self):

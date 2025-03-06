@@ -35,16 +35,20 @@ class AssociatedInstanceForDescribeAllowListDetailOutput(object):
     swagger_types = {
         'instance_id': 'str',
         'instance_name': 'str',
+        'instance_status': 'str',
+        'is_latest': 'bool',
         'vpc': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
+        'instance_status': 'InstanceStatus',
+        'is_latest': 'IsLatest',
         'vpc': 'VPC'
     }
 
-    def __init__(self, instance_id=None, instance_name=None, vpc=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, instance_name=None, instance_status=None, is_latest=None, vpc=None, _configuration=None):  # noqa: E501
         """AssociatedInstanceForDescribeAllowListDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +56,8 @@ class AssociatedInstanceForDescribeAllowListDetailOutput(object):
 
         self._instance_id = None
         self._instance_name = None
+        self._instance_status = None
+        self._is_latest = None
         self._vpc = None
         self.discriminator = None
 
@@ -59,6 +65,10 @@ class AssociatedInstanceForDescribeAllowListDetailOutput(object):
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
+        if instance_status is not None:
+            self.instance_status = instance_status
+        if is_latest is not None:
+            self.is_latest = is_latest
         if vpc is not None:
             self.vpc = vpc
 
@@ -103,6 +113,48 @@ class AssociatedInstanceForDescribeAllowListDetailOutput(object):
         """
 
         self._instance_name = instance_name
+
+    @property
+    def instance_status(self):
+        """Gets the instance_status of this AssociatedInstanceForDescribeAllowListDetailOutput.  # noqa: E501
+
+
+        :return: The instance_status of this AssociatedInstanceForDescribeAllowListDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_status
+
+    @instance_status.setter
+    def instance_status(self, instance_status):
+        """Sets the instance_status of this AssociatedInstanceForDescribeAllowListDetailOutput.
+
+
+        :param instance_status: The instance_status of this AssociatedInstanceForDescribeAllowListDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_status = instance_status
+
+    @property
+    def is_latest(self):
+        """Gets the is_latest of this AssociatedInstanceForDescribeAllowListDetailOutput.  # noqa: E501
+
+
+        :return: The is_latest of this AssociatedInstanceForDescribeAllowListDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_latest
+
+    @is_latest.setter
+    def is_latest(self, is_latest):
+        """Sets the is_latest of this AssociatedInstanceForDescribeAllowListDetailOutput.
+
+
+        :param is_latest: The is_latest of this AssociatedInstanceForDescribeAllowListDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_latest = is_latest
 
     @property
     def vpc(self):

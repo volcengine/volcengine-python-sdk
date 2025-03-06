@@ -36,6 +36,8 @@ class RestartDBInstanceRequest(object):
         'apply_scope': 'str',
         'custom_node_ids': 'list[str]',
         'instance_id': 'str',
+        'specified_switch_end_time': 'str',
+        'specified_switch_start_time': 'str',
         'switch_type': 'str'
     }
 
@@ -43,10 +45,12 @@ class RestartDBInstanceRequest(object):
         'apply_scope': 'ApplyScope',
         'custom_node_ids': 'CustomNodeIds',
         'instance_id': 'InstanceId',
+        'specified_switch_end_time': 'SpecifiedSwitchEndTime',
+        'specified_switch_start_time': 'SpecifiedSwitchStartTime',
         'switch_type': 'SwitchType'
     }
 
-    def __init__(self, apply_scope=None, custom_node_ids=None, instance_id=None, switch_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_scope=None, custom_node_ids=None, instance_id=None, specified_switch_end_time=None, specified_switch_start_time=None, switch_type=None, _configuration=None):  # noqa: E501
         """RestartDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +59,8 @@ class RestartDBInstanceRequest(object):
         self._apply_scope = None
         self._custom_node_ids = None
         self._instance_id = None
+        self._specified_switch_end_time = None
+        self._specified_switch_start_time = None
         self._switch_type = None
         self.discriminator = None
 
@@ -63,6 +69,10 @@ class RestartDBInstanceRequest(object):
         if custom_node_ids is not None:
             self.custom_node_ids = custom_node_ids
         self.instance_id = instance_id
+        if specified_switch_end_time is not None:
+            self.specified_switch_end_time = specified_switch_end_time
+        if specified_switch_start_time is not None:
+            self.specified_switch_start_time = specified_switch_start_time
         if switch_type is not None:
             self.switch_type = switch_type
 
@@ -130,6 +140,48 @@ class RestartDBInstanceRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def specified_switch_end_time(self):
+        """Gets the specified_switch_end_time of this RestartDBInstanceRequest.  # noqa: E501
+
+
+        :return: The specified_switch_end_time of this RestartDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._specified_switch_end_time
+
+    @specified_switch_end_time.setter
+    def specified_switch_end_time(self, specified_switch_end_time):
+        """Sets the specified_switch_end_time of this RestartDBInstanceRequest.
+
+
+        :param specified_switch_end_time: The specified_switch_end_time of this RestartDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._specified_switch_end_time = specified_switch_end_time
+
+    @property
+    def specified_switch_start_time(self):
+        """Gets the specified_switch_start_time of this RestartDBInstanceRequest.  # noqa: E501
+
+
+        :return: The specified_switch_start_time of this RestartDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._specified_switch_start_time
+
+    @specified_switch_start_time.setter
+    def specified_switch_start_time(self, specified_switch_start_time):
+        """Sets the specified_switch_start_time of this RestartDBInstanceRequest.
+
+
+        :param specified_switch_start_time: The specified_switch_start_time of this RestartDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._specified_switch_start_time = specified_switch_start_time
 
     @property
     def switch_type(self):

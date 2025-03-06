@@ -33,17 +33,45 @@ class CreateDBAccountResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'create_account_sql': 'list[str]'
     }
 
     attribute_map = {
+        'create_account_sql': 'CreateAccountSQL'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, create_account_sql=None, _configuration=None):  # noqa: E501
         """CreateDBAccountResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._create_account_sql = None
         self.discriminator = None
+
+        if create_account_sql is not None:
+            self.create_account_sql = create_account_sql
+
+    @property
+    def create_account_sql(self):
+        """Gets the create_account_sql of this CreateDBAccountResponse.  # noqa: E501
+
+
+        :return: The create_account_sql of this CreateDBAccountResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._create_account_sql
+
+    @create_account_sql.setter
+    def create_account_sql(self, create_account_sql):
+        """Sets the create_account_sql of this CreateDBAccountResponse.
+
+
+        :param create_account_sql: The create_account_sql of this CreateDBAccountResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._create_account_sql = create_account_sql
 
     def to_dict(self):
         """Returns the model properties as a dict"""

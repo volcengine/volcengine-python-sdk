@@ -35,24 +35,28 @@ class DescribeDBProxyConfigResponse(object):
     swagger_types = {
         'binlog_dump': 'bool',
         'check_modify_db_proxy_allowed': 'CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput',
+        'check_modify_db_proxy_allowed_v2': 'list[CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput]',
         'connection_pool_type': 'str',
         'db_proxy_status': 'str',
         'feature_states': 'list[FeatureStateForDescribeDBProxyConfigOutput]',
         'global_read_only': 'bool',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'proxy_resource_info': 'ProxyResourceInfoForDescribeDBProxyConfigOutput'
     }
 
     attribute_map = {
         'binlog_dump': 'BinlogDump',
         'check_modify_db_proxy_allowed': 'CheckModifyDBProxyAllowed',
+        'check_modify_db_proxy_allowed_v2': 'CheckModifyDBProxyAllowedV2',
         'connection_pool_type': 'ConnectionPoolType',
         'db_proxy_status': 'DBProxyStatus',
         'feature_states': 'FeatureStates',
         'global_read_only': 'GlobalReadOnly',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'proxy_resource_info': 'ProxyResourceInfo'
     }
 
-    def __init__(self, binlog_dump=None, check_modify_db_proxy_allowed=None, connection_pool_type=None, db_proxy_status=None, feature_states=None, global_read_only=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, binlog_dump=None, check_modify_db_proxy_allowed=None, check_modify_db_proxy_allowed_v2=None, connection_pool_type=None, db_proxy_status=None, feature_states=None, global_read_only=None, instance_id=None, proxy_resource_info=None, _configuration=None):  # noqa: E501
         """DescribeDBProxyConfigResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,17 +64,21 @@ class DescribeDBProxyConfigResponse(object):
 
         self._binlog_dump = None
         self._check_modify_db_proxy_allowed = None
+        self._check_modify_db_proxy_allowed_v2 = None
         self._connection_pool_type = None
         self._db_proxy_status = None
         self._feature_states = None
         self._global_read_only = None
         self._instance_id = None
+        self._proxy_resource_info = None
         self.discriminator = None
 
         if binlog_dump is not None:
             self.binlog_dump = binlog_dump
         if check_modify_db_proxy_allowed is not None:
             self.check_modify_db_proxy_allowed = check_modify_db_proxy_allowed
+        if check_modify_db_proxy_allowed_v2 is not None:
+            self.check_modify_db_proxy_allowed_v2 = check_modify_db_proxy_allowed_v2
         if connection_pool_type is not None:
             self.connection_pool_type = connection_pool_type
         if db_proxy_status is not None:
@@ -81,6 +89,8 @@ class DescribeDBProxyConfigResponse(object):
             self.global_read_only = global_read_only
         if instance_id is not None:
             self.instance_id = instance_id
+        if proxy_resource_info is not None:
+            self.proxy_resource_info = proxy_resource_info
 
     @property
     def binlog_dump(self):
@@ -123,6 +133,27 @@ class DescribeDBProxyConfigResponse(object):
         """
 
         self._check_modify_db_proxy_allowed = check_modify_db_proxy_allowed
+
+    @property
+    def check_modify_db_proxy_allowed_v2(self):
+        """Gets the check_modify_db_proxy_allowed_v2 of this DescribeDBProxyConfigResponse.  # noqa: E501
+
+
+        :return: The check_modify_db_proxy_allowed_v2 of this DescribeDBProxyConfigResponse.  # noqa: E501
+        :rtype: list[CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput]
+        """
+        return self._check_modify_db_proxy_allowed_v2
+
+    @check_modify_db_proxy_allowed_v2.setter
+    def check_modify_db_proxy_allowed_v2(self, check_modify_db_proxy_allowed_v2):
+        """Sets the check_modify_db_proxy_allowed_v2 of this DescribeDBProxyConfigResponse.
+
+
+        :param check_modify_db_proxy_allowed_v2: The check_modify_db_proxy_allowed_v2 of this DescribeDBProxyConfigResponse.  # noqa: E501
+        :type: list[CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput]
+        """
+
+        self._check_modify_db_proxy_allowed_v2 = check_modify_db_proxy_allowed_v2
 
     @property
     def connection_pool_type(self):
@@ -228,6 +259,27 @@ class DescribeDBProxyConfigResponse(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def proxy_resource_info(self):
+        """Gets the proxy_resource_info of this DescribeDBProxyConfigResponse.  # noqa: E501
+
+
+        :return: The proxy_resource_info of this DescribeDBProxyConfigResponse.  # noqa: E501
+        :rtype: ProxyResourceInfoForDescribeDBProxyConfigOutput
+        """
+        return self._proxy_resource_info
+
+    @proxy_resource_info.setter
+    def proxy_resource_info(self, proxy_resource_info):
+        """Sets the proxy_resource_info of this DescribeDBProxyConfigResponse.
+
+
+        :param proxy_resource_info: The proxy_resource_info of this DescribeDBProxyConfigResponse.  # noqa: E501
+        :type: ProxyResourceInfoForDescribeDBProxyConfigOutput
+        """
+
+        self._proxy_resource_info = proxy_resource_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""

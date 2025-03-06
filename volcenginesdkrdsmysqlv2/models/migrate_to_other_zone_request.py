@@ -35,16 +35,20 @@ class MigrateToOtherZoneRequest(object):
     swagger_types = {
         'instance_id': 'str',
         'node_info': 'list[NodeInfoForMigrateToOtherZoneInput]',
+        'specified_switch_end_time': 'str',
+        'specified_switch_start_time': 'str',
         'switch_type': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
         'node_info': 'NodeInfo',
+        'specified_switch_end_time': 'SpecifiedSwitchEndTime',
+        'specified_switch_start_time': 'SpecifiedSwitchStartTime',
         'switch_type': 'SwitchType'
     }
 
-    def __init__(self, instance_id=None, node_info=None, switch_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, node_info=None, specified_switch_end_time=None, specified_switch_start_time=None, switch_type=None, _configuration=None):  # noqa: E501
         """MigrateToOtherZoneRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,12 +56,18 @@ class MigrateToOtherZoneRequest(object):
 
         self._instance_id = None
         self._node_info = None
+        self._specified_switch_end_time = None
+        self._specified_switch_start_time = None
         self._switch_type = None
         self.discriminator = None
 
         self.instance_id = instance_id
         if node_info is not None:
             self.node_info = node_info
+        if specified_switch_end_time is not None:
+            self.specified_switch_end_time = specified_switch_end_time
+        if specified_switch_start_time is not None:
+            self.specified_switch_start_time = specified_switch_start_time
         if switch_type is not None:
             self.switch_type = switch_type
 
@@ -106,6 +116,48 @@ class MigrateToOtherZoneRequest(object):
         self._node_info = node_info
 
     @property
+    def specified_switch_end_time(self):
+        """Gets the specified_switch_end_time of this MigrateToOtherZoneRequest.  # noqa: E501
+
+
+        :return: The specified_switch_end_time of this MigrateToOtherZoneRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._specified_switch_end_time
+
+    @specified_switch_end_time.setter
+    def specified_switch_end_time(self, specified_switch_end_time):
+        """Sets the specified_switch_end_time of this MigrateToOtherZoneRequest.
+
+
+        :param specified_switch_end_time: The specified_switch_end_time of this MigrateToOtherZoneRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._specified_switch_end_time = specified_switch_end_time
+
+    @property
+    def specified_switch_start_time(self):
+        """Gets the specified_switch_start_time of this MigrateToOtherZoneRequest.  # noqa: E501
+
+
+        :return: The specified_switch_start_time of this MigrateToOtherZoneRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._specified_switch_start_time
+
+    @specified_switch_start_time.setter
+    def specified_switch_start_time(self, specified_switch_start_time):
+        """Sets the specified_switch_start_time of this MigrateToOtherZoneRequest.
+
+
+        :param specified_switch_start_time: The specified_switch_start_time of this MigrateToOtherZoneRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._specified_switch_start_time = specified_switch_start_time
+
+    @property
     def switch_type(self):
         """Gets the switch_type of this MigrateToOtherZoneRequest.  # noqa: E501
 
@@ -123,13 +175,6 @@ class MigrateToOtherZoneRequest(object):
         :param switch_type: The switch_type of this MigrateToOtherZoneRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Immediate", "MaintainTime", "SpecifiedTime"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                switch_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `switch_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(switch_type, allowed_values)
-            )
 
         self._switch_type = switch_type
 

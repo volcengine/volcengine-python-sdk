@@ -34,30 +34,45 @@ class ModifyPlannedEventExecuteTimeRequest(object):
     """
     swagger_types = {
         'event_id': 'str',
+        'instance_id': 'str',
         'modify_begin_time': 'str',
-        'modify_end_time': 'str'
+        'modify_end_time': 'str',
+        'project_name': 'str',
+        'task_event_operation': 'str'
     }
 
     attribute_map = {
         'event_id': 'EventId',
+        'instance_id': 'InstanceId',
         'modify_begin_time': 'ModifyBeginTime',
-        'modify_end_time': 'ModifyEndTime'
+        'modify_end_time': 'ModifyEndTime',
+        'project_name': 'ProjectName',
+        'task_event_operation': 'TaskEventOperation'
     }
 
-    def __init__(self, event_id=None, modify_begin_time=None, modify_end_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, event_id=None, instance_id=None, modify_begin_time=None, modify_end_time=None, project_name=None, task_event_operation=None, _configuration=None):  # noqa: E501
         """ModifyPlannedEventExecuteTimeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._event_id = None
+        self._instance_id = None
         self._modify_begin_time = None
         self._modify_end_time = None
+        self._project_name = None
+        self._task_event_operation = None
         self.discriminator = None
 
         self.event_id = event_id
-        self.modify_begin_time = modify_begin_time
-        self.modify_end_time = modify_end_time
+        self.instance_id = instance_id
+        if modify_begin_time is not None:
+            self.modify_begin_time = modify_begin_time
+        if modify_end_time is not None:
+            self.modify_end_time = modify_end_time
+        if project_name is not None:
+            self.project_name = project_name
+        self.task_event_operation = task_event_operation
 
     @property
     def event_id(self):
@@ -83,6 +98,29 @@ class ModifyPlannedEventExecuteTimeRequest(object):
         self._event_id = event_id
 
     @property
+    def instance_id(self):
+        """Gets the instance_id of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+
+
+        :return: The instance_id of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this ModifyPlannedEventExecuteTimeRequest.
+
+
+        :param instance_id: The instance_id of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
+
+    @property
     def modify_begin_time(self):
         """Gets the modify_begin_time of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
 
@@ -100,8 +138,6 @@ class ModifyPlannedEventExecuteTimeRequest(object):
         :param modify_begin_time: The modify_begin_time of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and modify_begin_time is None:
-            raise ValueError("Invalid value for `modify_begin_time`, must not be `None`")  # noqa: E501
 
         self._modify_begin_time = modify_begin_time
 
@@ -123,10 +159,52 @@ class ModifyPlannedEventExecuteTimeRequest(object):
         :param modify_end_time: The modify_end_time of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and modify_end_time is None:
-            raise ValueError("Invalid value for `modify_end_time`, must not be `None`")  # noqa: E501
 
         self._modify_end_time = modify_end_time
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+
+
+        :return: The project_name of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ModifyPlannedEventExecuteTimeRequest.
+
+
+        :param project_name: The project_name of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def task_event_operation(self):
+        """Gets the task_event_operation of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+
+
+        :return: The task_event_operation of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._task_event_operation
+
+    @task_event_operation.setter
+    def task_event_operation(self, task_event_operation):
+        """Sets the task_event_operation of this ModifyPlannedEventExecuteTimeRequest.
+
+
+        :param task_event_operation: The task_event_operation of this ModifyPlannedEventExecuteTimeRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and task_event_operation is None:
+            raise ValueError("Invalid value for `task_event_operation`, must not be `None`")  # noqa: E501
+
+        self._task_event_operation = task_event_operation
 
     def to_dict(self):
         """Returns the model properties as a dict"""

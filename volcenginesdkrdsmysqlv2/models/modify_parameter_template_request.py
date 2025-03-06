@@ -33,6 +33,7 @@ class ModifyParameterTemplateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'project_name': 'str',
         'template_desc': 'str',
         'template_id': 'str',
         'template_name': 'str',
@@ -40,30 +41,55 @@ class ModifyParameterTemplateRequest(object):
     }
 
     attribute_map = {
+        'project_name': 'ProjectName',
         'template_desc': 'TemplateDesc',
         'template_id': 'TemplateId',
         'template_name': 'TemplateName',
         'template_params': 'TemplateParams'
     }
 
-    def __init__(self, template_desc=None, template_id=None, template_name=None, template_params=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_name=None, template_desc=None, template_id=None, template_name=None, template_params=None, _configuration=None):  # noqa: E501
         """ModifyParameterTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._project_name = None
         self._template_desc = None
         self._template_id = None
         self._template_name = None
         self._template_params = None
         self.discriminator = None
 
+        if project_name is not None:
+            self.project_name = project_name
         if template_desc is not None:
             self.template_desc = template_desc
         self.template_id = template_id
         self.template_name = template_name
         if template_params is not None:
             self.template_params = template_params
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ModifyParameterTemplateRequest.  # noqa: E501
+
+
+        :return: The project_name of this ModifyParameterTemplateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ModifyParameterTemplateRequest.
+
+
+        :param project_name: The project_name of this ModifyParameterTemplateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def template_desc(self):
