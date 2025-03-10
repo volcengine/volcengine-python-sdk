@@ -2,8 +2,6 @@ import asyncio
 import sys
 from datetime import datetime
 
-import uvloop
-
 from volcenginesdkarkruntime import AsyncArk
 
 
@@ -18,45 +16,66 @@ from volcenginesdkarkruntime import AsyncArk
 # To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
 # For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
 
-async def worker(worker_id, task_num):
-    client = AsyncArk()
+async def worker(
+    worker_id: int,
+    client: AsyncArk,
+    requests: asyncio.Queue[dict],
+):
     print(f"Worker {worker_id} is starting.")
-    for i in range(task_num):
-        print(f"Worker {worker_id} task {i} is running.")
+
+    while True:
+        request = await requests.get()
         try:
-            completion = await client.batch_chat.completions.create(
-                model="${YOUR_ENDPOINT_ID}",
-                messages=[
-                    {"role": "system", "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手"},
-                    {"role": "user", "content": "常见的十字花科植物有哪些？"},
-                ],
-            )
-            print(completion.choices[0].message.content)
+            completion = await client.batch_chat.completions.create(**request)
+            print(completion)
         except Exception as e:
-            print(f"Worker {worker_id} task {i} failed with error: {e}")
-        else:
-            print(f"Worker {worker_id} task {i} is completed.")
-    print(f"Worker {worker_id} is completed.")
+            print(e, file=sys.stderr)
+        finally:
+            requests.task_done()
 
 
 async def main():
     start = datetime.now()
-    max_concurrent_tasks = 1000
-    task_num = 5
+    max_concurrent_tasks, task_num = 1000, 10000
 
-    # 创建任务列表
-    tasks = [worker(i, task_num) for i in range(max_concurrent_tasks)]
+    requests = asyncio.Queue()
+    client = AsyncArk(timeout=24 * 3600)
 
-    # 等待所有任务完成
-    await asyncio.gather(*tasks)
+    # mock `task_num` tasks
+    for _ in range(task_num):
+        await requests.put(
+            {
+                "model": "${YOUR_ENDPOINT_ID}",
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手",
+                    },
+                    {"role": "user", "content": "常见的十字花科植物有哪些？"},
+                ],
+            }
+        )
+
+    # create `max_concurrent_tasks` workers and start them
+    tasks = [
+        asyncio.create_task(worker(i, client, requests))
+        for i in range(max_concurrent_tasks)
+    ]
+
+    # wait for all requests is done
+    await requests.join()
+
+    # stop workers
+    for task in tasks:
+        task.cancel()
+
+    # wait for all workers is canceled
+    await asyncio.gather(*tasks, return_exceptions=True)
+    await client.close()
+
     end = datetime.now()
-    print(f"Total time: {end - start}, Total task: {max_concurrent_tasks * task_num}")
+    print(f"Total time: {end - start}, Total task: {task_num}")
 
 
 if __name__ == "__main__":
-    if sys.version_info >= (3, 11):
-        with asyncio.Runner(loop_factory=uvloop.new_event_loop) as runner:
-            runner.run(main())
-    else:
-        uvloop.install()
-        asyncio.run(main())
+    asyncio.run(main())
