@@ -1100,38 +1100,38 @@ class ESCLOUDApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def modify_ip_whitelist(self, body, **kwargs):  # noqa: E501
-        """modify_ip_whitelist  # noqa: E501
+    def modify_ip_allow_list(self, body, **kwargs):  # noqa: E501
+        """modify_ip_allow_list  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_ip_whitelist(body, async_req=True)
+        >>> thread = api.modify_ip_allow_list(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ModifyIpWhitelistRequest body: (required)
-        :return: ModifyIpWhitelistResponse
+        :param ModifyIpAllowListRequest body: (required)
+        :return: ModifyIpAllowListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.modify_ip_whitelist_with_http_info(body, **kwargs)  # noqa: E501
+            return self.modify_ip_allow_list_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.modify_ip_whitelist_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.modify_ip_allow_list_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def modify_ip_whitelist_with_http_info(self, body, **kwargs):  # noqa: E501
-        """modify_ip_whitelist  # noqa: E501
+    def modify_ip_allow_list_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_ip_allow_list  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_ip_whitelist_with_http_info(body, async_req=True)
+        >>> thread = api.modify_ip_allow_list_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ModifyIpWhitelistRequest body: (required)
-        :return: ModifyIpWhitelistResponse
+        :param ModifyIpAllowListRequest body: (required)
+        :return: ModifyIpAllowListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1147,14 +1147,14 @@ class ESCLOUDApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method modify_ip_whitelist" % key
+                    " to method modify_ip_allow_list" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `modify_ip_whitelist`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_ip_allow_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1182,14 +1182,14 @@ class ESCLOUDApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyIpWhitelist/2023-01-01/escloud/post/application_json/', 'POST',
+            '/ModifyIpAllowList/2023-01-01/escloud/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ModifyIpWhitelistResponse',  # noqa: E501
+            response_type='ModifyIpAllowListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
