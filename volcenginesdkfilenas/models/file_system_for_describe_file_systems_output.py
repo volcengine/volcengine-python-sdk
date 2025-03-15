@@ -33,6 +33,7 @@ class FileSystemForDescribeFileSystemsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cache_performance': 'CachePerformanceForDescribeFileSystemsOutput',
         'capacity': 'CapacityForDescribeFileSystemsOutput',
         'charge_type': 'str',
         'create_time': 'str',
@@ -54,6 +55,7 @@ class FileSystemForDescribeFileSystemsOutput(object):
     }
 
     attribute_map = {
+        'cache_performance': 'CachePerformance',
         'capacity': 'Capacity',
         'charge_type': 'ChargeType',
         'create_time': 'CreateTime',
@@ -74,12 +76,13 @@ class FileSystemForDescribeFileSystemsOutput(object):
         'zone_name': 'ZoneName'
     }
 
-    def __init__(self, capacity=None, charge_type=None, create_time=None, description=None, file_system_id=None, file_system_name=None, file_system_type=None, project_name=None, protocol_type=None, region_id=None, snapshot_count=None, status=None, storage_type=None, tags=None, update_time=None, version=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cache_performance=None, capacity=None, charge_type=None, create_time=None, description=None, file_system_id=None, file_system_name=None, file_system_type=None, project_name=None, protocol_type=None, region_id=None, snapshot_count=None, status=None, storage_type=None, tags=None, update_time=None, version=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
         """FileSystemForDescribeFileSystemsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cache_performance = None
         self._capacity = None
         self._charge_type = None
         self._create_time = None
@@ -100,6 +103,8 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._zone_name = None
         self.discriminator = None
 
+        if cache_performance is not None:
+            self.cache_performance = cache_performance
         if capacity is not None:
             self.capacity = capacity
         if charge_type is not None:
@@ -136,6 +141,27 @@ class FileSystemForDescribeFileSystemsOutput(object):
             self.zone_id = zone_id
         if zone_name is not None:
             self.zone_name = zone_name
+
+    @property
+    def cache_performance(self):
+        """Gets the cache_performance of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+
+
+        :return: The cache_performance of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :rtype: CachePerformanceForDescribeFileSystemsOutput
+        """
+        return self._cache_performance
+
+    @cache_performance.setter
+    def cache_performance(self, cache_performance):
+        """Sets the cache_performance of this FileSystemForDescribeFileSystemsOutput.
+
+
+        :param cache_performance: The cache_performance of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :type: CachePerformanceForDescribeFileSystemsOutput
+        """
+
+        self._cache_performance = cache_performance
 
     @property
     def capacity(self):
