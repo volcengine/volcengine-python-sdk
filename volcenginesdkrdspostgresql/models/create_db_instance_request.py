@@ -134,13 +134,6 @@ class CreateDBInstanceRequest(object):
         """
         if self._configuration.client_side_validation and db_engine_version is None:
             raise ValueError("Invalid value for `db_engine_version`, must not be `None`")  # noqa: E501
-        allowed_values = ["PostgreSQL_11", "PostgreSQL_12", "PostgreSQL_13"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                db_engine_version not in allowed_values):
-            raise ValueError(
-                "Invalid value for `db_engine_version` ({0}), must be one of {1}"  # noqa: E501
-                .format(db_engine_version, allowed_values)
-            )
 
         self._db_engine_version = db_engine_version
 
@@ -225,12 +218,6 @@ class CreateDBInstanceRequest(object):
         :param storage_space: The storage_space of this CreateDBInstanceRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                storage_space is not None and storage_space > 3000):  # noqa: E501
-            raise ValueError("Invalid value for `storage_space`, must be a value less than or equal to `3000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                storage_space is not None and storage_space < 20):  # noqa: E501
-            raise ValueError("Invalid value for `storage_space`, must be a value greater than or equal to `20`")  # noqa: E501
 
         self._storage_space = storage_space
 
@@ -254,13 +241,6 @@ class CreateDBInstanceRequest(object):
         """
         if self._configuration.client_side_validation and storage_type is None:
             raise ValueError("Invalid value for `storage_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["LocalSSD"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                storage_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(storage_type, allowed_values)
-            )
 
         self._storage_type = storage_type
 

@@ -155,13 +155,6 @@ class CreateDBAccountRequest(object):
         """
         if self._configuration.client_side_validation and account_type is None:
             raise ValueError("Invalid value for `account_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Normal", "Super"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                account_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `account_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(account_type, allowed_values)
-            )
 
         self._account_type = account_type
 

@@ -60,7 +60,8 @@ class ModifyDBEndpointReadWeightRequest(object):
 
         self.endpoint_id = endpoint_id
         self.instance_id = instance_id
-        self.read_only_node_distribution_type = read_only_node_distribution_type
+        if read_only_node_distribution_type is not None:
+            self.read_only_node_distribution_type = read_only_node_distribution_type
         if read_only_node_weight is not None:
             self.read_only_node_weight = read_only_node_weight
 
@@ -128,15 +129,6 @@ class ModifyDBEndpointReadWeightRequest(object):
         :param read_only_node_distribution_type: The read_only_node_distribution_type of this ModifyDBEndpointReadWeightRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and read_only_node_distribution_type is None:
-            raise ValueError("Invalid value for `read_only_node_distribution_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Default", "Custom"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                read_only_node_distribution_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `read_only_node_distribution_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(read_only_node_distribution_type, allowed_values)
-            )
 
         self._read_only_node_distribution_type = read_only_node_distribution_type
 

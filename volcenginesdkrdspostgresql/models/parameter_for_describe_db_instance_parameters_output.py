@@ -36,6 +36,7 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
         'checking_code': 'str',
         'default_value': 'str',
         'description': 'str',
+        'description_zh': 'str',
         'force_restart': 'bool',
         'name': 'str',
         'type': 'str',
@@ -46,13 +47,14 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
         'checking_code': 'CheckingCode',
         'default_value': 'DefaultValue',
         'description': 'Description',
+        'description_zh': 'DescriptionZH',
         'force_restart': 'ForceRestart',
         'name': 'Name',
         'type': 'Type',
         'value': 'Value'
     }
 
-    def __init__(self, checking_code=None, default_value=None, description=None, force_restart=None, name=None, type=None, value=None, _configuration=None):  # noqa: E501
+    def __init__(self, checking_code=None, default_value=None, description=None, description_zh=None, force_restart=None, name=None, type=None, value=None, _configuration=None):  # noqa: E501
         """ParameterForDescribeDBInstanceParametersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
         self._checking_code = None
         self._default_value = None
         self._description = None
+        self._description_zh = None
         self._force_restart = None
         self._name = None
         self._type = None
@@ -73,6 +76,8 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
             self.default_value = default_value
         if description is not None:
             self.description = description
+        if description_zh is not None:
+            self.description_zh = description_zh
         if force_restart is not None:
             self.force_restart = force_restart
         if name is not None:
@@ -144,6 +149,27 @@ class ParameterForDescribeDBInstanceParametersOutput(object):
         """
 
         self._description = description
+
+    @property
+    def description_zh(self):
+        """Gets the description_zh of this ParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+
+
+        :return: The description_zh of this ParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description_zh
+
+    @description_zh.setter
+    def description_zh(self, description_zh):
+        """Sets the description_zh of this ParameterForDescribeDBInstanceParametersOutput.
+
+
+        :param description_zh: The description_zh of this ParameterForDescribeDBInstanceParametersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description_zh = description_zh
 
     @property
     def force_restart(self):

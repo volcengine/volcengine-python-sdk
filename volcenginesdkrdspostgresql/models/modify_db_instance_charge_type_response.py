@@ -34,28 +34,28 @@ class ModifyDBInstanceChargeTypeResponse(object):
     """
     swagger_types = {
         'instance_id': 'str',
-        'order_id': 'str'
+        'order_no': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
-        'order_id': 'OrderId'
+        'order_no': 'OrderNO'
     }
 
-    def __init__(self, instance_id=None, order_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, order_no=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceChargeTypeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
-        self._order_id = None
+        self._order_no = None
         self.discriminator = None
 
         if instance_id is not None:
             self.instance_id = instance_id
-        if order_id is not None:
-            self.order_id = order_id
+        if order_no is not None:
+            self.order_no = order_no
 
     @property
     def instance_id(self):
@@ -79,25 +79,25 @@ class ModifyDBInstanceChargeTypeResponse(object):
         self._instance_id = instance_id
 
     @property
-    def order_id(self):
-        """Gets the order_id of this ModifyDBInstanceChargeTypeResponse.  # noqa: E501
+    def order_no(self):
+        """Gets the order_no of this ModifyDBInstanceChargeTypeResponse.  # noqa: E501
 
 
-        :return: The order_id of this ModifyDBInstanceChargeTypeResponse.  # noqa: E501
+        :return: The order_no of this ModifyDBInstanceChargeTypeResponse.  # noqa: E501
         :rtype: str
         """
-        return self._order_id
+        return self._order_no
 
-    @order_id.setter
-    def order_id(self, order_id):
-        """Sets the order_id of this ModifyDBInstanceChargeTypeResponse.
+    @order_no.setter
+    def order_no(self, order_no):
+        """Sets the order_no of this ModifyDBInstanceChargeTypeResponse.
 
 
-        :param order_id: The order_id of this ModifyDBInstanceChargeTypeResponse.  # noqa: E501
+        :param order_no: The order_no of this ModifyDBInstanceChargeTypeResponse.  # noqa: E501
         :type: str
         """
 
-        self._order_id = order_id
+        self._order_no = order_no
 
     def to_dict(self):
         """Returns the model properties as a dict"""

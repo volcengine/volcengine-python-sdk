@@ -151,13 +151,6 @@ class ModifyDBEndpointDNSRequest(object):
         """
         if self._configuration.client_side_validation and network_type is None:
             raise ValueError("Invalid value for `network_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Private"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                network_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `network_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(network_type, allowed_values)
-            )
 
         self._network_type = network_type
 
