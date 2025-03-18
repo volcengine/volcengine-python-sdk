@@ -39,6 +39,7 @@ class ItemForListRevisionsOutput(object):
         'description': 'str',
         'envs': 'list[EnvForListRevisionsOutput]',
         'exclusive_mode': 'bool',
+        'health_check_config': 'HealthCheckConfigForListRevisionsOutput',
         'id': 'str',
         'initializer_sec': 'int',
         'instance_type': 'str',
@@ -67,6 +68,7 @@ class ItemForListRevisionsOutput(object):
         'description': 'Description',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
+        'health_check_config': 'HealthCheckConfig',
         'id': 'Id',
         'initializer_sec': 'InitializerSec',
         'instance_type': 'InstanceType',
@@ -88,7 +90,7 @@ class ItemForListRevisionsOutput(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """ItemForListRevisionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +102,7 @@ class ItemForListRevisionsOutput(object):
         self._description = None
         self._envs = None
         self._exclusive_mode = None
+        self._health_check_config = None
         self._id = None
         self._initializer_sec = None
         self._instance_type = None
@@ -133,6 +136,8 @@ class ItemForListRevisionsOutput(object):
             self.envs = envs
         if exclusive_mode is not None:
             self.exclusive_mode = exclusive_mode
+        if health_check_config is not None:
+            self.health_check_config = health_check_config
         if id is not None:
             self.id = id
         if initializer_sec is not None:
@@ -297,6 +302,27 @@ class ItemForListRevisionsOutput(object):
         """
 
         self._exclusive_mode = exclusive_mode
+
+    @property
+    def health_check_config(self):
+        """Gets the health_check_config of this ItemForListRevisionsOutput.  # noqa: E501
+
+
+        :return: The health_check_config of this ItemForListRevisionsOutput.  # noqa: E501
+        :rtype: HealthCheckConfigForListRevisionsOutput
+        """
+        return self._health_check_config
+
+    @health_check_config.setter
+    def health_check_config(self, health_check_config):
+        """Sets the health_check_config of this ItemForListRevisionsOutput.
+
+
+        :param health_check_config: The health_check_config of this ItemForListRevisionsOutput.  # noqa: E501
+        :type: HealthCheckConfigForListRevisionsOutput
+        """
+
+        self._health_check_config = health_check_config
 
     @property
     def id(self):

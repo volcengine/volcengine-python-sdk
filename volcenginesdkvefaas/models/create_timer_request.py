@@ -40,8 +40,7 @@ class CreateTimerRequest(object):
         'function_id': 'str',
         'name': 'str',
         'payload': 'str',
-        'retries': 'int',
-        'top_param': 'TopParamForCreateTimerInput'
+        'retries': 'int'
     }
 
     attribute_map = {
@@ -52,11 +51,10 @@ class CreateTimerRequest(object):
         'function_id': 'FunctionId',
         'name': 'Name',
         'payload': 'Payload',
-        'retries': 'Retries',
-        'top_param': 'TopParam'
+        'retries': 'Retries'
     }
 
-    def __init__(self, crontab=None, description=None, enable_concurrency=None, enabled=None, function_id=None, name=None, payload=None, retries=None, top_param=None, _configuration=None):  # noqa: E501
+    def __init__(self, crontab=None, description=None, enable_concurrency=None, enabled=None, function_id=None, name=None, payload=None, retries=None, _configuration=None):  # noqa: E501
         """CreateTimerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +68,6 @@ class CreateTimerRequest(object):
         self._name = None
         self._payload = None
         self._retries = None
-        self._top_param = None
         self.discriminator = None
 
         self.crontab = crontab
@@ -86,8 +83,6 @@ class CreateTimerRequest(object):
             self.payload = payload
         if retries is not None:
             self.retries = retries
-        if top_param is not None:
-            self.top_param = top_param
 
     @property
     def crontab(self):
@@ -262,27 +257,6 @@ class CreateTimerRequest(object):
         """
 
         self._retries = retries
-
-    @property
-    def top_param(self):
-        """Gets the top_param of this CreateTimerRequest.  # noqa: E501
-
-
-        :return: The top_param of this CreateTimerRequest.  # noqa: E501
-        :rtype: TopParamForCreateTimerInput
-        """
-        return self._top_param
-
-    @top_param.setter
-    def top_param(self, top_param):
-        """Sets the top_param of this CreateTimerRequest.
-
-
-        :param top_param: The top_param of this CreateTimerRequest.  # noqa: E501
-        :type: TopParamForCreateTimerInput
-        """
-
-        self._top_param = top_param
 
     def to_dict(self):
         """Returns the model properties as a dict"""

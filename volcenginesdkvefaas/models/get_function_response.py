@@ -36,6 +36,7 @@ class GetFunctionResponse(object):
         'code_size': 'int',
         'code_size_limit': 'int',
         'command': 'str',
+        'cpu_strategy': 'str',
         'creation_time': 'str',
         'description': 'str',
         'envs': 'list[EnvForGetFunctionOutput]',
@@ -49,6 +50,7 @@ class GetFunctionResponse(object):
         'name': 'str',
         'nas_storage': 'NasStorageForGetFunctionOutput',
         'owner': 'str',
+        'port': 'int',
         'project_name': 'str',
         'request_timeout': 'int',
         'runtime': 'str',
@@ -64,6 +66,7 @@ class GetFunctionResponse(object):
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
         'command': 'Command',
+        'cpu_strategy': 'CpuStrategy',
         'creation_time': 'CreationTime',
         'description': 'Description',
         'envs': 'Envs',
@@ -77,6 +80,7 @@ class GetFunctionResponse(object):
         'name': 'Name',
         'nas_storage': 'NasStorage',
         'owner': 'Owner',
+        'port': 'Port',
         'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
         'runtime': 'Runtime',
@@ -88,7 +92,7 @@ class GetFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, command=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, command=None, cpu_strategy=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """GetFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +101,7 @@ class GetFunctionResponse(object):
         self._code_size = None
         self._code_size_limit = None
         self._command = None
+        self._cpu_strategy = None
         self._creation_time = None
         self._description = None
         self._envs = None
@@ -110,6 +115,7 @@ class GetFunctionResponse(object):
         self._name = None
         self._nas_storage = None
         self._owner = None
+        self._port = None
         self._project_name = None
         self._request_timeout = None
         self._runtime = None
@@ -127,6 +133,8 @@ class GetFunctionResponse(object):
             self.code_size_limit = code_size_limit
         if command is not None:
             self.command = command
+        if cpu_strategy is not None:
+            self.cpu_strategy = cpu_strategy
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
@@ -153,6 +161,8 @@ class GetFunctionResponse(object):
             self.nas_storage = nas_storage
         if owner is not None:
             self.owner = owner
+        if port is not None:
+            self.port = port
         if project_name is not None:
             self.project_name = project_name
         if request_timeout is not None:
@@ -234,6 +244,27 @@ class GetFunctionResponse(object):
         """
 
         self._command = command
+
+    @property
+    def cpu_strategy(self):
+        """Gets the cpu_strategy of this GetFunctionResponse.  # noqa: E501
+
+
+        :return: The cpu_strategy of this GetFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._cpu_strategy
+
+    @cpu_strategy.setter
+    def cpu_strategy(self, cpu_strategy):
+        """Sets the cpu_strategy of this GetFunctionResponse.
+
+
+        :param cpu_strategy: The cpu_strategy of this GetFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._cpu_strategy = cpu_strategy
 
     @property
     def creation_time(self):
@@ -507,6 +538,27 @@ class GetFunctionResponse(object):
         """
 
         self._owner = owner
+
+    @property
+    def port(self):
+        """Gets the port of this GetFunctionResponse.  # noqa: E501
+
+
+        :return: The port of this GetFunctionResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this GetFunctionResponse.
+
+
+        :param port: The port of this GetFunctionResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     @property
     def project_name(self):

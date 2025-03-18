@@ -39,8 +39,10 @@ class GetRevisionResponse(object):
         'description': 'str',
         'envs': 'list[EnvForGetRevisionOutput]',
         'exclusive_mode': 'bool',
+        'health_check_config': 'HealthCheckConfigForGetRevisionOutput',
         'id': 'str',
         'initializer_sec': 'int',
+        'instance_type': 'str',
         'max_concurrency': 'int',
         'max_replicas': 'int',
         'memory_mb': 'int',
@@ -66,8 +68,10 @@ class GetRevisionResponse(object):
         'description': 'Description',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
+        'health_check_config': 'HealthCheckConfig',
         'id': 'Id',
         'initializer_sec': 'InitializerSec',
+        'instance_type': 'InstanceType',
         'max_concurrency': 'MaxConcurrency',
         'max_replicas': 'MaxReplicas',
         'memory_mb': 'MemoryMB',
@@ -86,7 +90,7 @@ class GetRevisionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """GetRevisionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,8 +102,10 @@ class GetRevisionResponse(object):
         self._description = None
         self._envs = None
         self._exclusive_mode = None
+        self._health_check_config = None
         self._id = None
         self._initializer_sec = None
+        self._instance_type = None
         self._max_concurrency = None
         self._max_replicas = None
         self._memory_mb = None
@@ -130,10 +136,14 @@ class GetRevisionResponse(object):
             self.envs = envs
         if exclusive_mode is not None:
             self.exclusive_mode = exclusive_mode
+        if health_check_config is not None:
+            self.health_check_config = health_check_config
         if id is not None:
             self.id = id
         if initializer_sec is not None:
             self.initializer_sec = initializer_sec
+        if instance_type is not None:
+            self.instance_type = instance_type
         if max_concurrency is not None:
             self.max_concurrency = max_concurrency
         if max_replicas is not None:
@@ -294,6 +304,27 @@ class GetRevisionResponse(object):
         self._exclusive_mode = exclusive_mode
 
     @property
+    def health_check_config(self):
+        """Gets the health_check_config of this GetRevisionResponse.  # noqa: E501
+
+
+        :return: The health_check_config of this GetRevisionResponse.  # noqa: E501
+        :rtype: HealthCheckConfigForGetRevisionOutput
+        """
+        return self._health_check_config
+
+    @health_check_config.setter
+    def health_check_config(self, health_check_config):
+        """Sets the health_check_config of this GetRevisionResponse.
+
+
+        :param health_check_config: The health_check_config of this GetRevisionResponse.  # noqa: E501
+        :type: HealthCheckConfigForGetRevisionOutput
+        """
+
+        self._health_check_config = health_check_config
+
+    @property
     def id(self):
         """Gets the id of this GetRevisionResponse.  # noqa: E501
 
@@ -334,6 +365,27 @@ class GetRevisionResponse(object):
         """
 
         self._initializer_sec = initializer_sec
+
+    @property
+    def instance_type(self):
+        """Gets the instance_type of this GetRevisionResponse.  # noqa: E501
+
+
+        :return: The instance_type of this GetRevisionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this GetRevisionResponse.
+
+
+        :param instance_type: The instance_type of this GetRevisionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type = instance_type
 
     @property
     def max_concurrency(self):
