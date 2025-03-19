@@ -126,10 +126,6 @@ def prepare_post_parameters(post_params=None, files=None):
     return params
 
 
-def model_sanitize_str(obj):
-    return sanitize_for_serialization(obj)
-
-
 def sanitize_for_serialization(obj):
     """Builds a JSON POST object.
 
