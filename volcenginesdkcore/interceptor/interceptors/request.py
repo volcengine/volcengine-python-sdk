@@ -1,5 +1,5 @@
 class RuntimeOption(object):
-    def __init__(self, ak=None, sk=None, session_token=None, region=None, scheme=None,
+    def __init__(self, client_side_validation, ak=None, sk=None, session_token=None, region=None, scheme=None,
                  endpoint_provider=None, timeout=None):
         self.ak = ak
         self.sk = sk
@@ -8,6 +8,7 @@ class RuntimeOption(object):
         self.scheme = scheme
         self.endpoint_provider = endpoint_provider
         self.timeout = timeout
+        self.client_side_validation = client_side_validation
 
 
 class Request(object):
