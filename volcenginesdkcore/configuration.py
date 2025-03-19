@@ -9,6 +9,9 @@ import sys
 
 import six
 from six.moves import http_client as httplib
+from urllib3 import Timeout, Retry
+
+from volcenginesdkcore.endpoint.providers import DefaultEndpointProvider
 
 
 class TypeWithDefault(type):
@@ -36,7 +39,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         """Constructor"""
 
         # Default Base url
-        self.host = "open.volcengineapi.com"
+        self.host = None
         # Schema Support http or https
         self.schema = "http"
         # Temp file folder for downloading files
@@ -53,6 +56,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         # 自定义适配
         self.ak = ""
         self.sk = ""
+        self.session_token = ""
         self.region = ""
 
         # Logging Settings
@@ -83,6 +87,10 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         # Set this to True/False to enable/disable SSL hostname verification.
         self.assert_hostname = None
 
+        self.num_pools = 4
+        self.timeout = Timeout(connect=3.0, read=30.0, total=30.0)
+        self.retries = Retry(3)
+
         # urllib3 connection pool's maximum number of connections saved
         # per pool. urllib3 uses 1 connection as default value, but this is
         # not the best value when you are making a lot of possibly parallel
@@ -97,6 +105,8 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         # Disable client side validation
         self.client_side_validation = True
+
+        self.endpoint_provider = DefaultEndpointProvider()
 
     @property
     def logger_file(self):
