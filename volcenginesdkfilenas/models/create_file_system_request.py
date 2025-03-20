@@ -33,6 +33,7 @@ class CreateFileSystemRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cache_bandwidth': 'int',
         'capacity': 'int',
         'charge_type': 'str',
         'client_token': 'str',
@@ -48,6 +49,7 @@ class CreateFileSystemRequest(object):
     }
 
     attribute_map = {
+        'cache_bandwidth': 'CacheBandwidth',
         'capacity': 'Capacity',
         'charge_type': 'ChargeType',
         'client_token': 'ClientToken',
@@ -62,12 +64,13 @@ class CreateFileSystemRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, capacity=None, charge_type=None, client_token=None, description=None, file_system_name=None, file_system_type=None, project_name=None, protocol_type=None, snapshot_id=None, storage_type=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cache_bandwidth=None, capacity=None, charge_type=None, client_token=None, description=None, file_system_name=None, file_system_type=None, project_name=None, protocol_type=None, snapshot_id=None, storage_type=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateFileSystemRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cache_bandwidth = None
         self._capacity = None
         self._charge_type = None
         self._client_token = None
@@ -82,6 +85,8 @@ class CreateFileSystemRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if cache_bandwidth is not None:
+            self.cache_bandwidth = cache_bandwidth
         self.capacity = capacity
         self.charge_type = charge_type
         if client_token is not None:
@@ -100,6 +105,33 @@ class CreateFileSystemRequest(object):
         if tags is not None:
             self.tags = tags
         self.zone_id = zone_id
+
+    @property
+    def cache_bandwidth(self):
+        """Gets the cache_bandwidth of this CreateFileSystemRequest.  # noqa: E501
+
+
+        :return: The cache_bandwidth of this CreateFileSystemRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._cache_bandwidth
+
+    @cache_bandwidth.setter
+    def cache_bandwidth(self, cache_bandwidth):
+        """Sets the cache_bandwidth of this CreateFileSystemRequest.
+
+
+        :param cache_bandwidth: The cache_bandwidth of this CreateFileSystemRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                cache_bandwidth is not None and cache_bandwidth > 100000):  # noqa: E501
+            raise ValueError("Invalid value for `cache_bandwidth`, must be a value less than or equal to `100000`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                cache_bandwidth is not None and cache_bandwidth < 700):  # noqa: E501
+            raise ValueError("Invalid value for `cache_bandwidth`, must be a value greater than or equal to `700`")  # noqa: E501
+
+        self._cache_bandwidth = cache_bandwidth
 
     @property
     def capacity(self):
