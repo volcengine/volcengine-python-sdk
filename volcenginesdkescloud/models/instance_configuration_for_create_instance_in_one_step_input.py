@@ -38,7 +38,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput(object):
         'charge_type': 'str',
         'configuration_code': 'str',
         'deletion_protection': 'bool',
-        'enable_cerebro': 'bool',
         'enable_https': 'bool',
         'enable_pure_master': 'bool',
         'instance_name': 'str',
@@ -59,7 +58,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput(object):
         'charge_type': 'ChargeType',
         'configuration_code': 'ConfigurationCode',
         'deletion_protection': 'DeletionProtection',
-        'enable_cerebro': 'EnableCerebro',
         'enable_https': 'EnableHttps',
         'enable_pure_master': 'EnablePureMaster',
         'instance_name': 'InstanceName',
@@ -74,7 +72,7 @@ class InstanceConfigurationForCreateInstanceInOneStepInput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, admin_password=None, auto_renew=None, charge_type=None, configuration_code=None, deletion_protection=None, enable_cerebro=None, enable_https=None, enable_pure_master=None, instance_name=None, network_specs=None, node_specs_assigns=None, period=None, project_name=None, region_id=None, subnet=None, vpc=None, version=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, admin_password=None, auto_renew=None, charge_type=None, configuration_code=None, deletion_protection=None, enable_https=None, enable_pure_master=None, instance_name=None, network_specs=None, node_specs_assigns=None, period=None, project_name=None, region_id=None, subnet=None, vpc=None, version=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceConfigurationForCreateInstanceInOneStepInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,7 +83,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput(object):
         self._charge_type = None
         self._configuration_code = None
         self._deletion_protection = None
-        self._enable_cerebro = None
         self._enable_https = None
         self._enable_pure_master = None
         self._instance_name = None
@@ -110,8 +107,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput(object):
             self.configuration_code = configuration_code
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
-        if enable_cerebro is not None:
-            self.enable_cerebro = enable_cerebro
         if enable_https is not None:
             self.enable_https = enable_https
         if enable_pure_master is not None:
@@ -248,27 +243,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput(object):
         """
 
         self._deletion_protection = deletion_protection
-
-    @property
-    def enable_cerebro(self):
-        """Gets the enable_cerebro of this InstanceConfigurationForCreateInstanceInOneStepInput.  # noqa: E501
-
-
-        :return: The enable_cerebro of this InstanceConfigurationForCreateInstanceInOneStepInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._enable_cerebro
-
-    @enable_cerebro.setter
-    def enable_cerebro(self, enable_cerebro):
-        """Sets the enable_cerebro of this InstanceConfigurationForCreateInstanceInOneStepInput.
-
-
-        :param enable_cerebro: The enable_cerebro of this InstanceConfigurationForCreateInstanceInOneStepInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._enable_cerebro = enable_cerebro
 
     @property
     def enable_https(self):
