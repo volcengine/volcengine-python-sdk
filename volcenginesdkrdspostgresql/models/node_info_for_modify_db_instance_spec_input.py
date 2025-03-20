@@ -111,13 +111,6 @@ class NodeInfoForModifyDBInstanceSpecInput(object):
         :param node_operate_type: The node_operate_type of this NodeInfoForModifyDBInstanceSpecInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Create", "Delete", "Modify"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                node_operate_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `node_operate_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(node_operate_type, allowed_values)
-            )
 
         self._node_operate_type = node_operate_type
 
@@ -160,13 +153,6 @@ class NodeInfoForModifyDBInstanceSpecInput(object):
         :param node_type: The node_type of this NodeInfoForModifyDBInstanceSpecInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Primary", "Secondary", "ReadOnly"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                node_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `node_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(node_type, allowed_values)
-            )
 
         self._node_type = node_type
 

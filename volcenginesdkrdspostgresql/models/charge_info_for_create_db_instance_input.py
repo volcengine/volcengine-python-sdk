@@ -111,13 +111,6 @@ class ChargeInfoForCreateDBInstanceInput(object):
         :param charge_type: The charge_type of this ChargeInfoForCreateDBInstanceInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                charge_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(charge_type, allowed_values)
-            )
 
         self._charge_type = charge_type
 
@@ -181,13 +174,6 @@ class ChargeInfoForCreateDBInstanceInput(object):
         :param period_unit: The period_unit of this ChargeInfoForCreateDBInstanceInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Month", "Year"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                period_unit not in allowed_values):
-            raise ValueError(
-                "Invalid value for `period_unit` ({0}), must be one of {1}"  # noqa: E501
-                .format(period_unit, allowed_values)
-            )
 
         self._period_unit = period_unit
 

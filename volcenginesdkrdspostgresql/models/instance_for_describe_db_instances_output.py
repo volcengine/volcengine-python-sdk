@@ -34,7 +34,6 @@ class InstanceForDescribeDBInstancesOutput(object):
     """
     swagger_types = {
         'address_object': 'list[AddressObjectForDescribeDBInstancesOutput]',
-        'allow_list_version': 'str',
         'charge_detail': 'ChargeDetailForDescribeDBInstancesOutput',
         'create_time': 'str',
         'db_engine_version': 'str',
@@ -57,7 +56,6 @@ class InstanceForDescribeDBInstancesOutput(object):
 
     attribute_map = {
         'address_object': 'AddressObject',
-        'allow_list_version': 'AllowListVersion',
         'charge_detail': 'ChargeDetail',
         'create_time': 'CreateTime',
         'db_engine_version': 'DBEngineVersion',
@@ -78,14 +76,13 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_object=None, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address_object = None
-        self._allow_list_version = None
         self._charge_detail = None
         self._create_time = None
         self._db_engine_version = None
@@ -108,8 +105,6 @@ class InstanceForDescribeDBInstancesOutput(object):
 
         if address_object is not None:
             self.address_object = address_object
-        if allow_list_version is not None:
-            self.allow_list_version = allow_list_version
         if charge_detail is not None:
             self.charge_detail = charge_detail
         if create_time is not None:
@@ -167,27 +162,6 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._address_object = address_object
-
-    @property
-    def allow_list_version(self):
-        """Gets the allow_list_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-
-
-        :return: The allow_list_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._allow_list_version
-
-    @allow_list_version.setter
-    def allow_list_version(self, allow_list_version):
-        """Sets the allow_list_version of this InstanceForDescribeDBInstancesOutput.
-
-
-        :param allow_list_version: The allow_list_version of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._allow_list_version = allow_list_version
 
     @property
     def charge_detail(self):

@@ -33,7 +33,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allow_list_version': 'str',
         'create_time': 'str',
         'db_engine_version': 'str',
         'data_sync_mode': 'str',
@@ -62,7 +61,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
     }
 
     attribute_map = {
-        'allow_list_version': 'AllowListVersion',
         'create_time': 'CreateTime',
         'db_engine_version': 'DBEngineVersion',
         'data_sync_mode': 'DataSyncMode',
@@ -90,13 +88,12 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_version=None, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_tag=None, instance_type=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_data_use=None, storage_log_use=None, storage_space=None, storage_temp_use=None, storage_type=None, storage_use=None, storage_wal_use=None, subnet_id=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_tag=None, instance_type=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_data_use=None, storage_log_use=None, storage_space=None, storage_temp_use=None, storage_type=None, storage_use=None, storage_wal_use=None, subnet_id=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._allow_list_version = None
         self._create_time = None
         self._db_engine_version = None
         self._data_sync_mode = None
@@ -124,8 +121,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._zone_id = None
         self.discriminator = None
 
-        if allow_list_version is not None:
-            self.allow_list_version = allow_list_version
         if create_time is not None:
             self.create_time = create_time
         if db_engine_version is not None:
@@ -176,27 +171,6 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
-
-    @property
-    def allow_list_version(self):
-        """Gets the allow_list_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-
-
-        :return: The allow_list_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._allow_list_version
-
-    @allow_list_version.setter
-    def allow_list_version(self, allow_list_version):
-        """Sets the allow_list_version of this BasicInfoForDescribeDBInstanceDetailOutput.
-
-
-        :param allow_list_version: The allow_list_version of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._allow_list_version = allow_list_version
 
     @property
     def create_time(self):

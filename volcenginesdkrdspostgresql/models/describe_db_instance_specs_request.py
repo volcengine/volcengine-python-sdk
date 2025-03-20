@@ -80,13 +80,6 @@ class DescribeDBInstanceSpecsRequest(object):
         :param db_engine_version: The db_engine_version of this DescribeDBInstanceSpecsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["PostgreSQL_11", "PostgreSQL_12", "PostgreSQL_13"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                db_engine_version not in allowed_values):
-            raise ValueError(
-                "Invalid value for `db_engine_version` ({0}), must be one of {1}"  # noqa: E501
-                .format(db_engine_version, allowed_values)
-            )
 
         self._db_engine_version = db_engine_version
 

@@ -33,7 +33,6 @@ class DescribeDBInstancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allow_list_versions': 'list[str]',
         'charge_type': 'str',
         'create_time_end': 'str',
         'create_time_start': 'str',
@@ -49,7 +48,6 @@ class DescribeDBInstancesRequest(object):
     }
 
     attribute_map = {
-        'allow_list_versions': 'AllowListVersions',
         'charge_type': 'ChargeType',
         'create_time_end': 'CreateTimeEnd',
         'create_time_start': 'CreateTimeStart',
@@ -64,13 +62,12 @@ class DescribeDBInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_versions=None, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project_name=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, page_number=None, page_size=None, project_name=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._allow_list_versions = None
         self._charge_type = None
         self._create_time_end = None
         self._create_time_start = None
@@ -85,8 +82,6 @@ class DescribeDBInstancesRequest(object):
         self._zone_id = None
         self.discriminator = None
 
-        if allow_list_versions is not None:
-            self.allow_list_versions = allow_list_versions
         if charge_type is not None:
             self.charge_type = charge_type
         if create_time_end is not None:
@@ -113,27 +108,6 @@ class DescribeDBInstancesRequest(object):
             self.zone_id = zone_id
 
     @property
-    def allow_list_versions(self):
-        """Gets the allow_list_versions of this DescribeDBInstancesRequest.  # noqa: E501
-
-
-        :return: The allow_list_versions of this DescribeDBInstancesRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._allow_list_versions
-
-    @allow_list_versions.setter
-    def allow_list_versions(self, allow_list_versions):
-        """Sets the allow_list_versions of this DescribeDBInstancesRequest.
-
-
-        :param allow_list_versions: The allow_list_versions of this DescribeDBInstancesRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._allow_list_versions = allow_list_versions
-
-    @property
     def charge_type(self):
         """Gets the charge_type of this DescribeDBInstancesRequest.  # noqa: E501
 
@@ -151,13 +125,6 @@ class DescribeDBInstancesRequest(object):
         :param charge_type: The charge_type of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                charge_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(charge_type, allowed_values)
-            )
 
         self._charge_type = charge_type
 
@@ -221,13 +188,6 @@ class DescribeDBInstancesRequest(object):
         :param db_engine_version: The db_engine_version of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["PostgreSQL_11", "PostgreSQL_12", "PostgreSQL_13"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                db_engine_version not in allowed_values):
-            raise ValueError(
-                "Invalid value for `db_engine_version` ({0}), must be one of {1}"  # noqa: E501
-                .format(db_engine_version, allowed_values)
-            )
 
         self._db_engine_version = db_engine_version
 
@@ -291,13 +251,6 @@ class DescribeDBInstancesRequest(object):
         :param instance_status: The instance_status of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Running", "Creating", "Deleting", "Restarting", "Restoring", "Updating", "Upgrading", "Error", "Released", "CreateError", "MasterChanging", "Deleted", "Recycled"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                instance_status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `instance_status` ({0}), must be one of {1}"  # noqa: E501
-                .format(instance_status, allowed_values)
-            )
 
         self._instance_status = instance_status
 

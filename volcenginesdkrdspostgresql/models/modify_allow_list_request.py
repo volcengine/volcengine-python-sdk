@@ -202,13 +202,6 @@ class ModifyAllowListRequest(object):
         :param modify_mode: The modify_mode of this ModifyAllowListRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Cover", "Append", "Delete"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                modify_mode not in allowed_values):
-            raise ValueError(
-                "Invalid value for `modify_mode` ({0}), must be one of {1}"  # noqa: E501
-                .format(modify_mode, allowed_values)
-            )
 
         self._modify_mode = modify_mode
 
