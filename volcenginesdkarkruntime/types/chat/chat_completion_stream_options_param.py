@@ -13,3 +13,8 @@ class ChatCompletionStreamOptionsParam(TypedDict, total=False):
     request, and the `choices` field will always be an empty array. All other chunks
     will also include a `usage` field, but with a null value.
     """
+
+    chunk_include_usage: bool
+    """if set, each data chunk will include a `usage` field 
+    representing the current cumulative token usage for the entire request.
+    """
