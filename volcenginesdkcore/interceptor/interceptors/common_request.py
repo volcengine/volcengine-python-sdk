@@ -8,10 +8,11 @@ import six
 from six.moves.urllib.parse import quote
 
 from volcenginesdkcore.signv4 import SignerV4
-from .interceptor import Interceptor
+from .interceptor import RequestInterceptor
+from urllib3 import Timeout
 
 
-class SignRequestInterceptor(Interceptor):
+class SignRequestInterceptor(RequestInterceptor):
     """SDK通用请求拦截器"""
 
     def name(self):
@@ -32,23 +33,9 @@ class SignRequestInterceptor(Interceptor):
                                     region=context.request.region)
         return context
 
-    def is_common(self):
-        return True
-
-    def is_request(self):
-        return True
-
-    def is_response(self):
-        return False
-
-    def update_params_for_auth(self, host, path, method, headers, querys, auth_settings, body, post_params, service, ak,
+    @staticmethod
+    def update_params_for_auth(host, path, method, headers, querys, auth_settings, body, post_params, service, ak,
                                sk, session_token, region):
-        """Updates header and query params based on authentication setting.
-
-        :param headers: Header parameters dict to be updated.
-        :param querys: Query parameters tuple list to be updated.
-        :param auth_settings: Authentication setting identifiers list.
-        """
         if not auth_settings:
             return
 
@@ -63,7 +50,6 @@ class SignRequestInterceptor(Interceptor):
                           region, service)
 
 
-PRIMITIVE_TYPES = (float, bool, bytes, six.text_type) + six.integer_types
 
 
 def parameters_to_tuples(params, collection_formats):
@@ -142,7 +128,7 @@ def sanitize_for_serialization(obj):
     """
     if obj is None:
         return None
-    elif isinstance(obj, PRIMITIVE_TYPES):
+    elif isinstance(obj, (float, bool, bytes, six.text_type) + six.integer_types):
         return obj
     elif isinstance(obj, list):
         return [sanitize_for_serialization(sub_obj)
@@ -169,7 +155,7 @@ def sanitize_for_serialization(obj):
             for key, val in six.iteritems(obj_dict)}
 
 
-class BuildRequestInterceptor(Interceptor):
+class BuildRequestInterceptor(RequestInterceptor):
     """SDK通用请求拦截器"""
 
     def name(self):
@@ -236,15 +222,6 @@ class BuildRequestInterceptor(Interceptor):
 
         return context
 
-    def is_common(self):
-        return True
-
-    def is_request(self):
-        return True
-
-    def is_response(self):
-        return False
-
     def __req_to_params(self, req, prefix="", params=None):
         if params is None:
             params = []
@@ -266,7 +243,7 @@ class BuildRequestInterceptor(Interceptor):
         return params
 
 
-class ResolveEndpointInterceptor(Interceptor):
+class ResolveEndpointInterceptor(RequestInterceptor):
     """SDK通用请求拦截器"""
 
     def name(self):
@@ -277,29 +254,18 @@ class ResolveEndpointInterceptor(Interceptor):
         scheme = context.request.scheme
         if not host:
             service = context.request.resource_path.split('/')[3]
-            context.request.endpoint_provider.scheme = scheme
             endpoint_resolver = context.request.endpoint_provider.endpoint_for(
                 service, context.request.region)
-            host = endpoint_resolver.host
-            context.request.host = host
-            prefix = endpoint_resolver.full_url
+            context.request.host = endpoint_resolver.host
+            prefix = endpoint_resolver.url_for(scheme)
         else:
             prefix = scheme + '://' + host
         context.request.url = prefix + context.request.true_path
 
         return context
 
-    def is_common(self):
-        return True
 
-    def is_request(self):
-        return True
-
-    def is_response(self):
-        return False
-
-
-class RuntimeOptionsInterceptor(Interceptor):
+class RuntimeOptionsInterceptor(RequestInterceptor):
     """SDK通用请求拦截器"""
 
     def name(self):
@@ -316,17 +282,15 @@ class RuntimeOptionsInterceptor(Interceptor):
             if opt.session_token is not None else context.request.session_token
         context.request.region = opt.region if opt.region is not None else context.request.region
         context.request.scheme = opt.scheme if opt.scheme is not None else context.request.scheme
-        context.request.endpoint_provider = opt.endpoint_provider \
-            if opt.endpoint_provider is not None else context.request.endpoint_provider
-        context.request.request_timeout = opt.timeout if opt.timeout is not None else context.request.request_timeout
+
+        if opt.connect_timeout is not None or opt.read_timeout is not None:
+            context.request.request_timeout = Timeout(
+                connect=opt.connect_timeout if opt.connect_timeout is not None else -1,
+                read=opt.read_timeout if opt.read_timeout is not None else -1,
+                )
+
+        if opt.endpoint_provider is not None:
+            context.request.endpoint_provider = opt.endpoint_provider
+            context.request.host = None
 
         return context
-
-    def is_common(self):
-        return True
-
-    def is_request(self):
-        return True
-
-    def is_response(self):
-        return False

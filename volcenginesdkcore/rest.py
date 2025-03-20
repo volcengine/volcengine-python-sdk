@@ -73,6 +73,10 @@ class RESTClientObject(object):
         if configuration.num_pools is not None:
             pools_size = configuration.num_pools
 
+        timeout = urllib3.Timeout(
+            connect=configuration.connect_timeout,
+            read=configuration.read_timeout,
+        )
         # https pool manager
         if configuration.proxy:
             self.pool_manager = urllib3.ProxyManager(
@@ -83,8 +87,7 @@ class RESTClientObject(object):
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
                 proxy_url=configuration.proxy,
-                timeout=configuration.timeout,
-                retries=configuration.retries,
+                timeout=timeout,
                 **addition_pool_args
             )
         else:
@@ -95,8 +98,7 @@ class RESTClientObject(object):
                 ca_certs=ca_certs,
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
-                timeout=configuration.timeout,
-                retries=configuration.retries,
+                timeout=timeout,
                 **addition_pool_args
             )
 

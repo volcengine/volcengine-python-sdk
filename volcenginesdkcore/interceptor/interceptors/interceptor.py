@@ -1,10 +1,8 @@
 # coding=utf-8
 import abc
 
-
-class Interceptor(object):
-    """拦截器基类"""
-
+class RequestInterceptor(object):
+    """请求拦截器"""
     @abc.abstractmethod
     def name(self):
         raise NotImplementedError()
@@ -13,14 +11,12 @@ class Interceptor(object):
     def intercept(self, context):
         raise NotImplementedError()
 
+class ResponseInterceptor(object):
+    """响应拦截器"""
     @abc.abstractmethod
-    def is_common(self):
+    def name(self):
         raise NotImplementedError()
 
     @abc.abstractmethod
-    def is_request(self):
-        raise NotImplementedError()
-
-    @abc.abstractmethod
-    def is_response(self):
+    def intercept(self, context):
         raise NotImplementedError()

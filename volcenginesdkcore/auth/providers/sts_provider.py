@@ -3,11 +3,11 @@ import uuid
 from datetime import datetime
 
 import dateutil.parser
-from urllib3 import Timeout
 
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from volcenginesdkcore.auth.providers.provider import Provider, CredentialValue
 
+import threading
 
 class AssumeRoleCredentials:
     def __init__(self, ak, sk, session_token, current_time, expired_time):
@@ -20,7 +20,7 @@ class AssumeRoleCredentials:
 
 class StsCredentialProvider(Provider):
     def __init__(self, ak, sk, role_name, account_id, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-north-1', timeout=30):
+                 host='sts.volcengineapi.com', region='cn-north-1', timeout=30, expired_buffer_seconds=60):
         self.ak = ak
         self.sk = sk
         self.role_name = role_name
@@ -34,17 +34,24 @@ class StsCredentialProvider(Provider):
         self.scheme = scheme
 
         self.expired_time = None
+        if expired_buffer_seconds > 600:
+            raise ValueError('expired_buffer_seconds must be less than or equal to 600')
+        self.expired_buffer_seconds = expired_buffer_seconds
 
         self.credentials = None
+
+        self._lock = threading.Lock()
 
     def retrieve(self):
         return self.credentials
 
     def is_expired(self):
-        return self.credentials is None or (self.expired_time and self.expired_time < time.time())
+        return (self.credentials is None or
+                (self.expired_time and self.expired_time < time.time() + self.expired_buffer_seconds))
 
     def refresh(self):
-        self._assume_role()
+        with self._lock:
+            self._assume_role()
 
     def _assume_role(self):
         params = {
@@ -58,7 +65,7 @@ class StsCredentialProvider(Provider):
         configuration.host = self.host
         configuration.region = self.region
         configuration.schema = self.scheme
-        configuration.timeout = Timeout(self.timeout)
+        configuration.read_timeout = self.timeout
         c = UniversalApi(ApiClient(configuration))
         info = UniversalInfo(method='GET', service='sts', version='2018-01-01', action='AssumeRole',
                              content_type='text/plain')

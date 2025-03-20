@@ -71,12 +71,12 @@ class ApiClient(object):
 
         self.interceptor_chain = InterceptorChain()
 
-        self.interceptor_chain.append_common_request_interceptor(BuildRequestInterceptor())
-        self.interceptor_chain.append_common_request_interceptor(RuntimeOptionsInterceptor())
-        self.interceptor_chain.append_common_request_interceptor(ResolveEndpointInterceptor())
-        self.interceptor_chain.append_common_request_interceptor(SignRequestInterceptor())
+        self.interceptor_chain.append_request_interceptor(BuildRequestInterceptor())
+        self.interceptor_chain.append_request_interceptor(RuntimeOptionsInterceptor())
+        self.interceptor_chain.append_request_interceptor(ResolveEndpointInterceptor())
+        self.interceptor_chain.append_request_interceptor(SignRequestInterceptor())
 
-        self.interceptor_chain.append_common_response_interceptor(DeserializedResponseInterceptor())
+        self.interceptor_chain.append_response_interceptor(DeserializedResponseInterceptor())
 
     def __del__(self):
         if self._pool is not None:

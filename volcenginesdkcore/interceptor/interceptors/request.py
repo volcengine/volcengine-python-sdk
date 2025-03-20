@@ -1,13 +1,14 @@
 class RuntimeOption(object):
     def __init__(self, client_side_validation, ak=None, sk=None, session_token=None, region=None, scheme=None,
-                 endpoint_provider=None, timeout=None):
+                 endpoint_provider=None, connect_timeout=None, read_timeout=None):
         self.ak = ak
         self.sk = sk
         self.session_token = session_token
         self.region = region
         self.scheme = scheme
         self.endpoint_provider = endpoint_provider
-        self.timeout = timeout
+        self.connect_timeout = connect_timeout
+        self.read_timeout = read_timeout
         self.client_side_validation = client_side_validation
 
 

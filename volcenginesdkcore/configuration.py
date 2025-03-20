@@ -88,8 +88,9 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.assert_hostname = None
 
         self.num_pools = 4
-        self.timeout = Timeout(connect=3.0, read=30.0, total=30.0)
-        self.retries = Retry(3)
+
+        self.connect_timeout = 60.0
+        self.read_timeout = 60.0
 
         # urllib3 connection pool's maximum number of connections saved
         # per pool. urllib3 uses 1 connection as default value, but this is

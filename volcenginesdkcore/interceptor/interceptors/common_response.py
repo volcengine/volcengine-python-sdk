@@ -10,10 +10,10 @@ import six
 
 from volcenginesdkcore import rest
 from volcenginesdkcore.metadata import ResponseMetadata
-from .interceptor import Interceptor
+from .interceptor import ResponseInterceptor
 
 
-class DeserializedResponseInterceptor(Interceptor):
+class DeserializedResponseInterceptor(ResponseInterceptor):
 
     def name(self):
         return 'volcengine-deserialized-response-interceptor'
@@ -31,15 +31,6 @@ class DeserializedResponseInterceptor(Interceptor):
                 context.result = None
 
         return context
-
-    def is_common(self):
-        return True
-
-    def is_request(self):
-        return False
-
-    def is_response(self):
-        return True
 
     PRIMITIVE_TYPES = (float, bool, bytes, six.text_type) + six.integer_types
     NATIVE_TYPES_MAPPING = {

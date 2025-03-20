@@ -4,13 +4,11 @@ import abc
 
 
 class ResolvedEndpoint:
-    def __init__(self, host, scheme="https"):
+    def __init__(self, host):
         self.host = host
-        self.scheme = scheme
 
-    @property
-    def full_url(self):
-        return self.scheme + '://' + self.host
+    def url_for(self, scheme='https'):
+        return scheme + '://' + self.host
 
 
 class EndpointProvider(object):
