@@ -34,17 +34,15 @@ class GetTimerRequest(object):
     """
     swagger_types = {
         'function_id': 'str',
-        'id': 'str',
-        'top_param': 'TopParamForGetTimerInput'
+        'id': 'str'
     }
 
     attribute_map = {
         'function_id': 'FunctionId',
-        'id': 'Id',
-        'top_param': 'TopParam'
+        'id': 'Id'
     }
 
-    def __init__(self, function_id=None, id=None, top_param=None, _configuration=None):  # noqa: E501
+    def __init__(self, function_id=None, id=None, _configuration=None):  # noqa: E501
         """GetTimerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,13 +50,10 @@ class GetTimerRequest(object):
 
         self._function_id = None
         self._id = None
-        self._top_param = None
         self.discriminator = None
 
         self.function_id = function_id
         self.id = id
-        if top_param is not None:
-            self.top_param = top_param
 
     @property
     def function_id(self):
@@ -105,27 +100,6 @@ class GetTimerRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
-
-    @property
-    def top_param(self):
-        """Gets the top_param of this GetTimerRequest.  # noqa: E501
-
-
-        :return: The top_param of this GetTimerRequest.  # noqa: E501
-        :rtype: TopParamForGetTimerInput
-        """
-        return self._top_param
-
-    @top_param.setter
-    def top_param(self, top_param):
-        """Sets the top_param of this GetTimerRequest.
-
-
-        :param top_param: The top_param of this GetTimerRequest.  # noqa: E501
-        :type: TopParamForGetTimerInput
-        """
-
-        self._top_param = top_param
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,71 +33,45 @@ class TagFilterForDescribeInstancesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'key': 'str',
-        'values': 'list[str]'
+        'tags': 'list[TagForDescribeInstancesInput]'
     }
 
     attribute_map = {
-        'key': 'Key',
-        'values': 'Values'
+        'tags': 'Tags'
     }
 
-    def __init__(self, key=None, values=None, _configuration=None):  # noqa: E501
+    def __init__(self, tags=None, _configuration=None):  # noqa: E501
         """TagFilterForDescribeInstancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._key = None
-        self._values = None
+        self._tags = None
         self.discriminator = None
 
-        if key is not None:
-            self.key = key
-        if values is not None:
-            self.values = values
+        if tags is not None:
+            self.tags = tags
 
     @property
-    def key(self):
-        """Gets the key of this TagFilterForDescribeInstancesInput.  # noqa: E501
+    def tags(self):
+        """Gets the tags of this TagFilterForDescribeInstancesInput.  # noqa: E501
 
 
-        :return: The key of this TagFilterForDescribeInstancesInput.  # noqa: E501
-        :rtype: str
+        :return: The tags of this TagFilterForDescribeInstancesInput.  # noqa: E501
+        :rtype: list[TagForDescribeInstancesInput]
         """
-        return self._key
+        return self._tags
 
-    @key.setter
-    def key(self, key):
-        """Sets the key of this TagFilterForDescribeInstancesInput.
-
-
-        :param key: The key of this TagFilterForDescribeInstancesInput.  # noqa: E501
-        :type: str
-        """
-
-        self._key = key
-
-    @property
-    def values(self):
-        """Gets the values of this TagFilterForDescribeInstancesInput.  # noqa: E501
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this TagFilterForDescribeInstancesInput.
 
 
-        :return: The values of this TagFilterForDescribeInstancesInput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._values
-
-    @values.setter
-    def values(self, values):
-        """Sets the values of this TagFilterForDescribeInstancesInput.
-
-
-        :param values: The values of this TagFilterForDescribeInstancesInput.  # noqa: E501
-        :type: list[str]
+        :param tags: The tags of this TagFilterForDescribeInstancesInput.  # noqa: E501
+        :type: list[TagForDescribeInstancesInput]
         """
 
-        self._values = values
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

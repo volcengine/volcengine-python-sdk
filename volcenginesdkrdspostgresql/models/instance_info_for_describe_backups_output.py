@@ -42,7 +42,7 @@ class InstanceInfoForDescribeBackupsOutput(object):
         'memory': 'int',
         'nodes': 'list[NodeForDescribeBackupsOutput]',
         'project_name': 'str',
-        'storage_space': 'float',
+        'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
         'vcpu': 'int',
@@ -317,7 +317,7 @@ class InstanceInfoForDescribeBackupsOutput(object):
 
 
         :return: The storage_space of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
-        :rtype: float
+        :rtype: int
         """
         return self._storage_space
 
@@ -327,7 +327,7 @@ class InstanceInfoForDescribeBackupsOutput(object):
 
 
         :param storage_space: The storage_space of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
-        :type: float
+        :type: int
         """
 
         self._storage_space = storage_space

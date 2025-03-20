@@ -50,6 +50,7 @@ class CreateFunctionRequest(object):
         'source': 'str',
         'source_access_config': 'SourceAccessConfigForCreateFunctionInput',
         'source_type': 'str',
+        'tags': 'list[TagForCreateFunctionInput]',
         'tls_config': 'TlsConfigForCreateFunctionInput',
         'tos_mount_config': 'TosMountConfigForCreateFunctionInput',
         'vpc_config': 'VpcConfigForCreateFunctionInput'
@@ -73,12 +74,13 @@ class CreateFunctionRequest(object):
         'source': 'Source',
         'source_access_config': 'SourceAccessConfig',
         'source_type': 'SourceType',
+        'tags': 'Tags',
         'tls_config': 'TlsConfig',
         'tos_mount_config': 'TosMountConfig',
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, command=None, cpu_strategy=None, description=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, project_name=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, command=None, cpu_strategy=None, description=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, project_name=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,6 +103,7 @@ class CreateFunctionRequest(object):
         self._source = None
         self._source_access_config = None
         self._source_type = None
+        self._tags = None
         self._tls_config = None
         self._tos_mount_config = None
         self._vpc_config = None
@@ -138,6 +141,8 @@ class CreateFunctionRequest(object):
             self.source_access_config = source_access_config
         if source_type is not None:
             self.source_type = source_type
+        if tags is not None:
+            self.tags = tags
         if tls_config is not None:
             self.tls_config = tls_config
         if tos_mount_config is not None:
@@ -505,6 +510,27 @@ class CreateFunctionRequest(object):
         """
 
         self._source_type = source_type
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateFunctionRequest.  # noqa: E501
+        :rtype: list[TagForCreateFunctionInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateFunctionRequest.
+
+
+        :param tags: The tags of this CreateFunctionRequest.  # noqa: E501
+        :type: list[TagForCreateFunctionInput]
+        """
+
+        self._tags = tags
 
     @property
     def tls_config(self):

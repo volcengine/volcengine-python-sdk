@@ -138,13 +138,6 @@ class ModifyDBEndpointReadWriteFlagRequest(object):
         :param read_only_node_distribution_type: The read_only_node_distribution_type of this ModifyDBEndpointReadWriteFlagRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Default", "Custom"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                read_only_node_distribution_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `read_only_node_distribution_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(read_only_node_distribution_type, allowed_values)
-            )
 
         self._read_only_node_distribution_type = read_only_node_distribution_type
 

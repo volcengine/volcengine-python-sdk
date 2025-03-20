@@ -33,47 +33,68 @@ class CreateDatabaseRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'c_type': 'str',
         'character_set_name': 'str',
         'collate': 'str',
-        'ctype': 'str',
         'db_name': 'str',
         'instance_id': 'str',
         'owner': 'str'
     }
 
     attribute_map = {
+        'c_type': 'CType',
         'character_set_name': 'CharacterSetName',
         'collate': 'Collate',
-        'ctype': 'Ctype',
         'db_name': 'DBName',
         'instance_id': 'InstanceId',
         'owner': 'Owner'
     }
 
-    def __init__(self, character_set_name=None, collate=None, ctype=None, db_name=None, instance_id=None, owner=None, _configuration=None):  # noqa: E501
+    def __init__(self, c_type=None, character_set_name=None, collate=None, db_name=None, instance_id=None, owner=None, _configuration=None):  # noqa: E501
         """CreateDatabaseRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._c_type = None
         self._character_set_name = None
         self._collate = None
-        self._ctype = None
         self._db_name = None
         self._instance_id = None
         self._owner = None
         self.discriminator = None
 
+        if c_type is not None:
+            self.c_type = c_type
         if character_set_name is not None:
             self.character_set_name = character_set_name
         if collate is not None:
             self.collate = collate
-        if ctype is not None:
-            self.ctype = ctype
         self.db_name = db_name
         self.instance_id = instance_id
         if owner is not None:
             self.owner = owner
+
+    @property
+    def c_type(self):
+        """Gets the c_type of this CreateDatabaseRequest.  # noqa: E501
+
+
+        :return: The c_type of this CreateDatabaseRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._c_type
+
+    @c_type.setter
+    def c_type(self, c_type):
+        """Sets the c_type of this CreateDatabaseRequest.
+
+
+        :param c_type: The c_type of this CreateDatabaseRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._c_type = c_type
 
     @property
     def character_set_name(self):
@@ -116,27 +137,6 @@ class CreateDatabaseRequest(object):
         """
 
         self._collate = collate
-
-    @property
-    def ctype(self):
-        """Gets the ctype of this CreateDatabaseRequest.  # noqa: E501
-
-
-        :return: The ctype of this CreateDatabaseRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._ctype
-
-    @ctype.setter
-    def ctype(self, ctype):
-        """Sets the ctype of this CreateDatabaseRequest.
-
-
-        :param ctype: The ctype of this CreateDatabaseRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._ctype = ctype
 
     @property
     def db_name(self):

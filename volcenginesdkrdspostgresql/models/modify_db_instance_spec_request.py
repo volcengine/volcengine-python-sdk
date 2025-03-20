@@ -117,13 +117,6 @@ class ModifyDBInstanceSpecRequest(object):
         :param modify_type: The modify_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Usually", "Temporary"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                modify_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `modify_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(modify_type, allowed_values)
-            )
 
         self._modify_type = modify_type
 
@@ -187,12 +180,6 @@ class ModifyDBInstanceSpecRequest(object):
         :param storage_space: The storage_space of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                storage_space is not None and storage_space > 3000):  # noqa: E501
-            raise ValueError("Invalid value for `storage_space`, must be a value less than or equal to `3000`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                storage_space is not None and storage_space < 20):  # noqa: E501
-            raise ValueError("Invalid value for `storage_space`, must be a value greater than or equal to `20`")  # noqa: E501
 
         self._storage_space = storage_space
 
@@ -214,13 +201,6 @@ class ModifyDBInstanceSpecRequest(object):
         :param storage_type: The storage_type of this ModifyDBInstanceSpecRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["LocalSSD"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                storage_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `storage_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(storage_type, allowed_values)
-            )
 
         self._storage_type = storage_type
 

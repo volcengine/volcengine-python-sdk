@@ -33,17 +33,45 @@ class AddCdnDomainResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'resource_ids': 'list[str]'
     }
 
     attribute_map = {
+        'resource_ids': 'ResourceIds'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, resource_ids=None, _configuration=None):  # noqa: E501
         """AddCdnDomainResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._resource_ids = None
         self.discriminator = None
+
+        if resource_ids is not None:
+            self.resource_ids = resource_ids
+
+    @property
+    def resource_ids(self):
+        """Gets the resource_ids of this AddCdnDomainResponse.  # noqa: E501
+
+
+        :return: The resource_ids of this AddCdnDomainResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._resource_ids
+
+    @resource_ids.setter
+    def resource_ids(self, resource_ids):
+        """Sets the resource_ids of this AddCdnDomainResponse.
+
+
+        :param resource_ids: The resource_ids of this AddCdnDomainResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._resource_ids = resource_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

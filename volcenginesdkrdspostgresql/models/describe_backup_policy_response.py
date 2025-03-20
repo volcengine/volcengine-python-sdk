@@ -37,7 +37,8 @@ class DescribeBackupPolicyResponse(object):
         'full_backup_period': 'str',
         'full_backup_time': 'str',
         'increment_backup_frequency': 'int',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'wal_log_space_limit_enable': 'bool'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeBackupPolicyResponse(object):
         'full_backup_period': 'FullBackupPeriod',
         'full_backup_time': 'FullBackupTime',
         'increment_backup_frequency': 'IncrementBackupFrequency',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'wal_log_space_limit_enable': 'WALLogSpaceLimitEnable'
     }
 
-    def __init__(self, backup_retention_period=None, full_backup_period=None, full_backup_time=None, increment_backup_frequency=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_retention_period=None, full_backup_period=None, full_backup_time=None, increment_backup_frequency=None, instance_id=None, wal_log_space_limit_enable=None, _configuration=None):  # noqa: E501
         """DescribeBackupPolicyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeBackupPolicyResponse(object):
         self._full_backup_time = None
         self._increment_backup_frequency = None
         self._instance_id = None
+        self._wal_log_space_limit_enable = None
         self.discriminator = None
 
         if backup_retention_period is not None:
@@ -71,6 +74,8 @@ class DescribeBackupPolicyResponse(object):
             self.increment_backup_frequency = increment_backup_frequency
         if instance_id is not None:
             self.instance_id = instance_id
+        if wal_log_space_limit_enable is not None:
+            self.wal_log_space_limit_enable = wal_log_space_limit_enable
 
     @property
     def backup_retention_period(self):
@@ -176,6 +181,27 @@ class DescribeBackupPolicyResponse(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def wal_log_space_limit_enable(self):
+        """Gets the wal_log_space_limit_enable of this DescribeBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The wal_log_space_limit_enable of this DescribeBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._wal_log_space_limit_enable
+
+    @wal_log_space_limit_enable.setter
+    def wal_log_space_limit_enable(self, wal_log_space_limit_enable):
+        """Sets the wal_log_space_limit_enable of this DescribeBackupPolicyResponse.
+
+
+        :param wal_log_space_limit_enable: The wal_log_space_limit_enable of this DescribeBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._wal_log_space_limit_enable = wal_log_space_limit_enable
 
     def to_dict(self):
         """Returns the model properties as a dict"""

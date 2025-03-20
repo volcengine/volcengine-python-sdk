@@ -75,7 +75,7 @@ class DeletePermissionGroupRequest(object):
         """
         if self._configuration.client_side_validation and file_system_type is None:
             raise ValueError("Invalid value for `file_system_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Extreme"]  # noqa: E501
+        allowed_values = ["Extreme", "Capacity", "Cache"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 file_system_type not in allowed_values):
             raise ValueError(

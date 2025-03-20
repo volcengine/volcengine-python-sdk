@@ -188,13 +188,6 @@ class DescribeBackupsRequest(object):
         :param backup_type: The backup_type of this DescribeBackupsRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Full", "Increment"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                backup_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `backup_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(backup_type, allowed_values)
-            )
 
         self._backup_type = backup_type
 

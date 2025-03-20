@@ -111,13 +111,6 @@ class CreateDBEndpointRequest(object):
         """
         if self._configuration.client_side_validation and endpoint_type is None:
             raise ValueError("Invalid value for `endpoint_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Custom"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                endpoint_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `endpoint_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(endpoint_type, allowed_values)
-            )
 
         self._endpoint_type = endpoint_type
 
@@ -183,13 +176,6 @@ class CreateDBEndpointRequest(object):
         :param read_write_mode: The read_write_mode of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ReadOnly", "ReadWrite"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                read_write_mode not in allowed_values):
-            raise ValueError(
-                "Invalid value for `read_write_mode` ({0}), must be one of {1}"  # noqa: E501
-                .format(read_write_mode, allowed_values)
-            )
 
         self._read_write_mode = read_write_mode
 
