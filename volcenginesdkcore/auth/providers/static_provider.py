@@ -1,5 +1,5 @@
 # coding=utf-8
-from volcenginesdkcore.auth.providers.provider import Provider, CredentialValue
+from .provider import Provider, CredentialValue
 
 
 class StaticCredentialProvider(Provider):

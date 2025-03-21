@@ -1,5 +1,5 @@
 # coding=utf-8
-from volcenginesdkcore.interceptor import RequestInterceptor, ResponseInterceptor
+from .interceptors import RequestInterceptor, ResponseInterceptor
 
 
 def check_request_interceptor(interceptor):

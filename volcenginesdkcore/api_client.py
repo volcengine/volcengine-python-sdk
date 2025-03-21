@@ -10,14 +10,11 @@ import six
 
 from volcenginesdkcore import rest
 from volcenginesdkcore.configuration import Configuration
-from volcenginesdkcore.interceptor import RuntimeOptionsInterceptor
-from volcenginesdkcore.interceptor.chain import InterceptorChain
-from volcenginesdkcore.interceptor.interceptors.common_request import BuildRequestInterceptor, SignRequestInterceptor, \
-    ResolveEndpointInterceptor
-from volcenginesdkcore.interceptor.interceptors.common_response import DeserializedResponseInterceptor
-from volcenginesdkcore.interceptor.interceptors.context import InterceptorContext
-from volcenginesdkcore.interceptor.interceptors.request import Request
-from volcenginesdkcore.interceptor.interceptors.response import Response
+from volcenginesdkcore.interceptor import BuildRequestInterceptor, SignRequestInterceptor, \
+    ResolveEndpointInterceptor, RuntimeOptionsInterceptor
+from volcenginesdkcore.interceptor import DeserializedResponseInterceptor
+from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext
+from volcenginesdkcore.interceptor import Request, Response
 
 
 class ApiClient(object):

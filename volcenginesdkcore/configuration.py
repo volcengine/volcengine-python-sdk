@@ -10,7 +10,7 @@ import sys
 import six
 from six.moves import http_client as httplib
 
-from volcenginesdkcore.endpoint.providers import DefaultEndpointProvider
+from volcenginesdkcore.endpoint import DefaultEndpointProvider
 
 
 class TypeWithDefault(type):

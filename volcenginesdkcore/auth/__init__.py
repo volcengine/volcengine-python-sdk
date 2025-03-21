@@ -1,2 +1,2 @@
 from .credential import Credential
-from .providers import *
+from .providers import StsCredentialProvider, StaticCredentialProvider

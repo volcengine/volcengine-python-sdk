@@ -1,4 +1,4 @@
-from volcenginesdkcore.interceptor import sanitize_for_serialization
+from volcenginesdkcore.interceptor.interceptors.common_request import sanitize_for_serialization
 
 
 def canonical_str(obj):

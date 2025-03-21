@@ -6,7 +6,7 @@ from datetime import datetime
 import dateutil.parser
 
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
-from volcenginesdkcore.auth.providers.provider import Provider, CredentialValue
+from .provider import Provider, CredentialValue
 
 
 class AssumeRoleCredentials:

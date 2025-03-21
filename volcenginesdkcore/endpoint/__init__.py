@@ -1,2 +1,2 @@
-from .endpoint_provider import *
-from .providers import *
+from .endpoint_provider import ResolvedEndpoint
+from .providers import HostEndpointProvider, DefaultEndpointProvider
