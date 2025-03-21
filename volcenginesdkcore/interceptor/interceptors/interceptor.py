@@ -1,8 +1,10 @@
 # coding=utf-8
 import abc
 
+
 class RequestInterceptor(object):
     """请求拦截器"""
+
     @abc.abstractmethod
     def name(self):
         raise NotImplementedError()
@@ -11,8 +13,10 @@ class RequestInterceptor(object):
     def intercept(self, context):
         raise NotImplementedError()
 
+
 class ResponseInterceptor(object):
     """响应拦截器"""
+
     @abc.abstractmethod
     def name(self):
         raise NotImplementedError()

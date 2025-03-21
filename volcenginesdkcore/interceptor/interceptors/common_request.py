@@ -6,10 +6,10 @@ import os
 
 import six
 from six.moves.urllib.parse import quote
+from urllib3 import Timeout
 
 from volcenginesdkcore.signv4 import SignerV4
 from .interceptor import RequestInterceptor
-from urllib3 import Timeout
 
 
 class SignRequestInterceptor(RequestInterceptor):
@@ -48,8 +48,6 @@ class SignRequestInterceptor(RequestInterceptor):
             SignerV4.sign(path, method, headers, body, post_params, querys,
                           ak, sk, session_token,
                           region, service)
-
-
 
 
 def parameters_to_tuples(params, collection_formats):
@@ -287,7 +285,7 @@ class RuntimeOptionsInterceptor(RequestInterceptor):
             context.request.request_timeout = Timeout(
                 connect=opt.connect_timeout if opt.connect_timeout is not None else -1,
                 read=opt.read_timeout if opt.read_timeout is not None else -1,
-                )
+            )
 
         if opt.endpoint_provider is not None:
             context.request.endpoint_provider = opt.endpoint_provider

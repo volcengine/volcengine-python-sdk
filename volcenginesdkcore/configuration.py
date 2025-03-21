@@ -9,7 +9,6 @@ import sys
 
 import six
 from six.moves import http_client as httplib
-from urllib3 import Timeout, Retry
 
 from volcenginesdkcore.endpoint.providers import DefaultEndpointProvider
 
@@ -228,9 +227,9 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         :return: The report for debugging.
         """
-        return "Python SDK Debug Report:\n"\
-               "OS: {env}\n"\
-               "Python Version: {pyversion}\n"\
-               "Version of the API: 0.1.0\n"\
-               "SDK Package Version: 1.1.1".\
-               format(env=sys.platform, pyversion=sys.version)
+        return "Python SDK Debug Report:\n" \
+               "OS: {env}\n" \
+               "Python Version: {pyversion}\n" \
+               "Version of the API: 0.1.0\n" \
+               "SDK Package Version: 1.1.1". \
+            format(env=sys.platform, pyversion=sys.version)

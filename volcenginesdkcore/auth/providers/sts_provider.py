@@ -1,3 +1,4 @@
+import threading
 import time
 import uuid
 from datetime import datetime
@@ -7,7 +8,6 @@ import dateutil.parser
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from volcenginesdkcore.auth.providers.provider import Provider, CredentialValue
 
-import threading
 
 class AssumeRoleCredentials:
     def __init__(self, ak, sk, session_token, current_time, expired_time):

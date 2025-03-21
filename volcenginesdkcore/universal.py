@@ -1,7 +1,8 @@
 # coding: utf-8
 
-from volcenginesdkcore import ApiClient
 import six
+
+from volcenginesdkcore import ApiClient
 
 
 class UniversalInfo(object):
