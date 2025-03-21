@@ -1,53 +1,11 @@
-# coding=utf-8
 import datetime
-import json
 import mimetypes
 import os
+from urllib.parse import quote
 
 import six
-from six.moves.urllib.parse import quote
-from urllib3 import Timeout
 
-from volcenginesdkcore.signv4 import SignerV4
 from .interceptor import RequestInterceptor
-
-
-class SignRequestInterceptor(RequestInterceptor):
-    """SDK通用请求拦截器"""
-
-    def name(self):
-        return 'volcengine-sign-request-interceptor'
-
-    def intercept(self, context):
-        self.update_params_for_auth(host=context.request.host, path=context.request.true_path,
-                                    method=context.request.method,
-                                    headers=context.request.header_params,
-                                    querys=context.request.query_params,
-                                    auth_settings=context.request.auth_settings,
-                                    body=context.request.body,
-                                    post_params=context.request.post_params,
-                                    service=context.request.service,
-                                    ak=context.request.ak,
-                                    sk=context.request.sk,
-                                    session_token=context.request.session_token,
-                                    region=context.request.region)
-        return context
-
-    @staticmethod
-    def update_params_for_auth(host, path, method, headers, querys, auth_settings, body, post_params, service, ak,
-                               sk, session_token, region):
-        if not auth_settings:
-            return
-
-        for auth in auth_settings:
-            headers["Host"] = host
-            if method in ["POST", "PUT", "DELETE", "PATCH"]:
-                body = json.dumps(body)
-            else:
-                body = ""
-            SignerV4.sign(path, method, headers, body, post_params, querys,
-                          ak, sk, session_token,
-                          region, service)
 
 
 def parameters_to_tuples(params, collection_formats):
@@ -239,56 +197,3 @@ class BuildRequestInterceptor(RequestInterceptor):
                 params.append((prefix + key, value))
 
         return params
-
-
-class ResolveEndpointInterceptor(RequestInterceptor):
-    """SDK通用请求拦截器"""
-
-    def name(self):
-        return 'volcengine-resolve-endpoint-interceptor'
-
-    def intercept(self, context):
-        host = context.request.host
-        scheme = context.request.scheme
-        if not host:
-            service = context.request.resource_path.split('/')[3]
-            endpoint_resolver = context.request.endpoint_provider.endpoint_for(
-                service, context.request.region)
-            context.request.host = endpoint_resolver.host
-            prefix = endpoint_resolver.url_for(scheme)
-        else:
-            prefix = scheme + '://' + host
-        context.request.url = prefix + context.request.true_path
-
-        return context
-
-
-class RuntimeOptionsInterceptor(RequestInterceptor):
-    """SDK通用请求拦截器"""
-
-    def name(self):
-        return 'volcengine-runtime-options-interceptor'
-
-    def intercept(self, context):
-        opt = context.request.runtime_options
-        if not opt:
-            return context
-
-        context.request.ak = opt.ak if opt.ak is not None else context.request.ak
-        context.request.sk = opt.sk if opt.sk is not None else context.request.sk
-        context.request.session_token = opt.session_token \
-            if opt.session_token is not None else context.request.session_token
-        context.request.region = opt.region if opt.region is not None else context.request.region
-        context.request.scheme = opt.scheme if opt.scheme is not None else context.request.scheme
-
-        if opt.connect_timeout is not None or opt.read_timeout is not None:
-            context.request.request_timeout = Timeout(
-                connect=opt.connect_timeout if opt.connect_timeout is not None else -1,
-                read=opt.read_timeout if opt.read_timeout is not None else -1,
-            )
-
-        if opt.endpoint_provider is not None:
-            context.request.endpoint_provider = opt.endpoint_provider
-            context.request.host = None
-
-        return context

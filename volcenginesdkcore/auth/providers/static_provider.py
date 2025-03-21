@@ -3,7 +3,6 @@ from .provider import Provider, CredentialValue
 
 
 class StaticCredentialProvider(Provider):
-    """静态凭证提供者"""
 
     def _refresh(self):
         return

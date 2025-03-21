@@ -10,7 +10,8 @@ from six.moves.urllib.parse import quote, urlencode
 class SignerV4(object):
 
     @staticmethod
-    def sign(path, method, headers, body, post_params, query, ak, sk, session_token, region, service):
+    def sign(path, method, headers, body, post_params, query, ak, sk, region, service,
+             session_token=None):
         if path == '':
             path = '/'
         if method != 'GET' and not ('Content-Type' in headers):

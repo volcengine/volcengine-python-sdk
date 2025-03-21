@@ -51,7 +51,8 @@ class StsCredentialProvider(Provider):
 
     def refresh(self):
         with self._lock:
-            self._assume_role()
+            if self.is_expired():
+                self._assume_role()
 
     def _assume_role(self):
         params = {
@@ -64,13 +65,15 @@ class StsCredentialProvider(Provider):
         configuration.sk = self.sk
         configuration.host = self.host
         configuration.region = self.region
-        configuration.schema = self.scheme
+        configuration.scheme = self.scheme
         configuration.read_timeout = self.timeout
         c = UniversalApi(ApiClient(configuration))
         info = UniversalInfo(method='GET', service='sts', version='2018-01-01', action='AssumeRole',
                              content_type='text/plain')
 
         resp, status_code, resp_header = c.do_call_with_http_info(info=info, body=params)
+        if 'Credentials' not in resp:
+            raise RuntimeError('failed to retrieve credentials from sts' + str(resp_header))
         resp_cred = resp['Credentials']
 
         # Parse the ISO string

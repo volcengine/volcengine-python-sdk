@@ -6,6 +6,7 @@ import copy
 import logging
 import multiprocessing
 import sys
+import warnings
 
 import six
 from six.moves import http_client as httplib
@@ -34,13 +35,31 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     Do not edit the class manually.
     """
 
+    @property
+    def schema(self):
+        warnings.warn(
+            "The field 'schema' is deprecated and will be removed in future versions. Use 'scheme' instead.",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.scheme
+
+    @schema.setter
+    def schema(self, value):
+        warnings.warn(
+            "The field 'schema' is deprecated and will be removed in future versions. Use 'scheme' instead.",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        self.scheme = value
+
     def __init__(self):
         """Constructor"""
 
         # Default Base url
         self.host = None
-        # Schema Support http or https
-        self.schema = "http"
+        # Scheme Support http or https
+        self.scheme = "http"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -88,8 +107,8 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         self.num_pools = 4
 
-        self.connect_timeout = 60.0
-        self.read_timeout = 60.0
+        self.connect_timeout = 30.0
+        self.read_timeout = 30.0
 
         # urllib3 connection pool's maximum number of connections saved
         # per pool. urllib3 uses 1 connection as default value, but this is

@@ -44,7 +44,7 @@ class Request(object):
         self.sk = configuration.sk
         self.session_token = configuration.session_token
         self.region = configuration.region
-        self.scheme = configuration.schema
+        self.scheme = configuration.scheme
         self.endpoint_provider = configuration.endpoint_provider
 
         self.runtime_options = None
