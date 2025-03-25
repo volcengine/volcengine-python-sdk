@@ -26,7 +26,6 @@ def insert_interceptor(chain, interceptor, after_name=''):
 
 
 class InterceptorChain:
-    """拦截器链"""
 
     def __init__(self):
         self.request_interceptors = []

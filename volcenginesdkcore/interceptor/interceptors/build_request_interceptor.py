@@ -112,14 +112,13 @@ def sanitize_for_serialization(obj):
 
 
 class BuildRequestInterceptor(RequestInterceptor):
-    """SDK通用请求拦截器"""
 
     def name(self):
         return 'volcengine-build-request-interceptor'
 
     def intercept(self, context):
 
-        # 从上下文中获取请求参数
+        # get req params from context
         # header parameters
         if context.request.header_params:
             context.request.header_params = sanitize_for_serialization(context.request.header_params)

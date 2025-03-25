@@ -5,7 +5,6 @@ from .interceptor import RequestInterceptor
 
 
 class SignRequestInterceptor(RequestInterceptor):
-    """SDK通用请求拦截器"""
 
     def name(self):
         return 'volcengine-sign-request-interceptor'

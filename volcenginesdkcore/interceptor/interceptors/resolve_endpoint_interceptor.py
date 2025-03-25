@@ -2,7 +2,6 @@ from .interceptor import RequestInterceptor
 
 
 class ResolveEndpointInterceptor(RequestInterceptor):
-    """SDK通用请求拦截器"""
 
     def name(self):
         return 'volcengine-resolve-endpoint-interceptor'

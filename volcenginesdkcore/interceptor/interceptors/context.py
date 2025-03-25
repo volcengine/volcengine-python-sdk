@@ -2,12 +2,11 @@
 
 
 class InterceptorContext:
-    """拦截器上下文"""
 
     def __init__(self, request=None, response=None):
         self.request = request
         self.response = response
-        self.metadata = {}  # 元数据可用于在拦截器之间传递信息
+        self.metadata = {}
 
     def get_request(self):
         return self.request

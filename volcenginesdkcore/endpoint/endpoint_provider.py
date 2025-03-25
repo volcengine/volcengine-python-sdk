@@ -12,9 +12,7 @@ class ResolvedEndpoint:
 
 
 class EndpointProvider(object):
-    """接口类：确定服务请求的终端节点"""
 
     @abc.abstractmethod
     def endpoint_for(self, service, region):
-        """返回指定服务和区域的终端节点"""
         raise NotImplementedError()

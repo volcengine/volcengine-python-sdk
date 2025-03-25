@@ -3,7 +3,6 @@ import abc
 
 
 class RequestInterceptor(object):
-    """请求拦截器"""
 
     @abc.abstractmethod
     def name(self):
@@ -15,7 +14,6 @@ class RequestInterceptor(object):
 
 
 class ResponseInterceptor(object):
-    """响应拦截器"""
 
     @abc.abstractmethod
     def name(self):
