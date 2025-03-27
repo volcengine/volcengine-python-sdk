@@ -41,6 +41,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_type': 'str',
+        'maintenance_time': 'str',
         'node_detail_info': 'list[NodeDetailInfoForDescribeDBInstancesOutput]',
         'node_spec': 'str',
         'port': 'str',
@@ -52,6 +53,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'storage_space': 'int',
         'storage_type': 'str',
         'subnet_id': 'str',
+        'tags': 'list[TagForDescribeDBInstancesOutput]',
         'time_zone': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
@@ -66,6 +68,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
+        'maintenance_time': 'MaintenanceTime',
         'node_detail_info': 'NodeDetailInfo',
         'node_spec': 'NodeSpec',
         'port': 'Port',
@@ -77,12 +80,13 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
+        'tags': 'Tags',
         'time_zone': 'TimeZone',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_category=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, node_detail_info=None, node_spec=None, port=None, primary_instance_id=None, project_name=None, read_only_number=None, region_id=None, server_collation=None, storage_space=None, storage_type=None, subnet_id=None, time_zone=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_detail=None, create_time=None, db_engine_version=None, instance_category=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, maintenance_time=None, node_detail_info=None, node_spec=None, port=None, primary_instance_id=None, project_name=None, read_only_number=None, region_id=None, server_collation=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstancesInfoForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +100,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         self._instance_name = None
         self._instance_status = None
         self._instance_type = None
+        self._maintenance_time = None
         self._node_detail_info = None
         self._node_spec = None
         self._port = None
@@ -107,6 +112,7 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         self._storage_space = None
         self._storage_type = None
         self._subnet_id = None
+        self._tags = None
         self._time_zone = None
         self._vpc_id = None
         self._zone_id = None
@@ -128,6 +134,8 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
             self.instance_status = instance_status
         if instance_type is not None:
             self.instance_type = instance_type
+        if maintenance_time is not None:
+            self.maintenance_time = maintenance_time
         if node_detail_info is not None:
             self.node_detail_info = node_detail_info
         if node_spec is not None:
@@ -150,6 +158,8 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
             self.storage_type = storage_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
+        if tags is not None:
+            self.tags = tags
         if time_zone is not None:
             self.time_zone = time_zone
         if vpc_id is not None:
@@ -324,6 +334,27 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def maintenance_time(self):
+        """Gets the maintenance_time of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The maintenance_time of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._maintenance_time
+
+    @maintenance_time.setter
+    def maintenance_time(self, maintenance_time):
+        """Sets the maintenance_time of this InstancesInfoForDescribeDBInstancesOutput.
+
+
+        :param maintenance_time: The maintenance_time of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._maintenance_time = maintenance_time
 
     @property
     def node_detail_info(self):
@@ -555,6 +586,27 @@ class InstancesInfoForDescribeDBInstancesOutput(object):
         """
 
         self._subnet_id = subnet_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The tags of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeDBInstancesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this InstancesInfoForDescribeDBInstancesOutput.
+
+
+        :param tags: The tags of this InstancesInfoForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[TagForDescribeDBInstancesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def time_zone(self):

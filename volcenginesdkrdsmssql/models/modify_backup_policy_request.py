@@ -36,17 +36,19 @@ class ModifyBackupPolicyRequest(object):
         'backup_retention_period': 'int',
         'backup_time': 'str',
         'full_backup_period': 'str',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'log_backup_interval': 'int'
     }
 
     attribute_map = {
         'backup_retention_period': 'BackupRetentionPeriod',
         'backup_time': 'BackupTime',
         'full_backup_period': 'FullBackupPeriod',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'log_backup_interval': 'LogBackupInterval'
     }
 
-    def __init__(self, backup_retention_period=None, backup_time=None, full_backup_period=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_retention_period=None, backup_time=None, full_backup_period=None, instance_id=None, log_backup_interval=None, _configuration=None):  # noqa: E501
         """ModifyBackupPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,12 +58,15 @@ class ModifyBackupPolicyRequest(object):
         self._backup_time = None
         self._full_backup_period = None
         self._instance_id = None
+        self._log_backup_interval = None
         self.discriminator = None
 
         self.backup_retention_period = backup_retention_period
         self.backup_time = backup_time
         self.full_backup_period = full_backup_period
         self.instance_id = instance_id
+        if log_backup_interval is not None:
+            self.log_backup_interval = log_backup_interval
 
     @property
     def backup_retention_period(self):
@@ -154,6 +159,27 @@ class ModifyBackupPolicyRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def log_backup_interval(self):
+        """Gets the log_backup_interval of this ModifyBackupPolicyRequest.  # noqa: E501
+
+
+        :return: The log_backup_interval of this ModifyBackupPolicyRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._log_backup_interval
+
+    @log_backup_interval.setter
+    def log_backup_interval(self, log_backup_interval):
+        """Sets the log_backup_interval of this ModifyBackupPolicyRequest.
+
+
+        :param log_backup_interval: The log_backup_interval of this ModifyBackupPolicyRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._log_backup_interval = log_backup_interval
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -45,6 +45,8 @@ class DescribeDBInstancesRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'primary_instance_id': 'str',
+        'project_name': 'str',
+        'server_collation': 'str',
         'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
         'zone_id': 'str'
     }
@@ -62,11 +64,13 @@ class DescribeDBInstancesRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'primary_instance_id': 'PrimaryInstanceId',
+        'project_name': 'ProjectName',
+        'server_collation': 'ServerCollation',
         'tag_filters': 'TagFilters',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_category=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, primary_instance_id=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_category=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, primary_instance_id=None, project_name=None, server_collation=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +88,8 @@ class DescribeDBInstancesRequest(object):
         self._page_number = None
         self._page_size = None
         self._primary_instance_id = None
+        self._project_name = None
+        self._server_collation = None
         self._tag_filters = None
         self._zone_id = None
         self.discriminator = None
@@ -112,6 +118,10 @@ class DescribeDBInstancesRequest(object):
             self.page_size = page_size
         if primary_instance_id is not None:
             self.primary_instance_id = primary_instance_id
+        if project_name is not None:
+            self.project_name = project_name
+        if server_collation is not None:
+            self.server_collation = server_collation
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if zone_id is not None:
@@ -368,6 +378,48 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._primary_instance_id = primary_instance_id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeDBInstancesRequest.
+
+
+        :param project_name: The project_name of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def server_collation(self):
+        """Gets the server_collation of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The server_collation of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._server_collation
+
+    @server_collation.setter
+    def server_collation(self, server_collation):
+        """Sets the server_collation of this DescribeDBInstancesRequest.
+
+
+        :param server_collation: The server_collation of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._server_collation = server_collation
 
     @property
     def tag_filters(self):
