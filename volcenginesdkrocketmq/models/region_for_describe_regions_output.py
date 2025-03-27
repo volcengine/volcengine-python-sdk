@@ -33,33 +33,33 @@ class RegionForDescribeRegionsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
+        'describeption': 'str',
         'region_id': 'str',
         'region_name': 'str',
         'region_status': 'str'
     }
 
     attribute_map = {
-        'description': 'Description',
+        'describeption': 'Describeption',
         'region_id': 'RegionId',
         'region_name': 'RegionName',
         'region_status': 'RegionStatus'
     }
 
-    def __init__(self, description=None, region_id=None, region_name=None, region_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, describeption=None, region_id=None, region_name=None, region_status=None, _configuration=None):  # noqa: E501
         """RegionForDescribeRegionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._description = None
+        self._describeption = None
         self._region_id = None
         self._region_name = None
         self._region_status = None
         self.discriminator = None
 
-        if description is not None:
-            self.description = description
+        if describeption is not None:
+            self.describeption = describeption
         if region_id is not None:
             self.region_id = region_id
         if region_name is not None:
@@ -68,25 +68,25 @@ class RegionForDescribeRegionsOutput(object):
             self.region_status = region_status
 
     @property
-    def description(self):
-        """Gets the description of this RegionForDescribeRegionsOutput.  # noqa: E501
+    def describeption(self):
+        """Gets the describeption of this RegionForDescribeRegionsOutput.  # noqa: E501
 
 
-        :return: The description of this RegionForDescribeRegionsOutput.  # noqa: E501
+        :return: The describeption of this RegionForDescribeRegionsOutput.  # noqa: E501
         :rtype: str
         """
-        return self._description
+        return self._describeption
 
-    @description.setter
-    def description(self, description):
-        """Sets the description of this RegionForDescribeRegionsOutput.
+    @describeption.setter
+    def describeption(self, describeption):
+        """Sets the describeption of this RegionForDescribeRegionsOutput.
 
 
-        :param description: The description of this RegionForDescribeRegionsOutput.  # noqa: E501
+        :param describeption: The describeption of this RegionForDescribeRegionsOutput.  # noqa: E501
         :type: str
         """
 
-        self._description = description
+        self._describeption = describeption
 
     @property
     def region_id(self):
