@@ -149,10 +149,7 @@ class Completions(SyncAPIResource):
         last_time = self._get_request_last_time(timeout)
         model_breaker = self._client.get_model_breaker(model)
         while True:
-            while not model_breaker.allow():
-                if datetime.now() + timedelta(seconds=model_breaker.get_allowed_duration().total_seconds()) > last_time:
-                    raise ArkAPITimeoutError()
-                time.sleep(model_breaker.get_allowed_duration().total_seconds())
+            model_breaker.wait()
             if datetime.now() > last_time:
                 raise ArkAPITimeoutError()
             try:
@@ -198,7 +195,7 @@ class Completions(SyncAPIResource):
             except ArkAPIStatusError as err:
                 retry_after = _get_retry_after(err.response)
                 if retry_after is not None:
-                    model_breaker.reset(timedelta(seconds=retry_after))
+                    model_breaker.reset(retry_after)
                 if _should_retry(err.response):
                     continue
                 else:
@@ -295,10 +292,7 @@ class AsyncCompletions(AsyncAPIResource):
         last_time = self._get_request_last_time(timeout)
         model_breaker = await self._client.get_model_breaker(model)
         while True:
-            while not model_breaker.allow():
-                if datetime.now() + timedelta(seconds=model_breaker.get_allowed_duration().total_seconds()) > last_time:
-                    raise ArkAPITimeoutError()
-                await asyncio.sleep(model_breaker.get_allowed_duration().total_seconds())
+            await model_breaker.asyncwait()
             if datetime.now() > last_time:
                 raise ArkAPITimeoutError()
             try:
@@ -344,7 +338,7 @@ class AsyncCompletions(AsyncAPIResource):
             except ArkAPIStatusError as err:
                 retry_after = _get_retry_after(err.response)
                 if retry_after is not None:
-                    model_breaker.reset(timedelta(seconds=retry_after))
+                    model_breaker.reset(retry_after)
                 if _should_retry(err.response):
                     continue
                 else:

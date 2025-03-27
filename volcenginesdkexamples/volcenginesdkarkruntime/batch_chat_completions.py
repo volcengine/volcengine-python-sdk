@@ -1,3 +1,8 @@
+import queue
+import sys
+from datetime import datetime
+from multiprocessing.pool import ThreadPool
+
 from volcenginesdkarkruntime import Ark
 
 # Authentication
@@ -10,16 +15,74 @@ from volcenginesdkarkruntime import Ark
 # or specify ak&sk by Ark(ak="${YOUR_AK}", sk="${YOUR_SK}").
 # To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
 # For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
-client = Ark()
+
+
+def worker(
+    worker_id: int,
+    client: Ark,
+    requests: queue.Queue[dict],
+):
+    print(f"Worker {worker_id} is starting.")
+
+    while True:
+        request = requests.get()
+
+        # check for signal of no more request
+        if not request:
+            # put back on the queue for other workers
+            requests.put(request)
+            return
+
+        try:
+            # do request
+            completion = client.batch_chat.completions.create(**request)
+            print(completion)
+        except Exception as e:
+            print(e, file=sys.stderr)
+        finally:
+            requests.task_done()
+
+
+def main():
+    start = datetime.now()
+    max_concurrent_tasks, task_num = 1000, 10000
+
+    requests = queue.Queue()
+    client = Ark(timeout=24 * 3600)
+
+    # mock `task_num` tasks
+    for _ in range(task_num):
+        requests.put(
+            {
+                "model": "${YOUR_ENDPOINT_ID}",
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手",
+                    },
+                    {"role": "user", "content": "常见的十字花科植物有哪些？"},
+                ],
+            }
+        )
+
+    # put a signal of no more request
+    requests.put(None)
+
+    # create `max_concurrent_tasks` workers and start them
+    with ThreadPool(max_concurrent_tasks) as pool:
+        for i in range(max_concurrent_tasks):
+            pool.apply_async(worker, args=(i, client, requests))
+        pool.apply_async(worker, args=(i, client, requests))
+
+        # wait for all request to done
+        pool.close()
+        pool.join()
+
+    client.close()
+
+    end = datetime.now()
+    print(f"Total time: {end - start}, Total task: {task_num}")
+
 
 if __name__ == "__main__":
-    # Non-streaming:
-    print("----- standard request -----")
-    completion = client.batch_chat.completions.create(
-        model="${YOUR_ENDPOINT_ID}",
-        messages=[
-            {"role": "system", "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手"},
-            {"role": "user", "content": "常见的十字花科植物有哪些？"},
-        ],
-    )
-    print(completion.choices[0].message.content)
+    main()

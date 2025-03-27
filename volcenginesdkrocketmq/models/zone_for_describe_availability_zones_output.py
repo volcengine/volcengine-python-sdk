@@ -34,38 +34,38 @@ class ZoneForDescribeAvailabilityZonesOutput(object):
     """
     swagger_types = {
         'description': 'str',
-        'status': 'str',
         'zone_id': 'str',
-        'zone_name': 'str'
+        'zone_name': 'str',
+        'zone_status': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
-        'status': 'Status',
         'zone_id': 'ZoneId',
-        'zone_name': 'ZoneName'
+        'zone_name': 'ZoneName',
+        'zone_status': 'ZoneStatus'
     }
 
-    def __init__(self, description=None, status=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, zone_id=None, zone_name=None, zone_status=None, _configuration=None):  # noqa: E501
         """ZoneForDescribeAvailabilityZonesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
-        self._status = None
         self._zone_id = None
         self._zone_name = None
+        self._zone_status = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
-        if status is not None:
-            self.status = status
         if zone_id is not None:
             self.zone_id = zone_id
         if zone_name is not None:
             self.zone_name = zone_name
+        if zone_status is not None:
+            self.zone_status = zone_status
 
     @property
     def description(self):
@@ -87,27 +87,6 @@ class ZoneForDescribeAvailabilityZonesOutput(object):
         """
 
         self._description = description
-
-    @property
-    def status(self):
-        """Gets the status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
-
-
-        :return: The status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this ZoneForDescribeAvailabilityZonesOutput.
-
-
-        :param status: The status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._status = status
 
     @property
     def zone_id(self):
@@ -150,6 +129,27 @@ class ZoneForDescribeAvailabilityZonesOutput(object):
         """
 
         self._zone_name = zone_name
+
+    @property
+    def zone_status(self):
+        """Gets the zone_status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
+
+
+        :return: The zone_status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_status
+
+    @zone_status.setter
+    def zone_status(self, zone_status):
+        """Sets the zone_status of this ZoneForDescribeAvailabilityZonesOutput.
+
+
+        :param zone_status: The zone_status of this ZoneForDescribeAvailabilityZonesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_status = zone_status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -37,8 +37,10 @@ class DescribeTosRestoreTasksRequest(object):
         'instance_name': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'query_end_time': 'str',
-        'query_start_time': 'str'
+        'query_start_time': 'str',
+        'restore_task_ids': 'list[str]'
     }
 
     attribute_map = {
@@ -46,11 +48,13 @@ class DescribeTosRestoreTasksRequest(object):
         'instance_name': 'InstanceName',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'query_end_time': 'QueryEndTime',
-        'query_start_time': 'QueryStartTime'
+        'query_start_time': 'QueryStartTime',
+        'restore_task_ids': 'RestoreTaskIds'
     }
 
-    def __init__(self, instance_id=None, instance_name=None, page_number=None, page_size=None, query_end_time=None, query_start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, instance_name=None, page_number=None, page_size=None, project_name=None, query_end_time=None, query_start_time=None, restore_task_ids=None, _configuration=None):  # noqa: E501
         """DescribeTosRestoreTasksRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,8 +64,10 @@ class DescribeTosRestoreTasksRequest(object):
         self._instance_name = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._query_end_time = None
         self._query_start_time = None
+        self._restore_task_ids = None
         self.discriminator = None
 
         if instance_id is not None:
@@ -72,10 +78,14 @@ class DescribeTosRestoreTasksRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if query_end_time is not None:
             self.query_end_time = query_end_time
         if query_start_time is not None:
             self.query_start_time = query_start_time
+        if restore_task_ids is not None:
+            self.restore_task_ids = restore_task_ids
 
     @property
     def instance_id(self):
@@ -162,6 +172,27 @@ class DescribeTosRestoreTasksRequest(object):
         self._page_size = page_size
 
     @property
+    def project_name(self):
+        """Gets the project_name of this DescribeTosRestoreTasksRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeTosRestoreTasksRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeTosRestoreTasksRequest.
+
+
+        :param project_name: The project_name of this DescribeTosRestoreTasksRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def query_end_time(self):
         """Gets the query_end_time of this DescribeTosRestoreTasksRequest.  # noqa: E501
 
@@ -202,6 +233,27 @@ class DescribeTosRestoreTasksRequest(object):
         """
 
         self._query_start_time = query_start_time
+
+    @property
+    def restore_task_ids(self):
+        """Gets the restore_task_ids of this DescribeTosRestoreTasksRequest.  # noqa: E501
+
+
+        :return: The restore_task_ids of this DescribeTosRestoreTasksRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._restore_task_ids
+
+    @restore_task_ids.setter
+    def restore_task_ids(self, restore_task_ids):
+        """Sets the restore_task_ids of this DescribeTosRestoreTasksRequest.
+
+
+        :param restore_task_ids: The restore_task_ids of this DescribeTosRestoreTasksRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._restore_task_ids = restore_task_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""
