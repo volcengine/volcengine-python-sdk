@@ -33,11 +33,13 @@ class CreateDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_ids': 'list[str]',
         'charge_info': 'ChargeInfoForCreateDBInstanceInput',
         'db_engine_version': 'str',
         'db_time_zone': 'str',
         'instance_name': 'str',
         'instance_type': 'str',
+        'maintenance_time': 'str',
         'node_spec': 'str',
         'project_name': 'str',
         'server_collation': 'str',
@@ -50,11 +52,13 @@ class CreateDBInstanceRequest(object):
     }
 
     attribute_map = {
+        'allow_list_ids': 'AllowListIds',
         'charge_info': 'ChargeInfo',
         'db_engine_version': 'DBEngineVersion',
         'db_time_zone': 'DBTimeZone',
         'instance_name': 'InstanceName',
         'instance_type': 'InstanceType',
+        'maintenance_time': 'MaintenanceTime',
         'node_spec': 'NodeSpec',
         'project_name': 'ProjectName',
         'server_collation': 'ServerCollation',
@@ -66,17 +70,19 @@ class CreateDBInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_info=None, db_engine_version=None, db_time_zone=None, instance_name=None, instance_type=None, node_spec=None, project_name=None, server_collation=None, storage_space=None, subnet_id=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, charge_info=None, db_engine_version=None, db_time_zone=None, instance_name=None, instance_type=None, maintenance_time=None, node_spec=None, project_name=None, server_collation=None, storage_space=None, subnet_id=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_ids = None
         self._charge_info = None
         self._db_engine_version = None
         self._db_time_zone = None
         self._instance_name = None
         self._instance_type = None
+        self._maintenance_time = None
         self._node_spec = None
         self._project_name = None
         self._server_collation = None
@@ -88,6 +94,8 @@ class CreateDBInstanceRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if allow_list_ids is not None:
+            self.allow_list_ids = allow_list_ids
         if charge_info is not None:
             self.charge_info = charge_info
         self.db_engine_version = db_engine_version
@@ -95,6 +103,8 @@ class CreateDBInstanceRequest(object):
         if instance_name is not None:
             self.instance_name = instance_name
         self.instance_type = instance_type
+        if maintenance_time is not None:
+            self.maintenance_time = maintenance_time
         self.node_spec = node_spec
         if project_name is not None:
             self.project_name = project_name
@@ -107,6 +117,27 @@ class CreateDBInstanceRequest(object):
             self.tags = tags
         self.vpc_id = vpc_id
         self.zone_id = zone_id
+
+    @property
+    def allow_list_ids(self):
+        """Gets the allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_list_ids
+
+    @allow_list_ids.setter
+    def allow_list_ids(self, allow_list_ids):
+        """Sets the allow_list_ids of this CreateDBInstanceRequest.
+
+
+        :param allow_list_ids: The allow_list_ids of this CreateDBInstanceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_list_ids = allow_list_ids
 
     @property
     def charge_info(self):
@@ -218,6 +249,27 @@ class CreateDBInstanceRequest(object):
             raise ValueError("Invalid value for `instance_type`, must not be `None`")  # noqa: E501
 
         self._instance_type = instance_type
+
+    @property
+    def maintenance_time(self):
+        """Gets the maintenance_time of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The maintenance_time of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._maintenance_time
+
+    @maintenance_time.setter
+    def maintenance_time(self, maintenance_time):
+        """Sets the maintenance_time of this CreateDBInstanceRequest.
+
+
+        :param maintenance_time: The maintenance_time of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._maintenance_time = maintenance_time
 
     @property
     def node_spec(self):

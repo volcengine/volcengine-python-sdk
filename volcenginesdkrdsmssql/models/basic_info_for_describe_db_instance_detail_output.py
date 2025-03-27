@@ -41,6 +41,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_type': 'str',
+        'maintenance_time': 'str',
         'memory': 'int',
         'node_spec': 'str',
         'primary_instance_id': 'str',
@@ -71,6 +72,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
+        'maintenance_time': 'MaintenanceTime',
         'memory': 'Memory',
         'node_spec': 'NodeSpec',
         'primary_instance_id': 'PrimaryInstanceId',
@@ -92,7 +94,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, backup_use=None, create_time=None, db_engine_version=None, inner_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, memory=None, node_spec=None, primary_instance_id=None, project_name=None, read_only_number=None, region_id=None, server_collation=None, slow_query_enable=None, slow_query_time=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_use=None, create_time=None, db_engine_version=None, inner_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, maintenance_time=None, memory=None, node_spec=None, primary_instance_id=None, project_name=None, read_only_number=None, region_id=None, server_collation=None, slow_query_enable=None, slow_query_time=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,6 +108,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._instance_name = None
         self._instance_status = None
         self._instance_type = None
+        self._maintenance_time = None
         self._memory = None
         self._node_spec = None
         self._primary_instance_id = None
@@ -143,6 +146,8 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.instance_status = instance_status
         if instance_type is not None:
             self.instance_type = instance_type
+        if maintenance_time is not None:
+            self.maintenance_time = maintenance_time
         if memory is not None:
             self.memory = memory
         if node_spec is not None:
@@ -349,6 +354,27 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def maintenance_time(self):
+        """Gets the maintenance_time of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The maintenance_time of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._maintenance_time
+
+    @maintenance_time.setter
+    def maintenance_time(self, maintenance_time):
+        """Sets the maintenance_time of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param maintenance_time: The maintenance_time of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._maintenance_time = maintenance_time
 
     @property
     def memory(self):

@@ -35,6 +35,7 @@ class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput(object):
     swagger_types = {
         'backup_type': 'str',
         'db_name': 'str',
+        'new_db_name': 'str',
         'restore_desc': 'str',
         'restore_end_time': 'str',
         'restore_file_name': 'str',
@@ -45,6 +46,7 @@ class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput(object):
     attribute_map = {
         'backup_type': 'BackupType',
         'db_name': 'DBName',
+        'new_db_name': 'NewDBName',
         'restore_desc': 'RestoreDesc',
         'restore_end_time': 'RestoreEndTime',
         'restore_file_name': 'RestoreFileName',
@@ -52,7 +54,7 @@ class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput(object):
         'restore_start_time': 'RestoreStartTime'
     }
 
-    def __init__(self, backup_type=None, db_name=None, restore_desc=None, restore_end_time=None, restore_file_name=None, restore_file_size=None, restore_start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_type=None, db_name=None, new_db_name=None, restore_desc=None, restore_end_time=None, restore_file_name=None, restore_file_size=None, restore_start_time=None, _configuration=None):  # noqa: E501
         """RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +62,7 @@ class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput(object):
 
         self._backup_type = None
         self._db_name = None
+        self._new_db_name = None
         self._restore_desc = None
         self._restore_end_time = None
         self._restore_file_name = None
@@ -71,6 +74,8 @@ class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput(object):
             self.backup_type = backup_type
         if db_name is not None:
             self.db_name = db_name
+        if new_db_name is not None:
+            self.new_db_name = new_db_name
         if restore_desc is not None:
             self.restore_desc = restore_desc
         if restore_end_time is not None:
@@ -123,6 +128,27 @@ class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput(object):
         """
 
         self._db_name = db_name
+
+    @property
+    def new_db_name(self):
+        """Gets the new_db_name of this RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput.  # noqa: E501
+
+
+        :return: The new_db_name of this RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_db_name
+
+    @new_db_name.setter
+    def new_db_name(self, new_db_name):
+        """Sets the new_db_name of this RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput.
+
+
+        :param new_db_name: The new_db_name of this RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._new_db_name = new_db_name
 
     @property
     def restore_desc(self):
