@@ -1,8 +1,8 @@
 # coding: utf-8
 
 import datetime
-import hmac
 import hashlib
+import hmac
 
 from six.moves.urllib.parse import quote, urlencode
 
@@ -10,7 +10,8 @@ from six.moves.urllib.parse import quote, urlencode
 class SignerV4(object):
 
     @staticmethod
-    def sign(path, method, headers, body, post_params, query, ak, sk, region, service):
+    def sign(path, method, headers, body, post_params, query, ak, sk, region, service,
+             session_token=None):
         if path == '':
             path = '/'
         if method != 'GET' and not ('Content-Type' in headers):
@@ -24,6 +25,8 @@ class SignerV4(object):
 
         body_hash = hashlib.sha256(body.encode('utf-8')).hexdigest()
         headers['X-Content-Sha256'] = body_hash
+        if session_token:
+            headers['X-Security-Token'] = session_token
 
         signed_headers = dict()
         for key in headers:

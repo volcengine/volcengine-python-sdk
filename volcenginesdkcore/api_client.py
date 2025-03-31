@@ -3,22 +3,18 @@
 from __future__ import absolute_import
 
 import datetime
-import json
-import mimetypes
-import sys
 from multiprocessing.pool import ThreadPool
-import os
-import re
-import tempfile
 
 # python 2 and python 3 compatibility library
 import six
-from six.moves.urllib.parse import quote
 
-from volcenginesdkcore.configuration import Configuration
 from volcenginesdkcore import rest
-from volcenginesdkcore.metadata import ResponseMetadata
-from volcenginesdkcore.signv4 import SignerV4
+from volcenginesdkcore.configuration import Configuration
+from volcenginesdkcore.interceptor import BuildRequestInterceptor, SignRequestInterceptor, \
+    ResolveEndpointInterceptor, RuntimeOptionsInterceptor
+from volcenginesdkcore.interceptor import DeserializedResponseInterceptor
+from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext
+from volcenginesdkcore.interceptor import Request, Response
 
 
 class ApiClient(object):
@@ -67,8 +63,17 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'volcstack-python-sdk/1.1.1'
+        self.user_agent = 'volcstack-python-sdk/1.1.2'
         self.client_side_validation = configuration.client_side_validation
+
+        self.interceptor_chain = InterceptorChain()
+
+        self.interceptor_chain.append_request_interceptor(BuildRequestInterceptor())
+        self.interceptor_chain.append_request_interceptor(RuntimeOptionsInterceptor())
+        self.interceptor_chain.append_request_interceptor(ResolveEndpointInterceptor())
+        self.interceptor_chain.append_request_interceptor(SignRequestInterceptor())
+
+        self.interceptor_chain.append_response_interceptor(DeserializedResponseInterceptor())
 
     def __del__(self):
         if self._pool is not None:
@@ -100,248 +105,35 @@ class ApiClient(object):
             _return_http_data_only=None, collection_formats=None,
             _preload_content=True, _request_timeout=None):
 
-        config = self.configuration
+        interceptor_context = InterceptorContext(request=Request(
+            self.configuration,
+            resource_path, method, path_params,
+            query_params, header_params, body, post_params,
+            files, response_type, auth_settings,
+            _return_http_data_only, collection_formats,
+            _preload_content, _request_timeout,
+        ))
 
-        # header parameters
-        header_params = header_params or {}
-        header_params.update(self.default_headers)
-        if self.cookie:
-            header_params['Cookie'] = self.cookie
-        if header_params:
-            header_params = self.sanitize_for_serialization(header_params)
-            header_params = dict(self.parameters_to_tuples(header_params,
-                                                           collection_formats))
-
-        # path parameters
-        if path_params:
-            path_params = self.sanitize_for_serialization(path_params)
-            path_params = self.parameters_to_tuples(path_params,
-                                                    collection_formats)
-            for k, v in path_params:
-                # specified safe chars, encode everything
-                resource_path = resource_path.replace(
-                    '{%s}' % k,
-                    quote(str(v), safe=config.safe_chars_for_path_param)
-                )
-
-        # request module name
-        md = ""
-
-        # body
-        if body:
-            if type(body) is not dict:
-                md = body.__module__.split(".")[0]
-            body = self.sanitize_for_serialization(body)
-
-        # query parameters
-        if method == "GET" and header_params.get("Content-Type") == "text/plain":
-            query_params = self.__req_to_params(body)
-
-        query_params.append(("Action", resource_path.split("/")[1]))
-        query_params.append(("Version", resource_path.split("/")[2]))
-
-        if query_params:
-            query_params = self.sanitize_for_serialization(query_params)
-            query_params = self.parameters_to_tuples(query_params,
-                                                     collection_formats)
-
-        if method == 'POST' and header_params.get('Content-Type').startswith('application/x-www-form-urlencoded'):
-            post_params = self.__req_to_params(body)
-            body = None
-
-        # post_params
-        if post_params or files:
-            post_params = self.prepare_post_parameters(post_params, files)
-            post_params = self.sanitize_for_serialization(post_params)
-            post_params = self.parameters_to_tuples(post_params,
-                                                    collection_formats)
-
-        true_path = "/"
-        service = resource_path.split("/")[3]
-
-        # auth setting
-        # notice: change query_params from tuple to dict
-        self.update_params_for_auth(host=self.configuration.host, path=true_path, method=method,
-                                    headers=header_params, querys=query_params,
-                                    auth_settings=auth_settings, body=body, post_params=post_params, service=service)
-
-        # request url
-        url = self.configuration.schema + "://" + self.configuration.host + true_path
+        interceptor_context = self.interceptor_chain.execute_request(interceptor_context)
 
         # perform request and return response
         response_data = self.request(
-            method, url, query_params=query_params, headers=header_params,
-            post_params=post_params, body=body,
-            _preload_content=_preload_content,
-            _request_timeout=_request_timeout)
-
+            method, url=interceptor_context.request.url, query_params=interceptor_context.request.query_params,
+            headers=interceptor_context.request.header_params,
+            post_params=interceptor_context.request.post_params, body=interceptor_context.request.body,
+            _preload_content=interceptor_context.request.preload_content,
+            _request_timeout=interceptor_context.request.request_timeout)
         self.last_response = response_data
-        # print(response_data.data)
 
-        return_data = response_data
-        if _preload_content:
-            # deserialize response data
-            if response_type:
-                return_data = self.deserialize(response_data, response_type, md)
-            else:
-                return_data = None
+        interceptor_context.response = Response(response_data)
+        interceptor_context = self.interceptor_chain.execute_response(interceptor_context)
 
+        response = interceptor_context.response
         if _return_http_data_only:
-            return (return_data)
+            return response.result
         else:
-            return (return_data, response_data.status,
-                    response_data.getheaders())
-
-    def __req_to_params(self, req, prefix="", params=None):
-        if params is None:
-            params = []
-
-        for key, value in req.items():
-            if value is None:
-                continue
-            if isinstance(value, list):
-                for index in range(len(value)):
-                    if isinstance(value[index], dict):
-                        self.__req_to_params(value[index], prefix + key + "." + str((index + 1)) + ".", params)
-                    else:
-                        params.append((prefix + key + "." + str((index + 1)), value[index]))
-            elif isinstance(value, dict):
-                self.__req_to_params(value, prefix + key + ".", params)
-            else:
-                params.append((prefix + key, value))
-
-        return params
-
-    def sanitize_for_serialization(self, obj):
-        """Builds a JSON POST object.
-
-        If obj is None, return None.
-        If obj is str, int, long, float, bool, return directly.
-        If obj is datetime.datetime, datetime.date
-            convert to string in iso8601 format.
-        If obj is list, sanitize each element in the list.
-        If obj is dict, return the dict.
-        If obj is swagger model, return the properties dict.
-
-        :param obj: The data to serialize.
-        :return: The serialized form of data.
-        """
-        if obj is None:
-            return None
-        elif isinstance(obj, self.PRIMITIVE_TYPES):
-            return obj
-        elif isinstance(obj, list):
-            return [self.sanitize_for_serialization(sub_obj)
-                    for sub_obj in obj]
-        elif isinstance(obj, tuple):
-            return tuple(self.sanitize_for_serialization(sub_obj)
-                         for sub_obj in obj)
-        elif isinstance(obj, (datetime.datetime, datetime.date)):
-            return obj.isoformat()
-
-        if isinstance(obj, dict):
-            obj_dict = obj
-        else:
-            # Convert model obj to dict except
-            # attributes `swagger_types`, `attribute_map`
-            # and attributes which value is not None.
-            # Convert attribute name to json key in
-            # model definition for request.
-            obj_dict = {obj.attribute_map[attr]: getattr(obj, attr)
-                        for attr, _ in six.iteritems(obj.swagger_types)
-                        if getattr(obj, attr) is not None}
-
-        return {key: self.sanitize_for_serialization(val)
-                for key, val in six.iteritems(obj_dict)}
-
-    def deserialize(self, response, response_type, service):
-        """Deserializes response into an object.
-
-        :param service: the target service
-        :param response: RESTResponse object to be deserialized.
-        :param response_type: class literal for
-            deserialized object, or string of class name.
-
-        :return: deserialized object.
-        """
-        # handle file downloading
-        # save response body into a tmp file and return the instance
-        if response_type == "file":
-            return self.__deserialize_file(response)
-
-        # fetch data from response object
-        try:
-            data = json.loads(response.data)
-        except ValueError:
-            data = response.data
-
-        meta = data.get("ResponseMetadata")
-        if meta is not None:
-            err = meta.get("Error")
-            if err is not None:
-                raise rest.ApiException(status=200, reason=str(err))
-            else:
-                data = data.get("Result")
-        else:
-            raise rest.ApiException(status=200, reason="InternalServiceError")
-
-        resp_model = self.__deserialize(data, response_type, service)
-        if (resp_model is None) or (type(resp_model) is dict):
-            return resp_model
-
-        # UniversalClient 直接返回
-        if response_type == object:
-            return resp_model
-
-        # patch response metadata for resp_model
-        resp_model._metadata = ResponseMetadata(
-            service=meta.get("Service"),
-            action=meta.get("Action"),
-            version=meta.get("Version"),
-            region=meta.get("Region"),
-            request_id=meta.get("RequestId")
-        )
-        resp_model.metadata = metadata.__get__(resp_model)
-        return resp_model
-
-    def __deserialize(self, data, klass, service):
-        """Deserializes dict, list, str into an object.
-
-        :param data: dict, list or str.
-        :param klass: class literal, or string of class name.
-
-        :return: object.
-        """
-        if data is None:
-            return None
-
-        if type(klass) == str:
-            if klass.startswith('list['):
-                sub_kls = re.match(r'list\[(.*)\]', klass).group(1)
-                return [self.__deserialize(sub_data, sub_kls, service)
-                        for sub_data in data]
-
-            if klass.startswith('dict('):
-                sub_kls = re.match(r'dict\(([^,]*), (.*)\)', klass).group(2)
-                return {k: self.__deserialize(v, sub_kls, service)
-                        for k, v in six.iteritems(data)}
-
-            # convert str to class
-            if klass in self.NATIVE_TYPES_MAPPING:
-                klass = self.NATIVE_TYPES_MAPPING[klass]
-            else:
-                klass = getattr(sys.modules[service + ".models"], klass)
-
-        if klass in self.PRIMITIVE_TYPES:
-            return self.__deserialize_primitive(data, klass)
-        elif klass == object:
-            return self.__deserialize_object(data)
-        elif klass == datetime.date:
-            return self.__deserialize_date(data)
-        elif klass == datetime.datetime:
-            return self.__deserialize_datatime(data)
-        else:
-            return self.__deserialize_model(data, klass, service)
+            return (response.result, response.http_response.status,
+                    response.http_response.getheaders())
 
     def call_api(self, resource_path, method,
                  path_params=None, query_params=None, header_params=None,
@@ -464,64 +256,6 @@ class ApiClient(object):
                 " `POST`, `PATCH`, `PUT` or `DELETE`."
             )
 
-    def parameters_to_tuples(self, params, collection_formats):
-        """Get parameters as list of tuples, formatting collections.
-
-        :param params: Parameters as dict or list of two-tuples
-        :param dict collection_formats: Parameter collection formats
-        :return: Parameters as list of tuples, collections formatted
-        """
-        new_params = []
-        if collection_formats is None:
-            collection_formats = {}
-        for k, v in six.iteritems(params) if isinstance(params, dict) else params:  # noqa: E501
-            if k in collection_formats:
-                collection_format = collection_formats[k]
-                if collection_format == 'multi':
-                    new_params.extend((k, value) for value in v)
-                else:
-                    if collection_format == 'ssv':
-                        delimiter = ' '
-                    elif collection_format == 'tsv':
-                        delimiter = '\t'
-                    elif collection_format == 'pipes':
-                        delimiter = '|'
-                    else:  # csv is the default
-                        delimiter = ','
-                    new_params.append(
-                        (k, delimiter.join(str(value) for value in v)))
-            else:
-                new_params.append((k, v))
-        return new_params
-
-    def prepare_post_parameters(self, post_params=None, files=None):
-        """Builds form parameters.
-
-        :param post_params: Normal form parameters.
-        :param files: File parameters.
-        :return: Form parameters with files.
-        """
-        params = []
-
-        if post_params:
-            params = post_params
-
-        if files:
-            for k, v in six.iteritems(files):
-                if not v:
-                    continue
-                file_names = v if type(v) is list else [v]
-                for n in file_names:
-                    with open(n, 'rb') as f:
-                        filename = os.path.basename(f.name)
-                        filedata = f.read()
-                        mimetype = (mimetypes.guess_type(filename)[0] or
-                                    'application/octet-stream')
-                        params.append(
-                            tuple([k, tuple([filename, filedata, mimetype])]))
-
-        return params
-
     def select_header_accept(self, accepts):
         """Returns `Accept` based on an array of accepts provided.
 
@@ -553,149 +287,6 @@ class ApiClient(object):
             return 'application/json'
         else:
             return content_types[0]
-
-    def update_params_for_auth(self, host, path, method, headers, querys, auth_settings, body, post_params, service):
-        """Updates header and query params based on authentication setting.
-
-        :param headers: Header parameters dict to be updated.
-        :param querys: Query parameters tuple list to be updated.
-        :param auth_settings: Authentication setting identifiers list.
-        """
-        if not auth_settings:
-            return
-
-        for auth in auth_settings:
-            headers["Host"] = host
-            if method in ["POST", "PUT", "DELETE", "PATCH"]:
-                body = json.dumps(body)
-            else:
-                body = ""
-            SignerV4.sign(path, method, headers, body, post_params, querys,
-                          self.configuration.ak, self.configuration.sk, self.configuration.region, service)
-
-    def __deserialize_file(self, response):
-        """Deserializes body to file
-
-        Saves response body into a file in a temporary folder,
-        using the filename from the `Content-Disposition` header if provided.
-
-        :param response:  RESTResponse.
-        :return: file path.
-        """
-        fd, path = tempfile.mkstemp(dir=self.configuration.temp_folder_path)
-        os.close(fd)
-        os.remove(path)
-
-        content_disposition = response.getheader("Content-Disposition")
-        if content_disposition:
-            filename = re.search(r'filename=[\'"]?([^\'"\s]+)[\'"]?',
-                                 content_disposition).group(1)
-            path = os.path.join(os.path.dirname(path), filename)
-
-        with open(path, "w") as f:
-            f.write(response.data)
-
-        return path
-
-    def __deserialize_primitive(self, data, klass):
-        """Deserializes string to primitive type.
-
-        :param data: str.
-        :param klass: class literal.
-
-        :return: int, long, float, str, bool.
-        """
-        try:
-            return klass(data)
-        except UnicodeEncodeError:
-            return six.text_type(data)
-        except TypeError:
-            return data
-
-    def __deserialize_object(self, value):
-        """Return a original value.
-
-        :return: object.
-        """
-        return value
-
-    def __deserialize_date(self, string):
-        """Deserializes string to date.
-
-        :param string: str.
-        :return: date.
-        """
-        try:
-            from dateutil.parser import parse
-            return parse(string).date()
-        except ImportError:
-            return string
-        except ValueError:
-            raise rest.ApiException(
-                status=0,
-                reason="Failed to parse `{0}` as date object".format(string)
-            )
-
-    def __deserialize_datatime(self, string):
-        """Deserializes string to datetime.
-
-        The string should be in iso8601 datetime format.
-
-        :param string: str.
-        :return: datetime.
-        """
-        try:
-            from dateutil.parser import parse
-            return parse(string)
-        except ImportError:
-            return string
-        except ValueError:
-            raise rest.ApiException(
-                status=0,
-                reason=(
-                    "Failed to parse `{0}` as datetime object"
-                    .format(string)
-                )
-            )
-
-    def __hasattr(self, object, name):
-        return name in object.__class__.__dict__
-
-    def __deserialize_model(self, data, klass, service):
-        """Deserializes list or dict to model.
-
-        :param data: dict, list.
-        :param klass: class literal.
-        :return: model object.
-        """
-
-        if (not klass.swagger_types and
-                not self.__hasattr(klass, 'get_real_child_model')):
-            return data
-
-        kwargs = {}
-        if klass.swagger_types is not None:
-            for attr, attr_type in six.iteritems(klass.swagger_types):
-                if (data is not None and
-                        klass.attribute_map[attr] in data and
-                        isinstance(data, (list, dict))):
-                    value = data[klass.attribute_map[attr]]
-                    kwargs[attr] = self.__deserialize(value, attr_type, service)
-        # support pass configuration
-        kwargs['_configuration'] = self.configuration
-        instance = klass(**kwargs)
-
-        if (isinstance(instance, dict) and
-                klass.swagger_types is not None and
-                isinstance(data, dict)):
-            for key, value in data.items():
-                if key not in klass.swagger_types:
-                    instance[key] = value
-        if self.__hasattr(instance, 'get_real_child_model'):
-            klass_name = instance.get_real_child_model(data)
-            if klass_name:
-                instance = self.__deserialize(data, klass_name, service)
-        return instance
 
 
 def metadata(self):
