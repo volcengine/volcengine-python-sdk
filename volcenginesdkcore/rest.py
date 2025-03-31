@@ -18,7 +18,6 @@ try:
 except ImportError:
     raise ImportError('Swagger python client requires urllib3.')
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -71,6 +70,13 @@ class RESTClientObject(object):
             else:
                 maxsize = 4
 
+        if configuration.num_pools is not None:
+            pools_size = configuration.num_pools
+
+        timeout = urllib3.Timeout(
+            connect=configuration.connect_timeout,
+            read=configuration.read_timeout,
+        )
         # https pool manager
         if configuration.proxy:
             self.pool_manager = urllib3.ProxyManager(
@@ -81,6 +87,7 @@ class RESTClientObject(object):
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
                 proxy_url=configuration.proxy,
+                timeout=timeout,
                 **addition_pool_args
             )
         else:
@@ -91,6 +98,7 @@ class RESTClientObject(object):
                 ca_certs=ca_certs,
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
+                timeout=timeout,
                 **addition_pool_args
             )
 
@@ -129,12 +137,16 @@ class RESTClientObject(object):
 
         timeout = None
         if _request_timeout:
-            if isinstance(_request_timeout, (int, ) if six.PY3 else (int, long)):  # noqa: E501,F821
+            if isinstance(_request_timeout, (int, float) if six.PY3 else (int, long, float)):  # noqa: E501,F821
                 timeout = urllib3.Timeout(total=_request_timeout)
             elif (isinstance(_request_timeout, tuple) and
                   len(_request_timeout) == 2):
                 timeout = urllib3.Timeout(
                     connect=_request_timeout[0], read=_request_timeout[1])
+            elif isinstance(_request_timeout, urllib3.Timeout):
+                timeout = _request_timeout
+        else:
+            timeout = self.pool_manager.connection_pool_kw.get('timeout', None)
 
         if 'Content-Type' not in headers:
             headers['Content-Type'] = 'application/json'
@@ -300,7 +312,7 @@ class ApiException(Exception):
 
     def __str__(self):
         """Custom error messages for exception"""
-        error_message = "({0})\n"\
+        error_message = "({0})\n" \
                         "Reason: {1}\n".format(self.status, self.reason)
         if self.headers:
             error_message += "HTTP response headers: {0}\n".format(
