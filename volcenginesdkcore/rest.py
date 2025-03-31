@@ -232,6 +232,12 @@ class RESTClientObject(object):
 
     def GET(self, url, headers=None, query_params=None, _preload_content=True,
             _request_timeout=None):
+        for i in range(len(query_params)):
+            if isinstance(query_params[i], tuple) and len(query_params[i]) == 2 and isinstance(query_params[i][1],
+                                                                                               bool):
+                l = list(query_params[i])
+                l[1] = l[1].__str__().lower()
+                query_params[i] = tuple(l)
         return self.request("GET", url,
                             headers=headers,
                             _preload_content=_preload_content,
