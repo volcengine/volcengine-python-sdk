@@ -33,6 +33,7 @@ class CreateRouteTableRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'associate_type': 'str',
         'client_token': 'str',
         'description': 'str',
         'project_name': 'str',
@@ -42,6 +43,7 @@ class CreateRouteTableRequest(object):
     }
 
     attribute_map = {
+        'associate_type': 'AssociateType',
         'client_token': 'ClientToken',
         'description': 'Description',
         'project_name': 'ProjectName',
@@ -50,12 +52,13 @@ class CreateRouteTableRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, client_token=None, description=None, project_name=None, route_table_name=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, associate_type=None, client_token=None, description=None, project_name=None, route_table_name=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateRouteTableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._associate_type = None
         self._client_token = None
         self._description = None
         self._project_name = None
@@ -64,6 +67,8 @@ class CreateRouteTableRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if associate_type is not None:
+            self.associate_type = associate_type
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
@@ -75,6 +80,34 @@ class CreateRouteTableRequest(object):
         if tags is not None:
             self.tags = tags
         self.vpc_id = vpc_id
+
+    @property
+    def associate_type(self):
+        """Gets the associate_type of this CreateRouteTableRequest.  # noqa: E501
+
+
+        :return: The associate_type of this CreateRouteTableRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._associate_type
+
+    @associate_type.setter
+    def associate_type(self, associate_type):
+        """Sets the associate_type of this CreateRouteTableRequest.
+
+
+        :param associate_type: The associate_type of this CreateRouteTableRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Subnet", "Gateway"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                associate_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `associate_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(associate_type, allowed_values)
+            )
+
+        self._associate_type = associate_type
 
     @property
     def client_token(self):

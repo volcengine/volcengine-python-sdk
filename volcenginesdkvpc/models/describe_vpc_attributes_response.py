@@ -39,6 +39,7 @@ class DescribeVpcAttributesResponse(object):
         'creation_time': 'str',
         'description': 'str',
         'dns_servers': 'list[str]',
+        'ipv4_gateway_id': 'str',
         'ipv6_cidr_block': 'str',
         'is_default': 'bool',
         'nat_gateway_ids': 'list[str]',
@@ -50,6 +51,7 @@ class DescribeVpcAttributesResponse(object):
         'security_group_ids': 'list[str]',
         'status': 'str',
         'subnet_ids': 'list[str]',
+        'support_ipv4_gateway': 'bool',
         'tags': 'list[TagForDescribeVpcAttributesOutput]',
         'update_time': 'str',
         'user_cidr_blocks': 'list[str]',
@@ -64,6 +66,7 @@ class DescribeVpcAttributesResponse(object):
         'creation_time': 'CreationTime',
         'description': 'Description',
         'dns_servers': 'DnsServers',
+        'ipv4_gateway_id': 'Ipv4GatewayId',
         'ipv6_cidr_block': 'Ipv6CidrBlock',
         'is_default': 'IsDefault',
         'nat_gateway_ids': 'NatGatewayIds',
@@ -75,6 +78,7 @@ class DescribeVpcAttributesResponse(object):
         'security_group_ids': 'SecurityGroupIds',
         'status': 'Status',
         'subnet_ids': 'SubnetIds',
+        'support_ipv4_gateway': 'SupportIpv4Gateway',
         'tags': 'Tags',
         'update_time': 'UpdateTime',
         'user_cidr_blocks': 'UserCidrBlocks',
@@ -82,7 +86,7 @@ class DescribeVpcAttributesResponse(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, ipv6_cidr_block=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, secondary_cidr_blocks=None, security_group_ids=None, status=None, subnet_ids=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, cidr_block=None, creation_time=None, description=None, dns_servers=None, ipv4_gateway_id=None, ipv6_cidr_block=None, is_default=None, nat_gateway_ids=None, network_acl_num=None, project_name=None, request_id=None, route_table_ids=None, secondary_cidr_blocks=None, security_group_ids=None, status=None, subnet_ids=None, support_ipv4_gateway=None, tags=None, update_time=None, user_cidr_blocks=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeVpcAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,6 +98,7 @@ class DescribeVpcAttributesResponse(object):
         self._creation_time = None
         self._description = None
         self._dns_servers = None
+        self._ipv4_gateway_id = None
         self._ipv6_cidr_block = None
         self._is_default = None
         self._nat_gateway_ids = None
@@ -105,6 +110,7 @@ class DescribeVpcAttributesResponse(object):
         self._security_group_ids = None
         self._status = None
         self._subnet_ids = None
+        self._support_ipv4_gateway = None
         self._tags = None
         self._update_time = None
         self._user_cidr_blocks = None
@@ -124,6 +130,8 @@ class DescribeVpcAttributesResponse(object):
             self.description = description
         if dns_servers is not None:
             self.dns_servers = dns_servers
+        if ipv4_gateway_id is not None:
+            self.ipv4_gateway_id = ipv4_gateway_id
         if ipv6_cidr_block is not None:
             self.ipv6_cidr_block = ipv6_cidr_block
         if is_default is not None:
@@ -146,6 +154,8 @@ class DescribeVpcAttributesResponse(object):
             self.status = status
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+        if support_ipv4_gateway is not None:
+            self.support_ipv4_gateway = support_ipv4_gateway
         if tags is not None:
             self.tags = tags
         if update_time is not None:
@@ -282,6 +292,27 @@ class DescribeVpcAttributesResponse(object):
         """
 
         self._dns_servers = dns_servers
+
+    @property
+    def ipv4_gateway_id(self):
+        """Gets the ipv4_gateway_id of this DescribeVpcAttributesResponse.  # noqa: E501
+
+
+        :return: The ipv4_gateway_id of this DescribeVpcAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv4_gateway_id
+
+    @ipv4_gateway_id.setter
+    def ipv4_gateway_id(self, ipv4_gateway_id):
+        """Sets the ipv4_gateway_id of this DescribeVpcAttributesResponse.
+
+
+        :param ipv4_gateway_id: The ipv4_gateway_id of this DescribeVpcAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv4_gateway_id = ipv4_gateway_id
 
     @property
     def ipv6_cidr_block(self):
@@ -513,6 +544,27 @@ class DescribeVpcAttributesResponse(object):
         """
 
         self._subnet_ids = subnet_ids
+
+    @property
+    def support_ipv4_gateway(self):
+        """Gets the support_ipv4_gateway of this DescribeVpcAttributesResponse.  # noqa: E501
+
+
+        :return: The support_ipv4_gateway of this DescribeVpcAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._support_ipv4_gateway
+
+    @support_ipv4_gateway.setter
+    def support_ipv4_gateway(self, support_ipv4_gateway):
+        """Sets the support_ipv4_gateway of this DescribeVpcAttributesResponse.
+
+
+        :param support_ipv4_gateway: The support_ipv4_gateway of this DescribeVpcAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._support_ipv4_gateway = support_ipv4_gateway
 
     @property
     def tags(self):
