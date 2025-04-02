@@ -36,6 +36,7 @@ class DataVolumeForListNodePoolsOutput(object):
         'file_system': 'str',
         'mount_point': 'str',
         'size': 'int',
+        'snapshot_id': 'str',
         'type': 'str'
     }
 
@@ -43,10 +44,11 @@ class DataVolumeForListNodePoolsOutput(object):
         'file_system': 'FileSystem',
         'mount_point': 'MountPoint',
         'size': 'Size',
+        'snapshot_id': 'SnapshotId',
         'type': 'Type'
     }
 
-    def __init__(self, file_system=None, mount_point=None, size=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_system=None, mount_point=None, size=None, snapshot_id=None, type=None, _configuration=None):  # noqa: E501
         """DataVolumeForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class DataVolumeForListNodePoolsOutput(object):
         self._file_system = None
         self._mount_point = None
         self._size = None
+        self._snapshot_id = None
         self._type = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class DataVolumeForListNodePoolsOutput(object):
             self.mount_point = mount_point
         if size is not None:
             self.size = size
+        if snapshot_id is not None:
+            self.snapshot_id = snapshot_id
         if type is not None:
             self.type = type
 
@@ -129,6 +134,27 @@ class DataVolumeForListNodePoolsOutput(object):
         """
 
         self._size = size
+
+    @property
+    def snapshot_id(self):
+        """Gets the snapshot_id of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The snapshot_id of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._snapshot_id
+
+    @snapshot_id.setter
+    def snapshot_id(self, snapshot_id):
+        """Sets the snapshot_id of this DataVolumeForListNodePoolsOutput.
+
+
+        :param snapshot_id: The snapshot_id of this DataVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._snapshot_id = snapshot_id
 
     @property
     def type(self):

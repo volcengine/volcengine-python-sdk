@@ -34,6 +34,7 @@ class ItemForListClustersOutput(object):
     """
     swagger_types = {
         'cluster_config': 'ClusterConfigForListClustersOutput',
+        'connector_config': 'ConnectorConfigForListClustersOutput',
         'create_client_token': 'str',
         'create_time': 'str',
         'delete_protection_enabled': 'bool',
@@ -48,12 +49,14 @@ class ItemForListClustersOutput(object):
         'services_config': 'ServicesConfigForListClustersOutput',
         'status': 'StatusForListClustersOutput',
         'tags': 'list[TagForListClustersOutput]',
+        'type': 'str',
         'update_client_token': 'str',
         'update_time': 'str'
     }
 
     attribute_map = {
         'cluster_config': 'ClusterConfig',
+        'connector_config': 'ConnectorConfig',
         'create_client_token': 'CreateClientToken',
         'create_time': 'CreateTime',
         'delete_protection_enabled': 'DeleteProtectionEnabled',
@@ -68,17 +71,19 @@ class ItemForListClustersOutput(object):
         'services_config': 'ServicesConfig',
         'status': 'Status',
         'tags': 'Tags',
+        'type': 'Type',
         'update_client_token': 'UpdateClientToken',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cluster_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, services_config=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_config=None, connector_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, services_config=None, status=None, tags=None, type=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cluster_config = None
+        self._connector_config = None
         self._create_client_token = None
         self._create_time = None
         self._delete_protection_enabled = None
@@ -93,12 +98,15 @@ class ItemForListClustersOutput(object):
         self._services_config = None
         self._status = None
         self._tags = None
+        self._type = None
         self._update_client_token = None
         self._update_time = None
         self.discriminator = None
 
         if cluster_config is not None:
             self.cluster_config = cluster_config
+        if connector_config is not None:
+            self.connector_config = connector_config
         if create_client_token is not None:
             self.create_client_token = create_client_token
         if create_time is not None:
@@ -127,6 +135,8 @@ class ItemForListClustersOutput(object):
             self.status = status
         if tags is not None:
             self.tags = tags
+        if type is not None:
+            self.type = type
         if update_client_token is not None:
             self.update_client_token = update_client_token
         if update_time is not None:
@@ -152,6 +162,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._cluster_config = cluster_config
+
+    @property
+    def connector_config(self):
+        """Gets the connector_config of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The connector_config of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: ConnectorConfigForListClustersOutput
+        """
+        return self._connector_config
+
+    @connector_config.setter
+    def connector_config(self, connector_config):
+        """Sets the connector_config of this ItemForListClustersOutput.
+
+
+        :param connector_config: The connector_config of this ItemForListClustersOutput.  # noqa: E501
+        :type: ConnectorConfigForListClustersOutput
+        """
+
+        self._connector_config = connector_config
 
     @property
     def create_client_token(self):
@@ -446,6 +477,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def type(self):
+        """Gets the type of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The type of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ItemForListClustersOutput.
+
+
+        :param type: The type of this ItemForListClustersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def update_client_token(self):
