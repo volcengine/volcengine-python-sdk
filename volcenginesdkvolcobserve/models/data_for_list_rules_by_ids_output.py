@@ -59,6 +59,7 @@ class DataForListRulesByIdsOutput(object):
         'rule_type': 'str',
         'silence_time': 'int',
         'sub_namespace': 'str',
+        'tags': 'list[ConvertTagForListRulesByIdsOutput]',
         'updated_at': 'str',
         'web_hook': 'str',
         'webhook_ids': 'list[str]'
@@ -91,12 +92,13 @@ class DataForListRulesByIdsOutput(object):
         'rule_type': 'RuleType',
         'silence_time': 'SilenceTime',
         'sub_namespace': 'SubNamespace',
+        'tags': 'Tags',
         'updated_at': 'UpdatedAt',
         'web_hook': 'WebHook',
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, notification_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, notification_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """DataForListRulesByIdsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -128,6 +130,7 @@ class DataForListRulesByIdsOutput(object):
         self._rule_type = None
         self._silence_time = None
         self._sub_namespace = None
+        self._tags = None
         self._updated_at = None
         self._web_hook = None
         self._webhook_ids = None
@@ -185,6 +188,8 @@ class DataForListRulesByIdsOutput(object):
             self.silence_time = silence_time
         if sub_namespace is not None:
             self.sub_namespace = sub_namespace
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
         if web_hook is not None:
@@ -737,6 +742,27 @@ class DataForListRulesByIdsOutput(object):
         """
 
         self._sub_namespace = sub_namespace
+
+    @property
+    def tags(self):
+        """Gets the tags of this DataForListRulesByIdsOutput.  # noqa: E501
+
+
+        :return: The tags of this DataForListRulesByIdsOutput.  # noqa: E501
+        :rtype: list[ConvertTagForListRulesByIdsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DataForListRulesByIdsOutput.
+
+
+        :param tags: The tags of this DataForListRulesByIdsOutput.  # noqa: E501
+        :type: list[ConvertTagForListRulesByIdsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):
