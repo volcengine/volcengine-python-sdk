@@ -57,8 +57,7 @@ class TagResourcesRequest(object):
 
         if resource_ids is not None:
             self.resource_ids = resource_ids
-        if resource_type is not None:
-            self.resource_type = resource_type
+        self.resource_type = resource_type
         if tags is not None:
             self.tags = tags
 
@@ -101,7 +100,9 @@ class TagResourcesRequest(object):
         :param resource_type: The resource_type of this TagResourcesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["loadbalancer", "listener", "servergroup"]  # noqa: E501
+        if self._configuration.client_side_validation and resource_type is None:
+            raise ValueError("Invalid value for `resource_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["loadbalancer", "listener", "servergroup", "acl", "certificate", "customizedcfg", "healthchecktemplate"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 resource_type not in allowed_values):
             raise ValueError(

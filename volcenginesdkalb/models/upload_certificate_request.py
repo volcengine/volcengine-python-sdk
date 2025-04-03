@@ -38,7 +38,8 @@ class UploadCertificateRequest(object):
         'description': 'str',
         'private_key': 'str',
         'project_name': 'str',
-        'public_key': 'str'
+        'public_key': 'str',
+        'tags': 'list[TagForUploadCertificateInput]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class UploadCertificateRequest(object):
         'description': 'Description',
         'private_key': 'PrivateKey',
         'project_name': 'ProjectName',
-        'public_key': 'PublicKey'
+        'public_key': 'PublicKey',
+        'tags': 'Tags'
     }
 
-    def __init__(self, certificate_name=None, certificate_type=None, description=None, private_key=None, project_name=None, public_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_name=None, certificate_type=None, description=None, private_key=None, project_name=None, public_key=None, tags=None, _configuration=None):  # noqa: E501
         """UploadCertificateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,20 +64,20 @@ class UploadCertificateRequest(object):
         self._private_key = None
         self._project_name = None
         self._public_key = None
+        self._tags = None
         self.discriminator = None
 
         if certificate_name is not None:
             self.certificate_name = certificate_name
-        if certificate_type is not None:
-            self.certificate_type = certificate_type
+        self.certificate_type = certificate_type
         if description is not None:
             self.description = description
-        if private_key is not None:
-            self.private_key = private_key
+        self.private_key = private_key
         if project_name is not None:
             self.project_name = project_name
-        if public_key is not None:
-            self.public_key = public_key
+        self.public_key = public_key
+        if tags is not None:
+            self.tags = tags
 
     @property
     def certificate_name(self):
@@ -122,6 +124,8 @@ class UploadCertificateRequest(object):
         :param certificate_type: The certificate_type of this UploadCertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and certificate_type is None:
+            raise ValueError("Invalid value for `certificate_type`, must not be `None`")  # noqa: E501
 
         self._certificate_type = certificate_type
 
@@ -164,6 +168,8 @@ class UploadCertificateRequest(object):
         :param private_key: The private_key of this UploadCertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and private_key is None:
+            raise ValueError("Invalid value for `private_key`, must not be `None`")  # noqa: E501
 
         self._private_key = private_key
 
@@ -206,8 +212,31 @@ class UploadCertificateRequest(object):
         :param public_key: The public_key of this UploadCertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and public_key is None:
+            raise ValueError("Invalid value for `public_key`, must not be `None`")  # noqa: E501
 
         self._public_key = public_key
+
+    @property
+    def tags(self):
+        """Gets the tags of this UploadCertificateRequest.  # noqa: E501
+
+
+        :return: The tags of this UploadCertificateRequest.  # noqa: E501
+        :rtype: list[TagForUploadCertificateInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this UploadCertificateRequest.
+
+
+        :param tags: The tags of this UploadCertificateRequest.  # noqa: E501
+        :type: list[TagForUploadCertificateInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -41,6 +41,7 @@ class CustomizedCfgForDescribeCustomizedCfgsOutput(object):
         'listeners': 'list[str]',
         'project_name': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeCustomizedCfgsOutput]',
         'update_time': 'str'
     }
 
@@ -53,10 +54,11 @@ class CustomizedCfgForDescribeCustomizedCfgsOutput(object):
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, customized_cfg_content=None, customized_cfg_id=None, customized_cfg_name=None, description=None, listeners=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, customized_cfg_content=None, customized_cfg_id=None, customized_cfg_name=None, description=None, listeners=None, project_name=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """CustomizedCfgForDescribeCustomizedCfgsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class CustomizedCfgForDescribeCustomizedCfgsOutput(object):
         self._listeners = None
         self._project_name = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class CustomizedCfgForDescribeCustomizedCfgsOutput(object):
             self.project_name = project_name
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -259,6 +264,27 @@ class CustomizedCfgForDescribeCustomizedCfgsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this CustomizedCfgForDescribeCustomizedCfgsOutput.  # noqa: E501
+
+
+        :return: The tags of this CustomizedCfgForDescribeCustomizedCfgsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeCustomizedCfgsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CustomizedCfgForDescribeCustomizedCfgsOutput.
+
+
+        :param tags: The tags of this CustomizedCfgForDescribeCustomizedCfgsOutput.  # noqa: E501
+        :type: list[TagForDescribeCustomizedCfgsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

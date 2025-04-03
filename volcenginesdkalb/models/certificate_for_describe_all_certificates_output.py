@@ -43,7 +43,8 @@ class CertificateForDescribeAllCertificatesOutput(object):
         'listeners': 'list[str]',
         'project_name': 'str',
         'san': 'str',
-        'status': 'str'
+        'status': 'str',
+        'tags': 'list[TagForDescribeAllCertificatesOutput]'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class CertificateForDescribeAllCertificatesOutput(object):
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
         'san': 'San',
-        'status': 'Status'
+        'status': 'Status',
+        'tags': 'Tags'
     }
 
-    def __init__(self, certificate_id=None, certificate_name=None, certificate_type=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, san=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_id=None, certificate_name=None, certificate_type=None, create_time=None, description=None, domain_name=None, expired_at=None, listeners=None, project_name=None, san=None, status=None, tags=None, _configuration=None):  # noqa: E501
         """CertificateForDescribeAllCertificatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class CertificateForDescribeAllCertificatesOutput(object):
         self._project_name = None
         self._san = None
         self._status = None
+        self._tags = None
         self.discriminator = None
 
         if certificate_id is not None:
@@ -101,6 +104,8 @@ class CertificateForDescribeAllCertificatesOutput(object):
             self.san = san
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
 
     @property
     def certificate_id(self):
@@ -332,6 +337,27 @@ class CertificateForDescribeAllCertificatesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this CertificateForDescribeAllCertificatesOutput.  # noqa: E501
+
+
+        :return: The tags of this CertificateForDescribeAllCertificatesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeAllCertificatesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CertificateForDescribeAllCertificatesOutput.
+
+
+        :param tags: The tags of this CertificateForDescribeAllCertificatesOutput.  # noqa: E501
+        :type: list[TagForDescribeAllCertificatesOutput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
