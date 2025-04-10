@@ -39,6 +39,7 @@ class FilterForListClustersInput(object):
         'name': 'str',
         'pods_config_pod_network_mode': 'str',
         'statuses': 'list[StatusForListClustersInput]',
+        'types': 'list[str]',
         'update_client_token': 'str'
     }
 
@@ -49,10 +50,11 @@ class FilterForListClustersInput(object):
         'name': 'Name',
         'pods_config_pod_network_mode': 'PodsConfig.PodNetworkMode',
         'statuses': 'Statuses',
+        'types': 'Types',
         'update_client_token': 'UpdateClientToken'
     }
 
-    def __init__(self, create_client_token=None, delete_protection_enabled=None, ids=None, name=None, pods_config_pod_network_mode=None, statuses=None, update_client_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_client_token=None, delete_protection_enabled=None, ids=None, name=None, pods_config_pod_network_mode=None, statuses=None, types=None, update_client_token=None, _configuration=None):  # noqa: E501
         """FilterForListClustersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class FilterForListClustersInput(object):
         self._name = None
         self._pods_config_pod_network_mode = None
         self._statuses = None
+        self._types = None
         self._update_client_token = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class FilterForListClustersInput(object):
             self.pods_config_pod_network_mode = pods_config_pod_network_mode
         if statuses is not None:
             self.statuses = statuses
+        if types is not None:
+            self.types = types
         if update_client_token is not None:
             self.update_client_token = update_client_token
 
@@ -214,6 +219,35 @@ class FilterForListClustersInput(object):
         """
 
         self._statuses = statuses
+
+    @property
+    def types(self):
+        """Gets the types of this FilterForListClustersInput.  # noqa: E501
+
+
+        :return: The types of this FilterForListClustersInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._types
+
+    @types.setter
+    def types(self, types):
+        """Sets the types of this FilterForListClustersInput.
+
+
+        :param types: The types of this FilterForListClustersInput.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["Managed", "Standard", "Registered", "OnPremise"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(types).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `types` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(types) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._types = types
 
     @property
     def update_client_token(self):

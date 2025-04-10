@@ -35,6 +35,7 @@ class KubernetesConfigForListNodePoolsOutput(object):
     swagger_types = {
         'auto_sync_disabled': 'bool',
         'cordon': 'bool',
+        'kubelet_config': 'KubeletConfigForListNodePoolsOutput',
         'labels': 'list[LabelForListNodePoolsOutput]',
         'name_prefix': 'str',
         'taints': 'list[TaintForListNodePoolsOutput]'
@@ -43,12 +44,13 @@ class KubernetesConfigForListNodePoolsOutput(object):
     attribute_map = {
         'auto_sync_disabled': 'AutoSyncDisabled',
         'cordon': 'Cordon',
+        'kubelet_config': 'KubeletConfig',
         'labels': 'Labels',
         'name_prefix': 'NamePrefix',
         'taints': 'Taints'
     }
 
-    def __init__(self, auto_sync_disabled=None, cordon=None, labels=None, name_prefix=None, taints=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_sync_disabled=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, taints=None, _configuration=None):  # noqa: E501
         """KubernetesConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class KubernetesConfigForListNodePoolsOutput(object):
 
         self._auto_sync_disabled = None
         self._cordon = None
+        self._kubelet_config = None
         self._labels = None
         self._name_prefix = None
         self._taints = None
@@ -65,6 +68,8 @@ class KubernetesConfigForListNodePoolsOutput(object):
             self.auto_sync_disabled = auto_sync_disabled
         if cordon is not None:
             self.cordon = cordon
+        if kubelet_config is not None:
+            self.kubelet_config = kubelet_config
         if labels is not None:
             self.labels = labels
         if name_prefix is not None:
@@ -113,6 +118,27 @@ class KubernetesConfigForListNodePoolsOutput(object):
         """
 
         self._cordon = cordon
+
+    @property
+    def kubelet_config(self):
+        """Gets the kubelet_config of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The kubelet_config of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: KubeletConfigForListNodePoolsOutput
+        """
+        return self._kubelet_config
+
+    @kubelet_config.setter
+    def kubelet_config(self, kubelet_config):
+        """Sets the kubelet_config of this KubernetesConfigForListNodePoolsOutput.
+
+
+        :param kubelet_config: The kubelet_config of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+        :type: KubeletConfigForListNodePoolsOutput
+        """
+
+        self._kubelet_config = kubelet_config
 
     @property
     def labels(self):
