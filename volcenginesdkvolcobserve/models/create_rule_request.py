@@ -57,6 +57,7 @@ class CreateRuleRequest(object):
         'rule_type': 'str',
         'silence_time': 'int',
         'sub_namespace': 'str',
+        'tags': 'list[ConvertTagForCreateRuleInput]',
         'webhook': 'str',
         'webhook_ids': 'list[str]'
     }
@@ -86,11 +87,12 @@ class CreateRuleRequest(object):
         'rule_type': 'RuleType',
         'silence_time': 'SilenceTime',
         'sub_namespace': 'SubNamespace',
+        'tags': 'Tags',
         'webhook': 'Webhook',
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """CreateRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -120,6 +122,7 @@ class CreateRuleRequest(object):
         self._rule_type = None
         self._silence_time = None
         self._sub_namespace = None
+        self._tags = None
         self._webhook = None
         self._webhook_ids = None
         self.discriminator = None
@@ -162,6 +165,8 @@ class CreateRuleRequest(object):
         self.rule_type = rule_type
         self.silence_time = silence_time
         self.sub_namespace = sub_namespace
+        if tags is not None:
+            self.tags = tags
         if webhook is not None:
             self.webhook = webhook
         if webhook_ids is not None:
@@ -705,6 +710,27 @@ class CreateRuleRequest(object):
             raise ValueError("Invalid value for `sub_namespace`, must not be `None`")  # noqa: E501
 
         self._sub_namespace = sub_namespace
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateRuleRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateRuleRequest.  # noqa: E501
+        :rtype: list[ConvertTagForCreateRuleInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateRuleRequest.
+
+
+        :param tags: The tags of this CreateRuleRequest.  # noqa: E501
+        :type: list[ConvertTagForCreateRuleInput]
+        """
+
+        self._tags = tags
 
     @property
     def webhook(self):
