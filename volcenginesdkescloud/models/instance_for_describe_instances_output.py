@@ -43,8 +43,10 @@ class InstanceForDescribeInstancesOutput(object):
         'es_eip': 'str',
         'es_eip_id': 'str',
         'es_private_endpoint': 'str',
+        'es_private_ip_allow_list': 'str',
         'es_private_ip_whitelist': 'str',
         'es_public_endpoint': 'str',
+        'es_public_ip_allow_list': 'str',
         'es_public_ip_whitelist': 'str',
         'enable_es_private_domain_public': 'bool',
         'enable_es_private_network': 'bool',
@@ -59,14 +61,17 @@ class InstanceForDescribeInstancesOutput(object):
         'kibana_eip': 'str',
         'kibana_eip_id': 'str',
         'kibana_private_domain': 'str',
+        'kibana_private_ip_allow_list': 'str',
         'kibana_private_ip_whitelist': 'str',
         'kibana_public_domain': 'str',
+        'kibana_public_ip_allow_list': 'str',
         'kibana_public_ip_whitelist': 'str',
         'main_zone_id': 'str',
         'maintenance_day': 'list[str]',
         'maintenance_time': 'str',
         'resource_tags': 'list[ResourceTagForDescribeInstancesOutput]',
         'status': 'str',
+        'sub_instance_enable': 'str',
         'sub_instances': 'list[SubInstanceForDescribeInstancesOutput]',
         'support_cold_node': 'bool',
         'total_nodes': 'int',
@@ -85,8 +90,10 @@ class InstanceForDescribeInstancesOutput(object):
         'es_eip': 'ESEip',
         'es_eip_id': 'ESEipId',
         'es_private_endpoint': 'ESPrivateEndpoint',
+        'es_private_ip_allow_list': 'ESPrivateIpAllowList',
         'es_private_ip_whitelist': 'ESPrivateIpWhitelist',
         'es_public_endpoint': 'ESPublicEndpoint',
+        'es_public_ip_allow_list': 'ESPublicIpAllowList',
         'es_public_ip_whitelist': 'ESPublicIpWhitelist',
         'enable_es_private_domain_public': 'EnableESPrivateDomainPublic',
         'enable_es_private_network': 'EnableESPrivateNetwork',
@@ -101,14 +108,17 @@ class InstanceForDescribeInstancesOutput(object):
         'kibana_eip': 'KibanaEip',
         'kibana_eip_id': 'KibanaEipId',
         'kibana_private_domain': 'KibanaPrivateDomain',
+        'kibana_private_ip_allow_list': 'KibanaPrivateIpAllowList',
         'kibana_private_ip_whitelist': 'KibanaPrivateIpWhitelist',
         'kibana_public_domain': 'KibanaPublicDomain',
+        'kibana_public_ip_allow_list': 'KibanaPublicIpAllowList',
         'kibana_public_ip_whitelist': 'KibanaPublicIpWhitelist',
         'main_zone_id': 'MainZoneId',
         'maintenance_day': 'MaintenanceDay',
         'maintenance_time': 'MaintenanceTime',
         'resource_tags': 'ResourceTags',
         'status': 'Status',
+        'sub_instance_enable': 'SubInstanceEnable',
         'sub_instances': 'SubInstances',
         'support_cold_node': 'SupportColdNode',
         'total_nodes': 'TotalNodes',
@@ -116,7 +126,7 @@ class InstanceForDescribeInstancesOutput(object):
         'user_id': 'UserId'
     }
 
-    def __init__(self, cerebro_enabled=None, cerebro_private_domain=None, cerebro_public_domain=None, charge_enabled=None, cluster_id=None, create_time=None, deletion_protection=None, es_eip=None, es_eip_id=None, es_private_endpoint=None, es_private_ip_whitelist=None, es_public_endpoint=None, es_public_ip_whitelist=None, enable_es_private_domain_public=None, enable_es_private_network=None, enable_es_public_network=None, enable_kibana_private_domain_public=None, enable_kibana_private_network=None, enable_kibana_public_network=None, expire_date=None, instance_configuration=None, instance_id=None, kibana_config=None, kibana_eip=None, kibana_eip_id=None, kibana_private_domain=None, kibana_private_ip_whitelist=None, kibana_public_domain=None, kibana_public_ip_whitelist=None, main_zone_id=None, maintenance_day=None, maintenance_time=None, resource_tags=None, status=None, sub_instances=None, support_cold_node=None, total_nodes=None, transfer_info=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cerebro_enabled=None, cerebro_private_domain=None, cerebro_public_domain=None, charge_enabled=None, cluster_id=None, create_time=None, deletion_protection=None, es_eip=None, es_eip_id=None, es_private_endpoint=None, es_private_ip_allow_list=None, es_private_ip_whitelist=None, es_public_endpoint=None, es_public_ip_allow_list=None, es_public_ip_whitelist=None, enable_es_private_domain_public=None, enable_es_private_network=None, enable_es_public_network=None, enable_kibana_private_domain_public=None, enable_kibana_private_network=None, enable_kibana_public_network=None, expire_date=None, instance_configuration=None, instance_id=None, kibana_config=None, kibana_eip=None, kibana_eip_id=None, kibana_private_domain=None, kibana_private_ip_allow_list=None, kibana_private_ip_whitelist=None, kibana_public_domain=None, kibana_public_ip_allow_list=None, kibana_public_ip_whitelist=None, main_zone_id=None, maintenance_day=None, maintenance_time=None, resource_tags=None, status=None, sub_instance_enable=None, sub_instances=None, support_cold_node=None, total_nodes=None, transfer_info=None, user_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -132,8 +142,10 @@ class InstanceForDescribeInstancesOutput(object):
         self._es_eip = None
         self._es_eip_id = None
         self._es_private_endpoint = None
+        self._es_private_ip_allow_list = None
         self._es_private_ip_whitelist = None
         self._es_public_endpoint = None
+        self._es_public_ip_allow_list = None
         self._es_public_ip_whitelist = None
         self._enable_es_private_domain_public = None
         self._enable_es_private_network = None
@@ -148,14 +160,17 @@ class InstanceForDescribeInstancesOutput(object):
         self._kibana_eip = None
         self._kibana_eip_id = None
         self._kibana_private_domain = None
+        self._kibana_private_ip_allow_list = None
         self._kibana_private_ip_whitelist = None
         self._kibana_public_domain = None
+        self._kibana_public_ip_allow_list = None
         self._kibana_public_ip_whitelist = None
         self._main_zone_id = None
         self._maintenance_day = None
         self._maintenance_time = None
         self._resource_tags = None
         self._status = None
+        self._sub_instance_enable = None
         self._sub_instances = None
         self._support_cold_node = None
         self._total_nodes = None
@@ -183,10 +198,14 @@ class InstanceForDescribeInstancesOutput(object):
             self.es_eip_id = es_eip_id
         if es_private_endpoint is not None:
             self.es_private_endpoint = es_private_endpoint
+        if es_private_ip_allow_list is not None:
+            self.es_private_ip_allow_list = es_private_ip_allow_list
         if es_private_ip_whitelist is not None:
             self.es_private_ip_whitelist = es_private_ip_whitelist
         if es_public_endpoint is not None:
             self.es_public_endpoint = es_public_endpoint
+        if es_public_ip_allow_list is not None:
+            self.es_public_ip_allow_list = es_public_ip_allow_list
         if es_public_ip_whitelist is not None:
             self.es_public_ip_whitelist = es_public_ip_whitelist
         if enable_es_private_domain_public is not None:
@@ -215,10 +234,14 @@ class InstanceForDescribeInstancesOutput(object):
             self.kibana_eip_id = kibana_eip_id
         if kibana_private_domain is not None:
             self.kibana_private_domain = kibana_private_domain
+        if kibana_private_ip_allow_list is not None:
+            self.kibana_private_ip_allow_list = kibana_private_ip_allow_list
         if kibana_private_ip_whitelist is not None:
             self.kibana_private_ip_whitelist = kibana_private_ip_whitelist
         if kibana_public_domain is not None:
             self.kibana_public_domain = kibana_public_domain
+        if kibana_public_ip_allow_list is not None:
+            self.kibana_public_ip_allow_list = kibana_public_ip_allow_list
         if kibana_public_ip_whitelist is not None:
             self.kibana_public_ip_whitelist = kibana_public_ip_whitelist
         if main_zone_id is not None:
@@ -231,6 +254,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.resource_tags = resource_tags
         if status is not None:
             self.status = status
+        if sub_instance_enable is not None:
+            self.sub_instance_enable = sub_instance_enable
         if sub_instances is not None:
             self.sub_instances = sub_instances
         if support_cold_node is not None:
@@ -453,6 +478,27 @@ class InstanceForDescribeInstancesOutput(object):
         self._es_private_endpoint = es_private_endpoint
 
     @property
+    def es_private_ip_allow_list(self):
+        """Gets the es_private_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The es_private_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._es_private_ip_allow_list
+
+    @es_private_ip_allow_list.setter
+    def es_private_ip_allow_list(self, es_private_ip_allow_list):
+        """Sets the es_private_ip_allow_list of this InstanceForDescribeInstancesOutput.
+
+
+        :param es_private_ip_allow_list: The es_private_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._es_private_ip_allow_list = es_private_ip_allow_list
+
+    @property
     def es_private_ip_whitelist(self):
         """Gets the es_private_ip_whitelist of this InstanceForDescribeInstancesOutput.  # noqa: E501
 
@@ -493,6 +539,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._es_public_endpoint = es_public_endpoint
+
+    @property
+    def es_public_ip_allow_list(self):
+        """Gets the es_public_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The es_public_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._es_public_ip_allow_list
+
+    @es_public_ip_allow_list.setter
+    def es_public_ip_allow_list(self, es_public_ip_allow_list):
+        """Sets the es_public_ip_allow_list of this InstanceForDescribeInstancesOutput.
+
+
+        :param es_public_ip_allow_list: The es_public_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._es_public_ip_allow_list = es_public_ip_allow_list
 
     @property
     def es_public_ip_whitelist(self):
@@ -789,6 +856,27 @@ class InstanceForDescribeInstancesOutput(object):
         self._kibana_private_domain = kibana_private_domain
 
     @property
+    def kibana_private_ip_allow_list(self):
+        """Gets the kibana_private_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The kibana_private_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._kibana_private_ip_allow_list
+
+    @kibana_private_ip_allow_list.setter
+    def kibana_private_ip_allow_list(self, kibana_private_ip_allow_list):
+        """Sets the kibana_private_ip_allow_list of this InstanceForDescribeInstancesOutput.
+
+
+        :param kibana_private_ip_allow_list: The kibana_private_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._kibana_private_ip_allow_list = kibana_private_ip_allow_list
+
+    @property
     def kibana_private_ip_whitelist(self):
         """Gets the kibana_private_ip_whitelist of this InstanceForDescribeInstancesOutput.  # noqa: E501
 
@@ -829,6 +917,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._kibana_public_domain = kibana_public_domain
+
+    @property
+    def kibana_public_ip_allow_list(self):
+        """Gets the kibana_public_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The kibana_public_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._kibana_public_ip_allow_list
+
+    @kibana_public_ip_allow_list.setter
+    def kibana_public_ip_allow_list(self, kibana_public_ip_allow_list):
+        """Sets the kibana_public_ip_allow_list of this InstanceForDescribeInstancesOutput.
+
+
+        :param kibana_public_ip_allow_list: The kibana_public_ip_allow_list of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._kibana_public_ip_allow_list = kibana_public_ip_allow_list
 
     @property
     def kibana_public_ip_whitelist(self):
@@ -955,6 +1064,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def sub_instance_enable(self):
+        """Gets the sub_instance_enable of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The sub_instance_enable of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sub_instance_enable
+
+    @sub_instance_enable.setter
+    def sub_instance_enable(self, sub_instance_enable):
+        """Sets the sub_instance_enable of this InstanceForDescribeInstancesOutput.
+
+
+        :param sub_instance_enable: The sub_instance_enable of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._sub_instance_enable = sub_instance_enable
 
     @property
     def sub_instances(self):

@@ -38,7 +38,8 @@ class RenewInstanceRequest(object):
         'product': 'str',
         'renew_related_instance': 'bool',
         'renewal_duration': 'int',
-        'renewal_duration_unit': 'str'
+        'renewal_duration_unit': 'str',
+        'united_expire_day': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class RenewInstanceRequest(object):
         'product': 'Product',
         'renew_related_instance': 'RenewRelatedInstance',
         'renewal_duration': 'RenewalDuration',
-        'renewal_duration_unit': 'RenewalDurationUnit'
+        'renewal_duration_unit': 'RenewalDurationUnit',
+        'united_expire_day': 'UnitedExpireDay'
     }
 
-    def __init__(self, client_token=None, instance_id=None, product=None, renew_related_instance=None, renewal_duration=None, renewal_duration_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_id=None, product=None, renew_related_instance=None, renewal_duration=None, renewal_duration_unit=None, united_expire_day=None, _configuration=None):  # noqa: E501
         """RenewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class RenewInstanceRequest(object):
         self._renew_related_instance = None
         self._renewal_duration = None
         self._renewal_duration_unit = None
+        self._united_expire_day = None
         self.discriminator = None
 
         if client_token is not None:
@@ -73,6 +76,8 @@ class RenewInstanceRequest(object):
         if renewal_duration is not None:
             self.renewal_duration = renewal_duration
         self.renewal_duration_unit = renewal_duration_unit
+        if united_expire_day is not None:
+            self.united_expire_day = united_expire_day
 
     @property
     def client_token(self):
@@ -205,6 +210,27 @@ class RenewInstanceRequest(object):
             raise ValueError("Invalid value for `renewal_duration_unit`, must not be `None`")  # noqa: E501
 
         self._renewal_duration_unit = renewal_duration_unit
+
+    @property
+    def united_expire_day(self):
+        """Gets the united_expire_day of this RenewInstanceRequest.  # noqa: E501
+
+
+        :return: The united_expire_day of this RenewInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._united_expire_day
+
+    @united_expire_day.setter
+    def united_expire_day(self, united_expire_day):
+        """Sets the united_expire_day of this RenewInstanceRequest.
+
+
+        :param united_expire_day: The united_expire_day of this RenewInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._united_expire_day = united_expire_day
 
     def to_dict(self):
         """Returns the model properties as a dict"""

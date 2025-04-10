@@ -52,6 +52,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         'enable_kibana_private_domain_public': 'bool',
         'enable_kibana_private_network': 'bool',
         'enable_kibana_public_network': 'bool',
+        'es_pub_bandwidth': 'int',
         'expire_date': 'str',
         'instance_configuration': 'InstanceConfigurationForDescribeInstanceOutput',
         'instance_id': 'str',
@@ -60,6 +61,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         'kibana_eip_id': 'str',
         'kibana_private_domain': 'str',
         'kibana_private_ip_whitelist': 'str',
+        'kibana_pub_bandwidth': 'int',
         'kibana_public_domain': 'str',
         'kibana_public_ip_whitelist': 'str',
         'main_zone_id': 'str',
@@ -67,6 +69,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         'maintenance_time': 'str',
         'resource_tags': 'list[ResourceTagForDescribeInstanceOutput]',
         'status': 'str',
+        'sub_instance_enable': 'str',
         'sub_instances': 'list[SubInstanceForDescribeInstanceOutput]',
         'support_cold_node': 'bool',
         'total_nodes': 'int',
@@ -94,6 +97,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         'enable_kibana_private_domain_public': 'EnableKibanaPrivateDomainPublic',
         'enable_kibana_private_network': 'EnableKibanaPrivateNetwork',
         'enable_kibana_public_network': 'EnableKibanaPublicNetwork',
+        'es_pub_bandwidth': 'EsPubBandwidth',
         'expire_date': 'ExpireDate',
         'instance_configuration': 'InstanceConfiguration',
         'instance_id': 'InstanceId',
@@ -102,6 +106,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         'kibana_eip_id': 'KibanaEipId',
         'kibana_private_domain': 'KibanaPrivateDomain',
         'kibana_private_ip_whitelist': 'KibanaPrivateIpWhitelist',
+        'kibana_pub_bandwidth': 'KibanaPubBandwidth',
         'kibana_public_domain': 'KibanaPublicDomain',
         'kibana_public_ip_whitelist': 'KibanaPublicIpWhitelist',
         'main_zone_id': 'MainZoneId',
@@ -109,6 +114,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         'maintenance_time': 'MaintenanceTime',
         'resource_tags': 'ResourceTags',
         'status': 'Status',
+        'sub_instance_enable': 'SubInstanceEnable',
         'sub_instances': 'SubInstances',
         'support_cold_node': 'SupportColdNode',
         'total_nodes': 'TotalNodes',
@@ -116,7 +122,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         'user_id': 'UserId'
     }
 
-    def __init__(self, cerebro_enabled=None, cerebro_private_domain=None, cerebro_public_domain=None, charge_enabled=None, cluster_id=None, create_time=None, deletion_protection=None, es_eip=None, es_eip_id=None, es_private_endpoint=None, es_private_ip_whitelist=None, es_public_endpoint=None, es_public_ip_whitelist=None, enable_es_private_domain_public=None, enable_es_private_network=None, enable_es_public_network=None, enable_kibana_private_domain_public=None, enable_kibana_private_network=None, enable_kibana_public_network=None, expire_date=None, instance_configuration=None, instance_id=None, kibana_config=None, kibana_eip=None, kibana_eip_id=None, kibana_private_domain=None, kibana_private_ip_whitelist=None, kibana_public_domain=None, kibana_public_ip_whitelist=None, main_zone_id=None, maintenance_day=None, maintenance_time=None, resource_tags=None, status=None, sub_instances=None, support_cold_node=None, total_nodes=None, transfer_info=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cerebro_enabled=None, cerebro_private_domain=None, cerebro_public_domain=None, charge_enabled=None, cluster_id=None, create_time=None, deletion_protection=None, es_eip=None, es_eip_id=None, es_private_endpoint=None, es_private_ip_whitelist=None, es_public_endpoint=None, es_public_ip_whitelist=None, enable_es_private_domain_public=None, enable_es_private_network=None, enable_es_public_network=None, enable_kibana_private_domain_public=None, enable_kibana_private_network=None, enable_kibana_public_network=None, es_pub_bandwidth=None, expire_date=None, instance_configuration=None, instance_id=None, kibana_config=None, kibana_eip=None, kibana_eip_id=None, kibana_private_domain=None, kibana_private_ip_whitelist=None, kibana_pub_bandwidth=None, kibana_public_domain=None, kibana_public_ip_whitelist=None, main_zone_id=None, maintenance_day=None, maintenance_time=None, resource_tags=None, status=None, sub_instance_enable=None, sub_instances=None, support_cold_node=None, total_nodes=None, transfer_info=None, user_id=None, _configuration=None):  # noqa: E501
         """InstanceInfoForDescribeInstanceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -141,6 +147,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         self._enable_kibana_private_domain_public = None
         self._enable_kibana_private_network = None
         self._enable_kibana_public_network = None
+        self._es_pub_bandwidth = None
         self._expire_date = None
         self._instance_configuration = None
         self._instance_id = None
@@ -149,6 +156,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         self._kibana_eip_id = None
         self._kibana_private_domain = None
         self._kibana_private_ip_whitelist = None
+        self._kibana_pub_bandwidth = None
         self._kibana_public_domain = None
         self._kibana_public_ip_whitelist = None
         self._main_zone_id = None
@@ -156,6 +164,7 @@ class InstanceInfoForDescribeInstanceOutput(object):
         self._maintenance_time = None
         self._resource_tags = None
         self._status = None
+        self._sub_instance_enable = None
         self._sub_instances = None
         self._support_cold_node = None
         self._total_nodes = None
@@ -201,6 +210,8 @@ class InstanceInfoForDescribeInstanceOutput(object):
             self.enable_kibana_private_network = enable_kibana_private_network
         if enable_kibana_public_network is not None:
             self.enable_kibana_public_network = enable_kibana_public_network
+        if es_pub_bandwidth is not None:
+            self.es_pub_bandwidth = es_pub_bandwidth
         if expire_date is not None:
             self.expire_date = expire_date
         if instance_configuration is not None:
@@ -217,6 +228,8 @@ class InstanceInfoForDescribeInstanceOutput(object):
             self.kibana_private_domain = kibana_private_domain
         if kibana_private_ip_whitelist is not None:
             self.kibana_private_ip_whitelist = kibana_private_ip_whitelist
+        if kibana_pub_bandwidth is not None:
+            self.kibana_pub_bandwidth = kibana_pub_bandwidth
         if kibana_public_domain is not None:
             self.kibana_public_domain = kibana_public_domain
         if kibana_public_ip_whitelist is not None:
@@ -231,6 +244,8 @@ class InstanceInfoForDescribeInstanceOutput(object):
             self.resource_tags = resource_tags
         if status is not None:
             self.status = status
+        if sub_instance_enable is not None:
+            self.sub_instance_enable = sub_instance_enable
         if sub_instances is not None:
             self.sub_instances = sub_instances
         if support_cold_node is not None:
@@ -642,6 +657,27 @@ class InstanceInfoForDescribeInstanceOutput(object):
         self._enable_kibana_public_network = enable_kibana_public_network
 
     @property
+    def es_pub_bandwidth(self):
+        """Gets the es_pub_bandwidth of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+
+
+        :return: The es_pub_bandwidth of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._es_pub_bandwidth
+
+    @es_pub_bandwidth.setter
+    def es_pub_bandwidth(self, es_pub_bandwidth):
+        """Sets the es_pub_bandwidth of this InstanceInfoForDescribeInstanceOutput.
+
+
+        :param es_pub_bandwidth: The es_pub_bandwidth of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._es_pub_bandwidth = es_pub_bandwidth
+
+    @property
     def expire_date(self):
         """Gets the expire_date of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
 
@@ -810,6 +846,27 @@ class InstanceInfoForDescribeInstanceOutput(object):
         self._kibana_private_ip_whitelist = kibana_private_ip_whitelist
 
     @property
+    def kibana_pub_bandwidth(self):
+        """Gets the kibana_pub_bandwidth of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+
+
+        :return: The kibana_pub_bandwidth of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._kibana_pub_bandwidth
+
+    @kibana_pub_bandwidth.setter
+    def kibana_pub_bandwidth(self, kibana_pub_bandwidth):
+        """Sets the kibana_pub_bandwidth of this InstanceInfoForDescribeInstanceOutput.
+
+
+        :param kibana_pub_bandwidth: The kibana_pub_bandwidth of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._kibana_pub_bandwidth = kibana_pub_bandwidth
+
+    @property
     def kibana_public_domain(self):
         """Gets the kibana_public_domain of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
 
@@ -955,6 +1012,27 @@ class InstanceInfoForDescribeInstanceOutput(object):
         """
 
         self._status = status
+
+    @property
+    def sub_instance_enable(self):
+        """Gets the sub_instance_enable of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+
+
+        :return: The sub_instance_enable of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sub_instance_enable
+
+    @sub_instance_enable.setter
+    def sub_instance_enable(self, sub_instance_enable):
+        """Sets the sub_instance_enable of this InstanceInfoForDescribeInstanceOutput.
+
+
+        :param sub_instance_enable: The sub_instance_enable of this InstanceInfoForDescribeInstanceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._sub_instance_enable = sub_instance_enable
 
     @property
     def sub_instances(self):
