@@ -39,6 +39,7 @@ class DescribeIpv6GatewayAttributeResponse(object):
         'name': 'str',
         'project_name': 'str',
         'request_id': 'str',
+        'route_table_id': 'str',
         'status': 'str',
         'update_time': 'str',
         'vpc_id': 'str'
@@ -51,12 +52,13 @@ class DescribeIpv6GatewayAttributeResponse(object):
         'name': 'Name',
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
+        'route_table_id': 'RouteTableId',
         'status': 'Status',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, ipv6_gateway_id=None, name=None, project_name=None, request_id=None, status=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, ipv6_gateway_id=None, name=None, project_name=None, request_id=None, route_table_id=None, status=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeIpv6GatewayAttributeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class DescribeIpv6GatewayAttributeResponse(object):
         self._name = None
         self._project_name = None
         self._request_id = None
+        self._route_table_id = None
         self._status = None
         self._update_time = None
         self._vpc_id = None
@@ -85,6 +88,8 @@ class DescribeIpv6GatewayAttributeResponse(object):
             self.project_name = project_name
         if request_id is not None:
             self.request_id = request_id
+        if route_table_id is not None:
+            self.route_table_id = route_table_id
         if status is not None:
             self.status = status
         if update_time is not None:
@@ -217,6 +222,27 @@ class DescribeIpv6GatewayAttributeResponse(object):
         """
 
         self._request_id = request_id
+
+    @property
+    def route_table_id(self):
+        """Gets the route_table_id of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+
+
+        :return: The route_table_id of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._route_table_id
+
+    @route_table_id.setter
+    def route_table_id(self, route_table_id):
+        """Sets the route_table_id of this DescribeIpv6GatewayAttributeResponse.
+
+
+        :param route_table_id: The route_table_id of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._route_table_id = route_table_id
 
     @property
     def status(self):
