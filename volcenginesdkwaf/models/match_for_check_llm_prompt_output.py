@@ -38,8 +38,8 @@ class MatchForCheckLLMPromptOutput(object):
     }
 
     attribute_map = {
-        'label': 'label',
-        'word': 'word'
+        'label': 'Label',
+        'word': 'Word'
     }
 
     def __init__(self, label=None, word=None, _configuration=None):  # noqa: E501

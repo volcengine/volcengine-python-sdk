@@ -34,7 +34,7 @@ class ListVulWhiteFieldRequest(object):
     """
     swagger_types = {
         'host': 'str',
-        'page': 'str',
+        'page': 'int',
         'page_size': 'int',
         'project_name': 'str',
         'rule_tag': 'str'
@@ -62,7 +62,8 @@ class ListVulWhiteFieldRequest(object):
         self.discriminator = None
 
         self.host = host
-        self.page = page
+        if page is not None:
+            self.page = page
         self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
@@ -98,7 +99,7 @@ class ListVulWhiteFieldRequest(object):
 
 
         :return: The page of this ListVulWhiteFieldRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._page
 
@@ -108,10 +109,8 @@ class ListVulWhiteFieldRequest(object):
 
 
         :param page: The page of this ListVulWhiteFieldRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
-        if self._configuration.client_side_validation and page is None:
-            raise ValueError("Invalid value for `page`, must not be `None`")  # noqa: E501
 
         self._page = page
 
