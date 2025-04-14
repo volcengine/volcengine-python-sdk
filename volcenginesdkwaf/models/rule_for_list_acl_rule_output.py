@@ -50,7 +50,7 @@ class RuleForListAclRuleOutput(object):
         'ip_list': 'list[str]',
         'ip_location_country': 'list[str]',
         'ip_location_subregion': 'list[str]',
-        'name': 'list[str]',
+        'name': 'str',
         'prefix_switch': 'list[str]',
         'rule_tag': 'str',
         'update_time': 'str',
@@ -520,7 +520,7 @@ class RuleForListAclRuleOutput(object):
 
 
         :return: The name of this RuleForListAclRuleOutput.  # noqa: E501
-        :rtype: list[str]
+        :rtype: str
         """
         return self._name
 
@@ -530,7 +530,7 @@ class RuleForListAclRuleOutput(object):
 
 
         :param name: The name of this RuleForListAclRuleOutput.  # noqa: E501
-        :type: list[str]
+        :type: str
         """
 
         self._name = name
