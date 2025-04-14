@@ -33,24 +33,86 @@ class ListVulWhiteFieldResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[DataForListVulWhiteFieldOutput]'
+        'count': 'int',
+        'current_page': 'int',
+        'data': 'list[DataForListVulWhiteFieldOutput]',
+        'page_size': 'int',
+        'total_count': 'int'
     }
 
     attribute_map = {
-        'data': 'Data'
+        'count': 'Count',
+        'current_page': 'CurrentPage',
+        'data': 'Data',
+        'page_size': 'PageSize',
+        'total_count': 'TotalCount'
     }
 
-    def __init__(self, data=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, current_page=None, data=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
         """ListVulWhiteFieldResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._count = None
+        self._current_page = None
         self._data = None
+        self._page_size = None
+        self._total_count = None
         self.discriminator = None
 
+        if count is not None:
+            self.count = count
+        if current_page is not None:
+            self.current_page = current_page
         if data is not None:
             self.data = data
+        if page_size is not None:
+            self.page_size = page_size
+        if total_count is not None:
+            self.total_count = total_count
+
+    @property
+    def count(self):
+        """Gets the count of this ListVulWhiteFieldResponse.  # noqa: E501
+
+
+        :return: The count of this ListVulWhiteFieldResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._count
+
+    @count.setter
+    def count(self, count):
+        """Sets the count of this ListVulWhiteFieldResponse.
+
+
+        :param count: The count of this ListVulWhiteFieldResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._count = count
+
+    @property
+    def current_page(self):
+        """Gets the current_page of this ListVulWhiteFieldResponse.  # noqa: E501
+
+
+        :return: The current_page of this ListVulWhiteFieldResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_page
+
+    @current_page.setter
+    def current_page(self, current_page):
+        """Sets the current_page of this ListVulWhiteFieldResponse.
+
+
+        :param current_page: The current_page of this ListVulWhiteFieldResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._current_page = current_page
 
     @property
     def data(self):
@@ -72,6 +134,48 @@ class ListVulWhiteFieldResponse(object):
         """
 
         self._data = data
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this ListVulWhiteFieldResponse.  # noqa: E501
+
+
+        :return: The page_size of this ListVulWhiteFieldResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this ListVulWhiteFieldResponse.
+
+
+        :param page_size: The page_size of this ListVulWhiteFieldResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
+
+    @property
+    def total_count(self):
+        """Gets the total_count of this ListVulWhiteFieldResponse.  # noqa: E501
+
+
+        :return: The total_count of this ListVulWhiteFieldResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count
+
+    @total_count.setter
+    def total_count(self, total_count):
+        """Sets the total_count of this ListVulWhiteFieldResponse.
+
+
+        :param total_count: The total_count of this ListVulWhiteFieldResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total_count = total_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""
