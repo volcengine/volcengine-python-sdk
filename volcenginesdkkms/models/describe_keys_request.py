@@ -37,7 +37,8 @@ class DescribeKeysRequest(object):
         'filters': 'str',
         'keyring_id': 'str',
         'keyring_name': 'str',
-        'page_size': 'int'
+        'page_size': 'int',
+        'tag_filters': 'list[TagFilterForDescribeKeysInput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeKeysRequest(object):
         'filters': 'Filters',
         'keyring_id': 'KeyringID',
         'keyring_name': 'KeyringName',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, current_page=None, filters=None, keyring_id=None, keyring_name=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, current_page=None, filters=None, keyring_id=None, keyring_name=None, page_size=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeKeysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeKeysRequest(object):
         self._keyring_id = None
         self._keyring_name = None
         self._page_size = None
+        self._tag_filters = None
         self.discriminator = None
 
         if current_page is not None:
@@ -71,6 +74,8 @@ class DescribeKeysRequest(object):
             self.keyring_name = keyring_name
         if page_size is not None:
             self.page_size = page_size
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def current_page(self):
@@ -194,6 +199,27 @@ class DescribeKeysRequest(object):
             raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeKeysRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeKeysRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeKeysInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeKeysRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeKeysRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeKeysInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

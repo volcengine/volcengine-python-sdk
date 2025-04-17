@@ -49,6 +49,7 @@ class KeyForDescribeKeysOutput(object):
         'rotation_state': 'str',
         'schedule_delete_time': 'str',
         'schedule_rotation_time': 'str',
+        'tags': 'list[TagForDescribeKeysOutput]',
         'trn': 'str',
         'update_date': 'int'
     }
@@ -70,11 +71,12 @@ class KeyForDescribeKeysOutput(object):
         'rotation_state': 'RotationState',
         'schedule_delete_time': 'ScheduleDeleteTime',
         'schedule_rotation_time': 'ScheduleRotationTime',
+        'tags': 'Tags',
         'trn': 'Trn',
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, creation_date=None, description=None, id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, last_rotation_time=None, multi_region=None, multi_region_configuration=None, origin=None, protection_level=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_date=None, description=None, id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, last_rotation_time=None, multi_region=None, multi_region_configuration=None, origin=None, protection_level=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, tags=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
         """KeyForDescribeKeysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class KeyForDescribeKeysOutput(object):
         self._rotation_state = None
         self._schedule_delete_time = None
         self._schedule_rotation_time = None
+        self._tags = None
         self._trn = None
         self._update_date = None
         self.discriminator = None
@@ -132,6 +135,8 @@ class KeyForDescribeKeysOutput(object):
             self.schedule_delete_time = schedule_delete_time
         if schedule_rotation_time is not None:
             self.schedule_rotation_time = schedule_rotation_time
+        if tags is not None:
+            self.tags = tags
         if trn is not None:
             self.trn = trn
         if update_date is not None:
@@ -472,6 +477,27 @@ class KeyForDescribeKeysOutput(object):
         """
 
         self._schedule_rotation_time = schedule_rotation_time
+
+    @property
+    def tags(self):
+        """Gets the tags of this KeyForDescribeKeysOutput.  # noqa: E501
+
+
+        :return: The tags of this KeyForDescribeKeysOutput.  # noqa: E501
+        :rtype: list[TagForDescribeKeysOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this KeyForDescribeKeysOutput.
+
+
+        :param tags: The tags of this KeyForDescribeKeysOutput.  # noqa: E501
+        :type: list[TagForDescribeKeysOutput]
+        """
+
+        self._tags = tags
 
     @property
     def trn(self):
