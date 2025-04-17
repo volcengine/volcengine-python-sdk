@@ -64,16 +64,11 @@ class CreateVulWhiteFieldRequest(object):
         self._project_name = None
         self.discriminator = None
 
-        if enable is not None:
-            self.enable = enable
-        if field_area is not None:
-            self.field_area = field_area
-        if field_list is not None:
-            self.field_list = field_list
-        if host is not None:
-            self.host = host
-        if name is not None:
-            self.name = name
+        self.enable = enable
+        self.field_area = field_area
+        self.field_list = field_list
+        self.host = host
+        self.name = name
         if project_name is not None:
             self.project_name = project_name
 
@@ -95,6 +90,8 @@ class CreateVulWhiteFieldRequest(object):
         :param enable: The enable of this CreateVulWhiteFieldRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and enable is None:
+            raise ValueError("Invalid value for `enable`, must not be `None`")  # noqa: E501
 
         self._enable = enable
 
@@ -116,13 +113,8 @@ class CreateVulWhiteFieldRequest(object):
         :param field_area: The field_area of this CreateVulWhiteFieldRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["args", "url", "cookies", "headers", "bodydetail"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                field_area not in allowed_values):
-            raise ValueError(
-                "Invalid value for `field_area` ({0}), must be one of {1}"  # noqa: E501
-                .format(field_area, allowed_values)
-            )
+        if self._configuration.client_side_validation and field_area is None:
+            raise ValueError("Invalid value for `field_area`, must not be `None`")  # noqa: E501
 
         self._field_area = field_area
 
@@ -144,6 +136,8 @@ class CreateVulWhiteFieldRequest(object):
         :param field_list: The field_list of this CreateVulWhiteFieldRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and field_list is None:
+            raise ValueError("Invalid value for `field_list`, must not be `None`")  # noqa: E501
 
         self._field_list = field_list
 
@@ -165,6 +159,8 @@ class CreateVulWhiteFieldRequest(object):
         :param host: The host of this CreateVulWhiteFieldRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and host is None:
+            raise ValueError("Invalid value for `host`, must not be `None`")  # noqa: E501
 
         self._host = host
 
@@ -186,6 +182,8 @@ class CreateVulWhiteFieldRequest(object):
         :param name: The name of this CreateVulWhiteFieldRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

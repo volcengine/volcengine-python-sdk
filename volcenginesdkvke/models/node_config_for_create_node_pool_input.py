@@ -37,6 +37,8 @@ class NodeConfigForCreateNodePoolInput(object):
         'auto_renew': 'bool',
         'auto_renew_period': 'int',
         'data_volumes': 'list[DataVolumeForCreateNodePoolInput]',
+        'deployment_set_group_number': 'int',
+        'deployment_set_id': 'str',
         'hpc_cluster_ids': 'list[str]',
         'image_id': 'str',
         'initialize_script': 'str',
@@ -56,6 +58,8 @@ class NodeConfigForCreateNodePoolInput(object):
         'auto_renew': 'AutoRenew',
         'auto_renew_period': 'AutoRenewPeriod',
         'data_volumes': 'DataVolumes',
+        'deployment_set_group_number': 'DeploymentSetGroupNumber',
+        'deployment_set_id': 'DeploymentSetId',
         'hpc_cluster_ids': 'HpcClusterIds',
         'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
@@ -70,7 +74,7 @@ class NodeConfigForCreateNodePoolInput(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, project_name=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, deployment_set_group_number=None, deployment_set_id=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, project_name=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +84,8 @@ class NodeConfigForCreateNodePoolInput(object):
         self._auto_renew = None
         self._auto_renew_period = None
         self._data_volumes = None
+        self._deployment_set_group_number = None
+        self._deployment_set_id = None
         self._hpc_cluster_ids = None
         self._image_id = None
         self._initialize_script = None
@@ -102,6 +108,10 @@ class NodeConfigForCreateNodePoolInput(object):
             self.auto_renew_period = auto_renew_period
         if data_volumes is not None:
             self.data_volumes = data_volumes
+        if deployment_set_group_number is not None:
+            self.deployment_set_group_number = deployment_set_group_number
+        if deployment_set_id is not None:
+            self.deployment_set_id = deployment_set_id
         if hpc_cluster_ids is not None:
             self.hpc_cluster_ids = hpc_cluster_ids
         if image_id is not None:
@@ -210,6 +220,48 @@ class NodeConfigForCreateNodePoolInput(object):
         """
 
         self._data_volumes = data_volumes
+
+    @property
+    def deployment_set_group_number(self):
+        """Gets the deployment_set_group_number of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The deployment_set_group_number of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._deployment_set_group_number
+
+    @deployment_set_group_number.setter
+    def deployment_set_group_number(self, deployment_set_group_number):
+        """Sets the deployment_set_group_number of this NodeConfigForCreateNodePoolInput.
+
+
+        :param deployment_set_group_number: The deployment_set_group_number of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: int
+        """
+
+        self._deployment_set_group_number = deployment_set_group_number
+
+    @property
+    def deployment_set_id(self):
+        """Gets the deployment_set_id of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The deployment_set_id of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deployment_set_id
+
+    @deployment_set_id.setter
+    def deployment_set_id(self, deployment_set_id):
+        """Sets the deployment_set_id of this NodeConfigForCreateNodePoolInput.
+
+
+        :param deployment_set_id: The deployment_set_id of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._deployment_set_id = deployment_set_id
 
     @property
     def hpc_cluster_ids(self):

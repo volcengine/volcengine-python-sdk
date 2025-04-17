@@ -34,31 +34,42 @@ class AssociateRouteTableRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
+        'gateway_id': 'str',
+        'gateway_type': 'str',
         'route_table_id': 'str',
         'subnet_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
+        'gateway_id': 'GatewayId',
+        'gateway_type': 'GatewayType',
         'route_table_id': 'RouteTableId',
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, client_token=None, route_table_id=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, gateway_id=None, gateway_type=None, route_table_id=None, subnet_id=None, _configuration=None):  # noqa: E501
         """AssociateRouteTableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
+        self._gateway_id = None
+        self._gateway_type = None
         self._route_table_id = None
         self._subnet_id = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
+        if gateway_id is not None:
+            self.gateway_id = gateway_id
+        if gateway_type is not None:
+            self.gateway_type = gateway_type
         self.route_table_id = route_table_id
-        self.subnet_id = subnet_id
+        if subnet_id is not None:
+            self.subnet_id = subnet_id
 
     @property
     def client_token(self):
@@ -80,6 +91,55 @@ class AssociateRouteTableRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def gateway_id(self):
+        """Gets the gateway_id of this AssociateRouteTableRequest.  # noqa: E501
+
+
+        :return: The gateway_id of this AssociateRouteTableRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._gateway_id
+
+    @gateway_id.setter
+    def gateway_id(self, gateway_id):
+        """Sets the gateway_id of this AssociateRouteTableRequest.
+
+
+        :param gateway_id: The gateway_id of this AssociateRouteTableRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._gateway_id = gateway_id
+
+    @property
+    def gateway_type(self):
+        """Gets the gateway_type of this AssociateRouteTableRequest.  # noqa: E501
+
+
+        :return: The gateway_type of this AssociateRouteTableRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._gateway_type
+
+    @gateway_type.setter
+    def gateway_type(self, gateway_type):
+        """Sets the gateway_type of this AssociateRouteTableRequest.
+
+
+        :param gateway_type: The gateway_type of this AssociateRouteTableRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Ipv4Gateway", "Ipv6Gateway"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                gateway_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `gateway_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(gateway_type, allowed_values)
+            )
+
+        self._gateway_type = gateway_type
 
     @property
     def route_table_id(self):
@@ -122,8 +182,6 @@ class AssociateRouteTableRequest(object):
         :param subnet_id: The subnet_id of this AssociateRouteTableRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and subnet_id is None:
-            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 

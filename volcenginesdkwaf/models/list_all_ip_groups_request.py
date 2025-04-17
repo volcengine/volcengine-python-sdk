@@ -201,13 +201,6 @@ class ListAllIpGroupsRequest(object):
         """
         if self._configuration.client_side_validation and time_order_by is None:
             raise ValueError("Invalid value for `time_order_by`, must not be `None`")  # noqa: E501
-        allowed_values = ["ASC", "DESC"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                time_order_by not in allowed_values):
-            raise ValueError(
-                "Invalid value for `time_order_by` ({0}), must be one of {1}"  # noqa: E501
-                .format(time_order_by, allowed_values)
-            )
 
         self._time_order_by = time_order_by
 

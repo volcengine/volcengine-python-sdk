@@ -33,6 +33,7 @@ class DescribeRouteTableListRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'associate_type': 'str',
         'max_results': 'int',
         'next_token': 'str',
         'page_number': 'int',
@@ -45,6 +46,7 @@ class DescribeRouteTableListRequest(object):
     }
 
     attribute_map = {
+        'associate_type': 'AssociateType',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'page_number': 'PageNumber',
@@ -56,12 +58,13 @@ class DescribeRouteTableListRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, route_table_id=None, route_table_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, associate_type=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, route_table_id=None, route_table_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeRouteTableListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._associate_type = None
         self._max_results = None
         self._next_token = None
         self._page_number = None
@@ -73,6 +76,8 @@ class DescribeRouteTableListRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if associate_type is not None:
+            self.associate_type = associate_type
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
@@ -91,6 +96,34 @@ class DescribeRouteTableListRequest(object):
             self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def associate_type(self):
+        """Gets the associate_type of this DescribeRouteTableListRequest.  # noqa: E501
+
+
+        :return: The associate_type of this DescribeRouteTableListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._associate_type
+
+    @associate_type.setter
+    def associate_type(self, associate_type):
+        """Sets the associate_type of this DescribeRouteTableListRequest.
+
+
+        :param associate_type: The associate_type of this DescribeRouteTableListRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Subnet", "Gateway"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                associate_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `associate_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(associate_type, allowed_values)
+            )
+
+        self._associate_type = associate_type
 
     @property
     def max_results(self):

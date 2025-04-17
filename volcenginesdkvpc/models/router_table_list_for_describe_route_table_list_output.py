@@ -34,8 +34,11 @@ class RouterTableListForDescribeRouteTableListOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'associate_type': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'ipv4_gateway_id': 'str',
+        'ipv6_gateway_id': 'str',
         'project_name': 'str',
         'route_table_id': 'str',
         'route_table_name': 'str',
@@ -49,8 +52,11 @@ class RouterTableListForDescribeRouteTableListOutput(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'associate_type': 'AssociateType',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'ipv4_gateway_id': 'Ipv4GatewayId',
+        'ipv6_gateway_id': 'Ipv6GatewayId',
         'project_name': 'ProjectName',
         'route_table_id': 'RouteTableId',
         'route_table_name': 'RouteTableName',
@@ -62,15 +68,18 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, account_id=None, creation_time=None, description=None, project_name=None, route_table_id=None, route_table_name=None, route_table_type=None, subnet_ids=None, tags=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_type=None, creation_time=None, description=None, ipv4_gateway_id=None, ipv6_gateway_id=None, project_name=None, route_table_id=None, route_table_name=None, route_table_type=None, subnet_ids=None, tags=None, update_time=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """RouterTableListForDescribeRouteTableListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._associate_type = None
         self._creation_time = None
         self._description = None
+        self._ipv4_gateway_id = None
+        self._ipv6_gateway_id = None
         self._project_name = None
         self._route_table_id = None
         self._route_table_name = None
@@ -84,10 +93,16 @@ class RouterTableListForDescribeRouteTableListOutput(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if associate_type is not None:
+            self.associate_type = associate_type
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if ipv4_gateway_id is not None:
+            self.ipv4_gateway_id = ipv4_gateway_id
+        if ipv6_gateway_id is not None:
+            self.ipv6_gateway_id = ipv6_gateway_id
         if project_name is not None:
             self.project_name = project_name
         if route_table_id is not None:
@@ -127,6 +142,27 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def associate_type(self):
+        """Gets the associate_type of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+
+
+        :return: The associate_type of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._associate_type
+
+    @associate_type.setter
+    def associate_type(self, associate_type):
+        """Sets the associate_type of this RouterTableListForDescribeRouteTableListOutput.
+
+
+        :param associate_type: The associate_type of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._associate_type = associate_type
 
     @property
     def creation_time(self):
@@ -169,6 +205,48 @@ class RouterTableListForDescribeRouteTableListOutput(object):
         """
 
         self._description = description
+
+    @property
+    def ipv4_gateway_id(self):
+        """Gets the ipv4_gateway_id of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+
+
+        :return: The ipv4_gateway_id of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv4_gateway_id
+
+    @ipv4_gateway_id.setter
+    def ipv4_gateway_id(self, ipv4_gateway_id):
+        """Sets the ipv4_gateway_id of this RouterTableListForDescribeRouteTableListOutput.
+
+
+        :param ipv4_gateway_id: The ipv4_gateway_id of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv4_gateway_id = ipv4_gateway_id
+
+    @property
+    def ipv6_gateway_id(self):
+        """Gets the ipv6_gateway_id of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+
+
+        :return: The ipv6_gateway_id of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_gateway_id
+
+    @ipv6_gateway_id.setter
+    def ipv6_gateway_id(self, ipv6_gateway_id):
+        """Sets the ipv6_gateway_id of this RouterTableListForDescribeRouteTableListOutput.
+
+
+        :param ipv6_gateway_id: The ipv6_gateway_id of this RouterTableListForDescribeRouteTableListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_gateway_id = ipv6_gateway_id
 
     @property
     def project_name(self):

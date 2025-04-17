@@ -37,7 +37,7 @@ class UpdateVulWhiteFieldRequest(object):
         'field_area': 'str',
         'field_list': 'str',
         'host': 'str',
-        'id': 'str',
+        'id': 'int',
         'name': 'str',
         'project_name': 'str'
     }
@@ -69,8 +69,7 @@ class UpdateVulWhiteFieldRequest(object):
 
         self.enable = enable
         self.field_area = field_area
-        if field_list is not None:
-            self.field_list = field_list
+        self.field_list = field_list
         self.host = host
         self.id = id
         self.name = name
@@ -120,13 +119,6 @@ class UpdateVulWhiteFieldRequest(object):
         """
         if self._configuration.client_side_validation and field_area is None:
             raise ValueError("Invalid value for `field_area`, must not be `None`")  # noqa: E501
-        allowed_values = ["args", "url", "cookies", "headers", "bodydetail"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                field_area not in allowed_values):
-            raise ValueError(
-                "Invalid value for `field_area` ({0}), must be one of {1}"  # noqa: E501
-                .format(field_area, allowed_values)
-            )
 
         self._field_area = field_area
 
@@ -148,6 +140,8 @@ class UpdateVulWhiteFieldRequest(object):
         :param field_list: The field_list of this UpdateVulWhiteFieldRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and field_list is None:
+            raise ValueError("Invalid value for `field_list`, must not be `None`")  # noqa: E501
 
         self._field_list = field_list
 
@@ -180,7 +174,7 @@ class UpdateVulWhiteFieldRequest(object):
 
 
         :return: The id of this UpdateVulWhiteFieldRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._id
 
@@ -190,7 +184,7 @@ class UpdateVulWhiteFieldRequest(object):
 
 
         :param id: The id of this UpdateVulWhiteFieldRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
         if self._configuration.client_side_validation and id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501

@@ -33,7 +33,7 @@ class DeleteVulWhiteFieldRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str',
+        'id': 'int',
         'project_name': 'str'
     }
 
@@ -62,7 +62,7 @@ class DeleteVulWhiteFieldRequest(object):
 
 
         :return: The id of this DeleteVulWhiteFieldRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._id
 
@@ -72,7 +72,7 @@ class DeleteVulWhiteFieldRequest(object):
 
 
         :param id: The id of this DeleteVulWhiteFieldRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
         if self._configuration.client_side_validation and id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
