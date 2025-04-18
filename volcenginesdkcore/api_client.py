@@ -105,6 +105,12 @@ class ApiClient(object):
             _return_http_data_only=None, collection_formats=None,
             _preload_content=True, _request_timeout=None):
 
+        # header parameters
+        header_params = header_params or {}
+        header_params.update(self.default_headers)
+        if self.cookie:
+            header_params['Cookie'] = self.cookie
+
         interceptor_context = InterceptorContext(request=Request(
             self.configuration,
             resource_path, method, path_params,
