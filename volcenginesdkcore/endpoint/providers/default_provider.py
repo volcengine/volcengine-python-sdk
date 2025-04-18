@@ -29,7 +29,7 @@ class ServiceEndpointInfo:
         if region in self.region_endpoint_map:
             return self.region_endpoint_map[region]
 
-        return self.__standardize_domain_service_code + '.' + region + '.' + suffix
+        return self.__standardize_domain_service_code + '.' + region + suffix
 
 
 class DefaultEndpointProvider(EndpointProvider):
@@ -56,7 +56,7 @@ class DefaultEndpointProvider(EndpointProvider):
     def get_default_endpoint(self, service, region):
         if service in self.default_endpoint:
             e = self.default_endpoint[service]
-            return e.get_endpoint_for(region)
+            return e.get_endpoint_for(region, self.__has_enabled_dualstack())
         return fallback_endpoint
 
     def __in_bootstrap_region_list(self, region, custom_bootstrap_region):
@@ -85,8 +85,9 @@ class DefaultEndpointProvider(EndpointProvider):
 
         return False
 
-    def __enable_dualstack(self):
-        return os.getenv("VOLC_ENABLE_DUALSTACK") == True
+    @staticmethod
+    def __has_enabled_dualstack():
+        return os.getenv("VOLC_ENABLE_DUALSTACK") == 'true'
 
     def endpoint_for(self, service, region, custom_bootstrap_region=None):
         if service in self.custom_endpoints:
