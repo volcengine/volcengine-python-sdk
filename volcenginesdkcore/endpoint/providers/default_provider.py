@@ -89,7 +89,7 @@ class DefaultEndpointProvider(EndpointProvider):
     def __has_enabled_dualstack():
         return os.getenv("VOLC_ENABLE_DUALSTACK") == 'true'
 
-    def endpoint_for(self, service, region, custom_bootstrap_region=None):
+    def endpoint_for(self, service, region, custom_bootstrap_region=None, **kwargs):
         if service in self.custom_endpoints:
             conf = self.custom_endpoints[service]
             host = conf.get_endpoint_for(region)
@@ -97,7 +97,7 @@ class DefaultEndpointProvider(EndpointProvider):
             if custom_bootstrap_region is None:
                 custom_bootstrap_region = {}
             if not self.__in_bootstrap_region_list(region, custom_bootstrap_region):
-                return fallback_endpoint
+                return ResolvedEndpoint(fallback_endpoint)
 
             host = self.get_default_endpoint(service=service, region=region)
 
@@ -108,5 +108,5 @@ class HostEndpointProvider(EndpointProvider):
     def __init__(self, host):
         self.host = host
 
-    def endpoint_for(self, service, region):
+    def endpoint_for(self, service, region, **kwargs):
         return ResolvedEndpoint(self.host)

@@ -58,6 +58,9 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         # Default Base url
         self.host = None
+
+        self.custom_bootstrap_region = None
+
         # Scheme Support http or https
         self.scheme = "http"
         # Temp file folder for downloading files
