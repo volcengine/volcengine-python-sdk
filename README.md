@@ -11,6 +11,7 @@
 
 * Python版本需要不低于2.7。
 * 由于 Windows 系统有最长路径限制，可能会导致安装失败，请按照以下方式设置：
+
 ```
 1. 按下 Win+R ，输入 regedit 打开注册表编辑器。
 2. 设置 \HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem 路径下的变量 LongPathsEnabled 为 1 即可。
@@ -19,6 +20,7 @@
 ### Install ###
 
 Install via pip
+
 ```sh
 pip install volcengine-python-sdk
 ```
@@ -31,7 +33,54 @@ python setup.py install --user
 
 (or `sudo python setup.py install` to install the package for all users)
 
-### Basic Usage ###
+### Configuration Usage ###
+
+步骤一：启动时初始化，配置 Configuration 全局默认参数
+
+```python
+configuration = volcenginesdkcore.Configuration()
+configuration.client_side_validation = True  # 客户端是否进行参数校验
+configuration.schema = "http"  # https or http
+configuration.debug = False  # 是否开启调试
+configuration.logger_file = "sdk.log"
+
+volcenginesdkcore.Configuration.set_default(configuration)
+```
+
+步骤二：获取 Client
+
+```python
+def get_client(ak, sk, region):
+    # 包含默认属性
+    configuration = volcenginesdkcore.Configuration()
+    configuration.ak = ak
+    configuration.sk = sk
+    configuration.region = region
+    client = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
+    return client
+```
+
+### Endpoint 设置 ###
+
+如果您要自定义SDK的Endpoint，可以按照以下示例代码设置：
+
+```python
+configuration = volcenginesdkcore.Configuration()
+configuration.host = 'ecs.cn-beijing-autodriving.volcengineapi.com'
+```
+
+火山引擎标准的Endpoint规则说明：
+
+| Regional 服务                                                                                                                            | Global 服务                                                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| `{service}.{region}.volcengineapi.com` <br> 例如：云服务ecs在cn-beijing-autodriving Region域名为： `ecs.cn-beijing-autodriving.volcengineapi.com` | `{service}.volcengineapi.com` <br> 例如：访问控制iam为Global服务，域名为：`iam.volcengineapi.com` |
+
+注：
+
+- Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
+- 并非所有云产品和Region都支持标准域名，具体请前往您所使用的产品-API参考中查看。
+
+### SDK 示例 ###
 
 ```python
 from __future__ import print_function
@@ -77,27 +126,7 @@ if __name__ == '__main__':
         print("Exception when calling ECSApi->run_instances: %s\n" % e)
 
 ```
-### Configuration Usage ###
-步骤一：启动时初始化，配置 Configuration 全局默认参数
-```python
-configuration = volcenginesdkcore.Configuration()
-configuration.client_side_validation = True  # 客户端是否进行参数校验
-configuration.schema = "http"  # https or http
-configuration.debug = False  # 是否开启调试
-configuration.logger_file = "sdk.log"
 
-volcenginesdkcore.Configuration.set_default(configuration)
-```
-步骤二：获取 Client
-```python
-def get_client(ak, sk, region):
-    # 包含默认属性
-    configuration = volcenginesdkcore.Configuration()
-    configuration.ak = ak
-    configuration.sk = sk
-    configuration.region = region
-    client = volcenginesdkautoscaling.AUTOSCALINGApi(volcenginesdkcore.ApiClient(configuration))
-    return client
-```
 ### FAQ ###
+
 关于 SDK 使用时碰到的常见问题，请查看 [FAQ](FAQ.md)
