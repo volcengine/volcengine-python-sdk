@@ -174,6 +174,14 @@ class FilterForListBatchInferenceJobsInput(object):
         :param phases: The phases of this FilterForListBatchInferenceJobsInput.  # noqa: E501
         :type: list[str]
         """
+        allowed_values = ["Queued", "Running", "Completed", "Terminating", "Terminated", "Failed"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(phases).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `phases` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(phases) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
 
         self._phases = phases
 

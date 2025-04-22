@@ -43,11 +43,9 @@ class ItemForListEndpointsOutput(object):
         'project_name': 'str',
         'rate_limit': 'RateLimitForListEndpointsOutput',
         'rolling_id': 'str',
-        'scale_tier_id': 'str',
         'status': 'str',
         'status_reason': 'str',
         'support_rolling': 'bool',
-        'support_scale_tier': 'bool',
         'tags': 'list[TagForListEndpointsOutput]',
         'update_time': 'str'
     }
@@ -63,16 +61,14 @@ class ItemForListEndpointsOutput(object):
         'project_name': 'ProjectName',
         'rate_limit': 'RateLimit',
         'rolling_id': 'RollingId',
-        'scale_tier_id': 'ScaleTierId',
         'status': 'Status',
         'status_reason': 'StatusReason',
         'support_rolling': 'SupportRolling',
-        'support_scale_tier': 'SupportScaleTier',
         'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, endpoint_model_type=None, id=None, model_reference=None, model_unit_id=None, name=None, project_name=None, rate_limit=None, rolling_id=None, scale_tier_id=None, status=None, status_reason=None, support_rolling=None, support_scale_tier=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, endpoint_model_type=None, id=None, model_reference=None, model_unit_id=None, name=None, project_name=None, rate_limit=None, rolling_id=None, status=None, status_reason=None, support_rolling=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListEndpointsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,11 +84,9 @@ class ItemForListEndpointsOutput(object):
         self._project_name = None
         self._rate_limit = None
         self._rolling_id = None
-        self._scale_tier_id = None
         self._status = None
         self._status_reason = None
         self._support_rolling = None
-        self._support_scale_tier = None
         self._tags = None
         self._update_time = None
         self.discriminator = None
@@ -117,16 +111,12 @@ class ItemForListEndpointsOutput(object):
             self.rate_limit = rate_limit
         if rolling_id is not None:
             self.rolling_id = rolling_id
-        if scale_tier_id is not None:
-            self.scale_tier_id = scale_tier_id
         if status is not None:
             self.status = status
         if status_reason is not None:
             self.status_reason = status_reason
         if support_rolling is not None:
             self.support_rolling = support_rolling
-        if support_scale_tier is not None:
-            self.support_scale_tier = support_scale_tier
         if tags is not None:
             self.tags = tags
         if update_time is not None:
@@ -343,27 +333,6 @@ class ItemForListEndpointsOutput(object):
         self._rolling_id = rolling_id
 
     @property
-    def scale_tier_id(self):
-        """Gets the scale_tier_id of this ItemForListEndpointsOutput.  # noqa: E501
-
-
-        :return: The scale_tier_id of this ItemForListEndpointsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._scale_tier_id
-
-    @scale_tier_id.setter
-    def scale_tier_id(self, scale_tier_id):
-        """Sets the scale_tier_id of this ItemForListEndpointsOutput.
-
-
-        :param scale_tier_id: The scale_tier_id of this ItemForListEndpointsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._scale_tier_id = scale_tier_id
-
-    @property
     def status(self):
         """Gets the status of this ItemForListEndpointsOutput.  # noqa: E501
 
@@ -425,27 +394,6 @@ class ItemForListEndpointsOutput(object):
         """
 
         self._support_rolling = support_rolling
-
-    @property
-    def support_scale_tier(self):
-        """Gets the support_scale_tier of this ItemForListEndpointsOutput.  # noqa: E501
-
-
-        :return: The support_scale_tier of this ItemForListEndpointsOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._support_scale_tier
-
-    @support_scale_tier.setter
-    def support_scale_tier(self, support_scale_tier):
-        """Sets the support_scale_tier of this ItemForListEndpointsOutput.
-
-
-        :param support_scale_tier: The support_scale_tier of this ItemForListEndpointsOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._support_scale_tier = support_scale_tier
 
     @property
     def tags(self):
