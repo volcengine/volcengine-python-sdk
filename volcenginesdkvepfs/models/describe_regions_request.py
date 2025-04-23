@@ -33,45 +33,17 @@ class DescribeRegionsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'file_system_type': 'str'
     }
 
     attribute_map = {
-        'file_system_type': 'FileSystemType'
     }
 
-    def __init__(self, file_system_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, _configuration=None):  # noqa: E501
         """DescribeRegionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
-
-        self._file_system_type = None
         self.discriminator = None
-
-        if file_system_type is not None:
-            self.file_system_type = file_system_type
-
-    @property
-    def file_system_type(self):
-        """Gets the file_system_type of this DescribeRegionsRequest.  # noqa: E501
-
-
-        :return: The file_system_type of this DescribeRegionsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._file_system_type
-
-    @file_system_type.setter
-    def file_system_type(self, file_system_type):
-        """Sets the file_system_type of this DescribeRegionsRequest.
-
-
-        :param file_system_type: The file_system_type of this DescribeRegionsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._file_system_type = file_system_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

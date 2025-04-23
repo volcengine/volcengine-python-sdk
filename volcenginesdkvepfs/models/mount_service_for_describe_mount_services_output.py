@@ -41,16 +41,11 @@ class MountServiceForDescribeMountServicesOutput(object):
         'nodes': 'list[NodeForDescribeMountServicesOutput]',
         'project': 'str',
         'region_id': 'str',
-        'secondary_security_group_id': 'str',
-        'secondary_subnet_id': 'str',
-        'secondary_vpc_id': 'str',
         'security_group_id': 'str',
         'status': 'str',
         'subnet_id': 'str',
-        'subnet_name': 'str',
-        'version': 'str',
+        'version_number': 'str',
         'vpc_id': 'str',
-        'vpc_name': 'str',
         'zone_id': 'str',
         'zone_name': 'str'
     }
@@ -64,21 +59,16 @@ class MountServiceForDescribeMountServicesOutput(object):
         'nodes': 'Nodes',
         'project': 'Project',
         'region_id': 'RegionId',
-        'secondary_security_group_id': 'SecondarySecurityGroupId',
-        'secondary_subnet_id': 'SecondarySubnetId',
-        'secondary_vpc_id': 'SecondaryVpcId',
         'security_group_id': 'SecurityGroupId',
         'status': 'Status',
         'subnet_id': 'SubnetId',
-        'subnet_name': 'SubnetName',
-        'version': 'Version',
+        'version_number': 'VersionNumber',
         'vpc_id': 'VpcId',
-        'vpc_name': 'VpcName',
         'zone_id': 'ZoneId',
         'zone_name': 'ZoneName'
     }
 
-    def __init__(self, account_id=None, attach_file_systems=None, create_time=None, mount_service_id=None, mount_service_name=None, nodes=None, project=None, region_id=None, secondary_security_group_id=None, secondary_subnet_id=None, secondary_vpc_id=None, security_group_id=None, status=None, subnet_id=None, subnet_name=None, version=None, vpc_id=None, vpc_name=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, attach_file_systems=None, create_time=None, mount_service_id=None, mount_service_name=None, nodes=None, project=None, region_id=None, security_group_id=None, status=None, subnet_id=None, version_number=None, vpc_id=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
         """MountServiceForDescribeMountServicesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,16 +82,11 @@ class MountServiceForDescribeMountServicesOutput(object):
         self._nodes = None
         self._project = None
         self._region_id = None
-        self._secondary_security_group_id = None
-        self._secondary_subnet_id = None
-        self._secondary_vpc_id = None
         self._security_group_id = None
         self._status = None
         self._subnet_id = None
-        self._subnet_name = None
-        self._version = None
+        self._version_number = None
         self._vpc_id = None
-        self._vpc_name = None
         self._zone_id = None
         self._zone_name = None
         self.discriminator = None
@@ -122,26 +107,16 @@ class MountServiceForDescribeMountServicesOutput(object):
             self.project = project
         if region_id is not None:
             self.region_id = region_id
-        if secondary_security_group_id is not None:
-            self.secondary_security_group_id = secondary_security_group_id
-        if secondary_subnet_id is not None:
-            self.secondary_subnet_id = secondary_subnet_id
-        if secondary_vpc_id is not None:
-            self.secondary_vpc_id = secondary_vpc_id
         if security_group_id is not None:
             self.security_group_id = security_group_id
         if status is not None:
             self.status = status
         if subnet_id is not None:
             self.subnet_id = subnet_id
-        if subnet_name is not None:
-            self.subnet_name = subnet_name
-        if version is not None:
-            self.version = version
+        if version_number is not None:
+            self.version_number = version_number
         if vpc_id is not None:
             self.vpc_id = vpc_id
-        if vpc_name is not None:
-            self.vpc_name = vpc_name
         if zone_id is not None:
             self.zone_id = zone_id
         if zone_name is not None:
@@ -316,69 +291,6 @@ class MountServiceForDescribeMountServicesOutput(object):
         self._region_id = region_id
 
     @property
-    def secondary_security_group_id(self):
-        """Gets the secondary_security_group_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-
-
-        :return: The secondary_security_group_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._secondary_security_group_id
-
-    @secondary_security_group_id.setter
-    def secondary_security_group_id(self, secondary_security_group_id):
-        """Sets the secondary_security_group_id of this MountServiceForDescribeMountServicesOutput.
-
-
-        :param secondary_security_group_id: The secondary_security_group_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._secondary_security_group_id = secondary_security_group_id
-
-    @property
-    def secondary_subnet_id(self):
-        """Gets the secondary_subnet_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-
-
-        :return: The secondary_subnet_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._secondary_subnet_id
-
-    @secondary_subnet_id.setter
-    def secondary_subnet_id(self, secondary_subnet_id):
-        """Sets the secondary_subnet_id of this MountServiceForDescribeMountServicesOutput.
-
-
-        :param secondary_subnet_id: The secondary_subnet_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._secondary_subnet_id = secondary_subnet_id
-
-    @property
-    def secondary_vpc_id(self):
-        """Gets the secondary_vpc_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-
-
-        :return: The secondary_vpc_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._secondary_vpc_id
-
-    @secondary_vpc_id.setter
-    def secondary_vpc_id(self, secondary_vpc_id):
-        """Sets the secondary_vpc_id of this MountServiceForDescribeMountServicesOutput.
-
-
-        :param secondary_vpc_id: The secondary_vpc_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._secondary_vpc_id = secondary_vpc_id
-
-    @property
     def security_group_id(self):
         """Gets the security_group_id of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
 
@@ -442,46 +354,25 @@ class MountServiceForDescribeMountServicesOutput(object):
         self._subnet_id = subnet_id
 
     @property
-    def subnet_name(self):
-        """Gets the subnet_name of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
+    def version_number(self):
+        """Gets the version_number of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
 
 
-        :return: The subnet_name of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
+        :return: The version_number of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
         :rtype: str
         """
-        return self._subnet_name
+        return self._version_number
 
-    @subnet_name.setter
-    def subnet_name(self, subnet_name):
-        """Sets the subnet_name of this MountServiceForDescribeMountServicesOutput.
+    @version_number.setter
+    def version_number(self, version_number):
+        """Sets the version_number of this MountServiceForDescribeMountServicesOutput.
 
 
-        :param subnet_name: The subnet_name of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
+        :param version_number: The version_number of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
         :type: str
         """
 
-        self._subnet_name = subnet_name
-
-    @property
-    def version(self):
-        """Gets the version of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-
-
-        :return: The version of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this MountServiceForDescribeMountServicesOutput.
-
-
-        :param version: The version of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._version = version
+        self._version_number = version_number
 
     @property
     def vpc_id(self):
@@ -503,27 +394,6 @@ class MountServiceForDescribeMountServicesOutput(object):
         """
 
         self._vpc_id = vpc_id
-
-    @property
-    def vpc_name(self):
-        """Gets the vpc_name of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-
-
-        :return: The vpc_name of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._vpc_name
-
-    @vpc_name.setter
-    def vpc_name(self, vpc_name):
-        """Sets the vpc_name of this MountServiceForDescribeMountServicesOutput.
-
-
-        :param vpc_name: The vpc_name of this MountServiceForDescribeMountServicesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._vpc_name = vpc_name
 
     @property
     def zone_id(self):

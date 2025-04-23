@@ -38,6 +38,8 @@ class StatisticForDescribeFileSystemStatisticsOutput(object):
         'file_system_type': 'str',
         'region_id': 'str',
         'store_type': 'str',
+        'store_type_cn': 'str',
+        'store_type_en': 'str',
         'total_count': 'int'
     }
 
@@ -47,10 +49,12 @@ class StatisticForDescribeFileSystemStatisticsOutput(object):
         'file_system_type': 'FileSystemType',
         'region_id': 'RegionId',
         'store_type': 'StoreType',
+        'store_type_cn': 'StoreTypeCN',
+        'store_type_en': 'StoreTypeEN',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, account_id=None, capacity_info=None, file_system_type=None, region_id=None, store_type=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, capacity_info=None, file_system_type=None, region_id=None, store_type=None, store_type_cn=None, store_type_en=None, total_count=None, _configuration=None):  # noqa: E501
         """StatisticForDescribeFileSystemStatisticsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +65,8 @@ class StatisticForDescribeFileSystemStatisticsOutput(object):
         self._file_system_type = None
         self._region_id = None
         self._store_type = None
+        self._store_type_cn = None
+        self._store_type_en = None
         self._total_count = None
         self.discriminator = None
 
@@ -74,6 +80,10 @@ class StatisticForDescribeFileSystemStatisticsOutput(object):
             self.region_id = region_id
         if store_type is not None:
             self.store_type = store_type
+        if store_type_cn is not None:
+            self.store_type_cn = store_type_cn
+        if store_type_en is not None:
+            self.store_type_en = store_type_en
         if total_count is not None:
             self.total_count = total_count
 
@@ -181,6 +191,48 @@ class StatisticForDescribeFileSystemStatisticsOutput(object):
         """
 
         self._store_type = store_type
+
+    @property
+    def store_type_cn(self):
+        """Gets the store_type_cn of this StatisticForDescribeFileSystemStatisticsOutput.  # noqa: E501
+
+
+        :return: The store_type_cn of this StatisticForDescribeFileSystemStatisticsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_type_cn
+
+    @store_type_cn.setter
+    def store_type_cn(self, store_type_cn):
+        """Sets the store_type_cn of this StatisticForDescribeFileSystemStatisticsOutput.
+
+
+        :param store_type_cn: The store_type_cn of this StatisticForDescribeFileSystemStatisticsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._store_type_cn = store_type_cn
+
+    @property
+    def store_type_en(self):
+        """Gets the store_type_en of this StatisticForDescribeFileSystemStatisticsOutput.  # noqa: E501
+
+
+        :return: The store_type_en of this StatisticForDescribeFileSystemStatisticsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_type_en
+
+    @store_type_en.setter
+    def store_type_en(self, store_type_en):
+        """Sets the store_type_en of this StatisticForDescribeFileSystemStatisticsOutput.
+
+
+        :param store_type_en: The store_type_en of this StatisticForDescribeFileSystemStatisticsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._store_type_en = store_type_en
 
     @property
     def total_count(self):
