@@ -45,6 +45,8 @@ class HealthCheckTemplateForCreateHealthCheckTemplatesInput(object):
         'health_check_uri': 'str',
         'healthy_threshold': 'int',
         'port': 'int',
+        'project_name': 'str',
+        'tags': 'list[HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput]',
         'unhealthy_threshold': 'int'
     }
 
@@ -61,10 +63,12 @@ class HealthCheckTemplateForCreateHealthCheckTemplatesInput(object):
         'health_check_uri': 'HealthCheckURI',
         'healthy_threshold': 'HealthyThreshold',
         'port': 'Port',
+        'project_name': 'ProjectName',
+        'tags': 'Tags',
         'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, port=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, port=None, project_name=None, tags=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckTemplateForCreateHealthCheckTemplatesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +86,8 @@ class HealthCheckTemplateForCreateHealthCheckTemplatesInput(object):
         self._health_check_uri = None
         self._healthy_threshold = None
         self._port = None
+        self._project_name = None
+        self._tags = None
         self._unhealthy_threshold = None
         self.discriminator = None
 
@@ -107,6 +113,10 @@ class HealthCheckTemplateForCreateHealthCheckTemplatesInput(object):
         if healthy_threshold is not None:
             self.healthy_threshold = healthy_threshold
         self.port = port
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         if unhealthy_threshold is not None:
             self.unhealthy_threshold = unhealthy_threshold
 
@@ -377,6 +387,48 @@ class HealthCheckTemplateForCreateHealthCheckTemplatesInput(object):
             raise ValueError("Invalid value for `port`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._port = port
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this HealthCheckTemplateForCreateHealthCheckTemplatesInput.  # noqa: E501
+
+
+        :return: The project_name of this HealthCheckTemplateForCreateHealthCheckTemplatesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this HealthCheckTemplateForCreateHealthCheckTemplatesInput.
+
+
+        :param project_name: The project_name of this HealthCheckTemplateForCreateHealthCheckTemplatesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this HealthCheckTemplateForCreateHealthCheckTemplatesInput.  # noqa: E501
+
+
+        :return: The tags of this HealthCheckTemplateForCreateHealthCheckTemplatesInput.  # noqa: E501
+        :rtype: list[HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this HealthCheckTemplateForCreateHealthCheckTemplatesInput.
+
+
+        :param tags: The tags of this HealthCheckTemplateForCreateHealthCheckTemplatesInput.  # noqa: E501
+        :type: list[HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput]
+        """
+
+        self._tags = tags
 
     @property
     def unhealthy_threshold(self):

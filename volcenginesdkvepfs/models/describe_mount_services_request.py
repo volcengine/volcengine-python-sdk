@@ -34,38 +34,48 @@ class DescribeMountServicesRequest(object):
     """
     swagger_types = {
         'filters': 'list[FilterForDescribeMountServicesInput]',
+        'language_code': 'str',
         'order_by': 'str',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'project': 'str'
     }
 
     attribute_map = {
         'filters': 'Filters',
+        'language_code': 'LanguageCode',
         'order_by': 'OrderBy',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'project': 'Project'
     }
 
-    def __init__(self, filters=None, order_by=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, filters=None, language_code=None, order_by=None, page_number=None, page_size=None, project=None, _configuration=None):  # noqa: E501
         """DescribeMountServicesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._filters = None
+        self._language_code = None
         self._order_by = None
         self._page_number = None
         self._page_size = None
+        self._project = None
         self.discriminator = None
 
         if filters is not None:
             self.filters = filters
+        if language_code is not None:
+            self.language_code = language_code
         if order_by is not None:
             self.order_by = order_by
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project is not None:
+            self.project = project
 
     @property
     def filters(self):
@@ -89,6 +99,34 @@ class DescribeMountServicesRequest(object):
         self._filters = filters
 
     @property
+    def language_code(self):
+        """Gets the language_code of this DescribeMountServicesRequest.  # noqa: E501
+
+
+        :return: The language_code of this DescribeMountServicesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._language_code
+
+    @language_code.setter
+    def language_code(self, language_code):
+        """Sets the language_code of this DescribeMountServicesRequest.
+
+
+        :param language_code: The language_code of this DescribeMountServicesRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["zh", "en"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                language_code not in allowed_values):
+            raise ValueError(
+                "Invalid value for `language_code` ({0}), must be one of {1}"  # noqa: E501
+                .format(language_code, allowed_values)
+            )
+
+        self._language_code = language_code
+
+    @property
     def order_by(self):
         """Gets the order_by of this DescribeMountServicesRequest.  # noqa: E501
 
@@ -106,6 +144,13 @@ class DescribeMountServicesRequest(object):
         :param order_by: The order_by of this DescribeMountServicesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["CreateTimeDesc", "CreateTimeAsc", "NameDesc", "NameAsc", "VersionNumberDesc", "VersionNumberAsc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                order_by not in allowed_values):
+            raise ValueError(
+                "Invalid value for `order_by` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_by, allowed_values)
+            )
 
         self._order_by = order_by
 
@@ -150,6 +195,27 @@ class DescribeMountServicesRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def project(self):
+        """Gets the project of this DescribeMountServicesRequest.  # noqa: E501
+
+
+        :return: The project of this DescribeMountServicesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this DescribeMountServicesRequest.
+
+
+        :param project: The project of this DescribeMountServicesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project = project
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -52,8 +52,7 @@ class ModifyRulesRequest(object):
         self._rules = None
         self.discriminator = None
 
-        if listener_id is not None:
-            self.listener_id = listener_id
+        self.listener_id = listener_id
         if rules is not None:
             self.rules = rules
 
@@ -75,6 +74,8 @@ class ModifyRulesRequest(object):
         :param listener_id: The listener_id of this ModifyRulesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and listener_id is None:
+            raise ValueError("Invalid value for `listener_id`, must not be `None`")  # noqa: E501
 
         self._listener_id = listener_id
 

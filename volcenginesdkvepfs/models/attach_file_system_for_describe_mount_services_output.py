@@ -37,8 +37,7 @@ class AttachFileSystemForDescribeMountServicesOutput(object):
         'customer_path': 'str',
         'file_system_id': 'str',
         'file_system_name': 'str',
-        'status': 'str',
-        'type': 'str'
+        'status': 'str'
     }
 
     attribute_map = {
@@ -46,11 +45,10 @@ class AttachFileSystemForDescribeMountServicesOutput(object):
         'customer_path': 'CustomerPath',
         'file_system_id': 'FileSystemId',
         'file_system_name': 'FileSystemName',
-        'status': 'Status',
-        'type': 'Type'
+        'status': 'Status'
     }
 
-    def __init__(self, account_id=None, customer_path=None, file_system_id=None, file_system_name=None, status=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, customer_path=None, file_system_id=None, file_system_name=None, status=None, _configuration=None):  # noqa: E501
         """AttachFileSystemForDescribeMountServicesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +59,6 @@ class AttachFileSystemForDescribeMountServicesOutput(object):
         self._file_system_id = None
         self._file_system_name = None
         self._status = None
-        self._type = None
         self.discriminator = None
 
         if account_id is not None:
@@ -74,8 +71,6 @@ class AttachFileSystemForDescribeMountServicesOutput(object):
             self.file_system_name = file_system_name
         if status is not None:
             self.status = status
-        if type is not None:
-            self.type = type
 
     @property
     def account_id(self):
@@ -181,27 +176,6 @@ class AttachFileSystemForDescribeMountServicesOutput(object):
         """
 
         self._status = status
-
-    @property
-    def type(self):
-        """Gets the type of this AttachFileSystemForDescribeMountServicesOutput.  # noqa: E501
-
-
-        :return: The type of this AttachFileSystemForDescribeMountServicesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this AttachFileSystemForDescribeMountServicesOutput.
-
-
-        :param type: The type of this AttachFileSystemForDescribeMountServicesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -82,8 +82,7 @@ class ModifyLoadBalancerAttributesRequest(object):
             self.description = description
         if global_accelerator is not None:
             self.global_accelerator = global_accelerator
-        if load_balancer_id is not None:
-            self.load_balancer_id = load_balancer_id
+        self.load_balancer_id = load_balancer_id
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
         if modification_protection_reason is not None:
@@ -178,6 +177,8 @@ class ModifyLoadBalancerAttributesRequest(object):
         :param load_balancer_id: The load_balancer_id of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and load_balancer_id is None:
+            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 

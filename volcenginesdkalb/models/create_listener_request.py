@@ -134,16 +134,12 @@ class CreateListenerRequest(object):
             self.enabled = enabled
         if listener_name is not None:
             self.listener_name = listener_name
-        if load_balancer_id is not None:
-            self.load_balancer_id = load_balancer_id
-        if port is not None:
-            self.port = port
-        if protocol is not None:
-            self.protocol = protocol
+        self.load_balancer_id = load_balancer_id
+        self.port = port
+        self.protocol = protocol
         if proxy_protocol_disabled is not None:
             self.proxy_protocol_disabled = proxy_protocol_disabled
-        if server_group_id is not None:
-            self.server_group_id = server_group_id
+        self.server_group_id = server_group_id
         if tags is not None:
             self.tags = tags
 
@@ -465,6 +461,8 @@ class CreateListenerRequest(object):
         :param load_balancer_id: The load_balancer_id of this CreateListenerRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and load_balancer_id is None:
+            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 
@@ -486,6 +484,8 @@ class CreateListenerRequest(object):
         :param port: The port of this CreateListenerRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and port is None:
+            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
 
         self._port = port
 
@@ -507,6 +507,8 @@ class CreateListenerRequest(object):
         :param protocol: The protocol of this CreateListenerRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and protocol is None:
+            raise ValueError("Invalid value for `protocol`, must not be `None`")  # noqa: E501
 
         self._protocol = protocol
 
@@ -549,6 +551,8 @@ class CreateListenerRequest(object):
         :param server_group_id: The server_group_id of this CreateListenerRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and server_group_id is None:
+            raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
 

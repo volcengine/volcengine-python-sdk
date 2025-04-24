@@ -121,14 +121,6 @@ class FilterForListEndpointsInput(object):
         :param endpoint_model_types: The endpoint_model_types of this FilterForListEndpointsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["FoundationModel", "CustomModel"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(endpoint_model_types).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `endpoint_model_types` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(endpoint_model_types) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._endpoint_model_types = endpoint_model_types
 
@@ -234,14 +226,6 @@ class FilterForListEndpointsInput(object):
         :param statuses: The statuses of this FilterForListEndpointsInput.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["Running", "Scheduling", "Abnormal", "Stopped"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                not set(statuses).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `statuses` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(statuses) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._statuses = statuses
 

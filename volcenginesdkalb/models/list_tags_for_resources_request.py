@@ -67,8 +67,7 @@ class ListTagsForResourcesRequest(object):
             self.next_token = next_token
         if resource_ids is not None:
             self.resource_ids = resource_ids
-        if resource_type is not None:
-            self.resource_type = resource_type
+        self.resource_type = resource_type
         if tag_filters is not None:
             self.tag_filters = tag_filters
 
@@ -153,7 +152,9 @@ class ListTagsForResourcesRequest(object):
         :param resource_type: The resource_type of this ListTagsForResourcesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["loadbalancer", "listener", "servergroup"]  # noqa: E501
+        if self._configuration.client_side_validation and resource_type is None:
+            raise ValueError("Invalid value for `resource_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["loadbalancer", "listener", "servergroup", "acl", "certificate", "customizedcfg", "healthchecktemplate"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 resource_type not in allowed_values):
             raise ValueError(

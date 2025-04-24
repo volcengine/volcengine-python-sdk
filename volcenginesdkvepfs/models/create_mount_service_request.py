@@ -64,18 +64,13 @@ class CreateMountServiceRequest(object):
         self._zone_id = None
         self.discriminator = None
 
-        if mount_service_name is not None:
-            self.mount_service_name = mount_service_name
-        if node_type is not None:
-            self.node_type = node_type
+        self.mount_service_name = mount_service_name
+        self.node_type = node_type
         if project is not None:
             self.project = project
-        if subnet_id is not None:
-            self.subnet_id = subnet_id
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.subnet_id = subnet_id
+        self.vpc_id = vpc_id
+        self.zone_id = zone_id
 
     @property
     def mount_service_name(self):
@@ -95,6 +90,8 @@ class CreateMountServiceRequest(object):
         :param mount_service_name: The mount_service_name of this CreateMountServiceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and mount_service_name is None:
+            raise ValueError("Invalid value for `mount_service_name`, must not be `None`")  # noqa: E501
 
         self._mount_service_name = mount_service_name
 
@@ -116,6 +113,8 @@ class CreateMountServiceRequest(object):
         :param node_type: The node_type of this CreateMountServiceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and node_type is None:
+            raise ValueError("Invalid value for `node_type`, must not be `None`")  # noqa: E501
 
         self._node_type = node_type
 
@@ -158,6 +157,8 @@ class CreateMountServiceRequest(object):
         :param subnet_id: The subnet_id of this CreateMountServiceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and subnet_id is None:
+            raise ValueError("Invalid value for `subnet_id`, must not be `None`")  # noqa: E501
 
         self._subnet_id = subnet_id
 
@@ -179,6 +180,8 @@ class CreateMountServiceRequest(object):
         :param vpc_id: The vpc_id of this CreateMountServiceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 
@@ -200,6 +203,8 @@ class CreateMountServiceRequest(object):
         :param zone_id: The zone_id of this CreateMountServiceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

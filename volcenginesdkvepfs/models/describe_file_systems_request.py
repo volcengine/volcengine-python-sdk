@@ -35,22 +35,26 @@ class DescribeFileSystemsRequest(object):
     swagger_types = {
         'file_system_ids': 'str',
         'filters': 'list[FilterForDescribeFileSystemsInput]',
+        'language_code': 'str',
         'order_by': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'project': 'str'
+        'project': 'str',
+        'tag_filters': 'list[TagFilterForDescribeFileSystemsInput]'
     }
 
     attribute_map = {
         'file_system_ids': 'FileSystemIds',
         'filters': 'Filters',
+        'language_code': 'LanguageCode',
         'order_by': 'OrderBy',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'project': 'Project'
+        'project': 'Project',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, file_system_ids=None, filters=None, order_by=None, page_number=None, page_size=None, project=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_system_ids=None, filters=None, language_code=None, order_by=None, page_number=None, page_size=None, project=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeFileSystemsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,16 +62,20 @@ class DescribeFileSystemsRequest(object):
 
         self._file_system_ids = None
         self._filters = None
+        self._language_code = None
         self._order_by = None
         self._page_number = None
         self._page_size = None
         self._project = None
+        self._tag_filters = None
         self.discriminator = None
 
         if file_system_ids is not None:
             self.file_system_ids = file_system_ids
         if filters is not None:
             self.filters = filters
+        if language_code is not None:
+            self.language_code = language_code
         if order_by is not None:
             self.order_by = order_by
         if page_number is not None:
@@ -76,6 +84,8 @@ class DescribeFileSystemsRequest(object):
             self.page_size = page_size
         if project is not None:
             self.project = project
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def file_system_ids(self):
@@ -120,6 +130,34 @@ class DescribeFileSystemsRequest(object):
         self._filters = filters
 
     @property
+    def language_code(self):
+        """Gets the language_code of this DescribeFileSystemsRequest.  # noqa: E501
+
+
+        :return: The language_code of this DescribeFileSystemsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._language_code
+
+    @language_code.setter
+    def language_code(self, language_code):
+        """Sets the language_code of this DescribeFileSystemsRequest.
+
+
+        :param language_code: The language_code of this DescribeFileSystemsRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["zh", "en"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                language_code not in allowed_values):
+            raise ValueError(
+                "Invalid value for `language_code` ({0}), must be one of {1}"  # noqa: E501
+                .format(language_code, allowed_values)
+            )
+
+        self._language_code = language_code
+
+    @property
     def order_by(self):
         """Gets the order_by of this DescribeFileSystemsRequest.  # noqa: E501
 
@@ -137,6 +175,13 @@ class DescribeFileSystemsRequest(object):
         :param order_by: The order_by of this DescribeFileSystemsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["CreateTimeDesc", "CreateTimeAsc", "CapacityDesc", "CapacityAsc", "IdDesc", "IdAsc", "VersionNumberDesc", "VersionNumberAsc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                order_by not in allowed_values):
+            raise ValueError(
+                "Invalid value for `order_by` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_by, allowed_values)
+            )
 
         self._order_by = order_by
 
@@ -202,6 +247,27 @@ class DescribeFileSystemsRequest(object):
         """
 
         self._project = project
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeFileSystemsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeFileSystemsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeFileSystemsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeFileSystemsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeFileSystemsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeFileSystemsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

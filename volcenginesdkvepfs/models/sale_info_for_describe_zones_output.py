@@ -38,6 +38,8 @@ class SaleInfoForDescribeZonesOutput(object):
         'region_id': 'str',
         'status': 'str',
         'store_type': 'str',
+        'store_type_cn': 'str',
+        'store_type_en': 'str',
         'zone_id': 'str'
     }
 
@@ -47,10 +49,12 @@ class SaleInfoForDescribeZonesOutput(object):
         'region_id': 'RegionId',
         'status': 'Status',
         'store_type': 'StoreType',
+        'store_type_cn': 'StoreTypeCN',
+        'store_type_en': 'StoreTypeEN',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, file_system_type=None, protocol_type=None, region_id=None, status=None, store_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_system_type=None, protocol_type=None, region_id=None, status=None, store_type=None, store_type_cn=None, store_type_en=None, zone_id=None, _configuration=None):  # noqa: E501
         """SaleInfoForDescribeZonesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +65,8 @@ class SaleInfoForDescribeZonesOutput(object):
         self._region_id = None
         self._status = None
         self._store_type = None
+        self._store_type_cn = None
+        self._store_type_en = None
         self._zone_id = None
         self.discriminator = None
 
@@ -74,6 +80,10 @@ class SaleInfoForDescribeZonesOutput(object):
             self.status = status
         if store_type is not None:
             self.store_type = store_type
+        if store_type_cn is not None:
+            self.store_type_cn = store_type_cn
+        if store_type_en is not None:
+            self.store_type_en = store_type_en
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -181,6 +191,48 @@ class SaleInfoForDescribeZonesOutput(object):
         """
 
         self._store_type = store_type
+
+    @property
+    def store_type_cn(self):
+        """Gets the store_type_cn of this SaleInfoForDescribeZonesOutput.  # noqa: E501
+
+
+        :return: The store_type_cn of this SaleInfoForDescribeZonesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_type_cn
+
+    @store_type_cn.setter
+    def store_type_cn(self, store_type_cn):
+        """Sets the store_type_cn of this SaleInfoForDescribeZonesOutput.
+
+
+        :param store_type_cn: The store_type_cn of this SaleInfoForDescribeZonesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._store_type_cn = store_type_cn
+
+    @property
+    def store_type_en(self):
+        """Gets the store_type_en of this SaleInfoForDescribeZonesOutput.  # noqa: E501
+
+
+        :return: The store_type_en of this SaleInfoForDescribeZonesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_type_en
+
+    @store_type_en.setter
+    def store_type_en(self, store_type_en):
+        """Sets the store_type_en of this SaleInfoForDescribeZonesOutput.
+
+
+        :param store_type_en: The store_type_en of this SaleInfoForDescribeZonesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._store_type_en = store_type_en
 
     @property
     def zone_id(self):

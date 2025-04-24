@@ -52,10 +52,8 @@ class DetachMountServiceFromSelfFileSystemRequest(object):
         self._mount_service_id = None
         self.discriminator = None
 
-        if file_system_id is not None:
-            self.file_system_id = file_system_id
-        if mount_service_id is not None:
-            self.mount_service_id = mount_service_id
+        self.file_system_id = file_system_id
+        self.mount_service_id = mount_service_id
 
     @property
     def file_system_id(self):
@@ -75,6 +73,8 @@ class DetachMountServiceFromSelfFileSystemRequest(object):
         :param file_system_id: The file_system_id of this DetachMountServiceFromSelfFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and file_system_id is None:
+            raise ValueError("Invalid value for `file_system_id`, must not be `None`")  # noqa: E501
 
         self._file_system_id = file_system_id
 
@@ -96,6 +96,8 @@ class DetachMountServiceFromSelfFileSystemRequest(object):
         :param mount_service_id: The mount_service_id of this DetachMountServiceFromSelfFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and mount_service_id is None:
+            raise ValueError("Invalid value for `mount_service_id`, must not be `None`")  # noqa: E501
 
         self._mount_service_id = mount_service_id
 

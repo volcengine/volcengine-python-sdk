@@ -49,8 +49,7 @@ class DeleteMountServiceRequest(object):
         self._mount_service_id = None
         self.discriminator = None
 
-        if mount_service_id is not None:
-            self.mount_service_id = mount_service_id
+        self.mount_service_id = mount_service_id
 
     @property
     def mount_service_id(self):
@@ -70,6 +69,8 @@ class DeleteMountServiceRequest(object):
         :param mount_service_id: The mount_service_id of this DeleteMountServiceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and mount_service_id is None:
+            raise ValueError("Invalid value for `mount_service_id`, must not be `None`")  # noqa: E501
 
         self._mount_service_id = mount_service_id
 

@@ -34,28 +34,33 @@ class GetApiKeyRequest(object):
     """
     swagger_types = {
         'duration_seconds': 'int',
+        'project_name': 'str',
         'resource_ids': 'list[str]',
         'resource_type': 'str'
     }
 
     attribute_map = {
         'duration_seconds': 'DurationSeconds',
+        'project_name': 'ProjectName',
         'resource_ids': 'ResourceIds',
         'resource_type': 'ResourceType'
     }
 
-    def __init__(self, duration_seconds=None, resource_ids=None, resource_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, duration_seconds=None, project_name=None, resource_ids=None, resource_type=None, _configuration=None):  # noqa: E501
         """GetApiKeyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._duration_seconds = None
+        self._project_name = None
         self._resource_ids = None
         self._resource_type = None
         self.discriminator = None
 
         self.duration_seconds = duration_seconds
+        if project_name is not None:
+            self.project_name = project_name
         if resource_ids is not None:
             self.resource_ids = resource_ids
         self.resource_type = resource_type
@@ -82,6 +87,27 @@ class GetApiKeyRequest(object):
             raise ValueError("Invalid value for `duration_seconds`, must not be `None`")  # noqa: E501
 
         self._duration_seconds = duration_seconds
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this GetApiKeyRequest.  # noqa: E501
+
+
+        :return: The project_name of this GetApiKeyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this GetApiKeyRequest.
+
+
+        :param project_name: The project_name of this GetApiKeyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def resource_ids(self):

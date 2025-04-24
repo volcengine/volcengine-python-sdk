@@ -52,8 +52,7 @@ class UpdateMountServiceRequest(object):
         self._mount_service_name = None
         self.discriminator = None
 
-        if mount_service_id is not None:
-            self.mount_service_id = mount_service_id
+        self.mount_service_id = mount_service_id
         if mount_service_name is not None:
             self.mount_service_name = mount_service_name
 
@@ -75,6 +74,8 @@ class UpdateMountServiceRequest(object):
         :param mount_service_id: The mount_service_id of this UpdateMountServiceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and mount_service_id is None:
+            raise ValueError("Invalid value for `mount_service_id`, must not be `None`")  # noqa: E501
 
         self._mount_service_id = mount_service_id
 
