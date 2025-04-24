@@ -33,50 +33,81 @@ class NodeTypeInfoForDescribeMountServiceNodeTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'node_type': 'str'
+        'description_cn': 'str',
+        'description_en': 'str',
+        'node_type': 'str',
+        'status': 'str'
     }
 
     attribute_map = {
-        'description': 'Description',
-        'node_type': 'NodeType'
+        'description_cn': 'DescriptionCN',
+        'description_en': 'DescriptionEN',
+        'node_type': 'NodeType',
+        'status': 'Status'
     }
 
-    def __init__(self, description=None, node_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, description_cn=None, description_en=None, node_type=None, status=None, _configuration=None):  # noqa: E501
         """NodeTypeInfoForDescribeMountServiceNodeTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._description = None
+        self._description_cn = None
+        self._description_en = None
         self._node_type = None
+        self._status = None
         self.discriminator = None
 
-        if description is not None:
-            self.description = description
+        if description_cn is not None:
+            self.description_cn = description_cn
+        if description_en is not None:
+            self.description_en = description_en
         if node_type is not None:
             self.node_type = node_type
+        if status is not None:
+            self.status = status
 
     @property
-    def description(self):
-        """Gets the description of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+    def description_cn(self):
+        """Gets the description_cn of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
 
 
-        :return: The description of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+        :return: The description_cn of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
         :rtype: str
         """
-        return self._description
+        return self._description_cn
 
-    @description.setter
-    def description(self, description):
-        """Sets the description of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.
+    @description_cn.setter
+    def description_cn(self, description_cn):
+        """Sets the description_cn of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.
 
 
-        :param description: The description of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+        :param description_cn: The description_cn of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
         :type: str
         """
 
-        self._description = description
+        self._description_cn = description_cn
+
+    @property
+    def description_en(self):
+        """Gets the description_en of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+
+
+        :return: The description_en of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description_en
+
+    @description_en.setter
+    def description_en(self, description_en):
+        """Sets the description_en of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.
+
+
+        :param description_en: The description_en of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description_en = description_en
 
     @property
     def node_type(self):
@@ -98,6 +129,27 @@ class NodeTypeInfoForDescribeMountServiceNodeTypesOutput(object):
         """
 
         self._node_type = node_type
+
+    @property
+    def status(self):
+        """Gets the status of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+
+
+        :return: The status of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.
+
+
+        :param status: The status of this NodeTypeInfoForDescribeMountServiceNodeTypesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""
