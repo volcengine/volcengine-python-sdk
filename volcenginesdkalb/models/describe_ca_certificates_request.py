@@ -37,7 +37,8 @@ class DescribeCACertificatesRequest(object):
         'ca_certificate_name': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeCACertificatesInput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeCACertificatesRequest(object):
         'ca_certificate_name': 'CACertificateName',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, ca_certificate_ids=None, ca_certificate_name=None, page_number=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, ca_certificate_ids=None, ca_certificate_name=None, page_number=None, page_size=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeCACertificatesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeCACertificatesRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._tag_filters = None
         self.discriminator = None
 
         if ca_certificate_ids is not None:
@@ -71,6 +74,8 @@ class DescribeCACertificatesRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def ca_certificate_ids(self):
@@ -176,6 +181,27 @@ class DescribeCACertificatesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeCACertificatesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeCACertificatesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeCACertificatesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeCACertificatesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeCACertificatesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeCACertificatesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

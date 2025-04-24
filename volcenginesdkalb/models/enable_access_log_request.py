@@ -52,10 +52,8 @@ class EnableAccessLogRequest(object):
         self._load_balancer_id = None
         self.discriminator = None
 
-        if bucket_name is not None:
-            self.bucket_name = bucket_name
-        if load_balancer_id is not None:
-            self.load_balancer_id = load_balancer_id
+        self.bucket_name = bucket_name
+        self.load_balancer_id = load_balancer_id
 
     @property
     def bucket_name(self):
@@ -75,6 +73,8 @@ class EnableAccessLogRequest(object):
         :param bucket_name: The bucket_name of this EnableAccessLogRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and bucket_name is None:
+            raise ValueError("Invalid value for `bucket_name`, must not be `None`")  # noqa: E501
 
         self._bucket_name = bucket_name
 
@@ -96,6 +96,8 @@ class EnableAccessLogRequest(object):
         :param load_balancer_id: The load_balancer_id of this EnableAccessLogRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and load_balancer_id is None:
+            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 
