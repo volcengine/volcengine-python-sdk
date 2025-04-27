@@ -158,6 +158,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'ml_platform': ServiceEndpointInfo(
+        service='ml_platform',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
     'vepfs': ServiceEndpointInfo(
         service='vepfs',
         is_global=False,
