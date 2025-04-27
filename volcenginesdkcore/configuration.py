@@ -59,7 +59,11 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         # Default Base url
         self.host = None
 
+        # Custom bootstrap region dict
         self.custom_bootstrap_region = None
+
+        # use dual stack endpoint rule
+        self.use_dual_stack = None
 
         # Scheme Support http or https
         self.scheme = "http"
