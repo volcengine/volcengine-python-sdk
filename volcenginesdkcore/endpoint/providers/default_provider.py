@@ -1,5 +1,6 @@
 # coding=utf-8
 import os
+import warnings
 
 from volcenginesdkcore.endpoint.endpoint_provider import EndpointProvider, ResolvedEndpoint
 
@@ -436,8 +437,12 @@ class DefaultEndpointProvider(EndpointProvider):
                             continue
                         if line == region_code:
                             return True
-            except Exception:
-                pass
+            except Exception as e:
+                warnings.warn(
+                    'failed to read bootstrap region list from file ' + bs_region_list_path + ': ' + str(e),
+                    Warning,
+                    stacklevel=2
+                )
 
         if self.bootstrap_region:
             if region_code in self.bootstrap_region:
