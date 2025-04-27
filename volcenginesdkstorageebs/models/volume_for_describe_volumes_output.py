@@ -33,6 +33,7 @@ class VolumeForDescribeVolumesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attachments': 'list[AttachmentForDescribeVolumesOutput]',
         'auto_snapshot_policy_id': 'str',
         'auto_snapshot_policy_name': 'str',
         'baseline_performance': 'BaselinePerformanceForDescribeVolumesOutput',
@@ -70,6 +71,7 @@ class VolumeForDescribeVolumesOutput(object):
     }
 
     attribute_map = {
+        'attachments': 'Attachments',
         'auto_snapshot_policy_id': 'AutoSnapshotPolicyId',
         'auto_snapshot_policy_name': 'AutoSnapshotPolicyName',
         'baseline_performance': 'BaselinePerformance',
@@ -106,12 +108,13 @@ class VolumeForDescribeVolumesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, extra_performance=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, attachments=None, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, extra_performance=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """VolumeForDescribeVolumesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._attachments = None
         self._auto_snapshot_policy_id = None
         self._auto_snapshot_policy_name = None
         self._baseline_performance = None
@@ -148,6 +151,8 @@ class VolumeForDescribeVolumesOutput(object):
         self._zone_id = None
         self.discriminator = None
 
+        if attachments is not None:
+            self.attachments = attachments
         if auto_snapshot_policy_id is not None:
             self.auto_snapshot_policy_id = auto_snapshot_policy_id
         if auto_snapshot_policy_name is not None:
@@ -216,6 +221,27 @@ class VolumeForDescribeVolumesOutput(object):
             self.volume_type = volume_type
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def attachments(self):
+        """Gets the attachments of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The attachments of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: list[AttachmentForDescribeVolumesOutput]
+        """
+        return self._attachments
+
+    @attachments.setter
+    def attachments(self, attachments):
+        """Sets the attachments of this VolumeForDescribeVolumesOutput.
+
+
+        :param attachments: The attachments of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: list[AttachmentForDescribeVolumesOutput]
+        """
+
+        self._attachments = attachments
 
     @property
     def auto_snapshot_policy_id(self):
