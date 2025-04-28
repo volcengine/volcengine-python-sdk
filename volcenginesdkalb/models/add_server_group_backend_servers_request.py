@@ -52,8 +52,7 @@ class AddServerGroupBackendServersRequest(object):
         self._servers = None
         self.discriminator = None
 
-        if server_group_id is not None:
-            self.server_group_id = server_group_id
+        self.server_group_id = server_group_id
         if servers is not None:
             self.servers = servers
 
@@ -75,6 +74,8 @@ class AddServerGroupBackendServersRequest(object):
         :param server_group_id: The server_group_id of this AddServerGroupBackendServersRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and server_group_id is None:
+            raise ValueError("Invalid value for `server_group_id`, must not be `None`")  # noqa: E501
 
         self._server_group_id = server_group_id
 

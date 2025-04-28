@@ -86,14 +86,12 @@ class CloneLoadBalancerRequest(object):
             self.eip_billing_config = eip_billing_config
         if ipv6_eip_billing_config is not None:
             self.ipv6_eip_billing_config = ipv6_eip_billing_config
-        if load_balancer_id is not None:
-            self.load_balancer_id = load_balancer_id
+        self.load_balancer_id = load_balancer_id
         if load_balancer_name is not None:
             self.load_balancer_name = load_balancer_name
         if project_name is not None:
             self.project_name = project_name
-        if region_id is not None:
-            self.region_id = region_id
+        self.region_id = region_id
         if zone_mappings is not None:
             self.zone_mappings = zone_mappings
 
@@ -220,6 +218,8 @@ class CloneLoadBalancerRequest(object):
         :param load_balancer_id: The load_balancer_id of this CloneLoadBalancerRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and load_balancer_id is None:
+            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 
@@ -283,6 +283,8 @@ class CloneLoadBalancerRequest(object):
         :param region_id: The region_id of this CloneLoadBalancerRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and region_id is None:
+            raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
 

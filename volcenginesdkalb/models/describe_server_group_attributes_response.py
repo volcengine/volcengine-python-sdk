@@ -35,6 +35,7 @@ class DescribeServerGroupAttributesResponse(object):
     swagger_types = {
         'description': 'str',
         'health_check': 'HealthCheckForDescribeServerGroupAttributesOutput',
+        'ip_address_type': 'str',
         'listeners': 'list[str]',
         'project_name': 'str',
         'protocol': 'str',
@@ -53,6 +54,7 @@ class DescribeServerGroupAttributesResponse(object):
     attribute_map = {
         'description': 'Description',
         'health_check': 'HealthCheck',
+        'ip_address_type': 'IPAddressType',
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
         'protocol': 'Protocol',
@@ -68,7 +70,7 @@ class DescribeServerGroupAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, health_check=None, listeners=None, project_name=None, protocol=None, request_id=None, scheduler=None, server_group_id=None, server_group_name=None, server_group_type=None, servers=None, status=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check=None, ip_address_type=None, listeners=None, project_name=None, protocol=None, request_id=None, scheduler=None, server_group_id=None, server_group_name=None, server_group_type=None, servers=None, status=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeServerGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class DescribeServerGroupAttributesResponse(object):
 
         self._description = None
         self._health_check = None
+        self._ip_address_type = None
         self._listeners = None
         self._project_name = None
         self._protocol = None
@@ -95,6 +98,8 @@ class DescribeServerGroupAttributesResponse(object):
             self.description = description
         if health_check is not None:
             self.health_check = health_check
+        if ip_address_type is not None:
+            self.ip_address_type = ip_address_type
         if listeners is not None:
             self.listeners = listeners
         if project_name is not None:
@@ -163,6 +168,27 @@ class DescribeServerGroupAttributesResponse(object):
         """
 
         self._health_check = health_check
+
+    @property
+    def ip_address_type(self):
+        """Gets the ip_address_type of this DescribeServerGroupAttributesResponse.  # noqa: E501
+
+
+        :return: The ip_address_type of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address_type
+
+    @ip_address_type.setter
+    def ip_address_type(self, ip_address_type):
+        """Sets the ip_address_type of this DescribeServerGroupAttributesResponse.
+
+
+        :param ip_address_type: The ip_address_type of this DescribeServerGroupAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address_type = ip_address_type
 
     @property
     def listeners(self):

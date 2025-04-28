@@ -33,6 +33,7 @@ class DescribeListenerAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_log_record_customized_headers_enabled': 'str',
         'acl_ids': 'list[str]',
         'acl_status': 'str',
         'acl_type': 'str',
@@ -64,6 +65,7 @@ class DescribeListenerAttributesResponse(object):
     }
 
     attribute_map = {
+        'access_log_record_customized_headers_enabled': 'AccessLogRecordCustomizedHeadersEnabled',
         'acl_ids': 'AclIds',
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
@@ -94,12 +96,13 @@ class DescribeListenerAttributesResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, create_time=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, load_balancer_id=None, port=None, project_name=None, protocol=None, proxy_protocol_disabled=None, request_id=None, server_group_id=None, server_groups=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, create_time=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, load_balancer_id=None, port=None, project_name=None, protocol=None, proxy_protocol_disabled=None, request_id=None, server_group_id=None, server_groups=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeListenerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._access_log_record_customized_headers_enabled = None
         self._acl_ids = None
         self._acl_status = None
         self._acl_type = None
@@ -130,6 +133,8 @@ class DescribeListenerAttributesResponse(object):
         self._update_time = None
         self.discriminator = None
 
+        if access_log_record_customized_headers_enabled is not None:
+            self.access_log_record_customized_headers_enabled = access_log_record_customized_headers_enabled
         if acl_ids is not None:
             self.acl_ids = acl_ids
         if acl_status is not None:
@@ -186,6 +191,27 @@ class DescribeListenerAttributesResponse(object):
             self.tags = tags
         if update_time is not None:
             self.update_time = update_time
+
+    @property
+    def access_log_record_customized_headers_enabled(self):
+        """Gets the access_log_record_customized_headers_enabled of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The access_log_record_customized_headers_enabled of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._access_log_record_customized_headers_enabled
+
+    @access_log_record_customized_headers_enabled.setter
+    def access_log_record_customized_headers_enabled(self, access_log_record_customized_headers_enabled):
+        """Sets the access_log_record_customized_headers_enabled of this DescribeListenerAttributesResponse.
+
+
+        :param access_log_record_customized_headers_enabled: The access_log_record_customized_headers_enabled of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._access_log_record_customized_headers_enabled = access_log_record_customized_headers_enabled
 
     @property
     def acl_ids(self):

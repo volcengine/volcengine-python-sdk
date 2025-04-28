@@ -33,6 +33,7 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'create_time': 'str',
         'description': 'str',
         'health_check_domain': 'str',
         'health_check_http_code': 'str',
@@ -46,10 +47,14 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'health_check_uri': 'str',
         'healthy_threshold': 'int',
         'port': 'int',
-        'unhealthy_threshold': 'int'
+        'project_name': 'str',
+        'tags': 'list[TagForDescribeHealthCheckTemplatesOutput]',
+        'unhealthy_threshold': 'int',
+        'update_time': 'str'
     }
 
     attribute_map = {
+        'create_time': 'CreateTime',
         'description': 'Description',
         'health_check_domain': 'HealthCheckDomain',
         'health_check_http_code': 'HealthCheckHttpCode',
@@ -63,15 +68,19 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         'health_check_uri': 'HealthCheckURI',
         'healthy_threshold': 'HealthyThreshold',
         'port': 'Port',
-        'unhealthy_threshold': 'UnhealthyThreshold'
+        'project_name': 'ProjectName',
+        'tags': 'Tags',
+        'unhealthy_threshold': 'UnhealthyThreshold',
+        'update_time': 'UpdateTime'
     }
 
-    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, port=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, port=None, project_name=None, tags=None, unhealthy_threshold=None, update_time=None, _configuration=None):  # noqa: E501
         """HealthCheckTemplateForDescribeHealthCheckTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._create_time = None
         self._description = None
         self._health_check_domain = None
         self._health_check_http_code = None
@@ -85,9 +94,14 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         self._health_check_uri = None
         self._healthy_threshold = None
         self._port = None
+        self._project_name = None
+        self._tags = None
         self._unhealthy_threshold = None
+        self._update_time = None
         self.discriminator = None
 
+        if create_time is not None:
+            self.create_time = create_time
         if description is not None:
             self.description = description
         if health_check_domain is not None:
@@ -114,8 +128,35 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
             self.healthy_threshold = healthy_threshold
         if port is not None:
             self.port = port
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         if unhealthy_threshold is not None:
             self.unhealthy_threshold = unhealthy_threshold
+        if update_time is not None:
+            self.update_time = update_time
+
+    @property
+    def create_time(self):
+        """Gets the create_time of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+
+
+        :return: The create_time of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.
+
+
+        :param create_time: The create_time of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._create_time = create_time
 
     @property
     def description(self):
@@ -391,6 +432,48 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         self._port = port
 
     @property
+    def project_name(self):
+        """Gets the project_name of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+
+
+        :return: The project_name of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.
+
+
+        :param project_name: The project_name of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+
+
+        :return: The tags of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :rtype: list[TagForDescribeHealthCheckTemplatesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.
+
+
+        :param tags: The tags of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :type: list[TagForDescribeHealthCheckTemplatesOutput]
+        """
+
+        self._tags = tags
+
+    @property
     def unhealthy_threshold(self):
         """Gets the unhealthy_threshold of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
 
@@ -410,6 +493,27 @@ class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput(object):
         """
 
         self._unhealthy_threshold = unhealthy_threshold
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+
+
+        :return: The update_time of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.
+
+
+        :param update_time: The update_time of this HealthCheckTemplateForDescribeHealthCheckTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

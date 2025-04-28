@@ -33,17 +33,45 @@ class DeleteFileSystemResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'order_no': 'str'
     }
 
     attribute_map = {
+        'order_no': 'OrderNO'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, order_no=None, _configuration=None):  # noqa: E501
         """DeleteFileSystemResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._order_no = None
         self.discriminator = None
+
+        if order_no is not None:
+            self.order_no = order_no
+
+    @property
+    def order_no(self):
+        """Gets the order_no of this DeleteFileSystemResponse.  # noqa: E501
+
+
+        :return: The order_no of this DeleteFileSystemResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_no
+
+    @order_no.setter
+    def order_no(self, order_no):
+        """Sets the order_no of this DeleteFileSystemResponse.
+
+
+        :param order_no: The order_no of this DeleteFileSystemResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._order_no = order_no
 
     def to_dict(self):
         """Returns the model properties as a dict"""
