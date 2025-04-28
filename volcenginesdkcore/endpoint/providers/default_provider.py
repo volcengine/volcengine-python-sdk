@@ -194,6 +194,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'vod': ServiceEndpointInfo(
+        service='vod',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
     'fw_center': ServiceEndpointInfo(
         service='fw_center',
         is_global=True,
