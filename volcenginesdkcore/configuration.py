@@ -66,7 +66,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.use_dual_stack = None
 
         # Scheme Support http or https
-        self.scheme = "http"
+        self.scheme = "https"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -257,5 +257,5 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "OS: {env}\n" \
                "Python Version: {pyversion}\n" \
                "Version of the API: 0.1.0\n" \
-               "SDK Package Version: 1.1.6".\
+               "SDK Package Version: 1.1.6". \
             format(env=sys.platform, pyversion=sys.version)
