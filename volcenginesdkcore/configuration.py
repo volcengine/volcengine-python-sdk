@@ -58,8 +58,15 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         # Default Base url
         self.host = None
+
+        # Custom bootstrap region dict
+        self.custom_bootstrap_region = None
+
+        # use dual stack endpoint rule
+        self.use_dual_stack = None
+
         # Scheme Support http or https
-        self.scheme = "http"
+        self.scheme = "https"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -250,5 +257,5 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "OS: {env}\n" \
                "Python Version: {pyversion}\n" \
                "Version of the API: 0.1.0\n" \
-               "SDK Package Version: 1.1.7".\
+               "SDK Package Version: 2.0.1". \
             format(env=sys.platform, pyversion=sys.version)

@@ -1,5 +1,23 @@
 # Volcengine SDK for Python
 
+## 非兼容升级通知
+
+Volcengine SDK for Python 非兼容升级通知
+
+影响版本：`2.0.1` 以及后续版本
+
+变更描述:
+
+从 `2.0.1` 版本开始，发起请求将默认从使用 `HTTP` 协议变成使用 `HTTPS` 协议，请升级到新版本的用户注意是否会产生兼容性风险，做好充分测试。如需继续使用
+`HTTP` 协议，请在发起请求时指定 `scheme` 参数为 `http`(不推荐):
+
+```python
+import volcenginesdkcore
+
+configuration = volcenginesdkcore.Configuration()
+configuration.scheme = 'http'
+```
+
 ## Table of Contents
 
 * Requirements
