@@ -36,17 +36,19 @@ class CreateCustomizedCfgRequest(object):
         'customized_cfg_content': 'str',
         'customized_cfg_name': 'str',
         'description': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tags': 'list[TagForCreateCustomizedCfgInput]'
     }
 
     attribute_map = {
         'customized_cfg_content': 'CustomizedCfgContent',
         'customized_cfg_name': 'CustomizedCfgName',
         'description': 'Description',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, customized_cfg_content=None, customized_cfg_name=None, description=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, customized_cfg_content=None, customized_cfg_name=None, description=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateCustomizedCfgRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,16 +58,17 @@ class CreateCustomizedCfgRequest(object):
         self._customized_cfg_name = None
         self._description = None
         self._project_name = None
+        self._tags = None
         self.discriminator = None
 
-        if customized_cfg_content is not None:
-            self.customized_cfg_content = customized_cfg_content
-        if customized_cfg_name is not None:
-            self.customized_cfg_name = customized_cfg_name
+        self.customized_cfg_content = customized_cfg_content
+        self.customized_cfg_name = customized_cfg_name
         if description is not None:
             self.description = description
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def customized_cfg_content(self):
@@ -85,6 +88,8 @@ class CreateCustomizedCfgRequest(object):
         :param customized_cfg_content: The customized_cfg_content of this CreateCustomizedCfgRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and customized_cfg_content is None:
+            raise ValueError("Invalid value for `customized_cfg_content`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 customized_cfg_content is not None and len(customized_cfg_content) > 4096):
             raise ValueError("Invalid value for `customized_cfg_content`, length must be less than or equal to `4096`")  # noqa: E501
@@ -112,6 +117,8 @@ class CreateCustomizedCfgRequest(object):
         :param customized_cfg_name: The customized_cfg_name of this CreateCustomizedCfgRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and customized_cfg_name is None:
+            raise ValueError("Invalid value for `customized_cfg_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 customized_cfg_name is not None and len(customized_cfg_name) > 128):
             raise ValueError("Invalid value for `customized_cfg_name`, length must be less than or equal to `128`")  # noqa: E501
@@ -168,6 +175,27 @@ class CreateCustomizedCfgRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateCustomizedCfgRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateCustomizedCfgRequest.  # noqa: E501
+        :rtype: list[TagForCreateCustomizedCfgInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateCustomizedCfgRequest.
+
+
+        :param tags: The tags of this CreateCustomizedCfgRequest.  # noqa: E501
+        :type: list[TagForCreateCustomizedCfgInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

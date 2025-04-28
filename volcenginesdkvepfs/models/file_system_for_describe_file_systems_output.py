@@ -34,144 +34,113 @@ class FileSystemForDescribeFileSystemsOutput(object):
     """
     swagger_types = {
         'account_id': 'str',
-        'attach_status': 'str',
-        'auto_renew': 'bool',
         'bandwidth': 'int',
         'capacity_info': 'CapacityInfoForDescribeFileSystemsOutput',
         'charge_status': 'str',
         'charge_type': 'str',
         'create_time': 'str',
         'description': 'str',
-        'ece_code': 'str',
         'expire_time': 'str',
         'file_system_id': 'str',
         'file_system_name': 'str',
         'file_system_type': 'str',
         'free_time': 'str',
         'last_modify_time': 'str',
-        'month': 'int',
-        'mount_points': 'list[MountPointForDescribeFileSystemsOutput]',
         'project': 'str',
+        'project_name': 'str',
         'protocol_type': 'str',
+        'read_bandwidth': 'int',
         'region_id': 'str',
-        'replicas_num': 'int',
         'security_group_id': 'str',
         'status': 'str',
         'stop_service_time': 'str',
-        'storage': 'StorageForDescribeFileSystemsOutput',
         'store_type': 'str',
+        'store_type_cn': 'str',
+        'store_type_en': 'str',
         'subnet_id': 'str',
-        'subnet_name': 'str',
         'tags': 'list[TagForDescribeFileSystemsOutput]',
-        'trade_info': 'TradeInfoForDescribeFileSystemsOutput',
-        'upgrade_end_time': 'str',
-        'upgrade_error': 'str',
-        'upgrade_start_time': 'str',
-        'user_id': 'str',
-        'version': 'str',
+        'version_number': 'str',
         'vpc_id': 'str',
-        'vpc_name': 'str',
+        'write_bandwidth': 'int',
         'zone_id': 'str',
         'zone_name': 'str'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
-        'attach_status': 'AttachStatus',
-        'auto_renew': 'AutoRenew',
         'bandwidth': 'Bandwidth',
         'capacity_info': 'CapacityInfo',
         'charge_status': 'ChargeStatus',
         'charge_type': 'ChargeType',
         'create_time': 'CreateTime',
         'description': 'Description',
-        'ece_code': 'EceCode',
         'expire_time': 'ExpireTime',
         'file_system_id': 'FileSystemId',
         'file_system_name': 'FileSystemName',
         'file_system_type': 'FileSystemType',
         'free_time': 'FreeTime',
         'last_modify_time': 'LastModifyTime',
-        'month': 'Month',
-        'mount_points': 'MountPoints',
         'project': 'Project',
+        'project_name': 'ProjectName',
         'protocol_type': 'ProtocolType',
+        'read_bandwidth': 'ReadBandwidth',
         'region_id': 'RegionId',
-        'replicas_num': 'ReplicasNum',
         'security_group_id': 'SecurityGroupId',
         'status': 'Status',
         'stop_service_time': 'StopServiceTime',
-        'storage': 'Storage',
         'store_type': 'StoreType',
+        'store_type_cn': 'StoreTypeCN',
+        'store_type_en': 'StoreTypeEN',
         'subnet_id': 'SubnetId',
-        'subnet_name': 'SubnetName',
         'tags': 'Tags',
-        'trade_info': 'TradeInfo',
-        'upgrade_end_time': 'UpgradeEndTime',
-        'upgrade_error': 'UpgradeError',
-        'upgrade_start_time': 'UpgradeStartTime',
-        'user_id': 'UserId',
-        'version': 'Version',
+        'version_number': 'VersionNumber',
         'vpc_id': 'VpcId',
-        'vpc_name': 'VpcName',
+        'write_bandwidth': 'WriteBandwidth',
         'zone_id': 'ZoneId',
         'zone_name': 'ZoneName'
     }
 
-    def __init__(self, account_id=None, attach_status=None, auto_renew=None, bandwidth=None, capacity_info=None, charge_status=None, charge_type=None, create_time=None, description=None, ece_code=None, expire_time=None, file_system_id=None, file_system_name=None, file_system_type=None, free_time=None, last_modify_time=None, month=None, mount_points=None, project=None, protocol_type=None, region_id=None, replicas_num=None, security_group_id=None, status=None, stop_service_time=None, storage=None, store_type=None, subnet_id=None, subnet_name=None, tags=None, trade_info=None, upgrade_end_time=None, upgrade_error=None, upgrade_start_time=None, user_id=None, version=None, vpc_id=None, vpc_name=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, capacity_info=None, charge_status=None, charge_type=None, create_time=None, description=None, expire_time=None, file_system_id=None, file_system_name=None, file_system_type=None, free_time=None, last_modify_time=None, project=None, project_name=None, protocol_type=None, read_bandwidth=None, region_id=None, security_group_id=None, status=None, stop_service_time=None, store_type=None, store_type_cn=None, store_type_en=None, subnet_id=None, tags=None, version_number=None, vpc_id=None, write_bandwidth=None, zone_id=None, zone_name=None, _configuration=None):  # noqa: E501
         """FileSystemForDescribeFileSystemsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
-        self._attach_status = None
-        self._auto_renew = None
         self._bandwidth = None
         self._capacity_info = None
         self._charge_status = None
         self._charge_type = None
         self._create_time = None
         self._description = None
-        self._ece_code = None
         self._expire_time = None
         self._file_system_id = None
         self._file_system_name = None
         self._file_system_type = None
         self._free_time = None
         self._last_modify_time = None
-        self._month = None
-        self._mount_points = None
         self._project = None
+        self._project_name = None
         self._protocol_type = None
+        self._read_bandwidth = None
         self._region_id = None
-        self._replicas_num = None
         self._security_group_id = None
         self._status = None
         self._stop_service_time = None
-        self._storage = None
         self._store_type = None
+        self._store_type_cn = None
+        self._store_type_en = None
         self._subnet_id = None
-        self._subnet_name = None
         self._tags = None
-        self._trade_info = None
-        self._upgrade_end_time = None
-        self._upgrade_error = None
-        self._upgrade_start_time = None
-        self._user_id = None
-        self._version = None
+        self._version_number = None
         self._vpc_id = None
-        self._vpc_name = None
+        self._write_bandwidth = None
         self._zone_id = None
         self._zone_name = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
-        if attach_status is not None:
-            self.attach_status = attach_status
-        if auto_renew is not None:
-            self.auto_renew = auto_renew
         if bandwidth is not None:
             self.bandwidth = bandwidth
         if capacity_info is not None:
@@ -184,8 +153,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
             self.create_time = create_time
         if description is not None:
             self.description = description
-        if ece_code is not None:
-            self.ece_code = ece_code
         if expire_time is not None:
             self.expire_time = expire_time
         if file_system_id is not None:
@@ -198,50 +165,38 @@ class FileSystemForDescribeFileSystemsOutput(object):
             self.free_time = free_time
         if last_modify_time is not None:
             self.last_modify_time = last_modify_time
-        if month is not None:
-            self.month = month
-        if mount_points is not None:
-            self.mount_points = mount_points
         if project is not None:
             self.project = project
+        if project_name is not None:
+            self.project_name = project_name
         if protocol_type is not None:
             self.protocol_type = protocol_type
+        if read_bandwidth is not None:
+            self.read_bandwidth = read_bandwidth
         if region_id is not None:
             self.region_id = region_id
-        if replicas_num is not None:
-            self.replicas_num = replicas_num
         if security_group_id is not None:
             self.security_group_id = security_group_id
         if status is not None:
             self.status = status
         if stop_service_time is not None:
             self.stop_service_time = stop_service_time
-        if storage is not None:
-            self.storage = storage
         if store_type is not None:
             self.store_type = store_type
+        if store_type_cn is not None:
+            self.store_type_cn = store_type_cn
+        if store_type_en is not None:
+            self.store_type_en = store_type_en
         if subnet_id is not None:
             self.subnet_id = subnet_id
-        if subnet_name is not None:
-            self.subnet_name = subnet_name
         if tags is not None:
             self.tags = tags
-        if trade_info is not None:
-            self.trade_info = trade_info
-        if upgrade_end_time is not None:
-            self.upgrade_end_time = upgrade_end_time
-        if upgrade_error is not None:
-            self.upgrade_error = upgrade_error
-        if upgrade_start_time is not None:
-            self.upgrade_start_time = upgrade_start_time
-        if user_id is not None:
-            self.user_id = user_id
-        if version is not None:
-            self.version = version
+        if version_number is not None:
+            self.version_number = version_number
         if vpc_id is not None:
             self.vpc_id = vpc_id
-        if vpc_name is not None:
-            self.vpc_name = vpc_name
+        if write_bandwidth is not None:
+            self.write_bandwidth = write_bandwidth
         if zone_id is not None:
             self.zone_id = zone_id
         if zone_name is not None:
@@ -267,48 +222,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         """
 
         self._account_id = account_id
-
-    @property
-    def attach_status(self):
-        """Gets the attach_status of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The attach_status of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._attach_status
-
-    @attach_status.setter
-    def attach_status(self, attach_status):
-        """Sets the attach_status of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param attach_status: The attach_status of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._attach_status = attach_status
-
-    @property
-    def auto_renew(self):
-        """Gets the auto_renew of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The auto_renew of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._auto_renew
-
-    @auto_renew.setter
-    def auto_renew(self, auto_renew):
-        """Sets the auto_renew of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param auto_renew: The auto_renew of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._auto_renew = auto_renew
 
     @property
     def bandwidth(self):
@@ -437,27 +350,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._description = description
 
     @property
-    def ece_code(self):
-        """Gets the ece_code of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The ece_code of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._ece_code
-
-    @ece_code.setter
-    def ece_code(self, ece_code):
-        """Sets the ece_code of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param ece_code: The ece_code of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._ece_code = ece_code
-
-    @property
     def expire_time(self):
         """Gets the expire_time of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
 
@@ -584,48 +476,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._last_modify_time = last_modify_time
 
     @property
-    def month(self):
-        """Gets the month of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The month of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._month
-
-    @month.setter
-    def month(self, month):
-        """Sets the month of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param month: The month of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._month = month
-
-    @property
-    def mount_points(self):
-        """Gets the mount_points of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The mount_points of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: list[MountPointForDescribeFileSystemsOutput]
-        """
-        return self._mount_points
-
-    @mount_points.setter
-    def mount_points(self, mount_points):
-        """Sets the mount_points of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param mount_points: The mount_points of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: list[MountPointForDescribeFileSystemsOutput]
-        """
-
-        self._mount_points = mount_points
-
-    @property
     def project(self):
         """Gets the project of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
 
@@ -645,6 +495,27 @@ class FileSystemForDescribeFileSystemsOutput(object):
         """
 
         self._project = project
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+
+
+        :return: The project_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this FileSystemForDescribeFileSystemsOutput.
+
+
+        :param project_name: The project_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def protocol_type(self):
@@ -668,6 +539,27 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._protocol_type = protocol_type
 
     @property
+    def read_bandwidth(self):
+        """Gets the read_bandwidth of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+
+
+        :return: The read_bandwidth of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_bandwidth
+
+    @read_bandwidth.setter
+    def read_bandwidth(self, read_bandwidth):
+        """Sets the read_bandwidth of this FileSystemForDescribeFileSystemsOutput.
+
+
+        :param read_bandwidth: The read_bandwidth of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_bandwidth = read_bandwidth
+
+    @property
     def region_id(self):
         """Gets the region_id of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
 
@@ -687,27 +579,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         """
 
         self._region_id = region_id
-
-    @property
-    def replicas_num(self):
-        """Gets the replicas_num of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The replicas_num of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._replicas_num
-
-    @replicas_num.setter
-    def replicas_num(self, replicas_num):
-        """Sets the replicas_num of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param replicas_num: The replicas_num of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._replicas_num = replicas_num
 
     @property
     def security_group_id(self):
@@ -773,27 +644,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._stop_service_time = stop_service_time
 
     @property
-    def storage(self):
-        """Gets the storage of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The storage of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: StorageForDescribeFileSystemsOutput
-        """
-        return self._storage
-
-    @storage.setter
-    def storage(self, storage):
-        """Sets the storage of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param storage: The storage of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: StorageForDescribeFileSystemsOutput
-        """
-
-        self._storage = storage
-
-    @property
     def store_type(self):
         """Gets the store_type of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
 
@@ -813,6 +663,48 @@ class FileSystemForDescribeFileSystemsOutput(object):
         """
 
         self._store_type = store_type
+
+    @property
+    def store_type_cn(self):
+        """Gets the store_type_cn of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+
+
+        :return: The store_type_cn of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_type_cn
+
+    @store_type_cn.setter
+    def store_type_cn(self, store_type_cn):
+        """Sets the store_type_cn of this FileSystemForDescribeFileSystemsOutput.
+
+
+        :param store_type_cn: The store_type_cn of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._store_type_cn = store_type_cn
+
+    @property
+    def store_type_en(self):
+        """Gets the store_type_en of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+
+
+        :return: The store_type_en of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_type_en
+
+    @store_type_en.setter
+    def store_type_en(self, store_type_en):
+        """Sets the store_type_en of this FileSystemForDescribeFileSystemsOutput.
+
+
+        :param store_type_en: The store_type_en of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._store_type_en = store_type_en
 
     @property
     def subnet_id(self):
@@ -836,27 +728,6 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._subnet_id = subnet_id
 
     @property
-    def subnet_name(self):
-        """Gets the subnet_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The subnet_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._subnet_name
-
-    @subnet_name.setter
-    def subnet_name(self, subnet_name):
-        """Sets the subnet_name of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param subnet_name: The subnet_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._subnet_name = subnet_name
-
-    @property
     def tags(self):
         """Gets the tags of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
 
@@ -878,130 +749,25 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._tags = tags
 
     @property
-    def trade_info(self):
-        """Gets the trade_info of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+    def version_number(self):
+        """Gets the version_number of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
 
 
-        :return: The trade_info of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: TradeInfoForDescribeFileSystemsOutput
-        """
-        return self._trade_info
-
-    @trade_info.setter
-    def trade_info(self, trade_info):
-        """Sets the trade_info of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param trade_info: The trade_info of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: TradeInfoForDescribeFileSystemsOutput
-        """
-
-        self._trade_info = trade_info
-
-    @property
-    def upgrade_end_time(self):
-        """Gets the upgrade_end_time of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The upgrade_end_time of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :return: The version_number of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
         :rtype: str
         """
-        return self._upgrade_end_time
+        return self._version_number
 
-    @upgrade_end_time.setter
-    def upgrade_end_time(self, upgrade_end_time):
-        """Sets the upgrade_end_time of this FileSystemForDescribeFileSystemsOutput.
+    @version_number.setter
+    def version_number(self, version_number):
+        """Sets the version_number of this FileSystemForDescribeFileSystemsOutput.
 
 
-        :param upgrade_end_time: The upgrade_end_time of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :param version_number: The version_number of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
         :type: str
         """
 
-        self._upgrade_end_time = upgrade_end_time
-
-    @property
-    def upgrade_error(self):
-        """Gets the upgrade_error of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The upgrade_error of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._upgrade_error
-
-    @upgrade_error.setter
-    def upgrade_error(self, upgrade_error):
-        """Sets the upgrade_error of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param upgrade_error: The upgrade_error of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._upgrade_error = upgrade_error
-
-    @property
-    def upgrade_start_time(self):
-        """Gets the upgrade_start_time of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The upgrade_start_time of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._upgrade_start_time
-
-    @upgrade_start_time.setter
-    def upgrade_start_time(self, upgrade_start_time):
-        """Sets the upgrade_start_time of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param upgrade_start_time: The upgrade_start_time of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._upgrade_start_time = upgrade_start_time
-
-    @property
-    def user_id(self):
-        """Gets the user_id of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The user_id of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_id
-
-    @user_id.setter
-    def user_id(self, user_id):
-        """Sets the user_id of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param user_id: The user_id of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._user_id = user_id
-
-    @property
-    def version(self):
-        """Gets the version of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-
-
-        :return: The version of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this FileSystemForDescribeFileSystemsOutput.
-
-
-        :param version: The version of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._version = version
+        self._version_number = version_number
 
     @property
     def vpc_id(self):
@@ -1025,25 +791,25 @@ class FileSystemForDescribeFileSystemsOutput(object):
         self._vpc_id = vpc_id
 
     @property
-    def vpc_name(self):
-        """Gets the vpc_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+    def write_bandwidth(self):
+        """Gets the write_bandwidth of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
 
 
-        :return: The vpc_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :rtype: str
+        :return: The write_bandwidth of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :rtype: int
         """
-        return self._vpc_name
+        return self._write_bandwidth
 
-    @vpc_name.setter
-    def vpc_name(self, vpc_name):
-        """Sets the vpc_name of this FileSystemForDescribeFileSystemsOutput.
+    @write_bandwidth.setter
+    def write_bandwidth(self, write_bandwidth):
+        """Sets the write_bandwidth of this FileSystemForDescribeFileSystemsOutput.
 
 
-        :param vpc_name: The vpc_name of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
-        :type: str
+        :param write_bandwidth: The write_bandwidth of this FileSystemForDescribeFileSystemsOutput.  # noqa: E501
+        :type: int
         """
 
-        self._vpc_name = vpc_name
+        self._write_bandwidth = write_bandwidth
 
     @property
     def zone_id(self):

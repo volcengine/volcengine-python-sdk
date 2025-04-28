@@ -60,8 +60,7 @@ class ModifyCustomizedCfgAttributesRequest(object):
 
         if customized_cfg_content is not None:
             self.customized_cfg_content = customized_cfg_content
-        if customized_cfg_id is not None:
-            self.customized_cfg_id = customized_cfg_id
+        self.customized_cfg_id = customized_cfg_id
         if customized_cfg_name is not None:
             self.customized_cfg_name = customized_cfg_name
         if description is not None:
@@ -112,6 +111,8 @@ class ModifyCustomizedCfgAttributesRequest(object):
         :param customized_cfg_id: The customized_cfg_id of this ModifyCustomizedCfgAttributesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and customized_cfg_id is None:
+            raise ValueError("Invalid value for `customized_cfg_id`, must not be `None`")  # noqa: E501
 
         self._customized_cfg_id = customized_cfg_id
 

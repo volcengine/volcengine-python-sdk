@@ -34,15 +34,17 @@ class RegionForDescribeRegionsOutput(object):
     """
     swagger_types = {
         'region_id': 'str',
-        'region_name': 'str'
+        'region_name': 'str',
+        'total_count': 'int'
     }
 
     attribute_map = {
         'region_id': 'RegionId',
-        'region_name': 'RegionName'
+        'region_name': 'RegionName',
+        'total_count': 'TotalCount'
     }
 
-    def __init__(self, region_id=None, region_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, region_id=None, region_name=None, total_count=None, _configuration=None):  # noqa: E501
         """RegionForDescribeRegionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class RegionForDescribeRegionsOutput(object):
 
         self._region_id = None
         self._region_name = None
+        self._total_count = None
         self.discriminator = None
 
         if region_id is not None:
             self.region_id = region_id
         if region_name is not None:
             self.region_name = region_name
+        if total_count is not None:
+            self.total_count = total_count
 
     @property
     def region_id(self):
@@ -98,6 +103,27 @@ class RegionForDescribeRegionsOutput(object):
         """
 
         self._region_name = region_name
+
+    @property
+    def total_count(self):
+        """Gets the total_count of this RegionForDescribeRegionsOutput.  # noqa: E501
+
+
+        :return: The total_count of this RegionForDescribeRegionsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count
+
+    @total_count.setter
+    def total_count(self, total_count):
+        """Sets the total_count of this RegionForDescribeRegionsOutput.
+
+
+        :param total_count: The total_count of this RegionForDescribeRegionsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_count = total_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

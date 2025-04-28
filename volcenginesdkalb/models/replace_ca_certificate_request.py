@@ -39,6 +39,7 @@ class ReplaceCACertificateRequest(object):
         'description': 'str',
         'old_ca_certificate_id': 'str',
         'project_name': 'str',
+        'tags': 'list[TagForReplaceCACertificateInput]',
         'update_mode': 'str'
     }
 
@@ -49,10 +50,11 @@ class ReplaceCACertificateRequest(object):
         'description': 'Description',
         'old_ca_certificate_id': 'OldCACertificateId',
         'project_name': 'ProjectName',
+        'tags': 'Tags',
         'update_mode': 'UpdateMode'
     }
 
-    def __init__(self, ca_certificate=None, ca_certificate_id=None, ca_certificate_name=None, description=None, old_ca_certificate_id=None, project_name=None, update_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, ca_certificate=None, ca_certificate_id=None, ca_certificate_name=None, description=None, old_ca_certificate_id=None, project_name=None, tags=None, update_mode=None, _configuration=None):  # noqa: E501
         """ReplaceCACertificateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,23 +66,23 @@ class ReplaceCACertificateRequest(object):
         self._description = None
         self._old_ca_certificate_id = None
         self._project_name = None
+        self._tags = None
         self._update_mode = None
         self.discriminator = None
 
-        if ca_certificate is not None:
-            self.ca_certificate = ca_certificate
+        self.ca_certificate = ca_certificate
         if ca_certificate_id is not None:
             self.ca_certificate_id = ca_certificate_id
         if ca_certificate_name is not None:
             self.ca_certificate_name = ca_certificate_name
         if description is not None:
             self.description = description
-        if old_ca_certificate_id is not None:
-            self.old_ca_certificate_id = old_ca_certificate_id
+        self.old_ca_certificate_id = old_ca_certificate_id
         if project_name is not None:
             self.project_name = project_name
-        if update_mode is not None:
-            self.update_mode = update_mode
+        if tags is not None:
+            self.tags = tags
+        self.update_mode = update_mode
 
     @property
     def ca_certificate(self):
@@ -100,6 +102,8 @@ class ReplaceCACertificateRequest(object):
         :param ca_certificate: The ca_certificate of this ReplaceCACertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and ca_certificate is None:
+            raise ValueError("Invalid value for `ca_certificate`, must not be `None`")  # noqa: E501
 
         self._ca_certificate = ca_certificate
 
@@ -190,6 +194,8 @@ class ReplaceCACertificateRequest(object):
         :param old_ca_certificate_id: The old_ca_certificate_id of this ReplaceCACertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and old_ca_certificate_id is None:
+            raise ValueError("Invalid value for `old_ca_certificate_id`, must not be `None`")  # noqa: E501
 
         self._old_ca_certificate_id = old_ca_certificate_id
 
@@ -215,6 +221,27 @@ class ReplaceCACertificateRequest(object):
         self._project_name = project_name
 
     @property
+    def tags(self):
+        """Gets the tags of this ReplaceCACertificateRequest.  # noqa: E501
+
+
+        :return: The tags of this ReplaceCACertificateRequest.  # noqa: E501
+        :rtype: list[TagForReplaceCACertificateInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ReplaceCACertificateRequest.
+
+
+        :param tags: The tags of this ReplaceCACertificateRequest.  # noqa: E501
+        :type: list[TagForReplaceCACertificateInput]
+        """
+
+        self._tags = tags
+
+    @property
     def update_mode(self):
         """Gets the update_mode of this ReplaceCACertificateRequest.  # noqa: E501
 
@@ -232,6 +259,8 @@ class ReplaceCACertificateRequest(object):
         :param update_mode: The update_mode of this ReplaceCACertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and update_mode is None:
+            raise ValueError("Invalid value for `update_mode`, must not be `None`")  # noqa: E501
 
         self._update_mode = update_mode
 

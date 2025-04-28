@@ -55,10 +55,8 @@ class ModifyLoadBalancerTypeRequest(object):
         self._zone_mappings = None
         self.discriminator = None
 
-        if load_balancer_id is not None:
-            self.load_balancer_id = load_balancer_id
-        if type is not None:
-            self.type = type
+        self.load_balancer_id = load_balancer_id
+        self.type = type
         if zone_mappings is not None:
             self.zone_mappings = zone_mappings
 
@@ -80,6 +78,8 @@ class ModifyLoadBalancerTypeRequest(object):
         :param load_balancer_id: The load_balancer_id of this ModifyLoadBalancerTypeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and load_balancer_id is None:
+            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 
@@ -101,6 +101,8 @@ class ModifyLoadBalancerTypeRequest(object):
         :param type: The type of this ModifyLoadBalancerTypeRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
