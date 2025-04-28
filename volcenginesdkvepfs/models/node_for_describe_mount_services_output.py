@@ -34,31 +34,26 @@ class NodeForDescribeMountServicesOutput(object):
     """
     swagger_types = {
         'default_password': 'str',
-        'node_ip': 'str',
         'node_id': 'str'
     }
 
     attribute_map = {
         'default_password': 'DefaultPassword',
-        'node_ip': 'NodeIP',
         'node_id': 'NodeId'
     }
 
-    def __init__(self, default_password=None, node_ip=None, node_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, default_password=None, node_id=None, _configuration=None):  # noqa: E501
         """NodeForDescribeMountServicesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._default_password = None
-        self._node_ip = None
         self._node_id = None
         self.discriminator = None
 
         if default_password is not None:
             self.default_password = default_password
-        if node_ip is not None:
-            self.node_ip = node_ip
         if node_id is not None:
             self.node_id = node_id
 
@@ -82,27 +77,6 @@ class NodeForDescribeMountServicesOutput(object):
         """
 
         self._default_password = default_password
-
-    @property
-    def node_ip(self):
-        """Gets the node_ip of this NodeForDescribeMountServicesOutput.  # noqa: E501
-
-
-        :return: The node_ip of this NodeForDescribeMountServicesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._node_ip
-
-    @node_ip.setter
-    def node_ip(self, node_ip):
-        """Sets the node_ip of this NodeForDescribeMountServicesOutput.
-
-
-        :param node_ip: The node_ip of this NodeForDescribeMountServicesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._node_ip = node_ip
 
     @property
     def node_id(self):

@@ -35,6 +35,7 @@ class CreateServerGroupRequest(object):
     swagger_types = {
         'description': 'str',
         'health_check': 'HealthCheckForCreateServerGroupInput',
+        'ip_address_type': 'str',
         'project_name': 'str',
         'protocol': 'str',
         'scheduler': 'str',
@@ -48,6 +49,7 @@ class CreateServerGroupRequest(object):
     attribute_map = {
         'description': 'Description',
         'health_check': 'HealthCheck',
+        'ip_address_type': 'IPAddressType',
         'project_name': 'ProjectName',
         'protocol': 'Protocol',
         'scheduler': 'Scheduler',
@@ -58,7 +60,7 @@ class CreateServerGroupRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, health_check=None, project_name=None, protocol=None, scheduler=None, server_group_name=None, server_group_type=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check=None, ip_address_type=None, project_name=None, protocol=None, scheduler=None, server_group_name=None, server_group_type=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateServerGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class CreateServerGroupRequest(object):
 
         self._description = None
         self._health_check = None
+        self._ip_address_type = None
         self._project_name = None
         self._protocol = None
         self._scheduler = None
@@ -80,6 +83,8 @@ class CreateServerGroupRequest(object):
             self.description = description
         if health_check is not None:
             self.health_check = health_check
+        if ip_address_type is not None:
+            self.ip_address_type = ip_address_type
         if project_name is not None:
             self.project_name = project_name
         if protocol is not None:
@@ -94,8 +99,7 @@ class CreateServerGroupRequest(object):
             self.sticky_session_config = sticky_session_config
         if tags is not None:
             self.tags = tags
-        if vpc_id is not None:
-            self.vpc_id = vpc_id
+        self.vpc_id = vpc_id
 
     @property
     def description(self):
@@ -138,6 +142,27 @@ class CreateServerGroupRequest(object):
         """
 
         self._health_check = health_check
+
+    @property
+    def ip_address_type(self):
+        """Gets the ip_address_type of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The ip_address_type of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address_type
+
+    @ip_address_type.setter
+    def ip_address_type(self, ip_address_type):
+        """Sets the ip_address_type of this CreateServerGroupRequest.
+
+
+        :param ip_address_type: The ip_address_type of this CreateServerGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address_type = ip_address_type
 
     @property
     def project_name(self):
@@ -310,6 +335,8 @@ class CreateServerGroupRequest(object):
         :param vpc_id: The vpc_id of this CreateServerGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and vpc_id is None:
+            raise ValueError("Invalid value for `vpc_id`, must not be `None`")  # noqa: E501
 
         self._vpc_id = vpc_id
 

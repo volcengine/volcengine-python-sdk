@@ -43,6 +43,7 @@ class CreateFileSystemRequest(object):
         'store_type': 'str',
         'subnet_id': 'str',
         'tags': 'list[TagForCreateFileSystemInput]',
+        'version_number': 'str',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
@@ -58,11 +59,12 @@ class CreateFileSystemRequest(object):
         'store_type': 'StoreType',
         'subnet_id': 'SubnetId',
         'tags': 'Tags',
+        'version_number': 'VersionNumber',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, capacity=None, charge_type=None, description=None, file_system_name=None, file_system_type=None, project=None, protocol_type=None, store_type=None, subnet_id=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, capacity=None, charge_type=None, description=None, file_system_name=None, file_system_type=None, project=None, protocol_type=None, store_type=None, subnet_id=None, tags=None, version_number=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateFileSystemRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,34 +80,31 @@ class CreateFileSystemRequest(object):
         self._store_type = None
         self._subnet_id = None
         self._tags = None
+        self._version_number = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
 
         if capacity is not None:
             self.capacity = capacity
-        if charge_type is not None:
-            self.charge_type = charge_type
+        self.charge_type = charge_type
         if description is not None:
             self.description = description
-        if file_system_name is not None:
-            self.file_system_name = file_system_name
-        if file_system_type is not None:
-            self.file_system_type = file_system_type
+        self.file_system_name = file_system_name
+        self.file_system_type = file_system_type
         if project is not None:
             self.project = project
-        if protocol_type is not None:
-            self.protocol_type = protocol_type
-        if store_type is not None:
-            self.store_type = store_type
+        self.protocol_type = protocol_type
+        self.store_type = store_type
         if subnet_id is not None:
             self.subnet_id = subnet_id
         if tags is not None:
             self.tags = tags
+        if version_number is not None:
+            self.version_number = version_number
         if vpc_id is not None:
             self.vpc_id = vpc_id
-        if zone_id is not None:
-            self.zone_id = zone_id
+        self.zone_id = zone_id
 
     @property
     def capacity(self):
@@ -146,6 +145,15 @@ class CreateFileSystemRequest(object):
         :param charge_type: The charge_type of this CreateFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and charge_type is None:
+            raise ValueError("Invalid value for `charge_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["PayAsYouGo"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(charge_type, allowed_values)
+            )
 
         self._charge_type = charge_type
 
@@ -188,6 +196,8 @@ class CreateFileSystemRequest(object):
         :param file_system_name: The file_system_name of this CreateFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and file_system_name is None:
+            raise ValueError("Invalid value for `file_system_name`, must not be `None`")  # noqa: E501
 
         self._file_system_name = file_system_name
 
@@ -209,6 +219,15 @@ class CreateFileSystemRequest(object):
         :param file_system_type: The file_system_type of this CreateFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and file_system_type is None:
+            raise ValueError("Invalid value for `file_system_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["VePFS"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                file_system_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `file_system_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(file_system_type, allowed_values)
+            )
 
         self._file_system_type = file_system_type
 
@@ -251,6 +270,15 @@ class CreateFileSystemRequest(object):
         :param protocol_type: The protocol_type of this CreateFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and protocol_type is None:
+            raise ValueError("Invalid value for `protocol_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["NFS", "SMB", "VePFS", "FSX"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                protocol_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `protocol_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(protocol_type, allowed_values)
+            )
 
         self._protocol_type = protocol_type
 
@@ -272,6 +300,8 @@ class CreateFileSystemRequest(object):
         :param store_type: The store_type of this CreateFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and store_type is None:
+            raise ValueError("Invalid value for `store_type`, must not be `None`")  # noqa: E501
 
         self._store_type = store_type
 
@@ -318,6 +348,27 @@ class CreateFileSystemRequest(object):
         self._tags = tags
 
     @property
+    def version_number(self):
+        """Gets the version_number of this CreateFileSystemRequest.  # noqa: E501
+
+
+        :return: The version_number of this CreateFileSystemRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._version_number
+
+    @version_number.setter
+    def version_number(self, version_number):
+        """Sets the version_number of this CreateFileSystemRequest.
+
+
+        :param version_number: The version_number of this CreateFileSystemRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._version_number = version_number
+
+    @property
     def vpc_id(self):
         """Gets the vpc_id of this CreateFileSystemRequest.  # noqa: E501
 
@@ -356,6 +407,8 @@ class CreateFileSystemRequest(object):
         :param zone_id: The zone_id of this CreateFileSystemRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and zone_id is None:
+            raise ValueError("Invalid value for `zone_id`, must not be `None`")  # noqa: E501
 
         self._zone_id = zone_id
 

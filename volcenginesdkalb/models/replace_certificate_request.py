@@ -42,6 +42,7 @@ class ReplaceCertificateRequest(object):
         'private_key': 'str',
         'project_name': 'str',
         'public_key': 'str',
+        'tags': 'list[TagForReplaceCertificateInput]',
         'update_mode': 'str'
     }
 
@@ -55,10 +56,11 @@ class ReplaceCertificateRequest(object):
         'private_key': 'PrivateKey',
         'project_name': 'ProjectName',
         'public_key': 'PublicKey',
+        'tags': 'Tags',
         'update_mode': 'UpdateMode'
     }
 
-    def __init__(self, cert_center_certificate_id=None, certificate_id=None, certificate_name=None, certificate_source=None, description=None, old_certificate_id=None, private_key=None, project_name=None, public_key=None, update_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_center_certificate_id=None, certificate_id=None, certificate_name=None, certificate_source=None, description=None, old_certificate_id=None, private_key=None, project_name=None, public_key=None, tags=None, update_mode=None, _configuration=None):  # noqa: E501
         """ReplaceCertificateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class ReplaceCertificateRequest(object):
         self._private_key = None
         self._project_name = None
         self._public_key = None
+        self._tags = None
         self._update_mode = None
         self.discriminator = None
 
@@ -86,16 +89,16 @@ class ReplaceCertificateRequest(object):
             self.certificate_source = certificate_source
         if description is not None:
             self.description = description
-        if old_certificate_id is not None:
-            self.old_certificate_id = old_certificate_id
+        self.old_certificate_id = old_certificate_id
         if private_key is not None:
             self.private_key = private_key
         if project_name is not None:
             self.project_name = project_name
         if public_key is not None:
             self.public_key = public_key
-        if update_mode is not None:
-            self.update_mode = update_mode
+        if tags is not None:
+            self.tags = tags
+        self.update_mode = update_mode
 
     @property
     def cert_center_certificate_id(self):
@@ -226,6 +229,8 @@ class ReplaceCertificateRequest(object):
         :param old_certificate_id: The old_certificate_id of this ReplaceCertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and old_certificate_id is None:
+            raise ValueError("Invalid value for `old_certificate_id`, must not be `None`")  # noqa: E501
 
         self._old_certificate_id = old_certificate_id
 
@@ -293,6 +298,27 @@ class ReplaceCertificateRequest(object):
         self._public_key = public_key
 
     @property
+    def tags(self):
+        """Gets the tags of this ReplaceCertificateRequest.  # noqa: E501
+
+
+        :return: The tags of this ReplaceCertificateRequest.  # noqa: E501
+        :rtype: list[TagForReplaceCertificateInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ReplaceCertificateRequest.
+
+
+        :param tags: The tags of this ReplaceCertificateRequest.  # noqa: E501
+        :type: list[TagForReplaceCertificateInput]
+        """
+
+        self._tags = tags
+
+    @property
     def update_mode(self):
         """Gets the update_mode of this ReplaceCertificateRequest.  # noqa: E501
 
@@ -310,6 +336,8 @@ class ReplaceCertificateRequest(object):
         :param update_mode: The update_mode of this ReplaceCertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and update_mode is None:
+            raise ValueError("Invalid value for `update_mode`, must not be `None`")  # noqa: E501
 
         self._update_mode = update_mode
 

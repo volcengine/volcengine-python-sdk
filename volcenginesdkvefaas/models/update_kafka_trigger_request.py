@@ -33,6 +33,8 @@ class UpdateKafkaTriggerRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'batch_flush_duration_milliseconds': 'int',
+        'batch_size': 'int',
         'description': 'str',
         'enabled': 'bool',
         'function_id': 'str',
@@ -41,6 +43,8 @@ class UpdateKafkaTriggerRequest(object):
     }
 
     attribute_map = {
+        'batch_flush_duration_milliseconds': 'BatchFlushDurationMilliseconds',
+        'batch_size': 'BatchSize',
         'description': 'Description',
         'enabled': 'Enabled',
         'function_id': 'FunctionId',
@@ -48,12 +52,14 @@ class UpdateKafkaTriggerRequest(object):
         'maximum_retry_attempts': 'MaximumRetryAttempts'
     }
 
-    def __init__(self, description=None, enabled=None, function_id=None, id=None, maximum_retry_attempts=None, _configuration=None):  # noqa: E501
+    def __init__(self, batch_flush_duration_milliseconds=None, batch_size=None, description=None, enabled=None, function_id=None, id=None, maximum_retry_attempts=None, _configuration=None):  # noqa: E501
         """UpdateKafkaTriggerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._batch_flush_duration_milliseconds = None
+        self._batch_size = None
         self._description = None
         self._enabled = None
         self._function_id = None
@@ -61,6 +67,10 @@ class UpdateKafkaTriggerRequest(object):
         self._maximum_retry_attempts = None
         self.discriminator = None
 
+        if batch_flush_duration_milliseconds is not None:
+            self.batch_flush_duration_milliseconds = batch_flush_duration_milliseconds
+        if batch_size is not None:
+            self.batch_size = batch_size
         if description is not None:
             self.description = description
         if enabled is not None:
@@ -69,6 +79,48 @@ class UpdateKafkaTriggerRequest(object):
         self.id = id
         if maximum_retry_attempts is not None:
             self.maximum_retry_attempts = maximum_retry_attempts
+
+    @property
+    def batch_flush_duration_milliseconds(self):
+        """Gets the batch_flush_duration_milliseconds of this UpdateKafkaTriggerRequest.  # noqa: E501
+
+
+        :return: The batch_flush_duration_milliseconds of this UpdateKafkaTriggerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_flush_duration_milliseconds
+
+    @batch_flush_duration_milliseconds.setter
+    def batch_flush_duration_milliseconds(self, batch_flush_duration_milliseconds):
+        """Sets the batch_flush_duration_milliseconds of this UpdateKafkaTriggerRequest.
+
+
+        :param batch_flush_duration_milliseconds: The batch_flush_duration_milliseconds of this UpdateKafkaTriggerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._batch_flush_duration_milliseconds = batch_flush_duration_milliseconds
+
+    @property
+    def batch_size(self):
+        """Gets the batch_size of this UpdateKafkaTriggerRequest.  # noqa: E501
+
+
+        :return: The batch_size of this UpdateKafkaTriggerRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_size
+
+    @batch_size.setter
+    def batch_size(self, batch_size):
+        """Sets the batch_size of this UpdateKafkaTriggerRequest.
+
+
+        :param batch_size: The batch_size of this UpdateKafkaTriggerRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._batch_size = batch_size
 
     @property
     def description(self):

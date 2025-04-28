@@ -33,6 +33,8 @@ class UpdateKafkaTriggerResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'batch_flush_duration_milliseconds': 'int',
+        'batch_size': 'int',
         'consumer_group': 'str',
         'creation_time': 'str',
         'description': 'str',
@@ -49,6 +51,8 @@ class UpdateKafkaTriggerResponse(object):
     }
 
     attribute_map = {
+        'batch_flush_duration_milliseconds': 'BatchFlushDurationMilliseconds',
+        'batch_size': 'BatchSize',
         'consumer_group': 'ConsumerGroup',
         'creation_time': 'CreationTime',
         'description': 'Description',
@@ -64,12 +68,14 @@ class UpdateKafkaTriggerResponse(object):
         'topic_name': 'TopicName'
     }
 
-    def __init__(self, consumer_group=None, creation_time=None, description=None, enabled=None, function_id=None, id=None, last_update_time=None, maximum_retry_attempts=None, mq_instance_id=None, name=None, starting_position=None, status=None, topic_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, batch_flush_duration_milliseconds=None, batch_size=None, consumer_group=None, creation_time=None, description=None, enabled=None, function_id=None, id=None, last_update_time=None, maximum_retry_attempts=None, mq_instance_id=None, name=None, starting_position=None, status=None, topic_name=None, _configuration=None):  # noqa: E501
         """UpdateKafkaTriggerResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._batch_flush_duration_milliseconds = None
+        self._batch_size = None
         self._consumer_group = None
         self._creation_time = None
         self._description = None
@@ -85,6 +91,10 @@ class UpdateKafkaTriggerResponse(object):
         self._topic_name = None
         self.discriminator = None
 
+        if batch_flush_duration_milliseconds is not None:
+            self.batch_flush_duration_milliseconds = batch_flush_duration_milliseconds
+        if batch_size is not None:
+            self.batch_size = batch_size
         if consumer_group is not None:
             self.consumer_group = consumer_group
         if creation_time is not None:
@@ -111,6 +121,48 @@ class UpdateKafkaTriggerResponse(object):
             self.status = status
         if topic_name is not None:
             self.topic_name = topic_name
+
+    @property
+    def batch_flush_duration_milliseconds(self):
+        """Gets the batch_flush_duration_milliseconds of this UpdateKafkaTriggerResponse.  # noqa: E501
+
+
+        :return: The batch_flush_duration_milliseconds of this UpdateKafkaTriggerResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_flush_duration_milliseconds
+
+    @batch_flush_duration_milliseconds.setter
+    def batch_flush_duration_milliseconds(self, batch_flush_duration_milliseconds):
+        """Sets the batch_flush_duration_milliseconds of this UpdateKafkaTriggerResponse.
+
+
+        :param batch_flush_duration_milliseconds: The batch_flush_duration_milliseconds of this UpdateKafkaTriggerResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._batch_flush_duration_milliseconds = batch_flush_duration_milliseconds
+
+    @property
+    def batch_size(self):
+        """Gets the batch_size of this UpdateKafkaTriggerResponse.  # noqa: E501
+
+
+        :return: The batch_size of this UpdateKafkaTriggerResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_size
+
+    @batch_size.setter
+    def batch_size(self, batch_size):
+        """Sets the batch_size of this UpdateKafkaTriggerResponse.
+
+
+        :param batch_size: The batch_size of this UpdateKafkaTriggerResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._batch_size = batch_size
 
     @property
     def consumer_group(self):

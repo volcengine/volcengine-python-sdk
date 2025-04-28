@@ -41,7 +41,8 @@ class CreateKeyRequest(object):
         'multi_region': 'bool',
         'origin': 'str',
         'protection_level': 'str',
-        'rotate_state': 'str'
+        'rotate_state': 'str',
+        'tags': 'list[TagForCreateKeyInput]'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class CreateKeyRequest(object):
         'multi_region': 'MultiRegion',
         'origin': 'Origin',
         'protection_level': 'ProtectionLevel',
-        'rotate_state': 'RotateState'
+        'rotate_state': 'RotateState',
+        'tags': 'Tags'
     }
 
-    def __init__(self, description=None, key_name=None, key_spec=None, key_usage=None, keyring_name=None, multi_region=None, origin=None, protection_level=None, rotate_state=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, key_name=None, key_spec=None, key_usage=None, keyring_name=None, multi_region=None, origin=None, protection_level=None, rotate_state=None, tags=None, _configuration=None):  # noqa: E501
         """CreateKeyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class CreateKeyRequest(object):
         self._origin = None
         self._protection_level = None
         self._rotate_state = None
+        self._tags = None
         self.discriminator = None
 
         if description is not None:
@@ -89,6 +92,8 @@ class CreateKeyRequest(object):
             self.protection_level = protection_level
         if rotate_state is not None:
             self.rotate_state = rotate_state
+        if tags is not None:
+            self.tags = tags
 
     @property
     def description(self):
@@ -297,6 +302,27 @@ class CreateKeyRequest(object):
         """
 
         self._rotate_state = rotate_state
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateKeyRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateKeyRequest.  # noqa: E501
+        :rtype: list[TagForCreateKeyInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateKeyRequest.
+
+
+        :param tags: The tags of this CreateKeyRequest.  # noqa: E501
+        :type: list[TagForCreateKeyInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

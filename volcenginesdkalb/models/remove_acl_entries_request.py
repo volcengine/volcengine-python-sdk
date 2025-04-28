@@ -52,8 +52,7 @@ class RemoveAclEntriesRequest(object):
         self._entries = None
         self.discriminator = None
 
-        if acl_id is not None:
-            self.acl_id = acl_id
+        self.acl_id = acl_id
         if entries is not None:
             self.entries = entries
 
@@ -75,6 +74,8 @@ class RemoveAclEntriesRequest(object):
         :param acl_id: The acl_id of this RemoveAclEntriesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and acl_id is None:
+            raise ValueError("Invalid value for `acl_id`, must not be `None`")  # noqa: E501
 
         self._acl_id = acl_id
 

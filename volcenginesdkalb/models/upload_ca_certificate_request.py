@@ -36,17 +36,19 @@ class UploadCACertificateRequest(object):
         'ca_certificate': 'str',
         'ca_certificate_name': 'str',
         'description': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tags': 'list[TagForUploadCACertificateInput]'
     }
 
     attribute_map = {
         'ca_certificate': 'CACertificate',
         'ca_certificate_name': 'CACertificateName',
         'description': 'Description',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, ca_certificate=None, ca_certificate_name=None, description=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, ca_certificate=None, ca_certificate_name=None, description=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """UploadCACertificateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,16 +58,18 @@ class UploadCACertificateRequest(object):
         self._ca_certificate_name = None
         self._description = None
         self._project_name = None
+        self._tags = None
         self.discriminator = None
 
-        if ca_certificate is not None:
-            self.ca_certificate = ca_certificate
+        self.ca_certificate = ca_certificate
         if ca_certificate_name is not None:
             self.ca_certificate_name = ca_certificate_name
         if description is not None:
             self.description = description
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def ca_certificate(self):
@@ -85,6 +89,8 @@ class UploadCACertificateRequest(object):
         :param ca_certificate: The ca_certificate of this UploadCACertificateRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and ca_certificate is None:
+            raise ValueError("Invalid value for `ca_certificate`, must not be `None`")  # noqa: E501
 
         self._ca_certificate = ca_certificate
 
@@ -156,6 +162,27 @@ class UploadCACertificateRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this UploadCACertificateRequest.  # noqa: E501
+
+
+        :return: The tags of this UploadCACertificateRequest.  # noqa: E501
+        :rtype: list[TagForUploadCACertificateInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this UploadCACertificateRequest.
+
+
+        :param tags: The tags of this UploadCACertificateRequest.  # noqa: E501
+        :type: list[TagForUploadCACertificateInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

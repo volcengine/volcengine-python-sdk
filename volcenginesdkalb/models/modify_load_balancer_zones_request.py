@@ -52,8 +52,7 @@ class ModifyLoadBalancerZonesRequest(object):
         self._zone_mappings = None
         self.discriminator = None
 
-        if load_balancer_id is not None:
-            self.load_balancer_id = load_balancer_id
+        self.load_balancer_id = load_balancer_id
         if zone_mappings is not None:
             self.zone_mappings = zone_mappings
 
@@ -75,6 +74,8 @@ class ModifyLoadBalancerZonesRequest(object):
         :param load_balancer_id: The load_balancer_id of this ModifyLoadBalancerZonesRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and load_balancer_id is None:
+            raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
 

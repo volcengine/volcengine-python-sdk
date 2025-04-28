@@ -33,50 +33,57 @@ class DescribeZonesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'file_system_type': 'str',
+        'language_code': 'str',
         'region_id': 'str'
     }
 
     attribute_map = {
-        'file_system_type': 'FileSystemType',
+        'language_code': 'LanguageCode',
         'region_id': 'RegionId'
     }
 
-    def __init__(self, file_system_type=None, region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, language_code=None, region_id=None, _configuration=None):  # noqa: E501
         """DescribeZonesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._file_system_type = None
+        self._language_code = None
         self._region_id = None
         self.discriminator = None
 
-        if file_system_type is not None:
-            self.file_system_type = file_system_type
+        if language_code is not None:
+            self.language_code = language_code
         if region_id is not None:
             self.region_id = region_id
 
     @property
-    def file_system_type(self):
-        """Gets the file_system_type of this DescribeZonesRequest.  # noqa: E501
+    def language_code(self):
+        """Gets the language_code of this DescribeZonesRequest.  # noqa: E501
 
 
-        :return: The file_system_type of this DescribeZonesRequest.  # noqa: E501
+        :return: The language_code of this DescribeZonesRequest.  # noqa: E501
         :rtype: str
         """
-        return self._file_system_type
+        return self._language_code
 
-    @file_system_type.setter
-    def file_system_type(self, file_system_type):
-        """Sets the file_system_type of this DescribeZonesRequest.
+    @language_code.setter
+    def language_code(self, language_code):
+        """Sets the language_code of this DescribeZonesRequest.
 
 
-        :param file_system_type: The file_system_type of this DescribeZonesRequest.  # noqa: E501
+        :param language_code: The language_code of this DescribeZonesRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["zh", "en"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                language_code not in allowed_values):
+            raise ValueError(
+                "Invalid value for `language_code` ({0}), must be one of {1}"  # noqa: E501
+                .format(language_code, allowed_values)
+            )
 
-        self._file_system_type = file_system_type
+        self._language_code = language_code
 
     @property
     def region_id(self):
