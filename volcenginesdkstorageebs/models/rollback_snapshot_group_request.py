@@ -33,6 +33,7 @@ class RollbackSnapshotGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'instance_id': 'str',
         'snapshot_group_id': 'str',
         'snapshot_ids': 'list[str]',
@@ -40,24 +41,28 @@ class RollbackSnapshotGroupRequest(object):
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
         'snapshot_group_id': 'SnapshotGroupId',
         'snapshot_ids': 'SnapshotIds',
         'volume_ids': 'VolumeIds'
     }
 
-    def __init__(self, instance_id=None, snapshot_group_id=None, snapshot_ids=None, volume_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, instance_id=None, snapshot_group_id=None, snapshot_ids=None, volume_ids=None, _configuration=None):  # noqa: E501
         """RollbackSnapshotGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._instance_id = None
         self._snapshot_group_id = None
         self._snapshot_ids = None
         self._volume_ids = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         if instance_id is not None:
             self.instance_id = instance_id
         self.snapshot_group_id = snapshot_group_id
@@ -65,6 +70,27 @@ class RollbackSnapshotGroupRequest(object):
             self.snapshot_ids = snapshot_ids
         if volume_ids is not None:
             self.volume_ids = volume_ids
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this RollbackSnapshotGroupRequest.  # noqa: E501
+
+
+        :return: The client_token of this RollbackSnapshotGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this RollbackSnapshotGroupRequest.
+
+
+        :param client_token: The client_token of this RollbackSnapshotGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def instance_id(self):
