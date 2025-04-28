@@ -46,6 +46,8 @@ class Request(object):
         self.region = configuration.region
         self.scheme = configuration.scheme
         self.endpoint_provider = configuration.endpoint_provider
+        self.custom_bootstrap_region = configuration.custom_bootstrap_region
+        self.use_dual_stack = configuration.use_dual_stack
 
         self.runtime_options = None
         if hasattr(body, '_configuration') and isinstance(body._configuration, RuntimeOption):
