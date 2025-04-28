@@ -44,6 +44,8 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'name_prefix': 'str',
         'period': 'int',
         'project_name': 'str',
+        'public_access_config': 'PublicAccessConfigForUpdateNodePoolConfigInput',
+        'public_access_enabled': 'bool',
         'security': 'SecurityForUpdateNodePoolConfigInput',
         'subnet_ids': 'list[str]',
         'system_volume': 'SystemVolumeForUpdateNodePoolConfigInput',
@@ -62,13 +64,15 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'name_prefix': 'NamePrefix',
         'period': 'Period',
         'project_name': 'ProjectName',
+        'public_access_config': 'PublicAccessConfig',
+        'public_access_enabled': 'PublicAccessEnabled',
         'security': 'Security',
         'subnet_ids': 'SubnetIds',
         'system_volume': 'SystemVolume',
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_type_ids=None, name_prefix=None, period=None, project_name=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_type_ids=None, name_prefix=None, period=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +89,8 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         self._name_prefix = None
         self._period = None
         self._project_name = None
+        self._public_access_config = None
+        self._public_access_enabled = None
         self._security = None
         self._subnet_ids = None
         self._system_volume = None
@@ -113,6 +119,10 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
             self.period = period
         if project_name is not None:
             self.project_name = project_name
+        if public_access_config is not None:
+            self.public_access_config = public_access_config
+        if public_access_enabled is not None:
+            self.public_access_enabled = public_access_enabled
         if security is not None:
             self.security = security
         if subnet_ids is not None:
@@ -352,6 +362,48 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def public_access_config(self):
+        """Gets the public_access_config of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The public_access_config of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: PublicAccessConfigForUpdateNodePoolConfigInput
+        """
+        return self._public_access_config
+
+    @public_access_config.setter
+    def public_access_config(self, public_access_config):
+        """Sets the public_access_config of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param public_access_config: The public_access_config of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: PublicAccessConfigForUpdateNodePoolConfigInput
+        """
+
+        self._public_access_config = public_access_config
+
+    @property
+    def public_access_enabled(self):
+        """Gets the public_access_enabled of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The public_access_enabled of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._public_access_enabled
+
+    @public_access_enabled.setter
+    def public_access_enabled(self, public_access_enabled):
+        """Sets the public_access_enabled of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param public_access_enabled: The public_access_enabled of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._public_access_enabled = public_access_enabled
 
     @property
     def security(self):

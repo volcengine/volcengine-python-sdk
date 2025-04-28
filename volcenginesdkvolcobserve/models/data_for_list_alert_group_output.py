@@ -38,6 +38,7 @@ class DataForListAlertGroupOutput(object):
         'dimension': 'str',
         'duration': 'str',
         'end_at': 'str',
+        'id': 'str',
         'level': 'str',
         'namespace': 'str',
         'region': 'str',
@@ -56,6 +57,7 @@ class DataForListAlertGroupOutput(object):
         'dimension': 'Dimension',
         'duration': 'Duration',
         'end_at': 'EndAt',
+        'id': 'Id',
         'level': 'Level',
         'namespace': 'Namespace',
         'region': 'Region',
@@ -68,7 +70,7 @@ class DataForListAlertGroupOutput(object):
         'sub_namespace': 'SubNamespace'
     }
 
-    def __init__(self, alert_state=None, alert_type=None, dimension=None, duration=None, end_at=None, level=None, namespace=None, region=None, resource_id=None, resource_name=None, resource_type=None, rule_id=None, rule_name=None, start_at=None, sub_namespace=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_state=None, alert_type=None, dimension=None, duration=None, end_at=None, id=None, level=None, namespace=None, region=None, resource_id=None, resource_name=None, resource_type=None, rule_id=None, rule_name=None, start_at=None, sub_namespace=None, _configuration=None):  # noqa: E501
         """DataForListAlertGroupOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class DataForListAlertGroupOutput(object):
         self._dimension = None
         self._duration = None
         self._end_at = None
+        self._id = None
         self._level = None
         self._namespace = None
         self._region = None
@@ -101,6 +104,8 @@ class DataForListAlertGroupOutput(object):
             self.duration = duration
         if end_at is not None:
             self.end_at = end_at
+        if id is not None:
+            self.id = id
         if level is not None:
             self.level = level
         if namespace is not None:
@@ -226,6 +231,27 @@ class DataForListAlertGroupOutput(object):
         """
 
         self._end_at = end_at
+
+    @property
+    def id(self):
+        """Gets the id of this DataForListAlertGroupOutput.  # noqa: E501
+
+
+        :return: The id of this DataForListAlertGroupOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this DataForListAlertGroupOutput.
+
+
+        :param id: The id of this DataForListAlertGroupOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def level(self):

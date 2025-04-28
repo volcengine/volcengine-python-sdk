@@ -36,6 +36,7 @@ class FilterForListNodesInput(object):
         'cluster_ids': 'list[str]',
         'create_client_token': 'str',
         'ids': 'list[str]',
+        'instance_ids': 'list[str]',
         'name': 'str',
         'node_pool_ids': 'list[str]',
         'statuses': 'list[StatusForListNodesInput]',
@@ -46,13 +47,14 @@ class FilterForListNodesInput(object):
         'cluster_ids': 'ClusterIds',
         'create_client_token': 'CreateClientToken',
         'ids': 'Ids',
+        'instance_ids': 'InstanceIds',
         'name': 'Name',
         'node_pool_ids': 'NodePoolIds',
         'statuses': 'Statuses',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, cluster_ids=None, create_client_token=None, ids=None, name=None, node_pool_ids=None, statuses=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_ids=None, create_client_token=None, ids=None, instance_ids=None, name=None, node_pool_ids=None, statuses=None, zone_ids=None, _configuration=None):  # noqa: E501
         """FilterForListNodesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class FilterForListNodesInput(object):
         self._cluster_ids = None
         self._create_client_token = None
         self._ids = None
+        self._instance_ids = None
         self._name = None
         self._node_pool_ids = None
         self._statuses = None
@@ -73,6 +76,8 @@ class FilterForListNodesInput(object):
             self.create_client_token = create_client_token
         if ids is not None:
             self.ids = ids
+        if instance_ids is not None:
+            self.instance_ids = instance_ids
         if name is not None:
             self.name = name
         if node_pool_ids is not None:
@@ -144,6 +149,27 @@ class FilterForListNodesInput(object):
         """
 
         self._ids = ids
+
+    @property
+    def instance_ids(self):
+        """Gets the instance_ids of this FilterForListNodesInput.  # noqa: E501
+
+
+        :return: The instance_ids of this FilterForListNodesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_ids
+
+    @instance_ids.setter
+    def instance_ids(self, instance_ids):
+        """Sets the instance_ids of this FilterForListNodesInput.
+
+
+        :param instance_ids: The instance_ids of this FilterForListNodesInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_ids = instance_ids
 
     @property
     def name(self):
