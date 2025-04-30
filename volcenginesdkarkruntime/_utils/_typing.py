@@ -3,10 +3,10 @@ from __future__ import annotations
 import sys
 import typing
 import typing_extensions
-from typing import Any, TypeVar, Iterable, cast
+from typing import TypeVar, Iterable, cast
 from collections import abc as _c_abc
+from typing import Any
 from typing_extensions import (
-    TypeIs,
     Required,
     Annotated,
     get_args,
@@ -53,13 +53,15 @@ if sys.version_info >= (3, 12):
     _TYPE_ALIAS_TYPES = (*_TYPE_ALIAS_TYPES, typing.TypeAliasType)
 
 
-def is_type_alias_type(tp: Any) -> TypeIs[typing_extensions.TypeAliasType]:
+def is_type_alias_type(tp: Any) -> bool:
     """Return whether the provided argument is an instance of `TypeAliasType`.
 
+    example:
     ```python
     type Int = int
     is_type_alias_type(Int)
     # > True
+
     Str = TypeAliasType("Str", str)
     is_type_alias_type(Str)
     # > True
