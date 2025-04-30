@@ -53,7 +53,7 @@ if sys.version_info >= (3, 12):
     _TYPE_ALIAS_TYPES = (*_TYPE_ALIAS_TYPES, typing.TypeAliasType)
 
 
-def is_type_alias_type(tp: Any, /) -> TypeIs[typing_extensions.TypeAliasType]:
+def is_type_alias_type(tp: Any) -> TypeIs[typing_extensions.TypeAliasType]:
     """Return whether the provided argument is an instance of `TypeAliasType`.
 
     ```python
