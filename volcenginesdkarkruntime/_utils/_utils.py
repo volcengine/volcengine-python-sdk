@@ -349,7 +349,7 @@ def removeprefix(string: str, prefix: str) -> str:
     Backport of `str.removeprefix` for Python < 3.9
     """
     if string.startswith(prefix):
-        return string[len(prefix) :]
+        return string[len(prefix):]
     return string
 
 
