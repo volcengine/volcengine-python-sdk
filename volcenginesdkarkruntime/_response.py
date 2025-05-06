@@ -117,10 +117,6 @@ class BaseAPIResponse(Generic[R]):
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__} [{self.status_code} {self.http_response.reason_phrase}] type={self._cast_to}>"
 
-    @override
-    def __repr__(self) -> str:
-        return f"<{self.__class__.__name__} [{self.status_code} {self.http_response.reason_phrase}] type={self._cast_to}>"
-
     def _parse(self, *, to: type[_T] | None = None) -> R | _T:
         cast_to = to if to is not None else self._cast_to
 

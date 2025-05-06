@@ -12,7 +12,6 @@ from ._models import BaseModel
 __all__ = ["ExtraRequestOptions", "RequestOptions"]
 
 from ._types import NotGiven
-from ._utils._utils import strip_not_given
 
 from typing import (
     Callable,

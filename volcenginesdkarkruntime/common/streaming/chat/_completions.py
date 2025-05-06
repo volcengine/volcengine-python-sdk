@@ -18,7 +18,7 @@ try:
     from jiter import from_json
 except ImportError:
     import json
-    from typing import Dict, Any
+    from typing import Dict
 
     def from_json(json_str: bytes, partial_mode: bool) -> Dict[str, Any]:
         try:
