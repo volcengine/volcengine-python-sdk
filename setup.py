@@ -29,8 +29,7 @@ setup(
             "httpx>=0.23.0, <1",
             "anyio>=3.5.0, <5",
             "cached-property; python_version < '3.8'",
-            "cryptography>=43.0.3, <43.0.4",
-            "jiter>=0.4.0, <1"
+            "cryptography>=43.0.3, <43.0.4"
         ]
     },
 )

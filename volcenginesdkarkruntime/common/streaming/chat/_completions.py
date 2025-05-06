@@ -14,7 +14,20 @@ from typing import (
 )
 from typing_extensions import Self, Iterator, assert_never
 
-from jiter import from_json
+try:
+    from jiter import from_json
+except ImportError:
+    import json
+    from typing import Dict, Any
+
+    def from_json(json_str: bytes, partial_mode: bool) -> Dict[str, Any]:
+        try:
+            return json.loads(json_str)
+        except json.JSONDecodeError as e:
+            if partial_mode:
+                return {}
+            raise e
+
 
 from ._types import (
     ParsedChoiceSnapshot,
