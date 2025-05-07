@@ -492,6 +492,7 @@ class SyncAPIClient(BaseClient):
             response=response,
             stream=stream,
             stream_cls=stream_cls,
+            options=options,
         )
 
     def _retry_request(
