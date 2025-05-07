@@ -44,7 +44,7 @@ def type_to_text_format_param(type_: type) -> ResponseFormatTextConfigParam:
 
     return {
         "type": "json_schema",
-        "strict": False,
+        "strict": True,
         "name": response_format_dict["json_schema"]["name"],
         "schema": response_format_dict["json_schema"]["schema"],
     }

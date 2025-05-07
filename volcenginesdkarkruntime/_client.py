@@ -379,7 +379,7 @@ class StsTokenManager(object):
 
 
 class CertificateResponse(BaseModel):
-    error: Optional[Dict[str,str]] = None
+    error: Optional[Dict[str, str]] = None
     """The error information."""
 
     Certificate: str

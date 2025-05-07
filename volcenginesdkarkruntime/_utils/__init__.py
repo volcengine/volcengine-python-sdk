@@ -55,3 +55,4 @@ from ._transform import (
     maybe_transform as maybe_transform,
     async_maybe_transform as async_maybe_transform,
 )
+from ._logs import setup_logging as setup_logging
