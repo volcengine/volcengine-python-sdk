@@ -379,6 +379,9 @@ class StsTokenManager(object):
 
 
 class CertificateResponse(BaseModel):
+    error: Dict[str, str] = None
+    """The error information."""
+
     Certificate: str
     """The certificate content."""
 
@@ -455,8 +458,8 @@ class E2ECertificateManager(object):
             )
         except Exception as e:
             raise ArkAPIError("Getting Certificate failed: %s\n" % e)
-        if "error" in resp:
-            raise ArkAPIError("Getting Certificate failed: %s\n" % resp["error"])
+        if resp.error is not None:
+            raise ArkAPIError("Getting Certificate failed: %s\n" % resp.error)
         return resp.Certificate
 
     def _save_cert_to_file(self, ep: str, cert_pem: str):
