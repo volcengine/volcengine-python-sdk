@@ -274,6 +274,6 @@ def type_to_response_format_param(
         "json_schema": {
             "schema": to_strict_json_schema(json_schema_type),
             "name": name,
-            "strict": True,
+            "strict": False,
         },
     }
