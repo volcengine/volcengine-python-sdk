@@ -12,7 +12,7 @@ from typing import Dict, Tuple
 
 from volcenginesdkcore.rest import ApiException
 from ._exceptions import ArkAPIError
-
+from ._models import BaseModel
 import volcenginesdkark
 
 from . import resources
@@ -378,11 +378,12 @@ class StsTokenManager(object):
         return resp.api_key, resp.expired_time
 
 
-class E2ECertificateManager(object):
-    class CertificateResponse:
-        Certificate: str
-        """The certificate content."""
+class CertificateResponse(BaseModel):
+    Certificate: str
+    """The certificate content."""
 
+
+class E2ECertificateManager(object):
     def __init__(
         self,
         ak: str,
@@ -450,13 +451,13 @@ class E2ECertificateManager(object):
                 self._e2e_uri,
                 options={"headers": self._x_session_token},
                 body={"model": ep},
-                cast_to=self.CertificateResponse,
+                cast_to=CertificateResponse,
             )
         except Exception as e:
             raise ArkAPIError("Getting Certificate failed: %s\n" % e)
         if "error" in resp:
             raise ArkAPIError("Getting Certificate failed: %s\n" % resp["error"])
-        return resp["Certificate"]
+        return resp.Certificate
 
     def _save_cert_to_file(self, ep: str, cert_pem: str):
         cert_file_path = os.path.join(self._cert_storage_path, f"{ep}.pem")
