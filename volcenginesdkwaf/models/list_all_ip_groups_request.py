@@ -34,7 +34,7 @@ class ListAllIpGroupsRequest(object):
     """
     swagger_types = {
         'ip': 'str',
-        'page': 'str',
+        'page': 'int',
         'page_size': 'int',
         'project_name': 'str',
         'rule_tag': 'str',
@@ -103,7 +103,7 @@ class ListAllIpGroupsRequest(object):
 
 
         :return: The page of this ListAllIpGroupsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._page
 
@@ -113,7 +113,7 @@ class ListAllIpGroupsRequest(object):
 
 
         :param page: The page of this ListAllIpGroupsRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._page = page

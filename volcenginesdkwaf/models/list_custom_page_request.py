@@ -34,7 +34,7 @@ class ListCustomPageRequest(object):
     """
     swagger_types = {
         'host': 'str',
-        'page': 'str',
+        'page': 'int',
         'page_size': 'int',
         'project_name': 'str'
     }
@@ -95,7 +95,7 @@ class ListCustomPageRequest(object):
 
 
         :return: The page of this ListCustomPageRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._page
 
@@ -105,7 +105,7 @@ class ListCustomPageRequest(object):
 
 
         :param page: The page of this ListCustomPageRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._page = page
