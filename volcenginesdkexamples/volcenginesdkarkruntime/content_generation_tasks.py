@@ -21,6 +21,7 @@ if __name__ == "__main__":
                 "image_url": {
                     "url": "${YOUR_IMAGE_URL}"
                 },
+                # "role": "first_frame"
             }
         ]
     )
