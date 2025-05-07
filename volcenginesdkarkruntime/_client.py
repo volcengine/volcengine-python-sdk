@@ -8,7 +8,7 @@ import time
 from collections import defaultdict
 
 from httpx import Timeout, URL, Client, AsyncClient
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Optional
 
 from volcenginesdkcore.rest import ApiException
 from ._exceptions import ArkAPIError
@@ -379,7 +379,7 @@ class StsTokenManager(object):
 
 
 class CertificateResponse(BaseModel):
-    error: Dict[str, str] = None
+    error: Optional[Dict[str,str]] = None
     """The error information."""
 
     Certificate: str
