@@ -42,6 +42,7 @@ class Ark(SyncAPIClient):
     context: resources.Context
     multimodal_embeddings: resources.MultimodalEmbeddings
     content_generation: resources.ContentGeneration
+    images: resources.Images
     batch_chat: resources.BatchChat
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: threading.Lock
@@ -71,7 +72,6 @@ class Ark(SyncAPIClient):
             Returns:
                 ark client
         """
-
         if ak is None:
             ak = os.environ.get("VOLC_ACCESSKEY")
         if sk is None:
@@ -107,6 +107,7 @@ class Ark(SyncAPIClient):
         self.context = resources.Context(self)
         self.multimodal_embeddings = resources.MultimodalEmbeddings(self)
         self.content_generation = resources.ContentGeneration(self)
+        self.images = resources.Images(self)
         self.batch_chat = resources.BatchChat(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = threading.Lock()
@@ -161,6 +162,7 @@ class AsyncArk(AsyncAPIClient):
     context: resources.AsyncContext
     multimodal_embeddings: resources.AsyncMultimodalEmbeddings
     content_generation: resources.AsyncContentGeneration
+    images: resources.AsyncImages
     batch_chat: resources.AsyncBatchChat
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: asyncio.Lock
@@ -225,6 +227,7 @@ class AsyncArk(AsyncAPIClient):
         self.context = resources.AsyncContext(self)
         self.multimodal_embeddings = resources.AsyncMultimodalEmbeddings(self)
         self.content_generation = resources.AsyncContentGeneration(self)
+        self.images = resources.AsyncImages(self)
         self.batch_chat = resources.AsyncBatchChat(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = asyncio.Lock()
