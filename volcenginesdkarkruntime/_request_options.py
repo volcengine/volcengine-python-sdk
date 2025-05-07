@@ -54,6 +54,7 @@ class ExtraRequestOptions(TypedDict, total=False):
 class RequestOptions(BaseModel):
     method: str
     url: str
+    body: Union[object, None] = {}
     params: Query = {}
     headers: Union[Headers, NotGiven] = NotGiven()
     max_retries: Union[int, NotGiven] = NotGiven()
