@@ -164,7 +164,7 @@ class ArkInternalServerError(ArkAPIStatusError):
     pass
 
 
-class ArkLengthFinishReasonError(ArkAPIStatusError):
+class ArkLengthFinishReasonError(ArkError):
     completion: ChatCompletion
     """The completion that caused this error.
 
@@ -181,7 +181,7 @@ class ArkLengthFinishReasonError(ArkAPIStatusError):
         self.completion = completion
 
 
-class ArkContentFilterFinishReasonError(ArkAPIStatusError):
+class ArkContentFilterFinishReasonError(ArkError):
     def __init__(self) -> None:
         super().__init__(
             "Could not parse response content as the request was rejected by the content filter",
