@@ -36,17 +36,19 @@ class GetTagsRequest(object):
         'count_resources': 'bool',
         'max_results': 'int',
         'next_token': 'str',
-        'tag_keys': 'list[str]'
+        'tag_keys': 'list[str]',
+        'tag_type': 'str'
     }
 
     attribute_map = {
         'count_resources': 'CountResources',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
-        'tag_keys': 'TagKeys'
+        'tag_keys': 'TagKeys',
+        'tag_type': 'TagType'
     }
 
-    def __init__(self, count_resources=None, max_results=None, next_token=None, tag_keys=None, _configuration=None):  # noqa: E501
+    def __init__(self, count_resources=None, max_results=None, next_token=None, tag_keys=None, tag_type=None, _configuration=None):  # noqa: E501
         """GetTagsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class GetTagsRequest(object):
         self._max_results = None
         self._next_token = None
         self._tag_keys = None
+        self._tag_type = None
         self.discriminator = None
 
         if count_resources is not None:
@@ -66,6 +69,8 @@ class GetTagsRequest(object):
             self.next_token = next_token
         if tag_keys is not None:
             self.tag_keys = tag_keys
+        if tag_type is not None:
+            self.tag_type = tag_type
 
     @property
     def count_resources(self):
@@ -150,6 +155,27 @@ class GetTagsRequest(object):
         """
 
         self._tag_keys = tag_keys
+
+    @property
+    def tag_type(self):
+        """Gets the tag_type of this GetTagsRequest.  # noqa: E501
+
+
+        :return: The tag_type of this GetTagsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag_type
+
+    @tag_type.setter
+    def tag_type(self, tag_type):
+        """Sets the tag_type of this GetTagsRequest.
+
+
+        :param tag_type: The tag_type of this GetTagsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._tag_type = tag_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
