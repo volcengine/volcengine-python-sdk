@@ -57,7 +57,7 @@ async def main():
             if event.type == "tool_calls.function.arguments.delta" or event.type == "tool_calls.function.arguments.done":
                 rich.get_console().print(event, width=80)
     print("----\n")
-    rich.print(stream.get_final_completion())
+    rich.print(await stream.get_final_completion())
 
 
 if __name__ == "__main__":
