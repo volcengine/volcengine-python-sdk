@@ -261,7 +261,7 @@ class StsTokenManager(object):
         configuration.ak = ak
         configuration.sk = sk
         configuration.region = region
-        configuration.schema = "https"
+        configuration.scheme = "https"
 
         volcenginesdkcore.Configuration.set_default(configuration)
         self.api_instance = volcenginesdkark.ARKApi()
@@ -348,7 +348,7 @@ class E2ECertificateManager(object):
         configuration.ak = ak
         configuration.sk = sk
         configuration.region = region
-        configuration.schema = "https"
+        configuration.scheme = "https"
         volcenginesdkcore.Configuration.set_default(configuration)
         self.api_instance = volcenginesdkark.ARKApi()
 
