@@ -3,14 +3,14 @@ from __future__ import annotations
 import httpx
 
 from ..._base_client import make_request_options
-from ..._utils._utils import with_sts_token, async_with_sts_token
+from ..._utils._utils import apikey_required, async_apikey_required
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ...types.images import ImagesResponse
 from ..._types import Body, Query, Headers
 
 
 class Images(SyncAPIResource):
-    @with_sts_token
+    @apikey_required
     def generate(
         self,
         *,
@@ -50,7 +50,7 @@ class Images(SyncAPIResource):
 
 
 class AsyncImages(AsyncAPIResource):
-    @async_with_sts_token
+    @async_apikey_required
     async def generate(
             self,
             *,
