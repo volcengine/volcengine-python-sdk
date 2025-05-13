@@ -106,7 +106,6 @@ class BaseAPIResponse(Generic[R]):
         return f"<{self.__class__.__name__} [{self.status_code} {self.http_response.reason_phrase}] type={self._cast_to}>"
 
     def _parse(self) -> R:
-
         if self._is_sse_stream:
             if self._stream_cls is None:
                 raise MissingStreamClassError()
@@ -252,7 +251,6 @@ class MissingStreamClassError(TypeError):
 
 
 class StreamAlreadyConsumed(ArkError):
-
     def __init__(self) -> None:
         message = (
             "Attempted to read or stream some content, but the content has "
@@ -286,7 +284,7 @@ def to_raw_response_wrapper(func: Callable[P, R]) -> Callable[P, ArkAPIResponse[
 
 
 def async_to_raw_response_wrapper(
-    func: Callable[P, Awaitable[R]]
+    func: Callable[P, Awaitable[R]],
 ) -> Callable[P, Awaitable[ArkAsyncAPIResponse[R]]]:
     """Higher order function that takes one of our bound API methods and wraps it
     to support returning the raw `APIResponse` object directly.
@@ -307,7 +305,7 @@ def async_to_raw_response_wrapper(
 
 
 def to_streamed_response_wrapper(
-    func: Callable[P, R]
+    func: Callable[P, R],
 ) -> Callable[P, ResponseContextManager[ArkAPIResponse[R]]]:
     """Higher order function that takes one of our bound API methods and wraps it
     to support streaming and returning the raw `APIResponse` object directly.

@@ -25,5 +25,5 @@ __all__ = [
     "ContentGeneration",
     "AsyncContentGeneration",
     "BatchChat",
-    "AsyncBatchChat"
+    "AsyncBatchChat",
 ]

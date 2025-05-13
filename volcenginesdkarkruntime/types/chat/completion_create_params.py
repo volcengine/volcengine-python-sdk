@@ -242,3 +242,10 @@ class CompletionCreateParamsStreaming(CompletionCreateParamsBase):
 CompletionCreateParams = Union[
     CompletionCreateParamsNonStreaming, CompletionCreateParamsStreaming
 ]
+
+
+class Thinking(TypedDict, total=False):
+    type: Literal["enabled", "disabled", "auto"]
+    """
+    Whether to enable thinking.
+    """

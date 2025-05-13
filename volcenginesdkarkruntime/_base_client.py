@@ -6,7 +6,17 @@ import logging
 import time
 from random import random
 from types import TracebackType
-from typing import Type, Dict, TypeVar, Any, Optional, cast, TYPE_CHECKING, Union, Generic
+from typing import (
+    Type,
+    Dict,
+    TypeVar,
+    Any,
+    Optional,
+    cast,
+    TYPE_CHECKING,
+    Union,
+    Generic,
+)
 
 import anyio
 import httpx
@@ -23,7 +33,6 @@ from ._constants import (
     RAW_RESPONSE_HEADER,
     DEFAULT_CONNECTION_LIMITS,
     CLIENT_REQUEST_HEADER,
-    BASE_URL,
     VERSION,
 )
 from ._exceptions import (
@@ -75,12 +84,12 @@ class SyncHttpxClientWrapper(DefaultHttpxClient):
 
 
 def make_request_options(
-        *,
-        query: Dict[str, Any] | None = None,
-        extra_headers: Dict[str, str] | None = None,
-        extra_query: Dict[str, Any] | None = None,
-        extra_body: Dict[str, Any] | None = None,
-        timeout: float | httpx.Timeout | None = None,
+    *,
+    query: Dict[str, Any] | None = None,
+    extra_headers: Dict[str, str] | None = None,
+    extra_query: Dict[str, Any] | None = None,
+    extra_body: Dict[str, Any] | None = None,
+    timeout: float | httpx.Timeout | None = None,
 ) -> ExtraRequestOptions:
     options: ExtraRequestOptions = {}
     if extra_headers is not None:
@@ -112,14 +121,14 @@ class BaseClient(Generic[_HttpxClientT]):
     _limits: Union[httpx.Limits, None]
 
     def __init__(
-            self,
-            *,
-            base_url: str | URL,
-            max_retries: int = DEFAULT_MAX_RETRIES,
-            timeout: float | Timeout | None = DEFAULT_TIMEOUT,
-            limits: Limits | None = None,
-            custom_headers: Dict[str, str] | None = None,
-            custom_query: Dict[str, Any] | None = None,
+        self,
+        *,
+        base_url: str | URL,
+        max_retries: int = DEFAULT_MAX_RETRIES,
+        timeout: float | Timeout | None = DEFAULT_TIMEOUT,
+        limits: Limits | None = None,
+        custom_headers: Dict[str, str] | None = None,
+        custom_query: Dict[str, Any] | None = None,
     ) -> None:
         self._base_url = self._enforce_trailing_slash(URL(base_url))
         self.max_retries = max_retries
@@ -173,8 +182,8 @@ class BaseClient(Generic[_HttpxClientT]):
         return request.headers.get(RAW_RESPONSE_HEADER) == "stream"
 
     def _build_request(
-            self,
-            options: RequestOptions,
+        self,
+        options: RequestOptions,
     ) -> httpx.Request:
         if log.isEnabledFor(logging.DEBUG):
             log.debug("Request options: %s", options.model_dump(exclude_unset=True))
@@ -203,10 +212,10 @@ class BaseClient(Generic[_HttpxClientT]):
         )
 
     def _calculate_retry_timeout(
-            self,
-            remaining_retries: int,
-            options: RequestOptions,
-            response_headers: Optional[httpx.Headers] = None,
+        self,
+        remaining_retries: int,
+        options: RequestOptions,
+        response_headers: Optional[httpx.Headers] = None,
     ) -> float:
         max_retries = options.max_retries if options.max_retries else self.max_retries
 
@@ -256,7 +265,7 @@ class BaseClient(Generic[_HttpxClientT]):
         return False
 
     def _make_status_error(
-            self, err_msg: str, *, body: object, response: httpx.Response, request_id: str
+        self, err_msg: str, *, body: object, response: httpx.Response, request_id: str
     ) -> ArkAPIStatusError:
         data = body.get("error", body) if isinstance(body, Dict) else body
         if response.status_code == 400:
@@ -303,7 +312,7 @@ class BaseClient(Generic[_HttpxClientT]):
         )
 
     def _make_status_error_from_response(
-            self, response: httpx.Response, request_id: str
+        self, response: httpx.Response, request_id: str
     ) -> ArkAPIStatusError:
         if response.is_closed and not response.is_stream_consumed:
             body = None
@@ -328,13 +337,15 @@ class BaseClient(Generic[_HttpxClientT]):
         return url.copy_with(raw_path=url.raw_path + b"/")
 
     def _process_response_data(
-            self,
-            *,
-            data: object,
-            cast_to: type[ResponseT],
-            response: httpx.Response,
+        self,
+        *,
+        data: object,
+        cast_to: type[ResponseT],
+        response: httpx.Response,
     ) -> ResponseT:
-        request_id = response.headers.get(CLIENT_REQUEST_HEADER, "") if response else None
+        request_id = (
+            response.headers.get(CLIENT_REQUEST_HEADER, "") if response else None
+        )
         if data is None:
             return cast(ResponseT, None)
 
@@ -344,12 +355,14 @@ class BaseClient(Generic[_HttpxClientT]):
         try:
             return cast(ResponseT, construct_type(type_=cast_to, value=data))
         except pydantic.ValidationError as err:
-            raise ArkAPIResponseValidationError(response=response, body=data, request_id=request_id) from err
+            raise ArkAPIResponseValidationError(
+                response=response, body=data, request_id=request_id
+            ) from err
 
     def _remaining_retries(
-            self,
-            remaining_retries: Optional[int],
-            options: RequestOptions,
+        self,
+        remaining_retries: Optional[int],
+        options: RequestOptions,
     ) -> int:
         return (
             remaining_retries
@@ -362,18 +375,16 @@ class SyncAPIClient(BaseClient):
     _client: httpx.Client
 
     def __init__(
-            self,
-            *,
-            base_url: str | URL,
-            max_retries: int = DEFAULT_MAX_RETRIES,
-            timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
-            http_client: httpx.Client | None = None,
-            custom_headers: Dict[str, str] | None = None,
-            custom_query: Dict[str, object] | None = None,
+        self,
+        *,
+        base_url: str | URL,
+        max_retries: int = DEFAULT_MAX_RETRIES,
+        timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
+        http_client: httpx.Client | None = None,
+        custom_headers: Dict[str, str] | None = None,
+        custom_query: Dict[str, object] | None = None,
     ) -> None:
-        if http_client is not None and not isinstance(
-                http_client, httpx.Client
-        ):  # pyright: ignore[reportUnnecessaryIsInstance]
+        if http_client is not None and not isinstance(http_client, httpx.Client):  # pyright: ignore[reportUnnecessaryIsInstance]
             raise TypeError(
                 f"Invalid `http_client` argument; Expected an instance of `httpx.Client` but got {type(http_client)}"
             )
@@ -392,13 +403,13 @@ class SyncAPIClient(BaseClient):
         )
 
     def _request(
-            self,
-            *,
-            cast_to: Type[ResponseT],
-            options: RequestOptions,
-            remaining_retries: int | None,
-            stream: bool,
-            stream_cls: type[_StreamT] | None,
+        self,
+        *,
+        cast_to: Type[ResponseT],
+        options: RequestOptions,
+        remaining_retries: int | None,
+        stream: bool,
+        stream_cls: type[_StreamT] | None,
     ) -> ResponseT | _StreamT:
         retries = self._remaining_retries(remaining_retries, options)
         request = self._build_request(options)
@@ -479,14 +490,14 @@ class SyncAPIClient(BaseClient):
         )
 
     def _retry_request(
-            self,
-            options: RequestOptions,
-            cast_to: Type[ResponseT],
-            remaining_retries: int,
-            response_headers: httpx.Headers | None,
-            *,
-            stream: bool,
-            stream_cls: type[_StreamT] | None,
+        self,
+        options: RequestOptions,
+        cast_to: Type[ResponseT],
+        remaining_retries: int,
+        response_headers: httpx.Headers | None,
+        *,
+        stream: bool,
+        stream_cls: type[_StreamT] | None,
     ) -> ResponseT | _StreamT:
         remaining = remaining_retries - 1
         if remaining == 1:
@@ -510,23 +521,20 @@ class SyncAPIClient(BaseClient):
         )
 
     def _process_response(
-            self,
-            *,
-            cast_to: Type[ResponseT],
-            response: httpx.Response,
-            stream: bool,
-            stream_cls: type[Stream[Any]] | type[AsyncStream[Any]] | None,
+        self,
+        *,
+        cast_to: Type[ResponseT],
+        response: httpx.Response,
+        stream: bool,
+        stream_cls: type[Stream[Any]] | type[AsyncStream[Any]] | None,
     ) -> ResponseT:
-
         if cast_to == httpx.Response:
             return cast(ResponseT, response)
 
         api_response = ArkAPIResponse(
             raw=response,
             client=self,
-            cast_to=cast(
-                "type[ResponseT]", cast_to
-            ),  # pyright: ignore[reportUnnecessaryCast]
+            cast_to=cast("type[ResponseT]", cast_to),  # pyright: ignore[reportUnnecessaryCast]
             stream=stream,
             stream_cls=stream_cls,
         )
@@ -536,15 +544,15 @@ class SyncAPIClient(BaseClient):
         return api_response.parse()
 
     def post(
-            self,
-            path: str,
-            *,
-            cast_to: Type[ResponseT],
-            body: Dict | None = None,
-            options: ExtraRequestOptions = {},
-            files: RequestFiles | None = None,
-            stream: bool = False,
-            stream_cls: type[_StreamT] | None = None,
+        self,
+        path: str,
+        *,
+        cast_to: Type[ResponseT],
+        body: Dict | None = None,
+        options: ExtraRequestOptions = {},
+        files: RequestFiles | None = None,
+        stream: bool = False,
+        stream_cls: type[_StreamT] | None = None,
     ) -> ResponseT | _StreamT:
         opts = RequestOptions.construct(  # type: ignore
             method="post",
@@ -558,14 +566,14 @@ class SyncAPIClient(BaseClient):
         )
 
     def get(
-            self,
-            path: str,
-            *,
-            cast_to: Type[ResponseT],
-            params: list[tuple[str, str]] | None = None,
-            options: ExtraRequestOptions = {},
-            stream: bool = False,
-            stream_cls: type[_StreamT] | None = None,
+        self,
+        path: str,
+        *,
+        cast_to: Type[ResponseT],
+        params: list[tuple[str, str]] | None = None,
+        options: ExtraRequestOptions = {},
+        stream: bool = False,
+        stream_cls: type[_StreamT] | None = None,
     ) -> ResponseT | _StreamT:
         opts = RequestOptions.construct(
             method="get",
@@ -579,12 +587,12 @@ class SyncAPIClient(BaseClient):
         )
 
     def delete(
-            self,
-            path: str,
-            *,
-            cast_to: Type[ResponseT],
-            params: list[tuple[str, str]] | None = None,
-            options: ExtraRequestOptions = {},
+        self,
+        path: str,
+        *,
+        cast_to: Type[ResponseT],
+        params: list[tuple[str, str]] | None = None,
+        options: ExtraRequestOptions = {},
     ) -> ResponseT:
         opts = RequestOptions.construct(  # type: ignore
             method="delete",
@@ -596,15 +604,15 @@ class SyncAPIClient(BaseClient):
         return cast(ResponseT, self.request(cast_to, opts))
 
     def post_without_retry(
-            self,
-            path: str,
-            *,
-            cast_to: Type[ResponseT],
-            body: Dict | None = None,
-            options: ExtraRequestOptions = {},
-            files: RequestFiles | None = None,
-            stream: bool = False,
-            stream_cls: type[_StreamT] | None = None,
+        self,
+        path: str,
+        *,
+        cast_to: Type[ResponseT],
+        body: Dict | None = None,
+        options: ExtraRequestOptions = {},
+        files: RequestFiles | None = None,
+        stream: bool = False,
+        stream_cls: type[_StreamT] | None = None,
     ) -> ResponseT | _StreamT:
         opts = RequestOptions.construct(  # type: ignore
             method="post",
@@ -614,17 +622,20 @@ class SyncAPIClient(BaseClient):
         )
 
         return cast(
-            ResponseT, self.request(cast_to, opts, remaining_retries=0, stream=stream, stream_cls=stream_cls)
+            ResponseT,
+            self.request(
+                cast_to, opts, remaining_retries=0, stream=stream, stream_cls=stream_cls
+            ),
         )
 
     def request(
-            self,
-            cast_to: Type[ResponseT],
-            options: RequestOptions,
-            remaining_retries: Optional[int] = None,
-            *,
-            stream: bool = False,
-            stream_cls: type[_StreamT] | None = None,
+        self,
+        cast_to: Type[ResponseT],
+        options: RequestOptions,
+        remaining_retries: Optional[int] = None,
+        *,
+        stream: bool = False,
+        stream_cls: type[_StreamT] | None = None,
     ) -> ResponseT | _StreamT:
         return self._request(
             cast_to=cast_to,
@@ -692,18 +703,16 @@ class AsyncAPIClient(BaseClient):
     _client: httpx.AsyncClient
 
     def __init__(
-            self,
-            *,
-            base_url: str | URL,
-            max_retries: int = DEFAULT_MAX_RETRIES,
-            timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
-            http_client: httpx.AsyncClient | None = None,
-            custom_headers: Dict[str, str] | None = None,
-            custom_query: Dict[str, object] | None = None,
+        self,
+        *,
+        base_url: str | URL,
+        max_retries: int = DEFAULT_MAX_RETRIES,
+        timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
+        http_client: httpx.AsyncClient | None = None,
+        custom_headers: Dict[str, str] | None = None,
+        custom_query: Dict[str, object] | None = None,
     ) -> None:
-        if http_client is not None and not isinstance(
-                http_client, httpx.AsyncClient
-        ):  # pyright: ignore[reportUnnecessaryIsInstance]
+        if http_client is not None and not isinstance(http_client, httpx.AsyncClient):  # pyright: ignore[reportUnnecessaryIsInstance]
             raise TypeError(
                 f"Invalid `http_client` argument; Expected an instance of `httpx.Client` but got {type(http_client)}"
             )
@@ -722,15 +731,15 @@ class AsyncAPIClient(BaseClient):
         )
 
     async def post(
-            self,
-            path: str,
-            *,
-            cast_to: Type[ResponseT],
-            body: Dict | None = None,
-            options: ExtraRequestOptions = {},
-            files: RequestFiles | None = None,
-            stream: bool = False,
-            stream_cls: type[_AsyncStreamT] | None = None,
+        self,
+        path: str,
+        *,
+        cast_to: Type[ResponseT],
+        body: Dict | None = None,
+        options: ExtraRequestOptions = {},
+        files: RequestFiles | None = None,
+        stream: bool = False,
+        stream_cls: type[_AsyncStreamT] | None = None,
     ) -> ResponseT | _AsyncStreamT:
         opts = RequestOptions.construct(
             method="post",
@@ -742,14 +751,14 @@ class AsyncAPIClient(BaseClient):
         return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
 
     async def get(
-            self,
-            path: str,
-            *,
-            cast_to: Type[ResponseT],
-            params: list[tuple[str, str]] | None = None,
-            options: ExtraRequestOptions = {},
-            stream: bool = False,
-            stream_cls: type[_AsyncStreamT] | None = None,
+        self,
+        path: str,
+        *,
+        cast_to: Type[ResponseT],
+        params: list[tuple[str, str]] | None = None,
+        options: ExtraRequestOptions = {},
+        stream: bool = False,
+        stream_cls: type[_AsyncStreamT] | None = None,
     ) -> ResponseT | _AsyncStreamT:
         opts = RequestOptions.construct(
             method="get",
@@ -761,12 +770,12 @@ class AsyncAPIClient(BaseClient):
         return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
 
     async def delete(
-            self,
-            path: str,
-            *,
-            cast_to: Type[ResponseT],
-            params: list[tuple[str, str]] | None = None,
-            options: ExtraRequestOptions = {},
+        self,
+        path: str,
+        *,
+        cast_to: Type[ResponseT],
+        params: list[tuple[str, str]] | None = None,
+        options: ExtraRequestOptions = {},
     ) -> ResponseT:
         opts = RequestOptions.construct(
             method="delete",
@@ -778,15 +787,15 @@ class AsyncAPIClient(BaseClient):
         return await self.request(cast_to, opts)
 
     async def post_without_retry(
-            self,
-            path: str,
-            *,
-            cast_to: Type[ResponseT],
-            body: Dict | None = None,
-            options: ExtraRequestOptions = {},
-            files: RequestFiles | None = None,
-            stream: bool = False,
-            stream_cls: type[_AsyncStreamT] | None = None,
+        self,
+        path: str,
+        *,
+        cast_to: Type[ResponseT],
+        body: Dict | None = None,
+        options: ExtraRequestOptions = {},
+        files: RequestFiles | None = None,
+        stream: bool = False,
+        stream_cls: type[_AsyncStreamT] | None = None,
     ) -> ResponseT | _AsyncStreamT:
         opts = RequestOptions.construct(
             method="post",
@@ -795,16 +804,18 @@ class AsyncAPIClient(BaseClient):
             **options,
         )
 
-        return await self.request(cast_to, opts, remaining_retries=0, stream=stream, stream_cls=stream_cls)
+        return await self.request(
+            cast_to, opts, remaining_retries=0, stream=stream, stream_cls=stream_cls
+        )
 
     async def request(
-            self,
-            cast_to: Type[ResponseT],
-            options: RequestOptions,
-            remaining_retries: Optional[int] = None,
-            *,
-            stream: bool = False,
-            stream_cls: type[_StreamT] | None = None,
+        self,
+        cast_to: Type[ResponseT],
+        options: RequestOptions,
+        remaining_retries: Optional[int] = None,
+        *,
+        stream: bool = False,
+        stream_cls: type[_StreamT] | None = None,
     ) -> ResponseT | _StreamT:
         return await self._request(
             cast_to=cast_to,
@@ -815,13 +826,13 @@ class AsyncAPIClient(BaseClient):
         )
 
     async def _request(
-            self,
-            *,
-            cast_to: Type[ResponseT],
-            options: RequestOptions,
-            remaining_retries: int | None,
-            stream: bool,
-            stream_cls: type[_AsyncStreamT] | None,
+        self,
+        *,
+        cast_to: Type[ResponseT],
+        options: RequestOptions,
+        remaining_retries: int | None,
+        stream: bool,
+        stream_cls: type[_AsyncStreamT] | None,
     ) -> ResponseT | _AsyncStreamT:
         retries = self._remaining_retries(remaining_retries, options)
         request = self._build_request(options)
@@ -902,14 +913,14 @@ class AsyncAPIClient(BaseClient):
         )
 
     async def _retry_request(
-            self,
-            options: RequestOptions,
-            cast_to: Type[ResponseT],
-            remaining_retries: int,
-            response_headers: httpx.Headers | None,
-            *,
-            stream: bool,
-            stream_cls: type[_AsyncStreamT] | None,
+        self,
+        options: RequestOptions,
+        cast_to: Type[ResponseT],
+        remaining_retries: int,
+        response_headers: httpx.Headers | None,
+        *,
+        stream: bool,
+        stream_cls: type[_AsyncStreamT] | None,
     ) -> ResponseT | _AsyncStreamT:
         remaining = remaining_retries - 1
         if remaining == 1:
@@ -931,23 +942,20 @@ class AsyncAPIClient(BaseClient):
         )
 
     async def _process_response(
-            self,
-            *,
-            cast_to: Type[ResponseT],
-            response: httpx.Response,
-            stream: bool,
-            stream_cls: type[Stream[Any]] | type[AsyncStream[Any]] | None,
+        self,
+        *,
+        cast_to: Type[ResponseT],
+        response: httpx.Response,
+        stream: bool,
+        stream_cls: type[Stream[Any]] | type[AsyncStream[Any]] | None,
     ) -> ResponseT:
-
         if cast_to == httpx.Response:
             return cast(ResponseT, response)
 
         api_response = ArkAsyncAPIResponse(
             raw=response,
             client=self,
-            cast_to=cast(
-                "type[ResponseT]", cast_to
-            ),  # pyright: ignore[reportUnnecessaryCast]
+            cast_to=cast("type[ResponseT]", cast_to),  # pyright: ignore[reportUnnecessaryCast]
             stream=stream,
             stream_cls=stream_cls,
         )
