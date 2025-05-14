@@ -34,6 +34,7 @@ class AccountForListDBAccountOutput(object):
     """
     swagger_types = {
         'account_name': 'str',
+        'account_status': 'str',
         'description': 'str',
         'instance_id': 'str',
         'role_name': 'str'
@@ -41,18 +42,20 @@ class AccountForListDBAccountOutput(object):
 
     attribute_map = {
         'account_name': 'AccountName',
+        'account_status': 'AccountStatus',
         'description': 'Description',
         'instance_id': 'InstanceId',
         'role_name': 'RoleName'
     }
 
-    def __init__(self, account_name=None, description=None, instance_id=None, role_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, account_status=None, description=None, instance_id=None, role_name=None, _configuration=None):  # noqa: E501
         """AccountForListDBAccountOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_name = None
+        self._account_status = None
         self._description = None
         self._instance_id = None
         self._role_name = None
@@ -60,6 +63,8 @@ class AccountForListDBAccountOutput(object):
 
         if account_name is not None:
             self.account_name = account_name
+        if account_status is not None:
+            self.account_status = account_status
         if description is not None:
             self.description = description
         if instance_id is not None:
@@ -87,6 +92,27 @@ class AccountForListDBAccountOutput(object):
         """
 
         self._account_name = account_name
+
+    @property
+    def account_status(self):
+        """Gets the account_status of this AccountForListDBAccountOutput.  # noqa: E501
+
+
+        :return: The account_status of this AccountForListDBAccountOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_status
+
+    @account_status.setter
+    def account_status(self, account_status):
+        """Sets the account_status of this AccountForListDBAccountOutput.
+
+
+        :param account_status: The account_status of this AccountForListDBAccountOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_status = account_status
 
     @property
     def description(self):

@@ -33,33 +33,90 @@ class DescribeAllowListsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ip_address': 'str',
+        'ip_segment': 'str',
         'instance_id': 'str',
+        'project_name': 'str',
         'query_default': 'bool',
         'region_id': 'str'
     }
 
     attribute_map = {
+        'ip_address': 'IPAddress',
+        'ip_segment': 'IPSegment',
         'instance_id': 'InstanceId',
+        'project_name': 'ProjectName',
         'query_default': 'QueryDefault',
         'region_id': 'RegionId'
     }
 
-    def __init__(self, instance_id=None, query_default=None, region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_address=None, ip_segment=None, instance_id=None, project_name=None, query_default=None, region_id=None, _configuration=None):  # noqa: E501
         """DescribeAllowListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ip_address = None
+        self._ip_segment = None
         self._instance_id = None
+        self._project_name = None
         self._query_default = None
         self._region_id = None
         self.discriminator = None
 
+        if ip_address is not None:
+            self.ip_address = ip_address
+        if ip_segment is not None:
+            self.ip_segment = ip_segment
         if instance_id is not None:
             self.instance_id = instance_id
+        if project_name is not None:
+            self.project_name = project_name
         if query_default is not None:
             self.query_default = query_default
         self.region_id = region_id
+
+    @property
+    def ip_address(self):
+        """Gets the ip_address of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The ip_address of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address
+
+    @ip_address.setter
+    def ip_address(self, ip_address):
+        """Sets the ip_address of this DescribeAllowListsRequest.
+
+
+        :param ip_address: The ip_address of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address = ip_address
+
+    @property
+    def ip_segment(self):
+        """Gets the ip_segment of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The ip_segment of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_segment
+
+    @ip_segment.setter
+    def ip_segment(self, ip_segment):
+        """Sets the ip_segment of this DescribeAllowListsRequest.
+
+
+        :param ip_segment: The ip_segment of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_segment = ip_segment
 
     @property
     def instance_id(self):
@@ -81,6 +138,27 @@ class DescribeAllowListsRequest(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeAllowListsRequest.
+
+
+        :param project_name: The project_name of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def query_default(self):

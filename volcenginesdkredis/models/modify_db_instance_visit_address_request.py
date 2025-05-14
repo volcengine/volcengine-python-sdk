@@ -37,7 +37,8 @@ class ModifyDBInstanceVisitAddressRequest(object):
         'client_token': 'str',
         'instance_id': 'str',
         'new_address_prefix': 'str',
-        'new_port': 'int'
+        'new_port': 'int',
+        'upgrade_region_domain': 'bool'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ModifyDBInstanceVisitAddressRequest(object):
         'client_token': 'ClientToken',
         'instance_id': 'InstanceId',
         'new_address_prefix': 'NewAddressPrefix',
-        'new_port': 'NewPort'
+        'new_port': 'NewPort',
+        'upgrade_region_domain': 'UpgradeRegionDomain'
     }
 
-    def __init__(self, addr_type=None, client_token=None, instance_id=None, new_address_prefix=None, new_port=None, _configuration=None):  # noqa: E501
+    def __init__(self, addr_type=None, client_token=None, instance_id=None, new_address_prefix=None, new_port=None, upgrade_region_domain=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceVisitAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ModifyDBInstanceVisitAddressRequest(object):
         self._instance_id = None
         self._new_address_prefix = None
         self._new_port = None
+        self._upgrade_region_domain = None
         self.discriminator = None
 
         self.addr_type = addr_type
@@ -69,6 +72,8 @@ class ModifyDBInstanceVisitAddressRequest(object):
             self.new_address_prefix = new_address_prefix
         if new_port is not None:
             self.new_port = new_port
+        if upgrade_region_domain is not None:
+            self.upgrade_region_domain = upgrade_region_domain
 
     @property
     def addr_type(self):
@@ -90,6 +95,13 @@ class ModifyDBInstanceVisitAddressRequest(object):
         """
         if self._configuration.client_side_validation and addr_type is None:
             raise ValueError("Invalid value for `addr_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["Private", "Public", "PublicZone", "StorageInner", "DirectLink"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                addr_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `addr_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(addr_type, allowed_values)
+            )
 
         self._addr_type = addr_type
 
@@ -178,6 +190,27 @@ class ModifyDBInstanceVisitAddressRequest(object):
         """
 
         self._new_port = new_port
+
+    @property
+    def upgrade_region_domain(self):
+        """Gets the upgrade_region_domain of this ModifyDBInstanceVisitAddressRequest.  # noqa: E501
+
+
+        :return: The upgrade_region_domain of this ModifyDBInstanceVisitAddressRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._upgrade_region_domain
+
+    @upgrade_region_domain.setter
+    def upgrade_region_domain(self, upgrade_region_domain):
+        """Sets the upgrade_region_domain of this ModifyDBInstanceVisitAddressRequest.
+
+
+        :param upgrade_region_domain: The upgrade_region_domain of this ModifyDBInstanceVisitAddressRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._upgrade_region_domain = upgrade_region_domain
 
     def to_dict(self):
         """Returns the model properties as a dict"""
