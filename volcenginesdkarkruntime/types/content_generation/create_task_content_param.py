@@ -30,7 +30,4 @@ class CreateTaskContentImageParam(TypedDict):
     """Image data object containing image URL."""
 
 
-CreateTaskContentParam = Union[
-    CreateTaskContentTextParam,
-    CreateTaskContentImageParam
-]
+CreateTaskContentParam = Union[CreateTaskContentTextParam, CreateTaskContentImageParam]

@@ -6,6 +6,7 @@ from .bot import BotChat, AsyncBotChat
 from .context import Context, AsyncContext
 from .multimodal_embeddings import MultimodalEmbeddings, AsyncMultimodalEmbeddings
 from .content_generation import ContentGeneration, AsyncContentGeneration
+from .images import Images, AsyncImages
 from .batch_chat import BatchChat, AsyncBatchChat
 
 __all__ = [
@@ -24,6 +25,8 @@ __all__ = [
     "AsyncContext",
     "ContentGeneration",
     "AsyncContentGeneration",
+    "Images",
+    "AsyncImages",
     "BatchChat",
-    "AsyncBatchChat"
+    "AsyncBatchChat",
 ]
