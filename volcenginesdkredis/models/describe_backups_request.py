@@ -157,6 +157,14 @@ class DescribeBackupsRequest(object):
         :param backup_strategy_list: The backup_strategy_list of this DescribeBackupsRequest.  # noqa: E501
         :type: list[str]
         """
+        allowed_values = ["ManualBackup", "AutomatedBackup", "DataFlashBack", "AllStrategy"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(backup_strategy_list).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `backup_strategy_list` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(backup_strategy_list) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
 
         self._backup_strategy_list = backup_strategy_list
 
