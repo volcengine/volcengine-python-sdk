@@ -35,16 +35,18 @@ class EnableVpcEndpointConnectionRequest(object):
     swagger_types = {
         'endpoint_id': 'str',
         'resources_allocate': 'list[ResourcesAllocateForEnableVpcEndpointConnectionInput]',
-        'service_id': 'str'
+        'service_id': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
         'endpoint_id': 'EndpointId',
         'resources_allocate': 'ResourcesAllocate',
-        'service_id': 'ServiceId'
+        'service_id': 'ServiceId',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, endpoint_id=None, resources_allocate=None, service_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint_id=None, resources_allocate=None, service_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """EnableVpcEndpointConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,15 @@ class EnableVpcEndpointConnectionRequest(object):
         self._endpoint_id = None
         self._resources_allocate = None
         self._service_id = None
+        self._zone_id = None
         self.discriminator = None
 
         self.endpoint_id = endpoint_id
         if resources_allocate is not None:
             self.resources_allocate = resources_allocate
         self.service_id = service_id
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def endpoint_id(self):
@@ -126,6 +131,27 @@ class EnableVpcEndpointConnectionRequest(object):
             raise ValueError("Invalid value for `service_id`, must not be `None`")  # noqa: E501
 
         self._service_id = service_id
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this EnableVpcEndpointConnectionRequest.  # noqa: E501
+
+
+        :return: The zone_id of this EnableVpcEndpointConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this EnableVpcEndpointConnectionRequest.
+
+
+        :param zone_id: The zone_id of this EnableVpcEndpointConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

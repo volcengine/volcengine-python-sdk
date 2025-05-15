@@ -33,6 +33,7 @@ class DescribeVpcEndpointAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bps': 'int',
         'business_status': 'str',
         'connection_status': 'str',
         'creation_time': 'str',
@@ -61,6 +62,7 @@ class DescribeVpcEndpointAttributesResponse(object):
     }
 
     attribute_map = {
+        'bps': 'Bps',
         'business_status': 'BusinessStatus',
         'connection_status': 'ConnectionStatus',
         'creation_time': 'CreationTime',
@@ -88,12 +90,13 @@ class DescribeVpcEndpointAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, business_status=None, connection_status=None, creation_time=None, deleted_time=None, description=None, endpoint=None, endpoint_domain=None, endpoint_id=None, endpoint_index=None, endpoint_name=None, endpoint_type=None, ip_address_versions=None, ip_address_versions_n=None, payer=None, private_dns_enabled=None, private_dns_name=None, project_name=None, request_id=None, service_id=None, service_managed=None, service_name=None, status=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bps=None, business_status=None, connection_status=None, creation_time=None, deleted_time=None, description=None, endpoint=None, endpoint_domain=None, endpoint_id=None, endpoint_index=None, endpoint_name=None, endpoint_type=None, ip_address_versions=None, ip_address_versions_n=None, payer=None, private_dns_enabled=None, private_dns_name=None, project_name=None, request_id=None, service_id=None, service_managed=None, service_name=None, status=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeVpcEndpointAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bps = None
         self._business_status = None
         self._connection_status = None
         self._creation_time = None
@@ -121,6 +124,8 @@ class DescribeVpcEndpointAttributesResponse(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if bps is not None:
+            self.bps = bps
         if business_status is not None:
             self.business_status = business_status
         if connection_status is not None:
@@ -171,6 +176,27 @@ class DescribeVpcEndpointAttributesResponse(object):
             self.update_time = update_time
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def bps(self):
+        """Gets the bps of this DescribeVpcEndpointAttributesResponse.  # noqa: E501
+
+
+        :return: The bps of this DescribeVpcEndpointAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._bps
+
+    @bps.setter
+    def bps(self, bps):
+        """Sets the bps of this DescribeVpcEndpointAttributesResponse.
+
+
+        :param bps: The bps of this DescribeVpcEndpointAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._bps = bps
 
     @property
     def business_status(self):
