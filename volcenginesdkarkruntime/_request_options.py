@@ -59,9 +59,7 @@ class RequestOptions(BaseModel):
         }
         if PYDANTIC_V2:
             return super().model_construct(_fields_set, **kwargs)
-        return cast(
-            RequestOptions, super().construct(_fields_set, **kwargs)
-        )  # pyright: ignore[reportDeprecated]
+        return cast(RequestOptions, super().construct(_fields_set, **kwargs))  # pyright: ignore[reportDeprecated]
 
     if not TYPE_CHECKING:
         # type checkers incorrectly complain about this assignment

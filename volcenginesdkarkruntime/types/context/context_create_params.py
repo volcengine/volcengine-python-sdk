@@ -4,11 +4,7 @@ import datetime
 from typing import Union, Optional
 from typing_extensions import Literal, Required, TypedDict
 
-__all__ = [
-    "TruncationStrategy",
-    "TTLTypes",
-    "to_optional_ttl"
-]
+__all__ = ["TruncationStrategy", "TTLTypes", "to_optional_ttl"]
 
 
 class TruncationStrategy(TypedDict, total=False):
@@ -32,6 +28,6 @@ def to_optional_ttl(ttl: TTLTypes | None) -> int | None:
         return ttl
     else:
         raise TypeError(
-            f"Could not convert input to `ttl` \n'" f"  type: {type(ttl)}\n",
+            f"Could not convert input to `ttl` \n'  type: {type(ttl)}\n",
             ttl,
         )

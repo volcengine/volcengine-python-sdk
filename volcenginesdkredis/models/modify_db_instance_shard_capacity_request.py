@@ -38,6 +38,7 @@ class ModifyDBInstanceShardCapacityRequest(object):
         'client_token': 'str',
         'create_backup': 'bool',
         'instance_id': 'str',
+        'reserve_additional_bandwidth': 'bool',
         'shard_capacity': 'int'
     }
 
@@ -47,10 +48,11 @@ class ModifyDBInstanceShardCapacityRequest(object):
         'client_token': 'ClientToken',
         'create_backup': 'CreateBackup',
         'instance_id': 'InstanceId',
+        'reserve_additional_bandwidth': 'ReserveAdditionalBandwidth',
         'shard_capacity': 'ShardCapacity'
     }
 
-    def __init__(self, apply_immediately=None, backup_point_name=None, client_token=None, create_backup=None, instance_id=None, shard_capacity=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_immediately=None, backup_point_name=None, client_token=None, create_backup=None, instance_id=None, reserve_additional_bandwidth=None, shard_capacity=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceShardCapacityRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ModifyDBInstanceShardCapacityRequest(object):
         self._client_token = None
         self._create_backup = None
         self._instance_id = None
+        self._reserve_additional_bandwidth = None
         self._shard_capacity = None
         self.discriminator = None
 
@@ -72,6 +75,8 @@ class ModifyDBInstanceShardCapacityRequest(object):
         if create_backup is not None:
             self.create_backup = create_backup
         self.instance_id = instance_id
+        if reserve_additional_bandwidth is not None:
+            self.reserve_additional_bandwidth = reserve_additional_bandwidth
         self.shard_capacity = shard_capacity
 
     @property
@@ -182,6 +187,27 @@ class ModifyDBInstanceShardCapacityRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def reserve_additional_bandwidth(self):
+        """Gets the reserve_additional_bandwidth of this ModifyDBInstanceShardCapacityRequest.  # noqa: E501
+
+
+        :return: The reserve_additional_bandwidth of this ModifyDBInstanceShardCapacityRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._reserve_additional_bandwidth
+
+    @reserve_additional_bandwidth.setter
+    def reserve_additional_bandwidth(self, reserve_additional_bandwidth):
+        """Sets the reserve_additional_bandwidth of this ModifyDBInstanceShardCapacityRequest.
+
+
+        :param reserve_additional_bandwidth: The reserve_additional_bandwidth of this ModifyDBInstanceShardCapacityRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._reserve_additional_bandwidth = reserve_additional_bandwidth
 
     @property
     def shard_capacity(self):

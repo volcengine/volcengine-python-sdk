@@ -162,6 +162,7 @@ class Completions(SyncAPIResource):
         service_tier: Optional[Literal["auto", "default"]] | None = None,
         tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
         response_format: completion_create_params.ResponseFormat | None = None,
+        thinking: completion_create_params.Thinking | None = None,
         user: str | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
@@ -201,6 +202,7 @@ class Completions(SyncAPIResource):
                 "service_tier": service_tier,
                 "tool_choice": tool_choice,
                 "response_format": response_format,
+                "thinking": thinking,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -304,6 +306,7 @@ class AsyncCompletions(AsyncAPIResource):
         service_tier: Optional[Literal["auto", "default"]] | None = None,
         tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
         response_format: completion_create_params.ResponseFormat | None = None,
+        thinking: completion_create_params.Thinking | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -342,6 +345,7 @@ class AsyncCompletions(AsyncAPIResource):
                 "service_tier": service_tier,
                 "tool_choice": tool_choice,
                 "response_format": response_format,
+                "thinking": thinking,
             },
             options=make_request_options(
                 extra_headers=extra_headers,

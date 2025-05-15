@@ -33,14 +33,18 @@ class ProxyConfigForListClustersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'acl_enabled': 'bool',
+        'acl_ip_whitelist': 'list[str]',
         'api_server_endpoints': 'ApiServerEndpointsForListClustersOutput',
         'api_server_public_access_config': 'ApiServerPublicAccessConfigForListClustersOutput',
         'api_server_public_access_enabled': 'bool',
-        'subnet_ids': 'str',
+        'subnet_ids': 'list[str]',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'acl_enabled': 'AclEnabled',
+        'acl_ip_whitelist': 'AclIpWhitelist',
         'api_server_endpoints': 'ApiServerEndpoints',
         'api_server_public_access_config': 'ApiServerPublicAccessConfig',
         'api_server_public_access_enabled': 'ApiServerPublicAccessEnabled',
@@ -48,12 +52,14 @@ class ProxyConfigForListClustersOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, api_server_endpoints=None, api_server_public_access_config=None, api_server_public_access_enabled=None, subnet_ids=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_enabled=None, acl_ip_whitelist=None, api_server_endpoints=None, api_server_public_access_config=None, api_server_public_access_enabled=None, subnet_ids=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ProxyConfigForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._acl_enabled = None
+        self._acl_ip_whitelist = None
         self._api_server_endpoints = None
         self._api_server_public_access_config = None
         self._api_server_public_access_enabled = None
@@ -61,6 +67,10 @@ class ProxyConfigForListClustersOutput(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if acl_enabled is not None:
+            self.acl_enabled = acl_enabled
+        if acl_ip_whitelist is not None:
+            self.acl_ip_whitelist = acl_ip_whitelist
         if api_server_endpoints is not None:
             self.api_server_endpoints = api_server_endpoints
         if api_server_public_access_config is not None:
@@ -71,6 +81,48 @@ class ProxyConfigForListClustersOutput(object):
             self.subnet_ids = subnet_ids
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def acl_enabled(self):
+        """Gets the acl_enabled of this ProxyConfigForListClustersOutput.  # noqa: E501
+
+
+        :return: The acl_enabled of this ProxyConfigForListClustersOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._acl_enabled
+
+    @acl_enabled.setter
+    def acl_enabled(self, acl_enabled):
+        """Sets the acl_enabled of this ProxyConfigForListClustersOutput.
+
+
+        :param acl_enabled: The acl_enabled of this ProxyConfigForListClustersOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._acl_enabled = acl_enabled
+
+    @property
+    def acl_ip_whitelist(self):
+        """Gets the acl_ip_whitelist of this ProxyConfigForListClustersOutput.  # noqa: E501
+
+
+        :return: The acl_ip_whitelist of this ProxyConfigForListClustersOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._acl_ip_whitelist
+
+    @acl_ip_whitelist.setter
+    def acl_ip_whitelist(self, acl_ip_whitelist):
+        """Sets the acl_ip_whitelist of this ProxyConfigForListClustersOutput.
+
+
+        :param acl_ip_whitelist: The acl_ip_whitelist of this ProxyConfigForListClustersOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._acl_ip_whitelist = acl_ip_whitelist
 
     @property
     def api_server_endpoints(self):
@@ -141,7 +193,7 @@ class ProxyConfigForListClustersOutput(object):
 
 
         :return: The subnet_ids of this ProxyConfigForListClustersOutput.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._subnet_ids
 
@@ -151,7 +203,7 @@ class ProxyConfigForListClustersOutput(object):
 
 
         :param subnet_ids: The subnet_ids of this ProxyConfigForListClustersOutput.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._subnet_ids = subnet_ids

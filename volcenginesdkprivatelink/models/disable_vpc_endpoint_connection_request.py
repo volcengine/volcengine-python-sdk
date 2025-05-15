@@ -34,26 +34,36 @@ class DisableVpcEndpointConnectionRequest(object):
     """
     swagger_types = {
         'endpoint_id': 'str',
-        'service_id': 'str'
+        'replacing_resource': 'str',
+        'service_id': 'str',
+        'zone_id': 'str'
     }
 
     attribute_map = {
         'endpoint_id': 'EndpointId',
-        'service_id': 'ServiceId'
+        'replacing_resource': 'ReplacingResource',
+        'service_id': 'ServiceId',
+        'zone_id': 'ZoneId'
     }
 
-    def __init__(self, endpoint_id=None, service_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint_id=None, replacing_resource=None, service_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DisableVpcEndpointConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._endpoint_id = None
+        self._replacing_resource = None
         self._service_id = None
+        self._zone_id = None
         self.discriminator = None
 
         self.endpoint_id = endpoint_id
+        if replacing_resource is not None:
+            self.replacing_resource = replacing_resource
         self.service_id = service_id
+        if zone_id is not None:
+            self.zone_id = zone_id
 
     @property
     def endpoint_id(self):
@@ -79,6 +89,27 @@ class DisableVpcEndpointConnectionRequest(object):
         self._endpoint_id = endpoint_id
 
     @property
+    def replacing_resource(self):
+        """Gets the replacing_resource of this DisableVpcEndpointConnectionRequest.  # noqa: E501
+
+
+        :return: The replacing_resource of this DisableVpcEndpointConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._replacing_resource
+
+    @replacing_resource.setter
+    def replacing_resource(self, replacing_resource):
+        """Sets the replacing_resource of this DisableVpcEndpointConnectionRequest.
+
+
+        :param replacing_resource: The replacing_resource of this DisableVpcEndpointConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._replacing_resource = replacing_resource
+
+    @property
     def service_id(self):
         """Gets the service_id of this DisableVpcEndpointConnectionRequest.  # noqa: E501
 
@@ -100,6 +131,27 @@ class DisableVpcEndpointConnectionRequest(object):
             raise ValueError("Invalid value for `service_id`, must not be `None`")  # noqa: E501
 
         self._service_id = service_id
+
+    @property
+    def zone_id(self):
+        """Gets the zone_id of this DisableVpcEndpointConnectionRequest.  # noqa: E501
+
+
+        :return: The zone_id of this DisableVpcEndpointConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._zone_id
+
+    @zone_id.setter
+    def zone_id(self, zone_id):
+        """Sets the zone_id of this DisableVpcEndpointConnectionRequest.
+
+
+        :param zone_id: The zone_id of this DisableVpcEndpointConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._zone_id = zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

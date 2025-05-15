@@ -38,6 +38,7 @@ class EndpointConnectionForDescribeVpcEndpointConnectionsOutput(object):
         'endpoint_id': 'str',
         'endpoint_owner_account_id': 'str',
         'endpoint_vpc_id': 'str',
+        'replace_resource_id': 'str',
         'service_id': 'str',
         'update_time': 'str',
         'zones': 'list[ZoneForDescribeVpcEndpointConnectionsOutput]'
@@ -49,12 +50,13 @@ class EndpointConnectionForDescribeVpcEndpointConnectionsOutput(object):
         'endpoint_id': 'EndpointId',
         'endpoint_owner_account_id': 'EndpointOwnerAccountId',
         'endpoint_vpc_id': 'EndpointVpcId',
+        'replace_resource_id': 'ReplaceResourceId',
         'service_id': 'ServiceId',
         'update_time': 'UpdateTime',
         'zones': 'Zones'
     }
 
-    def __init__(self, connection_status=None, creation_time=None, endpoint_id=None, endpoint_owner_account_id=None, endpoint_vpc_id=None, service_id=None, update_time=None, zones=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_status=None, creation_time=None, endpoint_id=None, endpoint_owner_account_id=None, endpoint_vpc_id=None, replace_resource_id=None, service_id=None, update_time=None, zones=None, _configuration=None):  # noqa: E501
         """EndpointConnectionForDescribeVpcEndpointConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class EndpointConnectionForDescribeVpcEndpointConnectionsOutput(object):
         self._endpoint_id = None
         self._endpoint_owner_account_id = None
         self._endpoint_vpc_id = None
+        self._replace_resource_id = None
         self._service_id = None
         self._update_time = None
         self._zones = None
@@ -80,6 +83,8 @@ class EndpointConnectionForDescribeVpcEndpointConnectionsOutput(object):
             self.endpoint_owner_account_id = endpoint_owner_account_id
         if endpoint_vpc_id is not None:
             self.endpoint_vpc_id = endpoint_vpc_id
+        if replace_resource_id is not None:
+            self.replace_resource_id = replace_resource_id
         if service_id is not None:
             self.service_id = service_id
         if update_time is not None:
@@ -191,6 +196,27 @@ class EndpointConnectionForDescribeVpcEndpointConnectionsOutput(object):
         """
 
         self._endpoint_vpc_id = endpoint_vpc_id
+
+    @property
+    def replace_resource_id(self):
+        """Gets the replace_resource_id of this EndpointConnectionForDescribeVpcEndpointConnectionsOutput.  # noqa: E501
+
+
+        :return: The replace_resource_id of this EndpointConnectionForDescribeVpcEndpointConnectionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._replace_resource_id
+
+    @replace_resource_id.setter
+    def replace_resource_id(self, replace_resource_id):
+        """Sets the replace_resource_id of this EndpointConnectionForDescribeVpcEndpointConnectionsOutput.
+
+
+        :param replace_resource_id: The replace_resource_id of this EndpointConnectionForDescribeVpcEndpointConnectionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._replace_resource_id = replace_resource_id
 
     @property
     def service_id(self):

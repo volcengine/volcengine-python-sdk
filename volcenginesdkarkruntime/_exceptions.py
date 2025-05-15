@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Optional, cast, Dict
+from typing import Optional
 from typing_extensions import Literal
 
 import httpx
@@ -130,45 +130,31 @@ class ArkAPITimeoutError(ArkAPIConnectionError):
 
 
 class ArkBadRequestError(ArkAPIStatusError):
-    status_code: Literal[400] = (
-        400  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[400] = 400  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkAuthenticationError(ArkAPIStatusError):
-    status_code: Literal[401] = (
-        401  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[401] = 401  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkPermissionDeniedError(ArkAPIStatusError):
-    status_code: Literal[403] = (
-        403  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[403] = 403  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkNotFoundError(ArkAPIStatusError):
-    status_code: Literal[404] = (
-        404  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[404] = 404  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkConflictError(ArkAPIStatusError):
-    status_code: Literal[409] = (
-        409  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[409] = 409  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkUnprocessableEntityError(ArkAPIStatusError):
-    status_code: Literal[422] = (
-        422  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[422] = 422  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkRateLimitError(ArkAPIStatusError):
-    status_code: Literal[429] = (
-        429  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[429] = 429  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkInternalServerError(ArkAPIStatusError):
