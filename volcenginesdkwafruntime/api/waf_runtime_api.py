@@ -2,6 +2,7 @@
 from volcenginesdkwaf import WAFApi, CheckLLMResponseStreamRequest
 from volcenginesdkwafruntime.models.llm_stream_session import LLMStreamSession
 
+global_llm_send_len = 10
 
 class WAFRuntimeApi(WAFApi):
     """继承自 WAFApi 并重写 check_llm_response_stream 方法"""
@@ -57,7 +58,7 @@ class WAFRuntimeApi(WAFApi):
         # 3. 处理 use_stream 为其他值的情况（累计长度，超过阈值才发送）
         else:
             # 如果未发送长度超过 10 个字符，调用 API
-            if session.get_stream_send_len() > 10:
+            if session.get_stream_send_len() > global_llm_send_len:
                 # 准备请求体，使用 session 中的完整流内容
                 body.content = session.get_stream_buf()
                 body.msg_id = session.get_msg_id()
@@ -67,7 +68,7 @@ class WAFRuntimeApi(WAFApi):
 
                 # 同步调用并处理结果
                 resp = self.check_llm_response_stream_with_http_info(body, **kwargs)
-                if isinstance(resp, tuple):
+                if isinstance(resp, tuple) and len(resp) > 0:
                     response = resp[0]  # 获取元组的第一个元素
                 else:
                     response = resp
