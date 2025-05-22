@@ -8,6 +8,7 @@ from typing import Dict, List, Union, Iterable, Optional, Callable
 from typing_extensions import Literal
 
 import httpx
+import warnings
 
 from ..._exceptions import ArkAPITimeoutError, ArkAPIConnectionError, ArkAPIStatusError
 from ..._types import Body, Query, Headers
@@ -36,6 +37,39 @@ from ..._constants import (
 
 __all__ = ["Completions", "AsyncCompletions"]
 
+
+def _process_messages(
+    messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
+):
+    for message in messages:
+        if message.get("content", None) is not None:
+            current_content = message.get("content")
+            if isinstance(current_content, str):
+                message["content"] = f(current_content)
+            elif isinstance(current_content, Iterable):
+                for part in current_content:
+                    if part.get("type", None) == "text":
+                        part["text"] = f(part["text"])
+                    elif part.get("type", None) == "image_url":
+                        if part["image_url"]["url"].startswith("data:"):
+                            part["image_url"]["url"] = f(part["image_url"]["url"])
+                        else:
+                            warnings.warn(
+                                "encryption is not supported for image url, "
+                                "please use base64 image if you want encryption"
+                            )
+                    else:
+                        raise TypeError(
+                            "encryption is not supported for content type {}".format(
+                                type(part)
+                            )
+                        )
+            else:
+                raise TypeError(
+                    "encryption is not supported for content type {}".format(
+                        type(message.get("content"))
+                    )
+                )
 
 def _calculate_retry_timeout(retry_times) -> float:
     nbRetries = min(retry_times, MAX_RETRY_DELAY / INITIAL_RETRY_DELAY)
@@ -79,27 +113,6 @@ class Completions(SyncAPIResource):
     def with_raw_response(self) -> CompletionsWithRawResponse:
         return CompletionsWithRawResponse(self)
 
-    def _process_messages(
-        self, messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
-    ):
-        for message in messages:
-            if message.get("content", None) is not None:
-                current_content = message.get("content")
-                if isinstance(current_content, str):
-                    message["content"] = f(current_content)
-                elif isinstance(current_content, Iterable):
-                    raise TypeError(
-                        "content type {} is not supported end-to-end encryption".format(
-                            type(message.get("content"))
-                        )
-                    )
-                else:
-                    raise TypeError(
-                        "content type {} is not supported end-to-end encryption".format(
-                            type(message.get("content"))
-                        )
-                    )
-
     def _encrypt(
         self,
         model: str,
@@ -109,7 +122,7 @@ class Completions(SyncAPIResource):
         client = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers["X-Session-Token"] = session_token
-        self._process_messages(
+        _process_messages(
             messages,
             lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
         )
@@ -244,21 +257,6 @@ class AsyncCompletions(AsyncAPIResource):
     def with_raw_response(self) -> AsyncCompletionsWithRawResponse:
         return AsyncCompletionsWithRawResponse(self)
 
-    def _process_messages(
-        self, messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
-    ):
-        for message in messages:
-            if message.get("content", None) is not None:
-                current_content = message.get("content")
-                if isinstance(current_content, str):
-                    message["content"] = f(current_content)
-                else:
-                    raise TypeError(
-                        "content type {} is not supported end-to-end encryption".format(
-                            type(message.get("content"))
-                        )
-                    )
-
     def _encrypt(
         self,
         model: str,
@@ -268,7 +266,7 @@ class AsyncCompletions(AsyncAPIResource):
         client = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers["X-Session-Token"] = session_token
-        self._process_messages(
+        _process_messages(
             messages,
             lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
         )
@@ -379,9 +377,7 @@ class AsyncCompletions(AsyncAPIResource):
                 else:
                     raise err
             if is_encrypt:
-                resp = self._decrypt(e2e_key, e2e_nonce, resp)
-                if is_encrypt:
-                    resp = await self._decrypt(e2e_key, e2e_nonce, resp)
+                resp = await self._decrypt(e2e_key, e2e_nonce, resp)
             return resp
 
     def _get_request_last_time(self, timeout):
