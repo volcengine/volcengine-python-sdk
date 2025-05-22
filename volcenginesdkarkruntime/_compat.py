@@ -24,9 +24,7 @@ if TYPE_CHECKING:
     def parse_date(value: date | StrBytesIntFloat) -> date:  # noqa: ARG001
         ...
 
-    def parse_datetime(
-        value: Union[datetime, StrBytesIntFloat]
-    ) -> datetime:  # noqa: ARG001
+    def parse_datetime(value: Union[datetime, StrBytesIntFloat]) -> datetime:  # noqa: ARG001
         ...
 
     def get_args(t: type[Any]) -> tuple[Any, ...]:  # noqa: ARG001
@@ -87,9 +85,7 @@ def parse_obj(model: type[_ModelT], value: object) -> _ModelT:
     if PYDANTIC_V2:
         return model.model_validate(value)
     else:
-        return cast(
-            _ModelT, model.parse_obj(value)
-        )  # pyright: ignore[reportDeprecated, reportUnnecessaryCast]
+        return cast(_ModelT, model.parse_obj(value))  # pyright: ignore[reportDeprecated, reportUnnecessaryCast]
 
 
 def field_is_required(field: FieldInfo) -> bool:

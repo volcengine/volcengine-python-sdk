@@ -23,4 +23,3 @@ class CreateClassificationResponse(BaseModel):
 
     usage: CompletionUsage
     """Usage statistics for the completion request."""
-

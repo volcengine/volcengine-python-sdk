@@ -26,7 +26,7 @@ from ...types.chat import (
     ChatCompletionMessageParam,
     completion_create_params,
     ChatCompletionToolParam,
-    ChatCompletionToolChoiceOptionParam
+    ChatCompletionToolChoiceOptionParam,
 )
 from ..._constants import (
     ARK_E2E_ENCRYPTION_HEADER,
@@ -79,36 +79,51 @@ class Completions(SyncAPIResource):
     def with_raw_response(self) -> CompletionsWithRawResponse:
         return CompletionsWithRawResponse(self)
 
-    def _process_messages(self, messages: Iterable[ChatCompletionMessageParam],
-                          f: Callable[[str], str]):
+    def _process_messages(
+        self, messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
+    ):
         for message in messages:
             if message.get("content", None) is not None:
                 current_content = message.get("content")
                 if isinstance(current_content, str):
                     message["content"] = f(current_content)
                 elif isinstance(current_content, Iterable):
-                    raise TypeError("content type {} is not supported end-to-end encryption".
-                                    format(type(message.get('content'))))
+                    raise TypeError(
+                        "content type {} is not supported end-to-end encryption".format(
+                            type(message.get("content"))
+                        )
+                    )
                 else:
-                    raise TypeError("content type {} is not supported end-to-end encryption".
-                                    format(type(message.get('content'))))
+                    raise TypeError(
+                        "content type {} is not supported end-to-end encryption".format(
+                            type(message.get("content"))
+                        )
+                    )
 
-    def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
-                 ) -> tuple[bytes, bytes]:
+    def _encrypt(
+        self,
+        model: str,
+        messages: Iterable[ChatCompletionMessageParam],
+        extra_headers: Headers,
+    ) -> tuple[bytes, bytes]:
         client = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
-        extra_headers['X-Session-Token'] = session_token
-        self._process_messages(messages, lambda x: client.encrypt_string_with_key(_crypto_key,
-                                                                                  _crypto_nonce,
-                                                                                  x))
+        extra_headers["X-Session-Token"] = session_token
+        self._process_messages(
+            messages,
+            lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
+        )
         return _crypto_key, _crypto_nonce
 
-    def _decrypt(self, key: bytes, nonce: bytes, resp: ChatCompletion
-                 ) -> ChatCompletion:
+    def _decrypt(
+        self, key: bytes, nonce: bytes, resp: ChatCompletion
+    ) -> ChatCompletion:
         if resp.choices is not None:
             for index, choice in enumerate(resp.choices):
                 if choice.message is not None and choice.message.content is not None:
-                    choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
+                    choice.message.content = aes_gcm_decrypt_base64_string(
+                        key, nonce, choice.message.content
+                    )
                 resp.choices[index] = choice
         return resp
 
@@ -142,7 +157,10 @@ class Completions(SyncAPIResource):
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion:
         is_encrypt = False
-        if extra_headers is not None and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == 'true':
+        if (
+            extra_headers is not None
+            and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
+        ):
             is_encrypt = True
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
         retryTimes = 0
@@ -215,7 +233,9 @@ class Completions(SyncAPIResource):
         elif isinstance(self._client.timeout, int):
             timeoutSeconds = timeout
         else:
-            raise TypeError("timeout type {} is not supported".format(type(self._client.timeout)))
+            raise TypeError(
+                "timeout type {} is not supported".format(type(self._client.timeout))
+            )
         return datetime.now() + timedelta(seconds=timeoutSeconds)
 
 
@@ -224,33 +244,45 @@ class AsyncCompletions(AsyncAPIResource):
     def with_raw_response(self) -> AsyncCompletionsWithRawResponse:
         return AsyncCompletionsWithRawResponse(self)
 
-    def _process_messages(self, messages: Iterable[ChatCompletionMessageParam],
-                          f: Callable[[str], str]):
+    def _process_messages(
+        self, messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
+    ):
         for message in messages:
             if message.get("content", None) is not None:
                 current_content = message.get("content")
                 if isinstance(current_content, str):
                     message["content"] = f(current_content)
                 else:
-                    raise TypeError("content type {} is not supported end-to-end encryption".
-                                    format(type(message.get('content'))))
+                    raise TypeError(
+                        "content type {} is not supported end-to-end encryption".format(
+                            type(message.get("content"))
+                        )
+                    )
 
-    def _encrypt(self, model: str, messages: Iterable[ChatCompletionMessageParam], extra_headers: Headers
-                 ) -> tuple[bytes, bytes]:
+    def _encrypt(
+        self,
+        model: str,
+        messages: Iterable[ChatCompletionMessageParam],
+        extra_headers: Headers,
+    ) -> tuple[bytes, bytes]:
         client = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
-        extra_headers['X-Session-Token'] = session_token
-        self._process_messages(messages, lambda x: client.encrypt_string_with_key(_crypto_key,
-                                                                                  _crypto_nonce,
-                                                                                  x))
+        extra_headers["X-Session-Token"] = session_token
+        self._process_messages(
+            messages,
+            lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
+        )
         return _crypto_key, _crypto_nonce
 
-    async def _decrypt(self, key: bytes, nonce: bytes, resp: ChatCompletion
-                       ) -> ChatCompletion:
+    async def _decrypt(
+        self, key: bytes, nonce: bytes, resp: ChatCompletion
+    ) -> ChatCompletion:
         if resp.choices is not None:
             for index, choice in enumerate(resp.choices):
                 if choice.message is not None and choice.message.content is not None:
-                    choice.message.content = aes_gcm_decrypt_base64_string(key, nonce, choice.message.content)
+                    choice.message.content = aes_gcm_decrypt_base64_string(
+                        key, nonce, choice.message.content
+                    )
                 resp.choices[index] = choice
         return resp
 
@@ -284,7 +316,10 @@ class AsyncCompletions(AsyncAPIResource):
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion:
         is_encrypt = False
-        if extra_headers is not None and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == 'true':
+        if (
+            extra_headers is not None
+            and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
+        ):
             is_encrypt = True
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 
@@ -360,7 +395,9 @@ class AsyncCompletions(AsyncAPIResource):
         elif isinstance(self._client.timeout, int):
             timeoutSeconds = timeout
         else:
-            raise TypeError("timeout type {} is not supported".format(type(self._client.timeout)))
+            raise TypeError(
+                "timeout type {} is not supported".format(type(self._client.timeout))
+            )
         return datetime.now() + timedelta(seconds=timeoutSeconds)
 
 
