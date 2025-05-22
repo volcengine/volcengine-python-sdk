@@ -132,7 +132,6 @@ configuration.host = 'ecs.cn-beijing-autodriving.volcengineapi.com'
 注：
 
 - Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
-- 并非所有云产品和Region都支持标准域名，具体请前往您所使用的产品-API参考中查看。
 
 ### SDK 示例 ###
 
