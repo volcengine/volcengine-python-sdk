@@ -63,6 +63,14 @@ def _process_messages(
                                 "encryption is not supported for image url, "
                                 "please use base64 image if you want encryption"
                             )
+                    elif part.get("type", None) == "video_url":
+                        if part["video_url"]["url"].startswith("data:"):
+                            part["video_url"]["url"] = f(part["video_url"]["url"])
+                        else:
+                            warnings.warn(
+                                "encryption is not supported for video url, "
+                                "please use base64 video if you want encryption"
+                            )
                     else:
                         raise TypeError(
                             "encryption is not supported for content type {}".format(

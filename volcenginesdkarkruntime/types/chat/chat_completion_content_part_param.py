@@ -6,9 +6,10 @@ from .chat_completion_content_part_text_param import ChatCompletionContentPartTe
 from .chat_completion_content_part_image_param import (
     ChatCompletionContentPartImageParam,
 )
+from .chat_completion_content_part_video_param import ChatCompletionContentPartVideoParam
 
 __all__ = ["ChatCompletionContentPartParam"]
 
 ChatCompletionContentPartParam = Union[
-    ChatCompletionContentPartTextParam, ChatCompletionContentPartImageParam
+    ChatCompletionContentPartTextParam, ChatCompletionContentPartImageParam, ChatCompletionContentPartVideoParam
 ]
