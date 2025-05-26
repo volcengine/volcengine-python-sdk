@@ -35,16 +35,18 @@ class FiltersForListWorkspacesInput(object):
     swagger_types = {
         'ids': 'list[str]',
         'instance_type_ids': 'list[str]',
-        'name': 'str'
+        'name': 'str',
+        'statuses': 'list[str]'
     }
 
     attribute_map = {
         'ids': 'Ids',
         'instance_type_ids': 'InstanceTypeIds',
-        'name': 'Name'
+        'name': 'Name',
+        'statuses': 'Statuses'
     }
 
-    def __init__(self, ids=None, instance_type_ids=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, ids=None, instance_type_ids=None, name=None, statuses=None, _configuration=None):  # noqa: E501
         """FiltersForListWorkspacesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class FiltersForListWorkspacesInput(object):
         self._ids = None
         self._instance_type_ids = None
         self._name = None
+        self._statuses = None
         self.discriminator = None
 
         if ids is not None:
@@ -61,6 +64,8 @@ class FiltersForListWorkspacesInput(object):
             self.instance_type_ids = instance_type_ids
         if name is not None:
             self.name = name
+        if statuses is not None:
+            self.statuses = statuses
 
     @property
     def ids(self):
@@ -124,6 +129,27 @@ class FiltersForListWorkspacesInput(object):
         """
 
         self._name = name
+
+    @property
+    def statuses(self):
+        """Gets the statuses of this FiltersForListWorkspacesInput.  # noqa: E501
+
+
+        :return: The statuses of this FiltersForListWorkspacesInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._statuses
+
+    @statuses.setter
+    def statuses(self, statuses):
+        """Sets the statuses of this FiltersForListWorkspacesInput.
+
+
+        :param statuses: The statuses of this FiltersForListWorkspacesInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._statuses = statuses
 
     def to_dict(self):
         """Returns the model properties as a dict"""
