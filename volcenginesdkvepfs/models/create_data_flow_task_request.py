@@ -36,7 +36,6 @@ class CreateDataFlowTaskRequest(object):
         'data_storage': 'str',
         'data_storage_path': 'str',
         'data_type': 'str',
-        'delete_rule': 'str',
         'entry_list_file_info': 'EntryListFileInfoForCreateDataFlowTaskInput',
         'export_symlink_policy': 'str',
         'file_system_id': 'str',
@@ -50,7 +49,6 @@ class CreateDataFlowTaskRequest(object):
         'data_storage': 'DataStorage',
         'data_storage_path': 'DataStoragePath',
         'data_type': 'DataType',
-        'delete_rule': 'DeleteRule',
         'entry_list_file_info': 'EntryListFileInfo',
         'export_symlink_policy': 'ExportSymlinkPolicy',
         'file_system_id': 'FileSystemId',
@@ -60,7 +58,7 @@ class CreateDataFlowTaskRequest(object):
         'task_action': 'TaskAction'
     }
 
-    def __init__(self, data_storage=None, data_storage_path=None, data_type=None, delete_rule=None, entry_list_file_info=None, export_symlink_policy=None, file_system_id=None, fileset_id=None, same_name_file_policy=None, sub_path=None, task_action=None, _configuration=None):  # noqa: E501
+    def __init__(self, data_storage=None, data_storage_path=None, data_type=None, entry_list_file_info=None, export_symlink_policy=None, file_system_id=None, fileset_id=None, same_name_file_policy=None, sub_path=None, task_action=None, _configuration=None):  # noqa: E501
         """CreateDataFlowTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,7 +67,6 @@ class CreateDataFlowTaskRequest(object):
         self._data_storage = None
         self._data_storage_path = None
         self._data_type = None
-        self._delete_rule = None
         self._entry_list_file_info = None
         self._export_symlink_policy = None
         self._file_system_id = None
@@ -84,8 +81,6 @@ class CreateDataFlowTaskRequest(object):
         if data_storage_path is not None:
             self.data_storage_path = data_storage_path
         self.data_type = data_type
-        if delete_rule is not None:
-            self.delete_rule = delete_rule
         if entry_list_file_info is not None:
             self.entry_list_file_info = entry_list_file_info
         if export_symlink_policy is not None:
@@ -170,34 +165,6 @@ class CreateDataFlowTaskRequest(object):
             )
 
         self._data_type = data_type
-
-    @property
-    def delete_rule(self):
-        """Gets the delete_rule of this CreateDataFlowTaskRequest.  # noqa: E501
-
-
-        :return: The delete_rule of this CreateDataFlowTaskRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._delete_rule
-
-    @delete_rule.setter
-    def delete_rule(self, delete_rule):
-        """Sets the delete_rule of this CreateDataFlowTaskRequest.
-
-
-        :param delete_rule: The delete_rule of this CreateDataFlowTaskRequest.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["DELETE_TYPE_ONLY_FS", "DELETE_TYPE_FS_WITH_LATEST_OBJECT", "DELETE_TYPE_FS_WITH_ALLVERSION_OBJECT"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                delete_rule not in allowed_values):
-            raise ValueError(
-                "Invalid value for `delete_rule` ({0}), must be one of {1}"  # noqa: E501
-                .format(delete_rule, allowed_values)
-            )
-
-        self._delete_rule = delete_rule
 
     @property
     def entry_list_file_info(self):
@@ -361,7 +328,7 @@ class CreateDataFlowTaskRequest(object):
         """
         if self._configuration.client_side_validation and task_action is None:
             raise ValueError("Invalid value for `task_action`, must not be `None`")  # noqa: E501
-        allowed_values = ["Import", "Export", "Inventory", "Delete"]  # noqa: E501
+        allowed_values = ["Import", "Export", "Inventory"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 task_action not in allowed_values):
             raise ValueError(
