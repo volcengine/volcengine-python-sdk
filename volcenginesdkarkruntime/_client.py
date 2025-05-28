@@ -16,6 +16,7 @@ from ._exceptions import ArkAPIError
 import volcenginesdkark
 
 from . import resources
+from .resources.beta import beta
 from ._base_client import SyncAPIClient, AsyncAPIClient
 from ._constants import (
     DEFAULT_MAX_RETRIES,
@@ -35,6 +36,7 @@ __all__ = ["Ark", "AsyncArk"]
 
 
 class Ark(SyncAPIClient):
+    beta: beta.Beta
     chat: resources.Chat
     bot_chat: resources.BotChat
     embeddings: resources.Embeddings
@@ -100,6 +102,7 @@ class Ark(SyncAPIClient):
         self._sts_token_manager: StsTokenManager | None = None
         self._certificate_manager: E2ECertificateManager | None = None
 
+        self.beta = beta.Beta(self)
         self.chat = resources.Chat(self)
         self.bot_chat = resources.BotChat(self)
         self.embeddings = resources.Embeddings(self)
@@ -155,6 +158,7 @@ class Ark(SyncAPIClient):
 
 
 class AsyncArk(AsyncAPIClient):
+    beta: beta.AsyncBeta
     chat: resources.AsyncChat
     bot_chat: resources.AsyncBotChat
     embeddings: resources.AsyncEmbeddings
@@ -220,6 +224,7 @@ class AsyncArk(AsyncAPIClient):
         self._sts_token_manager: StsTokenManager | None = None
         self._certificate_manager: E2ECertificateManager | None = None
 
+        self.beta = beta.AsyncBeta(self)
         self.chat = resources.AsyncChat(self)
         self.bot_chat = resources.AsyncBotChat(self)
         self.embeddings = resources.AsyncEmbeddings(self)

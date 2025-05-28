@@ -113,6 +113,28 @@ class Completions(SyncAPIResource):
     def with_raw_response(self) -> CompletionsWithRawResponse:
         return CompletionsWithRawResponse(self)
 
+    def _process_messages(
+        self, messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
+    ):
+        for message in messages:
+            if message.get("content", None) is not None:
+                current_content = message.get("content")
+                if isinstance(current_content, str):
+                    message["content"] = f(current_content)
+                elif isinstance(current_content, Iterable):
+                    raise TypeError(
+                        "content type {} is not supported end-to-end encryption".format(
+                            type(message.get("content"))
+                        )
+                    )
+                else:
+                    raise TypeError(
+                        "content type {} is not supported end-to-end encryption".format(
+                            type(message.get("content"))
+                        )
+                    )
+
+
     def _encrypt(
         self,
         model: str,

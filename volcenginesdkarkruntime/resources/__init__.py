@@ -29,4 +29,7 @@ __all__ = [
     "AsyncImages",
     "BatchChat",
     "AsyncBatchChat",
+    "Classification",
+    "AsyncClassification",
+    "AsyncBatchChat",
 ]

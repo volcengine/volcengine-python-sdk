@@ -7,6 +7,18 @@ from .chat_completion_role import ChatCompletionRole as ChatCompletionRole
 from .chat_completion_chunk import ChatCompletionChunk as ChatCompletionChunk
 from .chat_completion_message import ChatCompletionMessage as ChatCompletionMessage
 from .completion_create_params import CompletionCreateParams as CompletionCreateParams
+from .parsed_chat_completion import (
+    ParsedChoice as ParsedChoice,
+    ParsedChatCompletion as ParsedChatCompletion,
+    ParsedChatCompletionMessage as ParsedChatCompletionMessage,
+)
+from .parsed_function_tool_call import (
+    ParsedFunction as ParsedFunction,
+    ParsedFunctionToolCall as ParsedFunctionToolCall,
+)
+from .chat_completion_stream_options_param import (
+    ChatCompletionStreamOptionsParam as ChatCompletionStreamOptionsParam,
+)
 from .chat_completion_stream_options_param import (
     ChatCompletionStreamOptionsParam as ChatCompletionStreamOptionsParam,
 )
