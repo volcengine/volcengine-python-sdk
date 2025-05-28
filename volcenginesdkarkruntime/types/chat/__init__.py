@@ -19,9 +19,6 @@ from .parsed_function_tool_call import (
 from .chat_completion_stream_options_param import (
     ChatCompletionStreamOptionsParam as ChatCompletionStreamOptionsParam,
 )
-from .chat_completion_stream_options_param import (
-    ChatCompletionStreamOptionsParam as ChatCompletionStreamOptionsParam,
-)
 from .chat_completion_tool_param import (
     ChatCompletionToolParam as ChatCompletionToolParam,
 )

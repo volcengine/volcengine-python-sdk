@@ -71,6 +71,7 @@ def _process_messages(
                     )
                 )
 
+
 def _calculate_retry_timeout(retry_times) -> float:
     nbRetries = min(retry_times, MAX_RETRY_DELAY / INITIAL_RETRY_DELAY)
     sleep_seconds = min(INITIAL_RETRY_DELAY * pow(2, nbRetries), MAX_RETRY_DELAY)
@@ -133,7 +134,6 @@ class Completions(SyncAPIResource):
                             type(message.get("content"))
                         )
                     )
-
 
     def _encrypt(
         self,

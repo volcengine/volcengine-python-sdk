@@ -52,19 +52,19 @@ class Images(SyncAPIResource):
 class AsyncImages(AsyncAPIResource):
     @async_apikey_required
     async def generate(
-            self,
-            *,
-            model: str,
-            prompt: str,
-            response_format: str | None = None,
-            size: str | None = None,
-            seed: int | None = None,
-            guidance_scale: float | None = None,
-            watermark: bool | None = None,
-            extra_headers: Headers | None = None,
-            extra_query: Query | None = None,
-            extra_body: Body | None = None,
-            timeout: float | httpx.Timeout | None = None,
+        self,
+        *,
+        model: str,
+        prompt: str,
+        response_format: str | None = None,
+        size: str | None = None,
+        seed: int | None = None,
+        guidance_scale: float | None = None,
+        watermark: bool | None = None,
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None = None,
     ) -> ImagesResponse:
         return await self._post(
             "/images/generations",
