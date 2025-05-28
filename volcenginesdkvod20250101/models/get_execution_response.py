@@ -37,6 +37,7 @@ class GetExecutionResponse(object):
         'control': 'ControlForGetExecutionOutput',
         'input': 'InputForGetExecutionOutput',
         'meta': 'MetaForGetExecutionOutput',
+        'multi_inputs': 'list[MultiInputForGetExecutionOutput]',
         'operation': 'OperationForGetExecutionOutput',
         'output': 'OutputForGetExecutionOutput',
         'run_id': 'str',
@@ -48,13 +49,14 @@ class GetExecutionResponse(object):
         'control': 'Control',
         'input': 'Input',
         'meta': 'Meta',
+        'multi_inputs': 'MultiInputs',
         'operation': 'Operation',
         'output': 'Output',
         'run_id': 'RunId',
         'status': 'Status'
     }
 
-    def __init__(self, code=None, control=None, input=None, meta=None, operation=None, output=None, run_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, code=None, control=None, input=None, meta=None, multi_inputs=None, operation=None, output=None, run_id=None, status=None, _configuration=None):  # noqa: E501
         """GetExecutionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class GetExecutionResponse(object):
         self._control = None
         self._input = None
         self._meta = None
+        self._multi_inputs = None
         self._operation = None
         self._output = None
         self._run_id = None
@@ -78,6 +81,8 @@ class GetExecutionResponse(object):
             self.input = input
         if meta is not None:
             self.meta = meta
+        if multi_inputs is not None:
+            self.multi_inputs = multi_inputs
         if operation is not None:
             self.operation = operation
         if output is not None:
@@ -170,6 +175,27 @@ class GetExecutionResponse(object):
         """
 
         self._meta = meta
+
+    @property
+    def multi_inputs(self):
+        """Gets the multi_inputs of this GetExecutionResponse.  # noqa: E501
+
+
+        :return: The multi_inputs of this GetExecutionResponse.  # noqa: E501
+        :rtype: list[MultiInputForGetExecutionOutput]
+        """
+        return self._multi_inputs
+
+    @multi_inputs.setter
+    def multi_inputs(self, multi_inputs):
+        """Sets the multi_inputs of this GetExecutionResponse.
+
+
+        :param multi_inputs: The multi_inputs of this GetExecutionResponse.  # noqa: E501
+        :type: list[MultiInputForGetExecutionOutput]
+        """
+
+        self._multi_inputs = multi_inputs
 
     @property
     def operation(self):
