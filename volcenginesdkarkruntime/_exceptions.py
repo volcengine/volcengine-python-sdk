@@ -123,7 +123,7 @@ class ArkAPIConnectionError(ArkAPIError):
 
 
 class ArkAPITimeoutError(ArkAPIConnectionError):
-    def __init__(self, request: Optional[httpx.Request] = None, request_id: Optional[str] = None) -> None:
+    def __init__(self, request: httpx.Request, request_id: str) -> None:
         super().__init__(
             message="Request timed out.", request=request, request_id=request_id
         )
