@@ -204,7 +204,7 @@ class Completions(SyncAPIResource):
         while True:
             model_breaker.wait()
             if datetime.now() > last_time:
-                raise ArkAPITimeoutError()
+                raise ArkAPITimeoutError(None, None)
             try:
                 resp = self._post_without_retry(
                     "/batch/chat/completions",
@@ -241,7 +241,7 @@ class Completions(SyncAPIResource):
             except (ArkAPITimeoutError, ArkAPIConnectionError):
                 waitTime = _calculate_retry_timeout(retryTimes)
                 if datetime.now() + timedelta(seconds=waitTime) > last_time:
-                    raise ArkAPITimeoutError()
+                    raise ArkAPITimeoutError(None, None)
                 time.sleep(waitTime)
                 retryTimes = retryTimes + 1
                 continue
@@ -349,7 +349,7 @@ class AsyncCompletions(AsyncAPIResource):
         while True:
             await model_breaker.asyncwait()
             if datetime.now() > last_time:
-                raise ArkAPITimeoutError()
+                raise ArkAPITimeoutError(None, None)
             try:
                 resp = await self._post_without_retry(
                     "/batch/chat/completions",
@@ -386,7 +386,7 @@ class AsyncCompletions(AsyncAPIResource):
             except (ArkAPITimeoutError, ArkAPIConnectionError):
                 waitTime = _calculate_retry_timeout(retryTimes)
                 if datetime.now() + timedelta(seconds=waitTime) > last_time:
-                    raise ArkAPITimeoutError()
+                    raise ArkAPITimeoutError(None, None)
                 await asyncio.sleep(waitTime)
                 retryTimes = retryTimes + 1
                 continue
