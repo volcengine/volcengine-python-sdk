@@ -49,8 +49,7 @@ class GetExecutionRequest(object):
         self._run_id = None
         self.discriminator = None
 
-        if run_id is not None:
-            self.run_id = run_id
+        self.run_id = run_id
 
     @property
     def run_id(self):
@@ -70,6 +69,8 @@ class GetExecutionRequest(object):
         :param run_id: The run_id of this GetExecutionRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and run_id is None:
+            raise ValueError("Invalid value for `run_id`, must not be `None`")  # noqa: E501
 
         self._run_id = run_id
 

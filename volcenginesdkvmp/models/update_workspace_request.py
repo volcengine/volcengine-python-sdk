@@ -38,6 +38,7 @@ class UpdateWorkspaceRequest(object):
         'id': 'str',
         'name': 'str',
         'password': 'str',
+        'quota': 'QuotaForUpdateWorkspaceInput',
         'username': 'str'
     }
 
@@ -47,10 +48,11 @@ class UpdateWorkspaceRequest(object):
         'id': 'Id',
         'name': 'Name',
         'password': 'Password',
+        'quota': 'Quota',
         'username': 'Username'
     }
 
-    def __init__(self, delete_protection_enabled=None, description=None, id=None, name=None, password=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_protection_enabled=None, description=None, id=None, name=None, password=None, quota=None, username=None, _configuration=None):  # noqa: E501
         """UpdateWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class UpdateWorkspaceRequest(object):
         self._id = None
         self._name = None
         self._password = None
+        self._quota = None
         self._username = None
         self.discriminator = None
 
@@ -73,6 +76,8 @@ class UpdateWorkspaceRequest(object):
             self.name = name
         if password is not None:
             self.password = password
+        if quota is not None:
+            self.quota = quota
         if username is not None:
             self.username = username
 
@@ -182,6 +187,27 @@ class UpdateWorkspaceRequest(object):
         """
 
         self._password = password
+
+    @property
+    def quota(self):
+        """Gets the quota of this UpdateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The quota of this UpdateWorkspaceRequest.  # noqa: E501
+        :rtype: QuotaForUpdateWorkspaceInput
+        """
+        return self._quota
+
+    @quota.setter
+    def quota(self, quota):
+        """Sets the quota of this UpdateWorkspaceRequest.
+
+
+        :param quota: The quota of this UpdateWorkspaceRequest.  # noqa: E501
+        :type: QuotaForUpdateWorkspaceInput
+        """
+
+        self._quota = quota
 
     @property
     def username(self):

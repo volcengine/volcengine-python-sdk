@@ -35,16 +35,18 @@ class ConvertAsrForGetExecutionOutput(object):
     swagger_types = {
         'confidence': 'float',
         'duration': 'float',
+        'mode': 'str',
         'utterances': 'list[UtteranceForGetExecutionOutput]'
     }
 
     attribute_map = {
         'confidence': 'Confidence',
         'duration': 'Duration',
+        'mode': 'Mode',
         'utterances': 'Utterances'
     }
 
-    def __init__(self, confidence=None, duration=None, utterances=None, _configuration=None):  # noqa: E501
+    def __init__(self, confidence=None, duration=None, mode=None, utterances=None, _configuration=None):  # noqa: E501
         """ConvertAsrForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class ConvertAsrForGetExecutionOutput(object):
 
         self._confidence = None
         self._duration = None
+        self._mode = None
         self._utterances = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class ConvertAsrForGetExecutionOutput(object):
             self.confidence = confidence
         if duration is not None:
             self.duration = duration
+        if mode is not None:
+            self.mode = mode
         if utterances is not None:
             self.utterances = utterances
 
@@ -103,6 +108,27 @@ class ConvertAsrForGetExecutionOutput(object):
         """
 
         self._duration = duration
+
+    @property
+    def mode(self):
+        """Gets the mode of this ConvertAsrForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The mode of this ConvertAsrForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this ConvertAsrForGetExecutionOutput.
+
+
+        :param mode: The mode of this ConvertAsrForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._mode = mode
 
     @property
     def utterances(self):

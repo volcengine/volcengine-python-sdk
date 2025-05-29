@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any, Union, Generic, TypeVar, Callable, cast, overload
 from datetime import date, datetime
-from typing_extensions import Self
-
+from typing_extensions import Self, Literal
 import pydantic
 from pydantic.fields import FieldInfo
+from ._types import IncEx
 
 _T = TypeVar("_T")
 _ModelT = TypeVar("_ModelT", bound=pydantic.BaseModel)
@@ -67,7 +67,6 @@ else:
             parse_date as parse_date,
             parse_datetime as parse_datetime,
         )
-
 
 # refactored config
 if TYPE_CHECKING:
@@ -138,17 +137,25 @@ def model_json(model: pydantic.BaseModel, *, indent: int | None = None) -> str:
 def model_dump(
     model: pydantic.BaseModel,
     *,
+    exclude: IncEx | None = None,
     exclude_unset: bool = False,
     exclude_defaults: bool = False,
+    warnings: bool = True,
+    mode: Literal["json", "python"] = "python",
 ) -> dict[str, Any]:
-    if PYDANTIC_V2:
+    if PYDANTIC_V2 or hasattr(model, "model_dump"):
         return model.model_dump(
+            mode=mode,
+            exclude=exclude,
             exclude_unset=exclude_unset,
             exclude_defaults=exclude_defaults,
+            # warnings are not supported in Pydantic v1
+            warnings=warnings if PYDANTIC_V2 else True,
         )
     return cast(
         "dict[str, Any]",
         model.dict(  # pyright: ignore[reportDeprecated, reportUnnecessaryCast]
+            exclude=exclude,
             exclude_unset=exclude_unset,
             exclude_defaults=exclude_defaults,
         ),
@@ -159,6 +166,18 @@ def model_parse(model: type[_ModelT], data: Any) -> _ModelT:
     if PYDANTIC_V2:
         return model.model_validate(data)
     return model.parse_obj(data)  # pyright: ignore[reportDeprecated]
+
+
+def model_parse_json(model: type[_ModelT], data: str | bytes) -> _ModelT:
+    if PYDANTIC_V2:
+        return model.model_validate_json(data)
+    return model.parse_raw(data)  # pyright: ignore[reportDeprecated]
+
+
+def model_json_schema(model: type[_ModelT]) -> dict[str, Any]:
+    if PYDANTIC_V2:
+        return model.model_json_schema()
+    return model.schema()  # pyrigh
 
 
 # generic models

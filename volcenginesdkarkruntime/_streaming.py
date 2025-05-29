@@ -25,13 +25,12 @@ from typing_extensions import (
 
 import httpx
 from ._constants import CLIENT_REQUEST_HEADER
-
+from ._utils import extract_type_var_from_base
 from ._exceptions import ArkAPIError
 from ._utils._utils import is_mapping
 
 if TYPE_CHECKING:
     from ._client import Ark, AsyncArk
-
 
 _T = TypeVar("_T")
 
@@ -445,3 +444,28 @@ def is_stream_class_type(
     """TypeGuard for determining whether or not the given type is a subclass of `Stream` / `AsyncStream`"""
     origin = get_origin(typ) or typ
     return inspect.isclass(origin) and issubclass(origin, (Stream, AsyncStream))
+
+
+def extract_stream_chunk_type(
+    stream_cls: type,
+    *,
+    failure_message: str | None = None,
+) -> type:
+    """Given a type like `Stream[T]`, returns the generic type variable `T`.
+
+    This also handles the case where a concrete subclass is given, e.g.
+    ```py
+    class MyStream(Stream[bytes]):
+        ...
+
+    extract_stream_chunk_type(MyStream) -> bytes
+    ```
+    """
+    from ._base_client import Stream, AsyncStream
+
+    return extract_type_var_from_base(
+        stream_cls,
+        index=0,
+        generic_bases=cast("tuple[type, ...]", (Stream, AsyncStream)),
+        failure_message=failure_message,
+    )

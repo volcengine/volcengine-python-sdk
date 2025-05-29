@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 from typing import Dict, List, Union, Iterable, Optional
-from typing_extensions import Literal, Required, TypedDict
+from typing_extensions import Literal, Required, TypeAlias, TypedDict
 
 from ...types import shared_params
+from ..shared_params.response_format_text import ResponseFormatText
+from ..shared_params.response_format_json_object import ResponseFormatJSONObject
+from ..shared_params.response_format_json_schema import ResponseFormatJSONSchema
 from .chat_completion_tool_param import ChatCompletionToolParam
 from .chat_completion_message_param import ChatCompletionMessageParam
 from .chat_completion_tool_choice_option_param import (
@@ -205,16 +208,9 @@ class Function(TypedDict, total=False):
     """
 
 
-class ResponseFormat(TypedDict, total=False):
-    type: Literal["text", "json_object"]
-    """Must be one of `text` or `json_object`."""
-
-    schema: Optional[Dict[str, object]]
-    """If the request only specifies type=`json_object` and no schema is specified, refer to the openai behavior, 
-    the model outputs an arbitrary json object (depending on the user's instruction in the user prompt/system prompt)
-    
-    Even if the schema is specified, still need to specify the expected json format in user prompt/system prompt
-    """
+ResponseFormat: TypeAlias = Union[
+    ResponseFormatText, ResponseFormatJSONSchema, ResponseFormatJSONObject
+]
 
 
 class CompletionCreateParamsNonStreaming(CompletionCreateParamsBase):

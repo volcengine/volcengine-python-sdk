@@ -37,6 +37,9 @@ class TaskForGetExecutionOutput(object):
         'asr': 'AsrForGetExecutionOutput',
         'audio_extract': 'AudioExtractForGetExecutionOutput',
         'highlight': 'HighlightForGetExecutionOutput',
+        'ocr': 'OcrForGetExecutionOutput',
+        'segment': 'SegmentForGetExecutionOutput',
+        'storyline': 'StorylineForGetExecutionOutput',
         'type': 'str',
         'vision': 'VisionForGetExecutionOutput'
     }
@@ -46,11 +49,14 @@ class TaskForGetExecutionOutput(object):
         'asr': 'Asr',
         'audio_extract': 'AudioExtract',
         'highlight': 'Highlight',
+        'ocr': 'Ocr',
+        'segment': 'Segment',
+        'storyline': 'Storyline',
         'type': 'Type',
         'vision': 'Vision'
     }
 
-    def __init__(self, ad_audit=None, asr=None, audio_extract=None, highlight=None, type=None, vision=None, _configuration=None):  # noqa: E501
+    def __init__(self, ad_audit=None, asr=None, audio_extract=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, vision=None, _configuration=None):  # noqa: E501
         """TaskForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +66,9 @@ class TaskForGetExecutionOutput(object):
         self._asr = None
         self._audio_extract = None
         self._highlight = None
+        self._ocr = None
+        self._segment = None
+        self._storyline = None
         self._type = None
         self._vision = None
         self.discriminator = None
@@ -72,6 +81,12 @@ class TaskForGetExecutionOutput(object):
             self.audio_extract = audio_extract
         if highlight is not None:
             self.highlight = highlight
+        if ocr is not None:
+            self.ocr = ocr
+        if segment is not None:
+            self.segment = segment
+        if storyline is not None:
+            self.storyline = storyline
         if type is not None:
             self.type = type
         if vision is not None:
@@ -160,6 +175,69 @@ class TaskForGetExecutionOutput(object):
         """
 
         self._highlight = highlight
+
+    @property
+    def ocr(self):
+        """Gets the ocr of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The ocr of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: OcrForGetExecutionOutput
+        """
+        return self._ocr
+
+    @ocr.setter
+    def ocr(self, ocr):
+        """Sets the ocr of this TaskForGetExecutionOutput.
+
+
+        :param ocr: The ocr of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: OcrForGetExecutionOutput
+        """
+
+        self._ocr = ocr
+
+    @property
+    def segment(self):
+        """Gets the segment of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The segment of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: SegmentForGetExecutionOutput
+        """
+        return self._segment
+
+    @segment.setter
+    def segment(self, segment):
+        """Sets the segment of this TaskForGetExecutionOutput.
+
+
+        :param segment: The segment of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: SegmentForGetExecutionOutput
+        """
+
+        self._segment = segment
+
+    @property
+    def storyline(self):
+        """Gets the storyline of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The storyline of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: StorylineForGetExecutionOutput
+        """
+        return self._storyline
+
+    @storyline.setter
+    def storyline(self, storyline):
+        """Sets the storyline of this TaskForGetExecutionOutput.
+
+
+        :param storyline: The storyline of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: StorylineForGetExecutionOutput
+        """
+
+        self._storyline = storyline
 
     @property
     def type(self):

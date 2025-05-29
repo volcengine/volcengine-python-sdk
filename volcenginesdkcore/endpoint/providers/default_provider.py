@@ -429,6 +429,30 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'acep': ServiceEndpointInfo(
+        service='acep',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'private_zone': ServiceEndpointInfo(
+        service='private_zone',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'sqs': ServiceEndpointInfo(
+        service='sqs',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'resourcecenter': ServiceEndpointInfo(
+        service='resourcecenter',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {

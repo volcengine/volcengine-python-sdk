@@ -1,47 +1,71 @@
 from __future__ import annotations
 
-import inspect
 import os
+import inspect
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Type,
+    Generic,
+    TypeVar,
+    Callable,
+    cast,
+)
 from datetime import date, datetime
-from typing import TYPE_CHECKING, Any, Type, Generic, TypeVar, cast
-
-import pydantic
-import pydantic.generics
-from pydantic.fields import FieldInfo
 from typing_extensions import (
     Literal,
     ClassVar,
     Protocol,
+    ParamSpec,
     TypeGuard,
     override,
     runtime_checkable,
 )
 
+import pydantic
+from pydantic.fields import FieldInfo
+
+from ._types import (
+    ModelT,
+)
+from ._utils import (
+    PropertyInfo,
+    is_list,
+    lru_cache,
+    is_mapping,
+    parse_date,
+    coerce_boolean,
+    parse_datetime,
+    extract_type_arg,
+    is_annotated_type,
+    strip_annotated_type,
+)
 from ._compat import (
     PYDANTIC_V2,
+    ConfigDict,
+    GenericModel as BaseGenericModel,
+    get_args,
+    is_union,
+    parse_obj,
+    get_origin,
+    is_literal_type,
     get_model_config,
     get_model_fields,
     field_get_default,
-    is_union,
-    get_args,
-    is_literal_type,
-    GenericModel as BaseGenericModel,
-    parse_obj,
-    get_origin,
-    ConfigDict,
 )
-from ._types import ModelT
-from ._utils import is_annotated_type, extract_type_arg
-from ._utils._transform import PropertyInfo
-from ._utils._typing import strip_annotated_type
-from ._utils._utils import is_mapping, is_list, coerce_boolean, lru_cache
 
 if TYPE_CHECKING:
-    from pydantic_core.core_schema import ModelField, ModelFieldsSchema
+    from pydantic_core.core_schema import (
+        ModelField,
+        ModelFieldsSchema,
+    )
 
 __all__ = ["BaseModel", "GenericModel"]
 
 _T = TypeVar("_T")
+_BaseModelT = TypeVar("_BaseModelT", bound="BaseModel")
+
+P = ParamSpec("P")
 
 
 @runtime_checkable
@@ -354,6 +378,38 @@ def is_basemodel_type(type_: type) -> TypeGuard[type[BaseModel] | type[GenericMo
     return issubclass(origin, BaseModel) or issubclass(origin, GenericModel)
 
 
+def build(
+    base_model_cls: Callable[P, _BaseModelT],
+    *args: P.args,
+    **kwargs: P.kwargs,
+) -> _BaseModelT:
+    """Construct a BaseModel class without validation.
+
+    This is useful for cases where you need to instantiate a `BaseModel`
+    from an API response as this provides type-safe params which isn't supported
+    by helpers like `construct_type()`.
+
+    ```py
+    build(MyModel, my_field_a="foo", my_field_b=123)
+    ```
+    """
+    if args:
+        raise TypeError(
+            "Received positional arguments which are not supported; Keyword arguments must be used instead",
+        )
+
+    return cast(_BaseModelT, construct_type(type_=base_model_cls, value=kwargs))
+
+
+def construct_type_unchecked(*, value: object, type_: type[_T]) -> _T:
+    """Loose coercion to the expected type with construction of nested values.
+
+    Note: the returned value from this function is not guaranteed to match the
+    given type.
+    """
+    return cast(_T, construct_type(value=value, type_=type_))
+
+
 def construct_type(*, value: object, type_: object) -> object:
     """Loose coercion to the expected type with construction of nested values.
 
@@ -610,6 +666,25 @@ def validate_type(*, type_: type[_T], value: object) -> _T:
         return cast(_T, parse_obj(type_, value))
 
     return cast(_T, _validate_non_model_type(type_=type_, value=value))
+
+
+def add_request_id(obj: BaseModel, request_id: str | None) -> None:
+    obj._request_id = request_id
+
+    # in Pydantic v1, using setattr like we do above causes the attribute
+    # to be included when serializing the model which we don't want in this
+    # case so we need to explicitly exclude it
+    if not PYDANTIC_V2:
+        try:
+            exclude_fields = obj.__exclude_fields__  # type: ignore
+        except AttributeError:
+            cast(Any, obj).__exclude_fields__ = {"_request_id", "__exclude_fields__"}
+        else:
+            cast(Any, obj).__exclude_fields__ = {
+                *(exclude_fields or {}),
+                "_request_id",
+                "__exclude_fields__",
+            }
 
 
 # our use of subclasssing here causes weirdness for type checkers,

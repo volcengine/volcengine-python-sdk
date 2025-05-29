@@ -5,3 +5,11 @@ from .embedding_content_part_text_param import MultimodalEmbeddingContentPartTex
 from .embedding_content_part_image_param import MultimodalEmbeddingContentPartImageParam
 from .embedding_input import EmbeddingInputParam
 from .embedding_data import MultimodalEmbedding
+
+__all__ = [
+    "MultimodalEmbeddingResponse",
+    "MultimodalEmbeddingContentPartTextParam",
+    "MultimodalEmbeddingContentPartImageParam",
+    "EmbeddingInputParam",
+    "MultimodalEmbedding",
+]
