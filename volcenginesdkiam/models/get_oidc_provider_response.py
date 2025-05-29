@@ -33,7 +33,7 @@ class GetOIDCProviderResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'client_i_ds': 'list[str]',
+        'client_ids': 'list[str]',
         'create_date': 'str',
         'description': 'str',
         'issuance_limit_time': 'int',
@@ -45,7 +45,7 @@ class GetOIDCProviderResponse(object):
     }
 
     attribute_map = {
-        'client_i_ds': 'ClientIDs',
+        'client_ids': 'ClientIDs',
         'create_date': 'CreateDate',
         'description': 'Description',
         'issuance_limit_time': 'IssuanceLimitTime',
@@ -56,13 +56,13 @@ class GetOIDCProviderResponse(object):
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, client_i_ds=None, create_date=None, description=None, issuance_limit_time=None, issuer_url=None, oidc_provider_name=None, thumbprints=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_ids=None, create_date=None, description=None, issuance_limit_time=None, issuer_url=None, oidc_provider_name=None, thumbprints=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
         """GetOIDCProviderResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._client_i_ds = None
+        self._client_ids = None
         self._create_date = None
         self._description = None
         self._issuance_limit_time = None
@@ -73,8 +73,8 @@ class GetOIDCProviderResponse(object):
         self._update_date = None
         self.discriminator = None
 
-        if client_i_ds is not None:
-            self.client_i_ds = client_i_ds
+        if client_ids is not None:
+            self.client_ids = client_ids
         if create_date is not None:
             self.create_date = create_date
         if description is not None:
@@ -93,25 +93,25 @@ class GetOIDCProviderResponse(object):
             self.update_date = update_date
 
     @property
-    def client_i_ds(self):
-        """Gets the client_i_ds of this GetOIDCProviderResponse.  # noqa: E501
+    def client_ids(self):
+        """Gets the client_ids of this GetOIDCProviderResponse.  # noqa: E501
 
 
-        :return: The client_i_ds of this GetOIDCProviderResponse.  # noqa: E501
+        :return: The client_ids of this GetOIDCProviderResponse.  # noqa: E501
         :rtype: list[str]
         """
-        return self._client_i_ds
+        return self._client_ids
 
-    @client_i_ds.setter
-    def client_i_ds(self, client_i_ds):
-        """Sets the client_i_ds of this GetOIDCProviderResponse.
+    @client_ids.setter
+    def client_ids(self, client_ids):
+        """Sets the client_ids of this GetOIDCProviderResponse.
 
 
-        :param client_i_ds: The client_i_ds of this GetOIDCProviderResponse.  # noqa: E501
+        :param client_ids: The client_ids of this GetOIDCProviderResponse.  # noqa: E501
         :type: list[str]
         """
 
-        self._client_i_ds = client_i_ds
+        self._client_ids = client_ids
 
     @property
     def create_date(self):
