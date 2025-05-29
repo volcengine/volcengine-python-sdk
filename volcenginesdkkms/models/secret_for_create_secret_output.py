@@ -46,6 +46,7 @@ class SecretForCreateSecretOutput(object):
         'schedule_delete_time': 'str',
         'schedule_rotation_time': 'str',
         'secret_name': 'str',
+        'secret_state': 'str',
         'secret_type': 'str',
         'trn': 'str',
         'uid': 'str',
@@ -66,13 +67,14 @@ class SecretForCreateSecretOutput(object):
         'schedule_delete_time': 'ScheduleDeleteTime',
         'schedule_rotation_time': 'ScheduleRotationTime',
         'secret_name': 'SecretName',
+        'secret_state': 'SecretState',
         'secret_type': 'SecretType',
         'trn': 'Trn',
         'uid': 'UID',
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, creation_date=None, description=None, encryption_key=None, extended_config=None, id=None, last_rotation_time=None, managed=None, project_name=None, rotation_interval=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, secret_name=None, secret_type=None, trn=None, uid=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_date=None, description=None, encryption_key=None, extended_config=None, id=None, last_rotation_time=None, managed=None, project_name=None, rotation_interval=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, secret_name=None, secret_state=None, secret_type=None, trn=None, uid=None, update_date=None, _configuration=None):  # noqa: E501
         """SecretForCreateSecretOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +93,7 @@ class SecretForCreateSecretOutput(object):
         self._schedule_delete_time = None
         self._schedule_rotation_time = None
         self._secret_name = None
+        self._secret_state = None
         self._secret_type = None
         self._trn = None
         self._uid = None
@@ -123,6 +126,8 @@ class SecretForCreateSecretOutput(object):
             self.schedule_rotation_time = schedule_rotation_time
         if secret_name is not None:
             self.secret_name = secret_name
+        if secret_state is not None:
+            self.secret_state = secret_state
         if secret_type is not None:
             self.secret_type = secret_type
         if trn is not None:
@@ -404,6 +409,27 @@ class SecretForCreateSecretOutput(object):
         """
 
         self._secret_name = secret_name
+
+    @property
+    def secret_state(self):
+        """Gets the secret_state of this SecretForCreateSecretOutput.  # noqa: E501
+
+
+        :return: The secret_state of this SecretForCreateSecretOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._secret_state
+
+    @secret_state.setter
+    def secret_state(self, secret_state):
+        """Sets the secret_state of this SecretForCreateSecretOutput.
+
+
+        :param secret_state: The secret_state of this SecretForCreateSecretOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._secret_state = secret_state
 
     @property
     def secret_type(self):
