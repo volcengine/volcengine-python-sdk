@@ -95,7 +95,7 @@ class ModifyDBInstanceVisitAddressRequest(object):
         """
         if self._configuration.client_side_validation and addr_type is None:
             raise ValueError("Invalid value for `addr_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Private", "Public", "PublicZone", "StorageInner", "DirectLink"]  # noqa: E501
+        allowed_values = ["Private", "Public", "PublicZone", "StorageInner", "DirectLink", "PublicZoneAffinity"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 addr_type not in allowed_values):
             raise ValueError(
