@@ -8,14 +8,15 @@ import time
 from collections import defaultdict
 
 from httpx import Timeout, URL, Client, AsyncClient
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Optional
 
 from volcenginesdkcore.rest import ApiException
 from ._exceptions import ArkAPIError
-
+from ._models import BaseModel
 import volcenginesdkark
 
 from . import resources
+from .resources.beta import beta
 from ._base_client import SyncAPIClient, AsyncAPIClient
 from ._constants import (
     DEFAULT_MAX_RETRIES,
@@ -35,6 +36,7 @@ __all__ = ["Ark", "AsyncArk"]
 
 
 class Ark(SyncAPIClient):
+    beta: beta.Beta
     chat: resources.Chat
     bot_chat: resources.BotChat
     embeddings: resources.Embeddings
@@ -100,6 +102,7 @@ class Ark(SyncAPIClient):
         self._sts_token_manager: StsTokenManager | None = None
         self._certificate_manager: E2ECertificateManager | None = None
 
+        self.beta = beta.Beta(self)
         self.chat = resources.Chat(self)
         self.bot_chat = resources.BotChat(self)
         self.embeddings = resources.Embeddings(self)
@@ -155,6 +158,7 @@ class Ark(SyncAPIClient):
 
 
 class AsyncArk(AsyncAPIClient):
+    beta: beta.AsyncBeta
     chat: resources.AsyncChat
     bot_chat: resources.AsyncBotChat
     embeddings: resources.AsyncEmbeddings
@@ -220,6 +224,7 @@ class AsyncArk(AsyncAPIClient):
         self._sts_token_manager: StsTokenManager | None = None
         self._certificate_manager: E2ECertificateManager | None = None
 
+        self.beta = beta.AsyncBeta(self)
         self.chat = resources.AsyncChat(self)
         self.bot_chat = resources.AsyncBotChat(self)
         self.embeddings = resources.AsyncEmbeddings(self)
@@ -373,11 +378,15 @@ class StsTokenManager(object):
         return resp.api_key, resp.expired_time
 
 
-class E2ECertificateManager(object):
-    class CertificateResponse:
-        Certificate: str
-        """The certificate content."""
+class CertificateResponse(BaseModel):
+    error: Optional[Dict[str, str]] = None
+    """The error information."""
 
+    Certificate: str
+    """The certificate content."""
+
+
+class E2ECertificateManager(object):
     def __init__(
         self,
         ak: str,
@@ -445,13 +454,13 @@ class E2ECertificateManager(object):
                 self._e2e_uri,
                 options={"headers": self._x_session_token},
                 body={"model": ep},
-                cast_to=self.CertificateResponse,
+                cast_to=CertificateResponse,
             )
         except Exception as e:
             raise ArkAPIError("Getting Certificate failed: %s\n" % e)
-        if "error" in resp:
-            raise ArkAPIError("Getting Certificate failed: %s\n" % resp["error"])
-        return resp["Certificate"]
+        if resp.error is not None:
+            raise ArkAPIError("Getting Certificate failed: %s\n" % resp.error)
+        return resp.Certificate
 
     def _save_cert_to_file(self, ep: str, cert_pem: str):
         cert_file_path = os.path.join(self._cert_storage_path, f"{ep}.pem")

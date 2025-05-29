@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import TYPE_CHECKING, Optional
 from typing_extensions import Literal
 
 import httpx
+
+if TYPE_CHECKING:
+    from .types.chat import ChatCompletion
 
 __all__ = [
     "ArkBadRequestError",
@@ -159,3 +162,27 @@ class ArkRateLimitError(ArkAPIStatusError):
 
 class ArkInternalServerError(ArkAPIStatusError):
     pass
+
+
+class ArkLengthFinishReasonError(ArkError):
+    completion: ChatCompletion
+    """The completion that caused this error.
+
+    Note: this will *not* be a complete `ChatCompletion` object when streaming as `usage`
+          will not be included.
+    """
+
+    def __init__(self, *, completion: ChatCompletion) -> None:
+        msg = "Could not parse response content as the length limit was reached"
+        if completion.usage:
+            msg += f" - {completion.usage}"
+
+        super().__init__(msg)
+        self.completion = completion
+
+
+class ArkContentFilterFinishReasonError(ArkError):
+    def __init__(self) -> None:
+        super().__init__(
+            "Could not parse response content as the request was rejected by the content filter",
+        )

@@ -71,6 +71,7 @@ def _process_messages(
                     )
                 )
 
+
 def _calculate_retry_timeout(retry_times) -> float:
     nbRetries = min(retry_times, MAX_RETRY_DELAY / INITIAL_RETRY_DELAY)
     sleep_seconds = min(INITIAL_RETRY_DELAY * pow(2, nbRetries), MAX_RETRY_DELAY)
@@ -112,6 +113,27 @@ class Completions(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> CompletionsWithRawResponse:
         return CompletionsWithRawResponse(self)
+
+    def _process_messages(
+        self, messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
+    ):
+        for message in messages:
+            if message.get("content", None) is not None:
+                current_content = message.get("content")
+                if isinstance(current_content, str):
+                    message["content"] = f(current_content)
+                elif isinstance(current_content, Iterable):
+                    raise TypeError(
+                        "content type {} is not supported end-to-end encryption".format(
+                            type(message.get("content"))
+                        )
+                    )
+                else:
+                    raise TypeError(
+                        "content type {} is not supported end-to-end encryption".format(
+                            type(message.get("content"))
+                        )
+                    )
 
     def _encrypt(
         self,
@@ -182,7 +204,7 @@ class Completions(SyncAPIResource):
         while True:
             model_breaker.wait()
             if datetime.now() > last_time:
-                raise ArkAPITimeoutError()
+                raise ArkAPITimeoutError(None, None)
             try:
                 resp = self._post_without_retry(
                     "/batch/chat/completions",
@@ -219,7 +241,7 @@ class Completions(SyncAPIResource):
             except (ArkAPITimeoutError, ArkAPIConnectionError):
                 waitTime = _calculate_retry_timeout(retryTimes)
                 if datetime.now() + timedelta(seconds=waitTime) > last_time:
-                    raise ArkAPITimeoutError()
+                    raise ArkAPITimeoutError(None, None)
                 time.sleep(waitTime)
                 retryTimes = retryTimes + 1
                 continue
@@ -327,7 +349,7 @@ class AsyncCompletions(AsyncAPIResource):
         while True:
             await model_breaker.asyncwait()
             if datetime.now() > last_time:
-                raise ArkAPITimeoutError()
+                raise ArkAPITimeoutError(None, None)
             try:
                 resp = await self._post_without_retry(
                     "/batch/chat/completions",
@@ -364,7 +386,7 @@ class AsyncCompletions(AsyncAPIResource):
             except (ArkAPITimeoutError, ArkAPIConnectionError):
                 waitTime = _calculate_retry_timeout(retryTimes)
                 if datetime.now() + timedelta(seconds=waitTime) > last_time:
-                    raise ArkAPITimeoutError()
+                    raise ArkAPITimeoutError(None, None)
                 await asyncio.sleep(waitTime)
                 retryTimes = retryTimes + 1
                 continue

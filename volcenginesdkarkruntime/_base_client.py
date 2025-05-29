@@ -42,11 +42,11 @@ from ._exceptions import (
     ArkAPIResponseValidationError,
 )
 from ._models import construct_type
+from ._request_options import RequestOptions, ExtraRequestOptions
 from ._response import ArkAPIResponse, ArkAsyncAPIResponse
 from ._streaming import SSEDecoder, SSEBytesDecoder, Stream, AsyncStream
-from ._types import ResponseT, NotGiven, NOT_GIVEN
-from ._request_options import RequestOptions, ExtraRequestOptions
-from ._utils._utils import _gen_request_id
+from ._types import ResponseT, NotGiven, NOT_GIVEN, PostParser
+from ._utils._utils import _gen_request_id, is_given
 
 _T = TypeVar("_T")
 _StreamT = TypeVar("_StreamT", bound=Stream[Any])
@@ -90,6 +90,7 @@ def make_request_options(
     extra_query: Dict[str, Any] | None = None,
     extra_body: Dict[str, Any] | None = None,
     timeout: float | httpx.Timeout | None = None,
+    post_parser: PostParser | NotGiven = NOT_GIVEN,
 ) -> ExtraRequestOptions:
     options: ExtraRequestOptions = {}
     if extra_headers is not None:
@@ -106,6 +107,10 @@ def make_request_options(
 
     if timeout:
         options["timeout"] = timeout
+
+    if is_given(post_parser):
+        # internal
+        options["post_parser"] = post_parser  # type: ignore
 
     return options
 
@@ -487,6 +492,7 @@ class SyncAPIClient(BaseClient):
             response=response,
             stream=stream,
             stream_cls=stream_cls,
+            options=options,
         )
 
     def _retry_request(
@@ -524,6 +530,7 @@ class SyncAPIClient(BaseClient):
         self,
         *,
         cast_to: Type[ResponseT],
+        options: RequestOptions,
         response: httpx.Response,
         stream: bool,
         stream_cls: type[Stream[Any]] | type[AsyncStream[Any]] | None,
@@ -537,6 +544,7 @@ class SyncAPIClient(BaseClient):
             cast_to=cast("type[ResponseT]", cast_to),  # pyright: ignore[reportUnnecessaryCast]
             stream=stream,
             stream_cls=stream_cls,
+            options=options,
         )
         if bool(response.request.headers.get(RAW_RESPONSE_HEADER)):
             return cast(ResponseT, api_response)
@@ -557,6 +565,7 @@ class SyncAPIClient(BaseClient):
         opts = RequestOptions.construct(  # type: ignore
             method="post",
             url=path,
+            files=files,
             body=body,
             **options,
         )
@@ -618,6 +627,7 @@ class SyncAPIClient(BaseClient):
             method="post",
             url=path,
             body=body,
+            files=files,
             **options,
         )
 
@@ -745,6 +755,7 @@ class AsyncAPIClient(BaseClient):
             method="post",
             url=path,
             body=body,
+            files=files,
             **options,
         )
 
@@ -801,6 +812,7 @@ class AsyncAPIClient(BaseClient):
             method="post",
             url=path,
             body=body,
+            files=files,
             **options,
         )
 
@@ -910,6 +922,7 @@ class AsyncAPIClient(BaseClient):
             response=response,
             stream=stream,
             stream_cls=stream_cls,
+            options=options,
         )
 
     async def _retry_request(
@@ -945,6 +958,7 @@ class AsyncAPIClient(BaseClient):
         self,
         *,
         cast_to: Type[ResponseT],
+        options: RequestOptions,
         response: httpx.Response,
         stream: bool,
         stream_cls: type[Stream[Any]] | type[AsyncStream[Any]] | None,
@@ -958,6 +972,7 @@ class AsyncAPIClient(BaseClient):
             cast_to=cast("type[ResponseT]", cast_to),  # pyright: ignore[reportUnnecessaryCast]
             stream=stream,
             stream_cls=stream_cls,
+            options=options,
         )
         if bool(response.request.headers.get(RAW_RESPONSE_HEADER)):
             return cast(ResponseT, api_response)
