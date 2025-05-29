@@ -34,6 +34,7 @@ class AsrForGetExecutionOutput(object):
     """
     swagger_types = {
         'language': 'str',
+        'mode': 'str',
         'type': 'str',
         'with_confidence': 'bool',
         'with_speaker_info': 'bool'
@@ -41,18 +42,20 @@ class AsrForGetExecutionOutput(object):
 
     attribute_map = {
         'language': 'Language',
+        'mode': 'Mode',
         'type': 'Type',
         'with_confidence': 'WithConfidence',
         'with_speaker_info': 'WithSpeakerInfo'
     }
 
-    def __init__(self, language=None, type=None, with_confidence=None, with_speaker_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, language=None, mode=None, type=None, with_confidence=None, with_speaker_info=None, _configuration=None):  # noqa: E501
         """AsrForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._language = None
+        self._mode = None
         self._type = None
         self._with_confidence = None
         self._with_speaker_info = None
@@ -60,6 +63,8 @@ class AsrForGetExecutionOutput(object):
 
         if language is not None:
             self.language = language
+        if mode is not None:
+            self.mode = mode
         if type is not None:
             self.type = type
         if with_confidence is not None:
@@ -87,6 +92,27 @@ class AsrForGetExecutionOutput(object):
         """
 
         self._language = language
+
+    @property
+    def mode(self):
+        """Gets the mode of this AsrForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The mode of this AsrForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this AsrForGetExecutionOutput.
+
+
+        :param mode: The mode of this AsrForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._mode = mode
 
     @property
     def type(self):

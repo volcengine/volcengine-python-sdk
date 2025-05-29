@@ -35,16 +35,18 @@ class StartExecutionRequest(object):
     swagger_types = {
         'control': 'ControlForStartExecutionInput',
         'input': 'InputForStartExecutionInput',
+        'multi_inputs': 'list[MultiInputForStartExecutionInput]',
         'operation': 'OperationForStartExecutionInput'
     }
 
     attribute_map = {
         'control': 'Control',
         'input': 'Input',
+        'multi_inputs': 'MultiInputs',
         'operation': 'Operation'
     }
 
-    def __init__(self, control=None, input=None, operation=None, _configuration=None):  # noqa: E501
+    def __init__(self, control=None, input=None, multi_inputs=None, operation=None, _configuration=None):  # noqa: E501
         """StartExecutionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class StartExecutionRequest(object):
 
         self._control = None
         self._input = None
+        self._multi_inputs = None
         self._operation = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class StartExecutionRequest(object):
             self.control = control
         if input is not None:
             self.input = input
+        if multi_inputs is not None:
+            self.multi_inputs = multi_inputs
         if operation is not None:
             self.operation = operation
 
@@ -103,6 +108,27 @@ class StartExecutionRequest(object):
         """
 
         self._input = input
+
+    @property
+    def multi_inputs(self):
+        """Gets the multi_inputs of this StartExecutionRequest.  # noqa: E501
+
+
+        :return: The multi_inputs of this StartExecutionRequest.  # noqa: E501
+        :rtype: list[MultiInputForStartExecutionInput]
+        """
+        return self._multi_inputs
+
+    @multi_inputs.setter
+    def multi_inputs(self, multi_inputs):
+        """Sets the multi_inputs of this StartExecutionRequest.
+
+
+        :param multi_inputs: The multi_inputs of this StartExecutionRequest.  # noqa: E501
+        :type: list[MultiInputForStartExecutionInput]
+        """
+
+        self._multi_inputs = multi_inputs
 
     @property
     def operation(self):
