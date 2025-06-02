@@ -163,7 +163,7 @@ class AsyncTasks(AsyncAPIResource):
             body={
                 "model": model,
                 "content": content,
-                "callback_url" : callback_url,
+                "callback_url": callback_url,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
