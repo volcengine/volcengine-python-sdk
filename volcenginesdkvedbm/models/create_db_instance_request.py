@@ -54,6 +54,7 @@ class CreateDBInstanceRequest(object):
         'super_account_name': 'str',
         'super_account_password': 'str',
         'tags': 'list[TagForCreateDBInstanceInput]',
+        'template_id': 'str',
         'vpc_id': 'str',
         'zone_ids': 'str'
     }
@@ -80,11 +81,12 @@ class CreateDBInstanceRequest(object):
         'super_account_name': 'SuperAccountName',
         'super_account_password': 'SuperAccountPassword',
         'tags': 'Tags',
+        'template_id': 'TemplateId',
         'vpc_id': 'VpcId',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_minor_version=None, db_time_zone=None, deletion_protection=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_type=None, db_engine_version=None, db_minor_version=None, db_time_zone=None, deletion_protection=None, instance_name=None, lower_case_table_names=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, port=None, pre_paid_storage_in_gb=None, project_name=None, storage_charge_type=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, template_id=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -111,6 +113,7 @@ class CreateDBInstanceRequest(object):
         self._super_account_name = None
         self._super_account_password = None
         self._tags = None
+        self._template_id = None
         self._vpc_id = None
         self._zone_ids = None
         self.discriminator = None
@@ -152,6 +155,8 @@ class CreateDBInstanceRequest(object):
             self.super_account_password = super_account_password
         if tags is not None:
             self.tags = tags
+        if template_id is not None:
+            self.template_id = template_id
         self.vpc_id = vpc_id
         self.zone_ids = zone_ids
 
@@ -226,7 +231,7 @@ class CreateDBInstanceRequest(object):
         """
         if self._configuration.client_side_validation and db_engine_version is None:
             raise ValueError("Invalid value for `db_engine_version`, must not be `None`")  # noqa: E501
-        allowed_values = ["MySQL_8_0"]  # noqa: E501
+        allowed_values = ["MySQL_5_7", "MySQL_8_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -254,7 +259,7 @@ class CreateDBInstanceRequest(object):
         :param db_minor_version: The db_minor_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["3.0", "3.1", "3.2"]  # noqa: E501
+        allowed_values = ["2.0", "3.0", "3.1", "3.2"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_minor_version not in allowed_values):
             raise ValueError(
@@ -352,6 +357,13 @@ class CreateDBInstanceRequest(object):
         :param lower_case_table_names: The lower_case_table_names of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["0", "1"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                lower_case_table_names not in allowed_values):
+            raise ValueError(
+                "Invalid value for `lower_case_table_names` ({0}), must be one of {1}"  # noqa: E501
+                .format(lower_case_table_names, allowed_values)
+            )
 
         self._lower_case_table_names = lower_case_table_names
 
@@ -398,7 +410,7 @@ class CreateDBInstanceRequest(object):
         """
         if self._configuration.client_side_validation and node_spec is None:
             raise ValueError("Invalid value for `node_spec`, must not be `None`")  # noqa: E501
-        allowed_values = ["vedb.mysql.x4.large", "vedb.mysql.x8.large", "vedb.mysql.x4.xlarge", "vedb.mysql.x8.xlarge", "vedb.mysql.x4.2xlarge", "vedb.mysql.x8.2xlarge", "vedb.mysql.x4.4xlarge", "vedb.mysql.x8.4xlarge", "vedb.mysql.x8.6xlarge", "vedb.mysql.x4.8xlarge", "vedb.mysql.x8.8xlarge", "vedb.mysql.g4.large", "vedb.mysql.g4.xlarge", "vedb.mysql.g4.2xlarge", "vedb.mysql.g8.2xlarge", "vedb.mysql.g4.4xlarge"]  # noqa: E501
+        allowed_values = ["vedb.mysql.g4.2xlarge", "vedb.mysql.g4.4xlarge", "vedb.mysql.g4.large", "vedb.mysql.g4.xlarge", "vedb.mysql.g8.2xlarge", "vedb.mysql.x4.2xlarge", "vedb.mysql.x4.4xlarge", "vedb.mysql.x4.8xlarge", "vedb.mysql.x4.large", "vedb.mysql.x4.xlarge", "vedb.mysql.x8.2xlarge", "vedb.mysql.x8.4xlarge", "vedb.mysql.x8.6xlarge", "vedb.mysql.x8.8xlarge", "vedb.mysql.x8.large", "vedb.mysql.x8.xlarge"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 node_spec not in allowed_values):
             raise ValueError(
@@ -654,6 +666,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def template_id(self):
+        """Gets the template_id of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The template_id of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._template_id
+
+    @template_id.setter
+    def template_id(self, template_id):
+        """Sets the template_id of this CreateDBInstanceRequest.
+
+
+        :param template_id: The template_id of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._template_id = template_id
 
     @property
     def vpc_id(self):

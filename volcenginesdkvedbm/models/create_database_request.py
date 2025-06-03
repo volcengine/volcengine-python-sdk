@@ -34,6 +34,7 @@ class CreateDatabaseRequest(object):
     """
     swagger_types = {
         'character_set_name': 'str',
+        'db_desc': 'str',
         'db_name': 'str',
         'databases_privileges': 'list[DatabasesPrivilegeForCreateDatabaseInput]',
         'instance_id': 'str'
@@ -41,18 +42,20 @@ class CreateDatabaseRequest(object):
 
     attribute_map = {
         'character_set_name': 'CharacterSetName',
+        'db_desc': 'DBDesc',
         'db_name': 'DBName',
         'databases_privileges': 'DatabasesPrivileges',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, character_set_name=None, db_name=None, databases_privileges=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, character_set_name=None, db_desc=None, db_name=None, databases_privileges=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateDatabaseRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._character_set_name = None
+        self._db_desc = None
         self._db_name = None
         self._databases_privileges = None
         self._instance_id = None
@@ -60,6 +63,8 @@ class CreateDatabaseRequest(object):
 
         if character_set_name is not None:
             self.character_set_name = character_set_name
+        if db_desc is not None:
+            self.db_desc = db_desc
         self.db_name = db_name
         if databases_privileges is not None:
             self.databases_privileges = databases_privileges
@@ -83,7 +88,7 @@ class CreateDatabaseRequest(object):
         :param character_set_name: The character_set_name of this CreateDatabaseRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["utf8mb4", "utf8", "latin1", "ascii"]  # noqa: E501
+        allowed_values = ["ascii", "latin1", "utf8", "utf8mb4"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 character_set_name not in allowed_values):
             raise ValueError(
@@ -92,6 +97,27 @@ class CreateDatabaseRequest(object):
             )
 
         self._character_set_name = character_set_name
+
+    @property
+    def db_desc(self):
+        """Gets the db_desc of this CreateDatabaseRequest.  # noqa: E501
+
+
+        :return: The db_desc of this CreateDatabaseRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_desc
+
+    @db_desc.setter
+    def db_desc(self, db_desc):
+        """Sets the db_desc of this CreateDatabaseRequest.
+
+
+        :param db_desc: The db_desc of this CreateDatabaseRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._db_desc = db_desc
 
     @property
     def db_name(self):

@@ -33,34 +33,60 @@ class AccountForDescribeDBAccountsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_desc': 'str',
         'account_name': 'str',
         'account_privileges': 'list[AccountPrivilegeForDescribeDBAccountsOutput]',
         'account_type': 'str'
     }
 
     attribute_map = {
+        'account_desc': 'AccountDesc',
         'account_name': 'AccountName',
         'account_privileges': 'AccountPrivileges',
         'account_type': 'AccountType'
     }
 
-    def __init__(self, account_name=None, account_privileges=None, account_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_type=None, _configuration=None):  # noqa: E501
         """AccountForDescribeDBAccountsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_desc = None
         self._account_name = None
         self._account_privileges = None
         self._account_type = None
         self.discriminator = None
 
+        if account_desc is not None:
+            self.account_desc = account_desc
         if account_name is not None:
             self.account_name = account_name
         if account_privileges is not None:
             self.account_privileges = account_privileges
         if account_type is not None:
             self.account_type = account_type
+
+    @property
+    def account_desc(self):
+        """Gets the account_desc of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The account_desc of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_desc
+
+    @account_desc.setter
+    def account_desc(self, account_desc):
+        """Sets the account_desc of this AccountForDescribeDBAccountsOutput.
+
+
+        :param account_desc: The account_desc of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_desc = account_desc
 
     @property
     def account_name(self):
