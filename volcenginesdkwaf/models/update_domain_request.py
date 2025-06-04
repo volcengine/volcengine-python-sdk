@@ -50,8 +50,6 @@ class UpdateDomainRequest(object):
         'keep_alive_request': 'int',
         'keep_alive_time_out': 'int',
         'lb_algorithm': 'str',
-        'llm_available': 'bool',
-        'llm_path_info': 'list[LLMPathInfoForUpdateDomainInput]',
         'project_name': 'str',
         'protocol_follow': 'int',
         'protocol_ports': 'ProtocolPortsForUpdateDomainInput',
@@ -92,8 +90,6 @@ class UpdateDomainRequest(object):
         'keep_alive_request': 'KeepAliveRequest',
         'keep_alive_time_out': 'KeepAliveTimeOut',
         'lb_algorithm': 'LBAlgorithm',
-        'llm_available': 'LLMAvailable',
-        'llm_path_info': 'LLMPathInfo',
         'project_name': 'ProjectName',
         'protocol_follow': 'ProtocolFollow',
         'protocol_ports': 'ProtocolPorts',
@@ -116,7 +112,7 @@ class UpdateDomainRequest(object):
         'vpc_id': 'VpcID'
     }
 
-    def __init__(self, access_mode=None, backend_groups=None, certificate_id=None, certificate_platform=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, custom_header=None, custom_sni=None, domain=None, enable_custom_redirect=None, enable_http2=None, enable_i_pv6=None, enable_sni=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, llm_available=None, llm_path_info=None, project_name=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, ssl_ciphers=None, ssl_protocols=None, tls_enable=None, tls_fields_config=None, volc_certificate_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, backend_groups=None, certificate_id=None, certificate_platform=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, custom_header=None, custom_sni=None, domain=None, enable_custom_redirect=None, enable_http2=None, enable_i_pv6=None, enable_sni=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, project_name=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, ssl_ciphers=None, ssl_protocols=None, tls_enable=None, tls_fields_config=None, volc_certificate_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """UpdateDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -139,8 +135,6 @@ class UpdateDomainRequest(object):
         self._keep_alive_request = None
         self._keep_alive_time_out = None
         self._lb_algorithm = None
-        self._llm_available = None
-        self._llm_path_info = None
         self._project_name = None
         self._protocol_follow = None
         self._protocol_ports = None
@@ -195,10 +189,6 @@ class UpdateDomainRequest(object):
             self.keep_alive_time_out = keep_alive_time_out
         if lb_algorithm is not None:
             self.lb_algorithm = lb_algorithm
-        if llm_available is not None:
-            self.llm_available = llm_available
-        if llm_path_info is not None:
-            self.llm_path_info = llm_path_info
         if project_name is not None:
             self.project_name = project_name
         if protocol_follow is not None:
@@ -599,48 +589,6 @@ class UpdateDomainRequest(object):
         """
 
         self._lb_algorithm = lb_algorithm
-
-    @property
-    def llm_available(self):
-        """Gets the llm_available of this UpdateDomainRequest.  # noqa: E501
-
-
-        :return: The llm_available of this UpdateDomainRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._llm_available
-
-    @llm_available.setter
-    def llm_available(self, llm_available):
-        """Sets the llm_available of this UpdateDomainRequest.
-
-
-        :param llm_available: The llm_available of this UpdateDomainRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._llm_available = llm_available
-
-    @property
-    def llm_path_info(self):
-        """Gets the llm_path_info of this UpdateDomainRequest.  # noqa: E501
-
-
-        :return: The llm_path_info of this UpdateDomainRequest.  # noqa: E501
-        :rtype: list[LLMPathInfoForUpdateDomainInput]
-        """
-        return self._llm_path_info
-
-    @llm_path_info.setter
-    def llm_path_info(self, llm_path_info):
-        """Sets the llm_path_info of this UpdateDomainRequest.
-
-
-        :param llm_path_info: The llm_path_info of this UpdateDomainRequest.  # noqa: E501
-        :type: list[LLMPathInfoForUpdateDomainInput]
-        """
-
-        self._llm_path_info = llm_path_info
 
     @property
     def project_name(self):
