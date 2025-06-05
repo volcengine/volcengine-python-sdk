@@ -34,7 +34,6 @@ class CreateCCRuleRequest(object):
     """
     swagger_types = {
         'accurate_group': 'AccurateGroupForCreateCCRuleInput',
-        'accurate_group_priority': 'int',
         'cc_type': 'int',
         'count_time': 'int',
         'cron_confs': 'list[CronConfForCreateCCRuleInput]',
@@ -55,7 +54,6 @@ class CreateCCRuleRequest(object):
 
     attribute_map = {
         'accurate_group': 'AccurateGroup',
-        'accurate_group_priority': 'AccurateGroupPriority',
         'cc_type': 'CCType',
         'count_time': 'CountTime',
         'cron_confs': 'CronConfs',
@@ -74,14 +72,13 @@ class CreateCCRuleRequest(object):
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, accurate_group_priority=None, cc_type=None, count_time=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, name=None, path_threshold=None, project_name=None, rule_priority=None, rule_tag=None, single_threshold=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, cc_type=None, count_time=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, name=None, path_threshold=None, project_name=None, rule_priority=None, rule_tag=None, single_threshold=None, url=None, _configuration=None):  # noqa: E501
         """CreateCCRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accurate_group = None
-        self._accurate_group_priority = None
         self._cc_type = None
         self._count_time = None
         self._cron_confs = None
@@ -102,8 +99,6 @@ class CreateCCRuleRequest(object):
 
         if accurate_group is not None:
             self.accurate_group = accurate_group
-        if accurate_group_priority is not None:
-            self.accurate_group_priority = accurate_group_priority
         if cc_type is not None:
             self.cc_type = cc_type
         if count_time is not None:
@@ -150,27 +145,6 @@ class CreateCCRuleRequest(object):
         """
 
         self._accurate_group = accurate_group
-
-    @property
-    def accurate_group_priority(self):
-        """Gets the accurate_group_priority of this CreateCCRuleRequest.  # noqa: E501
-
-
-        :return: The accurate_group_priority of this CreateCCRuleRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._accurate_group_priority
-
-    @accurate_group_priority.setter
-    def accurate_group_priority(self, accurate_group_priority):
-        """Sets the accurate_group_priority of this CreateCCRuleRequest.
-
-
-        :param accurate_group_priority: The accurate_group_priority of this CreateCCRuleRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._accurate_group_priority = accurate_group_priority
 
     @property
     def cc_type(self):
