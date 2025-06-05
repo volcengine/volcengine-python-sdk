@@ -56,7 +56,7 @@ class DataForListDomainOutput(object):
         'clb_listener_id': 'str',
         'clb_pool_id': 'str',
         'clb_server_id': 'str',
-        'client_ip_location': 'str',
+        'client_ip_location': 'int',
         'client_max_body_size': 'int',
         'cloud_access_config': 'list[CloudAccessConfigForListDomainOutput]',
         'cname': 'str',
@@ -886,7 +886,7 @@ class DataForListDomainOutput(object):
 
 
         :return: The client_ip_location of this DataForListDomainOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._client_ip_location
 
@@ -896,7 +896,7 @@ class DataForListDomainOutput(object):
 
 
         :param client_ip_location: The client_ip_location of this DataForListDomainOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._client_ip_location = client_ip_location

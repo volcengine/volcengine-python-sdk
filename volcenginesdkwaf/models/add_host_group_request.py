@@ -35,16 +35,18 @@ class AddHostGroupRequest(object):
     swagger_types = {
         'description': 'str',
         'host_list': 'list[str]',
-        'name': 'str'
+        'name': 'str',
+        'project_name': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
         'host_list': 'HostList',
-        'name': 'Name'
+        'name': 'Name',
+        'project_name': 'ProjectName'
     }
 
-    def __init__(self, description=None, host_list=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, host_list=None, name=None, project_name=None, _configuration=None):  # noqa: E501
         """AddHostGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class AddHostGroupRequest(object):
         self._description = None
         self._host_list = None
         self._name = None
+        self._project_name = None
         self.discriminator = None
 
         if description is not None:
@@ -60,6 +63,8 @@ class AddHostGroupRequest(object):
         if host_list is not None:
             self.host_list = host_list
         self.name = name
+        if project_name is not None:
+            self.project_name = project_name
 
     @property
     def description(self):
@@ -125,6 +130,27 @@ class AddHostGroupRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this AddHostGroupRequest.  # noqa: E501
+
+
+        :return: The project_name of this AddHostGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this AddHostGroupRequest.
+
+
+        :param project_name: The project_name of this AddHostGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
