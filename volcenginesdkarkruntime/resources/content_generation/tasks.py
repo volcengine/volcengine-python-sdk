@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Iterable, Union, List
+from typing import Iterable, Union, List, Optional
 
 import httpx
 
@@ -33,6 +33,7 @@ class Tasks(SyncAPIResource):
         *,
         model: str,
         content: Iterable[CreateTaskContentParam],
+        callback_url: Optional[str] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -43,6 +44,7 @@ class Tasks(SyncAPIResource):
             body={
                 "model": model,
                 "content": content,
+                "callback_url": callback_url,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -150,6 +152,7 @@ class AsyncTasks(AsyncAPIResource):
         *,
         model: str,
         content: Iterable[CreateTaskContentParam],
+        callback_url: Optional[str] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -160,6 +163,7 @@ class AsyncTasks(AsyncAPIResource):
             body={
                 "model": model,
                 "content": content,
+                "callback_url": callback_url,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
