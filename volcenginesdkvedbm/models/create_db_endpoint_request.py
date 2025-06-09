@@ -143,7 +143,7 @@ class CreateDBEndpointRequest(object):
         :param consist_level: The consist_level of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Eventual", "Session", "Global"]  # noqa: E501
+        allowed_values = ["Eventual", "Global", "Session"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 consist_level not in allowed_values):
             raise ValueError(
@@ -192,7 +192,7 @@ class CreateDBEndpointRequest(object):
         :param consist_timeout_action: The consist_timeout_action of this CreateDBEndpointRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ReturnError", "ReadMaster"]  # noqa: E501
+        allowed_values = ["ReadMaster", "ReturnError"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 consist_timeout_action not in allowed_values):
             raise ValueError(

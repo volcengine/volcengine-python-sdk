@@ -44,6 +44,7 @@ class DescribeDBInstancesRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'storage_charge_type': 'str',
         'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
         'zone_id': 'str'
     }
@@ -60,11 +61,12 @@ class DescribeDBInstancesRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'storage_charge_type': 'StorageChargeType',
         'tag_filters': 'TagFilters',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, node_spec=None, page_number=None, page_size=None, project_name=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, node_spec=None, page_number=None, page_size=None, project_name=None, storage_charge_type=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class DescribeDBInstancesRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._storage_charge_type = None
         self._tag_filters = None
         self._zone_id = None
         self.discriminator = None
@@ -107,6 +110,8 @@ class DescribeDBInstancesRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if storage_charge_type is not None:
+            self.storage_charge_type = storage_charge_type
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if zone_id is not None:
@@ -200,7 +205,7 @@ class DescribeDBInstancesRequest(object):
         :param db_engine_version: The db_engine_version of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MySQL_8_0"]  # noqa: E501
+        allowed_values = ["MySQL_5_7", "MySQL_8_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -270,7 +275,7 @@ class DescribeDBInstancesRequest(object):
         :param instance_status: The instance_status of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["WaitingPaid", "Running", "Creating", "Scaling", "Restarting", "Restoring", "Upgrading", "PrimaryChanging", "Unavailable", "Deleting", "Deleted", "CreateFailed", "Closing", "Expired", "Owing", "Resuming", "AllowListMaintaining", "Error"]  # noqa: E501
+        allowed_values = ["AddressModifying", "AllowListMaintaining", "CreateFailed", "Creating", "Deleting", "Error", "Expired", "Owing", "PrimaryChanging", "Reclaiming", "Restarting", "Restoring", "Resuming", "Running", "Scaling", "Upgrading", "WaitingPaid"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_status not in allowed_values):
             raise ValueError(
@@ -298,7 +303,7 @@ class DescribeDBInstancesRequest(object):
         :param node_spec: The node_spec of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["vedb.mysql.x4.large", "vedb.mysql.x8.large", "vedb.mysql.x4.xlarge", "vedb.mysql.x8.xlarge", "vedb.mysql.x4.2xlarge", "vedb.mysql.x8.2xlarge", "vedb.mysql.x4.4xlarge", "vedb.mysql.x8.4xlarge", "vedb.mysql.x8.6xlarge", "vedb.mysql.x4.8xlarge", "vedb.mysql.x8.8xlarge", "vedb.mysql.g4.large", "vedb.mysql.g4.xlarge", "vedb.mysql.g4.2xlarge", "vedb.mysql.g8.2xlarge", "vedb.mysql.g4.4xlarge"]  # noqa: E501
+        allowed_values = ["vedb.mysql.g4.2xlarge", "vedb.mysql.g4.4xlarge", "vedb.mysql.g4.large", "vedb.mysql.g4.xlarge", "vedb.mysql.g8.2xlarge", "vedb.mysql.x4.2xlarge", "vedb.mysql.x4.4xlarge", "vedb.mysql.x4.8xlarge", "vedb.mysql.x4.large", "vedb.mysql.x4.xlarge", "vedb.mysql.x8.2xlarge", "vedb.mysql.x8.4xlarge", "vedb.mysql.x8.6xlarge", "vedb.mysql.x8.8xlarge", "vedb.mysql.x8.large", "vedb.mysql.x8.xlarge"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 node_spec not in allowed_values):
             raise ValueError(
@@ -370,6 +375,34 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def storage_charge_type(self):
+        """Gets the storage_charge_type of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The storage_charge_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_charge_type
+
+    @storage_charge_type.setter
+    def storage_charge_type(self, storage_charge_type):
+        """Sets the storage_charge_type of this DescribeDBInstancesRequest.
+
+
+        :param storage_charge_type: The storage_charge_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                storage_charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `storage_charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(storage_charge_type, allowed_values)
+            )
+
+        self._storage_charge_type = storage_charge_type
 
     @property
     def tag_filters(self):
