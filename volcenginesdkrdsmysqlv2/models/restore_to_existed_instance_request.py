@@ -34,6 +34,7 @@ class RestoreToExistedInstanceRequest(object):
     """
     swagger_types = {
         'backup_id': 'str',
+        'fast_mode': 'bool',
         'restore_time': 'str',
         'restore_type': 'str',
         'source_db_instance_id': 'str',
@@ -42,19 +43,21 @@ class RestoreToExistedInstanceRequest(object):
 
     attribute_map = {
         'backup_id': 'BackupId',
+        'fast_mode': 'FastMode',
         'restore_time': 'RestoreTime',
         'restore_type': 'RestoreType',
         'source_db_instance_id': 'SourceDBInstanceId',
         'table_meta': 'TableMeta'
     }
 
-    def __init__(self, backup_id=None, restore_time=None, restore_type=None, source_db_instance_id=None, table_meta=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_id=None, fast_mode=None, restore_time=None, restore_type=None, source_db_instance_id=None, table_meta=None, _configuration=None):  # noqa: E501
         """RestoreToExistedInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._backup_id = None
+        self._fast_mode = None
         self._restore_time = None
         self._restore_type = None
         self._source_db_instance_id = None
@@ -63,6 +66,8 @@ class RestoreToExistedInstanceRequest(object):
 
         if backup_id is not None:
             self.backup_id = backup_id
+        if fast_mode is not None:
+            self.fast_mode = fast_mode
         if restore_time is not None:
             self.restore_time = restore_time
         if restore_type is not None:
@@ -91,6 +96,27 @@ class RestoreToExistedInstanceRequest(object):
         """
 
         self._backup_id = backup_id
+
+    @property
+    def fast_mode(self):
+        """Gets the fast_mode of this RestoreToExistedInstanceRequest.  # noqa: E501
+
+
+        :return: The fast_mode of this RestoreToExistedInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fast_mode
+
+    @fast_mode.setter
+    def fast_mode(self, fast_mode):
+        """Sets the fast_mode of this RestoreToExistedInstanceRequest.
+
+
+        :param fast_mode: The fast_mode of this RestoreToExistedInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._fast_mode = fast_mode
 
     @property
     def restore_time(self):

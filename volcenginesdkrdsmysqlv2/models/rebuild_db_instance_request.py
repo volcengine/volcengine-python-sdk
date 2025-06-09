@@ -33,33 +33,229 @@ class RebuildDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_ids': 'list[str]',
+        'auto_storage_scaling_config': 'AutoStorageScalingConfigForRebuildDBInstanceInput',
+        'backup_id': 'str',
+        'charge_info': 'ChargeInfoForRebuildDBInstanceInput',
+        'db_param_group_id': 'str',
+        'deletion_protection': 'str',
         'instance_id': 'str',
+        'instance_name': 'str',
+        'instance_tags': 'list[InstanceTagForRebuildDBInstanceInput]',
+        'node_info': 'list[NodeInfoForRebuildDBInstanceInput]',
+        'port': 'int',
         'project_name': 'str',
-        'request_source': 'str'
+        'request_source': 'str',
+        'storage_space': 'int',
+        'storage_type': 'str',
+        'subnet_id': 'str',
+        'vpc_id': 'str'
     }
 
     attribute_map = {
+        'allow_list_ids': 'AllowListIds',
+        'auto_storage_scaling_config': 'AutoStorageScalingConfig',
+        'backup_id': 'BackupId',
+        'charge_info': 'ChargeInfo',
+        'db_param_group_id': 'DBParamGroupId',
+        'deletion_protection': 'DeletionProtection',
         'instance_id': 'InstanceId',
+        'instance_name': 'InstanceName',
+        'instance_tags': 'InstanceTags',
+        'node_info': 'NodeInfo',
+        'port': 'Port',
         'project_name': 'ProjectName',
-        'request_source': 'RequestSource'
+        'request_source': 'RequestSource',
+        'storage_space': 'StorageSpace',
+        'storage_type': 'StorageType',
+        'subnet_id': 'SubnetId',
+        'vpc_id': 'VpcId'
     }
 
-    def __init__(self, instance_id=None, project_name=None, request_source=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, instance_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, request_source=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RebuildDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_ids = None
+        self._auto_storage_scaling_config = None
+        self._backup_id = None
+        self._charge_info = None
+        self._db_param_group_id = None
+        self._deletion_protection = None
         self._instance_id = None
+        self._instance_name = None
+        self._instance_tags = None
+        self._node_info = None
+        self._port = None
         self._project_name = None
         self._request_source = None
+        self._storage_space = None
+        self._storage_type = None
+        self._subnet_id = None
+        self._vpc_id = None
         self.discriminator = None
 
+        if allow_list_ids is not None:
+            self.allow_list_ids = allow_list_ids
+        if auto_storage_scaling_config is not None:
+            self.auto_storage_scaling_config = auto_storage_scaling_config
+        if backup_id is not None:
+            self.backup_id = backup_id
+        if charge_info is not None:
+            self.charge_info = charge_info
+        if db_param_group_id is not None:
+            self.db_param_group_id = db_param_group_id
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         self.instance_id = instance_id
+        if instance_name is not None:
+            self.instance_name = instance_name
+        if instance_tags is not None:
+            self.instance_tags = instance_tags
+        if node_info is not None:
+            self.node_info = node_info
+        if port is not None:
+            self.port = port
         if project_name is not None:
             self.project_name = project_name
         if request_source is not None:
             self.request_source = request_source
+        if storage_space is not None:
+            self.storage_space = storage_space
+        if storage_type is not None:
+            self.storage_type = storage_type
+        if subnet_id is not None:
+            self.subnet_id = subnet_id
+        if vpc_id is not None:
+            self.vpc_id = vpc_id
+
+    @property
+    def allow_list_ids(self):
+        """Gets the allow_list_ids of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The allow_list_ids of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_list_ids
+
+    @allow_list_ids.setter
+    def allow_list_ids(self, allow_list_ids):
+        """Sets the allow_list_ids of this RebuildDBInstanceRequest.
+
+
+        :param allow_list_ids: The allow_list_ids of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_list_ids = allow_list_ids
+
+    @property
+    def auto_storage_scaling_config(self):
+        """Gets the auto_storage_scaling_config of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_storage_scaling_config of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: AutoStorageScalingConfigForRebuildDBInstanceInput
+        """
+        return self._auto_storage_scaling_config
+
+    @auto_storage_scaling_config.setter
+    def auto_storage_scaling_config(self, auto_storage_scaling_config):
+        """Sets the auto_storage_scaling_config of this RebuildDBInstanceRequest.
+
+
+        :param auto_storage_scaling_config: The auto_storage_scaling_config of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: AutoStorageScalingConfigForRebuildDBInstanceInput
+        """
+
+        self._auto_storage_scaling_config = auto_storage_scaling_config
+
+    @property
+    def backup_id(self):
+        """Gets the backup_id of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The backup_id of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_id
+
+    @backup_id.setter
+    def backup_id(self, backup_id):
+        """Sets the backup_id of this RebuildDBInstanceRequest.
+
+
+        :param backup_id: The backup_id of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_id = backup_id
+
+    @property
+    def charge_info(self):
+        """Gets the charge_info of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The charge_info of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: ChargeInfoForRebuildDBInstanceInput
+        """
+        return self._charge_info
+
+    @charge_info.setter
+    def charge_info(self, charge_info):
+        """Sets the charge_info of this RebuildDBInstanceRequest.
+
+
+        :param charge_info: The charge_info of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: ChargeInfoForRebuildDBInstanceInput
+        """
+
+        self._charge_info = charge_info
+
+    @property
+    def db_param_group_id(self):
+        """Gets the db_param_group_id of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The db_param_group_id of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_param_group_id
+
+    @db_param_group_id.setter
+    def db_param_group_id(self, db_param_group_id):
+        """Sets the db_param_group_id of this RebuildDBInstanceRequest.
+
+
+        :param db_param_group_id: The db_param_group_id of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._db_param_group_id = db_param_group_id
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The deletion_protection of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this RebuildDBInstanceRequest.
+
+
+        :param deletion_protection: The deletion_protection of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._deletion_protection = deletion_protection
 
     @property
     def instance_id(self):
@@ -83,6 +279,90 @@ class RebuildDBInstanceRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def instance_name(self):
+        """Gets the instance_name of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The instance_name of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this RebuildDBInstanceRequest.
+
+
+        :param instance_name: The instance_name of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
+
+    @property
+    def instance_tags(self):
+        """Gets the instance_tags of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The instance_tags of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: list[InstanceTagForRebuildDBInstanceInput]
+        """
+        return self._instance_tags
+
+    @instance_tags.setter
+    def instance_tags(self, instance_tags):
+        """Sets the instance_tags of this RebuildDBInstanceRequest.
+
+
+        :param instance_tags: The instance_tags of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: list[InstanceTagForRebuildDBInstanceInput]
+        """
+
+        self._instance_tags = instance_tags
+
+    @property
+    def node_info(self):
+        """Gets the node_info of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The node_info of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: list[NodeInfoForRebuildDBInstanceInput]
+        """
+        return self._node_info
+
+    @node_info.setter
+    def node_info(self, node_info):
+        """Sets the node_info of this RebuildDBInstanceRequest.
+
+
+        :param node_info: The node_info of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: list[NodeInfoForRebuildDBInstanceInput]
+        """
+
+        self._node_info = node_info
+
+    @property
+    def port(self):
+        """Gets the port of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The port of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this RebuildDBInstanceRequest.
+
+
+        :param port: The port of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     @property
     def project_name(self):
@@ -125,6 +405,90 @@ class RebuildDBInstanceRequest(object):
         """
 
         self._request_source = request_source
+
+    @property
+    def storage_space(self):
+        """Gets the storage_space of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The storage_space of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._storage_space
+
+    @storage_space.setter
+    def storage_space(self, storage_space):
+        """Sets the storage_space of this RebuildDBInstanceRequest.
+
+
+        :param storage_space: The storage_space of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._storage_space = storage_space
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The storage_type of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this RebuildDBInstanceRequest.
+
+
+        :param storage_type: The storage_type of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
+
+    @property
+    def subnet_id(self):
+        """Gets the subnet_id of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The subnet_id of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_id
+
+    @subnet_id.setter
+    def subnet_id(self, subnet_id):
+        """Sets the subnet_id of this RebuildDBInstanceRequest.
+
+
+        :param subnet_id: The subnet_id of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_id = subnet_id
+
+    @property
+    def vpc_id(self):
+        """Gets the vpc_id of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The vpc_id of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._vpc_id
+
+    @vpc_id.setter
+    def vpc_id(self, vpc_id):
+        """Sets the vpc_id of this RebuildDBInstanceRequest.
+
+
+        :param vpc_id: The vpc_id of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._vpc_id = vpc_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

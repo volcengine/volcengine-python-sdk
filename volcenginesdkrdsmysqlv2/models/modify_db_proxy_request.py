@@ -33,33 +33,59 @@ class ModifyDBProxyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'convert_default_endpoint': 'bool',
         'enable_db_proxy': 'bool',
         'instance_id': 'str',
         'proxy_node_custom': 'ProxyNodeCustomForModifyDBProxyInput'
     }
 
     attribute_map = {
+        'convert_default_endpoint': 'ConvertDefaultEndpoint',
         'enable_db_proxy': 'EnableDBProxy',
         'instance_id': 'InstanceId',
         'proxy_node_custom': 'ProxyNodeCustom'
     }
 
-    def __init__(self, enable_db_proxy=None, instance_id=None, proxy_node_custom=None, _configuration=None):  # noqa: E501
+    def __init__(self, convert_default_endpoint=None, enable_db_proxy=None, instance_id=None, proxy_node_custom=None, _configuration=None):  # noqa: E501
         """ModifyDBProxyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._convert_default_endpoint = None
         self._enable_db_proxy = None
         self._instance_id = None
         self._proxy_node_custom = None
         self.discriminator = None
 
+        if convert_default_endpoint is not None:
+            self.convert_default_endpoint = convert_default_endpoint
         if enable_db_proxy is not None:
             self.enable_db_proxy = enable_db_proxy
         self.instance_id = instance_id
         if proxy_node_custom is not None:
             self.proxy_node_custom = proxy_node_custom
+
+    @property
+    def convert_default_endpoint(self):
+        """Gets the convert_default_endpoint of this ModifyDBProxyRequest.  # noqa: E501
+
+
+        :return: The convert_default_endpoint of this ModifyDBProxyRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._convert_default_endpoint
+
+    @convert_default_endpoint.setter
+    def convert_default_endpoint(self, convert_default_endpoint):
+        """Sets the convert_default_endpoint of this ModifyDBProxyRequest.
+
+
+        :param convert_default_endpoint: The convert_default_endpoint of this ModifyDBProxyRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._convert_default_endpoint = convert_default_endpoint
 
     @property
     def enable_db_proxy(self):

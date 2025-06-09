@@ -40,6 +40,7 @@ class AccountForDescribeDBAccountsOutput(object):
         'account_status': 'str',
         'account_type': 'str',
         'global_account_privileges': 'list[str]',
+        'has_table_column_privilege_db_names': 'list[str]',
         'host': 'str'
     }
 
@@ -51,10 +52,11 @@ class AccountForDescribeDBAccountsOutput(object):
         'account_status': 'AccountStatus',
         'account_type': 'AccountType',
         'global_account_privileges': 'GlobalAccountPrivileges',
+        'has_table_column_privilege_db_names': 'HasTableColumnPrivilegeDBNames',
         'host': 'Host'
     }
 
-    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_privileges_sql=None, account_status=None, account_type=None, global_account_privileges=None, host=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_privileges_sql=None, account_status=None, account_type=None, global_account_privileges=None, has_table_column_privilege_db_names=None, host=None, _configuration=None):  # noqa: E501
         """AccountForDescribeDBAccountsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class AccountForDescribeDBAccountsOutput(object):
         self._account_status = None
         self._account_type = None
         self._global_account_privileges = None
+        self._has_table_column_privilege_db_names = None
         self._host = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class AccountForDescribeDBAccountsOutput(object):
             self.account_type = account_type
         if global_account_privileges is not None:
             self.global_account_privileges = global_account_privileges
+        if has_table_column_privilege_db_names is not None:
+            self.has_table_column_privilege_db_names = has_table_column_privilege_db_names
         if host is not None:
             self.host = host
 
@@ -233,6 +238,27 @@ class AccountForDescribeDBAccountsOutput(object):
         """
 
         self._global_account_privileges = global_account_privileges
+
+    @property
+    def has_table_column_privilege_db_names(self):
+        """Gets the has_table_column_privilege_db_names of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The has_table_column_privilege_db_names of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._has_table_column_privilege_db_names
+
+    @has_table_column_privilege_db_names.setter
+    def has_table_column_privilege_db_names(self, has_table_column_privilege_db_names):
+        """Sets the has_table_column_privilege_db_names of this AccountForDescribeDBAccountsOutput.
+
+
+        :param has_table_column_privilege_db_names: The has_table_column_privilege_db_names of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._has_table_column_privilege_db_names = has_table_column_privilege_db_names
 
     @property
     def host(self):

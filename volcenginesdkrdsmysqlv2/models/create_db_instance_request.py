@@ -34,10 +34,12 @@ class CreateDBInstanceRequest(object):
     """
     swagger_types = {
         'allow_list_ids': 'list[str]',
+        'auto_storage_scaling_config': 'AutoStorageScalingConfigForCreateDBInstanceInput',
         'charge_info': 'ChargeInfoForCreateDBInstanceInput',
         'db_engine_version': 'str',
         'db_param_group_id': 'str',
         'db_time_zone': 'str',
+        'deletion_protection': 'str',
         'instance_name': 'str',
         'instance_tags': 'list[InstanceTagForCreateDBInstanceInput]',
         'instance_type': 'str',
@@ -56,10 +58,12 @@ class CreateDBInstanceRequest(object):
 
     attribute_map = {
         'allow_list_ids': 'AllowListIds',
+        'auto_storage_scaling_config': 'AutoStorageScalingConfig',
         'charge_info': 'ChargeInfo',
         'db_engine_version': 'DBEngineVersion',
         'db_param_group_id': 'DBParamGroupId',
         'db_time_zone': 'DBTimeZone',
+        'deletion_protection': 'DeletionProtection',
         'instance_name': 'InstanceName',
         'instance_tags': 'InstanceTags',
         'instance_type': 'InstanceType',
@@ -76,17 +80,19 @@ class CreateDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, port=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, deletion_protection=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, port=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list_ids = None
+        self._auto_storage_scaling_config = None
         self._charge_info = None
         self._db_engine_version = None
         self._db_param_group_id = None
         self._db_time_zone = None
+        self._deletion_protection = None
         self._instance_name = None
         self._instance_tags = None
         self._instance_type = None
@@ -105,6 +111,8 @@ class CreateDBInstanceRequest(object):
 
         if allow_list_ids is not None:
             self.allow_list_ids = allow_list_ids
+        if auto_storage_scaling_config is not None:
+            self.auto_storage_scaling_config = auto_storage_scaling_config
         if charge_info is not None:
             self.charge_info = charge_info
         self.db_engine_version = db_engine_version
@@ -112,6 +120,8 @@ class CreateDBInstanceRequest(object):
             self.db_param_group_id = db_param_group_id
         if db_time_zone is not None:
             self.db_time_zone = db_time_zone
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         if instance_name is not None:
             self.instance_name = instance_name
         if instance_tags is not None:
@@ -157,6 +167,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._allow_list_ids = allow_list_ids
+
+    @property
+    def auto_storage_scaling_config(self):
+        """Gets the auto_storage_scaling_config of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_storage_scaling_config of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: AutoStorageScalingConfigForCreateDBInstanceInput
+        """
+        return self._auto_storage_scaling_config
+
+    @auto_storage_scaling_config.setter
+    def auto_storage_scaling_config(self, auto_storage_scaling_config):
+        """Sets the auto_storage_scaling_config of this CreateDBInstanceRequest.
+
+
+        :param auto_storage_scaling_config: The auto_storage_scaling_config of this CreateDBInstanceRequest.  # noqa: E501
+        :type: AutoStorageScalingConfigForCreateDBInstanceInput
+        """
+
+        self._auto_storage_scaling_config = auto_storage_scaling_config
 
     @property
     def charge_info(self):
@@ -243,6 +274,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._db_time_zone = db_time_zone
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The deletion_protection of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this CreateDBInstanceRequest.
+
+
+        :param deletion_protection: The deletion_protection of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._deletion_protection = deletion_protection
 
     @property
     def instance_name(self):

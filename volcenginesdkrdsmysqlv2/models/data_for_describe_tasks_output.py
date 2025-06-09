@@ -36,6 +36,7 @@ class DataForDescribeTasksOutput(object):
         'cost_time_ms': 'int',
         'create_time': 'str',
         'finish_time': 'str',
+        'origin_config': 'str',
         'progress': 'int',
         'related_instance_infos': 'RelatedInstanceInfosForDescribeTasksOutput',
         'scheduled_execute_end_time': 'str',
@@ -57,6 +58,7 @@ class DataForDescribeTasksOutput(object):
         'cost_time_ms': 'CostTimeMS',
         'create_time': 'CreateTime',
         'finish_time': 'FinishTime',
+        'origin_config': 'OriginConfig',
         'progress': 'Progress',
         'related_instance_infos': 'RelatedInstanceInfos',
         'scheduled_execute_end_time': 'ScheduledExecuteEndTime',
@@ -74,7 +76,7 @@ class DataForDescribeTasksOutput(object):
         'task_status': 'TaskStatus'
     }
 
-    def __init__(self, cost_time_ms=None, create_time=None, finish_time=None, progress=None, related_instance_infos=None, scheduled_execute_end_time=None, scheduled_execute_start_time=None, scheduled_switch_end_time=None, scheduled_switch_start_time=None, start_time=None, task_action=None, task_category=None, task_desc=None, task_id=None, task_params=None, task_progress=None, task_source=None, task_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cost_time_ms=None, create_time=None, finish_time=None, origin_config=None, progress=None, related_instance_infos=None, scheduled_execute_end_time=None, scheduled_execute_start_time=None, scheduled_switch_end_time=None, scheduled_switch_start_time=None, start_time=None, task_action=None, task_category=None, task_desc=None, task_id=None, task_params=None, task_progress=None, task_source=None, task_status=None, _configuration=None):  # noqa: E501
         """DataForDescribeTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,6 +85,7 @@ class DataForDescribeTasksOutput(object):
         self._cost_time_ms = None
         self._create_time = None
         self._finish_time = None
+        self._origin_config = None
         self._progress = None
         self._related_instance_infos = None
         self._scheduled_execute_end_time = None
@@ -106,6 +109,8 @@ class DataForDescribeTasksOutput(object):
             self.create_time = create_time
         if finish_time is not None:
             self.finish_time = finish_time
+        if origin_config is not None:
+            self.origin_config = origin_config
         if progress is not None:
             self.progress = progress
         if related_instance_infos is not None:
@@ -199,6 +204,27 @@ class DataForDescribeTasksOutput(object):
         """
 
         self._finish_time = finish_time
+
+    @property
+    def origin_config(self):
+        """Gets the origin_config of this DataForDescribeTasksOutput.  # noqa: E501
+
+
+        :return: The origin_config of this DataForDescribeTasksOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_config
+
+    @origin_config.setter
+    def origin_config(self, origin_config):
+        """Sets the origin_config of this DataForDescribeTasksOutput.
+
+
+        :param origin_config: The origin_config of this DataForDescribeTasksOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_config = origin_config
 
     @property
     def progress(self):

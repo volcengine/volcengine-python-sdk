@@ -40,7 +40,8 @@ class CreateDBAccountRequest(object):
         'account_type': 'str',
         'dry_run': 'bool',
         'host': 'str',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'table_column_privileges': 'list[TableColumnPrivilegeForCreateDBAccountInput]'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class CreateDBAccountRequest(object):
         'account_type': 'AccountType',
         'dry_run': 'DryRun',
         'host': 'Host',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'table_column_privileges': 'TableColumnPrivileges'
     }
 
-    def __init__(self, account_desc=None, account_name=None, account_password=None, account_privileges=None, account_type=None, dry_run=None, host=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_password=None, account_privileges=None, account_type=None, dry_run=None, host=None, instance_id=None, table_column_privileges=None, _configuration=None):  # noqa: E501
         """CreateDBAccountRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class CreateDBAccountRequest(object):
         self._dry_run = None
         self._host = None
         self._instance_id = None
+        self._table_column_privileges = None
         self.discriminator = None
 
         if account_desc is not None:
@@ -82,6 +85,8 @@ class CreateDBAccountRequest(object):
         if host is not None:
             self.host = host
         self.instance_id = instance_id
+        if table_column_privileges is not None:
+            self.table_column_privileges = table_column_privileges
 
     @property
     def account_desc(self):
@@ -258,6 +263,27 @@ class CreateDBAccountRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def table_column_privileges(self):
+        """Gets the table_column_privileges of this CreateDBAccountRequest.  # noqa: E501
+
+
+        :return: The table_column_privileges of this CreateDBAccountRequest.  # noqa: E501
+        :rtype: list[TableColumnPrivilegeForCreateDBAccountInput]
+        """
+        return self._table_column_privileges
+
+    @table_column_privileges.setter
+    def table_column_privileges(self, table_column_privileges):
+        """Sets the table_column_privileges of this CreateDBAccountRequest.
+
+
+        :param table_column_privileges: The table_column_privileges of this CreateDBAccountRequest.  # noqa: E501
+        :type: list[TableColumnPrivilegeForCreateDBAccountInput]
+        """
+
+        self._table_column_privileges = table_column_privileges
 
     def to_dict(self):
         """Returns the model properties as a dict"""
