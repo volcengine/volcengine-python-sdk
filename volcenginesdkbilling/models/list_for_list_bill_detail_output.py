@@ -45,6 +45,7 @@ class ListForListBillDetailOutput(object):
         'config_name': 'str',
         'configuration_code': 'str',
         'count': 'str',
+        'country_region': 'str',
         'coupon_amount': 'str',
         'credit_carried_amount': 'str',
         'currency': 'str',
@@ -78,7 +79,10 @@ class ListForListBillDetailOutput(object):
         'payer_customer_name': 'str',
         'payer_id': 'str',
         'payer_user_name': 'str',
+        'posttax_amount': 'str',
         'preferential_bill_amount': 'str',
+        'pretax_amount': 'str',
+        'pretax_real_value': 'str',
         'price': 'str',
         'price_interval': 'str',
         'price_unit': 'str',
@@ -86,6 +90,7 @@ class ListForListBillDetailOutput(object):
         'product_zh': 'str',
         'project': 'str',
         'project_display_name': 'str',
+        'real_value': 'str',
         'region': 'str',
         'region_code': 'str',
         'reservation_instance': 'str',
@@ -94,10 +99,17 @@ class ListForListBillDetailOutput(object):
         'seller_id': 'str',
         'seller_user_name': 'str',
         'selling_mode': 'str',
+        'settle_posttax_amount': 'str',
+        'settle_pretax_amount': 'str',
+        'settle_pretax_real_value': 'str',
+        'settle_real_value': 'str',
+        'settle_tax': 'str',
         'settlement_type': 'str',
         'solution_zh': 'str',
         'subject_name': 'str',
         'tag': 'str',
+        'tax': 'str',
+        'tax_rate': 'str',
         'trade_time': 'str',
         'unit': 'str',
         'unpaid_amount': 'str',
@@ -120,6 +132,7 @@ class ListForListBillDetailOutput(object):
         'config_name': 'ConfigName',
         'configuration_code': 'ConfigurationCode',
         'count': 'Count',
+        'country_region': 'CountryRegion',
         'coupon_amount': 'CouponAmount',
         'credit_carried_amount': 'CreditCarriedAmount',
         'currency': 'Currency',
@@ -153,7 +166,10 @@ class ListForListBillDetailOutput(object):
         'payer_customer_name': 'PayerCustomerName',
         'payer_id': 'PayerID',
         'payer_user_name': 'PayerUserName',
+        'posttax_amount': 'PosttaxAmount',
         'preferential_bill_amount': 'PreferentialBillAmount',
+        'pretax_amount': 'PretaxAmount',
+        'pretax_real_value': 'PretaxRealValue',
         'price': 'Price',
         'price_interval': 'PriceInterval',
         'price_unit': 'PriceUnit',
@@ -161,6 +177,7 @@ class ListForListBillDetailOutput(object):
         'product_zh': 'ProductZh',
         'project': 'Project',
         'project_display_name': 'ProjectDisplayName',
+        'real_value': 'RealValue',
         'region': 'Region',
         'region_code': 'RegionCode',
         'reservation_instance': 'ReservationInstance',
@@ -169,10 +186,17 @@ class ListForListBillDetailOutput(object):
         'seller_id': 'SellerID',
         'seller_user_name': 'SellerUserName',
         'selling_mode': 'SellingMode',
+        'settle_posttax_amount': 'SettlePosttaxAmount',
+        'settle_pretax_amount': 'SettlePretaxAmount',
+        'settle_pretax_real_value': 'SettlePretaxRealValue',
+        'settle_real_value': 'SettleRealValue',
+        'settle_tax': 'SettleTax',
         'settlement_type': 'SettlementType',
         'solution_zh': 'SolutionZh',
         'subject_name': 'SubjectName',
         'tag': 'Tag',
+        'tax': 'Tax',
+        'tax_rate': 'TaxRate',
         'trade_time': 'TradeTime',
         'unit': 'Unit',
         'unpaid_amount': 'UnpaidAmount',
@@ -182,7 +206,7 @@ class ListForListBillDetailOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, bill_category=None, bill_detail_id=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, coupon_amount=None, credit_carried_amount=None, currency=None, deduction_count=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_begin_time=None, expense_date=None, expense_end_time=None, factor=None, factor_code=None, formula=None, instance_name=None, instance_no=None, market_price=None, measure_interval=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, region=None, region_code=None, reservation_instance=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, selling_mode=None, settlement_type=None, solution_zh=None, subject_name=None, tag=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category=None, bill_detail_id=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, deduction_count=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_begin_time=None, expense_date=None, expense_end_time=None, factor=None, factor_code=None, formula=None, instance_name=None, instance_no=None, market_price=None, measure_interval=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, region_code=None, reservation_instance=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, selling_mode=None, settle_posttax_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, solution_zh=None, subject_name=None, tag=None, tax=None, tax_rate=None, trade_time=None, unit=None, unpaid_amount=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListBillDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -200,6 +224,7 @@ class ListForListBillDetailOutput(object):
         self._config_name = None
         self._configuration_code = None
         self._count = None
+        self._country_region = None
         self._coupon_amount = None
         self._credit_carried_amount = None
         self._currency = None
@@ -233,7 +258,10 @@ class ListForListBillDetailOutput(object):
         self._payer_customer_name = None
         self._payer_id = None
         self._payer_user_name = None
+        self._posttax_amount = None
         self._preferential_bill_amount = None
+        self._pretax_amount = None
+        self._pretax_real_value = None
         self._price = None
         self._price_interval = None
         self._price_unit = None
@@ -241,6 +269,7 @@ class ListForListBillDetailOutput(object):
         self._product_zh = None
         self._project = None
         self._project_display_name = None
+        self._real_value = None
         self._region = None
         self._region_code = None
         self._reservation_instance = None
@@ -249,10 +278,17 @@ class ListForListBillDetailOutput(object):
         self._seller_id = None
         self._seller_user_name = None
         self._selling_mode = None
+        self._settle_posttax_amount = None
+        self._settle_pretax_amount = None
+        self._settle_pretax_real_value = None
+        self._settle_real_value = None
+        self._settle_tax = None
         self._settlement_type = None
         self._solution_zh = None
         self._subject_name = None
         self._tag = None
+        self._tax = None
+        self._tax_rate = None
         self._trade_time = None
         self._unit = None
         self._unpaid_amount = None
@@ -286,6 +322,8 @@ class ListForListBillDetailOutput(object):
             self.configuration_code = configuration_code
         if count is not None:
             self.count = count
+        if country_region is not None:
+            self.country_region = country_region
         if coupon_amount is not None:
             self.coupon_amount = coupon_amount
         if credit_carried_amount is not None:
@@ -352,8 +390,14 @@ class ListForListBillDetailOutput(object):
             self.payer_id = payer_id
         if payer_user_name is not None:
             self.payer_user_name = payer_user_name
+        if posttax_amount is not None:
+            self.posttax_amount = posttax_amount
         if preferential_bill_amount is not None:
             self.preferential_bill_amount = preferential_bill_amount
+        if pretax_amount is not None:
+            self.pretax_amount = pretax_amount
+        if pretax_real_value is not None:
+            self.pretax_real_value = pretax_real_value
         if price is not None:
             self.price = price
         if price_interval is not None:
@@ -368,6 +412,8 @@ class ListForListBillDetailOutput(object):
             self.project = project
         if project_display_name is not None:
             self.project_display_name = project_display_name
+        if real_value is not None:
+            self.real_value = real_value
         if region is not None:
             self.region = region
         if region_code is not None:
@@ -384,6 +430,16 @@ class ListForListBillDetailOutput(object):
             self.seller_user_name = seller_user_name
         if selling_mode is not None:
             self.selling_mode = selling_mode
+        if settle_posttax_amount is not None:
+            self.settle_posttax_amount = settle_posttax_amount
+        if settle_pretax_amount is not None:
+            self.settle_pretax_amount = settle_pretax_amount
+        if settle_pretax_real_value is not None:
+            self.settle_pretax_real_value = settle_pretax_real_value
+        if settle_real_value is not None:
+            self.settle_real_value = settle_real_value
+        if settle_tax is not None:
+            self.settle_tax = settle_tax
         if settlement_type is not None:
             self.settlement_type = settlement_type
         if solution_zh is not None:
@@ -392,6 +448,10 @@ class ListForListBillDetailOutput(object):
             self.subject_name = subject_name
         if tag is not None:
             self.tag = tag
+        if tax is not None:
+            self.tax = tax
+        if tax_rate is not None:
+            self.tax_rate = tax_rate
         if trade_time is not None:
             self.trade_time = trade_time
         if unit is not None:
@@ -658,6 +718,27 @@ class ListForListBillDetailOutput(object):
         """
 
         self._count = count
+
+    @property
+    def country_region(self):
+        """Gets the country_region of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The country_region of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._country_region
+
+    @country_region.setter
+    def country_region(self, country_region):
+        """Sets the country_region of this ListForListBillDetailOutput.
+
+
+        :param country_region: The country_region of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._country_region = country_region
 
     @property
     def coupon_amount(self):
@@ -1353,6 +1434,27 @@ class ListForListBillDetailOutput(object):
         self._payer_user_name = payer_user_name
 
     @property
+    def posttax_amount(self):
+        """Gets the posttax_amount of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The posttax_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._posttax_amount
+
+    @posttax_amount.setter
+    def posttax_amount(self, posttax_amount):
+        """Sets the posttax_amount of this ListForListBillDetailOutput.
+
+
+        :param posttax_amount: The posttax_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._posttax_amount = posttax_amount
+
+    @property
     def preferential_bill_amount(self):
         """Gets the preferential_bill_amount of this ListForListBillDetailOutput.  # noqa: E501
 
@@ -1372,6 +1474,48 @@ class ListForListBillDetailOutput(object):
         """
 
         self._preferential_bill_amount = preferential_bill_amount
+
+    @property
+    def pretax_amount(self):
+        """Gets the pretax_amount of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The pretax_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pretax_amount
+
+    @pretax_amount.setter
+    def pretax_amount(self, pretax_amount):
+        """Sets the pretax_amount of this ListForListBillDetailOutput.
+
+
+        :param pretax_amount: The pretax_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pretax_amount = pretax_amount
+
+    @property
+    def pretax_real_value(self):
+        """Gets the pretax_real_value of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The pretax_real_value of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pretax_real_value
+
+    @pretax_real_value.setter
+    def pretax_real_value(self, pretax_real_value):
+        """Sets the pretax_real_value of this ListForListBillDetailOutput.
+
+
+        :param pretax_real_value: The pretax_real_value of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pretax_real_value = pretax_real_value
 
     @property
     def price(self):
@@ -1519,6 +1663,27 @@ class ListForListBillDetailOutput(object):
         """
 
         self._project_display_name = project_display_name
+
+    @property
+    def real_value(self):
+        """Gets the real_value of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The real_value of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._real_value
+
+    @real_value.setter
+    def real_value(self, real_value):
+        """Sets the real_value of this ListForListBillDetailOutput.
+
+
+        :param real_value: The real_value of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._real_value = real_value
 
     @property
     def region(self):
@@ -1689,6 +1854,111 @@ class ListForListBillDetailOutput(object):
         self._selling_mode = selling_mode
 
     @property
+    def settle_posttax_amount(self):
+        """Gets the settle_posttax_amount of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The settle_posttax_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_posttax_amount
+
+    @settle_posttax_amount.setter
+    def settle_posttax_amount(self, settle_posttax_amount):
+        """Sets the settle_posttax_amount of this ListForListBillDetailOutput.
+
+
+        :param settle_posttax_amount: The settle_posttax_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_posttax_amount = settle_posttax_amount
+
+    @property
+    def settle_pretax_amount(self):
+        """Gets the settle_pretax_amount of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The settle_pretax_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_pretax_amount
+
+    @settle_pretax_amount.setter
+    def settle_pretax_amount(self, settle_pretax_amount):
+        """Sets the settle_pretax_amount of this ListForListBillDetailOutput.
+
+
+        :param settle_pretax_amount: The settle_pretax_amount of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_pretax_amount = settle_pretax_amount
+
+    @property
+    def settle_pretax_real_value(self):
+        """Gets the settle_pretax_real_value of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The settle_pretax_real_value of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_pretax_real_value
+
+    @settle_pretax_real_value.setter
+    def settle_pretax_real_value(self, settle_pretax_real_value):
+        """Sets the settle_pretax_real_value of this ListForListBillDetailOutput.
+
+
+        :param settle_pretax_real_value: The settle_pretax_real_value of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_pretax_real_value = settle_pretax_real_value
+
+    @property
+    def settle_real_value(self):
+        """Gets the settle_real_value of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The settle_real_value of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_real_value
+
+    @settle_real_value.setter
+    def settle_real_value(self, settle_real_value):
+        """Sets the settle_real_value of this ListForListBillDetailOutput.
+
+
+        :param settle_real_value: The settle_real_value of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_real_value = settle_real_value
+
+    @property
+    def settle_tax(self):
+        """Gets the settle_tax of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The settle_tax of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_tax
+
+    @settle_tax.setter
+    def settle_tax(self, settle_tax):
+        """Sets the settle_tax of this ListForListBillDetailOutput.
+
+
+        :param settle_tax: The settle_tax of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_tax = settle_tax
+
+    @property
     def settlement_type(self):
         """Gets the settlement_type of this ListForListBillDetailOutput.  # noqa: E501
 
@@ -1771,6 +2041,48 @@ class ListForListBillDetailOutput(object):
         """
 
         self._tag = tag
+
+    @property
+    def tax(self):
+        """Gets the tax of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The tax of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax
+
+    @tax.setter
+    def tax(self, tax):
+        """Sets the tax of this ListForListBillDetailOutput.
+
+
+        :param tax: The tax of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tax = tax
+
+    @property
+    def tax_rate(self):
+        """Gets the tax_rate of this ListForListBillDetailOutput.  # noqa: E501
+
+
+        :return: The tax_rate of this ListForListBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax_rate
+
+    @tax_rate.setter
+    def tax_rate(self, tax_rate):
+        """Sets the tax_rate of this ListForListBillDetailOutput.
+
+
+        :param tax_rate: The tax_rate of this ListForListBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tax_rate = tax_rate
 
     @property
     def trade_time(self):
