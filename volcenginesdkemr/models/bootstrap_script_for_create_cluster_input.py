@@ -33,7 +33,7 @@ class BootstrapScriptForCreateClusterInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'effective_scope': 'str',
+        'effective_scope': 'EffectiveScopeForCreateClusterInput',
         'execution_fail_strategy': 'str',
         'execution_moment': 'str',
         'priority': 'str',
@@ -93,7 +93,7 @@ class BootstrapScriptForCreateClusterInput(object):
 
 
         :return: The effective_scope of this BootstrapScriptForCreateClusterInput.  # noqa: E501
-        :rtype: str
+        :rtype: EffectiveScopeForCreateClusterInput
         """
         return self._effective_scope
 
@@ -103,7 +103,7 @@ class BootstrapScriptForCreateClusterInput(object):
 
 
         :param effective_scope: The effective_scope of this BootstrapScriptForCreateClusterInput.  # noqa: E501
-        :type: str
+        :type: EffectiveScopeForCreateClusterInput
         """
 
         self._effective_scope = effective_scope
@@ -154,7 +154,7 @@ class BootstrapScriptForCreateClusterInput(object):
         :param execution_moment: The execution_moment of this BootstrapScriptForCreateClusterInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["BEFORE_APP_INSTALL", "AFTER_APP_STARTED"]  # noqa: E501
+        allowed_values = ["BEFORE_APPLICATION_INSTALL", "AFTER_APPLICATION_STARTED"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 execution_moment not in allowed_values):
             raise ValueError(

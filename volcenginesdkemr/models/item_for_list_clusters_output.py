@@ -40,6 +40,7 @@ class ItemForListClustersOutput(object):
         'cluster_state': 'str',
         'cluster_type': 'str',
         'create_time': 'int',
+        'create_time_str': 'str',
         'creator': 'str',
         'expire_time': 'int',
         'node_attribute': 'NodeAttributeForListClustersOutput',
@@ -49,6 +50,7 @@ class ItemForListClustersOutput(object):
         'release_version': 'str',
         'security_group_id': 'str',
         'state_change_reason': 'StateChangeReasonForListClustersOutput',
+        'tags': 'list[TagForListClustersOutput]',
         'terminate_time': 'int',
         'vpc_id': 'str'
     }
@@ -61,6 +63,7 @@ class ItemForListClustersOutput(object):
         'cluster_state': 'ClusterState',
         'cluster_type': 'ClusterType',
         'create_time': 'CreateTime',
+        'create_time_str': 'CreateTimeStr',
         'creator': 'Creator',
         'expire_time': 'ExpireTime',
         'node_attribute': 'NodeAttribute',
@@ -70,11 +73,12 @@ class ItemForListClustersOutput(object):
         'release_version': 'ReleaseVersion',
         'security_group_id': 'SecurityGroupId',
         'state_change_reason': 'StateChangeReason',
+        'tags': 'Tags',
         'terminate_time': 'TerminateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, charge_type=None, cluster_id=None, cluster_name=None, cluster_state=None, cluster_type=None, create_time=None, creator=None, expire_time=None, node_attribute=None, project_name=None, ready_time=None, region_id=None, release_version=None, security_group_id=None, state_change_reason=None, terminate_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, charge_type=None, cluster_id=None, cluster_name=None, cluster_state=None, cluster_type=None, create_time=None, create_time_str=None, creator=None, expire_time=None, node_attribute=None, project_name=None, ready_time=None, region_id=None, release_version=None, security_group_id=None, state_change_reason=None, tags=None, terminate_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +91,7 @@ class ItemForListClustersOutput(object):
         self._cluster_state = None
         self._cluster_type = None
         self._create_time = None
+        self._create_time_str = None
         self._creator = None
         self._expire_time = None
         self._node_attribute = None
@@ -96,6 +101,7 @@ class ItemForListClustersOutput(object):
         self._release_version = None
         self._security_group_id = None
         self._state_change_reason = None
+        self._tags = None
         self._terminate_time = None
         self._vpc_id = None
         self.discriminator = None
@@ -114,6 +120,8 @@ class ItemForListClustersOutput(object):
             self.cluster_type = cluster_type
         if create_time is not None:
             self.create_time = create_time
+        if create_time_str is not None:
+            self.create_time_str = create_time_str
         if creator is not None:
             self.creator = creator
         if expire_time is not None:
@@ -132,6 +140,8 @@ class ItemForListClustersOutput(object):
             self.security_group_id = security_group_id
         if state_change_reason is not None:
             self.state_change_reason = state_change_reason
+        if tags is not None:
+            self.tags = tags
         if terminate_time is not None:
             self.terminate_time = terminate_time
         if vpc_id is not None:
@@ -283,6 +293,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def create_time_str(self):
+        """Gets the create_time_str of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The create_time_str of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_time_str
+
+    @create_time_str.setter
+    def create_time_str(self, create_time_str):
+        """Sets the create_time_str of this ItemForListClustersOutput.
+
+
+        :param create_time_str: The create_time_str of this ItemForListClustersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._create_time_str = create_time_str
 
     @property
     def creator(self):
@@ -472,6 +503,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._state_change_reason = state_change_reason
+
+    @property
+    def tags(self):
+        """Gets the tags of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The tags of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: list[TagForListClustersOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ItemForListClustersOutput.
+
+
+        :param tags: The tags of this ItemForListClustersOutput.  # noqa: E501
+        :type: list[TagForListClustersOutput]
+        """
+
+        self._tags = tags
 
     @property
     def terminate_time(self):
