@@ -12,6 +12,7 @@ import six
 from six.moves import http_client as httplib
 
 from volcenginesdkcore.endpoint import DefaultEndpointProvider
+from volcenginesdkcore.retryer.retryer import DEFAULT_RETRYER
 
 
 class TypeWithDefault(type):
@@ -133,6 +134,12 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.client_side_validation = True
 
         self.endpoint_provider = DefaultEndpointProvider()
+
+        self.auto_retry = True
+        self.__retryer = DEFAULT_RETRYER
+        self.__retry_error_codes = None
+        self.__min_retry_delay_ms = None
+        self.__max_retry_delay_ms = None
 
     @property
     def logger_file(self):
@@ -259,3 +266,68 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "Version of the API: 0.1.0\n" \
                "SDK Package Version: 3.0.15".\
             format(env=sys.platform, pyversion=sys.version)
+
+    @property
+    def num_max_retries(self):
+        return self.__retryer.num_max_retries
+
+    @num_max_retries.setter
+    def num_max_retries(self, num_max_retries):
+        if num_max_retries is None:
+            raise ValueError("num_max_retries cannot be None")
+        if num_max_retries < 0:
+            raise ValueError("num_max_retries must be greater than or equal to 0")
+        self.__retryer.num_max_retries = num_max_retries
+
+    @property
+    def backoff_strategy(self):
+        return self.__retryer.backoff_strategy
+
+    @backoff_strategy.setter
+    def backoff_strategy(self, value):
+        self.__retryer.backoff_strategy = value
+        if self.min_retry_delay_ms is not None:
+            self.__retryer.backoff_strategy.min_retry_delay_ms = self.min_retry_delay_ms
+        if self.max_retry_delay_ms is not None:
+            self.__retryer.backoff_strategy.max_retry_delay_ms = self.max_retry_delay_ms
+
+    @property
+    def retry_condition(self):
+        return self.__retryer.retry_condition
+
+    @retry_condition.setter
+    def retry_condition(self, value):
+        self.__retryer.retry_condition = value
+        if self.retry_error_codes is not None:
+            self.__retryer.retry_condition.retry_error_codes = self.retry_error_codes
+
+    @property
+    def retry_error_codes(self):
+        return self.__retry_error_codes
+
+    @retry_error_codes.setter
+    def retry_error_codes(self, value):
+        self.__retry_error_codes = value
+        self.__retryer.retry_condition.retry_error_codes = value
+
+    @property
+    def min_retry_delay_ms(self):
+        return self.__min_retry_delay_ms
+
+    @min_retry_delay_ms.setter
+    def min_retry_delay_ms(self, value):
+        self.__min_retry_delay_ms = value
+        self.__retryer.backoff_strategy.min_retry_delay_ms = value
+
+    @property
+    def max_retry_delay_ms(self):
+        return self.__max_retry_delay_ms
+
+    @max_retry_delay_ms.setter
+    def max_retry_delay_ms(self, value):
+        self.__max_retry_delay_ms = value
+        self.__retryer.backoff_strategy.max_retry_delay_ms = value
+
+    @property
+    def retryer(self):
+        return self.__retryer
