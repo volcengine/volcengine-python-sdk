@@ -55,7 +55,8 @@ class BgpConfigForCreateVpnConnectionInput(object):
         self._tunnel_cidr = None
         self.discriminator = None
 
-        self.enable_bgp = enable_bgp
+        if enable_bgp is not None:
+            self.enable_bgp = enable_bgp
         if local_bgp_ip is not None:
             self.local_bgp_ip = local_bgp_ip
         if tunnel_cidr is not None:
@@ -79,8 +80,6 @@ class BgpConfigForCreateVpnConnectionInput(object):
         :param enable_bgp: The enable_bgp of this BgpConfigForCreateVpnConnectionInput.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and enable_bgp is None:
-            raise ValueError("Invalid value for `enable_bgp`, must not be `None`")  # noqa: E501
 
         self._enable_bgp = enable_bgp
 

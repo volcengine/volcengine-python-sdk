@@ -85,7 +85,8 @@ class IkeConfigForCreateVpnConnectionInput(object):
             self.local_id = local_id
         if mode is not None:
             self.mode = mode
-        self.psk = psk
+        if psk is not None:
+            self.psk = psk
         if remote_id is not None:
             self.remote_id = remote_id
         if version is not None:
@@ -235,8 +236,6 @@ class IkeConfigForCreateVpnConnectionInput(object):
         :param psk: The psk of this IkeConfigForCreateVpnConnectionInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and psk is None:
-            raise ValueError("Invalid value for `psk`, must not be `None`")  # noqa: E501
 
         self._psk = psk
 
