@@ -101,7 +101,7 @@ class DatabasesPrivilegeForCreateDatabaseInput(object):
         :param account_privilege: The account_privilege of this DatabasesPrivilegeForCreateDatabaseInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ReadWrite", "ReadOnly", "DDLOnly", "DMLOnly", "Custom"]  # noqa: E501
+        allowed_values = ["Custom", "DDLOnly", "DMLOnly", "ReadOnly", "ReadWrite"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 account_privilege not in allowed_values):
             raise ValueError(

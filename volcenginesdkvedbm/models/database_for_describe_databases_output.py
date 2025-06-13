@@ -34,29 +34,34 @@ class DatabaseForDescribeDatabasesOutput(object):
     """
     swagger_types = {
         'character_set_name': 'str',
+        'db_desc': 'str',
         'db_name': 'str',
         'databases_privileges': 'list[DatabasesPrivilegeForDescribeDatabasesOutput]'
     }
 
     attribute_map = {
         'character_set_name': 'CharacterSetName',
+        'db_desc': 'DBDesc',
         'db_name': 'DBName',
         'databases_privileges': 'DatabasesPrivileges'
     }
 
-    def __init__(self, character_set_name=None, db_name=None, databases_privileges=None, _configuration=None):  # noqa: E501
+    def __init__(self, character_set_name=None, db_desc=None, db_name=None, databases_privileges=None, _configuration=None):  # noqa: E501
         """DatabaseForDescribeDatabasesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._character_set_name = None
+        self._db_desc = None
         self._db_name = None
         self._databases_privileges = None
         self.discriminator = None
 
         if character_set_name is not None:
             self.character_set_name = character_set_name
+        if db_desc is not None:
+            self.db_desc = db_desc
         if db_name is not None:
             self.db_name = db_name
         if databases_privileges is not None:
@@ -82,6 +87,27 @@ class DatabaseForDescribeDatabasesOutput(object):
         """
 
         self._character_set_name = character_set_name
+
+    @property
+    def db_desc(self):
+        """Gets the db_desc of this DatabaseForDescribeDatabasesOutput.  # noqa: E501
+
+
+        :return: The db_desc of this DatabaseForDescribeDatabasesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_desc
+
+    @db_desc.setter
+    def db_desc(self, db_desc):
+        """Sets the db_desc of this DatabaseForDescribeDatabasesOutput.
+
+
+        :param db_desc: The db_desc of this DatabaseForDescribeDatabasesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._db_desc = db_desc
 
     @property
     def db_name(self):
