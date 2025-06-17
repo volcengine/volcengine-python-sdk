@@ -180,6 +180,8 @@ if __name__ == '__main__':
 
 ```
 
+更多代码示例请参考：[SDK接入文档](./SDK_Integration_zh.md)
+
 ### FAQ ###
 
 关于 SDK 使用时碰到的常见问题，请查看 [FAQ](FAQ.md)
