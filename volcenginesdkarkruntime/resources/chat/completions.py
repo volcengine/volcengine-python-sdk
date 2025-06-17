@@ -166,6 +166,7 @@ class Completions(SyncAPIResource):
         tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
         response_format: completion_create_params.ResponseFormat | None = None,
         thinking: completion_create_params.Thinking | None = None,
+        max_completion_tokens: Optional[int] | None = None,
         user: str | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
@@ -206,6 +207,7 @@ class Completions(SyncAPIResource):
                 "tool_choice": tool_choice,
                 "response_format": response_format,
                 "thinking": thinking,
+                "max_completion_tokens": max_completion_tokens,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -313,6 +315,7 @@ class AsyncCompletions(AsyncAPIResource):
         tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
         response_format: completion_create_params.ResponseFormat | None = None,
         thinking: completion_create_params.Thinking | None = None,
+        max_completion_tokens: Optional[int] | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -352,6 +355,7 @@ class AsyncCompletions(AsyncAPIResource):
                 "tool_choice": tool_choice,
                 "response_format": response_format,
                 "thinking": thinking,
+                "max_completion_tokens": max_completion_tokens,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
