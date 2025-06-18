@@ -108,8 +108,8 @@ class Completions(SyncAPIResource):
             if chunk.choices is not None:
                 for index, choice in enumerate(chunk.choices):
                     if (
-                        choice.finish_reason != 'content_filter'
-                        and choice.delta is not None and choice.delta.content is not None
+                        choice.delta is not None and choice.delta.content is not None
+                        and choice.finish_reason != 'content_filter'
                     ):
                         choice.delta.content = aes_gcm_decrypt_base64_string(
                             key, nonce, choice.delta.content
@@ -127,7 +127,7 @@ class Completions(SyncAPIResource):
             if resp.choices is not None:
                 for index, choice in enumerate(resp.choices):
                     if (
-                        choice.finish_reason != 'content_filter' and choice.message is not None
+                        choice.message is not None and choice.finish_reason != 'content_filter'
                         and choice.message.content is not None
                     ):
                         choice.message.content = aes_gcm_decrypt_base64_string(
@@ -254,8 +254,8 @@ class AsyncCompletions(AsyncAPIResource):
             if chunk.choices is not None:
                 for index, choice in enumerate(chunk.choices):
                     if (
-                        choice.finish_reason != 'content_filter'
-                        and choice.delta is not None and choice.delta.content is not None
+                        choice.delta is not None and choice.delta.content is not None
+                        and choice.finish_reason != 'content_filter'
                     ):
                         choice.delta.content = aes_gcm_decrypt_base64_string(
                             key, nonce, choice.delta.content
@@ -273,7 +273,7 @@ class AsyncCompletions(AsyncAPIResource):
             if resp.choices is not None:
                 for index, choice in enumerate(resp.choices):
                     if (
-                        choice.finish_reason != 'content_filter' and choice.message is not None
+                        choice.message is not None and choice.finish_reason != 'content_filter'
                         and choice.message.content is not None
                     ):
                         choice.message.content = aes_gcm_decrypt_base64_string(
