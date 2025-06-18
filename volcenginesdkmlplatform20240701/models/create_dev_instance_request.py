@@ -38,6 +38,7 @@ class CreateDevInstanceRequest(object):
         'image': 'ImageForCreateDevInstanceInput',
         'name': 'str',
         'node_affinity_spec': 'NodeAffinitySpecForCreateDevInstanceInput',
+        'numa_affinity': 'str',
         'ports': 'list[PortForCreateDevInstanceInput]',
         'resource_claim': 'ResourceClaimForCreateDevInstanceInput',
         'resource_queue_id': 'str',
@@ -52,6 +53,7 @@ class CreateDevInstanceRequest(object):
         'image': 'Image',
         'name': 'Name',
         'node_affinity_spec': 'NodeAffinitySpec',
+        'numa_affinity': 'NumaAffinity',
         'ports': 'Ports',
         'resource_claim': 'ResourceClaim',
         'resource_queue_id': 'ResourceQueueId',
@@ -60,7 +62,7 @@ class CreateDevInstanceRequest(object):
         'volume': 'Volume'
     }
 
-    def __init__(self, credential=None, description=None, image=None, name=None, node_affinity_spec=None, ports=None, resource_claim=None, resource_queue_id=None, ssh_public_key=None, storages=None, volume=None, _configuration=None):  # noqa: E501
+    def __init__(self, credential=None, description=None, image=None, name=None, node_affinity_spec=None, numa_affinity=None, ports=None, resource_claim=None, resource_queue_id=None, ssh_public_key=None, storages=None, volume=None, _configuration=None):  # noqa: E501
         """CreateDevInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class CreateDevInstanceRequest(object):
         self._image = None
         self._name = None
         self._node_affinity_spec = None
+        self._numa_affinity = None
         self._ports = None
         self._resource_claim = None
         self._resource_queue_id = None
@@ -88,6 +91,8 @@ class CreateDevInstanceRequest(object):
         self.name = name
         if node_affinity_spec is not None:
             self.node_affinity_spec = node_affinity_spec
+        if numa_affinity is not None:
+            self.numa_affinity = numa_affinity
         if ports is not None:
             self.ports = ports
         if resource_claim is not None:
@@ -206,6 +211,27 @@ class CreateDevInstanceRequest(object):
         """
 
         self._node_affinity_spec = node_affinity_spec
+
+    @property
+    def numa_affinity(self):
+        """Gets the numa_affinity of this CreateDevInstanceRequest.  # noqa: E501
+
+
+        :return: The numa_affinity of this CreateDevInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._numa_affinity
+
+    @numa_affinity.setter
+    def numa_affinity(self, numa_affinity):
+        """Sets the numa_affinity of this CreateDevInstanceRequest.
+
+
+        :param numa_affinity: The numa_affinity of this CreateDevInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._numa_affinity = numa_affinity
 
     @property
     def ports(self):

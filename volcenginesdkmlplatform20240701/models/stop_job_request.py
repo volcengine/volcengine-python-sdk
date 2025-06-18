@@ -35,16 +35,18 @@ class StopJobRequest(object):
     swagger_types = {
         'diagnose_names': 'list[str]',
         'dry_run': 'bool',
-        'id': 'str'
+        'id': 'str',
+        'reason': 'str'
     }
 
     attribute_map = {
         'diagnose_names': 'DiagnoseNames',
         'dry_run': 'DryRun',
-        'id': 'Id'
+        'id': 'Id',
+        'reason': 'Reason'
     }
 
-    def __init__(self, diagnose_names=None, dry_run=None, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, diagnose_names=None, dry_run=None, id=None, reason=None, _configuration=None):  # noqa: E501
         """StopJobRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class StopJobRequest(object):
         self._diagnose_names = None
         self._dry_run = None
         self._id = None
+        self._reason = None
         self.discriminator = None
 
         if diagnose_names is not None:
@@ -60,6 +63,8 @@ class StopJobRequest(object):
         if dry_run is not None:
             self.dry_run = dry_run
         self.id = id
+        if reason is not None:
+            self.reason = reason
 
     @property
     def diagnose_names(self):
@@ -133,6 +138,27 @@ class StopJobRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def reason(self):
+        """Gets the reason of this StopJobRequest.  # noqa: E501
+
+
+        :return: The reason of this StopJobRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._reason
+
+    @reason.setter
+    def reason(self, reason):
+        """Sets the reason of this StopJobRequest.
+
+
+        :param reason: The reason of this StopJobRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._reason = reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -46,6 +46,7 @@ class GetJobResponse(object):
         'retry_config': 'RetryConfigForGetJobOutput',
         'runtime_config': 'RuntimeConfigForGetJobOutput',
         'status': 'StatusForGetJobOutput',
+        'stop_reason': 'str',
         'storage_config': 'StorageConfigForGetJobOutput',
         'update_time': 'str'
     }
@@ -64,11 +65,12 @@ class GetJobResponse(object):
         'retry_config': 'RetryConfig',
         'runtime_config': 'RuntimeConfig',
         'status': 'Status',
+        'stop_reason': 'StopReason',
         'storage_config': 'StorageConfig',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, created_by=None, description=None, diagnose_config=None, id=None, initial_id=None, name=None, observable_config=None, private_network_config=None, resource_config=None, retry_config=None, runtime_config=None, status=None, storage_config=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, created_by=None, description=None, diagnose_config=None, id=None, initial_id=None, name=None, observable_config=None, private_network_config=None, resource_config=None, retry_config=None, runtime_config=None, status=None, stop_reason=None, storage_config=None, update_time=None, _configuration=None):  # noqa: E501
         """GetJobResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class GetJobResponse(object):
         self._retry_config = None
         self._runtime_config = None
         self._status = None
+        self._stop_reason = None
         self._storage_config = None
         self._update_time = None
         self.discriminator = None
@@ -117,6 +120,8 @@ class GetJobResponse(object):
             self.runtime_config = runtime_config
         if status is not None:
             self.status = status
+        if stop_reason is not None:
+            self.stop_reason = stop_reason
         if storage_config is not None:
             self.storage_config = storage_config
         if update_time is not None:
@@ -394,6 +399,27 @@ class GetJobResponse(object):
         """
 
         self._status = status
+
+    @property
+    def stop_reason(self):
+        """Gets the stop_reason of this GetJobResponse.  # noqa: E501
+
+
+        :return: The stop_reason of this GetJobResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._stop_reason
+
+    @stop_reason.setter
+    def stop_reason(self, stop_reason):
+        """Sets the stop_reason of this GetJobResponse.
+
+
+        :param stop_reason: The stop_reason of this GetJobResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._stop_reason = stop_reason
 
     @property
     def storage_config(self):

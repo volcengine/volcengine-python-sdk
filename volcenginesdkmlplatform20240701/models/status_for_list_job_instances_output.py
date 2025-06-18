@@ -39,6 +39,7 @@ class StatusForListJobInstancesOutput(object):
         'exit_code': 'int',
         'holding_end_time': 'str',
         'message': 'str',
+        'numa_status': 'str',
         'secondary_state': 'str',
         'start_time': 'str',
         'state': 'str'
@@ -51,12 +52,13 @@ class StatusForListJobInstancesOutput(object):
         'exit_code': 'ExitCode',
         'holding_end_time': 'HoldingEndTime',
         'message': 'Message',
+        'numa_status': 'NumaStatus',
         'secondary_state': 'SecondaryState',
         'start_time': 'StartTime',
         'state': 'State'
     }
 
-    def __init__(self, diagnose_message=None, diagnose_state=None, end_time=None, exit_code=None, holding_end_time=None, message=None, secondary_state=None, start_time=None, state=None, _configuration=None):  # noqa: E501
+    def __init__(self, diagnose_message=None, diagnose_state=None, end_time=None, exit_code=None, holding_end_time=None, message=None, numa_status=None, secondary_state=None, start_time=None, state=None, _configuration=None):  # noqa: E501
         """StatusForListJobInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class StatusForListJobInstancesOutput(object):
         self._exit_code = None
         self._holding_end_time = None
         self._message = None
+        self._numa_status = None
         self._secondary_state = None
         self._start_time = None
         self._state = None
@@ -85,6 +88,8 @@ class StatusForListJobInstancesOutput(object):
             self.holding_end_time = holding_end_time
         if message is not None:
             self.message = message
+        if numa_status is not None:
+            self.numa_status = numa_status
         if secondary_state is not None:
             self.secondary_state = secondary_state
         if start_time is not None:
@@ -217,6 +222,27 @@ class StatusForListJobInstancesOutput(object):
         """
 
         self._message = message
+
+    @property
+    def numa_status(self):
+        """Gets the numa_status of this StatusForListJobInstancesOutput.  # noqa: E501
+
+
+        :return: The numa_status of this StatusForListJobInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._numa_status
+
+    @numa_status.setter
+    def numa_status(self, numa_status):
+        """Sets the numa_status of this StatusForListJobInstancesOutput.
+
+
+        :param numa_status: The numa_status of this StatusForListJobInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._numa_status = numa_status
 
     @property
     def secondary_state(self):
