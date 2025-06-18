@@ -49,7 +49,6 @@ class UpdateAclRuleRequest(object):
         'ip_location_country': 'list[str]',
         'ip_location_subregion': 'list[str]',
         'name': 'str',
-        'prefix_switch': 'int',
         'project_name': 'str',
         'url': 'str'
     }
@@ -71,12 +70,11 @@ class UpdateAclRuleRequest(object):
         'ip_location_country': 'IpLocationCountry',
         'ip_location_subregion': 'IpLocationSubregion',
         'name': 'Name',
-        'prefix_switch': 'PrefixSwitch',
         'project_name': 'ProjectName',
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, acl_type=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, prefix_switch=None, project_name=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, acl_type=None, action=None, advanced=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, project_name=None, url=None, _configuration=None):  # noqa: E501
         """UpdateAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,7 +96,6 @@ class UpdateAclRuleRequest(object):
         self._ip_location_country = None
         self._ip_location_subregion = None
         self._name = None
-        self._prefix_switch = None
         self._project_name = None
         self._url = None
         self.discriminator = None
@@ -129,8 +126,6 @@ class UpdateAclRuleRequest(object):
         if ip_location_subregion is not None:
             self.ip_location_subregion = ip_location_subregion
         self.name = name
-        if prefix_switch is not None:
-            self.prefix_switch = prefix_switch
         if project_name is not None:
             self.project_name = project_name
         self.url = url
@@ -482,27 +477,6 @@ class UpdateAclRuleRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def prefix_switch(self):
-        """Gets the prefix_switch of this UpdateAclRuleRequest.  # noqa: E501
-
-
-        :return: The prefix_switch of this UpdateAclRuleRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._prefix_switch
-
-    @prefix_switch.setter
-    def prefix_switch(self, prefix_switch):
-        """Sets the prefix_switch of this UpdateAclRuleRequest.
-
-
-        :param prefix_switch: The prefix_switch of this UpdateAclRuleRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._prefix_switch = prefix_switch
 
     @property
     def project_name(self):

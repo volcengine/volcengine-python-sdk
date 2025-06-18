@@ -51,7 +51,6 @@ class UpdateCCRuleRequest(object):
         'rule_priority': 'int',
         'rule_tag': 'str',
         'single_threshold': 'int',
-        'update_time': 'str',
         'url': 'str'
     }
 
@@ -74,11 +73,10 @@ class UpdateCCRuleRequest(object):
         'rule_priority': 'RulePriority',
         'rule_tag': 'RuleTag',
         'single_threshold': 'SingleThreshold',
-        'update_time': 'UpdateTime',
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, accurate_group_priority=None, cc_type=None, count_time=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, path_threshold=None, project_name=None, rule_priority=None, rule_tag=None, single_threshold=None, update_time=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, accurate_group_priority=None, cc_type=None, count_time=None, cron_confs=None, cron_enable=None, effect_time=None, enable=None, exemption_time=None, field=None, host=None, id=None, name=None, path_threshold=None, project_name=None, rule_priority=None, rule_tag=None, single_threshold=None, url=None, _configuration=None):  # noqa: E501
         """UpdateCCRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -102,7 +100,6 @@ class UpdateCCRuleRequest(object):
         self._rule_priority = None
         self._rule_tag = None
         self._single_threshold = None
-        self._update_time = None
         self._url = None
         self.discriminator = None
 
@@ -135,8 +132,6 @@ class UpdateCCRuleRequest(object):
             self.rule_tag = rule_tag
         if single_threshold is not None:
             self.single_threshold = single_threshold
-        if update_time is not None:
-            self.update_time = update_time
         self.url = url
 
     @property
@@ -530,27 +525,6 @@ class UpdateCCRuleRequest(object):
         """
 
         self._single_threshold = single_threshold
-
-    @property
-    def update_time(self):
-        """Gets the update_time of this UpdateCCRuleRequest.  # noqa: E501
-
-
-        :return: The update_time of this UpdateCCRuleRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._update_time
-
-    @update_time.setter
-    def update_time(self, update_time):
-        """Sets the update_time of this UpdateCCRuleRequest.
-
-
-        :param update_time: The update_time of this UpdateCCRuleRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._update_time = update_time
 
     @property
     def url(self):
