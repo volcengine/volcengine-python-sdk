@@ -38,7 +38,8 @@ class AllocateIpv6AddressBandwidthRequest(object):
         'billing_type': 'int',
         'client_token': 'str',
         'ipv6_address': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tags': 'list[TagForAllocateIpv6AddressBandwidthInput]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class AllocateIpv6AddressBandwidthRequest(object):
         'billing_type': 'BillingType',
         'client_token': 'ClientToken',
         'ipv6_address': 'Ipv6Address',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, ipv6_address=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bandwidth_package_id=None, billing_type=None, client_token=None, ipv6_address=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """AllocateIpv6AddressBandwidthRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class AllocateIpv6AddressBandwidthRequest(object):
         self._client_token = None
         self._ipv6_address = None
         self._project_name = None
+        self._tags = None
         self.discriminator = None
 
         if bandwidth is not None:
@@ -74,6 +77,8 @@ class AllocateIpv6AddressBandwidthRequest(object):
         self.ipv6_address = ipv6_address
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def bandwidth(self):
@@ -207,6 +212,27 @@ class AllocateIpv6AddressBandwidthRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this AllocateIpv6AddressBandwidthRequest.  # noqa: E501
+
+
+        :return: The tags of this AllocateIpv6AddressBandwidthRequest.  # noqa: E501
+        :rtype: list[TagForAllocateIpv6AddressBandwidthInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this AllocateIpv6AddressBandwidthRequest.
+
+
+        :param tags: The tags of this AllocateIpv6AddressBandwidthRequest.  # noqa: E501
+        :type: list[TagForAllocateIpv6AddressBandwidthInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
