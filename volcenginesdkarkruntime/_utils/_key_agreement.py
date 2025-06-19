@@ -69,13 +69,13 @@ def marshal_cryptography_pub_key(key) -> bytes:
 class key_agreement_client:
     def __init__(self, certificate_pem_string: str) -> None:
         """Load cert and extract public key"""
-        __fixed_version__ = "43.0.3"  # version check
+        __fixed_version__ = "42.0.0"  # version check
         from cryptography import __version__
 
-        if __version__ != __fixed_version__:
+        if __version__ < __fixed_version__:
             raise Exception(
-                "The cryptography package of Ark SDK only supports version {}, "
-                "please install the cryptography package by using pip install cryptography=={}".format(
+                "The cryptography package of Ark SDK only supports versions after {}, "
+                'please install the cryptography package by using pip install "cryptography>={}"'.format(
                     __fixed_version__, __fixed_version__
                 )
             )

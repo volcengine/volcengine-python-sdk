@@ -49,7 +49,7 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
         'path_threshold': 'int',
         'rule_priority': 'int',
         'rule_tag': 'str',
-        'single_proportion': 'str',
+        'single_proportion': 'float',
         'single_threshold': 'int',
         'statistical_duration': 'int',
         'statistical_type': 'int',
@@ -494,7 +494,7 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
 
 
         :return: The single_proportion of this RuleForListBotAnalyseProtectRuleOutput.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._single_proportion
 
@@ -504,7 +504,7 @@ class RuleForListBotAnalyseProtectRuleOutput(object):
 
 
         :param single_proportion: The single_proportion of this RuleForListBotAnalyseProtectRuleOutput.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._single_proportion = single_proportion

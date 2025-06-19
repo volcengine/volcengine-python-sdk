@@ -34,26 +34,31 @@ class ResetVpnConnectionRequest(object):
     """
     swagger_types = {
         'client_token': 'str',
+        'tunnel_id': 'str',
         'vpn_connection_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
+        'tunnel_id': 'TunnelId',
         'vpn_connection_id': 'VpnConnectionId'
     }
 
-    def __init__(self, client_token=None, vpn_connection_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, tunnel_id=None, vpn_connection_id=None, _configuration=None):  # noqa: E501
         """ResetVpnConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._client_token = None
+        self._tunnel_id = None
         self._vpn_connection_id = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
+        if tunnel_id is not None:
+            self.tunnel_id = tunnel_id
         self.vpn_connection_id = vpn_connection_id
 
     @property
@@ -76,6 +81,27 @@ class ResetVpnConnectionRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def tunnel_id(self):
+        """Gets the tunnel_id of this ResetVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The tunnel_id of this ResetVpnConnectionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tunnel_id
+
+    @tunnel_id.setter
+    def tunnel_id(self, tunnel_id):
+        """Sets the tunnel_id of this ResetVpnConnectionRequest.
+
+
+        :param tunnel_id: The tunnel_id of this ResetVpnConnectionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._tunnel_id = tunnel_id
 
     @property
     def vpn_connection_id(self):

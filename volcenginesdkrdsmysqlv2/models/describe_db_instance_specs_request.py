@@ -36,6 +36,8 @@ class DescribeDBInstanceSpecsRequest(object):
         'db_engine_version': 'str',
         'instance_type': 'str',
         'spec_code': 'str',
+        'spec_family': 'str',
+        'storage_type': 'str',
         'zone_id': 'str'
     }
 
@@ -43,10 +45,12 @@ class DescribeDBInstanceSpecsRequest(object):
         'db_engine_version': 'DBEngineVersion',
         'instance_type': 'InstanceType',
         'spec_code': 'SpecCode',
+        'spec_family': 'SpecFamily',
+        'storage_type': 'StorageType',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, db_engine_version=None, instance_type=None, spec_code=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, db_engine_version=None, instance_type=None, spec_code=None, spec_family=None, storage_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceSpecsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +59,8 @@ class DescribeDBInstanceSpecsRequest(object):
         self._db_engine_version = None
         self._instance_type = None
         self._spec_code = None
+        self._spec_family = None
+        self._storage_type = None
         self._zone_id = None
         self.discriminator = None
 
@@ -64,6 +70,10 @@ class DescribeDBInstanceSpecsRequest(object):
             self.instance_type = instance_type
         if spec_code is not None:
             self.spec_code = spec_code
+        if spec_family is not None:
+            self.spec_family = spec_family
+        if storage_type is not None:
+            self.storage_type = storage_type
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -129,6 +139,48 @@ class DescribeDBInstanceSpecsRequest(object):
         """
 
         self._spec_code = spec_code
+
+    @property
+    def spec_family(self):
+        """Gets the spec_family of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+
+
+        :return: The spec_family of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._spec_family
+
+    @spec_family.setter
+    def spec_family(self, spec_family):
+        """Sets the spec_family of this DescribeDBInstanceSpecsRequest.
+
+
+        :param spec_family: The spec_family of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._spec_family = spec_family
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+
+
+        :return: The storage_type of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this DescribeDBInstanceSpecsRequest.
+
+
+        :param storage_type: The storage_type of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
 
     @property
     def zone_id(self):

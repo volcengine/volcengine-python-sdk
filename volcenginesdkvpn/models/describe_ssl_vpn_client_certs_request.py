@@ -37,7 +37,8 @@ class DescribeSslVpnClientCertsRequest(object):
         'page_size': 'int',
         'ssl_vpn_client_cert_ids': 'list[str]',
         'ssl_vpn_client_cert_name': 'str',
-        'ssl_vpn_server_id': 'str'
+        'ssl_vpn_server_id': 'str',
+        'tag_filters': 'list[TagFilterForDescribeSslVpnClientCertsInput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeSslVpnClientCertsRequest(object):
         'page_size': 'PageSize',
         'ssl_vpn_client_cert_ids': 'SslVpnClientCertIds',
         'ssl_vpn_client_cert_name': 'SslVpnClientCertName',
-        'ssl_vpn_server_id': 'SslVpnServerId'
+        'ssl_vpn_server_id': 'SslVpnServerId',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, page_number=None, page_size=None, ssl_vpn_client_cert_ids=None, ssl_vpn_client_cert_name=None, ssl_vpn_server_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, ssl_vpn_client_cert_ids=None, ssl_vpn_client_cert_name=None, ssl_vpn_server_id=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeSslVpnClientCertsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeSslVpnClientCertsRequest(object):
         self._ssl_vpn_client_cert_ids = None
         self._ssl_vpn_client_cert_name = None
         self._ssl_vpn_server_id = None
+        self._tag_filters = None
         self.discriminator = None
 
         if page_number is not None:
@@ -71,6 +74,8 @@ class DescribeSslVpnClientCertsRequest(object):
             self.ssl_vpn_client_cert_name = ssl_vpn_client_cert_name
         if ssl_vpn_server_id is not None:
             self.ssl_vpn_server_id = ssl_vpn_server_id
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def page_number(self):
@@ -176,6 +181,27 @@ class DescribeSslVpnClientCertsRequest(object):
         """
 
         self._ssl_vpn_server_id = ssl_vpn_server_id
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeSslVpnClientCertsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeSslVpnClientCertsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeSslVpnClientCertsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeSslVpnClientCertsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeSslVpnClientCertsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeSslVpnClientCertsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

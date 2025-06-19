@@ -46,6 +46,7 @@ class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput(object):
         'storage_max': 'int',
         'storage_min': 'int',
         'storage_step': 'int',
+        'storage_type': 'str',
         'vcpu': 'int',
         'zone_id': 'str'
     }
@@ -64,11 +65,12 @@ class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput(object):
         'storage_max': 'StorageMax',
         'storage_min': 'StorageMin',
         'storage_step': 'StorageStep',
+        'storage_type': 'StorageType',
         'vcpu': 'VCPU',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, connection=None, db_engine_version=None, iops=None, instance_type=None, memory=None, qps=None, region_id=None, spec_code=None, spec_family=None, spec_status=None, storage_max=None, storage_min=None, storage_step=None, vcpu=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection=None, db_engine_version=None, iops=None, instance_type=None, memory=None, qps=None, region_id=None, spec_code=None, spec_family=None, spec_status=None, storage_max=None, storage_min=None, storage_step=None, storage_type=None, vcpu=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceSpecsInfoForDescribeDBInstanceSpecsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput(object):
         self._storage_max = None
         self._storage_min = None
         self._storage_step = None
+        self._storage_type = None
         self._vcpu = None
         self._zone_id = None
         self.discriminator = None
@@ -117,6 +120,8 @@ class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput(object):
             self.storage_min = storage_min
         if storage_step is not None:
             self.storage_step = storage_step
+        if storage_type is not None:
+            self.storage_type = storage_type
         if vcpu is not None:
             self.vcpu = vcpu
         if zone_id is not None:
@@ -394,6 +399,27 @@ class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput(object):
         """
 
         self._storage_step = storage_step
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this InstanceSpecsInfoForDescribeDBInstanceSpecsOutput.  # noqa: E501
+
+
+        :return: The storage_type of this InstanceSpecsInfoForDescribeDBInstanceSpecsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this InstanceSpecsInfoForDescribeDBInstanceSpecsOutput.
+
+
+        :param storage_type: The storage_type of this InstanceSpecsInfoForDescribeDBInstanceSpecsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
 
     @property
     def vcpu(self):

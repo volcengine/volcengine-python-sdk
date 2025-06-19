@@ -36,9 +36,9 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
         'charge_item_key': 'str',
         'charge_item_type': 'str',
         'charge_item_value': 'int',
-        'discount_price': 'float',
-        'original_price': 'float',
-        'payable_price': 'float'
+        'discount_price': 'str',
+        'original_price': 'str',
+        'payable_price': 'str'
     }
 
     attribute_map = {
@@ -146,7 +146,7 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
 
 
         :return: The discount_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._discount_price
 
@@ -156,7 +156,7 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
 
 
         :param discount_price: The discount_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-        :type: float
+        :type: str
         """
 
         self._discount_price = discount_price
@@ -167,7 +167,7 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
 
 
         :return: The original_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._original_price
 
@@ -177,7 +177,7 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
 
 
         :param original_price: The original_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-        :type: float
+        :type: str
         """
 
         self._original_price = original_price
@@ -188,7 +188,7 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
 
 
         :return: The payable_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._payable_price
 
@@ -198,7 +198,7 @@ class ChargeItemPriceForDescribeDBInstancePriceDetailOutput(object):
 
 
         :param payable_price: The payable_price of this ChargeItemPriceForDescribeDBInstancePriceDetailOutput.  # noqa: E501
-        :type: float
+        :type: str
         """
 
         self._payable_price = payable_price

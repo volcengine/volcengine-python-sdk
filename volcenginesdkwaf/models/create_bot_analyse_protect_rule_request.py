@@ -46,7 +46,7 @@ class CreateBotAnalyseProtectRuleRequest(object):
         'path_threshold': 'int',
         'project_name': 'str',
         'rule_priority': 'int',
-        'single_proportion': 'str',
+        'single_proportion': 'float',
         'single_threshold': 'int',
         'statistical_duration': 'int',
         'statistical_type': 'int'
@@ -416,7 +416,7 @@ class CreateBotAnalyseProtectRuleRequest(object):
 
 
         :return: The single_proportion of this CreateBotAnalyseProtectRuleRequest.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._single_proportion
 
@@ -426,7 +426,7 @@ class CreateBotAnalyseProtectRuleRequest(object):
 
 
         :param single_proportion: The single_proportion of this CreateBotAnalyseProtectRuleRequest.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._single_proportion = single_proportion

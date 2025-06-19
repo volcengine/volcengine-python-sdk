@@ -155,7 +155,10 @@ class Completions(SyncAPIResource):
     ) -> ChatCompletion:
         if resp.choices is not None:
             for index, choice in enumerate(resp.choices):
-                if choice.message is not None and choice.message.content is not None:
+                if (
+                    choice.message is not None and choice.finish_reason != 'content_filter'
+                    and choice.message.content is not None
+                ):
                     choice.message.content = aes_gcm_decrypt_base64_string(
                         key, nonce, choice.message.content
                     )
@@ -299,7 +302,10 @@ class AsyncCompletions(AsyncAPIResource):
     ) -> ChatCompletion:
         if resp.choices is not None:
             for index, choice in enumerate(resp.choices):
-                if choice.message is not None and choice.message.content is not None:
+                if (
+                    choice.message is not None and choice.finish_reason != 'content_filter'
+                    and choice.message.content is not None
+                ):
                     choice.message.content = aes_gcm_decrypt_base64_string(
                         key, nonce, choice.message.content
                     )

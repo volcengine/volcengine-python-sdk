@@ -34,39 +34,49 @@ class ConditionForListRulesOutput(object):
     """
     swagger_types = {
         'comparison_operator': 'str',
+        'display_name': 'str',
         'metric_name': 'str',
         'metric_unit': 'str',
+        'period': 'str',
         'statistics': 'str',
         'threshold': 'str'
     }
 
     attribute_map = {
         'comparison_operator': 'ComparisonOperator',
+        'display_name': 'DisplayName',
         'metric_name': 'MetricName',
         'metric_unit': 'MetricUnit',
+        'period': 'Period',
         'statistics': 'Statistics',
         'threshold': 'Threshold'
     }
 
-    def __init__(self, comparison_operator=None, metric_name=None, metric_unit=None, statistics=None, threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, comparison_operator=None, display_name=None, metric_name=None, metric_unit=None, period=None, statistics=None, threshold=None, _configuration=None):  # noqa: E501
         """ConditionForListRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._comparison_operator = None
+        self._display_name = None
         self._metric_name = None
         self._metric_unit = None
+        self._period = None
         self._statistics = None
         self._threshold = None
         self.discriminator = None
 
         if comparison_operator is not None:
             self.comparison_operator = comparison_operator
+        if display_name is not None:
+            self.display_name = display_name
         if metric_name is not None:
             self.metric_name = metric_name
         if metric_unit is not None:
             self.metric_unit = metric_unit
+        if period is not None:
+            self.period = period
         if statistics is not None:
             self.statistics = statistics
         if threshold is not None:
@@ -92,6 +102,27 @@ class ConditionForListRulesOutput(object):
         """
 
         self._comparison_operator = comparison_operator
+
+    @property
+    def display_name(self):
+        """Gets the display_name of this ConditionForListRulesOutput.  # noqa: E501
+
+
+        :return: The display_name of this ConditionForListRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._display_name
+
+    @display_name.setter
+    def display_name(self, display_name):
+        """Sets the display_name of this ConditionForListRulesOutput.
+
+
+        :param display_name: The display_name of this ConditionForListRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._display_name = display_name
 
     @property
     def metric_name(self):
@@ -134,6 +165,27 @@ class ConditionForListRulesOutput(object):
         """
 
         self._metric_unit = metric_unit
+
+    @property
+    def period(self):
+        """Gets the period of this ConditionForListRulesOutput.  # noqa: E501
+
+
+        :return: The period of this ConditionForListRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._period
+
+    @period.setter
+    def period(self, period):
+        """Sets the period of this ConditionForListRulesOutput.
+
+
+        :param period: The period of this ConditionForListRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._period = period
 
     @property
     def statistics(self):

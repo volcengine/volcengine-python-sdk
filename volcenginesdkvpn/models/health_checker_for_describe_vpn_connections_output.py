@@ -33,7 +33,7 @@ class HealthCheckerForDescribeVpnConnectionsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'check_interval': 'str',
+        'check_interval': 'int',
         'check_result': 'str',
         'checker_id': 'str',
         'down_time': 'int',
@@ -93,7 +93,7 @@ class HealthCheckerForDescribeVpnConnectionsOutput(object):
 
 
         :return: The check_interval of this HealthCheckerForDescribeVpnConnectionsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._check_interval
 
@@ -103,7 +103,7 @@ class HealthCheckerForDescribeVpnConnectionsOutput(object):
 
 
         :param check_interval: The check_interval of this HealthCheckerForDescribeVpnConnectionsOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._check_interval = check_interval

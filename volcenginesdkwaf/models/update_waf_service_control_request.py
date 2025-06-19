@@ -37,7 +37,7 @@ class UpdateWafServiceControlRequest(object):
         'auto_cc_enable': 'int',
         'black_ip_enable': 'int',
         'black_lct_enable': 'int',
-        'bot_dytoken_enable': 'str',
+        'bot_dytoken_enable': 'int',
         'bot_frequency_enable': 'int',
         'bot_repeat_enable': 'int',
         'bot_sequence_default_action': 'int',
@@ -246,7 +246,7 @@ class UpdateWafServiceControlRequest(object):
 
 
         :return: The bot_dytoken_enable of this UpdateWafServiceControlRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._bot_dytoken_enable
 
@@ -256,7 +256,7 @@ class UpdateWafServiceControlRequest(object):
 
 
         :param bot_dytoken_enable: The bot_dytoken_enable of this UpdateWafServiceControlRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._bot_dytoken_enable = bot_dytoken_enable

@@ -33,24 +33,29 @@ class VpcCniConfigForListClustersOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'subnet_ids': 'list[str]'
+        'subnet_ids': 'list[str]',
+        'trunk_eni_enabled': 'bool'
     }
 
     attribute_map = {
-        'subnet_ids': 'SubnetIds'
+        'subnet_ids': 'SubnetIds',
+        'trunk_eni_enabled': 'TrunkEniEnabled'
     }
 
-    def __init__(self, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, subnet_ids=None, trunk_eni_enabled=None, _configuration=None):  # noqa: E501
         """VpcCniConfigForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._subnet_ids = None
+        self._trunk_eni_enabled = None
         self.discriminator = None
 
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
+        if trunk_eni_enabled is not None:
+            self.trunk_eni_enabled = trunk_eni_enabled
 
     @property
     def subnet_ids(self):
@@ -72,6 +77,27 @@ class VpcCniConfigForListClustersOutput(object):
         """
 
         self._subnet_ids = subnet_ids
+
+    @property
+    def trunk_eni_enabled(self):
+        """Gets the trunk_eni_enabled of this VpcCniConfigForListClustersOutput.  # noqa: E501
+
+
+        :return: The trunk_eni_enabled of this VpcCniConfigForListClustersOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._trunk_eni_enabled
+
+    @trunk_eni_enabled.setter
+    def trunk_eni_enabled(self, trunk_eni_enabled):
+        """Sets the trunk_eni_enabled of this VpcCniConfigForListClustersOutput.
+
+
+        :param trunk_eni_enabled: The trunk_eni_enabled of this VpcCniConfigForListClustersOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._trunk_eni_enabled = trunk_eni_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

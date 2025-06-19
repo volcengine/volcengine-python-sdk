@@ -43,12 +43,20 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'current_kernel_version': 'str',
         'db_engine_version': 'str',
         'data_sync_mode': 'str',
+        'deletion_protection': 'str',
+        'dr_dts_task_id': 'str',
+        'dr_dts_task_name': 'str',
+        'dr_dts_task_status': 'str',
+        'dr_seconds_behind_master': 'int',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_type': 'str',
         'lower_case_table_names': 'str',
         'maintenance_window': 'MaintenanceWindowForDescribeDBInstanceDetailOutput',
+        'master_instance_id': 'str',
+        'master_instance_name': 'str',
+        'master_region': 'str',
         'memory': 'int',
         'node_number': 'str',
         'node_spec': 'str',
@@ -77,12 +85,20 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'current_kernel_version': 'CurrentKernelVersion',
         'db_engine_version': 'DBEngineVersion',
         'data_sync_mode': 'DataSyncMode',
+        'deletion_protection': 'DeletionProtection',
+        'dr_dts_task_id': 'DrDtsTaskId',
+        'dr_dts_task_name': 'DrDtsTaskName',
+        'dr_dts_task_status': 'DrDtsTaskStatus',
+        'dr_seconds_behind_master': 'DrSecondsBehindMaster',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
         'lower_case_table_names': 'LowerCaseTableNames',
         'maintenance_window': 'MaintenanceWindow',
+        'master_instance_id': 'MasterInstanceId',
+        'master_instance_name': 'MasterInstanceName',
+        'master_region': 'MasterRegion',
         'memory': 'Memory',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
@@ -100,7 +116,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_version=None, auto_upgrade_minor_version=None, backup_free_quota_size=None, backup_use=None, basic_backup_binlog_size=None, basic_backup_data_size=None, create_time=None, current_kernel_version=None, db_engine_version=None, data_sync_mode=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_version=None, auto_upgrade_minor_version=None, backup_free_quota_size=None, backup_use=None, basic_backup_binlog_size=None, basic_backup_data_size=None, create_time=None, current_kernel_version=None, db_engine_version=None, data_sync_mode=None, deletion_protection=None, dr_dts_task_id=None, dr_dts_task_name=None, dr_dts_task_status=None, dr_seconds_behind_master=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, master_instance_id=None, master_instance_name=None, master_region=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, storage_use=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """BasicInfoForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -116,12 +132,20 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._current_kernel_version = None
         self._db_engine_version = None
         self._data_sync_mode = None
+        self._deletion_protection = None
+        self._dr_dts_task_id = None
+        self._dr_dts_task_name = None
+        self._dr_dts_task_status = None
+        self._dr_seconds_behind_master = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
         self._instance_type = None
         self._lower_case_table_names = None
         self._maintenance_window = None
+        self._master_instance_id = None
+        self._master_instance_name = None
+        self._master_region = None
         self._memory = None
         self._node_number = None
         self._node_spec = None
@@ -159,6 +183,16 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.db_engine_version = db_engine_version
         if data_sync_mode is not None:
             self.data_sync_mode = data_sync_mode
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
+        if dr_dts_task_id is not None:
+            self.dr_dts_task_id = dr_dts_task_id
+        if dr_dts_task_name is not None:
+            self.dr_dts_task_name = dr_dts_task_name
+        if dr_dts_task_status is not None:
+            self.dr_dts_task_status = dr_dts_task_status
+        if dr_seconds_behind_master is not None:
+            self.dr_seconds_behind_master = dr_seconds_behind_master
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -171,6 +205,12 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
             self.lower_case_table_names = lower_case_table_names
         if maintenance_window is not None:
             self.maintenance_window = maintenance_window
+        if master_instance_id is not None:
+            self.master_instance_id = master_instance_id
+        if master_instance_name is not None:
+            self.master_instance_name = master_instance_name
+        if master_region is not None:
+            self.master_region = master_region
         if memory is not None:
             self.memory = memory
         if node_number is not None:
@@ -413,6 +453,111 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         self._data_sync_mode = data_sync_mode
 
     @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The deletion_protection of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param deletion_protection: The deletion_protection of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deletion_protection = deletion_protection
+
+    @property
+    def dr_dts_task_id(self):
+        """Gets the dr_dts_task_id of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The dr_dts_task_id of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dr_dts_task_id
+
+    @dr_dts_task_id.setter
+    def dr_dts_task_id(self, dr_dts_task_id):
+        """Sets the dr_dts_task_id of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param dr_dts_task_id: The dr_dts_task_id of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._dr_dts_task_id = dr_dts_task_id
+
+    @property
+    def dr_dts_task_name(self):
+        """Gets the dr_dts_task_name of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The dr_dts_task_name of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dr_dts_task_name
+
+    @dr_dts_task_name.setter
+    def dr_dts_task_name(self, dr_dts_task_name):
+        """Sets the dr_dts_task_name of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param dr_dts_task_name: The dr_dts_task_name of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._dr_dts_task_name = dr_dts_task_name
+
+    @property
+    def dr_dts_task_status(self):
+        """Gets the dr_dts_task_status of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The dr_dts_task_status of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dr_dts_task_status
+
+    @dr_dts_task_status.setter
+    def dr_dts_task_status(self, dr_dts_task_status):
+        """Sets the dr_dts_task_status of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param dr_dts_task_status: The dr_dts_task_status of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._dr_dts_task_status = dr_dts_task_status
+
+    @property
+    def dr_seconds_behind_master(self):
+        """Gets the dr_seconds_behind_master of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The dr_seconds_behind_master of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._dr_seconds_behind_master
+
+    @dr_seconds_behind_master.setter
+    def dr_seconds_behind_master(self, dr_seconds_behind_master):
+        """Sets the dr_seconds_behind_master of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param dr_seconds_behind_master: The dr_seconds_behind_master of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._dr_seconds_behind_master = dr_seconds_behind_master
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -537,6 +682,69 @@ class BasicInfoForDescribeDBInstanceDetailOutput(object):
         """
 
         self._maintenance_window = maintenance_window
+
+    @property
+    def master_instance_id(self):
+        """Gets the master_instance_id of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The master_instance_id of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_instance_id
+
+    @master_instance_id.setter
+    def master_instance_id(self, master_instance_id):
+        """Sets the master_instance_id of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param master_instance_id: The master_instance_id of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._master_instance_id = master_instance_id
+
+    @property
+    def master_instance_name(self):
+        """Gets the master_instance_name of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The master_instance_name of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_instance_name
+
+    @master_instance_name.setter
+    def master_instance_name(self, master_instance_name):
+        """Sets the master_instance_name of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param master_instance_name: The master_instance_name of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._master_instance_name = master_instance_name
+
+    @property
+    def master_region(self):
+        """Gets the master_region of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The master_region of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_region
+
+    @master_region.setter
+    def master_region(self, master_region):
+        """Sets the master_region of this BasicInfoForDescribeDBInstanceDetailOutput.
+
+
+        :param master_region: The master_region of this BasicInfoForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._master_region = master_region
 
     @property
     def memory(self):

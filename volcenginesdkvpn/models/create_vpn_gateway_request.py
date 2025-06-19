@@ -38,10 +38,12 @@ class CreateVpnGatewayRequest(object):
         'billing_type': 'int',
         'client_token': 'str',
         'description': 'str',
+        'dual_tunnel_enabled': 'bool',
         'ipsec_enabled': 'bool',
         'period': 'int',
         'period_unit': 'str',
         'project_name': 'str',
+        'secondary_subnet_id': 'str',
         'ssl_enabled': 'bool',
         'ssl_max_connections': 'int',
         'subnet_id': 'str',
@@ -56,10 +58,12 @@ class CreateVpnGatewayRequest(object):
         'billing_type': 'BillingType',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'dual_tunnel_enabled': 'DualTunnelEnabled',
         'ipsec_enabled': 'IpsecEnabled',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
+        'secondary_subnet_id': 'SecondarySubnetId',
         'ssl_enabled': 'SslEnabled',
         'ssl_max_connections': 'SslMaxConnections',
         'subnet_id': 'SubnetId',
@@ -68,7 +72,7 @@ class CreateVpnGatewayRequest(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, asn=None, bandwidth=None, billing_type=None, client_token=None, description=None, ipsec_enabled=None, period=None, period_unit=None, project_name=None, ssl_enabled=None, ssl_max_connections=None, subnet_id=None, tags=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, asn=None, bandwidth=None, billing_type=None, client_token=None, description=None, dual_tunnel_enabled=None, ipsec_enabled=None, period=None, period_unit=None, project_name=None, secondary_subnet_id=None, ssl_enabled=None, ssl_max_connections=None, subnet_id=None, tags=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """CreateVpnGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,10 +83,12 @@ class CreateVpnGatewayRequest(object):
         self._billing_type = None
         self._client_token = None
         self._description = None
+        self._dual_tunnel_enabled = None
         self._ipsec_enabled = None
         self._period = None
         self._period_unit = None
         self._project_name = None
+        self._secondary_subnet_id = None
         self._ssl_enabled = None
         self._ssl_max_connections = None
         self._subnet_id = None
@@ -100,6 +106,8 @@ class CreateVpnGatewayRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if dual_tunnel_enabled is not None:
+            self.dual_tunnel_enabled = dual_tunnel_enabled
         if ipsec_enabled is not None:
             self.ipsec_enabled = ipsec_enabled
         if period is not None:
@@ -108,6 +116,8 @@ class CreateVpnGatewayRequest(object):
             self.period_unit = period_unit
         if project_name is not None:
             self.project_name = project_name
+        if secondary_subnet_id is not None:
+            self.secondary_subnet_id = secondary_subnet_id
         if ssl_enabled is not None:
             self.ssl_enabled = ssl_enabled
         if ssl_max_connections is not None:
@@ -227,6 +237,27 @@ class CreateVpnGatewayRequest(object):
         self._description = description
 
     @property
+    def dual_tunnel_enabled(self):
+        """Gets the dual_tunnel_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The dual_tunnel_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dual_tunnel_enabled
+
+    @dual_tunnel_enabled.setter
+    def dual_tunnel_enabled(self, dual_tunnel_enabled):
+        """Sets the dual_tunnel_enabled of this CreateVpnGatewayRequest.
+
+
+        :param dual_tunnel_enabled: The dual_tunnel_enabled of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dual_tunnel_enabled = dual_tunnel_enabled
+
+    @property
     def ipsec_enabled(self):
         """Gets the ipsec_enabled of this CreateVpnGatewayRequest.  # noqa: E501
 
@@ -309,6 +340,27 @@ class CreateVpnGatewayRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def secondary_subnet_id(self):
+        """Gets the secondary_subnet_id of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The secondary_subnet_id of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._secondary_subnet_id
+
+    @secondary_subnet_id.setter
+    def secondary_subnet_id(self, secondary_subnet_id):
+        """Sets the secondary_subnet_id of this CreateVpnGatewayRequest.
+
+
+        :param secondary_subnet_id: The secondary_subnet_id of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._secondary_subnet_id = secondary_subnet_id
 
     @property
     def ssl_enabled(self):

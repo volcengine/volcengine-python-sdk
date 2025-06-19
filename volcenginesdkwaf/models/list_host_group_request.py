@@ -89,8 +89,7 @@ class ListHostGroupRequest(object):
             self.project_name = project_name
         if rule_tag is not None:
             self.rule_tag = rule_tag
-        if time_order_by is not None:
-            self.time_order_by = time_order_by
+        self.time_order_by = time_order_by
 
     @property
     def host_fix(self):
@@ -278,6 +277,8 @@ class ListHostGroupRequest(object):
         :param time_order_by: The time_order_by of this ListHostGroupRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and time_order_by is None:
+            raise ValueError("Invalid value for `time_order_by`, must not be `None`")  # noqa: E501
 
         self._time_order_by = time_order_by
 

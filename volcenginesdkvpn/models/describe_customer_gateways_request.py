@@ -39,7 +39,8 @@ class DescribeCustomerGatewaysRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
-        'status': 'str'
+        'status': 'str',
+        'tag_filters': 'list[TagFilterForDescribeCustomerGatewaysInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DescribeCustomerGatewaysRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
-        'status': 'Status'
+        'status': 'Status',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, customer_gateway_ids=None, customer_gateway_name=None, ip_address=None, page_number=None, page_size=None, project_name=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer_gateway_ids=None, customer_gateway_name=None, ip_address=None, page_number=None, page_size=None, project_name=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeCustomerGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeCustomerGatewaysRequest(object):
         self._page_size = None
         self._project_name = None
         self._status = None
+        self._tag_filters = None
         self.discriminator = None
 
         if customer_gateway_ids is not None:
@@ -81,6 +84,8 @@ class DescribeCustomerGatewaysRequest(object):
             self.project_name = project_name
         if status is not None:
             self.status = status
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def customer_gateway_ids(self):
@@ -228,6 +233,27 @@ class DescribeCustomerGatewaysRequest(object):
         """
 
         self._status = status
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeCustomerGatewaysRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeCustomerGatewaysRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeCustomerGatewaysInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeCustomerGatewaysRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeCustomerGatewaysRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeCustomerGatewaysInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

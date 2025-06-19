@@ -48,6 +48,7 @@ class CreateVpnConnectionRequest(object):
         'project_name': 'str',
         'remote_subnet': 'list[str]',
         'spec': 'str',
+        'tunnel_options': 'list[TunnelOptionForCreateVpnConnectionInput]',
         'vpn_connection_name': 'str',
         'vpn_gateway_id': 'str'
     }
@@ -68,11 +69,12 @@ class CreateVpnConnectionRequest(object):
         'project_name': 'ProjectName',
         'remote_subnet': 'RemoteSubnet',
         'spec': 'Spec',
+        'tunnel_options': 'TunnelOptions',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, attach_type=None, bgp_config=None, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, spec=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_type=None, bgp_config=None, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, spec=None, tunnel_options=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateVpnConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class CreateVpnConnectionRequest(object):
         self._project_name = None
         self._remote_subnet = None
         self._spec = None
+        self._tunnel_options = None
         self._vpn_connection_name = None
         self._vpn_gateway_id = None
         self.discriminator = None
@@ -103,7 +106,8 @@ class CreateVpnConnectionRequest(object):
             self.bgp_config = bgp_config
         if client_token is not None:
             self.client_token = client_token
-        self.customer_gateway_id = customer_gateway_id
+        if customer_gateway_id is not None:
+            self.customer_gateway_id = customer_gateway_id
         if description is not None:
             self.description = description
         if dpd_action is not None:
@@ -126,9 +130,12 @@ class CreateVpnConnectionRequest(object):
             self.remote_subnet = remote_subnet
         if spec is not None:
             self.spec = spec
+        if tunnel_options is not None:
+            self.tunnel_options = tunnel_options
         if vpn_connection_name is not None:
             self.vpn_connection_name = vpn_connection_name
-        self.vpn_gateway_id = vpn_gateway_id
+        if vpn_gateway_id is not None:
+            self.vpn_gateway_id = vpn_gateway_id
 
     @property
     def attach_type(self):
@@ -211,8 +218,6 @@ class CreateVpnConnectionRequest(object):
         :param customer_gateway_id: The customer_gateway_id of this CreateVpnConnectionRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and customer_gateway_id is None:
-            raise ValueError("Invalid value for `customer_gateway_id`, must not be `None`")  # noqa: E501
 
         self._customer_gateway_id = customer_gateway_id
 
@@ -448,6 +453,27 @@ class CreateVpnConnectionRequest(object):
         self._spec = spec
 
     @property
+    def tunnel_options(self):
+        """Gets the tunnel_options of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The tunnel_options of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: list[TunnelOptionForCreateVpnConnectionInput]
+        """
+        return self._tunnel_options
+
+    @tunnel_options.setter
+    def tunnel_options(self, tunnel_options):
+        """Sets the tunnel_options of this CreateVpnConnectionRequest.
+
+
+        :param tunnel_options: The tunnel_options of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: list[TunnelOptionForCreateVpnConnectionInput]
+        """
+
+        self._tunnel_options = tunnel_options
+
+    @property
     def vpn_connection_name(self):
         """Gets the vpn_connection_name of this CreateVpnConnectionRequest.  # noqa: E501
 
@@ -486,8 +512,6 @@ class CreateVpnConnectionRequest(object):
         :param vpn_gateway_id: The vpn_gateway_id of this CreateVpnConnectionRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and vpn_gateway_id is None:
-            raise ValueError("Invalid value for `vpn_gateway_id`, must not be `None`")  # noqa: E501
 
         self._vpn_gateway_id = vpn_gateway_id
 
