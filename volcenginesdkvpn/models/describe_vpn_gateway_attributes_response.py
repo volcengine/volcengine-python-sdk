@@ -42,6 +42,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         'creation_time': 'str',
         'deleted_time': 'str',
         'description': 'str',
+        'dual_tunnel_enabled': 'bool',
         'expired_time': 'str',
         'ip_address': 'str',
         'ipsec_enabled': 'bool',
@@ -51,6 +52,8 @@ class DescribeVpnGatewayAttributesResponse(object):
         'project_name': 'str',
         'request_id': 'str',
         'route_count': 'int',
+        'secondary_ip_address': 'str',
+        'secondary_subnet_id': 'str',
         'ssl_enabled': 'bool',
         'ssl_max_connection': 'int',
         'ssl_max_connections': 'int',
@@ -73,6 +76,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         'creation_time': 'CreationTime',
         'deleted_time': 'DeletedTime',
         'description': 'Description',
+        'dual_tunnel_enabled': 'DualTunnelEnabled',
         'expired_time': 'ExpiredTime',
         'ip_address': 'IpAddress',
         'ipsec_enabled': 'IpsecEnabled',
@@ -82,6 +86,8 @@ class DescribeVpnGatewayAttributesResponse(object):
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'route_count': 'RouteCount',
+        'secondary_ip_address': 'SecondaryIpAddress',
+        'secondary_subnet_id': 'SecondarySubnetId',
         'ssl_enabled': 'SslEnabled',
         'ssl_max_connection': 'SslMaxConnection',
         'ssl_max_connections': 'SslMaxConnections',
@@ -94,7 +100,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, account_id=None, asn=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, expired_time=None, ip_address=None, ipsec_enabled=None, is_blocked=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, route_count=None, ssl_enabled=None, ssl_max_connection=None, ssl_max_connections=None, status=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, dual_tunnel_enabled=None, expired_time=None, ip_address=None, ipsec_enabled=None, is_blocked=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, route_count=None, secondary_ip_address=None, secondary_subnet_id=None, ssl_enabled=None, ssl_max_connection=None, ssl_max_connections=None, status=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -109,6 +115,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         self._creation_time = None
         self._deleted_time = None
         self._description = None
+        self._dual_tunnel_enabled = None
         self._expired_time = None
         self._ip_address = None
         self._ipsec_enabled = None
@@ -118,6 +125,8 @@ class DescribeVpnGatewayAttributesResponse(object):
         self._project_name = None
         self._request_id = None
         self._route_count = None
+        self._secondary_ip_address = None
+        self._secondary_subnet_id = None
         self._ssl_enabled = None
         self._ssl_max_connection = None
         self._ssl_max_connections = None
@@ -148,6 +157,8 @@ class DescribeVpnGatewayAttributesResponse(object):
             self.deleted_time = deleted_time
         if description is not None:
             self.description = description
+        if dual_tunnel_enabled is not None:
+            self.dual_tunnel_enabled = dual_tunnel_enabled
         if expired_time is not None:
             self.expired_time = expired_time
         if ip_address is not None:
@@ -166,6 +177,10 @@ class DescribeVpnGatewayAttributesResponse(object):
             self.request_id = request_id
         if route_count is not None:
             self.route_count = route_count
+        if secondary_ip_address is not None:
+            self.secondary_ip_address = secondary_ip_address
+        if secondary_subnet_id is not None:
+            self.secondary_subnet_id = secondary_subnet_id
         if ssl_enabled is not None:
             self.ssl_enabled = ssl_enabled
         if ssl_max_connection is not None:
@@ -377,6 +392,27 @@ class DescribeVpnGatewayAttributesResponse(object):
         self._description = description
 
     @property
+    def dual_tunnel_enabled(self):
+        """Gets the dual_tunnel_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The dual_tunnel_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dual_tunnel_enabled
+
+    @dual_tunnel_enabled.setter
+    def dual_tunnel_enabled(self, dual_tunnel_enabled):
+        """Sets the dual_tunnel_enabled of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param dual_tunnel_enabled: The dual_tunnel_enabled of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._dual_tunnel_enabled = dual_tunnel_enabled
+
+    @property
     def expired_time(self):
         """Gets the expired_time of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
 
@@ -564,6 +600,48 @@ class DescribeVpnGatewayAttributesResponse(object):
         """
 
         self._route_count = route_count
+
+    @property
+    def secondary_ip_address(self):
+        """Gets the secondary_ip_address of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The secondary_ip_address of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._secondary_ip_address
+
+    @secondary_ip_address.setter
+    def secondary_ip_address(self, secondary_ip_address):
+        """Sets the secondary_ip_address of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param secondary_ip_address: The secondary_ip_address of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._secondary_ip_address = secondary_ip_address
+
+    @property
+    def secondary_subnet_id(self):
+        """Gets the secondary_subnet_id of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The secondary_subnet_id of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._secondary_subnet_id
+
+    @secondary_subnet_id.setter
+    def secondary_subnet_id(self, secondary_subnet_id):
+        """Sets the secondary_subnet_id of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param secondary_subnet_id: The secondary_subnet_id of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._secondary_subnet_id = secondary_subnet_id
 
     @property
     def ssl_enabled(self):

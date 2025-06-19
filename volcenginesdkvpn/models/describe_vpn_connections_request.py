@@ -41,6 +41,7 @@ class DescribeVpnConnectionsRequest(object):
         'project_name': 'str',
         'spec': 'str',
         'status': 'str',
+        'tag_filters': 'list[TagFilterForDescribeVpnConnectionsInput]',
         'transit_router_id': 'str',
         'vpn_connection_ids': 'list[str]',
         'vpn_connection_name': 'str',
@@ -56,13 +57,14 @@ class DescribeVpnConnectionsRequest(object):
         'project_name': 'ProjectName',
         'spec': 'Spec',
         'status': 'Status',
+        'tag_filters': 'TagFilters',
         'transit_router_id': 'TransitRouterId',
         'vpn_connection_ids': 'VpnConnectionIds',
         'vpn_connection_name': 'VpnConnectionName',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, attach_status=None, attach_type=None, customer_gateway_id=None, page_number=None, page_size=None, project_name=None, spec=None, status=None, transit_router_id=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_status=None, attach_type=None, customer_gateway_id=None, page_number=None, page_size=None, project_name=None, spec=None, status=None, tag_filters=None, transit_router_id=None, vpn_connection_ids=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnConnectionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class DescribeVpnConnectionsRequest(object):
         self._project_name = None
         self._spec = None
         self._status = None
+        self._tag_filters = None
         self._transit_router_id = None
         self._vpn_connection_ids = None
         self._vpn_connection_name = None
@@ -98,6 +101,8 @@ class DescribeVpnConnectionsRequest(object):
             self.spec = spec
         if status is not None:
             self.status = status
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if transit_router_id is not None:
             self.transit_router_id = transit_router_id
         if vpn_connection_ids is not None:
@@ -274,6 +279,27 @@ class DescribeVpnConnectionsRequest(object):
         """
 
         self._status = status
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeVpnConnectionsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeVpnConnectionsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeVpnConnectionsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeVpnConnectionsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeVpnConnectionsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def transit_router_id(self):

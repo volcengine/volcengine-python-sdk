@@ -44,6 +44,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'deleted_time': 'str',
         'description': 'str',
         'dpd_action': 'str',
+        'dual_tunnel_enabled': 'bool',
         'health_checkers': 'list[HealthCheckerForDescribeVpnConnectionsOutput]',
         'ike_config': 'IkeConfigForDescribeVpnConnectionsOutput',
         'ip_address': 'str',
@@ -59,7 +60,9 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'request_id': 'str',
         'spec': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeVpnConnectionsOutput]',
         'transit_router_id': 'str',
+        'tunnel_options': 'list[TunnelOptionForDescribeVpnConnectionsOutput]',
         'update_time': 'str',
         'vpn_connection_id': 'str',
         'vpn_connection_name': 'str',
@@ -79,6 +82,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'deleted_time': 'DeletedTime',
         'description': 'Description',
         'dpd_action': 'DpdAction',
+        'dual_tunnel_enabled': 'DualTunnelEnabled',
         'health_checkers': 'HealthCheckers',
         'ike_config': 'IkeConfig',
         'ip_address': 'IpAddress',
@@ -94,7 +98,9 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'request_id': 'RequestId',
         'spec': 'Spec',
         'status': 'Status',
+        'tags': 'Tags',
         'transit_router_id': 'TransitRouterId',
+        'tunnel_options': 'TunnelOptions',
         'update_time': 'UpdateTime',
         'vpn_connection_id': 'VpnConnectionId',
         'vpn_connection_name': 'VpnConnectionName',
@@ -102,7 +108,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, attach_status=None, attach_type=None, bgp_info=None, business_status=None, connect_status=None, creation_time=None, customer_gateway_id=None, deleted_time=None, description=None, dpd_action=None, health_checkers=None, ike_config=None, ip_address=None, ipsec_config=None, is_blocked=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, overdue_time=None, project_name=None, remote_subnet=None, request_id=None, spec=None, status=None, transit_router_id=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, attach_status=None, attach_type=None, bgp_info=None, business_status=None, connect_status=None, creation_time=None, customer_gateway_id=None, deleted_time=None, description=None, dpd_action=None, dual_tunnel_enabled=None, health_checkers=None, ike_config=None, ip_address=None, ipsec_config=None, is_blocked=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, overdue_time=None, project_name=None, remote_subnet=None, request_id=None, spec=None, status=None, tags=None, transit_router_id=None, tunnel_options=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """VpnConnectionForDescribeVpnConnectionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -119,6 +125,7 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._deleted_time = None
         self._description = None
         self._dpd_action = None
+        self._dual_tunnel_enabled = None
         self._health_checkers = None
         self._ike_config = None
         self._ip_address = None
@@ -134,7 +141,9 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._request_id = None
         self._spec = None
         self._status = None
+        self._tags = None
         self._transit_router_id = None
+        self._tunnel_options = None
         self._update_time = None
         self._vpn_connection_id = None
         self._vpn_connection_name = None
@@ -164,6 +173,8 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
             self.description = description
         if dpd_action is not None:
             self.dpd_action = dpd_action
+        if dual_tunnel_enabled is not None:
+            self.dual_tunnel_enabled = dual_tunnel_enabled
         if health_checkers is not None:
             self.health_checkers = health_checkers
         if ike_config is not None:
@@ -194,8 +205,12 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
             self.spec = spec
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if transit_router_id is not None:
             self.transit_router_id = transit_router_id
+        if tunnel_options is not None:
+            self.tunnel_options = tunnel_options
         if update_time is not None:
             self.update_time = update_time
         if vpn_connection_id is not None:
@@ -437,6 +452,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._dpd_action = dpd_action
+
+    @property
+    def dual_tunnel_enabled(self):
+        """Gets the dual_tunnel_enabled of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The dual_tunnel_enabled of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dual_tunnel_enabled
+
+    @dual_tunnel_enabled.setter
+    def dual_tunnel_enabled(self, dual_tunnel_enabled):
+        """Sets the dual_tunnel_enabled of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param dual_tunnel_enabled: The dual_tunnel_enabled of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._dual_tunnel_enabled = dual_tunnel_enabled
 
     @property
     def health_checkers(self):
@@ -754,6 +790,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         self._status = status
 
     @property
+    def tags(self):
+        """Gets the tags of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The tags of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeVpnConnectionsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param tags: The tags of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: list[TagForDescribeVpnConnectionsOutput]
+        """
+
+        self._tags = tags
+
+    @property
     def transit_router_id(self):
         """Gets the transit_router_id of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
 
@@ -773,6 +830,27 @@ class VpnConnectionForDescribeVpnConnectionsOutput(object):
         """
 
         self._transit_router_id = transit_router_id
+
+    @property
+    def tunnel_options(self):
+        """Gets the tunnel_options of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+
+
+        :return: The tunnel_options of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :rtype: list[TunnelOptionForDescribeVpnConnectionsOutput]
+        """
+        return self._tunnel_options
+
+    @tunnel_options.setter
+    def tunnel_options(self, tunnel_options):
+        """Sets the tunnel_options of this VpnConnectionForDescribeVpnConnectionsOutput.
+
+
+        :param tunnel_options: The tunnel_options of this VpnConnectionForDescribeVpnConnectionsOutput.  # noqa: E501
+        :type: list[TunnelOptionForDescribeVpnConnectionsOutput]
+        """
+
+        self._tunnel_options = tunnel_options
 
     @property
     def update_time(self):

@@ -38,6 +38,7 @@ class DescribeSslVpnServersRequest(object):
         'project_name': 'str',
         'ssl_vpn_server_ids': 'list[str]',
         'ssl_vpn_server_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeSslVpnServersInput]',
         'vpn_gateway_id': 'str'
     }
 
@@ -47,10 +48,11 @@ class DescribeSslVpnServersRequest(object):
         'project_name': 'ProjectName',
         'ssl_vpn_server_ids': 'SslVpnServerIds',
         'ssl_vpn_server_name': 'SslVpnServerName',
+        'tag_filters': 'TagFilters',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, page_number=None, page_size=None, project_name=None, ssl_vpn_server_ids=None, ssl_vpn_server_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, project_name=None, ssl_vpn_server_ids=None, ssl_vpn_server_name=None, tag_filters=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """DescribeSslVpnServersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class DescribeSslVpnServersRequest(object):
         self._project_name = None
         self._ssl_vpn_server_ids = None
         self._ssl_vpn_server_name = None
+        self._tag_filters = None
         self._vpn_gateway_id = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class DescribeSslVpnServersRequest(object):
             self.ssl_vpn_server_ids = ssl_vpn_server_ids
         if ssl_vpn_server_name is not None:
             self.ssl_vpn_server_name = ssl_vpn_server_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpn_gateway_id is not None:
             self.vpn_gateway_id = vpn_gateway_id
 
@@ -181,6 +186,27 @@ class DescribeSslVpnServersRequest(object):
         """
 
         self._ssl_vpn_server_name = ssl_vpn_server_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeSslVpnServersRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeSslVpnServersRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeSslVpnServersInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeSslVpnServersRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeSslVpnServersRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeSslVpnServersInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpn_gateway_id(self):

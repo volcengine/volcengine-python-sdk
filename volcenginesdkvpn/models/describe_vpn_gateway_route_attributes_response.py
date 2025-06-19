@@ -37,6 +37,7 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
         'creation_time': 'str',
         'destination_cidr_block': 'str',
         'next_hop_id': 'str',
+        'next_tunnel_id': 'str',
         'request_id': 'str',
         'route_type': 'str',
         'status': 'str',
@@ -50,6 +51,7 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
         'creation_time': 'CreationTime',
         'destination_cidr_block': 'DestinationCidrBlock',
         'next_hop_id': 'NextHopId',
+        'next_tunnel_id': 'NextTunnelId',
         'request_id': 'RequestId',
         'route_type': 'RouteType',
         'status': 'Status',
@@ -58,7 +60,7 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
         'vpn_gateway_route_id': 'VpnGatewayRouteId'
     }
 
-    def __init__(self, as_path=None, creation_time=None, destination_cidr_block=None, next_hop_id=None, request_id=None, route_type=None, status=None, update_time=None, vpn_gateway_id=None, vpn_gateway_route_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, as_path=None, creation_time=None, destination_cidr_block=None, next_hop_id=None, next_tunnel_id=None, request_id=None, route_type=None, status=None, update_time=None, vpn_gateway_id=None, vpn_gateway_route_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewayRouteAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
         self._creation_time = None
         self._destination_cidr_block = None
         self._next_hop_id = None
+        self._next_tunnel_id = None
         self._request_id = None
         self._route_type = None
         self._status = None
@@ -84,6 +87,8 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
             self.destination_cidr_block = destination_cidr_block
         if next_hop_id is not None:
             self.next_hop_id = next_hop_id
+        if next_tunnel_id is not None:
+            self.next_tunnel_id = next_tunnel_id
         if request_id is not None:
             self.request_id = request_id
         if route_type is not None:
@@ -180,6 +185,27 @@ class DescribeVpnGatewayRouteAttributesResponse(object):
         """
 
         self._next_hop_id = next_hop_id
+
+    @property
+    def next_tunnel_id(self):
+        """Gets the next_tunnel_id of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+
+
+        :return: The next_tunnel_id of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_tunnel_id
+
+    @next_tunnel_id.setter
+    def next_tunnel_id(self, next_tunnel_id):
+        """Sets the next_tunnel_id of this DescribeVpnGatewayRouteAttributesResponse.
+
+
+        :param next_tunnel_id: The next_tunnel_id of this DescribeVpnGatewayRouteAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._next_tunnel_id = next_tunnel_id
 
     @property
     def request_id(self):
