@@ -33,17 +33,45 @@ class DeleteParameterTemplateResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'template_id': 'str'
     }
 
     attribute_map = {
+        'template_id': 'TemplateId'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, template_id=None, _configuration=None):  # noqa: E501
         """DeleteParameterTemplateResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._template_id = None
         self.discriminator = None
+
+        if template_id is not None:
+            self.template_id = template_id
+
+    @property
+    def template_id(self):
+        """Gets the template_id of this DeleteParameterTemplateResponse.  # noqa: E501
+
+
+        :return: The template_id of this DeleteParameterTemplateResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._template_id
+
+    @template_id.setter
+    def template_id(self, template_id):
+        """Sets the template_id of this DeleteParameterTemplateResponse.
+
+
+        :param template_id: The template_id of this DeleteParameterTemplateResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._template_id = template_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

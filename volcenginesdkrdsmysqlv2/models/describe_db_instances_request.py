@@ -48,6 +48,7 @@ class DescribeDBInstancesRequest(object):
         'private_network_ip_address': 'str',
         'private_network_vpc_id': 'str',
         'project_name': 'str',
+        'storage_type': 'str',
         'tag_filters': 'list[TagFilterForDescribeDBInstancesInput]',
         'zone_id': 'str'
     }
@@ -68,11 +69,12 @@ class DescribeDBInstancesRequest(object):
         'private_network_ip_address': 'PrivateNetworkIpAddress',
         'private_network_vpc_id': 'PrivateNetworkVpcId',
         'project_name': 'ProjectName',
+        'storage_type': 'StorageType',
         'tag_filters': 'TagFilters',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, kernel_version=None, node_spec=None, page_number=None, page_size=None, private_network_ip_address=None, private_network_vpc_id=None, project_name=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, kernel_version=None, node_spec=None, page_number=None, page_size=None, private_network_ip_address=None, private_network_vpc_id=None, project_name=None, storage_type=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +95,7 @@ class DescribeDBInstancesRequest(object):
         self._private_network_ip_address = None
         self._private_network_vpc_id = None
         self._project_name = None
+        self._storage_type = None
         self._tag_filters = None
         self._zone_id = None
         self.discriminator = None
@@ -127,6 +130,8 @@ class DescribeDBInstancesRequest(object):
             self.private_network_vpc_id = private_network_vpc_id
         if project_name is not None:
             self.project_name = project_name
+        if storage_type is not None:
+            self.storage_type = storage_type
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if zone_id is not None:
@@ -446,6 +451,27 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The storage_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this DescribeDBInstancesRequest.
+
+
+        :param storage_type: The storage_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
 
     @property
     def tag_filters(self):

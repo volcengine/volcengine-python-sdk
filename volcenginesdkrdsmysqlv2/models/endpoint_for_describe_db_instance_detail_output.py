@@ -35,6 +35,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
     swagger_types = {
         'addresses': 'list[AddressForDescribeDBInstanceDetailOutput]',
         'auto_add_new_nodes': 'str',
+        'connection_info_tags': 'list[str]',
         'connection_mode': 'str',
         'connection_pool_type': 'str',
         'description': 'str',
@@ -44,7 +45,11 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'endpoint_name': 'str',
         'endpoint_type': 'str',
         'idle_connection_reclaim': 'bool',
+        'implicit_trans_split': 'bool',
+        'master_node_routing': 'bool',
+        'master_protector_timeout': 'int',
         'multi_statements_mode': 'str',
+        'overload_protection': 'bool',
         'read_only_node_distribution_type': 'str',
         'read_only_node_max_delay_time': 'int',
         'read_only_node_weight': 'list[ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput]',
@@ -54,6 +59,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
     attribute_map = {
         'addresses': 'Addresses',
         'auto_add_new_nodes': 'AutoAddNewNodes',
+        'connection_info_tags': 'ConnectionInfoTags',
         'connection_mode': 'ConnectionMode',
         'connection_pool_type': 'ConnectionPoolType',
         'description': 'Description',
@@ -63,14 +69,18 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'endpoint_name': 'EndpointName',
         'endpoint_type': 'EndpointType',
         'idle_connection_reclaim': 'IdleConnectionReclaim',
+        'implicit_trans_split': 'ImplicitTransSplit',
+        'master_node_routing': 'MasterNodeRouting',
+        'master_protector_timeout': 'MasterProtectorTimeout',
         'multi_statements_mode': 'MultiStatementsMode',
+        'overload_protection': 'OverloadProtection',
         'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
         'read_only_node_max_delay_time': 'ReadOnlyNodeMaxDelayTime',
         'read_only_node_weight': 'ReadOnlyNodeWeight',
         'read_write_mode': 'ReadWriteMode'
     }
 
-    def __init__(self, addresses=None, auto_add_new_nodes=None, connection_mode=None, connection_pool_type=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, multi_statements_mode=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, addresses=None, auto_add_new_nodes=None, connection_info_tags=None, connection_mode=None, connection_pool_type=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, implicit_trans_split=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
         """EndpointForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +88,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
 
         self._addresses = None
         self._auto_add_new_nodes = None
+        self._connection_info_tags = None
         self._connection_mode = None
         self._connection_pool_type = None
         self._description = None
@@ -87,7 +98,11 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         self._endpoint_name = None
         self._endpoint_type = None
         self._idle_connection_reclaim = None
+        self._implicit_trans_split = None
+        self._master_node_routing = None
+        self._master_protector_timeout = None
         self._multi_statements_mode = None
+        self._overload_protection = None
         self._read_only_node_distribution_type = None
         self._read_only_node_max_delay_time = None
         self._read_only_node_weight = None
@@ -98,6 +113,8 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
             self.addresses = addresses
         if auto_add_new_nodes is not None:
             self.auto_add_new_nodes = auto_add_new_nodes
+        if connection_info_tags is not None:
+            self.connection_info_tags = connection_info_tags
         if connection_mode is not None:
             self.connection_mode = connection_mode
         if connection_pool_type is not None:
@@ -116,8 +133,16 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
             self.endpoint_type = endpoint_type
         if idle_connection_reclaim is not None:
             self.idle_connection_reclaim = idle_connection_reclaim
+        if implicit_trans_split is not None:
+            self.implicit_trans_split = implicit_trans_split
+        if master_node_routing is not None:
+            self.master_node_routing = master_node_routing
+        if master_protector_timeout is not None:
+            self.master_protector_timeout = master_protector_timeout
         if multi_statements_mode is not None:
             self.multi_statements_mode = multi_statements_mode
+        if overload_protection is not None:
+            self.overload_protection = overload_protection
         if read_only_node_distribution_type is not None:
             self.read_only_node_distribution_type = read_only_node_distribution_type
         if read_only_node_max_delay_time is not None:
@@ -168,6 +193,27 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._auto_add_new_nodes = auto_add_new_nodes
+
+    @property
+    def connection_info_tags(self):
+        """Gets the connection_info_tags of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The connection_info_tags of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._connection_info_tags
+
+    @connection_info_tags.setter
+    def connection_info_tags(self, connection_info_tags):
+        """Sets the connection_info_tags of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param connection_info_tags: The connection_info_tags of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._connection_info_tags = connection_info_tags
 
     @property
     def connection_mode(self):
@@ -359,6 +405,69 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         self._idle_connection_reclaim = idle_connection_reclaim
 
     @property
+    def implicit_trans_split(self):
+        """Gets the implicit_trans_split of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The implicit_trans_split of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._implicit_trans_split
+
+    @implicit_trans_split.setter
+    def implicit_trans_split(self, implicit_trans_split):
+        """Sets the implicit_trans_split of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param implicit_trans_split: The implicit_trans_split of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._implicit_trans_split = implicit_trans_split
+
+    @property
+    def master_node_routing(self):
+        """Gets the master_node_routing of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The master_node_routing of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._master_node_routing
+
+    @master_node_routing.setter
+    def master_node_routing(self, master_node_routing):
+        """Sets the master_node_routing of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param master_node_routing: The master_node_routing of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._master_node_routing = master_node_routing
+
+    @property
+    def master_protector_timeout(self):
+        """Gets the master_protector_timeout of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The master_protector_timeout of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._master_protector_timeout
+
+    @master_protector_timeout.setter
+    def master_protector_timeout(self, master_protector_timeout):
+        """Sets the master_protector_timeout of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param master_protector_timeout: The master_protector_timeout of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._master_protector_timeout = master_protector_timeout
+
+    @property
     def multi_statements_mode(self):
         """Gets the multi_statements_mode of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
 
@@ -378,6 +487,27 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._multi_statements_mode = multi_statements_mode
+
+    @property
+    def overload_protection(self):
+        """Gets the overload_protection of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The overload_protection of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._overload_protection
+
+    @overload_protection.setter
+    def overload_protection(self, overload_protection):
+        """Sets the overload_protection of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param overload_protection: The overload_protection of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._overload_protection = overload_protection
 
     @property
     def read_only_node_distribution_type(self):

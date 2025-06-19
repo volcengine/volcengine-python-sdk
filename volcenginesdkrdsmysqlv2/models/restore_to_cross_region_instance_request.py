@@ -34,9 +34,11 @@ class RestoreToCrossRegionInstanceRequest(object):
     """
     swagger_types = {
         'allow_list_ids': 'list[str]',
+        'auto_storage_scaling_config': 'AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput',
         'backup_id': 'str',
         'charge_info': 'ChargeInfoForRestoreToCrossRegionInstanceInput',
         'db_param_group_id': 'str',
+        'deletion_protection': 'str',
         'dst_region_id': 'str',
         'instance_name': 'str',
         'instance_tags': 'list[InstanceTagForRestoreToCrossRegionInstanceInput]',
@@ -54,9 +56,11 @@ class RestoreToCrossRegionInstanceRequest(object):
 
     attribute_map = {
         'allow_list_ids': 'AllowListIds',
+        'auto_storage_scaling_config': 'AutoStorageScalingConfig',
         'backup_id': 'BackupId',
         'charge_info': 'ChargeInfo',
         'db_param_group_id': 'DBParamGroupId',
+        'deletion_protection': 'DeletionProtection',
         'dst_region_id': 'DstRegionId',
         'instance_name': 'InstanceName',
         'instance_tags': 'InstanceTags',
@@ -72,16 +76,18 @@ class RestoreToCrossRegionInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, backup_id=None, charge_info=None, db_param_group_id=None, dst_region_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, restore_time=None, src_region_id=None, src_region_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, dst_region_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, restore_time=None, src_region_id=None, src_region_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RestoreToCrossRegionInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_list_ids = None
+        self._auto_storage_scaling_config = None
         self._backup_id = None
         self._charge_info = None
         self._db_param_group_id = None
+        self._deletion_protection = None
         self._dst_region_id = None
         self._instance_name = None
         self._instance_tags = None
@@ -99,12 +105,16 @@ class RestoreToCrossRegionInstanceRequest(object):
 
         if allow_list_ids is not None:
             self.allow_list_ids = allow_list_ids
+        if auto_storage_scaling_config is not None:
+            self.auto_storage_scaling_config = auto_storage_scaling_config
         if backup_id is not None:
             self.backup_id = backup_id
         if charge_info is not None:
             self.charge_info = charge_info
         if db_param_group_id is not None:
             self.db_param_group_id = db_param_group_id
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         self.dst_region_id = dst_region_id
         if instance_name is not None:
             self.instance_name = instance_name
@@ -146,6 +156,27 @@ class RestoreToCrossRegionInstanceRequest(object):
         """
 
         self._allow_list_ids = allow_list_ids
+
+    @property
+    def auto_storage_scaling_config(self):
+        """Gets the auto_storage_scaling_config of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+
+
+        :return: The auto_storage_scaling_config of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+        :rtype: AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput
+        """
+        return self._auto_storage_scaling_config
+
+    @auto_storage_scaling_config.setter
+    def auto_storage_scaling_config(self, auto_storage_scaling_config):
+        """Sets the auto_storage_scaling_config of this RestoreToCrossRegionInstanceRequest.
+
+
+        :param auto_storage_scaling_config: The auto_storage_scaling_config of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+        :type: AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput
+        """
+
+        self._auto_storage_scaling_config = auto_storage_scaling_config
 
     @property
     def backup_id(self):
@@ -209,6 +240,27 @@ class RestoreToCrossRegionInstanceRequest(object):
         """
 
         self._db_param_group_id = db_param_group_id
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+
+
+        :return: The deletion_protection of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this RestoreToCrossRegionInstanceRequest.
+
+
+        :param deletion_protection: The deletion_protection of this RestoreToCrossRegionInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._deletion_protection = deletion_protection
 
     @property
     def dst_region_id(self):

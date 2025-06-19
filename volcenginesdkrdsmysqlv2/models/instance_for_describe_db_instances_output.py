@@ -39,6 +39,8 @@ class InstanceForDescribeDBInstancesOutput(object):
         'create_time': 'str',
         'current_kernel_version': 'str',
         'db_engine_version': 'str',
+        'deletion_protection': 'str',
+        'dr_dts_task_id': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
@@ -69,6 +71,8 @@ class InstanceForDescribeDBInstancesOutput(object):
         'create_time': 'CreateTime',
         'current_kernel_version': 'CurrentKernelVersion',
         'db_engine_version': 'DBEngineVersion',
+        'deletion_protection': 'DeletionProtection',
+        'dr_dts_task_id': 'DrDtsTaskId',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
@@ -92,7 +96,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, current_kernel_version=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_cpu_used_percentage=None, node_memory_used_percentage=None, node_number=None, node_space_used_percentage=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_object=None, allow_list_version=None, charge_detail=None, create_time=None, current_kernel_version=None, db_engine_version=None, deletion_protection=None, dr_dts_task_id=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_cpu_used_percentage=None, node_memory_used_percentage=None, node_number=None, node_space_used_percentage=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -104,6 +108,8 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._create_time = None
         self._current_kernel_version = None
         self._db_engine_version = None
+        self._deletion_protection = None
+        self._dr_dts_task_id = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
@@ -139,6 +145,10 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.current_kernel_version = current_kernel_version
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
+        if dr_dts_task_id is not None:
+            self.dr_dts_task_id = dr_dts_task_id
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -307,6 +317,48 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._db_engine_version = db_engine_version
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param deletion_protection: The deletion_protection of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._deletion_protection = deletion_protection
+
+    @property
+    def dr_dts_task_id(self):
+        """Gets the dr_dts_task_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The dr_dts_task_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dr_dts_task_id
+
+    @dr_dts_task_id.setter
+    def dr_dts_task_id(self, dr_dts_task_id):
+        """Sets the dr_dts_task_id of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param dr_dts_task_id: The dr_dts_task_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._dr_dts_task_id = dr_dts_task_id
 
     @property
     def instance_id(self):

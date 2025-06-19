@@ -39,9 +39,13 @@ class ModifyDBEndpointRequest(object):
         'endpoint_id': 'str',
         'endpoint_name': 'str',
         'idle_connection_reclaim': 'bool',
+        'implicit_trans_split': 'bool',
         'instance_id': 'str',
+        'master_node_routing': 'bool',
+        'master_protector_timeout': 'int',
         'multi_statements_mode': 'str',
         'nodes': 'str',
+        'overload_protection': 'bool',
         'read_only_node_distribution_type': 'str',
         'read_only_node_max_delay_time': 'int',
         'read_only_node_weight': 'list[ReadOnlyNodeWeightForModifyDBEndpointInput]',
@@ -56,9 +60,13 @@ class ModifyDBEndpointRequest(object):
         'endpoint_id': 'EndpointId',
         'endpoint_name': 'EndpointName',
         'idle_connection_reclaim': 'IdleConnectionReclaim',
+        'implicit_trans_split': 'ImplicitTransSplit',
         'instance_id': 'InstanceId',
+        'master_node_routing': 'MasterNodeRouting',
+        'master_protector_timeout': 'MasterProtectorTimeout',
         'multi_statements_mode': 'MultiStatementsMode',
         'nodes': 'Nodes',
+        'overload_protection': 'OverloadProtection',
         'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
         'read_only_node_max_delay_time': 'ReadOnlyNodeMaxDelayTime',
         'read_only_node_weight': 'ReadOnlyNodeWeight',
@@ -66,7 +74,7 @@ class ModifyDBEndpointRequest(object):
         'read_write_spliting': 'ReadWriteSpliting'
     }
 
-    def __init__(self, auto_add_new_nodes=None, connection_pool_type=None, description=None, endpoint_id=None, endpoint_name=None, idle_connection_reclaim=None, instance_id=None, multi_statements_mode=None, nodes=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, connection_pool_type=None, description=None, endpoint_id=None, endpoint_name=None, idle_connection_reclaim=None, implicit_trans_split=None, instance_id=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, nodes=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
         """ModifyDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,9 +86,13 @@ class ModifyDBEndpointRequest(object):
         self._endpoint_id = None
         self._endpoint_name = None
         self._idle_connection_reclaim = None
+        self._implicit_trans_split = None
         self._instance_id = None
+        self._master_node_routing = None
+        self._master_protector_timeout = None
         self._multi_statements_mode = None
         self._nodes = None
+        self._overload_protection = None
         self._read_only_node_distribution_type = None
         self._read_only_node_max_delay_time = None
         self._read_only_node_weight = None
@@ -99,11 +111,19 @@ class ModifyDBEndpointRequest(object):
             self.endpoint_name = endpoint_name
         if idle_connection_reclaim is not None:
             self.idle_connection_reclaim = idle_connection_reclaim
+        if implicit_trans_split is not None:
+            self.implicit_trans_split = implicit_trans_split
         self.instance_id = instance_id
+        if master_node_routing is not None:
+            self.master_node_routing = master_node_routing
+        if master_protector_timeout is not None:
+            self.master_protector_timeout = master_protector_timeout
         if multi_statements_mode is not None:
             self.multi_statements_mode = multi_statements_mode
         if nodes is not None:
             self.nodes = nodes
+        if overload_protection is not None:
+            self.overload_protection = overload_protection
         if read_only_node_distribution_type is not None:
             self.read_only_node_distribution_type = read_only_node_distribution_type
         if read_only_node_max_delay_time is not None:
@@ -244,6 +264,27 @@ class ModifyDBEndpointRequest(object):
         self._idle_connection_reclaim = idle_connection_reclaim
 
     @property
+    def implicit_trans_split(self):
+        """Gets the implicit_trans_split of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The implicit_trans_split of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._implicit_trans_split
+
+    @implicit_trans_split.setter
+    def implicit_trans_split(self, implicit_trans_split):
+        """Sets the implicit_trans_split of this ModifyDBEndpointRequest.
+
+
+        :param implicit_trans_split: The implicit_trans_split of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._implicit_trans_split = implicit_trans_split
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this ModifyDBEndpointRequest.  # noqa: E501
 
@@ -265,6 +306,48 @@ class ModifyDBEndpointRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def master_node_routing(self):
+        """Gets the master_node_routing of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The master_node_routing of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._master_node_routing
+
+    @master_node_routing.setter
+    def master_node_routing(self, master_node_routing):
+        """Sets the master_node_routing of this ModifyDBEndpointRequest.
+
+
+        :param master_node_routing: The master_node_routing of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._master_node_routing = master_node_routing
+
+    @property
+    def master_protector_timeout(self):
+        """Gets the master_protector_timeout of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The master_protector_timeout of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._master_protector_timeout
+
+    @master_protector_timeout.setter
+    def master_protector_timeout(self, master_protector_timeout):
+        """Sets the master_protector_timeout of this ModifyDBEndpointRequest.
+
+
+        :param master_protector_timeout: The master_protector_timeout of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._master_protector_timeout = master_protector_timeout
 
     @property
     def multi_statements_mode(self):
@@ -307,6 +390,27 @@ class ModifyDBEndpointRequest(object):
         """
 
         self._nodes = nodes
+
+    @property
+    def overload_protection(self):
+        """Gets the overload_protection of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The overload_protection of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._overload_protection
+
+    @overload_protection.setter
+    def overload_protection(self, overload_protection):
+        """Sets the overload_protection of this ModifyDBEndpointRequest.
+
+
+        :param overload_protection: The overload_protection of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._overload_protection = overload_protection
 
     @property
     def read_only_node_distribution_type(self):
