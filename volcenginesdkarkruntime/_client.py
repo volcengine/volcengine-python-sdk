@@ -245,6 +245,13 @@ class AsyncArk(AsyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
 
+    def _get_bot_sts_token(self, bot_id: str):
+        if self._sts_token_manager is None:
+            if self.ak is None or self.sk is None:
+                raise ArkAPIError("must set ak and sk before get endpoint token.")
+            self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
+        return self._sts_token_manager.get(bot_id, resource_type="bot")
+
     def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
