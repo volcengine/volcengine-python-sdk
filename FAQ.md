@@ -57,7 +57,7 @@ volcenginesdkecs.RunInstancesRequest(
 ```python
 configuration = volcenginesdkcore.Configuration()
 configuration.client_side_validation = False
-configuration.schema = "http"  # https or http
+configuration.scheme = "http"  # https or http
 configuration.debug = False  # 是否开启调试
 
 volcenginesdkcore.Configuration.set_default(configuration)
