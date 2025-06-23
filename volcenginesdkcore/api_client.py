@@ -17,9 +17,9 @@ from volcenginesdkcore.interceptor import BuildRequestInterceptor, SignRequestIn
 from volcenginesdkcore.interceptor import DeserializedResponseInterceptor
 from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext
 from volcenginesdkcore.interceptor import Request, Response
-from volcenginesdkcore.retryer.retryer import DEFAULT_RETRYER
 
 logger = logging.getLogger(__name__)
+
 
 class ApiClient(object):
     """Generic API client for Swagger client library builds.
@@ -171,8 +171,10 @@ class ApiClient(object):
             delay = retryer.get_backoff_delay(retry_count)
             sleep(delay / 1000)
             if self.configuration.debug:
-                logger.debug("retry backoff strategy:%s, retry condition: %s, max retry count:%d, current retry count: %d, retry delay(ms):%f",
-                             type(retryer.backoff_strategy).__name__,type(retryer.retry_condition).__name__, retryer.num_max_retries, retry_count + 1, delay)
+                logger.debug(
+                    "retry backoff strategy:%s, retry condition: %s, max retry count:%d, current retry count: %d, retry delay(ms):%f",
+                    type(retryer.backoff_strategy).__name__, type(retryer.retry_condition).__name__,
+                    retryer.num_max_retries, retry_count + 1, delay)
             return True
         return False
 

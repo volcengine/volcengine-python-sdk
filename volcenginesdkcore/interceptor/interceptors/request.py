@@ -1,6 +1,3 @@
-from volcenginesdkcore.retryer.retryer import DefaultRetryCondition, ExponentialWithRandomJitterBackoffStrategy
-
-
 class RuntimeOption(object):
     def __init__(self, client_side_validation, ak=None, sk=None, session_token=None, region=None, scheme=None,
                  endpoint_provider=None, connect_timeout=None, read_timeout=None, auto_retry=None, num_max_retries=None,

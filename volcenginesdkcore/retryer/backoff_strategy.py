@@ -5,6 +5,7 @@ from abc import abstractmethod
 
 from volcenginesdkcore.utils import six_utils
 
+
 class BackoffStrategy(six_utils.get_abstract_meta_class()):
     """
     Abstract base class for all backoff strategies.
@@ -24,7 +25,6 @@ class BackoffStrategy(six_utils.get_abstract_meta_class()):
        """
         self.min_retry_delay_ms = min_retry_delay_ms
         self.max_retry_delay_ms = max_retry_delay_ms
-
 
     @abstractmethod
     def compute_delay(self, retry_count):
@@ -73,6 +73,7 @@ class ExponentialBackoffStrategy(BackoffStrategy):
         max_retry_delay_ms = self.max_retry_delay_ms
         delay = min(min_retry_delay_ms * (2 ** retry_count), max_retry_delay_ms)
         return delay
+
 
 class ExponentialWithRandomJitterBackoffStrategy(ExponentialBackoffStrategy):
     """

@@ -1,8 +1,12 @@
 # coding: utf-8
+from typing import TYPE_CHECKING
+from volcenginesdkcore.retryer.backoff_strategy import ExponentialWithRandomJitterBackoffStrategy
+from volcenginesdkcore.retryer.retry_condition import DefaultRetryCondition
 
-from volcenginesdkcore.rest import RESTResponse
-from volcenginesdkcore.retryer.backoff_strategy import ExponentialWithRandomJitterBackoffStrategy, BackoffStrategy
-from volcenginesdkcore.retryer.retry_condition import DefaultRetryCondition, RetryCondition
+if TYPE_CHECKING:
+    from volcenginesdkcore.rest import RESTResponse
+    from volcenginesdkcore.retryer.backoff_strategy import BackoffStrategy
+    from volcenginesdkcore.retryer.retry_condition import RetryCondition
 
 _DEFAULT_BACKOFF_STRATEGY = ExponentialWithRandomJitterBackoffStrategy(
     min_retry_delay_ms=300,
@@ -68,5 +72,6 @@ class Retryer:
         if self.backoff_strategy is not None:
             return self.backoff_strategy.compute_delay(retry_count)
         return 0.0
+
 
 DEFAULT_RETRYER = Retryer()
