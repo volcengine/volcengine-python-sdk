@@ -12,6 +12,7 @@ import certifi
 # python 2 and python 3 compatibility library
 import six
 from six.moves.urllib.parse import urlencode
+from urllib3 import Retry
 
 try:
     import urllib3
@@ -88,6 +89,7 @@ class RESTClientObject(object):
                 key_file=configuration.key_file,
                 proxy_url=configuration.proxy,
                 timeout=timeout,
+                retries=Retry(total=False),
                 **addition_pool_args
             )
         else:
@@ -99,6 +101,7 @@ class RESTClientObject(object):
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
                 timeout=timeout,
+                retries=Retry(total=False),
                 **addition_pool_args
             )
 
