@@ -46,7 +46,7 @@ class RuntimeOptionsInterceptor(RequestInterceptor):
             if opt.retry_error_codes is not None else context.request.retryer.retry_condition.retry_error_codes
         context.request.auto_retry = opt.auto_retry if opt.auto_retry is not None else context.request.auto_retry
         context.request.retryer.num_max_retries = opt.num_max_retries \
-            if opt.num_max_retries is not None else context.request.num_max_retries
+            if opt.num_max_retries is not None else context.request.retryer.num_max_retries
         context.request.retryer.backoff_strategy = opt.backoff_strategy \
             if opt.backoff_strategy is not None else context.request.retryer.backoff_strategy
         context.request.retryer.backoff_strategy.min_retry_delay_ms = min_retry_delay_ms

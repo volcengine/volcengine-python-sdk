@@ -42,6 +42,7 @@ class ListJobsRequest(object):
         'priority': 'int',
         'resource_group_id': 'str',
         'resource_queue_id': 'str',
+        'resource_reservation_plan_id': 'str',
         'sort_by': 'str',
         'sort_order': 'str',
         'state': 'str',
@@ -59,6 +60,7 @@ class ListJobsRequest(object):
         'priority': 'Priority',
         'resource_group_id': 'ResourceGroupId',
         'resource_queue_id': 'ResourceQueueId',
+        'resource_reservation_plan_id': 'ResourceReservationPlanId',
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
         'state': 'State',
@@ -66,7 +68,7 @@ class ListJobsRequest(object):
         'update_time_before': 'UpdateTimeBefore'
     }
 
-    def __init__(self, create_time_after=None, create_time_before=None, diagnose_state=None, name_contains=None, page_number=None, page_size=None, priority=None, resource_group_id=None, resource_queue_id=None, sort_by=None, sort_order=None, state=None, update_time_after=None, update_time_before=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time_after=None, create_time_before=None, diagnose_state=None, name_contains=None, page_number=None, page_size=None, priority=None, resource_group_id=None, resource_queue_id=None, resource_reservation_plan_id=None, sort_by=None, sort_order=None, state=None, update_time_after=None, update_time_before=None, _configuration=None):  # noqa: E501
         """ListJobsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class ListJobsRequest(object):
         self._priority = None
         self._resource_group_id = None
         self._resource_queue_id = None
+        self._resource_reservation_plan_id = None
         self._sort_by = None
         self._sort_order = None
         self._state = None
@@ -106,6 +109,8 @@ class ListJobsRequest(object):
             self.resource_group_id = resource_group_id
         if resource_queue_id is not None:
             self.resource_queue_id = resource_queue_id
+        if resource_reservation_plan_id is not None:
+            self.resource_reservation_plan_id = resource_reservation_plan_id
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
@@ -318,6 +323,27 @@ class ListJobsRequest(object):
         """
 
         self._resource_queue_id = resource_queue_id
+
+    @property
+    def resource_reservation_plan_id(self):
+        """Gets the resource_reservation_plan_id of this ListJobsRequest.  # noqa: E501
+
+
+        :return: The resource_reservation_plan_id of this ListJobsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_reservation_plan_id
+
+    @resource_reservation_plan_id.setter
+    def resource_reservation_plan_id(self, resource_reservation_plan_id):
+        """Sets the resource_reservation_plan_id of this ListJobsRequest.
+
+
+        :param resource_reservation_plan_id: The resource_reservation_plan_id of this ListJobsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_reservation_plan_id = resource_reservation_plan_id
 
     @property
     def sort_by(self):

@@ -38,7 +38,8 @@ class UpdateResourceGroupRequest(object):
         'name': 'str',
         'resource_config': 'ResourceConfigForUpdateResourceGroupInput',
         'storage_config': 'StorageConfigForUpdateResourceGroupInput',
-        'workload_network_config': 'WorkloadNetworkConfigForUpdateResourceGroupInput'
+        'workload_network_config': 'WorkloadNetworkConfigForUpdateResourceGroupInput',
+        'workload_network_mode': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class UpdateResourceGroupRequest(object):
         'name': 'Name',
         'resource_config': 'ResourceConfig',
         'storage_config': 'StorageConfig',
-        'workload_network_config': 'WorkloadNetworkConfig'
+        'workload_network_config': 'WorkloadNetworkConfig',
+        'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, description=None, id=None, name=None, resource_config=None, storage_config=None, workload_network_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, id=None, name=None, resource_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """UpdateResourceGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class UpdateResourceGroupRequest(object):
         self._resource_config = None
         self._storage_config = None
         self._workload_network_config = None
+        self._workload_network_mode = None
         self.discriminator = None
 
         if description is not None:
@@ -75,6 +78,8 @@ class UpdateResourceGroupRequest(object):
             self.storage_config = storage_config
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
+        if workload_network_mode is not None:
+            self.workload_network_mode = workload_network_mode
 
     @property
     def description(self):
@@ -215,6 +220,27 @@ class UpdateResourceGroupRequest(object):
         """
 
         self._workload_network_config = workload_network_config
+
+    @property
+    def workload_network_mode(self):
+        """Gets the workload_network_mode of this UpdateResourceGroupRequest.  # noqa: E501
+
+
+        :return: The workload_network_mode of this UpdateResourceGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_network_mode
+
+    @workload_network_mode.setter
+    def workload_network_mode(self, workload_network_mode):
+        """Sets the workload_network_mode of this UpdateResourceGroupRequest.
+
+
+        :param workload_network_mode: The workload_network_mode of this UpdateResourceGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_network_mode = workload_network_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

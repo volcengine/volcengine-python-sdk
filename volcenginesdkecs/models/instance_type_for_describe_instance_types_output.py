@@ -33,11 +33,13 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'affinity_group_sizes': 'list[int]',
         'baseline_credit': 'int',
         'gpu': 'GpuForDescribeInstanceTypesOutput',
         'initial_credit': 'int',
         'instance_type_family': 'str',
         'instance_type_id': 'str',
+        'is_support_affinity_group': 'bool',
         'local_volumes': 'list[LocalVolumeForDescribeInstanceTypesOutput]',
         'memory': 'MemoryForDescribeInstanceTypesOutput',
         'network': 'NetworkForDescribeInstanceTypesOutput',
@@ -47,11 +49,13 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
     }
 
     attribute_map = {
+        'affinity_group_sizes': 'AffinityGroupSizes',
         'baseline_credit': 'BaselineCredit',
         'gpu': 'Gpu',
         'initial_credit': 'InitialCredit',
         'instance_type_family': 'InstanceTypeFamily',
         'instance_type_id': 'InstanceTypeId',
+        'is_support_affinity_group': 'IsSupportAffinityGroup',
         'local_volumes': 'LocalVolumes',
         'memory': 'Memory',
         'network': 'Network',
@@ -60,17 +64,19 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         'volume': 'Volume'
     }
 
-    def __init__(self, baseline_credit=None, gpu=None, initial_credit=None, instance_type_family=None, instance_type_id=None, local_volumes=None, memory=None, network=None, processor=None, rdma=None, volume=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_sizes=None, baseline_credit=None, gpu=None, initial_credit=None, instance_type_family=None, instance_type_id=None, is_support_affinity_group=None, local_volumes=None, memory=None, network=None, processor=None, rdma=None, volume=None, _configuration=None):  # noqa: E501
         """InstanceTypeForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._affinity_group_sizes = None
         self._baseline_credit = None
         self._gpu = None
         self._initial_credit = None
         self._instance_type_family = None
         self._instance_type_id = None
+        self._is_support_affinity_group = None
         self._local_volumes = None
         self._memory = None
         self._network = None
@@ -79,6 +85,8 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         self._volume = None
         self.discriminator = None
 
+        if affinity_group_sizes is not None:
+            self.affinity_group_sizes = affinity_group_sizes
         if baseline_credit is not None:
             self.baseline_credit = baseline_credit
         if gpu is not None:
@@ -89,6 +97,8 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
             self.instance_type_family = instance_type_family
         if instance_type_id is not None:
             self.instance_type_id = instance_type_id
+        if is_support_affinity_group is not None:
+            self.is_support_affinity_group = is_support_affinity_group
         if local_volumes is not None:
             self.local_volumes = local_volumes
         if memory is not None:
@@ -101,6 +111,27 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
             self.rdma = rdma
         if volume is not None:
             self.volume = volume
+
+    @property
+    def affinity_group_sizes(self):
+        """Gets the affinity_group_sizes of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The affinity_group_sizes of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._affinity_group_sizes
+
+    @affinity_group_sizes.setter
+    def affinity_group_sizes(self, affinity_group_sizes):
+        """Sets the affinity_group_sizes of this InstanceTypeForDescribeInstanceTypesOutput.
+
+
+        :param affinity_group_sizes: The affinity_group_sizes of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._affinity_group_sizes = affinity_group_sizes
 
     @property
     def baseline_credit(self):
@@ -206,6 +237,27 @@ class InstanceTypeForDescribeInstanceTypesOutput(object):
         """
 
         self._instance_type_id = instance_type_id
+
+    @property
+    def is_support_affinity_group(self):
+        """Gets the is_support_affinity_group of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The is_support_affinity_group of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_support_affinity_group
+
+    @is_support_affinity_group.setter
+    def is_support_affinity_group(self, is_support_affinity_group):
+        """Sets the is_support_affinity_group of this InstanceTypeForDescribeInstanceTypesOutput.
+
+
+        :param is_support_affinity_group: The is_support_affinity_group of this InstanceTypeForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_support_affinity_group = is_support_affinity_group
 
     @property
     def local_volumes(self):

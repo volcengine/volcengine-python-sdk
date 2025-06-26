@@ -34,29 +34,34 @@ class ListInstanceTypesRequest(object):
     """
     swagger_types = {
         'name_contains': 'str',
+        'reservation_plan_support_status': 'str',
         'support_status': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
         'name_contains': 'NameContains',
+        'reservation_plan_support_status': 'ReservationPlanSupportStatus',
         'support_status': 'SupportStatus',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, name_contains=None, support_status=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, name_contains=None, reservation_plan_support_status=None, support_status=None, zone_id=None, _configuration=None):  # noqa: E501
         """ListInstanceTypesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._name_contains = None
+        self._reservation_plan_support_status = None
         self._support_status = None
         self._zone_id = None
         self.discriminator = None
 
         if name_contains is not None:
             self.name_contains = name_contains
+        if reservation_plan_support_status is not None:
+            self.reservation_plan_support_status = reservation_plan_support_status
         if support_status is not None:
             self.support_status = support_status
         if zone_id is not None:
@@ -82,6 +87,34 @@ class ListInstanceTypesRequest(object):
         """
 
         self._name_contains = name_contains
+
+    @property
+    def reservation_plan_support_status(self):
+        """Gets the reservation_plan_support_status of this ListInstanceTypesRequest.  # noqa: E501
+
+
+        :return: The reservation_plan_support_status of this ListInstanceTypesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._reservation_plan_support_status
+
+    @reservation_plan_support_status.setter
+    def reservation_plan_support_status(self, reservation_plan_support_status):
+        """Sets the reservation_plan_support_status of this ListInstanceTypesRequest.
+
+
+        :param reservation_plan_support_status: The reservation_plan_support_status of this ListInstanceTypesRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Valid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                reservation_plan_support_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `reservation_plan_support_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(reservation_plan_support_status, allowed_values)
+            )
+
+        self._reservation_plan_support_status = reservation_plan_support_status
 
     @property
     def support_status(self):

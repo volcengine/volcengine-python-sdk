@@ -41,6 +41,7 @@ class ItemForListJobsOutput(object):
         'name': 'str',
         'resource_config': 'ResourceConfigForListJobsOutput',
         'status': 'StatusForListJobsOutput',
+        'stop_reason': 'str',
         'update_time': 'str'
     }
 
@@ -53,10 +54,11 @@ class ItemForListJobsOutput(object):
         'name': 'Name',
         'resource_config': 'ResourceConfig',
         'status': 'Status',
+        'stop_reason': 'StopReason',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, created_by=None, description=None, id=None, initial_id=None, name=None, resource_config=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, created_by=None, description=None, id=None, initial_id=None, name=None, resource_config=None, status=None, stop_reason=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListJobsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class ItemForListJobsOutput(object):
         self._name = None
         self._resource_config = None
         self._status = None
+        self._stop_reason = None
         self._update_time = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class ItemForListJobsOutput(object):
             self.resource_config = resource_config
         if status is not None:
             self.status = status
+        if stop_reason is not None:
+            self.stop_reason = stop_reason
         if update_time is not None:
             self.update_time = update_time
 
@@ -259,6 +264,27 @@ class ItemForListJobsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def stop_reason(self):
+        """Gets the stop_reason of this ItemForListJobsOutput.  # noqa: E501
+
+
+        :return: The stop_reason of this ItemForListJobsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._stop_reason
+
+    @stop_reason.setter
+    def stop_reason(self, stop_reason):
+        """Sets the stop_reason of this ItemForListJobsOutput.
+
+
+        :param stop_reason: The stop_reason of this ItemForListJobsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._stop_reason = stop_reason
 
     @property
     def update_time(self):
