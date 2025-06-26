@@ -50,6 +50,7 @@ class GetInstanceTypeResponse(object):
         'price_by_month': 'float',
         'rdma_eni_count': 'int',
         'rdma_eni_maximum_bandwidth_mbps': 'int',
+        'reservation_plan_price_by_hour': 'float',
         'volume_maximum_bandwidth_mbps': 'int',
         'volume_maximum_iops': 'int',
         'volume_supported_types': 'list[str]',
@@ -74,13 +75,14 @@ class GetInstanceTypeResponse(object):
         'price_by_month': 'PriceByMonth',
         'rdma_eni_count': 'RdmaEniCount',
         'rdma_eni_maximum_bandwidth_mbps': 'RdmaEniMaximumBandwidthMbps',
+        'reservation_plan_price_by_hour': 'ReservationPlanPriceByHour',
         'volume_maximum_bandwidth_mbps': 'VolumeMaximumBandwidthMbps',
         'volume_maximum_iops': 'VolumeMaximumIops',
         'volume_supported_types': 'VolumeSupportedTypes',
         'zone_info': 'ZoneInfo'
     }
 
-    def __init__(self, available_gpu_memory_mi_b=None, cpu=None, eni_count=None, eni_maximum_bandwidth_mbps=None, family=None, gpu_count=None, gpu_memory_mi_b=None, gpu_type=None, id=None, kind=None, memory_mi_b=None, nvme_ssd_count=None, price_by_day=None, price_by_hour=None, price_by_month=None, rdma_eni_count=None, rdma_eni_maximum_bandwidth_mbps=None, volume_maximum_bandwidth_mbps=None, volume_maximum_iops=None, volume_supported_types=None, zone_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, available_gpu_memory_mi_b=None, cpu=None, eni_count=None, eni_maximum_bandwidth_mbps=None, family=None, gpu_count=None, gpu_memory_mi_b=None, gpu_type=None, id=None, kind=None, memory_mi_b=None, nvme_ssd_count=None, price_by_day=None, price_by_hour=None, price_by_month=None, rdma_eni_count=None, rdma_eni_maximum_bandwidth_mbps=None, reservation_plan_price_by_hour=None, volume_maximum_bandwidth_mbps=None, volume_maximum_iops=None, volume_supported_types=None, zone_info=None, _configuration=None):  # noqa: E501
         """GetInstanceTypeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +105,7 @@ class GetInstanceTypeResponse(object):
         self._price_by_month = None
         self._rdma_eni_count = None
         self._rdma_eni_maximum_bandwidth_mbps = None
+        self._reservation_plan_price_by_hour = None
         self._volume_maximum_bandwidth_mbps = None
         self._volume_maximum_iops = None
         self._volume_supported_types = None
@@ -143,6 +146,8 @@ class GetInstanceTypeResponse(object):
             self.rdma_eni_count = rdma_eni_count
         if rdma_eni_maximum_bandwidth_mbps is not None:
             self.rdma_eni_maximum_bandwidth_mbps = rdma_eni_maximum_bandwidth_mbps
+        if reservation_plan_price_by_hour is not None:
+            self.reservation_plan_price_by_hour = reservation_plan_price_by_hour
         if volume_maximum_bandwidth_mbps is not None:
             self.volume_maximum_bandwidth_mbps = volume_maximum_bandwidth_mbps
         if volume_maximum_iops is not None:
@@ -508,6 +513,27 @@ class GetInstanceTypeResponse(object):
         """
 
         self._rdma_eni_maximum_bandwidth_mbps = rdma_eni_maximum_bandwidth_mbps
+
+    @property
+    def reservation_plan_price_by_hour(self):
+        """Gets the reservation_plan_price_by_hour of this GetInstanceTypeResponse.  # noqa: E501
+
+
+        :return: The reservation_plan_price_by_hour of this GetInstanceTypeResponse.  # noqa: E501
+        :rtype: float
+        """
+        return self._reservation_plan_price_by_hour
+
+    @reservation_plan_price_by_hour.setter
+    def reservation_plan_price_by_hour(self, reservation_plan_price_by_hour):
+        """Sets the reservation_plan_price_by_hour of this GetInstanceTypeResponse.
+
+
+        :param reservation_plan_price_by_hour: The reservation_plan_price_by_hour of this GetInstanceTypeResponse.  # noqa: E501
+        :type: float
+        """
+
+        self._reservation_plan_price_by_hour = reservation_plan_price_by_hour
 
     @property
     def volume_maximum_bandwidth_mbps(self):

@@ -38,13 +38,14 @@ class CreateResourceGroupRequest(object):
         'charge_type': 'str',
         'description': 'str',
         'dry_run': 'bool',
+        'm_gpu_enabled': 'bool',
         'name': 'str',
         'period': 'int',
         'period_unit': 'str',
         'resource_config': 'ResourceConfigForCreateResourceGroupInput',
         'storage_config': 'StorageConfigForCreateResourceGroupInput',
-        'use_m_gpu': 'bool',
-        'workload_network_config': 'WorkloadNetworkConfigForCreateResourceGroupInput'
+        'workload_network_config': 'WorkloadNetworkConfigForCreateResourceGroupInput',
+        'workload_network_mode': 'str'
     }
 
     attribute_map = {
@@ -53,16 +54,17 @@ class CreateResourceGroupRequest(object):
         'charge_type': 'ChargeType',
         'description': 'Description',
         'dry_run': 'DryRun',
+        'm_gpu_enabled': 'MGpuEnabled',
         'name': 'Name',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'resource_config': 'ResourceConfig',
         'storage_config': 'StorageConfig',
-        'use_m_gpu': 'UseMGpu',
-        'workload_network_config': 'WorkloadNetworkConfig'
+        'workload_network_config': 'WorkloadNetworkConfig',
+        'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, charge_type=None, description=None, dry_run=None, name=None, period=None, period_unit=None, resource_config=None, storage_config=None, use_m_gpu=None, workload_network_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, charge_type=None, description=None, dry_run=None, m_gpu_enabled=None, name=None, period=None, period_unit=None, resource_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """CreateResourceGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,13 +75,14 @@ class CreateResourceGroupRequest(object):
         self._charge_type = None
         self._description = None
         self._dry_run = None
+        self._m_gpu_enabled = None
         self._name = None
         self._period = None
         self._period_unit = None
         self._resource_config = None
         self._storage_config = None
-        self._use_m_gpu = None
         self._workload_network_config = None
+        self._workload_network_mode = None
         self.discriminator = None
 
         if auto_renew is not None:
@@ -91,6 +94,8 @@ class CreateResourceGroupRequest(object):
             self.description = description
         if dry_run is not None:
             self.dry_run = dry_run
+        if m_gpu_enabled is not None:
+            self.m_gpu_enabled = m_gpu_enabled
         self.name = name
         if period is not None:
             self.period = period
@@ -100,10 +105,10 @@ class CreateResourceGroupRequest(object):
             self.resource_config = resource_config
         if storage_config is not None:
             self.storage_config = storage_config
-        if use_m_gpu is not None:
-            self.use_m_gpu = use_m_gpu
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
+        if workload_network_mode is not None:
+            self.workload_network_mode = workload_network_mode
 
     @property
     def auto_renew(self):
@@ -229,6 +234,27 @@ class CreateResourceGroupRequest(object):
         self._dry_run = dry_run
 
     @property
+    def m_gpu_enabled(self):
+        """Gets the m_gpu_enabled of this CreateResourceGroupRequest.  # noqa: E501
+
+
+        :return: The m_gpu_enabled of this CreateResourceGroupRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._m_gpu_enabled
+
+    @m_gpu_enabled.setter
+    def m_gpu_enabled(self, m_gpu_enabled):
+        """Sets the m_gpu_enabled of this CreateResourceGroupRequest.
+
+
+        :param m_gpu_enabled: The m_gpu_enabled of this CreateResourceGroupRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._m_gpu_enabled = m_gpu_enabled
+
+    @property
     def name(self):
         """Gets the name of this CreateResourceGroupRequest.  # noqa: E501
 
@@ -352,27 +378,6 @@ class CreateResourceGroupRequest(object):
         self._storage_config = storage_config
 
     @property
-    def use_m_gpu(self):
-        """Gets the use_m_gpu of this CreateResourceGroupRequest.  # noqa: E501
-
-
-        :return: The use_m_gpu of this CreateResourceGroupRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._use_m_gpu
-
-    @use_m_gpu.setter
-    def use_m_gpu(self, use_m_gpu):
-        """Sets the use_m_gpu of this CreateResourceGroupRequest.
-
-
-        :param use_m_gpu: The use_m_gpu of this CreateResourceGroupRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._use_m_gpu = use_m_gpu
-
-    @property
     def workload_network_config(self):
         """Gets the workload_network_config of this CreateResourceGroupRequest.  # noqa: E501
 
@@ -392,6 +397,27 @@ class CreateResourceGroupRequest(object):
         """
 
         self._workload_network_config = workload_network_config
+
+    @property
+    def workload_network_mode(self):
+        """Gets the workload_network_mode of this CreateResourceGroupRequest.  # noqa: E501
+
+
+        :return: The workload_network_mode of this CreateResourceGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_network_mode
+
+    @workload_network_mode.setter
+    def workload_network_mode(self, workload_network_mode):
+        """Sets the workload_network_mode of this CreateResourceGroupRequest.
+
+
+        :param workload_network_mode: The workload_network_mode of this CreateResourceGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_network_mode = workload_network_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -38,6 +38,7 @@ class GetResourceGroupResponse(object):
         'description': 'str',
         'expire_time': 'str',
         'id': 'str',
+        'm_gpu_enabled': 'bool',
         'name': 'str',
         'period_unit': 'str',
         'remain_auto_renew_times': 'int',
@@ -47,6 +48,7 @@ class GetResourceGroupResponse(object):
         'status': 'StatusForGetResourceGroupOutput',
         'storage_config': 'StorageConfigForGetResourceGroupOutput',
         'workload_network_config': 'WorkloadNetworkConfigForGetResourceGroupOutput',
+        'workload_network_mode': 'str',
         'zone_ids': 'list[str]'
     }
 
@@ -56,6 +58,7 @@ class GetResourceGroupResponse(object):
         'description': 'Description',
         'expire_time': 'ExpireTime',
         'id': 'Id',
+        'm_gpu_enabled': 'MGpuEnabled',
         'name': 'Name',
         'period_unit': 'PeriodUnit',
         'remain_auto_renew_times': 'RemainAutoRenewTimes',
@@ -65,10 +68,11 @@ class GetResourceGroupResponse(object):
         'status': 'Status',
         'storage_config': 'StorageConfig',
         'workload_network_config': 'WorkloadNetworkConfig',
+        'workload_network_mode': 'WorkloadNetworkMode',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew_period=None, charge_type=None, description=None, expire_time=None, id=None, name=None, period_unit=None, remain_auto_renew_times=None, renew_type=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, workload_network_config=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew_period=None, charge_type=None, description=None, expire_time=None, id=None, m_gpu_enabled=None, name=None, period_unit=None, remain_auto_renew_times=None, renew_type=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
         """GetResourceGroupResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +83,7 @@ class GetResourceGroupResponse(object):
         self._description = None
         self._expire_time = None
         self._id = None
+        self._m_gpu_enabled = None
         self._name = None
         self._period_unit = None
         self._remain_auto_renew_times = None
@@ -88,6 +93,7 @@ class GetResourceGroupResponse(object):
         self._status = None
         self._storage_config = None
         self._workload_network_config = None
+        self._workload_network_mode = None
         self._zone_ids = None
         self.discriminator = None
 
@@ -101,6 +107,8 @@ class GetResourceGroupResponse(object):
             self.expire_time = expire_time
         if id is not None:
             self.id = id
+        if m_gpu_enabled is not None:
+            self.m_gpu_enabled = m_gpu_enabled
         if name is not None:
             self.name = name
         if period_unit is not None:
@@ -119,6 +127,8 @@ class GetResourceGroupResponse(object):
             self.storage_config = storage_config
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
+        if workload_network_mode is not None:
+            self.workload_network_mode = workload_network_mode
         if zone_ids is not None:
             self.zone_ids = zone_ids
 
@@ -226,6 +236,27 @@ class GetResourceGroupResponse(object):
         """
 
         self._id = id
+
+    @property
+    def m_gpu_enabled(self):
+        """Gets the m_gpu_enabled of this GetResourceGroupResponse.  # noqa: E501
+
+
+        :return: The m_gpu_enabled of this GetResourceGroupResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._m_gpu_enabled
+
+    @m_gpu_enabled.setter
+    def m_gpu_enabled(self, m_gpu_enabled):
+        """Sets the m_gpu_enabled of this GetResourceGroupResponse.
+
+
+        :param m_gpu_enabled: The m_gpu_enabled of this GetResourceGroupResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._m_gpu_enabled = m_gpu_enabled
 
     @property
     def name(self):
@@ -415,6 +446,27 @@ class GetResourceGroupResponse(object):
         """
 
         self._workload_network_config = workload_network_config
+
+    @property
+    def workload_network_mode(self):
+        """Gets the workload_network_mode of this GetResourceGroupResponse.  # noqa: E501
+
+
+        :return: The workload_network_mode of this GetResourceGroupResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_network_mode
+
+    @workload_network_mode.setter
+    def workload_network_mode(self, workload_network_mode):
+        """Sets the workload_network_mode of this GetResourceGroupResponse.
+
+
+        :param workload_network_mode: The workload_network_mode of this GetResourceGroupResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_network_mode = workload_network_mode
 
     @property
     def zone_ids(self):

@@ -33,29 +33,55 @@ class ZoneInfoForGetInstanceTypeOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'reservation_plan_support_status': 'str',
         'support_status': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
+        'reservation_plan_support_status': 'ReservationPlanSupportStatus',
         'support_status': 'SupportStatus',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, support_status=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, reservation_plan_support_status=None, support_status=None, zone_id=None, _configuration=None):  # noqa: E501
         """ZoneInfoForGetInstanceTypeOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._reservation_plan_support_status = None
         self._support_status = None
         self._zone_id = None
         self.discriminator = None
 
+        if reservation_plan_support_status is not None:
+            self.reservation_plan_support_status = reservation_plan_support_status
         if support_status is not None:
             self.support_status = support_status
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def reservation_plan_support_status(self):
+        """Gets the reservation_plan_support_status of this ZoneInfoForGetInstanceTypeOutput.  # noqa: E501
+
+
+        :return: The reservation_plan_support_status of this ZoneInfoForGetInstanceTypeOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._reservation_plan_support_status
+
+    @reservation_plan_support_status.setter
+    def reservation_plan_support_status(self, reservation_plan_support_status):
+        """Sets the reservation_plan_support_status of this ZoneInfoForGetInstanceTypeOutput.
+
+
+        :param reservation_plan_support_status: The reservation_plan_support_status of this ZoneInfoForGetInstanceTypeOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._reservation_plan_support_status = reservation_plan_support_status
 
     @property
     def support_status(self):
