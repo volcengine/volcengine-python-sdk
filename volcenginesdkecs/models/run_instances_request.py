@@ -33,12 +33,14 @@ class RunInstancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'affinity_group_size': 'int',
         'auto_renew': 'bool',
         'auto_renew_period': 'int',
         'client_token': 'str',
         'count': 'int',
         'cpu_max_frequency': 'float',
         'credit_specification': 'str',
+        'deletion_protection': 'bool',
         'deployment_set_group_number': 'int',
         'deployment_set_id': 'str',
         'description': 'str',
@@ -75,12 +77,14 @@ class RunInstancesRequest(object):
     }
 
     attribute_map = {
+        'affinity_group_size': 'AffinityGroupSize',
         'auto_renew': 'AutoRenew',
         'auto_renew_period': 'AutoRenewPeriod',
         'client_token': 'ClientToken',
         'count': 'Count',
         'cpu_max_frequency': 'CpuMaxFrequency',
         'credit_specification': 'CreditSpecification',
+        'deletion_protection': 'DeletionProtection',
         'deployment_set_group_number': 'DeploymentSetGroupNumber',
         'deployment_set_id': 'DeploymentSetId',
         'description': 'Description',
@@ -116,18 +120,20 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, count=None, cpu_max_frequency=None, credit_specification=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, image_release_version=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_size=None, auto_renew=None, auto_renew_period=None, client_token=None, count=None, cpu_max_frequency=None, credit_specification=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, image_release_version=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._affinity_group_size = None
         self._auto_renew = None
         self._auto_renew_period = None
         self._client_token = None
         self._count = None
         self._cpu_max_frequency = None
         self._credit_specification = None
+        self._deletion_protection = None
         self._deployment_set_group_number = None
         self._deployment_set_id = None
         self._description = None
@@ -163,6 +169,8 @@ class RunInstancesRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if affinity_group_size is not None:
+            self.affinity_group_size = affinity_group_size
         if auto_renew is not None:
             self.auto_renew = auto_renew
         if auto_renew_period is not None:
@@ -175,6 +183,8 @@ class RunInstancesRequest(object):
             self.cpu_max_frequency = cpu_max_frequency
         if credit_specification is not None:
             self.credit_specification = credit_specification
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         if deployment_set_group_number is not None:
             self.deployment_set_group_number = deployment_set_group_number
         if deployment_set_id is not None:
@@ -238,6 +248,27 @@ class RunInstancesRequest(object):
         if volumes is not None:
             self.volumes = volumes
         self.zone_id = zone_id
+
+    @property
+    def affinity_group_size(self):
+        """Gets the affinity_group_size of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The affinity_group_size of this RunInstancesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._affinity_group_size
+
+    @affinity_group_size.setter
+    def affinity_group_size(self, affinity_group_size):
+        """Sets the affinity_group_size of this RunInstancesRequest.
+
+
+        :param affinity_group_size: The affinity_group_size of this RunInstancesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._affinity_group_size = affinity_group_size
 
     @property
     def auto_renew(self):
@@ -364,6 +395,27 @@ class RunInstancesRequest(object):
         """
 
         self._credit_specification = credit_specification
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The deletion_protection of this RunInstancesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this RunInstancesRequest.
+
+
+        :param deletion_protection: The deletion_protection of this RunInstancesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._deletion_protection = deletion_protection
 
     @property
     def deployment_set_group_number(self):

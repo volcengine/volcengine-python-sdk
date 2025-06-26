@@ -37,6 +37,7 @@ class ImportImageRequest(object):
         'boot_mode': 'str',
         'description': 'str',
         'image_name': 'str',
+        'import_data_volumes': 'list[ImportDataVolumeForImportImageInput]',
         'license_type': 'str',
         'need_detection': 'bool',
         'os_type': 'str',
@@ -52,6 +53,7 @@ class ImportImageRequest(object):
         'boot_mode': 'BootMode',
         'description': 'Description',
         'image_name': 'ImageName',
+        'import_data_volumes': 'ImportDataVolumes',
         'license_type': 'LicenseType',
         'need_detection': 'NeedDetection',
         'os_type': 'OsType',
@@ -62,7 +64,7 @@ class ImportImageRequest(object):
         'url': 'Url'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, description=None, image_name=None, license_type=None, need_detection=None, os_type=None, platform=None, platform_version=None, project_name=None, tags=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, description=None, image_name=None, import_data_volumes=None, license_type=None, need_detection=None, os_type=None, platform=None, platform_version=None, project_name=None, tags=None, url=None, _configuration=None):  # noqa: E501
         """ImportImageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class ImportImageRequest(object):
         self._boot_mode = None
         self._description = None
         self._image_name = None
+        self._import_data_volumes = None
         self._license_type = None
         self._need_detection = None
         self._os_type = None
@@ -89,6 +92,8 @@ class ImportImageRequest(object):
         if description is not None:
             self.description = description
         self.image_name = image_name
+        if import_data_volumes is not None:
+            self.import_data_volumes = import_data_volumes
         if license_type is not None:
             self.license_type = license_type
         if need_detection is not None:
@@ -189,6 +194,27 @@ class ImportImageRequest(object):
             raise ValueError("Invalid value for `image_name`, must not be `None`")  # noqa: E501
 
         self._image_name = image_name
+
+    @property
+    def import_data_volumes(self):
+        """Gets the import_data_volumes of this ImportImageRequest.  # noqa: E501
+
+
+        :return: The import_data_volumes of this ImportImageRequest.  # noqa: E501
+        :rtype: list[ImportDataVolumeForImportImageInput]
+        """
+        return self._import_data_volumes
+
+    @import_data_volumes.setter
+    def import_data_volumes(self, import_data_volumes):
+        """Sets the import_data_volumes of this ImportImageRequest.
+
+
+        :param import_data_volumes: The import_data_volumes of this ImportImageRequest.  # noqa: E501
+        :type: list[ImportDataVolumeForImportImageInput]
+        """
+
+        self._import_data_volumes = import_data_volumes
 
     @property
     def license_type(self):

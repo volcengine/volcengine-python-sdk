@@ -36,6 +36,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         'description': 'str',
         'eip_address': 'EipAddressForDescribeScheduledInstancesOutput',
         'host_name': 'str',
+        'hpc_cluster_id': 'str',
         'image_id': 'str',
         'instance_name': 'str',
         'instance_type_id': 'str',
@@ -51,6 +52,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         'description': 'Description',
         'eip_address': 'EipAddress',
         'host_name': 'HostName',
+        'hpc_cluster_id': 'HpcClusterId',
         'image_id': 'ImageId',
         'instance_name': 'InstanceName',
         'instance_type_id': 'InstanceTypeId',
@@ -62,7 +64,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, description=None, eip_address=None, host_name=None, image_id=None, instance_name=None, instance_type_id=None, key_pair_name=None, network_interfaces_res=None, project_name=None, tags=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, eip_address=None, host_name=None, hpc_cluster_id=None, image_id=None, instance_name=None, instance_type_id=None, key_pair_name=None, network_interfaces_res=None, project_name=None, tags=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceConfigForDescribeScheduledInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         self._description = None
         self._eip_address = None
         self._host_name = None
+        self._hpc_cluster_id = None
         self._image_id = None
         self._instance_name = None
         self._instance_type_id = None
@@ -88,6 +91,8 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
             self.eip_address = eip_address
         if host_name is not None:
             self.host_name = host_name
+        if hpc_cluster_id is not None:
+            self.hpc_cluster_id = hpc_cluster_id
         if image_id is not None:
             self.image_id = image_id
         if instance_name is not None:
@@ -169,6 +174,27 @@ class InstanceConfigForDescribeScheduledInstancesOutput(object):
         """
 
         self._host_name = host_name
+
+    @property
+    def hpc_cluster_id(self):
+        """Gets the hpc_cluster_id of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
+
+
+        :return: The hpc_cluster_id of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._hpc_cluster_id
+
+    @hpc_cluster_id.setter
+    def hpc_cluster_id(self, hpc_cluster_id):
+        """Sets the hpc_cluster_id of this InstanceConfigForDescribeScheduledInstancesOutput.
+
+
+        :param hpc_cluster_id: The hpc_cluster_id of this InstanceConfigForDescribeScheduledInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._hpc_cluster_id = hpc_cluster_id
 
     @property
     def image_id(self):

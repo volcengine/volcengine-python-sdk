@@ -33,6 +33,7 @@ class DescribeInstancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'affinity_group_ids': 'list[str]',
         'dedicated_host_cluster_id': 'str',
         'dedicated_host_id': 'str',
         'deployment_set_group_numbers': 'list[int]',
@@ -59,6 +60,7 @@ class DescribeInstancesRequest(object):
     }
 
     attribute_map = {
+        'affinity_group_ids': 'AffinityGroupIds',
         'dedicated_host_cluster_id': 'DedicatedHostClusterId',
         'dedicated_host_id': 'DedicatedHostId',
         'deployment_set_group_numbers': 'DeploymentSetGroupNumbers',
@@ -84,12 +86,13 @@ class DescribeInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_group_numbers=None, deployment_set_ids=None, eip_addresses=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, ipv6_addresses=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, scheduled_instance_id=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_ids=None, dedicated_host_cluster_id=None, dedicated_host_id=None, deployment_set_group_numbers=None, deployment_set_ids=None, eip_addresses=None, hpc_cluster_id=None, instance_charge_type=None, instance_ids=None, instance_name=None, instance_type_families=None, instance_type_ids=None, instance_types=None, ipv6_addresses=None, key_pair_name=None, max_results=None, next_token=None, primary_ip_address=None, project_name=None, scheduled_instance_id=None, status=None, tag_filters=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._affinity_group_ids = None
         self._dedicated_host_cluster_id = None
         self._dedicated_host_id = None
         self._deployment_set_group_numbers = None
@@ -115,6 +118,8 @@ class DescribeInstancesRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if affinity_group_ids is not None:
+            self.affinity_group_ids = affinity_group_ids
         if dedicated_host_cluster_id is not None:
             self.dedicated_host_cluster_id = dedicated_host_cluster_id
         if dedicated_host_id is not None:
@@ -161,6 +166,27 @@ class DescribeInstancesRequest(object):
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def affinity_group_ids(self):
+        """Gets the affinity_group_ids of this DescribeInstancesRequest.  # noqa: E501
+
+
+        :return: The affinity_group_ids of this DescribeInstancesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._affinity_group_ids
+
+    @affinity_group_ids.setter
+    def affinity_group_ids(self, affinity_group_ids):
+        """Sets the affinity_group_ids of this DescribeInstancesRequest.
+
+
+        :param affinity_group_ids: The affinity_group_ids of this DescribeInstancesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._affinity_group_ids = affinity_group_ids
 
     @property
     def dedicated_host_cluster_id(self):
