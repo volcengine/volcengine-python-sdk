@@ -33,33 +33,64 @@ class CreateSandboxRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'envs': 'list[EnvForCreateSandboxInput]',
         'function_id': 'str',
+        'instance_tos_mount_config': 'InstanceTosMountConfigForCreateSandboxInput',
         'metadata': 'MetadataForCreateSandboxInput',
         'timeout': 'int'
     }
 
     attribute_map = {
+        'envs': 'Envs',
         'function_id': 'FunctionId',
+        'instance_tos_mount_config': 'InstanceTosMountConfig',
         'metadata': 'Metadata',
         'timeout': 'Timeout'
     }
 
-    def __init__(self, function_id=None, metadata=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, envs=None, function_id=None, instance_tos_mount_config=None, metadata=None, timeout=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._envs = None
         self._function_id = None
+        self._instance_tos_mount_config = None
         self._metadata = None
         self._timeout = None
         self.discriminator = None
 
+        if envs is not None:
+            self.envs = envs
         self.function_id = function_id
+        if instance_tos_mount_config is not None:
+            self.instance_tos_mount_config = instance_tos_mount_config
         if metadata is not None:
             self.metadata = metadata
         if timeout is not None:
             self.timeout = timeout
+
+    @property
+    def envs(self):
+        """Gets the envs of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The envs of this CreateSandboxRequest.  # noqa: E501
+        :rtype: list[EnvForCreateSandboxInput]
+        """
+        return self._envs
+
+    @envs.setter
+    def envs(self, envs):
+        """Sets the envs of this CreateSandboxRequest.
+
+
+        :param envs: The envs of this CreateSandboxRequest.  # noqa: E501
+        :type: list[EnvForCreateSandboxInput]
+        """
+
+        self._envs = envs
 
     @property
     def function_id(self):
@@ -83,6 +114,27 @@ class CreateSandboxRequest(object):
             raise ValueError("Invalid value for `function_id`, must not be `None`")  # noqa: E501
 
         self._function_id = function_id
+
+    @property
+    def instance_tos_mount_config(self):
+        """Gets the instance_tos_mount_config of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The instance_tos_mount_config of this CreateSandboxRequest.  # noqa: E501
+        :rtype: InstanceTosMountConfigForCreateSandboxInput
+        """
+        return self._instance_tos_mount_config
+
+    @instance_tos_mount_config.setter
+    def instance_tos_mount_config(self, instance_tos_mount_config):
+        """Sets the instance_tos_mount_config of this CreateSandboxRequest.
+
+
+        :param instance_tos_mount_config: The instance_tos_mount_config of this CreateSandboxRequest.  # noqa: E501
+        :type: InstanceTosMountConfigForCreateSandboxInput
+        """
+
+        self._instance_tos_mount_config = instance_tos_mount_config
 
     @property
     def metadata(self):
