@@ -10,6 +10,7 @@ dualstack_endpoint_suffix = '.volcengine-api.com'
 fallback_endpoint = open_prefix + endpoint_suffix
 region_code_cn_beijing_auto_driving = "cn-beijing-autodriving"
 region_code_cn_shanghai_auto_driving = "cn-shanghai-autodriving"
+region_code_cn_beijing_selfdrive = "cn-beijing-selfdrive"
 region_code_ap_southeast2 = "ap-southeast-2"
 region_code_ap_southeast3 = "ap-southeast-3"
 
@@ -460,6 +461,7 @@ bootstrap_region = {
     region_code_ap_southeast2: {},
     region_code_ap_southeast3: {},
     region_code_cn_shanghai_auto_driving: {},
+    region_code_cn_beijing_selfdrive: {},
 }
 
 
