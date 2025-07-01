@@ -63,3 +63,11 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 .idea
+.settings
+.cache/
+.vscode/
+.project
+.history/
+
+#OS
+.DS_Store
