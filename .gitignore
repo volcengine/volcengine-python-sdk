@@ -72,3 +72,48 @@ target/
 #OS
 .DS_Store
 Thumbs.db
+
+# IDE
+.classpath
+.sts4-cache/
+
+# Temporary files & Caches
+.tmp/
+.php_cs.cache
+.swp
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Log files
+*.log
+logs/
+nohup.out
+npm-debug.log*
+yarn-debug.log*
+pytestdebug.log
+
+# Package Files
+*.jar
+*.war
+*.zip
+*.tar.gz
+*.rar
+*.tar
+*.gz
+*.bz2
+*.xz
+*.tgz
+
+# Unit test / coverage reports
+*.cover
+
+# Virtual environments
+.venv/
+ENV/
+
+# Distribution packaging
+wheels/
