@@ -33,6 +33,7 @@ class ListPodRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'archive_status': 'str',
         'authority_status': 'int',
         'configuration_code_list': 'list[str]',
         'dnsid': 'str',
@@ -52,6 +53,7 @@ class ListPodRequest(object):
     }
 
     attribute_map = {
+        'archive_status': 'ArchiveStatus',
         'authority_status': 'AuthorityStatus',
         'configuration_code_list': 'ConfigurationCodeList',
         'dnsid': 'DNSId',
@@ -70,12 +72,13 @@ class ListPodRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, authority_status=None, configuration_code_list=None, dnsid=None, dc_list=None, host_id=None, max_results=None, next_token=None, online_list=None, pod_id_list=None, pod_name=None, product_id=None, region_list=None, server_type_code=None, stream_status_list=None, tag_id_list=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, archive_status=None, authority_status=None, configuration_code_list=None, dnsid=None, dc_list=None, host_id=None, max_results=None, next_token=None, online_list=None, pod_id_list=None, pod_name=None, product_id=None, region_list=None, server_type_code=None, stream_status_list=None, tag_id_list=None, zone_id=None, _configuration=None):  # noqa: E501
         """ListPodRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._archive_status = None
         self._authority_status = None
         self._configuration_code_list = None
         self._dnsid = None
@@ -94,6 +97,8 @@ class ListPodRequest(object):
         self._zone_id = None
         self.discriminator = None
 
+        if archive_status is not None:
+            self.archive_status = archive_status
         if authority_status is not None:
             self.authority_status = authority_status
         if configuration_code_list is not None:
@@ -125,6 +130,27 @@ class ListPodRequest(object):
             self.tag_id_list = tag_id_list
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def archive_status(self):
+        """Gets the archive_status of this ListPodRequest.  # noqa: E501
+
+
+        :return: The archive_status of this ListPodRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._archive_status
+
+    @archive_status.setter
+    def archive_status(self, archive_status):
+        """Sets the archive_status of this ListPodRequest.
+
+
+        :param archive_status: The archive_status of this ListPodRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._archive_status = archive_status
 
     @property
     def authority_status(self):
