@@ -34,26 +34,42 @@ class EnableAccessLogRequest(object):
     """
     swagger_types = {
         'bucket_name': 'str',
-        'load_balancer_id': 'str'
+        'delivery_type': 'str',
+        'load_balancer_id': 'str',
+        'tls_project_id': 'str',
+        'tls_topic_id': 'str'
     }
 
     attribute_map = {
         'bucket_name': 'BucketName',
-        'load_balancer_id': 'LoadBalancerId'
+        'delivery_type': 'DeliveryType',
+        'load_balancer_id': 'LoadBalancerId',
+        'tls_project_id': 'TlsProjectId',
+        'tls_topic_id': 'TlsTopicId'
     }
 
-    def __init__(self, bucket_name=None, load_balancer_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, delivery_type=None, load_balancer_id=None, tls_project_id=None, tls_topic_id=None, _configuration=None):  # noqa: E501
         """EnableAccessLogRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bucket_name = None
+        self._delivery_type = None
         self._load_balancer_id = None
+        self._tls_project_id = None
+        self._tls_topic_id = None
         self.discriminator = None
 
-        self.bucket_name = bucket_name
+        if bucket_name is not None:
+            self.bucket_name = bucket_name
+        if delivery_type is not None:
+            self.delivery_type = delivery_type
         self.load_balancer_id = load_balancer_id
+        if tls_project_id is not None:
+            self.tls_project_id = tls_project_id
+        if tls_topic_id is not None:
+            self.tls_topic_id = tls_topic_id
 
     @property
     def bucket_name(self):
@@ -73,10 +89,29 @@ class EnableAccessLogRequest(object):
         :param bucket_name: The bucket_name of this EnableAccessLogRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and bucket_name is None:
-            raise ValueError("Invalid value for `bucket_name`, must not be `None`")  # noqa: E501
 
         self._bucket_name = bucket_name
+
+    @property
+    def delivery_type(self):
+        """Gets the delivery_type of this EnableAccessLogRequest.  # noqa: E501
+
+
+        :return: The delivery_type of this EnableAccessLogRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._delivery_type
+
+    @delivery_type.setter
+    def delivery_type(self, delivery_type):
+        """Sets the delivery_type of this EnableAccessLogRequest.
+
+
+        :param delivery_type: The delivery_type of this EnableAccessLogRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._delivery_type = delivery_type
 
     @property
     def load_balancer_id(self):
@@ -100,6 +135,48 @@ class EnableAccessLogRequest(object):
             raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
+
+    @property
+    def tls_project_id(self):
+        """Gets the tls_project_id of this EnableAccessLogRequest.  # noqa: E501
+
+
+        :return: The tls_project_id of this EnableAccessLogRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tls_project_id
+
+    @tls_project_id.setter
+    def tls_project_id(self, tls_project_id):
+        """Sets the tls_project_id of this EnableAccessLogRequest.
+
+
+        :param tls_project_id: The tls_project_id of this EnableAccessLogRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._tls_project_id = tls_project_id
+
+    @property
+    def tls_topic_id(self):
+        """Gets the tls_topic_id of this EnableAccessLogRequest.  # noqa: E501
+
+
+        :return: The tls_topic_id of this EnableAccessLogRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tls_topic_id
+
+    @tls_topic_id.setter
+    def tls_topic_id(self, tls_topic_id):
+        """Sets the tls_topic_id of this EnableAccessLogRequest.
+
+
+        :param tls_topic_id: The tls_topic_id of this EnableAccessLogRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._tls_topic_id = tls_topic_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

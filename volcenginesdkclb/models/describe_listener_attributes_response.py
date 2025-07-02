@@ -47,10 +47,12 @@ class DescribeListenerAttributesResponse(object):
         'connection_drain_enabled': 'str',
         'connection_drain_timeout': 'int',
         'cookie': 'str',
+        'cps': 'int',
         'create_time': 'str',
         'description': 'str',
         'enabled': 'str',
         'end_port': 'int',
+        'enhanced_scheduler_enable': 'str',
         'established_timeout': 'int',
         'health_check': 'HealthCheckForDescribeListenerAttributesOutput',
         'http2_enabled': 'str',
@@ -58,6 +60,8 @@ class DescribeListenerAttributesResponse(object):
         'listener_id': 'str',
         'listener_name': 'str',
         'load_balancer_id': 'str',
+        'load_type': 'str',
+        'max_connections': 'int',
         'persistence_timeout': 'int',
         'persistence_type': 'str',
         'port': 'int',
@@ -94,10 +98,12 @@ class DescribeListenerAttributesResponse(object):
         'connection_drain_enabled': 'ConnectionDrainEnabled',
         'connection_drain_timeout': 'ConnectionDrainTimeout',
         'cookie': 'Cookie',
+        'cps': 'Cps',
         'create_time': 'CreateTime',
         'description': 'Description',
         'enabled': 'Enabled',
         'end_port': 'EndPort',
+        'enhanced_scheduler_enable': 'EnhancedSchedulerEnable',
         'established_timeout': 'EstablishedTimeout',
         'health_check': 'HealthCheck',
         'http2_enabled': 'Http2Enabled',
@@ -105,6 +111,8 @@ class DescribeListenerAttributesResponse(object):
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
         'load_balancer_id': 'LoadBalancerId',
+        'load_type': 'LoadType',
+        'max_connections': 'MaxConnections',
         'persistence_timeout': 'PersistenceTimeout',
         'persistence_type': 'PersistenceType',
         'port': 'Port',
@@ -126,7 +134,7 @@ class DescribeListenerAttributesResponse(object):
         'waf_protection_enabled': 'WafProtectionEnabled'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, ca_certificate_id=None, ca_enabled=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, create_time=None, description=None, enabled=None, end_port=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, load_balancer_id=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, request_id=None, response_check_enabled=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, start_port=None, status=None, tags=None, update_time=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, ca_certificate_id=None, ca_enabled=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, cps=None, create_time=None, description=None, enabled=None, end_port=None, enhanced_scheduler_enable=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, load_balancer_id=None, load_type=None, max_connections=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, request_id=None, response_check_enabled=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, start_port=None, status=None, tags=None, update_time=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
         """DescribeListenerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -146,10 +154,12 @@ class DescribeListenerAttributesResponse(object):
         self._connection_drain_enabled = None
         self._connection_drain_timeout = None
         self._cookie = None
+        self._cps = None
         self._create_time = None
         self._description = None
         self._enabled = None
         self._end_port = None
+        self._enhanced_scheduler_enable = None
         self._established_timeout = None
         self._health_check = None
         self._http2_enabled = None
@@ -157,6 +167,8 @@ class DescribeListenerAttributesResponse(object):
         self._listener_id = None
         self._listener_name = None
         self._load_balancer_id = None
+        self._load_type = None
+        self._max_connections = None
         self._persistence_timeout = None
         self._persistence_type = None
         self._port = None
@@ -206,6 +218,8 @@ class DescribeListenerAttributesResponse(object):
             self.connection_drain_timeout = connection_drain_timeout
         if cookie is not None:
             self.cookie = cookie
+        if cps is not None:
+            self.cps = cps
         if create_time is not None:
             self.create_time = create_time
         if description is not None:
@@ -214,6 +228,8 @@ class DescribeListenerAttributesResponse(object):
             self.enabled = enabled
         if end_port is not None:
             self.end_port = end_port
+        if enhanced_scheduler_enable is not None:
+            self.enhanced_scheduler_enable = enhanced_scheduler_enable
         if established_timeout is not None:
             self.established_timeout = established_timeout
         if health_check is not None:
@@ -228,6 +244,10 @@ class DescribeListenerAttributesResponse(object):
             self.listener_name = listener_name
         if load_balancer_id is not None:
             self.load_balancer_id = load_balancer_id
+        if load_type is not None:
+            self.load_type = load_type
+        if max_connections is not None:
+            self.max_connections = max_connections
         if persistence_timeout is not None:
             self.persistence_timeout = persistence_timeout
         if persistence_type is not None:
@@ -562,6 +582,27 @@ class DescribeListenerAttributesResponse(object):
         self._cookie = cookie
 
     @property
+    def cps(self):
+        """Gets the cps of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The cps of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._cps
+
+    @cps.setter
+    def cps(self, cps):
+        """Sets the cps of this DescribeListenerAttributesResponse.
+
+
+        :param cps: The cps of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._cps = cps
+
+    @property
     def create_time(self):
         """Gets the create_time of this DescribeListenerAttributesResponse.  # noqa: E501
 
@@ -644,6 +685,27 @@ class DescribeListenerAttributesResponse(object):
         """
 
         self._end_port = end_port
+
+    @property
+    def enhanced_scheduler_enable(self):
+        """Gets the enhanced_scheduler_enable of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The enhanced_scheduler_enable of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._enhanced_scheduler_enable
+
+    @enhanced_scheduler_enable.setter
+    def enhanced_scheduler_enable(self, enhanced_scheduler_enable):
+        """Sets the enhanced_scheduler_enable of this DescribeListenerAttributesResponse.
+
+
+        :param enhanced_scheduler_enable: The enhanced_scheduler_enable of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._enhanced_scheduler_enable = enhanced_scheduler_enable
 
     @property
     def established_timeout(self):
@@ -791,6 +853,48 @@ class DescribeListenerAttributesResponse(object):
         """
 
         self._load_balancer_id = load_balancer_id
+
+    @property
+    def load_type(self):
+        """Gets the load_type of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The load_type of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._load_type
+
+    @load_type.setter
+    def load_type(self, load_type):
+        """Sets the load_type of this DescribeListenerAttributesResponse.
+
+
+        :param load_type: The load_type of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._load_type = load_type
+
+    @property
+    def max_connections(self):
+        """Gets the max_connections of this DescribeListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The max_connections of this DescribeListenerAttributesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_connections
+
+    @max_connections.setter
+    def max_connections(self, max_connections):
+        """Sets the max_connections of this DescribeListenerAttributesResponse.
+
+
+        :param max_connections: The max_connections of this DescribeListenerAttributesResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._max_connections = max_connections
 
     @property
     def persistence_timeout(self):
