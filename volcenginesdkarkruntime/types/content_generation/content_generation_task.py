@@ -45,3 +45,9 @@ class ContentGenerationTask(BaseModel):
 
     updated_at: int
     """The Unix timestamp when the task was last updated."""
+
+    seed: int
+    """The seed used in the model."""
+
+    revised_prompt: str
+    """The revised prompt the model uses to generate content"""

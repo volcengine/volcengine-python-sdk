@@ -34,15 +34,21 @@ class AccessLogForDescribeLoadBalancerAttributesOutput(object):
     """
     swagger_types = {
         'bucket_name': 'str',
-        'enabled': 'bool'
+        'enabled': 'bool',
+        'tls_enabled': 'bool',
+        'tls_project_id': 'str',
+        'tls_topic_id': 'str'
     }
 
     attribute_map = {
         'bucket_name': 'BucketName',
-        'enabled': 'Enabled'
+        'enabled': 'Enabled',
+        'tls_enabled': 'TlsEnabled',
+        'tls_project_id': 'TlsProjectId',
+        'tls_topic_id': 'TlsTopicId'
     }
 
-    def __init__(self, bucket_name=None, enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, enabled=None, tls_enabled=None, tls_project_id=None, tls_topic_id=None, _configuration=None):  # noqa: E501
         """AccessLogForDescribeLoadBalancerAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +56,21 @@ class AccessLogForDescribeLoadBalancerAttributesOutput(object):
 
         self._bucket_name = None
         self._enabled = None
+        self._tls_enabled = None
+        self._tls_project_id = None
+        self._tls_topic_id = None
         self.discriminator = None
 
         if bucket_name is not None:
             self.bucket_name = bucket_name
         if enabled is not None:
             self.enabled = enabled
+        if tls_enabled is not None:
+            self.tls_enabled = tls_enabled
+        if tls_project_id is not None:
+            self.tls_project_id = tls_project_id
+        if tls_topic_id is not None:
+            self.tls_topic_id = tls_topic_id
 
     @property
     def bucket_name(self):
@@ -98,6 +113,69 @@ class AccessLogForDescribeLoadBalancerAttributesOutput(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def tls_enabled(self):
+        """Gets the tls_enabled of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The tls_enabled of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._tls_enabled
+
+    @tls_enabled.setter
+    def tls_enabled(self, tls_enabled):
+        """Sets the tls_enabled of this AccessLogForDescribeLoadBalancerAttributesOutput.
+
+
+        :param tls_enabled: The tls_enabled of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._tls_enabled = tls_enabled
+
+    @property
+    def tls_project_id(self):
+        """Gets the tls_project_id of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The tls_project_id of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tls_project_id
+
+    @tls_project_id.setter
+    def tls_project_id(self, tls_project_id):
+        """Sets the tls_project_id of this AccessLogForDescribeLoadBalancerAttributesOutput.
+
+
+        :param tls_project_id: The tls_project_id of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tls_project_id = tls_project_id
+
+    @property
+    def tls_topic_id(self):
+        """Gets the tls_topic_id of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+
+
+        :return: The tls_topic_id of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tls_topic_id
+
+    @tls_topic_id.setter
+    def tls_topic_id(self, tls_topic_id):
+        """Sets the tls_topic_id of this AccessLogForDescribeLoadBalancerAttributesOutput.
+
+
+        :param tls_topic_id: The tls_topic_id of this AccessLogForDescribeLoadBalancerAttributesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tls_topic_id = tls_topic_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
