@@ -47,6 +47,7 @@ class ModifyListenerAttributesRequest(object):
         'connection_drain_enabled': 'str',
         'connection_drain_timeout': 'int',
         'cookie': 'str',
+        'cps': 'int',
         'description': 'str',
         'enabled': 'str',
         'established_timeout': 'int',
@@ -55,6 +56,8 @@ class ModifyListenerAttributesRequest(object):
         'keepalive_timeout': 'int',
         'listener_id': 'str',
         'listener_name': 'str',
+        'load_type': 'str',
+        'max_connections': 'int',
         'persistence_timeout': 'int',
         'persistence_type': 'str',
         'proxy_connect_timeout': 'int',
@@ -82,6 +85,7 @@ class ModifyListenerAttributesRequest(object):
         'connection_drain_enabled': 'ConnectionDrainEnabled',
         'connection_drain_timeout': 'ConnectionDrainTimeout',
         'cookie': 'Cookie',
+        'cps': 'Cps',
         'description': 'Description',
         'enabled': 'Enabled',
         'established_timeout': 'EstablishedTimeout',
@@ -90,6 +94,8 @@ class ModifyListenerAttributesRequest(object):
         'keepalive_timeout': 'KeepaliveTimeout',
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
+        'load_type': 'LoadType',
+        'max_connections': 'MaxConnections',
         'persistence_timeout': 'PersistenceTimeout',
         'persistence_type': 'PersistenceType',
         'proxy_connect_timeout': 'ProxyConnectTimeout',
@@ -102,7 +108,7 @@ class ModifyListenerAttributesRequest(object):
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, ca_certificate_id=None, ca_enabled=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, description=None, enabled=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, persistence_timeout=None, persistence_type=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, ca_certificate_id=None, ca_enabled=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, cps=None, description=None, enabled=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, load_type=None, max_connections=None, persistence_timeout=None, persistence_type=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -122,6 +128,7 @@ class ModifyListenerAttributesRequest(object):
         self._connection_drain_enabled = None
         self._connection_drain_timeout = None
         self._cookie = None
+        self._cps = None
         self._description = None
         self._enabled = None
         self._established_timeout = None
@@ -130,6 +137,8 @@ class ModifyListenerAttributesRequest(object):
         self._keepalive_timeout = None
         self._listener_id = None
         self._listener_name = None
+        self._load_type = None
+        self._max_connections = None
         self._persistence_timeout = None
         self._persistence_type = None
         self._proxy_connect_timeout = None
@@ -170,6 +179,8 @@ class ModifyListenerAttributesRequest(object):
             self.connection_drain_timeout = connection_drain_timeout
         if cookie is not None:
             self.cookie = cookie
+        if cps is not None:
+            self.cps = cps
         if description is not None:
             self.description = description
         if enabled is not None:
@@ -185,6 +196,10 @@ class ModifyListenerAttributesRequest(object):
         self.listener_id = listener_id
         if listener_name is not None:
             self.listener_name = listener_name
+        if load_type is not None:
+            self.load_type = load_type
+        if max_connections is not None:
+            self.max_connections = max_connections
         if persistence_timeout is not None:
             self.persistence_timeout = persistence_timeout
         if persistence_type is not None:
@@ -501,6 +516,27 @@ class ModifyListenerAttributesRequest(object):
         self._cookie = cookie
 
     @property
+    def cps(self):
+        """Gets the cps of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The cps of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._cps
+
+    @cps.setter
+    def cps(self, cps):
+        """Sets the cps of this ModifyListenerAttributesRequest.
+
+
+        :param cps: The cps of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._cps = cps
+
+    @property
     def description(self):
         """Gets the description of this ModifyListenerAttributesRequest.  # noqa: E501
 
@@ -669,6 +705,48 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._listener_name = listener_name
+
+    @property
+    def load_type(self):
+        """Gets the load_type of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The load_type of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._load_type
+
+    @load_type.setter
+    def load_type(self, load_type):
+        """Sets the load_type of this ModifyListenerAttributesRequest.
+
+
+        :param load_type: The load_type of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._load_type = load_type
+
+    @property
+    def max_connections(self):
+        """Gets the max_connections of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The max_connections of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_connections
+
+    @max_connections.setter
+    def max_connections(self, max_connections):
+        """Sets the max_connections of this ModifyListenerAttributesRequest.
+
+
+        :param max_connections: The max_connections of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._max_connections = max_connections
 
     @property
     def persistence_timeout(self):
