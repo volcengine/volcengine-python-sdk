@@ -5,6 +5,7 @@ from __future__ import absolute_import
 import io
 import json
 import logging
+import os
 import re
 import ssl
 
@@ -37,6 +38,18 @@ class RESTResponse(io.IOBase):
     def getheader(self, name, default=None):
         """Returns a given response header."""
         return self.urllib3_response.getheader(name, default)
+
+
+def _get_no_proxy(configuration):
+    n1 = os.environ.get('NO_PROXY')
+    n2 = os.environ.get('no_proxy')
+    if configuration.no_proxy:
+        return configuration.no_proxy.split(',')
+    elif n1:
+        return n1.split(',')
+    elif n2:
+        return n2.split(',')
+    return []
 
 
 class RESTClientObject(object):
@@ -78,6 +91,13 @@ class RESTClientObject(object):
             connect=configuration.connect_timeout,
             read=configuration.read_timeout,
         )
+
+        if configuration.proxy is None or configuration.host not in _get_no_proxy(configuration):
+            if configuration.http_proxy and configuration.scheme == 'http':
+                configuration.proxy = configuration.http_proxy
+            elif configuration.https_proxy and configuration.scheme == 'https':
+                configuration.proxy = configuration.https_proxy
+
         # https pool manager
         if configuration.proxy:
             self.pool_manager = urllib3.ProxyManager(
