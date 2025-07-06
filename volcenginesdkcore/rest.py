@@ -92,14 +92,27 @@ class RESTClientObject(object):
             read=configuration.read_timeout,
         )
 
-        if configuration.proxy is None or configuration.host not in _get_no_proxy(configuration):
-            if configuration.http_proxy and configuration.scheme == 'http':
-                configuration.proxy = configuration.http_proxy
-            elif configuration.https_proxy and configuration.scheme == 'https':
-                configuration.proxy = configuration.https_proxy
+        proxy_url = configuration.proxy
+        if configuration.host in _get_no_proxy(configuration):
+            proxy_url = None
+        elif not configuration.proxy:
+            if configuration.scheme == 'http':
+                if configuration.http_proxy:
+                    proxy_url = configuration.http_proxy
+                elif os.getenv('HTTP_PROXY'):
+                    proxy_url = os.getenv('HTTP_PROXY')
+                elif os.getenv('http_proxy'):
+                    proxy_url = os.getenv('http_proxy')
+            elif configuration.scheme == 'https':
+                if configuration.https_proxy:
+                    proxy_url = configuration.https_proxy
+                elif os.getenv('HTTPS_PROXY'):
+                    proxy_url = os.getenv('HTTPS_PROXY')
+                elif os.getenv('https_proxy'):
+                    proxy_url = os.getenv('https_proxy')
 
         # https pool manager
-        if configuration.proxy:
+        if proxy_url:
             self.pool_manager = urllib3.ProxyManager(
                 num_pools=pools_size,
                 maxsize=maxsize,
@@ -107,7 +120,7 @@ class RESTClientObject(object):
                 ca_certs=ca_certs,
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
-                proxy_url=configuration.proxy,
+                proxy_url=proxy_url,
                 timeout=timeout,
                 retries=Retry(total=False),
                 **addition_pool_args
