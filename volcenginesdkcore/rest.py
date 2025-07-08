@@ -8,6 +8,7 @@ import logging
 import os
 import re
 import ssl
+import threading
 
 import certifi
 # python 2 and python 3 compatibility library
@@ -61,6 +62,19 @@ class RESTClientObject(object):
         # maxsize is the number of requests to host that are allowed in parallel  # noqa: E501
         # Custom SSL certificates and client certificates: http://urllib3.readthedocs.io/en/latest/advanced-usage.html  # noqa: E501
 
+        self._configuration = configuration
+        self._last_pm_proxy_url = None
+        self._pools_size = pools_size
+        self._maxsize = maxsize
+        self._lock = threading.Lock()
+        self.pool_manager = None
+
+    def __init_pool_manager(self, configuration, host, pools_size, maxsize):
+
+        proxy_url = self.__get_proxy(host)
+        if proxy_url == self._last_pm_proxy_url and self.pool_manager:
+            return
+
         # cert_reqs
         if configuration.verify_ssl:
             cert_reqs = ssl.CERT_REQUIRED
@@ -92,26 +106,6 @@ class RESTClientObject(object):
             read=configuration.read_timeout,
         )
 
-        proxy_url = configuration.proxy
-        if configuration.host in _get_no_proxy(configuration):
-            proxy_url = None
-        elif not configuration.proxy:
-            if configuration.scheme == 'http':
-                if configuration.http_proxy:
-                    proxy_url = configuration.http_proxy
-                elif os.getenv('HTTP_PROXY'):
-                    proxy_url = os.getenv('HTTP_PROXY')
-                elif os.getenv('http_proxy'):
-                    proxy_url = os.getenv('http_proxy')
-            elif configuration.scheme == 'https':
-                if configuration.https_proxy:
-                    proxy_url = configuration.https_proxy
-                elif os.getenv('HTTPS_PROXY'):
-                    proxy_url = os.getenv('HTTPS_PROXY')
-                elif os.getenv('https_proxy'):
-                    proxy_url = os.getenv('https_proxy')
-
-        # https pool manager
         if proxy_url:
             self.pool_manager = urllib3.ProxyManager(
                 num_pools=pools_size,
@@ -137,6 +131,30 @@ class RESTClientObject(object):
                 retries=Retry(total=False),
                 **addition_pool_args
             )
+
+        self._last_pm_proxy_url = proxy_url
+
+    def __get_proxy(self, host):
+        configuration = self._configuration
+        proxy_url = configuration.proxy
+        if host in _get_no_proxy(configuration):
+            proxy_url = None
+        elif not configuration.proxy:
+            if configuration.scheme == 'http':
+                if configuration.http_proxy:
+                    proxy_url = configuration.http_proxy
+                elif os.getenv('HTTP_PROXY'):
+                    proxy_url = os.getenv('HTTP_PROXY')
+                elif os.getenv('http_proxy'):
+                    proxy_url = os.getenv('http_proxy')
+            elif configuration.scheme == 'https':
+                if configuration.https_proxy:
+                    proxy_url = configuration.https_proxy
+                elif os.getenv('HTTPS_PROXY'):
+                    proxy_url = os.getenv('HTTPS_PROXY')
+                elif os.getenv('https_proxy'):
+                    proxy_url = os.getenv('https_proxy')
+        return proxy_url
 
     def request(self, method, url, query_params=None, headers=None,
                 body=None, post_params=None, _preload_content=True,
@@ -186,6 +204,10 @@ class RESTClientObject(object):
 
         if 'Content-Type' not in headers:
             headers['Content-Type'] = 'application/json'
+
+        host = headers.get('Host')
+        with self._lock:
+            self.__init_pool_manager(self._configuration, host, self._pools_size, self._maxsize)
 
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
