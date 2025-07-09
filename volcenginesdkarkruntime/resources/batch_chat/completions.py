@@ -12,7 +12,7 @@ import warnings
 
 from ..._exceptions import ArkAPITimeoutError, ArkAPIConnectionError, ArkAPIStatusError
 from ..._types import Body, Query, Headers
-from ..._utils._utils import with_sts_token, async_with_sts_token
+from ..._utils._utils import with_sts_token, async_with_sts_token, deepcopy_minimal
 from ..._utils._key_agreement import aes_gcm_decrypt_base64_string
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -202,6 +202,7 @@ class Completions(SyncAPIResource):
             and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
         ):
             is_encrypt = True
+            messages = deepcopy_minimal(messages)
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
         retryTimes = 0
         last_time = self._get_request_last_time(timeout)
@@ -353,6 +354,7 @@ class AsyncCompletions(AsyncAPIResource):
             and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
         ):
             is_encrypt = True
+            messages = deepcopy_minimal(messages)
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 
         retryTimes = 0
