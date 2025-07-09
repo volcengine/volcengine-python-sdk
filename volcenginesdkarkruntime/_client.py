@@ -492,7 +492,14 @@ class E2ECertificateManager(object):
         self._cert_expiration_seconds = 14 * 24 * 60 * 60  # 14 days
 
         if not os.path.exists(self._cert_storage_path):
-            os.makedirs(self._cert_storage_path)
+            try:
+                os.makedirs(self._cert_storage_path)
+            except FileExistsError:
+                pass
+            except Exception as e:
+                raise ArkAPIError(
+                    "failed to create certificate directory %s: %s\n" % (self._cert_storage_path, e)
+                )
 
     def get(self, ep: str) -> key_agreement_client:
         if ep not in self._certificate_manager:
