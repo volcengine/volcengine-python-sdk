@@ -33,17 +33,45 @@ class DescribeAvailableCrossRegionResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'target_region_ids': 'list[str]'
     }
 
     attribute_map = {
+        'target_region_ids': 'TargetRegionIds'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, target_region_ids=None, _configuration=None):  # noqa: E501
         """DescribeAvailableCrossRegionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._target_region_ids = None
         self.discriminator = None
+
+        if target_region_ids is not None:
+            self.target_region_ids = target_region_ids
+
+    @property
+    def target_region_ids(self):
+        """Gets the target_region_ids of this DescribeAvailableCrossRegionResponse.  # noqa: E501
+
+
+        :return: The target_region_ids of this DescribeAvailableCrossRegionResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._target_region_ids
+
+    @target_region_ids.setter
+    def target_region_ids(self, target_region_ids):
+        """Sets the target_region_ids of this DescribeAvailableCrossRegionResponse.
+
+
+        :param target_region_ids: The target_region_ids of this DescribeAvailableCrossRegionResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._target_region_ids = target_region_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

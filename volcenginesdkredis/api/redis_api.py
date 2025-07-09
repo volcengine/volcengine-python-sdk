@@ -906,6 +906,103 @@ class REDISApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_key_scan_job(self, body, **kwargs):  # noqa: E501
+        """create_key_scan_job  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_key_scan_job(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateKeyScanJobRequest body: (required)
+        :return: CreateKeyScanJobResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_key_scan_job_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_key_scan_job_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_key_scan_job_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_key_scan_job  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_key_scan_job_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateKeyScanJobRequest body: (required)
+        :return: CreateKeyScanJobResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_key_scan_job" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_key_scan_job`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateKeyScanJob/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateKeyScanJobResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_parameter_group(self, body, **kwargs):  # noqa: E501
         """create_parameter_group  # noqa: E501
 
@@ -2458,38 +2555,38 @@ class REDISApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_cross_backup_policy(self, body, **kwargs):  # noqa: E501
-        """describe_cross_backup_policy  # noqa: E501
+    def describe_cross_region_backup_policy(self, body, **kwargs):  # noqa: E501
+        """describe_cross_region_backup_policy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_cross_backup_policy(body, async_req=True)
+        >>> thread = api.describe_cross_region_backup_policy(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param DescribeCrossBackupPolicyRequest body: (required)
-        :return: DescribeCrossBackupPolicyResponse
+        :param DescribeCrossRegionBackupPolicyRequest body: (required)
+        :return: DescribeCrossRegionBackupPolicyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.describe_cross_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
+            return self.describe_cross_region_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.describe_cross_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.describe_cross_region_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def describe_cross_backup_policy_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_cross_backup_policy  # noqa: E501
+    def describe_cross_region_backup_policy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_cross_region_backup_policy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_cross_backup_policy_with_http_info(body, async_req=True)
+        >>> thread = api.describe_cross_region_backup_policy_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param DescribeCrossBackupPolicyRequest body: (required)
-        :return: DescribeCrossBackupPolicyResponse
+        :param DescribeCrossRegionBackupPolicyRequest body: (required)
+        :return: DescribeCrossRegionBackupPolicyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2505,14 +2602,14 @@ class REDISApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method describe_cross_backup_policy" % key
+                    " to method describe_cross_region_backup_policy" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_cross_backup_policy`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_cross_region_backup_policy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2540,14 +2637,14 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeCrossBackupPolicy/2020-12-07/redis/post/application_json/', 'POST',
+            '/DescribeCrossRegionBackupPolicy/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DescribeCrossBackupPolicyResponse',  # noqa: E501
+            response_type='DescribeCrossRegionBackupPolicyResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2645,6 +2742,200 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeCrossRegionBackupsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_db_instance_acl_categories(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_acl_categories  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_acl_categories(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceAclCategoriesRequest body: (required)
+        :return: DescribeDBInstanceAclCategoriesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_db_instance_acl_categories_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_db_instance_acl_categories_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_db_instance_acl_categories_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_acl_categories  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_acl_categories_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceAclCategoriesRequest body: (required)
+        :return: DescribeDBInstanceAclCategoriesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_db_instance_acl_categories" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_db_instance_acl_categories`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeDBInstanceAclCategories/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeDBInstanceAclCategoriesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_db_instance_acl_commands(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_acl_commands  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_acl_commands(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceAclCommandsRequest body: (required)
+        :return: DescribeDBInstanceAclCommandsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_db_instance_acl_commands_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_db_instance_acl_commands_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_db_instance_acl_commands_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_db_instance_acl_commands  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_db_instance_acl_commands_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeDBInstanceAclCommandsRequest body: (required)
+        :return: DescribeDBInstanceAclCommandsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_db_instance_acl_commands" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_db_instance_acl_commands`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeDBInstanceAclCommands/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeDBInstanceAclCommandsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3525,103 +3816,6 @@ class REDISApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def describe_enterprise_slow_logs(self, body, **kwargs):  # noqa: E501
-        """describe_enterprise_slow_logs  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_enterprise_slow_logs(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeEnterpriseSlowLogsRequest body: (required)
-        :return: DescribeEnterpriseSlowLogsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.describe_enterprise_slow_logs_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.describe_enterprise_slow_logs_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def describe_enterprise_slow_logs_with_http_info(self, body, **kwargs):  # noqa: E501
-        """describe_enterprise_slow_logs  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.describe_enterprise_slow_logs_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DescribeEnterpriseSlowLogsRequest body: (required)
-        :return: DescribeEnterpriseSlowLogsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method describe_enterprise_slow_logs" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `describe_enterprise_slow_logs`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DescribeEnterpriseSlowLogs/2020-12-07/redis/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DescribeEnterpriseSlowLogsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def describe_enterprise_zones(self, body, **kwargs):  # noqa: E501
         """describe_enterprise_zones  # noqa: E501
 
@@ -3809,6 +4003,103 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeHotKeysResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_key_scan_jobs(self, body, **kwargs):  # noqa: E501
+        """describe_key_scan_jobs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_key_scan_jobs(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeKeyScanJobsRequest body: (required)
+        :return: DescribeKeyScanJobsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_key_scan_jobs_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_key_scan_jobs_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_key_scan_jobs_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_key_scan_jobs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_key_scan_jobs_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeKeyScanJobsRequest body: (required)
+        :return: DescribeKeyScanJobsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_key_scan_jobs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_key_scan_jobs`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeKeyScanJobs/2020-12-07/redis/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeKeyScanJobsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5465,38 +5756,38 @@ class REDISApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def modify_cross_backup_policy(self, body, **kwargs):  # noqa: E501
-        """modify_cross_backup_policy  # noqa: E501
+    def modify_cross_region_backup_policy(self, body, **kwargs):  # noqa: E501
+        """modify_cross_region_backup_policy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_cross_backup_policy(body, async_req=True)
+        >>> thread = api.modify_cross_region_backup_policy(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ModifyCrossBackupPolicyRequest body: (required)
-        :return: ModifyCrossBackupPolicyResponse
+        :param ModifyCrossRegionBackupPolicyRequest body: (required)
+        :return: ModifyCrossRegionBackupPolicyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.modify_cross_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
+            return self.modify_cross_region_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.modify_cross_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.modify_cross_region_backup_policy_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def modify_cross_backup_policy_with_http_info(self, body, **kwargs):  # noqa: E501
-        """modify_cross_backup_policy  # noqa: E501
+    def modify_cross_region_backup_policy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_cross_region_backup_policy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_cross_backup_policy_with_http_info(body, async_req=True)
+        >>> thread = api.modify_cross_region_backup_policy_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param ModifyCrossBackupPolicyRequest body: (required)
-        :return: ModifyCrossBackupPolicyResponse
+        :param ModifyCrossRegionBackupPolicyRequest body: (required)
+        :return: ModifyCrossRegionBackupPolicyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5512,14 +5803,14 @@ class REDISApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method modify_cross_backup_policy" % key
+                    " to method modify_cross_region_backup_policy" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `modify_cross_backup_policy`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_cross_region_backup_policy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5547,14 +5838,14 @@ class REDISApi(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyCrossBackupPolicy/2020-12-07/redis/post/application_json/', 'POST',
+            '/ModifyCrossRegionBackupPolicy/2020-12-07/redis/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ModifyCrossBackupPolicyResponse',  # noqa: E501
+            response_type='ModifyCrossRegionBackupPolicyResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7980,200 +8271,6 @@ class REDISApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='SwitchOverResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def tag_resources(self, body, **kwargs):  # noqa: E501
-        """tag_resources  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.tag_resources(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param TagResourcesRequest body: (required)
-        :return: TagResourcesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.tag_resources_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.tag_resources_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def tag_resources_with_http_info(self, body, **kwargs):  # noqa: E501
-        """tag_resources  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.tag_resources_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param TagResourcesRequest body: (required)
-        :return: TagResourcesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method tag_resources" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `tag_resources`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/TagResources/2020-12-07/redis/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TagResourcesResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def un_tag_resources(self, body, **kwargs):  # noqa: E501
-        """un_tag_resources  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.un_tag_resources(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UnTagResourcesRequest body: (required)
-        :return: UnTagResourcesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.un_tag_resources_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.un_tag_resources_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def un_tag_resources_with_http_info(self, body, **kwargs):  # noqa: E501
-        """un_tag_resources  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.un_tag_resources_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UnTagResourcesRequest body: (required)
-        :return: UnTagResourcesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method un_tag_resources" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `un_tag_resources`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/UnTagResources/2020-12-07/redis/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UnTagResourcesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
