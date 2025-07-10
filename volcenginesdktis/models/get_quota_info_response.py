@@ -33,24 +33,50 @@ class GetQuotaInfoResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'device_info_list': 'DeviceInfoListForGetQuotaInfoOutput',
         'quota_info_list': 'list[QuotaInfoListForGetQuotaInfoOutput]'
     }
 
     attribute_map = {
+        'device_info_list': 'deviceInfoList',
         'quota_info_list': 'quotaInfoList'
     }
 
-    def __init__(self, quota_info_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, device_info_list=None, quota_info_list=None, _configuration=None):  # noqa: E501
         """GetQuotaInfoResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._device_info_list = None
         self._quota_info_list = None
         self.discriminator = None
 
+        if device_info_list is not None:
+            self.device_info_list = device_info_list
         if quota_info_list is not None:
             self.quota_info_list = quota_info_list
+
+    @property
+    def device_info_list(self):
+        """Gets the device_info_list of this GetQuotaInfoResponse.  # noqa: E501
+
+
+        :return: The device_info_list of this GetQuotaInfoResponse.  # noqa: E501
+        :rtype: DeviceInfoListForGetQuotaInfoOutput
+        """
+        return self._device_info_list
+
+    @device_info_list.setter
+    def device_info_list(self, device_info_list):
+        """Sets the device_info_list of this GetQuotaInfoResponse.
+
+
+        :param device_info_list: The device_info_list of this GetQuotaInfoResponse.  # noqa: E501
+        :type: DeviceInfoListForGetQuotaInfoOutput
+        """
+
+        self._device_info_list = device_info_list
 
     @property
     def quota_info_list(self):
