@@ -42,9 +42,11 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
         'instance_info': 'InstanceInfoForDescribeCrossRegionBackupsOutput',
         'project_name': 'str',
         'size': 'int',
+        'source_region': 'str',
         'start_time': 'str',
         'status': 'str',
-        'ttl': 'int'
+        'ttl': 'int',
+        'target_region': 'str'
     }
 
     attribute_map = {
@@ -57,12 +59,14 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
         'instance_info': 'InstanceInfo',
         'project_name': 'ProjectName',
         'size': 'Size',
+        'source_region': 'SourceRegion',
         'start_time': 'StartTime',
         'status': 'Status',
-        'ttl': 'TTL'
+        'ttl': 'TTL',
+        'target_region': 'TargetRegion'
     }
 
-    def __init__(self, backup_point_id=None, backup_point_name=None, backup_strategy=None, backup_type=None, end_time=None, instance_id=None, instance_info=None, project_name=None, size=None, start_time=None, status=None, ttl=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_point_id=None, backup_point_name=None, backup_strategy=None, backup_type=None, end_time=None, instance_id=None, instance_info=None, project_name=None, size=None, source_region=None, start_time=None, status=None, ttl=None, target_region=None, _configuration=None):  # noqa: E501
         """BackupForDescribeCrossRegionBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,9 +81,11 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
         self._instance_info = None
         self._project_name = None
         self._size = None
+        self._source_region = None
         self._start_time = None
         self._status = None
         self._ttl = None
+        self._target_region = None
         self.discriminator = None
 
         if backup_point_id is not None:
@@ -100,12 +106,16 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
             self.project_name = project_name
         if size is not None:
             self.size = size
+        if source_region is not None:
+            self.source_region = source_region
         if start_time is not None:
             self.start_time = start_time
         if status is not None:
             self.status = status
         if ttl is not None:
             self.ttl = ttl
+        if target_region is not None:
+            self.target_region = target_region
 
     @property
     def backup_point_id(self):
@@ -297,6 +307,27 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
         self._size = size
 
     @property
+    def source_region(self):
+        """Gets the source_region of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+
+
+        :return: The source_region of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_region
+
+    @source_region.setter
+    def source_region(self, source_region):
+        """Sets the source_region of this BackupForDescribeCrossRegionBackupsOutput.
+
+
+        :param source_region: The source_region of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._source_region = source_region
+
+    @property
     def start_time(self):
         """Gets the start_time of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
 
@@ -358,6 +389,27 @@ class BackupForDescribeCrossRegionBackupsOutput(object):
         """
 
         self._ttl = ttl
+
+    @property
+    def target_region(self):
+        """Gets the target_region of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+
+
+        :return: The target_region of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_region
+
+    @target_region.setter
+    def target_region(self, target_region):
+        """Sets the target_region of this BackupForDescribeCrossRegionBackupsOutput.
+
+
+        :param target_region: The target_region of this BackupForDescribeCrossRegionBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._target_region = target_region
 
     def to_dict(self):
         """Returns the model properties as a dict"""

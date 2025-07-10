@@ -33,17 +33,46 @@ class DescribeAvailableCrossRegionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'instance_id': 'str'
     }
 
     attribute_map = {
+        'instance_id': 'InstanceId'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, _configuration=None):  # noqa: E501
         """DescribeAvailableCrossRegionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._instance_id = None
         self.discriminator = None
+
+        self.instance_id = instance_id
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this DescribeAvailableCrossRegionRequest.  # noqa: E501
+
+
+        :return: The instance_id of this DescribeAvailableCrossRegionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this DescribeAvailableCrossRegionRequest.
+
+
+        :param instance_id: The instance_id of this DescribeAvailableCrossRegionRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
