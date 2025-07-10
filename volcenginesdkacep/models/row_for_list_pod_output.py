@@ -37,8 +37,10 @@ class RowForListPodOutput(object):
         'adb_expire_time': 'int',
         'adb_status': 'int',
         'aosp_version': 'str',
+        'archive_status': 'int',
         'authority_expire_time': 'int',
         'authority_status': 'int',
+        'cidr_block': 'str',
         'configuration': 'ConfigurationForListPodOutput',
         'create_at': 'int',
         'dnsid': 'str',
@@ -46,7 +48,9 @@ class RowForListPodOutput(object):
         'data_size_used': 'str',
         'dc_info': 'DcInfoForListPodOutput',
         'display_layout_id': 'str',
+        'display_status': 'DisplayStatusForListPodOutput',
         'down_bandwidth_limit': 'int',
+        'eip': 'EipForListPodOutput',
         'host_id': 'str',
         'image_id': 'str',
         'image_name': 'str',
@@ -56,6 +60,7 @@ class RowForListPodOutput(object):
         'pod_name': 'str',
         'port_mapping_rule_list': 'list[PortMappingRuleListForListPodOutput]',
         'product_id': 'str',
+        'snatid': 'str',
         'server_type_code': 'str',
         'stream_status': 'int',
         'tag': 'TagForListPodOutput',
@@ -67,8 +72,10 @@ class RowForListPodOutput(object):
         'adb_expire_time': 'AdbExpireTime',
         'adb_status': 'AdbStatus',
         'aosp_version': 'AospVersion',
+        'archive_status': 'ArchiveStatus',
         'authority_expire_time': 'AuthorityExpireTime',
         'authority_status': 'AuthorityStatus',
+        'cidr_block': 'CidrBlock',
         'configuration': 'Configuration',
         'create_at': 'CreateAt',
         'dnsid': 'DNSId',
@@ -76,7 +83,9 @@ class RowForListPodOutput(object):
         'data_size_used': 'DataSizeUsed',
         'dc_info': 'DcInfo',
         'display_layout_id': 'DisplayLayoutId',
+        'display_status': 'DisplayStatus',
         'down_bandwidth_limit': 'DownBandwidthLimit',
+        'eip': 'Eip',
         'host_id': 'HostId',
         'image_id': 'ImageId',
         'image_name': 'ImageName',
@@ -86,13 +95,14 @@ class RowForListPodOutput(object):
         'pod_name': 'PodName',
         'port_mapping_rule_list': 'PortMappingRuleList',
         'product_id': 'ProductId',
+        'snatid': 'SNATId',
         'server_type_code': 'ServerTypeCode',
         'stream_status': 'StreamStatus',
         'tag': 'Tag',
         'up_bandwidth_limit': 'UpBandwidthLimit'
     }
 
-    def __init__(self, adb=None, adb_expire_time=None, adb_status=None, aosp_version=None, authority_expire_time=None, authority_status=None, configuration=None, create_at=None, dnsid=None, data_size=None, data_size_used=None, dc_info=None, display_layout_id=None, down_bandwidth_limit=None, host_id=None, image_id=None, image_name=None, intranet_ip=None, online=None, pod_id=None, pod_name=None, port_mapping_rule_list=None, product_id=None, server_type_code=None, stream_status=None, tag=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, adb=None, adb_expire_time=None, adb_status=None, aosp_version=None, archive_status=None, authority_expire_time=None, authority_status=None, cidr_block=None, configuration=None, create_at=None, dnsid=None, data_size=None, data_size_used=None, dc_info=None, display_layout_id=None, display_status=None, down_bandwidth_limit=None, eip=None, host_id=None, image_id=None, image_name=None, intranet_ip=None, online=None, pod_id=None, pod_name=None, port_mapping_rule_list=None, product_id=None, snatid=None, server_type_code=None, stream_status=None, tag=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
         """RowForListPodOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -102,8 +112,10 @@ class RowForListPodOutput(object):
         self._adb_expire_time = None
         self._adb_status = None
         self._aosp_version = None
+        self._archive_status = None
         self._authority_expire_time = None
         self._authority_status = None
+        self._cidr_block = None
         self._configuration = None
         self._create_at = None
         self._dnsid = None
@@ -111,7 +123,9 @@ class RowForListPodOutput(object):
         self._data_size_used = None
         self._dc_info = None
         self._display_layout_id = None
+        self._display_status = None
         self._down_bandwidth_limit = None
+        self._eip = None
         self._host_id = None
         self._image_id = None
         self._image_name = None
@@ -121,6 +135,7 @@ class RowForListPodOutput(object):
         self._pod_name = None
         self._port_mapping_rule_list = None
         self._product_id = None
+        self._snatid = None
         self._server_type_code = None
         self._stream_status = None
         self._tag = None
@@ -135,10 +150,14 @@ class RowForListPodOutput(object):
             self.adb_status = adb_status
         if aosp_version is not None:
             self.aosp_version = aosp_version
+        if archive_status is not None:
+            self.archive_status = archive_status
         if authority_expire_time is not None:
             self.authority_expire_time = authority_expire_time
         if authority_status is not None:
             self.authority_status = authority_status
+        if cidr_block is not None:
+            self.cidr_block = cidr_block
         if configuration is not None:
             self.configuration = configuration
         if create_at is not None:
@@ -153,8 +172,12 @@ class RowForListPodOutput(object):
             self.dc_info = dc_info
         if display_layout_id is not None:
             self.display_layout_id = display_layout_id
+        if display_status is not None:
+            self.display_status = display_status
         if down_bandwidth_limit is not None:
             self.down_bandwidth_limit = down_bandwidth_limit
+        if eip is not None:
+            self.eip = eip
         if host_id is not None:
             self.host_id = host_id
         if image_id is not None:
@@ -173,6 +196,8 @@ class RowForListPodOutput(object):
             self.port_mapping_rule_list = port_mapping_rule_list
         if product_id is not None:
             self.product_id = product_id
+        if snatid is not None:
+            self.snatid = snatid
         if server_type_code is not None:
             self.server_type_code = server_type_code
         if stream_status is not None:
@@ -267,6 +292,27 @@ class RowForListPodOutput(object):
         self._aosp_version = aosp_version
 
     @property
+    def archive_status(self):
+        """Gets the archive_status of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The archive_status of this RowForListPodOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._archive_status
+
+    @archive_status.setter
+    def archive_status(self, archive_status):
+        """Sets the archive_status of this RowForListPodOutput.
+
+
+        :param archive_status: The archive_status of this RowForListPodOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._archive_status = archive_status
+
+    @property
     def authority_expire_time(self):
         """Gets the authority_expire_time of this RowForListPodOutput.  # noqa: E501
 
@@ -307,6 +353,27 @@ class RowForListPodOutput(object):
         """
 
         self._authority_status = authority_status
+
+    @property
+    def cidr_block(self):
+        """Gets the cidr_block of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The cidr_block of this RowForListPodOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cidr_block
+
+    @cidr_block.setter
+    def cidr_block(self, cidr_block):
+        """Sets the cidr_block of this RowForListPodOutput.
+
+
+        :param cidr_block: The cidr_block of this RowForListPodOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cidr_block = cidr_block
 
     @property
     def configuration(self):
@@ -456,6 +523,27 @@ class RowForListPodOutput(object):
         self._display_layout_id = display_layout_id
 
     @property
+    def display_status(self):
+        """Gets the display_status of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The display_status of this RowForListPodOutput.  # noqa: E501
+        :rtype: DisplayStatusForListPodOutput
+        """
+        return self._display_status
+
+    @display_status.setter
+    def display_status(self, display_status):
+        """Sets the display_status of this RowForListPodOutput.
+
+
+        :param display_status: The display_status of this RowForListPodOutput.  # noqa: E501
+        :type: DisplayStatusForListPodOutput
+        """
+
+        self._display_status = display_status
+
+    @property
     def down_bandwidth_limit(self):
         """Gets the down_bandwidth_limit of this RowForListPodOutput.  # noqa: E501
 
@@ -475,6 +563,27 @@ class RowForListPodOutput(object):
         """
 
         self._down_bandwidth_limit = down_bandwidth_limit
+
+    @property
+    def eip(self):
+        """Gets the eip of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The eip of this RowForListPodOutput.  # noqa: E501
+        :rtype: EipForListPodOutput
+        """
+        return self._eip
+
+    @eip.setter
+    def eip(self, eip):
+        """Sets the eip of this RowForListPodOutput.
+
+
+        :param eip: The eip of this RowForListPodOutput.  # noqa: E501
+        :type: EipForListPodOutput
+        """
+
+        self._eip = eip
 
     @property
     def host_id(self):
@@ -664,6 +773,27 @@ class RowForListPodOutput(object):
         """
 
         self._product_id = product_id
+
+    @property
+    def snatid(self):
+        """Gets the snatid of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The snatid of this RowForListPodOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._snatid
+
+    @snatid.setter
+    def snatid(self, snatid):
+        """Sets the snatid of this RowForListPodOutput.
+
+
+        :param snatid: The snatid of this RowForListPodOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._snatid = snatid
 
     @property
     def server_type_code(self):
