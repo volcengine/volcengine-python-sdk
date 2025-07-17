@@ -35,16 +35,18 @@ class GetPageWatchDataAPIV2Request(object):
     swagger_types = {
         'activity_id': 'int',
         'channel': 'str',
+        'line_id': 'int',
         'play_status': 'int'
     }
 
     attribute_map = {
         'activity_id': 'ActivityId',
         'channel': 'Channel',
+        'line_id': 'LineId',
         'play_status': 'PlayStatus'
     }
 
-    def __init__(self, activity_id=None, channel=None, play_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, channel=None, line_id=None, play_status=None, _configuration=None):  # noqa: E501
         """GetPageWatchDataAPIV2Request - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,12 +54,15 @@ class GetPageWatchDataAPIV2Request(object):
 
         self._activity_id = None
         self._channel = None
+        self._line_id = None
         self._play_status = None
         self.discriminator = None
 
         self.activity_id = activity_id
         if channel is not None:
             self.channel = channel
+        if line_id is not None:
+            self.line_id = line_id
         if play_status is not None:
             self.play_status = play_status
 
@@ -104,6 +109,27 @@ class GetPageWatchDataAPIV2Request(object):
         """
 
         self._channel = channel
+
+    @property
+    def line_id(self):
+        """Gets the line_id of this GetPageWatchDataAPIV2Request.  # noqa: E501
+
+
+        :return: The line_id of this GetPageWatchDataAPIV2Request.  # noqa: E501
+        :rtype: int
+        """
+        return self._line_id
+
+    @line_id.setter
+    def line_id(self, line_id):
+        """Sets the line_id of this GetPageWatchDataAPIV2Request.
+
+
+        :param line_id: The line_id of this GetPageWatchDataAPIV2Request.  # noqa: E501
+        :type: int
+        """
+
+        self._line_id = line_id
 
     @property
     def play_status(self):
