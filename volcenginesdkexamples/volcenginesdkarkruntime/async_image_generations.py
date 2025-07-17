@@ -11,14 +11,28 @@ client = AsyncArk()
 
 
 async def main():
-    print("----- async generate images -----")
+    print("----- [Seedream] async generate images -----")
 
     result = client.images.generate(
-        model="${YOUR_ENDPOINT_ID}",
+        model="${YOUR_SEEDREAM_ENDPOINT_ID}",
         prompt="龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
         seed=1234567890,
         watermark=True,
         size="512x512",
+        guidance_scale=2.5,
+    )
+
+    print(await result)
+
+    print("----- [Seededit] async generate images async -----")
+
+    result = client.images.generate(
+        model="${YOUR_SEEDEDIT_ENDPOINT_ID}",
+        prompt="龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
+        image="https://an-test-imgs.tos-cn-beijing.volces.com/avi/9m_001.jpg",
+        seed=1234567890,
+        watermark=True,
+        size="adaptive",
         guidance_scale=2.5,
     )
 
