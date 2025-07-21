@@ -48,17 +48,34 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'config_name': 'str',
         'configuration_code': 'str',
         'count': 'str',
+        'country_region': 'str',
         'coupon_amount': 'str',
         'currency': 'str',
+        'currency_settlement': 'str',
         'daily_amortized_coupon_amount': 'str',
         'daily_amortized_discount_bill_amount': 'str',
         'daily_amortized_original_bill_amount': 'str',
         'daily_amortized_paid_amount': 'str',
         'daily_amortized_payable_amount': 'str',
+        'daily_amortized_posttax_amount': 'str',
+        'daily_amortized_pre_tax_payable_amount': 'str',
+        'daily_amortized_pre_tax_real_value': 'str',
         'daily_amortized_preferential_bill_amount': 'str',
+        'daily_amortized_pretax_amount': 'str',
+        'daily_amortized_real_value': 'str',
         'daily_amortized_round_amount': 'str',
+        'daily_amortized_saving_plan_original_amount': 'str',
+        'daily_amortized_settle_payable_amount': 'str',
+        'daily_amortized_settle_posttax_amount': 'str',
+        'daily_amortized_settle_pre_tax_payable_amount': 'str',
+        'daily_amortized_settle_pre_tax_real_value': 'str',
+        'daily_amortized_settle_pretax_amount': 'str',
+        'daily_amortized_settle_real_value': 'str',
+        'daily_amortized_settle_tax_amount': 'str',
+        'daily_amortized_tax_amount': 'str',
         'deduction_use_duration': 'str',
         'discount_bill_amount': 'str',
+        'effective_factor': 'str',
         'element': 'str',
         'element_code': 'str',
         'expand_field': 'str',
@@ -72,8 +89,22 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'now_amortized_original_bill_amount': 'str',
         'now_amortized_paid_amount': 'str',
         'now_amortized_payable_amount': 'str',
+        'now_amortized_posttax_amount': 'str',
+        'now_amortized_pre_tax_payable_amount': 'str',
+        'now_amortized_pre_tax_real_value': 'str',
         'now_amortized_preferential_bill_amount': 'str',
+        'now_amortized_pretax_amount': 'str',
+        'now_amortized_real_value': 'str',
         'now_amortized_round_amount': 'str',
+        'now_amortized_saving_plan_original_amount': 'str',
+        'now_amortized_settle_payable_amount': 'str',
+        'now_amortized_settle_posttax_amount': 'str',
+        'now_amortized_settle_pre_tax_payable_amount': 'str',
+        'now_amortized_settle_pre_tax_real_value': 'str',
+        'now_amortized_settle_pretax_amount': 'str',
+        'now_amortized_settle_real_value': 'str',
+        'now_amortized_settle_tax_amount': 'str',
+        'now_amortized_tax_amount': 'str',
         'original_bill_amount': 'str',
         'owner_customer_name': 'str',
         'owner_id': 'str',
@@ -83,23 +114,38 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'payer_customer_name': 'str',
         'payer_id': 'str',
         'payer_user_name': 'str',
+        'posttax_amount': 'str',
+        'pre_tax_payable_amount': 'str',
+        'pre_tax_real_value': 'str',
         'preferential_bill_amount': 'str',
+        'pretax_amount': 'str',
         'price': 'str',
         'price_unit': 'str',
         'product': 'str',
         'product_zh': 'str',
         'project': 'str',
         'project_display_name': 'str',
+        'real_value': 'str',
         'region': 'str',
         'region_code': 'str',
         'round_amount': 'str',
+        'saving_plan_original_amount': 'str',
         'seller_customer_name': 'str',
         'seller_id': 'str',
         'seller_user_name': 'str',
+        'settle_payable_amount': 'str',
+        'settle_posttax_amount': 'str',
+        'settle_pre_tax_payable_amount': 'str',
+        'settle_pre_tax_real_value': 'str',
+        'settle_pretax_amount': 'str',
+        'settle_real_value': 'str',
+        'settle_tax_amount': 'str',
         'split_item_id': 'str',
         'split_item_name': 'str',
         'subject_name': 'str',
         'tag': 'str',
+        'tax': 'str',
+        'tax_rate': 'str',
         'unit': 'str',
         'use_duration': 'str',
         'use_duration_unit': 'str',
@@ -123,17 +169,34 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'config_name': 'ConfigName',
         'configuration_code': 'ConfigurationCode',
         'count': 'Count',
+        'country_region': 'CountryRegion',
         'coupon_amount': 'CouponAmount',
         'currency': 'Currency',
+        'currency_settlement': 'CurrencySettlement',
         'daily_amortized_coupon_amount': 'DailyAmortizedCouponAmount',
         'daily_amortized_discount_bill_amount': 'DailyAmortizedDiscountBillAmount',
         'daily_amortized_original_bill_amount': 'DailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount': 'DailyAmortizedPaidAmount',
         'daily_amortized_payable_amount': 'DailyAmortizedPayableAmount',
+        'daily_amortized_posttax_amount': 'DailyAmortizedPosttaxAmount',
+        'daily_amortized_pre_tax_payable_amount': 'DailyAmortizedPreTaxPayableAmount',
+        'daily_amortized_pre_tax_real_value': 'DailyAmortizedPreTaxRealValue',
         'daily_amortized_preferential_bill_amount': 'DailyAmortizedPreferentialBillAmount',
+        'daily_amortized_pretax_amount': 'DailyAmortizedPretaxAmount',
+        'daily_amortized_real_value': 'DailyAmortizedRealValue',
         'daily_amortized_round_amount': 'DailyAmortizedRoundAmount',
+        'daily_amortized_saving_plan_original_amount': 'DailyAmortizedSavingPlanOriginalAmount',
+        'daily_amortized_settle_payable_amount': 'DailyAmortizedSettlePayableAmount',
+        'daily_amortized_settle_posttax_amount': 'DailyAmortizedSettlePosttaxAmount',
+        'daily_amortized_settle_pre_tax_payable_amount': 'DailyAmortizedSettlePreTaxPayableAmount',
+        'daily_amortized_settle_pre_tax_real_value': 'DailyAmortizedSettlePreTaxRealValue',
+        'daily_amortized_settle_pretax_amount': 'DailyAmortizedSettlePretaxAmount',
+        'daily_amortized_settle_real_value': 'DailyAmortizedSettleRealValue',
+        'daily_amortized_settle_tax_amount': 'DailyAmortizedSettleTaxAmount',
+        'daily_amortized_tax_amount': 'DailyAmortizedTaxAmount',
         'deduction_use_duration': 'DeductionUseDuration',
         'discount_bill_amount': 'DiscountBillAmount',
+        'effective_factor': 'EffectiveFactor',
         'element': 'Element',
         'element_code': 'ElementCode',
         'expand_field': 'ExpandField',
@@ -147,8 +210,22 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'now_amortized_original_bill_amount': 'NowAmortizedOriginalBillAmount',
         'now_amortized_paid_amount': 'NowAmortizedPaidAmount',
         'now_amortized_payable_amount': 'NowAmortizedPayableAmount',
+        'now_amortized_posttax_amount': 'NowAmortizedPosttaxAmount',
+        'now_amortized_pre_tax_payable_amount': 'NowAmortizedPreTaxPayableAmount',
+        'now_amortized_pre_tax_real_value': 'NowAmortizedPreTaxRealValue',
         'now_amortized_preferential_bill_amount': 'NowAmortizedPreferentialBillAmount',
+        'now_amortized_pretax_amount': 'NowAmortizedPretaxAmount',
+        'now_amortized_real_value': 'NowAmortizedRealValue',
         'now_amortized_round_amount': 'NowAmortizedRoundAmount',
+        'now_amortized_saving_plan_original_amount': 'NowAmortizedSavingPlanOriginalAmount',
+        'now_amortized_settle_payable_amount': 'NowAmortizedSettlePayableAmount',
+        'now_amortized_settle_posttax_amount': 'NowAmortizedSettlePosttaxAmount',
+        'now_amortized_settle_pre_tax_payable_amount': 'NowAmortizedSettlePreTaxPayableAmount',
+        'now_amortized_settle_pre_tax_real_value': 'NowAmortizedSettlePreTaxRealValue',
+        'now_amortized_settle_pretax_amount': 'NowAmortizedSettlePretaxAmount',
+        'now_amortized_settle_real_value': 'NowAmortizedSettleRealValue',
+        'now_amortized_settle_tax_amount': 'NowAmortizedSettleTaxAmount',
+        'now_amortized_tax_amount': 'NowAmortizedTaxAmount',
         'original_bill_amount': 'OriginalBillAmount',
         'owner_customer_name': 'OwnerCustomerName',
         'owner_id': 'OwnerID',
@@ -158,23 +235,38 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'payer_customer_name': 'PayerCustomerName',
         'payer_id': 'PayerID',
         'payer_user_name': 'PayerUserName',
+        'posttax_amount': 'PosttaxAmount',
+        'pre_tax_payable_amount': 'PreTaxPayableAmount',
+        'pre_tax_real_value': 'PreTaxRealValue',
         'preferential_bill_amount': 'PreferentialBillAmount',
+        'pretax_amount': 'PretaxAmount',
         'price': 'Price',
         'price_unit': 'PriceUnit',
         'product': 'Product',
         'product_zh': 'ProductZh',
         'project': 'Project',
         'project_display_name': 'ProjectDisplayName',
+        'real_value': 'RealValue',
         'region': 'Region',
         'region_code': 'RegionCode',
         'round_amount': 'RoundAmount',
+        'saving_plan_original_amount': 'SavingPlanOriginalAmount',
         'seller_customer_name': 'SellerCustomerName',
         'seller_id': 'SellerID',
         'seller_user_name': 'SellerUserName',
+        'settle_payable_amount': 'SettlePayableAmount',
+        'settle_posttax_amount': 'SettlePosttaxAmount',
+        'settle_pre_tax_payable_amount': 'SettlePreTaxPayableAmount',
+        'settle_pre_tax_real_value': 'SettlePreTaxRealValue',
+        'settle_pretax_amount': 'SettlePretaxAmount',
+        'settle_real_value': 'SettleRealValue',
+        'settle_tax_amount': 'SettleTaxAmount',
         'split_item_id': 'SplitItemID',
         'split_item_name': 'SplitItemName',
         'subject_name': 'SubjectName',
         'tag': 'Tag',
+        'tax': 'Tax',
+        'tax_rate': 'TaxRate',
         'unit': 'Unit',
         'use_duration': 'UseDuration',
         'use_duration_unit': 'UseDurationUnit',
@@ -182,7 +274,7 @@ class ListForListAmortizedCostBillDailyOutput(object):
         'zone_code': 'ZoneCode'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, coupon_amount=None, currency=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_preferential_bill_amount=None, daily_amortized_round_amount=None, deduction_use_duration=None, discount_bill_amount=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_preferential_bill_amount=None, now_amortized_round_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, preferential_bill_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, region=None, region_code=None, round_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, configuration_code=None, count=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, effective_factor=None, element=None, element_code=None, expand_field=None, expense_time=None, factor=None, factor_code=None, instance_name=None, instance_no=None, now_amortized_coupon_amount=None, now_amortized_discount_bill_amount=None, now_amortized_original_bill_amount=None, now_amortized_paid_amount=None, now_amortized_payable_amount=None, now_amortized_posttax_amount=None, now_amortized_pre_tax_payable_amount=None, now_amortized_pre_tax_real_value=None, now_amortized_preferential_bill_amount=None, now_amortized_pretax_amount=None, now_amortized_real_value=None, now_amortized_round_amount=None, now_amortized_saving_plan_original_amount=None, now_amortized_settle_payable_amount=None, now_amortized_settle_posttax_amount=None, now_amortized_settle_pre_tax_payable_amount=None, now_amortized_settle_pre_tax_real_value=None, now_amortized_settle_pretax_amount=None, now_amortized_settle_real_value=None, now_amortized_settle_tax_amount=None, now_amortized_tax_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, region_code=None, round_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_rate=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, zone_code=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillDailyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -203,17 +295,34 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._config_name = None
         self._configuration_code = None
         self._count = None
+        self._country_region = None
         self._coupon_amount = None
         self._currency = None
+        self._currency_settlement = None
         self._daily_amortized_coupon_amount = None
         self._daily_amortized_discount_bill_amount = None
         self._daily_amortized_original_bill_amount = None
         self._daily_amortized_paid_amount = None
         self._daily_amortized_payable_amount = None
+        self._daily_amortized_posttax_amount = None
+        self._daily_amortized_pre_tax_payable_amount = None
+        self._daily_amortized_pre_tax_real_value = None
         self._daily_amortized_preferential_bill_amount = None
+        self._daily_amortized_pretax_amount = None
+        self._daily_amortized_real_value = None
         self._daily_amortized_round_amount = None
+        self._daily_amortized_saving_plan_original_amount = None
+        self._daily_amortized_settle_payable_amount = None
+        self._daily_amortized_settle_posttax_amount = None
+        self._daily_amortized_settle_pre_tax_payable_amount = None
+        self._daily_amortized_settle_pre_tax_real_value = None
+        self._daily_amortized_settle_pretax_amount = None
+        self._daily_amortized_settle_real_value = None
+        self._daily_amortized_settle_tax_amount = None
+        self._daily_amortized_tax_amount = None
         self._deduction_use_duration = None
         self._discount_bill_amount = None
+        self._effective_factor = None
         self._element = None
         self._element_code = None
         self._expand_field = None
@@ -227,8 +336,22 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._now_amortized_original_bill_amount = None
         self._now_amortized_paid_amount = None
         self._now_amortized_payable_amount = None
+        self._now_amortized_posttax_amount = None
+        self._now_amortized_pre_tax_payable_amount = None
+        self._now_amortized_pre_tax_real_value = None
         self._now_amortized_preferential_bill_amount = None
+        self._now_amortized_pretax_amount = None
+        self._now_amortized_real_value = None
         self._now_amortized_round_amount = None
+        self._now_amortized_saving_plan_original_amount = None
+        self._now_amortized_settle_payable_amount = None
+        self._now_amortized_settle_posttax_amount = None
+        self._now_amortized_settle_pre_tax_payable_amount = None
+        self._now_amortized_settle_pre_tax_real_value = None
+        self._now_amortized_settle_pretax_amount = None
+        self._now_amortized_settle_real_value = None
+        self._now_amortized_settle_tax_amount = None
+        self._now_amortized_tax_amount = None
         self._original_bill_amount = None
         self._owner_customer_name = None
         self._owner_id = None
@@ -238,23 +361,38 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._payer_customer_name = None
         self._payer_id = None
         self._payer_user_name = None
+        self._posttax_amount = None
+        self._pre_tax_payable_amount = None
+        self._pre_tax_real_value = None
         self._preferential_bill_amount = None
+        self._pretax_amount = None
         self._price = None
         self._price_unit = None
         self._product = None
         self._product_zh = None
         self._project = None
         self._project_display_name = None
+        self._real_value = None
         self._region = None
         self._region_code = None
         self._round_amount = None
+        self._saving_plan_original_amount = None
         self._seller_customer_name = None
         self._seller_id = None
         self._seller_user_name = None
+        self._settle_payable_amount = None
+        self._settle_posttax_amount = None
+        self._settle_pre_tax_payable_amount = None
+        self._settle_pre_tax_real_value = None
+        self._settle_pretax_amount = None
+        self._settle_real_value = None
+        self._settle_tax_amount = None
         self._split_item_id = None
         self._split_item_name = None
         self._subject_name = None
         self._tag = None
+        self._tax = None
+        self._tax_rate = None
         self._unit = None
         self._use_duration = None
         self._use_duration_unit = None
@@ -292,10 +430,14 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.configuration_code = configuration_code
         if count is not None:
             self.count = count
+        if country_region is not None:
+            self.country_region = country_region
         if coupon_amount is not None:
             self.coupon_amount = coupon_amount
         if currency is not None:
             self.currency = currency
+        if currency_settlement is not None:
+            self.currency_settlement = currency_settlement
         if daily_amortized_coupon_amount is not None:
             self.daily_amortized_coupon_amount = daily_amortized_coupon_amount
         if daily_amortized_discount_bill_amount is not None:
@@ -306,14 +448,44 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.daily_amortized_paid_amount = daily_amortized_paid_amount
         if daily_amortized_payable_amount is not None:
             self.daily_amortized_payable_amount = daily_amortized_payable_amount
+        if daily_amortized_posttax_amount is not None:
+            self.daily_amortized_posttax_amount = daily_amortized_posttax_amount
+        if daily_amortized_pre_tax_payable_amount is not None:
+            self.daily_amortized_pre_tax_payable_amount = daily_amortized_pre_tax_payable_amount
+        if daily_amortized_pre_tax_real_value is not None:
+            self.daily_amortized_pre_tax_real_value = daily_amortized_pre_tax_real_value
         if daily_amortized_preferential_bill_amount is not None:
             self.daily_amortized_preferential_bill_amount = daily_amortized_preferential_bill_amount
+        if daily_amortized_pretax_amount is not None:
+            self.daily_amortized_pretax_amount = daily_amortized_pretax_amount
+        if daily_amortized_real_value is not None:
+            self.daily_amortized_real_value = daily_amortized_real_value
         if daily_amortized_round_amount is not None:
             self.daily_amortized_round_amount = daily_amortized_round_amount
+        if daily_amortized_saving_plan_original_amount is not None:
+            self.daily_amortized_saving_plan_original_amount = daily_amortized_saving_plan_original_amount
+        if daily_amortized_settle_payable_amount is not None:
+            self.daily_amortized_settle_payable_amount = daily_amortized_settle_payable_amount
+        if daily_amortized_settle_posttax_amount is not None:
+            self.daily_amortized_settle_posttax_amount = daily_amortized_settle_posttax_amount
+        if daily_amortized_settle_pre_tax_payable_amount is not None:
+            self.daily_amortized_settle_pre_tax_payable_amount = daily_amortized_settle_pre_tax_payable_amount
+        if daily_amortized_settle_pre_tax_real_value is not None:
+            self.daily_amortized_settle_pre_tax_real_value = daily_amortized_settle_pre_tax_real_value
+        if daily_amortized_settle_pretax_amount is not None:
+            self.daily_amortized_settle_pretax_amount = daily_amortized_settle_pretax_amount
+        if daily_amortized_settle_real_value is not None:
+            self.daily_amortized_settle_real_value = daily_amortized_settle_real_value
+        if daily_amortized_settle_tax_amount is not None:
+            self.daily_amortized_settle_tax_amount = daily_amortized_settle_tax_amount
+        if daily_amortized_tax_amount is not None:
+            self.daily_amortized_tax_amount = daily_amortized_tax_amount
         if deduction_use_duration is not None:
             self.deduction_use_duration = deduction_use_duration
         if discount_bill_amount is not None:
             self.discount_bill_amount = discount_bill_amount
+        if effective_factor is not None:
+            self.effective_factor = effective_factor
         if element is not None:
             self.element = element
         if element_code is not None:
@@ -340,10 +512,38 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.now_amortized_paid_amount = now_amortized_paid_amount
         if now_amortized_payable_amount is not None:
             self.now_amortized_payable_amount = now_amortized_payable_amount
+        if now_amortized_posttax_amount is not None:
+            self.now_amortized_posttax_amount = now_amortized_posttax_amount
+        if now_amortized_pre_tax_payable_amount is not None:
+            self.now_amortized_pre_tax_payable_amount = now_amortized_pre_tax_payable_amount
+        if now_amortized_pre_tax_real_value is not None:
+            self.now_amortized_pre_tax_real_value = now_amortized_pre_tax_real_value
         if now_amortized_preferential_bill_amount is not None:
             self.now_amortized_preferential_bill_amount = now_amortized_preferential_bill_amount
+        if now_amortized_pretax_amount is not None:
+            self.now_amortized_pretax_amount = now_amortized_pretax_amount
+        if now_amortized_real_value is not None:
+            self.now_amortized_real_value = now_amortized_real_value
         if now_amortized_round_amount is not None:
             self.now_amortized_round_amount = now_amortized_round_amount
+        if now_amortized_saving_plan_original_amount is not None:
+            self.now_amortized_saving_plan_original_amount = now_amortized_saving_plan_original_amount
+        if now_amortized_settle_payable_amount is not None:
+            self.now_amortized_settle_payable_amount = now_amortized_settle_payable_amount
+        if now_amortized_settle_posttax_amount is not None:
+            self.now_amortized_settle_posttax_amount = now_amortized_settle_posttax_amount
+        if now_amortized_settle_pre_tax_payable_amount is not None:
+            self.now_amortized_settle_pre_tax_payable_amount = now_amortized_settle_pre_tax_payable_amount
+        if now_amortized_settle_pre_tax_real_value is not None:
+            self.now_amortized_settle_pre_tax_real_value = now_amortized_settle_pre_tax_real_value
+        if now_amortized_settle_pretax_amount is not None:
+            self.now_amortized_settle_pretax_amount = now_amortized_settle_pretax_amount
+        if now_amortized_settle_real_value is not None:
+            self.now_amortized_settle_real_value = now_amortized_settle_real_value
+        if now_amortized_settle_tax_amount is not None:
+            self.now_amortized_settle_tax_amount = now_amortized_settle_tax_amount
+        if now_amortized_tax_amount is not None:
+            self.now_amortized_tax_amount = now_amortized_tax_amount
         if original_bill_amount is not None:
             self.original_bill_amount = original_bill_amount
         if owner_customer_name is not None:
@@ -362,8 +562,16 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.payer_id = payer_id
         if payer_user_name is not None:
             self.payer_user_name = payer_user_name
+        if posttax_amount is not None:
+            self.posttax_amount = posttax_amount
+        if pre_tax_payable_amount is not None:
+            self.pre_tax_payable_amount = pre_tax_payable_amount
+        if pre_tax_real_value is not None:
+            self.pre_tax_real_value = pre_tax_real_value
         if preferential_bill_amount is not None:
             self.preferential_bill_amount = preferential_bill_amount
+        if pretax_amount is not None:
+            self.pretax_amount = pretax_amount
         if price is not None:
             self.price = price
         if price_unit is not None:
@@ -376,18 +584,36 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.project = project
         if project_display_name is not None:
             self.project_display_name = project_display_name
+        if real_value is not None:
+            self.real_value = real_value
         if region is not None:
             self.region = region
         if region_code is not None:
             self.region_code = region_code
         if round_amount is not None:
             self.round_amount = round_amount
+        if saving_plan_original_amount is not None:
+            self.saving_plan_original_amount = saving_plan_original_amount
         if seller_customer_name is not None:
             self.seller_customer_name = seller_customer_name
         if seller_id is not None:
             self.seller_id = seller_id
         if seller_user_name is not None:
             self.seller_user_name = seller_user_name
+        if settle_payable_amount is not None:
+            self.settle_payable_amount = settle_payable_amount
+        if settle_posttax_amount is not None:
+            self.settle_posttax_amount = settle_posttax_amount
+        if settle_pre_tax_payable_amount is not None:
+            self.settle_pre_tax_payable_amount = settle_pre_tax_payable_amount
+        if settle_pre_tax_real_value is not None:
+            self.settle_pre_tax_real_value = settle_pre_tax_real_value
+        if settle_pretax_amount is not None:
+            self.settle_pretax_amount = settle_pretax_amount
+        if settle_real_value is not None:
+            self.settle_real_value = settle_real_value
+        if settle_tax_amount is not None:
+            self.settle_tax_amount = settle_tax_amount
         if split_item_id is not None:
             self.split_item_id = split_item_id
         if split_item_name is not None:
@@ -396,6 +622,10 @@ class ListForListAmortizedCostBillDailyOutput(object):
             self.subject_name = subject_name
         if tag is not None:
             self.tag = tag
+        if tax is not None:
+            self.tax = tax
+        if tax_rate is not None:
+            self.tax_rate = tax_rate
         if unit is not None:
             self.unit = unit
         if use_duration is not None:
@@ -723,6 +953,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._count = count
 
     @property
+    def country_region(self):
+        """Gets the country_region of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The country_region of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._country_region
+
+    @country_region.setter
+    def country_region(self, country_region):
+        """Sets the country_region of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param country_region: The country_region of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._country_region = country_region
+
+    @property
     def coupon_amount(self):
         """Gets the coupon_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -763,6 +1014,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._currency = currency
+
+    @property
+    def currency_settlement(self):
+        """Gets the currency_settlement of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The currency_settlement of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_settlement
+
+    @currency_settlement.setter
+    def currency_settlement(self, currency_settlement):
+        """Sets the currency_settlement of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param currency_settlement: The currency_settlement of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._currency_settlement = currency_settlement
 
     @property
     def daily_amortized_coupon_amount(self):
@@ -870,6 +1142,69 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._daily_amortized_payable_amount = daily_amortized_payable_amount
 
     @property
+    def daily_amortized_posttax_amount(self):
+        """Gets the daily_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_posttax_amount
+
+    @daily_amortized_posttax_amount.setter
+    def daily_amortized_posttax_amount(self, daily_amortized_posttax_amount):
+        """Sets the daily_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_posttax_amount: The daily_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_posttax_amount = daily_amortized_posttax_amount
+
+    @property
+    def daily_amortized_pre_tax_payable_amount(self):
+        """Gets the daily_amortized_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_pre_tax_payable_amount
+
+    @daily_amortized_pre_tax_payable_amount.setter
+    def daily_amortized_pre_tax_payable_amount(self, daily_amortized_pre_tax_payable_amount):
+        """Sets the daily_amortized_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_pre_tax_payable_amount: The daily_amortized_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_pre_tax_payable_amount = daily_amortized_pre_tax_payable_amount
+
+    @property
+    def daily_amortized_pre_tax_real_value(self):
+        """Gets the daily_amortized_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_pre_tax_real_value
+
+    @daily_amortized_pre_tax_real_value.setter
+    def daily_amortized_pre_tax_real_value(self, daily_amortized_pre_tax_real_value):
+        """Sets the daily_amortized_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_pre_tax_real_value: The daily_amortized_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_pre_tax_real_value = daily_amortized_pre_tax_real_value
+
+    @property
     def daily_amortized_preferential_bill_amount(self):
         """Gets the daily_amortized_preferential_bill_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -891,6 +1226,48 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._daily_amortized_preferential_bill_amount = daily_amortized_preferential_bill_amount
 
     @property
+    def daily_amortized_pretax_amount(self):
+        """Gets the daily_amortized_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_pretax_amount
+
+    @daily_amortized_pretax_amount.setter
+    def daily_amortized_pretax_amount(self, daily_amortized_pretax_amount):
+        """Sets the daily_amortized_pretax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_pretax_amount: The daily_amortized_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_pretax_amount = daily_amortized_pretax_amount
+
+    @property
+    def daily_amortized_real_value(self):
+        """Gets the daily_amortized_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_real_value
+
+    @daily_amortized_real_value.setter
+    def daily_amortized_real_value(self, daily_amortized_real_value):
+        """Sets the daily_amortized_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_real_value: The daily_amortized_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_real_value = daily_amortized_real_value
+
+    @property
     def daily_amortized_round_amount(self):
         """Gets the daily_amortized_round_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -910,6 +1287,195 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._daily_amortized_round_amount = daily_amortized_round_amount
+
+    @property
+    def daily_amortized_saving_plan_original_amount(self):
+        """Gets the daily_amortized_saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_saving_plan_original_amount
+
+    @daily_amortized_saving_plan_original_amount.setter
+    def daily_amortized_saving_plan_original_amount(self, daily_amortized_saving_plan_original_amount):
+        """Sets the daily_amortized_saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_saving_plan_original_amount: The daily_amortized_saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_saving_plan_original_amount = daily_amortized_saving_plan_original_amount
+
+    @property
+    def daily_amortized_settle_payable_amount(self):
+        """Gets the daily_amortized_settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_settle_payable_amount
+
+    @daily_amortized_settle_payable_amount.setter
+    def daily_amortized_settle_payable_amount(self, daily_amortized_settle_payable_amount):
+        """Sets the daily_amortized_settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_settle_payable_amount: The daily_amortized_settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_settle_payable_amount = daily_amortized_settle_payable_amount
+
+    @property
+    def daily_amortized_settle_posttax_amount(self):
+        """Gets the daily_amortized_settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_settle_posttax_amount
+
+    @daily_amortized_settle_posttax_amount.setter
+    def daily_amortized_settle_posttax_amount(self, daily_amortized_settle_posttax_amount):
+        """Sets the daily_amortized_settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_settle_posttax_amount: The daily_amortized_settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_settle_posttax_amount = daily_amortized_settle_posttax_amount
+
+    @property
+    def daily_amortized_settle_pre_tax_payable_amount(self):
+        """Gets the daily_amortized_settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_settle_pre_tax_payable_amount
+
+    @daily_amortized_settle_pre_tax_payable_amount.setter
+    def daily_amortized_settle_pre_tax_payable_amount(self, daily_amortized_settle_pre_tax_payable_amount):
+        """Sets the daily_amortized_settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_settle_pre_tax_payable_amount: The daily_amortized_settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_settle_pre_tax_payable_amount = daily_amortized_settle_pre_tax_payable_amount
+
+    @property
+    def daily_amortized_settle_pre_tax_real_value(self):
+        """Gets the daily_amortized_settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_settle_pre_tax_real_value
+
+    @daily_amortized_settle_pre_tax_real_value.setter
+    def daily_amortized_settle_pre_tax_real_value(self, daily_amortized_settle_pre_tax_real_value):
+        """Sets the daily_amortized_settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_settle_pre_tax_real_value: The daily_amortized_settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_settle_pre_tax_real_value = daily_amortized_settle_pre_tax_real_value
+
+    @property
+    def daily_amortized_settle_pretax_amount(self):
+        """Gets the daily_amortized_settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_settle_pretax_amount
+
+    @daily_amortized_settle_pretax_amount.setter
+    def daily_amortized_settle_pretax_amount(self, daily_amortized_settle_pretax_amount):
+        """Sets the daily_amortized_settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_settle_pretax_amount: The daily_amortized_settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_settle_pretax_amount = daily_amortized_settle_pretax_amount
+
+    @property
+    def daily_amortized_settle_real_value(self):
+        """Gets the daily_amortized_settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_settle_real_value
+
+    @daily_amortized_settle_real_value.setter
+    def daily_amortized_settle_real_value(self, daily_amortized_settle_real_value):
+        """Sets the daily_amortized_settle_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_settle_real_value: The daily_amortized_settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_settle_real_value = daily_amortized_settle_real_value
+
+    @property
+    def daily_amortized_settle_tax_amount(self):
+        """Gets the daily_amortized_settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_settle_tax_amount
+
+    @daily_amortized_settle_tax_amount.setter
+    def daily_amortized_settle_tax_amount(self, daily_amortized_settle_tax_amount):
+        """Sets the daily_amortized_settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_settle_tax_amount: The daily_amortized_settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_settle_tax_amount = daily_amortized_settle_tax_amount
+
+    @property
+    def daily_amortized_tax_amount(self):
+        """Gets the daily_amortized_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The daily_amortized_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._daily_amortized_tax_amount
+
+    @daily_amortized_tax_amount.setter
+    def daily_amortized_tax_amount(self, daily_amortized_tax_amount):
+        """Sets the daily_amortized_tax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param daily_amortized_tax_amount: The daily_amortized_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._daily_amortized_tax_amount = daily_amortized_tax_amount
 
     @property
     def deduction_use_duration(self):
@@ -952,6 +1518,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._discount_bill_amount = discount_bill_amount
+
+    @property
+    def effective_factor(self):
+        """Gets the effective_factor of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The effective_factor of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._effective_factor
+
+    @effective_factor.setter
+    def effective_factor(self, effective_factor):
+        """Sets the effective_factor of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param effective_factor: The effective_factor of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._effective_factor = effective_factor
 
     @property
     def element(self):
@@ -1227,6 +1814,69 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._now_amortized_payable_amount = now_amortized_payable_amount
 
     @property
+    def now_amortized_posttax_amount(self):
+        """Gets the now_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_posttax_amount
+
+    @now_amortized_posttax_amount.setter
+    def now_amortized_posttax_amount(self, now_amortized_posttax_amount):
+        """Sets the now_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_posttax_amount: The now_amortized_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_posttax_amount = now_amortized_posttax_amount
+
+    @property
+    def now_amortized_pre_tax_payable_amount(self):
+        """Gets the now_amortized_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_pre_tax_payable_amount
+
+    @now_amortized_pre_tax_payable_amount.setter
+    def now_amortized_pre_tax_payable_amount(self, now_amortized_pre_tax_payable_amount):
+        """Sets the now_amortized_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_pre_tax_payable_amount: The now_amortized_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_pre_tax_payable_amount = now_amortized_pre_tax_payable_amount
+
+    @property
+    def now_amortized_pre_tax_real_value(self):
+        """Gets the now_amortized_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_pre_tax_real_value
+
+    @now_amortized_pre_tax_real_value.setter
+    def now_amortized_pre_tax_real_value(self, now_amortized_pre_tax_real_value):
+        """Sets the now_amortized_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_pre_tax_real_value: The now_amortized_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_pre_tax_real_value = now_amortized_pre_tax_real_value
+
+    @property
     def now_amortized_preferential_bill_amount(self):
         """Gets the now_amortized_preferential_bill_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -1248,6 +1898,48 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._now_amortized_preferential_bill_amount = now_amortized_preferential_bill_amount
 
     @property
+    def now_amortized_pretax_amount(self):
+        """Gets the now_amortized_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_pretax_amount
+
+    @now_amortized_pretax_amount.setter
+    def now_amortized_pretax_amount(self, now_amortized_pretax_amount):
+        """Sets the now_amortized_pretax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_pretax_amount: The now_amortized_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_pretax_amount = now_amortized_pretax_amount
+
+    @property
+    def now_amortized_real_value(self):
+        """Gets the now_amortized_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_real_value
+
+    @now_amortized_real_value.setter
+    def now_amortized_real_value(self, now_amortized_real_value):
+        """Sets the now_amortized_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_real_value: The now_amortized_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_real_value = now_amortized_real_value
+
+    @property
     def now_amortized_round_amount(self):
         """Gets the now_amortized_round_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -1267,6 +1959,195 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._now_amortized_round_amount = now_amortized_round_amount
+
+    @property
+    def now_amortized_saving_plan_original_amount(self):
+        """Gets the now_amortized_saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_saving_plan_original_amount
+
+    @now_amortized_saving_plan_original_amount.setter
+    def now_amortized_saving_plan_original_amount(self, now_amortized_saving_plan_original_amount):
+        """Sets the now_amortized_saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_saving_plan_original_amount: The now_amortized_saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_saving_plan_original_amount = now_amortized_saving_plan_original_amount
+
+    @property
+    def now_amortized_settle_payable_amount(self):
+        """Gets the now_amortized_settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_settle_payable_amount
+
+    @now_amortized_settle_payable_amount.setter
+    def now_amortized_settle_payable_amount(self, now_amortized_settle_payable_amount):
+        """Sets the now_amortized_settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_settle_payable_amount: The now_amortized_settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_settle_payable_amount = now_amortized_settle_payable_amount
+
+    @property
+    def now_amortized_settle_posttax_amount(self):
+        """Gets the now_amortized_settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_settle_posttax_amount
+
+    @now_amortized_settle_posttax_amount.setter
+    def now_amortized_settle_posttax_amount(self, now_amortized_settle_posttax_amount):
+        """Sets the now_amortized_settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_settle_posttax_amount: The now_amortized_settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_settle_posttax_amount = now_amortized_settle_posttax_amount
+
+    @property
+    def now_amortized_settle_pre_tax_payable_amount(self):
+        """Gets the now_amortized_settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_settle_pre_tax_payable_amount
+
+    @now_amortized_settle_pre_tax_payable_amount.setter
+    def now_amortized_settle_pre_tax_payable_amount(self, now_amortized_settle_pre_tax_payable_amount):
+        """Sets the now_amortized_settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_settle_pre_tax_payable_amount: The now_amortized_settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_settle_pre_tax_payable_amount = now_amortized_settle_pre_tax_payable_amount
+
+    @property
+    def now_amortized_settle_pre_tax_real_value(self):
+        """Gets the now_amortized_settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_settle_pre_tax_real_value
+
+    @now_amortized_settle_pre_tax_real_value.setter
+    def now_amortized_settle_pre_tax_real_value(self, now_amortized_settle_pre_tax_real_value):
+        """Sets the now_amortized_settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_settle_pre_tax_real_value: The now_amortized_settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_settle_pre_tax_real_value = now_amortized_settle_pre_tax_real_value
+
+    @property
+    def now_amortized_settle_pretax_amount(self):
+        """Gets the now_amortized_settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_settle_pretax_amount
+
+    @now_amortized_settle_pretax_amount.setter
+    def now_amortized_settle_pretax_amount(self, now_amortized_settle_pretax_amount):
+        """Sets the now_amortized_settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_settle_pretax_amount: The now_amortized_settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_settle_pretax_amount = now_amortized_settle_pretax_amount
+
+    @property
+    def now_amortized_settle_real_value(self):
+        """Gets the now_amortized_settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_settle_real_value
+
+    @now_amortized_settle_real_value.setter
+    def now_amortized_settle_real_value(self, now_amortized_settle_real_value):
+        """Sets the now_amortized_settle_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_settle_real_value: The now_amortized_settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_settle_real_value = now_amortized_settle_real_value
+
+    @property
+    def now_amortized_settle_tax_amount(self):
+        """Gets the now_amortized_settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_settle_tax_amount
+
+    @now_amortized_settle_tax_amount.setter
+    def now_amortized_settle_tax_amount(self, now_amortized_settle_tax_amount):
+        """Sets the now_amortized_settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_settle_tax_amount: The now_amortized_settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_settle_tax_amount = now_amortized_settle_tax_amount
+
+    @property
+    def now_amortized_tax_amount(self):
+        """Gets the now_amortized_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The now_amortized_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._now_amortized_tax_amount
+
+    @now_amortized_tax_amount.setter
+    def now_amortized_tax_amount(self, now_amortized_tax_amount):
+        """Sets the now_amortized_tax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param now_amortized_tax_amount: The now_amortized_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._now_amortized_tax_amount = now_amortized_tax_amount
 
     @property
     def original_bill_amount(self):
@@ -1458,6 +2339,69 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._payer_user_name = payer_user_name
 
     @property
+    def posttax_amount(self):
+        """Gets the posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._posttax_amount
+
+    @posttax_amount.setter
+    def posttax_amount(self, posttax_amount):
+        """Sets the posttax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param posttax_amount: The posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._posttax_amount = posttax_amount
+
+    @property
+    def pre_tax_payable_amount(self):
+        """Gets the pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_tax_payable_amount
+
+    @pre_tax_payable_amount.setter
+    def pre_tax_payable_amount(self, pre_tax_payable_amount):
+        """Sets the pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param pre_tax_payable_amount: The pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_tax_payable_amount = pre_tax_payable_amount
+
+    @property
+    def pre_tax_real_value(self):
+        """Gets the pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_tax_real_value
+
+    @pre_tax_real_value.setter
+    def pre_tax_real_value(self, pre_tax_real_value):
+        """Sets the pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param pre_tax_real_value: The pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_tax_real_value = pre_tax_real_value
+
+    @property
     def preferential_bill_amount(self):
         """Gets the preferential_bill_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -1477,6 +2421,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._preferential_bill_amount = preferential_bill_amount
+
+    @property
+    def pretax_amount(self):
+        """Gets the pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pretax_amount
+
+    @pretax_amount.setter
+    def pretax_amount(self, pretax_amount):
+        """Sets the pretax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param pretax_amount: The pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pretax_amount = pretax_amount
 
     @property
     def price(self):
@@ -1605,6 +2570,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._project_display_name = project_display_name
 
     @property
+    def real_value(self):
+        """Gets the real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._real_value
+
+    @real_value.setter
+    def real_value(self, real_value):
+        """Sets the real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param real_value: The real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._real_value = real_value
+
+    @property
     def region(self):
         """Gets the region of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -1668,6 +2654,27 @@ class ListForListAmortizedCostBillDailyOutput(object):
         self._round_amount = round_amount
 
     @property
+    def saving_plan_original_amount(self):
+        """Gets the saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._saving_plan_original_amount
+
+    @saving_plan_original_amount.setter
+    def saving_plan_original_amount(self, saving_plan_original_amount):
+        """Sets the saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param saving_plan_original_amount: The saving_plan_original_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._saving_plan_original_amount = saving_plan_original_amount
+
+    @property
     def seller_customer_name(self):
         """Gets the seller_customer_name of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
 
@@ -1729,6 +2736,153 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._seller_user_name = seller_user_name
+
+    @property
+    def settle_payable_amount(self):
+        """Gets the settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_payable_amount
+
+    @settle_payable_amount.setter
+    def settle_payable_amount(self, settle_payable_amount):
+        """Sets the settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param settle_payable_amount: The settle_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_payable_amount = settle_payable_amount
+
+    @property
+    def settle_posttax_amount(self):
+        """Gets the settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_posttax_amount
+
+    @settle_posttax_amount.setter
+    def settle_posttax_amount(self, settle_posttax_amount):
+        """Sets the settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param settle_posttax_amount: The settle_posttax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_posttax_amount = settle_posttax_amount
+
+    @property
+    def settle_pre_tax_payable_amount(self):
+        """Gets the settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_pre_tax_payable_amount
+
+    @settle_pre_tax_payable_amount.setter
+    def settle_pre_tax_payable_amount(self, settle_pre_tax_payable_amount):
+        """Sets the settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param settle_pre_tax_payable_amount: The settle_pre_tax_payable_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_pre_tax_payable_amount = settle_pre_tax_payable_amount
+
+    @property
+    def settle_pre_tax_real_value(self):
+        """Gets the settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_pre_tax_real_value
+
+    @settle_pre_tax_real_value.setter
+    def settle_pre_tax_real_value(self, settle_pre_tax_real_value):
+        """Sets the settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param settle_pre_tax_real_value: The settle_pre_tax_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_pre_tax_real_value = settle_pre_tax_real_value
+
+    @property
+    def settle_pretax_amount(self):
+        """Gets the settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_pretax_amount
+
+    @settle_pretax_amount.setter
+    def settle_pretax_amount(self, settle_pretax_amount):
+        """Sets the settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param settle_pretax_amount: The settle_pretax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_pretax_amount = settle_pretax_amount
+
+    @property
+    def settle_real_value(self):
+        """Gets the settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_real_value
+
+    @settle_real_value.setter
+    def settle_real_value(self, settle_real_value):
+        """Sets the settle_real_value of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param settle_real_value: The settle_real_value of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_real_value = settle_real_value
+
+    @property
+    def settle_tax_amount(self):
+        """Gets the settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_tax_amount
+
+    @settle_tax_amount.setter
+    def settle_tax_amount(self, settle_tax_amount):
+        """Sets the settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param settle_tax_amount: The settle_tax_amount of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_tax_amount = settle_tax_amount
 
     @property
     def split_item_id(self):
@@ -1813,6 +2967,48 @@ class ListForListAmortizedCostBillDailyOutput(object):
         """
 
         self._tag = tag
+
+    @property
+    def tax(self):
+        """Gets the tax of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The tax of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax
+
+    @tax.setter
+    def tax(self, tax):
+        """Sets the tax of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param tax: The tax of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tax = tax
+
+    @property
+    def tax_rate(self):
+        """Gets the tax_rate of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+
+
+        :return: The tax_rate of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax_rate
+
+    @tax_rate.setter
+    def tax_rate(self, tax_rate):
+        """Sets the tax_rate of this ListForListAmortizedCostBillDailyOutput.
+
+
+        :param tax_rate: The tax_rate of this ListForListAmortizedCostBillDailyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tax_rate = tax_rate
 
     @property
     def unit(self):
