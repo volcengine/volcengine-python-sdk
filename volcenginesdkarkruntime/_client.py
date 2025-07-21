@@ -1,3 +1,15 @@
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
 import asyncio
@@ -46,6 +58,8 @@ class Ark(SyncAPIClient):
     content_generation: resources.ContentGeneration
     images: resources.Images
     batch_chat: resources.BatchChat
+    responses: resources.Responses
+    input_items: resources.InputItems
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: threading.Lock
 
@@ -112,6 +126,8 @@ class Ark(SyncAPIClient):
         self.content_generation = resources.ContentGeneration(self)
         self.images = resources.Images(self)
         self.batch_chat = resources.BatchChat(self)
+        self.responses = resources.Responses(self)
+        self.input_items = resources.InputItems(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = threading.Lock()
         # self.classification = resources.Classification(self)
@@ -168,6 +184,8 @@ class AsyncArk(AsyncAPIClient):
     content_generation: resources.AsyncContentGeneration
     images: resources.AsyncImages
     batch_chat: resources.AsyncBatchChat
+    responses: resources.AsyncResponses
+    input_items: resources.AsyncInputItems
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: asyncio.Lock
 
@@ -234,6 +252,8 @@ class AsyncArk(AsyncAPIClient):
         self.content_generation = resources.AsyncContentGeneration(self)
         self.images = resources.AsyncImages(self)
         self.batch_chat = resources.AsyncBatchChat(self)
+        self.responses = resources.AsyncResponses(self)
+        self.input_items = resources.AsyncInputItems(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = asyncio.Lock()
         # self.classification = resources.AsyncClassification(self)
