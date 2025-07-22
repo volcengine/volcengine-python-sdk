@@ -33,7 +33,7 @@ class ListPodRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'archive_status': 'str',
+        'archive_status': 'int',
         'authority_status': 'int',
         'configuration_code_list': 'list[str]',
         'dnsid': 'str',
@@ -137,7 +137,7 @@ class ListPodRequest(object):
 
 
         :return: The archive_status of this ListPodRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._archive_status
 
@@ -147,7 +147,7 @@ class ListPodRequest(object):
 
 
         :param archive_status: The archive_status of this ListPodRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._archive_status = archive_status
