@@ -1,29 +1,34 @@
 # 目录
+- [目录](#目录)
 - [集成SDK](#集成sdk)
-  - [环境要求](#环境要求)
-  - [访问凭据](#访问凭据)
-    - [AK、SK设置](#aksk设置)
-  - [EndPoint配置](#endpoint配置)
-    - [自定义Endpoint](#自定义endpoint)
-    - [自定义RegionId](#自定义regionid)
-    - [自动化Endpoint寻址](#自动化endpoint寻址)
-      - [Endpoint默认寻址](#endpoint默认寻址)
-  - [Http连接池配置](#http连接池配置)
-  - [Https请求配置](#https请求配置)
-    - [指定scheme](#指定scheme)
-    - [忽略SSL验证](#忽略ssl验证)
-  - [超时配置](#超时配置)
-  - [重试机制](#重试机制)
-    - [重试代码配置](#重试代码配置)
-    - [重试条件](#重试条件)
-      - [默认重试条件](#默认重试条件)
-      - [自定义重试条件](#自定义重试条件)
-    - [退避策略](#退避策略)
-      - [内置退避策略](#内置退避策略)
-      - [自定义退避策略](#自定义退避策略)
-  - [异常处理](#异常处理)
-  - [Debug机制](#debug机制)
-  - [指定日志Logger](#指定日志logger)
+- [环境要求](#环境要求)
+- [访问凭据](#访问凭据)
+  - [AK、SK设置](#aksk设置)
+- [EndPoint配置](#endpoint配置)
+  - [自定义Endpoint](#自定义endpoint)
+  - [自定义RegionId](#自定义regionid)
+  - [自动化Endpoint寻址](#自动化endpoint寻址)
+    - [Endpoint默认寻址](#endpoint默认寻址)
+- [Http连接池配置](#http连接池配置)
+- [Https请求配置](#https请求配置)
+  - [指定scheme](#指定scheme)
+- [Http(s)代理配置](#https代理配置)
+  - [配置Http(s)代理](#配置https代理)
+  - [配置No Proxy](#配置no-proxy)
+  - [注意事项](#注意事项)
+  - [忽略SSL验证](#忽略ssl验证)
+- [超时配置](#超时配置)
+- [重试机制](#重试机制)
+  - [重试代码配置](#重试代码配置)
+  - [重试条件](#重试条件)
+    - [默认重试条件](#默认重试条件)
+    - [自定义重试条件](#自定义重试条件)
+  - [退避策略](#退避策略)
+    - [内置退避策略](#内置退避策略)
+    - [自定义退避策略](#自定义退避策略)
+- [异常处理](#异常处理)
+- [Debug机制](#debug机制)
+- [指定日志Logger](#指定日志logger)
 
 # 集成SDK
 
@@ -232,6 +237,51 @@ try:
 except ApiException as e:
     pass
 ```
+
+# Http(s)代理配置
+
+> - **默认** 
+>   无代理
+
+## 配置Http(s)代理
+
+```python
+configuration = volcenginesdkcore.Configuration()
+configuration.ak = "Your AK"
+configuration.sk = "Your SK"
+
+configuration.http_proxy = "http://your_proxy:8080"
+configuration.https_proxy = "http://your_proxy:8080"
+
+volcenginesdkcore.Configuration.set_default(configuration)
+
+api_instance = volcenginesdkecs.ECSApi()
+```
+
+## 配置No Proxy
+
+```python
+configuration = volcenginesdkcore.Configuration()
+configuration.ak = "Your AK"
+configuration.sk = "Your SK"
+
+configuration.http_proxy = "http://your_proxy:8080"
+configuration.https_proxy = "http://your_proxy:8080"
+configuration.no_proxy = "host1_without_proxy,host2_without_proxy"
+
+volcenginesdkcore.Configuration.set_default(configuration)
+
+api_instance = volcenginesdkecs.ECSApi()
+```
+
+## 注意事项
+
+支持通过以下环境变量配置代理:
+
+http_proxy/HTTP_PROXY, https_proxy/HTTPS_PROXY, no_proxy/NO_PROXY
+
+优先级：代码 > 环境变量
+
 
 ## 忽略SSL验证
 
