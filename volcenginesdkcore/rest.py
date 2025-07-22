@@ -108,8 +108,6 @@ class RESTClientObject(object):
                 **addition_pool_args
             )
 
-        self._last_pm_proxy_url = proxy_url
-
     def __get_proxy(self, configuration):
         proxy_url = configuration.proxy
         if not proxy_url:
