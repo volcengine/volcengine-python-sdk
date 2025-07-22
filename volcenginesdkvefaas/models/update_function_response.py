@@ -33,6 +33,7 @@ class UpdateFunctionResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cell': 'str',
         'code_size': 'int',
         'code_size_limit': 'int',
         'command': 'str',
@@ -41,6 +42,7 @@ class UpdateFunctionResponse(object):
         'description': 'str',
         'envs': 'list[EnvForUpdateFunctionOutput]',
         'exclusive_mode': 'bool',
+        'function_type': 'str',
         'id': 'str',
         'initializer_sec': 'int',
         'instance_type': 'str',
@@ -64,6 +66,7 @@ class UpdateFunctionResponse(object):
     }
 
     attribute_map = {
+        'cell': 'Cell',
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
         'command': 'Command',
@@ -72,6 +75,7 @@ class UpdateFunctionResponse(object):
         'description': 'Description',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
+        'function_type': 'FunctionType',
         'id': 'Id',
         'initializer_sec': 'InitializerSec',
         'instance_type': 'InstanceType',
@@ -94,12 +98,13 @@ class UpdateFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, command=None, cpu_strategy=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, cell=None, code_size=None, code_size_limit=None, command=None, cpu_strategy=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """UpdateFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cell = None
         self._code_size = None
         self._code_size_limit = None
         self._command = None
@@ -108,6 +113,7 @@ class UpdateFunctionResponse(object):
         self._description = None
         self._envs = None
         self._exclusive_mode = None
+        self._function_type = None
         self._id = None
         self._initializer_sec = None
         self._instance_type = None
@@ -130,6 +136,8 @@ class UpdateFunctionResponse(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if cell is not None:
+            self.cell = cell
         if code_size is not None:
             self.code_size = code_size
         if code_size_limit is not None:
@@ -146,6 +154,8 @@ class UpdateFunctionResponse(object):
             self.envs = envs
         if exclusive_mode is not None:
             self.exclusive_mode = exclusive_mode
+        if function_type is not None:
+            self.function_type = function_type
         if id is not None:
             self.id = id
         if initializer_sec is not None:
@@ -186,6 +196,27 @@ class UpdateFunctionResponse(object):
             self.triggers_count = triggers_count
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def cell(self):
+        """Gets the cell of this UpdateFunctionResponse.  # noqa: E501
+
+
+        :return: The cell of this UpdateFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._cell
+
+    @cell.setter
+    def cell(self, cell):
+        """Sets the cell of this UpdateFunctionResponse.
+
+
+        :param cell: The cell of this UpdateFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._cell = cell
 
     @property
     def code_size(self):
@@ -354,6 +385,27 @@ class UpdateFunctionResponse(object):
         """
 
         self._exclusive_mode = exclusive_mode
+
+    @property
+    def function_type(self):
+        """Gets the function_type of this UpdateFunctionResponse.  # noqa: E501
+
+
+        :return: The function_type of this UpdateFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._function_type
+
+    @function_type.setter
+    def function_type(self, function_type):
+        """Sets the function_type of this UpdateFunctionResponse.
+
+
+        :param function_type: The function_type of this UpdateFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._function_type = function_type
 
     @property
     def id(self):
