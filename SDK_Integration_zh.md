@@ -14,7 +14,6 @@
   - [指定scheme](#指定scheme)
 - [Http(s)代理配置](#https代理配置)
   - [配置Http(s)代理](#配置https代理)
-  - [配置No Proxy](#配置no-proxy)
   - [注意事项](#注意事项)
   - [忽略SSL验证](#忽略ssl验证)
 - [超时配置](#超时配置)
@@ -252,22 +251,6 @@ configuration.sk = "Your SK"
 
 configuration.http_proxy = "http://your_proxy:8080"
 configuration.https_proxy = "http://your_proxy:8080"
-
-volcenginesdkcore.Configuration.set_default(configuration)
-
-api_instance = volcenginesdkecs.ECSApi()
-```
-
-## 配置No Proxy
-
-```python
-configuration = volcenginesdkcore.Configuration()
-configuration.ak = "Your AK"
-configuration.sk = "Your SK"
-
-configuration.http_proxy = "http://your_proxy:8080"
-configuration.https_proxy = "http://your_proxy:8080"
-configuration.no_proxy = "host1_without_proxy,host2_without_proxy"
 
 volcenginesdkcore.Configuration.set_default(configuration)
 
