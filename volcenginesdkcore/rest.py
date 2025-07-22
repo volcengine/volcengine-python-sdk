@@ -8,7 +8,6 @@ import logging
 import os
 import re
 import ssl
-import threading
 
 import certifi
 # python 2 and python 3 compatibility library
