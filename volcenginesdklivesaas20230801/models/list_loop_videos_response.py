@@ -38,8 +38,6 @@ class ListLoopVideosResponse(object):
         'auto_start_time': 'int',
         'is_show_program': 'int',
         'line_id': 'int',
-        'live_mode': 'int',
-        'live_type': 'int',
         'loop_number': 'int',
         'loop_video_status': 'int',
         'loop_videos': 'list[LoopVideoForListLoopVideosOutput]',
@@ -53,8 +51,6 @@ class ListLoopVideosResponse(object):
         'auto_start_time': 'AutoStartTime',
         'is_show_program': 'IsShowProgram',
         'line_id': 'LineId',
-        'live_mode': 'LiveMode',
-        'live_type': 'LiveType',
         'loop_number': 'LoopNumber',
         'loop_video_status': 'LoopVideoStatus',
         'loop_videos': 'LoopVideos',
@@ -62,7 +58,7 @@ class ListLoopVideosResponse(object):
         'program_name': 'ProgramName'
     }
 
-    def __init__(self, activity_id=None, auto_end_time=None, auto_start_time=None, is_show_program=None, line_id=None, live_mode=None, live_type=None, loop_number=None, loop_video_status=None, loop_videos=None, play_type=None, program_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, auto_end_time=None, auto_start_time=None, is_show_program=None, line_id=None, loop_number=None, loop_video_status=None, loop_videos=None, play_type=None, program_name=None, _configuration=None):  # noqa: E501
         """ListLoopVideosResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,8 +69,6 @@ class ListLoopVideosResponse(object):
         self._auto_start_time = None
         self._is_show_program = None
         self._line_id = None
-        self._live_mode = None
-        self._live_type = None
         self._loop_number = None
         self._loop_video_status = None
         self._loop_videos = None
@@ -92,10 +86,6 @@ class ListLoopVideosResponse(object):
             self.is_show_program = is_show_program
         if line_id is not None:
             self.line_id = line_id
-        if live_mode is not None:
-            self.live_mode = live_mode
-        if live_type is not None:
-            self.live_type = live_type
         if loop_number is not None:
             self.loop_number = loop_number
         if loop_video_status is not None:
@@ -211,48 +201,6 @@ class ListLoopVideosResponse(object):
         """
 
         self._line_id = line_id
-
-    @property
-    def live_mode(self):
-        """Gets the live_mode of this ListLoopVideosResponse.  # noqa: E501
-
-
-        :return: The live_mode of this ListLoopVideosResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._live_mode
-
-    @live_mode.setter
-    def live_mode(self, live_mode):
-        """Sets the live_mode of this ListLoopVideosResponse.
-
-
-        :param live_mode: The live_mode of this ListLoopVideosResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._live_mode = live_mode
-
-    @property
-    def live_type(self):
-        """Gets the live_type of this ListLoopVideosResponse.  # noqa: E501
-
-
-        :return: The live_type of this ListLoopVideosResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._live_type
-
-    @live_type.setter
-    def live_type(self, live_type):
-        """Sets the live_type of this ListLoopVideosResponse.
-
-
-        :param live_type: The live_type of this ListLoopVideosResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._live_type = live_type
 
     @property
     def loop_number(self):

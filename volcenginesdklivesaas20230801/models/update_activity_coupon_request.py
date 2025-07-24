@@ -40,6 +40,7 @@ class UpdateActivityCouponRequest(object):
         'cut_off_time': 'int',
         'duration': 'int',
         'id': 'int',
+        'is_watch_live_limit': 'int',
         'rule': 'int'
     }
 
@@ -51,10 +52,11 @@ class UpdateActivityCouponRequest(object):
         'cut_off_time': 'CutOffTime',
         'duration': 'Duration',
         'id': 'Id',
+        'is_watch_live_limit': 'IsWatchLiveLimit',
         'rule': 'Rule'
     }
 
-    def __init__(self, activity_id=None, allow_close_icon=None, count=None, coupon_id=None, cut_off_time=None, duration=None, id=None, rule=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, allow_close_icon=None, count=None, coupon_id=None, cut_off_time=None, duration=None, id=None, is_watch_live_limit=None, rule=None, _configuration=None):  # noqa: E501
         """UpdateActivityCouponRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class UpdateActivityCouponRequest(object):
         self._cut_off_time = None
         self._duration = None
         self._id = None
+        self._is_watch_live_limit = None
         self._rule = None
         self.discriminator = None
 
@@ -82,6 +85,8 @@ class UpdateActivityCouponRequest(object):
         if duration is not None:
             self.duration = duration
         self.id = id
+        if is_watch_live_limit is not None:
+            self.is_watch_live_limit = is_watch_live_limit
         if rule is not None:
             self.rule = rule
 
@@ -235,6 +240,27 @@ class UpdateActivityCouponRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def is_watch_live_limit(self):
+        """Gets the is_watch_live_limit of this UpdateActivityCouponRequest.  # noqa: E501
+
+
+        :return: The is_watch_live_limit of this UpdateActivityCouponRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_watch_live_limit
+
+    @is_watch_live_limit.setter
+    def is_watch_live_limit(self, is_watch_live_limit):
+        """Sets the is_watch_live_limit of this UpdateActivityCouponRequest.
+
+
+        :param is_watch_live_limit: The is_watch_live_limit of this UpdateActivityCouponRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._is_watch_live_limit = is_watch_live_limit
 
     @property
     def rule(self):

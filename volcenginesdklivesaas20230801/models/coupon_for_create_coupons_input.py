@@ -34,6 +34,7 @@ class CouponForCreateCouponsInput(object):
     """
     swagger_types = {
         'description': 'str',
+        'is_repeat_pickup_enable': 'int',
         'name': 'str',
         'owner_sub_account_name': 'str',
         'pic': 'str',
@@ -42,19 +43,21 @@ class CouponForCreateCouponsInput(object):
 
     attribute_map = {
         'description': 'Description',
+        'is_repeat_pickup_enable': 'IsRepeatPickupEnable',
         'name': 'Name',
         'owner_sub_account_name': 'OwnerSubAccountName',
         'pic': 'Pic',
         'third_party_id': 'ThirdPartyId'
     }
 
-    def __init__(self, description=None, name=None, owner_sub_account_name=None, pic=None, third_party_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, is_repeat_pickup_enable=None, name=None, owner_sub_account_name=None, pic=None, third_party_id=None, _configuration=None):  # noqa: E501
         """CouponForCreateCouponsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._is_repeat_pickup_enable = None
         self._name = None
         self._owner_sub_account_name = None
         self._pic = None
@@ -63,6 +66,8 @@ class CouponForCreateCouponsInput(object):
 
         if description is not None:
             self.description = description
+        if is_repeat_pickup_enable is not None:
+            self.is_repeat_pickup_enable = is_repeat_pickup_enable
         if name is not None:
             self.name = name
         if owner_sub_account_name is not None:
@@ -92,6 +97,27 @@ class CouponForCreateCouponsInput(object):
         """
 
         self._description = description
+
+    @property
+    def is_repeat_pickup_enable(self):
+        """Gets the is_repeat_pickup_enable of this CouponForCreateCouponsInput.  # noqa: E501
+
+
+        :return: The is_repeat_pickup_enable of this CouponForCreateCouponsInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_repeat_pickup_enable
+
+    @is_repeat_pickup_enable.setter
+    def is_repeat_pickup_enable(self, is_repeat_pickup_enable):
+        """Sets the is_repeat_pickup_enable of this CouponForCreateCouponsInput.
+
+
+        :param is_repeat_pickup_enable: The is_repeat_pickup_enable of this CouponForCreateCouponsInput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_repeat_pickup_enable = is_repeat_pickup_enable
 
     @property
     def name(self):
