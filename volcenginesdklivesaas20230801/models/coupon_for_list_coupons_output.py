@@ -35,6 +35,7 @@ class CouponForListCouponsOutput(object):
     swagger_types = {
         'description': 'str',
         'id': 'int',
+        'is_repeat_pickup_enable': 'int',
         'name': 'str',
         'pic': 'str',
         'third_party_id': 'str'
@@ -43,12 +44,13 @@ class CouponForListCouponsOutput(object):
     attribute_map = {
         'description': 'Description',
         'id': 'Id',
+        'is_repeat_pickup_enable': 'IsRepeatPickupEnable',
         'name': 'Name',
         'pic': 'Pic',
         'third_party_id': 'ThirdPartyId'
     }
 
-    def __init__(self, description=None, id=None, name=None, pic=None, third_party_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, id=None, is_repeat_pickup_enable=None, name=None, pic=None, third_party_id=None, _configuration=None):  # noqa: E501
         """CouponForListCouponsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CouponForListCouponsOutput(object):
 
         self._description = None
         self._id = None
+        self._is_repeat_pickup_enable = None
         self._name = None
         self._pic = None
         self._third_party_id = None
@@ -65,6 +68,8 @@ class CouponForListCouponsOutput(object):
             self.description = description
         if id is not None:
             self.id = id
+        if is_repeat_pickup_enable is not None:
+            self.is_repeat_pickup_enable = is_repeat_pickup_enable
         if name is not None:
             self.name = name
         if pic is not None:
@@ -113,6 +118,27 @@ class CouponForListCouponsOutput(object):
         """
 
         self._id = id
+
+    @property
+    def is_repeat_pickup_enable(self):
+        """Gets the is_repeat_pickup_enable of this CouponForListCouponsOutput.  # noqa: E501
+
+
+        :return: The is_repeat_pickup_enable of this CouponForListCouponsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_repeat_pickup_enable
+
+    @is_repeat_pickup_enable.setter
+    def is_repeat_pickup_enable(self, is_repeat_pickup_enable):
+        """Sets the is_repeat_pickup_enable of this CouponForListCouponsOutput.
+
+
+        :param is_repeat_pickup_enable: The is_repeat_pickup_enable of this CouponForListCouponsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_repeat_pickup_enable = is_repeat_pickup_enable
 
     @property
     def name(self):

@@ -38,6 +38,7 @@ class ActivityCouponForCreateActivityCouponsInput(object):
         'coupon_id': 'int',
         'cut_off_time': 'int',
         'duration': 'int',
+        'is_watch_live_limit': 'int',
         'rule': 'int'
     }
 
@@ -47,10 +48,11 @@ class ActivityCouponForCreateActivityCouponsInput(object):
         'coupon_id': 'CouponId',
         'cut_off_time': 'CutOffTime',
         'duration': 'Duration',
+        'is_watch_live_limit': 'IsWatchLiveLimit',
         'rule': 'Rule'
     }
 
-    def __init__(self, allow_close_icon=None, count=None, coupon_id=None, cut_off_time=None, duration=None, rule=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_close_icon=None, count=None, coupon_id=None, cut_off_time=None, duration=None, is_watch_live_limit=None, rule=None, _configuration=None):  # noqa: E501
         """ActivityCouponForCreateActivityCouponsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class ActivityCouponForCreateActivityCouponsInput(object):
         self._coupon_id = None
         self._cut_off_time = None
         self._duration = None
+        self._is_watch_live_limit = None
         self._rule = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class ActivityCouponForCreateActivityCouponsInput(object):
             self.cut_off_time = cut_off_time
         if duration is not None:
             self.duration = duration
+        if is_watch_live_limit is not None:
+            self.is_watch_live_limit = is_watch_live_limit
         if rule is not None:
             self.rule = rule
 
@@ -181,6 +186,27 @@ class ActivityCouponForCreateActivityCouponsInput(object):
         """
 
         self._duration = duration
+
+    @property
+    def is_watch_live_limit(self):
+        """Gets the is_watch_live_limit of this ActivityCouponForCreateActivityCouponsInput.  # noqa: E501
+
+
+        :return: The is_watch_live_limit of this ActivityCouponForCreateActivityCouponsInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_watch_live_limit
+
+    @is_watch_live_limit.setter
+    def is_watch_live_limit(self, is_watch_live_limit):
+        """Sets the is_watch_live_limit of this ActivityCouponForCreateActivityCouponsInput.
+
+
+        :param is_watch_live_limit: The is_watch_live_limit of this ActivityCouponForCreateActivityCouponsInput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_watch_live_limit = is_watch_live_limit
 
     @property
     def rule(self):
