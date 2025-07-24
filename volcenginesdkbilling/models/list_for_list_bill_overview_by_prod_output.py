@@ -41,6 +41,7 @@ class ListForListBillOverviewByProdOutput(object):
         'coupon_amount': 'str',
         'credit_carried_amount': 'str',
         'currency': 'str',
+        'currency_settlement': 'str',
         'discount_bill_amount': 'str',
         'original_bill_amount': 'str',
         'owner_customer_name': 'str',
@@ -52,6 +53,7 @@ class ListForListBillOverviewByProdOutput(object):
         'payer_id': 'str',
         'payer_user_name': 'str',
         'posttax_amount': 'str',
+        'pre_tax_payable_amount': 'str',
         'preferential_bill_amount': 'str',
         'pretax_amount': 'str',
         'pretax_real_value': 'str',
@@ -59,10 +61,13 @@ class ListForListBillOverviewByProdOutput(object):
         'product_zh': 'str',
         'real_value': 'str',
         'round_bill_amount': 'str',
+        'saving_plan_original_amount': 'str',
         'seller_customer_name': 'str',
         'seller_id': 'str',
         'seller_user_name': 'str',
+        'settle_payable_amount': 'str',
         'settle_posttax_amount': 'str',
+        'settle_pre_tax_payable_amount': 'str',
         'settle_pretax_amount': 'str',
         'settle_pretax_real_value': 'str',
         'settle_real_value': 'str',
@@ -82,6 +87,7 @@ class ListForListBillOverviewByProdOutput(object):
         'coupon_amount': 'CouponAmount',
         'credit_carried_amount': 'CreditCarriedAmount',
         'currency': 'Currency',
+        'currency_settlement': 'CurrencySettlement',
         'discount_bill_amount': 'DiscountBillAmount',
         'original_bill_amount': 'OriginalBillAmount',
         'owner_customer_name': 'OwnerCustomerName',
@@ -93,6 +99,7 @@ class ListForListBillOverviewByProdOutput(object):
         'payer_id': 'PayerID',
         'payer_user_name': 'PayerUserName',
         'posttax_amount': 'PosttaxAmount',
+        'pre_tax_payable_amount': 'PreTaxPayableAmount',
         'preferential_bill_amount': 'PreferentialBillAmount',
         'pretax_amount': 'PretaxAmount',
         'pretax_real_value': 'PretaxRealValue',
@@ -100,10 +107,13 @@ class ListForListBillOverviewByProdOutput(object):
         'product_zh': 'ProductZh',
         'real_value': 'RealValue',
         'round_bill_amount': 'RoundBillAmount',
+        'saving_plan_original_amount': 'SavingPlanOriginalAmount',
         'seller_customer_name': 'SellerCustomerName',
         'seller_id': 'SellerID',
         'seller_user_name': 'SellerUserName',
+        'settle_payable_amount': 'SettlePayableAmount',
         'settle_posttax_amount': 'SettlePosttaxAmount',
+        'settle_pre_tax_payable_amount': 'SettlePreTaxPayableAmount',
         'settle_pretax_amount': 'SettlePretaxAmount',
         'settle_pretax_real_value': 'SettlePretaxRealValue',
         'settle_real_value': 'SettleRealValue',
@@ -114,7 +124,7 @@ class ListForListBillOverviewByProdOutput(object):
         'unpaid_amount': 'UnpaidAmount'
     }
 
-    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, business_mode=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, discount_bill_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, product=None, product_zh=None, real_value=None, round_bill_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_posttax_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, subject_name=None, tax=None, unpaid_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, bill_category_parent=None, bill_period=None, billing_mode=None, business_mode=None, country_region=None, coupon_amount=None, credit_carried_amount=None, currency=None, currency_settlement=None, discount_bill_amount=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, preferential_bill_amount=None, pretax_amount=None, pretax_real_value=None, product=None, product_zh=None, real_value=None, round_bill_amount=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pretax_amount=None, settle_pretax_real_value=None, settle_real_value=None, settle_tax=None, settlement_type=None, subject_name=None, tax=None, unpaid_amount=None, _configuration=None):  # noqa: E501
         """ListForListBillOverviewByProdOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -128,6 +138,7 @@ class ListForListBillOverviewByProdOutput(object):
         self._coupon_amount = None
         self._credit_carried_amount = None
         self._currency = None
+        self._currency_settlement = None
         self._discount_bill_amount = None
         self._original_bill_amount = None
         self._owner_customer_name = None
@@ -139,6 +150,7 @@ class ListForListBillOverviewByProdOutput(object):
         self._payer_id = None
         self._payer_user_name = None
         self._posttax_amount = None
+        self._pre_tax_payable_amount = None
         self._preferential_bill_amount = None
         self._pretax_amount = None
         self._pretax_real_value = None
@@ -146,10 +158,13 @@ class ListForListBillOverviewByProdOutput(object):
         self._product_zh = None
         self._real_value = None
         self._round_bill_amount = None
+        self._saving_plan_original_amount = None
         self._seller_customer_name = None
         self._seller_id = None
         self._seller_user_name = None
+        self._settle_payable_amount = None
         self._settle_posttax_amount = None
+        self._settle_pre_tax_payable_amount = None
         self._settle_pretax_amount = None
         self._settle_pretax_real_value = None
         self._settle_real_value = None
@@ -176,6 +191,8 @@ class ListForListBillOverviewByProdOutput(object):
             self.credit_carried_amount = credit_carried_amount
         if currency is not None:
             self.currency = currency
+        if currency_settlement is not None:
+            self.currency_settlement = currency_settlement
         if discount_bill_amount is not None:
             self.discount_bill_amount = discount_bill_amount
         if original_bill_amount is not None:
@@ -198,6 +215,8 @@ class ListForListBillOverviewByProdOutput(object):
             self.payer_user_name = payer_user_name
         if posttax_amount is not None:
             self.posttax_amount = posttax_amount
+        if pre_tax_payable_amount is not None:
+            self.pre_tax_payable_amount = pre_tax_payable_amount
         if preferential_bill_amount is not None:
             self.preferential_bill_amount = preferential_bill_amount
         if pretax_amount is not None:
@@ -212,14 +231,20 @@ class ListForListBillOverviewByProdOutput(object):
             self.real_value = real_value
         if round_bill_amount is not None:
             self.round_bill_amount = round_bill_amount
+        if saving_plan_original_amount is not None:
+            self.saving_plan_original_amount = saving_plan_original_amount
         if seller_customer_name is not None:
             self.seller_customer_name = seller_customer_name
         if seller_id is not None:
             self.seller_id = seller_id
         if seller_user_name is not None:
             self.seller_user_name = seller_user_name
+        if settle_payable_amount is not None:
+            self.settle_payable_amount = settle_payable_amount
         if settle_posttax_amount is not None:
             self.settle_posttax_amount = settle_posttax_amount
+        if settle_pre_tax_payable_amount is not None:
+            self.settle_pre_tax_payable_amount = settle_pre_tax_payable_amount
         if settle_pretax_amount is not None:
             self.settle_pretax_amount = settle_pretax_amount
         if settle_pretax_real_value is not None:
@@ -404,6 +429,27 @@ class ListForListBillOverviewByProdOutput(object):
         """
 
         self._currency = currency
+
+    @property
+    def currency_settlement(self):
+        """Gets the currency_settlement of this ListForListBillOverviewByProdOutput.  # noqa: E501
+
+
+        :return: The currency_settlement of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_settlement
+
+    @currency_settlement.setter
+    def currency_settlement(self, currency_settlement):
+        """Sets the currency_settlement of this ListForListBillOverviewByProdOutput.
+
+
+        :param currency_settlement: The currency_settlement of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._currency_settlement = currency_settlement
 
     @property
     def discount_bill_amount(self):
@@ -637,6 +683,27 @@ class ListForListBillOverviewByProdOutput(object):
         self._posttax_amount = posttax_amount
 
     @property
+    def pre_tax_payable_amount(self):
+        """Gets the pre_tax_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+
+
+        :return: The pre_tax_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_tax_payable_amount
+
+    @pre_tax_payable_amount.setter
+    def pre_tax_payable_amount(self, pre_tax_payable_amount):
+        """Sets the pre_tax_payable_amount of this ListForListBillOverviewByProdOutput.
+
+
+        :param pre_tax_payable_amount: The pre_tax_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_tax_payable_amount = pre_tax_payable_amount
+
+    @property
     def preferential_bill_amount(self):
         """Gets the preferential_bill_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
 
@@ -784,6 +851,27 @@ class ListForListBillOverviewByProdOutput(object):
         self._round_bill_amount = round_bill_amount
 
     @property
+    def saving_plan_original_amount(self):
+        """Gets the saving_plan_original_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+
+
+        :return: The saving_plan_original_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._saving_plan_original_amount
+
+    @saving_plan_original_amount.setter
+    def saving_plan_original_amount(self, saving_plan_original_amount):
+        """Sets the saving_plan_original_amount of this ListForListBillOverviewByProdOutput.
+
+
+        :param saving_plan_original_amount: The saving_plan_original_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._saving_plan_original_amount = saving_plan_original_amount
+
+    @property
     def seller_customer_name(self):
         """Gets the seller_customer_name of this ListForListBillOverviewByProdOutput.  # noqa: E501
 
@@ -847,6 +935,27 @@ class ListForListBillOverviewByProdOutput(object):
         self._seller_user_name = seller_user_name
 
     @property
+    def settle_payable_amount(self):
+        """Gets the settle_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+
+
+        :return: The settle_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_payable_amount
+
+    @settle_payable_amount.setter
+    def settle_payable_amount(self, settle_payable_amount):
+        """Sets the settle_payable_amount of this ListForListBillOverviewByProdOutput.
+
+
+        :param settle_payable_amount: The settle_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_payable_amount = settle_payable_amount
+
+    @property
     def settle_posttax_amount(self):
         """Gets the settle_posttax_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
 
@@ -866,6 +975,27 @@ class ListForListBillOverviewByProdOutput(object):
         """
 
         self._settle_posttax_amount = settle_posttax_amount
+
+    @property
+    def settle_pre_tax_payable_amount(self):
+        """Gets the settle_pre_tax_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+
+
+        :return: The settle_pre_tax_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._settle_pre_tax_payable_amount
+
+    @settle_pre_tax_payable_amount.setter
+    def settle_pre_tax_payable_amount(self, settle_pre_tax_payable_amount):
+        """Sets the settle_pre_tax_payable_amount of this ListForListBillOverviewByProdOutput.
+
+
+        :param settle_pre_tax_payable_amount: The settle_pre_tax_payable_amount of this ListForListBillOverviewByProdOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._settle_pre_tax_payable_amount = settle_pre_tax_payable_amount
 
     @property
     def settle_pretax_amount(self):
