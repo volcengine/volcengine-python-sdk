@@ -36,10 +36,12 @@ class MediaForListMediasAPIOutput(object):
         'cover_image': 'str',
         'create_time': 'int',
         'duration': 'int',
+        'end_time': 'int',
         'media_id': 'str',
         'name': 'str',
         'online_status': 'int',
         'source_type': 'int',
+        'start_time': 'int',
         'vid': 'str'
     }
 
@@ -47,14 +49,16 @@ class MediaForListMediasAPIOutput(object):
         'cover_image': 'CoverImage',
         'create_time': 'CreateTime',
         'duration': 'Duration',
+        'end_time': 'EndTime',
         'media_id': 'MediaId',
         'name': 'Name',
         'online_status': 'OnlineStatus',
         'source_type': 'SourceType',
+        'start_time': 'StartTime',
         'vid': 'Vid'
     }
 
-    def __init__(self, cover_image=None, create_time=None, duration=None, media_id=None, name=None, online_status=None, source_type=None, vid=None, _configuration=None):  # noqa: E501
+    def __init__(self, cover_image=None, create_time=None, duration=None, end_time=None, media_id=None, name=None, online_status=None, source_type=None, start_time=None, vid=None, _configuration=None):  # noqa: E501
         """MediaForListMediasAPIOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,10 +67,12 @@ class MediaForListMediasAPIOutput(object):
         self._cover_image = None
         self._create_time = None
         self._duration = None
+        self._end_time = None
         self._media_id = None
         self._name = None
         self._online_status = None
         self._source_type = None
+        self._start_time = None
         self._vid = None
         self.discriminator = None
 
@@ -76,6 +82,8 @@ class MediaForListMediasAPIOutput(object):
             self.create_time = create_time
         if duration is not None:
             self.duration = duration
+        if end_time is not None:
+            self.end_time = end_time
         if media_id is not None:
             self.media_id = media_id
         if name is not None:
@@ -84,6 +92,8 @@ class MediaForListMediasAPIOutput(object):
             self.online_status = online_status
         if source_type is not None:
             self.source_type = source_type
+        if start_time is not None:
+            self.start_time = start_time
         if vid is not None:
             self.vid = vid
 
@@ -149,6 +159,27 @@ class MediaForListMediasAPIOutput(object):
         """
 
         self._duration = duration
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this MediaForListMediasAPIOutput.  # noqa: E501
+
+
+        :return: The end_time of this MediaForListMediasAPIOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this MediaForListMediasAPIOutput.
+
+
+        :param end_time: The end_time of this MediaForListMediasAPIOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._end_time = end_time
 
     @property
     def media_id(self):
@@ -233,6 +264,27 @@ class MediaForListMediasAPIOutput(object):
         """
 
         self._source_type = source_type
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this MediaForListMediasAPIOutput.  # noqa: E501
+
+
+        :return: The start_time of this MediaForListMediasAPIOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this MediaForListMediasAPIOutput.
+
+
+        :param start_time: The start_time of this MediaForListMediasAPIOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._start_time = start_time
 
     @property
     def vid(self):

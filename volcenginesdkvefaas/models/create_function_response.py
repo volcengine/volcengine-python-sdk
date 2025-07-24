@@ -33,6 +33,7 @@ class CreateFunctionResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cell': 'str',
         'code_size': 'int',
         'code_size_limit': 'int',
         'command': 'str',
@@ -40,6 +41,7 @@ class CreateFunctionResponse(object):
         'description': 'str',
         'envs': 'list[EnvForCreateFunctionOutput]',
         'exclusive_mode': 'bool',
+        'function_type': 'str',
         'id': 'str',
         'initializer_sec': 'int',
         'instance_type': 'str',
@@ -54,6 +56,7 @@ class CreateFunctionResponse(object):
         'runtime': 'str',
         'source_location': 'str',
         'source_type': 'str',
+        'tags': 'list[TagForCreateFunctionOutput]',
         'tls_config': 'TlsConfigForCreateFunctionOutput',
         'tos_mount_config': 'TosMountConfigForCreateFunctionOutput',
         'triggers_count': 'int',
@@ -61,6 +64,7 @@ class CreateFunctionResponse(object):
     }
 
     attribute_map = {
+        'cell': 'Cell',
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
         'command': 'Command',
@@ -68,6 +72,7 @@ class CreateFunctionResponse(object):
         'description': 'Description',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
+        'function_type': 'FunctionType',
         'id': 'Id',
         'initializer_sec': 'InitializerSec',
         'instance_type': 'InstanceType',
@@ -82,18 +87,20 @@ class CreateFunctionResponse(object):
         'runtime': 'Runtime',
         'source_location': 'SourceLocation',
         'source_type': 'SourceType',
+        'tags': 'Tags',
         'tls_config': 'TlsConfig',
         'tos_mount_config': 'TosMountConfig',
         'triggers_count': 'TriggersCount',
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, command=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, cell=None, code_size=None, code_size_limit=None, command=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cell = None
         self._code_size = None
         self._code_size_limit = None
         self._command = None
@@ -101,6 +108,7 @@ class CreateFunctionResponse(object):
         self._description = None
         self._envs = None
         self._exclusive_mode = None
+        self._function_type = None
         self._id = None
         self._initializer_sec = None
         self._instance_type = None
@@ -115,12 +123,15 @@ class CreateFunctionResponse(object):
         self._runtime = None
         self._source_location = None
         self._source_type = None
+        self._tags = None
         self._tls_config = None
         self._tos_mount_config = None
         self._triggers_count = None
         self._vpc_config = None
         self.discriminator = None
 
+        if cell is not None:
+            self.cell = cell
         if code_size is not None:
             self.code_size = code_size
         if code_size_limit is not None:
@@ -135,6 +146,8 @@ class CreateFunctionResponse(object):
             self.envs = envs
         if exclusive_mode is not None:
             self.exclusive_mode = exclusive_mode
+        if function_type is not None:
+            self.function_type = function_type
         if id is not None:
             self.id = id
         if initializer_sec is not None:
@@ -163,6 +176,8 @@ class CreateFunctionResponse(object):
             self.source_location = source_location
         if source_type is not None:
             self.source_type = source_type
+        if tags is not None:
+            self.tags = tags
         if tls_config is not None:
             self.tls_config = tls_config
         if tos_mount_config is not None:
@@ -171,6 +186,27 @@ class CreateFunctionResponse(object):
             self.triggers_count = triggers_count
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def cell(self):
+        """Gets the cell of this CreateFunctionResponse.  # noqa: E501
+
+
+        :return: The cell of this CreateFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._cell
+
+    @cell.setter
+    def cell(self, cell):
+        """Sets the cell of this CreateFunctionResponse.
+
+
+        :param cell: The cell of this CreateFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._cell = cell
 
     @property
     def code_size(self):
@@ -318,6 +354,27 @@ class CreateFunctionResponse(object):
         """
 
         self._exclusive_mode = exclusive_mode
+
+    @property
+    def function_type(self):
+        """Gets the function_type of this CreateFunctionResponse.  # noqa: E501
+
+
+        :return: The function_type of this CreateFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._function_type
+
+    @function_type.setter
+    def function_type(self, function_type):
+        """Sets the function_type of this CreateFunctionResponse.
+
+
+        :param function_type: The function_type of this CreateFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._function_type = function_type
 
     @property
     def id(self):
@@ -612,6 +669,27 @@ class CreateFunctionResponse(object):
         """
 
         self._source_type = source_type
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateFunctionResponse.  # noqa: E501
+
+
+        :return: The tags of this CreateFunctionResponse.  # noqa: E501
+        :rtype: list[TagForCreateFunctionOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateFunctionResponse.
+
+
+        :param tags: The tags of this CreateFunctionResponse.  # noqa: E501
+        :type: list[TagForCreateFunctionOutput]
+        """
+
+        self._tags = tags
 
     @property
     def tls_config(self):

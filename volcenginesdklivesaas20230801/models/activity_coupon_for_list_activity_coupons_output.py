@@ -40,6 +40,7 @@ class ActivityCouponForListActivityCouponsOutput(object):
         'duration': 'int',
         'end_time': 'int',
         'id': 'int',
+        'is_watch_live_limit': 'int',
         'pickup_count': 'int',
         'pickup_people_count': 'int',
         'rule': 'int',
@@ -55,6 +56,7 @@ class ActivityCouponForListActivityCouponsOutput(object):
         'duration': 'Duration',
         'end_time': 'EndTime',
         'id': 'Id',
+        'is_watch_live_limit': 'IsWatchLiveLimit',
         'pickup_count': 'PickupCount',
         'pickup_people_count': 'PickupPeopleCount',
         'rule': 'Rule',
@@ -62,7 +64,7 @@ class ActivityCouponForListActivityCouponsOutput(object):
         'status': 'Status'
     }
 
-    def __init__(self, allow_close_icon=None, count=None, coupon=None, cut_off_time=None, duration=None, end_time=None, id=None, pickup_count=None, pickup_people_count=None, rule=None, send_time=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_close_icon=None, count=None, coupon=None, cut_off_time=None, duration=None, end_time=None, id=None, is_watch_live_limit=None, pickup_count=None, pickup_people_count=None, rule=None, send_time=None, status=None, _configuration=None):  # noqa: E501
         """ActivityCouponForListActivityCouponsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class ActivityCouponForListActivityCouponsOutput(object):
         self._duration = None
         self._end_time = None
         self._id = None
+        self._is_watch_live_limit = None
         self._pickup_count = None
         self._pickup_people_count = None
         self._rule = None
@@ -96,6 +99,8 @@ class ActivityCouponForListActivityCouponsOutput(object):
             self.end_time = end_time
         if id is not None:
             self.id = id
+        if is_watch_live_limit is not None:
+            self.is_watch_live_limit = is_watch_live_limit
         if pickup_count is not None:
             self.pickup_count = pickup_count
         if pickup_people_count is not None:
@@ -253,6 +258,27 @@ class ActivityCouponForListActivityCouponsOutput(object):
         """
 
         self._id = id
+
+    @property
+    def is_watch_live_limit(self):
+        """Gets the is_watch_live_limit of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+
+
+        :return: The is_watch_live_limit of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_watch_live_limit
+
+    @is_watch_live_limit.setter
+    def is_watch_live_limit(self, is_watch_live_limit):
+        """Sets the is_watch_live_limit of this ActivityCouponForListActivityCouponsOutput.
+
+
+        :param is_watch_live_limit: The is_watch_live_limit of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_watch_live_limit = is_watch_live_limit
 
     @property
     def pickup_count(self):

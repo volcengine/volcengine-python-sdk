@@ -127,6 +127,9 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         # Proxy URL
         self.proxy = None
+        self.http_proxy = None
+        self.https_proxy = None
+
         # Safe chars for path_param
         self.safe_chars_for_path_param = ''
 
@@ -264,7 +267,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "OS: {env}\n" \
                "Python Version: {pyversion}\n" \
                "Version of the API: 0.1.0\n" \
-               "SDK Package Version: 4.0.6".\
+               "SDK Package Version: 4.0.7".\
             format(env=sys.platform, pyversion=sys.version)
 
     @property

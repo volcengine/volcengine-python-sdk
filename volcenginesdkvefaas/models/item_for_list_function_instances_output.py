@@ -35,10 +35,12 @@ class ItemForListFunctionInstancesOutput(object):
     swagger_types = {
         'availability_zone': 'str',
         'creation_time': 'str',
+        'expire_at': 'str',
         'id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_type': 'str',
+        'labels': 'LabelsForListFunctionInstancesOutput',
         'revision_number': 'int',
         'user_vpc_ip': 'str',
         'user_vpc_ipv6': 'str'
@@ -47,16 +49,18 @@ class ItemForListFunctionInstancesOutput(object):
     attribute_map = {
         'availability_zone': 'AvailabilityZone',
         'creation_time': 'CreationTime',
+        'expire_at': 'ExpireAt',
         'id': 'Id',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
+        'labels': 'Labels',
         'revision_number': 'RevisionNumber',
         'user_vpc_ip': 'UserVpcIP',
         'user_vpc_ipv6': 'UserVpcIPv6'
     }
 
-    def __init__(self, availability_zone=None, creation_time=None, id=None, instance_name=None, instance_status=None, instance_type=None, revision_number=None, user_vpc_ip=None, user_vpc_ipv6=None, _configuration=None):  # noqa: E501
+    def __init__(self, availability_zone=None, creation_time=None, expire_at=None, id=None, instance_name=None, instance_status=None, instance_type=None, labels=None, revision_number=None, user_vpc_ip=None, user_vpc_ipv6=None, _configuration=None):  # noqa: E501
         """ItemForListFunctionInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,10 +68,12 @@ class ItemForListFunctionInstancesOutput(object):
 
         self._availability_zone = None
         self._creation_time = None
+        self._expire_at = None
         self._id = None
         self._instance_name = None
         self._instance_status = None
         self._instance_type = None
+        self._labels = None
         self._revision_number = None
         self._user_vpc_ip = None
         self._user_vpc_ipv6 = None
@@ -77,6 +83,8 @@ class ItemForListFunctionInstancesOutput(object):
             self.availability_zone = availability_zone
         if creation_time is not None:
             self.creation_time = creation_time
+        if expire_at is not None:
+            self.expire_at = expire_at
         if id is not None:
             self.id = id
         if instance_name is not None:
@@ -85,6 +93,8 @@ class ItemForListFunctionInstancesOutput(object):
             self.instance_status = instance_status
         if instance_type is not None:
             self.instance_type = instance_type
+        if labels is not None:
+            self.labels = labels
         if revision_number is not None:
             self.revision_number = revision_number
         if user_vpc_ip is not None:
@@ -133,6 +143,27 @@ class ItemForListFunctionInstancesOutput(object):
         """
 
         self._creation_time = creation_time
+
+    @property
+    def expire_at(self):
+        """Gets the expire_at of this ItemForListFunctionInstancesOutput.  # noqa: E501
+
+
+        :return: The expire_at of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._expire_at
+
+    @expire_at.setter
+    def expire_at(self, expire_at):
+        """Sets the expire_at of this ItemForListFunctionInstancesOutput.
+
+
+        :param expire_at: The expire_at of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._expire_at = expire_at
 
     @property
     def id(self):
@@ -217,6 +248,27 @@ class ItemForListFunctionInstancesOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def labels(self):
+        """Gets the labels of this ItemForListFunctionInstancesOutput.  # noqa: E501
+
+
+        :return: The labels of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :rtype: LabelsForListFunctionInstancesOutput
+        """
+        return self._labels
+
+    @labels.setter
+    def labels(self, labels):
+        """Sets the labels of this ItemForListFunctionInstancesOutput.
+
+
+        :param labels: The labels of this ItemForListFunctionInstancesOutput.  # noqa: E501
+        :type: LabelsForListFunctionInstancesOutput
+        """
+
+        self._labels = labels
 
     @property
     def revision_number(self):

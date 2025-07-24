@@ -130,103 +130,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def add_activity_robot_comment_repository(self, body, **kwargs):  # noqa: E501
-        """add_activity_robot_comment_repository  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_activity_robot_comment_repository(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddActivityRobotCommentRepositoryRequest body: (required)
-        :return: AddActivityRobotCommentRepositoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.add_activity_robot_comment_repository_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.add_activity_robot_comment_repository_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def add_activity_robot_comment_repository_with_http_info(self, body, **kwargs):  # noqa: E501
-        """add_activity_robot_comment_repository  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_activity_robot_comment_repository_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddActivityRobotCommentRepositoryRequest body: (required)
-        :return: AddActivityRobotCommentRepositoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method add_activity_robot_comment_repository" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `add_activity_robot_comment_repository`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/AddActivityRobotCommentRepository/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddActivityRobotCommentRepositoryResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def add_audience_group(self, body, **kwargs):  # noqa: E501
         """add_audience_group  # noqa: E501
 
@@ -317,491 +220,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='AddAudienceGroupResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def add_interaction_script_comments(self, body, **kwargs):  # noqa: E501
-        """add_interaction_script_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_interaction_script_comments(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddInteractionScriptCommentsRequest body: (required)
-        :return: AddInteractionScriptCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.add_interaction_script_comments_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.add_interaction_script_comments_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def add_interaction_script_comments_with_http_info(self, body, **kwargs):  # noqa: E501
-        """add_interaction_script_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_interaction_script_comments_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddInteractionScriptCommentsRequest body: (required)
-        :return: AddInteractionScriptCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method add_interaction_script_comments" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `add_interaction_script_comments`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/AddInteractionScriptComments/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddInteractionScriptCommentsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def add_robot_comments(self, body, **kwargs):  # noqa: E501
-        """add_robot_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_robot_comments(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddRobotCommentsRequest body: (required)
-        :return: AddRobotCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.add_robot_comments_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.add_robot_comments_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def add_robot_comments_with_http_info(self, body, **kwargs):  # noqa: E501
-        """add_robot_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_robot_comments_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddRobotCommentsRequest body: (required)
-        :return: AddRobotCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method add_robot_comments" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `add_robot_comments`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/AddRobotComments/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddRobotCommentsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def add_robot_nick_names(self, body, **kwargs):  # noqa: E501
-        """add_robot_nick_names  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_robot_nick_names(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddRobotNickNamesRequest body: (required)
-        :return: AddRobotNickNamesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.add_robot_nick_names_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.add_robot_nick_names_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def add_robot_nick_names_with_http_info(self, body, **kwargs):  # noqa: E501
-        """add_robot_nick_names  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_robot_nick_names_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param AddRobotNickNamesRequest body: (required)
-        :return: AddRobotNickNamesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method add_robot_nick_names" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `add_robot_nick_names`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/AddRobotNickNames/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddRobotNickNamesResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def batch_send_activity_robot_comment(self, body, **kwargs):  # noqa: E501
-        """batch_send_activity_robot_comment  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.batch_send_activity_robot_comment(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param BatchSendActivityRobotCommentRequest body: (required)
-        :return: BatchSendActivityRobotCommentResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.batch_send_activity_robot_comment_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.batch_send_activity_robot_comment_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def batch_send_activity_robot_comment_with_http_info(self, body, **kwargs):  # noqa: E501
-        """batch_send_activity_robot_comment  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.batch_send_activity_robot_comment_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param BatchSendActivityRobotCommentRequest body: (required)
-        :return: BatchSendActivityRobotCommentResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method batch_send_activity_robot_comment" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `batch_send_activity_robot_comment`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/BatchSendActivityRobotComment/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='BatchSendActivityRobotCommentResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def check_uid_match(self, body, **kwargs):  # noqa: E501
-        """check_uid_match  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_uid_match(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CheckUidMatchRequest body: (required)
-        :return: CheckUidMatchResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.check_uid_match_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.check_uid_match_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def check_uid_match_with_http_info(self, body, **kwargs):  # noqa: E501
-        """check_uid_match  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_uid_match_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CheckUidMatchRequest body: (required)
-        :return: CheckUidMatchResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method check_uid_match" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `check_uid_match`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/CheckUidMatch/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CheckUidMatchResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1003,103 +421,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_area_config(self, body, **kwargs):  # noqa: E501
-        """create_area_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_area_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CreateAreaConfigRequest body: (required)
-        :return: CreateAreaConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_area_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_area_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def create_area_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """create_area_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_area_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CreateAreaConfigRequest body: (required)
-        :return: CreateAreaConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_area_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `create_area_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/CreateAreaConfig/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CreateAreaConfigResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def create_coupons(self, body, **kwargs):  # noqa: E501
         """create_coupons  # noqa: E501
 
@@ -1197,38 +518,38 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_host_accelerate_pack_order(self, body, **kwargs):  # noqa: E501
-        """create_host_accelerate_pack_order  # noqa: E501
+    def create_live_channel_config(self, body, **kwargs):  # noqa: E501
+        """create_live_channel_config  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_host_accelerate_pack_order(body, async_req=True)
+        >>> thread = api.create_live_channel_config(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CreateHostAcceleratePackOrderRequest body: (required)
-        :return: CreateHostAcceleratePackOrderResponse
+        :param CreateLiveChannelConfigRequest body: (required)
+        :return: CreateLiveChannelConfigResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
+            return self.create_live_channel_config_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.create_live_channel_config_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def create_host_accelerate_pack_order_with_http_info(self, body, **kwargs):  # noqa: E501
-        """create_host_accelerate_pack_order  # noqa: E501
+    def create_live_channel_config_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_live_channel_config  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_host_accelerate_pack_order_with_http_info(body, async_req=True)
+        >>> thread = api.create_live_channel_config_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CreateHostAcceleratePackOrderRequest body: (required)
-        :return: CreateHostAcceleratePackOrderResponse
+        :param CreateLiveChannelConfigRequest body: (required)
+        :return: CreateLiveChannelConfigResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1244,14 +565,14 @@ class LIVESAAS20230801Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_host_accelerate_pack_order" % key
+                    " to method create_live_channel_config" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `create_host_accelerate_pack_order`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_live_channel_config`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1279,208 +600,14 @@ class LIVESAAS20230801Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateHostAcceleratePackOrder/2023-08-01/livesaas/post/application_json/', 'POST',
+            '/CreateLiveChannelConfig/2023-08-01/livesaas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CreateHostAcceleratePackOrderResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def create_interaction_script(self, body, **kwargs):  # noqa: E501
-        """create_interaction_script  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_interaction_script(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CreateInteractionScriptRequest body: (required)
-        :return: CreateInteractionScriptResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_interaction_script_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_interaction_script_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def create_interaction_script_with_http_info(self, body, **kwargs):  # noqa: E501
-        """create_interaction_script  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_interaction_script_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CreateInteractionScriptRequest body: (required)
-        :return: CreateInteractionScriptResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_interaction_script" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `create_interaction_script`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/CreateInteractionScript/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CreateInteractionScriptResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def create_office_config(self, body, **kwargs):  # noqa: E501
-        """create_office_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_office_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CreateOfficeConfigRequest body: (required)
-        :return: CreateOfficeConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_office_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_office_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def create_office_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """create_office_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_office_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param CreateOfficeConfigRequest body: (required)
-        :return: CreateOfficeConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_office_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `create_office_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/CreateOfficeConfig/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CreateOfficeConfigResponse',  # noqa: E501
+            response_type='CreateLiveChannelConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2458,200 +1585,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_activity_robot_comment_repository(self, body, **kwargs):  # noqa: E501
-        """delete_activity_robot_comment_repository  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_activity_robot_comment_repository(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteActivityRobotCommentRepositoryRequest body: (required)
-        :return: DeleteActivityRobotCommentRepositoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_activity_robot_comment_repository_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_activity_robot_comment_repository_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_activity_robot_comment_repository_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_activity_robot_comment_repository  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_activity_robot_comment_repository_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteActivityRobotCommentRepositoryRequest body: (required)
-        :return: DeleteActivityRobotCommentRepositoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_activity_robot_comment_repository" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_activity_robot_comment_repository`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteActivityRobotCommentRepository/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteActivityRobotCommentRepositoryResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_area_config(self, body, **kwargs):  # noqa: E501
-        """delete_area_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_area_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteAreaConfigRequest body: (required)
-        :return: DeleteAreaConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_area_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_area_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_area_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_area_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_area_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteAreaConfigRequest body: (required)
-        :return: DeleteAreaConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_area_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_area_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteAreaConfig/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteAreaConfigResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def delete_audience_group(self, body, **kwargs):  # noqa: E501
         """delete_audience_group  # noqa: E501
 
@@ -2943,103 +1876,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_host_accelerate_pack_order(self, body, **kwargs):  # noqa: E501
-        """delete_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_host_accelerate_pack_order(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteHostAcceleratePackOrderRequest body: (required)
-        :return: DeleteHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_host_accelerate_pack_order_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_host_accelerate_pack_order_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteHostAcceleratePackOrderRequest body: (required)
-        :return: DeleteHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_host_accelerate_pack_order" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_host_accelerate_pack_order`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteHostAcceleratePackOrder/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteHostAcceleratePackOrderResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def delete_host_account(self, body, **kwargs):  # noqa: E501
         """delete_host_account  # noqa: E501
 
@@ -3137,103 +1973,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_interaction_script_comment(self, body, **kwargs):  # noqa: E501
-        """delete_interaction_script_comment  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_interaction_script_comment(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteInteractionScriptCommentRequest body: (required)
-        :return: DeleteInteractionScriptCommentResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_interaction_script_comment_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_interaction_script_comment_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_interaction_script_comment_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_interaction_script_comment  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_interaction_script_comment_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteInteractionScriptCommentRequest body: (required)
-        :return: DeleteInteractionScriptCommentResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_interaction_script_comment" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_interaction_script_comment`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteInteractionScriptComment/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteInteractionScriptCommentResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def delete_live_channel_config(self, body, **kwargs):  # noqa: E501
         """delete_live_channel_config  # noqa: E501
 
@@ -3324,103 +2063,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeleteLiveChannelConfigResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_office_config(self, body, **kwargs):  # noqa: E501
-        """delete_office_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_office_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteOfficeConfigRequest body: (required)
-        :return: DeleteOfficeConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_office_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_office_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_office_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_office_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_office_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteOfficeConfigRequest body: (required)
-        :return: DeleteOfficeConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_office_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_office_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteOfficeConfig/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteOfficeConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3615,200 +2257,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeleteProgramResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_robot_comments(self, body, **kwargs):  # noqa: E501
-        """delete_robot_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_robot_comments(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteRobotCommentsRequest body: (required)
-        :return: DeleteRobotCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_robot_comments_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_robot_comments_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_robot_comments_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_robot_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_robot_comments_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteRobotCommentsRequest body: (required)
-        :return: DeleteRobotCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_robot_comments" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_robot_comments`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteRobotComments/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteRobotCommentsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_robot_nick_names(self, body, **kwargs):  # noqa: E501
-        """delete_robot_nick_names  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_robot_nick_names(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteRobotNickNamesRequest body: (required)
-        :return: DeleteRobotNickNamesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_robot_nick_names_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_robot_nick_names_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def delete_robot_nick_names_with_http_info(self, body, **kwargs):  # noqa: E501
-        """delete_robot_nick_names  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_robot_nick_names_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param DeleteRobotNickNamesRequest body: (required)
-        :return: DeleteRobotNickNamesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_robot_nick_names" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `delete_robot_nick_names`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/DeleteRobotNickNames/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='DeleteRobotNickNamesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4301,38 +2749,38 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def edit_interaction_script_comment(self, body, **kwargs):  # noqa: E501
-        """edit_interaction_script_comment  # noqa: E501
+    def explain_product(self, body, **kwargs):  # noqa: E501
+        """explain_product  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.edit_interaction_script_comment(body, async_req=True)
+        >>> thread = api.explain_product(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param EditInteractionScriptCommentRequest body: (required)
-        :return: EditInteractionScriptCommentResponse
+        :param ExplainProductRequest body: (required)
+        :return: ExplainProductResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.edit_interaction_script_comment_with_http_info(body, **kwargs)  # noqa: E501
+            return self.explain_product_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.edit_interaction_script_comment_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.explain_product_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def edit_interaction_script_comment_with_http_info(self, body, **kwargs):  # noqa: E501
-        """edit_interaction_script_comment  # noqa: E501
+    def explain_product_with_http_info(self, body, **kwargs):  # noqa: E501
+        """explain_product  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.edit_interaction_script_comment_with_http_info(body, async_req=True)
+        >>> thread = api.explain_product_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param EditInteractionScriptCommentRequest body: (required)
-        :return: EditInteractionScriptCommentResponse
+        :param ExplainProductRequest body: (required)
+        :return: ExplainProductResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4348,14 +2796,14 @@ class LIVESAAS20230801Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method edit_interaction_script_comment" % key
+                    " to method explain_product" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `edit_interaction_script_comment`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `explain_product`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4383,111 +2831,14 @@ class LIVESAAS20230801Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/EditInteractionScriptComment/2023-08-01/livesaas/post/application_json/', 'POST',
+            '/ExplainProduct/2023-08-01/livesaas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='EditInteractionScriptCommentResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def enable_activity_multi_product_explain(self, body, **kwargs):  # noqa: E501
-        """enable_activity_multi_product_explain  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.enable_activity_multi_product_explain(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param EnableActivityMultiProductExplainRequest body: (required)
-        :return: EnableActivityMultiProductExplainResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.enable_activity_multi_product_explain_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.enable_activity_multi_product_explain_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def enable_activity_multi_product_explain_with_http_info(self, body, **kwargs):  # noqa: E501
-        """enable_activity_multi_product_explain  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.enable_activity_multi_product_explain_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param EnableActivityMultiProductExplainRequest body: (required)
-        :return: EnableActivityMultiProductExplainResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method enable_activity_multi_product_explain" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `enable_activity_multi_product_explain`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/EnableActivityMultiProductExplain/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='EnableActivityMultiProductExplainResponse',  # noqa: E501
+            response_type='ExplainProductResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4786,103 +3137,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_account_custom_link_config(self, body, **kwargs):  # noqa: E501
-        """get_account_custom_link_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_account_custom_link_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetAccountCustomLinkConfigRequest body: (required)
-        :return: GetAccountCustomLinkConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_account_custom_link_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_account_custom_link_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_account_custom_link_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_account_custom_link_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_account_custom_link_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetAccountCustomLinkConfigRequest body: (required)
-        :return: GetAccountCustomLinkConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_account_custom_link_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_account_custom_link_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetAccountCustomLinkConfig/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetAccountCustomLinkConfigResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_account_user_track_data(self, body, **kwargs):  # noqa: E501
         """get_account_user_track_data  # noqa: E501
 
@@ -5167,6 +3421,103 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GetActivityBanIpsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_activity_ban_users(self, body, **kwargs):  # noqa: E501
+        """get_activity_ban_users  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_activity_ban_users(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetActivityBanUsersRequest body: (required)
+        :return: GetActivityBanUsersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_activity_ban_users_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_activity_ban_users_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def get_activity_ban_users_with_http_info(self, body, **kwargs):  # noqa: E501
+        """get_activity_ban_users  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_activity_ban_users_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetActivityBanUsersRequest body: (required)
+        :return: GetActivityBanUsersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_activity_ban_users" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `get_activity_ban_users`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/GetActivityBanUsers/2023-08-01/livesaas/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetActivityBanUsersResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5853,200 +4204,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_activity_live_promotion_data(self, body, **kwargs):  # noqa: E501
-        """get_activity_live_promotion_data  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_activity_live_promotion_data(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetActivityLivePromotionDataRequest body: (required)
-        :return: GetActivityLivePromotionDataResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_activity_live_promotion_data_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_activity_live_promotion_data_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_activity_live_promotion_data_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_activity_live_promotion_data  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_activity_live_promotion_data_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetActivityLivePromotionDataRequest body: (required)
-        :return: GetActivityLivePromotionDataResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_activity_live_promotion_data" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_activity_live_promotion_data`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetActivityLivePromotionData/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetActivityLivePromotionDataResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_activity_live_promotion_detail(self, body, **kwargs):  # noqa: E501
-        """get_activity_live_promotion_detail  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_activity_live_promotion_detail(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetActivityLivePromotionDetailRequest body: (required)
-        :return: GetActivityLivePromotionDetailResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_activity_live_promotion_detail_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_activity_live_promotion_detail_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_activity_live_promotion_detail_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_activity_live_promotion_detail  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_activity_live_promotion_detail_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetActivityLivePromotionDetailRequest body: (required)
-        :return: GetActivityLivePromotionDetailResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_activity_live_promotion_detail" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_activity_live_promotion_detail`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetActivityLivePromotionDetail/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetActivityLivePromotionDetailResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_activity_menus(self, body, **kwargs):  # noqa: E501
         """get_activity_menus  # noqa: E501
 
@@ -6435,6 +4592,103 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_activity_products(self, body, **kwargs):  # noqa: E501
+        """get_activity_products  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_activity_products(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetActivityProductsRequest body: (required)
+        :return: GetActivityProductsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_activity_products_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_activity_products_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def get_activity_products_with_http_info(self, body, **kwargs):  # noqa: E501
+        """get_activity_products  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_activity_products_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetActivityProductsRequest body: (required)
+        :return: GetActivityProductsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_activity_products" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `get_activity_products`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/GetActivityProducts/2023-08-01/livesaas/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetActivityProductsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_activity_red_packet(self, body, **kwargs):  # noqa: E501
         """get_activity_red_packet  # noqa: E501
 
@@ -6622,103 +4876,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GetActivityReplayPlayerConfigResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_activity_robot_comment_config(self, body, **kwargs):  # noqa: E501
-        """get_activity_robot_comment_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_activity_robot_comment_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetActivityRobotCommentConfigRequest body: (required)
-        :return: GetActivityRobotCommentConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_activity_robot_comment_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_activity_robot_comment_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_activity_robot_comment_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_activity_robot_comment_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_activity_robot_comment_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetActivityRobotCommentConfigRequest body: (required)
-        :return: GetActivityRobotCommentConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_activity_robot_comment_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_activity_robot_comment_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetActivityRobotCommentConfig/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetActivityRobotCommentConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7405,38 +5562,38 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_interaction_script_record_config(self, body, **kwargs):  # noqa: E501
-        """get_interaction_script_record_config  # noqa: E501
+    def get_in_page_advertisement(self, body, **kwargs):  # noqa: E501
+        """get_in_page_advertisement  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_interaction_script_record_config(body, async_req=True)
+        >>> thread = api.get_in_page_advertisement(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetInteractionScriptRecordConfigRequest body: (required)
-        :return: GetInteractionScriptRecordConfigResponse
+        :param GetInPageAdvertisementRequest body: (required)
+        :return: GetInPageAdvertisementResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_interaction_script_record_config_with_http_info(body, **kwargs)  # noqa: E501
+            return self.get_in_page_advertisement_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_interaction_script_record_config_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.get_in_page_advertisement_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def get_interaction_script_record_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_interaction_script_record_config  # noqa: E501
+    def get_in_page_advertisement_with_http_info(self, body, **kwargs):  # noqa: E501
+        """get_in_page_advertisement  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_interaction_script_record_config_with_http_info(body, async_req=True)
+        >>> thread = api.get_in_page_advertisement_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetInteractionScriptRecordConfigRequest body: (required)
-        :return: GetInteractionScriptRecordConfigResponse
+        :param GetInPageAdvertisementRequest body: (required)
+        :return: GetInPageAdvertisementResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7452,14 +5609,14 @@ class LIVESAAS20230801Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_interaction_script_record_config" % key
+                    " to method get_in_page_advertisement" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_interaction_script_record_config`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `get_in_page_advertisement`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7487,14 +5644,14 @@ class LIVESAAS20230801Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/GetInteractionScriptRecordConfig/2023-08-01/livesaas/get/text_plain/', 'GET',
+            '/GetInPageAdvertisement/2023-08-01/livesaas/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetInteractionScriptRecordConfigResponse',  # noqa: E501
+            response_type='GetInPageAdvertisementResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7793,6 +5950,103 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_live_link_duration_data(self, body, **kwargs):  # noqa: E501
+        """get_live_link_duration_data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_live_link_duration_data(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetLiveLinkDurationDataRequest body: (required)
+        :return: GetLiveLinkDurationDataResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_live_link_duration_data_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_live_link_duration_data_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def get_live_link_duration_data_with_http_info(self, body, **kwargs):  # noqa: E501
+        """get_live_link_duration_data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_live_link_duration_data_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetLiveLinkDurationDataRequest body: (required)
+        :return: GetLiveLinkDurationDataResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_live_link_duration_data" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `get_live_link_duration_data`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/GetLiveLinkDurationData/2023-08-01/livesaas/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetLiveLinkDurationDataResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_live_traffic_post_pay_data(self, body, **kwargs):  # noqa: E501
         """get_live_traffic_post_pay_data  # noqa: E501
 
@@ -7987,103 +6241,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_media_storage_pay_data(self, body, **kwargs):  # noqa: E501
-        """get_media_storage_pay_data  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_media_storage_pay_data(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetMediaStoragePayDataRequest body: (required)
-        :return: GetMediaStoragePayDataResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_media_storage_pay_data_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_media_storage_pay_data_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_media_storage_pay_data_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_media_storage_pay_data  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_media_storage_pay_data_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetMediaStoragePayDataRequest body: (required)
-        :return: GetMediaStoragePayDataResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_media_storage_pay_data" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_media_storage_pay_data`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetMediaStoragePayData/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetMediaStoragePayDataResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_phone_list(self, body, **kwargs):  # noqa: E501
         """get_phone_list  # noqa: E501
 
@@ -8174,6 +6331,103 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GetPhoneListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_security_control_config(self, body, **kwargs):  # noqa: E501
+        """get_security_control_config  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_security_control_config(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetSecurityControlConfigRequest body: (required)
+        :return: GetSecurityControlConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_security_control_config_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_security_control_config_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def get_security_control_config_with_http_info(self, body, **kwargs):  # noqa: E501
+        """get_security_control_config  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_security_control_config_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param GetSecurityControlConfigRequest body: (required)
+        :return: GetSecurityControlConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_security_control_config" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `get_security_control_config`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/GetSecurityControlConfig/2023-08-01/livesaas/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetSecurityControlConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8465,103 +6719,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='GetVideoLibraryFolderTreeResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_video_traffic_pay_data(self, body, **kwargs):  # noqa: E501
-        """get_video_traffic_pay_data  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_video_traffic_pay_data(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetVideoTrafficPayDataRequest body: (required)
-        :return: GetVideoTrafficPayDataResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_video_traffic_pay_data_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_video_traffic_pay_data_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_video_traffic_pay_data_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_video_traffic_pay_data  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_video_traffic_pay_data_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetVideoTrafficPayDataRequest body: (required)
-        :return: GetVideoTrafficPayDataResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_video_traffic_pay_data" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_video_traffic_pay_data`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetVideoTrafficPayData/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetVideoTrafficPayDataResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8957,103 +7114,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_vq_user_data_api(self, body, **kwargs):  # noqa: E501
-        """get_vq_user_data_api  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_vq_user_data_api(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetVQUserDataAPIRequest body: (required)
-        :return: GetVQUserDataAPIResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_vq_user_data_api_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_vq_user_data_api_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def get_vq_user_data_api_with_http_info(self, body, **kwargs):  # noqa: E501
-        """get_vq_user_data_api  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_vq_user_data_api_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param GetVQUserDataAPIRequest body: (required)
-        :return: GetVQUserDataAPIResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_vq_user_data_api" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `get_vq_user_data_api`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/GetVQUserDataAPI/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GetVQUserDataAPIResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_white_list(self, body, **kwargs):  # noqa: E501
         """get_white_list  # noqa: E501
 
@@ -9435,103 +7495,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ListAccountActivityDataResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_account_activity_history_data(self, body, **kwargs):  # noqa: E501
-        """list_account_activity_history_data  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_account_activity_history_data(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListAccountActivityHistoryDataRequest body: (required)
-        :return: ListAccountActivityHistoryDataResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_account_activity_history_data_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_account_activity_history_data_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_account_activity_history_data_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_account_activity_history_data  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_account_activity_history_data_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListAccountActivityHistoryDataRequest body: (required)
-        :return: ListAccountActivityHistoryDataResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_account_activity_history_data" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_account_activity_history_data`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListAccountActivityHistoryData/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListAccountActivityHistoryDataResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -10024,103 +7987,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_activity_robot_comment_repository(self, body, **kwargs):  # noqa: E501
-        """list_activity_robot_comment_repository  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_activity_robot_comment_repository(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListActivityRobotCommentRepositoryRequest body: (required)
-        :return: ListActivityRobotCommentRepositoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_activity_robot_comment_repository_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_activity_robot_comment_repository_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_activity_robot_comment_repository_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_activity_robot_comment_repository  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_activity_robot_comment_repository_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListActivityRobotCommentRepositoryRequest body: (required)
-        :return: ListActivityRobotCommentRepositoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_activity_robot_comment_repository" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_activity_robot_comment_repository`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListActivityRobotCommentRepository/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListActivityRobotCommentRepositoryResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def list_activity_users(self, body, **kwargs):  # noqa: E501
         """list_activity_users  # noqa: E501
 
@@ -10211,103 +8077,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ListActivityUsersResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_area_config(self, body, **kwargs):  # noqa: E501
-        """list_area_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_area_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListAreaConfigRequest body: (required)
-        :return: ListAreaConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_area_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_area_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_area_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_area_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_area_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListAreaConfigRequest body: (required)
-        :return: ListAreaConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_area_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_area_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListAreaConfig/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListAreaConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -10703,103 +8472,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_host_accelerate_pack_order(self, body, **kwargs):  # noqa: E501
-        """list_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_host_accelerate_pack_order(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListHostAcceleratePackOrderRequest body: (required)
-        :return: ListHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_host_accelerate_pack_order_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_host_accelerate_pack_order_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListHostAcceleratePackOrderRequest body: (required)
-        :return: ListHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_host_accelerate_pack_order" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_host_accelerate_pack_order`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListHostAcceleratePackOrder/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListHostAcceleratePackOrderResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def list_host_accounts(self, body, **kwargs):  # noqa: E501
         """list_host_accounts  # noqa: E501
 
@@ -10890,103 +8562,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ListHostAccountsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_interaction_script_comments(self, body, **kwargs):  # noqa: E501
-        """list_interaction_script_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_interaction_script_comments(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListInteractionScriptCommentsRequest body: (required)
-        :return: ListInteractionScriptCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_interaction_script_comments_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_interaction_script_comments_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_interaction_script_comments_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_interaction_script_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_interaction_script_comments_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListInteractionScriptCommentsRequest body: (required)
-        :return: ListInteractionScriptCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_interaction_script_comments" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_interaction_script_comments`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListInteractionScriptComments/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListInteractionScriptCommentsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -11188,103 +8763,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_office_config(self, body, **kwargs):  # noqa: E501
-        """list_office_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_office_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListOfficeConfigRequest body: (required)
-        :return: ListOfficeConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_office_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_office_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_office_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_office_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_office_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListOfficeConfigRequest body: (required)
-        :return: ListOfficeConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_office_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_office_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListOfficeConfig/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListOfficeConfigResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def list_programs(self, body, **kwargs):  # noqa: E501
         """list_programs  # noqa: E501
 
@@ -11375,200 +8853,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ListProgramsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_robot_comments(self, body, **kwargs):  # noqa: E501
-        """list_robot_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_robot_comments(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListRobotCommentsRequest body: (required)
-        :return: ListRobotCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_robot_comments_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_robot_comments_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_robot_comments_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_robot_comments  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_robot_comments_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListRobotCommentsRequest body: (required)
-        :return: ListRobotCommentsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_robot_comments" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_robot_comments`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListRobotComments/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListRobotCommentsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_robot_nick_names(self, body, **kwargs):  # noqa: E501
-        """list_robot_nick_names  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_robot_nick_names(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListRobotNickNamesRequest body: (required)
-        :return: ListRobotNickNamesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_robot_nick_names_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_robot_nick_names_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def list_robot_nick_names_with_http_info(self, body, **kwargs):  # noqa: E501
-        """list_robot_nick_names  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_robot_nick_names_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ListRobotNickNamesRequest body: (required)
-        :return: ListRobotNickNamesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_robot_nick_names" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `list_robot_nick_names`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['text/plain'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ListRobotNickNames/2023-08-01/livesaas/get/text_plain/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListRobotNickNamesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -12546,103 +9830,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def modify_host_accelerate_pack_order(self, body, **kwargs):  # noqa: E501
-        """modify_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_host_accelerate_pack_order(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ModifyHostAcceleratePackOrderRequest body: (required)
-        :return: ModifyHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.modify_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.modify_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def modify_host_accelerate_pack_order_with_http_info(self, body, **kwargs):  # noqa: E501
-        """modify_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_host_accelerate_pack_order_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param ModifyHostAcceleratePackOrderRequest body: (required)
-        :return: ModifyHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method modify_host_accelerate_pack_order" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `modify_host_accelerate_pack_order`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/ModifyHostAcceleratePackOrder/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ModifyHostAcceleratePackOrderResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def resend_activity_coupon(self, body, **kwargs):  # noqa: E501
         """resend_activity_coupon  # noqa: E501
 
@@ -12934,103 +10121,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def send_activity_robot_comment(self, body, **kwargs):  # noqa: E501
-        """send_activity_robot_comment  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_activity_robot_comment(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param SendActivityRobotCommentRequest body: (required)
-        :return: SendActivityRobotCommentResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.send_activity_robot_comment_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.send_activity_robot_comment_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def send_activity_robot_comment_with_http_info(self, body, **kwargs):  # noqa: E501
-        """send_activity_robot_comment  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_activity_robot_comment_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param SendActivityRobotCommentRequest body: (required)
-        :return: SendActivityRobotCommentResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method send_activity_robot_comment" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `send_activity_robot_comment`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/SendActivityRobotComment/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='SendActivityRobotCommentResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def send_product_order_message(self, body, **kwargs):  # noqa: E501
         """send_product_order_message  # noqa: E501
 
@@ -13225,103 +10315,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def unsubscribe_host_accelerate_pack_order(self, body, **kwargs):  # noqa: E501
-        """unsubscribe_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.unsubscribe_host_accelerate_pack_order(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UnsubscribeHostAcceleratePackOrderRequest body: (required)
-        :return: UnsubscribeHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.unsubscribe_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.unsubscribe_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def unsubscribe_host_accelerate_pack_order_with_http_info(self, body, **kwargs):  # noqa: E501
-        """unsubscribe_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.unsubscribe_host_accelerate_pack_order_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UnsubscribeHostAcceleratePackOrderRequest body: (required)
-        :return: UnsubscribeHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method unsubscribe_host_accelerate_pack_order" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `unsubscribe_host_accelerate_pack_order`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/UnsubscribeHostAcceleratePackOrder/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UnsubscribeHostAcceleratePackOrderResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def update_account_ban_status(self, body, **kwargs):  # noqa: E501
         """update_account_ban_status  # noqa: E501
 
@@ -13412,103 +10405,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='UpdateAccountBanStatusResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_account_custom_link_config(self, body, **kwargs):  # noqa: E501
-        """update_account_custom_link_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_account_custom_link_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateAccountCustomLinkConfigRequest body: (required)
-        :return: UpdateAccountCustomLinkConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_account_custom_link_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_account_custom_link_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def update_account_custom_link_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_account_custom_link_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_account_custom_link_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateAccountCustomLinkConfigRequest body: (required)
-        :return: UpdateAccountCustomLinkConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_account_custom_link_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_account_custom_link_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/UpdateAccountCustomLinkConfig/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UpdateAccountCustomLinkConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -14874,38 +11770,38 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_activity_robot_comment_config(self, body, **kwargs):  # noqa: E501
-        """update_activity_robot_comment_config  # noqa: E501
+    def update_activity_user_ban_status(self, body, **kwargs):  # noqa: E501
+        """update_activity_user_ban_status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_activity_robot_comment_config(body, async_req=True)
+        >>> thread = api.update_activity_user_ban_status(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateActivityRobotCommentConfigRequest body: (required)
-        :return: UpdateActivityRobotCommentConfigResponse
+        :param UpdateActivityUserBanStatusRequest body: (required)
+        :return: UpdateActivityUserBanStatusResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_activity_robot_comment_config_with_http_info(body, **kwargs)  # noqa: E501
+            return self.update_activity_user_ban_status_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_activity_robot_comment_config_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.update_activity_user_ban_status_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def update_activity_robot_comment_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_activity_robot_comment_config  # noqa: E501
+    def update_activity_user_ban_status_with_http_info(self, body, **kwargs):  # noqa: E501
+        """update_activity_user_ban_status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_activity_robot_comment_config_with_http_info(body, async_req=True)
+        >>> thread = api.update_activity_user_ban_status_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateActivityRobotCommentConfigRequest body: (required)
-        :return: UpdateActivityRobotCommentConfigResponse
+        :param UpdateActivityUserBanStatusRequest body: (required)
+        :return: UpdateActivityUserBanStatusResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14921,14 +11817,14 @@ class LIVESAAS20230801Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_activity_robot_comment_config" % key
+                    " to method update_activity_user_ban_status" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_activity_robot_comment_config`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_activity_user_ban_status`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14956,14 +11852,14 @@ class LIVESAAS20230801Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateActivityRobotCommentConfig/2023-08-01/livesaas/post/application_json/', 'POST',
+            '/UpdateActivityUserBanStatus/2023-08-01/livesaas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpdateActivityRobotCommentConfigResponse',  # noqa: E501
+            response_type='UpdateActivityUserBanStatusResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -15061,103 +11957,6 @@ class LIVESAAS20230801Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='UpdateAnswerRepetitionResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_area_config(self, body, **kwargs):  # noqa: E501
-        """update_area_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_area_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateAreaConfigRequest body: (required)
-        :return: UpdateAreaConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_area_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_area_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def update_area_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_area_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_area_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateAreaConfigRequest body: (required)
-        :return: UpdateAreaConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_area_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_area_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/UpdateAreaConfig/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UpdateAreaConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -15844,103 +12643,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_host_accelerate_pack_order(self, body, **kwargs):  # noqa: E501
-        """update_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_host_accelerate_pack_order(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateHostAcceleratePackOrderRequest body: (required)
-        :return: UpdateHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_host_accelerate_pack_order_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def update_host_accelerate_pack_order_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_host_accelerate_pack_order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_host_accelerate_pack_order_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateHostAcceleratePackOrderRequest body: (required)
-        :return: UpdateHostAcceleratePackOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_host_accelerate_pack_order" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_host_accelerate_pack_order`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/UpdateHostAcceleratePackOrder/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UpdateHostAcceleratePackOrderResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def update_host_account(self, body, **kwargs):  # noqa: E501
         """update_host_account  # noqa: E501
 
@@ -16038,38 +12740,38 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_interaction_script_record_config(self, body, **kwargs):  # noqa: E501
-        """update_interaction_script_record_config  # noqa: E501
+    def update_in_page_advertisement(self, body, **kwargs):  # noqa: E501
+        """update_in_page_advertisement  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_interaction_script_record_config(body, async_req=True)
+        >>> thread = api.update_in_page_advertisement(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateInteractionScriptRecordConfigRequest body: (required)
-        :return: UpdateInteractionScriptRecordConfigResponse
+        :param UpdateInPageAdvertisementRequest body: (required)
+        :return: UpdateInPageAdvertisementResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_interaction_script_record_config_with_http_info(body, **kwargs)  # noqa: E501
+            return self.update_in_page_advertisement_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_interaction_script_record_config_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.update_in_page_advertisement_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def update_interaction_script_record_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_interaction_script_record_config  # noqa: E501
+    def update_in_page_advertisement_with_http_info(self, body, **kwargs):  # noqa: E501
+        """update_in_page_advertisement  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_interaction_script_record_config_with_http_info(body, async_req=True)
+        >>> thread = api.update_in_page_advertisement_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateInteractionScriptRecordConfigRequest body: (required)
-        :return: UpdateInteractionScriptRecordConfigResponse
+        :param UpdateInPageAdvertisementRequest body: (required)
+        :return: UpdateInPageAdvertisementResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16085,14 +12787,14 @@ class LIVESAAS20230801Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_interaction_script_record_config" % key
+                    " to method update_in_page_advertisement" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_interaction_script_record_config`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_in_page_advertisement`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16120,14 +12822,111 @@ class LIVESAAS20230801Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateInteractionScriptRecordConfig/2023-08-01/livesaas/post/application_json/', 'POST',
+            '/UpdateInPageAdvertisement/2023-08-01/livesaas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpdateInteractionScriptRecordConfigResponse',  # noqa: E501
+            response_type='UpdateInPageAdvertisementResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_live_channel_config(self, body, **kwargs):  # noqa: E501
+        """update_live_channel_config  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_live_channel_config(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param UpdateLiveChannelConfigRequest body: (required)
+        :return: UpdateLiveChannelConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_live_channel_config_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_live_channel_config_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def update_live_channel_config_with_http_info(self, body, **kwargs):  # noqa: E501
+        """update_live_channel_config  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_live_channel_config_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param UpdateLiveChannelConfigRequest body: (required)
+        :return: UpdateLiveChannelConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_live_channel_config" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_live_channel_config`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/UpdateLiveChannelConfig/2023-08-01/livesaas/post/application_json/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UpdateLiveChannelConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -16329,103 +13128,6 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_office_config(self, body, **kwargs):  # noqa: E501
-        """update_office_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_office_config(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateOfficeConfigRequest body: (required)
-        :return: UpdateOfficeConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_office_config_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_office_config_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def update_office_config_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_office_config  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_office_config_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param UpdateOfficeConfigRequest body: (required)
-        :return: UpdateOfficeConfigResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_office_config" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in params or
-                                                       params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_office_config`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['volcengineSign']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/UpdateOfficeConfig/2023-08-01/livesaas/post/application_json/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UpdateOfficeConfigResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def update_product_reminder_info(self, body, **kwargs):  # noqa: E501
         """update_product_reminder_info  # noqa: E501
 
@@ -16620,38 +13322,38 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_robot_comment(self, body, **kwargs):  # noqa: E501
-        """update_robot_comment  # noqa: E501
+    def update_security_control_config(self, body, **kwargs):  # noqa: E501
+        """update_security_control_config  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_robot_comment(body, async_req=True)
+        >>> thread = api.update_security_control_config(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateRobotCommentRequest body: (required)
-        :return: UpdateRobotCommentResponse
+        :param UpdateSecurityControlConfigRequest body: (required)
+        :return: UpdateSecurityControlConfigResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_robot_comment_with_http_info(body, **kwargs)  # noqa: E501
+            return self.update_security_control_config_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_robot_comment_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.update_security_control_config_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def update_robot_comment_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_robot_comment  # noqa: E501
+    def update_security_control_config_with_http_info(self, body, **kwargs):  # noqa: E501
+        """update_security_control_config  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_robot_comment_with_http_info(body, async_req=True)
+        >>> thread = api.update_security_control_config_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateRobotCommentRequest body: (required)
-        :return: UpdateRobotCommentResponse
+        :param UpdateSecurityControlConfigRequest body: (required)
+        :return: UpdateSecurityControlConfigResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16667,14 +13369,14 @@ class LIVESAAS20230801Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_robot_comment" % key
+                    " to method update_security_control_config" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_robot_comment`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_security_control_config`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16702,14 +13404,14 @@ class LIVESAAS20230801Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateRobotComment/2023-08-01/livesaas/post/application_json/', 'POST',
+            '/UpdateSecurityControlConfig/2023-08-01/livesaas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpdateRobotCommentResponse',  # noqa: E501
+            response_type='UpdateSecurityControlConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -16717,38 +13419,38 @@ class LIVESAAS20230801Api(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_robot_nick_name(self, body, **kwargs):  # noqa: E501
-        """update_robot_nick_name  # noqa: E501
+    def update_single_activity_product(self, body, **kwargs):  # noqa: E501
+        """update_single_activity_product  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_robot_nick_name(body, async_req=True)
+        >>> thread = api.update_single_activity_product(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateRobotNickNameRequest body: (required)
-        :return: UpdateRobotNickNameResponse
+        :param UpdateSingleActivityProductRequest body: (required)
+        :return: UpdateSingleActivityProductResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_robot_nick_name_with_http_info(body, **kwargs)  # noqa: E501
+            return self.update_single_activity_product_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_robot_nick_name_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.update_single_activity_product_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def update_robot_nick_name_with_http_info(self, body, **kwargs):  # noqa: E501
-        """update_robot_nick_name  # noqa: E501
+    def update_single_activity_product_with_http_info(self, body, **kwargs):  # noqa: E501
+        """update_single_activity_product  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_robot_nick_name_with_http_info(body, async_req=True)
+        >>> thread = api.update_single_activity_product_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateRobotNickNameRequest body: (required)
-        :return: UpdateRobotNickNameResponse
+        :param UpdateSingleActivityProductRequest body: (required)
+        :return: UpdateSingleActivityProductResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16764,14 +13466,14 @@ class LIVESAAS20230801Api(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_robot_nick_name" % key
+                    " to method update_single_activity_product" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in params or
                                                        params['body'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `body` when calling `update_robot_nick_name`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_single_activity_product`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16799,14 +13501,14 @@ class LIVESAAS20230801Api(object):
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UpdateRobotNickName/2023-08-01/livesaas/post/application_json/', 'POST',
+            '/UpdateSingleActivityProduct/2023-08-01/livesaas/post/application_json/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UpdateRobotNickNameResponse',  # noqa: E501
+            response_type='UpdateSingleActivityProductResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

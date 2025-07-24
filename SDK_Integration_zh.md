@@ -1,29 +1,34 @@
 # 目录
+- [目录](#目录)
 - [集成SDK](#集成sdk)
-  - [环境要求](#环境要求)
-  - [访问凭据](#访问凭据)
-    - [AK、SK设置](#aksk设置)
-  - [EndPoint配置](#endpoint配置)
-    - [自定义Endpoint](#自定义endpoint)
-    - [自定义RegionId](#自定义regionid)
-    - [自动化Endpoint寻址](#自动化endpoint寻址)
-      - [Endpoint默认寻址](#endpoint默认寻址)
-  - [Http连接池配置](#http连接池配置)
-  - [Https请求配置](#https请求配置)
-    - [指定scheme](#指定scheme)
-    - [忽略SSL验证](#忽略ssl验证)
-  - [超时配置](#超时配置)
-  - [重试机制](#重试机制)
-    - [重试代码配置](#重试代码配置)
-    - [重试条件](#重试条件)
-      - [默认重试条件](#默认重试条件)
-      - [自定义重试条件](#自定义重试条件)
-    - [退避策略](#退避策略)
-      - [内置退避策略](#内置退避策略)
-      - [自定义退避策略](#自定义退避策略)
-  - [异常处理](#异常处理)
-  - [Debug机制](#debug机制)
-  - [指定日志Logger](#指定日志logger)
+- [环境要求](#环境要求)
+- [访问凭据](#访问凭据)
+  - [AK、SK设置](#aksk设置)
+  - [STS Token设置](#sts-token设置)
+- [EndPoint配置](#endpoint配置)
+  - [自定义Endpoint](#自定义endpoint)
+  - [自定义RegionId](#自定义regionid)
+  - [自动化Endpoint寻址](#自动化endpoint寻址)
+    - [Endpoint默认寻址](#endpoint默认寻址)
+- [Http连接池配置](#http连接池配置)
+- [Https请求配置](#https请求配置)
+  - [指定scheme](#指定scheme)
+- [Http(s)代理配置](#https代理配置)
+  - [配置Http(s)代理](#配置https代理)
+  - [注意事项](#注意事项)
+  - [忽略SSL验证](#忽略ssl验证)
+- [超时配置](#超时配置)
+- [重试机制](#重试机制)
+  - [重试代码配置](#重试代码配置)
+  - [重试条件](#重试条件)
+    - [默认重试条件](#默认重试条件)
+    - [自定义重试条件](#自定义重试条件)
+  - [退避策略](#退避策略)
+    - [内置退避策略](#内置退避策略)
+    - [自定义退避策略](#自定义退避策略)
+- [异常处理](#异常处理)
+- [Debug机制](#debug机制)
+- [指定日志Logger](#指定日志logger)
 
 # 集成SDK
 
@@ -36,7 +41,7 @@
 
 # 访问凭据
 
-为保障资源访问安全，火山引擎 Python SDK 目前暂时只支持 **AK/SK**认证设置。
+为保障资源访问安全，火山引擎 Python SDK 目前支持 `AK/SK`和 `STS Token` 认证设置。
 
 ## AK、SK设置
 
@@ -82,6 +87,53 @@ try:
 except ApiException as e:
     pass
 ```
+
+## STS Token设置
+
+STS（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
+
+> ⚠️ 注意事项
+>
+> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
+
+支持`configuration`级别全局配置和接口级别的运行时参数设置`RuntimeOption`;`RuntimeOption`设置会覆盖`configuration`全局配置。  
+
+**代码示例：**
+```python
+import volcenginesdkcore,volcenginesdkecs
+from volcenginesdkcore.rest import ApiException
+from volcenginesdkcore.interceptor import RuntimeOption
+
+# 全局设置
+configuration = volcenginesdkcore.Configuration()
+configuration.ak = "Your ak"
+configuration.sk = "Your sk"
+configuration.session_token = "Your session token"
+configuration.debug = True
+volcenginesdkcore.Configuration.set_default(configuration)
+
+# 接口级别运行时参数设置,会覆盖全局配置
+runtime_options = RuntimeOption(
+  ak =  "Your ak", 
+  sk = "Your sk",
+  session_token="Your session token",
+  client_side_validation = True, # 开启客户端校验,默认开启
+)
+api_instance = volcenginesdkecs.ECSApi()
+create_command_request = volcenginesdkecs.CreateCommandRequest(
+    command_content="ls -l",
+    description="Your command description",
+    name="Your command name",
+    type="command",
+    _configuration=runtime_options,  # 配置运行时参数
+)
+try:
+    api_instance.create_command(create_command_request)
+except ApiException as e:
+    pass
+```
+
 
 
 # EndPoint配置
@@ -232,6 +284,35 @@ try:
 except ApiException as e:
     pass
 ```
+
+# Http(s)代理配置
+
+> - **默认** 
+>   无代理
+
+## 配置Http(s)代理
+
+```python
+configuration = volcenginesdkcore.Configuration()
+configuration.ak = "Your AK"
+configuration.sk = "Your SK"
+
+configuration.http_proxy = "http://your_proxy:8080"
+configuration.https_proxy = "http://your_proxy:8080"
+
+volcenginesdkcore.Configuration.set_default(configuration)
+
+api_instance = volcenginesdkecs.ECSApi()
+```
+
+## 注意事项
+
+支持通过以下环境变量配置代理:
+
+http_proxy/HTTP_PROXY, https_proxy/HTTPS_PROXY, no_proxy/NO_PROXY
+
+优先级：代码 > 环境变量
+
 
 ## 忽略SSL验证
 
