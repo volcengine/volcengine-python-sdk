@@ -42,7 +42,7 @@ from ._constants import (
 )
 from ._streaming import Stream
 
-from ._utils._key_agreement import key_agreement_client
+from ._utils._key_agreement import key_agreement_client, get_cert_info
 from ._utils._model_breaker import ModelBreaker
 
 __all__ = ["Ark", "AsyncArk"]
@@ -143,7 +143,7 @@ class Ark(SyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
 
-    def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
+    def _get_endpoint_certificate(self, endpoint_id: str) -> tuple[key_agreement_client, str, str]:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (
@@ -279,7 +279,7 @@ class AsyncArk(AsyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(bot_id, resource_type="bot")
 
-    def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
+    def _get_endpoint_certificate(self, endpoint_id: str) -> tuple[key_agreement_client, str, str]:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (
@@ -429,7 +429,7 @@ class E2ECertificateManager(object):
         base_url: str | URL = BASE_URL,
         api_key: str | None = None,
     ):
-        self._certificate_manager: Dict[str, key_agreement_client] = {}
+        self._certificate_manager: Dict[str, Tuple[key_agreement_client, str, str]] = {}
 
         # local cache prepare
         self._init_local_cert_cache()
@@ -460,6 +460,10 @@ class E2ECertificateManager(object):
         self._e2e_uri = "/e2e/get/certificate"
         self._x_session_token = {"X-Session-Token": self._e2e_uri}
 
+        self._aicc_enabled = False
+        if os.environ.get("VOLC_ARK_ENCRYPTION") == "AICC":
+            self._aicc_enabled = True
+
     def _load_cert_by_cert_path(self) -> str:
         with open(self.cert_path, "r") as f:
             cert_pem = f.read()
@@ -469,6 +473,10 @@ class E2ECertificateManager(object):
         get_endpoint_certificate_request = (
             volcenginesdkark.GetEndpointCertificateRequest(id=ep)
         )
+        if self._aicc_enabled:
+            get_endpoint_certificate_request = (
+                volcenginesdkark.GetEndpointCertificateRequest(id=ep, type="AICCv0.1")
+            )
         try:
             resp: volcenginesdkark.GetEndpointCertificateResponse = (
                 self.api_instance.get_endpoint_certificate(
@@ -484,10 +492,13 @@ class E2ECertificateManager(object):
 
     def _sync_load_cert_by_auth(self, ep: str) -> str:
         try:  # try to make request with session header (used for header statistic)
+            req_body = {"model": ep}
+            if self._aicc_enabled:
+                req_body["type"] = "AICCv0.1"
             resp = self.client.post(
                 self._e2e_uri,
                 options={"headers": self._x_session_token},
-                body={"model": ep},
+                body=req_body,
                 cast_to=CertificateResponse,
             )
         except Exception as e:
@@ -508,10 +519,16 @@ class E2ECertificateManager(object):
             current_time = time.time()
             time_difference = current_time - last_modified_time
             if time_difference <= self._cert_expiration_seconds:
+                cert_pem = None
                 with open(cert_file_path, "r") as f:
-                    return f.read()
-            else:
-                os.remove(cert_file_path)
+                    cert_pem = f.read()
+                ring, key = get_cert_info(cert_pem)
+                # check cert is complement with AICC/PCA
+                if (ring == "" or key == "") and not self._aicc_enabled:
+                    return cert_pem
+                if ring != "" and key != "" and self._aicc_enabled:
+                    return cert_pem
+            os.remove(cert_file_path)
         return None
 
     def _init_local_cert_cache(self):
@@ -528,7 +545,7 @@ class E2ECertificateManager(object):
                     "failed to create certificate directory %s: %s\n" % (self._cert_storage_path, e)
                 )
 
-    def get(self, ep: str) -> key_agreement_client:
+    def get(self, ep: str) -> tuple[key_agreement_client, str, str]:
         if ep not in self._certificate_manager:
             cert_pem = self._load_cert_locally(ep)
             if cert_pem is None:
@@ -539,7 +556,12 @@ class E2ECertificateManager(object):
                 else:
                     cert_pem = self._load_cert_by_ak_sk(ep)
                 self._save_cert_to_file(ep, cert_pem)
-            self._certificate_manager[ep] = key_agreement_client(
-                certificate_pem_string=cert_pem
+            ring, key = get_cert_info(cert_pem)
+            self._certificate_manager[ep] = (
+                key_agreement_client(
+                    certificate_pem_string=cert_pem
+                ),
+                ring,
+                key,
             )
         return self._certificate_manager[ep]

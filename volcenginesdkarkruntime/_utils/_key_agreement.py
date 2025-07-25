@@ -17,6 +17,22 @@ import base64
 from typing import Tuple
 
 
+def get_cert_info(cert_pem: str) -> Tuple[str, str]:
+    import re
+    from cryptography import x509
+    from cryptography.hazmat.backends import default_backend
+
+    cert = x509.load_pem_x509_certificate(cert_pem.encode(), default_backend())
+    try:
+        dns = cert.extensions.get_extension_for_class(
+            x509.SubjectAlternativeName).value.get_values_for_type(x509.DNSName)
+        if dns and len(dns) > 1 and re.match(r"^ring\..*$", dns[0]) and re.match(r"^key\..*$", dns[1]):
+            return dns[0].strip("ring."), dns[1].strip("key.")
+    except Exception:
+        pass
+    return "", ""
+
+
 def aes_gcm_encrypt_bytes(
     key: bytes, iv: bytes, plain_bytes: bytes, associated_data: bytes = b""
 ) -> bytes:

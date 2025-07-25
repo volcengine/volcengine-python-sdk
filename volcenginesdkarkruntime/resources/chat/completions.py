@@ -23,6 +23,8 @@ from typing import (
     AsyncIterator,
 )
 
+import os
+import json
 import httpx
 import warnings
 from typing_extensions import Literal
@@ -69,7 +71,8 @@ def _process_messages(
                         part["text"] = f(part["text"])
                     elif part.get("type", None) == "image_url":
                         if part["image_url"]["url"].startswith("data:"):
-                            part["image_url"]["url"] = f(part["image_url"]["url"])
+                            part["image_url"]["url"] = f(
+                                part["image_url"]["url"])
                         else:
                             warnings.warn(
                                 "encryption is not supported for image url, "
@@ -103,15 +106,16 @@ class Completions(SyncAPIResource):
         model: str,
         messages: Iterable[ChatCompletionMessageParam],
         extra_headers: Headers,
-    ) -> tuple[bytes, bytes]:
-        client = self._client._get_endpoint_certificate(model)
+    ) -> tuple[bytes, bytes, str, str]:
+        client, ring_id, key_id = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers["X-Session-Token"] = session_token
         _process_messages(
             messages,
-            lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
+            lambda x: client.encrypt_string_with_key(
+                _crypto_key, _crypto_nonce, x),
         )
-        return _crypto_key, _crypto_nonce
+        return _crypto_key, _crypto_nonce, ring_id, key_id
 
     def _decrypt_chunk(
         self, key: bytes, nonce: bytes, resp: Stream[ChatCompletionChunk]
@@ -197,7 +201,15 @@ class Completions(SyncAPIResource):
         ):
             is_encrypt = True
             messages = deepcopy_minimal(messages)
-            e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
+            e2e_key, e2e_nonce, ring_id, key_id = self._encrypt(
+                model, messages, extra_headers)
+            if os.environ.get("VOLC_ARK_ENCRYPTION") == "AICC":
+                info = {
+                    'Version': 'AICCv0.1',
+                    'RingID': ring_id,
+                    'KeyID': key_id,
+                }
+                extra_headers["X-Encrypt-Info"] = json.dumps(info)
 
         resp = self._post(
             "/chat/completions",
@@ -257,15 +269,16 @@ class AsyncCompletions(AsyncAPIResource):
         model: str,
         messages: Iterable[ChatCompletionMessageParam],
         extra_headers: Headers,
-    ) -> tuple[bytes, bytes]:
-        client = self._client._get_endpoint_certificate(model)
+    ) -> tuple[bytes, bytes, str, str]:
+        client, ring_id, key_id = self._client._get_endpoint_certificate(model)
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers["X-Session-Token"] = session_token
         _process_messages(
             messages,
-            lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
+            lambda x: client.encrypt_string_with_key(
+                _crypto_key, _crypto_nonce, x),
         )
-        return _crypto_key, _crypto_nonce
+        return _crypto_key, _crypto_nonce, ring_id, key_id
 
     async def _decrypt_chunk(
         self, key: bytes, nonce: bytes, resp: AsyncStream[ChatCompletionChunk]
@@ -351,7 +364,15 @@ class AsyncCompletions(AsyncAPIResource):
         ):
             is_encrypt = True
             messages = deepcopy_minimal(messages)
-            e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
+            e2e_key, e2e_nonce, ring_id, key_id = self._encrypt(
+                model, messages, extra_headers)
+            if os.environ.get("VOLC_ARK_ENCRYPTION") == "AICC":
+                info = {
+                    'Version': 'AICCv0.1',
+                    'RingID': ring_id,
+                    'KeyID': key_id,
+                }
+                extra_headers["X-Encrypt-Info"] = json.dumps(info)
 
         resp = await self._post(
             "/chat/completions",
