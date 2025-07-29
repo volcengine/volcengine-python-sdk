@@ -35,6 +35,7 @@ class CheckLLMResponseStreamRequest(object):
     swagger_types = {
         'content': 'str',
         'content_type': 'int',
+        'context_id': 'str',
         'host': 'str',
         'msg_class': 'int',
         'msg_id': 'str',
@@ -46,6 +47,7 @@ class CheckLLMResponseStreamRequest(object):
     attribute_map = {
         'content': 'Content',
         'content_type': 'ContentType',
+        'context_id': 'ContextID',
         'host': 'Host',
         'msg_class': 'MsgClass',
         'msg_id': 'MsgID',
@@ -54,7 +56,7 @@ class CheckLLMResponseStreamRequest(object):
         'use_stream': 'UseStream'
     }
 
-    def __init__(self, content=None, content_type=None, host=None, msg_class=None, msg_id=None, region=None, timeout=None, use_stream=None, _configuration=None):  # noqa: E501
+    def __init__(self, content=None, content_type=None, context_id=None, host=None, msg_class=None, msg_id=None, region=None, timeout=None, use_stream=None, _configuration=None):  # noqa: E501
         """CheckLLMResponseStreamRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class CheckLLMResponseStreamRequest(object):
 
         self._content = None
         self._content_type = None
+        self._context_id = None
         self._host = None
         self._msg_class = None
         self._msg_id = None
@@ -72,6 +75,8 @@ class CheckLLMResponseStreamRequest(object):
 
         self.content = content
         self.content_type = content_type
+        if context_id is not None:
+            self.context_id = context_id
         self.host = host
         self.msg_class = msg_class
         if msg_id is not None:
@@ -127,6 +132,27 @@ class CheckLLMResponseStreamRequest(object):
             raise ValueError("Invalid value for `content_type`, must not be `None`")  # noqa: E501
 
         self._content_type = content_type
+
+    @property
+    def context_id(self):
+        """Gets the context_id of this CheckLLMResponseStreamRequest.  # noqa: E501
+
+
+        :return: The context_id of this CheckLLMResponseStreamRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._context_id
+
+    @context_id.setter
+    def context_id(self, context_id):
+        """Sets the context_id of this CheckLLMResponseStreamRequest.
+
+
+        :param context_id: The context_id of this CheckLLMResponseStreamRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._context_id = context_id
 
     @property
     def host(self):
