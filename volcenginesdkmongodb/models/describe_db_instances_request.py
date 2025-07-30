@@ -37,6 +37,7 @@ class DescribeDBInstancesRequest(object):
         'create_start_time': 'str',
         'db_engine': 'str',
         'db_engine_version': 'str',
+        'filter_by_tags': 'list[FilterByTagForDescribeDBInstancesInput]',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
@@ -56,6 +57,7 @@ class DescribeDBInstancesRequest(object):
         'create_start_time': 'CreateStartTime',
         'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
+        'filter_by_tags': 'FilterByTags',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
@@ -70,7 +72,7 @@ class DescribeDBInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, create_end_time=None, create_start_time=None, db_engine=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, project_name=None, tag_filters=None, update_end_time=None, update_start_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_end_time=None, create_start_time=None, db_engine=None, db_engine_version=None, filter_by_tags=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, page_number=None, page_size=None, project_name=None, tag_filters=None, update_end_time=None, update_start_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +82,7 @@ class DescribeDBInstancesRequest(object):
         self._create_start_time = None
         self._db_engine = None
         self._db_engine_version = None
+        self._filter_by_tags = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
@@ -102,6 +105,8 @@ class DescribeDBInstancesRequest(object):
             self.db_engine = db_engine
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if filter_by_tags is not None:
+            self.filter_by_tags = filter_by_tags
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -215,7 +220,7 @@ class DescribeDBInstancesRequest(object):
         :param db_engine_version: The db_engine_version of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0", "MongoDB_Inner_4_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -224,6 +229,27 @@ class DescribeDBInstancesRequest(object):
             )
 
         self._db_engine_version = db_engine_version
+
+    @property
+    def filter_by_tags(self):
+        """Gets the filter_by_tags of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The filter_by_tags of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: list[FilterByTagForDescribeDBInstancesInput]
+        """
+        return self._filter_by_tags
+
+    @filter_by_tags.setter
+    def filter_by_tags(self, filter_by_tags):
+        """Sets the filter_by_tags of this DescribeDBInstancesRequest.
+
+
+        :param filter_by_tags: The filter_by_tags of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: list[FilterByTagForDescribeDBInstancesInput]
+        """
+
+        self._filter_by_tags = filter_by_tags
 
     @property
     def instance_id(self):
@@ -285,7 +311,7 @@ class DescribeDBInstancesRequest(object):
         :param instance_status: The instance_status of this DescribeDBInstancesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Creating", "Running", "Deleting", "Destroying", "Restarting", "Rebuilding", "Updating", "Migrating", "Restoring", "Importing", "Error", "Scaling", "Upgrading", "Deleted", "Recycled", "Closed", "CreateFailed", "NetCreating", "NetReleasing", "WaitingPaid", "Closing", "Released", "Destroyed", "Reclaiming", "Resuming", "AllowListMaintaining", "TaskFailed_Available", "Unavailable", "NetworkMaintaining", "TDEMaintaining", "SSLUpdating", "SwitchMastering", "Temporary"]  # noqa: E501
+        allowed_values = ["Creating", "Running", "Deleting", "Destroying", "Restarting", "Rebuilding", "Updating", "Migrating", "Restoring", "Importing", "Error", "Scaling", "Upgrading", "Deleted", "Recycled", "Closed", "CreateFailed", "NetCreating", "NetReleasing", "WaitingPaid", "Closing", "Released", "Destroyed", "Reclaiming", "Resuming", "AllowListMaintaining", "TaskFailed_Available", "Unavailable", "NetworkMaintaining", "TDEMaintaining", "SSLUpdating", "SwitchMastering", "Temporary", "RoleChanging", "CrossClusterMigrating", "CrossNodeMigrating", "MultiAzMigrating"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 instance_status not in allowed_values):
             raise ValueError(

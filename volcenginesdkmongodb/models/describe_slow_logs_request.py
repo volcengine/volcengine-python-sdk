@@ -34,48 +34,60 @@ class DescribeSlowLogsRequest(object):
     """
     swagger_types = {
         'context': 'str',
-        'end_time': 'int',
+        'db_name': 'str',
         'instance_id': 'str',
+        'keys': 'str',
         'limit': 'int',
         'pod_name': 'str',
-        'sort': 'str',
-        'start_time': 'int'
+        'query_end_time': 'str',
+        'query_start_time': 'str',
+        'sort': 'str'
     }
 
     attribute_map = {
         'context': 'Context',
-        'end_time': 'EndTime',
+        'db_name': 'DBName',
         'instance_id': 'InstanceId',
+        'keys': 'Keys',
         'limit': 'Limit',
         'pod_name': 'PodName',
-        'sort': 'Sort',
-        'start_time': 'StartTime'
+        'query_end_time': 'QueryEndTime',
+        'query_start_time': 'QueryStartTime',
+        'sort': 'Sort'
     }
 
-    def __init__(self, context=None, end_time=None, instance_id=None, limit=None, pod_name=None, sort=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, context=None, db_name=None, instance_id=None, keys=None, limit=None, pod_name=None, query_end_time=None, query_start_time=None, sort=None, _configuration=None):  # noqa: E501
         """DescribeSlowLogsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._context = None
-        self._end_time = None
+        self._db_name = None
         self._instance_id = None
+        self._keys = None
         self._limit = None
         self._pod_name = None
+        self._query_end_time = None
+        self._query_start_time = None
         self._sort = None
-        self._start_time = None
         self.discriminator = None
 
         if context is not None:
             self.context = context
-        self.end_time = end_time
+        if db_name is not None:
+            self.db_name = db_name
         self.instance_id = instance_id
+        if keys is not None:
+            self.keys = keys
         self.limit = limit
         self.pod_name = pod_name
+        if query_end_time is not None:
+            self.query_end_time = query_end_time
+        if query_start_time is not None:
+            self.query_start_time = query_start_time
         if sort is not None:
             self.sort = sort
-        self.start_time = start_time
 
     @property
     def context(self):
@@ -99,27 +111,25 @@ class DescribeSlowLogsRequest(object):
         self._context = context
 
     @property
-    def end_time(self):
-        """Gets the end_time of this DescribeSlowLogsRequest.  # noqa: E501
+    def db_name(self):
+        """Gets the db_name of this DescribeSlowLogsRequest.  # noqa: E501
 
 
-        :return: The end_time of this DescribeSlowLogsRequest.  # noqa: E501
-        :rtype: int
+        :return: The db_name of this DescribeSlowLogsRequest.  # noqa: E501
+        :rtype: str
         """
-        return self._end_time
+        return self._db_name
 
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this DescribeSlowLogsRequest.
+    @db_name.setter
+    def db_name(self, db_name):
+        """Sets the db_name of this DescribeSlowLogsRequest.
 
 
-        :param end_time: The end_time of this DescribeSlowLogsRequest.  # noqa: E501
-        :type: int
+        :param db_name: The db_name of this DescribeSlowLogsRequest.  # noqa: E501
+        :type: str
         """
-        if self._configuration.client_side_validation and end_time is None:
-            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
 
-        self._end_time = end_time
+        self._db_name = db_name
 
     @property
     def instance_id(self):
@@ -143,6 +153,27 @@ class DescribeSlowLogsRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def keys(self):
+        """Gets the keys of this DescribeSlowLogsRequest.  # noqa: E501
+
+
+        :return: The keys of this DescribeSlowLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._keys
+
+    @keys.setter
+    def keys(self, keys):
+        """Sets the keys of this DescribeSlowLogsRequest.
+
+
+        :param keys: The keys of this DescribeSlowLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._keys = keys
 
     @property
     def limit(self):
@@ -191,6 +222,48 @@ class DescribeSlowLogsRequest(object):
         self._pod_name = pod_name
 
     @property
+    def query_end_time(self):
+        """Gets the query_end_time of this DescribeSlowLogsRequest.  # noqa: E501
+
+
+        :return: The query_end_time of this DescribeSlowLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._query_end_time
+
+    @query_end_time.setter
+    def query_end_time(self, query_end_time):
+        """Sets the query_end_time of this DescribeSlowLogsRequest.
+
+
+        :param query_end_time: The query_end_time of this DescribeSlowLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._query_end_time = query_end_time
+
+    @property
+    def query_start_time(self):
+        """Gets the query_start_time of this DescribeSlowLogsRequest.  # noqa: E501
+
+
+        :return: The query_start_time of this DescribeSlowLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._query_start_time
+
+    @query_start_time.setter
+    def query_start_time(self, query_start_time):
+        """Sets the query_start_time of this DescribeSlowLogsRequest.
+
+
+        :param query_start_time: The query_start_time of this DescribeSlowLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._query_start_time = query_start_time
+
+    @property
     def sort(self):
         """Gets the sort of this DescribeSlowLogsRequest.  # noqa: E501
 
@@ -217,29 +290,6 @@ class DescribeSlowLogsRequest(object):
             )
 
         self._sort = sort
-
-    @property
-    def start_time(self):
-        """Gets the start_time of this DescribeSlowLogsRequest.  # noqa: E501
-
-
-        :return: The start_time of this DescribeSlowLogsRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._start_time
-
-    @start_time.setter
-    def start_time(self, start_time):
-        """Sets the start_time of this DescribeSlowLogsRequest.
-
-
-        :param start_time: The start_time of this DescribeSlowLogsRequest.  # noqa: E501
-        :type: int
-        """
-        if self._configuration.client_side_validation and start_time is None:
-            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
-
-        self._start_time = start_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

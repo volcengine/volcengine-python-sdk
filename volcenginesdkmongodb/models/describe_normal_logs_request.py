@@ -34,53 +34,60 @@ class DescribeNormalLogsRequest(object):
     """
     swagger_types = {
         'context': 'str',
-        'end_time': 'int',
         'instance_id': 'str',
+        'keys': 'str',
         'limit': 'int',
         'log_level': 'str',
         'pod_name': 'str',
-        'sort': 'str',
-        'start_time': 'int'
+        'query_end_time': 'str',
+        'query_start_time': 'str',
+        'sort': 'str'
     }
 
     attribute_map = {
         'context': 'Context',
-        'end_time': 'EndTime',
         'instance_id': 'InstanceId',
+        'keys': 'Keys',
         'limit': 'Limit',
         'log_level': 'LogLevel',
         'pod_name': 'PodName',
-        'sort': 'Sort',
-        'start_time': 'StartTime'
+        'query_end_time': 'QueryEndTime',
+        'query_start_time': 'QueryStartTime',
+        'sort': 'Sort'
     }
 
-    def __init__(self, context=None, end_time=None, instance_id=None, limit=None, log_level=None, pod_name=None, sort=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, context=None, instance_id=None, keys=None, limit=None, log_level=None, pod_name=None, query_end_time=None, query_start_time=None, sort=None, _configuration=None):  # noqa: E501
         """DescribeNormalLogsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._context = None
-        self._end_time = None
         self._instance_id = None
+        self._keys = None
         self._limit = None
         self._log_level = None
         self._pod_name = None
+        self._query_end_time = None
+        self._query_start_time = None
         self._sort = None
-        self._start_time = None
         self.discriminator = None
 
         if context is not None:
             self.context = context
-        self.end_time = end_time
         self.instance_id = instance_id
+        if keys is not None:
+            self.keys = keys
         self.limit = limit
         if log_level is not None:
             self.log_level = log_level
         self.pod_name = pod_name
+        if query_end_time is not None:
+            self.query_end_time = query_end_time
+        if query_start_time is not None:
+            self.query_start_time = query_start_time
         if sort is not None:
             self.sort = sort
-        self.start_time = start_time
 
     @property
     def context(self):
@@ -104,29 +111,6 @@ class DescribeNormalLogsRequest(object):
         self._context = context
 
     @property
-    def end_time(self):
-        """Gets the end_time of this DescribeNormalLogsRequest.  # noqa: E501
-
-
-        :return: The end_time of this DescribeNormalLogsRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._end_time
-
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this DescribeNormalLogsRequest.
-
-
-        :param end_time: The end_time of this DescribeNormalLogsRequest.  # noqa: E501
-        :type: int
-        """
-        if self._configuration.client_side_validation and end_time is None:
-            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
-
-        self._end_time = end_time
-
-    @property
     def instance_id(self):
         """Gets the instance_id of this DescribeNormalLogsRequest.  # noqa: E501
 
@@ -148,6 +132,27 @@ class DescribeNormalLogsRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def keys(self):
+        """Gets the keys of this DescribeNormalLogsRequest.  # noqa: E501
+
+
+        :return: The keys of this DescribeNormalLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._keys
+
+    @keys.setter
+    def keys(self, keys):
+        """Sets the keys of this DescribeNormalLogsRequest.
+
+
+        :param keys: The keys of this DescribeNormalLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._keys = keys
 
     @property
     def limit(self):
@@ -224,6 +229,48 @@ class DescribeNormalLogsRequest(object):
         self._pod_name = pod_name
 
     @property
+    def query_end_time(self):
+        """Gets the query_end_time of this DescribeNormalLogsRequest.  # noqa: E501
+
+
+        :return: The query_end_time of this DescribeNormalLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._query_end_time
+
+    @query_end_time.setter
+    def query_end_time(self, query_end_time):
+        """Sets the query_end_time of this DescribeNormalLogsRequest.
+
+
+        :param query_end_time: The query_end_time of this DescribeNormalLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._query_end_time = query_end_time
+
+    @property
+    def query_start_time(self):
+        """Gets the query_start_time of this DescribeNormalLogsRequest.  # noqa: E501
+
+
+        :return: The query_start_time of this DescribeNormalLogsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._query_start_time
+
+    @query_start_time.setter
+    def query_start_time(self, query_start_time):
+        """Sets the query_start_time of this DescribeNormalLogsRequest.
+
+
+        :param query_start_time: The query_start_time of this DescribeNormalLogsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._query_start_time = query_start_time
+
+    @property
     def sort(self):
         """Gets the sort of this DescribeNormalLogsRequest.  # noqa: E501
 
@@ -250,29 +297,6 @@ class DescribeNormalLogsRequest(object):
             )
 
         self._sort = sort
-
-    @property
-    def start_time(self):
-        """Gets the start_time of this DescribeNormalLogsRequest.  # noqa: E501
-
-
-        :return: The start_time of this DescribeNormalLogsRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._start_time
-
-    @start_time.setter
-    def start_time(self, start_time):
-        """Sets the start_time of this DescribeNormalLogsRequest.
-
-
-        :param start_time: The start_time of this DescribeNormalLogsRequest.  # noqa: E501
-        :type: int
-        """
-        if self._configuration.client_side_validation and start_time is None:
-            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
-
-        self._start_time = start_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""
