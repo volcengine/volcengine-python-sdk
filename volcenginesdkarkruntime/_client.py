@@ -29,6 +29,7 @@ import volcenginesdkark
 
 from . import resources
 from .resources.beta import beta
+from .resources.batch import batch
 from ._base_client import SyncAPIClient, AsyncAPIClient
 from ._constants import (
     DEFAULT_MAX_RETRIES,
@@ -60,6 +61,8 @@ class Ark(SyncAPIClient):
     batch_chat: resources.BatchChat
     responses: resources.Responses
     input_items: resources.InputItems
+    """ `batch_chat` is deprecated, use `batch.chat` instead """
+    batch: batch.Batch
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: threading.Lock
 
@@ -128,6 +131,7 @@ class Ark(SyncAPIClient):
         self.batch_chat = resources.BatchChat(self)
         self.responses = resources.Responses(self)
         self.input_items = resources.InputItems(self)
+        self.batch = batch.Batch(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = threading.Lock()
         # self.classification = resources.Classification(self)
@@ -186,6 +190,8 @@ class AsyncArk(AsyncAPIClient):
     batch_chat: resources.AsyncBatchChat
     responses: resources.AsyncResponses
     input_items: resources.AsyncInputItems
+    """ `batch_chat` is deprecated, use `batch.chat` instead """
+    batch: batch.AsyncBatch
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: asyncio.Lock
 
@@ -254,6 +260,7 @@ class AsyncArk(AsyncAPIClient):
         self.batch_chat = resources.AsyncBatchChat(self)
         self.responses = resources.AsyncResponses(self)
         self.input_items = resources.AsyncInputItems(self)
+        self.batch = batch.AsyncBatch(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = asyncio.Lock()
         # self.classification = resources.AsyncClassification(self)
