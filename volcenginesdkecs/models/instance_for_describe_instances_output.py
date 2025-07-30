@@ -56,6 +56,7 @@ class InstanceForDescribeInstancesOutput(object):
         'key_pair_name': 'str',
         'local_volumes': 'list[LocalVolumeForDescribeInstancesOutput]',
         'memory_size': 'int',
+        'metadata_options': 'MetadataOptionsForDescribeInstancesOutput',
         'network_interfaces': 'list[NetworkInterfaceForDescribeInstancesOutput]',
         'os_name': 'str',
         'os_type': 'str',
@@ -99,6 +100,7 @@ class InstanceForDescribeInstancesOutput(object):
         'key_pair_name': 'KeyPairName',
         'local_volumes': 'LocalVolumes',
         'memory_size': 'MemorySize',
+        'metadata_options': 'MetadataOptions',
         'network_interfaces': 'NetworkInterfaces',
         'os_name': 'OsName',
         'os_type': 'OsType',
@@ -118,7 +120,7 @@ class InstanceForDescribeInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, affinity_group_id=None, cpu_options=None, cpus=None, created_at=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, eip_address=None, elastic_scheduled_instance_type=None, expired_at=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, scheduled_instance_id=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, volumes=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_id=None, cpu_options=None, cpus=None, created_at=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, eip_address=None, elastic_scheduled_instance_type=None, expired_at=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, metadata_options=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, scheduled_instance_id=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, volumes=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -147,6 +149,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._key_pair_name = None
         self._local_volumes = None
         self._memory_size = None
+        self._metadata_options = None
         self._network_interfaces = None
         self._os_name = None
         self._os_type = None
@@ -212,6 +215,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.local_volumes = local_volumes
         if memory_size is not None:
             self.memory_size = memory_size
+        if metadata_options is not None:
+            self.metadata_options = metadata_options
         if network_interfaces is not None:
             self.network_interfaces = network_interfaces
         if os_name is not None:
@@ -729,6 +734,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._memory_size = memory_size
+
+    @property
+    def metadata_options(self):
+        """Gets the metadata_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The metadata_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: MetadataOptionsForDescribeInstancesOutput
+        """
+        return self._metadata_options
+
+    @metadata_options.setter
+    def metadata_options(self, metadata_options):
+        """Sets the metadata_options of this InstanceForDescribeInstancesOutput.
+
+
+        :param metadata_options: The metadata_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: MetadataOptionsForDescribeInstancesOutput
+        """
+
+        self._metadata_options = metadata_options
 
     @property
     def network_interfaces(self):
