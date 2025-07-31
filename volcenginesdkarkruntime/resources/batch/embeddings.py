@@ -37,7 +37,7 @@ class Embeddings(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> CreateEmbeddingResponse:
-        deadline = get_request_last_time(timeout)
+        deadline = get_request_last_time(self._client, timeout)
         breaker = self._client.get_model_breaker(model)
 
         return with_batch_retry(
@@ -81,7 +81,7 @@ class AsyncEmbeddings(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> CreateEmbeddingResponse:
-        deadline = get_request_last_time(timeout)
+        deadline = get_request_last_time(self._client, timeout)
         breaker = await self._client.get_model_breaker(model)
 
         return await with_batch_retry(

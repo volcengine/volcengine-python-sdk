@@ -35,7 +35,7 @@ def worker(
 
         try:
             # do request
-            completion = client.batch.chat.completions.create(**request)
+            completion = client.batch.multimodal_embeddings.create(**request)
             print(completion)
         except Exception as e:
             print(e, file=sys.stderr)
@@ -55,12 +55,14 @@ def main():
         requests.put(
             {
                 "model": "${YOUR_ENDPOINT_ID}",
-                "messages": [
+                "input": [
+                    {"type": "text", "text": "What is the weather like today?"},
                     {
-                        "role": "system",
-                        "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手",
+                        "type": "image_url",
+                        "image_url": {
+                            "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
+                        },
                     },
-                    {"role": "user", "content": "常见的十字花科植物有哪些？"},
                 ],
             }
         )

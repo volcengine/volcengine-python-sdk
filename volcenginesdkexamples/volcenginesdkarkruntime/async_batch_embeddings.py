@@ -1,9 +1,8 @@
-import queue
+import asyncio
 import sys
 from datetime import datetime
-from multiprocessing.pool import ThreadPool
 
-from volcenginesdkarkruntime import Ark
+from volcenginesdkarkruntime import AsyncArk
 
 # Authentication
 # 1.If you authorize your endpoint using an API key, you can set your api key to environment variable "ARK_API_KEY"
@@ -17,25 +16,17 @@ from volcenginesdkarkruntime import Ark
 # For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
 
 
-def worker(
+async def worker(
     worker_id: int,
-    client: Ark,
-    requests: "queue.Queue[dict]",
+    client: AsyncArk,
+    requests: "asyncio.Queue[dict]",
 ):
     print(f"Worker {worker_id} is starting.")
 
     while True:
-        request = requests.get()
-
-        # check for signal of no more request
-        if not request:
-            # put back on the queue for other workers
-            requests.put(request)
-            return
-
+        request = await requests.get()
         try:
-            # do request
-            completion = client.batch.chat.completions.create(**request)
+            completion = await client.batch.embeddings.create(**request)
             print(completion)
         except Exception as e:
             print(e, file=sys.stderr)
@@ -43,45 +34,39 @@ def worker(
             requests.task_done()
 
 
-def main():
+async def main():
     start = datetime.now()
     max_concurrent_tasks, task_num = 10, 100
 
-    requests = queue.Queue()
-    client = Ark(timeout=24 * 3600)
+    requests = asyncio.Queue()
+    client = AsyncArk(timeout=24 * 3600)
 
     # mock `task_num` tasks
     for _ in range(task_num):
-        requests.put(
-            {
-                "model": "${YOUR_ENDPOINT_ID}",
-                "messages": [
-                    {
-                        "role": "system",
-                        "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手",
-                    },
-                    {"role": "user", "content": "常见的十字花科植物有哪些？"},
-                ],
-            }
+        await requests.put(
+            {"model": "${YOUR_ENDPOINT_ID}", "input": ["花椰菜又称菜花、花菜，是一种常见的蔬菜。"]}
         )
 
-    # put a signal of no more request
-    requests.put(None)
-
     # create `max_concurrent_tasks` workers and start them
-    with ThreadPool(max_concurrent_tasks) as pool:
-        for i in range(max_concurrent_tasks):
-            pool.apply_async(worker, args=(i, client, requests))
+    tasks = [
+        asyncio.create_task(worker(i, client, requests))
+        for i in range(max_concurrent_tasks)
+    ]
 
-        # wait for all request to done
-        pool.close()
-        pool.join()
+    # wait for all requests is done
+    await requests.join()
 
-    client.close()
+    # stop workers
+    for task in tasks:
+        task.cancel()
+
+    # wait for all workers is canceled
+    await asyncio.gather(*tasks, return_exceptions=True)
+    await client.close()
 
     end = datetime.now()
     print(f"Total time: {end - start}, Total task: {task_num}")
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

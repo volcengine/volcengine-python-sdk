@@ -23,7 +23,7 @@ def _calculate_retry_timeout(retry_times: int) -> float:
     return timeout if timeout >= 0 else 0
 
 
-def _get_retry_after(response: httpx.Response) -> int | None:
+def _get_retry_after(response: httpx.Response) -> Optional[int]:
     retry_after = response.headers.get("Retry-After")
     if retry_after is not None:
         if retry_after.isdigit():

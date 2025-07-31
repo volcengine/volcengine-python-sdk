@@ -35,7 +35,7 @@ def worker(
 
         try:
             # do request
-            completion = client.batch.chat.completions.create(**request)
+            completion = client.batch.embeddings.create(**request)
             print(completion)
         except Exception as e:
             print(e, file=sys.stderr)
@@ -53,16 +53,7 @@ def main():
     # mock `task_num` tasks
     for _ in range(task_num):
         requests.put(
-            {
-                "model": "${YOUR_ENDPOINT_ID}",
-                "messages": [
-                    {
-                        "role": "system",
-                        "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手",
-                    },
-                    {"role": "user", "content": "常见的十字花科植物有哪些？"},
-                ],
-            }
+            {"model": "${YOUR_ENDPOINT_ID}", "input": ["花椰菜又称菜花、花菜，是一种常见的蔬菜。"]}
         )
 
     # put a signal of no more request
