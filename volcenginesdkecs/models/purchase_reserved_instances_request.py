@@ -37,6 +37,7 @@ class PurchaseReservedInstancesRequest(object):
         'auto_renew_period': 'int',
         'client_token': 'str',
         'description': 'str',
+        'effective_at': 'str',
         'hpc_cluster_id': 'str',
         'instance_count': 'int',
         'instance_type_id': 'str',
@@ -60,6 +61,7 @@ class PurchaseReservedInstancesRequest(object):
         'auto_renew_period': 'AutoRenewPeriod',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'effective_at': 'EffectiveAt',
         'hpc_cluster_id': 'HpcClusterId',
         'instance_count': 'InstanceCount',
         'instance_type_id': 'InstanceTypeId',
@@ -78,7 +80,7 @@ class PurchaseReservedInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, description=None, hpc_cluster_id=None, instance_count=None, instance_type_id=None, period=None, period_unit=None, project_name=None, region_id=None, reserved_capacity=None, reserved_instance_name=None, reserved_storage_capacity_name=None, rsc_auto_renew=None, rsc_auto_renew_period=None, scope=None, tags=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, client_token=None, description=None, effective_at=None, hpc_cluster_id=None, instance_count=None, instance_type_id=None, period=None, period_unit=None, project_name=None, region_id=None, reserved_capacity=None, reserved_instance_name=None, reserved_storage_capacity_name=None, rsc_auto_renew=None, rsc_auto_renew_period=None, scope=None, tags=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """PurchaseReservedInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class PurchaseReservedInstancesRequest(object):
         self._auto_renew_period = None
         self._client_token = None
         self._description = None
+        self._effective_at = None
         self._hpc_cluster_id = None
         self._instance_count = None
         self._instance_type_id = None
@@ -114,6 +117,8 @@ class PurchaseReservedInstancesRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if effective_at is not None:
+            self.effective_at = effective_at
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
         if instance_count is not None:
@@ -228,6 +233,27 @@ class PurchaseReservedInstancesRequest(object):
         """
 
         self._description = description
+
+    @property
+    def effective_at(self):
+        """Gets the effective_at of this PurchaseReservedInstancesRequest.  # noqa: E501
+
+
+        :return: The effective_at of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._effective_at
+
+    @effective_at.setter
+    def effective_at(self, effective_at):
+        """Sets the effective_at of this PurchaseReservedInstancesRequest.
+
+
+        :param effective_at: The effective_at of this PurchaseReservedInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._effective_at = effective_at
 
     @property
     def hpc_cluster_id(self):

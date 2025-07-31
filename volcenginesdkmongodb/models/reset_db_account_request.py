@@ -35,16 +35,20 @@ class ResetDBAccountRequest(object):
     swagger_types = {
         'account_name': 'str',
         'account_password': 'str',
-        'instance_id': 'str'
+        'auth_db': 'str',
+        'instance_id': 'str',
+        'reset_db_account': 'bool'
     }
 
     attribute_map = {
         'account_name': 'AccountName',
         'account_password': 'AccountPassword',
-        'instance_id': 'InstanceId'
+        'auth_db': 'AuthDB',
+        'instance_id': 'InstanceId',
+        'reset_db_account': 'ResetDBAccount'
     }
 
-    def __init__(self, account_name=None, account_password=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, account_password=None, auth_db=None, instance_id=None, reset_db_account=None, _configuration=None):  # noqa: E501
         """ResetDBAccountRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,12 +56,18 @@ class ResetDBAccountRequest(object):
 
         self._account_name = None
         self._account_password = None
+        self._auth_db = None
         self._instance_id = None
+        self._reset_db_account = None
         self.discriminator = None
 
         self.account_name = account_name
         self.account_password = account_password
+        if auth_db is not None:
+            self.auth_db = auth_db
         self.instance_id = instance_id
+        if reset_db_account is not None:
+            self.reset_db_account = reset_db_account
 
     @property
     def account_name(self):
@@ -106,6 +116,27 @@ class ResetDBAccountRequest(object):
         self._account_password = account_password
 
     @property
+    def auth_db(self):
+        """Gets the auth_db of this ResetDBAccountRequest.  # noqa: E501
+
+
+        :return: The auth_db of this ResetDBAccountRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_db
+
+    @auth_db.setter
+    def auth_db(self, auth_db):
+        """Sets the auth_db of this ResetDBAccountRequest.
+
+
+        :param auth_db: The auth_db of this ResetDBAccountRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_db = auth_db
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this ResetDBAccountRequest.  # noqa: E501
 
@@ -127,6 +158,27 @@ class ResetDBAccountRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def reset_db_account(self):
+        """Gets the reset_db_account of this ResetDBAccountRequest.  # noqa: E501
+
+
+        :return: The reset_db_account of this ResetDBAccountRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._reset_db_account
+
+    @reset_db_account.setter
+    def reset_db_account(self, reset_db_account):
+        """Sets the reset_db_account of this ResetDBAccountRequest.
+
+
+        :param reset_db_account: The reset_db_account of this ResetDBAccountRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._reset_db_account = reset_db_account
 
     def to_dict(self):
         """Returns the model properties as a dict"""

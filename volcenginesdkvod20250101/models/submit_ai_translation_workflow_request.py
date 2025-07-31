@@ -34,33 +34,43 @@ class SubmitAITranslationWorkflowRequest(object):
     """
     swagger_types = {
         'operator_config': 'OperatorConfigForSubmitAITranslationWorkflowInput',
+        'process_config': 'ProcessConfigForSubmitAITranslationWorkflowInput',
         'space_name': 'str',
+        'subtitle_config': 'SubtitleConfigForSubmitAITranslationWorkflowInput',
         'translation_config': 'TranslationConfigForSubmitAITranslationWorkflowInput',
         'vid': 'str'
     }
 
     attribute_map = {
         'operator_config': 'OperatorConfig',
+        'process_config': 'ProcessConfig',
         'space_name': 'SpaceName',
+        'subtitle_config': 'SubtitleConfig',
         'translation_config': 'TranslationConfig',
         'vid': 'Vid'
     }
 
-    def __init__(self, operator_config=None, space_name=None, translation_config=None, vid=None, _configuration=None):  # noqa: E501
+    def __init__(self, operator_config=None, process_config=None, space_name=None, subtitle_config=None, translation_config=None, vid=None, _configuration=None):  # noqa: E501
         """SubmitAITranslationWorkflowRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._operator_config = None
+        self._process_config = None
         self._space_name = None
+        self._subtitle_config = None
         self._translation_config = None
         self._vid = None
         self.discriminator = None
 
         if operator_config is not None:
             self.operator_config = operator_config
+        if process_config is not None:
+            self.process_config = process_config
         self.space_name = space_name
+        if subtitle_config is not None:
+            self.subtitle_config = subtitle_config
         if translation_config is not None:
             self.translation_config = translation_config
         self.vid = vid
@@ -87,6 +97,27 @@ class SubmitAITranslationWorkflowRequest(object):
         self._operator_config = operator_config
 
     @property
+    def process_config(self):
+        """Gets the process_config of this SubmitAITranslationWorkflowRequest.  # noqa: E501
+
+
+        :return: The process_config of this SubmitAITranslationWorkflowRequest.  # noqa: E501
+        :rtype: ProcessConfigForSubmitAITranslationWorkflowInput
+        """
+        return self._process_config
+
+    @process_config.setter
+    def process_config(self, process_config):
+        """Sets the process_config of this SubmitAITranslationWorkflowRequest.
+
+
+        :param process_config: The process_config of this SubmitAITranslationWorkflowRequest.  # noqa: E501
+        :type: ProcessConfigForSubmitAITranslationWorkflowInput
+        """
+
+        self._process_config = process_config
+
+    @property
     def space_name(self):
         """Gets the space_name of this SubmitAITranslationWorkflowRequest.  # noqa: E501
 
@@ -108,6 +139,27 @@ class SubmitAITranslationWorkflowRequest(object):
             raise ValueError("Invalid value for `space_name`, must not be `None`")  # noqa: E501
 
         self._space_name = space_name
+
+    @property
+    def subtitle_config(self):
+        """Gets the subtitle_config of this SubmitAITranslationWorkflowRequest.  # noqa: E501
+
+
+        :return: The subtitle_config of this SubmitAITranslationWorkflowRequest.  # noqa: E501
+        :rtype: SubtitleConfigForSubmitAITranslationWorkflowInput
+        """
+        return self._subtitle_config
+
+    @subtitle_config.setter
+    def subtitle_config(self, subtitle_config):
+        """Sets the subtitle_config of this SubmitAITranslationWorkflowRequest.
+
+
+        :param subtitle_config: The subtitle_config of this SubmitAITranslationWorkflowRequest.  # noqa: E501
+        :type: SubtitleConfigForSubmitAITranslationWorkflowInput
+        """
+
+        self._subtitle_config = subtitle_config
 
     @property
     def translation_config(self):

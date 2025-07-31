@@ -66,8 +66,10 @@ class ModifyDBInstanceChargeTypeRequest(object):
         self.charge_type = charge_type
         if instance_ids is not None:
             self.instance_ids = instance_ids
-        self.period = period
-        self.period_unit = period_unit
+        if period is not None:
+            self.period = period
+        if period_unit is not None:
+            self.period_unit = period_unit
 
     @property
     def auto_renew(self):
@@ -159,8 +161,6 @@ class ModifyDBInstanceChargeTypeRequest(object):
         :param period: The period of this ModifyDBInstanceChargeTypeRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and period is None:
-            raise ValueError("Invalid value for `period`, must not be `None`")  # noqa: E501
 
         self._period = period
 
@@ -182,8 +182,6 @@ class ModifyDBInstanceChargeTypeRequest(object):
         :param period_unit: The period_unit of this ModifyDBInstanceChargeTypeRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and period_unit is None:
-            raise ValueError("Invalid value for `period_unit`, must not be `None`")  # noqa: E501
         allowed_values = ["Year", "Month"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 period_unit not in allowed_values):

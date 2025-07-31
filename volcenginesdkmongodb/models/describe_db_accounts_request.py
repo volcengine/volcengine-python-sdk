@@ -34,6 +34,7 @@ class DescribeDBAccountsRequest(object):
     """
     swagger_types = {
         'account_name': 'str',
+        'auth_db': 'str',
         'instance_id': 'str',
         'page_number': 'int',
         'page_size': 'int'
@@ -41,18 +42,20 @@ class DescribeDBAccountsRequest(object):
 
     attribute_map = {
         'account_name': 'AccountName',
+        'auth_db': 'AuthDB',
         'instance_id': 'InstanceId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize'
     }
 
-    def __init__(self, account_name=None, instance_id=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, auth_db=None, instance_id=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
         """DescribeDBAccountsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_name = None
+        self._auth_db = None
         self._instance_id = None
         self._page_number = None
         self._page_size = None
@@ -60,6 +63,8 @@ class DescribeDBAccountsRequest(object):
 
         if account_name is not None:
             self.account_name = account_name
+        if auth_db is not None:
+            self.auth_db = auth_db
         self.instance_id = instance_id
         if page_number is not None:
             self.page_number = page_number
@@ -86,6 +91,27 @@ class DescribeDBAccountsRequest(object):
         """
 
         self._account_name = account_name
+
+    @property
+    def auth_db(self):
+        """Gets the auth_db of this DescribeDBAccountsRequest.  # noqa: E501
+
+
+        :return: The auth_db of this DescribeDBAccountsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_db
+
+    @auth_db.setter
+    def auth_db(self, auth_db):
+        """Sets the auth_db of this DescribeDBAccountsRequest.
+
+
+        :param auth_db: The auth_db of this DescribeDBAccountsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_db = auth_db
 
     @property
     def instance_id(self):
