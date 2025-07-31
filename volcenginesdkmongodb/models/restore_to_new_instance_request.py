@@ -36,15 +36,17 @@ class RestoreToNewInstanceRequest(object):
         'auto_renew': 'bool',
         'backup_id': 'str',
         'charge_type': 'str',
+        'config_server_node_spec': 'str',
+        'config_server_storage_space_gb': 'int',
         'db_engine': 'str',
         'db_engine_version': 'str',
         'instance_name': 'str',
         'instance_type': 'str',
         'mongos_node_number': 'int',
         'mongos_node_spec': 'str',
+        'node_availability_zone': 'list[NodeAvailabilityZoneForRestoreToNewInstanceInput]',
         'node_number': 'int',
         'node_spec': 'str',
-        'number': 'int',
         'period': 'int',
         'period_unit': 'str',
         'project_name': 'str',
@@ -55,6 +57,7 @@ class RestoreToNewInstanceRequest(object):
         'subnet_id': 'str',
         'super_account_name': 'str',
         'super_account_password': 'str',
+        'tags': 'list[TagForRestoreToNewInstanceInput]',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
@@ -63,15 +66,17 @@ class RestoreToNewInstanceRequest(object):
         'auto_renew': 'AutoRenew',
         'backup_id': 'BackupId',
         'charge_type': 'ChargeType',
+        'config_server_node_spec': 'ConfigServerNodeSpec',
+        'config_server_storage_space_gb': 'ConfigServerStorageSpaceGB',
         'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
         'instance_name': 'InstanceName',
         'instance_type': 'InstanceType',
         'mongos_node_number': 'MongosNodeNumber',
         'mongos_node_spec': 'MongosNodeSpec',
+        'node_availability_zone': 'NodeAvailabilityZone',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
-        'number': 'Number',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
@@ -82,11 +87,12 @@ class RestoreToNewInstanceRequest(object):
         'subnet_id': 'SubnetId',
         'super_account_name': 'SuperAccountName',
         'super_account_password': 'SuperAccountPassword',
+        'tags': 'Tags',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, backup_id=None, charge_type=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_number=None, node_spec=None, number=None, period=None, period_unit=None, project_name=None, restore_time=None, shard_number=None, src_db_instance_id=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, backup_id=None, charge_type=None, config_server_node_spec=None, config_server_storage_space_gb=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_availability_zone=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, restore_time=None, shard_number=None, src_db_instance_id=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,15 +101,17 @@ class RestoreToNewInstanceRequest(object):
         self._auto_renew = None
         self._backup_id = None
         self._charge_type = None
+        self._config_server_node_spec = None
+        self._config_server_storage_space_gb = None
         self._db_engine = None
         self._db_engine_version = None
         self._instance_name = None
         self._instance_type = None
         self._mongos_node_number = None
         self._mongos_node_spec = None
+        self._node_availability_zone = None
         self._node_number = None
         self._node_spec = None
-        self._number = None
         self._period = None
         self._period_unit = None
         self._project_name = None
@@ -114,6 +122,7 @@ class RestoreToNewInstanceRequest(object):
         self._subnet_id = None
         self._super_account_name = None
         self._super_account_password = None
+        self._tags = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
@@ -124,6 +133,10 @@ class RestoreToNewInstanceRequest(object):
             self.backup_id = backup_id
         if charge_type is not None:
             self.charge_type = charge_type
+        if config_server_node_spec is not None:
+            self.config_server_node_spec = config_server_node_spec
+        if config_server_storage_space_gb is not None:
+            self.config_server_storage_space_gb = config_server_storage_space_gb
         if db_engine is not None:
             self.db_engine = db_engine
         if db_engine_version is not None:
@@ -136,11 +149,11 @@ class RestoreToNewInstanceRequest(object):
             self.mongos_node_number = mongos_node_number
         if mongos_node_spec is not None:
             self.mongos_node_spec = mongos_node_spec
+        if node_availability_zone is not None:
+            self.node_availability_zone = node_availability_zone
         if node_number is not None:
             self.node_number = node_number
         self.node_spec = node_spec
-        if number is not None:
-            self.number = number
         if period is not None:
             self.period = period
         if period_unit is not None:
@@ -158,6 +171,8 @@ class RestoreToNewInstanceRequest(object):
             self.super_account_name = super_account_name
         if super_account_password is not None:
             self.super_account_password = super_account_password
+        if tags is not None:
+            self.tags = tags
         self.vpc_id = vpc_id
         self.zone_id = zone_id
 
@@ -232,6 +247,48 @@ class RestoreToNewInstanceRequest(object):
         self._charge_type = charge_type
 
     @property
+    def config_server_node_spec(self):
+        """Gets the config_server_node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The config_server_node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._config_server_node_spec
+
+    @config_server_node_spec.setter
+    def config_server_node_spec(self, config_server_node_spec):
+        """Sets the config_server_node_spec of this RestoreToNewInstanceRequest.
+
+
+        :param config_server_node_spec: The config_server_node_spec of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._config_server_node_spec = config_server_node_spec
+
+    @property
+    def config_server_storage_space_gb(self):
+        """Gets the config_server_storage_space_gb of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The config_server_storage_space_gb of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._config_server_storage_space_gb
+
+    @config_server_storage_space_gb.setter
+    def config_server_storage_space_gb(self, config_server_storage_space_gb):
+        """Sets the config_server_storage_space_gb of this RestoreToNewInstanceRequest.
+
+
+        :param config_server_storage_space_gb: The config_server_storage_space_gb of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._config_server_storage_space_gb = config_server_storage_space_gb
+
+    @property
     def db_engine(self):
         """Gets the db_engine of this RestoreToNewInstanceRequest.  # noqa: E501
 
@@ -277,7 +334,7 @@ class RestoreToNewInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this RestoreToNewInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0", "MongoDB_Inner_4_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -379,6 +436,27 @@ class RestoreToNewInstanceRequest(object):
         self._mongos_node_spec = mongos_node_spec
 
     @property
+    def node_availability_zone(self):
+        """Gets the node_availability_zone of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The node_availability_zone of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: list[NodeAvailabilityZoneForRestoreToNewInstanceInput]
+        """
+        return self._node_availability_zone
+
+    @node_availability_zone.setter
+    def node_availability_zone(self, node_availability_zone):
+        """Sets the node_availability_zone of this RestoreToNewInstanceRequest.
+
+
+        :param node_availability_zone: The node_availability_zone of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: list[NodeAvailabilityZoneForRestoreToNewInstanceInput]
+        """
+
+        self._node_availability_zone = node_availability_zone
+
+    @property
     def node_number(self):
         """Gets the node_number of this RestoreToNewInstanceRequest.  # noqa: E501
 
@@ -421,27 +499,6 @@ class RestoreToNewInstanceRequest(object):
             raise ValueError("Invalid value for `node_spec`, must not be `None`")  # noqa: E501
 
         self._node_spec = node_spec
-
-    @property
-    def number(self):
-        """Gets the number of this RestoreToNewInstanceRequest.  # noqa: E501
-
-
-        :return: The number of this RestoreToNewInstanceRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._number
-
-    @number.setter
-    def number(self, number):
-        """Sets the number of this RestoreToNewInstanceRequest.
-
-
-        :param number: The number of this RestoreToNewInstanceRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._number = number
 
     @property
     def period(self):
@@ -665,6 +722,27 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._super_account_password = super_account_password
+
+    @property
+    def tags(self):
+        """Gets the tags of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The tags of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: list[TagForRestoreToNewInstanceInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RestoreToNewInstanceRequest.
+
+
+        :param tags: The tags of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: list[TagForRestoreToNewInstanceInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpc_id(self):

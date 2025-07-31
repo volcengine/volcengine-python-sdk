@@ -36,6 +36,8 @@ class CreateDBInstanceRequest(object):
         'allow_list_ids': 'list[str]',
         'auto_renew': 'bool',
         'charge_type': 'str',
+        'config_server_node_spec': 'str',
+        'config_server_storage_space_gb': 'int',
         'count': 'int',
         'db_engine': 'str',
         'db_engine_version': 'str',
@@ -43,6 +45,7 @@ class CreateDBInstanceRequest(object):
         'instance_type': 'str',
         'mongos_node_number': 'int',
         'mongos_node_spec': 'str',
+        'node_availability_zone': 'list[NodeAvailabilityZoneForCreateDBInstanceInput]',
         'node_number': 'int',
         'node_spec': 'str',
         'period': 'int',
@@ -62,6 +65,8 @@ class CreateDBInstanceRequest(object):
         'allow_list_ids': 'AllowListIds',
         'auto_renew': 'AutoRenew',
         'charge_type': 'ChargeType',
+        'config_server_node_spec': 'ConfigServerNodeSpec',
+        'config_server_storage_space_gb': 'ConfigServerStorageSpaceGB',
         'count': 'Count',
         'db_engine': 'DBEngine',
         'db_engine_version': 'DBEngineVersion',
@@ -69,6 +74,7 @@ class CreateDBInstanceRequest(object):
         'instance_type': 'InstanceType',
         'mongos_node_number': 'MongosNodeNumber',
         'mongos_node_spec': 'MongosNodeSpec',
+        'node_availability_zone': 'NodeAvailabilityZone',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
         'period': 'Period',
@@ -84,7 +90,7 @@ class CreateDBInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, config_server_node_spec=None, config_server_storage_space_gb=None, count=None, db_engine=None, db_engine_version=None, instance_name=None, instance_type=None, mongos_node_number=None, mongos_node_spec=None, node_availability_zone=None, node_number=None, node_spec=None, period=None, period_unit=None, project_name=None, shard_number=None, storage_space_gb=None, subnet_id=None, super_account_name=None, super_account_password=None, tags=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,6 +99,8 @@ class CreateDBInstanceRequest(object):
         self._allow_list_ids = None
         self._auto_renew = None
         self._charge_type = None
+        self._config_server_node_spec = None
+        self._config_server_storage_space_gb = None
         self._count = None
         self._db_engine = None
         self._db_engine_version = None
@@ -100,6 +108,7 @@ class CreateDBInstanceRequest(object):
         self._instance_type = None
         self._mongos_node_number = None
         self._mongos_node_spec = None
+        self._node_availability_zone = None
         self._node_number = None
         self._node_spec = None
         self._period = None
@@ -121,6 +130,10 @@ class CreateDBInstanceRequest(object):
             self.auto_renew = auto_renew
         if charge_type is not None:
             self.charge_type = charge_type
+        if config_server_node_spec is not None:
+            self.config_server_node_spec = config_server_node_spec
+        if config_server_storage_space_gb is not None:
+            self.config_server_storage_space_gb = config_server_storage_space_gb
         if count is not None:
             self.count = count
         if db_engine is not None:
@@ -135,6 +148,8 @@ class CreateDBInstanceRequest(object):
             self.mongos_node_number = mongos_node_number
         if mongos_node_spec is not None:
             self.mongos_node_spec = mongos_node_spec
+        if node_availability_zone is not None:
+            self.node_availability_zone = node_availability_zone
         if node_number is not None:
             self.node_number = node_number
         self.node_spec = node_spec
@@ -228,6 +243,48 @@ class CreateDBInstanceRequest(object):
         self._charge_type = charge_type
 
     @property
+    def config_server_node_spec(self):
+        """Gets the config_server_node_spec of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The config_server_node_spec of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._config_server_node_spec
+
+    @config_server_node_spec.setter
+    def config_server_node_spec(self, config_server_node_spec):
+        """Sets the config_server_node_spec of this CreateDBInstanceRequest.
+
+
+        :param config_server_node_spec: The config_server_node_spec of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._config_server_node_spec = config_server_node_spec
+
+    @property
+    def config_server_storage_space_gb(self):
+        """Gets the config_server_storage_space_gb of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The config_server_storage_space_gb of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._config_server_storage_space_gb
+
+    @config_server_storage_space_gb.setter
+    def config_server_storage_space_gb(self, config_server_storage_space_gb):
+        """Sets the config_server_storage_space_gb of this CreateDBInstanceRequest.
+
+
+        :param config_server_storage_space_gb: The config_server_storage_space_gb of this CreateDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._config_server_storage_space_gb = config_server_storage_space_gb
+
+    @property
     def count(self):
         """Gets the count of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -294,7 +351,7 @@ class CreateDBInstanceRequest(object):
         :param db_engine_version: The db_engine_version of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0"]  # noqa: E501
+        allowed_values = ["MongoDB_4_0", "MongoDB_4_2", "MongoDB_4_4", "MongoDB_5_0", "MongoDB_6_0", "MongoDB_Inner_4_0"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_engine_version not in allowed_values):
             raise ValueError(
@@ -394,6 +451,27 @@ class CreateDBInstanceRequest(object):
         """
 
         self._mongos_node_spec = mongos_node_spec
+
+    @property
+    def node_availability_zone(self):
+        """Gets the node_availability_zone of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The node_availability_zone of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: list[NodeAvailabilityZoneForCreateDBInstanceInput]
+        """
+        return self._node_availability_zone
+
+    @node_availability_zone.setter
+    def node_availability_zone(self, node_availability_zone):
+        """Sets the node_availability_zone of this CreateDBInstanceRequest.
+
+
+        :param node_availability_zone: The node_availability_zone of this CreateDBInstanceRequest.  # noqa: E501
+        :type: list[NodeAvailabilityZoneForCreateDBInstanceInput]
+        """
+
+        self._node_availability_zone = node_availability_zone
 
     @property
     def node_number(self):

@@ -49,6 +49,7 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         'mongos_id': 'str',
         'private_endpoint': 'str',
         'project_name': 'str',
+        'read_only_node_number': 'int',
         'reclaim_time': 'str',
         'storage_type': 'str',
         'subnet_id': 'str',
@@ -75,6 +76,7 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         'mongos_id': 'MongosId',
         'private_endpoint': 'PrivateEndpoint',
         'project_name': 'ProjectName',
+        'read_only_node_number': 'ReadOnlyNodeNumber',
         'reclaim_time': 'ReclaimTime',
         'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
@@ -84,7 +86,7 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, closed_time=None, config_servers_id=None, create_time=None, db_engine_version=None, db_engine_version_str=None, expired_time=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, mongos_id=None, private_endpoint=None, project_name=None, reclaim_time=None, storage_type=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, charge_status=None, charge_type=None, closed_time=None, config_servers_id=None, create_time=None, db_engine_version=None, db_engine_version_str=None, expired_time=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, mongos_id=None, private_endpoint=None, project_name=None, read_only_node_number=None, reclaim_time=None, storage_type=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DBInstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,6 +108,7 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         self._mongos_id = None
         self._private_endpoint = None
         self._project_name = None
+        self._read_only_node_number = None
         self._reclaim_time = None
         self._storage_type = None
         self._subnet_id = None
@@ -147,6 +150,8 @@ class DBInstanceForDescribeDBInstancesOutput(object):
             self.private_endpoint = private_endpoint
         if project_name is not None:
             self.project_name = project_name
+        if read_only_node_number is not None:
+            self.read_only_node_number = read_only_node_number
         if reclaim_time is not None:
             self.reclaim_time = reclaim_time
         if storage_type is not None:
@@ -497,6 +502,27 @@ class DBInstanceForDescribeDBInstancesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def read_only_node_number(self):
+        """Gets the read_only_node_number of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The read_only_node_number of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_only_node_number
+
+    @read_only_node_number.setter
+    def read_only_node_number(self, read_only_node_number):
+        """Sets the read_only_node_number of this DBInstanceForDescribeDBInstancesOutput.
+
+
+        :param read_only_node_number: The read_only_node_number of this DBInstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_only_node_number = read_only_node_number
 
     @property
     def reclaim_time(self):
