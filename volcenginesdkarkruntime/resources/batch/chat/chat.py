@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from ...._compat import cached_property
-from .completions import Completions, AsyncCompletions
-from ...._resource import SyncAPIResource, AsyncAPIResource
+from ...._resource import AsyncAPIResource, SyncAPIResource
+from .completions import AsyncCompletions, Completions
 
 __all__ = ["Chat", "AsyncChat"]
 
