@@ -87,11 +87,24 @@ def with_batch_retry(
             return func(*args, **kwargs)
         except ArkAPIConnectionError:
             waitTime = _calculate_retry_timeout(retry_times)
+            log.debug(
+                "Retry due to connection error, wait time: %is, retry times: %i",
+                waitTime,
+                retry_times,
+            )
+
             if datetime.now() + timedelta(seconds=waitTime) > deadline:
                 raise ArkAPITimeoutError(None, None)
             time.sleep(waitTime)
         except ArkAPIStatusError as err:
             retry_after = _get_retry_after(err.response)
+            log.debug(
+                "Got status error, retry after: %is, retry times: %i, error: %s",
+                retry_after,
+                retry_times,
+                err,
+            )
+
             if retry_after is not None and retry_after > 0:
                 breaker.reset(retry_after)
             if not _should_retry(err.response):
@@ -116,11 +129,24 @@ async def async_with_batch_retry(
             return await func(*args, **kwargs)
         except ArkAPIConnectionError:
             waitTime = _calculate_retry_timeout(retry_times)
+            log.debug(
+                "Retry due to connection error, wait time: %is, retry times: %i",
+                waitTime,
+                retry_times,
+            )
+
             if datetime.now() + timedelta(seconds=waitTime) > deadline:
                 raise ArkAPITimeoutError(None, None)
             await asyncio.sleep(waitTime)
         except ArkAPIStatusError as err:
             retry_after = _get_retry_after(err.response)
+            log.debug(
+                "Got status error, retry after: %is, retry times: %i, error: %s",
+                retry_after,
+                retry_times,
+                err,
+            )
+
             if retry_after is not None and retry_after > 0:
                 breaker.reset(retry_after)
             if not _should_retry(err.response):
