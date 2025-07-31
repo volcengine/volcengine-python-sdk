@@ -20,7 +20,7 @@ from .multimodal_embeddings import MultimodalEmbeddings, AsyncMultimodalEmbeddin
 from .content_generation import ContentGeneration, AsyncContentGeneration
 from .images import Images, AsyncImages
 from .batch_chat import BatchChat, AsyncBatchChat
-from .responses import Responses, AsyncResponses, InputItems, AsyncInputItems
+from .batch import Batch, AsyncBatch
 
 __all__ = [
     "Chat",
@@ -42,6 +42,8 @@ __all__ = [
     "AsyncImages",
     "BatchChat",
     "AsyncBatchChat",
+    "Batch",
+    "AsyncBatch",
     "Classification",
     "AsyncClassification",
     "AsyncBatchChat",

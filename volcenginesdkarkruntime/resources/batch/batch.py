@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from ..._compat import cached_property
 from ..._resource import AsyncAPIResource, SyncAPIResource
-from .chat.chat import AsyncChat, Chat
+from .chat import AsyncChat, Chat
 from .embeddings import AsyncEmbeddings, Embeddings
 from .multimodal_embeddings import AsyncMultimodalEmbeddings, MultimodalEmbeddings
 

@@ -26,7 +26,7 @@ async def worker(
     while True:
         request = await requests.get()
         try:
-            completion = await client.batch_chat.completions.create(**request)
+            completion = await client.batch.chat.completions.create(**request)
             print(completion)
         except Exception as e:
             print(e, file=sys.stderr)

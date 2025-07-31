@@ -35,7 +35,7 @@ def worker(
 
         try:
             # do request
-            completion = client.batch_chat.completions.create(**request)
+            completion = client.batch.chat.completions.create(**request)
             print(completion)
         except Exception as e:
             print(e, file=sys.stderr)
