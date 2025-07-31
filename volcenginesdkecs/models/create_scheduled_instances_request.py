@@ -46,6 +46,7 @@ class CreateScheduledInstancesRequest(object):
         'end_delivery_at': 'str',
         'hostname': 'str',
         'hpc_cluster_id': 'str',
+        'http_tokens': 'str',
         'image_id': 'str',
         'install_run_command_agent': 'bool',
         'instance_name': 'str',
@@ -82,6 +83,7 @@ class CreateScheduledInstancesRequest(object):
         'end_delivery_at': 'EndDeliveryAt',
         'hostname': 'Hostname',
         'hpc_cluster_id': 'HpcClusterId',
+        'http_tokens': 'HttpTokens',
         'image_id': 'ImageId',
         'install_run_command_agent': 'InstallRunCommandAgent',
         'instance_name': 'InstanceName',
@@ -104,7 +106,7 @@ class CreateScheduledInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_release_at=None, client_token=None, count=None, cpu_max_frequency=None, deletion_protection=None, delivery_type=None, description=None, dry_run=None, eip_address=None, elastic_scheduled_instance_type=None, end_delivery_at=None, hostname=None, hpc_cluster_id=None, image_id=None, install_run_command_agent=None, instance_name=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, project_name=None, scheduled_instance_description=None, scheduled_instance_name=None, security_enhancement_strategy=None, start_delivery_at=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_release_at=None, client_token=None, count=None, cpu_max_frequency=None, deletion_protection=None, delivery_type=None, description=None, dry_run=None, eip_address=None, elastic_scheduled_instance_type=None, end_delivery_at=None, hostname=None, hpc_cluster_id=None, http_tokens=None, image_id=None, install_run_command_agent=None, instance_name=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, project_name=None, scheduled_instance_description=None, scheduled_instance_name=None, security_enhancement_strategy=None, start_delivery_at=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateScheduledInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -123,6 +125,7 @@ class CreateScheduledInstancesRequest(object):
         self._end_delivery_at = None
         self._hostname = None
         self._hpc_cluster_id = None
+        self._http_tokens = None
         self._image_id = None
         self._install_run_command_agent = None
         self._instance_name = None
@@ -171,6 +174,8 @@ class CreateScheduledInstancesRequest(object):
             self.hostname = hostname
         if hpc_cluster_id is not None:
             self.hpc_cluster_id = hpc_cluster_id
+        if http_tokens is not None:
+            self.http_tokens = http_tokens
         self.image_id = image_id
         if install_run_command_agent is not None:
             self.install_run_command_agent = install_run_command_agent
@@ -479,6 +484,27 @@ class CreateScheduledInstancesRequest(object):
         """
 
         self._hpc_cluster_id = hpc_cluster_id
+
+    @property
+    def http_tokens(self):
+        """Gets the http_tokens of this CreateScheduledInstancesRequest.  # noqa: E501
+
+
+        :return: The http_tokens of this CreateScheduledInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._http_tokens
+
+    @http_tokens.setter
+    def http_tokens(self, http_tokens):
+        """Sets the http_tokens of this CreateScheduledInstancesRequest.
+
+
+        :param http_tokens: The http_tokens of this CreateScheduledInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._http_tokens = http_tokens
 
     @property
     def image_id(self):

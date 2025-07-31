@@ -50,6 +50,7 @@ class ImageForDescribeImagesOutput(object):
         'os_type': 'str',
         'platform': 'str',
         'platform_version': 'str',
+        'product_code': 'str',
         'project_name': 'str',
         'share_status': 'str',
         'size': 'int',
@@ -79,6 +80,7 @@ class ImageForDescribeImagesOutput(object):
         'os_type': 'OsType',
         'platform': 'Platform',
         'platform_version': 'PlatformVersion',
+        'product_code': 'ProductCode',
         'project_name': 'ProjectName',
         'share_status': 'ShareStatus',
         'size': 'Size',
@@ -90,7 +92,7 @@ class ImageForDescribeImagesOutput(object):
         'visibility': 'Visibility'
     }
 
-    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_install_run_command_agent=None, is_lts=None, is_support_cloud_init=None, kernel=None, license_type=None, os_name=None, os_type=None, platform=None, platform_version=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, boot_mode=None, created_at=None, description=None, detection_results=None, image_id=None, image_name=None, image_owner_id=None, is_install_run_command_agent=None, is_lts=None, is_support_cloud_init=None, kernel=None, license_type=None, os_name=None, os_type=None, platform=None, platform_version=None, product_code=None, project_name=None, share_status=None, size=None, snapshots=None, status=None, tags=None, updated_at=None, virtual_size=None, visibility=None, _configuration=None):  # noqa: E501
         """ImageForDescribeImagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -113,6 +115,7 @@ class ImageForDescribeImagesOutput(object):
         self._os_type = None
         self._platform = None
         self._platform_version = None
+        self._product_code = None
         self._project_name = None
         self._share_status = None
         self._size = None
@@ -158,6 +161,8 @@ class ImageForDescribeImagesOutput(object):
             self.platform = platform
         if platform_version is not None:
             self.platform_version = platform_version
+        if product_code is not None:
+            self.product_code = product_code
         if project_name is not None:
             self.project_name = project_name
         if share_status is not None:
@@ -533,6 +538,27 @@ class ImageForDescribeImagesOutput(object):
         """
 
         self._platform_version = platform_version
+
+    @property
+    def product_code(self):
+        """Gets the product_code of this ImageForDescribeImagesOutput.  # noqa: E501
+
+
+        :return: The product_code of this ImageForDescribeImagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._product_code
+
+    @product_code.setter
+    def product_code(self, product_code):
+        """Sets the product_code of this ImageForDescribeImagesOutput.
+
+
+        :param product_code: The product_code of this ImageForDescribeImagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._product_code = product_code
 
     @property
     def project_name(self):
