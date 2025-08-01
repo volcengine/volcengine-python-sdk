@@ -33,6 +33,7 @@ class DescribeEventTypesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'impact_level': 'str',
         'kind': 'str',
         'max_results': 'str',
         'next_token': 'str',
@@ -41,6 +42,7 @@ class DescribeEventTypesRequest(object):
     }
 
     attribute_map = {
+        'impact_level': 'ImpactLevel',
         'kind': 'Kind',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
@@ -48,12 +50,13 @@ class DescribeEventTypesRequest(object):
         'types': 'Types'
     }
 
-    def __init__(self, kind=None, max_results=None, next_token=None, response_required=None, types=None, _configuration=None):  # noqa: E501
+    def __init__(self, impact_level=None, kind=None, max_results=None, next_token=None, response_required=None, types=None, _configuration=None):  # noqa: E501
         """DescribeEventTypesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._impact_level = None
         self._kind = None
         self._max_results = None
         self._next_token = None
@@ -61,6 +64,8 @@ class DescribeEventTypesRequest(object):
         self._types = None
         self.discriminator = None
 
+        if impact_level is not None:
+            self.impact_level = impact_level
         if kind is not None:
             self.kind = kind
         if max_results is not None:
@@ -71,6 +76,27 @@ class DescribeEventTypesRequest(object):
             self.response_required = response_required
         if types is not None:
             self.types = types
+
+    @property
+    def impact_level(self):
+        """Gets the impact_level of this DescribeEventTypesRequest.  # noqa: E501
+
+
+        :return: The impact_level of this DescribeEventTypesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._impact_level
+
+    @impact_level.setter
+    def impact_level(self, impact_level):
+        """Sets the impact_level of this DescribeEventTypesRequest.
+
+
+        :param impact_level: The impact_level of this DescribeEventTypesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._impact_level = impact_level
 
     @property
     def kind(self):

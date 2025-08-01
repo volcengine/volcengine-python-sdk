@@ -38,7 +38,8 @@ class DecisionForCheckLLMResponseStreamOutput(object):
         'err_code': 'int',
         'err_msg': 'str',
         'labels': 'list[str]',
-        'matches': 'list[MatchForCheckLLMResponseStreamOutput]'
+        'matches': 'list[MatchForCheckLLMResponseStreamOutput]',
+        'replace_detail': 'ReplaceDetailForCheckLLMResponseStreamOutput'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class DecisionForCheckLLMResponseStreamOutput(object):
         'err_code': 'ErrCode',
         'err_msg': 'ErrMsg',
         'labels': 'Labels',
-        'matches': 'Matches'
+        'matches': 'Matches',
+        'replace_detail': 'ReplaceDetail'
     }
 
-    def __init__(self, action=None, custom_matches=None, err_code=None, err_msg=None, labels=None, matches=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, custom_matches=None, err_code=None, err_msg=None, labels=None, matches=None, replace_detail=None, _configuration=None):  # noqa: E501
         """DecisionForCheckLLMResponseStreamOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DecisionForCheckLLMResponseStreamOutput(object):
         self._err_msg = None
         self._labels = None
         self._matches = None
+        self._replace_detail = None
         self.discriminator = None
 
         if action is not None:
@@ -76,6 +79,8 @@ class DecisionForCheckLLMResponseStreamOutput(object):
             self.labels = labels
         if matches is not None:
             self.matches = matches
+        if replace_detail is not None:
+            self.replace_detail = replace_detail
 
     @property
     def action(self):
@@ -202,6 +207,27 @@ class DecisionForCheckLLMResponseStreamOutput(object):
         """
 
         self._matches = matches
+
+    @property
+    def replace_detail(self):
+        """Gets the replace_detail of this DecisionForCheckLLMResponseStreamOutput.  # noqa: E501
+
+
+        :return: The replace_detail of this DecisionForCheckLLMResponseStreamOutput.  # noqa: E501
+        :rtype: ReplaceDetailForCheckLLMResponseStreamOutput
+        """
+        return self._replace_detail
+
+    @replace_detail.setter
+    def replace_detail(self, replace_detail):
+        """Sets the replace_detail of this DecisionForCheckLLMResponseStreamOutput.
+
+
+        :param replace_detail: The replace_detail of this DecisionForCheckLLMResponseStreamOutput.  # noqa: E501
+        :type: ReplaceDetailForCheckLLMResponseStreamOutput
+        """
+
+        self._replace_detail = replace_detail
 
     def to_dict(self):
         """Returns the model properties as a dict"""

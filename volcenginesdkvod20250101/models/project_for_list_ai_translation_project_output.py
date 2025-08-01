@@ -37,6 +37,7 @@ class ProjectForListAITranslationProjectOutput(object):
         'error_code': 'int',
         'error_msg': 'str',
         'input_video': 'InputVideoForListAITranslationProjectOutput',
+        'input_video_poster_url': 'str',
         'input_video_title': 'str',
         'operator_config': 'OperatorConfigForListAITranslationProjectOutput',
         'output_video': 'OutputVideoForListAITranslationProjectOutput',
@@ -55,6 +56,7 @@ class ProjectForListAITranslationProjectOutput(object):
         'error_code': 'ErrorCode',
         'error_msg': 'ErrorMsg',
         'input_video': 'InputVideo',
+        'input_video_poster_url': 'InputVideoPosterUrl',
         'input_video_title': 'InputVideoTitle',
         'operator_config': 'OperatorConfig',
         'output_video': 'OutputVideo',
@@ -68,7 +70,7 @@ class ProjectForListAITranslationProjectOutput(object):
         'workflow_id': 'WorkflowId'
     }
 
-    def __init__(self, created_at=None, error_code=None, error_msg=None, input_video=None, input_video_title=None, operator_config=None, output_video=None, project_id=None, project_version=None, source_blueprints=None, status=None, target_blueprints=None, translation_type_list=None, updated_at=None, workflow_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, error_code=None, error_msg=None, input_video=None, input_video_poster_url=None, input_video_title=None, operator_config=None, output_video=None, project_id=None, project_version=None, source_blueprints=None, status=None, target_blueprints=None, translation_type_list=None, updated_at=None, workflow_id=None, _configuration=None):  # noqa: E501
         """ProjectForListAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class ProjectForListAITranslationProjectOutput(object):
         self._error_code = None
         self._error_msg = None
         self._input_video = None
+        self._input_video_poster_url = None
         self._input_video_title = None
         self._operator_config = None
         self._output_video = None
@@ -99,6 +102,8 @@ class ProjectForListAITranslationProjectOutput(object):
             self.error_msg = error_msg
         if input_video is not None:
             self.input_video = input_video
+        if input_video_poster_url is not None:
+            self.input_video_poster_url = input_video_poster_url
         if input_video_title is not None:
             self.input_video_title = input_video_title
         if operator_config is not None:
@@ -205,6 +210,27 @@ class ProjectForListAITranslationProjectOutput(object):
         """
 
         self._input_video = input_video
+
+    @property
+    def input_video_poster_url(self):
+        """Gets the input_video_poster_url of this ProjectForListAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The input_video_poster_url of this ProjectForListAITranslationProjectOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._input_video_poster_url
+
+    @input_video_poster_url.setter
+    def input_video_poster_url(self, input_video_poster_url):
+        """Sets the input_video_poster_url of this ProjectForListAITranslationProjectOutput.
+
+
+        :param input_video_poster_url: The input_video_poster_url of this ProjectForListAITranslationProjectOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._input_video_poster_url = input_video_poster_url
 
     @property
     def input_video_title(self):

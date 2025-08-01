@@ -33,7 +33,7 @@ class GetQuotaInfoResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'device_info_list': 'DeviceInfoListForGetQuotaInfoOutput',
+        'device_info_list': 'list[DeviceInfoListForGetQuotaInfoOutput]',
         'quota_info_list': 'list[QuotaInfoListForGetQuotaInfoOutput]'
     }
 
@@ -63,7 +63,7 @@ class GetQuotaInfoResponse(object):
 
 
         :return: The device_info_list of this GetQuotaInfoResponse.  # noqa: E501
-        :rtype: DeviceInfoListForGetQuotaInfoOutput
+        :rtype: list[DeviceInfoListForGetQuotaInfoOutput]
         """
         return self._device_info_list
 
@@ -73,7 +73,7 @@ class GetQuotaInfoResponse(object):
 
 
         :param device_info_list: The device_info_list of this GetQuotaInfoResponse.  # noqa: E501
-        :type: DeviceInfoListForGetQuotaInfoOutput
+        :type: list[DeviceInfoListForGetQuotaInfoOutput]
         """
 
         self._device_info_list = device_info_list

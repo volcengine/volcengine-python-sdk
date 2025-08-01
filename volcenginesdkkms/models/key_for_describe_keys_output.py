@@ -34,6 +34,7 @@ class KeyForDescribeKeysOutput(object):
     """
     swagger_types = {
         'creation_date': 'int',
+        'custom_key_store_id': 'str',
         'description': 'str',
         'id': 'str',
         'key_material_expire_time': 'str',
@@ -51,11 +52,13 @@ class KeyForDescribeKeysOutput(object):
         'schedule_rotation_time': 'str',
         'tags': 'list[TagForDescribeKeysOutput]',
         'trn': 'str',
-        'update_date': 'int'
+        'update_date': 'int',
+        'xks_key_configuration': 'XksKeyConfigurationForDescribeKeysOutput'
     }
 
     attribute_map = {
         'creation_date': 'CreationDate',
+        'custom_key_store_id': 'CustomKeyStoreID',
         'description': 'Description',
         'id': 'ID',
         'key_material_expire_time': 'KeyMaterialExpireTime',
@@ -73,16 +76,18 @@ class KeyForDescribeKeysOutput(object):
         'schedule_rotation_time': 'ScheduleRotationTime',
         'tags': 'Tags',
         'trn': 'Trn',
-        'update_date': 'UpdateDate'
+        'update_date': 'UpdateDate',
+        'xks_key_configuration': 'XksKeyConfiguration'
     }
 
-    def __init__(self, creation_date=None, description=None, id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, last_rotation_time=None, multi_region=None, multi_region_configuration=None, origin=None, protection_level=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, tags=None, trn=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_date=None, custom_key_store_id=None, description=None, id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, last_rotation_time=None, multi_region=None, multi_region_configuration=None, origin=None, protection_level=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, tags=None, trn=None, update_date=None, xks_key_configuration=None, _configuration=None):  # noqa: E501
         """KeyForDescribeKeysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._creation_date = None
+        self._custom_key_store_id = None
         self._description = None
         self._id = None
         self._key_material_expire_time = None
@@ -101,10 +106,13 @@ class KeyForDescribeKeysOutput(object):
         self._tags = None
         self._trn = None
         self._update_date = None
+        self._xks_key_configuration = None
         self.discriminator = None
 
         if creation_date is not None:
             self.creation_date = creation_date
+        if custom_key_store_id is not None:
+            self.custom_key_store_id = custom_key_store_id
         if description is not None:
             self.description = description
         if id is not None:
@@ -141,6 +149,8 @@ class KeyForDescribeKeysOutput(object):
             self.trn = trn
         if update_date is not None:
             self.update_date = update_date
+        if xks_key_configuration is not None:
+            self.xks_key_configuration = xks_key_configuration
 
     @property
     def creation_date(self):
@@ -162,6 +172,27 @@ class KeyForDescribeKeysOutput(object):
         """
 
         self._creation_date = creation_date
+
+    @property
+    def custom_key_store_id(self):
+        """Gets the custom_key_store_id of this KeyForDescribeKeysOutput.  # noqa: E501
+
+
+        :return: The custom_key_store_id of this KeyForDescribeKeysOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_key_store_id
+
+    @custom_key_store_id.setter
+    def custom_key_store_id(self, custom_key_store_id):
+        """Sets the custom_key_store_id of this KeyForDescribeKeysOutput.
+
+
+        :param custom_key_store_id: The custom_key_store_id of this KeyForDescribeKeysOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_key_store_id = custom_key_store_id
 
     @property
     def description(self):
@@ -540,6 +571,27 @@ class KeyForDescribeKeysOutput(object):
         """
 
         self._update_date = update_date
+
+    @property
+    def xks_key_configuration(self):
+        """Gets the xks_key_configuration of this KeyForDescribeKeysOutput.  # noqa: E501
+
+
+        :return: The xks_key_configuration of this KeyForDescribeKeysOutput.  # noqa: E501
+        :rtype: XksKeyConfigurationForDescribeKeysOutput
+        """
+        return self._xks_key_configuration
+
+    @xks_key_configuration.setter
+    def xks_key_configuration(self, xks_key_configuration):
+        """Sets the xks_key_configuration of this KeyForDescribeKeysOutput.
+
+
+        :param xks_key_configuration: The xks_key_configuration of this KeyForDescribeKeysOutput.  # noqa: E501
+        :type: XksKeyConfigurationForDescribeKeysOutput
+        """
+
+        self._xks_key_configuration = xks_key_configuration
 
     def to_dict(self):
         """Returns the model properties as a dict"""

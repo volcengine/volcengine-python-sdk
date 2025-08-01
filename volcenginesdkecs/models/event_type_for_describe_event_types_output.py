@@ -33,6 +33,7 @@ class EventTypeForDescribeEventTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'impact_level': 'str',
         'kind': 'str',
         'response_required': 'bool',
         'status': 'list[str]',
@@ -41,6 +42,7 @@ class EventTypeForDescribeEventTypesOutput(object):
     }
 
     attribute_map = {
+        'impact_level': 'ImpactLevel',
         'kind': 'Kind',
         'response_required': 'ResponseRequired',
         'status': 'Status',
@@ -48,12 +50,13 @@ class EventTypeForDescribeEventTypesOutput(object):
         'type': 'Type'
     }
 
-    def __init__(self, kind=None, response_required=None, status=None, title=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, impact_level=None, kind=None, response_required=None, status=None, title=None, type=None, _configuration=None):  # noqa: E501
         """EventTypeForDescribeEventTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._impact_level = None
         self._kind = None
         self._response_required = None
         self._status = None
@@ -61,6 +64,8 @@ class EventTypeForDescribeEventTypesOutput(object):
         self._type = None
         self.discriminator = None
 
+        if impact_level is not None:
+            self.impact_level = impact_level
         if kind is not None:
             self.kind = kind
         if response_required is not None:
@@ -71,6 +76,27 @@ class EventTypeForDescribeEventTypesOutput(object):
             self.title = title
         if type is not None:
             self.type = type
+
+    @property
+    def impact_level(self):
+        """Gets the impact_level of this EventTypeForDescribeEventTypesOutput.  # noqa: E501
+
+
+        :return: The impact_level of this EventTypeForDescribeEventTypesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._impact_level
+
+    @impact_level.setter
+    def impact_level(self, impact_level):
+        """Sets the impact_level of this EventTypeForDescribeEventTypesOutput.
+
+
+        :param impact_level: The impact_level of this EventTypeForDescribeEventTypesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._impact_level = impact_level
 
     @property
     def kind(self):

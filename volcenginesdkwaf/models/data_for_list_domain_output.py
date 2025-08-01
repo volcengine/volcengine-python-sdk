@@ -63,11 +63,14 @@ class DataForListDomainOutput(object):
         'custom_bot_enable': 'int',
         'custom_header': 'list[str]',
         'custom_rsp_enable': 'int',
+        'custom_sni': 'str',
         'defence_mode': 'int',
         'dlp_enable': 'int',
         'domain': 'str',
+        'enable_custom_redirect': 'int',
         'enable_http2': 'int',
         'enable_i_pv6': 'int',
+        'enable_sni': 'int',
         'keep_alive_request': 'int',
         'keep_alive_time_out': 'int',
         'lb_algorithm': 'str',
@@ -95,6 +98,7 @@ class DataForListDomainOutput(object):
         'system_bot_enable': 'int',
         'tcp_listener_config': 'list[TCPListenerConfigForListDomainOutput]',
         'tls_enable': 'int',
+        'tls_fields_config': 'TLSFieldsConfigForListDomainOutput',
         'tamper_proof_enable': 'int',
         'update_time': 'str',
         'volc_certificate_id': 'str',
@@ -136,11 +140,14 @@ class DataForListDomainOutput(object):
         'custom_bot_enable': 'CustomBotEnable',
         'custom_header': 'CustomHeader',
         'custom_rsp_enable': 'CustomRspEnable',
+        'custom_sni': 'CustomSNI',
         'defence_mode': 'DefenceMode',
         'dlp_enable': 'DlpEnable',
         'domain': 'Domain',
+        'enable_custom_redirect': 'EnableCustomRedirect',
         'enable_http2': 'EnableHTTP2',
         'enable_i_pv6': 'EnableIPv6',
+        'enable_sni': 'EnableSNI',
         'keep_alive_request': 'KeepAliveRequest',
         'keep_alive_time_out': 'KeepAliveTimeOut',
         'lb_algorithm': 'LBAlgorithm',
@@ -168,6 +175,7 @@ class DataForListDomainOutput(object):
         'system_bot_enable': 'SystemBotEnable',
         'tcp_listener_config': 'TCPListenerConfig',
         'tls_enable': 'TLSEnable',
+        'tls_fields_config': 'TLSFieldsConfig',
         'tamper_proof_enable': 'TamperProofEnable',
         'update_time': 'UpdateTime',
         'volc_certificate_id': 'VolcCertificateID',
@@ -178,7 +186,7 @@ class DataForListDomainOutput(object):
         'white_field_enable': 'WhiteFieldEnable'
     }
 
-    def __init__(self, access_mode=None, advanced_defense_ip=None, advanced_defense_i_pv6=None, api_enable=None, attack_status=None, auto_cc_enable=None, automatic_black_enable=None, backend_groups=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, certificate_id=None, certificate_name=None, certificate_platform=None, clb_instance_i_ds=None, clb_listener_id=None, clb_pool_id=None, clb_server_id=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, cname=None, custom_bot_enable=None, custom_header=None, custom_rsp_enable=None, defence_mode=None, dlp_enable=None, domain=None, enable_http2=None, enable_i_pv6=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, port=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, rsp_abnormal_enable=None, ssl_ciphers=None, ssl_protocols=None, server_ips=None, src_ips=None, src_protocol=None, status=None, system_bot_enable=None, tcp_listener_config=None, tls_enable=None, tamper_proof_enable=None, update_time=None, volc_certificate_id=None, vpc_id=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, advanced_defense_ip=None, advanced_defense_i_pv6=None, api_enable=None, attack_status=None, auto_cc_enable=None, automatic_black_enable=None, backend_groups=None, black_ip_enable=None, black_lct_enable=None, bot_dytoken_enable=None, bot_frequency_enable=None, bot_repeat_enable=None, bot_sequence_default_action=None, bot_sequence_enable=None, cc_enable=None, certificate_id=None, certificate_name=None, certificate_platform=None, clb_instance_i_ds=None, clb_listener_id=None, clb_pool_id=None, clb_server_id=None, client_ip_location=None, client_max_body_size=None, cloud_access_config=None, cname=None, custom_bot_enable=None, custom_header=None, custom_rsp_enable=None, custom_sni=None, defence_mode=None, dlp_enable=None, domain=None, enable_custom_redirect=None, enable_http2=None, enable_i_pv6=None, enable_sni=None, keep_alive_request=None, keep_alive_time_out=None, lb_algorithm=None, port=None, protocol_follow=None, protocol_ports=None, protocols=None, proxy_config=None, proxy_connect_time_out=None, proxy_keep_alive=None, proxy_keep_alive_time_out=None, proxy_read_time_out=None, proxy_retry=None, proxy_write_time_out=None, public_real_server=None, redirect_https=None, region=None, rsp_abnormal_enable=None, ssl_ciphers=None, ssl_protocols=None, server_ips=None, src_ips=None, src_protocol=None, status=None, system_bot_enable=None, tcp_listener_config=None, tls_enable=None, tls_fields_config=None, tamper_proof_enable=None, update_time=None, volc_certificate_id=None, vpc_id=None, waf_enable=None, waf_white_req_enable=None, white_enable=None, white_field_enable=None, _configuration=None):  # noqa: E501
         """DataForListDomainOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -214,11 +222,14 @@ class DataForListDomainOutput(object):
         self._custom_bot_enable = None
         self._custom_header = None
         self._custom_rsp_enable = None
+        self._custom_sni = None
         self._defence_mode = None
         self._dlp_enable = None
         self._domain = None
+        self._enable_custom_redirect = None
         self._enable_http2 = None
         self._enable_i_pv6 = None
+        self._enable_sni = None
         self._keep_alive_request = None
         self._keep_alive_time_out = None
         self._lb_algorithm = None
@@ -246,6 +257,7 @@ class DataForListDomainOutput(object):
         self._system_bot_enable = None
         self._tcp_listener_config = None
         self._tls_enable = None
+        self._tls_fields_config = None
         self._tamper_proof_enable = None
         self._update_time = None
         self._volc_certificate_id = None
@@ -316,16 +328,22 @@ class DataForListDomainOutput(object):
             self.custom_header = custom_header
         if custom_rsp_enable is not None:
             self.custom_rsp_enable = custom_rsp_enable
+        if custom_sni is not None:
+            self.custom_sni = custom_sni
         if defence_mode is not None:
             self.defence_mode = defence_mode
         if dlp_enable is not None:
             self.dlp_enable = dlp_enable
         if domain is not None:
             self.domain = domain
+        if enable_custom_redirect is not None:
+            self.enable_custom_redirect = enable_custom_redirect
         if enable_http2 is not None:
             self.enable_http2 = enable_http2
         if enable_i_pv6 is not None:
             self.enable_i_pv6 = enable_i_pv6
+        if enable_sni is not None:
+            self.enable_sni = enable_sni
         if keep_alive_request is not None:
             self.keep_alive_request = keep_alive_request
         if keep_alive_time_out is not None:
@@ -380,6 +398,8 @@ class DataForListDomainOutput(object):
             self.tcp_listener_config = tcp_listener_config
         if tls_enable is not None:
             self.tls_enable = tls_enable
+        if tls_fields_config is not None:
+            self.tls_fields_config = tls_fields_config
         if tamper_proof_enable is not None:
             self.tamper_proof_enable = tamper_proof_enable
         if update_time is not None:
@@ -1028,6 +1048,27 @@ class DataForListDomainOutput(object):
         self._custom_rsp_enable = custom_rsp_enable
 
     @property
+    def custom_sni(self):
+        """Gets the custom_sni of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The custom_sni of this DataForListDomainOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_sni
+
+    @custom_sni.setter
+    def custom_sni(self, custom_sni):
+        """Sets the custom_sni of this DataForListDomainOutput.
+
+
+        :param custom_sni: The custom_sni of this DataForListDomainOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_sni = custom_sni
+
+    @property
     def defence_mode(self):
         """Gets the defence_mode of this DataForListDomainOutput.  # noqa: E501
 
@@ -1091,6 +1132,27 @@ class DataForListDomainOutput(object):
         self._domain = domain
 
     @property
+    def enable_custom_redirect(self):
+        """Gets the enable_custom_redirect of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The enable_custom_redirect of this DataForListDomainOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._enable_custom_redirect
+
+    @enable_custom_redirect.setter
+    def enable_custom_redirect(self, enable_custom_redirect):
+        """Sets the enable_custom_redirect of this DataForListDomainOutput.
+
+
+        :param enable_custom_redirect: The enable_custom_redirect of this DataForListDomainOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._enable_custom_redirect = enable_custom_redirect
+
+    @property
     def enable_http2(self):
         """Gets the enable_http2 of this DataForListDomainOutput.  # noqa: E501
 
@@ -1131,6 +1193,27 @@ class DataForListDomainOutput(object):
         """
 
         self._enable_i_pv6 = enable_i_pv6
+
+    @property
+    def enable_sni(self):
+        """Gets the enable_sni of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The enable_sni of this DataForListDomainOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._enable_sni
+
+    @enable_sni.setter
+    def enable_sni(self, enable_sni):
+        """Sets the enable_sni of this DataForListDomainOutput.
+
+
+        :param enable_sni: The enable_sni of this DataForListDomainOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._enable_sni = enable_sni
 
     @property
     def keep_alive_request(self):
@@ -1698,6 +1781,27 @@ class DataForListDomainOutput(object):
         """
 
         self._tls_enable = tls_enable
+
+    @property
+    def tls_fields_config(self):
+        """Gets the tls_fields_config of this DataForListDomainOutput.  # noqa: E501
+
+
+        :return: The tls_fields_config of this DataForListDomainOutput.  # noqa: E501
+        :rtype: TLSFieldsConfigForListDomainOutput
+        """
+        return self._tls_fields_config
+
+    @tls_fields_config.setter
+    def tls_fields_config(self, tls_fields_config):
+        """Sets the tls_fields_config of this DataForListDomainOutput.
+
+
+        :param tls_fields_config: The tls_fields_config of this DataForListDomainOutput.  # noqa: E501
+        :type: TLSFieldsConfigForListDomainOutput
+        """
+
+        self._tls_fields_config = tls_fields_config
 
     @property
     def tamper_proof_enable(self):

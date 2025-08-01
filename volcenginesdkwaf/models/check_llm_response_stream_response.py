@@ -33,29 +33,55 @@ class CheckLLMResponseStreamResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'context_id': 'str',
         'decision': 'DecisionForCheckLLMResponseStreamOutput',
         'msg_id': 'str'
     }
 
     attribute_map = {
+        'context_id': 'ContextID',
         'decision': 'Decision',
         'msg_id': 'MsgID'
     }
 
-    def __init__(self, decision=None, msg_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, context_id=None, decision=None, msg_id=None, _configuration=None):  # noqa: E501
         """CheckLLMResponseStreamResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._context_id = None
         self._decision = None
         self._msg_id = None
         self.discriminator = None
 
+        if context_id is not None:
+            self.context_id = context_id
         if decision is not None:
             self.decision = decision
         if msg_id is not None:
             self.msg_id = msg_id
+
+    @property
+    def context_id(self):
+        """Gets the context_id of this CheckLLMResponseStreamResponse.  # noqa: E501
+
+
+        :return: The context_id of this CheckLLMResponseStreamResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._context_id
+
+    @context_id.setter
+    def context_id(self, context_id):
+        """Sets the context_id of this CheckLLMResponseStreamResponse.
+
+
+        :param context_id: The context_id of this CheckLLMResponseStreamResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._context_id = context_id
 
     @property
     def decision(self):

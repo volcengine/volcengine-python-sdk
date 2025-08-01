@@ -33,6 +33,7 @@ class CreateKeyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'custom_key_store_id': 'str',
         'description': 'str',
         'key_name': 'str',
         'key_spec': 'str',
@@ -42,10 +43,12 @@ class CreateKeyRequest(object):
         'origin': 'str',
         'protection_level': 'str',
         'rotate_state': 'str',
-        'tags': 'list[TagForCreateKeyInput]'
+        'tags': 'list[TagForCreateKeyInput]',
+        'xks_key_id': 'str'
     }
 
     attribute_map = {
+        'custom_key_store_id': 'CustomKeyStoreID',
         'description': 'Description',
         'key_name': 'KeyName',
         'key_spec': 'KeySpec',
@@ -55,15 +58,17 @@ class CreateKeyRequest(object):
         'origin': 'Origin',
         'protection_level': 'ProtectionLevel',
         'rotate_state': 'RotateState',
-        'tags': 'Tags'
+        'tags': 'Tags',
+        'xks_key_id': 'XksKeyID'
     }
 
-    def __init__(self, description=None, key_name=None, key_spec=None, key_usage=None, keyring_name=None, multi_region=None, origin=None, protection_level=None, rotate_state=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_key_store_id=None, description=None, key_name=None, key_spec=None, key_usage=None, keyring_name=None, multi_region=None, origin=None, protection_level=None, rotate_state=None, tags=None, xks_key_id=None, _configuration=None):  # noqa: E501
         """CreateKeyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._custom_key_store_id = None
         self._description = None
         self._key_name = None
         self._key_spec = None
@@ -74,8 +79,11 @@ class CreateKeyRequest(object):
         self._protection_level = None
         self._rotate_state = None
         self._tags = None
+        self._xks_key_id = None
         self.discriminator = None
 
+        if custom_key_store_id is not None:
+            self.custom_key_store_id = custom_key_store_id
         if description is not None:
             self.description = description
         self.key_name = key_name
@@ -94,6 +102,35 @@ class CreateKeyRequest(object):
             self.rotate_state = rotate_state
         if tags is not None:
             self.tags = tags
+        if xks_key_id is not None:
+            self.xks_key_id = xks_key_id
+
+    @property
+    def custom_key_store_id(self):
+        """Gets the custom_key_store_id of this CreateKeyRequest.  # noqa: E501
+
+
+        :return: The custom_key_store_id of this CreateKeyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_key_store_id
+
+    @custom_key_store_id.setter
+    def custom_key_store_id(self, custom_key_store_id):
+        """Sets the custom_key_store_id of this CreateKeyRequest.
+
+
+        :param custom_key_store_id: The custom_key_store_id of this CreateKeyRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                custom_key_store_id is not None and len(custom_key_store_id) > 36):
+            raise ValueError("Invalid value for `custom_key_store_id`, length must be less than or equal to `36`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                custom_key_store_id is not None and len(custom_key_store_id) < 36):
+            raise ValueError("Invalid value for `custom_key_store_id`, length must be greater than or equal to `36`")  # noqa: E501
+
+        self._custom_key_store_id = custom_key_store_id
 
     @property
     def description(self):
@@ -323,6 +360,33 @@ class CreateKeyRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def xks_key_id(self):
+        """Gets the xks_key_id of this CreateKeyRequest.  # noqa: E501
+
+
+        :return: The xks_key_id of this CreateKeyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._xks_key_id
+
+    @xks_key_id.setter
+    def xks_key_id(self, xks_key_id):
+        """Sets the xks_key_id of this CreateKeyRequest.
+
+
+        :param xks_key_id: The xks_key_id of this CreateKeyRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                xks_key_id is not None and len(xks_key_id) > 128):
+            raise ValueError("Invalid value for `xks_key_id`, length must be less than or equal to `128`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                xks_key_id is not None and len(xks_key_id) < 1):
+            raise ValueError("Invalid value for `xks_key_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._xks_key_id = xks_key_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
