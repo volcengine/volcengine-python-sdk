@@ -91,9 +91,11 @@ class ListForListAmortizedCostBillDetailOutput(object):
         'factor': 'str',
         'instance_name': 'str',
         'instance_no': 'str',
+        'main_contract_number': 'str',
         'market_price': 'str',
         'measure_interval': 'str',
         'original_bill_amount': 'str',
+        'original_order_no': 'str',
         'owner_customer_name': 'str',
         'owner_id': 'str',
         'owner_user_name': 'str',
@@ -203,9 +205,11 @@ class ListForListAmortizedCostBillDetailOutput(object):
         'factor': 'Factor',
         'instance_name': 'InstanceName',
         'instance_no': 'InstanceNo',
+        'main_contract_number': 'MainContractNumber',
         'market_price': 'MarketPrice',
         'measure_interval': 'MeasureInterval',
         'original_bill_amount': 'OriginalBillAmount',
+        'original_order_no': 'OriginalOrderNo',
         'owner_customer_name': 'OwnerCustomerName',
         'owner_id': 'OwnerID',
         'owner_user_name': 'OwnerUserName',
@@ -256,7 +260,7 @@ class ListForListAmortizedCostBillDetailOutput(object):
         'zone': 'Zone'
     }
 
-    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, cost_id=None, count=None, country_area=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, discount_info=None, effective_factor=None, element=None, exchange_rate=None, expand_field=None, expense_begin_time=None, expense_end_time=None, factor=None, instance_name=None, instance_no=None, market_price=None, measure_interval=None, original_bill_amount=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, round_amount=None, saving_plan_deduction_discount_amount=None, saving_plan_deduction_sp_id=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_amount=None, tax_rate=None, trade_time=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, _configuration=None):  # noqa: E501
+    def __init__(self, amortized_begin_time=None, amortized_day=None, amortized_end_time=None, amortized_month=None, amortized_type=None, bill_category=None, bill_id=None, bill_period=None, billing_function=None, billing_method_code=None, billing_mode=None, busi_period=None, business_mode=None, config_name=None, cost_id=None, count=None, country_area=None, country_region=None, coupon_amount=None, currency=None, currency_settlement=None, daily_amortized_coupon_amount=None, daily_amortized_discount_bill_amount=None, daily_amortized_original_bill_amount=None, daily_amortized_paid_amount=None, daily_amortized_payable_amount=None, daily_amortized_posttax_amount=None, daily_amortized_pre_tax_payable_amount=None, daily_amortized_pre_tax_real_value=None, daily_amortized_preferential_bill_amount=None, daily_amortized_pretax_amount=None, daily_amortized_real_value=None, daily_amortized_round_amount=None, daily_amortized_saving_plan_original_amount=None, daily_amortized_settle_payable_amount=None, daily_amortized_settle_posttax_amount=None, daily_amortized_settle_pre_tax_payable_amount=None, daily_amortized_settle_pre_tax_real_value=None, daily_amortized_settle_pretax_amount=None, daily_amortized_settle_real_value=None, daily_amortized_settle_tax_amount=None, daily_amortized_tax_amount=None, deduction_use_duration=None, discount_bill_amount=None, discount_biz_billing_function=None, discount_biz_measure_interval=None, discount_biz_unit_price=None, discount_biz_unit_price_interval=None, discount_info=None, effective_factor=None, element=None, exchange_rate=None, expand_field=None, expense_begin_time=None, expense_end_time=None, factor=None, instance_name=None, instance_no=None, main_contract_number=None, market_price=None, measure_interval=None, original_bill_amount=None, original_order_no=None, owner_customer_name=None, owner_id=None, owner_user_name=None, paid_amount=None, payable_amount=None, payer_customer_name=None, payer_id=None, payer_user_name=None, posttax_amount=None, pre_tax_payable_amount=None, pre_tax_real_value=None, preferential_bill_amount=None, pretax_amount=None, price=None, price_interval=None, price_unit=None, product=None, product_zh=None, project=None, project_display_name=None, real_value=None, region=None, round_amount=None, saving_plan_deduction_discount_amount=None, saving_plan_deduction_sp_id=None, saving_plan_original_amount=None, seller_customer_name=None, seller_id=None, seller_user_name=None, settle_payable_amount=None, settle_posttax_amount=None, settle_pre_tax_payable_amount=None, settle_pre_tax_real_value=None, settle_pretax_amount=None, settle_real_value=None, settle_tax_amount=None, split_item_id=None, split_item_name=None, subject_name=None, tag=None, tax=None, tax_amount=None, tax_rate=None, trade_time=None, unit=None, use_duration=None, use_duration_unit=None, zone=None, _configuration=None):  # noqa: E501
         """ListForListAmortizedCostBillDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -320,9 +324,11 @@ class ListForListAmortizedCostBillDetailOutput(object):
         self._factor = None
         self._instance_name = None
         self._instance_no = None
+        self._main_contract_number = None
         self._market_price = None
         self._measure_interval = None
         self._original_bill_amount = None
+        self._original_order_no = None
         self._owner_customer_name = None
         self._owner_id = None
         self._owner_user_name = None
@@ -489,12 +495,16 @@ class ListForListAmortizedCostBillDetailOutput(object):
             self.instance_name = instance_name
         if instance_no is not None:
             self.instance_no = instance_no
+        if main_contract_number is not None:
+            self.main_contract_number = main_contract_number
         if market_price is not None:
             self.market_price = market_price
         if measure_interval is not None:
             self.measure_interval = measure_interval
         if original_bill_amount is not None:
             self.original_bill_amount = original_bill_amount
+        if original_order_no is not None:
+            self.original_order_no = original_order_no
         if owner_customer_name is not None:
             self.owner_customer_name = owner_customer_name
         if owner_id is not None:
@@ -1811,6 +1821,27 @@ class ListForListAmortizedCostBillDetailOutput(object):
         self._instance_no = instance_no
 
     @property
+    def main_contract_number(self):
+        """Gets the main_contract_number of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
+
+
+        :return: The main_contract_number of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._main_contract_number
+
+    @main_contract_number.setter
+    def main_contract_number(self, main_contract_number):
+        """Sets the main_contract_number of this ListForListAmortizedCostBillDetailOutput.
+
+
+        :param main_contract_number: The main_contract_number of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._main_contract_number = main_contract_number
+
+    @property
     def market_price(self):
         """Gets the market_price of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
 
@@ -1872,6 +1903,27 @@ class ListForListAmortizedCostBillDetailOutput(object):
         """
 
         self._original_bill_amount = original_bill_amount
+
+    @property
+    def original_order_no(self):
+        """Gets the original_order_no of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
+
+
+        :return: The original_order_no of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._original_order_no
+
+    @original_order_no.setter
+    def original_order_no(self, original_order_no):
+        """Sets the original_order_no of this ListForListAmortizedCostBillDetailOutput.
+
+
+        :param original_order_no: The original_order_no of this ListForListAmortizedCostBillDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._original_order_no = original_order_no
 
     @property
     def owner_customer_name(self):
