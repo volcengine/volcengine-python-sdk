@@ -34,26 +34,31 @@ class ListSandboxesResponse(object):
     """
     swagger_types = {
         'sandboxes': 'list[SandboxForListSandboxesOutput]',
+        'status_count': 'StatusCountForListSandboxesOutput',
         'total': 'int'
     }
 
     attribute_map = {
         'sandboxes': 'Sandboxes',
+        'status_count': 'StatusCount',
         'total': 'Total'
     }
 
-    def __init__(self, sandboxes=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, sandboxes=None, status_count=None, total=None, _configuration=None):  # noqa: E501
         """ListSandboxesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._sandboxes = None
+        self._status_count = None
         self._total = None
         self.discriminator = None
 
         if sandboxes is not None:
             self.sandboxes = sandboxes
+        if status_count is not None:
+            self.status_count = status_count
         if total is not None:
             self.total = total
 
@@ -77,6 +82,27 @@ class ListSandboxesResponse(object):
         """
 
         self._sandboxes = sandboxes
+
+    @property
+    def status_count(self):
+        """Gets the status_count of this ListSandboxesResponse.  # noqa: E501
+
+
+        :return: The status_count of this ListSandboxesResponse.  # noqa: E501
+        :rtype: StatusCountForListSandboxesOutput
+        """
+        return self._status_count
+
+    @status_count.setter
+    def status_count(self, status_count):
+        """Sets the status_count of this ListSandboxesResponse.
+
+
+        :param status_count: The status_count of this ListSandboxesResponse.  # noqa: E501
+        :type: StatusCountForListSandboxesOutput
+        """
+
+        self._status_count = status_count
 
     @property
     def total(self):
