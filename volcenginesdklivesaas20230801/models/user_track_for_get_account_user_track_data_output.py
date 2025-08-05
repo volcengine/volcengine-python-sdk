@@ -35,6 +35,7 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
     swagger_types = {
         'activity_id': 'int',
         'activity_name': 'str',
+        'check_in_count': 'int',
         'comment_count': 'int',
         'join_time': 'int',
         'lottery_awards': 'list[str]',
@@ -46,6 +47,7 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
     attribute_map = {
         'activity_id': 'ActivityId',
         'activity_name': 'ActivityName',
+        'check_in_count': 'CheckInCount',
         'comment_count': 'CommentCount',
         'join_time': 'JoinTime',
         'lottery_awards': 'LotteryAwards',
@@ -54,7 +56,7 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
         'watch_duration_replay': 'WatchDurationReplay'
     }
 
-    def __init__(self, activity_id=None, activity_name=None, comment_count=None, join_time=None, lottery_awards=None, pay_amount=None, watch_duration_live=None, watch_duration_replay=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, activity_name=None, check_in_count=None, comment_count=None, join_time=None, lottery_awards=None, pay_amount=None, watch_duration_live=None, watch_duration_replay=None, _configuration=None):  # noqa: E501
         """UserTrackForGetAccountUserTrackDataOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
 
         self._activity_id = None
         self._activity_name = None
+        self._check_in_count = None
         self._comment_count = None
         self._join_time = None
         self._lottery_awards = None
@@ -74,6 +77,8 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
             self.activity_id = activity_id
         if activity_name is not None:
             self.activity_name = activity_name
+        if check_in_count is not None:
+            self.check_in_count = check_in_count
         if comment_count is not None:
             self.comment_count = comment_count
         if join_time is not None:
@@ -128,6 +133,27 @@ class UserTrackForGetAccountUserTrackDataOutput(object):
         """
 
         self._activity_name = activity_name
+
+    @property
+    def check_in_count(self):
+        """Gets the check_in_count of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+
+
+        :return: The check_in_count of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._check_in_count
+
+    @check_in_count.setter
+    def check_in_count(self, check_in_count):
+        """Sets the check_in_count of this UserTrackForGetAccountUserTrackDataOutput.
+
+
+        :param check_in_count: The check_in_count of this UserTrackForGetAccountUserTrackDataOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._check_in_count = check_in_count
 
     @property
     def comment_count(self):
