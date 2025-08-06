@@ -33,6 +33,7 @@ class DescribeNatFirewallListRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cloud_firewall_id': 'str',
         'firewall_status': 'list[str]',
         'nat_firewall_id': 'str',
         'nat_firewall_name': 'str',
@@ -40,12 +41,14 @@ class DescribeNatFirewallListRequest(object):
         'nat_gateway_name': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'region_code': 'list[str]',
         'vpc_id': 'str',
         'vpc_name': 'str'
     }
 
     attribute_map = {
+        'cloud_firewall_id': 'CloudFirewallId',
         'firewall_status': 'FirewallStatus',
         'nat_firewall_id': 'NatFirewallId',
         'nat_firewall_name': 'NatFirewallName',
@@ -53,17 +56,19 @@ class DescribeNatFirewallListRequest(object):
         'nat_gateway_name': 'NatGatewayName',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'region_code': 'RegionCode',
         'vpc_id': 'VpcId',
         'vpc_name': 'VpcName'
     }
 
-    def __init__(self, firewall_status=None, nat_firewall_id=None, nat_firewall_name=None, nat_gateway_id=None, nat_gateway_name=None, page_number=None, page_size=None, region_code=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_firewall_id=None, firewall_status=None, nat_firewall_id=None, nat_firewall_name=None, nat_gateway_id=None, nat_gateway_name=None, page_number=None, page_size=None, project_name=None, region_code=None, vpc_id=None, vpc_name=None, _configuration=None):  # noqa: E501
         """DescribeNatFirewallListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cloud_firewall_id = None
         self._firewall_status = None
         self._nat_firewall_id = None
         self._nat_firewall_name = None
@@ -71,11 +76,14 @@ class DescribeNatFirewallListRequest(object):
         self._nat_gateway_name = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._region_code = None
         self._vpc_id = None
         self._vpc_name = None
         self.discriminator = None
 
+        if cloud_firewall_id is not None:
+            self.cloud_firewall_id = cloud_firewall_id
         if firewall_status is not None:
             self.firewall_status = firewall_status
         if nat_firewall_id is not None:
@@ -90,12 +98,35 @@ class DescribeNatFirewallListRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if region_code is not None:
             self.region_code = region_code
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if vpc_name is not None:
             self.vpc_name = vpc_name
+
+    @property
+    def cloud_firewall_id(self):
+        """Gets the cloud_firewall_id of this DescribeNatFirewallListRequest.  # noqa: E501
+
+
+        :return: The cloud_firewall_id of this DescribeNatFirewallListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cloud_firewall_id
+
+    @cloud_firewall_id.setter
+    def cloud_firewall_id(self, cloud_firewall_id):
+        """Sets the cloud_firewall_id of this DescribeNatFirewallListRequest.
+
+
+        :param cloud_firewall_id: The cloud_firewall_id of this DescribeNatFirewallListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cloud_firewall_id = cloud_firewall_id
 
     @property
     def firewall_status(self):
@@ -241,8 +272,32 @@ class DescribeNatFirewallListRequest(object):
         :param page_size: The page_size of this DescribeNatFirewallListRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 1000):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeNatFirewallListRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeNatFirewallListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeNatFirewallListRequest.
+
+
+        :param project_name: The project_name of this DescribeNatFirewallListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def region_code(self):

@@ -39,6 +39,7 @@ class DataForDescribeDnsControlPolicyOutput(object):
         'destination_group_list': 'list[str]',
         'destination_type': 'str',
         'domain_list': 'list[str]',
+        'domain_list_v1': 'list[DomainListV1ForDescribeDnsControlPolicyOutput]',
         'hit_cnt': 'int',
         'last_hit_time': 'int',
         'rule_id': 'str',
@@ -54,6 +55,7 @@ class DataForDescribeDnsControlPolicyOutput(object):
         'destination_group_list': 'DestinationGroupList',
         'destination_type': 'DestinationType',
         'domain_list': 'DomainList',
+        'domain_list_v1': 'DomainListV1',
         'hit_cnt': 'HitCnt',
         'last_hit_time': 'LastHitTime',
         'rule_id': 'RuleId',
@@ -62,7 +64,7 @@ class DataForDescribeDnsControlPolicyOutput(object):
         'use_count': 'UseCount'
     }
 
-    def __init__(self, account_id=None, description=None, destination=None, destination_group_list=None, destination_type=None, domain_list=None, hit_cnt=None, last_hit_time=None, rule_id=None, source=None, status=None, use_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, description=None, destination=None, destination_group_list=None, destination_type=None, domain_list=None, domain_list_v1=None, hit_cnt=None, last_hit_time=None, rule_id=None, source=None, status=None, use_count=None, _configuration=None):  # noqa: E501
         """DataForDescribeDnsControlPolicyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class DataForDescribeDnsControlPolicyOutput(object):
         self._destination_group_list = None
         self._destination_type = None
         self._domain_list = None
+        self._domain_list_v1 = None
         self._hit_cnt = None
         self._last_hit_time = None
         self._rule_id = None
@@ -94,6 +97,8 @@ class DataForDescribeDnsControlPolicyOutput(object):
             self.destination_type = destination_type
         if domain_list is not None:
             self.domain_list = domain_list
+        if domain_list_v1 is not None:
+            self.domain_list_v1 = domain_list_v1
         if hit_cnt is not None:
             self.hit_cnt = hit_cnt
         if last_hit_time is not None:
@@ -232,6 +237,27 @@ class DataForDescribeDnsControlPolicyOutput(object):
         """
 
         self._domain_list = domain_list
+
+    @property
+    def domain_list_v1(self):
+        """Gets the domain_list_v1 of this DataForDescribeDnsControlPolicyOutput.  # noqa: E501
+
+
+        :return: The domain_list_v1 of this DataForDescribeDnsControlPolicyOutput.  # noqa: E501
+        :rtype: list[DomainListV1ForDescribeDnsControlPolicyOutput]
+        """
+        return self._domain_list_v1
+
+    @domain_list_v1.setter
+    def domain_list_v1(self, domain_list_v1):
+        """Sets the domain_list_v1 of this DataForDescribeDnsControlPolicyOutput.
+
+
+        :param domain_list_v1: The domain_list_v1 of this DataForDescribeDnsControlPolicyOutput.  # noqa: E501
+        :type: list[DomainListV1ForDescribeDnsControlPolicyOutput]
+        """
+
+        self._domain_list_v1 = domain_list_v1
 
     @property
     def hit_cnt(self):

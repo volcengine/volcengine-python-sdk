@@ -33,6 +33,7 @@ class DescribeAddressBookRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cloud_firewall_id': 'str',
         'group_type': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -40,24 +41,28 @@ class DescribeAddressBookRequest(object):
     }
 
     attribute_map = {
+        'cloud_firewall_id': 'CloudFirewallId',
         'group_type': 'GroupType',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'query': 'Query'
     }
 
-    def __init__(self, group_type=None, page_number=None, page_size=None, query=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_firewall_id=None, group_type=None, page_number=None, page_size=None, query=None, _configuration=None):  # noqa: E501
         """DescribeAddressBookRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cloud_firewall_id = None
         self._group_type = None
         self._page_number = None
         self._page_size = None
         self._query = None
         self.discriminator = None
 
+        if cloud_firewall_id is not None:
+            self.cloud_firewall_id = cloud_firewall_id
         if group_type is not None:
             self.group_type = group_type
         if page_number is not None:
@@ -66,6 +71,27 @@ class DescribeAddressBookRequest(object):
             self.page_size = page_size
         if query is not None:
             self.query = query
+
+    @property
+    def cloud_firewall_id(self):
+        """Gets the cloud_firewall_id of this DescribeAddressBookRequest.  # noqa: E501
+
+
+        :return: The cloud_firewall_id of this DescribeAddressBookRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cloud_firewall_id
+
+    @cloud_firewall_id.setter
+    def cloud_firewall_id(self, cloud_firewall_id):
+        """Sets the cloud_firewall_id of this DescribeAddressBookRequest.
+
+
+        :param cloud_firewall_id: The cloud_firewall_id of this DescribeAddressBookRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cloud_firewall_id = cloud_firewall_id
 
     @property
     def group_type(self):
@@ -85,7 +111,7 @@ class DescribeAddressBookRequest(object):
         :param group_type: The group_type of this DescribeAddressBookRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ip", "port", "domain"]  # noqa: E501
+        allowed_values = ["ip", "ipv6", "port", "domain"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 group_type not in allowed_values):
             raise ValueError(
@@ -137,6 +163,9 @@ class DescribeAddressBookRequest(object):
         :param page_size: The page_size of this DescribeAddressBookRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 1000):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000`")  # noqa: E501
 
         self._page_size = page_size
 

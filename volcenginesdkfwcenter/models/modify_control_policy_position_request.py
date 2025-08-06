@@ -34,28 +34,33 @@ class ModifyControlPolicyPositionRequest(object):
     """
     swagger_types = {
         'direction': 'str',
+        'internet_firewall_id': 'str',
         'new_prio': 'int',
         'rule_id': 'str'
     }
 
     attribute_map = {
         'direction': 'Direction',
+        'internet_firewall_id': 'InternetFirewallId',
         'new_prio': 'NewPrio',
         'rule_id': 'RuleId'
     }
 
-    def __init__(self, direction=None, new_prio=None, rule_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, direction=None, internet_firewall_id=None, new_prio=None, rule_id=None, _configuration=None):  # noqa: E501
         """ModifyControlPolicyPositionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._direction = None
+        self._internet_firewall_id = None
         self._new_prio = None
         self._rule_id = None
         self.discriminator = None
 
         self.direction = direction
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
         self.new_prio = new_prio
         self.rule_id = rule_id
 
@@ -88,6 +93,27 @@ class ModifyControlPolicyPositionRequest(object):
             )
 
         self._direction = direction
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this ModifyControlPolicyPositionRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this ModifyControlPolicyPositionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this ModifyControlPolicyPositionRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this ModifyControlPolicyPositionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     @property
     def new_prio(self):

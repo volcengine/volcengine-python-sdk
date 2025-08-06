@@ -37,6 +37,9 @@ class DescribeControlPolicyRequest(object):
         'description': 'str',
         'destination': 'str',
         'direction': 'str',
+        'internet_firewall_id': 'str',
+        'ip_type': 'str',
+        'order_dir': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'proto': 'list[str]',
@@ -51,6 +54,9 @@ class DescribeControlPolicyRequest(object):
         'description': 'Description',
         'destination': 'Destination',
         'direction': 'Direction',
+        'internet_firewall_id': 'InternetFirewallId',
+        'ip_type': 'IpType',
+        'order_dir': 'OrderDir',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'proto': 'Proto',
@@ -60,7 +66,7 @@ class DescribeControlPolicyRequest(object):
         'status': 'Status'
     }
 
-    def __init__(self, action=None, description=None, destination=None, direction=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, destination=None, direction=None, internet_firewall_id=None, ip_type=None, order_dir=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
         """DescribeControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +76,9 @@ class DescribeControlPolicyRequest(object):
         self._description = None
         self._destination = None
         self._direction = None
+        self._internet_firewall_id = None
+        self._ip_type = None
+        self._order_dir = None
         self._page_number = None
         self._page_size = None
         self._proto = None
@@ -86,6 +95,12 @@ class DescribeControlPolicyRequest(object):
         if destination is not None:
             self.destination = destination
         self.direction = direction
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
+        if ip_type is not None:
+            self.ip_type = ip_type
+        if order_dir is not None:
+            self.order_dir = order_dir
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -195,6 +210,83 @@ class DescribeControlPolicyRequest(object):
         self._direction = direction
 
     @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this DescribeControlPolicyRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this DescribeControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this DescribeControlPolicyRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this DescribeControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
+
+    @property
+    def ip_type(self):
+        """Gets the ip_type of this DescribeControlPolicyRequest.  # noqa: E501
+
+
+        :return: The ip_type of this DescribeControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_type
+
+    @ip_type.setter
+    def ip_type(self, ip_type):
+        """Sets the ip_type of this DescribeControlPolicyRequest.
+
+
+        :param ip_type: The ip_type of this DescribeControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["v4", "v6"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ip_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ip_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(ip_type, allowed_values)
+            )
+
+        self._ip_type = ip_type
+
+    @property
+    def order_dir(self):
+        """Gets the order_dir of this DescribeControlPolicyRequest.  # noqa: E501
+
+
+        :return: The order_dir of this DescribeControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_dir
+
+    @order_dir.setter
+    def order_dir(self, order_dir):
+        """Sets the order_dir of this DescribeControlPolicyRequest.
+
+
+        :param order_dir: The order_dir of this DescribeControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["asc", "desc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                order_dir not in allowed_values):
+            raise ValueError(
+                "Invalid value for `order_dir` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_dir, allowed_values)
+            )
+
+        self._order_dir = order_dir
+
+    @property
     def page_number(self):
         """Gets the page_number of this DescribeControlPolicyRequest.  # noqa: E501
 
@@ -234,8 +326,8 @@ class DescribeControlPolicyRequest(object):
         :type: int
         """
         if (self._configuration.client_side_validation and
-                page_size is not None and page_size > 100):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
+                page_size is not None and page_size > 1000):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000`")  # noqa: E501
 
         self._page_size = page_size
 

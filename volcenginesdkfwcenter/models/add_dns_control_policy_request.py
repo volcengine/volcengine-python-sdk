@@ -36,6 +36,7 @@ class AddDnsControlPolicyRequest(object):
         'description': 'str',
         'destination': 'str',
         'destination_type': 'str',
+        'internet_firewall_id': 'str',
         'source': 'list[SourceForAddDnsControlPolicyInput]'
     }
 
@@ -43,10 +44,11 @@ class AddDnsControlPolicyRequest(object):
         'description': 'Description',
         'destination': 'Destination',
         'destination_type': 'DestinationType',
+        'internet_firewall_id': 'InternetFirewallId',
         'source': 'Source'
     }
 
-    def __init__(self, description=None, destination=None, destination_type=None, source=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, destination=None, destination_type=None, internet_firewall_id=None, source=None, _configuration=None):  # noqa: E501
         """AddDnsControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class AddDnsControlPolicyRequest(object):
         self._description = None
         self._destination = None
         self._destination_type = None
+        self._internet_firewall_id = None
         self._source = None
         self.discriminator = None
 
@@ -62,6 +65,8 @@ class AddDnsControlPolicyRequest(object):
             self.description = description
         self.destination = destination
         self.destination_type = destination_type
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
         if source is not None:
             self.source = source
 
@@ -141,6 +146,27 @@ class AddDnsControlPolicyRequest(object):
             )
 
         self._destination_type = destination_type
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this AddDnsControlPolicyRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this AddDnsControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this AddDnsControlPolicyRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this AddDnsControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     @property
     def source(self):
