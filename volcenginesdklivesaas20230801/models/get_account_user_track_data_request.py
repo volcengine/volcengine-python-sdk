@@ -33,33 +33,44 @@ class GetAccountUserTrackDataRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'activity_id': 'str',
+        'activity_id': 'int',
+        'external_id': 'str',
         'select_tags': 'list[SelectTagForGetAccountUserTrackDataInput]',
-        'user_id': 'str'
+        'user_id': 'int',
+        'watch_type': 'str'
     }
 
     attribute_map = {
         'activity_id': 'ActivityId',
+        'external_id': 'ExternalId',
         'select_tags': 'SelectTags',
-        'user_id': 'UserId'
+        'user_id': 'UserId',
+        'watch_type': 'WatchType'
     }
 
-    def __init__(self, activity_id=None, select_tags=None, user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, external_id=None, select_tags=None, user_id=None, watch_type=None, _configuration=None):  # noqa: E501
         """GetAccountUserTrackDataRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._activity_id = None
+        self._external_id = None
         self._select_tags = None
         self._user_id = None
+        self._watch_type = None
         self.discriminator = None
 
         if activity_id is not None:
             self.activity_id = activity_id
+        if external_id is not None:
+            self.external_id = external_id
         if select_tags is not None:
             self.select_tags = select_tags
-        self.user_id = user_id
+        if user_id is not None:
+            self.user_id = user_id
+        if watch_type is not None:
+            self.watch_type = watch_type
 
     @property
     def activity_id(self):
@@ -67,7 +78,7 @@ class GetAccountUserTrackDataRequest(object):
 
 
         :return: The activity_id of this GetAccountUserTrackDataRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._activity_id
 
@@ -77,10 +88,31 @@ class GetAccountUserTrackDataRequest(object):
 
 
         :param activity_id: The activity_id of this GetAccountUserTrackDataRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._activity_id = activity_id
+
+    @property
+    def external_id(self):
+        """Gets the external_id of this GetAccountUserTrackDataRequest.  # noqa: E501
+
+
+        :return: The external_id of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_id
+
+    @external_id.setter
+    def external_id(self, external_id):
+        """Sets the external_id of this GetAccountUserTrackDataRequest.
+
+
+        :param external_id: The external_id of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._external_id = external_id
 
     @property
     def select_tags(self):
@@ -109,7 +141,7 @@ class GetAccountUserTrackDataRequest(object):
 
 
         :return: The user_id of this GetAccountUserTrackDataRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._user_id
 
@@ -119,12 +151,31 @@ class GetAccountUserTrackDataRequest(object):
 
 
         :param user_id: The user_id of this GetAccountUserTrackDataRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
-        if self._configuration.client_side_validation and user_id is None:
-            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
+
+    @property
+    def watch_type(self):
+        """Gets the watch_type of this GetAccountUserTrackDataRequest.  # noqa: E501
+
+
+        :return: The watch_type of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._watch_type
+
+    @watch_type.setter
+    def watch_type(self, watch_type):
+        """Sets the watch_type of this GetAccountUserTrackDataRequest.
+
+
+        :param watch_type: The watch_type of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._watch_type = watch_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

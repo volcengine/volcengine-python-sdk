@@ -33,6 +33,7 @@ class InteractDataForGetAccountUserTrackDataOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'check_in_count': 'int',
         'comment_count': 'int',
         'coupon_pickup_count': 'int',
         'invite_count': 'int',
@@ -48,6 +49,7 @@ class InteractDataForGetAccountUserTrackDataOutput(object):
     }
 
     attribute_map = {
+        'check_in_count': 'CheckInCount',
         'comment_count': 'CommentCount',
         'coupon_pickup_count': 'CouponPickupCount',
         'invite_count': 'InviteCount',
@@ -62,12 +64,13 @@ class InteractDataForGetAccountUserTrackDataOutput(object):
         'vote_count': 'VoteCount'
     }
 
-    def __init__(self, comment_count=None, coupon_pickup_count=None, invite_count=None, lottery_count=None, lottery_hit_count=None, mute_number=None, no_interact_number=None, questionnaire_count=None, reservation_count=None, shift_screen_number=None, thumb_up_number=None, vote_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, check_in_count=None, comment_count=None, coupon_pickup_count=None, invite_count=None, lottery_count=None, lottery_hit_count=None, mute_number=None, no_interact_number=None, questionnaire_count=None, reservation_count=None, shift_screen_number=None, thumb_up_number=None, vote_count=None, _configuration=None):  # noqa: E501
         """InteractDataForGetAccountUserTrackDataOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._check_in_count = None
         self._comment_count = None
         self._coupon_pickup_count = None
         self._invite_count = None
@@ -82,6 +85,8 @@ class InteractDataForGetAccountUserTrackDataOutput(object):
         self._vote_count = None
         self.discriminator = None
 
+        if check_in_count is not None:
+            self.check_in_count = check_in_count
         if comment_count is not None:
             self.comment_count = comment_count
         if coupon_pickup_count is not None:
@@ -106,6 +111,27 @@ class InteractDataForGetAccountUserTrackDataOutput(object):
             self.thumb_up_number = thumb_up_number
         if vote_count is not None:
             self.vote_count = vote_count
+
+    @property
+    def check_in_count(self):
+        """Gets the check_in_count of this InteractDataForGetAccountUserTrackDataOutput.  # noqa: E501
+
+
+        :return: The check_in_count of this InteractDataForGetAccountUserTrackDataOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._check_in_count
+
+    @check_in_count.setter
+    def check_in_count(self, check_in_count):
+        """Sets the check_in_count of this InteractDataForGetAccountUserTrackDataOutput.
+
+
+        :param check_in_count: The check_in_count of this InteractDataForGetAccountUserTrackDataOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._check_in_count = check_in_count
 
     @property
     def comment_count(self):

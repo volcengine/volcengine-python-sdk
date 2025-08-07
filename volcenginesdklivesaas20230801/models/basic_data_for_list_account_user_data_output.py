@@ -33,6 +33,7 @@ class BasicDataForListAccountUserDataOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'avatar_url': 'str',
         'ban_status': 'int',
         'country': 'str',
         'external_id': 'str',
@@ -46,6 +47,7 @@ class BasicDataForListAccountUserDataOutput(object):
     }
 
     attribute_map = {
+        'avatar_url': 'AvatarUrl',
         'ban_status': 'BanStatus',
         'country': 'Country',
         'external_id': 'ExternalId',
@@ -58,12 +60,13 @@ class BasicDataForListAccountUserDataOutput(object):
         'watch_type': 'WatchType'
     }
 
-    def __init__(self, ban_status=None, country=None, external_id=None, ip=None, nick_name=None, province=None, telephone=None, user_id=None, watch_device=None, watch_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, avatar_url=None, ban_status=None, country=None, external_id=None, ip=None, nick_name=None, province=None, telephone=None, user_id=None, watch_device=None, watch_type=None, _configuration=None):  # noqa: E501
         """BasicDataForListAccountUserDataOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._avatar_url = None
         self._ban_status = None
         self._country = None
         self._external_id = None
@@ -76,6 +79,8 @@ class BasicDataForListAccountUserDataOutput(object):
         self._watch_type = None
         self.discriminator = None
 
+        if avatar_url is not None:
+            self.avatar_url = avatar_url
         if ban_status is not None:
             self.ban_status = ban_status
         if country is not None:
@@ -96,6 +101,27 @@ class BasicDataForListAccountUserDataOutput(object):
             self.watch_device = watch_device
         if watch_type is not None:
             self.watch_type = watch_type
+
+    @property
+    def avatar_url(self):
+        """Gets the avatar_url of this BasicDataForListAccountUserDataOutput.  # noqa: E501
+
+
+        :return: The avatar_url of this BasicDataForListAccountUserDataOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._avatar_url
+
+    @avatar_url.setter
+    def avatar_url(self, avatar_url):
+        """Sets the avatar_url of this BasicDataForListAccountUserDataOutput.
+
+
+        :param avatar_url: The avatar_url of this BasicDataForListAccountUserDataOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._avatar_url = avatar_url
 
     @property
     def ban_status(self):
