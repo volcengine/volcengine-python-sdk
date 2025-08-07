@@ -8,14 +8,28 @@ from volcenginesdkarkruntime import Ark
 client = Ark()
 
 if __name__ == "__main__":
-    print("----- generate images -----")
+    print("----- [Seedream] generate images -----")
 
     result = client.images.generate(
-        model="${YOUR_ENDPOINT_ID}",
+        model="${YOUR_SEEDREAM_ENDPOINT_ID}",
         prompt="龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
         seed=1234567890,
         watermark=True,
         size="512x512",
+        guidance_scale=2.5,
+    )
+
+    print(result)
+
+    print("----- [Seededit] generate images -----")
+
+    result = client.images.generate(
+        model="${YOUR_SEEDEDIT_ENDPOINT_ID}",
+        prompt="龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
+        image="${YOUR_IMAGE_URL}",
+        seed=1234567890,
+        watermark=True,
+        size="adaptive",
         guidance_scale=2.5,
     )
 
