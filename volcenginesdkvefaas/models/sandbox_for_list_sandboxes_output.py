@@ -35,11 +35,14 @@ class SandboxForListSandboxesOutput(object):
     swagger_types = {
         'availability_zone': 'str',
         'created_at': 'str',
+        'error_code': 'str',
+        'error_message': 'str',
         'expire_at': 'str',
         'function_id': 'str',
         'id': 'str',
         'instance_type': 'str',
         'metadata': 'MetadataForListSandboxesOutput',
+        'pending': 'bool',
         'revision_number': 'int',
         'status': 'str'
     }
@@ -47,16 +50,19 @@ class SandboxForListSandboxesOutput(object):
     attribute_map = {
         'availability_zone': 'AvailabilityZone',
         'created_at': 'CreatedAt',
+        'error_code': 'ErrorCode',
+        'error_message': 'ErrorMessage',
         'expire_at': 'ExpireAt',
         'function_id': 'FunctionId',
         'id': 'Id',
         'instance_type': 'InstanceType',
         'metadata': 'Metadata',
+        'pending': 'Pending',
         'revision_number': 'RevisionNumber',
         'status': 'Status'
     }
 
-    def __init__(self, availability_zone=None, created_at=None, expire_at=None, function_id=None, id=None, instance_type=None, metadata=None, revision_number=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, availability_zone=None, created_at=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, instance_type=None, metadata=None, pending=None, revision_number=None, status=None, _configuration=None):  # noqa: E501
         """SandboxForListSandboxesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,11 +70,14 @@ class SandboxForListSandboxesOutput(object):
 
         self._availability_zone = None
         self._created_at = None
+        self._error_code = None
+        self._error_message = None
         self._expire_at = None
         self._function_id = None
         self._id = None
         self._instance_type = None
         self._metadata = None
+        self._pending = None
         self._revision_number = None
         self._status = None
         self.discriminator = None
@@ -77,6 +86,10 @@ class SandboxForListSandboxesOutput(object):
             self.availability_zone = availability_zone
         if created_at is not None:
             self.created_at = created_at
+        if error_code is not None:
+            self.error_code = error_code
+        if error_message is not None:
+            self.error_message = error_message
         if expire_at is not None:
             self.expire_at = expire_at
         if function_id is not None:
@@ -87,6 +100,8 @@ class SandboxForListSandboxesOutput(object):
             self.instance_type = instance_type
         if metadata is not None:
             self.metadata = metadata
+        if pending is not None:
+            self.pending = pending
         if revision_number is not None:
             self.revision_number = revision_number
         if status is not None:
@@ -133,6 +148,48 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def error_code(self):
+        """Gets the error_code of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The error_code of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_code
+
+    @error_code.setter
+    def error_code(self, error_code):
+        """Sets the error_code of this SandboxForListSandboxesOutput.
+
+
+        :param error_code: The error_code of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._error_code = error_code
+
+    @property
+    def error_message(self):
+        """Gets the error_message of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The error_message of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_message
+
+    @error_message.setter
+    def error_message(self, error_message):
+        """Sets the error_message of this SandboxForListSandboxesOutput.
+
+
+        :param error_message: The error_message of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._error_message = error_message
 
     @property
     def expire_at(self):
@@ -238,6 +295,27 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def pending(self):
+        """Gets the pending of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The pending of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pending
+
+    @pending.setter
+    def pending(self, pending):
+        """Sets the pending of this SandboxForListSandboxesOutput.
+
+
+        :param pending: The pending of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._pending = pending
 
     @property
     def revision_number(self):
