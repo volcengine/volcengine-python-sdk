@@ -33,23 +33,49 @@ class DeleteDnsControlPolicyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'internet_firewall_id': 'str',
         'rule_id': 'str'
     }
 
     attribute_map = {
+        'internet_firewall_id': 'InternetFirewallId',
         'rule_id': 'RuleId'
     }
 
-    def __init__(self, rule_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, internet_firewall_id=None, rule_id=None, _configuration=None):  # noqa: E501
         """DeleteDnsControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._internet_firewall_id = None
         self._rule_id = None
         self.discriminator = None
 
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
         self.rule_id = rule_id
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this DeleteDnsControlPolicyRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this DeleteDnsControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this DeleteDnsControlPolicyRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this DeleteDnsControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     @property
     def rule_id(self):

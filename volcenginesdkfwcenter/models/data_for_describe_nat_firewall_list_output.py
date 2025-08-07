@@ -40,9 +40,11 @@ class DataForDescribeNatFirewallListOutput(object):
         'firewall_status': 'str',
         'nat_firewall_id': 'str',
         'nat_firewall_name': 'str',
+        'nat_firewall_subnet_cidr': 'str',
         'nat_gateway_id': 'str',
         'nat_gateway_name': 'str',
         'peak_traffic_within7_day': 'int',
+        'project_name': 'str',
         'region': 'str',
         'vpc_cidr': 'str',
         'vpc_id': 'str',
@@ -58,9 +60,11 @@ class DataForDescribeNatFirewallListOutput(object):
         'firewall_status': 'FirewallStatus',
         'nat_firewall_id': 'NatFirewallId',
         'nat_firewall_name': 'NatFirewallName',
+        'nat_firewall_subnet_cidr': 'NatFirewallSubnetCidr',
         'nat_gateway_id': 'NatGatewayId',
         'nat_gateway_name': 'NatGatewayName',
         'peak_traffic_within7_day': 'PeakTrafficWithin7Day',
+        'project_name': 'ProjectName',
         'region': 'Region',
         'vpc_cidr': 'VpcCidr',
         'vpc_id': 'VpcId',
@@ -68,7 +72,7 @@ class DataForDescribeNatFirewallListOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, can_create=None, err_message=None, firewall_status=None, nat_firewall_id=None, nat_firewall_name=None, nat_gateway_id=None, nat_gateway_name=None, peak_traffic_within7_day=None, region=None, vpc_cidr=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, can_create=None, err_message=None, firewall_status=None, nat_firewall_id=None, nat_firewall_name=None, nat_firewall_subnet_cidr=None, nat_gateway_id=None, nat_gateway_name=None, peak_traffic_within7_day=None, project_name=None, region=None, vpc_cidr=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """DataForDescribeNatFirewallListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,9 +85,11 @@ class DataForDescribeNatFirewallListOutput(object):
         self._firewall_status = None
         self._nat_firewall_id = None
         self._nat_firewall_name = None
+        self._nat_firewall_subnet_cidr = None
         self._nat_gateway_id = None
         self._nat_gateway_name = None
         self._peak_traffic_within7_day = None
+        self._project_name = None
         self._region = None
         self._vpc_cidr = None
         self._vpc_id = None
@@ -105,12 +111,16 @@ class DataForDescribeNatFirewallListOutput(object):
             self.nat_firewall_id = nat_firewall_id
         if nat_firewall_name is not None:
             self.nat_firewall_name = nat_firewall_name
+        if nat_firewall_subnet_cidr is not None:
+            self.nat_firewall_subnet_cidr = nat_firewall_subnet_cidr
         if nat_gateway_id is not None:
             self.nat_gateway_id = nat_gateway_id
         if nat_gateway_name is not None:
             self.nat_gateway_name = nat_gateway_name
         if peak_traffic_within7_day is not None:
             self.peak_traffic_within7_day = peak_traffic_within7_day
+        if project_name is not None:
+            self.project_name = project_name
         if region is not None:
             self.region = region
         if vpc_cidr is not None:
@@ -270,6 +280,27 @@ class DataForDescribeNatFirewallListOutput(object):
         self._nat_firewall_name = nat_firewall_name
 
     @property
+    def nat_firewall_subnet_cidr(self):
+        """Gets the nat_firewall_subnet_cidr of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+
+
+        :return: The nat_firewall_subnet_cidr of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._nat_firewall_subnet_cidr
+
+    @nat_firewall_subnet_cidr.setter
+    def nat_firewall_subnet_cidr(self, nat_firewall_subnet_cidr):
+        """Sets the nat_firewall_subnet_cidr of this DataForDescribeNatFirewallListOutput.
+
+
+        :param nat_firewall_subnet_cidr: The nat_firewall_subnet_cidr of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._nat_firewall_subnet_cidr = nat_firewall_subnet_cidr
+
+    @property
     def nat_gateway_id(self):
         """Gets the nat_gateway_id of this DataForDescribeNatFirewallListOutput.  # noqa: E501
 
@@ -331,6 +362,27 @@ class DataForDescribeNatFirewallListOutput(object):
         """
 
         self._peak_traffic_within7_day = peak_traffic_within7_day
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+
+
+        :return: The project_name of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DataForDescribeNatFirewallListOutput.
+
+
+        :param project_name: The project_name of this DataForDescribeNatFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def region(self):

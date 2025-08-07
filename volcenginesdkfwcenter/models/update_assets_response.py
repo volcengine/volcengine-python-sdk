@@ -33,17 +33,45 @@ class UpdateAssetsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'asset_ips': 'list[str]'
     }
 
     attribute_map = {
+        'asset_ips': 'asset_ips'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, asset_ips=None, _configuration=None):  # noqa: E501
         """UpdateAssetsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._asset_ips = None
         self.discriminator = None
+
+        if asset_ips is not None:
+            self.asset_ips = asset_ips
+
+    @property
+    def asset_ips(self):
+        """Gets the asset_ips of this UpdateAssetsResponse.  # noqa: E501
+
+
+        :return: The asset_ips of this UpdateAssetsResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._asset_ips
+
+    @asset_ips.setter
+    def asset_ips(self, asset_ips):
+        """Sets the asset_ips of this UpdateAssetsResponse.
+
+
+        :param asset_ips: The asset_ips of this UpdateAssetsResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._asset_ips = asset_ips
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,23 +33,55 @@ class DeleteAddressBookRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'group_uuid': 'str'
+        'cloud_firewall_id': 'str',
+        'group_uuid': 'str',
+        'group_uuid_list': 'list[str]'
     }
 
     attribute_map = {
-        'group_uuid': 'GroupUuid'
+        'cloud_firewall_id': 'CloudFirewallId',
+        'group_uuid': 'GroupUuid',
+        'group_uuid_list': 'GroupUuidList'
     }
 
-    def __init__(self, group_uuid=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_firewall_id=None, group_uuid=None, group_uuid_list=None, _configuration=None):  # noqa: E501
         """DeleteAddressBookRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cloud_firewall_id = None
         self._group_uuid = None
+        self._group_uuid_list = None
         self.discriminator = None
 
-        self.group_uuid = group_uuid
+        if cloud_firewall_id is not None:
+            self.cloud_firewall_id = cloud_firewall_id
+        if group_uuid is not None:
+            self.group_uuid = group_uuid
+        if group_uuid_list is not None:
+            self.group_uuid_list = group_uuid_list
+
+    @property
+    def cloud_firewall_id(self):
+        """Gets the cloud_firewall_id of this DeleteAddressBookRequest.  # noqa: E501
+
+
+        :return: The cloud_firewall_id of this DeleteAddressBookRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cloud_firewall_id
+
+    @cloud_firewall_id.setter
+    def cloud_firewall_id(self, cloud_firewall_id):
+        """Sets the cloud_firewall_id of this DeleteAddressBookRequest.
+
+
+        :param cloud_firewall_id: The cloud_firewall_id of this DeleteAddressBookRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cloud_firewall_id = cloud_firewall_id
 
     @property
     def group_uuid(self):
@@ -69,10 +101,29 @@ class DeleteAddressBookRequest(object):
         :param group_uuid: The group_uuid of this DeleteAddressBookRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and group_uuid is None:
-            raise ValueError("Invalid value for `group_uuid`, must not be `None`")  # noqa: E501
 
         self._group_uuid = group_uuid
+
+    @property
+    def group_uuid_list(self):
+        """Gets the group_uuid_list of this DeleteAddressBookRequest.  # noqa: E501
+
+
+        :return: The group_uuid_list of this DeleteAddressBookRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._group_uuid_list
+
+    @group_uuid_list.setter
+    def group_uuid_list(self, group_uuid_list):
+        """Sets the group_uuid_list of this DeleteAddressBookRequest.
+
+
+        :param group_uuid_list: The group_uuid_list of this DeleteAddressBookRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._group_uuid_list = group_uuid_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

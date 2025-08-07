@@ -38,8 +38,8 @@ class DescribeNatFirewallControlPolicyRequest(object):
         'dest_port': 'list[str]',
         'destination': 'list[str]',
         'direction': 'str',
+        'is_effect': 'list[bool]',
         'nat_firewall_id': 'str',
-        'order_by': 'str',
         'order_dir': 'str',
         'page_number': 'int',
         'page_size': 'int',
@@ -56,8 +56,8 @@ class DescribeNatFirewallControlPolicyRequest(object):
         'dest_port': 'DestPort',
         'destination': 'Destination',
         'direction': 'Direction',
+        'is_effect': 'IsEffect',
         'nat_firewall_id': 'NatFirewallId',
-        'order_by': 'OrderBy',
         'order_dir': 'OrderDir',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -68,7 +68,7 @@ class DescribeNatFirewallControlPolicyRequest(object):
         'status': 'Status'
     }
 
-    def __init__(self, action=None, description=None, dest_port=None, destination=None, direction=None, nat_firewall_id=None, order_by=None, order_dir=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, dest_port=None, destination=None, direction=None, is_effect=None, nat_firewall_id=None, order_dir=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
         """DescribeNatFirewallControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,8 +79,8 @@ class DescribeNatFirewallControlPolicyRequest(object):
         self._dest_port = None
         self._destination = None
         self._direction = None
+        self._is_effect = None
         self._nat_firewall_id = None
-        self._order_by = None
         self._order_dir = None
         self._page_number = None
         self._page_size = None
@@ -100,9 +100,9 @@ class DescribeNatFirewallControlPolicyRequest(object):
         if destination is not None:
             self.destination = destination
         self.direction = direction
+        if is_effect is not None:
+            self.is_effect = is_effect
         self.nat_firewall_id = nat_firewall_id
-        if order_by is not None:
-            self.order_by = order_by
         if order_dir is not None:
             self.order_dir = order_dir
         if page_number is not None:
@@ -235,6 +235,27 @@ class DescribeNatFirewallControlPolicyRequest(object):
         self._direction = direction
 
     @property
+    def is_effect(self):
+        """Gets the is_effect of this DescribeNatFirewallControlPolicyRequest.  # noqa: E501
+
+
+        :return: The is_effect of this DescribeNatFirewallControlPolicyRequest.  # noqa: E501
+        :rtype: list[bool]
+        """
+        return self._is_effect
+
+    @is_effect.setter
+    def is_effect(self, is_effect):
+        """Sets the is_effect of this DescribeNatFirewallControlPolicyRequest.
+
+
+        :param is_effect: The is_effect of this DescribeNatFirewallControlPolicyRequest.  # noqa: E501
+        :type: list[bool]
+        """
+
+        self._is_effect = is_effect
+
+    @property
     def nat_firewall_id(self):
         """Gets the nat_firewall_id of this DescribeNatFirewallControlPolicyRequest.  # noqa: E501
 
@@ -256,27 +277,6 @@ class DescribeNatFirewallControlPolicyRequest(object):
             raise ValueError("Invalid value for `nat_firewall_id`, must not be `None`")  # noqa: E501
 
         self._nat_firewall_id = nat_firewall_id
-
-    @property
-    def order_by(self):
-        """Gets the order_by of this DescribeNatFirewallControlPolicyRequest.  # noqa: E501
-
-
-        :return: The order_by of this DescribeNatFirewallControlPolicyRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._order_by
-
-    @order_by.setter
-    def order_by(self, order_by):
-        """Sets the order_by of this DescribeNatFirewallControlPolicyRequest.
-
-
-        :param order_by: The order_by of this DescribeNatFirewallControlPolicyRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._order_by = order_by
 
     @property
     def order_dir(self):
@@ -345,6 +345,9 @@ class DescribeNatFirewallControlPolicyRequest(object):
         :param page_size: The page_size of this DescribeNatFirewallControlPolicyRequest.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                page_size is not None and page_size > 1000):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000`")  # noqa: E501
 
         self._page_size = page_size
 

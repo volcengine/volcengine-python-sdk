@@ -41,6 +41,8 @@ class AddControlPolicyRequest(object):
         'destination_type': 'str',
         'direction': 'str',
         'end_time': 'int',
+        'internet_firewall_id': 'str',
+        'ip_type': 'str',
         'prio': 'int',
         'proto': 'str',
         'repeat_days': 'list[int]',
@@ -62,6 +64,8 @@ class AddControlPolicyRequest(object):
         'destination_type': 'DestinationType',
         'direction': 'Direction',
         'end_time': 'EndTime',
+        'internet_firewall_id': 'InternetFirewallId',
+        'ip_type': 'IpType',
         'prio': 'Prio',
         'proto': 'Proto',
         'repeat_days': 'RepeatDays',
@@ -74,7 +78,7 @@ class AddControlPolicyRequest(object):
         'status': 'Status'
     }
 
-    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, direction=None, end_time=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, source=None, source_type=None, start_time=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, dest_port=None, dest_port_type=None, destination=None, destination_type=None, direction=None, end_time=None, internet_firewall_id=None, ip_type=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, source=None, source_type=None, start_time=None, status=None, _configuration=None):  # noqa: E501
         """AddControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +92,8 @@ class AddControlPolicyRequest(object):
         self._destination_type = None
         self._direction = None
         self._end_time = None
+        self._internet_firewall_id = None
+        self._ip_type = None
         self._prio = None
         self._proto = None
         self._repeat_days = None
@@ -112,6 +118,10 @@ class AddControlPolicyRequest(object):
         self.direction = direction
         if end_time is not None:
             self.end_time = end_time
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
+        if ip_type is not None:
+            self.ip_type = ip_type
         if prio is not None:
             self.prio = prio
         self.proto = proto
@@ -333,6 +343,55 @@ class AddControlPolicyRequest(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this AddControlPolicyRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this AddControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this AddControlPolicyRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this AddControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
+
+    @property
+    def ip_type(self):
+        """Gets the ip_type of this AddControlPolicyRequest.  # noqa: E501
+
+
+        :return: The ip_type of this AddControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_type
+
+    @ip_type.setter
+    def ip_type(self, ip_type):
+        """Sets the ip_type of this AddControlPolicyRequest.
+
+
+        :param ip_type: The ip_type of this AddControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["v4", "v6"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ip_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ip_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(ip_type, allowed_values)
+            )
+
+        self._ip_type = ip_type
 
     @property
     def prio(self):

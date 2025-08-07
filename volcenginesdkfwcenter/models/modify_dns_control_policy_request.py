@@ -36,6 +36,7 @@ class ModifyDnsControlPolicyRequest(object):
         'description': 'str',
         'destination': 'str',
         'destination_type': 'str',
+        'internet_firewall_id': 'str',
         'rule_id': 'str',
         'source': 'list[SourceForModifyDnsControlPolicyInput]',
         'status': 'bool'
@@ -45,12 +46,13 @@ class ModifyDnsControlPolicyRequest(object):
         'description': 'Description',
         'destination': 'Destination',
         'destination_type': 'DestinationType',
+        'internet_firewall_id': 'InternetFirewallId',
         'rule_id': 'RuleId',
         'source': 'Source',
         'status': 'Status'
     }
 
-    def __init__(self, description=None, destination=None, destination_type=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, destination=None, destination_type=None, internet_firewall_id=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
         """ModifyDnsControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class ModifyDnsControlPolicyRequest(object):
         self._description = None
         self._destination = None
         self._destination_type = None
+        self._internet_firewall_id = None
         self._rule_id = None
         self._source = None
         self._status = None
@@ -68,6 +71,8 @@ class ModifyDnsControlPolicyRequest(object):
             self.description = description
         self.destination = destination
         self.destination_type = destination_type
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
         self.rule_id = rule_id
         if source is not None:
             self.source = source
@@ -150,6 +155,27 @@ class ModifyDnsControlPolicyRequest(object):
             )
 
         self._destination_type = destination_type
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this ModifyDnsControlPolicyRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this ModifyDnsControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this ModifyDnsControlPolicyRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this ModifyDnsControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     @property
     def rule_id(self):

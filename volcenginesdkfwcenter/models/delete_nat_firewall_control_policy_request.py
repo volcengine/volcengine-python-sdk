@@ -35,16 +35,18 @@ class DeleteNatFirewallControlPolicyRequest(object):
     swagger_types = {
         'direction': 'str',
         'nat_firewall_id': 'str',
-        'rule_id': 'str'
+        'rule_id': 'str',
+        'rule_id_list': 'list[str]'
     }
 
     attribute_map = {
         'direction': 'Direction',
         'nat_firewall_id': 'NatFirewallId',
-        'rule_id': 'RuleId'
+        'rule_id': 'RuleId',
+        'rule_id_list': 'RuleIdList'
     }
 
-    def __init__(self, direction=None, nat_firewall_id=None, rule_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, direction=None, nat_firewall_id=None, rule_id=None, rule_id_list=None, _configuration=None):  # noqa: E501
         """DeleteNatFirewallControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,11 +55,15 @@ class DeleteNatFirewallControlPolicyRequest(object):
         self._direction = None
         self._nat_firewall_id = None
         self._rule_id = None
+        self._rule_id_list = None
         self.discriminator = None
 
         self.direction = direction
         self.nat_firewall_id = nat_firewall_id
-        self.rule_id = rule_id
+        if rule_id is not None:
+            self.rule_id = rule_id
+        if rule_id_list is not None:
+            self.rule_id_list = rule_id_list
 
     @property
     def direction(self):
@@ -130,10 +136,29 @@ class DeleteNatFirewallControlPolicyRequest(object):
         :param rule_id: The rule_id of this DeleteNatFirewallControlPolicyRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and rule_id is None:
-            raise ValueError("Invalid value for `rule_id`, must not be `None`")  # noqa: E501
 
         self._rule_id = rule_id
+
+    @property
+    def rule_id_list(self):
+        """Gets the rule_id_list of this DeleteNatFirewallControlPolicyRequest.  # noqa: E501
+
+
+        :return: The rule_id_list of this DeleteNatFirewallControlPolicyRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._rule_id_list
+
+    @rule_id_list.setter
+    def rule_id_list(self, rule_id_list):
+        """Sets the rule_id_list of this DeleteNatFirewallControlPolicyRequest.
+
+
+        :param rule_id_list: The rule_id_list of this DeleteNatFirewallControlPolicyRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._rule_id_list = rule_id_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

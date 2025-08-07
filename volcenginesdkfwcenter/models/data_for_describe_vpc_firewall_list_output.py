@@ -37,13 +37,21 @@ class DataForDescribeVpcFirewallListOutput(object):
         'bypass_status': 'str',
         'err_message': 'str',
         'firewall_status': 'str',
+        'instance_type': 'int',
         'peak_traffic_within7_day': 'int',
+        'project_name': 'str',
         'region': 'str',
         'route_mode': 'str',
         'route_policy_status': 'str',
+        'schedule_end_time': 'int',
+        'schedule_start_time': 'int',
         'transit_router_description': 'str',
         'transit_router_id': 'str',
         'transit_router_name': 'str',
+        'upgrade_progress': 'float',
+        'upgrade_status': 'str',
+        'upgrade_version_code': 'str',
+        'version_code': 'str',
         'vpc_firewall_id': 'str',
         'vpc_firewall_name': 'str'
     }
@@ -53,18 +61,26 @@ class DataForDescribeVpcFirewallListOutput(object):
         'bypass_status': 'BypassStatus',
         'err_message': 'ErrMessage',
         'firewall_status': 'FirewallStatus',
+        'instance_type': 'InstanceType',
         'peak_traffic_within7_day': 'PeakTrafficWithin7Day',
+        'project_name': 'ProjectName',
         'region': 'Region',
         'route_mode': 'RouteMode',
         'route_policy_status': 'RoutePolicyStatus',
+        'schedule_end_time': 'ScheduleEndTime',
+        'schedule_start_time': 'ScheduleStartTime',
         'transit_router_description': 'TransitRouterDescription',
         'transit_router_id': 'TransitRouterId',
         'transit_router_name': 'TransitRouterName',
+        'upgrade_progress': 'UpgradeProgress',
+        'upgrade_status': 'UpgradeStatus',
+        'upgrade_version_code': 'UpgradeVersionCode',
+        'version_code': 'VersionCode',
         'vpc_firewall_id': 'VpcFirewallId',
         'vpc_firewall_name': 'VpcFirewallName'
     }
 
-    def __init__(self, bandwidth=None, bypass_status=None, err_message=None, firewall_status=None, peak_traffic_within7_day=None, region=None, route_mode=None, route_policy_status=None, transit_router_description=None, transit_router_id=None, transit_router_name=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bypass_status=None, err_message=None, firewall_status=None, instance_type=None, peak_traffic_within7_day=None, project_name=None, region=None, route_mode=None, route_policy_status=None, schedule_end_time=None, schedule_start_time=None, transit_router_description=None, transit_router_id=None, transit_router_name=None, upgrade_progress=None, upgrade_status=None, upgrade_version_code=None, version_code=None, vpc_firewall_id=None, vpc_firewall_name=None, _configuration=None):  # noqa: E501
         """DataForDescribeVpcFirewallListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,13 +90,21 @@ class DataForDescribeVpcFirewallListOutput(object):
         self._bypass_status = None
         self._err_message = None
         self._firewall_status = None
+        self._instance_type = None
         self._peak_traffic_within7_day = None
+        self._project_name = None
         self._region = None
         self._route_mode = None
         self._route_policy_status = None
+        self._schedule_end_time = None
+        self._schedule_start_time = None
         self._transit_router_description = None
         self._transit_router_id = None
         self._transit_router_name = None
+        self._upgrade_progress = None
+        self._upgrade_status = None
+        self._upgrade_version_code = None
+        self._version_code = None
         self._vpc_firewall_id = None
         self._vpc_firewall_name = None
         self.discriminator = None
@@ -93,20 +117,36 @@ class DataForDescribeVpcFirewallListOutput(object):
             self.err_message = err_message
         if firewall_status is not None:
             self.firewall_status = firewall_status
+        if instance_type is not None:
+            self.instance_type = instance_type
         if peak_traffic_within7_day is not None:
             self.peak_traffic_within7_day = peak_traffic_within7_day
+        if project_name is not None:
+            self.project_name = project_name
         if region is not None:
             self.region = region
         if route_mode is not None:
             self.route_mode = route_mode
         if route_policy_status is not None:
             self.route_policy_status = route_policy_status
+        if schedule_end_time is not None:
+            self.schedule_end_time = schedule_end_time
+        if schedule_start_time is not None:
+            self.schedule_start_time = schedule_start_time
         if transit_router_description is not None:
             self.transit_router_description = transit_router_description
         if transit_router_id is not None:
             self.transit_router_id = transit_router_id
         if transit_router_name is not None:
             self.transit_router_name = transit_router_name
+        if upgrade_progress is not None:
+            self.upgrade_progress = upgrade_progress
+        if upgrade_status is not None:
+            self.upgrade_status = upgrade_status
+        if upgrade_version_code is not None:
+            self.upgrade_version_code = upgrade_version_code
+        if version_code is not None:
+            self.version_code = version_code
         if vpc_firewall_id is not None:
             self.vpc_firewall_id = vpc_firewall_id
         if vpc_firewall_name is not None:
@@ -197,6 +237,27 @@ class DataForDescribeVpcFirewallListOutput(object):
         self._firewall_status = firewall_status
 
     @property
+    def instance_type(self):
+        """Gets the instance_type of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The instance_type of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param instance_type: The instance_type of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._instance_type = instance_type
+
+    @property
     def peak_traffic_within7_day(self):
         """Gets the peak_traffic_within7_day of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
 
@@ -216,6 +277,27 @@ class DataForDescribeVpcFirewallListOutput(object):
         """
 
         self._peak_traffic_within7_day = peak_traffic_within7_day
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The project_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param project_name: The project_name of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def region(self):
@@ -281,6 +363,48 @@ class DataForDescribeVpcFirewallListOutput(object):
         self._route_policy_status = route_policy_status
 
     @property
+    def schedule_end_time(self):
+        """Gets the schedule_end_time of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The schedule_end_time of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._schedule_end_time
+
+    @schedule_end_time.setter
+    def schedule_end_time(self, schedule_end_time):
+        """Sets the schedule_end_time of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param schedule_end_time: The schedule_end_time of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._schedule_end_time = schedule_end_time
+
+    @property
+    def schedule_start_time(self):
+        """Gets the schedule_start_time of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The schedule_start_time of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._schedule_start_time
+
+    @schedule_start_time.setter
+    def schedule_start_time(self, schedule_start_time):
+        """Sets the schedule_start_time of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param schedule_start_time: The schedule_start_time of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._schedule_start_time = schedule_start_time
+
+    @property
     def transit_router_description(self):
         """Gets the transit_router_description of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
 
@@ -342,6 +466,90 @@ class DataForDescribeVpcFirewallListOutput(object):
         """
 
         self._transit_router_name = transit_router_name
+
+    @property
+    def upgrade_progress(self):
+        """Gets the upgrade_progress of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The upgrade_progress of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._upgrade_progress
+
+    @upgrade_progress.setter
+    def upgrade_progress(self, upgrade_progress):
+        """Sets the upgrade_progress of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param upgrade_progress: The upgrade_progress of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._upgrade_progress = upgrade_progress
+
+    @property
+    def upgrade_status(self):
+        """Gets the upgrade_status of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The upgrade_status of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._upgrade_status
+
+    @upgrade_status.setter
+    def upgrade_status(self, upgrade_status):
+        """Sets the upgrade_status of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param upgrade_status: The upgrade_status of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._upgrade_status = upgrade_status
+
+    @property
+    def upgrade_version_code(self):
+        """Gets the upgrade_version_code of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The upgrade_version_code of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._upgrade_version_code
+
+    @upgrade_version_code.setter
+    def upgrade_version_code(self, upgrade_version_code):
+        """Sets the upgrade_version_code of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param upgrade_version_code: The upgrade_version_code of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._upgrade_version_code = upgrade_version_code
+
+    @property
+    def version_code(self):
+        """Gets the version_code of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+
+
+        :return: The version_code of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._version_code
+
+    @version_code.setter
+    def version_code(self, version_code):
+        """Sets the version_code of this DataForDescribeVpcFirewallListOutput.
+
+
+        :param version_code: The version_code of this DataForDescribeVpcFirewallListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._version_code = version_code
 
     @property
     def vpc_firewall_id(self):

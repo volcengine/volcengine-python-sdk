@@ -33,24 +33,29 @@ class DeleteAddressBookResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'group_uuid': 'str'
+        'group_uuid': 'str',
+        'group_uuid_list': 'list[str]'
     }
 
     attribute_map = {
-        'group_uuid': 'GroupUuid'
+        'group_uuid': 'GroupUuid',
+        'group_uuid_list': 'GroupUuidList'
     }
 
-    def __init__(self, group_uuid=None, _configuration=None):  # noqa: E501
+    def __init__(self, group_uuid=None, group_uuid_list=None, _configuration=None):  # noqa: E501
         """DeleteAddressBookResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._group_uuid = None
+        self._group_uuid_list = None
         self.discriminator = None
 
         if group_uuid is not None:
             self.group_uuid = group_uuid
+        if group_uuid_list is not None:
+            self.group_uuid_list = group_uuid_list
 
     @property
     def group_uuid(self):
@@ -72,6 +77,27 @@ class DeleteAddressBookResponse(object):
         """
 
         self._group_uuid = group_uuid
+
+    @property
+    def group_uuid_list(self):
+        """Gets the group_uuid_list of this DeleteAddressBookResponse.  # noqa: E501
+
+
+        :return: The group_uuid_list of this DeleteAddressBookResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._group_uuid_list
+
+    @group_uuid_list.setter
+    def group_uuid_list(self, group_uuid_list):
+        """Sets the group_uuid_list of this DeleteAddressBookResponse.
+
+
+        :param group_uuid_list: The group_uuid_list of this DeleteAddressBookResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._group_uuid_list = group_uuid_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

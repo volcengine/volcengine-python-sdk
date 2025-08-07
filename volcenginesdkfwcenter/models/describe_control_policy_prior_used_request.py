@@ -33,23 +33,28 @@ class DescribeControlPolicyPriorUsedRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'direction': 'str'
+        'direction': 'str',
+        'internet_firewall_id': 'str'
     }
 
     attribute_map = {
-        'direction': 'Direction'
+        'direction': 'Direction',
+        'internet_firewall_id': 'InternetFirewallId'
     }
 
-    def __init__(self, direction=None, _configuration=None):  # noqa: E501
+    def __init__(self, direction=None, internet_firewall_id=None, _configuration=None):  # noqa: E501
         """DescribeControlPolicyPriorUsedRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._direction = None
+        self._internet_firewall_id = None
         self.discriminator = None
 
         self.direction = direction
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
 
     @property
     def direction(self):
@@ -80,6 +85,27 @@ class DescribeControlPolicyPriorUsedRequest(object):
             )
 
         self._direction = direction
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this DescribeControlPolicyPriorUsedRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this DescribeControlPolicyPriorUsedRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this DescribeControlPolicyPriorUsedRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this DescribeControlPolicyPriorUsedRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

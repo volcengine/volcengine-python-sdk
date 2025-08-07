@@ -33,29 +33,55 @@ class UpdateAssetsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'internet_firewall_id': 'str',
         'asset_ips': 'list[str]',
         'enable': 'bool'
     }
 
     attribute_map = {
+        'internet_firewall_id': 'InternetFirewallId',
         'asset_ips': 'asset_ips',
         'enable': 'enable'
     }
 
-    def __init__(self, asset_ips=None, enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, internet_firewall_id=None, asset_ips=None, enable=None, _configuration=None):  # noqa: E501
         """UpdateAssetsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._internet_firewall_id = None
         self._asset_ips = None
         self._enable = None
         self.discriminator = None
 
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
         if asset_ips is not None:
             self.asset_ips = asset_ips
         if enable is not None:
             self.enable = enable
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this UpdateAssetsRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this UpdateAssetsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this UpdateAssetsRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this UpdateAssetsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     @property
     def asset_ips(self):

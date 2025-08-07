@@ -33,71 +33,71 @@ class UpdateAssetSwitchResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'ip': 'str',
-        'region': 'str'
+        'asset_list': 'list[AssetListForUpdateAssetSwitchOutput]',
+        'control_policy_list': 'list[ControlPolicyListForUpdateAssetSwitchOutput]'
     }
 
     attribute_map = {
-        'ip': 'IP',
-        'region': 'Region'
+        'asset_list': 'AssetList',
+        'control_policy_list': 'ControlPolicyList'
     }
 
-    def __init__(self, ip=None, region=None, _configuration=None):  # noqa: E501
+    def __init__(self, asset_list=None, control_policy_list=None, _configuration=None):  # noqa: E501
         """UpdateAssetSwitchResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._ip = None
-        self._region = None
+        self._asset_list = None
+        self._control_policy_list = None
         self.discriminator = None
 
-        if ip is not None:
-            self.ip = ip
-        if region is not None:
-            self.region = region
+        if asset_list is not None:
+            self.asset_list = asset_list
+        if control_policy_list is not None:
+            self.control_policy_list = control_policy_list
 
     @property
-    def ip(self):
-        """Gets the ip of this UpdateAssetSwitchResponse.  # noqa: E501
+    def asset_list(self):
+        """Gets the asset_list of this UpdateAssetSwitchResponse.  # noqa: E501
 
 
-        :return: The ip of this UpdateAssetSwitchResponse.  # noqa: E501
-        :rtype: str
+        :return: The asset_list of this UpdateAssetSwitchResponse.  # noqa: E501
+        :rtype: list[AssetListForUpdateAssetSwitchOutput]
         """
-        return self._ip
+        return self._asset_list
 
-    @ip.setter
-    def ip(self, ip):
-        """Sets the ip of this UpdateAssetSwitchResponse.
+    @asset_list.setter
+    def asset_list(self, asset_list):
+        """Sets the asset_list of this UpdateAssetSwitchResponse.
 
 
-        :param ip: The ip of this UpdateAssetSwitchResponse.  # noqa: E501
-        :type: str
+        :param asset_list: The asset_list of this UpdateAssetSwitchResponse.  # noqa: E501
+        :type: list[AssetListForUpdateAssetSwitchOutput]
         """
 
-        self._ip = ip
+        self._asset_list = asset_list
 
     @property
-    def region(self):
-        """Gets the region of this UpdateAssetSwitchResponse.  # noqa: E501
+    def control_policy_list(self):
+        """Gets the control_policy_list of this UpdateAssetSwitchResponse.  # noqa: E501
 
 
-        :return: The region of this UpdateAssetSwitchResponse.  # noqa: E501
-        :rtype: str
+        :return: The control_policy_list of this UpdateAssetSwitchResponse.  # noqa: E501
+        :rtype: list[ControlPolicyListForUpdateAssetSwitchOutput]
         """
-        return self._region
+        return self._control_policy_list
 
-    @region.setter
-    def region(self, region):
-        """Sets the region of this UpdateAssetSwitchResponse.
+    @control_policy_list.setter
+    def control_policy_list(self, control_policy_list):
+        """Sets the control_policy_list of this UpdateAssetSwitchResponse.
 
 
-        :param region: The region of this UpdateAssetSwitchResponse.  # noqa: E501
-        :type: str
+        :param control_policy_list: The control_policy_list of this UpdateAssetSwitchResponse.  # noqa: E501
+        :type: list[ControlPolicyListForUpdateAssetSwitchOutput]
         """
 
-        self._region = region
+        self._control_policy_list = control_policy_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

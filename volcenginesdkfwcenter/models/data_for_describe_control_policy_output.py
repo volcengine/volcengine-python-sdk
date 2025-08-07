@@ -39,15 +39,19 @@ class DataForDescribeControlPolicyOutput(object):
         'dest_port': 'str',
         'dest_port_group_type': 'str',
         'dest_port_list': 'list[str]',
+        'dest_port_list_v1': 'list[DestPortListV1ForDescribeControlPolicyOutput]',
         'dest_port_type': 'str',
         'destination': 'str',
         'destination_cidr_list': 'list[str]',
+        'destination_cidr_list_v1': 'list[DestinationCidrListV1ForDescribeControlPolicyOutput]',
+        'destination_domain_list': 'list[str]',
         'destination_group_type': 'str',
         'destination_type': 'str',
         'direction': 'str',
         'effect_status': 'int',
         'end_time': 'int',
         'hit_cnt': 'int',
+        'ip_type': 'str',
         'is_effected': 'bool',
         'prio': 'int',
         'proto': 'str',
@@ -58,6 +62,7 @@ class DataForDescribeControlPolicyOutput(object):
         'rule_id': 'str',
         'source': 'str',
         'source_cidr_list': 'list[str]',
+        'source_cidr_list_v1': 'list[SourceCidrListV1ForDescribeControlPolicyOutput]',
         'source_group_type': 'str',
         'source_type': 'str',
         'start_time': 'int',
@@ -73,15 +78,19 @@ class DataForDescribeControlPolicyOutput(object):
         'dest_port': 'DestPort',
         'dest_port_group_type': 'DestPortGroupType',
         'dest_port_list': 'DestPortList',
+        'dest_port_list_v1': 'DestPortListV1',
         'dest_port_type': 'DestPortType',
         'destination': 'Destination',
         'destination_cidr_list': 'DestinationCidrList',
+        'destination_cidr_list_v1': 'DestinationCidrListV1',
+        'destination_domain_list': 'DestinationDomainList',
         'destination_group_type': 'DestinationGroupType',
         'destination_type': 'DestinationType',
         'direction': 'Direction',
         'effect_status': 'EffectStatus',
         'end_time': 'EndTime',
         'hit_cnt': 'HitCnt',
+        'ip_type': 'IpType',
         'is_effected': 'IsEffected',
         'prio': 'Prio',
         'proto': 'Proto',
@@ -92,6 +101,7 @@ class DataForDescribeControlPolicyOutput(object):
         'rule_id': 'RuleId',
         'source': 'Source',
         'source_cidr_list': 'SourceCidrList',
+        'source_cidr_list_v1': 'SourceCidrListV1',
         'source_group_type': 'SourceGroupType',
         'source_type': 'SourceType',
         'start_time': 'StartTime',
@@ -100,7 +110,7 @@ class DataForDescribeControlPolicyOutput(object):
         'use_count': 'UseCount'
     }
 
-    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_type=None, dest_port_list=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_group_type=None, destination_type=None, direction=None, effect_status=None, end_time=None, hit_cnt=None, is_effected=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_type=None, dest_port_list=None, dest_port_list_v1=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_cidr_list_v1=None, destination_domain_list=None, destination_group_type=None, destination_type=None, direction=None, effect_status=None, end_time=None, hit_cnt=None, ip_type=None, is_effected=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_cidr_list_v1=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, _configuration=None):  # noqa: E501
         """DataForDescribeControlPolicyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -112,15 +122,19 @@ class DataForDescribeControlPolicyOutput(object):
         self._dest_port = None
         self._dest_port_group_type = None
         self._dest_port_list = None
+        self._dest_port_list_v1 = None
         self._dest_port_type = None
         self._destination = None
         self._destination_cidr_list = None
+        self._destination_cidr_list_v1 = None
+        self._destination_domain_list = None
         self._destination_group_type = None
         self._destination_type = None
         self._direction = None
         self._effect_status = None
         self._end_time = None
         self._hit_cnt = None
+        self._ip_type = None
         self._is_effected = None
         self._prio = None
         self._proto = None
@@ -131,6 +145,7 @@ class DataForDescribeControlPolicyOutput(object):
         self._rule_id = None
         self._source = None
         self._source_cidr_list = None
+        self._source_cidr_list_v1 = None
         self._source_group_type = None
         self._source_type = None
         self._start_time = None
@@ -151,12 +166,18 @@ class DataForDescribeControlPolicyOutput(object):
             self.dest_port_group_type = dest_port_group_type
         if dest_port_list is not None:
             self.dest_port_list = dest_port_list
+        if dest_port_list_v1 is not None:
+            self.dest_port_list_v1 = dest_port_list_v1
         if dest_port_type is not None:
             self.dest_port_type = dest_port_type
         if destination is not None:
             self.destination = destination
         if destination_cidr_list is not None:
             self.destination_cidr_list = destination_cidr_list
+        if destination_cidr_list_v1 is not None:
+            self.destination_cidr_list_v1 = destination_cidr_list_v1
+        if destination_domain_list is not None:
+            self.destination_domain_list = destination_domain_list
         if destination_group_type is not None:
             self.destination_group_type = destination_group_type
         if destination_type is not None:
@@ -169,6 +190,8 @@ class DataForDescribeControlPolicyOutput(object):
             self.end_time = end_time
         if hit_cnt is not None:
             self.hit_cnt = hit_cnt
+        if ip_type is not None:
+            self.ip_type = ip_type
         if is_effected is not None:
             self.is_effected = is_effected
         if prio is not None:
@@ -189,6 +212,8 @@ class DataForDescribeControlPolicyOutput(object):
             self.source = source
         if source_cidr_list is not None:
             self.source_cidr_list = source_cidr_list
+        if source_cidr_list_v1 is not None:
+            self.source_cidr_list_v1 = source_cidr_list_v1
         if source_group_type is not None:
             self.source_group_type = source_group_type
         if source_type is not None:
@@ -329,6 +354,27 @@ class DataForDescribeControlPolicyOutput(object):
         self._dest_port_list = dest_port_list
 
     @property
+    def dest_port_list_v1(self):
+        """Gets the dest_port_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+
+
+        :return: The dest_port_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :rtype: list[DestPortListV1ForDescribeControlPolicyOutput]
+        """
+        return self._dest_port_list_v1
+
+    @dest_port_list_v1.setter
+    def dest_port_list_v1(self, dest_port_list_v1):
+        """Sets the dest_port_list_v1 of this DataForDescribeControlPolicyOutput.
+
+
+        :param dest_port_list_v1: The dest_port_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :type: list[DestPortListV1ForDescribeControlPolicyOutput]
+        """
+
+        self._dest_port_list_v1 = dest_port_list_v1
+
+    @property
     def dest_port_type(self):
         """Gets the dest_port_type of this DataForDescribeControlPolicyOutput.  # noqa: E501
 
@@ -390,6 +436,48 @@ class DataForDescribeControlPolicyOutput(object):
         """
 
         self._destination_cidr_list = destination_cidr_list
+
+    @property
+    def destination_cidr_list_v1(self):
+        """Gets the destination_cidr_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+
+
+        :return: The destination_cidr_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :rtype: list[DestinationCidrListV1ForDescribeControlPolicyOutput]
+        """
+        return self._destination_cidr_list_v1
+
+    @destination_cidr_list_v1.setter
+    def destination_cidr_list_v1(self, destination_cidr_list_v1):
+        """Sets the destination_cidr_list_v1 of this DataForDescribeControlPolicyOutput.
+
+
+        :param destination_cidr_list_v1: The destination_cidr_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :type: list[DestinationCidrListV1ForDescribeControlPolicyOutput]
+        """
+
+        self._destination_cidr_list_v1 = destination_cidr_list_v1
+
+    @property
+    def destination_domain_list(self):
+        """Gets the destination_domain_list of this DataForDescribeControlPolicyOutput.  # noqa: E501
+
+
+        :return: The destination_domain_list of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._destination_domain_list
+
+    @destination_domain_list.setter
+    def destination_domain_list(self, destination_domain_list):
+        """Sets the destination_domain_list of this DataForDescribeControlPolicyOutput.
+
+
+        :param destination_domain_list: The destination_domain_list of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._destination_domain_list = destination_domain_list
 
     @property
     def destination_group_type(self):
@@ -516,6 +604,27 @@ class DataForDescribeControlPolicyOutput(object):
         """
 
         self._hit_cnt = hit_cnt
+
+    @property
+    def ip_type(self):
+        """Gets the ip_type of this DataForDescribeControlPolicyOutput.  # noqa: E501
+
+
+        :return: The ip_type of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_type
+
+    @ip_type.setter
+    def ip_type(self, ip_type):
+        """Sets the ip_type of this DataForDescribeControlPolicyOutput.
+
+
+        :param ip_type: The ip_type of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_type = ip_type
 
     @property
     def is_effected(self):
@@ -726,6 +835,27 @@ class DataForDescribeControlPolicyOutput(object):
         """
 
         self._source_cidr_list = source_cidr_list
+
+    @property
+    def source_cidr_list_v1(self):
+        """Gets the source_cidr_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+
+
+        :return: The source_cidr_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :rtype: list[SourceCidrListV1ForDescribeControlPolicyOutput]
+        """
+        return self._source_cidr_list_v1
+
+    @source_cidr_list_v1.setter
+    def source_cidr_list_v1(self, source_cidr_list_v1):
+        """Sets the source_cidr_list_v1 of this DataForDescribeControlPolicyOutput.
+
+
+        :param source_cidr_list_v1: The source_cidr_list_v1 of this DataForDescribeControlPolicyOutput.  # noqa: E501
+        :type: list[SourceCidrListV1ForDescribeControlPolicyOutput]
+        """
+
+        self._source_cidr_list_v1 = source_cidr_list_v1
 
     @property
     def source_group_type(self):
