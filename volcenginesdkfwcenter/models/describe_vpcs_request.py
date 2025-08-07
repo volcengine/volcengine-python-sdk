@@ -33,17 +33,45 @@ class DescribeVpcsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'internet_firewall_id': 'str'
     }
 
     attribute_map = {
+        'internet_firewall_id': 'InternetFirewallId'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, internet_firewall_id=None, _configuration=None):  # noqa: E501
         """DescribeVpcsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._internet_firewall_id = None
         self.discriminator = None
+
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this DescribeVpcsRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this DescribeVpcsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this DescribeVpcsRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this DescribeVpcsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

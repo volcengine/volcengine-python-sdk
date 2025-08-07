@@ -36,6 +36,7 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         'action': 'list[str]',
         'description': 'str',
         'destination': 'str',
+        'order_dir': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'proto': 'list[str]',
@@ -50,6 +51,7 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         'action': 'Action',
         'description': 'Description',
         'destination': 'Destination',
+        'order_dir': 'OrderDir',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'proto': 'Proto',
@@ -60,7 +62,7 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         'vpc_firewall_id': 'VpcFirewallId'
     }
 
-    def __init__(self, action=None, description=None, destination=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action=None, description=None, destination=None, order_dir=None, page_number=None, page_size=None, proto=None, repeat_type=None, rule_id=None, source=None, status=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
         """DescribeVpcFirewallAclRuleListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         self._action = None
         self._description = None
         self._destination = None
+        self._order_dir = None
         self._page_number = None
         self._page_size = None
         self._proto = None
@@ -85,6 +88,8 @@ class DescribeVpcFirewallAclRuleListRequest(object):
             self.description = description
         if destination is not None:
             self.destination = destination
+        if order_dir is not None:
+            self.order_dir = order_dir
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -165,6 +170,34 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         self._destination = destination
 
     @property
+    def order_dir(self):
+        """Gets the order_dir of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+
+
+        :return: The order_dir of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_dir
+
+    @order_dir.setter
+    def order_dir(self, order_dir):
+        """Sets the order_dir of this DescribeVpcFirewallAclRuleListRequest.
+
+
+        :param order_dir: The order_dir of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["asc", "desc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                order_dir not in allowed_values):
+            raise ValueError(
+                "Invalid value for `order_dir` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_dir, allowed_values)
+            )
+
+        self._order_dir = order_dir
+
+    @property
     def page_number(self):
         """Gets the page_number of this DescribeVpcFirewallAclRuleListRequest.  # noqa: E501
 
@@ -204,8 +237,8 @@ class DescribeVpcFirewallAclRuleListRequest(object):
         :type: int
         """
         if (self._configuration.client_side_validation and
-                page_size is not None and page_size > 100):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
+                page_size is not None and page_size > 1000):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000`")  # noqa: E501
 
         self._page_size = page_size
 

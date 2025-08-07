@@ -37,6 +37,7 @@ class GetSDKTokenAPIRequest(object):
         'avatar_url': 'str',
         'custom_comment': 'str',
         'invite_token': 'str',
+        'level_id': 'int',
         'mode': 'int',
         'nickname': 'str',
         'user_id_str': 'str'
@@ -47,12 +48,13 @@ class GetSDKTokenAPIRequest(object):
         'avatar_url': 'AvatarUrl',
         'custom_comment': 'CustomComment',
         'invite_token': 'InviteToken',
+        'level_id': 'LevelId',
         'mode': 'Mode',
         'nickname': 'Nickname',
         'user_id_str': 'UserIdStr'
     }
 
-    def __init__(self, activity_id=None, avatar_url=None, custom_comment=None, invite_token=None, mode=None, nickname=None, user_id_str=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, avatar_url=None, custom_comment=None, invite_token=None, level_id=None, mode=None, nickname=None, user_id_str=None, _configuration=None):  # noqa: E501
         """GetSDKTokenAPIRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class GetSDKTokenAPIRequest(object):
         self._avatar_url = None
         self._custom_comment = None
         self._invite_token = None
+        self._level_id = None
         self._mode = None
         self._nickname = None
         self._user_id_str = None
@@ -74,6 +77,8 @@ class GetSDKTokenAPIRequest(object):
             self.custom_comment = custom_comment
         if invite_token is not None:
             self.invite_token = invite_token
+        if level_id is not None:
+            self.level_id = level_id
         self.mode = mode
         if nickname is not None:
             self.nickname = nickname
@@ -165,6 +170,27 @@ class GetSDKTokenAPIRequest(object):
         """
 
         self._invite_token = invite_token
+
+    @property
+    def level_id(self):
+        """Gets the level_id of this GetSDKTokenAPIRequest.  # noqa: E501
+
+
+        :return: The level_id of this GetSDKTokenAPIRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._level_id
+
+    @level_id.setter
+    def level_id(self, level_id):
+        """Sets the level_id of this GetSDKTokenAPIRequest.
+
+
+        :param level_id: The level_id of this GetSDKTokenAPIRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._level_id = level_id
 
     @property
     def mode(self):

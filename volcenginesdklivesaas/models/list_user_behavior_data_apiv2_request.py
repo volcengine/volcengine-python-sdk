@@ -38,6 +38,8 @@ class ListUserBehaviorDataAPIV2Request(object):
         'end_time': 'int',
         'external_user_id': 'str',
         'extra': 'str',
+        'inviter_external_id': 'str',
+        'inviter_id': 'int',
         'is_merge': 'int',
         'is_merge_user_id': 'int',
         'name': 'str',
@@ -45,7 +47,8 @@ class ListUserBehaviorDataAPIV2Request(object):
         'page_no': 'int',
         'play_status': 'int',
         'scroll_id': 'str',
-        'start_time': 'int'
+        'start_time': 'int',
+        'user_id': 'int'
     }
 
     attribute_map = {
@@ -54,6 +57,8 @@ class ListUserBehaviorDataAPIV2Request(object):
         'end_time': 'EndTime',
         'external_user_id': 'ExternalUserId',
         'extra': 'Extra',
+        'inviter_external_id': 'InviterExternalId',
+        'inviter_id': 'InviterId',
         'is_merge': 'IsMerge',
         'is_merge_user_id': 'IsMergeUserId',
         'name': 'Name',
@@ -61,10 +66,11 @@ class ListUserBehaviorDataAPIV2Request(object):
         'page_no': 'PageNo',
         'play_status': 'PlayStatus',
         'scroll_id': 'ScrollId',
-        'start_time': 'StartTime'
+        'start_time': 'StartTime',
+        'user_id': 'UserId'
     }
 
-    def __init__(self, activity_id=None, channel=None, end_time=None, external_user_id=None, extra=None, is_merge=None, is_merge_user_id=None, name=None, page_item_count=None, page_no=None, play_status=None, scroll_id=None, start_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, channel=None, end_time=None, external_user_id=None, extra=None, inviter_external_id=None, inviter_id=None, is_merge=None, is_merge_user_id=None, name=None, page_item_count=None, page_no=None, play_status=None, scroll_id=None, start_time=None, user_id=None, _configuration=None):  # noqa: E501
         """ListUserBehaviorDataAPIV2Request - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +81,8 @@ class ListUserBehaviorDataAPIV2Request(object):
         self._end_time = None
         self._external_user_id = None
         self._extra = None
+        self._inviter_external_id = None
+        self._inviter_id = None
         self._is_merge = None
         self._is_merge_user_id = None
         self._name = None
@@ -83,6 +91,7 @@ class ListUserBehaviorDataAPIV2Request(object):
         self._play_status = None
         self._scroll_id = None
         self._start_time = None
+        self._user_id = None
         self.discriminator = None
 
         self.activity_id = activity_id
@@ -94,6 +103,10 @@ class ListUserBehaviorDataAPIV2Request(object):
             self.external_user_id = external_user_id
         if extra is not None:
             self.extra = extra
+        if inviter_external_id is not None:
+            self.inviter_external_id = inviter_external_id
+        if inviter_id is not None:
+            self.inviter_id = inviter_id
         if is_merge is not None:
             self.is_merge = is_merge
         if is_merge_user_id is not None:
@@ -110,6 +123,8 @@ class ListUserBehaviorDataAPIV2Request(object):
             self.scroll_id = scroll_id
         if start_time is not None:
             self.start_time = start_time
+        if user_id is not None:
+            self.user_id = user_id
 
     @property
     def activity_id(self):
@@ -217,6 +232,48 @@ class ListUserBehaviorDataAPIV2Request(object):
         """
 
         self._extra = extra
+
+    @property
+    def inviter_external_id(self):
+        """Gets the inviter_external_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+
+
+        :return: The inviter_external_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+        :rtype: str
+        """
+        return self._inviter_external_id
+
+    @inviter_external_id.setter
+    def inviter_external_id(self, inviter_external_id):
+        """Sets the inviter_external_id of this ListUserBehaviorDataAPIV2Request.
+
+
+        :param inviter_external_id: The inviter_external_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+        :type: str
+        """
+
+        self._inviter_external_id = inviter_external_id
+
+    @property
+    def inviter_id(self):
+        """Gets the inviter_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+
+
+        :return: The inviter_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+        :rtype: int
+        """
+        return self._inviter_id
+
+    @inviter_id.setter
+    def inviter_id(self, inviter_id):
+        """Sets the inviter_id of this ListUserBehaviorDataAPIV2Request.
+
+
+        :param inviter_id: The inviter_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+        :type: int
+        """
+
+        self._inviter_id = inviter_id
 
     @property
     def is_merge(self):
@@ -385,6 +442,27 @@ class ListUserBehaviorDataAPIV2Request(object):
         """
 
         self._start_time = start_time
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+
+
+        :return: The user_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this ListUserBehaviorDataAPIV2Request.
+
+
+        :param user_id: The user_id of this ListUserBehaviorDataAPIV2Request.  # noqa: E501
+        :type: int
+        """
+
+        self._user_id = user_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

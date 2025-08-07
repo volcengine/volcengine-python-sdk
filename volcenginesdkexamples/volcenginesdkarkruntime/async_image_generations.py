@@ -29,7 +29,7 @@ async def main():
     result = client.images.generate(
         model="${YOUR_SEEDEDIT_ENDPOINT_ID}",
         prompt="龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
-        image="https://an-test-imgs.tos-cn-beijing.volces.com/avi/9m_001.jpg",
+        image="${YOUR_IMAGE_URL}",
         seed=1234567890,
         watermark=True,
         size="adaptive",

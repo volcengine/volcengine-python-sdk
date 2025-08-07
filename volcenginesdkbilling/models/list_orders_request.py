@@ -64,12 +64,18 @@ class ListOrdersRequest(object):
         self._status = None
         self.discriminator = None
 
-        self.create_time_end = create_time_end
-        self.create_time_start = create_time_start
-        self.max_results = max_results
-        self.next_token = next_token
-        self.order_type = order_type
-        self.status = status
+        if create_time_end is not None:
+            self.create_time_end = create_time_end
+        if create_time_start is not None:
+            self.create_time_start = create_time_start
+        if max_results is not None:
+            self.max_results = max_results
+        if next_token is not None:
+            self.next_token = next_token
+        if order_type is not None:
+            self.order_type = order_type
+        if status is not None:
+            self.status = status
 
     @property
     def create_time_end(self):
@@ -89,8 +95,6 @@ class ListOrdersRequest(object):
         :param create_time_end: The create_time_end of this ListOrdersRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and create_time_end is None:
-            raise ValueError("Invalid value for `create_time_end`, must not be `None`")  # noqa: E501
 
         self._create_time_end = create_time_end
 
@@ -112,8 +116,6 @@ class ListOrdersRequest(object):
         :param create_time_start: The create_time_start of this ListOrdersRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and create_time_start is None:
-            raise ValueError("Invalid value for `create_time_start`, must not be `None`")  # noqa: E501
 
         self._create_time_start = create_time_start
 
@@ -135,8 +137,6 @@ class ListOrdersRequest(object):
         :param max_results: The max_results of this ListOrdersRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and max_results is None:
-            raise ValueError("Invalid value for `max_results`, must not be `None`")  # noqa: E501
 
         self._max_results = max_results
 
@@ -158,8 +158,6 @@ class ListOrdersRequest(object):
         :param next_token: The next_token of this ListOrdersRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and next_token is None:
-            raise ValueError("Invalid value for `next_token`, must not be `None`")  # noqa: E501
 
         self._next_token = next_token
 
@@ -181,8 +179,6 @@ class ListOrdersRequest(object):
         :param order_type: The order_type of this ListOrdersRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and order_type is None:
-            raise ValueError("Invalid value for `order_type`, must not be `None`")  # noqa: E501
 
         self._order_type = order_type
 
@@ -204,8 +200,6 @@ class ListOrdersRequest(object):
         :param status: The status of this ListOrdersRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and status is None:
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 

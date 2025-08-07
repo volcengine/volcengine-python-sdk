@@ -37,7 +37,9 @@ class DataForAssetListOutput(object):
         'instance_id': 'str',
         'eip_id': 'str',
         'enable': 'bool',
+        'instance_type': 'str',
         'ip': 'str',
+        'ip_type': 'str',
         'latest_7_days_peak_traffic': 'int',
         'name': 'str',
         'region': 'str',
@@ -50,7 +52,9 @@ class DataForAssetListOutput(object):
         'instance_id': 'InstanceID',
         'eip_id': 'eip_id',
         'enable': 'enable',
+        'instance_type': 'instance_type',
         'ip': 'ip',
+        'ip_type': 'ip_type',
         'latest_7_days_peak_traffic': 'latest_7_days_peak_traffic',
         'name': 'name',
         'region': 'region',
@@ -58,7 +62,7 @@ class DataForAssetListOutput(object):
         'type': 'type'
     }
 
-    def __init__(self, account_id=None, instance_id=None, eip_id=None, enable=None, ip=None, latest_7_days_peak_traffic=None, name=None, region=None, region_n=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, instance_id=None, eip_id=None, enable=None, instance_type=None, ip=None, ip_type=None, latest_7_days_peak_traffic=None, name=None, region=None, region_n=None, type=None, _configuration=None):  # noqa: E501
         """DataForAssetListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,7 +72,9 @@ class DataForAssetListOutput(object):
         self._instance_id = None
         self._eip_id = None
         self._enable = None
+        self._instance_type = None
         self._ip = None
+        self._ip_type = None
         self._latest_7_days_peak_traffic = None
         self._name = None
         self._region = None
@@ -84,8 +90,12 @@ class DataForAssetListOutput(object):
             self.eip_id = eip_id
         if enable is not None:
             self.enable = enable
+        if instance_type is not None:
+            self.instance_type = instance_type
         if ip is not None:
             self.ip = ip
+        if ip_type is not None:
+            self.ip_type = ip_type
         if latest_7_days_peak_traffic is not None:
             self.latest_7_days_peak_traffic = latest_7_days_peak_traffic
         if name is not None:
@@ -182,6 +192,27 @@ class DataForAssetListOutput(object):
         self._enable = enable
 
     @property
+    def instance_type(self):
+        """Gets the instance_type of this DataForAssetListOutput.  # noqa: E501
+
+
+        :return: The instance_type of this DataForAssetListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this DataForAssetListOutput.
+
+
+        :param instance_type: The instance_type of this DataForAssetListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type = instance_type
+
+    @property
     def ip(self):
         """Gets the ip of this DataForAssetListOutput.  # noqa: E501
 
@@ -201,6 +232,27 @@ class DataForAssetListOutput(object):
         """
 
         self._ip = ip
+
+    @property
+    def ip_type(self):
+        """Gets the ip_type of this DataForAssetListOutput.  # noqa: E501
+
+
+        :return: The ip_type of this DataForAssetListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_type
+
+    @ip_type.setter
+    def ip_type(self, ip_type):
+        """Sets the ip_type of this DataForAssetListOutput.
+
+
+        :param ip_type: The ip_type of this DataForAssetListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_type = ip_type
 
     @property
     def latest_7_days_peak_traffic(self):

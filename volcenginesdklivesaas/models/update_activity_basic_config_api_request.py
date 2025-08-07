@@ -51,10 +51,10 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'is_announcement_enable': 'int',
         'is_auto_end_enable': 'int',
         'is_auto_start_enable': 'int',
+        'is_avatar_show_enable': 'int',
         'is_background_blur': 'int',
         'is_color_sync': 'int',
         'is_comment_translate_enable': 'int',
-        'is_count_down_enable': 'int',
         'is_countdown_enable': 'int',
         'is_cover_image_enable': 'int',
         'is_feedback_enable': 'int',
@@ -77,6 +77,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'is_thumb_up_enable': 'int',
         'is_thumb_up_number_enable': 'int',
         'is_time_shift': 'int',
+        'is_viewer_level_show_enable': 'int',
         'is_watermark_image_enable': 'int',
         'language_type': 'list[int]',
         'live_time': 'int',
@@ -140,10 +141,10 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'is_announcement_enable': 'IsAnnouncementEnable',
         'is_auto_end_enable': 'IsAutoEndEnable',
         'is_auto_start_enable': 'IsAutoStartEnable',
+        'is_avatar_show_enable': 'IsAvatarShowEnable',
         'is_background_blur': 'IsBackgroundBlur',
         'is_color_sync': 'IsColorSync',
         'is_comment_translate_enable': 'IsCommentTranslateEnable',
-        'is_count_down_enable': 'IsCountDownEnable',
         'is_countdown_enable': 'IsCountdownEnable',
         'is_cover_image_enable': 'IsCoverImageEnable',
         'is_feedback_enable': 'IsFeedbackEnable',
@@ -166,6 +167,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'is_thumb_up_enable': 'IsThumbUpEnable',
         'is_thumb_up_number_enable': 'IsThumbUpNumberEnable',
         'is_time_shift': 'IsTimeShift',
+        'is_viewer_level_show_enable': 'IsViewerLevelShowEnable',
         'is_watermark_image_enable': 'IsWatermarkImageEnable',
         'language_type': 'LanguageType',
         'live_time': 'LiveTime',
@@ -210,7 +212,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'watermark_position': 'WatermarkPosition'
     }
 
-    def __init__(self, account_id=None, activity_id=None, announcement=None, auto_reservation_window_enable=None, auto_start_type=None, background_color=None, color_theme_index=None, config_version=None, cover_image_url=None, default_subtitle_language=None, end_time=None, feedback_message=None, font_color=None, header_image_url=None, interaction_color=None, is_announcement_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_background_blur=None, is_color_sync=None, is_comment_translate_enable=None, is_count_down_enable=None, is_countdown_enable=None, is_cover_image_enable=None, is_feedback_enable=None, is_header_image_enable=None, is_language_enable=None, is_live_bullet_chat=None, is_mobile_back_image_enable=None, is_pc_header_image_enable=None, is_page_limit_enable=None, is_pc_back_image_enable=None, is_people_count_enable=None, is_player_top_enable=None, is_preview_prompt_enable=None, is_preview_video_enable=None, is_replay_auto_online_enable=None, is_replay_bullet_chat=None, is_reservation_enable=None, is_reservation_sms_enable=None, is_share_icon_enable=None, is_thumb_up_enable=None, is_thumb_up_number_enable=None, is_time_shift=None, is_watermark_image_enable=None, language_type=None, live_time=None, live_zone=None, mobile_back_image_url=None, mobile_back_image_url_default=None, mobile_background_color=None, mobile_chat_background_color=None, mobile_login_background_image_url=None, name=None, open_live_avextractor_task=None, pc_header_image_url=None, page_limit_type=None, pc_back_image_url=None, pc_back_image_url_default=None, pc_login_background_image_url=None, player_top_type=None, presenter_chat_color=None, preview_prompt=None, preview_video_cover_image=None, preview_video_id=None, preview_video_media_name=None, preview_video_review_status=None, preview_video_url=None, preview_video_vid=None, preview_video_vid_default=None, reservation_text=None, reservation_time=None, risk_warning_setting=None, share_icon_url=None, share_icon_url_default=None, site_tags=None, sms_language=None, source_subtitle_language=None, text_site_tags=None, thumb_up_effect_urls=None, thumb_up_url=None, thumb_up_url_default=None, use_default_thumb_up_effect=None, vertical_cover_image_url=None, watermark_image_url=None, watermark_position=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, activity_id=None, announcement=None, auto_reservation_window_enable=None, auto_start_type=None, background_color=None, color_theme_index=None, config_version=None, cover_image_url=None, default_subtitle_language=None, end_time=None, feedback_message=None, font_color=None, header_image_url=None, interaction_color=None, is_announcement_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_avatar_show_enable=None, is_background_blur=None, is_color_sync=None, is_comment_translate_enable=None, is_countdown_enable=None, is_cover_image_enable=None, is_feedback_enable=None, is_header_image_enable=None, is_language_enable=None, is_live_bullet_chat=None, is_mobile_back_image_enable=None, is_pc_header_image_enable=None, is_page_limit_enable=None, is_pc_back_image_enable=None, is_people_count_enable=None, is_player_top_enable=None, is_preview_prompt_enable=None, is_preview_video_enable=None, is_replay_auto_online_enable=None, is_replay_bullet_chat=None, is_reservation_enable=None, is_reservation_sms_enable=None, is_share_icon_enable=None, is_thumb_up_enable=None, is_thumb_up_number_enable=None, is_time_shift=None, is_viewer_level_show_enable=None, is_watermark_image_enable=None, language_type=None, live_time=None, live_zone=None, mobile_back_image_url=None, mobile_back_image_url_default=None, mobile_background_color=None, mobile_chat_background_color=None, mobile_login_background_image_url=None, name=None, open_live_avextractor_task=None, pc_header_image_url=None, page_limit_type=None, pc_back_image_url=None, pc_back_image_url_default=None, pc_login_background_image_url=None, player_top_type=None, presenter_chat_color=None, preview_prompt=None, preview_video_cover_image=None, preview_video_id=None, preview_video_media_name=None, preview_video_review_status=None, preview_video_url=None, preview_video_vid=None, preview_video_vid_default=None, reservation_text=None, reservation_time=None, risk_warning_setting=None, share_icon_url=None, share_icon_url_default=None, site_tags=None, sms_language=None, source_subtitle_language=None, text_site_tags=None, thumb_up_effect_urls=None, thumb_up_url=None, thumb_up_url_default=None, use_default_thumb_up_effect=None, vertical_cover_image_url=None, watermark_image_url=None, watermark_position=None, _configuration=None):  # noqa: E501
         """UpdateActivityBasicConfigAPIRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -234,10 +236,10 @@ class UpdateActivityBasicConfigAPIRequest(object):
         self._is_announcement_enable = None
         self._is_auto_end_enable = None
         self._is_auto_start_enable = None
+        self._is_avatar_show_enable = None
         self._is_background_blur = None
         self._is_color_sync = None
         self._is_comment_translate_enable = None
-        self._is_count_down_enable = None
         self._is_countdown_enable = None
         self._is_cover_image_enable = None
         self._is_feedback_enable = None
@@ -260,6 +262,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         self._is_thumb_up_enable = None
         self._is_thumb_up_number_enable = None
         self._is_time_shift = None
+        self._is_viewer_level_show_enable = None
         self._is_watermark_image_enable = None
         self._language_type = None
         self._live_time = None
@@ -339,14 +342,14 @@ class UpdateActivityBasicConfigAPIRequest(object):
             self.is_auto_end_enable = is_auto_end_enable
         if is_auto_start_enable is not None:
             self.is_auto_start_enable = is_auto_start_enable
+        if is_avatar_show_enable is not None:
+            self.is_avatar_show_enable = is_avatar_show_enable
         if is_background_blur is not None:
             self.is_background_blur = is_background_blur
         if is_color_sync is not None:
             self.is_color_sync = is_color_sync
         if is_comment_translate_enable is not None:
             self.is_comment_translate_enable = is_comment_translate_enable
-        if is_count_down_enable is not None:
-            self.is_count_down_enable = is_count_down_enable
         if is_countdown_enable is not None:
             self.is_countdown_enable = is_countdown_enable
         if is_cover_image_enable is not None:
@@ -391,6 +394,8 @@ class UpdateActivityBasicConfigAPIRequest(object):
             self.is_thumb_up_number_enable = is_thumb_up_number_enable
         if is_time_shift is not None:
             self.is_time_shift = is_time_shift
+        if is_viewer_level_show_enable is not None:
+            self.is_viewer_level_show_enable = is_viewer_level_show_enable
         if is_watermark_image_enable is not None:
             self.is_watermark_image_enable = is_watermark_image_enable
         if language_type is not None:
@@ -856,6 +861,27 @@ class UpdateActivityBasicConfigAPIRequest(object):
         self._is_auto_start_enable = is_auto_start_enable
 
     @property
+    def is_avatar_show_enable(self):
+        """Gets the is_avatar_show_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+
+
+        :return: The is_avatar_show_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_avatar_show_enable
+
+    @is_avatar_show_enable.setter
+    def is_avatar_show_enable(self, is_avatar_show_enable):
+        """Sets the is_avatar_show_enable of this UpdateActivityBasicConfigAPIRequest.
+
+
+        :param is_avatar_show_enable: The is_avatar_show_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._is_avatar_show_enable = is_avatar_show_enable
+
+    @property
     def is_background_blur(self):
         """Gets the is_background_blur of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
 
@@ -917,27 +943,6 @@ class UpdateActivityBasicConfigAPIRequest(object):
         """
 
         self._is_comment_translate_enable = is_comment_translate_enable
-
-    @property
-    def is_count_down_enable(self):
-        """Gets the is_count_down_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
-
-
-        :return: The is_count_down_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_count_down_enable
-
-    @is_count_down_enable.setter
-    def is_count_down_enable(self, is_count_down_enable):
-        """Sets the is_count_down_enable of this UpdateActivityBasicConfigAPIRequest.
-
-
-        :param is_count_down_enable: The is_count_down_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
-        :type: int
-        """
-
-        self._is_count_down_enable = is_count_down_enable
 
     @property
     def is_countdown_enable(self):
@@ -1400,6 +1405,27 @@ class UpdateActivityBasicConfigAPIRequest(object):
         """
 
         self._is_time_shift = is_time_shift
+
+    @property
+    def is_viewer_level_show_enable(self):
+        """Gets the is_viewer_level_show_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+
+
+        :return: The is_viewer_level_show_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_viewer_level_show_enable
+
+    @is_viewer_level_show_enable.setter
+    def is_viewer_level_show_enable(self, is_viewer_level_show_enable):
+        """Sets the is_viewer_level_show_enable of this UpdateActivityBasicConfigAPIRequest.
+
+
+        :param is_viewer_level_show_enable: The is_viewer_level_show_enable of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._is_viewer_level_show_enable = is_viewer_level_show_enable
 
     @property
     def is_watermark_image_enable(self):

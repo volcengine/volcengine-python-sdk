@@ -33,49 +33,90 @@ class AssetListRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'internet_firewall_id': 'str',
         'asset': 'str',
         'asset_type': 'list[str]',
         'current_page': 'int',
+        'instance_type': 'list[str]',
+        'ip_type': 'str',
         'order_dir': 'str',
         'page_size': 'int',
+        'region_code': 'list[str]',
         'stat': 'int'
     }
 
     attribute_map = {
+        'internet_firewall_id': 'InternetFirewallId',
         'asset': 'asset',
         'asset_type': 'asset_type',
         'current_page': 'current_page',
+        'instance_type': 'instance_type',
+        'ip_type': 'ip_type',
         'order_dir': 'order_dir',
         'page_size': 'page_size',
+        'region_code': 'region_code',
         'stat': 'stat'
     }
 
-    def __init__(self, asset=None, asset_type=None, current_page=None, order_dir=None, page_size=None, stat=None, _configuration=None):  # noqa: E501
+    def __init__(self, internet_firewall_id=None, asset=None, asset_type=None, current_page=None, instance_type=None, ip_type=None, order_dir=None, page_size=None, region_code=None, stat=None, _configuration=None):  # noqa: E501
         """AssetListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._internet_firewall_id = None
         self._asset = None
         self._asset_type = None
         self._current_page = None
+        self._instance_type = None
+        self._ip_type = None
         self._order_dir = None
         self._page_size = None
+        self._region_code = None
         self._stat = None
         self.discriminator = None
 
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
         if asset is not None:
             self.asset = asset
         if asset_type is not None:
             self.asset_type = asset_type
         if current_page is not None:
             self.current_page = current_page
+        if instance_type is not None:
+            self.instance_type = instance_type
+        if ip_type is not None:
+            self.ip_type = ip_type
         if order_dir is not None:
             self.order_dir = order_dir
         if page_size is not None:
             self.page_size = page_size
+        if region_code is not None:
+            self.region_code = region_code
         if stat is not None:
             self.stat = stat
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this AssetListRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this AssetListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this AssetListRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this AssetListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     @property
     def asset(self):
@@ -141,6 +182,55 @@ class AssetListRequest(object):
         self._current_page = current_page
 
     @property
+    def instance_type(self):
+        """Gets the instance_type of this AssetListRequest.  # noqa: E501
+
+
+        :return: The instance_type of this AssetListRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_type
+
+    @instance_type.setter
+    def instance_type(self, instance_type):
+        """Sets the instance_type of this AssetListRequest.
+
+
+        :param instance_type: The instance_type of this AssetListRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_type = instance_type
+
+    @property
+    def ip_type(self):
+        """Gets the ip_type of this AssetListRequest.  # noqa: E501
+
+
+        :return: The ip_type of this AssetListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_type
+
+    @ip_type.setter
+    def ip_type(self, ip_type):
+        """Sets the ip_type of this AssetListRequest.
+
+
+        :param ip_type: The ip_type of this AssetListRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["v4", "v6"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ip_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ip_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(ip_type, allowed_values)
+            )
+
+        self._ip_type = ip_type
+
+    @property
     def order_dir(self):
         """Gets the order_dir of this AssetListRequest.  # noqa: E501
 
@@ -191,6 +281,27 @@ class AssetListRequest(object):
             raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000000`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def region_code(self):
+        """Gets the region_code of this AssetListRequest.  # noqa: E501
+
+
+        :return: The region_code of this AssetListRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._region_code
+
+    @region_code.setter
+    def region_code(self, region_code):
+        """Sets the region_code of this AssetListRequest.
+
+
+        :param region_code: The region_code of this AssetListRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._region_code = region_code
 
     @property
     def stat(self):

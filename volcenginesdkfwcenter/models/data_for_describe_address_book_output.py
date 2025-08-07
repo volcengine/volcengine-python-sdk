@@ -33,39 +33,64 @@ class DataForDescribeAddressBookOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_detail_list': 'list[AddressDetailListForDescribeAddressBookOutput]',
         'address_list': 'list[str]',
+        'auto_update_type': 'str',
         'description': 'str',
         'group_name': 'str',
         'group_type': 'str',
         'group_uuid': 'str',
-        'ref_cnt': 'int'
+        'instance_type_list': 'list[str]',
+        'ref_cnt': 'int',
+        'resource_type': 'str',
+        'tag_relation': 'str',
+        'tags': 'list[TagForDescribeAddressBookOutput]',
+        'updated': 'int'
     }
 
     attribute_map = {
+        'address_detail_list': 'AddressDetailList',
         'address_list': 'AddressList',
+        'auto_update_type': 'AutoUpdateType',
         'description': 'Description',
         'group_name': 'GroupName',
         'group_type': 'GroupType',
         'group_uuid': 'GroupUuid',
-        'ref_cnt': 'RefCnt'
+        'instance_type_list': 'InstanceTypeList',
+        'ref_cnt': 'RefCnt',
+        'resource_type': 'ResourceType',
+        'tag_relation': 'TagRelation',
+        'tags': 'Tags',
+        'updated': 'Updated'
     }
 
-    def __init__(self, address_list=None, description=None, group_name=None, group_type=None, group_uuid=None, ref_cnt=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_detail_list=None, address_list=None, auto_update_type=None, description=None, group_name=None, group_type=None, group_uuid=None, instance_type_list=None, ref_cnt=None, resource_type=None, tag_relation=None, tags=None, updated=None, _configuration=None):  # noqa: E501
         """DataForDescribeAddressBookOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._address_detail_list = None
         self._address_list = None
+        self._auto_update_type = None
         self._description = None
         self._group_name = None
         self._group_type = None
         self._group_uuid = None
+        self._instance_type_list = None
         self._ref_cnt = None
+        self._resource_type = None
+        self._tag_relation = None
+        self._tags = None
+        self._updated = None
         self.discriminator = None
 
+        if address_detail_list is not None:
+            self.address_detail_list = address_detail_list
         if address_list is not None:
             self.address_list = address_list
+        if auto_update_type is not None:
+            self.auto_update_type = auto_update_type
         if description is not None:
             self.description = description
         if group_name is not None:
@@ -74,8 +99,39 @@ class DataForDescribeAddressBookOutput(object):
             self.group_type = group_type
         if group_uuid is not None:
             self.group_uuid = group_uuid
+        if instance_type_list is not None:
+            self.instance_type_list = instance_type_list
         if ref_cnt is not None:
             self.ref_cnt = ref_cnt
+        if resource_type is not None:
+            self.resource_type = resource_type
+        if tag_relation is not None:
+            self.tag_relation = tag_relation
+        if tags is not None:
+            self.tags = tags
+        if updated is not None:
+            self.updated = updated
+
+    @property
+    def address_detail_list(self):
+        """Gets the address_detail_list of this DataForDescribeAddressBookOutput.  # noqa: E501
+
+
+        :return: The address_detail_list of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :rtype: list[AddressDetailListForDescribeAddressBookOutput]
+        """
+        return self._address_detail_list
+
+    @address_detail_list.setter
+    def address_detail_list(self, address_detail_list):
+        """Sets the address_detail_list of this DataForDescribeAddressBookOutput.
+
+
+        :param address_detail_list: The address_detail_list of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :type: list[AddressDetailListForDescribeAddressBookOutput]
+        """
+
+        self._address_detail_list = address_detail_list
 
     @property
     def address_list(self):
@@ -97,6 +153,27 @@ class DataForDescribeAddressBookOutput(object):
         """
 
         self._address_list = address_list
+
+    @property
+    def auto_update_type(self):
+        """Gets the auto_update_type of this DataForDescribeAddressBookOutput.  # noqa: E501
+
+
+        :return: The auto_update_type of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_update_type
+
+    @auto_update_type.setter
+    def auto_update_type(self, auto_update_type):
+        """Sets the auto_update_type of this DataForDescribeAddressBookOutput.
+
+
+        :param auto_update_type: The auto_update_type of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._auto_update_type = auto_update_type
 
     @property
     def description(self):
@@ -183,6 +260,27 @@ class DataForDescribeAddressBookOutput(object):
         self._group_uuid = group_uuid
 
     @property
+    def instance_type_list(self):
+        """Gets the instance_type_list of this DataForDescribeAddressBookOutput.  # noqa: E501
+
+
+        :return: The instance_type_list of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_type_list
+
+    @instance_type_list.setter
+    def instance_type_list(self, instance_type_list):
+        """Sets the instance_type_list of this DataForDescribeAddressBookOutput.
+
+
+        :param instance_type_list: The instance_type_list of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_type_list = instance_type_list
+
+    @property
     def ref_cnt(self):
         """Gets the ref_cnt of this DataForDescribeAddressBookOutput.  # noqa: E501
 
@@ -202,6 +300,90 @@ class DataForDescribeAddressBookOutput(object):
         """
 
         self._ref_cnt = ref_cnt
+
+    @property
+    def resource_type(self):
+        """Gets the resource_type of this DataForDescribeAddressBookOutput.  # noqa: E501
+
+
+        :return: The resource_type of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_type
+
+    @resource_type.setter
+    def resource_type(self, resource_type):
+        """Sets the resource_type of this DataForDescribeAddressBookOutput.
+
+
+        :param resource_type: The resource_type of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_type = resource_type
+
+    @property
+    def tag_relation(self):
+        """Gets the tag_relation of this DataForDescribeAddressBookOutput.  # noqa: E501
+
+
+        :return: The tag_relation of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag_relation
+
+    @tag_relation.setter
+    def tag_relation(self, tag_relation):
+        """Sets the tag_relation of this DataForDescribeAddressBookOutput.
+
+
+        :param tag_relation: The tag_relation of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tag_relation = tag_relation
+
+    @property
+    def tags(self):
+        """Gets the tags of this DataForDescribeAddressBookOutput.  # noqa: E501
+
+
+        :return: The tags of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :rtype: list[TagForDescribeAddressBookOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DataForDescribeAddressBookOutput.
+
+
+        :param tags: The tags of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :type: list[TagForDescribeAddressBookOutput]
+        """
+
+        self._tags = tags
+
+    @property
+    def updated(self):
+        """Gets the updated of this DataForDescribeAddressBookOutput.  # noqa: E501
+
+
+        :return: The updated of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated
+
+    @updated.setter
+    def updated(self, updated):
+        """Sets the updated of this DataForDescribeAddressBookOutput.
+
+
+        :param updated: The updated of this DataForDescribeAddressBookOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._updated = updated
 
     def to_dict(self):
         """Returns the model properties as a dict"""
