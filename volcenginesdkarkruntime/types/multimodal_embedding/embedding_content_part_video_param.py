@@ -8,6 +8,8 @@ __all__ = ["MultimodalEmbeddingContentPartVideoParam", "VideoURL"]
 class VideoURL(TypedDict, total=False):
     url: Required[str]
     """Either a URL of the video or the base64 encoded video data."""
+    fps: float
+    """The sampling fps of the video."""
 
 
 class MultimodalEmbeddingContentPartVideoParam(TypedDict, total=False):
