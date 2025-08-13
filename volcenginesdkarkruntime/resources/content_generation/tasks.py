@@ -34,6 +34,7 @@ class Tasks(SyncAPIResource):
         model: str,
         content: Iterable[CreateTaskContentParam],
         callback_url: Optional[str] = None,
+        return_last_frame: Optional[bool] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -45,6 +46,7 @@ class Tasks(SyncAPIResource):
                 "model": model,
                 "content": content,
                 "callback_url": callback_url,
+                "return_last_frame": return_last_frame,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -153,6 +155,7 @@ class AsyncTasks(AsyncAPIResource):
         model: str,
         content: Iterable[CreateTaskContentParam],
         callback_url: Optional[str] = None,
+        return_last_frame: Optional[bool] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -164,6 +167,7 @@ class AsyncTasks(AsyncAPIResource):
                 "model": model,
                 "content": content,
                 "callback_url": callback_url,
+                "return_last_frame": return_last_frame,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
