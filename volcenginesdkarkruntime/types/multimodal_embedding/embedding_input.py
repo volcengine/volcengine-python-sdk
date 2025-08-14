@@ -6,9 +6,12 @@ from .embedding_content_part_image_param import MultimodalEmbeddingContentPartIm
 from .embedding_content_part_text_param import (
     MultimodalEmbeddingContentPartTextParam,
 )
+from .embedding_content_part_video_param import MultimodalEmbeddingContentPartVideoParam
 
 __all__ = ["EmbeddingInputParam"]
 
 EmbeddingInputParam = Union[
-    MultimodalEmbeddingContentPartImageParam, MultimodalEmbeddingContentPartTextParam
+    MultimodalEmbeddingContentPartImageParam,
+    MultimodalEmbeddingContentPartTextParam,
+    MultimodalEmbeddingContentPartVideoParam,
 ]

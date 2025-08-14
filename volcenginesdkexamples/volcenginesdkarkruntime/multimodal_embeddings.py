@@ -4,7 +4,7 @@ client = Ark()
 
 print("----- multimodal embeddings request -----")
 resp = client.multimodal_embeddings.create(
-    model="${YOUR_ENDPOINT_ID}",
+    model="doubao-embedding-vision-250615",
     input=[
         {
             "type": "text",
@@ -18,4 +18,4 @@ resp = client.multimodal_embeddings.create(
         }
     ]
 )
-print(resp)
+print(resp.data)
