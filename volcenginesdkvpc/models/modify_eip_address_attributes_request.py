@@ -36,6 +36,7 @@ class ModifyEipAddressAttributesRequest(object):
         'allocation_id': 'str',
         'bandwidth': 'int',
         'description': 'str',
+        'direct_mode': 'bool',
         'name': 'str',
         'release_with_instance': 'bool'
     }
@@ -44,11 +45,12 @@ class ModifyEipAddressAttributesRequest(object):
         'allocation_id': 'AllocationId',
         'bandwidth': 'Bandwidth',
         'description': 'Description',
+        'direct_mode': 'DirectMode',
         'name': 'Name',
         'release_with_instance': 'ReleaseWithInstance'
     }
 
-    def __init__(self, allocation_id=None, bandwidth=None, description=None, name=None, release_with_instance=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, bandwidth=None, description=None, direct_mode=None, name=None, release_with_instance=None, _configuration=None):  # noqa: E501
         """ModifyEipAddressAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class ModifyEipAddressAttributesRequest(object):
         self._allocation_id = None
         self._bandwidth = None
         self._description = None
+        self._direct_mode = None
         self._name = None
         self._release_with_instance = None
         self.discriminator = None
@@ -66,6 +69,8 @@ class ModifyEipAddressAttributesRequest(object):
             self.bandwidth = bandwidth
         if description is not None:
             self.description = description
+        if direct_mode is not None:
+            self.direct_mode = direct_mode
         if name is not None:
             self.name = name
         if release_with_instance is not None:
@@ -144,6 +149,27 @@ class ModifyEipAddressAttributesRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def direct_mode(self):
+        """Gets the direct_mode of this ModifyEipAddressAttributesRequest.  # noqa: E501
+
+
+        :return: The direct_mode of this ModifyEipAddressAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._direct_mode
+
+    @direct_mode.setter
+    def direct_mode(self, direct_mode):
+        """Sets the direct_mode of this ModifyEipAddressAttributesRequest.
+
+
+        :param direct_mode: The direct_mode of this ModifyEipAddressAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._direct_mode = direct_mode
 
     @property
     def name(self):
