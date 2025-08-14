@@ -13,7 +13,10 @@ from .._base_client import (
 )
 from .._utils._utils import with_sts_token, async_with_sts_token
 from ..types.multimodal_embedding import EmbeddingInputParam
-from ..types.multimodal_embedding import MultimodalEmbeddingResponse
+from ..types.multimodal_embedding import (
+    MultimodalEmbeddingResponse,
+    SparseEmbeddingInput,
+)
 
 __all__ = ["MultimodalEmbeddings", "AsyncMultimodalEmbeddings"]
 
@@ -31,6 +34,7 @@ class MultimodalEmbeddings(SyncAPIResource):
         model: str,
         encoding_format: Literal["float", "base64"] = "float",
         dimensions: int | None = None,
+        sparse_embedding: SparseEmbeddingInput | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -45,6 +49,7 @@ class MultimodalEmbeddings(SyncAPIResource):
                 "model": model,
                 "encoding_format": encoding_format,
                 "dimensions": dimensions,
+                "sparse_embedding": sparse_embedding,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -69,6 +74,7 @@ class AsyncMultimodalEmbeddings(AsyncAPIResource):
         model: str,
         encoding_format: Literal["float", "base64"] = "float",
         dimensions: int | None = None,
+        sparse_embedding: SparseEmbeddingInput | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -83,6 +89,7 @@ class AsyncMultimodalEmbeddings(AsyncAPIResource):
                 "model": model,
                 "encoding_format": encoding_format,
                 "dimensions": dimensions,
+                "sparse_embedding": sparse_embedding,
             },
             options=make_request_options(
                 extra_headers=extra_headers,

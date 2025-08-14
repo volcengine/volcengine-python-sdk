@@ -12,6 +12,9 @@ class Content(BaseModel):
     video_url: str
     """The URL of the generated video, if any."""
 
+    last_frame_url: str
+    """The URL of the last frame of the generated video, if any."""
+
 
 class ContentGenerationError(BaseModel):
     message: str

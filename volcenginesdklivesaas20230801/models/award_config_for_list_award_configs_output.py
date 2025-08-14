@@ -35,6 +35,7 @@ class AwardConfigForListAwardConfigsOutput(object):
     swagger_types = {
         'activity_id': 'int',
         'award_condition': 'AwardConditionForListAwardConfigsOutput',
+        'award_floating_icon': 'str',
         'award_item_info': 'list[AwardItemInfoForListAwardConfigsOutput]',
         'award_num': 'int',
         'award_send_time': 'int',
@@ -61,6 +62,7 @@ class AwardConfigForListAwardConfigsOutput(object):
     attribute_map = {
         'activity_id': 'ActivityId',
         'award_condition': 'AwardCondition',
+        'award_floating_icon': 'AwardFloatingIcon',
         'award_item_info': 'AwardItemInfo',
         'award_num': 'AwardNum',
         'award_send_time': 'AwardSendTime',
@@ -84,7 +86,7 @@ class AwardConfigForListAwardConfigsOutput(object):
         'winner_count': 'WinnerCount'
     }
 
-    def __init__(self, activity_id=None, award_condition=None, award_item_info=None, award_num=None, award_send_time=None, award_send_type=None, award_theme=None, award_type=None, barrage_pwd=None, dead_line=None, dead_line_second=None, id=None, is_hide_award_num=None, msg_ids=None, name=None, open_award_time=None, participant_count=None, range_status=None, send_time=None, show_people_number=None, show_winner_comment=None, status=None, winner_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, award_condition=None, award_floating_icon=None, award_item_info=None, award_num=None, award_send_time=None, award_send_type=None, award_theme=None, award_type=None, barrage_pwd=None, dead_line=None, dead_line_second=None, id=None, is_hide_award_num=None, msg_ids=None, name=None, open_award_time=None, participant_count=None, range_status=None, send_time=None, show_people_number=None, show_winner_comment=None, status=None, winner_count=None, _configuration=None):  # noqa: E501
         """AwardConfigForListAwardConfigsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,6 +94,7 @@ class AwardConfigForListAwardConfigsOutput(object):
 
         self._activity_id = None
         self._award_condition = None
+        self._award_floating_icon = None
         self._award_item_info = None
         self._award_num = None
         self._award_send_time = None
@@ -119,6 +122,8 @@ class AwardConfigForListAwardConfigsOutput(object):
             self.activity_id = activity_id
         if award_condition is not None:
             self.award_condition = award_condition
+        if award_floating_icon is not None:
+            self.award_floating_icon = award_floating_icon
         if award_item_info is not None:
             self.award_item_info = award_item_info
         if award_num is not None:
@@ -203,6 +208,27 @@ class AwardConfigForListAwardConfigsOutput(object):
         """
 
         self._award_condition = award_condition
+
+    @property
+    def award_floating_icon(self):
+        """Gets the award_floating_icon of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+
+
+        :return: The award_floating_icon of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._award_floating_icon
+
+    @award_floating_icon.setter
+    def award_floating_icon(self, award_floating_icon):
+        """Sets the award_floating_icon of this AwardConfigForListAwardConfigsOutput.
+
+
+        :param award_floating_icon: The award_floating_icon of this AwardConfigForListAwardConfigsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._award_floating_icon = award_floating_icon
 
     @property
     def award_item_info(self):
