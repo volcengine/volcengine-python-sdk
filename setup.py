@@ -11,7 +11,7 @@ VERSION = "4.0.11"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.10", "urllib3>=1.23"]
+REQUIRES = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.16", "urllib3>=1.26.5"]
 
 setup(
     name=NAME,
