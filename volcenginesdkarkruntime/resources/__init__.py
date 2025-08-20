@@ -24,8 +24,8 @@ from .batch import Batch, AsyncBatch
 
 __all__ = [
     "Chat",
-    "BotChat",
     "AsyncChat",
+    "BotChat",
     "AsyncBotChat",
     "Embeddings",
     "AsyncEmbeddings",
@@ -35,7 +35,6 @@ __all__ = [
     "AsyncContext",
     "MultimodalEmbeddings",
     "AsyncMultimodalEmbeddings",
-    "AsyncContext",
     "ContentGeneration",
     "AsyncContentGeneration",
     "Images",
