@@ -34,36 +34,26 @@ class ConvertSegmentForGetExecutionOutput(object):
     """
     swagger_types = {
         'end': 'float',
-        'file': 'VoiceForGetExecutionOutput',
-        'frames': 'list[int]',
         'start': 'float'
     }
 
     attribute_map = {
         'end': 'End',
-        'file': 'File',
-        'frames': 'Frames',
         'start': 'Start'
     }
 
-    def __init__(self, end=None, file=None, frames=None, start=None, _configuration=None):  # noqa: E501
+    def __init__(self, end=None, start=None, _configuration=None):  # noqa: E501
         """ConvertSegmentForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._end = None
-        self._file = None
-        self._frames = None
         self._start = None
         self.discriminator = None
 
         if end is not None:
             self.end = end
-        if file is not None:
-            self.file = file
-        if frames is not None:
-            self.frames = frames
         if start is not None:
             self.start = start
 
@@ -87,48 +77,6 @@ class ConvertSegmentForGetExecutionOutput(object):
         """
 
         self._end = end
-
-    @property
-    def file(self):
-        """Gets the file of this ConvertSegmentForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The file of this ConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :rtype: VoiceForGetExecutionOutput
-        """
-        return self._file
-
-    @file.setter
-    def file(self, file):
-        """Sets the file of this ConvertSegmentForGetExecutionOutput.
-
-
-        :param file: The file of this ConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :type: VoiceForGetExecutionOutput
-        """
-
-        self._file = file
-
-    @property
-    def frames(self):
-        """Gets the frames of this ConvertSegmentForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The frames of this ConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._frames
-
-    @frames.setter
-    def frames(self, frames):
-        """Sets the frames of this ConvertSegmentForGetExecutionOutput.
-
-
-        :param frames: The frames of this ConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._frames = frames
 
     @property
     def start(self):

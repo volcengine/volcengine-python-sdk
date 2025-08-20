@@ -35,16 +35,20 @@ class UtteranceForUpdateAITranslationUtterancesInput(object):
     swagger_types = {
         'id': 'str',
         'speaker_id': 'str',
-        'text': 'str'
+        'text': 'str',
+        'trim': 'TrimForUpdateAITranslationUtterancesInput',
+        'volume': 'int'
     }
 
     attribute_map = {
         'id': 'Id',
         'speaker_id': 'SpeakerId',
-        'text': 'Text'
+        'text': 'Text',
+        'trim': 'Trim',
+        'volume': 'Volume'
     }
 
-    def __init__(self, id=None, speaker_id=None, text=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, speaker_id=None, text=None, trim=None, volume=None, _configuration=None):  # noqa: E501
         """UtteranceForUpdateAITranslationUtterancesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +57,8 @@ class UtteranceForUpdateAITranslationUtterancesInput(object):
         self._id = None
         self._speaker_id = None
         self._text = None
+        self._trim = None
+        self._volume = None
         self.discriminator = None
 
         if id is not None:
@@ -61,6 +67,10 @@ class UtteranceForUpdateAITranslationUtterancesInput(object):
             self.speaker_id = speaker_id
         if text is not None:
             self.text = text
+        if trim is not None:
+            self.trim = trim
+        if volume is not None:
+            self.volume = volume
 
     @property
     def id(self):
@@ -124,6 +134,48 @@ class UtteranceForUpdateAITranslationUtterancesInput(object):
         """
 
         self._text = text
+
+    @property
+    def trim(self):
+        """Gets the trim of this UtteranceForUpdateAITranslationUtterancesInput.  # noqa: E501
+
+
+        :return: The trim of this UtteranceForUpdateAITranslationUtterancesInput.  # noqa: E501
+        :rtype: TrimForUpdateAITranslationUtterancesInput
+        """
+        return self._trim
+
+    @trim.setter
+    def trim(self, trim):
+        """Sets the trim of this UtteranceForUpdateAITranslationUtterancesInput.
+
+
+        :param trim: The trim of this UtteranceForUpdateAITranslationUtterancesInput.  # noqa: E501
+        :type: TrimForUpdateAITranslationUtterancesInput
+        """
+
+        self._trim = trim
+
+    @property
+    def volume(self):
+        """Gets the volume of this UtteranceForUpdateAITranslationUtterancesInput.  # noqa: E501
+
+
+        :return: The volume of this UtteranceForUpdateAITranslationUtterancesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._volume
+
+    @volume.setter
+    def volume(self, volume):
+        """Sets the volume of this UtteranceForUpdateAITranslationUtterancesInput.
+
+
+        :param volume: The volume of this UtteranceForUpdateAITranslationUtterancesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._volume = volume
 
     def to_dict(self):
         """Returns the model properties as a dict"""

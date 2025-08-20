@@ -34,26 +34,31 @@ class StorylineForGetExecutionOutput(object):
     """
     swagger_types = {
         'clip_duration': 'float',
+        'sample_mode': 'str',
         'with_snapshot': 'bool'
     }
 
     attribute_map = {
         'clip_duration': 'ClipDuration',
+        'sample_mode': 'SampleMode',
         'with_snapshot': 'WithSnapshot'
     }
 
-    def __init__(self, clip_duration=None, with_snapshot=None, _configuration=None):  # noqa: E501
+    def __init__(self, clip_duration=None, sample_mode=None, with_snapshot=None, _configuration=None):  # noqa: E501
         """StorylineForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._clip_duration = None
+        self._sample_mode = None
         self._with_snapshot = None
         self.discriminator = None
 
         if clip_duration is not None:
             self.clip_duration = clip_duration
+        if sample_mode is not None:
+            self.sample_mode = sample_mode
         if with_snapshot is not None:
             self.with_snapshot = with_snapshot
 
@@ -77,6 +82,27 @@ class StorylineForGetExecutionOutput(object):
         """
 
         self._clip_duration = clip_duration
+
+    @property
+    def sample_mode(self):
+        """Gets the sample_mode of this StorylineForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The sample_mode of this StorylineForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sample_mode
+
+    @sample_mode.setter
+    def sample_mode(self, sample_mode):
+        """Sets the sample_mode of this StorylineForGetExecutionOutput.
+
+
+        :param sample_mode: The sample_mode of this StorylineForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._sample_mode = sample_mode
 
     @property
     def with_snapshot(self):
