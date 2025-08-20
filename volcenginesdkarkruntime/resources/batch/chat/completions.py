@@ -206,6 +206,7 @@ class Completions(SyncAPIResource):
             return resp
         return resp
 
+
 class AsyncCompletions(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncCompletionsWithRawResponse:
