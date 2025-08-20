@@ -204,7 +204,7 @@ class Completions(SyncAPIResource):
         if is_encrypt:
             resp = self._decrypt(e2e_key, e2e_nonce, resp)
             return resp
-
+        return resp
 
 class AsyncCompletions(AsyncAPIResource):
     @cached_property
