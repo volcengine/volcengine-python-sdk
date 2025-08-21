@@ -47,6 +47,7 @@ class ListForListCouponsOutput(object):
         'remaining_amount': 'float',
         'remark': 'str',
         'status': 'int',
+        'total_amount': 'float',
         'usage_limit': 'int'
     }
 
@@ -65,10 +66,11 @@ class ListForListCouponsOutput(object):
         'remaining_amount': 'RemainingAmount',
         'remark': 'Remark',
         'status': 'Status',
+        'total_amount': 'TotalAmount',
         'usage_limit': 'UsageLimit'
     }
 
-    def __init__(self, account_id=None, acquire_time=None, amount_limit=None, assigned_owner_id_list=None, begin_time=None, coupon_id=None, coupon_name=None, expired_time=None, order_type_limit=None, pay_type_limit=None, product_limit_list=None, remaining_amount=None, remark=None, status=None, usage_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, acquire_time=None, amount_limit=None, assigned_owner_id_list=None, begin_time=None, coupon_id=None, coupon_name=None, expired_time=None, order_type_limit=None, pay_type_limit=None, product_limit_list=None, remaining_amount=None, remark=None, status=None, total_amount=None, usage_limit=None, _configuration=None):  # noqa: E501
         """ListForListCouponsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class ListForListCouponsOutput(object):
         self._remaining_amount = None
         self._remark = None
         self._status = None
+        self._total_amount = None
         self._usage_limit = None
         self.discriminator = None
 
@@ -119,6 +122,8 @@ class ListForListCouponsOutput(object):
             self.remark = remark
         if status is not None:
             self.status = status
+        if total_amount is not None:
+            self.total_amount = total_amount
         if usage_limit is not None:
             self.usage_limit = usage_limit
 
@@ -415,6 +420,27 @@ class ListForListCouponsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def total_amount(self):
+        """Gets the total_amount of this ListForListCouponsOutput.  # noqa: E501
+
+
+        :return: The total_amount of this ListForListCouponsOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_amount
+
+    @total_amount.setter
+    def total_amount(self, total_amount):
+        """Sets the total_amount of this ListForListCouponsOutput.
+
+
+        :param total_amount: The total_amount of this ListForListCouponsOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._total_amount = total_amount
 
     @property
     def usage_limit(self):
