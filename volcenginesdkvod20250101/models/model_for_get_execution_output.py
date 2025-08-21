@@ -35,16 +35,18 @@ class ModelForGetExecutionOutput(object):
     swagger_types = {
         'asr_app_id': 'str',
         'asr_app_type': 'str',
+        'doubao_text_endpoint': 'str',
         'doubao_vision_endpoint': 'str'
     }
 
     attribute_map = {
         'asr_app_id': 'AsrAppId',
         'asr_app_type': 'AsrAppType',
+        'doubao_text_endpoint': 'DoubaoTextEndpoint',
         'doubao_vision_endpoint': 'DoubaoVisionEndpoint'
     }
 
-    def __init__(self, asr_app_id=None, asr_app_type=None, doubao_vision_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr_app_id=None, asr_app_type=None, doubao_text_endpoint=None, doubao_vision_endpoint=None, _configuration=None):  # noqa: E501
         """ModelForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class ModelForGetExecutionOutput(object):
 
         self._asr_app_id = None
         self._asr_app_type = None
+        self._doubao_text_endpoint = None
         self._doubao_vision_endpoint = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class ModelForGetExecutionOutput(object):
             self.asr_app_id = asr_app_id
         if asr_app_type is not None:
             self.asr_app_type = asr_app_type
+        if doubao_text_endpoint is not None:
+            self.doubao_text_endpoint = doubao_text_endpoint
         if doubao_vision_endpoint is not None:
             self.doubao_vision_endpoint = doubao_vision_endpoint
 
@@ -103,6 +108,27 @@ class ModelForGetExecutionOutput(object):
         """
 
         self._asr_app_type = asr_app_type
+
+    @property
+    def doubao_text_endpoint(self):
+        """Gets the doubao_text_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The doubao_text_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._doubao_text_endpoint
+
+    @doubao_text_endpoint.setter
+    def doubao_text_endpoint(self, doubao_text_endpoint):
+        """Sets the doubao_text_endpoint of this ModelForGetExecutionOutput.
+
+
+        :param doubao_text_endpoint: The doubao_text_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._doubao_text_endpoint = doubao_text_endpoint
 
     @property
     def doubao_vision_endpoint(self):

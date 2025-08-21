@@ -35,6 +35,7 @@ class InputForStartExecutionInput(object):
     swagger_types = {
         'direct_url': 'DirectUrlForStartExecutionInput',
         'file_id': 'FileIdForStartExecutionInput',
+        'tag': 'str',
         'type': 'str',
         'vid': 'str'
     }
@@ -42,11 +43,12 @@ class InputForStartExecutionInput(object):
     attribute_map = {
         'direct_url': 'DirectUrl',
         'file_id': 'FileId',
+        'tag': 'Tag',
         'type': 'Type',
         'vid': 'Vid'
     }
 
-    def __init__(self, direct_url=None, file_id=None, type=None, vid=None, _configuration=None):  # noqa: E501
+    def __init__(self, direct_url=None, file_id=None, tag=None, type=None, vid=None, _configuration=None):  # noqa: E501
         """InputForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class InputForStartExecutionInput(object):
 
         self._direct_url = None
         self._file_id = None
+        self._tag = None
         self._type = None
         self._vid = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class InputForStartExecutionInput(object):
             self.direct_url = direct_url
         if file_id is not None:
             self.file_id = file_id
+        if tag is not None:
+            self.tag = tag
         if type is not None:
             self.type = type
         if vid is not None:
@@ -108,6 +113,27 @@ class InputForStartExecutionInput(object):
         """
 
         self._file_id = file_id
+
+    @property
+    def tag(self):
+        """Gets the tag of this InputForStartExecutionInput.  # noqa: E501
+
+
+        :return: The tag of this InputForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag
+
+    @tag.setter
+    def tag(self, tag):
+        """Sets the tag of this InputForStartExecutionInput.
+
+
+        :param tag: The tag of this InputForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._tag = tag
 
     @property
     def type(self):

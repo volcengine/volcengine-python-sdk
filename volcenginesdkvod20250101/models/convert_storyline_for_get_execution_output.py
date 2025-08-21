@@ -33,76 +33,102 @@ class ConvertStorylineForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'clips': 'list[int]',
-        'summary': 'str',
+        'description': 'str',
+        'score': 'float',
+        'segments': 'list[int]',
         'title': 'str'
     }
 
     attribute_map = {
-        'clips': 'Clips',
-        'summary': 'Summary',
+        'description': 'Description',
+        'score': 'Score',
+        'segments': 'Segments',
         'title': 'Title'
     }
 
-    def __init__(self, clips=None, summary=None, title=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, score=None, segments=None, title=None, _configuration=None):  # noqa: E501
         """ConvertStorylineForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._clips = None
-        self._summary = None
+        self._description = None
+        self._score = None
+        self._segments = None
         self._title = None
         self.discriminator = None
 
-        if clips is not None:
-            self.clips = clips
-        if summary is not None:
-            self.summary = summary
+        if description is not None:
+            self.description = description
+        if score is not None:
+            self.score = score
+        if segments is not None:
+            self.segments = segments
         if title is not None:
             self.title = title
 
     @property
-    def clips(self):
-        """Gets the clips of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+    def description(self):
+        """Gets the description of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The clips of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._clips
-
-    @clips.setter
-    def clips(self, clips):
-        """Sets the clips of this ConvertStorylineForGetExecutionOutput.
-
-
-        :param clips: The clips of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._clips = clips
-
-    @property
-    def summary(self):
-        """Gets the summary of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The summary of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :return: The description of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
         :rtype: str
         """
-        return self._summary
+        return self._description
 
-    @summary.setter
-    def summary(self, summary):
-        """Sets the summary of this ConvertStorylineForGetExecutionOutput.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ConvertStorylineForGetExecutionOutput.
 
 
-        :param summary: The summary of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :param description: The description of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
         :type: str
         """
 
-        self._summary = summary
+        self._description = description
+
+    @property
+    def score(self):
+        """Gets the score of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The score of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        """Sets the score of this ConvertStorylineForGetExecutionOutput.
+
+
+        :param score: The score of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._score = score
+
+    @property
+    def segments(self):
+        """Gets the segments of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The segments of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._segments
+
+    @segments.setter
+    def segments(self, segments):
+        """Sets the segments of this ConvertStorylineForGetExecutionOutput.
+
+
+        :param segments: The segments of this ConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._segments = segments
 
     @property
     def title(self):

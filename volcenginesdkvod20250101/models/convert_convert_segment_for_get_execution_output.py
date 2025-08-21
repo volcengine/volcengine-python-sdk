@@ -33,71 +33,227 @@ class ConvertConvertSegmentForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'duration': 'float',
-        'segments': 'list[ConvertSegmentForGetExecutionOutput]'
+        'description': 'str',
+        'end': 'float',
+        'location': 'str',
+        'ocr': 'str',
+        'score': 'float',
+        'shot': 'str',
+        'start': 'float',
+        'video_index': 'int'
     }
 
     attribute_map = {
-        'duration': 'Duration',
-        'segments': 'Segments'
+        'description': 'Description',
+        'end': 'End',
+        'location': 'Location',
+        'ocr': 'Ocr',
+        'score': 'Score',
+        'shot': 'Shot',
+        'start': 'Start',
+        'video_index': 'VideoIndex'
     }
 
-    def __init__(self, duration=None, segments=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, end=None, location=None, ocr=None, score=None, shot=None, start=None, video_index=None, _configuration=None):  # noqa: E501
         """ConvertConvertSegmentForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._duration = None
-        self._segments = None
+        self._description = None
+        self._end = None
+        self._location = None
+        self._ocr = None
+        self._score = None
+        self._shot = None
+        self._start = None
+        self._video_index = None
         self.discriminator = None
 
-        if duration is not None:
-            self.duration = duration
-        if segments is not None:
-            self.segments = segments
+        if description is not None:
+            self.description = description
+        if end is not None:
+            self.end = end
+        if location is not None:
+            self.location = location
+        if ocr is not None:
+            self.ocr = ocr
+        if score is not None:
+            self.score = score
+        if shot is not None:
+            self.shot = shot
+        if start is not None:
+            self.start = start
+        if video_index is not None:
+            self.video_index = video_index
 
     @property
-    def duration(self):
-        """Gets the duration of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+    def description(self):
+        """Gets the description of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The duration of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :return: The description of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param description: The description of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def end(self):
+        """Gets the end of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The end of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
         :rtype: float
         """
-        return self._duration
+        return self._end
 
-    @duration.setter
-    def duration(self, duration):
-        """Sets the duration of this ConvertConvertSegmentForGetExecutionOutput.
+    @end.setter
+    def end(self, end):
+        """Sets the end of this ConvertConvertSegmentForGetExecutionOutput.
 
 
-        :param duration: The duration of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :param end: The end of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
         :type: float
         """
 
-        self._duration = duration
+        self._end = end
 
     @property
-    def segments(self):
-        """Gets the segments of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+    def location(self):
+        """Gets the location of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The segments of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertSegmentForGetExecutionOutput]
+        :return: The location of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._segments
+        return self._location
 
-    @segments.setter
-    def segments(self, segments):
-        """Sets the segments of this ConvertConvertSegmentForGetExecutionOutput.
+    @location.setter
+    def location(self, location):
+        """Sets the location of this ConvertConvertSegmentForGetExecutionOutput.
 
 
-        :param segments: The segments of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertSegmentForGetExecutionOutput]
+        :param location: The location of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._segments = segments
+        self._location = location
+
+    @property
+    def ocr(self):
+        """Gets the ocr of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The ocr of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ocr
+
+    @ocr.setter
+    def ocr(self, ocr):
+        """Sets the ocr of this ConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param ocr: The ocr of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ocr = ocr
+
+    @property
+    def score(self):
+        """Gets the score of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The score of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        """Sets the score of this ConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param score: The score of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._score = score
+
+    @property
+    def shot(self):
+        """Gets the shot of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The shot of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._shot
+
+    @shot.setter
+    def shot(self, shot):
+        """Sets the shot of this ConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param shot: The shot of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._shot = shot
+
+    @property
+    def start(self):
+        """Gets the start of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The start of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._start
+
+    @start.setter
+    def start(self, start):
+        """Sets the start of this ConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param start: The start of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._start = start
+
+    @property
+    def video_index(self):
+        """Gets the video_index of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_index of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._video_index
+
+    @video_index.setter
+    def video_index(self, video_index):
+        """Sets the video_index of this ConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param video_index: The video_index of this ConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._video_index = video_index
 
     def to_dict(self):
         """Returns the model properties as a dict"""
