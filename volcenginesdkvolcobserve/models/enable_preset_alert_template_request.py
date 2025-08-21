@@ -38,6 +38,7 @@ class EnablePresetAlertTemplateRequest(object):
         'effect_end_at': 'str',
         'effect_start_at': 'str',
         'notification_id': 'str',
+        'notify_templates': 'list[NotifyTemplateForEnablePresetAlertTemplateInput]',
         'project_name': 'str',
         'template_id': 'str',
         'upgrade_preset_alert_template': 'bool',
@@ -51,6 +52,7 @@ class EnablePresetAlertTemplateRequest(object):
         'effect_end_at': 'EffectEndAt',
         'effect_start_at': 'EffectStartAt',
         'notification_id': 'NotificationId',
+        'notify_templates': 'NotifyTemplates',
         'project_name': 'ProjectName',
         'template_id': 'TemplateId',
         'upgrade_preset_alert_template': 'UpgradePresetAlertTemplate',
@@ -58,7 +60,7 @@ class EnablePresetAlertTemplateRequest(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, contact_group_ids=None, effect_end_at=None, effect_start_at=None, notification_id=None, project_name=None, template_id=None, upgrade_preset_alert_template=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, contact_group_ids=None, effect_end_at=None, effect_start_at=None, notification_id=None, notify_templates=None, project_name=None, template_id=None, upgrade_preset_alert_template=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """EnablePresetAlertTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class EnablePresetAlertTemplateRequest(object):
         self._effect_end_at = None
         self._effect_start_at = None
         self._notification_id = None
+        self._notify_templates = None
         self._project_name = None
         self._template_id = None
         self._upgrade_preset_alert_template = None
@@ -84,6 +87,8 @@ class EnablePresetAlertTemplateRequest(object):
         self.effect_start_at = effect_start_at
         if notification_id is not None:
             self.notification_id = notification_id
+        if notify_templates is not None:
+            self.notify_templates = notify_templates
         self.project_name = project_name
         self.template_id = template_id
         if upgrade_preset_alert_template is not None:
@@ -201,6 +206,27 @@ class EnablePresetAlertTemplateRequest(object):
         """
 
         self._notification_id = notification_id
+
+    @property
+    def notify_templates(self):
+        """Gets the notify_templates of this EnablePresetAlertTemplateRequest.  # noqa: E501
+
+
+        :return: The notify_templates of this EnablePresetAlertTemplateRequest.  # noqa: E501
+        :rtype: list[NotifyTemplateForEnablePresetAlertTemplateInput]
+        """
+        return self._notify_templates
+
+    @notify_templates.setter
+    def notify_templates(self, notify_templates):
+        """Sets the notify_templates of this EnablePresetAlertTemplateRequest.
+
+
+        :param notify_templates: The notify_templates of this EnablePresetAlertTemplateRequest.  # noqa: E501
+        :type: list[NotifyTemplateForEnablePresetAlertTemplateInput]
+        """
+
+        self._notify_templates = notify_templates
 
     @property
     def project_name(self):

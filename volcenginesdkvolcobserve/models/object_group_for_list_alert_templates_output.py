@@ -38,6 +38,7 @@ class ObjectGroupForListAlertTemplatesOutput(object):
         'effect_end_at': 'str',
         'effect_start_at': 'str',
         'notification_id': 'str',
+        'notify_templates': 'list[NotifyTemplateForListAlertTemplatesOutput]',
         'object_group_id': 'str',
         'object_group_name': 'str',
         'webhook': 'str',
@@ -50,13 +51,14 @@ class ObjectGroupForListAlertTemplatesOutput(object):
         'effect_end_at': 'EffectEndAt',
         'effect_start_at': 'EffectStartAt',
         'notification_id': 'NotificationId',
+        'notify_templates': 'NotifyTemplates',
         'object_group_id': 'ObjectGroupId',
         'object_group_name': 'ObjectGroupName',
         'webhook': 'Webhook',
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, contact_group_ids=None, effect_end_at=None, effect_start_at=None, notification_id=None, object_group_id=None, object_group_name=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, contact_group_ids=None, effect_end_at=None, effect_start_at=None, notification_id=None, notify_templates=None, object_group_id=None, object_group_name=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """ObjectGroupForListAlertTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class ObjectGroupForListAlertTemplatesOutput(object):
         self._effect_end_at = None
         self._effect_start_at = None
         self._notification_id = None
+        self._notify_templates = None
         self._object_group_id = None
         self._object_group_name = None
         self._webhook = None
@@ -83,6 +86,8 @@ class ObjectGroupForListAlertTemplatesOutput(object):
             self.effect_start_at = effect_start_at
         if notification_id is not None:
             self.notification_id = notification_id
+        if notify_templates is not None:
+            self.notify_templates = notify_templates
         if object_group_id is not None:
             self.object_group_id = object_group_id
         if object_group_name is not None:
@@ -196,6 +201,27 @@ class ObjectGroupForListAlertTemplatesOutput(object):
         """
 
         self._notification_id = notification_id
+
+    @property
+    def notify_templates(self):
+        """Gets the notify_templates of this ObjectGroupForListAlertTemplatesOutput.  # noqa: E501
+
+
+        :return: The notify_templates of this ObjectGroupForListAlertTemplatesOutput.  # noqa: E501
+        :rtype: list[NotifyTemplateForListAlertTemplatesOutput]
+        """
+        return self._notify_templates
+
+    @notify_templates.setter
+    def notify_templates(self, notify_templates):
+        """Sets the notify_templates of this ObjectGroupForListAlertTemplatesOutput.
+
+
+        :param notify_templates: The notify_templates of this ObjectGroupForListAlertTemplatesOutput.  # noqa: E501
+        :type: list[NotifyTemplateForListAlertTemplatesOutput]
+        """
+
+        self._notify_templates = notify_templates
 
     @property
     def object_group_id(self):
