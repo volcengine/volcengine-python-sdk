@@ -1,3 +1,15 @@
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
 import asyncio
@@ -16,11 +28,18 @@ from typing import (
     TYPE_CHECKING,
     Union,
     Generic,
+    Iterable,
+    AsyncIterator,
+    Iterator,
+    Generator
 )
+from typing_extensions import override
 
 import anyio
 import httpx
 import pydantic
+
+from pydantic import PrivateAttr
 from httpx import URL, Timeout, Limits
 from httpx._types import RequestFiles
 
@@ -41,12 +60,23 @@ from ._exceptions import (
     ArkAPIStatusError,
     ArkAPIResponseValidationError,
 )
-from ._models import construct_type
+from ._models import construct_type, GenericModel
 from ._request_options import RequestOptions, ExtraRequestOptions
 from ._response import ArkAPIResponse, ArkAsyncAPIResponse
 from ._streaming import SSEDecoder, SSEBytesDecoder, Stream, AsyncStream
-from ._types import ResponseT, NotGiven, NOT_GIVEN, PostParser
-from ._utils._utils import _gen_request_id, is_given
+from ._types import (
+    ResponseT,
+    NotGiven,
+    NOT_GIVEN,
+    PostParser,
+    Body,
+    Query,
+)
+from ._utils._utils import _gen_request_id, is_given, is_mapping
+from ._compat import model_copy, PYDANTIC_V2
+
+SyncPageT = TypeVar("SyncPageT", bound="BaseSyncPage[Any]")
+AsyncPageT = TypeVar("AsyncPageT", bound="BaseAsyncPage[Any]")
 
 _T = TypeVar("_T")
 _StreamT = TypeVar("_StreamT", bound=Stream[Any])
@@ -638,6 +668,36 @@ class SyncAPIClient(BaseClient):
             ),
         )
 
+    def get_api_list(
+        self,
+        path: str,
+        *,
+        model: Type[object],
+        page: Type[SyncPageT],
+        body: Body | None = None,
+        options: ExtraRequestOptions = {},
+        method: str = "get",
+    ) -> AsyncPageT:
+        opts = RequestOptions.construct(method=method, url=path, json_data=body, **options)
+        return self._request_api_list(model, page, opts)
+
+    def _request_api_list(
+        self,
+        model: Type[object],
+        page: Type[SyncPageT],
+        options: RequestOptions,
+    ) -> AsyncPageT:
+        def _parser(resp: AsyncPageT) -> SyncPageT:
+            resp._set_private_attributes(
+                client=self,
+                model=model,
+                options=options,
+            )
+            return resp
+
+        options.post_parser = _parser
+        return self.request(page, options, stream=False)
+
     def request(
         self,
         cast_to: Type[ResponseT],
@@ -820,6 +880,37 @@ class AsyncAPIClient(BaseClient):
             cast_to, opts, remaining_retries=0, stream=stream, stream_cls=stream_cls
         )
 
+    async def get_api_list(
+        self,
+        path: str,
+        *,
+        model: Type[object],
+        page: Type[AsyncPageT],
+        body: Body | None = None,
+        options: ExtraRequestOptions = {},
+        method: str = "get",
+    ) -> AsyncPageT:
+        opts = RequestOptions.construct(method=method, url=path, json_data=body, **options)
+        return await self._request_api_list(model, page, opts)
+
+    async def _request_api_list(
+        self,
+        model: Type[object],
+        page: Type[AsyncPageT],
+        options: RequestOptions,
+    ) -> AsyncPageT:
+        def _parser(resp: AsyncPageT) -> SyncPageT:
+            resp._set_private_attributes(
+                client=self,
+                model=model,
+                options=options,
+            )
+            return resp
+
+        options.post_parser = _parser
+
+        return await self.request(page, options, stream=False)
+
     async def request(
         self,
         cast_to: Type[ResponseT],
@@ -999,3 +1090,223 @@ class AsyncAPIClient(BaseClient):
         exc_tb: TracebackType | None,
     ) -> None:
         await self.close()
+
+
+class PageInfo:
+    """Stores the necessary information to build the request to retrieve the next page.
+
+    Either `url` or `params` must be set.
+    """
+
+    url: URL | NotGiven
+    params: Query | NotGiven
+    json: Body | NotGiven
+
+    def __init__(
+        self,
+        *,
+        url: URL | NotGiven = NOT_GIVEN,
+        json: Body | NotGiven = NOT_GIVEN,
+        params: Query | NotGiven = NOT_GIVEN,
+    ) -> None:
+        self.url = url
+        self.json = json
+        self.params = params
+
+    @override
+    def __repr__(self) -> str:
+        if self.url:
+            return f"{self.__class__.__name__}(url={self.url})"
+        if self.json:
+            return f"{self.__class__.__name__}(json={self.json})"
+        return f"{self.__class__.__name__}(params={self.params})"
+
+
+class BasePage(GenericModel, Generic[_T]):
+    """
+    Defines the core interface for pagination.
+
+    Type Args:
+        ModelT: The pydantic model that represents an item in the response.
+
+    Methods:
+        has_next_page(): Check if there is another page available
+        next_page_info(): Get the necessary information to make a request for the next page
+    """
+
+    _options: RequestOptions = PrivateAttr()
+    _model: Type[_T] = PrivateAttr()
+
+    def has_next_page(self) -> bool:
+        items = self._get_page_items()
+        if not items:
+            return False
+        return self.next_page_info() is not None
+
+    def next_page_info(self) -> Optional[PageInfo]: ...
+
+    def _get_page_items(self) -> Iterable[_T]:  # type: ignore[empty-body]
+        ...
+
+    def _params_from_url(self, url: URL) -> httpx.QueryParams:
+        # TODO: do we have to preprocess params here?
+        return httpx.QueryParams(cast(Any, self._options.params)).merge(url.params)
+
+    def _info_to_options(self, info: PageInfo) -> RequestOptions:
+        options = model_copy(self._options)
+        options._strip_raw_response_header()
+
+        if not isinstance(info.params, NotGiven):
+            options.params = {**options.params, **info.params}
+            return options
+
+        if not isinstance(info.url, NotGiven):
+            params = self._params_from_url(info.url)
+            url = info.url.copy_with(params=params)
+            options.params = dict(url.params)
+            options.url = str(url)
+            return options
+
+        if not isinstance(info.json, NotGiven):
+            if not is_mapping(info.json):
+                raise TypeError("Pagination is only supported with mappings")
+
+            if not options.json_data:
+                options.json_data = {**info.json}
+            else:
+                if not is_mapping(options.json_data):
+                    raise TypeError("Pagination is only supported with mappings")
+
+                options.json_data = {**options.json_data, **info.json}
+            return options
+
+        raise ValueError("Unexpected PageInfo state")
+
+
+class BaseSyncPage(BasePage[_T], Generic[_T]):
+    _client: SyncAPIClient = pydantic.PrivateAttr()
+
+    def _set_private_attributes(
+        self,
+        client: SyncAPIClient,
+        model: Type[_T],
+        options: RequestOptions,
+    ) -> None:
+        if PYDANTIC_V2 and getattr(self, "__pydantic_private__", None) is None:
+            self.__pydantic_private__ = {}
+
+        self._model = model
+        self._client = client
+        self._options = options
+
+    # Pydantic uses a custom `__iter__` method to support casting BaseModels
+    # to dictionaries. e.g. dict(model).
+    # As we want to support `for item in page`, this is inherently incompatible
+    # with the default pydantic behaviour. It is not possible to support both
+    # use cases at once. Fortunately, this is not a big deal as all other pydantic
+    # methods should continue to work as expected as there is an alternative method
+    # to cast a model to a dictionary, model.dict(), which is used internally
+    # by pydantic.
+    def __iter__(self) -> Iterator[_T]:  # type: ignore
+        for page in self.iter_pages():
+            for item in page._get_page_items():
+                yield item
+
+    def iter_pages(self: SyncPageT) -> Iterator[SyncPageT]:
+        page = self
+        while True:
+            yield page
+            if page.has_next_page():
+                page = page.get_next_page()
+            else:
+                return
+
+    def get_next_page(self: SyncPageT) -> SyncPageT:
+        info = self.next_page_info()
+        if not info:
+            raise RuntimeError(
+                "No next page expected; please check `.has_next_page()` before calling `.get_next_page()`."
+            )
+
+        options = self._info_to_options(info)
+        return self._client._request_api_list(self._model, page=self.__class__, options=options)
+
+
+class AsyncPaginator(Generic[_T, AsyncPageT]):
+    def __init__(
+        self,
+        client: AsyncAPIClient,
+        options: RequestOptions,
+        page_cls: Type[AsyncPageT],
+        model: Type[_T],
+    ) -> None:
+        self._model = model
+        self._client = client
+        self._options = options
+        self._page_cls = page_cls
+
+    def __await__(self) -> Generator[Any, None, AsyncPageT]:
+        return self._get_page().__await__()
+
+    async def _get_page(self) -> AsyncPageT:
+        def _parser(resp: AsyncPageT) -> AsyncPageT:
+            resp._set_private_attributes(
+                model=self._model,
+                options=self._options,
+                client=self._client,
+            )
+            return resp
+
+        self._options.post_parser = _parser
+
+        return await self._client.request(self._page_cls, self._options)
+
+    async def __aiter__(self) -> AsyncIterator[_T]:
+        # https://github.com/microsoft/pyright/issues/3464
+        page = cast(
+            AsyncPageT,
+            await self,  # type: ignore
+        )
+        async for item in page:
+            yield item
+
+
+class BaseAsyncPage(BasePage[_T], Generic[_T]):
+    _client: AsyncAPIClient = pydantic.PrivateAttr()
+
+    def _set_private_attributes(
+        self,
+        model: Type[_T],
+        client: AsyncAPIClient,
+        options: RequestOptions,
+    ) -> None:
+        if PYDANTIC_V2 and getattr(self, "__pydantic_private__", None) is None:
+            self.__pydantic_private__ = {}
+
+        self._model = model
+        self._client = client
+        self._options = options
+
+    async def __aiter__(self) -> AsyncIterator[_T]:
+        async for page in self.iter_pages():
+            for item in page._get_page_items():
+                yield item
+
+    async def iter_pages(self: AsyncPageT) -> AsyncIterator[AsyncPageT]:
+        page = self
+        while True:
+            yield page
+            if page.has_next_page():
+                page = await page.get_next_page()
+            else:
+                return
+
+    async def get_next_page(self: AsyncPageT) -> AsyncPageT:
+        info = self.next_page_info()
+        if not info:
+            raise RuntimeError(
+                "No next page expected; please check `.has_next_page()` before calling `.get_next_page()`."
+            )
+
+        options = self._info_to_options(info)
+        return await self._client._request_api_list(self._model, page=self.__class__, options=options)

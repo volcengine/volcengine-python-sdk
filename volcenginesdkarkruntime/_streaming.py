@@ -1,4 +1,15 @@
-# Note: initially copied from https://github.com/florimondmanca/httpx-sse/blob/master/src/httpx_sse/_decoders.py
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
 import json
@@ -86,7 +97,7 @@ class Stream(Generic[_T]):
             if sse.data.startswith("[DONE]"):
                 break
 
-            if sse.event is None:
+            if sse.event is None or (isinstance(sse.event, str) and len(sse.event) > 0):
                 data = sse.json()
                 if is_mapping(data) and data.get("error"):
                     message = None
@@ -205,7 +216,7 @@ class AsyncStream(Generic[_T]):
             if sse.data.startswith("[DONE]"):
                 break
 
-            if sse.event is None:
+            if sse.event is None or (isinstance(sse.event, str) and len(sse.event) > 0):
                 data = sse.json()
                 if is_mapping(data) and data.get("error"):
                     message = None
