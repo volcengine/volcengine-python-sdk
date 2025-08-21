@@ -21,6 +21,7 @@ from .content_generation import ContentGeneration, AsyncContentGeneration
 from .images import Images, AsyncImages
 from .batch_chat import BatchChat, AsyncBatchChat
 from .batch import Batch, AsyncBatch
+from .responses import Responses, AsyncResponses, InputItems, AsyncInputItems
 
 __all__ = [
     "Chat",
