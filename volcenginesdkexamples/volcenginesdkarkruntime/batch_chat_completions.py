@@ -20,7 +20,7 @@ from volcenginesdkarkruntime import Ark
 def worker(
     worker_id: int,
     client: Ark,
-    requests: queue.Queue[dict],
+    requests: "queue.Queue[dict]",
 ):
     print(f"Worker {worker_id} is starting.")
 
@@ -35,7 +35,7 @@ def worker(
 
         try:
             # do request
-            completion = client.batch_chat.completions.create(**request)
+            completion = client.batch.chat.completions.create(**request)
             print(completion)
         except Exception as e:
             print(e, file=sys.stderr)
@@ -45,7 +45,7 @@ def worker(
 
 def main():
     start = datetime.now()
-    max_concurrent_tasks, task_num = 1000, 10000
+    max_concurrent_tasks, task_num = 10, 100
 
     requests = queue.Queue()
     client = Ark(timeout=24 * 3600)
@@ -72,7 +72,6 @@ def main():
     with ThreadPool(max_concurrent_tasks) as pool:
         for i in range(max_concurrent_tasks):
             pool.apply_async(worker, args=(i, client, requests))
-        pool.apply_async(worker, args=(i, client, requests))
 
         # wait for all request to done
         pool.close()

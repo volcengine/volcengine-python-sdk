@@ -33,70 +33,34 @@ class ConvertConvertStorylineForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'all_tags': 'list[AllTagForGetExecutionOutput]',
-        'clips': 'list[ConvertClipForGetExecutionOutput]',
-        'duration': 'float',
-        'storylines': 'list[ConvertStorylineForGetExecutionOutput]',
-        'summaries': 'list[str]',
-        'titles': 'list[str]'
+        'clips': 'list[int]',
+        'summary': 'str',
+        'title': 'str'
     }
 
     attribute_map = {
-        'all_tags': 'AllTags',
         'clips': 'Clips',
-        'duration': 'Duration',
-        'storylines': 'Storylines',
-        'summaries': 'Summaries',
-        'titles': 'Titles'
+        'summary': 'Summary',
+        'title': 'Title'
     }
 
-    def __init__(self, all_tags=None, clips=None, duration=None, storylines=None, summaries=None, titles=None, _configuration=None):  # noqa: E501
+    def __init__(self, clips=None, summary=None, title=None, _configuration=None):  # noqa: E501
         """ConvertConvertStorylineForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._all_tags = None
         self._clips = None
-        self._duration = None
-        self._storylines = None
-        self._summaries = None
-        self._titles = None
+        self._summary = None
+        self._title = None
         self.discriminator = None
 
-        if all_tags is not None:
-            self.all_tags = all_tags
         if clips is not None:
             self.clips = clips
-        if duration is not None:
-            self.duration = duration
-        if storylines is not None:
-            self.storylines = storylines
-        if summaries is not None:
-            self.summaries = summaries
-        if titles is not None:
-            self.titles = titles
-
-    @property
-    def all_tags(self):
-        """Gets the all_tags of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The all_tags of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :rtype: list[AllTagForGetExecutionOutput]
-        """
-        return self._all_tags
-
-    @all_tags.setter
-    def all_tags(self, all_tags):
-        """Sets the all_tags of this ConvertConvertStorylineForGetExecutionOutput.
-
-
-        :param all_tags: The all_tags of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :type: list[AllTagForGetExecutionOutput]
-        """
-
-        self._all_tags = all_tags
+        if summary is not None:
+            self.summary = summary
+        if title is not None:
+            self.title = title
 
     @property
     def clips(self):
@@ -104,7 +68,7 @@ class ConvertConvertStorylineForGetExecutionOutput(object):
 
 
         :return: The clips of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertClipForGetExecutionOutput]
+        :rtype: list[int]
         """
         return self._clips
 
@@ -114,94 +78,52 @@ class ConvertConvertStorylineForGetExecutionOutput(object):
 
 
         :param clips: The clips of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertClipForGetExecutionOutput]
+        :type: list[int]
         """
 
         self._clips = clips
 
     @property
-    def duration(self):
-        """Gets the duration of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
+    def summary(self):
+        """Gets the summary of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The duration of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :rtype: float
+        :return: The summary of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._duration
+        return self._summary
 
-    @duration.setter
-    def duration(self, duration):
-        """Sets the duration of this ConvertConvertStorylineForGetExecutionOutput.
+    @summary.setter
+    def summary(self, summary):
+        """Sets the summary of this ConvertConvertStorylineForGetExecutionOutput.
 
 
-        :param duration: The duration of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :type: float
+        :param summary: The summary of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._duration = duration
+        self._summary = summary
 
     @property
-    def storylines(self):
-        """Gets the storylines of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
+    def title(self):
+        """Gets the title of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The storylines of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertStorylineForGetExecutionOutput]
+        :return: The title of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._storylines
+        return self._title
 
-    @storylines.setter
-    def storylines(self, storylines):
-        """Sets the storylines of this ConvertConvertStorylineForGetExecutionOutput.
-
-
-        :param storylines: The storylines of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertStorylineForGetExecutionOutput]
-        """
-
-        self._storylines = storylines
-
-    @property
-    def summaries(self):
-        """Gets the summaries of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
+    @title.setter
+    def title(self, title):
+        """Sets the title of this ConvertConvertStorylineForGetExecutionOutput.
 
 
-        :return: The summaries of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._summaries
-
-    @summaries.setter
-    def summaries(self, summaries):
-        """Sets the summaries of this ConvertConvertStorylineForGetExecutionOutput.
-
-
-        :param summaries: The summaries of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :type: list[str]
+        :param title: The title of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._summaries = summaries
-
-    @property
-    def titles(self):
-        """Gets the titles of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The titles of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._titles
-
-    @titles.setter
-    def titles(self, titles):
-        """Sets the titles of this ConvertConvertStorylineForGetExecutionOutput.
-
-
-        :param titles: The titles of this ConvertConvertStorylineForGetExecutionOutput.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._titles = titles
+        self._title = title
 
     def to_dict(self):
         """Returns the model properties as a dict"""

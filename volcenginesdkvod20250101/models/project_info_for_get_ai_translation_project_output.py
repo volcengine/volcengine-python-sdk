@@ -36,6 +36,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         'background_audio': 'BackgroundAudioForGetAITranslationProjectOutput',
         'background_clip': 'BackgroundClipForGetAITranslationProjectOutput',
         'created_at': 'str',
+        'erased_subtitle_video': 'ErasedSubtitleVideoForGetAITranslationProjectOutput',
         'error_code': 'int',
         'error_msg': 'str',
         'facial_translation_video': 'FacialTranslationVideoForGetAITranslationProjectOutput',
@@ -68,6 +69,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         'background_audio': 'BackgroundAudio',
         'background_clip': 'BackgroundClip',
         'created_at': 'CreatedAt',
+        'erased_subtitle_video': 'ErasedSubtitleVideo',
         'error_code': 'ErrorCode',
         'error_msg': 'ErrorMsg',
         'facial_translation_video': 'FacialTranslationVideo',
@@ -96,7 +98,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         'workflow_id': 'WorkflowId'
     }
 
-    def __init__(self, background_audio=None, background_clip=None, created_at=None, error_code=None, error_msg=None, facial_translation_video=None, foreground_audio=None, input_video=None, input_video_title=None, operator_config=None, output_video=None, preview_video=None, preview_video_muted=None, project_id=None, project_version=None, source_blueprints=None, source_clips=None, source_tracks=None, source_utterances=None, speakers=None, status=None, target_blueprints=None, target_clips=None, target_tracks=None, target_utterances=None, translation_type_list=None, updated_at=None, voice_translation_video=None, workflow_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, background_audio=None, background_clip=None, created_at=None, erased_subtitle_video=None, error_code=None, error_msg=None, facial_translation_video=None, foreground_audio=None, input_video=None, input_video_title=None, operator_config=None, output_video=None, preview_video=None, preview_video_muted=None, project_id=None, project_version=None, source_blueprints=None, source_clips=None, source_tracks=None, source_utterances=None, speakers=None, status=None, target_blueprints=None, target_clips=None, target_tracks=None, target_utterances=None, translation_type_list=None, updated_at=None, voice_translation_video=None, workflow_id=None, _configuration=None):  # noqa: E501
         """ProjectInfoForGetAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,6 +107,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         self._background_audio = None
         self._background_clip = None
         self._created_at = None
+        self._erased_subtitle_video = None
         self._error_code = None
         self._error_msg = None
         self._facial_translation_video = None
@@ -139,6 +142,8 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
             self.background_clip = background_clip
         if created_at is not None:
             self.created_at = created_at
+        if erased_subtitle_video is not None:
+            self.erased_subtitle_video = erased_subtitle_video
         if error_code is not None:
             self.error_code = error_code
         if error_msg is not None:
@@ -254,6 +259,27 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def erased_subtitle_video(self):
+        """Gets the erased_subtitle_video of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The erased_subtitle_video of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+        :rtype: ErasedSubtitleVideoForGetAITranslationProjectOutput
+        """
+        return self._erased_subtitle_video
+
+    @erased_subtitle_video.setter
+    def erased_subtitle_video(self, erased_subtitle_video):
+        """Sets the erased_subtitle_video of this ProjectInfoForGetAITranslationProjectOutput.
+
+
+        :param erased_subtitle_video: The erased_subtitle_video of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+        :type: ErasedSubtitleVideoForGetAITranslationProjectOutput
+        """
+
+        self._erased_subtitle_video = erased_subtitle_video
 
     @property
     def error_code(self):

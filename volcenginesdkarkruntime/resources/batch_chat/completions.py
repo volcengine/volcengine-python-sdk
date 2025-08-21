@@ -1,3 +1,15 @@
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
 import asyncio
@@ -12,7 +24,7 @@ import warnings
 
 from ..._exceptions import ArkAPITimeoutError, ArkAPIConnectionError, ArkAPIStatusError
 from ..._types import Body, Query, Headers
-from ..._utils._utils import with_sts_token, async_with_sts_token, deepcopy_minimal
+from ..._utils import with_sts_token, async_with_sts_token, deepcopy_minimal
 from ..._utils._key_agreement import aes_gcm_decrypt_base64_string
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource

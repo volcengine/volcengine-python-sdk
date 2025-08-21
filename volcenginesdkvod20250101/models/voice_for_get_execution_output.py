@@ -34,15 +34,17 @@ class VoiceForGetExecutionOutput(object):
     """
     swagger_types = {
         'file_name': 'str',
-        'size': 'str'
+        'size': 'str',
+        'vid': 'str'
     }
 
     attribute_map = {
         'file_name': 'FileName',
-        'size': 'Size'
+        'size': 'Size',
+        'vid': 'Vid'
     }
 
-    def __init__(self, file_name=None, size=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_name=None, size=None, vid=None, _configuration=None):  # noqa: E501
         """VoiceForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class VoiceForGetExecutionOutput(object):
 
         self._file_name = None
         self._size = None
+        self._vid = None
         self.discriminator = None
 
         if file_name is not None:
             self.file_name = file_name
         if size is not None:
             self.size = size
+        if vid is not None:
+            self.vid = vid
 
     @property
     def file_name(self):
@@ -98,6 +103,27 @@ class VoiceForGetExecutionOutput(object):
         """
 
         self._size = size
+
+    @property
+    def vid(self):
+        """Gets the vid of this VoiceForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The vid of this VoiceForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vid
+
+    @vid.setter
+    def vid(self, vid):
+        """Sets the vid of this VoiceForGetExecutionOutput.
+
+
+        :param vid: The vid of this VoiceForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vid = vid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

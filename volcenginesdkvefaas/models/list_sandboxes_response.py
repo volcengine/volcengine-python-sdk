@@ -34,7 +34,7 @@ class ListSandboxesResponse(object):
     """
     swagger_types = {
         'sandboxes': 'list[SandboxForListSandboxesOutput]',
-        'status_count': 'StatusCountForListSandboxesOutput',
+        'status_count': 'dict(str, int)',
         'total': 'int'
     }
 
@@ -89,7 +89,7 @@ class ListSandboxesResponse(object):
 
 
         :return: The status_count of this ListSandboxesResponse.  # noqa: E501
-        :rtype: StatusCountForListSandboxesOutput
+        :rtype: dict(str, int)
         """
         return self._status_count
 
@@ -99,7 +99,7 @@ class ListSandboxesResponse(object):
 
 
         :param status_count: The status_count of this ListSandboxesResponse.  # noqa: E501
-        :type: StatusCountForListSandboxesOutput
+        :type: dict(str, int)
         """
 
         self._status_count = status_count

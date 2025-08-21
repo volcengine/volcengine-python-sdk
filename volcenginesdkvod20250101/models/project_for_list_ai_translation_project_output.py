@@ -45,6 +45,7 @@ class ProjectForListAITranslationProjectOutput(object):
         'project_version': 'str',
         'source_blueprints': 'list[SourceBlueprintForListAITranslationProjectOutput]',
         'status': 'str',
+        'subtitle_config': 'SubtitleConfigForListAITranslationProjectOutput',
         'target_blueprints': 'list[TargetBlueprintForListAITranslationProjectOutput]',
         'translation_type_list': 'list[str]',
         'updated_at': 'str',
@@ -64,13 +65,14 @@ class ProjectForListAITranslationProjectOutput(object):
         'project_version': 'ProjectVersion',
         'source_blueprints': 'SourceBlueprints',
         'status': 'Status',
+        'subtitle_config': 'SubtitleConfig',
         'target_blueprints': 'TargetBlueprints',
         'translation_type_list': 'TranslationTypeList',
         'updated_at': 'UpdatedAt',
         'workflow_id': 'WorkflowId'
     }
 
-    def __init__(self, created_at=None, error_code=None, error_msg=None, input_video=None, input_video_poster_url=None, input_video_title=None, operator_config=None, output_video=None, project_id=None, project_version=None, source_blueprints=None, status=None, target_blueprints=None, translation_type_list=None, updated_at=None, workflow_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, error_code=None, error_msg=None, input_video=None, input_video_poster_url=None, input_video_title=None, operator_config=None, output_video=None, project_id=None, project_version=None, source_blueprints=None, status=None, subtitle_config=None, target_blueprints=None, translation_type_list=None, updated_at=None, workflow_id=None, _configuration=None):  # noqa: E501
         """ProjectForListAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class ProjectForListAITranslationProjectOutput(object):
         self._project_version = None
         self._source_blueprints = None
         self._status = None
+        self._subtitle_config = None
         self._target_blueprints = None
         self._translation_type_list = None
         self._updated_at = None
@@ -118,6 +121,8 @@ class ProjectForListAITranslationProjectOutput(object):
             self.source_blueprints = source_blueprints
         if status is not None:
             self.status = status
+        if subtitle_config is not None:
+            self.subtitle_config = subtitle_config
         if target_blueprints is not None:
             self.target_blueprints = target_blueprints
         if translation_type_list is not None:
@@ -378,6 +383,27 @@ class ProjectForListAITranslationProjectOutput(object):
         """
 
         self._status = status
+
+    @property
+    def subtitle_config(self):
+        """Gets the subtitle_config of this ProjectForListAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The subtitle_config of this ProjectForListAITranslationProjectOutput.  # noqa: E501
+        :rtype: SubtitleConfigForListAITranslationProjectOutput
+        """
+        return self._subtitle_config
+
+    @subtitle_config.setter
+    def subtitle_config(self, subtitle_config):
+        """Sets the subtitle_config of this ProjectForListAITranslationProjectOutput.
+
+
+        :param subtitle_config: The subtitle_config of this ProjectForListAITranslationProjectOutput.  # noqa: E501
+        :type: SubtitleConfigForListAITranslationProjectOutput
+        """
+
+        self._subtitle_config = subtitle_config
 
     @property
     def target_blueprints(self):

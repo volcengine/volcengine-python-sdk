@@ -36,7 +36,7 @@ class CreateSandboxRequest(object):
         'envs': 'list[EnvForCreateSandboxInput]',
         'function_id': 'str',
         'instance_tos_mount_config': 'InstanceTosMountConfigForCreateSandboxInput',
-        'metadata': 'MetadataForCreateSandboxInput',
+        'metadata': 'dict(str, str)',
         'timeout': 'int'
     }
 
@@ -142,7 +142,7 @@ class CreateSandboxRequest(object):
 
 
         :return: The metadata of this CreateSandboxRequest.  # noqa: E501
-        :rtype: MetadataForCreateSandboxInput
+        :rtype: dict(str, str)
         """
         return self._metadata
 
@@ -152,7 +152,7 @@ class CreateSandboxRequest(object):
 
 
         :param metadata: The metadata of this CreateSandboxRequest.  # noqa: E501
-        :type: MetadataForCreateSandboxInput
+        :type: dict(str, str)
         """
 
         self._metadata = metadata

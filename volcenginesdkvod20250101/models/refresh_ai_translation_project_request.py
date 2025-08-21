@@ -33,58 +33,31 @@ class RefreshAITranslationProjectRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'current_version': 'str',
         'project_id': 'str',
         'refresh_type': 'str',
         'space_name': 'str'
     }
 
     attribute_map = {
-        'current_version': 'CurrentVersion',
         'project_id': 'ProjectId',
         'refresh_type': 'RefreshType',
         'space_name': 'SpaceName'
     }
 
-    def __init__(self, current_version=None, project_id=None, refresh_type=None, space_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_id=None, refresh_type=None, space_name=None, _configuration=None):  # noqa: E501
         """RefreshAITranslationProjectRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._current_version = None
         self._project_id = None
         self._refresh_type = None
         self._space_name = None
         self.discriminator = None
 
-        self.current_version = current_version
         self.project_id = project_id
         self.refresh_type = refresh_type
         self.space_name = space_name
-
-    @property
-    def current_version(self):
-        """Gets the current_version of this RefreshAITranslationProjectRequest.  # noqa: E501
-
-
-        :return: The current_version of this RefreshAITranslationProjectRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._current_version
-
-    @current_version.setter
-    def current_version(self, current_version):
-        """Sets the current_version of this RefreshAITranslationProjectRequest.
-
-
-        :param current_version: The current_version of this RefreshAITranslationProjectRequest.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and current_version is None:
-            raise ValueError("Invalid value for `current_version`, must not be `None`")  # noqa: E501
-
-        self._current_version = current_version
 
     @property
     def project_id(self):

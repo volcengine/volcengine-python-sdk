@@ -38,6 +38,7 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput(object):
         'effect_end_at': 'str',
         'effect_start_at': 'str',
         'notification_id': 'str',
+        'notify_templates': 'list[NotifyTemplateForApplyObjectGroupsByAlertTemplateInput]',
         'object_group_id': 'str',
         'webhook': 'str',
         'webhook_ids': 'list[str]'
@@ -49,12 +50,13 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput(object):
         'effect_end_at': 'EffectEndAt',
         'effect_start_at': 'EffectStartAt',
         'notification_id': 'NotificationId',
+        'notify_templates': 'NotifyTemplates',
         'object_group_id': 'ObjectGroupId',
         'webhook': 'Webhook',
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, contact_group_ids=None, effect_end_at=None, effect_start_at=None, notification_id=None, object_group_id=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, contact_group_ids=None, effect_end_at=None, effect_start_at=None, notification_id=None, notify_templates=None, object_group_id=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """ApplyObjectForApplyObjectGroupsByAlertTemplateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput(object):
         self._effect_end_at = None
         self._effect_start_at = None
         self._notification_id = None
+        self._notify_templates = None
         self._object_group_id = None
         self._webhook = None
         self._webhook_ids = None
@@ -80,6 +83,8 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput(object):
             self.effect_start_at = effect_start_at
         if notification_id is not None:
             self.notification_id = notification_id
+        if notify_templates is not None:
+            self.notify_templates = notify_templates
         if object_group_id is not None:
             self.object_group_id = object_group_id
         if webhook is not None:
@@ -191,6 +196,27 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput(object):
         """
 
         self._notification_id = notification_id
+
+    @property
+    def notify_templates(self):
+        """Gets the notify_templates of this ApplyObjectForApplyObjectGroupsByAlertTemplateInput.  # noqa: E501
+
+
+        :return: The notify_templates of this ApplyObjectForApplyObjectGroupsByAlertTemplateInput.  # noqa: E501
+        :rtype: list[NotifyTemplateForApplyObjectGroupsByAlertTemplateInput]
+        """
+        return self._notify_templates
+
+    @notify_templates.setter
+    def notify_templates(self, notify_templates):
+        """Sets the notify_templates of this ApplyObjectForApplyObjectGroupsByAlertTemplateInput.
+
+
+        :param notify_templates: The notify_templates of this ApplyObjectForApplyObjectGroupsByAlertTemplateInput.  # noqa: E501
+        :type: list[NotifyTemplateForApplyObjectGroupsByAlertTemplateInput]
+        """
+
+        self._notify_templates = notify_templates
 
     @property
     def object_group_id(self):

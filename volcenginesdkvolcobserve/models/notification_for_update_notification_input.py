@@ -36,6 +36,7 @@ class NotificationForUpdateNotificationInput(object):
         'alert_methods': 'list[str]',
         'contact_group_ids': 'list[str]',
         'level': 'str',
+        'notify_templates': 'list[NotifyTemplateForUpdateNotificationInput]',
         'webhook_ids': 'list[str]'
     }
 
@@ -43,10 +44,11 @@ class NotificationForUpdateNotificationInput(object):
         'alert_methods': 'AlertMethods',
         'contact_group_ids': 'ContactGroupIds',
         'level': 'Level',
+        'notify_templates': 'NotifyTemplates',
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, contact_group_ids=None, level=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, contact_group_ids=None, level=None, notify_templates=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """NotificationForUpdateNotificationInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class NotificationForUpdateNotificationInput(object):
         self._alert_methods = None
         self._contact_group_ids = None
         self._level = None
+        self._notify_templates = None
         self._webhook_ids = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class NotificationForUpdateNotificationInput(object):
             self.contact_group_ids = contact_group_ids
         if level is not None:
             self.level = level
+        if notify_templates is not None:
+            self.notify_templates = notify_templates
         if webhook_ids is not None:
             self.webhook_ids = webhook_ids
 
@@ -144,6 +149,27 @@ class NotificationForUpdateNotificationInput(object):
             )
 
         self._level = level
+
+    @property
+    def notify_templates(self):
+        """Gets the notify_templates of this NotificationForUpdateNotificationInput.  # noqa: E501
+
+
+        :return: The notify_templates of this NotificationForUpdateNotificationInput.  # noqa: E501
+        :rtype: list[NotifyTemplateForUpdateNotificationInput]
+        """
+        return self._notify_templates
+
+    @notify_templates.setter
+    def notify_templates(self, notify_templates):
+        """Sets the notify_templates of this NotificationForUpdateNotificationInput.
+
+
+        :param notify_templates: The notify_templates of this NotificationForUpdateNotificationInput.  # noqa: E501
+        :type: list[NotifyTemplateForUpdateNotificationInput]
+        """
+
+        self._notify_templates = notify_templates
 
     @property
     def webhook_ids(self):

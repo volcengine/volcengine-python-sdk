@@ -35,16 +35,22 @@ class ConvertModelForGetExecutionOutput(object):
     swagger_types = {
         'doubao_input_tokens': 'int',
         'doubao_output_tokens': 'int',
+        'doubao_text_input_tokens': 'int',
+        'doubao_text_output_tokens': 'int',
+        'doubao_text_total_tokens': 'int',
         'doubao_total_tokens': 'int'
     }
 
     attribute_map = {
         'doubao_input_tokens': 'DoubaoInputTokens',
         'doubao_output_tokens': 'DoubaoOutputTokens',
+        'doubao_text_input_tokens': 'DoubaoTextInputTokens',
+        'doubao_text_output_tokens': 'DoubaoTextOutputTokens',
+        'doubao_text_total_tokens': 'DoubaoTextTotalTokens',
         'doubao_total_tokens': 'DoubaoTotalTokens'
     }
 
-    def __init__(self, doubao_input_tokens=None, doubao_output_tokens=None, doubao_total_tokens=None, _configuration=None):  # noqa: E501
+    def __init__(self, doubao_input_tokens=None, doubao_output_tokens=None, doubao_text_input_tokens=None, doubao_text_output_tokens=None, doubao_text_total_tokens=None, doubao_total_tokens=None, _configuration=None):  # noqa: E501
         """ConvertModelForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +58,9 @@ class ConvertModelForGetExecutionOutput(object):
 
         self._doubao_input_tokens = None
         self._doubao_output_tokens = None
+        self._doubao_text_input_tokens = None
+        self._doubao_text_output_tokens = None
+        self._doubao_text_total_tokens = None
         self._doubao_total_tokens = None
         self.discriminator = None
 
@@ -59,6 +68,12 @@ class ConvertModelForGetExecutionOutput(object):
             self.doubao_input_tokens = doubao_input_tokens
         if doubao_output_tokens is not None:
             self.doubao_output_tokens = doubao_output_tokens
+        if doubao_text_input_tokens is not None:
+            self.doubao_text_input_tokens = doubao_text_input_tokens
+        if doubao_text_output_tokens is not None:
+            self.doubao_text_output_tokens = doubao_text_output_tokens
+        if doubao_text_total_tokens is not None:
+            self.doubao_text_total_tokens = doubao_text_total_tokens
         if doubao_total_tokens is not None:
             self.doubao_total_tokens = doubao_total_tokens
 
@@ -103,6 +118,69 @@ class ConvertModelForGetExecutionOutput(object):
         """
 
         self._doubao_output_tokens = doubao_output_tokens
+
+    @property
+    def doubao_text_input_tokens(self):
+        """Gets the doubao_text_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The doubao_text_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._doubao_text_input_tokens
+
+    @doubao_text_input_tokens.setter
+    def doubao_text_input_tokens(self, doubao_text_input_tokens):
+        """Sets the doubao_text_input_tokens of this ConvertModelForGetExecutionOutput.
+
+
+        :param doubao_text_input_tokens: The doubao_text_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._doubao_text_input_tokens = doubao_text_input_tokens
+
+    @property
+    def doubao_text_output_tokens(self):
+        """Gets the doubao_text_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The doubao_text_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._doubao_text_output_tokens
+
+    @doubao_text_output_tokens.setter
+    def doubao_text_output_tokens(self, doubao_text_output_tokens):
+        """Sets the doubao_text_output_tokens of this ConvertModelForGetExecutionOutput.
+
+
+        :param doubao_text_output_tokens: The doubao_text_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._doubao_text_output_tokens = doubao_text_output_tokens
+
+    @property
+    def doubao_text_total_tokens(self):
+        """Gets the doubao_text_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The doubao_text_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._doubao_text_total_tokens
+
+    @doubao_text_total_tokens.setter
+    def doubao_text_total_tokens(self, doubao_text_total_tokens):
+        """Sets the doubao_text_total_tokens of this ConvertModelForGetExecutionOutput.
+
+
+        :param doubao_text_total_tokens: The doubao_text_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._doubao_text_total_tokens = doubao_text_total_tokens
 
     @property
     def doubao_total_tokens(self):

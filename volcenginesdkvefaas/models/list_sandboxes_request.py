@@ -34,7 +34,7 @@ class ListSandboxesRequest(object):
     """
     swagger_types = {
         'function_id': 'str',
-        'metadata': 'MetadataForListSandboxesInput',
+        'metadata': 'dict(str, str)',
         'page_number': 'int',
         'page_size': 'int',
         'sandbox_id': 'str'
@@ -100,7 +100,7 @@ class ListSandboxesRequest(object):
 
 
         :return: The metadata of this ListSandboxesRequest.  # noqa: E501
-        :rtype: MetadataForListSandboxesInput
+        :rtype: dict(str, str)
         """
         return self._metadata
 
@@ -110,7 +110,7 @@ class ListSandboxesRequest(object):
 
 
         :param metadata: The metadata of this ListSandboxesRequest.  # noqa: E501
-        :type: MetadataForListSandboxesInput
+        :type: dict(str, str)
         """
 
         self._metadata = metadata

@@ -34,31 +34,26 @@ class OperationForGetExecutionOutput(object):
     """
     swagger_types = {
         'task': 'TaskForGetExecutionOutput',
-        'template': 'TemplateForGetExecutionOutput',
         'type': 'str'
     }
 
     attribute_map = {
         'task': 'Task',
-        'template': 'Template',
         'type': 'Type'
     }
 
-    def __init__(self, task=None, template=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, task=None, type=None, _configuration=None):  # noqa: E501
         """OperationForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._task = None
-        self._template = None
         self._type = None
         self.discriminator = None
 
         if task is not None:
             self.task = task
-        if template is not None:
-            self.template = template
         if type is not None:
             self.type = type
 
@@ -82,27 +77,6 @@ class OperationForGetExecutionOutput(object):
         """
 
         self._task = task
-
-    @property
-    def template(self):
-        """Gets the template of this OperationForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The template of this OperationForGetExecutionOutput.  # noqa: E501
-        :rtype: TemplateForGetExecutionOutput
-        """
-        return self._template
-
-    @template.setter
-    def template(self, template):
-        """Sets the template of this OperationForGetExecutionOutput.
-
-
-        :param template: The template of this OperationForGetExecutionOutput.  # noqa: E501
-        :type: TemplateForGetExecutionOutput
-        """
-
-        self._template = template
 
     @property
     def type(self):

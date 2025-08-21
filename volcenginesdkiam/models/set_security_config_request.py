@@ -33,7 +33,7 @@ class SetSecurityConfigRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'safe_auth_exempt_duration': 'str',
+        'safe_auth_exempt_duration': 'int',
         'safe_auth_type': 'str',
         'user_name': 'str'
     }
@@ -66,7 +66,7 @@ class SetSecurityConfigRequest(object):
 
 
         :return: The safe_auth_exempt_duration of this SetSecurityConfigRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._safe_auth_exempt_duration
 
@@ -76,7 +76,7 @@ class SetSecurityConfigRequest(object):
 
 
         :param safe_auth_exempt_duration: The safe_auth_exempt_duration of this SetSecurityConfigRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._safe_auth_exempt_duration = safe_auth_exempt_duration

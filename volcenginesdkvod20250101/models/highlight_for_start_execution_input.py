@@ -33,17 +33,71 @@ class HighlightForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'mode': 'str',
+        'storyline_cuts': 'StorylineCutsForStartExecutionInput'
     }
 
     attribute_map = {
+        'mode': 'Mode',
+        'storyline_cuts': 'StorylineCuts'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, mode=None, storyline_cuts=None, _configuration=None):  # noqa: E501
         """HighlightForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._mode = None
+        self._storyline_cuts = None
         self.discriminator = None
+
+        if mode is not None:
+            self.mode = mode
+        if storyline_cuts is not None:
+            self.storyline_cuts = storyline_cuts
+
+    @property
+    def mode(self):
+        """Gets the mode of this HighlightForStartExecutionInput.  # noqa: E501
+
+
+        :return: The mode of this HighlightForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this HighlightForStartExecutionInput.
+
+
+        :param mode: The mode of this HighlightForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._mode = mode
+
+    @property
+    def storyline_cuts(self):
+        """Gets the storyline_cuts of this HighlightForStartExecutionInput.  # noqa: E501
+
+
+        :return: The storyline_cuts of this HighlightForStartExecutionInput.  # noqa: E501
+        :rtype: StorylineCutsForStartExecutionInput
+        """
+        return self._storyline_cuts
+
+    @storyline_cuts.setter
+    def storyline_cuts(self, storyline_cuts):
+        """Sets the storyline_cuts of this HighlightForStartExecutionInput.
+
+
+        :param storyline_cuts: The storyline_cuts of this HighlightForStartExecutionInput.  # noqa: E501
+        :type: StorylineCutsForStartExecutionInput
+        """
+
+        self._storyline_cuts = storyline_cuts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

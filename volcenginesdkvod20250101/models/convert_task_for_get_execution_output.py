@@ -36,11 +36,15 @@ class ConvertTaskForGetExecutionOutput(object):
         'ad_audit': 'ConvertAdAuditForGetExecutionOutput',
         'asr': 'ConvertAsrForGetExecutionOutput',
         'audio_extract': 'ConvertAudioExtractForGetExecutionOutput',
+        'erase': 'ConvertEraseForGetExecutionOutput',
+        'file_delete': 'ConvertFileDeleteForGetExecutionOutput',
         'highlight': 'ConvertHighlightForGetExecutionOutput',
         'ocr': 'ConvertOcrForGetExecutionOutput',
-        'segment': 'ConvertConvertSegmentForGetExecutionOutput',
-        'storyline': 'ConvertConvertStorylineForGetExecutionOutput',
+        'segment': 'ConvertConvertConvertConvertSegmentForGetExecutionOutput',
+        'storyline': 'ConvertConvertConvertStorylineForGetExecutionOutput',
         'type': 'str',
+        'video_generation': 'ConvertVideoGenerationForGetExecutionOutput',
+        'video_summary': 'ConvertVideoSummaryForGetExecutionOutput',
         'vision': 'ConvertVisionForGetExecutionOutput'
     }
 
@@ -48,15 +52,19 @@ class ConvertTaskForGetExecutionOutput(object):
         'ad_audit': 'AdAudit',
         'asr': 'Asr',
         'audio_extract': 'AudioExtract',
+        'erase': 'Erase',
+        'file_delete': 'FileDelete',
         'highlight': 'Highlight',
         'ocr': 'Ocr',
         'segment': 'Segment',
         'storyline': 'Storyline',
         'type': 'Type',
+        'video_generation': 'VideoGeneration',
+        'video_summary': 'VideoSummary',
         'vision': 'Vision'
     }
 
-    def __init__(self, ad_audit=None, asr=None, audio_extract=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, vision=None, _configuration=None):  # noqa: E501
+    def __init__(self, ad_audit=None, asr=None, audio_extract=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_summary=None, vision=None, _configuration=None):  # noqa: E501
         """ConvertTaskForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,11 +73,15 @@ class ConvertTaskForGetExecutionOutput(object):
         self._ad_audit = None
         self._asr = None
         self._audio_extract = None
+        self._erase = None
+        self._file_delete = None
         self._highlight = None
         self._ocr = None
         self._segment = None
         self._storyline = None
         self._type = None
+        self._video_generation = None
+        self._video_summary = None
         self._vision = None
         self.discriminator = None
 
@@ -79,6 +91,10 @@ class ConvertTaskForGetExecutionOutput(object):
             self.asr = asr
         if audio_extract is not None:
             self.audio_extract = audio_extract
+        if erase is not None:
+            self.erase = erase
+        if file_delete is not None:
+            self.file_delete = file_delete
         if highlight is not None:
             self.highlight = highlight
         if ocr is not None:
@@ -89,6 +105,10 @@ class ConvertTaskForGetExecutionOutput(object):
             self.storyline = storyline
         if type is not None:
             self.type = type
+        if video_generation is not None:
+            self.video_generation = video_generation
+        if video_summary is not None:
+            self.video_summary = video_summary
         if vision is not None:
             self.vision = vision
 
@@ -156,6 +176,48 @@ class ConvertTaskForGetExecutionOutput(object):
         self._audio_extract = audio_extract
 
     @property
+    def erase(self):
+        """Gets the erase of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The erase of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertEraseForGetExecutionOutput
+        """
+        return self._erase
+
+    @erase.setter
+    def erase(self, erase):
+        """Sets the erase of this ConvertTaskForGetExecutionOutput.
+
+
+        :param erase: The erase of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertEraseForGetExecutionOutput
+        """
+
+        self._erase = erase
+
+    @property
+    def file_delete(self):
+        """Gets the file_delete of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The file_delete of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertFileDeleteForGetExecutionOutput
+        """
+        return self._file_delete
+
+    @file_delete.setter
+    def file_delete(self, file_delete):
+        """Sets the file_delete of this ConvertTaskForGetExecutionOutput.
+
+
+        :param file_delete: The file_delete of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertFileDeleteForGetExecutionOutput
+        """
+
+        self._file_delete = file_delete
+
+    @property
     def highlight(self):
         """Gets the highlight of this ConvertTaskForGetExecutionOutput.  # noqa: E501
 
@@ -203,7 +265,7 @@ class ConvertTaskForGetExecutionOutput(object):
 
 
         :return: The segment of this ConvertTaskForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertConvertSegmentForGetExecutionOutput
+        :rtype: ConvertConvertConvertConvertSegmentForGetExecutionOutput
         """
         return self._segment
 
@@ -213,7 +275,7 @@ class ConvertTaskForGetExecutionOutput(object):
 
 
         :param segment: The segment of this ConvertTaskForGetExecutionOutput.  # noqa: E501
-        :type: ConvertConvertSegmentForGetExecutionOutput
+        :type: ConvertConvertConvertConvertSegmentForGetExecutionOutput
         """
 
         self._segment = segment
@@ -224,7 +286,7 @@ class ConvertTaskForGetExecutionOutput(object):
 
 
         :return: The storyline of this ConvertTaskForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertConvertStorylineForGetExecutionOutput
+        :rtype: ConvertConvertConvertStorylineForGetExecutionOutput
         """
         return self._storyline
 
@@ -234,7 +296,7 @@ class ConvertTaskForGetExecutionOutput(object):
 
 
         :param storyline: The storyline of this ConvertTaskForGetExecutionOutput.  # noqa: E501
-        :type: ConvertConvertStorylineForGetExecutionOutput
+        :type: ConvertConvertConvertStorylineForGetExecutionOutput
         """
 
         self._storyline = storyline
@@ -259,6 +321,48 @@ class ConvertTaskForGetExecutionOutput(object):
         """
 
         self._type = type
+
+    @property
+    def video_generation(self):
+        """Gets the video_generation of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_generation of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertVideoGenerationForGetExecutionOutput
+        """
+        return self._video_generation
+
+    @video_generation.setter
+    def video_generation(self, video_generation):
+        """Sets the video_generation of this ConvertTaskForGetExecutionOutput.
+
+
+        :param video_generation: The video_generation of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertVideoGenerationForGetExecutionOutput
+        """
+
+        self._video_generation = video_generation
+
+    @property
+    def video_summary(self):
+        """Gets the video_summary of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_summary of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertVideoSummaryForGetExecutionOutput
+        """
+        return self._video_summary
+
+    @video_summary.setter
+    def video_summary(self, video_summary):
+        """Sets the video_summary of this ConvertTaskForGetExecutionOutput.
+
+
+        :param video_summary: The video_summary of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertVideoSummaryForGetExecutionOutput
+        """
+
+        self._video_summary = video_summary
 
     @property
     def vision(self):

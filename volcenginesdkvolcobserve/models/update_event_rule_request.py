@@ -44,6 +44,7 @@ class UpdateEventRuleRequest(object):
         'filter_pattern': 'dict(str, object)',
         'level': 'str',
         'message_queue': 'list[MessageQueueForUpdateEventRuleInput]',
+        'notify_templates': 'list[NotifyTemplateForUpdateEventRuleInput]',
         'rule_id': 'str',
         'rule_name': 'str',
         'status': 'str',
@@ -63,6 +64,7 @@ class UpdateEventRuleRequest(object):
         'filter_pattern': 'FilterPattern',
         'level': 'Level',
         'message_queue': 'MessageQueue',
+        'notify_templates': 'NotifyTemplates',
         'rule_id': 'RuleId',
         'rule_name': 'RuleName',
         'status': 'Status',
@@ -70,7 +72,7 @@ class UpdateEventRuleRequest(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, contact_group_ids=None, contact_methods=None, description=None, effective_time=None, endpoint=None, event_bus_name=None, event_source=None, event_type=None, filter_pattern=None, level=None, message_queue=None, rule_id=None, rule_name=None, status=None, tls_target=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, contact_group_ids=None, contact_methods=None, description=None, effective_time=None, endpoint=None, event_bus_name=None, event_source=None, event_type=None, filter_pattern=None, level=None, message_queue=None, notify_templates=None, rule_id=None, rule_name=None, status=None, tls_target=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """UpdateEventRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class UpdateEventRuleRequest(object):
         self._filter_pattern = None
         self._level = None
         self._message_queue = None
+        self._notify_templates = None
         self._rule_id = None
         self._rule_name = None
         self._status = None
@@ -113,6 +116,8 @@ class UpdateEventRuleRequest(object):
         self.level = level
         if message_queue is not None:
             self.message_queue = message_queue
+        if notify_templates is not None:
+            self.notify_templates = notify_templates
         self.rule_id = rule_id
         self.rule_name = rule_name
         if status is not None:
@@ -365,6 +370,27 @@ class UpdateEventRuleRequest(object):
         """
 
         self._message_queue = message_queue
+
+    @property
+    def notify_templates(self):
+        """Gets the notify_templates of this UpdateEventRuleRequest.  # noqa: E501
+
+
+        :return: The notify_templates of this UpdateEventRuleRequest.  # noqa: E501
+        :rtype: list[NotifyTemplateForUpdateEventRuleInput]
+        """
+        return self._notify_templates
+
+    @notify_templates.setter
+    def notify_templates(self, notify_templates):
+        """Sets the notify_templates of this UpdateEventRuleRequest.
+
+
+        :param notify_templates: The notify_templates of this UpdateEventRuleRequest.  # noqa: E501
+        :type: list[NotifyTemplateForUpdateEventRuleInput]
+        """
+
+        self._notify_templates = notify_templates
 
     @property
     def rule_id(self):
