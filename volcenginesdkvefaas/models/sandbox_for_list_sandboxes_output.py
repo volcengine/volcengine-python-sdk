@@ -41,7 +41,7 @@ class SandboxForListSandboxesOutput(object):
         'function_id': 'str',
         'id': 'str',
         'instance_type': 'str',
-        'metadata': 'MetadataForListSandboxesOutput',
+        'metadata': 'dict(str, str)',
         'pending': 'bool',
         'revision_number': 'int',
         'status': 'str'
@@ -281,7 +281,7 @@ class SandboxForListSandboxesOutput(object):
 
 
         :return: The metadata of this SandboxForListSandboxesOutput.  # noqa: E501
-        :rtype: MetadataForListSandboxesOutput
+        :rtype: dict(str, str)
         """
         return self._metadata
 
@@ -291,7 +291,7 @@ class SandboxForListSandboxesOutput(object):
 
 
         :param metadata: The metadata of this SandboxForListSandboxesOutput.  # noqa: E501
-        :type: MetadataForListSandboxesOutput
+        :type: dict(str, str)
         """
 
         self._metadata = metadata
