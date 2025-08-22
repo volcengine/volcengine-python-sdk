@@ -12,6 +12,7 @@ import six
 from six.moves import http_client as httplib
 
 from volcenginesdkcore.endpoint import DefaultEndpointProvider
+from volcenginesdkcore.observability.debugger import sdk_core_logger
 from volcenginesdkcore.retryer.retryer import DEFAULT_RETRYER
 
 
@@ -87,7 +88,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         # Logging Settings
         self.logger = {}
-        self.logger["package_logger"] = logging.getLogger("volcenginesdkcore")
+        self.logger["package_logger"] = sdk_core_logger
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         # Log format
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
@@ -208,14 +209,14 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
             for _, logger in six.iteritems(self.logger):
                 logger.setLevel(logging.DEBUG)
             # turn on httplib debug
-            httplib.HTTPConnection.debuglevel = 1
+            #httplib.HTTPConnection.debuglevel = 1
         else:
             # if debug status is False, turn off debug logging,
             # setting log level to default `logging.WARNING`
             for _, logger in six.iteritems(self.logger):
                 logger.setLevel(logging.WARNING)
             # turn off httplib debug
-            httplib.HTTPConnection.debuglevel = 0
+            #httplib.HTTPConnection.debuglevel = 0
 
     @property
     def logger_format(self):
@@ -239,6 +240,9 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         """
         self.__logger_format = value
         self.logger_formatter = logging.Formatter(self.__logger_format)
+        for _, lg in six.iteritems(self.logger):
+            for h in lg.handlers:
+                h.setFormatter(self.logger_formatter)
 
     def get_api_key_with_prefix(self, identifier):
         """Gets API key (with prefix if set).
@@ -334,3 +338,11 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     @property
     def retryer(self):
         return self.__retryer
+
+    @property
+    def log_level(self):
+        return sdk_core_logger.get_log_level()
+
+    @log_level.setter
+    def log_level(self, value):
+        sdk_core_logger.set_log_level(value)

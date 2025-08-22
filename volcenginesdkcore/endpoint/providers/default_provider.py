@@ -3,6 +3,7 @@ import os
 import warnings
 
 from volcenginesdkcore.endpoint.endpoint_provider import EndpointProvider, ResolvedEndpoint
+from volcenginesdkcore.observability.debugger import sdk_core_logger
 
 open_prefix = 'open'
 endpoint_suffix = '.volcengineapi.com'
@@ -29,14 +30,36 @@ class ServiceEndpointInfo:
         return self.service.lower().replace('_', '-')
 
     def get_endpoint_for(self, region, suffix=endpoint_suffix):
+        sdk_core_logger.debug_endpoint(
+            "get_endpoint_for start: service=%s, region=%s, suffix=%s",
+            self.service, region, suffix
+        )
         if self.is_global:
             if self.global_endpoint:
+                sdk_core_logger.debug_endpoint(
+                    "use global endpoint: service=%s, endpoint=%s",
+                    self.service, self.global_endpoint
+                )
                 return self.global_endpoint
-            return self.__standardize_domain_service_code + suffix
-        if region in self.region_endpoint_map:
-            return self.region_endpoint_map[region]
 
-        return self.__standardize_domain_service_code + '.' + region + suffix
+            endpoint = self.__standardize_domain_service_code + suffix
+            sdk_core_logger.debug_endpoint(
+                "build global endpoint from service code: %s", endpoint
+            )
+            return endpoint
+        if region in self.region_endpoint_map:
+            endpoint = self.region_endpoint_map[region]
+            sdk_core_logger.debug_endpoint(
+                "use region endpoint from map: service=%s, region=%s, endpoint=%s",
+                self.service, region, endpoint
+            )
+            return endpoint
+
+        endpoint = self.__standardize_domain_service_code + '.' + region + suffix
+        sdk_core_logger.debug_endpoint(
+            "build region endpoint by default rule: %s", endpoint
+        )
+        return endpoint
 
 
 default_endpoint = {
@@ -477,9 +500,21 @@ class DefaultEndpointProvider(EndpointProvider):
         self.custom_endpoints = custom_endpoints or {}
 
     def get_default_endpoint(self, service, region, suffix=endpoint_suffix):
+        sdk_core_logger.debug_endpoint(
+            "get_default_endpoint: service=%s, region=%s, suffix=%s",
+            service, region, suffix
+        )
         if service in default_endpoint:
             e = default_endpoint[service]
-            return e.get_endpoint_for(region, suffix)
+            endpoint = e.get_endpoint_for(region, suffix)
+            sdk_core_logger.debug_endpoint(
+                "resolved default endpoint: service=%s, endpoint=%s",
+                service, endpoint
+            )
+            return endpoint
+        sdk_core_logger.debug_endpoint(
+            "service not found in default_endpoint, use fallback=%s", fallback_endpoint
+        )
         return fallback_endpoint
 
     def __in_bootstrap_region_list(self, region, custom_bootstrap_region):
@@ -519,20 +554,36 @@ class DefaultEndpointProvider(EndpointProvider):
         return use_dual_stack
 
     def endpoint_for(self, service, region, custom_bootstrap_region=None, use_dual_stack=None, **kwargs):
+        sdk_core_logger.debug_endpoint(
+            "endpoint_for called: service=%s, region=%s, custom_bootstrap_region=%s, use_dual_stack=%s",
+            service, region, custom_bootstrap_region, use_dual_stack
+        )
         if service in self.custom_endpoints:
             conf = self.custom_endpoints[service]
             host = conf.get_endpoint_for(region)
+            sdk_core_logger.debug_endpoint(
+                "use custom endpoint: service=%s, region=%s, host=%s",
+                service, region, host
+            )
             return ResolvedEndpoint(host)
 
         if custom_bootstrap_region is None:
             custom_bootstrap_region = {}
 
         if not self.__in_bootstrap_region_list(region, custom_bootstrap_region):
+            sdk_core_logger.debug_endpoint(
+                "region=%s not in bootstrap list, fallback=%s",
+                region, fallback_endpoint
+            )
             return ResolvedEndpoint(fallback_endpoint)
 
         suffix = dualstack_endpoint_suffix if self.__has_enabled_dualstack(use_dual_stack) else endpoint_suffix
         host = self.get_default_endpoint(service=service, region=region, suffix=suffix)
 
+        sdk_core_logger.debug_endpoint(
+            "final resolved endpoint: service=%s, region=%s, host=%s",
+            service, region, host
+        )
         return ResolvedEndpoint(host)
 
 
@@ -541,4 +592,8 @@ class HostEndpointProvider(EndpointProvider):
         self.host = host
 
     def endpoint_for(self, service, region, **kwargs):
+        sdk_core_logger.debug_endpoint(
+            "HostEndpointProvider.endpoint_for: service=%s, region=%s, host=%s",
+            service, region, self.host
+        )
         return ResolvedEndpoint(self.host)
