@@ -15,9 +15,11 @@ from typing_extensions import Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
 from .function_tool import FunctionTool
+from .mcp_tool import Mcp
+from .web_search_tool import WebSearchTool
 
 __all__ = ["Tool"]
 
 Tool: TypeAlias = Annotated[
-    Union[FunctionTool], PropertyInfo(discriminator="type")
+    Union[FunctionTool, WebSearchTool, Mcp], PropertyInfo(discriminator="type")
 ]

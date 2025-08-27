@@ -59,7 +59,6 @@ class Images(SyncAPIResource):
                 - disabled: Disables multi-image; the model generates only a single image
         """
 
-
     @overload
     def generate(
         self,
@@ -140,7 +139,10 @@ class Images(SyncAPIResource):
                 "watermark": watermark,
                 "optimize_prompt": optimize_prompt,
                 "sequential_image_generation": sequential_image_generation,
-                "sequential_image_generation_options": sequential_image_generation_options.model_dump(mode='json'),
+                "sequential_image_generation_options": (
+                    sequential_image_generation_options.model_dump(mode="json")
+                    if sequential_image_generation_options is not None else None
+                ),
                 "stream": stream,
             },
             options=make_request_options(
@@ -261,7 +263,11 @@ class AsyncImages(AsyncAPIResource):
                 "watermark": watermark,
                 "optimize_prompt": optimize_prompt,
                 "sequential_image_generation": sequential_image_generation,
-                "sequential_image_generation_options": sequential_image_generation_options,
+                "sequential_image_generation_options": (
+                    sequential_image_generation_options.model_dump(mode="json")
+                    if sequential_image_generation_options is not None else None
+                ),
+                "stream": stream,
             },
             options=make_request_options(
                 extra_headers=extra_headers,

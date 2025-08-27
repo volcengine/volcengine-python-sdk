@@ -15,7 +15,7 @@ from typing_extensions import Annotated, TypeAlias
 
 from volcenginesdkarkruntime._utils import PropertyInfo
 from .image_gen_completed_event import ImageGenCompletedEvent
-from .image_gen_generating_event  import ImageGenGeneratingEvent
+from .image_gen_generating_event import ImageGenGeneratingEvent
 
 __all__ = ["ImageGenStreamEvent"]
 

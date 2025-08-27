@@ -18,6 +18,7 @@ from volcenginesdkarkruntime._models import BaseModel
 
 __all__ = ["ImageGenGeneratingEvent"]
 
+
 class Error(BaseModel):
     message: str
     """The reason for failed image generation"""

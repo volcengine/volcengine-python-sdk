@@ -16,6 +16,7 @@ from volcenginesdkarkruntime._models import BaseModel
 
 __all__ = ["SequentialImageGenerationOptions", "ImagesResponse"]
 
+
 class SequentialImageGenerationOptions(BaseModel):
     max_images: Optional[int] = None
     """ Maximum number of images to generate in this request; effective only when the multi-image feature is enabled """

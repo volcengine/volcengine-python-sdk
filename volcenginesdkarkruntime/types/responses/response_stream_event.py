@@ -36,6 +36,15 @@ from .response_web_search_call_in_progress_event import ResponseWebSearchCallInP
 from .response_web_search_call_searching_event import ResponseWebSearchCallSearchingEvent
 from .response_web_search_call_completed_event import ResponseWebSearchCallCompletedEvent
 from .response_annotation_added_event import ResponseOutputTextAnnotationAddedEvent
+from .response_mcp_call_failed_event import ResponseMcpCallFailedEvent
+from .response_mcp_call_in_progress_event import ResponseMcpCallInProgressEvent
+from .response_mcp_call_completed_event import ResponseMcpCallCompletedEvent
+from .response_mcp_call_arguments_done_event import ResponseMcpCallArgumentsDoneEvent
+from .response_mcp_call_arguments_delta_event import ResponseMcpCallArgumentsDeltaEvent
+from .response_mcp_list_tools_failed_event import ResponseMcpListToolsFailedEvent
+from .response_mcp_list_tools_in_progress_event import ResponseMcpListToolsInProgressEvent
+from .response_mcp_list_tools_completed_event import ResponseMcpListToolsCompletedEvent
+
 
 __all__ = ["ResponseStreamEvent"]
 
@@ -70,6 +79,15 @@ ResponseStreamEvent: TypeAlias = Annotated[
         ResponseWebSearchCallSearchingEvent,
         ResponseWebSearchCallCompletedEvent,
         ResponseOutputTextAnnotationAddedEvent,
+
+        ResponseMcpCallFailedEvent,
+        ResponseMcpCallInProgressEvent,
+        ResponseMcpCallCompletedEvent,
+        ResponseMcpCallArgumentsDoneEvent,
+        ResponseMcpCallArgumentsDeltaEvent,
+        ResponseMcpListToolsFailedEvent,
+        ResponseMcpListToolsInProgressEvent,
+        ResponseMcpListToolsCompletedEvent,
     ],
     PropertyInfo(discriminator="type"),
 ]

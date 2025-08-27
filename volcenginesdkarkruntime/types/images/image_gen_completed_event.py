@@ -25,6 +25,7 @@ class Usage(BaseModel):
     total_tokens: int
     """The total number of tokens."""
 
+
 class Error(BaseModel):
     message: str
     """The reason for failed image generation"""
