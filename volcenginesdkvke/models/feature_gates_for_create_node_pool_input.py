@@ -33,24 +33,50 @@ class FeatureGatesForCreateNodePoolInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'in_place_pod_vertical_scaling': 'bool',
         'qo_s_resource_manager': 'bool'
     }
 
     attribute_map = {
+        'in_place_pod_vertical_scaling': 'InPlacePodVerticalScaling',
         'qo_s_resource_manager': 'QoSResourceManager'
     }
 
-    def __init__(self, qo_s_resource_manager=None, _configuration=None):  # noqa: E501
+    def __init__(self, in_place_pod_vertical_scaling=None, qo_s_resource_manager=None, _configuration=None):  # noqa: E501
         """FeatureGatesForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._in_place_pod_vertical_scaling = None
         self._qo_s_resource_manager = None
         self.discriminator = None
 
+        if in_place_pod_vertical_scaling is not None:
+            self.in_place_pod_vertical_scaling = in_place_pod_vertical_scaling
         if qo_s_resource_manager is not None:
             self.qo_s_resource_manager = qo_s_resource_manager
+
+    @property
+    def in_place_pod_vertical_scaling(self):
+        """Gets the in_place_pod_vertical_scaling of this FeatureGatesForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The in_place_pod_vertical_scaling of this FeatureGatesForCreateNodePoolInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._in_place_pod_vertical_scaling
+
+    @in_place_pod_vertical_scaling.setter
+    def in_place_pod_vertical_scaling(self, in_place_pod_vertical_scaling):
+        """Sets the in_place_pod_vertical_scaling of this FeatureGatesForCreateNodePoolInput.
+
+
+        :param in_place_pod_vertical_scaling: The in_place_pod_vertical_scaling of this FeatureGatesForCreateNodePoolInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._in_place_pod_vertical_scaling = in_place_pod_vertical_scaling
 
     @property
     def qo_s_resource_manager(self):
