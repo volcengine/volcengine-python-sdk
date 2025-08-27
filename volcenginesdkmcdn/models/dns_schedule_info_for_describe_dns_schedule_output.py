@@ -38,6 +38,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         'domestic_domains': 'list[DomesticDomainForDescribeDnsScheduleOutput]',
         'global_domains': 'list[GlobalDomainForDescribeDnsScheduleOutput]',
         'id': 'str',
+        'project_name': 'str',
         'region': 'str',
         'schedule_cname': 'str',
         'schedule_status': 'str',
@@ -52,6 +53,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         'domestic_domains': 'DomesticDomains',
         'global_domains': 'GlobalDomains',
         'id': 'Id',
+        'project_name': 'ProjectName',
         'region': 'Region',
         'schedule_cname': 'ScheduleCname',
         'schedule_status': 'ScheduleStatus',
@@ -60,7 +62,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         'vendors': 'Vendors'
     }
 
-    def __init__(self, created_at=None, domain_name=None, domestic_domains=None, global_domains=None, id=None, region=None, schedule_cname=None, schedule_status=None, schedule_strategies=None, updated_at=None, vendors=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, domain_name=None, domestic_domains=None, global_domains=None, id=None, project_name=None, region=None, schedule_cname=None, schedule_status=None, schedule_strategies=None, updated_at=None, vendors=None, _configuration=None):  # noqa: E501
         """DnsScheduleInfoForDescribeDnsScheduleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         self._domestic_domains = None
         self._global_domains = None
         self._id = None
+        self._project_name = None
         self._region = None
         self._schedule_cname = None
         self._schedule_status = None
@@ -89,6 +92,8 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
             self.global_domains = global_domains
         if id is not None:
             self.id = id
+        if project_name is not None:
+            self.project_name = project_name
         if region is not None:
             self.region = region
         if schedule_cname is not None:
@@ -206,6 +211,27 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput(object):
         """
 
         self._id = id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+
+
+        :return: The project_name of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DnsScheduleInfoForDescribeDnsScheduleOutput.
+
+
+        :param project_name: The project_name of this DnsScheduleInfoForDescribeDnsScheduleOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def region(self):
