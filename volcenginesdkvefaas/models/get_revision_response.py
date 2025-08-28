@@ -52,6 +52,7 @@ class GetRevisionResponse(object):
         'revision_creation_time': 'str',
         'revision_description': 'str',
         'revision_number': 'int',
+        'role': 'str',
         'runtime': 'str',
         'source': 'str',
         'source_location': 'str',
@@ -81,6 +82,7 @@ class GetRevisionResponse(object):
         'revision_creation_time': 'RevisionCreationTime',
         'revision_description': 'RevisionDescription',
         'revision_number': 'RevisionNumber',
+        'role': 'Role',
         'runtime': 'Runtime',
         'source': 'Source',
         'source_location': 'SourceLocation',
@@ -90,7 +92,7 @@ class GetRevisionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """GetRevisionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -115,6 +117,7 @@ class GetRevisionResponse(object):
         self._revision_creation_time = None
         self._revision_description = None
         self._revision_number = None
+        self._role = None
         self._runtime = None
         self._source = None
         self._source_location = None
@@ -162,6 +165,8 @@ class GetRevisionResponse(object):
             self.revision_description = revision_description
         if revision_number is not None:
             self.revision_number = revision_number
+        if role is not None:
+            self.role = role
         if runtime is not None:
             self.runtime = runtime
         if source is not None:
@@ -575,6 +580,27 @@ class GetRevisionResponse(object):
         """
 
         self._revision_number = revision_number
+
+    @property
+    def role(self):
+        """Gets the role of this GetRevisionResponse.  # noqa: E501
+
+
+        :return: The role of this GetRevisionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._role
+
+    @role.setter
+    def role(self, role):
+        """Sets the role of this GetRevisionResponse.
+
+
+        :param role: The role of this GetRevisionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._role = role
 
     @property
     def runtime(self):
