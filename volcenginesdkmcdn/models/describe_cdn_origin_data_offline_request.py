@@ -42,6 +42,7 @@ class DescribeCdnOriginDataOfflineRequest(object):
         'interval': 'str',
         'is_trim_latest_data': 'bool',
         'metric': 'str',
+        'project_names': 'list[str]',
         'start_time': 'int',
         'sub_products': 'list[str]',
         'vendors': 'list[str]'
@@ -57,12 +58,13 @@ class DescribeCdnOriginDataOfflineRequest(object):
         'interval': 'Interval',
         'is_trim_latest_data': 'IsTrimLatestData',
         'metric': 'Metric',
+        'project_names': 'ProjectNames',
         'start_time': 'StartTime',
         'sub_products': 'SubProducts',
         'vendors': 'Vendors'
     }
 
-    def __init__(self, cdn_types=None, cloud_account_ids=None, domain_ids=None, domains=None, end_time=None, group_by=None, interval=None, is_trim_latest_data=None, metric=None, start_time=None, sub_products=None, vendors=None, _configuration=None):  # noqa: E501
+    def __init__(self, cdn_types=None, cloud_account_ids=None, domain_ids=None, domains=None, end_time=None, group_by=None, interval=None, is_trim_latest_data=None, metric=None, project_names=None, start_time=None, sub_products=None, vendors=None, _configuration=None):  # noqa: E501
         """DescribeCdnOriginDataOfflineRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +79,7 @@ class DescribeCdnOriginDataOfflineRequest(object):
         self._interval = None
         self._is_trim_latest_data = None
         self._metric = None
+        self._project_names = None
         self._start_time = None
         self._sub_products = None
         self._vendors = None
@@ -97,6 +100,8 @@ class DescribeCdnOriginDataOfflineRequest(object):
         if is_trim_latest_data is not None:
             self.is_trim_latest_data = is_trim_latest_data
         self.metric = metric
+        if project_names is not None:
+            self.project_names = project_names
         self.start_time = start_time
         if sub_products is not None:
             self.sub_products = sub_products
@@ -297,6 +302,27 @@ class DescribeCdnOriginDataOfflineRequest(object):
             raise ValueError("Invalid value for `metric`, must not be `None`")  # noqa: E501
 
         self._metric = metric
+
+    @property
+    def project_names(self):
+        """Gets the project_names of this DescribeCdnOriginDataOfflineRequest.  # noqa: E501
+
+
+        :return: The project_names of this DescribeCdnOriginDataOfflineRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._project_names
+
+    @project_names.setter
+    def project_names(self, project_names):
+        """Sets the project_names of this DescribeCdnOriginDataOfflineRequest.
+
+
+        :param project_names: The project_names of this DescribeCdnOriginDataOfflineRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._project_names = project_names
 
     @property
     def start_time(self):

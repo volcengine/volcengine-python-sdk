@@ -39,11 +39,13 @@ class ListCdnDomainsRequest(object):
         'exact_name': 'str',
         'name': 'str',
         'pagination': 'PaginationForListCdnDomainsInput',
+        'project_name': 'str',
         'region': 'list[str]',
         'schedule_created': 'bool',
         'status': 'list[str]',
         'tag_filters': 'list[TagFilterForListCdnDomainsInput]',
-        'vendor': 'list[str]'
+        'vendor': 'list[str]',
+        'with_configs': 'bool'
     }
 
     attribute_map = {
@@ -53,14 +55,16 @@ class ListCdnDomainsRequest(object):
         'exact_name': 'ExactName',
         'name': 'Name',
         'pagination': 'Pagination',
+        'project_name': 'ProjectName',
         'region': 'Region',
         'schedule_created': 'ScheduleCreated',
         'status': 'Status',
         'tag_filters': 'TagFilters',
-        'vendor': 'Vendor'
+        'vendor': 'Vendor',
+        'with_configs': 'WithConfigs'
     }
 
-    def __init__(self, biz_node_ids=None, cdn_type=None, cloud_account_id=None, exact_name=None, name=None, pagination=None, region=None, schedule_created=None, status=None, tag_filters=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, biz_node_ids=None, cdn_type=None, cloud_account_id=None, exact_name=None, name=None, pagination=None, project_name=None, region=None, schedule_created=None, status=None, tag_filters=None, vendor=None, with_configs=None, _configuration=None):  # noqa: E501
         """ListCdnDomainsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,11 +76,13 @@ class ListCdnDomainsRequest(object):
         self._exact_name = None
         self._name = None
         self._pagination = None
+        self._project_name = None
         self._region = None
         self._schedule_created = None
         self._status = None
         self._tag_filters = None
         self._vendor = None
+        self._with_configs = None
         self.discriminator = None
 
         if biz_node_ids is not None:
@@ -91,6 +97,8 @@ class ListCdnDomainsRequest(object):
             self.name = name
         if pagination is not None:
             self.pagination = pagination
+        if project_name is not None:
+            self.project_name = project_name
         if region is not None:
             self.region = region
         if schedule_created is not None:
@@ -101,6 +109,8 @@ class ListCdnDomainsRequest(object):
             self.tag_filters = tag_filters
         if vendor is not None:
             self.vendor = vendor
+        if with_configs is not None:
+            self.with_configs = with_configs
 
     @property
     def biz_node_ids(self):
@@ -229,6 +239,27 @@ class ListCdnDomainsRequest(object):
         self._pagination = pagination
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ListCdnDomainsRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListCdnDomainsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListCdnDomainsRequest.
+
+
+        :param project_name: The project_name of this ListCdnDomainsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def region(self):
         """Gets the region of this ListCdnDomainsRequest.  # noqa: E501
 
@@ -332,6 +363,27 @@ class ListCdnDomainsRequest(object):
         """
 
         self._vendor = vendor
+
+    @property
+    def with_configs(self):
+        """Gets the with_configs of this ListCdnDomainsRequest.  # noqa: E501
+
+
+        :return: The with_configs of this ListCdnDomainsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._with_configs
+
+    @with_configs.setter
+    def with_configs(self, with_configs):
+        """Sets the with_configs of this ListCdnDomainsRequest.
+
+
+        :param with_configs: The with_configs of this ListCdnDomainsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._with_configs = with_configs
 
     def to_dict(self):
         """Returns the model properties as a dict"""
