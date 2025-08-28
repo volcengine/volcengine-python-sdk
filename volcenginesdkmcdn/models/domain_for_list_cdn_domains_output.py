@@ -41,6 +41,7 @@ class DomainForListCdnDomainsOutput(object):
         'cloud_account_id': 'str',
         'cloud_account_name': 'str',
         'cname': 'str',
+        'configs': 'ConfigsForListCdnDomainsOutput',
         'created_at': 'str',
         'id': 'str',
         'imported_at': 'str',
@@ -55,7 +56,8 @@ class DomainForListCdnDomainsOutput(object):
         'top_account_id': 'str',
         'updated_at': 'str',
         'vendor': 'str',
-        'vendor_id': 'str'
+        'vendor_id': 'str',
+        'volc_project_path': 'str'
     }
 
     attribute_map = {
@@ -67,6 +69,7 @@ class DomainForListCdnDomainsOutput(object):
         'cloud_account_id': 'CloudAccountId',
         'cloud_account_name': 'CloudAccountName',
         'cname': 'Cname',
+        'configs': 'Configs',
         'created_at': 'CreatedAt',
         'id': 'Id',
         'imported_at': 'ImportedAt',
@@ -81,10 +84,11 @@ class DomainForListCdnDomainsOutput(object):
         'top_account_id': 'TopAccountId',
         'updated_at': 'UpdatedAt',
         'vendor': 'Vendor',
-        'vendor_id': 'VendorId'
+        'vendor_id': 'VendorId',
+        'volc_project_path': 'VolcProjectPath'
     }
 
-    def __init__(self, biz_node_id=None, biz_node_name=None, biz_node_path=None, cdn_type=None, certificates=None, cloud_account_id=None, cloud_account_name=None, cname=None, created_at=None, id=None, imported_at=None, name=None, networks=None, region=None, schedule_created=None, status=None, sub_product=None, synced_at=None, tags=None, top_account_id=None, updated_at=None, vendor=None, vendor_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, biz_node_id=None, biz_node_name=None, biz_node_path=None, cdn_type=None, certificates=None, cloud_account_id=None, cloud_account_name=None, cname=None, configs=None, created_at=None, id=None, imported_at=None, name=None, networks=None, region=None, schedule_created=None, status=None, sub_product=None, synced_at=None, tags=None, top_account_id=None, updated_at=None, vendor=None, vendor_id=None, volc_project_path=None, _configuration=None):  # noqa: E501
         """DomainForListCdnDomainsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,6 +102,7 @@ class DomainForListCdnDomainsOutput(object):
         self._cloud_account_id = None
         self._cloud_account_name = None
         self._cname = None
+        self._configs = None
         self._created_at = None
         self._id = None
         self._imported_at = None
@@ -113,6 +118,7 @@ class DomainForListCdnDomainsOutput(object):
         self._updated_at = None
         self._vendor = None
         self._vendor_id = None
+        self._volc_project_path = None
         self.discriminator = None
 
         if biz_node_id is not None:
@@ -131,6 +137,8 @@ class DomainForListCdnDomainsOutput(object):
             self.cloud_account_name = cloud_account_name
         if cname is not None:
             self.cname = cname
+        if configs is not None:
+            self.configs = configs
         if created_at is not None:
             self.created_at = created_at
         if id is not None:
@@ -161,6 +169,8 @@ class DomainForListCdnDomainsOutput(object):
             self.vendor = vendor
         if vendor_id is not None:
             self.vendor_id = vendor_id
+        if volc_project_path is not None:
+            self.volc_project_path = volc_project_path
 
     @property
     def biz_node_id(self):
@@ -329,6 +339,27 @@ class DomainForListCdnDomainsOutput(object):
         """
 
         self._cname = cname
+
+    @property
+    def configs(self):
+        """Gets the configs of this DomainForListCdnDomainsOutput.  # noqa: E501
+
+
+        :return: The configs of this DomainForListCdnDomainsOutput.  # noqa: E501
+        :rtype: ConfigsForListCdnDomainsOutput
+        """
+        return self._configs
+
+    @configs.setter
+    def configs(self, configs):
+        """Sets the configs of this DomainForListCdnDomainsOutput.
+
+
+        :param configs: The configs of this DomainForListCdnDomainsOutput.  # noqa: E501
+        :type: ConfigsForListCdnDomainsOutput
+        """
+
+        self._configs = configs
 
     @property
     def created_at(self):
@@ -644,6 +675,27 @@ class DomainForListCdnDomainsOutput(object):
         """
 
         self._vendor_id = vendor_id
+
+    @property
+    def volc_project_path(self):
+        """Gets the volc_project_path of this DomainForListCdnDomainsOutput.  # noqa: E501
+
+
+        :return: The volc_project_path of this DomainForListCdnDomainsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._volc_project_path
+
+    @volc_project_path.setter
+    def volc_project_path(self, volc_project_path):
+        """Sets the volc_project_path of this DomainForListCdnDomainsOutput.
+
+
+        :param volc_project_path: The volc_project_path of this DomainForListCdnDomainsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._volc_project_path = volc_project_path
 
     def to_dict(self):
         """Returns the model properties as a dict"""

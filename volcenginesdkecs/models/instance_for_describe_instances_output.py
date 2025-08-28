@@ -43,6 +43,7 @@ class InstanceForDescribeInstancesOutput(object):
         'description': 'str',
         'eip_address': 'EipAddressForDescribeInstancesOutput',
         'elastic_scheduled_instance_type': 'str',
+        'enable_jumbo_frame': 'bool',
         'expired_at': 'str',
         'host_name': 'str',
         'hostname': 'str',
@@ -87,6 +88,7 @@ class InstanceForDescribeInstancesOutput(object):
         'description': 'Description',
         'eip_address': 'EipAddress',
         'elastic_scheduled_instance_type': 'ElasticScheduledInstanceType',
+        'enable_jumbo_frame': 'EnableJumboFrame',
         'expired_at': 'ExpiredAt',
         'host_name': 'HostName',
         'hostname': 'Hostname',
@@ -120,7 +122,7 @@ class InstanceForDescribeInstancesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, affinity_group_id=None, cpu_options=None, cpus=None, created_at=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, eip_address=None, elastic_scheduled_instance_type=None, expired_at=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, metadata_options=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, scheduled_instance_id=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, volumes=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_id=None, cpu_options=None, cpus=None, created_at=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, eip_address=None, elastic_scheduled_instance_type=None, enable_jumbo_frame=None, expired_at=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, metadata_options=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, scheduled_instance_id=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, volumes=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -136,6 +138,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._description = None
         self._eip_address = None
         self._elastic_scheduled_instance_type = None
+        self._enable_jumbo_frame = None
         self._expired_at = None
         self._host_name = None
         self._hostname = None
@@ -189,6 +192,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.eip_address = eip_address
         if elastic_scheduled_instance_type is not None:
             self.elastic_scheduled_instance_type = elastic_scheduled_instance_type
+        if enable_jumbo_frame is not None:
+            self.enable_jumbo_frame = enable_jumbo_frame
         if expired_at is not None:
             self.expired_at = expired_at
         if host_name is not None:
@@ -461,6 +466,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._elastic_scheduled_instance_type = elastic_scheduled_instance_type
+
+    @property
+    def enable_jumbo_frame(self):
+        """Gets the enable_jumbo_frame of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The enable_jumbo_frame of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_jumbo_frame
+
+    @enable_jumbo_frame.setter
+    def enable_jumbo_frame(self, enable_jumbo_frame):
+        """Sets the enable_jumbo_frame of this InstanceForDescribeInstancesOutput.
+
+
+        :param enable_jumbo_frame: The enable_jumbo_frame of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_jumbo_frame = enable_jumbo_frame
 
     @property
     def expired_at(self):

@@ -35,20 +35,24 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
     swagger_types = {
         'file_system': 'str',
         'mount_point': 'str',
+        'placement_group_id': 'str',
         'size': 'int',
         'snapshot_id': 'str',
+        'subgroup_number': 'int',
         'type': 'str'
     }
 
     attribute_map = {
         'file_system': 'FileSystem',
         'mount_point': 'MountPoint',
+        'placement_group_id': 'PlacementGroupId',
         'size': 'Size',
         'snapshot_id': 'SnapshotId',
+        'subgroup_number': 'SubgroupNumber',
         'type': 'Type'
     }
 
-    def __init__(self, file_system=None, mount_point=None, size=None, snapshot_id=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_system=None, mount_point=None, placement_group_id=None, size=None, snapshot_id=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
         """DataVolumeForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,8 +60,10 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
 
         self._file_system = None
         self._mount_point = None
+        self._placement_group_id = None
         self._size = None
         self._snapshot_id = None
+        self._subgroup_number = None
         self._type = None
         self.discriminator = None
 
@@ -65,10 +71,14 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
             self.file_system = file_system
         if mount_point is not None:
             self.mount_point = mount_point
+        if placement_group_id is not None:
+            self.placement_group_id = placement_group_id
         if size is not None:
             self.size = size
         if snapshot_id is not None:
             self.snapshot_id = snapshot_id
+        if subgroup_number is not None:
+            self.subgroup_number = subgroup_number
         if type is not None:
             self.type = type
 
@@ -122,6 +132,27 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
         self._mount_point = mount_point
 
     @property
+    def placement_group_id(self):
+        """Gets the placement_group_id of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The placement_group_id of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._placement_group_id
+
+    @placement_group_id.setter
+    def placement_group_id(self, placement_group_id):
+        """Sets the placement_group_id of this DataVolumeForUpdateNodePoolConfigInput.
+
+
+        :param placement_group_id: The placement_group_id of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._placement_group_id = placement_group_id
+
+    @property
     def size(self):
         """Gets the size of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
 
@@ -162,6 +193,27 @@ class DataVolumeForUpdateNodePoolConfigInput(object):
         """
 
         self._snapshot_id = snapshot_id
+
+    @property
+    def subgroup_number(self):
+        """Gets the subgroup_number of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The subgroup_number of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._subgroup_number
+
+    @subgroup_number.setter
+    def subgroup_number(self, subgroup_number):
+        """Sets the subgroup_number of this DataVolumeForUpdateNodePoolConfigInput.
+
+
+        :param subgroup_number: The subgroup_number of this DataVolumeForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: int
+        """
+
+        self._subgroup_number = subgroup_number
 
     @property
     def type(self):

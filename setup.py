@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "volcengine-python-sdk"
-VERSION = "4.0.14"
+VERSION = "4.0.15"
 # To install the library, run the following
 #
 # python setup.py install
@@ -11,7 +11,7 @@ VERSION = "4.0.14"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.10", "urllib3>=1.23"]
+REQUIRES = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.16", "urllib3>=1.26.5"]
 
 setup(
     name=NAME,

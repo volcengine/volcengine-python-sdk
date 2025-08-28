@@ -34,15 +34,17 @@ class TagFilterForListCdnDomainsInput(object):
     """
     swagger_types = {
         'key': 'str',
-        'value': 'str'
+        'value': 'str',
+        'values': 'list[str]'
     }
 
     attribute_map = {
         'key': 'Key',
-        'value': 'Value'
+        'value': 'Value',
+        'values': 'Values'
     }
 
-    def __init__(self, key=None, value=None, _configuration=None):  # noqa: E501
+    def __init__(self, key=None, value=None, values=None, _configuration=None):  # noqa: E501
         """TagFilterForListCdnDomainsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class TagFilterForListCdnDomainsInput(object):
 
         self._key = None
         self._value = None
+        self._values = None
         self.discriminator = None
 
         if key is not None:
             self.key = key
         if value is not None:
             self.value = value
+        if values is not None:
+            self.values = values
 
     @property
     def key(self):
@@ -98,6 +103,27 @@ class TagFilterForListCdnDomainsInput(object):
         """
 
         self._value = value
+
+    @property
+    def values(self):
+        """Gets the values of this TagFilterForListCdnDomainsInput.  # noqa: E501
+
+
+        :return: The values of this TagFilterForListCdnDomainsInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._values
+
+    @values.setter
+    def values(self, values):
+        """Sets the values of this TagFilterForListCdnDomainsInput.
+
+
+        :param values: The values of this TagFilterForListCdnDomainsInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._values = values
 
     def to_dict(self):
         """Returns the model properties as a dict"""

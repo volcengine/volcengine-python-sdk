@@ -37,6 +37,7 @@ class ListVendorContentTaskRequest(object):
         'end_time': 'int',
         'pagination': 'PaginationForListVendorContentTaskInput',
         'product_type': 'str',
+        'project_name': 'str',
         'start_time': 'int',
         'sub_product': 'str',
         'task_type': 'str',
@@ -48,13 +49,14 @@ class ListVendorContentTaskRequest(object):
         'end_time': 'EndTime',
         'pagination': 'Pagination',
         'product_type': 'ProductType',
+        'project_name': 'ProjectName',
         'start_time': 'StartTime',
         'sub_product': 'SubProduct',
         'task_type': 'TaskType',
         'vendor_task_id': 'VendorTaskId'
     }
 
-    def __init__(self, cloud_account_id=None, end_time=None, pagination=None, product_type=None, start_time=None, sub_product=None, task_type=None, vendor_task_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_account_id=None, end_time=None, pagination=None, product_type=None, project_name=None, start_time=None, sub_product=None, task_type=None, vendor_task_id=None, _configuration=None):  # noqa: E501
         """ListVendorContentTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class ListVendorContentTaskRequest(object):
         self._end_time = None
         self._pagination = None
         self._product_type = None
+        self._project_name = None
         self._start_time = None
         self._sub_product = None
         self._task_type = None
@@ -77,6 +80,8 @@ class ListVendorContentTaskRequest(object):
             self.pagination = pagination
         if product_type is not None:
             self.product_type = product_type
+        if project_name is not None:
+            self.project_name = project_name
         if start_time is not None:
             self.start_time = start_time
         if sub_product is not None:
@@ -170,6 +175,27 @@ class ListVendorContentTaskRequest(object):
         """
 
         self._product_type = product_type
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListVendorContentTaskRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListVendorContentTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListVendorContentTaskRequest.
+
+
+        :param project_name: The project_name of this ListVendorContentTaskRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def start_time(self):

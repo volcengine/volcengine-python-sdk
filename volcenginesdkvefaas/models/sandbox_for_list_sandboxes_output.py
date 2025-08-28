@@ -34,13 +34,16 @@ class SandboxForListSandboxesOutput(object):
     """
     swagger_types = {
         'availability_zone': 'str',
+        'cpu_milli': 'int',
         'created_at': 'str',
         'error_code': 'str',
         'error_message': 'str',
         'expire_at': 'str',
         'function_id': 'str',
         'id': 'str',
+        'image': 'str',
         'instance_type': 'str',
+        'memory_mb': 'int',
         'metadata': 'dict(str, str)',
         'pending': 'bool',
         'revision_number': 'int',
@@ -49,33 +52,39 @@ class SandboxForListSandboxesOutput(object):
 
     attribute_map = {
         'availability_zone': 'AvailabilityZone',
+        'cpu_milli': 'CpuMilli',
         'created_at': 'CreatedAt',
         'error_code': 'ErrorCode',
         'error_message': 'ErrorMessage',
         'expire_at': 'ExpireAt',
         'function_id': 'FunctionId',
         'id': 'Id',
+        'image': 'Image',
         'instance_type': 'InstanceType',
+        'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
         'pending': 'Pending',
         'revision_number': 'RevisionNumber',
         'status': 'Status'
     }
 
-    def __init__(self, availability_zone=None, created_at=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, instance_type=None, metadata=None, pending=None, revision_number=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, availability_zone=None, cpu_milli=None, created_at=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_type=None, memory_mb=None, metadata=None, pending=None, revision_number=None, status=None, _configuration=None):  # noqa: E501
         """SandboxForListSandboxesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._availability_zone = None
+        self._cpu_milli = None
         self._created_at = None
         self._error_code = None
         self._error_message = None
         self._expire_at = None
         self._function_id = None
         self._id = None
+        self._image = None
         self._instance_type = None
+        self._memory_mb = None
         self._metadata = None
         self._pending = None
         self._revision_number = None
@@ -84,6 +93,8 @@ class SandboxForListSandboxesOutput(object):
 
         if availability_zone is not None:
             self.availability_zone = availability_zone
+        if cpu_milli is not None:
+            self.cpu_milli = cpu_milli
         if created_at is not None:
             self.created_at = created_at
         if error_code is not None:
@@ -96,8 +107,12 @@ class SandboxForListSandboxesOutput(object):
             self.function_id = function_id
         if id is not None:
             self.id = id
+        if image is not None:
+            self.image = image
         if instance_type is not None:
             self.instance_type = instance_type
+        if memory_mb is not None:
+            self.memory_mb = memory_mb
         if metadata is not None:
             self.metadata = metadata
         if pending is not None:
@@ -127,6 +142,27 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._availability_zone = availability_zone
+
+    @property
+    def cpu_milli(self):
+        """Gets the cpu_milli of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The cpu_milli of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._cpu_milli
+
+    @cpu_milli.setter
+    def cpu_milli(self, cpu_milli):
+        """Sets the cpu_milli of this SandboxForListSandboxesOutput.
+
+
+        :param cpu_milli: The cpu_milli of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._cpu_milli = cpu_milli
 
     @property
     def created_at(self):
@@ -255,6 +291,27 @@ class SandboxForListSandboxesOutput(object):
         self._id = id
 
     @property
+    def image(self):
+        """Gets the image of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The image of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._image
+
+    @image.setter
+    def image(self, image):
+        """Sets the image of this SandboxForListSandboxesOutput.
+
+
+        :param image: The image of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._image = image
+
+    @property
     def instance_type(self):
         """Gets the instance_type of this SandboxForListSandboxesOutput.  # noqa: E501
 
@@ -274,6 +331,27 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def memory_mb(self):
+        """Gets the memory_mb of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The memory_mb of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._memory_mb
+
+    @memory_mb.setter
+    def memory_mb(self, memory_mb):
+        """Sets the memory_mb of this SandboxForListSandboxesOutput.
+
+
+        :param memory_mb: The memory_mb of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._memory_mb = memory_mb
 
     @property
     def metadata(self):

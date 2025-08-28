@@ -61,6 +61,7 @@ class RunInstancesRequest(object):
         'key_pair_name': 'str',
         'min_count': 'int',
         'network_interfaces': 'list[NetworkInterfaceForRunInstancesInput]',
+        'network_options': 'NetworkOptionsForRunInstancesInput',
         'password': 'str',
         'period': 'int',
         'period_unit': 'str',
@@ -106,6 +107,7 @@ class RunInstancesRequest(object):
         'key_pair_name': 'KeyPairName',
         'min_count': 'MinCount',
         'network_interfaces': 'NetworkInterfaces',
+        'network_options': 'NetworkOptions',
         'password': 'Password',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
@@ -122,7 +124,7 @@ class RunInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, affinity_group_size=None, auto_renew=None, auto_renew_period=None, client_token=None, count=None, cpu_max_frequency=None, credit_specification=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, host_name=None, hostname=None, hpc_cluster_id=None, http_tokens=None, image_id=None, image_release_version=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_size=None, auto_renew=None, auto_renew_period=None, client_token=None, count=None, cpu_max_frequency=None, credit_specification=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, dry_run=None, eip_address=None, host_name=None, hostname=None, hpc_cluster_id=None, http_tokens=None, image_id=None, image_release_version=None, install_run_command_agent=None, instance_charge_type=None, instance_name=None, instance_type=None, instance_type_id=None, keep_image_credential=None, key_pair_name=None, min_count=None, network_interfaces=None, network_options=None, password=None, period=None, period_unit=None, placement=None, project_name=None, security_enhancement_strategy=None, spot_price_limit=None, spot_strategy=None, suffix_index=None, tags=None, unique_suffix=None, user_data=None, volumes=None, zone_id=None, _configuration=None):  # noqa: E501
         """RunInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -156,6 +158,7 @@ class RunInstancesRequest(object):
         self._key_pair_name = None
         self._min_count = None
         self._network_interfaces = None
+        self._network_options = None
         self._password = None
         self._period = None
         self._period_unit = None
@@ -226,6 +229,8 @@ class RunInstancesRequest(object):
             self.min_count = min_count
         if network_interfaces is not None:
             self.network_interfaces = network_interfaces
+        if network_options is not None:
+            self.network_options = network_options
         if password is not None:
             self.password = password
         if period is not None:
@@ -845,6 +850,27 @@ class RunInstancesRequest(object):
         """
 
         self._network_interfaces = network_interfaces
+
+    @property
+    def network_options(self):
+        """Gets the network_options of this RunInstancesRequest.  # noqa: E501
+
+
+        :return: The network_options of this RunInstancesRequest.  # noqa: E501
+        :rtype: NetworkOptionsForRunInstancesInput
+        """
+        return self._network_options
+
+    @network_options.setter
+    def network_options(self, network_options):
+        """Sets the network_options of this RunInstancesRequest.
+
+
+        :param network_options: The network_options of this RunInstancesRequest.  # noqa: E501
+        :type: NetworkOptionsForRunInstancesInput
+        """
+
+        self._network_options = network_options
 
     @property
     def password(self):
