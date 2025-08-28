@@ -33,29 +33,60 @@ class SystemVolumeForListNodePoolsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'placement_group_id': 'str',
         'size': 'int',
+        'subgroup_number': 'int',
         'type': 'str'
     }
 
     attribute_map = {
+        'placement_group_id': 'PlacementGroupId',
         'size': 'Size',
+        'subgroup_number': 'SubgroupNumber',
         'type': 'Type'
     }
 
-    def __init__(self, size=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, placement_group_id=None, size=None, subgroup_number=None, type=None, _configuration=None):  # noqa: E501
         """SystemVolumeForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._placement_group_id = None
         self._size = None
+        self._subgroup_number = None
         self._type = None
         self.discriminator = None
 
+        if placement_group_id is not None:
+            self.placement_group_id = placement_group_id
         if size is not None:
             self.size = size
+        if subgroup_number is not None:
+            self.subgroup_number = subgroup_number
         if type is not None:
             self.type = type
+
+    @property
+    def placement_group_id(self):
+        """Gets the placement_group_id of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The placement_group_id of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._placement_group_id
+
+    @placement_group_id.setter
+    def placement_group_id(self, placement_group_id):
+        """Sets the placement_group_id of this SystemVolumeForListNodePoolsOutput.
+
+
+        :param placement_group_id: The placement_group_id of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._placement_group_id = placement_group_id
 
     @property
     def size(self):
@@ -77,6 +108,27 @@ class SystemVolumeForListNodePoolsOutput(object):
         """
 
         self._size = size
+
+    @property
+    def subgroup_number(self):
+        """Gets the subgroup_number of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The subgroup_number of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._subgroup_number
+
+    @subgroup_number.setter
+    def subgroup_number(self, subgroup_number):
+        """Sets the subgroup_number of this SystemVolumeForListNodePoolsOutput.
+
+
+        :param subgroup_number: The subgroup_number of this SystemVolumeForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._subgroup_number = subgroup_number
 
     @property
     def type(self):

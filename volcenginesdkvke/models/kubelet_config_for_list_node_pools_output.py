@@ -33,46 +33,60 @@ class KubeletConfigForListNodePoolsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cpu_manager_policy': 'str',
         'eviction_hard': 'list[EvictionHardForListNodePoolsOutput]',
         'feature_gates': 'FeatureGatesForListNodePoolsOutput',
         'kube_api_burst': 'int',
         'kube_api_qps': 'int',
+        'kube_reserved': 'list[KubeReservedForListNodePoolsOutput]',
+        'max_pods': 'int',
         'registry_burst': 'int',
         'registry_pull_qps': 'int',
         'serialize_image_pulls': 'bool',
+        'system_reserved': 'list[SystemReservedForListNodePoolsOutput]',
         'topology_manager_policy': 'str',
         'topology_manager_scope': 'str'
     }
 
     attribute_map = {
+        'cpu_manager_policy': 'CpuManagerPolicy',
         'eviction_hard': 'EvictionHard',
         'feature_gates': 'FeatureGates',
         'kube_api_burst': 'KubeApiBurst',
         'kube_api_qps': 'KubeApiQps',
+        'kube_reserved': 'KubeReserved',
+        'max_pods': 'MaxPods',
         'registry_burst': 'RegistryBurst',
         'registry_pull_qps': 'RegistryPullQps',
         'serialize_image_pulls': 'SerializeImagePulls',
+        'system_reserved': 'SystemReserved',
         'topology_manager_policy': 'TopologyManagerPolicy',
         'topology_manager_scope': 'TopologyManagerScope'
     }
 
-    def __init__(self, eviction_hard=None, feature_gates=None, kube_api_burst=None, kube_api_qps=None, registry_burst=None, registry_pull_qps=None, serialize_image_pulls=None, topology_manager_policy=None, topology_manager_scope=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_manager_policy=None, eviction_hard=None, feature_gates=None, kube_api_burst=None, kube_api_qps=None, kube_reserved=None, max_pods=None, registry_burst=None, registry_pull_qps=None, serialize_image_pulls=None, system_reserved=None, topology_manager_policy=None, topology_manager_scope=None, _configuration=None):  # noqa: E501
         """KubeletConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cpu_manager_policy = None
         self._eviction_hard = None
         self._feature_gates = None
         self._kube_api_burst = None
         self._kube_api_qps = None
+        self._kube_reserved = None
+        self._max_pods = None
         self._registry_burst = None
         self._registry_pull_qps = None
         self._serialize_image_pulls = None
+        self._system_reserved = None
         self._topology_manager_policy = None
         self._topology_manager_scope = None
         self.discriminator = None
 
+        if cpu_manager_policy is not None:
+            self.cpu_manager_policy = cpu_manager_policy
         if eviction_hard is not None:
             self.eviction_hard = eviction_hard
         if feature_gates is not None:
@@ -81,16 +95,43 @@ class KubeletConfigForListNodePoolsOutput(object):
             self.kube_api_burst = kube_api_burst
         if kube_api_qps is not None:
             self.kube_api_qps = kube_api_qps
+        if kube_reserved is not None:
+            self.kube_reserved = kube_reserved
+        if max_pods is not None:
+            self.max_pods = max_pods
         if registry_burst is not None:
             self.registry_burst = registry_burst
         if registry_pull_qps is not None:
             self.registry_pull_qps = registry_pull_qps
         if serialize_image_pulls is not None:
             self.serialize_image_pulls = serialize_image_pulls
+        if system_reserved is not None:
+            self.system_reserved = system_reserved
         if topology_manager_policy is not None:
             self.topology_manager_policy = topology_manager_policy
         if topology_manager_scope is not None:
             self.topology_manager_scope = topology_manager_scope
+
+    @property
+    def cpu_manager_policy(self):
+        """Gets the cpu_manager_policy of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The cpu_manager_policy of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cpu_manager_policy
+
+    @cpu_manager_policy.setter
+    def cpu_manager_policy(self, cpu_manager_policy):
+        """Sets the cpu_manager_policy of this KubeletConfigForListNodePoolsOutput.
+
+
+        :param cpu_manager_policy: The cpu_manager_policy of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cpu_manager_policy = cpu_manager_policy
 
     @property
     def eviction_hard(self):
@@ -177,6 +218,48 @@ class KubeletConfigForListNodePoolsOutput(object):
         self._kube_api_qps = kube_api_qps
 
     @property
+    def kube_reserved(self):
+        """Gets the kube_reserved of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The kube_reserved of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: list[KubeReservedForListNodePoolsOutput]
+        """
+        return self._kube_reserved
+
+    @kube_reserved.setter
+    def kube_reserved(self, kube_reserved):
+        """Sets the kube_reserved of this KubeletConfigForListNodePoolsOutput.
+
+
+        :param kube_reserved: The kube_reserved of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :type: list[KubeReservedForListNodePoolsOutput]
+        """
+
+        self._kube_reserved = kube_reserved
+
+    @property
+    def max_pods(self):
+        """Gets the max_pods of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The max_pods of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_pods
+
+    @max_pods.setter
+    def max_pods(self, max_pods):
+        """Sets the max_pods of this KubeletConfigForListNodePoolsOutput.
+
+
+        :param max_pods: The max_pods of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_pods = max_pods
+
+    @property
     def registry_burst(self):
         """Gets the registry_burst of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
 
@@ -238,6 +321,27 @@ class KubeletConfigForListNodePoolsOutput(object):
         """
 
         self._serialize_image_pulls = serialize_image_pulls
+
+    @property
+    def system_reserved(self):
+        """Gets the system_reserved of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The system_reserved of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: list[SystemReservedForListNodePoolsOutput]
+        """
+        return self._system_reserved
+
+    @system_reserved.setter
+    def system_reserved(self, system_reserved):
+        """Sets the system_reserved of this KubeletConfigForListNodePoolsOutput.
+
+
+        :param system_reserved: The system_reserved of this KubeletConfigForListNodePoolsOutput.  # noqa: E501
+        :type: list[SystemReservedForListNodePoolsOutput]
+        """
+
+        self._system_reserved = system_reserved
 
     @property
     def topology_manager_policy(self):
