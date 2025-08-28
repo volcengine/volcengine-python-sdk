@@ -44,6 +44,7 @@ class UpdateFunctionRequest(object):
         'nas_storage': 'NasStorageForUpdateFunctionInput',
         'project_name': 'str',
         'request_timeout': 'int',
+        'role': 'str',
         'source': 'str',
         'source_access_config': 'SourceAccessConfigForUpdateFunctionInput',
         'source_type': 'str',
@@ -65,6 +66,7 @@ class UpdateFunctionRequest(object):
         'nas_storage': 'NasStorage',
         'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
+        'role': 'Role',
         'source': 'Source',
         'source_access_config': 'SourceAccessConfig',
         'source_type': 'SourceType',
@@ -74,7 +76,7 @@ class UpdateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, cpu_milli=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, memory_mb=None, nas_storage=None, project_name=None, request_timeout=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_milli=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, memory_mb=None, nas_storage=None, project_name=None, request_timeout=None, role=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """UpdateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +93,7 @@ class UpdateFunctionRequest(object):
         self._nas_storage = None
         self._project_name = None
         self._request_timeout = None
+        self._role = None
         self._source = None
         self._source_access_config = None
         self._source_type = None
@@ -121,6 +124,8 @@ class UpdateFunctionRequest(object):
             self.project_name = project_name
         if request_timeout is not None:
             self.request_timeout = request_timeout
+        if role is not None:
+            self.role = role
         if source is not None:
             self.source = source
         if source_access_config is not None:
@@ -368,6 +373,27 @@ class UpdateFunctionRequest(object):
         """
 
         self._request_timeout = request_timeout
+
+    @property
+    def role(self):
+        """Gets the role of this UpdateFunctionRequest.  # noqa: E501
+
+
+        :return: The role of this UpdateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._role
+
+    @role.setter
+    def role(self, role):
+        """Sets the role of this UpdateFunctionRequest.
+
+
+        :param role: The role of this UpdateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._role = role
 
     @property
     def source(self):

@@ -33,43 +33,89 @@ class CreateSandboxRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cpu_milli': 'int',
         'envs': 'list[EnvForCreateSandboxInput]',
         'function_id': 'str',
+        'instance_image_info': 'InstanceImageInfoForCreateSandboxInput',
         'instance_tos_mount_config': 'InstanceTosMountConfigForCreateSandboxInput',
+        'max_concurrency': 'int',
+        'memory_mb': 'int',
         'metadata': 'dict(str, str)',
+        'request_timeout': 'int',
         'timeout': 'int'
     }
 
     attribute_map = {
+        'cpu_milli': 'CpuMilli',
         'envs': 'Envs',
         'function_id': 'FunctionId',
+        'instance_image_info': 'InstanceImageInfo',
         'instance_tos_mount_config': 'InstanceTosMountConfig',
+        'max_concurrency': 'MaxConcurrency',
+        'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
+        'request_timeout': 'RequestTimeout',
         'timeout': 'Timeout'
     }
 
-    def __init__(self, envs=None, function_id=None, instance_tos_mount_config=None, metadata=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_milli=None, envs=None, function_id=None, instance_image_info=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, timeout=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cpu_milli = None
         self._envs = None
         self._function_id = None
+        self._instance_image_info = None
         self._instance_tos_mount_config = None
+        self._max_concurrency = None
+        self._memory_mb = None
         self._metadata = None
+        self._request_timeout = None
         self._timeout = None
         self.discriminator = None
 
+        if cpu_milli is not None:
+            self.cpu_milli = cpu_milli
         if envs is not None:
             self.envs = envs
         self.function_id = function_id
+        if instance_image_info is not None:
+            self.instance_image_info = instance_image_info
         if instance_tos_mount_config is not None:
             self.instance_tos_mount_config = instance_tos_mount_config
+        if max_concurrency is not None:
+            self.max_concurrency = max_concurrency
+        if memory_mb is not None:
+            self.memory_mb = memory_mb
         if metadata is not None:
             self.metadata = metadata
+        if request_timeout is not None:
+            self.request_timeout = request_timeout
         if timeout is not None:
             self.timeout = timeout
+
+    @property
+    def cpu_milli(self):
+        """Gets the cpu_milli of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The cpu_milli of this CreateSandboxRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._cpu_milli
+
+    @cpu_milli.setter
+    def cpu_milli(self, cpu_milli):
+        """Sets the cpu_milli of this CreateSandboxRequest.
+
+
+        :param cpu_milli: The cpu_milli of this CreateSandboxRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._cpu_milli = cpu_milli
 
     @property
     def envs(self):
@@ -116,6 +162,27 @@ class CreateSandboxRequest(object):
         self._function_id = function_id
 
     @property
+    def instance_image_info(self):
+        """Gets the instance_image_info of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The instance_image_info of this CreateSandboxRequest.  # noqa: E501
+        :rtype: InstanceImageInfoForCreateSandboxInput
+        """
+        return self._instance_image_info
+
+    @instance_image_info.setter
+    def instance_image_info(self, instance_image_info):
+        """Sets the instance_image_info of this CreateSandboxRequest.
+
+
+        :param instance_image_info: The instance_image_info of this CreateSandboxRequest.  # noqa: E501
+        :type: InstanceImageInfoForCreateSandboxInput
+        """
+
+        self._instance_image_info = instance_image_info
+
+    @property
     def instance_tos_mount_config(self):
         """Gets the instance_tos_mount_config of this CreateSandboxRequest.  # noqa: E501
 
@@ -137,6 +204,48 @@ class CreateSandboxRequest(object):
         self._instance_tos_mount_config = instance_tos_mount_config
 
     @property
+    def max_concurrency(self):
+        """Gets the max_concurrency of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The max_concurrency of this CreateSandboxRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_concurrency
+
+    @max_concurrency.setter
+    def max_concurrency(self, max_concurrency):
+        """Sets the max_concurrency of this CreateSandboxRequest.
+
+
+        :param max_concurrency: The max_concurrency of this CreateSandboxRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._max_concurrency = max_concurrency
+
+    @property
+    def memory_mb(self):
+        """Gets the memory_mb of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The memory_mb of this CreateSandboxRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._memory_mb
+
+    @memory_mb.setter
+    def memory_mb(self, memory_mb):
+        """Sets the memory_mb of this CreateSandboxRequest.
+
+
+        :param memory_mb: The memory_mb of this CreateSandboxRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._memory_mb = memory_mb
+
+    @property
     def metadata(self):
         """Gets the metadata of this CreateSandboxRequest.  # noqa: E501
 
@@ -156,6 +265,27 @@ class CreateSandboxRequest(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def request_timeout(self):
+        """Gets the request_timeout of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The request_timeout of this CreateSandboxRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._request_timeout
+
+    @request_timeout.setter
+    def request_timeout(self, request_timeout):
+        """Sets the request_timeout of this CreateSandboxRequest.
+
+
+        :param request_timeout: The request_timeout of this CreateSandboxRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._request_timeout = request_timeout
 
     @property
     def timeout(self):

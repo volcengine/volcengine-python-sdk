@@ -55,7 +55,9 @@ class ItemForListFunctionsOutput(object):
         'port': 'int',
         'project_name': 'str',
         'request_timeout': 'int',
+        'role': 'str',
         'runtime': 'str',
+        'source': 'str',
         'source_location': 'str',
         'source_type': 'str',
         'tags': 'list[TagForListFunctionsOutput]',
@@ -88,7 +90,9 @@ class ItemForListFunctionsOutput(object):
         'port': 'Port',
         'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
+        'role': 'Role',
         'runtime': 'Runtime',
+        'source': 'Source',
         'source_location': 'SourceLocation',
         'source_type': 'SourceType',
         'tags': 'Tags',
@@ -98,7 +102,7 @@ class ItemForListFunctionsOutput(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, cell=None, code_size=None, code_size_limit=None, command=None, cpu_strategy=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, cell=None, code_size=None, code_size_limit=None, command=None, cpu_strategy=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """ItemForListFunctionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -126,7 +130,9 @@ class ItemForListFunctionsOutput(object):
         self._port = None
         self._project_name = None
         self._request_timeout = None
+        self._role = None
         self._runtime = None
+        self._source = None
         self._source_location = None
         self._source_type = None
         self._tags = None
@@ -180,8 +186,12 @@ class ItemForListFunctionsOutput(object):
             self.project_name = project_name
         if request_timeout is not None:
             self.request_timeout = request_timeout
+        if role is not None:
+            self.role = role
         if runtime is not None:
             self.runtime = runtime
+        if source is not None:
+            self.source = source
         if source_location is not None:
             self.source_location = source_location
         if source_type is not None:
@@ -660,6 +670,27 @@ class ItemForListFunctionsOutput(object):
         self._request_timeout = request_timeout
 
     @property
+    def role(self):
+        """Gets the role of this ItemForListFunctionsOutput.  # noqa: E501
+
+
+        :return: The role of this ItemForListFunctionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._role
+
+    @role.setter
+    def role(self, role):
+        """Sets the role of this ItemForListFunctionsOutput.
+
+
+        :param role: The role of this ItemForListFunctionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._role = role
+
+    @property
     def runtime(self):
         """Gets the runtime of this ItemForListFunctionsOutput.  # noqa: E501
 
@@ -679,6 +710,27 @@ class ItemForListFunctionsOutput(object):
         """
 
         self._runtime = runtime
+
+    @property
+    def source(self):
+        """Gets the source of this ItemForListFunctionsOutput.  # noqa: E501
+
+
+        :return: The source of this ItemForListFunctionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this ItemForListFunctionsOutput.
+
+
+        :param source: The source of this ItemForListFunctionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
 
     @property
     def source_location(self):

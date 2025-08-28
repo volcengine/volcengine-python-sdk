@@ -53,6 +53,7 @@ class CreateFunctionResponse(object):
         'owner': 'str',
         'project_name': 'str',
         'request_timeout': 'int',
+        'role': 'str',
         'runtime': 'str',
         'source_location': 'str',
         'source_type': 'str',
@@ -84,6 +85,7 @@ class CreateFunctionResponse(object):
         'owner': 'Owner',
         'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
+        'role': 'Role',
         'runtime': 'Runtime',
         'source_location': 'SourceLocation',
         'source_type': 'SourceType',
@@ -94,7 +96,7 @@ class CreateFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, cell=None, code_size=None, code_size_limit=None, command=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, cell=None, code_size=None, code_size_limit=None, command=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, project_name=None, request_timeout=None, role=None, runtime=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -120,6 +122,7 @@ class CreateFunctionResponse(object):
         self._owner = None
         self._project_name = None
         self._request_timeout = None
+        self._role = None
         self._runtime = None
         self._source_location = None
         self._source_type = None
@@ -170,6 +173,8 @@ class CreateFunctionResponse(object):
             self.project_name = project_name
         if request_timeout is not None:
             self.request_timeout = request_timeout
+        if role is not None:
+            self.role = role
         if runtime is not None:
             self.runtime = runtime
         if source_location is not None:
@@ -606,6 +611,27 @@ class CreateFunctionResponse(object):
         """
 
         self._request_timeout = request_timeout
+
+    @property
+    def role(self):
+        """Gets the role of this CreateFunctionResponse.  # noqa: E501
+
+
+        :return: The role of this CreateFunctionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._role
+
+    @role.setter
+    def role(self, role):
+        """Sets the role of this CreateFunctionResponse.
+
+
+        :param role: The role of this CreateFunctionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._role = role
 
     @property
     def runtime(self):
