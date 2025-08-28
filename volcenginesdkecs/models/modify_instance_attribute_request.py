@@ -36,6 +36,7 @@ class ModifyInstanceAttributeRequest(object):
         'client_token': 'str',
         'deletion_protection': 'bool',
         'description': 'str',
+        'enable_jumbo_frame': 'bool',
         'hostname': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
@@ -47,6 +48,7 @@ class ModifyInstanceAttributeRequest(object):
         'client_token': 'ClientToken',
         'deletion_protection': 'DeletionProtection',
         'description': 'Description',
+        'enable_jumbo_frame': 'EnableJumboFrame',
         'hostname': 'Hostname',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
@@ -54,7 +56,7 @@ class ModifyInstanceAttributeRequest(object):
         'user_data': 'UserData'
     }
 
-    def __init__(self, client_token=None, deletion_protection=None, description=None, hostname=None, instance_id=None, instance_name=None, password=None, user_data=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, deletion_protection=None, description=None, enable_jumbo_frame=None, hostname=None, instance_id=None, instance_name=None, password=None, user_data=None, _configuration=None):  # noqa: E501
         """ModifyInstanceAttributeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class ModifyInstanceAttributeRequest(object):
         self._client_token = None
         self._deletion_protection = None
         self._description = None
+        self._enable_jumbo_frame = None
         self._hostname = None
         self._instance_id = None
         self._instance_name = None
@@ -76,6 +79,8 @@ class ModifyInstanceAttributeRequest(object):
             self.deletion_protection = deletion_protection
         if description is not None:
             self.description = description
+        if enable_jumbo_frame is not None:
+            self.enable_jumbo_frame = enable_jumbo_frame
         if hostname is not None:
             self.hostname = hostname
         self.instance_id = instance_id
@@ -148,6 +153,27 @@ class ModifyInstanceAttributeRequest(object):
         """
 
         self._description = description
+
+    @property
+    def enable_jumbo_frame(self):
+        """Gets the enable_jumbo_frame of this ModifyInstanceAttributeRequest.  # noqa: E501
+
+
+        :return: The enable_jumbo_frame of this ModifyInstanceAttributeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_jumbo_frame
+
+    @enable_jumbo_frame.setter
+    def enable_jumbo_frame(self, enable_jumbo_frame):
+        """Sets the enable_jumbo_frame of this ModifyInstanceAttributeRequest.
+
+
+        :param enable_jumbo_frame: The enable_jumbo_frame of this ModifyInstanceAttributeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_jumbo_frame = enable_jumbo_frame
 
     @property
     def hostname(self):
