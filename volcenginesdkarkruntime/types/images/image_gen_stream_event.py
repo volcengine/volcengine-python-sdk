@@ -10,7 +10,15 @@
 #
 # This modified file is released under the same license.
 
-from .images import SequentialImageGenerationOptions, ImagesResponse
+from typing import Union
+from typing_extensions import Annotated, TypeAlias
 
+from volcenginesdkarkruntime._utils import PropertyInfo
+from .image_gen_completed_event import ImageGenCompletedEvent
+from .image_gen_generating_event  import ImageGenGeneratingEvent
 
-__all__ = ["SequentialImageGenerationOptions","ImagesResponse"]
+__all__ = ["ImageGenStreamEvent"]
+
+ImageGenStreamEvent: TypeAlias = Annotated[
+    Union[ImageGenGeneratingEvent, ImageGenCompletedEvent], PropertyInfo(discriminator="type")
+]
