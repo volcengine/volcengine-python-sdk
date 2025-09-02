@@ -36,6 +36,8 @@ class BasicConfigForQueryDataMigrateTaskOutput(object):
         'bandwidth': 'int',
         'enable_range_check': 'bool',
         'failed_num_to_abort': 'int',
+        'object_migration_policy': 'ObjectMigrationPolicyForQueryDataMigrateTaskOutput',
+        'offline_migration_policy': 'OfflineMigrationPolicyForQueryDataMigrateTaskOutput',
         'overwrite_policy': 'str',
         'source_type': 'str',
         'storage_class': 'str',
@@ -46,13 +48,15 @@ class BasicConfigForQueryDataMigrateTaskOutput(object):
         'bandwidth': 'Bandwidth',
         'enable_range_check': 'EnableRangeCheck',
         'failed_num_to_abort': 'FailedNumToAbort',
+        'object_migration_policy': 'ObjectMigrationPolicy',
+        'offline_migration_policy': 'OfflineMigrationPolicy',
         'overwrite_policy': 'OverwritePolicy',
         'source_type': 'SourceType',
         'storage_class': 'StorageClass',
         'task_name': 'TaskName'
     }
 
-    def __init__(self, bandwidth=None, enable_range_check=None, failed_num_to_abort=None, overwrite_policy=None, source_type=None, storage_class=None, task_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, enable_range_check=None, failed_num_to_abort=None, object_migration_policy=None, offline_migration_policy=None, overwrite_policy=None, source_type=None, storage_class=None, task_name=None, _configuration=None):  # noqa: E501
         """BasicConfigForQueryDataMigrateTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +65,8 @@ class BasicConfigForQueryDataMigrateTaskOutput(object):
         self._bandwidth = None
         self._enable_range_check = None
         self._failed_num_to_abort = None
+        self._object_migration_policy = None
+        self._offline_migration_policy = None
         self._overwrite_policy = None
         self._source_type = None
         self._storage_class = None
@@ -73,6 +79,10 @@ class BasicConfigForQueryDataMigrateTaskOutput(object):
             self.enable_range_check = enable_range_check
         if failed_num_to_abort is not None:
             self.failed_num_to_abort = failed_num_to_abort
+        if object_migration_policy is not None:
+            self.object_migration_policy = object_migration_policy
+        if offline_migration_policy is not None:
+            self.offline_migration_policy = offline_migration_policy
         if overwrite_policy is not None:
             self.overwrite_policy = overwrite_policy
         if source_type is not None:
@@ -144,6 +154,48 @@ class BasicConfigForQueryDataMigrateTaskOutput(object):
         """
 
         self._failed_num_to_abort = failed_num_to_abort
+
+    @property
+    def object_migration_policy(self):
+        """Gets the object_migration_policy of this BasicConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+
+
+        :return: The object_migration_policy of this BasicConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :rtype: ObjectMigrationPolicyForQueryDataMigrateTaskOutput
+        """
+        return self._object_migration_policy
+
+    @object_migration_policy.setter
+    def object_migration_policy(self, object_migration_policy):
+        """Sets the object_migration_policy of this BasicConfigForQueryDataMigrateTaskOutput.
+
+
+        :param object_migration_policy: The object_migration_policy of this BasicConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :type: ObjectMigrationPolicyForQueryDataMigrateTaskOutput
+        """
+
+        self._object_migration_policy = object_migration_policy
+
+    @property
+    def offline_migration_policy(self):
+        """Gets the offline_migration_policy of this BasicConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+
+
+        :return: The offline_migration_policy of this BasicConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :rtype: OfflineMigrationPolicyForQueryDataMigrateTaskOutput
+        """
+        return self._offline_migration_policy
+
+    @offline_migration_policy.setter
+    def offline_migration_policy(self, offline_migration_policy):
+        """Sets the offline_migration_policy of this BasicConfigForQueryDataMigrateTaskOutput.
+
+
+        :param offline_migration_policy: The offline_migration_policy of this BasicConfigForQueryDataMigrateTaskOutput.  # noqa: E501
+        :type: OfflineMigrationPolicyForQueryDataMigrateTaskOutput
+        """
+
+        self._offline_migration_policy = offline_migration_policy
 
     @property
     def overwrite_policy(self):
