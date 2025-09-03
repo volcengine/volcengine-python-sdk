@@ -34,15 +34,17 @@ class GetVersionSetAndComponentsInfoRequest(object):
     """
     swagger_types = {
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'version_set_prefix': 'str'
     }
 
     attribute_map = {
         'page_number': 'pageNumber',
-        'page_size': 'pageSize'
+        'page_size': 'pageSize',
+        'version_set_prefix': 'versionSetPrefix'
     }
 
-    def __init__(self, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, version_set_prefix=None, _configuration=None):  # noqa: E501
         """GetVersionSetAndComponentsInfoRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class GetVersionSetAndComponentsInfoRequest(object):
 
         self._page_number = None
         self._page_size = None
+        self._version_set_prefix = None
         self.discriminator = None
 
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if version_set_prefix is not None:
+            self.version_set_prefix = version_set_prefix
 
     @property
     def page_number(self):
@@ -98,6 +103,27 @@ class GetVersionSetAndComponentsInfoRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def version_set_prefix(self):
+        """Gets the version_set_prefix of this GetVersionSetAndComponentsInfoRequest.  # noqa: E501
+
+
+        :return: The version_set_prefix of this GetVersionSetAndComponentsInfoRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._version_set_prefix
+
+    @version_set_prefix.setter
+    def version_set_prefix(self, version_set_prefix):
+        """Sets the version_set_prefix of this GetVersionSetAndComponentsInfoRequest.
+
+
+        :param version_set_prefix: The version_set_prefix of this GetVersionSetAndComponentsInfoRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._version_set_prefix = version_set_prefix
 
     def to_dict(self):
         """Returns the model properties as a dict"""

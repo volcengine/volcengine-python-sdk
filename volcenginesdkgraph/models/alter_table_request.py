@@ -34,43 +34,63 @@ class AlterTableRequest(object):
     """
     swagger_types = {
         'enable_read': 'bool',
+        'enable_rw_seperate_schedule': 'bool',
         'enable_write': 'bool',
         'io_qos_options': 'IOQosOptionsForAlterTableInput',
+        'idc_replica_nums': 'list[IdcReplicaNumForAlterTableInput]',
+        'idc_ro_nums': 'list[IdcRoNumForAlterTableInput]',
         'instance_id': 'str',
-        'state': 'int',
+        'rw_schedulable_idcs': 'list[str]',
+        'state': 'str',
         'table_name': 'str'
     }
 
     attribute_map = {
         'enable_read': 'EnableRead',
+        'enable_rw_seperate_schedule': 'EnableRwSeperateSchedule',
         'enable_write': 'EnableWrite',
         'io_qos_options': 'IOQosOptions',
+        'idc_replica_nums': 'IdcReplicaNums',
+        'idc_ro_nums': 'IdcRoNums',
         'instance_id': 'InstanceId',
+        'rw_schedulable_idcs': 'RwSchedulableIdcs',
         'state': 'State',
         'table_name': 'TableName'
     }
 
-    def __init__(self, enable_read=None, enable_write=None, io_qos_options=None, instance_id=None, state=None, table_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_read=None, enable_rw_seperate_schedule=None, enable_write=None, io_qos_options=None, idc_replica_nums=None, idc_ro_nums=None, instance_id=None, rw_schedulable_idcs=None, state=None, table_name=None, _configuration=None):  # noqa: E501
         """AlterTableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._enable_read = None
+        self._enable_rw_seperate_schedule = None
         self._enable_write = None
         self._io_qos_options = None
+        self._idc_replica_nums = None
+        self._idc_ro_nums = None
         self._instance_id = None
+        self._rw_schedulable_idcs = None
         self._state = None
         self._table_name = None
         self.discriminator = None
 
         if enable_read is not None:
             self.enable_read = enable_read
+        if enable_rw_seperate_schedule is not None:
+            self.enable_rw_seperate_schedule = enable_rw_seperate_schedule
         if enable_write is not None:
             self.enable_write = enable_write
         if io_qos_options is not None:
             self.io_qos_options = io_qos_options
+        if idc_replica_nums is not None:
+            self.idc_replica_nums = idc_replica_nums
+        if idc_ro_nums is not None:
+            self.idc_ro_nums = idc_ro_nums
         self.instance_id = instance_id
+        if rw_schedulable_idcs is not None:
+            self.rw_schedulable_idcs = rw_schedulable_idcs
         if state is not None:
             self.state = state
         self.table_name = table_name
@@ -95,6 +115,27 @@ class AlterTableRequest(object):
         """
 
         self._enable_read = enable_read
+
+    @property
+    def enable_rw_seperate_schedule(self):
+        """Gets the enable_rw_seperate_schedule of this AlterTableRequest.  # noqa: E501
+
+
+        :return: The enable_rw_seperate_schedule of this AlterTableRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_rw_seperate_schedule
+
+    @enable_rw_seperate_schedule.setter
+    def enable_rw_seperate_schedule(self, enable_rw_seperate_schedule):
+        """Sets the enable_rw_seperate_schedule of this AlterTableRequest.
+
+
+        :param enable_rw_seperate_schedule: The enable_rw_seperate_schedule of this AlterTableRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_rw_seperate_schedule = enable_rw_seperate_schedule
 
     @property
     def enable_write(self):
@@ -139,6 +180,48 @@ class AlterTableRequest(object):
         self._io_qos_options = io_qos_options
 
     @property
+    def idc_replica_nums(self):
+        """Gets the idc_replica_nums of this AlterTableRequest.  # noqa: E501
+
+
+        :return: The idc_replica_nums of this AlterTableRequest.  # noqa: E501
+        :rtype: list[IdcReplicaNumForAlterTableInput]
+        """
+        return self._idc_replica_nums
+
+    @idc_replica_nums.setter
+    def idc_replica_nums(self, idc_replica_nums):
+        """Sets the idc_replica_nums of this AlterTableRequest.
+
+
+        :param idc_replica_nums: The idc_replica_nums of this AlterTableRequest.  # noqa: E501
+        :type: list[IdcReplicaNumForAlterTableInput]
+        """
+
+        self._idc_replica_nums = idc_replica_nums
+
+    @property
+    def idc_ro_nums(self):
+        """Gets the idc_ro_nums of this AlterTableRequest.  # noqa: E501
+
+
+        :return: The idc_ro_nums of this AlterTableRequest.  # noqa: E501
+        :rtype: list[IdcRoNumForAlterTableInput]
+        """
+        return self._idc_ro_nums
+
+    @idc_ro_nums.setter
+    def idc_ro_nums(self, idc_ro_nums):
+        """Sets the idc_ro_nums of this AlterTableRequest.
+
+
+        :param idc_ro_nums: The idc_ro_nums of this AlterTableRequest.  # noqa: E501
+        :type: list[IdcRoNumForAlterTableInput]
+        """
+
+        self._idc_ro_nums = idc_ro_nums
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this AlterTableRequest.  # noqa: E501
 
@@ -162,12 +245,33 @@ class AlterTableRequest(object):
         self._instance_id = instance_id
 
     @property
+    def rw_schedulable_idcs(self):
+        """Gets the rw_schedulable_idcs of this AlterTableRequest.  # noqa: E501
+
+
+        :return: The rw_schedulable_idcs of this AlterTableRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._rw_schedulable_idcs
+
+    @rw_schedulable_idcs.setter
+    def rw_schedulable_idcs(self, rw_schedulable_idcs):
+        """Sets the rw_schedulable_idcs of this AlterTableRequest.
+
+
+        :param rw_schedulable_idcs: The rw_schedulable_idcs of this AlterTableRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._rw_schedulable_idcs = rw_schedulable_idcs
+
+    @property
     def state(self):
         """Gets the state of this AlterTableRequest.  # noqa: E501
 
 
         :return: The state of this AlterTableRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._state
 
@@ -177,7 +281,7 @@ class AlterTableRequest(object):
 
 
         :param state: The state of this AlterTableRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._state = state
