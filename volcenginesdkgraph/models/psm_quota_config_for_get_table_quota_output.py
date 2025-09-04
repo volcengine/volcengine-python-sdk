@@ -34,31 +34,41 @@ class PsmQuotaConfigForGetTableQuotaOutput(object):
     """
     swagger_types = {
         'caller_psm': 'str',
+        'read_fetch_size': 'int',
         'read_quota_size': 'int',
+        'write_fetch_size': 'int',
         'write_quota_size': 'int'
     }
 
     attribute_map = {
         'caller_psm': 'caller_psm',
+        'read_fetch_size': 'read_fetch_size',
         'read_quota_size': 'read_quota_size',
+        'write_fetch_size': 'write_fetch_size',
         'write_quota_size': 'write_quota_size'
     }
 
-    def __init__(self, caller_psm=None, read_quota_size=None, write_quota_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, caller_psm=None, read_fetch_size=None, read_quota_size=None, write_fetch_size=None, write_quota_size=None, _configuration=None):  # noqa: E501
         """PsmQuotaConfigForGetTableQuotaOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._caller_psm = None
+        self._read_fetch_size = None
         self._read_quota_size = None
+        self._write_fetch_size = None
         self._write_quota_size = None
         self.discriminator = None
 
         if caller_psm is not None:
             self.caller_psm = caller_psm
+        if read_fetch_size is not None:
+            self.read_fetch_size = read_fetch_size
         if read_quota_size is not None:
             self.read_quota_size = read_quota_size
+        if write_fetch_size is not None:
+            self.write_fetch_size = write_fetch_size
         if write_quota_size is not None:
             self.write_quota_size = write_quota_size
 
@@ -84,6 +94,27 @@ class PsmQuotaConfigForGetTableQuotaOutput(object):
         self._caller_psm = caller_psm
 
     @property
+    def read_fetch_size(self):
+        """Gets the read_fetch_size of this PsmQuotaConfigForGetTableQuotaOutput.  # noqa: E501
+
+
+        :return: The read_fetch_size of this PsmQuotaConfigForGetTableQuotaOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_fetch_size
+
+    @read_fetch_size.setter
+    def read_fetch_size(self, read_fetch_size):
+        """Sets the read_fetch_size of this PsmQuotaConfigForGetTableQuotaOutput.
+
+
+        :param read_fetch_size: The read_fetch_size of this PsmQuotaConfigForGetTableQuotaOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._read_fetch_size = read_fetch_size
+
+    @property
     def read_quota_size(self):
         """Gets the read_quota_size of this PsmQuotaConfigForGetTableQuotaOutput.  # noqa: E501
 
@@ -103,6 +134,27 @@ class PsmQuotaConfigForGetTableQuotaOutput(object):
         """
 
         self._read_quota_size = read_quota_size
+
+    @property
+    def write_fetch_size(self):
+        """Gets the write_fetch_size of this PsmQuotaConfigForGetTableQuotaOutput.  # noqa: E501
+
+
+        :return: The write_fetch_size of this PsmQuotaConfigForGetTableQuotaOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._write_fetch_size
+
+    @write_fetch_size.setter
+    def write_fetch_size(self, write_fetch_size):
+        """Sets the write_fetch_size of this PsmQuotaConfigForGetTableQuotaOutput.
+
+
+        :param write_fetch_size: The write_fetch_size of this PsmQuotaConfigForGetTableQuotaOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._write_fetch_size = write_fetch_size
 
     @property
     def write_quota_size(self):

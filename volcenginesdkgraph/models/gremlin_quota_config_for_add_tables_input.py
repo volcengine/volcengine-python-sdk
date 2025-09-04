@@ -34,29 +34,34 @@ class GremlinQuotaConfigForAddTablesInput(object):
     """
     swagger_types = {
         'caller_psm': 'str',
+        'fetch_size': 'int',
         'quota_size': 'int',
         'template': 'str'
     }
 
     attribute_map = {
         'caller_psm': 'caller_psm',
+        'fetch_size': 'fetch_size',
         'quota_size': 'quota_size',
         'template': 'template'
     }
 
-    def __init__(self, caller_psm=None, quota_size=None, template=None, _configuration=None):  # noqa: E501
+    def __init__(self, caller_psm=None, fetch_size=None, quota_size=None, template=None, _configuration=None):  # noqa: E501
         """GremlinQuotaConfigForAddTablesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._caller_psm = None
+        self._fetch_size = None
         self._quota_size = None
         self._template = None
         self.discriminator = None
 
         if caller_psm is not None:
             self.caller_psm = caller_psm
+        if fetch_size is not None:
+            self.fetch_size = fetch_size
         if quota_size is not None:
             self.quota_size = quota_size
         if template is not None:
@@ -82,6 +87,27 @@ class GremlinQuotaConfigForAddTablesInput(object):
         """
 
         self._caller_psm = caller_psm
+
+    @property
+    def fetch_size(self):
+        """Gets the fetch_size of this GremlinQuotaConfigForAddTablesInput.  # noqa: E501
+
+
+        :return: The fetch_size of this GremlinQuotaConfigForAddTablesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._fetch_size
+
+    @fetch_size.setter
+    def fetch_size(self, fetch_size):
+        """Sets the fetch_size of this GremlinQuotaConfigForAddTablesInput.
+
+
+        :param fetch_size: The fetch_size of this GremlinQuotaConfigForAddTablesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._fetch_size = fetch_size
 
     @property
     def quota_size(self):
