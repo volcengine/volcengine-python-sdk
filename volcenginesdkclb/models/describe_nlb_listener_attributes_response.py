@@ -34,7 +34,11 @@ class DescribeNLBListenerAttributesResponse(object):
     """
     swagger_types = {
         'account_id': 'str',
+        'ca_certificate_id': 'str',
+        'ca_certificate_source': 'str',
+        'ca_enabled': 'bool',
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'connection_timeout': 'int',
         'create_time': 'str',
         'description': 'str',
@@ -43,6 +47,7 @@ class DescribeNLBListenerAttributesResponse(object):
         'listener_id': 'str',
         'listener_name': 'str',
         'load_balancer_id': 'str',
+        'pca_certificate_id': 'str',
         'port': 'int',
         'protocol': 'str',
         'request_id': 'str',
@@ -57,7 +62,11 @@ class DescribeNLBListenerAttributesResponse(object):
 
     attribute_map = {
         'account_id': 'AccountId',
+        'ca_certificate_id': 'CACertificateId',
+        'ca_certificate_source': 'CACertificateSource',
+        'ca_enabled': 'CAEnabled',
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'connection_timeout': 'ConnectionTimeout',
         'create_time': 'CreateTime',
         'description': 'Description',
@@ -66,6 +75,7 @@ class DescribeNLBListenerAttributesResponse(object):
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
         'load_balancer_id': 'LoadBalancerId',
+        'pca_certificate_id': 'PCACertificateId',
         'port': 'Port',
         'protocol': 'Protocol',
         'request_id': 'RequestId',
@@ -78,14 +88,18 @@ class DescribeNLBListenerAttributesResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, certificate_id=None, connection_timeout=None, create_time=None, description=None, enabled=None, end_port=None, listener_id=None, listener_name=None, load_balancer_id=None, port=None, protocol=None, request_id=None, security_policy_id=None, security_policy_type=None, server_group_id=None, start_port=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, ca_certificate_id=None, ca_certificate_source=None, ca_enabled=None, certificate_id=None, certificate_source=None, connection_timeout=None, create_time=None, description=None, enabled=None, end_port=None, listener_id=None, listener_name=None, load_balancer_id=None, pca_certificate_id=None, port=None, protocol=None, request_id=None, security_policy_id=None, security_policy_type=None, server_group_id=None, start_port=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeNLBListenerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._ca_certificate_id = None
+        self._ca_certificate_source = None
+        self._ca_enabled = None
         self._certificate_id = None
+        self._certificate_source = None
         self._connection_timeout = None
         self._create_time = None
         self._description = None
@@ -94,6 +108,7 @@ class DescribeNLBListenerAttributesResponse(object):
         self._listener_id = None
         self._listener_name = None
         self._load_balancer_id = None
+        self._pca_certificate_id = None
         self._port = None
         self._protocol = None
         self._request_id = None
@@ -108,8 +123,16 @@ class DescribeNLBListenerAttributesResponse(object):
 
         if account_id is not None:
             self.account_id = account_id
+        if ca_certificate_id is not None:
+            self.ca_certificate_id = ca_certificate_id
+        if ca_certificate_source is not None:
+            self.ca_certificate_source = ca_certificate_source
+        if ca_enabled is not None:
+            self.ca_enabled = ca_enabled
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if connection_timeout is not None:
             self.connection_timeout = connection_timeout
         if create_time is not None:
@@ -126,6 +149,8 @@ class DescribeNLBListenerAttributesResponse(object):
             self.listener_name = listener_name
         if load_balancer_id is not None:
             self.load_balancer_id = load_balancer_id
+        if pca_certificate_id is not None:
+            self.pca_certificate_id = pca_certificate_id
         if port is not None:
             self.port = port
         if protocol is not None:
@@ -169,6 +194,69 @@ class DescribeNLBListenerAttributesResponse(object):
         self._account_id = account_id
 
     @property
+    def ca_certificate_id(self):
+        """Gets the ca_certificate_id of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The ca_certificate_id of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ca_certificate_id
+
+    @ca_certificate_id.setter
+    def ca_certificate_id(self, ca_certificate_id):
+        """Sets the ca_certificate_id of this DescribeNLBListenerAttributesResponse.
+
+
+        :param ca_certificate_id: The ca_certificate_id of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ca_certificate_id = ca_certificate_id
+
+    @property
+    def ca_certificate_source(self):
+        """Gets the ca_certificate_source of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The ca_certificate_source of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ca_certificate_source
+
+    @ca_certificate_source.setter
+    def ca_certificate_source(self, ca_certificate_source):
+        """Sets the ca_certificate_source of this DescribeNLBListenerAttributesResponse.
+
+
+        :param ca_certificate_source: The ca_certificate_source of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ca_certificate_source = ca_certificate_source
+
+    @property
+    def ca_enabled(self):
+        """Gets the ca_enabled of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The ca_enabled of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ca_enabled
+
+    @ca_enabled.setter
+    def ca_enabled(self, ca_enabled):
+        """Sets the ca_enabled of this DescribeNLBListenerAttributesResponse.
+
+
+        :param ca_enabled: The ca_enabled of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._ca_enabled = ca_enabled
+
+    @property
     def certificate_id(self):
         """Gets the certificate_id of this DescribeNLBListenerAttributesResponse.  # noqa: E501
 
@@ -188,6 +276,27 @@ class DescribeNLBListenerAttributesResponse(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The certificate_source of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this DescribeNLBListenerAttributesResponse.
+
+
+        :param certificate_source: The certificate_source of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def connection_timeout(self):
@@ -356,6 +465,27 @@ class DescribeNLBListenerAttributesResponse(object):
         """
 
         self._load_balancer_id = load_balancer_id
+
+    @property
+    def pca_certificate_id(self):
+        """Gets the pca_certificate_id of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+
+
+        :return: The pca_certificate_id of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_certificate_id
+
+    @pca_certificate_id.setter
+    def pca_certificate_id(self, pca_certificate_id):
+        """Sets the pca_certificate_id of this DescribeNLBListenerAttributesResponse.
+
+
+        :param pca_certificate_id: The pca_certificate_id of this DescribeNLBListenerAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_certificate_id = pca_certificate_id
 
     @property
     def port(self):
