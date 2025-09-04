@@ -460,6 +460,12 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'cloudidentity': ServiceEndpointInfo(
+        service='cloudidentity',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
