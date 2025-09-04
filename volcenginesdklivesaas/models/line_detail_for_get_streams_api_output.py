@@ -33,13 +33,13 @@ class LineDetailForGetStreamsAPIOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'back_push_info': 'list[BackPushInfoForGetStreamsAPIOutput]',
-        'backup_forward_info': 'list[BackupForwardInfoForGetStreamsAPIOutput]',
+        'back_push_info': 'BackPushInfoForGetStreamsAPIOutput',
+        'backup_forward_info': 'BackupForwardInfoForGetStreamsAPIOutput',
         'expire_time': 'int',
-        'forward_info': 'list[ForwardInfoForGetStreamsAPIOutput]',
+        'forward_info': 'ForwardInfoForGetStreamsAPIOutput',
         'line_id': 'int',
         'line_name': 'str',
-        'main_push_info': 'list[MainPushInfoForGetStreamsAPIOutput]',
+        'main_push_info': 'MainPushInfoForGetStreamsAPIOutput',
         'ratio': 'str'
     }
 
@@ -93,7 +93,7 @@ class LineDetailForGetStreamsAPIOutput(object):
 
 
         :return: The back_push_info of this LineDetailForGetStreamsAPIOutput.  # noqa: E501
-        :rtype: list[BackPushInfoForGetStreamsAPIOutput]
+        :rtype: BackPushInfoForGetStreamsAPIOutput
         """
         return self._back_push_info
 
@@ -103,7 +103,7 @@ class LineDetailForGetStreamsAPIOutput(object):
 
 
         :param back_push_info: The back_push_info of this LineDetailForGetStreamsAPIOutput.  # noqa: E501
-        :type: list[BackPushInfoForGetStreamsAPIOutput]
+        :type: BackPushInfoForGetStreamsAPIOutput
         """
 
         self._back_push_info = back_push_info
@@ -114,7 +114,7 @@ class LineDetailForGetStreamsAPIOutput(object):
 
 
         :return: The backup_forward_info of this LineDetailForGetStreamsAPIOutput.  # noqa: E501
-        :rtype: list[BackupForwardInfoForGetStreamsAPIOutput]
+        :rtype: BackupForwardInfoForGetStreamsAPIOutput
         """
         return self._backup_forward_info
 
@@ -124,7 +124,7 @@ class LineDetailForGetStreamsAPIOutput(object):
 
 
         :param backup_forward_info: The backup_forward_info of this LineDetailForGetStreamsAPIOutput.  # noqa: E501
-        :type: list[BackupForwardInfoForGetStreamsAPIOutput]
+        :type: BackupForwardInfoForGetStreamsAPIOutput
         """
 
         self._backup_forward_info = backup_forward_info
@@ -156,7 +156,7 @@ class LineDetailForGetStreamsAPIOutput(object):
 
 
         :return: The forward_info of this LineDetailForGetStreamsAPIOutput.  # noqa: E501
-        :rtype: list[ForwardInfoForGetStreamsAPIOutput]
+        :rtype: ForwardInfoForGetStreamsAPIOutput
         """
         return self._forward_info
 
@@ -166,7 +166,7 @@ class LineDetailForGetStreamsAPIOutput(object):
 
 
         :param forward_info: The forward_info of this LineDetailForGetStreamsAPIOutput.  # noqa: E501
-        :type: list[ForwardInfoForGetStreamsAPIOutput]
+        :type: ForwardInfoForGetStreamsAPIOutput
         """
 
         self._forward_info = forward_info
@@ -219,7 +219,7 @@ class LineDetailForGetStreamsAPIOutput(object):
 
 
         :return: The main_push_info of this LineDetailForGetStreamsAPIOutput.  # noqa: E501
-        :rtype: list[MainPushInfoForGetStreamsAPIOutput]
+        :rtype: MainPushInfoForGetStreamsAPIOutput
         """
         return self._main_push_info
 
@@ -229,7 +229,7 @@ class LineDetailForGetStreamsAPIOutput(object):
 
 
         :param main_push_info: The main_push_info of this LineDetailForGetStreamsAPIOutput.  # noqa: E501
-        :type: list[MainPushInfoForGetStreamsAPIOutput]
+        :type: MainPushInfoForGetStreamsAPIOutput
         """
 
         self._main_push_info = main_push_info
