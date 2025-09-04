@@ -515,7 +515,7 @@ class E2ECertificateManager(object):
         return None
 
     def _init_local_cert_cache(self):
-        self._cert_storage_path = "/tmp/ark/certificates"
+        self._cert_storage_path = "./.ark/certificates"
         self._cert_expiration_seconds = 14 * 24 * 60 * 60  # 14 days
 
         if not os.path.exists(self._cert_storage_path):
