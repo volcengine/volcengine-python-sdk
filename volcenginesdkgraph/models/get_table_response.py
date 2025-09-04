@@ -34,43 +34,83 @@ class GetTableResponse(object):
     """
     swagger_types = {
         'enable_read': 'bool',
+        'enable_rw_seperate_schedule': 'bool',
         'enable_write': 'bool',
+        'idc_replica_nums': 'list[IdcReplicaNumForGetTableOutput]',
+        'idc_ro_nums': 'list[IdcRoNumForGetTableOutput]',
+        'io_qos_options': 'IoQosOptionsForGetTableOutput',
+        'partition_num': 'int',
+        'rw_schedulable_idcs': 'list[str]',
         'state': 'str',
         'table_id': 'int',
-        'table_name': 'str'
+        'table_name': 'str',
+        'table_quota': 'TableQuotaForGetTableOutput',
+        'tablet_num': 'int'
     }
 
     attribute_map = {
         'enable_read': 'EnableRead',
+        'enable_rw_seperate_schedule': 'EnableRwSeperateSchedule',
         'enable_write': 'EnableWrite',
+        'idc_replica_nums': 'IdcReplicaNums',
+        'idc_ro_nums': 'IdcRoNums',
+        'io_qos_options': 'IoQosOptions',
+        'partition_num': 'PartitionNum',
+        'rw_schedulable_idcs': 'RwSchedulableIdcs',
         'state': 'State',
         'table_id': 'TableId',
-        'table_name': 'TableName'
+        'table_name': 'TableName',
+        'table_quota': 'TableQuota',
+        'tablet_num': 'TabletNum'
     }
 
-    def __init__(self, enable_read=None, enable_write=None, state=None, table_id=None, table_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_read=None, enable_rw_seperate_schedule=None, enable_write=None, idc_replica_nums=None, idc_ro_nums=None, io_qos_options=None, partition_num=None, rw_schedulable_idcs=None, state=None, table_id=None, table_name=None, table_quota=None, tablet_num=None, _configuration=None):  # noqa: E501
         """GetTableResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._enable_read = None
+        self._enable_rw_seperate_schedule = None
         self._enable_write = None
+        self._idc_replica_nums = None
+        self._idc_ro_nums = None
+        self._io_qos_options = None
+        self._partition_num = None
+        self._rw_schedulable_idcs = None
         self._state = None
         self._table_id = None
         self._table_name = None
+        self._table_quota = None
+        self._tablet_num = None
         self.discriminator = None
 
         if enable_read is not None:
             self.enable_read = enable_read
+        if enable_rw_seperate_schedule is not None:
+            self.enable_rw_seperate_schedule = enable_rw_seperate_schedule
         if enable_write is not None:
             self.enable_write = enable_write
+        if idc_replica_nums is not None:
+            self.idc_replica_nums = idc_replica_nums
+        if idc_ro_nums is not None:
+            self.idc_ro_nums = idc_ro_nums
+        if io_qos_options is not None:
+            self.io_qos_options = io_qos_options
+        if partition_num is not None:
+            self.partition_num = partition_num
+        if rw_schedulable_idcs is not None:
+            self.rw_schedulable_idcs = rw_schedulable_idcs
         if state is not None:
             self.state = state
         if table_id is not None:
             self.table_id = table_id
         if table_name is not None:
             self.table_name = table_name
+        if table_quota is not None:
+            self.table_quota = table_quota
+        if tablet_num is not None:
+            self.tablet_num = tablet_num
 
     @property
     def enable_read(self):
@@ -94,6 +134,27 @@ class GetTableResponse(object):
         self._enable_read = enable_read
 
     @property
+    def enable_rw_seperate_schedule(self):
+        """Gets the enable_rw_seperate_schedule of this GetTableResponse.  # noqa: E501
+
+
+        :return: The enable_rw_seperate_schedule of this GetTableResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_rw_seperate_schedule
+
+    @enable_rw_seperate_schedule.setter
+    def enable_rw_seperate_schedule(self, enable_rw_seperate_schedule):
+        """Sets the enable_rw_seperate_schedule of this GetTableResponse.
+
+
+        :param enable_rw_seperate_schedule: The enable_rw_seperate_schedule of this GetTableResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_rw_seperate_schedule = enable_rw_seperate_schedule
+
+    @property
     def enable_write(self):
         """Gets the enable_write of this GetTableResponse.  # noqa: E501
 
@@ -113,6 +174,111 @@ class GetTableResponse(object):
         """
 
         self._enable_write = enable_write
+
+    @property
+    def idc_replica_nums(self):
+        """Gets the idc_replica_nums of this GetTableResponse.  # noqa: E501
+
+
+        :return: The idc_replica_nums of this GetTableResponse.  # noqa: E501
+        :rtype: list[IdcReplicaNumForGetTableOutput]
+        """
+        return self._idc_replica_nums
+
+    @idc_replica_nums.setter
+    def idc_replica_nums(self, idc_replica_nums):
+        """Sets the idc_replica_nums of this GetTableResponse.
+
+
+        :param idc_replica_nums: The idc_replica_nums of this GetTableResponse.  # noqa: E501
+        :type: list[IdcReplicaNumForGetTableOutput]
+        """
+
+        self._idc_replica_nums = idc_replica_nums
+
+    @property
+    def idc_ro_nums(self):
+        """Gets the idc_ro_nums of this GetTableResponse.  # noqa: E501
+
+
+        :return: The idc_ro_nums of this GetTableResponse.  # noqa: E501
+        :rtype: list[IdcRoNumForGetTableOutput]
+        """
+        return self._idc_ro_nums
+
+    @idc_ro_nums.setter
+    def idc_ro_nums(self, idc_ro_nums):
+        """Sets the idc_ro_nums of this GetTableResponse.
+
+
+        :param idc_ro_nums: The idc_ro_nums of this GetTableResponse.  # noqa: E501
+        :type: list[IdcRoNumForGetTableOutput]
+        """
+
+        self._idc_ro_nums = idc_ro_nums
+
+    @property
+    def io_qos_options(self):
+        """Gets the io_qos_options of this GetTableResponse.  # noqa: E501
+
+
+        :return: The io_qos_options of this GetTableResponse.  # noqa: E501
+        :rtype: IoQosOptionsForGetTableOutput
+        """
+        return self._io_qos_options
+
+    @io_qos_options.setter
+    def io_qos_options(self, io_qos_options):
+        """Sets the io_qos_options of this GetTableResponse.
+
+
+        :param io_qos_options: The io_qos_options of this GetTableResponse.  # noqa: E501
+        :type: IoQosOptionsForGetTableOutput
+        """
+
+        self._io_qos_options = io_qos_options
+
+    @property
+    def partition_num(self):
+        """Gets the partition_num of this GetTableResponse.  # noqa: E501
+
+
+        :return: The partition_num of this GetTableResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._partition_num
+
+    @partition_num.setter
+    def partition_num(self, partition_num):
+        """Sets the partition_num of this GetTableResponse.
+
+
+        :param partition_num: The partition_num of this GetTableResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._partition_num = partition_num
+
+    @property
+    def rw_schedulable_idcs(self):
+        """Gets the rw_schedulable_idcs of this GetTableResponse.  # noqa: E501
+
+
+        :return: The rw_schedulable_idcs of this GetTableResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._rw_schedulable_idcs
+
+    @rw_schedulable_idcs.setter
+    def rw_schedulable_idcs(self, rw_schedulable_idcs):
+        """Sets the rw_schedulable_idcs of this GetTableResponse.
+
+
+        :param rw_schedulable_idcs: The rw_schedulable_idcs of this GetTableResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._rw_schedulable_idcs = rw_schedulable_idcs
 
     @property
     def state(self):
@@ -176,6 +342,48 @@ class GetTableResponse(object):
         """
 
         self._table_name = table_name
+
+    @property
+    def table_quota(self):
+        """Gets the table_quota of this GetTableResponse.  # noqa: E501
+
+
+        :return: The table_quota of this GetTableResponse.  # noqa: E501
+        :rtype: TableQuotaForGetTableOutput
+        """
+        return self._table_quota
+
+    @table_quota.setter
+    def table_quota(self, table_quota):
+        """Sets the table_quota of this GetTableResponse.
+
+
+        :param table_quota: The table_quota of this GetTableResponse.  # noqa: E501
+        :type: TableQuotaForGetTableOutput
+        """
+
+        self._table_quota = table_quota
+
+    @property
+    def tablet_num(self):
+        """Gets the tablet_num of this GetTableResponse.  # noqa: E501
+
+
+        :return: The tablet_num of this GetTableResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._tablet_num
+
+    @tablet_num.setter
+    def tablet_num(self, tablet_num):
+        """Sets the tablet_num of this GetTableResponse.
+
+
+        :param tablet_num: The tablet_num of this GetTableResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._tablet_num = tablet_num
 
     def to_dict(self):
         """Returns the model properties as a dict"""
