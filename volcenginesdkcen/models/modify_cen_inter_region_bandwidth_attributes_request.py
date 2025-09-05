@@ -34,26 +34,31 @@ class ModifyCenInterRegionBandwidthAttributesRequest(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'cen_bandwidth_package_id': 'str',
         'inter_region_bandwidth_id': 'str'
     }
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'cen_bandwidth_package_id': 'CenBandwidthPackageId',
         'inter_region_bandwidth_id': 'InterRegionBandwidthId'
     }
 
-    def __init__(self, bandwidth=None, inter_region_bandwidth_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, cen_bandwidth_package_id=None, inter_region_bandwidth_id=None, _configuration=None):  # noqa: E501
         """ModifyCenInterRegionBandwidthAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._cen_bandwidth_package_id = None
         self._inter_region_bandwidth_id = None
         self.discriminator = None
 
         if bandwidth is not None:
             self.bandwidth = bandwidth
+        if cen_bandwidth_package_id is not None:
+            self.cen_bandwidth_package_id = cen_bandwidth_package_id
         self.inter_region_bandwidth_id = inter_region_bandwidth_id
 
     @property
@@ -76,6 +81,27 @@ class ModifyCenInterRegionBandwidthAttributesRequest(object):
         """
 
         self._bandwidth = bandwidth
+
+    @property
+    def cen_bandwidth_package_id(self):
+        """Gets the cen_bandwidth_package_id of this ModifyCenInterRegionBandwidthAttributesRequest.  # noqa: E501
+
+
+        :return: The cen_bandwidth_package_id of this ModifyCenInterRegionBandwidthAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cen_bandwidth_package_id
+
+    @cen_bandwidth_package_id.setter
+    def cen_bandwidth_package_id(self, cen_bandwidth_package_id):
+        """Sets the cen_bandwidth_package_id of this ModifyCenInterRegionBandwidthAttributesRequest.
+
+
+        :param cen_bandwidth_package_id: The cen_bandwidth_package_id of this ModifyCenInterRegionBandwidthAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cen_bandwidth_package_id = cen_bandwidth_package_id
 
     @property
     def inter_region_bandwidth_id(self):

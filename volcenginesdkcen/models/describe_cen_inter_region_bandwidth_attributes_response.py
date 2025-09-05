@@ -40,7 +40,6 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
         'inter_region_bandwidth_id': 'str',
         'local_region_id': 'str',
         'peer_region_id': 'str',
-        'request_id': 'str',
         'status': 'str',
         'update_time': 'str'
     }
@@ -53,12 +52,11 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
         'inter_region_bandwidth_id': 'InterRegionBandwidthId',
         'local_region_id': 'LocalRegionId',
         'peer_region_id': 'PeerRegionId',
-        'request_id': 'RequestId',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, bandwidth=None, cen_bandwidth_package_id=None, cen_id=None, creation_time=None, inter_region_bandwidth_id=None, local_region_id=None, peer_region_id=None, request_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, cen_bandwidth_package_id=None, cen_id=None, creation_time=None, inter_region_bandwidth_id=None, local_region_id=None, peer_region_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeCenInterRegionBandwidthAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,7 +69,6 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
         self._inter_region_bandwidth_id = None
         self._local_region_id = None
         self._peer_region_id = None
-        self._request_id = None
         self._status = None
         self._update_time = None
         self.discriminator = None
@@ -90,8 +87,6 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
             self.local_region_id = local_region_id
         if peer_region_id is not None:
             self.peer_region_id = peer_region_id
-        if request_id is not None:
-            self.request_id = request_id
         if status is not None:
             self.status = status
         if update_time is not None:
@@ -243,27 +238,6 @@ class DescribeCenInterRegionBandwidthAttributesResponse(object):
         """
 
         self._peer_region_id = peer_region_id
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this DescribeCenInterRegionBandwidthAttributesResponse.  # noqa: E501
-
-
-        :return: The request_id of this DescribeCenInterRegionBandwidthAttributesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this DescribeCenInterRegionBandwidthAttributesResponse.
-
-
-        :param request_id: The request_id of this DescribeCenInterRegionBandwidthAttributesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     @property
     def status(self):
