@@ -1,11 +1,13 @@
-
 from volcenginesdkwaf import WAFApi, CheckLLMResponseStreamRequest
-from volcenginesdkwafruntime.models.llm_stream_session import LLMStreamSession,LLM_STREAM_SEND_EXPONENT,LLM_STREAM_SEND_BASE_WINDOW
+from volcenginesdkwafruntime.models.llm_stream_session import LLMStreamSession, LLM_STREAM_SEND_EXPONENT, \
+    LLM_STREAM_SEND_BASE_WINDOW
 
 global_llm_send_len = 10
 
+
 class WAFRuntimeApi(WAFApi):
     """继承自 WAFApi 并重写 check_llm_response_stream 方法"""
+
     def check_llm_response_stream(
             self,
             body: CheckLLMResponseStreamRequest,

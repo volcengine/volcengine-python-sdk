@@ -27,6 +27,7 @@ Version = "2025-08-31"
 ContentType = "application/json"
 Method = "POST"
 
+
 def norm_query(params):
     query = ""
     for key in sorted(params.keys()):
@@ -53,7 +54,7 @@ def hash_sha256(content: bytes):
 
 
 # 第二步：签名请求函数
-def request_sign(header, ak, sk,region, url,  path, action, body):
+def request_sign(header, ak, sk, region, url, path, action, body):
     host = urlparse(url).netloc
     date = utc_now()
     # 第三步：创建身份证明。其中的 Service 和 Region 字段是固定的。ak 和 sk 分别代表
@@ -103,7 +104,7 @@ def request_sign(header, ak, sk,region, url,  path, action, body):
                  "host:" + request_param["host"],
                  "x-content-sha256:" + x_content_sha256,
                  "x-date:" + x_date,
-                 ]
+             ]
          ),
          "",
          signed_headers_str,
@@ -112,16 +113,16 @@ def request_sign(header, ak, sk,region, url,  path, action, body):
     )
 
     # 打印正规化的请求用于调试比对
-    #print(canonical_request_str)
+    # print(canonical_request_str)
     hashed_canonical_request = hash_sha256(canonical_request_str.encode("utf-8"))
 
     # 打印hash值用于调试比对
-    #print(hashed_canonical_request)
+    # print(hashed_canonical_request)
     credential_scope = "/".join([short_x_date, credential["region"], credential["service"], "request"])
     string_to_sign = "\n".join(["HMAC-SHA256", x_date, credential_scope, hashed_canonical_request])
 
     # 打印最终计算的签名字符串用于调试比对
-    #print(string_to_sign)
+    # print(string_to_sign)
     k_date = hmac_sha256(credential["secret_access_key"].encode("utf-8"), short_x_date)
     k_region = hmac_sha256(k_date, credential["region"])
     k_service = hmac_sha256(k_region, credential["service"])
@@ -132,15 +133,15 @@ def request_sign(header, ak, sk,region, url,  path, action, body):
         credential["access_key_id"] + "/" + credential_scope,
         signed_headers_str,
         signature,
-        )
-    header = {**header, **sign_result ,"X-Top-Service": Service, "X-Top-Region":region }
+    )
+    header = {**header, **sign_result, "X-Top-Service": Service, "X-Top-Region": region}
     # header = {**header, **{"X-Security-Token": SessionToken}}
     # 第六步：将 Signature 签名写入 HTTP Header 中，并发送 HTTP 请求。
     return header
 
+
 # datetime.utcnow() 在 3.12+ 已经过期，使用如下方法兼容
 def utc_now():
-
     try:
         from datetime import timezone
         return datetime.datetime.now(timezone.utc)
@@ -148,8 +149,11 @@ def utc_now():
         class UTC(datetime.tzinfo):
             def utcoffset(self, dt):
                 return datetime.timedelta(0)
+
             def tzname(self, dt):
                 return "UTC"
+
             def dst(self, dt):
                 return datetime.timedelta(0)
+
         return datetime.datetime.now(UTC())

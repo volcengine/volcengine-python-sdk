@@ -1,5 +1,5 @@
 from pydantic import BaseModel, field_validator, Field
-from typing import List, Optional, Any,Union
+from typing import List, Optional, Any, Union
 import requests
 import json
 
@@ -7,6 +7,7 @@ from ..models.llm_shield_sign import request_sign, Version
 
 LLM_STREAM_SEND_BASE_WINDOW_V2 = 10
 LLM_STREAM_SEND_EXPONENT_V2 = 2
+
 
 # 定义内容类型常量
 class ContentTypeV2:
@@ -69,7 +70,7 @@ class ModerateV2Request(BaseModel):
             # 1. 将其他实例序列化为字典（包含嵌套对象）
             other_dict = other.model_dump(by_alias=True)  # 使用 alias 键名
             # 2. 用序列化后的字典初始化当前实例（实现深拷贝）
-            super().__init__(** other_dict)
+            super().__init__(**other_dict)
         else:
             # 正常初始化逻辑
             super().__init__(**data)
@@ -201,7 +202,7 @@ class ErrorInfo(BaseModel):
 
 # 定义响应元数据结构体
 class ResponseMetadata(BaseModel):
-    error:Union[ErrorInfo, None]   = Field(default_factory=ErrorInfo, alias="Error")
+    error: Union[ErrorInfo, None] = Field(default_factory=ErrorInfo, alias="Error")
     requestId: str = Field(..., alias="RequestId")  # 添加requestId字段，映射自RequestId
     service: Union[str, None] = Field(None, alias="Service")
     action: Union[str, None] = Field(None, alias="Action")
@@ -216,7 +217,7 @@ class ResponseMetadata(BaseModel):
 # 定义审核响应结构体
 class ModerateV2Response(BaseModel):
     response_metadata: ResponseMetadata = Field(default_factory=ResponseMetadata, alias="ResponseMetadata")
-    result: Union[ModerateV2Result, None]   = Field(default_factory=ModerateV2Result, alias="Result")
+    result: Union[ModerateV2Result, None] = Field(default_factory=ModerateV2Result, alias="Result")
 
     class Config:
         populate_by_name = True
@@ -224,6 +225,7 @@ class ModerateV2Response(BaseModel):
 
 class ModerateV2StreamSession:
     """流式会话结构体，用于积累流式请求、存储未发送长度和默认响应体"""
+
     def __init__(self):
         # 用于积累流式的请求（初始为 None，对应 Go 中的指针）
         self.request: Optional[ModerateV2Request] = None
@@ -263,6 +265,7 @@ class GenerateStreamResult(BaseModel):
     """生成流V2版本的结果模型"""
     message: Optional[MessageV2] = Field(None, alias="Message", description="优化内容，isFinished为true时为空")
     is_finished: bool = Field(False, alias="IsFinished", description="标识是否结束")
+
     # summarize: Optional[GenerateSummarizeV2] = Field(None, alias="Summarize", description="总结信息，isFinished为true时有值")
 
     class Config:
@@ -280,7 +283,7 @@ class GenerateStreamV2ResponseData(BaseModel):
 
 # 定义客户端类
 class ClientV2:
-    def __init__(self, url: str, ak: str,sk:str, region :str,  timeout: float):
+    def __init__(self, url: str, ak: str, sk: str, region: str, timeout: float):
         self.url = url
         self.ak = ak
         self.sk = sk
@@ -300,11 +303,11 @@ class ClientV2:
         header = {
         }
 
-        sign_header = request_sign(header, self.ak, self.sk , self.region, self.url, path,action, request_body)
+        sign_header = request_sign(header, self.ak, self.sk, self.region, self.url, path, action, request_body)
 
         try:
             resp = self.http_client.post(
-                url=self.url+path+"?Action="+action+"&Version="+ Version,
+                url=self.url + path + "?Action=" + action + "&Version=" + Version,
                 data=request_body,
                 headers=sign_header
             )
@@ -317,7 +320,8 @@ class ClientV2:
         except Exception as e:
             raise Exception(f"处理响应失败: {e}")
 
-    def ModerateStream(self, request: ModerateV2Request, session: ModerateV2StreamSession) -> Optional[ModerateV2Response]:
+    def ModerateStream(self, request: ModerateV2Request, session: ModerateV2StreamSession) -> Optional[
+        ModerateV2Response]:
         """
         处理流式审核请求
         :param request: 当前流式请求片段（ModerateV2Request 类型）
@@ -353,7 +357,8 @@ class ClientV2:
 
         # 3. 判断是否需要发送请求到后端
         # 只有当未检测长度 >= 10 或者是第一次或者是最后一次请求时，才发送请求
-        need_send_request = is_last_request or is_first_request or (session.stream_send_len >= session.CurrentSendWindow)
+        need_send_request = is_last_request or is_first_request or (
+                session.stream_send_len >= session.CurrentSendWindow)
 
         # 如果不需要发送请求，直接返回上次的默认响应（如果有）
         if not need_send_request:
@@ -373,7 +378,7 @@ class ClientV2:
         sign_header = request_sign(headers, self.ak, self.sk, self.region, self.url, path, action, request_body)
         try:
             response = requests.post(
-                url=self.url+path+"?Action="+action+"&Version="+ Version,
+                url=self.url + path + "?Action=" + action + "&Version=" + Version,
                 data=request_body,
                 headers=sign_header
             )
@@ -395,7 +400,7 @@ class ClientV2:
         # 7. 若为最后一次流式请求（use_stream == 2），打印最终内容
         if session.request.use_stream == 2:
             final_content = session.request.message.content if (
-                        session.request.message and session.request.message.content) else ""
+                    session.request.message and session.request.message.content) else ""
             print(f"最终检测内容: {final_content}")
 
         return moderate_response
@@ -415,7 +420,8 @@ class ClientV2:
         try:
             sign_header = request_sign(headers, self.ak, self.sk, self.region, self.url, path, action, requestBody)
             # 发送 HTTP 请求
-            resp = self.http_client.post(url=self.url+path+"?Action="+action+"&Version="+ Version, data=requestBody, headers=sign_header, stream=True)
+            resp = self.http_client.post(url=self.url + path + "?Action=" + action + "&Version=" + Version,
+                                         data=requestBody, headers=sign_header, stream=True)
             if resp.status_code != 200:
                 raise Exception("bad response code: %d" % resp.status_code)
 
