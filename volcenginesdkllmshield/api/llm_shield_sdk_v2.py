@@ -1,5 +1,7 @@
 from pydantic import BaseModel, field_validator, Field
 from typing import List, Optional, Any, Union
+from datetime import datetime, date
+from uuid import UUID
 import requests
 import json
 
@@ -194,6 +196,7 @@ class ModerateV2Result(BaseModel):
 # 定义错误信息结构体
 class ErrorInfo(BaseModel):
     code: str = Field("", alias="Code")
+    codeN: int = Field("", alias="CodeN")
     message: str = Field("", alias="Message")
 
     class Config:
@@ -320,8 +323,9 @@ class ClientV2:
         except Exception as e:
             raise Exception(f"处理响应失败: {e}")
 
-    def ModerateStream(self, request: ModerateV2Request, session: ModerateV2StreamSession) -> Optional[
-        ModerateV2Response]:
+    def ModerateStream(
+            self, request: ModerateV2Request, session: ModerateV2StreamSession
+    ) -> Optional[ModerateV2Response]:
         """
         处理流式审核请求
         :param request: 当前流式请求片段（ModerateV2Request 类型）
@@ -438,22 +442,8 @@ class ClientV2:
 # 自定义 JSON 编码器
 class CustomJSONEncoder(json.JSONEncoder):
     def default(self, obj):
-        if isinstance(obj, Error):
-            return {
-                "Code": obj.Code,
-                "Message": obj.Message
-            }
-        elif isinstance(obj, JudgeDecisionInfo):
-            return {
-                "ErrCode": obj.ErrCode,
-                "ErrMsg": obj.ErrMsg,
-                "Labels": obj.Labels,
-                "Matches": [{"Label": match.Label, "Word": match.Word} for match in obj.Matches],
-                "DecisionCategory": obj.DecisionCategory,
-                "RuleIDs": obj.RuleIDs
-            }
         # 处理datetime类型（如2023-10-01T12:00:00）
-        elif isinstance(obj, datetime):
+        if isinstance(obj, datetime):
             return obj.isoformat()
         # 处理date类型（如2023-10-01）
         elif isinstance(obj, date):
