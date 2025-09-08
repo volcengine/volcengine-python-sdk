@@ -107,6 +107,10 @@ class RiskV2(BaseModel):
     prob: Optional[float] = Field(None, alias="Prob")
     matches: List[RiskMatchV2] = Field([], alias="Matches")
 
+    @field_validator('matches', mode="before")
+    def convert_risk_matches_none_to_list(cls, value):
+        return [] if value is None else value
+
     class Config:
         populate_by_name = True
 
@@ -129,6 +133,10 @@ class PermitV2(BaseModel):
     label: str = Field("", alias="Label")
     prob: Optional[float] = Field(None, alias="Prob")
     matches: List[PermitMatchV2] = Field([], alias="Matches")
+
+    @field_validator('matches', mode="before")
+    def convert_permit_matches_none_to_list(cls, value):
+        return [] if value is None else value
 
     class Config:
         populate_by_name = True
@@ -175,6 +183,10 @@ class DecisionV2(BaseModel):
     decision_detail: DecisionDetailV2 = Field(default_factory=DecisionDetailV2, alias="DecisionDetail")
     decision_strategy_id: Optional[str] = Field(None, alias="DecisionStrategyID")
     hit_strategy_ids: List[str] = Field([], alias="HitStrategyIDs")
+
+    @field_validator('hit_strategy_ids', mode="before")
+    def convert_hit_strategies_none_to_list(cls, value):
+        return [] if value is None else value
 
     class Config:
         populate_by_name = True
