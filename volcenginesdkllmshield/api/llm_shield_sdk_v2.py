@@ -196,7 +196,7 @@ class ModerateV2Result(BaseModel):
 # 定义错误信息结构体
 class ErrorInfo(BaseModel):
     code: str = Field("", alias="Code")
-    codeN: int = Field("", alias="CodeN")
+    codeN: Union[int, str] = Field("", alias="CodeN")
     message: str = Field("", alias="Message")
 
     class Config:
