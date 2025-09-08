@@ -137,6 +137,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.client_side_validation = True
 
         self.endpoint_provider = DefaultEndpointProvider()
+        self.credential_provider = None
 
         self.auto_retry = True
         self.__retryer = DEFAULT_RETRYER

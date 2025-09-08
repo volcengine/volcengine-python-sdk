@@ -115,6 +115,14 @@ class ApiClient(object):
         if self.cookie:
             header_params['Cookie'] = self.cookie
 
+        # 新增代码。处理assume_role和assume_role_oidc和assume_role_saml
+        if self.configuration.credential_provider is not None:
+            self.configuration.credential_provider.refresh()  # 这会调用 _assume_role_oidc() 方法获取临时凭证
+            credentials = self.configuration.credential_provider.retrieve()
+            self.configuration.ak = credentials.ak
+            self.configuration.sk = credentials.sk
+            self.configuration.session_token = credentials.session_token
+
         interceptor_context = InterceptorContext(request=Request(
             self.configuration,
             resource_path, method, path_params,
