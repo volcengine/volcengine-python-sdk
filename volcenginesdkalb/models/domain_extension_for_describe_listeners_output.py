@@ -38,7 +38,8 @@ class DomainExtensionForDescribeListenersOutput(object):
         'certificate_source': 'str',
         'domain': 'str',
         'domain_extension_id': 'str',
-        'listener_id': 'str'
+        'listener_id': 'str',
+        'pca_leaf_certificate_id': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class DomainExtensionForDescribeListenersOutput(object):
         'certificate_source': 'CertificateSource',
         'domain': 'Domain',
         'domain_extension_id': 'DomainExtensionId',
-        'listener_id': 'ListenerId'
+        'listener_id': 'ListenerId',
+        'pca_leaf_certificate_id': 'PcaLeafCertificateId'
     }
 
-    def __init__(self, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, domain=None, domain_extension_id=None, listener_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, domain=None, domain_extension_id=None, listener_id=None, pca_leaf_certificate_id=None, _configuration=None):  # noqa: E501
         """DomainExtensionForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DomainExtensionForDescribeListenersOutput(object):
         self._domain = None
         self._domain_extension_id = None
         self._listener_id = None
+        self._pca_leaf_certificate_id = None
         self.discriminator = None
 
         if cert_center_certificate_id is not None:
@@ -76,6 +79,8 @@ class DomainExtensionForDescribeListenersOutput(object):
             self.domain_extension_id = domain_extension_id
         if listener_id is not None:
             self.listener_id = listener_id
+        if pca_leaf_certificate_id is not None:
+            self.pca_leaf_certificate_id = pca_leaf_certificate_id
 
     @property
     def cert_center_certificate_id(self):
@@ -202,6 +207,27 @@ class DomainExtensionForDescribeListenersOutput(object):
         """
 
         self._listener_id = listener_id
+
+    @property
+    def pca_leaf_certificate_id(self):
+        """Gets the pca_leaf_certificate_id of this DomainExtensionForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The pca_leaf_certificate_id of this DomainExtensionForDescribeListenersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_leaf_certificate_id
+
+    @pca_leaf_certificate_id.setter
+    def pca_leaf_certificate_id(self, pca_leaf_certificate_id):
+        """Sets the pca_leaf_certificate_id of this DomainExtensionForDescribeListenersOutput.
+
+
+        :param pca_leaf_certificate_id: The pca_leaf_certificate_id of this DomainExtensionForDescribeListenersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_leaf_certificate_id = pca_leaf_certificate_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

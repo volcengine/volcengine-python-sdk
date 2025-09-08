@@ -36,10 +36,13 @@ class RuleForCreateRulesInput(object):
         'description': 'str',
         'domain': 'str',
         'forward_group_config': 'ForwardGroupConfigForCreateRulesInput',
+        'priority': 'int',
         'redirect_config': 'RedirectConfigForCreateRulesInput',
         'rewrite_config': 'RewriteConfigForCreateRulesInput',
         'rewrite_enabled': 'str',
         'rule_action': 'str',
+        'rule_actions': 'list[RulesRuleActionForCreateRulesInput]',
+        'rule_conditions': 'list[RulesRuleConditionForCreateRulesInput]',
         'server_group_id': 'str',
         'traffic_limit_enabled': 'str',
         'traffic_limit_qps': 'int',
@@ -50,17 +53,20 @@ class RuleForCreateRulesInput(object):
         'description': 'Description',
         'domain': 'Domain',
         'forward_group_config': 'ForwardGroupConfig',
+        'priority': 'Priority',
         'redirect_config': 'RedirectConfig',
         'rewrite_config': 'RewriteConfig',
         'rewrite_enabled': 'RewriteEnabled',
         'rule_action': 'RuleAction',
+        'rule_actions': 'RuleActions',
+        'rule_conditions': 'RuleConditions',
         'server_group_id': 'ServerGroupId',
         'traffic_limit_enabled': 'TrafficLimitEnabled',
         'traffic_limit_qps': 'TrafficLimitQPS',
         'url': 'URL'
     }
 
-    def __init__(self, description=None, domain=None, forward_group_config=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, domain=None, forward_group_config=None, priority=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, rule_actions=None, rule_conditions=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501
         """RuleForCreateRulesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,10 +75,13 @@ class RuleForCreateRulesInput(object):
         self._description = None
         self._domain = None
         self._forward_group_config = None
+        self._priority = None
         self._redirect_config = None
         self._rewrite_config = None
         self._rewrite_enabled = None
         self._rule_action = None
+        self._rule_actions = None
+        self._rule_conditions = None
         self._server_group_id = None
         self._traffic_limit_enabled = None
         self._traffic_limit_qps = None
@@ -85,6 +94,8 @@ class RuleForCreateRulesInput(object):
             self.domain = domain
         if forward_group_config is not None:
             self.forward_group_config = forward_group_config
+        if priority is not None:
+            self.priority = priority
         if redirect_config is not None:
             self.redirect_config = redirect_config
         if rewrite_config is not None:
@@ -93,6 +104,10 @@ class RuleForCreateRulesInput(object):
             self.rewrite_enabled = rewrite_enabled
         if rule_action is not None:
             self.rule_action = rule_action
+        if rule_actions is not None:
+            self.rule_actions = rule_actions
+        if rule_conditions is not None:
+            self.rule_conditions = rule_conditions
         if server_group_id is not None:
             self.server_group_id = server_group_id
         if traffic_limit_enabled is not None:
@@ -164,6 +179,33 @@ class RuleForCreateRulesInput(object):
         """
 
         self._forward_group_config = forward_group_config
+
+    @property
+    def priority(self):
+        """Gets the priority of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The priority of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """Sets the priority of this RuleForCreateRulesInput.
+
+
+        :param priority: The priority of this RuleForCreateRulesInput.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                priority is not None and priority > 10000):  # noqa: E501
+            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10000`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                priority is not None and priority < 1):  # noqa: E501
+            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._priority = priority
 
     @property
     def redirect_config(self):
@@ -248,6 +290,48 @@ class RuleForCreateRulesInput(object):
         """
 
         self._rule_action = rule_action
+
+    @property
+    def rule_actions(self):
+        """Gets the rule_actions of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The rule_actions of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: list[RulesRuleActionForCreateRulesInput]
+        """
+        return self._rule_actions
+
+    @rule_actions.setter
+    def rule_actions(self, rule_actions):
+        """Sets the rule_actions of this RuleForCreateRulesInput.
+
+
+        :param rule_actions: The rule_actions of this RuleForCreateRulesInput.  # noqa: E501
+        :type: list[RulesRuleActionForCreateRulesInput]
+        """
+
+        self._rule_actions = rule_actions
+
+    @property
+    def rule_conditions(self):
+        """Gets the rule_conditions of this RuleForCreateRulesInput.  # noqa: E501
+
+
+        :return: The rule_conditions of this RuleForCreateRulesInput.  # noqa: E501
+        :rtype: list[RulesRuleConditionForCreateRulesInput]
+        """
+        return self._rule_conditions
+
+    @rule_conditions.setter
+    def rule_conditions(self, rule_conditions):
+        """Sets the rule_conditions of this RuleForCreateRulesInput.
+
+
+        :param rule_conditions: The rule_conditions of this RuleForCreateRulesInput.  # noqa: E501
+        :type: list[RulesRuleConditionForCreateRulesInput]
+        """
+
+        self._rule_conditions = rule_conditions
 
     @property
     def server_group_id(self):

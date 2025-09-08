@@ -37,6 +37,7 @@ class CreateListenerRequest(object):
         'acl_status': 'str',
         'acl_type': 'str',
         'ca_certificate_id': 'str',
+        'ca_certificate_source': 'str',
         'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_source': 'str',
@@ -48,6 +49,9 @@ class CreateListenerRequest(object):
         'enabled': 'str',
         'listener_name': 'str',
         'load_balancer_id': 'str',
+        'pca_leaf_certificate_id': 'str',
+        'pca_root_ca_certificate_id': 'str',
+        'pca_sub_ca_certificate_id': 'str',
         'port': 'int',
         'protocol': 'str',
         'proxy_protocol_disabled': 'str',
@@ -60,6 +64,7 @@ class CreateListenerRequest(object):
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
         'ca_certificate_id': 'CACertificateId',
+        'ca_certificate_source': 'CACertificateSource',
         'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_source': 'CertificateSource',
@@ -71,6 +76,9 @@ class CreateListenerRequest(object):
         'enabled': 'Enabled',
         'listener_name': 'ListenerName',
         'load_balancer_id': 'LoadBalancerId',
+        'pca_leaf_certificate_id': 'PcaLeafCertificateId',
+        'pca_root_ca_certificate_id': 'PcaRootCACertificateId',
+        'pca_sub_ca_certificate_id': 'PcaSubCACertificateId',
         'port': 'Port',
         'protocol': 'Protocol',
         'proxy_protocol_disabled': 'ProxyProtocolDisabled',
@@ -78,7 +86,7 @@ class CreateListenerRequest(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, port=None, protocol=None, proxy_protocol_disabled=None, server_group_id=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_name=None, load_balancer_id=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, port=None, protocol=None, proxy_protocol_disabled=None, server_group_id=None, tags=None, _configuration=None):  # noqa: E501
         """CreateListenerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +96,7 @@ class CreateListenerRequest(object):
         self._acl_status = None
         self._acl_type = None
         self._ca_certificate_id = None
+        self._ca_certificate_source = None
         self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_source = None
@@ -99,6 +108,9 @@ class CreateListenerRequest(object):
         self._enabled = None
         self._listener_name = None
         self._load_balancer_id = None
+        self._pca_leaf_certificate_id = None
+        self._pca_root_ca_certificate_id = None
+        self._pca_sub_ca_certificate_id = None
         self._port = None
         self._protocol = None
         self._proxy_protocol_disabled = None
@@ -114,6 +126,8 @@ class CreateListenerRequest(object):
             self.acl_type = acl_type
         if ca_certificate_id is not None:
             self.ca_certificate_id = ca_certificate_id
+        if ca_certificate_source is not None:
+            self.ca_certificate_source = ca_certificate_source
         if cert_center_certificate_id is not None:
             self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
@@ -135,6 +149,12 @@ class CreateListenerRequest(object):
         if listener_name is not None:
             self.listener_name = listener_name
         self.load_balancer_id = load_balancer_id
+        if pca_leaf_certificate_id is not None:
+            self.pca_leaf_certificate_id = pca_leaf_certificate_id
+        if pca_root_ca_certificate_id is not None:
+            self.pca_root_ca_certificate_id = pca_root_ca_certificate_id
+        if pca_sub_ca_certificate_id is not None:
+            self.pca_sub_ca_certificate_id = pca_sub_ca_certificate_id
         self.port = port
         self.protocol = protocol
         if proxy_protocol_disabled is not None:
@@ -226,6 +246,27 @@ class CreateListenerRequest(object):
         """
 
         self._ca_certificate_id = ca_certificate_id
+
+    @property
+    def ca_certificate_source(self):
+        """Gets the ca_certificate_source of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The ca_certificate_source of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ca_certificate_source
+
+    @ca_certificate_source.setter
+    def ca_certificate_source(self, ca_certificate_source):
+        """Sets the ca_certificate_source of this CreateListenerRequest.
+
+
+        :param ca_certificate_source: The ca_certificate_source of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ca_certificate_source = ca_certificate_source
 
     @property
     def cert_center_certificate_id(self):
@@ -465,6 +506,69 @@ class CreateListenerRequest(object):
             raise ValueError("Invalid value for `load_balancer_id`, must not be `None`")  # noqa: E501
 
         self._load_balancer_id = load_balancer_id
+
+    @property
+    def pca_leaf_certificate_id(self):
+        """Gets the pca_leaf_certificate_id of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The pca_leaf_certificate_id of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_leaf_certificate_id
+
+    @pca_leaf_certificate_id.setter
+    def pca_leaf_certificate_id(self, pca_leaf_certificate_id):
+        """Sets the pca_leaf_certificate_id of this CreateListenerRequest.
+
+
+        :param pca_leaf_certificate_id: The pca_leaf_certificate_id of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_leaf_certificate_id = pca_leaf_certificate_id
+
+    @property
+    def pca_root_ca_certificate_id(self):
+        """Gets the pca_root_ca_certificate_id of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The pca_root_ca_certificate_id of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_root_ca_certificate_id
+
+    @pca_root_ca_certificate_id.setter
+    def pca_root_ca_certificate_id(self, pca_root_ca_certificate_id):
+        """Sets the pca_root_ca_certificate_id of this CreateListenerRequest.
+
+
+        :param pca_root_ca_certificate_id: The pca_root_ca_certificate_id of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_root_ca_certificate_id = pca_root_ca_certificate_id
+
+    @property
+    def pca_sub_ca_certificate_id(self):
+        """Gets the pca_sub_ca_certificate_id of this CreateListenerRequest.  # noqa: E501
+
+
+        :return: The pca_sub_ca_certificate_id of this CreateListenerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_sub_ca_certificate_id
+
+    @pca_sub_ca_certificate_id.setter
+    def pca_sub_ca_certificate_id(self, pca_sub_ca_certificate_id):
+        """Sets the pca_sub_ca_certificate_id of this CreateListenerRequest.
+
+
+        :param pca_sub_ca_certificate_id: The pca_sub_ca_certificate_id of this CreateListenerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_sub_ca_certificate_id = pca_sub_ca_certificate_id
 
     @property
     def port(self):

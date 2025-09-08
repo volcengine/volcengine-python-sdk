@@ -51,7 +51,7 @@ class CloneLoadBalancerRequest(object):
         'description': 'Description',
         'eip_billing_config': 'EipBillingConfig',
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfig',
-        'load_balancer_id': 'LoadBalancerID',
+        'load_balancer_id': 'LoadBalancerId',
         'load_balancer_name': 'LoadBalancerName',
         'project_name': 'ProjectName',
         'region_id': 'RegionId',
