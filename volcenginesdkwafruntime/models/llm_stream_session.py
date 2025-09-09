@@ -2,10 +2,11 @@ from typing import Optional
 
 from volcenginesdkwaf import CheckLLMResponseStreamResponse
 
+LLM_STREAM_SEND_BASE_WINDOW = 10
+LLM_STREAM_SEND_EXPONENT = 2
+
 
 class LLMStreamSession:
-    """对应 Java 中的 LLMStreamSession 类"""
-
     def __init__(
             self,
             stream_buf: str = "",
@@ -17,6 +18,7 @@ class LLMStreamSession:
         self.stream_send_len = stream_send_len
         self.msg_id = msg_id
         self.default_body = default_body
+        self.CurrentSendWindow = LLM_STREAM_SEND_BASE_WINDOW
 
     def get_stream_buf(self) -> str:
         return self.stream_buf
