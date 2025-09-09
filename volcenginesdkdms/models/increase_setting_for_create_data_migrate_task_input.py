@@ -103,8 +103,8 @@ class IncreaseSettingForCreateDataMigrateTaskInput(object):
         :type: int
         """
         if (self._configuration.client_side_validation and
-                times is not None and times > 30):  # noqa: E501
-            raise ValueError("Invalid value for `times`, must be a value less than or equal to `30`")  # noqa: E501
+                times is not None and times > 100):  # noqa: E501
+            raise ValueError("Invalid value for `times`, must be a value less than or equal to `100`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 times is not None and times < 1):  # noqa: E501
             raise ValueError("Invalid value for `times`, must be a value greater than or equal to `1`")  # noqa: E501

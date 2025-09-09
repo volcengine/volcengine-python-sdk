@@ -33,7 +33,7 @@ class ItemForPreviewTopicDataOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'header': 'HeaderForPreviewTopicDataOutput',
+        'header': 'list[HeaderForPreviewTopicDataOutput]',
         'key': 'str',
         'offset': 'int',
         'partition_id': 'int',
@@ -88,7 +88,7 @@ class ItemForPreviewTopicDataOutput(object):
 
 
         :return: The header of this ItemForPreviewTopicDataOutput.  # noqa: E501
-        :rtype: HeaderForPreviewTopicDataOutput
+        :rtype: list[HeaderForPreviewTopicDataOutput]
         """
         return self._header
 
@@ -98,7 +98,7 @@ class ItemForPreviewTopicDataOutput(object):
 
 
         :param header: The header of this ItemForPreviewTopicDataOutput.  # noqa: E501
-        :type: HeaderForPreviewTopicDataOutput
+        :type: list[HeaderForPreviewTopicDataOutput]
         """
 
         self._header = header
