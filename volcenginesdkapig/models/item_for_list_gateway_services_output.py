@@ -37,6 +37,7 @@ class ItemForListGatewayServicesOutput(object):
         'comments': 'str',
         'create_time': 'str',
         'custom_domains': 'list[CustomDomainForListGatewayServicesOutput]',
+        'domain_spec': 'DomainSpecForListGatewayServicesOutput',
         'domains': 'list[DomainForListGatewayServicesOutput]',
         'gateway_id': 'str',
         'gateway_name': 'str',
@@ -44,8 +45,7 @@ class ItemForListGatewayServicesOutput(object):
         'message': 'str',
         'name': 'str',
         'protocol': 'list[str]',
-        'status': 'str',
-        'tags': 'list[TagForListGatewayServicesOutput]'
+        'status': 'str'
     }
 
     attribute_map = {
@@ -53,6 +53,7 @@ class ItemForListGatewayServicesOutput(object):
         'comments': 'Comments',
         'create_time': 'CreateTime',
         'custom_domains': 'CustomDomains',
+        'domain_spec': 'DomainSpec',
         'domains': 'Domains',
         'gateway_id': 'GatewayId',
         'gateway_name': 'GatewayName',
@@ -60,11 +61,10 @@ class ItemForListGatewayServicesOutput(object):
         'message': 'Message',
         'name': 'Name',
         'protocol': 'Protocol',
-        'status': 'Status',
-        'tags': 'Tags'
+        'status': 'Status'
     }
 
-    def __init__(self, auth_spec=None, comments=None, create_time=None, custom_domains=None, domains=None, gateway_id=None, gateway_name=None, id=None, message=None, name=None, protocol=None, status=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_spec=None, comments=None, create_time=None, custom_domains=None, domain_spec=None, domains=None, gateway_id=None, gateway_name=None, id=None, message=None, name=None, protocol=None, status=None, _configuration=None):  # noqa: E501
         """ItemForListGatewayServicesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +74,7 @@ class ItemForListGatewayServicesOutput(object):
         self._comments = None
         self._create_time = None
         self._custom_domains = None
+        self._domain_spec = None
         self._domains = None
         self._gateway_id = None
         self._gateway_name = None
@@ -82,7 +83,6 @@ class ItemForListGatewayServicesOutput(object):
         self._name = None
         self._protocol = None
         self._status = None
-        self._tags = None
         self.discriminator = None
 
         if auth_spec is not None:
@@ -93,6 +93,8 @@ class ItemForListGatewayServicesOutput(object):
             self.create_time = create_time
         if custom_domains is not None:
             self.custom_domains = custom_domains
+        if domain_spec is not None:
+            self.domain_spec = domain_spec
         if domains is not None:
             self.domains = domains
         if gateway_id is not None:
@@ -109,8 +111,6 @@ class ItemForListGatewayServicesOutput(object):
             self.protocol = protocol
         if status is not None:
             self.status = status
-        if tags is not None:
-            self.tags = tags
 
     @property
     def auth_spec(self):
@@ -195,6 +195,27 @@ class ItemForListGatewayServicesOutput(object):
         """
 
         self._custom_domains = custom_domains
+
+    @property
+    def domain_spec(self):
+        """Gets the domain_spec of this ItemForListGatewayServicesOutput.  # noqa: E501
+
+
+        :return: The domain_spec of this ItemForListGatewayServicesOutput.  # noqa: E501
+        :rtype: DomainSpecForListGatewayServicesOutput
+        """
+        return self._domain_spec
+
+    @domain_spec.setter
+    def domain_spec(self, domain_spec):
+        """Sets the domain_spec of this ItemForListGatewayServicesOutput.
+
+
+        :param domain_spec: The domain_spec of this ItemForListGatewayServicesOutput.  # noqa: E501
+        :type: DomainSpecForListGatewayServicesOutput
+        """
+
+        self._domain_spec = domain_spec
 
     @property
     def domains(self):
@@ -363,27 +384,6 @@ class ItemForListGatewayServicesOutput(object):
         """
 
         self._status = status
-
-    @property
-    def tags(self):
-        """Gets the tags of this ItemForListGatewayServicesOutput.  # noqa: E501
-
-
-        :return: The tags of this ItemForListGatewayServicesOutput.  # noqa: E501
-        :rtype: list[TagForListGatewayServicesOutput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this ItemForListGatewayServicesOutput.
-
-
-        :param tags: The tags of this ItemForListGatewayServicesOutput.  # noqa: E501
-        :type: list[TagForListGatewayServicesOutput]
-        """
-
-        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
