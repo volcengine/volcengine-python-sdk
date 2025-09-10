@@ -36,19 +36,19 @@ class GetTableResponse(object):
         'enable_read': 'bool',
         'enable_write': 'bool',
         'state': 'str',
-        'tabel_name': 'str',
-        'table_id': 'int'
+        'table_id': 'int',
+        'table_name': 'str'
     }
 
     attribute_map = {
         'enable_read': 'EnableRead',
         'enable_write': 'EnableWrite',
         'state': 'State',
-        'tabel_name': 'TabelName',
-        'table_id': 'TableId'
+        'table_id': 'TableId',
+        'table_name': 'TableName'
     }
 
-    def __init__(self, enable_read=None, enable_write=None, state=None, tabel_name=None, table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_read=None, enable_write=None, state=None, table_id=None, table_name=None, _configuration=None):  # noqa: E501
         """GetTableResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,8 +57,8 @@ class GetTableResponse(object):
         self._enable_read = None
         self._enable_write = None
         self._state = None
-        self._tabel_name = None
         self._table_id = None
+        self._table_name = None
         self.discriminator = None
 
         if enable_read is not None:
@@ -67,10 +67,10 @@ class GetTableResponse(object):
             self.enable_write = enable_write
         if state is not None:
             self.state = state
-        if tabel_name is not None:
-            self.tabel_name = tabel_name
         if table_id is not None:
             self.table_id = table_id
+        if table_name is not None:
+            self.table_name = table_name
 
     @property
     def enable_read(self):
@@ -136,27 +136,6 @@ class GetTableResponse(object):
         self._state = state
 
     @property
-    def tabel_name(self):
-        """Gets the tabel_name of this GetTableResponse.  # noqa: E501
-
-
-        :return: The tabel_name of this GetTableResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._tabel_name
-
-    @tabel_name.setter
-    def tabel_name(self, tabel_name):
-        """Sets the tabel_name of this GetTableResponse.
-
-
-        :param tabel_name: The tabel_name of this GetTableResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._tabel_name = tabel_name
-
-    @property
     def table_id(self):
         """Gets the table_id of this GetTableResponse.  # noqa: E501
 
@@ -176,6 +155,27 @@ class GetTableResponse(object):
         """
 
         self._table_id = table_id
+
+    @property
+    def table_name(self):
+        """Gets the table_name of this GetTableResponse.  # noqa: E501
+
+
+        :return: The table_name of this GetTableResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._table_name
+
+    @table_name.setter
+    def table_name(self, table_name):
+        """Sets the table_name of this GetTableResponse.
+
+
+        :param table_name: The table_name of this GetTableResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._table_name = table_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
