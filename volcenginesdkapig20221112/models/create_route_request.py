@@ -35,28 +35,26 @@ class CreateRouteRequest(object):
     swagger_types = {
         'advanced_setting': 'AdvancedSettingForCreateRouteInput',
         'enable': 'bool',
+        'fallback_setting': 'FallbackSettingForCreateRouteInput',
         'match_rule': 'MatchRuleForCreateRouteInput',
         'name': 'str',
         'priority': 'int',
-        'resource_type': 'str',
         'service_id': 'str',
-        'tags': 'list[TagForCreateRouteInput]',
         'upstream_list': 'list[UpstreamListForCreateRouteInput]'
     }
 
     attribute_map = {
         'advanced_setting': 'AdvancedSetting',
         'enable': 'Enable',
+        'fallback_setting': 'FallbackSetting',
         'match_rule': 'MatchRule',
         'name': 'Name',
         'priority': 'Priority',
-        'resource_type': 'ResourceType',
         'service_id': 'ServiceId',
-        'tags': 'Tags',
         'upstream_list': 'UpstreamList'
     }
 
-    def __init__(self, advanced_setting=None, enable=None, match_rule=None, name=None, priority=None, resource_type=None, service_id=None, tags=None, upstream_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, advanced_setting=None, enable=None, fallback_setting=None, match_rule=None, name=None, priority=None, service_id=None, upstream_list=None, _configuration=None):  # noqa: E501
         """CreateRouteRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,12 +62,11 @@ class CreateRouteRequest(object):
 
         self._advanced_setting = None
         self._enable = None
+        self._fallback_setting = None
         self._match_rule = None
         self._name = None
         self._priority = None
-        self._resource_type = None
         self._service_id = None
-        self._tags = None
         self._upstream_list = None
         self.discriminator = None
 
@@ -77,16 +74,14 @@ class CreateRouteRequest(object):
             self.advanced_setting = advanced_setting
         if enable is not None:
             self.enable = enable
+        if fallback_setting is not None:
+            self.fallback_setting = fallback_setting
         if match_rule is not None:
             self.match_rule = match_rule
         self.name = name
         if priority is not None:
             self.priority = priority
-        if resource_type is not None:
-            self.resource_type = resource_type
         self.service_id = service_id
-        if tags is not None:
-            self.tags = tags
         if upstream_list is not None:
             self.upstream_list = upstream_list
 
@@ -131,6 +126,27 @@ class CreateRouteRequest(object):
         """
 
         self._enable = enable
+
+    @property
+    def fallback_setting(self):
+        """Gets the fallback_setting of this CreateRouteRequest.  # noqa: E501
+
+
+        :return: The fallback_setting of this CreateRouteRequest.  # noqa: E501
+        :rtype: FallbackSettingForCreateRouteInput
+        """
+        return self._fallback_setting
+
+    @fallback_setting.setter
+    def fallback_setting(self, fallback_setting):
+        """Sets the fallback_setting of this CreateRouteRequest.
+
+
+        :param fallback_setting: The fallback_setting of this CreateRouteRequest.  # noqa: E501
+        :type: FallbackSettingForCreateRouteInput
+        """
+
+        self._fallback_setting = fallback_setting
 
     @property
     def match_rule(self):
@@ -198,27 +214,6 @@ class CreateRouteRequest(object):
         self._priority = priority
 
     @property
-    def resource_type(self):
-        """Gets the resource_type of this CreateRouteRequest.  # noqa: E501
-
-
-        :return: The resource_type of this CreateRouteRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_type
-
-    @resource_type.setter
-    def resource_type(self, resource_type):
-        """Sets the resource_type of this CreateRouteRequest.
-
-
-        :param resource_type: The resource_type of this CreateRouteRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_type = resource_type
-
-    @property
     def service_id(self):
         """Gets the service_id of this CreateRouteRequest.  # noqa: E501
 
@@ -240,27 +235,6 @@ class CreateRouteRequest(object):
             raise ValueError("Invalid value for `service_id`, must not be `None`")  # noqa: E501
 
         self._service_id = service_id
-
-    @property
-    def tags(self):
-        """Gets the tags of this CreateRouteRequest.  # noqa: E501
-
-
-        :return: The tags of this CreateRouteRequest.  # noqa: E501
-        :rtype: list[TagForCreateRouteInput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this CreateRouteRequest.
-
-
-        :param tags: The tags of this CreateRouteRequest.  # noqa: E501
-        :type: list[TagForCreateRouteInput]
-        """
-
-        self._tags = tags
 
     @property
     def upstream_list(self):
