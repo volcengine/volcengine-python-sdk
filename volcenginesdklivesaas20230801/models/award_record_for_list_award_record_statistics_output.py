@@ -35,6 +35,7 @@ class AwardRecordForListAwardRecordStatisticsOutput(object):
     swagger_types = {
         'activity_id': 'int',
         'award_address': 'str',
+        'award_email': 'str',
         'award_id': 'int',
         'award_item_name': 'str',
         'award_name': 'str',
@@ -57,6 +58,7 @@ class AwardRecordForListAwardRecordStatisticsOutput(object):
     attribute_map = {
         'activity_id': 'ActivityId',
         'award_address': 'AwardAddress',
+        'award_email': 'AwardEmail',
         'award_id': 'AwardId',
         'award_item_name': 'AwardItemName',
         'award_name': 'AwardName',
@@ -76,7 +78,7 @@ class AwardRecordForListAwardRecordStatisticsOutput(object):
         'user_name': 'UserName'
     }
 
-    def __init__(self, activity_id=None, award_address=None, award_id=None, award_item_name=None, award_name=None, award_result=None, email=None, external_id=None, extra=None, ip=None, is_priority_user=None, login_tel=None, notify_result=None, open_award_time=None, receiver_name=None, receiver_tel=None, user_agent=None, user_id=None, user_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, award_address=None, award_email=None, award_id=None, award_item_name=None, award_name=None, award_result=None, email=None, external_id=None, extra=None, ip=None, is_priority_user=None, login_tel=None, notify_result=None, open_award_time=None, receiver_name=None, receiver_tel=None, user_agent=None, user_id=None, user_name=None, _configuration=None):  # noqa: E501
         """AwardRecordForListAwardRecordStatisticsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +86,7 @@ class AwardRecordForListAwardRecordStatisticsOutput(object):
 
         self._activity_id = None
         self._award_address = None
+        self._award_email = None
         self._award_id = None
         self._award_item_name = None
         self._award_name = None
@@ -107,6 +110,8 @@ class AwardRecordForListAwardRecordStatisticsOutput(object):
             self.activity_id = activity_id
         if award_address is not None:
             self.award_address = award_address
+        if award_email is not None:
+            self.award_email = award_email
         if award_id is not None:
             self.award_id = award_id
         if award_item_name is not None:
@@ -183,6 +188,27 @@ class AwardRecordForListAwardRecordStatisticsOutput(object):
         """
 
         self._award_address = award_address
+
+    @property
+    def award_email(self):
+        """Gets the award_email of this AwardRecordForListAwardRecordStatisticsOutput.  # noqa: E501
+
+
+        :return: The award_email of this AwardRecordForListAwardRecordStatisticsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._award_email
+
+    @award_email.setter
+    def award_email(self, award_email):
+        """Sets the award_email of this AwardRecordForListAwardRecordStatisticsOutput.
+
+
+        :param award_email: The award_email of this AwardRecordForListAwardRecordStatisticsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._award_email = award_email
 
     @property
     def award_id(self):
