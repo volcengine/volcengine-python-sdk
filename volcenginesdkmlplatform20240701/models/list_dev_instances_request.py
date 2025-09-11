@@ -39,9 +39,11 @@ class ListDevInstancesRequest(object):
         'name_contains': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'relationship': 'str',
         'resource_group_ids': 'list[str]',
         'resource_queue_ids': 'list[str]',
+        'resource_reservation_plan_ids': 'list[str]',
         'sort_by': 'str',
         'sort_order': 'str',
         'states': 'list[str]'
@@ -54,15 +56,17 @@ class ListDevInstancesRequest(object):
         'name_contains': 'NameContains',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'relationship': 'Relationship',
         'resource_group_ids': 'ResourceGroupIds',
         'resource_queue_ids': 'ResourceQueueIds',
+        'resource_reservation_plan_ids': 'ResourceReservationPlanIds',
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
         'states': 'States'
     }
 
-    def __init__(self, create_user_ids=None, id_contains=None, ids=None, name_contains=None, page_number=None, page_size=None, relationship=None, resource_group_ids=None, resource_queue_ids=None, sort_by=None, sort_order=None, states=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_user_ids=None, id_contains=None, ids=None, name_contains=None, page_number=None, page_size=None, project_name=None, relationship=None, resource_group_ids=None, resource_queue_ids=None, resource_reservation_plan_ids=None, sort_by=None, sort_order=None, states=None, _configuration=None):  # noqa: E501
         """ListDevInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,9 +78,11 @@ class ListDevInstancesRequest(object):
         self._name_contains = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._relationship = None
         self._resource_group_ids = None
         self._resource_queue_ids = None
+        self._resource_reservation_plan_ids = None
         self._sort_by = None
         self._sort_order = None
         self._states = None
@@ -94,12 +100,16 @@ class ListDevInstancesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if relationship is not None:
             self.relationship = relationship
         if resource_group_ids is not None:
             self.resource_group_ids = resource_group_ids
         if resource_queue_ids is not None:
             self.resource_queue_ids = resource_queue_ids
+        if resource_reservation_plan_ids is not None:
+            self.resource_reservation_plan_ids = resource_reservation_plan_ids
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
@@ -240,6 +250,33 @@ class ListDevInstancesRequest(object):
         self._page_size = page_size
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ListDevInstancesRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListDevInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListDevInstancesRequest.
+
+
+        :param project_name: The project_name of this ListDevInstancesRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
+
+    @property
     def relationship(self):
         """Gets the relationship of this ListDevInstancesRequest.  # noqa: E501
 
@@ -308,6 +345,27 @@ class ListDevInstancesRequest(object):
         """
 
         self._resource_queue_ids = resource_queue_ids
+
+    @property
+    def resource_reservation_plan_ids(self):
+        """Gets the resource_reservation_plan_ids of this ListDevInstancesRequest.  # noqa: E501
+
+
+        :return: The resource_reservation_plan_ids of this ListDevInstancesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._resource_reservation_plan_ids
+
+    @resource_reservation_plan_ids.setter
+    def resource_reservation_plan_ids(self, resource_reservation_plan_ids):
+        """Sets the resource_reservation_plan_ids of this ListDevInstancesRequest.
+
+
+        :param resource_reservation_plan_ids: The resource_reservation_plan_ids of this ListDevInstancesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._resource_reservation_plan_ids = resource_reservation_plan_ids
 
     @property
     def sort_by(self):

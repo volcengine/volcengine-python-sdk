@@ -38,7 +38,8 @@ class ReservationConfigForListResourceReservationPlansOutput(object):
         'recurrence_end_time': 'str',
         'recurrence_interval': 'str',
         'recurrence_start_time': 'str',
-        'reservation_type': 'str'
+        'reservation_type': 'str',
+        'resource_segments': 'list[ResourceSegmentForListResourceReservationPlansOutput]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class ReservationConfigForListResourceReservationPlansOutput(object):
         'recurrence_end_time': 'RecurrenceEndTime',
         'recurrence_interval': 'RecurrenceInterval',
         'recurrence_start_time': 'RecurrenceStartTime',
-        'reservation_type': 'ReservationType'
+        'reservation_type': 'ReservationType',
+        'resource_segments': 'ResourceSegments'
     }
 
-    def __init__(self, max_duration_hours=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_start_time=None, reservation_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_duration_hours=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_start_time=None, reservation_type=None, resource_segments=None, _configuration=None):  # noqa: E501
         """ReservationConfigForListResourceReservationPlansOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ReservationConfigForListResourceReservationPlansOutput(object):
         self._recurrence_interval = None
         self._recurrence_start_time = None
         self._reservation_type = None
+        self._resource_segments = None
         self.discriminator = None
 
         if max_duration_hours is not None:
@@ -76,6 +79,8 @@ class ReservationConfigForListResourceReservationPlansOutput(object):
             self.recurrence_start_time = recurrence_start_time
         if reservation_type is not None:
             self.reservation_type = reservation_type
+        if resource_segments is not None:
+            self.resource_segments = resource_segments
 
     @property
     def max_duration_hours(self):
@@ -202,6 +207,27 @@ class ReservationConfigForListResourceReservationPlansOutput(object):
         """
 
         self._reservation_type = reservation_type
+
+    @property
+    def resource_segments(self):
+        """Gets the resource_segments of this ReservationConfigForListResourceReservationPlansOutput.  # noqa: E501
+
+
+        :return: The resource_segments of this ReservationConfigForListResourceReservationPlansOutput.  # noqa: E501
+        :rtype: list[ResourceSegmentForListResourceReservationPlansOutput]
+        """
+        return self._resource_segments
+
+    @resource_segments.setter
+    def resource_segments(self, resource_segments):
+        """Sets the resource_segments of this ReservationConfigForListResourceReservationPlansOutput.
+
+
+        :param resource_segments: The resource_segments of this ReservationConfigForListResourceReservationPlansOutput.  # noqa: E501
+        :type: list[ResourceSegmentForListResourceReservationPlansOutput]
+        """
+
+        self._resource_segments = resource_segments
 
     def to_dict(self):
         """Returns the model properties as a dict"""

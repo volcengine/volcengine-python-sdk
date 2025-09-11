@@ -41,6 +41,7 @@ class GetDeploymentResponse(object):
         'instance_items': 'list[InstanceItemForGetDeploymentOutput]',
         'name': 'str',
         'priority': 'int',
+        'project_name': 'str',
         'resource_queue_id': 'str',
         'roles': 'list[RoleForGetDeploymentOutput]',
         'service_id': 'str',
@@ -57,6 +58,7 @@ class GetDeploymentResponse(object):
         'instance_items': 'InstanceItems',
         'name': 'Name',
         'priority': 'Priority',
+        'project_name': 'ProjectName',
         'resource_queue_id': 'ResourceQueueId',
         'roles': 'Roles',
         'service_id': 'ServiceId',
@@ -64,7 +66,7 @@ class GetDeploymentResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, created_by=None, description=None, history_versions=None, id=None, instance_items=None, name=None, priority=None, resource_queue_id=None, roles=None, service_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, created_by=None, description=None, history_versions=None, id=None, instance_items=None, name=None, priority=None, project_name=None, resource_queue_id=None, roles=None, service_id=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """GetDeploymentResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class GetDeploymentResponse(object):
         self._instance_items = None
         self._name = None
         self._priority = None
+        self._project_name = None
         self._resource_queue_id = None
         self._roles = None
         self._service_id = None
@@ -101,6 +104,8 @@ class GetDeploymentResponse(object):
             self.name = name
         if priority is not None:
             self.priority = priority
+        if project_name is not None:
+            self.project_name = project_name
         if resource_queue_id is not None:
             self.resource_queue_id = resource_queue_id
         if roles is not None:
@@ -279,6 +284,27 @@ class GetDeploymentResponse(object):
         """
 
         self._priority = priority
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this GetDeploymentResponse.  # noqa: E501
+
+
+        :return: The project_name of this GetDeploymentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this GetDeploymentResponse.
+
+
+        :param project_name: The project_name of this GetDeploymentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def resource_queue_id(self):

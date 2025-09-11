@@ -34,6 +34,7 @@ class UpdateDevInstanceRequest(object):
     """
     swagger_types = {
         'credential': 'CredentialForUpdateDevInstanceInput',
+        'default_folder': 'str',
         'description': 'str',
         'id': 'str',
         'name': 'str',
@@ -42,6 +43,7 @@ class UpdateDevInstanceRequest(object):
         'ports': 'list[PortForUpdateDevInstanceInput]',
         'resource_claim': 'ResourceClaimForUpdateDevInstanceInput',
         'resource_queue_id': 'str',
+        'resource_reservation_plan_id': 'str',
         'ssh_public_key': 'str',
         'storages': 'list[StorageForUpdateDevInstanceInput]',
         'volume_size': 'int'
@@ -49,6 +51,7 @@ class UpdateDevInstanceRequest(object):
 
     attribute_map = {
         'credential': 'Credential',
+        'default_folder': 'DefaultFolder',
         'description': 'Description',
         'id': 'Id',
         'name': 'Name',
@@ -57,18 +60,20 @@ class UpdateDevInstanceRequest(object):
         'ports': 'Ports',
         'resource_claim': 'ResourceClaim',
         'resource_queue_id': 'ResourceQueueId',
+        'resource_reservation_plan_id': 'ResourceReservationPlanId',
         'ssh_public_key': 'SshPublicKey',
         'storages': 'Storages',
         'volume_size': 'VolumeSize'
     }
 
-    def __init__(self, credential=None, description=None, id=None, name=None, node_affinity_spec=None, numa_affinity=None, ports=None, resource_claim=None, resource_queue_id=None, ssh_public_key=None, storages=None, volume_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, credential=None, default_folder=None, description=None, id=None, name=None, node_affinity_spec=None, numa_affinity=None, ports=None, resource_claim=None, resource_queue_id=None, resource_reservation_plan_id=None, ssh_public_key=None, storages=None, volume_size=None, _configuration=None):  # noqa: E501
         """UpdateDevInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._credential = None
+        self._default_folder = None
         self._description = None
         self._id = None
         self._name = None
@@ -77,6 +82,7 @@ class UpdateDevInstanceRequest(object):
         self._ports = None
         self._resource_claim = None
         self._resource_queue_id = None
+        self._resource_reservation_plan_id = None
         self._ssh_public_key = None
         self._storages = None
         self._volume_size = None
@@ -84,6 +90,8 @@ class UpdateDevInstanceRequest(object):
 
         if credential is not None:
             self.credential = credential
+        if default_folder is not None:
+            self.default_folder = default_folder
         if description is not None:
             self.description = description
         self.id = id
@@ -99,6 +107,8 @@ class UpdateDevInstanceRequest(object):
             self.resource_claim = resource_claim
         if resource_queue_id is not None:
             self.resource_queue_id = resource_queue_id
+        if resource_reservation_plan_id is not None:
+            self.resource_reservation_plan_id = resource_reservation_plan_id
         if ssh_public_key is not None:
             self.ssh_public_key = ssh_public_key
         if storages is not None:
@@ -126,6 +136,27 @@ class UpdateDevInstanceRequest(object):
         """
 
         self._credential = credential
+
+    @property
+    def default_folder(self):
+        """Gets the default_folder of this UpdateDevInstanceRequest.  # noqa: E501
+
+
+        :return: The default_folder of this UpdateDevInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_folder
+
+    @default_folder.setter
+    def default_folder(self, default_folder):
+        """Sets the default_folder of this UpdateDevInstanceRequest.
+
+
+        :param default_folder: The default_folder of this UpdateDevInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._default_folder = default_folder
 
     @property
     def description(self):
@@ -296,6 +327,27 @@ class UpdateDevInstanceRequest(object):
         """
 
         self._resource_queue_id = resource_queue_id
+
+    @property
+    def resource_reservation_plan_id(self):
+        """Gets the resource_reservation_plan_id of this UpdateDevInstanceRequest.  # noqa: E501
+
+
+        :return: The resource_reservation_plan_id of this UpdateDevInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_reservation_plan_id
+
+    @resource_reservation_plan_id.setter
+    def resource_reservation_plan_id(self, resource_reservation_plan_id):
+        """Sets the resource_reservation_plan_id of this UpdateDevInstanceRequest.
+
+
+        :param resource_reservation_plan_id: The resource_reservation_plan_id of this UpdateDevInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_reservation_plan_id = resource_reservation_plan_id
 
     @property
     def ssh_public_key(self):

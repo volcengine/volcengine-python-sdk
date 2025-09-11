@@ -35,20 +35,24 @@ class ConfigForCreateDeploymentInput(object):
     swagger_types = {
         'cfs': 'CfsForCreateDeploymentInput',
         'nas': 'NasForCreateDeploymentInput',
+        'nas_ap': 'NasAPForCreateDeploymentInput',
         'sfcs': 'SfcsForCreateDeploymentInput',
         'tos': 'TosForCreateDeploymentInput',
-        'vepfs': 'VepfsForCreateDeploymentInput'
+        'vepfs': 'VepfsForCreateDeploymentInput',
+        'vepfs_ap': 'VepfsAPForCreateDeploymentInput'
     }
 
     attribute_map = {
         'cfs': 'Cfs',
         'nas': 'Nas',
+        'nas_ap': 'NasAP',
         'sfcs': 'Sfcs',
         'tos': 'Tos',
-        'vepfs': 'Vepfs'
+        'vepfs': 'Vepfs',
+        'vepfs_ap': 'VepfsAP'
     }
 
-    def __init__(self, cfs=None, nas=None, sfcs=None, tos=None, vepfs=None, _configuration=None):  # noqa: E501
+    def __init__(self, cfs=None, nas=None, nas_ap=None, sfcs=None, tos=None, vepfs=None, vepfs_ap=None, _configuration=None):  # noqa: E501
         """ConfigForCreateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,21 +60,27 @@ class ConfigForCreateDeploymentInput(object):
 
         self._cfs = None
         self._nas = None
+        self._nas_ap = None
         self._sfcs = None
         self._tos = None
         self._vepfs = None
+        self._vepfs_ap = None
         self.discriminator = None
 
         if cfs is not None:
             self.cfs = cfs
         if nas is not None:
             self.nas = nas
+        if nas_ap is not None:
+            self.nas_ap = nas_ap
         if sfcs is not None:
             self.sfcs = sfcs
         if tos is not None:
             self.tos = tos
         if vepfs is not None:
             self.vepfs = vepfs
+        if vepfs_ap is not None:
+            self.vepfs_ap = vepfs_ap
 
     @property
     def cfs(self):
@@ -113,6 +123,27 @@ class ConfigForCreateDeploymentInput(object):
         """
 
         self._nas = nas
+
+    @property
+    def nas_ap(self):
+        """Gets the nas_ap of this ConfigForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The nas_ap of this ConfigForCreateDeploymentInput.  # noqa: E501
+        :rtype: NasAPForCreateDeploymentInput
+        """
+        return self._nas_ap
+
+    @nas_ap.setter
+    def nas_ap(self, nas_ap):
+        """Sets the nas_ap of this ConfigForCreateDeploymentInput.
+
+
+        :param nas_ap: The nas_ap of this ConfigForCreateDeploymentInput.  # noqa: E501
+        :type: NasAPForCreateDeploymentInput
+        """
+
+        self._nas_ap = nas_ap
 
     @property
     def sfcs(self):
@@ -176,6 +207,27 @@ class ConfigForCreateDeploymentInput(object):
         """
 
         self._vepfs = vepfs
+
+    @property
+    def vepfs_ap(self):
+        """Gets the vepfs_ap of this ConfigForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The vepfs_ap of this ConfigForCreateDeploymentInput.  # noqa: E501
+        :rtype: VepfsAPForCreateDeploymentInput
+        """
+        return self._vepfs_ap
+
+    @vepfs_ap.setter
+    def vepfs_ap(self, vepfs_ap):
+        """Sets the vepfs_ap of this ConfigForCreateDeploymentInput.
+
+
+        :param vepfs_ap: The vepfs_ap of this ConfigForCreateDeploymentInput.  # noqa: E501
+        :type: VepfsAPForCreateDeploymentInput
+        """
+
+        self._vepfs_ap = vepfs_ap
 
     def to_dict(self):
         """Returns the model properties as a dict"""
