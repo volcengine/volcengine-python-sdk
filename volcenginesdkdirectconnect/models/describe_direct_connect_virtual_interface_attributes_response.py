@@ -42,6 +42,7 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         'direct_connect_connection_id': 'str',
         'direct_connect_gateway_id': 'str',
         'enable_bfd': 'bool',
+        'enable_bfd_echo': 'bool',
         'enable_nqa': 'bool',
         'local_ip': 'str',
         'local_ipv6_ip': 'str',
@@ -69,6 +70,7 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         'direct_connect_connection_id': 'DirectConnectConnectionId',
         'direct_connect_gateway_id': 'DirectConnectGatewayId',
         'enable_bfd': 'EnableBfd',
+        'enable_bfd_echo': 'EnableBfdEcho',
         'enable_nqa': 'EnableNqa',
         'local_ip': 'LocalIp',
         'local_ipv6_ip': 'LocalIpv6Ip',
@@ -86,7 +88,7 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         'vlan_id': 'VlanId'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, creation_time=None, description=None, direct_connect_connection_id=None, direct_connect_gateway_id=None, enable_bfd=None, enable_nqa=None, local_ip=None, local_ipv6_ip=None, nqa_detect_interval=None, nqa_detect_multiplier=None, peer_ip=None, peer_ipv6_ip=None, request_id=None, route_type=None, status=None, tags=None, update_time=None, virtual_interface_id=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, creation_time=None, description=None, direct_connect_connection_id=None, direct_connect_gateway_id=None, enable_bfd=None, enable_bfd_echo=None, enable_nqa=None, local_ip=None, local_ipv6_ip=None, nqa_detect_interval=None, nqa_detect_multiplier=None, peer_ip=None, peer_ipv6_ip=None, request_id=None, route_type=None, status=None, tags=None, update_time=None, virtual_interface_id=None, virtual_interface_name=None, vlan_id=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectVirtualInterfaceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,6 +103,7 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         self._direct_connect_connection_id = None
         self._direct_connect_gateway_id = None
         self._enable_bfd = None
+        self._enable_bfd_echo = None
         self._enable_nqa = None
         self._local_ip = None
         self._local_ipv6_ip = None
@@ -136,6 +139,8 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
             self.direct_connect_gateway_id = direct_connect_gateway_id
         if enable_bfd is not None:
             self.enable_bfd = enable_bfd
+        if enable_bfd_echo is not None:
+            self.enable_bfd_echo = enable_bfd_echo
         if enable_nqa is not None:
             self.enable_nqa = enable_nqa
         if local_ip is not None:
@@ -355,6 +360,27 @@ class DescribeDirectConnectVirtualInterfaceAttributesResponse(object):
         """
 
         self._enable_bfd = enable_bfd
+
+    @property
+    def enable_bfd_echo(self):
+        """Gets the enable_bfd_echo of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
+
+
+        :return: The enable_bfd_echo of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_bfd_echo
+
+    @enable_bfd_echo.setter
+    def enable_bfd_echo(self, enable_bfd_echo):
+        """Sets the enable_bfd_echo of this DescribeDirectConnectVirtualInterfaceAttributesResponse.
+
+
+        :param enable_bfd_echo: The enable_bfd_echo of this DescribeDirectConnectVirtualInterfaceAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_bfd_echo = enable_bfd_echo
 
     @property
     def enable_nqa(self):
