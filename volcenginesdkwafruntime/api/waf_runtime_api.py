@@ -1,11 +1,13 @@
-
 from volcenginesdkwaf import WAFApi, CheckLLMResponseStreamRequest
-from volcenginesdkwafruntime.models.llm_stream_session import LLMStreamSession
+from volcenginesdkwafruntime.models.llm_stream_session import LLMStreamSession, LLM_STREAM_SEND_EXPONENT, \
+    LLM_STREAM_SEND_BASE_WINDOW
 
 global_llm_send_len = 10
 
+
 class WAFRuntimeApi(WAFApi):
     """继承自 WAFApi 并重写 check_llm_response_stream 方法"""
+
     def check_llm_response_stream(
             self,
             body: CheckLLMResponseStreamRequest,
@@ -52,13 +54,15 @@ class WAFRuntimeApi(WAFApi):
 
             # 重置流缓冲区和发送长度
             session.set_stream_send_len(0)
+            session.CurrentSendWindow = session.CurrentSendWindow * LLM_STREAM_SEND_EXPONENT
 
             return response
 
         # 3. 处理 use_stream 为其他值的情况（累计长度，超过阈值才发送）
         else:
             # 如果未发送长度超过 10 个字符，调用 API
-            if session.get_stream_send_len() > global_llm_send_len:
+            if session.get_stream_send_len() >= session.CurrentSendWindow:
+                session.CurrentSendWindow = session.CurrentSendWindow * LLM_STREAM_SEND_EXPONENT
                 # 准备请求体，使用 session 中的完整流内容
                 body.content = session.get_stream_buf()
                 body.msg_id = session.get_msg_id()

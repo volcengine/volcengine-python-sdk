@@ -18,6 +18,7 @@ from .response_output_message import ResponseOutputMessage
 from .response_reasoning_item import ResponseReasoningItem
 from .response_function_tool_call import ResponseFunctionToolCall
 from .response_web_search_item import ResponseWebSearchItem
+from .response_mcp_item import McpListTools, McpCall, McpApprovalRequest
 
 __all__ = ["ResponseOutputItem"]
 
@@ -27,6 +28,9 @@ ResponseOutputItem: TypeAlias = Annotated[
         ResponseFunctionToolCall,
         ResponseReasoningItem,
         ResponseWebSearchItem,
+        McpListTools,
+        McpCall,
+        McpApprovalRequest,
     ],
     PropertyInfo(discriminator="type"),
 ]
