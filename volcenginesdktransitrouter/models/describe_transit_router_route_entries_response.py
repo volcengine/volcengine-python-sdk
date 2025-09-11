@@ -36,17 +36,21 @@ class DescribeTransitRouterRouteEntriesResponse(object):
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int',
-        'transit_router_route_entries': 'list[TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput]'
+        'transit_router_route_entries': 'list[TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput]',
+        'transit_router_route_entry_next_hop_resource_id': 'str',
+        'transit_router_route_entry_next_hop_resource_type': 'str'
     }
 
     attribute_map = {
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'total_count': 'TotalCount',
-        'transit_router_route_entries': 'TransitRouterRouteEntries'
+        'transit_router_route_entries': 'TransitRouterRouteEntries',
+        'transit_router_route_entry_next_hop_resource_id': 'TransitRouterRouteEntryNextHopResourceID',
+        'transit_router_route_entry_next_hop_resource_type': 'TransitRouterRouteEntryNextHopResourceType'
     }
 
-    def __init__(self, page_number=None, page_size=None, total_count=None, transit_router_route_entries=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, total_count=None, transit_router_route_entries=None, transit_router_route_entry_next_hop_resource_id=None, transit_router_route_entry_next_hop_resource_type=None, _configuration=None):  # noqa: E501
         """DescribeTransitRouterRouteEntriesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +60,8 @@ class DescribeTransitRouterRouteEntriesResponse(object):
         self._page_size = None
         self._total_count = None
         self._transit_router_route_entries = None
+        self._transit_router_route_entry_next_hop_resource_id = None
+        self._transit_router_route_entry_next_hop_resource_type = None
         self.discriminator = None
 
         if page_number is not None:
@@ -66,6 +72,10 @@ class DescribeTransitRouterRouteEntriesResponse(object):
             self.total_count = total_count
         if transit_router_route_entries is not None:
             self.transit_router_route_entries = transit_router_route_entries
+        if transit_router_route_entry_next_hop_resource_id is not None:
+            self.transit_router_route_entry_next_hop_resource_id = transit_router_route_entry_next_hop_resource_id
+        if transit_router_route_entry_next_hop_resource_type is not None:
+            self.transit_router_route_entry_next_hop_resource_type = transit_router_route_entry_next_hop_resource_type
 
     @property
     def page_number(self):
@@ -150,6 +160,48 @@ class DescribeTransitRouterRouteEntriesResponse(object):
         """
 
         self._transit_router_route_entries = transit_router_route_entries
+
+    @property
+    def transit_router_route_entry_next_hop_resource_id(self):
+        """Gets the transit_router_route_entry_next_hop_resource_id of this DescribeTransitRouterRouteEntriesResponse.  # noqa: E501
+
+
+        :return: The transit_router_route_entry_next_hop_resource_id of this DescribeTransitRouterRouteEntriesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_route_entry_next_hop_resource_id
+
+    @transit_router_route_entry_next_hop_resource_id.setter
+    def transit_router_route_entry_next_hop_resource_id(self, transit_router_route_entry_next_hop_resource_id):
+        """Sets the transit_router_route_entry_next_hop_resource_id of this DescribeTransitRouterRouteEntriesResponse.
+
+
+        :param transit_router_route_entry_next_hop_resource_id: The transit_router_route_entry_next_hop_resource_id of this DescribeTransitRouterRouteEntriesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_route_entry_next_hop_resource_id = transit_router_route_entry_next_hop_resource_id
+
+    @property
+    def transit_router_route_entry_next_hop_resource_type(self):
+        """Gets the transit_router_route_entry_next_hop_resource_type of this DescribeTransitRouterRouteEntriesResponse.  # noqa: E501
+
+
+        :return: The transit_router_route_entry_next_hop_resource_type of this DescribeTransitRouterRouteEntriesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_route_entry_next_hop_resource_type
+
+    @transit_router_route_entry_next_hop_resource_type.setter
+    def transit_router_route_entry_next_hop_resource_type(self, transit_router_route_entry_next_hop_resource_type):
+        """Sets the transit_router_route_entry_next_hop_resource_type of this DescribeTransitRouterRouteEntriesResponse.
+
+
+        :param transit_router_route_entry_next_hop_resource_type: The transit_router_route_entry_next_hop_resource_type of this DescribeTransitRouterRouteEntriesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_route_entry_next_hop_resource_type = transit_router_route_entry_next_hop_resource_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -37,6 +37,7 @@ class CreateTransitRouterBandwidthPackageRequest(object):
         'billing_type': 'int',
         'client_token': 'str',
         'description': 'str',
+        'line_operator': 'str',
         'local_geographic_region_set_id': 'str',
         'peer_geographic_region_set_id': 'str',
         'period': 'int',
@@ -51,6 +52,7 @@ class CreateTransitRouterBandwidthPackageRequest(object):
         'billing_type': 'BillingType',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'line_operator': 'LineOperator',
         'local_geographic_region_set_id': 'LocalGeographicRegionSetId',
         'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
         'period': 'Period',
@@ -60,7 +62,7 @@ class CreateTransitRouterBandwidthPackageRequest(object):
         'transit_router_bandwidth_package_name': 'TransitRouterBandwidthPackageName'
     }
 
-    def __init__(self, bandwidth=None, billing_type=None, client_token=None, description=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, period=None, period_unit=None, project_name=None, tags=None, transit_router_bandwidth_package_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, billing_type=None, client_token=None, description=None, line_operator=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, period=None, period_unit=None, project_name=None, tags=None, transit_router_bandwidth_package_name=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterBandwidthPackageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class CreateTransitRouterBandwidthPackageRequest(object):
         self._billing_type = None
         self._client_token = None
         self._description = None
+        self._line_operator = None
         self._local_geographic_region_set_id = None
         self._peer_geographic_region_set_id = None
         self._period = None
@@ -87,6 +90,8 @@ class CreateTransitRouterBandwidthPackageRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if line_operator is not None:
+            self.line_operator = line_operator
         self.local_geographic_region_set_id = local_geographic_region_set_id
         self.peer_geographic_region_set_id = peer_geographic_region_set_id
         if period is not None:
@@ -183,6 +188,27 @@ class CreateTransitRouterBandwidthPackageRequest(object):
         """
 
         self._description = description
+
+    @property
+    def line_operator(self):
+        """Gets the line_operator of this CreateTransitRouterBandwidthPackageRequest.  # noqa: E501
+
+
+        :return: The line_operator of this CreateTransitRouterBandwidthPackageRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._line_operator
+
+    @line_operator.setter
+    def line_operator(self, line_operator):
+        """Sets the line_operator of this CreateTransitRouterBandwidthPackageRequest.
+
+
+        :param line_operator: The line_operator of this CreateTransitRouterBandwidthPackageRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._line_operator = line_operator
 
     @property
     def local_geographic_region_set_id(self):

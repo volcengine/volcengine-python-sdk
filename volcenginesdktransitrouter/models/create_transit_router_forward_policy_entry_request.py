@@ -35,6 +35,7 @@ class CreateTransitRouterForwardPolicyEntryRequest(object):
     swagger_types = {
         'client_token': 'str',
         'description': 'str',
+        'destination_cidr_block': 'str',
         'priority': 'int',
         'source_cidr_block': 'str',
         'transit_router_forward_policy_table_id': 'str',
@@ -44,13 +45,14 @@ class CreateTransitRouterForwardPolicyEntryRequest(object):
     attribute_map = {
         'client_token': 'ClientToken',
         'description': 'Description',
+        'destination_cidr_block': 'DestinationCidrBlock',
         'priority': 'Priority',
         'source_cidr_block': 'SourceCidrBlock',
         'transit_router_forward_policy_table_id': 'TransitRouterForwardPolicyTableId',
         'transit_router_route_table_id': 'TransitRouterRouteTableId'
     }
 
-    def __init__(self, client_token=None, description=None, priority=None, source_cidr_block=None, transit_router_forward_policy_table_id=None, transit_router_route_table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, destination_cidr_block=None, priority=None, source_cidr_block=None, transit_router_forward_policy_table_id=None, transit_router_route_table_id=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterForwardPolicyEntryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class CreateTransitRouterForwardPolicyEntryRequest(object):
 
         self._client_token = None
         self._description = None
+        self._destination_cidr_block = None
         self._priority = None
         self._source_cidr_block = None
         self._transit_router_forward_policy_table_id = None
@@ -68,6 +71,8 @@ class CreateTransitRouterForwardPolicyEntryRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if destination_cidr_block is not None:
+            self.destination_cidr_block = destination_cidr_block
         self.priority = priority
         self.source_cidr_block = source_cidr_block
         self.transit_router_forward_policy_table_id = transit_router_forward_policy_table_id
@@ -114,6 +119,27 @@ class CreateTransitRouterForwardPolicyEntryRequest(object):
         """
 
         self._description = description
+
+    @property
+    def destination_cidr_block(self):
+        """Gets the destination_cidr_block of this CreateTransitRouterForwardPolicyEntryRequest.  # noqa: E501
+
+
+        :return: The destination_cidr_block of this CreateTransitRouterForwardPolicyEntryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_cidr_block
+
+    @destination_cidr_block.setter
+    def destination_cidr_block(self, destination_cidr_block):
+        """Sets the destination_cidr_block of this CreateTransitRouterForwardPolicyEntryRequest.
+
+
+        :param destination_cidr_block: The destination_cidr_block of this CreateTransitRouterForwardPolicyEntryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_cidr_block = destination_cidr_block
 
     @property
     def priority(self):
