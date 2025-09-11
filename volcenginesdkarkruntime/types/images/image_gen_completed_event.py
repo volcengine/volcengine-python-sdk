@@ -10,28 +10,20 @@
 #
 # This modified file is released under the same license.
 
-from typing import List, Optional
+from typing import List
 
 from volcenginesdkarkruntime._models import BaseModel
 
-__all__ = ["SequentialImageGenerationOptions", "ImagesResponse"]
+__all__ = ["ImageGenCompletedEvent"]
 
-
-class SequentialImageGenerationOptions(BaseModel):
-    max_images: Optional[int] = None
-    """ Maximum number of images to generate in this request; effective only when the multi-image feature is enabled """
 
 class Usage(BaseModel):
     generated_images: int
     """The number of images generated."""
-
-
-class Image(BaseModel):
-    url: str
-    """The URL of the generated image, if any."""
-
-    b64_json: str
-    """The Base 64 encoded string of the generated image, if any."""
+    output_tokens: int
+    """The number of output tokens."""
+    total_tokens: int
+    """The total number of tokens."""
 
 
 class Error(BaseModel):
@@ -42,12 +34,12 @@ class Error(BaseModel):
     """The error code for failed image generation"""
 
 
-class ImagesResponse(BaseModel):
+class ImageGenCompletedEvent(BaseModel):
+    type: str
+    """The type of image generating event."""
+
     model: str
     """The model used to generated the images."""
-
-    data: List[Image]
-    """The generated images."""
 
     error: Error
     """The error body, if applicable."""

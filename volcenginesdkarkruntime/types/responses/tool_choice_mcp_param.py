@@ -12,15 +12,18 @@
 
 from __future__ import annotations
 
-from typing import Union
-from typing_extensions import TypeAlias
+from typing import Optional
+from typing_extensions import Literal, Required, TypedDict
 
-from .tool_choice_options import ToolChoiceOptions
-from .tool_choice_function_param import ToolChoiceFunctionParam
-from .tool_choice_mcp_param import ToolChoiceMcpParam
+__all__ = ["ToolChoiceMcpParam"]
 
-__all__ = [
-    "ToolChoice",
-]
 
-ToolChoice: TypeAlias = Union[ToolChoiceOptions, ToolChoiceFunctionParam, ToolChoiceMcpParam]
+class ToolChoiceMcpParam(TypedDict, total=False):
+    server_label: Required[str]
+    """The label of the MCP server to use."""
+
+    type: Required[Literal["mcp"]]
+    """For MCP tools, the type is always `mcp`."""
+
+    name: Optional[str]
+    """The name of the tool to call on the server."""
