@@ -324,6 +324,103 @@ class TRANSITROUTERApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def associate_transit_router_multicast_domain(self, body, **kwargs):  # noqa: E501
+        """associate_transit_router_multicast_domain  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.associate_transit_router_multicast_domain(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssociateTransitRouterMulticastDomainRequest body: (required)
+        :return: AssociateTransitRouterMulticastDomainResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.associate_transit_router_multicast_domain_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.associate_transit_router_multicast_domain_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def associate_transit_router_multicast_domain_with_http_info(self, body, **kwargs):  # noqa: E501
+        """associate_transit_router_multicast_domain  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.associate_transit_router_multicast_domain_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssociateTransitRouterMulticastDomainRequest body: (required)
+        :return: AssociateTransitRouterMulticastDomainResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method associate_transit_router_multicast_domain" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `associate_transit_router_multicast_domain`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/AssociateTransitRouterMulticastDomain/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssociateTransitRouterMulticastDomainResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def associate_transit_router_route_policy_to_route_table(self, body, **kwargs):  # noqa: E501
         """associate_transit_router_route_policy_to_route_table  # noqa: E501
 
@@ -906,6 +1003,103 @@ class TRANSITROUTERApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_transit_router_flow_log(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_flow_log  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_flow_log(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterFlowLogRequest body: (required)
+        :return: CreateTransitRouterFlowLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_transit_router_flow_log_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_transit_router_flow_log_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_transit_router_flow_log_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_flow_log  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_flow_log_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterFlowLogRequest body: (required)
+        :return: CreateTransitRouterFlowLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_transit_router_flow_log" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_transit_router_flow_log`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateTransitRouterFlowLog/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateTransitRouterFlowLogResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_transit_router_forward_policy_entry(self, body, **kwargs):  # noqa: E501
         """create_transit_router_forward_policy_entry  # noqa: E501
 
@@ -1190,6 +1384,297 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateTransitRouterGrantRuleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_transit_router_multicast_domain(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_multicast_domain  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_multicast_domain(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterMulticastDomainRequest body: (required)
+        :return: CreateTransitRouterMulticastDomainResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_transit_router_multicast_domain_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_transit_router_multicast_domain_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_transit_router_multicast_domain_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_multicast_domain  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_multicast_domain_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterMulticastDomainRequest body: (required)
+        :return: CreateTransitRouterMulticastDomainResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_transit_router_multicast_domain" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_transit_router_multicast_domain`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateTransitRouterMulticastDomain/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateTransitRouterMulticastDomainResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_transit_router_multicast_group_member(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_multicast_group_member  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_multicast_group_member(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterMulticastGroupMemberRequest body: (required)
+        :return: CreateTransitRouterMulticastGroupMemberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_transit_router_multicast_group_member_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_transit_router_multicast_group_member_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_transit_router_multicast_group_member_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_multicast_group_member  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_multicast_group_member_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterMulticastGroupMemberRequest body: (required)
+        :return: CreateTransitRouterMulticastGroupMemberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_transit_router_multicast_group_member" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_transit_router_multicast_group_member`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateTransitRouterMulticastGroupMember/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateTransitRouterMulticastGroupMemberResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_transit_router_multicast_group_source(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_multicast_group_source  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_multicast_group_source(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterMulticastGroupSourceRequest body: (required)
+        :return: CreateTransitRouterMulticastGroupSourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_transit_router_multicast_group_source_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_transit_router_multicast_group_source_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_transit_router_multicast_group_source_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_transit_router_multicast_group_source  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_transit_router_multicast_group_source_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateTransitRouterMulticastGroupSourceRequest body: (required)
+        :return: CreateTransitRouterMulticastGroupSourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_transit_router_multicast_group_source" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_transit_router_multicast_group_source`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/CreateTransitRouterMulticastGroupSource/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateTransitRouterMulticastGroupSourceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2555,6 +3040,103 @@ class TRANSITROUTERApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_transit_router_flow_log(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_flow_log  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_flow_log(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterFlowLogRequest body: (required)
+        :return: DeleteTransitRouterFlowLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_transit_router_flow_log_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_transit_router_flow_log_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_transit_router_flow_log_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_flow_log  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_flow_log_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterFlowLogRequest body: (required)
+        :return: DeleteTransitRouterFlowLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_transit_router_flow_log" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_transit_router_flow_log`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteTransitRouterFlowLog/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteTransitRouterFlowLogResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_transit_router_forward_policy_entry(self, body, **kwargs):  # noqa: E501
         """delete_transit_router_forward_policy_entry  # noqa: E501
 
@@ -2839,6 +3421,297 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeleteTransitRouterGrantRuleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_transit_router_multicast_domain(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_multicast_domain  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_multicast_domain(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterMulticastDomainRequest body: (required)
+        :return: DeleteTransitRouterMulticastDomainResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_transit_router_multicast_domain_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_transit_router_multicast_domain_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_transit_router_multicast_domain_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_multicast_domain  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_multicast_domain_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterMulticastDomainRequest body: (required)
+        :return: DeleteTransitRouterMulticastDomainResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_transit_router_multicast_domain" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_transit_router_multicast_domain`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteTransitRouterMulticastDomain/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteTransitRouterMulticastDomainResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_transit_router_multicast_group_member(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_multicast_group_member  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_multicast_group_member(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterMulticastGroupMemberRequest body: (required)
+        :return: DeleteTransitRouterMulticastGroupMemberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_transit_router_multicast_group_member_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_transit_router_multicast_group_member_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_transit_router_multicast_group_member_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_multicast_group_member  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_multicast_group_member_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterMulticastGroupMemberRequest body: (required)
+        :return: DeleteTransitRouterMulticastGroupMemberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_transit_router_multicast_group_member" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_transit_router_multicast_group_member`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteTransitRouterMulticastGroupMember/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteTransitRouterMulticastGroupMemberResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_transit_router_multicast_group_source(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_multicast_group_source  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_multicast_group_source(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterMulticastGroupSourceRequest body: (required)
+        :return: DeleteTransitRouterMulticastGroupSourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_transit_router_multicast_group_source_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_transit_router_multicast_group_source_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_transit_router_multicast_group_source_with_http_info(self, body, **kwargs):  # noqa: E501
+        """delete_transit_router_multicast_group_source  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_transit_router_multicast_group_source_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DeleteTransitRouterMulticastGroupSourceRequest body: (required)
+        :return: DeleteTransitRouterMulticastGroupSourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_transit_router_multicast_group_source" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_transit_router_multicast_group_source`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DeleteTransitRouterMulticastGroupSource/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeleteTransitRouterMulticastGroupSourceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4301,6 +5174,103 @@ class TRANSITROUTERApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def describe_transit_router_flow_logs(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_flow_logs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_flow_logs(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterFlowLogsRequest body: (required)
+        :return: DescribeTransitRouterFlowLogsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_transit_router_flow_logs_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_transit_router_flow_logs_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_transit_router_flow_logs_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_flow_logs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_flow_logs_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterFlowLogsRequest body: (required)
+        :return: DescribeTransitRouterFlowLogsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_transit_router_flow_logs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_transit_router_flow_logs`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTransitRouterFlowLogs/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTransitRouterFlowLogsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def describe_transit_router_forward_policy_entries(self, body, **kwargs):  # noqa: E501
         """describe_transit_router_forward_policy_entries  # noqa: E501
 
@@ -4585,6 +5555,297 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DescribeTransitRouterGrantRulesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_transit_router_multicast_domain_associations(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_multicast_domain_associations  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_multicast_domain_associations(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterMulticastDomainAssociationsRequest body: (required)
+        :return: DescribeTransitRouterMulticastDomainAssociationsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_transit_router_multicast_domain_associations_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_transit_router_multicast_domain_associations_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_transit_router_multicast_domain_associations_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_multicast_domain_associations  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_multicast_domain_associations_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterMulticastDomainAssociationsRequest body: (required)
+        :return: DescribeTransitRouterMulticastDomainAssociationsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_transit_router_multicast_domain_associations" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_transit_router_multicast_domain_associations`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTransitRouterMulticastDomainAssociations/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTransitRouterMulticastDomainAssociationsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_transit_router_multicast_domains(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_multicast_domains  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_multicast_domains(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterMulticastDomainsRequest body: (required)
+        :return: DescribeTransitRouterMulticastDomainsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_transit_router_multicast_domains_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_transit_router_multicast_domains_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_transit_router_multicast_domains_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_multicast_domains  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_multicast_domains_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterMulticastDomainsRequest body: (required)
+        :return: DescribeTransitRouterMulticastDomainsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_transit_router_multicast_domains" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_transit_router_multicast_domains`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTransitRouterMulticastDomains/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTransitRouterMulticastDomainsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def describe_transit_router_multicast_groups(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_multicast_groups  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_multicast_groups(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterMulticastGroupsRequest body: (required)
+        :return: DescribeTransitRouterMulticastGroupsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.describe_transit_router_multicast_groups_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.describe_transit_router_multicast_groups_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def describe_transit_router_multicast_groups_with_http_info(self, body, **kwargs):  # noqa: E501
+        """describe_transit_router_multicast_groups  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.describe_transit_router_multicast_groups_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DescribeTransitRouterMulticastGroupsRequest body: (required)
+        :return: DescribeTransitRouterMulticastGroupsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method describe_transit_router_multicast_groups" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `describe_transit_router_multicast_groups`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DescribeTransitRouterMulticastGroups/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DescribeTransitRouterMulticastGroupsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6338,6 +7599,103 @@ class TRANSITROUTERApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def dissociate_transit_router_multicast_domain(self, body, **kwargs):  # noqa: E501
+        """dissociate_transit_router_multicast_domain  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.dissociate_transit_router_multicast_domain(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DissociateTransitRouterMulticastDomainRequest body: (required)
+        :return: DissociateTransitRouterMulticastDomainResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.dissociate_transit_router_multicast_domain_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.dissociate_transit_router_multicast_domain_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def dissociate_transit_router_multicast_domain_with_http_info(self, body, **kwargs):  # noqa: E501
+        """dissociate_transit_router_multicast_domain  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.dissociate_transit_router_multicast_domain_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DissociateTransitRouterMulticastDomainRequest body: (required)
+        :return: DissociateTransitRouterMulticastDomainResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method dissociate_transit_router_multicast_domain" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `dissociate_transit_router_multicast_domain`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/DissociateTransitRouterMulticastDomain/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DissociateTransitRouterMulticastDomainResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def dissociate_transit_router_route_policy_from_route_table(self, body, **kwargs):  # noqa: E501
         """dissociate_transit_router_route_policy_from_route_table  # noqa: E501
 
@@ -7114,6 +8472,103 @@ class TRANSITROUTERApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def modify_transit_router_flow_log_attributes(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_flow_log_attributes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_flow_log_attributes(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterFlowLogAttributesRequest body: (required)
+        :return: ModifyTransitRouterFlowLogAttributesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_transit_router_flow_log_attributes_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_transit_router_flow_log_attributes_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_transit_router_flow_log_attributes_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_flow_log_attributes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_flow_log_attributes_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterFlowLogAttributesRequest body: (required)
+        :return: ModifyTransitRouterFlowLogAttributesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_transit_router_flow_log_attributes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_transit_router_flow_log_attributes`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyTransitRouterFlowLogAttributes/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyTransitRouterFlowLogAttributesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def modify_transit_router_forward_policy_entry_attributes(self, body, **kwargs):  # noqa: E501
         """modify_transit_router_forward_policy_entry_attributes  # noqa: E501
 
@@ -7495,6 +8950,103 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ModifyTransitRouterGrantRuleAttributesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_transit_router_multicast_domain_attributes(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_multicast_domain_attributes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_multicast_domain_attributes(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterMulticastDomainAttributesRequest body: (required)
+        :return: ModifyTransitRouterMulticastDomainAttributesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_transit_router_multicast_domain_attributes_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_transit_router_multicast_domain_attributes_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def modify_transit_router_multicast_domain_attributes_with_http_info(self, body, **kwargs):  # noqa: E501
+        """modify_transit_router_multicast_domain_attributes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_transit_router_multicast_domain_attributes_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ModifyTransitRouterMulticastDomainAttributesRequest body: (required)
+        :return: ModifyTransitRouterMulticastDomainAttributesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_transit_router_multicast_domain_attributes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `modify_transit_router_multicast_domain_attributes`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ModifyTransitRouterMulticastDomainAttributes/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModifyTransitRouterMulticastDomainAttributesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9047,6 +10599,200 @@ class TRANSITROUTERApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='SetTransitRouterBandwidthPackageRenewalResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def start_transit_router_flow_log(self, body, **kwargs):  # noqa: E501
+        """start_transit_router_flow_log  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.start_transit_router_flow_log(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param StartTransitRouterFlowLogRequest body: (required)
+        :return: StartTransitRouterFlowLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.start_transit_router_flow_log_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.start_transit_router_flow_log_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def start_transit_router_flow_log_with_http_info(self, body, **kwargs):  # noqa: E501
+        """start_transit_router_flow_log  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.start_transit_router_flow_log_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param StartTransitRouterFlowLogRequest body: (required)
+        :return: StartTransitRouterFlowLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method start_transit_router_flow_log" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `start_transit_router_flow_log`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/StartTransitRouterFlowLog/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='StartTransitRouterFlowLogResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def stop_transit_router_flow_log(self, body, **kwargs):  # noqa: E501
+        """stop_transit_router_flow_log  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.stop_transit_router_flow_log(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param StopTransitRouterFlowLogRequest body: (required)
+        :return: StopTransitRouterFlowLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.stop_transit_router_flow_log_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.stop_transit_router_flow_log_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def stop_transit_router_flow_log_with_http_info(self, body, **kwargs):  # noqa: E501
+        """stop_transit_router_flow_log  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.stop_transit_router_flow_log_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param StopTransitRouterFlowLogRequest body: (required)
+        :return: StopTransitRouterFlowLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method stop_transit_router_flow_log" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `stop_transit_router_flow_log`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['volcengineSign']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/StopTransitRouterFlowLog/2020-04-01/transitrouter/get/text_plain/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='StopTransitRouterFlowLogResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

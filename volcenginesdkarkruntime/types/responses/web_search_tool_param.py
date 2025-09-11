@@ -26,7 +26,7 @@ class WebSearchToolParam(TypedDict, total=False):
     limit: Optional[int]
     """The maximum number of results to return. Defaults to 3."""
 
-    sources: Optional[List[Literal["toutiao", "douyin", "moji"]]]
+    sources: Optional[List[Literal["toutiao", "douyin", "moji", "search_engine"]]]
     """The source type of web search."""
 
     user_location: Optional[UserLocationParam]

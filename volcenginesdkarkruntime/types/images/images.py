@@ -10,12 +10,16 @@
 #
 # This modified file is released under the same license.
 
-from typing import List
+from typing import List, Optional
 
 from volcenginesdkarkruntime._models import BaseModel
 
-__all__ = ["ImagesResponse"]
+__all__ = ["SequentialImageGenerationOptions", "ImagesResponse"]
 
+
+class SequentialImageGenerationOptions(BaseModel):
+    max_images: Optional[int] = None
+    """ Maximum number of images to generate in this request; effective only when the multi-image feature is enabled """
 
 class Usage(BaseModel):
     generated_images: int

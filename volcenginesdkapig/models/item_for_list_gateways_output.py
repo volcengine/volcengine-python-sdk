@@ -49,6 +49,7 @@ class ItemForListGatewaysOutput(object):
         'resource_spec': 'ResourceSpecForListGatewaysOutput',
         'status': 'str',
         'tags': 'list[TagForListGatewaysOutput]',
+        'trace_spec': 'TraceSpecForListGatewaysOutput',
         'type': 'str',
         'version': 'str'
     }
@@ -70,11 +71,12 @@ class ItemForListGatewaysOutput(object):
         'resource_spec': 'ResourceSpec',
         'status': 'Status',
         'tags': 'Tags',
+        'trace_spec': 'TraceSpec',
         'type': 'Type',
         'version': 'Version'
     }
 
-    def __init__(self, backend_spec=None, comments=None, create_time=None, custom_log=None, events=None, id=None, log_spec=None, message=None, monitor_spec=None, name=None, network_spec=None, project_name=None, region=None, resource_spec=None, status=None, tags=None, type=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, backend_spec=None, comments=None, create_time=None, custom_log=None, events=None, id=None, log_spec=None, message=None, monitor_spec=None, name=None, network_spec=None, project_name=None, region=None, resource_spec=None, status=None, tags=None, trace_spec=None, type=None, version=None, _configuration=None):  # noqa: E501
         """ItemForListGatewaysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class ItemForListGatewaysOutput(object):
         self._resource_spec = None
         self._status = None
         self._tags = None
+        self._trace_spec = None
         self._type = None
         self._version = None
         self.discriminator = None
@@ -132,6 +135,8 @@ class ItemForListGatewaysOutput(object):
             self.status = status
         if tags is not None:
             self.tags = tags
+        if trace_spec is not None:
+            self.trace_spec = trace_spec
         if type is not None:
             self.type = type
         if version is not None:
@@ -472,6 +477,27 @@ class ItemForListGatewaysOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def trace_spec(self):
+        """Gets the trace_spec of this ItemForListGatewaysOutput.  # noqa: E501
+
+
+        :return: The trace_spec of this ItemForListGatewaysOutput.  # noqa: E501
+        :rtype: TraceSpecForListGatewaysOutput
+        """
+        return self._trace_spec
+
+    @trace_spec.setter
+    def trace_spec(self, trace_spec):
+        """Sets the trace_spec of this ItemForListGatewaysOutput.
+
+
+        :param trace_spec: The trace_spec of this ItemForListGatewaysOutput.  # noqa: E501
+        :type: TraceSpecForListGatewaysOutput
+        """
+
+        self._trace_spec = trace_spec
 
     @property
     def type(self):

@@ -17,7 +17,8 @@ from typing_extensions import TypeAlias
 
 from .function_tool_param import FunctionToolParam
 from .web_search_tool_param import WebSearchToolParam
+from .mcp_tool_param import Mcp
 
 __all__ = ["ToolParam"]
 
-ToolParam: TypeAlias = Union[FunctionToolParam, WebSearchToolParam]
+ToolParam: TypeAlias = Union[FunctionToolParam, WebSearchToolParam, Mcp]

@@ -38,16 +38,15 @@ class ItemForListRoutesOutput(object):
         'custom_domains': 'list[CustomDomainForListRoutesOutput]',
         'domains': 'list[DomainForListRoutesOutput]',
         'enable': 'bool',
+        'fallback_setting': 'FallbackSettingForListRoutesOutput',
         'id': 'str',
         'match_rule': 'MatchRuleForListRoutesOutput',
         'name': 'str',
         'priority': 'int',
         'reason': 'str',
-        'resource_type': 'str',
         'service_id': 'str',
         'service_name': 'str',
         'status': 'str',
-        'tags': 'list[TagForListRoutesOutput]',
         'update_time': 'str',
         'upstream_list': 'list[UpstreamListForListRoutesOutput]'
     }
@@ -58,21 +57,20 @@ class ItemForListRoutesOutput(object):
         'custom_domains': 'CustomDomains',
         'domains': 'Domains',
         'enable': 'Enable',
+        'fallback_setting': 'FallbackSetting',
         'id': 'Id',
         'match_rule': 'MatchRule',
         'name': 'Name',
         'priority': 'Priority',
         'reason': 'Reason',
-        'resource_type': 'ResourceType',
         'service_id': 'ServiceId',
         'service_name': 'ServiceName',
         'status': 'Status',
-        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'upstream_list': 'UpstreamList'
     }
 
-    def __init__(self, advanced_setting=None, create_time=None, custom_domains=None, domains=None, enable=None, id=None, match_rule=None, name=None, priority=None, reason=None, resource_type=None, service_id=None, service_name=None, status=None, tags=None, update_time=None, upstream_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, advanced_setting=None, create_time=None, custom_domains=None, domains=None, enable=None, fallback_setting=None, id=None, match_rule=None, name=None, priority=None, reason=None, service_id=None, service_name=None, status=None, update_time=None, upstream_list=None, _configuration=None):  # noqa: E501
         """ItemForListRoutesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,16 +81,15 @@ class ItemForListRoutesOutput(object):
         self._custom_domains = None
         self._domains = None
         self._enable = None
+        self._fallback_setting = None
         self._id = None
         self._match_rule = None
         self._name = None
         self._priority = None
         self._reason = None
-        self._resource_type = None
         self._service_id = None
         self._service_name = None
         self._status = None
-        self._tags = None
         self._update_time = None
         self._upstream_list = None
         self.discriminator = None
@@ -107,6 +104,8 @@ class ItemForListRoutesOutput(object):
             self.domains = domains
         if enable is not None:
             self.enable = enable
+        if fallback_setting is not None:
+            self.fallback_setting = fallback_setting
         if id is not None:
             self.id = id
         if match_rule is not None:
@@ -117,16 +116,12 @@ class ItemForListRoutesOutput(object):
             self.priority = priority
         if reason is not None:
             self.reason = reason
-        if resource_type is not None:
-            self.resource_type = resource_type
         if service_id is not None:
             self.service_id = service_id
         if service_name is not None:
             self.service_name = service_name
         if status is not None:
             self.status = status
-        if tags is not None:
-            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if upstream_list is not None:
@@ -238,6 +233,27 @@ class ItemForListRoutesOutput(object):
         self._enable = enable
 
     @property
+    def fallback_setting(self):
+        """Gets the fallback_setting of this ItemForListRoutesOutput.  # noqa: E501
+
+
+        :return: The fallback_setting of this ItemForListRoutesOutput.  # noqa: E501
+        :rtype: FallbackSettingForListRoutesOutput
+        """
+        return self._fallback_setting
+
+    @fallback_setting.setter
+    def fallback_setting(self, fallback_setting):
+        """Sets the fallback_setting of this ItemForListRoutesOutput.
+
+
+        :param fallback_setting: The fallback_setting of this ItemForListRoutesOutput.  # noqa: E501
+        :type: FallbackSettingForListRoutesOutput
+        """
+
+        self._fallback_setting = fallback_setting
+
+    @property
     def id(self):
         """Gets the id of this ItemForListRoutesOutput.  # noqa: E501
 
@@ -343,27 +359,6 @@ class ItemForListRoutesOutput(object):
         self._reason = reason
 
     @property
-    def resource_type(self):
-        """Gets the resource_type of this ItemForListRoutesOutput.  # noqa: E501
-
-
-        :return: The resource_type of this ItemForListRoutesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_type
-
-    @resource_type.setter
-    def resource_type(self, resource_type):
-        """Sets the resource_type of this ItemForListRoutesOutput.
-
-
-        :param resource_type: The resource_type of this ItemForListRoutesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_type = resource_type
-
-    @property
     def service_id(self):
         """Gets the service_id of this ItemForListRoutesOutput.  # noqa: E501
 
@@ -425,27 +420,6 @@ class ItemForListRoutesOutput(object):
         """
 
         self._status = status
-
-    @property
-    def tags(self):
-        """Gets the tags of this ItemForListRoutesOutput.  # noqa: E501
-
-
-        :return: The tags of this ItemForListRoutesOutput.  # noqa: E501
-        :rtype: list[TagForListRoutesOutput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this ItemForListRoutesOutput.
-
-
-        :param tags: The tags of this ItemForListRoutesOutput.  # noqa: E501
-        :type: list[TagForListRoutesOutput]
-        """
-
-        self._tags = tags
 
     @property
     def update_time(self):

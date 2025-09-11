@@ -34,7 +34,6 @@ class DescribeNLBServerGroupAttributesResponse(object):
     """
     swagger_types = {
         'account_id': 'str',
-        'address_ip_version': 'str',
         'any_port_enabled': 'bool',
         'bypass_security_group_enabled': 'bool',
         'connection_drain_enabled': 'bool',
@@ -66,7 +65,6 @@ class DescribeNLBServerGroupAttributesResponse(object):
 
     attribute_map = {
         'account_id': 'AccountId',
-        'address_ip_version': 'AddressIpVersion',
         'any_port_enabled': 'AnyPortEnabled',
         'bypass_security_group_enabled': 'BypassSecurityGroupEnabled',
         'connection_drain_enabled': 'ConnectionDrainEnabled',
@@ -96,14 +94,13 @@ class DescribeNLBServerGroupAttributesResponse(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, account_id=None, address_ip_version=None, any_port_enabled=None, bypass_security_group_enabled=None, connection_drain_enabled=None, connection_drain_timeout=None, create_time=None, description=None, health_check=None, ip_address_version=None, preserve_client_ip_enabled=None, project_name=None, protocol=None, proxy_protocol_type=None, related_load_balancer_ids=None, request_id=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, servers=None, session_persistence_enabled=None, session_persistence_timeout=None, status=None, tags=None, timestamp_remove_enabled=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, any_port_enabled=None, bypass_security_group_enabled=None, connection_drain_enabled=None, connection_drain_timeout=None, create_time=None, description=None, health_check=None, ip_address_version=None, preserve_client_ip_enabled=None, project_name=None, protocol=None, proxy_protocol_type=None, related_load_balancer_ids=None, request_id=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, servers=None, session_persistence_enabled=None, session_persistence_timeout=None, status=None, tags=None, timestamp_remove_enabled=None, type=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeNLBServerGroupAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
-        self._address_ip_version = None
         self._any_port_enabled = None
         self._bypass_security_group_enabled = None
         self._connection_drain_enabled = None
@@ -135,8 +132,6 @@ class DescribeNLBServerGroupAttributesResponse(object):
 
         if account_id is not None:
             self.account_id = account_id
-        if address_ip_version is not None:
-            self.address_ip_version = address_ip_version
         if any_port_enabled is not None:
             self.any_port_enabled = any_port_enabled
         if bypass_security_group_enabled is not None:
@@ -212,27 +207,6 @@ class DescribeNLBServerGroupAttributesResponse(object):
         """
 
         self._account_id = account_id
-
-    @property
-    def address_ip_version(self):
-        """Gets the address_ip_version of this DescribeNLBServerGroupAttributesResponse.  # noqa: E501
-
-
-        :return: The address_ip_version of this DescribeNLBServerGroupAttributesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._address_ip_version
-
-    @address_ip_version.setter
-    def address_ip_version(self, address_ip_version):
-        """Sets the address_ip_version of this DescribeNLBServerGroupAttributesResponse.
-
-
-        :param address_ip_version: The address_ip_version of this DescribeNLBServerGroupAttributesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._address_ip_version = address_ip_version
 
     @property
     def any_port_enabled(self):

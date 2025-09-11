@@ -34,6 +34,7 @@ class CertificateForDescribeNLBListenerCertificatesOutput(object):
     """
     swagger_types = {
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'certificate_type': 'str',
         'domain': 'str',
         'is_default': 'bool',
@@ -42,19 +43,21 @@ class CertificateForDescribeNLBListenerCertificatesOutput(object):
 
     attribute_map = {
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'certificate_type': 'CertificateType',
         'domain': 'Domain',
         'is_default': 'IsDefault',
         'status': 'Status'
     }
 
-    def __init__(self, certificate_id=None, certificate_type=None, domain=None, is_default=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_id=None, certificate_source=None, certificate_type=None, domain=None, is_default=None, status=None, _configuration=None):  # noqa: E501
         """CertificateForDescribeNLBListenerCertificatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._certificate_id = None
+        self._certificate_source = None
         self._certificate_type = None
         self._domain = None
         self._is_default = None
@@ -63,6 +66,8 @@ class CertificateForDescribeNLBListenerCertificatesOutput(object):
 
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if certificate_type is not None:
             self.certificate_type = certificate_type
         if domain is not None:
@@ -92,6 +97,27 @@ class CertificateForDescribeNLBListenerCertificatesOutput(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this CertificateForDescribeNLBListenerCertificatesOutput.  # noqa: E501
+
+
+        :return: The certificate_source of this CertificateForDescribeNLBListenerCertificatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this CertificateForDescribeNLBListenerCertificatesOutput.
+
+
+        :param certificate_source: The certificate_source of this CertificateForDescribeNLBListenerCertificatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def certificate_type(self):

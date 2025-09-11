@@ -17,9 +17,10 @@ from typing_extensions import TypeAlias
 
 from .tool_choice_options import ToolChoiceOptions
 from .tool_choice_function_param import ToolChoiceFunctionParam
+from .tool_choice_mcp_param import ToolChoiceMcpParam
 
 __all__ = [
     "ToolChoice",
 ]
 
-ToolChoice: TypeAlias = Union[ToolChoiceOptions, ToolChoiceFunctionParam]
+ToolChoice: TypeAlias = Union[ToolChoiceOptions, ToolChoiceFunctionParam, ToolChoiceMcpParam]

@@ -10,6 +10,7 @@
 #
 # This modified file is released under the same license.
 
-from .images import ImagesResponse
+from .images import SequentialImageGenerationOptions, ImagesResponse
 
-__all__ = ["ImagesResponse"]
+
+__all__ = ["SequentialImageGenerationOptions", "ImagesResponse"]

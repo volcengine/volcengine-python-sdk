@@ -33,7 +33,6 @@ class DescribeLoadBalancersResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'account_id': 'str',
         'load_balancers': 'list[LoadBalancerForDescribeLoadBalancersOutput]',
         'page_number': 'int',
         'page_size': 'int',
@@ -42,7 +41,6 @@ class DescribeLoadBalancersResponse(object):
     }
 
     attribute_map = {
-        'account_id': 'AccountId',
         'load_balancers': 'LoadBalancers',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -50,13 +48,12 @@ class DescribeLoadBalancersResponse(object):
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, account_id=None, load_balancers=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, load_balancers=None, page_number=None, page_size=None, request_id=None, total_count=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancersResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._account_id = None
         self._load_balancers = None
         self._page_number = None
         self._page_size = None
@@ -64,8 +61,6 @@ class DescribeLoadBalancersResponse(object):
         self._total_count = None
         self.discriminator = None
 
-        if account_id is not None:
-            self.account_id = account_id
         if load_balancers is not None:
             self.load_balancers = load_balancers
         if page_number is not None:
@@ -76,27 +71,6 @@ class DescribeLoadBalancersResponse(object):
             self.request_id = request_id
         if total_count is not None:
             self.total_count = total_count
-
-    @property
-    def account_id(self):
-        """Gets the account_id of this DescribeLoadBalancersResponse.  # noqa: E501
-
-
-        :return: The account_id of this DescribeLoadBalancersResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._account_id
-
-    @account_id.setter
-    def account_id(self, account_id):
-        """Sets the account_id of this DescribeLoadBalancersResponse.
-
-
-        :param account_id: The account_id of this DescribeLoadBalancersResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._account_id = account_id
 
     @property
     def load_balancers(self):
