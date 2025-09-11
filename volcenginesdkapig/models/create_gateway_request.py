@@ -33,7 +33,6 @@ class CreateGatewayRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'backend_spec': 'BackendSpecForCreateGatewayInput',
         'comments': 'str',
         'log_spec': 'LogSpecForCreateGatewayInput',
         'monitor_spec': 'MonitorSpecForCreateGatewayInput',
@@ -42,12 +41,11 @@ class CreateGatewayRequest(object):
         'project_name': 'str',
         'region': 'str',
         'resource_spec': 'ResourceSpecForCreateGatewayInput',
-        'tags': 'list[TagForCreateGatewayInput]',
+        'trace_spec': 'TraceSpecForCreateGatewayInput',
         'type': 'str'
     }
 
     attribute_map = {
-        'backend_spec': 'BackendSpec',
         'comments': 'Comments',
         'log_spec': 'LogSpec',
         'monitor_spec': 'MonitorSpec',
@@ -56,17 +54,16 @@ class CreateGatewayRequest(object):
         'project_name': 'ProjectName',
         'region': 'Region',
         'resource_spec': 'ResourceSpec',
-        'tags': 'Tags',
+        'trace_spec': 'TraceSpec',
         'type': 'Type'
     }
 
-    def __init__(self, backend_spec=None, comments=None, log_spec=None, monitor_spec=None, name=None, network_spec=None, project_name=None, region=None, resource_spec=None, tags=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, comments=None, log_spec=None, monitor_spec=None, name=None, network_spec=None, project_name=None, region=None, resource_spec=None, trace_spec=None, type=None, _configuration=None):  # noqa: E501
         """CreateGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._backend_spec = None
         self._comments = None
         self._log_spec = None
         self._monitor_spec = None
@@ -75,12 +72,10 @@ class CreateGatewayRequest(object):
         self._project_name = None
         self._region = None
         self._resource_spec = None
-        self._tags = None
+        self._trace_spec = None
         self._type = None
         self.discriminator = None
 
-        if backend_spec is not None:
-            self.backend_spec = backend_spec
         if comments is not None:
             self.comments = comments
         if log_spec is not None:
@@ -95,31 +90,10 @@ class CreateGatewayRequest(object):
         self.region = region
         if resource_spec is not None:
             self.resource_spec = resource_spec
-        if tags is not None:
-            self.tags = tags
+        if trace_spec is not None:
+            self.trace_spec = trace_spec
         if type is not None:
             self.type = type
-
-    @property
-    def backend_spec(self):
-        """Gets the backend_spec of this CreateGatewayRequest.  # noqa: E501
-
-
-        :return: The backend_spec of this CreateGatewayRequest.  # noqa: E501
-        :rtype: BackendSpecForCreateGatewayInput
-        """
-        return self._backend_spec
-
-    @backend_spec.setter
-    def backend_spec(self, backend_spec):
-        """Sets the backend_spec of this CreateGatewayRequest.
-
-
-        :param backend_spec: The backend_spec of this CreateGatewayRequest.  # noqa: E501
-        :type: BackendSpecForCreateGatewayInput
-        """
-
-        self._backend_spec = backend_spec
 
     @property
     def comments(self):
@@ -294,25 +268,25 @@ class CreateGatewayRequest(object):
         self._resource_spec = resource_spec
 
     @property
-    def tags(self):
-        """Gets the tags of this CreateGatewayRequest.  # noqa: E501
+    def trace_spec(self):
+        """Gets the trace_spec of this CreateGatewayRequest.  # noqa: E501
 
 
-        :return: The tags of this CreateGatewayRequest.  # noqa: E501
-        :rtype: list[TagForCreateGatewayInput]
+        :return: The trace_spec of this CreateGatewayRequest.  # noqa: E501
+        :rtype: TraceSpecForCreateGatewayInput
         """
-        return self._tags
+        return self._trace_spec
 
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this CreateGatewayRequest.
+    @trace_spec.setter
+    def trace_spec(self, trace_spec):
+        """Sets the trace_spec of this CreateGatewayRequest.
 
 
-        :param tags: The tags of this CreateGatewayRequest.  # noqa: E501
-        :type: list[TagForCreateGatewayInput]
+        :param trace_spec: The trace_spec of this CreateGatewayRequest.  # noqa: E501
+        :type: TraceSpecForCreateGatewayInput
         """
 
-        self._tags = tags
+        self._trace_spec = trace_spec
 
     @property
     def type(self):
