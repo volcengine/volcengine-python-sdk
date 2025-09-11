@@ -35,6 +35,7 @@ class DescribeNLBListenerCertificatesRequest(object):
     swagger_types = {
         'certificate_ids': 'list[str]',
         'certificate_type': 'str',
+        'domain': 'str',
         'listener_id': 'str',
         'max_results': 'int',
         'next_token': 'str'
@@ -43,12 +44,13 @@ class DescribeNLBListenerCertificatesRequest(object):
     attribute_map = {
         'certificate_ids': 'CertificateIds',
         'certificate_type': 'CertificateType',
+        'domain': 'Domain',
         'listener_id': 'ListenerId',
         'max_results': 'MaxResults',
         'next_token': 'NextToken'
     }
 
-    def __init__(self, certificate_ids=None, certificate_type=None, listener_id=None, max_results=None, next_token=None, _configuration=None):  # noqa: E501
+    def __init__(self, certificate_ids=None, certificate_type=None, domain=None, listener_id=None, max_results=None, next_token=None, _configuration=None):  # noqa: E501
         """DescribeNLBListenerCertificatesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DescribeNLBListenerCertificatesRequest(object):
 
         self._certificate_ids = None
         self._certificate_type = None
+        self._domain = None
         self._listener_id = None
         self._max_results = None
         self._next_token = None
@@ -65,6 +68,8 @@ class DescribeNLBListenerCertificatesRequest(object):
             self.certificate_ids = certificate_ids
         if certificate_type is not None:
             self.certificate_type = certificate_type
+        if domain is not None:
+            self.domain = domain
         self.listener_id = listener_id
         if max_results is not None:
             self.max_results = max_results
@@ -112,6 +117,27 @@ class DescribeNLBListenerCertificatesRequest(object):
         """
 
         self._certificate_type = certificate_type
+
+    @property
+    def domain(self):
+        """Gets the domain of this DescribeNLBListenerCertificatesRequest.  # noqa: E501
+
+
+        :return: The domain of this DescribeNLBListenerCertificatesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain
+
+    @domain.setter
+    def domain(self, domain):
+        """Sets the domain of this DescribeNLBListenerCertificatesRequest.
+
+
+        :param domain: The domain of this DescribeNLBListenerCertificatesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._domain = domain
 
     @property
     def listener_id(self):
