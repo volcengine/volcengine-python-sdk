@@ -19,8 +19,8 @@ class AssumeRoleOidcCredentials:
 
 
 class StsOidcCredentialProvider(Provider):
-    def __init__(self, role_name, oidc_token, account_id, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-north-1', timeout=30, expired_buffer_seconds=60):
+    def __init__(self, role_name, account_id, oidc_token, duration_seconds=3600, scheme='https',
+                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60):
 
         self.role_name = role_name
         self.account_id = account_id
@@ -53,6 +53,10 @@ class StsOidcCredentialProvider(Provider):
         with self._lock:
             if self.is_expired():
                 self._assume_role_oidc()
+
+    def get_credentials(self):
+        self.refresh()
+        return self.credentials
 
     def _assume_role_oidc(self):
         params = {

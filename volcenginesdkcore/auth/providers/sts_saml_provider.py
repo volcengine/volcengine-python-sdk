@@ -19,8 +19,8 @@ class AssumeRoleSamlCredentials:
 
 
 class StsSamlCredentialProvider(Provider):
-    def __init__(self, role_name, provider_name, account_id, saml_resp, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-north-1', timeout=30, expired_buffer_seconds=60):
+    def __init__(self, role_name, account_id, provider_name, saml_resp, duration_seconds=3600, scheme='https',
+                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60):
         # self.ak = ak
         # self.sk = sk
         self.role_name = role_name
@@ -55,6 +55,10 @@ class StsSamlCredentialProvider(Provider):
         with self._lock:
             if self.is_expired():
                 self._assume_role_saml()
+
+    def get_credentials(self):
+        self.refresh()
+        return self.credentials
 
     def _assume_role_saml(self):
         params = {

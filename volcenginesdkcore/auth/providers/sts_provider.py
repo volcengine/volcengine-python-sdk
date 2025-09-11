@@ -54,6 +54,10 @@ class StsCredentialProvider(Provider):
             if self.is_expired():
                 self._assume_role()
 
+    def get_credentials(self):
+        self.refresh()
+        return self.credentials
+
     def _assume_role(self):
         params = {
             'DurationSeconds': self.duration_seconds,
