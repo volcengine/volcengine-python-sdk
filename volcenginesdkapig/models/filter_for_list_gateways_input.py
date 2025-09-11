@@ -36,7 +36,6 @@ class FilterForListGatewaysInput(object):
         'ids': 'list[str]',
         'name': 'str',
         'status': 'str',
-        'tags': 'list[TagForListGatewaysInput]',
         'type': 'str',
         'vpc_ids': 'list[str]'
     }
@@ -45,12 +44,11 @@ class FilterForListGatewaysInput(object):
         'ids': 'Ids',
         'name': 'Name',
         'status': 'Status',
-        'tags': 'Tags',
         'type': 'Type',
         'vpc_ids': 'VpcIds'
     }
 
-    def __init__(self, ids=None, name=None, status=None, tags=None, type=None, vpc_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, ids=None, name=None, status=None, type=None, vpc_ids=None, _configuration=None):  # noqa: E501
         """FilterForListGatewaysInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,7 +57,6 @@ class FilterForListGatewaysInput(object):
         self._ids = None
         self._name = None
         self._status = None
-        self._tags = None
         self._type = None
         self._vpc_ids = None
         self.discriminator = None
@@ -70,8 +67,6 @@ class FilterForListGatewaysInput(object):
             self.name = name
         if status is not None:
             self.status = status
-        if tags is not None:
-            self.tags = tags
         if type is not None:
             self.type = type
         if vpc_ids is not None:
@@ -139,27 +134,6 @@ class FilterForListGatewaysInput(object):
         """
 
         self._status = status
-
-    @property
-    def tags(self):
-        """Gets the tags of this FilterForListGatewaysInput.  # noqa: E501
-
-
-        :return: The tags of this FilterForListGatewaysInput.  # noqa: E501
-        :rtype: list[TagForListGatewaysInput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this FilterForListGatewaysInput.
-
-
-        :param tags: The tags of this FilterForListGatewaysInput.  # noqa: E501
-        :type: list[TagForListGatewaysInput]
-        """
-
-        self._tags = tags
 
     @property
     def type(self):

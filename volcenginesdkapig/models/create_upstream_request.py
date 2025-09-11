@@ -39,9 +39,7 @@ class CreateUpstreamRequest(object):
         'load_balancer_settings': 'LoadBalancerSettingsForCreateUpstreamInput',
         'name': 'str',
         'protocol': 'str',
-        'resource_type': 'str',
         'source_type': 'str',
-        'tags': 'list[TagForCreateUpstreamInput]',
         'tls_settings': 'TlsSettingsForCreateUpstreamInput',
         'upstream_spec': 'UpstreamSpecForCreateUpstreamInput'
     }
@@ -53,14 +51,12 @@ class CreateUpstreamRequest(object):
         'load_balancer_settings': 'LoadBalancerSettings',
         'name': 'Name',
         'protocol': 'Protocol',
-        'resource_type': 'ResourceType',
         'source_type': 'SourceType',
-        'tags': 'Tags',
         'tls_settings': 'TlsSettings',
         'upstream_spec': 'UpstreamSpec'
     }
 
-    def __init__(self, circuit_breaking_settings=None, comments=None, gateway_id=None, load_balancer_settings=None, name=None, protocol=None, resource_type=None, source_type=None, tags=None, tls_settings=None, upstream_spec=None, _configuration=None):  # noqa: E501
+    def __init__(self, circuit_breaking_settings=None, comments=None, gateway_id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, upstream_spec=None, _configuration=None):  # noqa: E501
         """CreateUpstreamRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,9 +68,7 @@ class CreateUpstreamRequest(object):
         self._load_balancer_settings = None
         self._name = None
         self._protocol = None
-        self._resource_type = None
         self._source_type = None
-        self._tags = None
         self._tls_settings = None
         self._upstream_spec = None
         self.discriminator = None
@@ -89,11 +83,7 @@ class CreateUpstreamRequest(object):
         self.name = name
         if protocol is not None:
             self.protocol = protocol
-        if resource_type is not None:
-            self.resource_type = resource_type
         self.source_type = source_type
-        if tags is not None:
-            self.tags = tags
         if tls_settings is not None:
             self.tls_settings = tls_settings
         if upstream_spec is not None:
@@ -230,27 +220,6 @@ class CreateUpstreamRequest(object):
         self._protocol = protocol
 
     @property
-    def resource_type(self):
-        """Gets the resource_type of this CreateUpstreamRequest.  # noqa: E501
-
-
-        :return: The resource_type of this CreateUpstreamRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_type
-
-    @resource_type.setter
-    def resource_type(self, resource_type):
-        """Sets the resource_type of this CreateUpstreamRequest.
-
-
-        :param resource_type: The resource_type of this CreateUpstreamRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_type = resource_type
-
-    @property
     def source_type(self):
         """Gets the source_type of this CreateUpstreamRequest.  # noqa: E501
 
@@ -272,27 +241,6 @@ class CreateUpstreamRequest(object):
             raise ValueError("Invalid value for `source_type`, must not be `None`")  # noqa: E501
 
         self._source_type = source_type
-
-    @property
-    def tags(self):
-        """Gets the tags of this CreateUpstreamRequest.  # noqa: E501
-
-
-        :return: The tags of this CreateUpstreamRequest.  # noqa: E501
-        :rtype: list[TagForCreateUpstreamInput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this CreateUpstreamRequest.
-
-
-        :param tags: The tags of this CreateUpstreamRequest.  # noqa: E501
-        :type: list[TagForCreateUpstreamInput]
-        """
-
-        self._tags = tags
 
     @property
     def tls_settings(self):

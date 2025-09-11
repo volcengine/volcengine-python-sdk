@@ -37,6 +37,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'bandwidth': 'int',
         'creation_time': 'str',
         'description': 'str',
+        'ipv6_enabled': 'str',
         'peer_transit_router_id': 'str',
         'peer_transit_router_region_id': 'str',
         'status': 'str',
@@ -57,6 +58,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'bandwidth': 'Bandwidth',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'ipv6_enabled': 'Ipv6Enabled',
         'peer_transit_router_id': 'PeerTransitRouterId',
         'peer_transit_router_region_id': 'PeerTransitRouterRegionId',
         'status': 'Status',
@@ -72,7 +74,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, auto_publish_route_enabled=None, bandwidth=None, creation_time=None, description=None, peer_transit_router_id=None, peer_transit_router_region_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_publish_route_enabled=None, bandwidth=None, creation_time=None, description=None, ipv6_enabled=None, peer_transit_router_id=None, peer_transit_router_region_id=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_bandwidth_package_id=None, transit_router_forward_policy_table_id=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_traffic_qos_marking_policy_id=None, transit_router_traffic_qos_queue_policy_id=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         self._bandwidth = None
         self._creation_time = None
         self._description = None
+        self._ipv6_enabled = None
         self._peer_transit_router_id = None
         self._peer_transit_router_region_id = None
         self._status = None
@@ -105,6 +108,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if ipv6_enabled is not None:
+            self.ipv6_enabled = ipv6_enabled
         if peer_transit_router_id is not None:
             self.peer_transit_router_id = peer_transit_router_id
         if peer_transit_router_region_id is not None:
@@ -215,6 +220,27 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         """
 
         self._description = description
+
+    @property
+    def ipv6_enabled(self):
+        """Gets the ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+
+
+        :return: The ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_enabled
+
+    @ipv6_enabled.setter
+    def ipv6_enabled(self, ipv6_enabled):
+        """Sets the ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.
+
+
+        :param ipv6_enabled: The ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_enabled = ipv6_enabled
 
     @property
     def peer_transit_router_id(self):

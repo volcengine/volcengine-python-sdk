@@ -44,13 +44,14 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         'deleted_time': 'str',
         'description': 'str',
         'expired_time': 'str',
+        'line_operator': 'str',
         'local_geographic_region_set_id': 'str',
-        'local_geographicl_region_set_id': 'str',
         'peer_geographic_region_set_id': 'str',
         'project_name': 'str',
         'remaining_bandwidth': 'int',
         'status': 'str',
         'tags': 'list[TagForDescribeCenBandwidthPackagesOutput]',
+        'update_time': 'str',
         'updated_at': 'str'
     }
 
@@ -66,17 +67,18 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         'deleted_time': 'DeletedTime',
         'description': 'Description',
         'expired_time': 'ExpiredTime',
+        'line_operator': 'LineOperator',
         'local_geographic_region_set_id': 'LocalGeographicRegionSetId',
-        'local_geographicl_region_set_id': 'LocalGeographiclRegionSetId',
         'peer_geographic_region_set_id': 'PeerGeographicRegionSetId',
         'project_name': 'ProjectName',
         'remaining_bandwidth': 'RemainingBandwidth',
         'status': 'Status',
         'tags': 'Tags',
+        'update_time': 'UpdateTime',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, local_geographic_region_set_id=None, local_geographicl_region_set_id=None, peer_geographic_region_set_id=None, project_name=None, remaining_bandwidth=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, bandwidth=None, billing_type=None, business=None, cen_bandwidth_package_id=None, cen_bandwidth_package_name=None, cen_ids=None, creation_time=None, deleted_time=None, description=None, expired_time=None, line_operator=None, local_geographic_region_set_id=None, peer_geographic_region_set_id=None, project_name=None, remaining_bandwidth=None, status=None, tags=None, update_time=None, updated_at=None, _configuration=None):  # noqa: E501
         """CenBandwidthPackageForDescribeCenBandwidthPackagesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,13 +95,14 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         self._deleted_time = None
         self._description = None
         self._expired_time = None
+        self._line_operator = None
         self._local_geographic_region_set_id = None
-        self._local_geographicl_region_set_id = None
         self._peer_geographic_region_set_id = None
         self._project_name = None
         self._remaining_bandwidth = None
         self._status = None
         self._tags = None
+        self._update_time = None
         self._updated_at = None
         self.discriminator = None
 
@@ -125,10 +128,10 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
             self.description = description
         if expired_time is not None:
             self.expired_time = expired_time
+        if line_operator is not None:
+            self.line_operator = line_operator
         if local_geographic_region_set_id is not None:
             self.local_geographic_region_set_id = local_geographic_region_set_id
-        if local_geographicl_region_set_id is not None:
-            self.local_geographicl_region_set_id = local_geographicl_region_set_id
         if peer_geographic_region_set_id is not None:
             self.peer_geographic_region_set_id = peer_geographic_region_set_id
         if project_name is not None:
@@ -139,6 +142,8 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
             self.status = status
         if tags is not None:
             self.tags = tags
+        if update_time is not None:
+            self.update_time = update_time
         if updated_at is not None:
             self.updated_at = updated_at
 
@@ -374,6 +379,27 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         self._expired_time = expired_time
 
     @property
+    def line_operator(self):
+        """Gets the line_operator of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+
+
+        :return: The line_operator of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._line_operator
+
+    @line_operator.setter
+    def line_operator(self, line_operator):
+        """Sets the line_operator of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.
+
+
+        :param line_operator: The line_operator of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._line_operator = line_operator
+
+    @property
     def local_geographic_region_set_id(self):
         """Gets the local_geographic_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
 
@@ -393,27 +419,6 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         """
 
         self._local_geographic_region_set_id = local_geographic_region_set_id
-
-    @property
-    def local_geographicl_region_set_id(self):
-        """Gets the local_geographicl_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-
-
-        :return: The local_geographicl_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._local_geographicl_region_set_id
-
-    @local_geographicl_region_set_id.setter
-    def local_geographicl_region_set_id(self, local_geographicl_region_set_id):
-        """Sets the local_geographicl_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.
-
-
-        :param local_geographicl_region_set_id: The local_geographicl_region_set_id of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._local_geographicl_region_set_id = local_geographicl_region_set_id
 
     @property
     def peer_geographic_region_set_id(self):
@@ -519,6 +524,27 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput(object):
         """
 
         self._tags = tags
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+
+
+        :return: The update_time of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.
+
+
+        :param update_time: The update_time of this CenBandwidthPackageForDescribeCenBandwidthPackagesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._update_time = update_time
 
     @property
     def updated_at(self):

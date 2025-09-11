@@ -35,6 +35,7 @@ class UpdateRouteRequest(object):
     swagger_types = {
         'advanced_setting': 'AdvancedSettingForUpdateRouteInput',
         'enable': 'bool',
+        'fallback_setting': 'FallbackSettingForUpdateRouteInput',
         'id': 'str',
         'match_rule': 'MatchRuleForUpdateRouteInput',
         'name': 'str',
@@ -45,6 +46,7 @@ class UpdateRouteRequest(object):
     attribute_map = {
         'advanced_setting': 'AdvancedSetting',
         'enable': 'Enable',
+        'fallback_setting': 'FallbackSetting',
         'id': 'Id',
         'match_rule': 'MatchRule',
         'name': 'Name',
@@ -52,7 +54,7 @@ class UpdateRouteRequest(object):
         'upstream_list': 'UpstreamList'
     }
 
-    def __init__(self, advanced_setting=None, enable=None, id=None, match_rule=None, name=None, priority=None, upstream_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, advanced_setting=None, enable=None, fallback_setting=None, id=None, match_rule=None, name=None, priority=None, upstream_list=None, _configuration=None):  # noqa: E501
         """UpdateRouteRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +62,7 @@ class UpdateRouteRequest(object):
 
         self._advanced_setting = None
         self._enable = None
+        self._fallback_setting = None
         self._id = None
         self._match_rule = None
         self._name = None
@@ -71,6 +74,8 @@ class UpdateRouteRequest(object):
             self.advanced_setting = advanced_setting
         if enable is not None:
             self.enable = enable
+        if fallback_setting is not None:
+            self.fallback_setting = fallback_setting
         self.id = id
         if match_rule is not None:
             self.match_rule = match_rule
@@ -121,6 +126,27 @@ class UpdateRouteRequest(object):
         """
 
         self._enable = enable
+
+    @property
+    def fallback_setting(self):
+        """Gets the fallback_setting of this UpdateRouteRequest.  # noqa: E501
+
+
+        :return: The fallback_setting of this UpdateRouteRequest.  # noqa: E501
+        :rtype: FallbackSettingForUpdateRouteInput
+        """
+        return self._fallback_setting
+
+    @fallback_setting.setter
+    def fallback_setting(self, fallback_setting):
+        """Sets the fallback_setting of this UpdateRouteRequest.
+
+
+        :param fallback_setting: The fallback_setting of this UpdateRouteRequest.  # noqa: E501
+        :type: FallbackSettingForUpdateRouteInput
+        """
+
+        self._fallback_setting = fallback_setting
 
     @property
     def id(self):

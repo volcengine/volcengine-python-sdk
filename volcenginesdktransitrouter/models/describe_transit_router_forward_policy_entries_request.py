@@ -33,6 +33,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'destination_cidr_block': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'source_cidr_block': 'str',
@@ -42,6 +43,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest(object):
     }
 
     attribute_map = {
+        'destination_cidr_block': 'DestinationCidrBlock',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'source_cidr_block': 'SourceCidrBlock',
@@ -50,12 +52,13 @@ class DescribeTransitRouterForwardPolicyEntriesRequest(object):
         'transit_router_route_table_id': 'TransitRouterRouteTableId'
     }
 
-    def __init__(self, page_number=None, page_size=None, source_cidr_block=None, transit_router_forward_policy_entry_ids=None, transit_router_forward_policy_table_id=None, transit_router_route_table_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination_cidr_block=None, page_number=None, page_size=None, source_cidr_block=None, transit_router_forward_policy_entry_ids=None, transit_router_forward_policy_table_id=None, transit_router_route_table_id=None, _configuration=None):  # noqa: E501
         """DescribeTransitRouterForwardPolicyEntriesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._destination_cidr_block = None
         self._page_number = None
         self._page_size = None
         self._source_cidr_block = None
@@ -64,6 +67,8 @@ class DescribeTransitRouterForwardPolicyEntriesRequest(object):
         self._transit_router_route_table_id = None
         self.discriminator = None
 
+        if destination_cidr_block is not None:
+            self.destination_cidr_block = destination_cidr_block
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -75,6 +80,27 @@ class DescribeTransitRouterForwardPolicyEntriesRequest(object):
         self.transit_router_forward_policy_table_id = transit_router_forward_policy_table_id
         if transit_router_route_table_id is not None:
             self.transit_router_route_table_id = transit_router_route_table_id
+
+    @property
+    def destination_cidr_block(self):
+        """Gets the destination_cidr_block of this DescribeTransitRouterForwardPolicyEntriesRequest.  # noqa: E501
+
+
+        :return: The destination_cidr_block of this DescribeTransitRouterForwardPolicyEntriesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_cidr_block
+
+    @destination_cidr_block.setter
+    def destination_cidr_block(self, destination_cidr_block):
+        """Sets the destination_cidr_block of this DescribeTransitRouterForwardPolicyEntriesRequest.
+
+
+        :param destination_cidr_block: The destination_cidr_block of this DescribeTransitRouterForwardPolicyEntriesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_cidr_block = destination_cidr_block
 
     @property
     def page_number(self):

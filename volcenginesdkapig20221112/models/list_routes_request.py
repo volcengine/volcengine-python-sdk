@@ -37,7 +37,6 @@ class ListRoutesRequest(object):
         'gateway_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'resource_type': 'str',
         'service_id': 'str',
         'upstream_id': 'str',
         'upstream_version': 'str'
@@ -48,13 +47,12 @@ class ListRoutesRequest(object):
         'gateway_id': 'GatewayId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'resource_type': 'ResourceType',
         'service_id': 'ServiceId',
         'upstream_id': 'UpstreamId',
         'upstream_version': 'UpstreamVersion'
     }
 
-    def __init__(self, filter=None, gateway_id=None, page_number=None, page_size=None, resource_type=None, service_id=None, upstream_id=None, upstream_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, gateway_id=None, page_number=None, page_size=None, service_id=None, upstream_id=None, upstream_version=None, _configuration=None):  # noqa: E501
         """ListRoutesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,7 +62,6 @@ class ListRoutesRequest(object):
         self._gateway_id = None
         self._page_number = None
         self._page_size = None
-        self._resource_type = None
         self._service_id = None
         self._upstream_id = None
         self._upstream_version = None
@@ -78,8 +75,6 @@ class ListRoutesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        if resource_type is not None:
-            self.resource_type = resource_type
         if service_id is not None:
             self.service_id = service_id
         if upstream_id is not None:
@@ -170,27 +165,6 @@ class ListRoutesRequest(object):
         """
 
         self._page_size = page_size
-
-    @property
-    def resource_type(self):
-        """Gets the resource_type of this ListRoutesRequest.  # noqa: E501
-
-
-        :return: The resource_type of this ListRoutesRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_type
-
-    @resource_type.setter
-    def resource_type(self, resource_type):
-        """Sets the resource_type of this ListRoutesRequest.
-
-
-        :param resource_type: The resource_type of this ListRoutesRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_type = resource_type
 
     @property
     def service_id(self):

@@ -33,45 +33,71 @@ class ModifyNLBListenerAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ca_certificate_id': 'str',
+        'ca_certificate_source': 'str',
+        'ca_enabled': 'bool',
         'certificate_id': 'str',
+        'certificate_source': 'str',
         'connection_timeout': 'int',
         'description': 'str',
         'enabled': 'bool',
         'listener_id': 'str',
         'listener_name': 'str',
+        'pca_certificate_id': 'str',
         'security_policy_id': 'str',
+        'security_policy_type': 'str',
         'server_group_id': 'str'
     }
 
     attribute_map = {
+        'ca_certificate_id': 'CACertificateId',
+        'ca_certificate_source': 'CACertificateSource',
+        'ca_enabled': 'CAEnabled',
         'certificate_id': 'CertificateId',
+        'certificate_source': 'CertificateSource',
         'connection_timeout': 'ConnectionTimeout',
         'description': 'Description',
         'enabled': 'Enabled',
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
+        'pca_certificate_id': 'PCACertificateId',
         'security_policy_id': 'SecurityPolicyId',
+        'security_policy_type': 'SecurityPolicyType',
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, certificate_id=None, connection_timeout=None, description=None, enabled=None, listener_id=None, listener_name=None, security_policy_id=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ca_certificate_id=None, ca_certificate_source=None, ca_enabled=None, certificate_id=None, certificate_source=None, connection_timeout=None, description=None, enabled=None, listener_id=None, listener_name=None, pca_certificate_id=None, security_policy_id=None, security_policy_type=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyNLBListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._ca_certificate_id = None
+        self._ca_certificate_source = None
+        self._ca_enabled = None
         self._certificate_id = None
+        self._certificate_source = None
         self._connection_timeout = None
         self._description = None
         self._enabled = None
         self._listener_id = None
         self._listener_name = None
+        self._pca_certificate_id = None
         self._security_policy_id = None
+        self._security_policy_type = None
         self._server_group_id = None
         self.discriminator = None
 
+        if ca_certificate_id is not None:
+            self.ca_certificate_id = ca_certificate_id
+        if ca_certificate_source is not None:
+            self.ca_certificate_source = ca_certificate_source
+        if ca_enabled is not None:
+            self.ca_enabled = ca_enabled
         if certificate_id is not None:
             self.certificate_id = certificate_id
+        if certificate_source is not None:
+            self.certificate_source = certificate_source
         if connection_timeout is not None:
             self.connection_timeout = connection_timeout
         if description is not None:
@@ -81,10 +107,77 @@ class ModifyNLBListenerAttributesRequest(object):
         self.listener_id = listener_id
         if listener_name is not None:
             self.listener_name = listener_name
+        if pca_certificate_id is not None:
+            self.pca_certificate_id = pca_certificate_id
         if security_policy_id is not None:
             self.security_policy_id = security_policy_id
+        if security_policy_type is not None:
+            self.security_policy_type = security_policy_type
         if server_group_id is not None:
             self.server_group_id = server_group_id
+
+    @property
+    def ca_certificate_id(self):
+        """Gets the ca_certificate_id of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The ca_certificate_id of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ca_certificate_id
+
+    @ca_certificate_id.setter
+    def ca_certificate_id(self, ca_certificate_id):
+        """Sets the ca_certificate_id of this ModifyNLBListenerAttributesRequest.
+
+
+        :param ca_certificate_id: The ca_certificate_id of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ca_certificate_id = ca_certificate_id
+
+    @property
+    def ca_certificate_source(self):
+        """Gets the ca_certificate_source of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The ca_certificate_source of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ca_certificate_source
+
+    @ca_certificate_source.setter
+    def ca_certificate_source(self, ca_certificate_source):
+        """Sets the ca_certificate_source of this ModifyNLBListenerAttributesRequest.
+
+
+        :param ca_certificate_source: The ca_certificate_source of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ca_certificate_source = ca_certificate_source
+
+    @property
+    def ca_enabled(self):
+        """Gets the ca_enabled of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The ca_enabled of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ca_enabled
+
+    @ca_enabled.setter
+    def ca_enabled(self, ca_enabled):
+        """Sets the ca_enabled of this ModifyNLBListenerAttributesRequest.
+
+
+        :param ca_enabled: The ca_enabled of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ca_enabled = ca_enabled
 
     @property
     def certificate_id(self):
@@ -106,6 +199,27 @@ class ModifyNLBListenerAttributesRequest(object):
         """
 
         self._certificate_id = certificate_id
+
+    @property
+    def certificate_source(self):
+        """Gets the certificate_source of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The certificate_source of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._certificate_source
+
+    @certificate_source.setter
+    def certificate_source(self, certificate_source):
+        """Sets the certificate_source of this ModifyNLBListenerAttributesRequest.
+
+
+        :param certificate_source: The certificate_source of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._certificate_source = certificate_source
 
     @property
     def connection_timeout(self):
@@ -215,6 +329,27 @@ class ModifyNLBListenerAttributesRequest(object):
         self._listener_name = listener_name
 
     @property
+    def pca_certificate_id(self):
+        """Gets the pca_certificate_id of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The pca_certificate_id of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_certificate_id
+
+    @pca_certificate_id.setter
+    def pca_certificate_id(self, pca_certificate_id):
+        """Sets the pca_certificate_id of this ModifyNLBListenerAttributesRequest.
+
+
+        :param pca_certificate_id: The pca_certificate_id of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_certificate_id = pca_certificate_id
+
+    @property
     def security_policy_id(self):
         """Gets the security_policy_id of this ModifyNLBListenerAttributesRequest.  # noqa: E501
 
@@ -234,6 +369,27 @@ class ModifyNLBListenerAttributesRequest(object):
         """
 
         self._security_policy_id = security_policy_id
+
+    @property
+    def security_policy_type(self):
+        """Gets the security_policy_type of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The security_policy_type of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_policy_type
+
+    @security_policy_type.setter
+    def security_policy_type(self, security_policy_type):
+        """Sets the security_policy_type of this ModifyNLBListenerAttributesRequest.
+
+
+        :param security_policy_type: The security_policy_type of this ModifyNLBListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._security_policy_type = security_policy_type
 
     @property
     def server_group_id(self):

@@ -36,6 +36,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'auto_publish_route_enabled': 'bool',
         'creation_time': 'str',
         'description': 'str',
+        'ipv6_enabled': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeTransitRouterVpnAttachmentsOutput]',
         'transit_router_attachment_id': 'str',
@@ -50,6 +51,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'auto_publish_route_enabled': 'AutoPublishRouteEnabled',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'ipv6_enabled': 'Ipv6Enabled',
         'status': 'Status',
         'tags': 'Tags',
         'transit_router_attachment_id': 'TransitRouterAttachmentId',
@@ -60,7 +62,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_publish_route_enabled=None, creation_time=None, description=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_id=None, update_time=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_publish_route_enabled=None, creation_time=None, description=None, ipv6_enabled=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_id=None, update_time=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         self._auto_publish_route_enabled = None
         self._creation_time = None
         self._description = None
+        self._ipv6_enabled = None
         self._status = None
         self._tags = None
         self._transit_router_attachment_id = None
@@ -85,6 +88,8 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if ipv6_enabled is not None:
+            self.ipv6_enabled = ipv6_enabled
         if status is not None:
             self.status = status
         if tags is not None:
@@ -164,6 +169,27 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         """
 
         self._description = description
+
+    @property
+    def ipv6_enabled(self):
+        """Gets the ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+
+
+        :return: The ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_enabled
+
+    @ipv6_enabled.setter
+    def ipv6_enabled(self, ipv6_enabled):
+        """Sets the ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.
+
+
+        :param ipv6_enabled: The ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_enabled = ipv6_enabled
 
     @property
     def status(self):

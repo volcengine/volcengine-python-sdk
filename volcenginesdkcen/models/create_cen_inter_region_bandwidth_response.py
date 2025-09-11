@@ -33,29 +33,24 @@ class CreateCenInterRegionBandwidthResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'inter_region_bandwidth_id': 'str',
-        'request_id': 'str'
+        'inter_region_bandwidth_id': 'str'
     }
 
     attribute_map = {
-        'inter_region_bandwidth_id': 'InterRegionBandwidthId',
-        'request_id': 'RequestId'
+        'inter_region_bandwidth_id': 'InterRegionBandwidthId'
     }
 
-    def __init__(self, inter_region_bandwidth_id=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, inter_region_bandwidth_id=None, _configuration=None):  # noqa: E501
         """CreateCenInterRegionBandwidthResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._inter_region_bandwidth_id = None
-        self._request_id = None
         self.discriminator = None
 
         if inter_region_bandwidth_id is not None:
             self.inter_region_bandwidth_id = inter_region_bandwidth_id
-        if request_id is not None:
-            self.request_id = request_id
 
     @property
     def inter_region_bandwidth_id(self):
@@ -77,27 +72,6 @@ class CreateCenInterRegionBandwidthResponse(object):
         """
 
         self._inter_region_bandwidth_id = inter_region_bandwidth_id
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this CreateCenInterRegionBandwidthResponse.  # noqa: E501
-
-
-        :return: The request_id of this CreateCenInterRegionBandwidthResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this CreateCenInterRegionBandwidthResponse.
-
-
-        :param request_id: The request_id of this CreateCenInterRegionBandwidthResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

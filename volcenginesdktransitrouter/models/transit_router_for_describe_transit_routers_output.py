@@ -40,6 +40,7 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
         'deleted_time': 'str',
         'description': 'str',
         'grant_status': 'str',
+        'multicast_enabled': 'bool',
         'overdue_time': 'str',
         'project_name': 'str',
         'status': 'str',
@@ -57,6 +58,7 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
         'deleted_time': 'DeletedTime',
         'description': 'Description',
         'grant_status': 'GrantStatus',
+        'multicast_enabled': 'MulticastEnabled',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'status': 'Status',
@@ -66,7 +68,7 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, asn=None, business_status=None, creation_time=None, deleted_time=None, description=None, grant_status=None, overdue_time=None, project_name=None, status=None, tags=None, transit_router_id=None, transit_router_name=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, business_status=None, creation_time=None, deleted_time=None, description=None, grant_status=None, multicast_enabled=None, overdue_time=None, project_name=None, status=None, tags=None, transit_router_id=None, transit_router_name=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterForDescribeTransitRoutersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
         self._deleted_time = None
         self._description = None
         self._grant_status = None
+        self._multicast_enabled = None
         self._overdue_time = None
         self._project_name = None
         self._status = None
@@ -102,6 +105,8 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
             self.description = description
         if grant_status is not None:
             self.grant_status = grant_status
+        if multicast_enabled is not None:
+            self.multicast_enabled = multicast_enabled
         if overdue_time is not None:
             self.overdue_time = overdue_time
         if project_name is not None:
@@ -263,6 +268,27 @@ class TransitRouterForDescribeTransitRoutersOutput(object):
         """
 
         self._grant_status = grant_status
+
+    @property
+    def multicast_enabled(self):
+        """Gets the multicast_enabled of this TransitRouterForDescribeTransitRoutersOutput.  # noqa: E501
+
+
+        :return: The multicast_enabled of this TransitRouterForDescribeTransitRoutersOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._multicast_enabled
+
+    @multicast_enabled.setter
+    def multicast_enabled(self, multicast_enabled):
+        """Sets the multicast_enabled of this TransitRouterForDescribeTransitRoutersOutput.
+
+
+        :param multicast_enabled: The multicast_enabled of this TransitRouterForDescribeTransitRoutersOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._multicast_enabled = multicast_enabled
 
     @property
     def overdue_time(self):

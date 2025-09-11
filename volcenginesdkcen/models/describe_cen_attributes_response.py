@@ -40,7 +40,6 @@ class DescribeCenAttributesResponse(object):
         'creation_time': 'str',
         'description': 'str',
         'project_name': 'str',
-        'request_id': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeCenAttributesOutput]',
         'update_time': 'str'
@@ -54,13 +53,12 @@ class DescribeCenAttributesResponse(object):
         'creation_time': 'CreationTime',
         'description': 'Description',
         'project_name': 'ProjectName',
-        'request_id': 'RequestId',
         'status': 'Status',
         'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, cen_bandwidth_package_ids=None, cen_id=None, cen_name=None, creation_time=None, description=None, project_name=None, request_id=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, cen_bandwidth_package_ids=None, cen_id=None, cen_name=None, creation_time=None, description=None, project_name=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeCenAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,7 +71,6 @@ class DescribeCenAttributesResponse(object):
         self._creation_time = None
         self._description = None
         self._project_name = None
-        self._request_id = None
         self._status = None
         self._tags = None
         self._update_time = None
@@ -93,8 +90,6 @@ class DescribeCenAttributesResponse(object):
             self.description = description
         if project_name is not None:
             self.project_name = project_name
-        if request_id is not None:
-            self.request_id = request_id
         if status is not None:
             self.status = status
         if tags is not None:
@@ -248,27 +243,6 @@ class DescribeCenAttributesResponse(object):
         """
 
         self._project_name = project_name
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this DescribeCenAttributesResponse.  # noqa: E501
-
-
-        :return: The request_id of this DescribeCenAttributesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this DescribeCenAttributesResponse.
-
-
-        :param request_id: The request_id of this DescribeCenAttributesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     @property
     def status(self):

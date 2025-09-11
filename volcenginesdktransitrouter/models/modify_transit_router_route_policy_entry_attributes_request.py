@@ -39,6 +39,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         'description': 'str',
         'destination_resource_ids': 'list[str]',
         'destination_resource_types': 'list[str]',
+        'ip_prefix_match_mode': 'str',
         'ip_prefixes': 'list[str]',
         'priority': 'int',
         'source_resource_ids': 'list[str]',
@@ -53,6 +54,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         'description': 'Description',
         'destination_resource_ids': 'DestinationResourceIds',
         'destination_resource_types': 'DestinationResourceTypes',
+        'ip_prefix_match_mode': 'IpPrefixMatchMode',
         'ip_prefixes': 'IpPrefixes',
         'priority': 'Priority',
         'source_resource_ids': 'SourceResourceIds',
@@ -60,7 +62,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         'transit_router_route_policy_entry_id': 'TransitRouterRoutePolicyEntryId'
     }
 
-    def __init__(self, action_result=None, apply_as_path_values=None, as_path_operate_mode=None, description=None, destination_resource_ids=None, destination_resource_types=None, ip_prefixes=None, priority=None, source_resource_ids=None, source_resource_types=None, transit_router_route_policy_entry_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_result=None, apply_as_path_values=None, as_path_operate_mode=None, description=None, destination_resource_ids=None, destination_resource_types=None, ip_prefix_match_mode=None, ip_prefixes=None, priority=None, source_resource_ids=None, source_resource_types=None, transit_router_route_policy_entry_id=None, _configuration=None):  # noqa: E501
         """ModifyTransitRouterRoutePolicyEntryAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         self._description = None
         self._destination_resource_ids = None
         self._destination_resource_types = None
+        self._ip_prefix_match_mode = None
         self._ip_prefixes = None
         self._priority = None
         self._source_resource_ids = None
@@ -91,6 +94,8 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
             self.destination_resource_ids = destination_resource_ids
         if destination_resource_types is not None:
             self.destination_resource_types = destination_resource_types
+        if ip_prefix_match_mode is not None:
+            self.ip_prefix_match_mode = ip_prefix_match_mode
         if ip_prefixes is not None:
             self.ip_prefixes = ip_prefixes
         if priority is not None:
@@ -226,6 +231,27 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest(object):
         """
 
         self._destination_resource_types = destination_resource_types
+
+    @property
+    def ip_prefix_match_mode(self):
+        """Gets the ip_prefix_match_mode of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.  # noqa: E501
+
+
+        :return: The ip_prefix_match_mode of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_prefix_match_mode
+
+    @ip_prefix_match_mode.setter
+    def ip_prefix_match_mode(self, ip_prefix_match_mode):
+        """Sets the ip_prefix_match_mode of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.
+
+
+        :param ip_prefix_match_mode: The ip_prefix_match_mode of this ModifyTransitRouterRoutePolicyEntryAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_prefix_match_mode = ip_prefix_match_mode
 
     @property
     def ip_prefixes(self):
