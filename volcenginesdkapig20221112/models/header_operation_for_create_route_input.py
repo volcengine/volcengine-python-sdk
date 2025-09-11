@@ -33,60 +33,34 @@ class HeaderOperationForCreateRouteInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'direction_type': 'str',
         'key': 'str',
         'operation': 'str',
         'value': 'str'
     }
 
     attribute_map = {
-        'direction_type': 'DirectionType',
         'key': 'Key',
         'operation': 'Operation',
         'value': 'Value'
     }
 
-    def __init__(self, direction_type=None, key=None, operation=None, value=None, _configuration=None):  # noqa: E501
+    def __init__(self, key=None, operation=None, value=None, _configuration=None):  # noqa: E501
         """HeaderOperationForCreateRouteInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._direction_type = None
         self._key = None
         self._operation = None
         self._value = None
         self.discriminator = None
 
-        if direction_type is not None:
-            self.direction_type = direction_type
         if key is not None:
             self.key = key
         if operation is not None:
             self.operation = operation
         if value is not None:
             self.value = value
-
-    @property
-    def direction_type(self):
-        """Gets the direction_type of this HeaderOperationForCreateRouteInput.  # noqa: E501
-
-
-        :return: The direction_type of this HeaderOperationForCreateRouteInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._direction_type
-
-    @direction_type.setter
-    def direction_type(self, direction_type):
-        """Sets the direction_type of this HeaderOperationForCreateRouteInput.
-
-
-        :param direction_type: The direction_type of this HeaderOperationForCreateRouteInput.  # noqa: E501
-        :type: str
-        """
-
-        self._direction_type = direction_type
 
     @property
     def key(self):
