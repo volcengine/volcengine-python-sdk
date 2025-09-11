@@ -34,15 +34,17 @@ class SpeakerForUpdateAITranslationSpeakersInput(object):
     """
     swagger_types = {
         'id': 'str',
-        'speaker_name': 'str'
+        'speaker_name': 'str',
+        'voice': 'str'
     }
 
     attribute_map = {
         'id': 'Id',
-        'speaker_name': 'SpeakerName'
+        'speaker_name': 'SpeakerName',
+        'voice': 'Voice'
     }
 
-    def __init__(self, id=None, speaker_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, speaker_name=None, voice=None, _configuration=None):  # noqa: E501
         """SpeakerForUpdateAITranslationSpeakersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class SpeakerForUpdateAITranslationSpeakersInput(object):
 
         self._id = None
         self._speaker_name = None
+        self._voice = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
         if speaker_name is not None:
             self.speaker_name = speaker_name
+        if voice is not None:
+            self.voice = voice
 
     @property
     def id(self):
@@ -98,6 +103,27 @@ class SpeakerForUpdateAITranslationSpeakersInput(object):
         """
 
         self._speaker_name = speaker_name
+
+    @property
+    def voice(self):
+        """Gets the voice of this SpeakerForUpdateAITranslationSpeakersInput.  # noqa: E501
+
+
+        :return: The voice of this SpeakerForUpdateAITranslationSpeakersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._voice
+
+    @voice.setter
+    def voice(self, voice):
+        """Sets the voice of this SpeakerForUpdateAITranslationSpeakersInput.
+
+
+        :param voice: The voice of this SpeakerForUpdateAITranslationSpeakersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._voice = voice
 
     def to_dict(self):
         """Returns the model properties as a dict"""

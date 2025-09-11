@@ -42,8 +42,10 @@ class CreateResourceGroupRequest(object):
         'name': 'str',
         'period': 'int',
         'period_unit': 'str',
+        'project_name': 'str',
         'resource_config': 'ResourceConfigForCreateResourceGroupInput',
         'storage_config': 'StorageConfigForCreateResourceGroupInput',
+        'v_rdma_enabled': 'bool',
         'workload_network_config': 'WorkloadNetworkConfigForCreateResourceGroupInput',
         'workload_network_mode': 'str'
     }
@@ -58,13 +60,15 @@ class CreateResourceGroupRequest(object):
         'name': 'Name',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'resource_config': 'ResourceConfig',
         'storage_config': 'StorageConfig',
+        'v_rdma_enabled': 'VRdmaEnabled',
         'workload_network_config': 'WorkloadNetworkConfig',
         'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, auto_renew=None, auto_renew_period=None, charge_type=None, description=None, dry_run=None, m_gpu_enabled=None, name=None, period=None, period_unit=None, resource_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew=None, auto_renew_period=None, charge_type=None, description=None, dry_run=None, m_gpu_enabled=None, name=None, period=None, period_unit=None, project_name=None, resource_config=None, storage_config=None, v_rdma_enabled=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """CreateResourceGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,8 +83,10 @@ class CreateResourceGroupRequest(object):
         self._name = None
         self._period = None
         self._period_unit = None
+        self._project_name = None
         self._resource_config = None
         self._storage_config = None
+        self._v_rdma_enabled = None
         self._workload_network_config = None
         self._workload_network_mode = None
         self.discriminator = None
@@ -101,10 +107,14 @@ class CreateResourceGroupRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         if resource_config is not None:
             self.resource_config = resource_config
         if storage_config is not None:
             self.storage_config = storage_config
+        if v_rdma_enabled is not None:
+            self.v_rdma_enabled = v_rdma_enabled
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
         if workload_network_mode is not None:
@@ -336,6 +346,33 @@ class CreateResourceGroupRequest(object):
         self._period_unit = period_unit
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateResourceGroupRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateResourceGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateResourceGroupRequest.
+
+
+        :param project_name: The project_name of this CreateResourceGroupRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
+
+    @property
     def resource_config(self):
         """Gets the resource_config of this CreateResourceGroupRequest.  # noqa: E501
 
@@ -376,6 +413,27 @@ class CreateResourceGroupRequest(object):
         """
 
         self._storage_config = storage_config
+
+    @property
+    def v_rdma_enabled(self):
+        """Gets the v_rdma_enabled of this CreateResourceGroupRequest.  # noqa: E501
+
+
+        :return: The v_rdma_enabled of this CreateResourceGroupRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._v_rdma_enabled
+
+    @v_rdma_enabled.setter
+    def v_rdma_enabled(self, v_rdma_enabled):
+        """Sets the v_rdma_enabled of this CreateResourceGroupRequest.
+
+
+        :param v_rdma_enabled: The v_rdma_enabled of this CreateResourceGroupRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._v_rdma_enabled = v_rdma_enabled
 
     @property
     def workload_network_config(self):

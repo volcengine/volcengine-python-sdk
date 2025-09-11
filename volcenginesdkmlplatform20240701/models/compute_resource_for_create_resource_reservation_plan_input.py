@@ -34,29 +34,34 @@ class ComputeResourceForCreateResourceReservationPlanInput(object):
     """
     swagger_types = {
         'count': 'int',
+        'gpu_count': 'int',
         'instance_type_id': 'str',
         'zone_ids': 'list[str]'
     }
 
     attribute_map = {
         'count': 'Count',
+        'gpu_count': 'GpuCount',
         'instance_type_id': 'InstanceTypeId',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, count=None, instance_type_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, count=None, gpu_count=None, instance_type_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """ComputeResourceForCreateResourceReservationPlanInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._count = None
+        self._gpu_count = None
         self._instance_type_id = None
         self._zone_ids = None
         self.discriminator = None
 
         if count is not None:
             self.count = count
+        if gpu_count is not None:
+            self.gpu_count = gpu_count
         if instance_type_id is not None:
             self.instance_type_id = instance_type_id
         if zone_ids is not None:
@@ -82,6 +87,27 @@ class ComputeResourceForCreateResourceReservationPlanInput(object):
         """
 
         self._count = count
+
+    @property
+    def gpu_count(self):
+        """Gets the gpu_count of this ComputeResourceForCreateResourceReservationPlanInput.  # noqa: E501
+
+
+        :return: The gpu_count of this ComputeResourceForCreateResourceReservationPlanInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._gpu_count
+
+    @gpu_count.setter
+    def gpu_count(self, gpu_count):
+        """Sets the gpu_count of this ComputeResourceForCreateResourceReservationPlanInput.
+
+
+        :param gpu_count: The gpu_count of this ComputeResourceForCreateResourceReservationPlanInput.  # noqa: E501
+        :type: int
+        """
+
+        self._gpu_count = gpu_count
 
     @property
     def instance_type_id(self):

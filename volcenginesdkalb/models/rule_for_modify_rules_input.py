@@ -35,10 +35,13 @@ class RuleForModifyRulesInput(object):
     swagger_types = {
         'description': 'str',
         'forward_group_config': 'ForwardGroupConfigForModifyRulesInput',
+        'priority': 'int',
         'redirect_config': 'RedirectConfigForModifyRulesInput',
         'rewrite_config': 'RewriteConfigForModifyRulesInput',
         'rewrite_enabled': 'str',
         'rule_action': 'str',
+        'rule_actions': 'list[RulesRuleActionForModifyRulesInput]',
+        'rule_conditions': 'list[RulesRuleConditionForModifyRulesInput]',
         'rule_id': 'str',
         'server_group_id': 'str',
         'traffic_limit_enabled': 'str',
@@ -48,17 +51,20 @@ class RuleForModifyRulesInput(object):
     attribute_map = {
         'description': 'Description',
         'forward_group_config': 'ForwardGroupConfig',
+        'priority': 'Priority',
         'redirect_config': 'RedirectConfig',
         'rewrite_config': 'RewriteConfig',
         'rewrite_enabled': 'RewriteEnabled',
         'rule_action': 'RuleAction',
+        'rule_actions': 'RuleActions',
+        'rule_conditions': 'RuleConditions',
         'rule_id': 'RuleId',
         'server_group_id': 'ServerGroupId',
         'traffic_limit_enabled': 'TrafficLimitEnabled',
         'traffic_limit_qps': 'TrafficLimitQPS'
     }
 
-    def __init__(self, description=None, forward_group_config=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, rule_id=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, forward_group_config=None, priority=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, rule_actions=None, rule_conditions=None, rule_id=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, _configuration=None):  # noqa: E501
         """RuleForModifyRulesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,10 +72,13 @@ class RuleForModifyRulesInput(object):
 
         self._description = None
         self._forward_group_config = None
+        self._priority = None
         self._redirect_config = None
         self._rewrite_config = None
         self._rewrite_enabled = None
         self._rule_action = None
+        self._rule_actions = None
+        self._rule_conditions = None
         self._rule_id = None
         self._server_group_id = None
         self._traffic_limit_enabled = None
@@ -80,6 +89,8 @@ class RuleForModifyRulesInput(object):
             self.description = description
         if forward_group_config is not None:
             self.forward_group_config = forward_group_config
+        if priority is not None:
+            self.priority = priority
         if redirect_config is not None:
             self.redirect_config = redirect_config
         if rewrite_config is not None:
@@ -88,6 +99,10 @@ class RuleForModifyRulesInput(object):
             self.rewrite_enabled = rewrite_enabled
         if rule_action is not None:
             self.rule_action = rule_action
+        if rule_actions is not None:
+            self.rule_actions = rule_actions
+        if rule_conditions is not None:
+            self.rule_conditions = rule_conditions
         self.rule_id = rule_id
         if server_group_id is not None:
             self.server_group_id = server_group_id
@@ -137,6 +152,33 @@ class RuleForModifyRulesInput(object):
         """
 
         self._forward_group_config = forward_group_config
+
+    @property
+    def priority(self):
+        """Gets the priority of this RuleForModifyRulesInput.  # noqa: E501
+
+
+        :return: The priority of this RuleForModifyRulesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """Sets the priority of this RuleForModifyRulesInput.
+
+
+        :param priority: The priority of this RuleForModifyRulesInput.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                priority is not None and priority > 10000):  # noqa: E501
+            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `10000`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                priority is not None and priority < 1):  # noqa: E501
+            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._priority = priority
 
     @property
     def redirect_config(self):
@@ -221,6 +263,48 @@ class RuleForModifyRulesInput(object):
         """
 
         self._rule_action = rule_action
+
+    @property
+    def rule_actions(self):
+        """Gets the rule_actions of this RuleForModifyRulesInput.  # noqa: E501
+
+
+        :return: The rule_actions of this RuleForModifyRulesInput.  # noqa: E501
+        :rtype: list[RulesRuleActionForModifyRulesInput]
+        """
+        return self._rule_actions
+
+    @rule_actions.setter
+    def rule_actions(self, rule_actions):
+        """Sets the rule_actions of this RuleForModifyRulesInput.
+
+
+        :param rule_actions: The rule_actions of this RuleForModifyRulesInput.  # noqa: E501
+        :type: list[RulesRuleActionForModifyRulesInput]
+        """
+
+        self._rule_actions = rule_actions
+
+    @property
+    def rule_conditions(self):
+        """Gets the rule_conditions of this RuleForModifyRulesInput.  # noqa: E501
+
+
+        :return: The rule_conditions of this RuleForModifyRulesInput.  # noqa: E501
+        :rtype: list[RulesRuleConditionForModifyRulesInput]
+        """
+        return self._rule_conditions
+
+    @rule_conditions.setter
+    def rule_conditions(self, rule_conditions):
+        """Sets the rule_conditions of this RuleForModifyRulesInput.
+
+
+        :param rule_conditions: The rule_conditions of this RuleForModifyRulesInput.  # noqa: E501
+        :type: list[RulesRuleConditionForModifyRulesInput]
+        """
+
+        self._rule_conditions = rule_conditions
 
     @property
     def rule_id(self):

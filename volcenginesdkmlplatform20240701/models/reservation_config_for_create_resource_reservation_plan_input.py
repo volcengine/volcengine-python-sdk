@@ -33,6 +33,7 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'available_resource_id': 'str',
         'max_duration_hours': 'int',
         'min_duration_hours': 'int',
         'recurrence_end_time': 'str',
@@ -42,6 +43,7 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
     }
 
     attribute_map = {
+        'available_resource_id': 'AvailableResourceId',
         'max_duration_hours': 'MaxDurationHours',
         'min_duration_hours': 'MinDurationHours',
         'recurrence_end_time': 'RecurrenceEndTime',
@@ -50,12 +52,13 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
         'reservation_type': 'ReservationType'
     }
 
-    def __init__(self, max_duration_hours=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_start_time=None, reservation_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, available_resource_id=None, max_duration_hours=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_start_time=None, reservation_type=None, _configuration=None):  # noqa: E501
         """ReservationConfigForCreateResourceReservationPlanInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._available_resource_id = None
         self._max_duration_hours = None
         self._min_duration_hours = None
         self._recurrence_end_time = None
@@ -64,6 +67,8 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
         self._reservation_type = None
         self.discriminator = None
 
+        if available_resource_id is not None:
+            self.available_resource_id = available_resource_id
         if max_duration_hours is not None:
             self.max_duration_hours = max_duration_hours
         if min_duration_hours is not None:
@@ -76,6 +81,27 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
             self.recurrence_start_time = recurrence_start_time
         if reservation_type is not None:
             self.reservation_type = reservation_type
+
+    @property
+    def available_resource_id(self):
+        """Gets the available_resource_id of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+
+
+        :return: The available_resource_id of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._available_resource_id
+
+    @available_resource_id.setter
+    def available_resource_id(self, available_resource_id):
+        """Sets the available_resource_id of this ReservationConfigForCreateResourceReservationPlanInput.
+
+
+        :param available_resource_id: The available_resource_id of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+        :type: str
+        """
+
+        self._available_resource_id = available_resource_id
 
     @property
     def max_duration_hours(self):

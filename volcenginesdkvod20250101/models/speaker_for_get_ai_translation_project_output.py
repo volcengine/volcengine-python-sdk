@@ -33,6 +33,7 @@ class SpeakerForGetAITranslationProjectOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'current_voice': 'str',
         'id': 'str',
         'name': 'str',
         'project_id': 'str',
@@ -40,24 +41,28 @@ class SpeakerForGetAITranslationProjectOutput(object):
     }
 
     attribute_map = {
+        'current_voice': 'CurrentVoice',
         'id': 'Id',
         'name': 'Name',
         'project_id': 'ProjectId',
         'voice': 'Voice'
     }
 
-    def __init__(self, id=None, name=None, project_id=None, voice=None, _configuration=None):  # noqa: E501
+    def __init__(self, current_voice=None, id=None, name=None, project_id=None, voice=None, _configuration=None):  # noqa: E501
         """SpeakerForGetAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._current_voice = None
         self._id = None
         self._name = None
         self._project_id = None
         self._voice = None
         self.discriminator = None
 
+        if current_voice is not None:
+            self.current_voice = current_voice
         if id is not None:
             self.id = id
         if name is not None:
@@ -66,6 +71,27 @@ class SpeakerForGetAITranslationProjectOutput(object):
             self.project_id = project_id
         if voice is not None:
             self.voice = voice
+
+    @property
+    def current_voice(self):
+        """Gets the current_voice of this SpeakerForGetAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The current_voice of this SpeakerForGetAITranslationProjectOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_voice
+
+    @current_voice.setter
+    def current_voice(self, current_voice):
+        """Sets the current_voice of this SpeakerForGetAITranslationProjectOutput.
+
+
+        :param current_voice: The current_voice of this SpeakerForGetAITranslationProjectOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._current_voice = current_voice
 
     @property
     def id(self):

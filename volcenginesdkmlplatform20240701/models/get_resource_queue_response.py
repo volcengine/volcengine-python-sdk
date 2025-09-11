@@ -38,6 +38,7 @@ class GetResourceQueueResponse(object):
         'description': 'str',
         'id': 'str',
         'name': 'str',
+        'project_name': 'str',
         'quota_allocated': 'QuotaAllocatedForGetResourceQueueOutput',
         'quota_capability': 'QuotaCapabilityForGetResourceQueueOutput',
         'resource_group_id': 'str',
@@ -57,6 +58,7 @@ class GetResourceQueueResponse(object):
         'description': 'Description',
         'id': 'Id',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'quota_allocated': 'QuotaAllocated',
         'quota_capability': 'QuotaCapability',
         'resource_group_id': 'ResourceGroupId',
@@ -70,7 +72,7 @@ class GetResourceQueueResponse(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_type=None, compute_resources=None, description=None, id=None, name=None, quota_allocated=None, quota_capability=None, resource_group_id=None, rules=None, shareable=None, shared_quota_allocated=None, status=None, system_quota_allocated=None, volume_resources=None, workload_infos=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, compute_resources=None, description=None, id=None, name=None, project_name=None, quota_allocated=None, quota_capability=None, resource_group_id=None, rules=None, shareable=None, shared_quota_allocated=None, status=None, system_quota_allocated=None, volume_resources=None, workload_infos=None, zone_ids=None, _configuration=None):  # noqa: E501
         """GetResourceQueueResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class GetResourceQueueResponse(object):
         self._description = None
         self._id = None
         self._name = None
+        self._project_name = None
         self._quota_allocated = None
         self._quota_capability = None
         self._resource_group_id = None
@@ -104,6 +107,8 @@ class GetResourceQueueResponse(object):
             self.id = id
         if name is not None:
             self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         if quota_allocated is not None:
             self.quota_allocated = quota_allocated
         if quota_capability is not None:
@@ -231,6 +236,27 @@ class GetResourceQueueResponse(object):
         """
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this GetResourceQueueResponse.  # noqa: E501
+
+
+        :return: The project_name of this GetResourceQueueResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this GetResourceQueueResponse.
+
+
+        :param project_name: The project_name of this GetResourceQueueResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def quota_allocated(self):

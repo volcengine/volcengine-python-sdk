@@ -33,6 +33,7 @@ class CreateServerGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cross_zone_enabled': 'str',
         'description': 'str',
         'health_check': 'HealthCheckForCreateServerGroupInput',
         'ip_address_type': 'str',
@@ -47,6 +48,7 @@ class CreateServerGroupRequest(object):
     }
 
     attribute_map = {
+        'cross_zone_enabled': 'CrossZoneEnabled',
         'description': 'Description',
         'health_check': 'HealthCheck',
         'ip_address_type': 'IPAddressType',
@@ -60,12 +62,13 @@ class CreateServerGroupRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, health_check=None, ip_address_type=None, project_name=None, protocol=None, scheduler=None, server_group_name=None, server_group_type=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cross_zone_enabled=None, description=None, health_check=None, ip_address_type=None, project_name=None, protocol=None, scheduler=None, server_group_name=None, server_group_type=None, sticky_session_config=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateServerGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cross_zone_enabled = None
         self._description = None
         self._health_check = None
         self._ip_address_type = None
@@ -79,6 +82,8 @@ class CreateServerGroupRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if cross_zone_enabled is not None:
+            self.cross_zone_enabled = cross_zone_enabled
         if description is not None:
             self.description = description
         if health_check is not None:
@@ -100,6 +105,27 @@ class CreateServerGroupRequest(object):
         if tags is not None:
             self.tags = tags
         self.vpc_id = vpc_id
+
+    @property
+    def cross_zone_enabled(self):
+        """Gets the cross_zone_enabled of this CreateServerGroupRequest.  # noqa: E501
+
+
+        :return: The cross_zone_enabled of this CreateServerGroupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cross_zone_enabled
+
+    @cross_zone_enabled.setter
+    def cross_zone_enabled(self, cross_zone_enabled):
+        """Sets the cross_zone_enabled of this CreateServerGroupRequest.
+
+
+        :param cross_zone_enabled: The cross_zone_enabled of this CreateServerGroupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cross_zone_enabled = cross_zone_enabled
 
     @property
     def description(self):

@@ -34,6 +34,7 @@ class TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput(object):
     """
     swagger_types = {
         'address': 'str',
+        'award_email': 'str',
         'email': 'str',
         'external_id': 'str',
         'extra': 'str',
@@ -51,6 +52,7 @@ class TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput(object):
 
     attribute_map = {
         'address': 'Address',
+        'award_email': 'AwardEmail',
         'email': 'Email',
         'external_id': 'ExternalId',
         'extra': 'Extra',
@@ -66,13 +68,14 @@ class TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput(object):
         'win_time': 'WinTime'
     }
 
-    def __init__(self, address=None, email=None, external_id=None, extra=None, ip=None, login_tel=None, nickname=None, phone=None, receiver_name=None, status=None, task_award_name=None, user_agent=None, user_id=None, win_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, award_email=None, email=None, external_id=None, extra=None, ip=None, login_tel=None, nickname=None, phone=None, receiver_name=None, status=None, task_award_name=None, user_agent=None, user_id=None, win_time=None, _configuration=None):  # noqa: E501
         """TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address = None
+        self._award_email = None
         self._email = None
         self._external_id = None
         self._extra = None
@@ -90,6 +93,8 @@ class TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput(object):
 
         if address is not None:
             self.address = address
+        if award_email is not None:
+            self.award_email = award_email
         if email is not None:
             self.email = email
         if external_id is not None:
@@ -137,6 +142,27 @@ class TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput(object):
         """
 
         self._address = address
+
+    @property
+    def award_email(self):
+        """Gets the award_email of this TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput.  # noqa: E501
+
+
+        :return: The award_email of this TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._award_email
+
+    @award_email.setter
+    def award_email(self, award_email):
+        """Sets the award_email of this TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput.
+
+
+        :param award_email: The award_email of this TaskAwardRecordListForGetTaskAwardRecordStatisticsAPIOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._award_email = award_email
 
     @property
     def email(self):

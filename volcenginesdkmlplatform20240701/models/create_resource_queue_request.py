@@ -37,6 +37,7 @@ class CreateResourceQueueRequest(object):
         'description': 'str',
         'dry_run': 'bool',
         'name': 'str',
+        'project_name': 'str',
         'quota': 'QuotaForCreateResourceQueueInput',
         'resource_group_id': 'str',
         'rules': 'RulesForCreateResourceQueueInput',
@@ -50,6 +51,7 @@ class CreateResourceQueueRequest(object):
         'description': 'Description',
         'dry_run': 'DryRun',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'quota': 'Quota',
         'resource_group_id': 'ResourceGroupId',
         'rules': 'Rules',
@@ -58,7 +60,7 @@ class CreateResourceQueueRequest(object):
         'workload_infos': 'WorkloadInfos'
     }
 
-    def __init__(self, compute_resources=None, description=None, dry_run=None, name=None, quota=None, resource_group_id=None, rules=None, shareable=None, volume_resources=None, workload_infos=None, _configuration=None):  # noqa: E501
+    def __init__(self, compute_resources=None, description=None, dry_run=None, name=None, project_name=None, quota=None, resource_group_id=None, rules=None, shareable=None, volume_resources=None, workload_infos=None, _configuration=None):  # noqa: E501
         """CreateResourceQueueRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class CreateResourceQueueRequest(object):
         self._description = None
         self._dry_run = None
         self._name = None
+        self._project_name = None
         self._quota = None
         self._resource_group_id = None
         self._rules = None
@@ -83,6 +86,8 @@ class CreateResourceQueueRequest(object):
         if dry_run is not None:
             self.dry_run = dry_run
         self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         if quota is not None:
             self.quota = quota
         self.resource_group_id = resource_group_id
@@ -180,6 +185,33 @@ class CreateResourceQueueRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateResourceQueueRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateResourceQueueRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateResourceQueueRequest.
+
+
+        :param project_name: The project_name of this CreateResourceQueueRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
 
     @property
     def quota(self):

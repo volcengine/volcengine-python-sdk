@@ -38,6 +38,7 @@ class CreateJobRequest(object):
         'dry_run': 'bool',
         'name': 'str',
         'observable_config': 'ObservableConfigForCreateJobInput',
+        'project_name': 'str',
         'resource_config': 'ResourceConfigForCreateJobInput',
         'retry_config': 'RetryConfigForCreateJobInput',
         'runtime_config': 'RuntimeConfigForCreateJobInput',
@@ -50,13 +51,14 @@ class CreateJobRequest(object):
         'dry_run': 'DryRun',
         'name': 'Name',
         'observable_config': 'ObservableConfig',
+        'project_name': 'ProjectName',
         'resource_config': 'ResourceConfig',
         'retry_config': 'RetryConfig',
         'runtime_config': 'RuntimeConfig',
         'storage_config': 'StorageConfig'
     }
 
-    def __init__(self, description=None, diagnose_config=None, dry_run=None, name=None, observable_config=None, resource_config=None, retry_config=None, runtime_config=None, storage_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, diagnose_config=None, dry_run=None, name=None, observable_config=None, project_name=None, resource_config=None, retry_config=None, runtime_config=None, storage_config=None, _configuration=None):  # noqa: E501
         """CreateJobRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class CreateJobRequest(object):
         self._dry_run = None
         self._name = None
         self._observable_config = None
+        self._project_name = None
         self._resource_config = None
         self._retry_config = None
         self._runtime_config = None
@@ -83,6 +86,8 @@ class CreateJobRequest(object):
             self.name = name
         if observable_config is not None:
             self.observable_config = observable_config
+        if project_name is not None:
+            self.project_name = project_name
         if resource_config is not None:
             self.resource_config = resource_config
         if retry_config is not None:
@@ -196,6 +201,33 @@ class CreateJobRequest(object):
         """
 
         self._observable_config = observable_config
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateJobRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateJobRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateJobRequest.
+
+
+        :param project_name: The project_name of this CreateJobRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
 
     @property
     def resource_config(self):

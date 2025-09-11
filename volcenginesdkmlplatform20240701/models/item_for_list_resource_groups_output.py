@@ -39,10 +39,12 @@ class ItemForListResourceGroupsOutput(object):
         'id': 'str',
         'name': 'str',
         'period_unit': 'str',
+        'project_name': 'str',
         'resource_allocated': 'ResourceAllocatedForListResourceGroupsOutput',
         'resource_capability': 'ResourceCapabilityForListResourceGroupsOutput',
         'status': 'StatusForListResourceGroupsOutput',
         'storage_config': 'StorageConfigForListResourceGroupsOutput',
+        'v_rdma_enabled': 'bool',
         'workload_network_config': 'WorkloadNetworkConfigForListResourceGroupsOutput',
         'workload_network_mode': 'str',
         'zone_ids': 'list[str]'
@@ -55,16 +57,18 @@ class ItemForListResourceGroupsOutput(object):
         'id': 'Id',
         'name': 'Name',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'resource_allocated': 'ResourceAllocated',
         'resource_capability': 'ResourceCapability',
         'status': 'Status',
         'storage_config': 'StorageConfig',
+        'v_rdma_enabled': 'VRdmaEnabled',
         'workload_network_config': 'WorkloadNetworkConfig',
         'workload_network_mode': 'WorkloadNetworkMode',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_type=None, description=None, expire_time=None, id=None, name=None, period_unit=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, description=None, expire_time=None, id=None, name=None, period_unit=None, project_name=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, v_rdma_enabled=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
         """ItemForListResourceGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,10 +80,12 @@ class ItemForListResourceGroupsOutput(object):
         self._id = None
         self._name = None
         self._period_unit = None
+        self._project_name = None
         self._resource_allocated = None
         self._resource_capability = None
         self._status = None
         self._storage_config = None
+        self._v_rdma_enabled = None
         self._workload_network_config = None
         self._workload_network_mode = None
         self._zone_ids = None
@@ -97,6 +103,8 @@ class ItemForListResourceGroupsOutput(object):
             self.name = name
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         if resource_allocated is not None:
             self.resource_allocated = resource_allocated
         if resource_capability is not None:
@@ -105,6 +113,8 @@ class ItemForListResourceGroupsOutput(object):
             self.status = status
         if storage_config is not None:
             self.storage_config = storage_config
+        if v_rdma_enabled is not None:
+            self.v_rdma_enabled = v_rdma_enabled
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
         if workload_network_mode is not None:
@@ -239,6 +249,27 @@ class ItemForListResourceGroupsOutput(object):
         self._period_unit = period_unit
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ItemForListResourceGroupsOutput.  # noqa: E501
+
+
+        :return: The project_name of this ItemForListResourceGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ItemForListResourceGroupsOutput.
+
+
+        :param project_name: The project_name of this ItemForListResourceGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def resource_allocated(self):
         """Gets the resource_allocated of this ItemForListResourceGroupsOutput.  # noqa: E501
 
@@ -321,6 +352,27 @@ class ItemForListResourceGroupsOutput(object):
         """
 
         self._storage_config = storage_config
+
+    @property
+    def v_rdma_enabled(self):
+        """Gets the v_rdma_enabled of this ItemForListResourceGroupsOutput.  # noqa: E501
+
+
+        :return: The v_rdma_enabled of this ItemForListResourceGroupsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._v_rdma_enabled
+
+    @v_rdma_enabled.setter
+    def v_rdma_enabled(self, v_rdma_enabled):
+        """Sets the v_rdma_enabled of this ItemForListResourceGroupsOutput.
+
+
+        :param v_rdma_enabled: The v_rdma_enabled of this ItemForListResourceGroupsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._v_rdma_enabled = v_rdma_enabled
 
     @property
     def workload_network_config(self):

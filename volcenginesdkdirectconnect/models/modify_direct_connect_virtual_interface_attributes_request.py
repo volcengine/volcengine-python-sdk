@@ -38,6 +38,7 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         'bfd_detect_multiplier': 'int',
         'description': 'str',
         'enable_bfd': 'bool',
+        'enable_bfd_echo': 'bool',
         'enable_nqa': 'bool',
         'local_ipv6_ip': 'str',
         'nqa_detect_interval': 'int',
@@ -53,6 +54,7 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         'bfd_detect_multiplier': 'BfdDetectMultiplier',
         'description': 'Description',
         'enable_bfd': 'EnableBfd',
+        'enable_bfd_echo': 'EnableBfdEcho',
         'enable_nqa': 'EnableNqa',
         'local_ipv6_ip': 'LocalIpv6Ip',
         'nqa_detect_interval': 'NqaDetectInterval',
@@ -62,7 +64,7 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         'virtual_interface_name': 'VirtualInterfaceName'
     }
 
-    def __init__(self, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, description=None, enable_bfd=None, enable_nqa=None, local_ipv6_ip=None, nqa_detect_interval=None, nqa_detect_multiplier=None, peer_ipv6_ip=None, virtual_interface_id=None, virtual_interface_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, bfd_detect_interval=None, bfd_detect_multiplier=None, description=None, enable_bfd=None, enable_bfd_echo=None, enable_nqa=None, local_ipv6_ip=None, nqa_detect_interval=None, nqa_detect_multiplier=None, peer_ipv6_ip=None, virtual_interface_id=None, virtual_interface_name=None, _configuration=None):  # noqa: E501
         """ModifyDirectConnectVirtualInterfaceAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         self._bfd_detect_multiplier = None
         self._description = None
         self._enable_bfd = None
+        self._enable_bfd_echo = None
         self._enable_nqa = None
         self._local_ipv6_ip = None
         self._nqa_detect_interval = None
@@ -92,6 +95,8 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
             self.description = description
         if enable_bfd is not None:
             self.enable_bfd = enable_bfd
+        if enable_bfd_echo is not None:
+            self.enable_bfd_echo = enable_bfd_echo
         if enable_nqa is not None:
             self.enable_nqa = enable_nqa
         if local_ipv6_ip is not None:
@@ -228,6 +233,27 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest(object):
         """
 
         self._enable_bfd = enable_bfd
+
+    @property
+    def enable_bfd_echo(self):
+        """Gets the enable_bfd_echo of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+
+
+        :return: The enable_bfd_echo of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_bfd_echo
+
+    @enable_bfd_echo.setter
+    def enable_bfd_echo(self, enable_bfd_echo):
+        """Sets the enable_bfd_echo of this ModifyDirectConnectVirtualInterfaceAttributesRequest.
+
+
+        :param enable_bfd_echo: The enable_bfd_echo of this ModifyDirectConnectVirtualInterfaceAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_bfd_echo = enable_bfd_echo
 
     @property
     def enable_nqa(self):

@@ -34,6 +34,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
     """
     swagger_types = {
         'create_time': 'str',
+        'cross_zone_enabled': 'str',
         'description': 'str',
         'health_check': 'HealthCheckForDescribeServerGroupsOutput',
         'ip_address_type': 'str',
@@ -54,6 +55,7 @@ class ServerGroupForDescribeServerGroupsOutput(object):
 
     attribute_map = {
         'create_time': 'CreateTime',
+        'cross_zone_enabled': 'CrossZoneEnabled',
         'description': 'Description',
         'health_check': 'HealthCheck',
         'ip_address_type': 'IPAddressType',
@@ -72,13 +74,14 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, create_time=None, description=None, health_check=None, ip_address_type=None, listeners=None, project_name=None, protocol=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, server_group_type=None, status=None, sticky_session_config=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, cross_zone_enabled=None, description=None, health_check=None, ip_address_type=None, listeners=None, project_name=None, protocol=None, scheduler=None, server_count=None, server_group_id=None, server_group_name=None, server_group_type=None, status=None, sticky_session_config=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """ServerGroupForDescribeServerGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._create_time = None
+        self._cross_zone_enabled = None
         self._description = None
         self._health_check = None
         self._ip_address_type = None
@@ -99,6 +102,8 @@ class ServerGroupForDescribeServerGroupsOutput(object):
 
         if create_time is not None:
             self.create_time = create_time
+        if cross_zone_enabled is not None:
+            self.cross_zone_enabled = cross_zone_enabled
         if description is not None:
             self.description = description
         if health_check is not None:
@@ -152,6 +157,27 @@ class ServerGroupForDescribeServerGroupsOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def cross_zone_enabled(self):
+        """Gets the cross_zone_enabled of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+
+
+        :return: The cross_zone_enabled of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cross_zone_enabled
+
+    @cross_zone_enabled.setter
+    def cross_zone_enabled(self, cross_zone_enabled):
+        """Sets the cross_zone_enabled of this ServerGroupForDescribeServerGroupsOutput.
+
+
+        :param cross_zone_enabled: The cross_zone_enabled of this ServerGroupForDescribeServerGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cross_zone_enabled = cross_zone_enabled
 
     @property
     def description(self):

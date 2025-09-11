@@ -43,6 +43,7 @@ class GetServiceResponse(object):
         'id': 'str',
         'name': 'str',
         'ports': 'list[PortForGetServiceOutput]',
+        'project_name': 'str',
         'status': 'ConvertStatusForGetServiceOutput',
         'traffic_config': 'ConvertTrafficConfigForGetServiceOutput',
         'update_time': 'str',
@@ -60,13 +61,14 @@ class GetServiceResponse(object):
         'id': 'Id',
         'name': 'Name',
         'ports': 'Ports',
+        'project_name': 'ProjectName',
         'status': 'Status',
         'traffic_config': 'TrafficConfig',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, apig_config=None, clb_config=None, create_time=None, created_by=None, deployments=None, description=None, history_versions=None, id=None, name=None, ports=None, status=None, traffic_config=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, apig_config=None, clb_config=None, create_time=None, created_by=None, deployments=None, description=None, history_versions=None, id=None, name=None, ports=None, project_name=None, status=None, traffic_config=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """GetServiceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class GetServiceResponse(object):
         self._id = None
         self._name = None
         self._ports = None
+        self._project_name = None
         self._status = None
         self._traffic_config = None
         self._update_time = None
@@ -108,6 +111,8 @@ class GetServiceResponse(object):
             self.name = name
         if ports is not None:
             self.ports = ports
+        if project_name is not None:
+            self.project_name = project_name
         if status is not None:
             self.status = status
         if traffic_config is not None:
@@ -326,6 +331,27 @@ class GetServiceResponse(object):
         """
 
         self._ports = ports
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this GetServiceResponse.  # noqa: E501
+
+
+        :return: The project_name of this GetServiceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this GetServiceResponse.
+
+
+        :param project_name: The project_name of this GetServiceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def status(self):

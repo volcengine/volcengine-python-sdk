@@ -41,9 +41,11 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         'error_msg': 'str',
         'facial_translation_video': 'FacialTranslationVideoForGetAITranslationProjectOutput',
         'foreground_audio': 'ForegroundAudioForGetAITranslationProjectOutput',
+        'input_subtitle': 'InputSubtitleForGetAITranslationProjectOutput',
         'input_video': 'InputVideoForGetAITranslationProjectOutput',
         'input_video_title': 'str',
         'operator_config': 'OperatorConfigForGetAITranslationProjectOutput',
+        'output_subtitle': 'OutputSubtitleForGetAITranslationProjectOutput',
         'output_video': 'OutputVideoForGetAITranslationProjectOutput',
         'preview_video': 'PreviewVideoForGetAITranslationProjectOutput',
         'preview_video_muted': 'PreviewVideoMutedForGetAITranslationProjectOutput',
@@ -74,9 +76,11 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         'error_msg': 'ErrorMsg',
         'facial_translation_video': 'FacialTranslationVideo',
         'foreground_audio': 'ForegroundAudio',
+        'input_subtitle': 'InputSubtitle',
         'input_video': 'InputVideo',
         'input_video_title': 'InputVideoTitle',
         'operator_config': 'OperatorConfig',
+        'output_subtitle': 'OutputSubtitle',
         'output_video': 'OutputVideo',
         'preview_video': 'PreviewVideo',
         'preview_video_muted': 'PreviewVideoMuted',
@@ -98,7 +102,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         'workflow_id': 'WorkflowId'
     }
 
-    def __init__(self, background_audio=None, background_clip=None, created_at=None, erased_subtitle_video=None, error_code=None, error_msg=None, facial_translation_video=None, foreground_audio=None, input_video=None, input_video_title=None, operator_config=None, output_video=None, preview_video=None, preview_video_muted=None, project_id=None, project_version=None, source_blueprints=None, source_clips=None, source_tracks=None, source_utterances=None, speakers=None, status=None, target_blueprints=None, target_clips=None, target_tracks=None, target_utterances=None, translation_type_list=None, updated_at=None, voice_translation_video=None, workflow_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, background_audio=None, background_clip=None, created_at=None, erased_subtitle_video=None, error_code=None, error_msg=None, facial_translation_video=None, foreground_audio=None, input_subtitle=None, input_video=None, input_video_title=None, operator_config=None, output_subtitle=None, output_video=None, preview_video=None, preview_video_muted=None, project_id=None, project_version=None, source_blueprints=None, source_clips=None, source_tracks=None, source_utterances=None, speakers=None, status=None, target_blueprints=None, target_clips=None, target_tracks=None, target_utterances=None, translation_type_list=None, updated_at=None, voice_translation_video=None, workflow_id=None, _configuration=None):  # noqa: E501
         """ProjectInfoForGetAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -112,9 +116,11 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         self._error_msg = None
         self._facial_translation_video = None
         self._foreground_audio = None
+        self._input_subtitle = None
         self._input_video = None
         self._input_video_title = None
         self._operator_config = None
+        self._output_subtitle = None
         self._output_video = None
         self._preview_video = None
         self._preview_video_muted = None
@@ -152,12 +158,16 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
             self.facial_translation_video = facial_translation_video
         if foreground_audio is not None:
             self.foreground_audio = foreground_audio
+        if input_subtitle is not None:
+            self.input_subtitle = input_subtitle
         if input_video is not None:
             self.input_video = input_video
         if input_video_title is not None:
             self.input_video_title = input_video_title
         if operator_config is not None:
             self.operator_config = operator_config
+        if output_subtitle is not None:
+            self.output_subtitle = output_subtitle
         if output_video is not None:
             self.output_video = output_video
         if preview_video is not None:
@@ -366,6 +376,27 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         self._foreground_audio = foreground_audio
 
     @property
+    def input_subtitle(self):
+        """Gets the input_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The input_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+        :rtype: InputSubtitleForGetAITranslationProjectOutput
+        """
+        return self._input_subtitle
+
+    @input_subtitle.setter
+    def input_subtitle(self, input_subtitle):
+        """Sets the input_subtitle of this ProjectInfoForGetAITranslationProjectOutput.
+
+
+        :param input_subtitle: The input_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+        :type: InputSubtitleForGetAITranslationProjectOutput
+        """
+
+        self._input_subtitle = input_subtitle
+
+    @property
     def input_video(self):
         """Gets the input_video of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
 
@@ -427,6 +458,27 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         """
 
         self._operator_config = operator_config
+
+    @property
+    def output_subtitle(self):
+        """Gets the output_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The output_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+        :rtype: OutputSubtitleForGetAITranslationProjectOutput
+        """
+        return self._output_subtitle
+
+    @output_subtitle.setter
+    def output_subtitle(self, output_subtitle):
+        """Sets the output_subtitle of this ProjectInfoForGetAITranslationProjectOutput.
+
+
+        :param output_subtitle: The output_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+        :type: OutputSubtitleForGetAITranslationProjectOutput
+        """
+
+        self._output_subtitle = output_subtitle
 
     @property
     def output_video(self):
