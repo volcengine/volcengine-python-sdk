@@ -37,9 +37,12 @@ class CreateResourceReservationPlanRequest(object):
         'description': 'str',
         'dry_run': 'bool',
         'name': 'str',
+        'project_name': 'str',
         'reservation_config': 'ReservationConfigForCreateResourceReservationPlanInput',
+        'schedule_config': 'ScheduleConfigForCreateResourceReservationPlanInput',
         'storage_config': 'StorageConfigForCreateResourceReservationPlanInput',
-        'workload_network_config': 'WorkloadNetworkConfigForCreateResourceReservationPlanInput'
+        'workload_network_config': 'WorkloadNetworkConfigForCreateResourceReservationPlanInput',
+        'workload_network_mode': 'str'
     }
 
     attribute_map = {
@@ -47,12 +50,15 @@ class CreateResourceReservationPlanRequest(object):
         'description': 'Description',
         'dry_run': 'DryRun',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'reservation_config': 'ReservationConfig',
+        'schedule_config': 'ScheduleConfig',
         'storage_config': 'StorageConfig',
-        'workload_network_config': 'WorkloadNetworkConfig'
+        'workload_network_config': 'WorkloadNetworkConfig',
+        'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, compute_resource=None, description=None, dry_run=None, name=None, reservation_config=None, storage_config=None, workload_network_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, compute_resource=None, description=None, dry_run=None, name=None, project_name=None, reservation_config=None, schedule_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """CreateResourceReservationPlanRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,9 +68,12 @@ class CreateResourceReservationPlanRequest(object):
         self._description = None
         self._dry_run = None
         self._name = None
+        self._project_name = None
         self._reservation_config = None
+        self._schedule_config = None
         self._storage_config = None
         self._workload_network_config = None
+        self._workload_network_mode = None
         self.discriminator = None
 
         if compute_resource is not None:
@@ -74,12 +83,18 @@ class CreateResourceReservationPlanRequest(object):
         if dry_run is not None:
             self.dry_run = dry_run
         self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         if reservation_config is not None:
             self.reservation_config = reservation_config
+        if schedule_config is not None:
+            self.schedule_config = schedule_config
         if storage_config is not None:
             self.storage_config = storage_config
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
+        if workload_network_mode is not None:
+            self.workload_network_mode = workload_network_mode
 
     @property
     def compute_resource(self):
@@ -180,6 +195,33 @@ class CreateResourceReservationPlanRequest(object):
         self._name = name
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateResourceReservationPlanRequest.
+
+
+        :param project_name: The project_name of this CreateResourceReservationPlanRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
+
+    @property
     def reservation_config(self):
         """Gets the reservation_config of this CreateResourceReservationPlanRequest.  # noqa: E501
 
@@ -199,6 +241,27 @@ class CreateResourceReservationPlanRequest(object):
         """
 
         self._reservation_config = reservation_config
+
+    @property
+    def schedule_config(self):
+        """Gets the schedule_config of this CreateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The schedule_config of this CreateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: ScheduleConfigForCreateResourceReservationPlanInput
+        """
+        return self._schedule_config
+
+    @schedule_config.setter
+    def schedule_config(self, schedule_config):
+        """Sets the schedule_config of this CreateResourceReservationPlanRequest.
+
+
+        :param schedule_config: The schedule_config of this CreateResourceReservationPlanRequest.  # noqa: E501
+        :type: ScheduleConfigForCreateResourceReservationPlanInput
+        """
+
+        self._schedule_config = schedule_config
 
     @property
     def storage_config(self):
@@ -241,6 +304,27 @@ class CreateResourceReservationPlanRequest(object):
         """
 
         self._workload_network_config = workload_network_config
+
+    @property
+    def workload_network_mode(self):
+        """Gets the workload_network_mode of this CreateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The workload_network_mode of this CreateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_network_mode
+
+    @workload_network_mode.setter
+    def workload_network_mode(self, workload_network_mode):
+        """Sets the workload_network_mode of this CreateResourceReservationPlanRequest.
+
+
+        :param workload_network_mode: The workload_network_mode of this CreateResourceReservationPlanRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_network_mode = workload_network_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

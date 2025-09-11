@@ -41,12 +41,14 @@ class GetResourceGroupResponse(object):
         'm_gpu_enabled': 'bool',
         'name': 'str',
         'period_unit': 'str',
+        'project_name': 'str',
         'remain_auto_renew_times': 'int',
         'renew_type': 'int',
         'resource_allocated': 'ResourceAllocatedForGetResourceGroupOutput',
         'resource_capability': 'ResourceCapabilityForGetResourceGroupOutput',
         'status': 'StatusForGetResourceGroupOutput',
         'storage_config': 'StorageConfigForGetResourceGroupOutput',
+        'v_rdma_enabled': 'bool',
         'workload_network_config': 'WorkloadNetworkConfigForGetResourceGroupOutput',
         'workload_network_mode': 'str',
         'zone_ids': 'list[str]'
@@ -61,18 +63,20 @@ class GetResourceGroupResponse(object):
         'm_gpu_enabled': 'MGpuEnabled',
         'name': 'Name',
         'period_unit': 'PeriodUnit',
+        'project_name': 'ProjectName',
         'remain_auto_renew_times': 'RemainAutoRenewTimes',
         'renew_type': 'RenewType',
         'resource_allocated': 'ResourceAllocated',
         'resource_capability': 'ResourceCapability',
         'status': 'Status',
         'storage_config': 'StorageConfig',
+        'v_rdma_enabled': 'VRdmaEnabled',
         'workload_network_config': 'WorkloadNetworkConfig',
         'workload_network_mode': 'WorkloadNetworkMode',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, auto_renew_period=None, charge_type=None, description=None, expire_time=None, id=None, m_gpu_enabled=None, name=None, period_unit=None, remain_auto_renew_times=None, renew_type=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renew_period=None, charge_type=None, description=None, expire_time=None, id=None, m_gpu_enabled=None, name=None, period_unit=None, project_name=None, remain_auto_renew_times=None, renew_type=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, v_rdma_enabled=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
         """GetResourceGroupResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,12 +90,14 @@ class GetResourceGroupResponse(object):
         self._m_gpu_enabled = None
         self._name = None
         self._period_unit = None
+        self._project_name = None
         self._remain_auto_renew_times = None
         self._renew_type = None
         self._resource_allocated = None
         self._resource_capability = None
         self._status = None
         self._storage_config = None
+        self._v_rdma_enabled = None
         self._workload_network_config = None
         self._workload_network_mode = None
         self._zone_ids = None
@@ -113,6 +119,8 @@ class GetResourceGroupResponse(object):
             self.name = name
         if period_unit is not None:
             self.period_unit = period_unit
+        if project_name is not None:
+            self.project_name = project_name
         if remain_auto_renew_times is not None:
             self.remain_auto_renew_times = remain_auto_renew_times
         if renew_type is not None:
@@ -125,6 +133,8 @@ class GetResourceGroupResponse(object):
             self.status = status
         if storage_config is not None:
             self.storage_config = storage_config
+        if v_rdma_enabled is not None:
+            self.v_rdma_enabled = v_rdma_enabled
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
         if workload_network_mode is not None:
@@ -301,6 +311,27 @@ class GetResourceGroupResponse(object):
         self._period_unit = period_unit
 
     @property
+    def project_name(self):
+        """Gets the project_name of this GetResourceGroupResponse.  # noqa: E501
+
+
+        :return: The project_name of this GetResourceGroupResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this GetResourceGroupResponse.
+
+
+        :param project_name: The project_name of this GetResourceGroupResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def remain_auto_renew_times(self):
         """Gets the remain_auto_renew_times of this GetResourceGroupResponse.  # noqa: E501
 
@@ -425,6 +456,27 @@ class GetResourceGroupResponse(object):
         """
 
         self._storage_config = storage_config
+
+    @property
+    def v_rdma_enabled(self):
+        """Gets the v_rdma_enabled of this GetResourceGroupResponse.  # noqa: E501
+
+
+        :return: The v_rdma_enabled of this GetResourceGroupResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._v_rdma_enabled
+
+    @v_rdma_enabled.setter
+    def v_rdma_enabled(self, v_rdma_enabled):
+        """Sets the v_rdma_enabled of this GetResourceGroupResponse.
+
+
+        :param v_rdma_enabled: The v_rdma_enabled of this GetResourceGroupResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._v_rdma_enabled = v_rdma_enabled
 
     @property
     def workload_network_config(self):

@@ -35,16 +35,18 @@ class ListResourceClaimOptionsRequest(object):
     swagger_types = {
         'preemptible': 'bool',
         'resource_queue_id': 'str',
+        'resource_reservation_plan_id': 'str',
         'support_status': 'str'
     }
 
     attribute_map = {
         'preemptible': 'Preemptible',
         'resource_queue_id': 'ResourceQueueId',
+        'resource_reservation_plan_id': 'ResourceReservationPlanId',
         'support_status': 'SupportStatus'
     }
 
-    def __init__(self, preemptible=None, resource_queue_id=None, support_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, preemptible=None, resource_queue_id=None, resource_reservation_plan_id=None, support_status=None, _configuration=None):  # noqa: E501
         """ListResourceClaimOptionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class ListResourceClaimOptionsRequest(object):
 
         self._preemptible = None
         self._resource_queue_id = None
+        self._resource_reservation_plan_id = None
         self._support_status = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class ListResourceClaimOptionsRequest(object):
             self.preemptible = preemptible
         if resource_queue_id is not None:
             self.resource_queue_id = resource_queue_id
+        if resource_reservation_plan_id is not None:
+            self.resource_reservation_plan_id = resource_reservation_plan_id
         if support_status is not None:
             self.support_status = support_status
 
@@ -103,6 +108,27 @@ class ListResourceClaimOptionsRequest(object):
         """
 
         self._resource_queue_id = resource_queue_id
+
+    @property
+    def resource_reservation_plan_id(self):
+        """Gets the resource_reservation_plan_id of this ListResourceClaimOptionsRequest.  # noqa: E501
+
+
+        :return: The resource_reservation_plan_id of this ListResourceClaimOptionsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_reservation_plan_id
+
+    @resource_reservation_plan_id.setter
+    def resource_reservation_plan_id(self, resource_reservation_plan_id):
+        """Sets the resource_reservation_plan_id of this ListResourceClaimOptionsRequest.
+
+
+        :param resource_reservation_plan_id: The resource_reservation_plan_id of this ListResourceClaimOptionsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_reservation_plan_id = resource_reservation_plan_id
 
     @property
     def support_status(self):
