@@ -33,6 +33,7 @@ class ModifyServerGroupAttributesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cross_zone_enabled': 'str',
         'description': 'str',
         'health_check': 'HealthCheckForModifyServerGroupAttributesInput',
         'scheduler': 'str',
@@ -42,6 +43,7 @@ class ModifyServerGroupAttributesRequest(object):
     }
 
     attribute_map = {
+        'cross_zone_enabled': 'CrossZoneEnabled',
         'description': 'Description',
         'health_check': 'HealthCheck',
         'scheduler': 'Scheduler',
@@ -50,12 +52,13 @@ class ModifyServerGroupAttributesRequest(object):
         'sticky_session_config': 'StickySessionConfig'
     }
 
-    def __init__(self, description=None, health_check=None, scheduler=None, server_group_id=None, server_group_name=None, sticky_session_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, cross_zone_enabled=None, description=None, health_check=None, scheduler=None, server_group_id=None, server_group_name=None, sticky_session_config=None, _configuration=None):  # noqa: E501
         """ModifyServerGroupAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cross_zone_enabled = None
         self._description = None
         self._health_check = None
         self._scheduler = None
@@ -64,6 +67,8 @@ class ModifyServerGroupAttributesRequest(object):
         self._sticky_session_config = None
         self.discriminator = None
 
+        if cross_zone_enabled is not None:
+            self.cross_zone_enabled = cross_zone_enabled
         if description is not None:
             self.description = description
         if health_check is not None:
@@ -75,6 +80,27 @@ class ModifyServerGroupAttributesRequest(object):
             self.server_group_name = server_group_name
         if sticky_session_config is not None:
             self.sticky_session_config = sticky_session_config
+
+    @property
+    def cross_zone_enabled(self):
+        """Gets the cross_zone_enabled of this ModifyServerGroupAttributesRequest.  # noqa: E501
+
+
+        :return: The cross_zone_enabled of this ModifyServerGroupAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cross_zone_enabled
+
+    @cross_zone_enabled.setter
+    def cross_zone_enabled(self, cross_zone_enabled):
+        """Sets the cross_zone_enabled of this ModifyServerGroupAttributesRequest.
+
+
+        :param cross_zone_enabled: The cross_zone_enabled of this ModifyServerGroupAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cross_zone_enabled = cross_zone_enabled
 
     @property
     def description(self):
