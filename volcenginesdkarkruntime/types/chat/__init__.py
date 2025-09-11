@@ -1,4 +1,14 @@
-# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
 
 from __future__ import annotations
 
@@ -7,7 +17,18 @@ from .chat_completion_role import ChatCompletionRole as ChatCompletionRole
 from .chat_completion_chunk import ChatCompletionChunk as ChatCompletionChunk
 from .chat_completion_message import ChatCompletionMessage as ChatCompletionMessage
 from .completion_create_params import CompletionCreateParams as CompletionCreateParams
-from .chat_completion_stream_options_param import ChatCompletionStreamOptionsParam as ChatCompletionStreamOptionsParam
+from .parsed_chat_completion import (
+    ParsedChoice as ParsedChoice,
+    ParsedChatCompletion as ParsedChatCompletion,
+    ParsedChatCompletionMessage as ParsedChatCompletionMessage,
+)
+from .parsed_function_tool_call import (
+    ParsedFunction as ParsedFunction,
+    ParsedFunctionToolCall as ParsedFunctionToolCall,
+)
+from .chat_completion_stream_options_param import (
+    ChatCompletionStreamOptionsParam as ChatCompletionStreamOptionsParam,
+)
 from .chat_completion_tool_param import (
     ChatCompletionToolParam as ChatCompletionToolParam,
 )

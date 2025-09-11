@@ -35,8 +35,10 @@ class DnsScheduleForListDnsSchedulesOutput(object):
     swagger_types = {
         'cloud_account_ids': 'list[str]',
         'created_at': 'int',
+        'created_time': 'str',
         'domain_name': 'str',
         'id': 'str',
+        'project_name': 'str',
         'region': 'str',
         'schedule_cname': 'str',
         'schedule_status': 'str',
@@ -48,8 +50,10 @@ class DnsScheduleForListDnsSchedulesOutput(object):
     attribute_map = {
         'cloud_account_ids': 'CloudAccountIds',
         'created_at': 'CreatedAt',
+        'created_time': 'CreatedTime',
         'domain_name': 'DomainName',
         'id': 'Id',
+        'project_name': 'ProjectName',
         'region': 'Region',
         'schedule_cname': 'ScheduleCname',
         'schedule_status': 'ScheduleStatus',
@@ -58,7 +62,7 @@ class DnsScheduleForListDnsSchedulesOutput(object):
         'vendors': 'Vendors'
     }
 
-    def __init__(self, cloud_account_ids=None, created_at=None, domain_name=None, id=None, region=None, schedule_cname=None, schedule_status=None, schedule_strategies=None, updated_at=None, vendors=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_account_ids=None, created_at=None, created_time=None, domain_name=None, id=None, project_name=None, region=None, schedule_cname=None, schedule_status=None, schedule_strategies=None, updated_at=None, vendors=None, _configuration=None):  # noqa: E501
         """DnsScheduleForListDnsSchedulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,8 +70,10 @@ class DnsScheduleForListDnsSchedulesOutput(object):
 
         self._cloud_account_ids = None
         self._created_at = None
+        self._created_time = None
         self._domain_name = None
         self._id = None
+        self._project_name = None
         self._region = None
         self._schedule_cname = None
         self._schedule_status = None
@@ -80,10 +86,14 @@ class DnsScheduleForListDnsSchedulesOutput(object):
             self.cloud_account_ids = cloud_account_ids
         if created_at is not None:
             self.created_at = created_at
+        if created_time is not None:
+            self.created_time = created_time
         if domain_name is not None:
             self.domain_name = domain_name
         if id is not None:
             self.id = id
+        if project_name is not None:
+            self.project_name = project_name
         if region is not None:
             self.region = region
         if schedule_cname is not None:
@@ -140,6 +150,27 @@ class DnsScheduleForListDnsSchedulesOutput(object):
         self._created_at = created_at
 
     @property
+    def created_time(self):
+        """Gets the created_time of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+
+
+        :return: The created_time of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_time
+
+    @created_time.setter
+    def created_time(self, created_time):
+        """Sets the created_time of this DnsScheduleForListDnsSchedulesOutput.
+
+
+        :param created_time: The created_time of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._created_time = created_time
+
+    @property
     def domain_name(self):
         """Gets the domain_name of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
 
@@ -180,6 +211,27 @@ class DnsScheduleForListDnsSchedulesOutput(object):
         """
 
         self._id = id
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+
+
+        :return: The project_name of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DnsScheduleForListDnsSchedulesOutput.
+
+
+        :param project_name: The project_name of this DnsScheduleForListDnsSchedulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def region(self):

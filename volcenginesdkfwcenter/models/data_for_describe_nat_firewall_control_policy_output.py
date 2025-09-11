@@ -40,19 +40,23 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         'dest_port_group_list': 'list[str]',
         'dest_port_group_type': 'str',
         'dest_port_list': 'list[str]',
+        'dest_port_list_v1': 'list[DestPortListV1ForDescribeNatFirewallControlPolicyOutput]',
         'dest_port_type': 'str',
         'destination': 'str',
         'destination_cidr_list': 'list[str]',
+        'destination_cidr_list_v1': 'list[DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput]',
+        'destination_domain_list': 'list[str]',
         'destination_group_list': 'list[str]',
         'destination_group_type': 'str',
         'destination_type': 'str',
         'direction': 'str',
         'effect_status': 'int',
         'end_time': 'int',
+        'firewall_id': 'str',
         'hit_cnt': 'int',
+        'ip_type': 'str',
         'is_effected': 'bool',
         'last_hit_time': 'int',
-        'nat_firewall_id': 'str',
         'prio': 'int',
         'proto': 'str',
         'repeat_days': 'list[int]',
@@ -62,6 +66,7 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         'rule_id': 'str',
         'source': 'str',
         'source_cidr_list': 'list[str]',
+        'source_cidr_list_v1': 'list[SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput]',
         'source_group_list': 'list[str]',
         'source_group_type': 'str',
         'source_type': 'str',
@@ -79,19 +84,23 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         'dest_port_group_list': 'DestPortGroupList',
         'dest_port_group_type': 'DestPortGroupType',
         'dest_port_list': 'DestPortList',
+        'dest_port_list_v1': 'DestPortListV1',
         'dest_port_type': 'DestPortType',
         'destination': 'Destination',
         'destination_cidr_list': 'DestinationCidrList',
+        'destination_cidr_list_v1': 'DestinationCidrListV1',
+        'destination_domain_list': 'DestinationDomainList',
         'destination_group_list': 'DestinationGroupList',
         'destination_group_type': 'DestinationGroupType',
         'destination_type': 'DestinationType',
         'direction': 'Direction',
         'effect_status': 'EffectStatus',
         'end_time': 'EndTime',
+        'firewall_id': 'FirewallId',
         'hit_cnt': 'HitCnt',
+        'ip_type': 'IpType',
         'is_effected': 'IsEffected',
         'last_hit_time': 'LastHitTime',
-        'nat_firewall_id': 'NatFirewallId',
         'prio': 'Prio',
         'proto': 'Proto',
         'repeat_days': 'RepeatDays',
@@ -101,6 +110,7 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         'rule_id': 'RuleId',
         'source': 'Source',
         'source_cidr_list': 'SourceCidrList',
+        'source_cidr_list_v1': 'SourceCidrListV1',
         'source_group_list': 'SourceGroupList',
         'source_group_type': 'SourceGroupType',
         'source_type': 'SourceType',
@@ -110,7 +120,7 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         'use_count': 'UseCount'
     }
 
-    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_list=None, dest_port_group_type=None, dest_port_list=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_group_list=None, destination_group_type=None, destination_type=None, direction=None, effect_status=None, end_time=None, hit_cnt=None, is_effected=None, last_hit_time=None, nat_firewall_id=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_group_list=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, action=None, description=None, dest_port=None, dest_port_group_list=None, dest_port_group_type=None, dest_port_list=None, dest_port_list_v1=None, dest_port_type=None, destination=None, destination_cidr_list=None, destination_cidr_list_v1=None, destination_domain_list=None, destination_group_list=None, destination_group_type=None, destination_type=None, direction=None, effect_status=None, end_time=None, firewall_id=None, hit_cnt=None, ip_type=None, is_effected=None, last_hit_time=None, prio=None, proto=None, repeat_days=None, repeat_end_time=None, repeat_start_time=None, repeat_type=None, rule_id=None, source=None, source_cidr_list=None, source_cidr_list_v1=None, source_group_list=None, source_group_type=None, source_type=None, start_time=None, status=None, update_time=None, use_count=None, _configuration=None):  # noqa: E501
         """DataForDescribeNatFirewallControlPolicyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -123,19 +133,23 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         self._dest_port_group_list = None
         self._dest_port_group_type = None
         self._dest_port_list = None
+        self._dest_port_list_v1 = None
         self._dest_port_type = None
         self._destination = None
         self._destination_cidr_list = None
+        self._destination_cidr_list_v1 = None
+        self._destination_domain_list = None
         self._destination_group_list = None
         self._destination_group_type = None
         self._destination_type = None
         self._direction = None
         self._effect_status = None
         self._end_time = None
+        self._firewall_id = None
         self._hit_cnt = None
+        self._ip_type = None
         self._is_effected = None
         self._last_hit_time = None
-        self._nat_firewall_id = None
         self._prio = None
         self._proto = None
         self._repeat_days = None
@@ -145,6 +159,7 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         self._rule_id = None
         self._source = None
         self._source_cidr_list = None
+        self._source_cidr_list_v1 = None
         self._source_group_list = None
         self._source_group_type = None
         self._source_type = None
@@ -168,12 +183,18 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
             self.dest_port_group_type = dest_port_group_type
         if dest_port_list is not None:
             self.dest_port_list = dest_port_list
+        if dest_port_list_v1 is not None:
+            self.dest_port_list_v1 = dest_port_list_v1
         if dest_port_type is not None:
             self.dest_port_type = dest_port_type
         if destination is not None:
             self.destination = destination
         if destination_cidr_list is not None:
             self.destination_cidr_list = destination_cidr_list
+        if destination_cidr_list_v1 is not None:
+            self.destination_cidr_list_v1 = destination_cidr_list_v1
+        if destination_domain_list is not None:
+            self.destination_domain_list = destination_domain_list
         if destination_group_list is not None:
             self.destination_group_list = destination_group_list
         if destination_group_type is not None:
@@ -186,14 +207,16 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
             self.effect_status = effect_status
         if end_time is not None:
             self.end_time = end_time
+        if firewall_id is not None:
+            self.firewall_id = firewall_id
         if hit_cnt is not None:
             self.hit_cnt = hit_cnt
+        if ip_type is not None:
+            self.ip_type = ip_type
         if is_effected is not None:
             self.is_effected = is_effected
         if last_hit_time is not None:
             self.last_hit_time = last_hit_time
-        if nat_firewall_id is not None:
-            self.nat_firewall_id = nat_firewall_id
         if prio is not None:
             self.prio = prio
         if proto is not None:
@@ -212,6 +235,8 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
             self.source = source
         if source_cidr_list is not None:
             self.source_cidr_list = source_cidr_list
+        if source_cidr_list_v1 is not None:
+            self.source_cidr_list_v1 = source_cidr_list_v1
         if source_group_list is not None:
             self.source_group_list = source_group_list
         if source_group_type is not None:
@@ -375,6 +400,27 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         self._dest_port_list = dest_port_list
 
     @property
+    def dest_port_list_v1(self):
+        """Gets the dest_port_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+
+
+        :return: The dest_port_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :rtype: list[DestPortListV1ForDescribeNatFirewallControlPolicyOutput]
+        """
+        return self._dest_port_list_v1
+
+    @dest_port_list_v1.setter
+    def dest_port_list_v1(self, dest_port_list_v1):
+        """Sets the dest_port_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.
+
+
+        :param dest_port_list_v1: The dest_port_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :type: list[DestPortListV1ForDescribeNatFirewallControlPolicyOutput]
+        """
+
+        self._dest_port_list_v1 = dest_port_list_v1
+
+    @property
     def dest_port_type(self):
         """Gets the dest_port_type of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
 
@@ -436,6 +482,48 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         """
 
         self._destination_cidr_list = destination_cidr_list
+
+    @property
+    def destination_cidr_list_v1(self):
+        """Gets the destination_cidr_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+
+
+        :return: The destination_cidr_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :rtype: list[DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput]
+        """
+        return self._destination_cidr_list_v1
+
+    @destination_cidr_list_v1.setter
+    def destination_cidr_list_v1(self, destination_cidr_list_v1):
+        """Sets the destination_cidr_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.
+
+
+        :param destination_cidr_list_v1: The destination_cidr_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :type: list[DestinationCidrListV1ForDescribeNatFirewallControlPolicyOutput]
+        """
+
+        self._destination_cidr_list_v1 = destination_cidr_list_v1
+
+    @property
+    def destination_domain_list(self):
+        """Gets the destination_domain_list of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+
+
+        :return: The destination_domain_list of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._destination_domain_list
+
+    @destination_domain_list.setter
+    def destination_domain_list(self, destination_domain_list):
+        """Sets the destination_domain_list of this DataForDescribeNatFirewallControlPolicyOutput.
+
+
+        :param destination_domain_list: The destination_domain_list of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._destination_domain_list = destination_domain_list
 
     @property
     def destination_group_list(self):
@@ -564,6 +652,27 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         self._end_time = end_time
 
     @property
+    def firewall_id(self):
+        """Gets the firewall_id of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+
+
+        :return: The firewall_id of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._firewall_id
+
+    @firewall_id.setter
+    def firewall_id(self, firewall_id):
+        """Sets the firewall_id of this DataForDescribeNatFirewallControlPolicyOutput.
+
+
+        :param firewall_id: The firewall_id of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._firewall_id = firewall_id
+
+    @property
     def hit_cnt(self):
         """Gets the hit_cnt of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
 
@@ -583,6 +692,27 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         """
 
         self._hit_cnt = hit_cnt
+
+    @property
+    def ip_type(self):
+        """Gets the ip_type of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+
+
+        :return: The ip_type of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_type
+
+    @ip_type.setter
+    def ip_type(self, ip_type):
+        """Sets the ip_type of this DataForDescribeNatFirewallControlPolicyOutput.
+
+
+        :param ip_type: The ip_type of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_type = ip_type
 
     @property
     def is_effected(self):
@@ -625,27 +755,6 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         """
 
         self._last_hit_time = last_hit_time
-
-    @property
-    def nat_firewall_id(self):
-        """Gets the nat_firewall_id of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
-
-
-        :return: The nat_firewall_id of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._nat_firewall_id
-
-    @nat_firewall_id.setter
-    def nat_firewall_id(self, nat_firewall_id):
-        """Sets the nat_firewall_id of this DataForDescribeNatFirewallControlPolicyOutput.
-
-
-        :param nat_firewall_id: The nat_firewall_id of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._nat_firewall_id = nat_firewall_id
 
     @property
     def prio(self):
@@ -835,6 +944,27 @@ class DataForDescribeNatFirewallControlPolicyOutput(object):
         """
 
         self._source_cidr_list = source_cidr_list
+
+    @property
+    def source_cidr_list_v1(self):
+        """Gets the source_cidr_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+
+
+        :return: The source_cidr_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :rtype: list[SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput]
+        """
+        return self._source_cidr_list_v1
+
+    @source_cidr_list_v1.setter
+    def source_cidr_list_v1(self, source_cidr_list_v1):
+        """Sets the source_cidr_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.
+
+
+        :param source_cidr_list_v1: The source_cidr_list_v1 of this DataForDescribeNatFirewallControlPolicyOutput.  # noqa: E501
+        :type: list[SourceCidrListV1ForDescribeNatFirewallControlPolicyOutput]
+        """
+
+        self._source_cidr_list_v1 = source_cidr_list_v1
 
     @property
     def source_group_list(self):

@@ -35,26 +35,30 @@ class ResourceConfigForCreateJobInput(object):
     swagger_types = {
         'holding_time_seconds': 'int',
         'max_runtime_seconds': 'int',
+        'numa_affinity': 'str',
         'only_use_suspected_node': 'bool',
         'preemptible': 'bool',
         'priority': 'int',
         'resource_queue_id': 'str',
         'resource_reservation': 'bool',
+        'resource_reservation_plan_id': 'str',
         'roles': 'list[RoleForCreateJobInput]'
     }
 
     attribute_map = {
         'holding_time_seconds': 'HoldingTimeSeconds',
         'max_runtime_seconds': 'MaxRuntimeSeconds',
+        'numa_affinity': 'NumaAffinity',
         'only_use_suspected_node': 'OnlyUseSuspectedNode',
         'preemptible': 'Preemptible',
         'priority': 'Priority',
         'resource_queue_id': 'ResourceQueueId',
         'resource_reservation': 'ResourceReservation',
+        'resource_reservation_plan_id': 'ResourceReservationPlanId',
         'roles': 'Roles'
     }
 
-    def __init__(self, holding_time_seconds=None, max_runtime_seconds=None, only_use_suspected_node=None, preemptible=None, priority=None, resource_queue_id=None, resource_reservation=None, roles=None, _configuration=None):  # noqa: E501
+    def __init__(self, holding_time_seconds=None, max_runtime_seconds=None, numa_affinity=None, only_use_suspected_node=None, preemptible=None, priority=None, resource_queue_id=None, resource_reservation=None, resource_reservation_plan_id=None, roles=None, _configuration=None):  # noqa: E501
         """ResourceConfigForCreateJobInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,11 +66,13 @@ class ResourceConfigForCreateJobInput(object):
 
         self._holding_time_seconds = None
         self._max_runtime_seconds = None
+        self._numa_affinity = None
         self._only_use_suspected_node = None
         self._preemptible = None
         self._priority = None
         self._resource_queue_id = None
         self._resource_reservation = None
+        self._resource_reservation_plan_id = None
         self._roles = None
         self.discriminator = None
 
@@ -74,6 +80,8 @@ class ResourceConfigForCreateJobInput(object):
             self.holding_time_seconds = holding_time_seconds
         if max_runtime_seconds is not None:
             self.max_runtime_seconds = max_runtime_seconds
+        if numa_affinity is not None:
+            self.numa_affinity = numa_affinity
         if only_use_suspected_node is not None:
             self.only_use_suspected_node = only_use_suspected_node
         if preemptible is not None:
@@ -84,6 +92,8 @@ class ResourceConfigForCreateJobInput(object):
             self.resource_queue_id = resource_queue_id
         if resource_reservation is not None:
             self.resource_reservation = resource_reservation
+        if resource_reservation_plan_id is not None:
+            self.resource_reservation_plan_id = resource_reservation_plan_id
         if roles is not None:
             self.roles = roles
 
@@ -128,6 +138,27 @@ class ResourceConfigForCreateJobInput(object):
         """
 
         self._max_runtime_seconds = max_runtime_seconds
+
+    @property
+    def numa_affinity(self):
+        """Gets the numa_affinity of this ResourceConfigForCreateJobInput.  # noqa: E501
+
+
+        :return: The numa_affinity of this ResourceConfigForCreateJobInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._numa_affinity
+
+    @numa_affinity.setter
+    def numa_affinity(self, numa_affinity):
+        """Sets the numa_affinity of this ResourceConfigForCreateJobInput.
+
+
+        :param numa_affinity: The numa_affinity of this ResourceConfigForCreateJobInput.  # noqa: E501
+        :type: str
+        """
+
+        self._numa_affinity = numa_affinity
 
     @property
     def only_use_suspected_node(self):
@@ -233,6 +264,27 @@ class ResourceConfigForCreateJobInput(object):
         """
 
         self._resource_reservation = resource_reservation
+
+    @property
+    def resource_reservation_plan_id(self):
+        """Gets the resource_reservation_plan_id of this ResourceConfigForCreateJobInput.  # noqa: E501
+
+
+        :return: The resource_reservation_plan_id of this ResourceConfigForCreateJobInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_reservation_plan_id
+
+    @resource_reservation_plan_id.setter
+    def resource_reservation_plan_id(self, resource_reservation_plan_id):
+        """Sets the resource_reservation_plan_id of this ResourceConfigForCreateJobInput.
+
+
+        :param resource_reservation_plan_id: The resource_reservation_plan_id of this ResourceConfigForCreateJobInput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_reservation_plan_id = resource_reservation_plan_id
 
     @property
     def roles(self):

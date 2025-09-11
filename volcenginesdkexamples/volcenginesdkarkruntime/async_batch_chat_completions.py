@@ -19,14 +19,14 @@ from volcenginesdkarkruntime import AsyncArk
 async def worker(
     worker_id: int,
     client: AsyncArk,
-    requests: asyncio.Queue[dict],
+    requests: "asyncio.Queue[dict]",
 ):
     print(f"Worker {worker_id} is starting.")
 
     while True:
         request = await requests.get()
         try:
-            completion = await client.batch_chat.completions.create(**request)
+            completion = await client.batch.chat.completions.create(**request)
             print(completion)
         except Exception as e:
             print(e, file=sys.stderr)
@@ -36,7 +36,7 @@ async def worker(
 
 async def main():
     start = datetime.now()
-    max_concurrent_tasks, task_num = 1000, 10000
+    max_concurrent_tasks, task_num = 10, 100
 
     requests = asyncio.Queue()
     client = AsyncArk(timeout=24 * 3600)

@@ -44,6 +44,7 @@ class ItemForListResourceGroupsOutput(object):
         'status': 'StatusForListResourceGroupsOutput',
         'storage_config': 'StorageConfigForListResourceGroupsOutput',
         'workload_network_config': 'WorkloadNetworkConfigForListResourceGroupsOutput',
+        'workload_network_mode': 'str',
         'zone_ids': 'list[str]'
     }
 
@@ -59,10 +60,11 @@ class ItemForListResourceGroupsOutput(object):
         'status': 'Status',
         'storage_config': 'StorageConfig',
         'workload_network_config': 'WorkloadNetworkConfig',
+        'workload_network_mode': 'WorkloadNetworkMode',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_type=None, description=None, expire_time=None, id=None, name=None, period_unit=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, workload_network_config=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, description=None, expire_time=None, id=None, name=None, period_unit=None, resource_allocated=None, resource_capability=None, status=None, storage_config=None, workload_network_config=None, workload_network_mode=None, zone_ids=None, _configuration=None):  # noqa: E501
         """ItemForListResourceGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,6 +81,7 @@ class ItemForListResourceGroupsOutput(object):
         self._status = None
         self._storage_config = None
         self._workload_network_config = None
+        self._workload_network_mode = None
         self._zone_ids = None
         self.discriminator = None
 
@@ -104,6 +107,8 @@ class ItemForListResourceGroupsOutput(object):
             self.storage_config = storage_config
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
+        if workload_network_mode is not None:
+            self.workload_network_mode = workload_network_mode
         if zone_ids is not None:
             self.zone_ids = zone_ids
 
@@ -337,6 +342,27 @@ class ItemForListResourceGroupsOutput(object):
         """
 
         self._workload_network_config = workload_network_config
+
+    @property
+    def workload_network_mode(self):
+        """Gets the workload_network_mode of this ItemForListResourceGroupsOutput.  # noqa: E501
+
+
+        :return: The workload_network_mode of this ItemForListResourceGroupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_network_mode
+
+    @workload_network_mode.setter
+    def workload_network_mode(self, workload_network_mode):
+        """Sets the workload_network_mode of this ItemForListResourceGroupsOutput.
+
+
+        :param workload_network_mode: The workload_network_mode of this ItemForListResourceGroupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_network_mode = workload_network_mode
 
     @property
     def zone_ids(self):

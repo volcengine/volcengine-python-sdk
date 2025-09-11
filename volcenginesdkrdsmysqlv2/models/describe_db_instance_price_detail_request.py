@@ -39,6 +39,7 @@ class DescribeDBInstancePriceDetailRequest(object):
         'period': 'int',
         'period_unit': 'str',
         'project_name': 'str',
+        'proxy_node_custom': 'ProxyNodeCustomForDescribeDBInstancePriceDetailInput',
         'storage_space': 'int',
         'storage_type': 'str'
     }
@@ -50,11 +51,12 @@ class DescribeDBInstancePriceDetailRequest(object):
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
+        'proxy_node_custom': 'ProxyNodeCustom',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType'
     }
 
-    def __init__(self, charge_type=None, node_info=None, number=None, period=None, period_unit=None, project_name=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, node_info=None, number=None, period=None, period_unit=None, project_name=None, proxy_node_custom=None, storage_space=None, storage_type=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancePriceDetailRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class DescribeDBInstancePriceDetailRequest(object):
         self._period = None
         self._period_unit = None
         self._project_name = None
+        self._proxy_node_custom = None
         self._storage_space = None
         self._storage_type = None
         self.discriminator = None
@@ -81,6 +84,8 @@ class DescribeDBInstancePriceDetailRequest(object):
             self.period_unit = period_unit
         if project_name is not None:
             self.project_name = project_name
+        if proxy_node_custom is not None:
+            self.proxy_node_custom = proxy_node_custom
         self.storage_space = storage_space
         self.storage_type = storage_type
 
@@ -211,6 +216,27 @@ class DescribeDBInstancePriceDetailRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def proxy_node_custom(self):
+        """Gets the proxy_node_custom of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+
+
+        :return: The proxy_node_custom of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+        :rtype: ProxyNodeCustomForDescribeDBInstancePriceDetailInput
+        """
+        return self._proxy_node_custom
+
+    @proxy_node_custom.setter
+    def proxy_node_custom(self, proxy_node_custom):
+        """Sets the proxy_node_custom of this DescribeDBInstancePriceDetailRequest.
+
+
+        :param proxy_node_custom: The proxy_node_custom of this DescribeDBInstancePriceDetailRequest.  # noqa: E501
+        :type: ProxyNodeCustomForDescribeDBInstancePriceDetailInput
+        """
+
+        self._proxy_node_custom = proxy_node_custom
 
     @property
     def storage_space(self):

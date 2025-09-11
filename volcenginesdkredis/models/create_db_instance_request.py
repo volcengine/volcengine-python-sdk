@@ -42,7 +42,9 @@ class CreateDBInstanceRequest(object):
         'engine_version': 'str',
         'instance_name': 'str',
         'multi_az': 'str',
+        'no_auth_mode': 'str',
         'node_number': 'int',
+        'parameter_group_id': 'str',
         'password': 'str',
         'port': 'int',
         'project_name': 'str',
@@ -66,7 +68,9 @@ class CreateDBInstanceRequest(object):
         'engine_version': 'EngineVersion',
         'instance_name': 'InstanceName',
         'multi_az': 'MultiAZ',
+        'no_auth_mode': 'NoAuthMode',
         'node_number': 'NodeNumber',
+        'parameter_group_id': 'ParameterGroupId',
         'password': 'Password',
         'port': 'Port',
         'project_name': 'ProjectName',
@@ -80,7 +84,7 @@ class CreateDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, client_token=None, configure_nodes=None, deletion_protection=None, engine_version=None, instance_name=None, multi_az=None, node_number=None, password=None, port=None, project_name=None, purchase_months=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_renew=None, charge_type=None, client_token=None, configure_nodes=None, deletion_protection=None, engine_version=None, instance_name=None, multi_az=None, no_auth_mode=None, node_number=None, parameter_group_id=None, password=None, port=None, project_name=None, purchase_months=None, region_id=None, shard_capacity=None, shard_number=None, sharded_cluster=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,7 +99,9 @@ class CreateDBInstanceRequest(object):
         self._engine_version = None
         self._instance_name = None
         self._multi_az = None
+        self._no_auth_mode = None
         self._node_number = None
+        self._parameter_group_id = None
         self._password = None
         self._port = None
         self._project_name = None
@@ -125,8 +131,13 @@ class CreateDBInstanceRequest(object):
         if instance_name is not None:
             self.instance_name = instance_name
         self.multi_az = multi_az
+        if no_auth_mode is not None:
+            self.no_auth_mode = no_auth_mode
         self.node_number = node_number
-        self.password = password
+        if parameter_group_id is not None:
+            self.parameter_group_id = parameter_group_id
+        if password is not None:
+            self.password = password
         if port is not None:
             self.port = port
         if project_name is not None:
@@ -337,6 +348,34 @@ class CreateDBInstanceRequest(object):
         self._multi_az = multi_az
 
     @property
+    def no_auth_mode(self):
+        """Gets the no_auth_mode of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The no_auth_mode of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._no_auth_mode
+
+    @no_auth_mode.setter
+    def no_auth_mode(self, no_auth_mode):
+        """Sets the no_auth_mode of this CreateDBInstanceRequest.
+
+
+        :param no_auth_mode: The no_auth_mode of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Invalid", "open", "close"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                no_auth_mode not in allowed_values):
+            raise ValueError(
+                "Invalid value for `no_auth_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(no_auth_mode, allowed_values)
+            )
+
+        self._no_auth_mode = no_auth_mode
+
+    @property
     def node_number(self):
         """Gets the node_number of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -360,6 +399,27 @@ class CreateDBInstanceRequest(object):
         self._node_number = node_number
 
     @property
+    def parameter_group_id(self):
+        """Gets the parameter_group_id of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The parameter_group_id of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._parameter_group_id
+
+    @parameter_group_id.setter
+    def parameter_group_id(self, parameter_group_id):
+        """Sets the parameter_group_id of this CreateDBInstanceRequest.
+
+
+        :param parameter_group_id: The parameter_group_id of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._parameter_group_id = parameter_group_id
+
+    @property
     def password(self):
         """Gets the password of this CreateDBInstanceRequest.  # noqa: E501
 
@@ -377,8 +437,6 @@ class CreateDBInstanceRequest(object):
         :param password: The password of this CreateDBInstanceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and password is None:
-            raise ValueError("Invalid value for `password`, must not be `None`")  # noqa: E501
 
         self._password = password
 

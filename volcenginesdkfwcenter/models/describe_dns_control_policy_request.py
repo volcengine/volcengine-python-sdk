@@ -35,6 +35,8 @@ class DescribeDnsControlPolicyRequest(object):
     swagger_types = {
         'description': 'str',
         'destination': 'list[str]',
+        'internet_firewall_id': 'str',
+        'order_dir': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'rule_id': 'list[str]',
@@ -45,6 +47,8 @@ class DescribeDnsControlPolicyRequest(object):
     attribute_map = {
         'description': 'Description',
         'destination': 'Destination',
+        'internet_firewall_id': 'InternetFirewallId',
+        'order_dir': 'OrderDir',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'rule_id': 'RuleId',
@@ -52,7 +56,7 @@ class DescribeDnsControlPolicyRequest(object):
         'status': 'Status'
     }
 
-    def __init__(self, description=None, destination=None, page_number=None, page_size=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, destination=None, internet_firewall_id=None, order_dir=None, page_number=None, page_size=None, rule_id=None, source=None, status=None, _configuration=None):  # noqa: E501
         """DescribeDnsControlPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +64,8 @@ class DescribeDnsControlPolicyRequest(object):
 
         self._description = None
         self._destination = None
+        self._internet_firewall_id = None
+        self._order_dir = None
         self._page_number = None
         self._page_size = None
         self._rule_id = None
@@ -71,6 +77,10 @@ class DescribeDnsControlPolicyRequest(object):
             self.description = description
         if destination is not None:
             self.destination = destination
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
+        if order_dir is not None:
+            self.order_dir = order_dir
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -125,6 +135,55 @@ class DescribeDnsControlPolicyRequest(object):
         self._destination = destination
 
     @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this DescribeDnsControlPolicyRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this DescribeDnsControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this DescribeDnsControlPolicyRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this DescribeDnsControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
+
+    @property
+    def order_dir(self):
+        """Gets the order_dir of this DescribeDnsControlPolicyRequest.  # noqa: E501
+
+
+        :return: The order_dir of this DescribeDnsControlPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_dir
+
+    @order_dir.setter
+    def order_dir(self, order_dir):
+        """Sets the order_dir of this DescribeDnsControlPolicyRequest.
+
+
+        :param order_dir: The order_dir of this DescribeDnsControlPolicyRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["asc", "desc"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                order_dir not in allowed_values):
+            raise ValueError(
+                "Invalid value for `order_dir` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_dir, allowed_values)
+            )
+
+        self._order_dir = order_dir
+
+    @property
     def page_number(self):
         """Gets the page_number of this DescribeDnsControlPolicyRequest.  # noqa: E501
 
@@ -164,8 +223,8 @@ class DescribeDnsControlPolicyRequest(object):
         :type: int
         """
         if (self._configuration.client_side_validation and
-                page_size is not None and page_size > 100):  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
+                page_size is not None and page_size > 1000):  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `1000`")  # noqa: E501
 
         self._page_size = page_size
 

@@ -33,34 +33,75 @@ class AccountForDescribeDBAccountsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_desc': 'str',
         'account_name': 'str',
         'account_privileges': 'list[AccountPrivilegeForDescribeDBAccountsOutput]',
-        'account_type': 'str'
+        'account_type': 'str',
+        'auth_db': 'str',
+        'create_time': 'str',
+        'modify_time': 'str'
     }
 
     attribute_map = {
+        'account_desc': 'AccountDesc',
         'account_name': 'AccountName',
         'account_privileges': 'AccountPrivileges',
-        'account_type': 'AccountType'
+        'account_type': 'AccountType',
+        'auth_db': 'AuthDB',
+        'create_time': 'CreateTime',
+        'modify_time': 'ModifyTime'
     }
 
-    def __init__(self, account_name=None, account_privileges=None, account_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_privileges=None, account_type=None, auth_db=None, create_time=None, modify_time=None, _configuration=None):  # noqa: E501
         """AccountForDescribeDBAccountsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_desc = None
         self._account_name = None
         self._account_privileges = None
         self._account_type = None
+        self._auth_db = None
+        self._create_time = None
+        self._modify_time = None
         self.discriminator = None
 
+        if account_desc is not None:
+            self.account_desc = account_desc
         if account_name is not None:
             self.account_name = account_name
         if account_privileges is not None:
             self.account_privileges = account_privileges
         if account_type is not None:
             self.account_type = account_type
+        if auth_db is not None:
+            self.auth_db = auth_db
+        if create_time is not None:
+            self.create_time = create_time
+        if modify_time is not None:
+            self.modify_time = modify_time
+
+    @property
+    def account_desc(self):
+        """Gets the account_desc of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The account_desc of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_desc
+
+    @account_desc.setter
+    def account_desc(self, account_desc):
+        """Sets the account_desc of this AccountForDescribeDBAccountsOutput.
+
+
+        :param account_desc: The account_desc of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_desc = account_desc
 
     @property
     def account_name(self):
@@ -124,6 +165,69 @@ class AccountForDescribeDBAccountsOutput(object):
         """
 
         self._account_type = account_type
+
+    @property
+    def auth_db(self):
+        """Gets the auth_db of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The auth_db of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_db
+
+    @auth_db.setter
+    def auth_db(self, auth_db):
+        """Sets the auth_db of this AccountForDescribeDBAccountsOutput.
+
+
+        :param auth_db: The auth_db of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_db = auth_db
+
+    @property
+    def create_time(self):
+        """Gets the create_time of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The create_time of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this AccountForDescribeDBAccountsOutput.
+
+
+        :param create_time: The create_time of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._create_time = create_time
+
+    @property
+    def modify_time(self):
+        """Gets the modify_time of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+
+
+        :return: The modify_time of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._modify_time
+
+    @modify_time.setter
+    def modify_time(self, modify_time):
+        """Sets the modify_time of this AccountForDescribeDBAccountsOutput.
+
+
+        :param modify_time: The modify_time of this AccountForDescribeDBAccountsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._modify_time = modify_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

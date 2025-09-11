@@ -34,15 +34,17 @@ class ConvertHighlightForGetExecutionOutput(object):
     """
     swagger_types = {
         'clips': 'list[ClipForGetExecutionOutput]',
-        'duration': 'float'
+        'duration': 'float',
+        'storyline_cuts': 'ConvertStorylineCutsForGetExecutionOutput'
     }
 
     attribute_map = {
         'clips': 'Clips',
-        'duration': 'Duration'
+        'duration': 'Duration',
+        'storyline_cuts': 'StorylineCuts'
     }
 
-    def __init__(self, clips=None, duration=None, _configuration=None):  # noqa: E501
+    def __init__(self, clips=None, duration=None, storyline_cuts=None, _configuration=None):  # noqa: E501
         """ConvertHighlightForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ConvertHighlightForGetExecutionOutput(object):
 
         self._clips = None
         self._duration = None
+        self._storyline_cuts = None
         self.discriminator = None
 
         if clips is not None:
             self.clips = clips
         if duration is not None:
             self.duration = duration
+        if storyline_cuts is not None:
+            self.storyline_cuts = storyline_cuts
 
     @property
     def clips(self):
@@ -98,6 +103,27 @@ class ConvertHighlightForGetExecutionOutput(object):
         """
 
         self._duration = duration
+
+    @property
+    def storyline_cuts(self):
+        """Gets the storyline_cuts of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The storyline_cuts of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertStorylineCutsForGetExecutionOutput
+        """
+        return self._storyline_cuts
+
+    @storyline_cuts.setter
+    def storyline_cuts(self, storyline_cuts):
+        """Sets the storyline_cuts of this ConvertHighlightForGetExecutionOutput.
+
+
+        :param storyline_cuts: The storyline_cuts of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+        :type: ConvertStorylineCutsForGetExecutionOutput
+        """
+
+        self._storyline_cuts = storyline_cuts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

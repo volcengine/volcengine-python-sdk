@@ -39,7 +39,7 @@ class DataForListCustomBotConfigOutput(object):
         'bot_type': 'str',
         'description': 'str',
         'enable': 'int',
-        'id': 'str',
+        'id': 'int',
         'rule_tag': 'str',
         'update_time': 'str'
     }
@@ -224,7 +224,7 @@ class DataForListCustomBotConfigOutput(object):
 
 
         :return: The id of this DataForListCustomBotConfigOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._id
 
@@ -234,7 +234,7 @@ class DataForListCustomBotConfigOutput(object):
 
 
         :param id: The id of this DataForListCustomBotConfigOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._id = id

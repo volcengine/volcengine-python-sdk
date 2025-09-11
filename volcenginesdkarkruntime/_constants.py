@@ -1,4 +1,14 @@
-# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
 
 import httpx
 
@@ -13,7 +23,9 @@ ARK_E2E_ENCRYPTION_HEADER = "x-is-encrypted"
 DEFAULT_TIMEOUT_SECONDS = 600.0
 DEFAULT_CONNECT_TIMEOUT_SECONDS = 60.0
 # default timeout is 1 minutes
-DEFAULT_TIMEOUT = httpx.Timeout(timeout=DEFAULT_TIMEOUT_SECONDS, connect=DEFAULT_CONNECT_TIMEOUT_SECONDS)
+DEFAULT_TIMEOUT = httpx.Timeout(
+    timeout=DEFAULT_TIMEOUT_SECONDS, connect=DEFAULT_CONNECT_TIMEOUT_SECONDS
+)
 
 DEFAULT_MAX_RETRIES = 2
 DEFAULT_CONNECTION_LIMITS = httpx.Limits(

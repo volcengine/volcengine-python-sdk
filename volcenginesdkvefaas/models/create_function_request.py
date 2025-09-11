@@ -33,7 +33,9 @@ class CreateFunctionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cell': 'str',
         'command': 'str',
+        'cpu_milli': 'int',
         'cpu_strategy': 'str',
         'description': 'str',
         'envs': 'list[EnvForCreateFunctionInput]',
@@ -46,6 +48,7 @@ class CreateFunctionRequest(object):
         'nas_storage': 'NasStorageForCreateFunctionInput',
         'project_name': 'str',
         'request_timeout': 'int',
+        'role': 'str',
         'runtime': 'str',
         'source': 'str',
         'source_access_config': 'SourceAccessConfigForCreateFunctionInput',
@@ -57,7 +60,9 @@ class CreateFunctionRequest(object):
     }
 
     attribute_map = {
+        'cell': 'Cell',
         'command': 'Command',
+        'cpu_milli': 'CpuMilli',
         'cpu_strategy': 'CpuStrategy',
         'description': 'Description',
         'envs': 'Envs',
@@ -70,6 +75,7 @@ class CreateFunctionRequest(object):
         'nas_storage': 'NasStorage',
         'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
+        'role': 'Role',
         'runtime': 'Runtime',
         'source': 'Source',
         'source_access_config': 'SourceAccessConfig',
@@ -80,13 +86,15 @@ class CreateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, command=None, cpu_strategy=None, description=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, project_name=None, request_timeout=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cell = None
         self._command = None
+        self._cpu_milli = None
         self._cpu_strategy = None
         self._description = None
         self._envs = None
@@ -99,6 +107,7 @@ class CreateFunctionRequest(object):
         self._nas_storage = None
         self._project_name = None
         self._request_timeout = None
+        self._role = None
         self._runtime = None
         self._source = None
         self._source_access_config = None
@@ -109,8 +118,12 @@ class CreateFunctionRequest(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if cell is not None:
+            self.cell = cell
         if command is not None:
             self.command = command
+        if cpu_milli is not None:
+            self.cpu_milli = cpu_milli
         if cpu_strategy is not None:
             self.cpu_strategy = cpu_strategy
         if description is not None:
@@ -134,6 +147,8 @@ class CreateFunctionRequest(object):
             self.project_name = project_name
         if request_timeout is not None:
             self.request_timeout = request_timeout
+        if role is not None:
+            self.role = role
         self.runtime = runtime
         if source is not None:
             self.source = source
@@ -149,6 +164,27 @@ class CreateFunctionRequest(object):
             self.tos_mount_config = tos_mount_config
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def cell(self):
+        """Gets the cell of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The cell of this CreateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cell
+
+    @cell.setter
+    def cell(self, cell):
+        """Sets the cell of this CreateFunctionRequest.
+
+
+        :param cell: The cell of this CreateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cell = cell
 
     @property
     def command(self):
@@ -170,6 +206,27 @@ class CreateFunctionRequest(object):
         """
 
         self._command = command
+
+    @property
+    def cpu_milli(self):
+        """Gets the cpu_milli of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The cpu_milli of this CreateFunctionRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._cpu_milli
+
+    @cpu_milli.setter
+    def cpu_milli(self, cpu_milli):
+        """Sets the cpu_milli of this CreateFunctionRequest.
+
+
+        :param cpu_milli: The cpu_milli of this CreateFunctionRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._cpu_milli = cpu_milli
 
     @property
     def cpu_strategy(self):
@@ -424,6 +481,27 @@ class CreateFunctionRequest(object):
         """
 
         self._request_timeout = request_timeout
+
+    @property
+    def role(self):
+        """Gets the role of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The role of this CreateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._role
+
+    @role.setter
+    def role(self, role):
+        """Sets the role of this CreateFunctionRequest.
+
+
+        :param role: The role of this CreateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._role = role
 
     @property
     def runtime(self):

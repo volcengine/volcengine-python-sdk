@@ -42,10 +42,13 @@ class ItemForListClustersOutput(object):
         'id': 'str',
         'kubernetes_version': 'str',
         'logging_config': 'LoggingConfigForListClustersOutput',
+        'message': 'str',
+        'monitoring_config': 'MonitoringConfigForListClustersOutput',
         'name': 'str',
         'node_statistics': 'NodeStatisticsForListClustersOutput',
         'pods_config': 'PodsConfigForListClustersOutput',
         'project_name': 'str',
+        'register_monitoring_config': 'RegisterMonitoringConfigForListClustersOutput',
         'services_config': 'ServicesConfigForListClustersOutput',
         'status': 'StatusForListClustersOutput',
         'tags': 'list[TagForListClustersOutput]',
@@ -64,10 +67,13 @@ class ItemForListClustersOutput(object):
         'id': 'Id',
         'kubernetes_version': 'KubernetesVersion',
         'logging_config': 'LoggingConfig',
+        'message': 'Message',
+        'monitoring_config': 'MonitoringConfig',
         'name': 'Name',
         'node_statistics': 'NodeStatistics',
         'pods_config': 'PodsConfig',
         'project_name': 'ProjectName',
+        'register_monitoring_config': 'RegisterMonitoringConfig',
         'services_config': 'ServicesConfig',
         'status': 'Status',
         'tags': 'Tags',
@@ -76,7 +82,7 @@ class ItemForListClustersOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, cluster_config=None, connector_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, services_config=None, status=None, tags=None, type=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, cluster_config=None, connector_config=None, create_client_token=None, create_time=None, delete_protection_enabled=None, description=None, id=None, kubernetes_version=None, logging_config=None, message=None, monitoring_config=None, name=None, node_statistics=None, pods_config=None, project_name=None, register_monitoring_config=None, services_config=None, status=None, tags=None, type=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListClustersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,10 +97,13 @@ class ItemForListClustersOutput(object):
         self._id = None
         self._kubernetes_version = None
         self._logging_config = None
+        self._message = None
+        self._monitoring_config = None
         self._name = None
         self._node_statistics = None
         self._pods_config = None
         self._project_name = None
+        self._register_monitoring_config = None
         self._services_config = None
         self._status = None
         self._tags = None
@@ -121,6 +130,10 @@ class ItemForListClustersOutput(object):
             self.kubernetes_version = kubernetes_version
         if logging_config is not None:
             self.logging_config = logging_config
+        if message is not None:
+            self.message = message
+        if monitoring_config is not None:
+            self.monitoring_config = monitoring_config
         if name is not None:
             self.name = name
         if node_statistics is not None:
@@ -129,6 +142,8 @@ class ItemForListClustersOutput(object):
             self.pods_config = pods_config
         if project_name is not None:
             self.project_name = project_name
+        if register_monitoring_config is not None:
+            self.register_monitoring_config = register_monitoring_config
         if services_config is not None:
             self.services_config = services_config
         if status is not None:
@@ -332,6 +347,48 @@ class ItemForListClustersOutput(object):
         self._logging_config = logging_config
 
     @property
+    def message(self):
+        """Gets the message of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The message of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this ItemForListClustersOutput.
+
+
+        :param message: The message of this ItemForListClustersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
+
+    @property
+    def monitoring_config(self):
+        """Gets the monitoring_config of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The monitoring_config of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: MonitoringConfigForListClustersOutput
+        """
+        return self._monitoring_config
+
+    @monitoring_config.setter
+    def monitoring_config(self, monitoring_config):
+        """Sets the monitoring_config of this ItemForListClustersOutput.
+
+
+        :param monitoring_config: The monitoring_config of this ItemForListClustersOutput.  # noqa: E501
+        :type: MonitoringConfigForListClustersOutput
+        """
+
+        self._monitoring_config = monitoring_config
+
+    @property
     def name(self):
         """Gets the name of this ItemForListClustersOutput.  # noqa: E501
 
@@ -414,6 +471,27 @@ class ItemForListClustersOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def register_monitoring_config(self):
+        """Gets the register_monitoring_config of this ItemForListClustersOutput.  # noqa: E501
+
+
+        :return: The register_monitoring_config of this ItemForListClustersOutput.  # noqa: E501
+        :rtype: RegisterMonitoringConfigForListClustersOutput
+        """
+        return self._register_monitoring_config
+
+    @register_monitoring_config.setter
+    def register_monitoring_config(self, register_monitoring_config):
+        """Sets the register_monitoring_config of this ItemForListClustersOutput.
+
+
+        :param register_monitoring_config: The register_monitoring_config of this ItemForListClustersOutput.  # noqa: E501
+        :type: RegisterMonitoringConfigForListClustersOutput
+        """
+
+        self._register_monitoring_config = register_monitoring_config
 
     @property
     def services_config(self):

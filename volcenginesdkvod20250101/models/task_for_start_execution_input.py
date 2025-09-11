@@ -36,8 +36,15 @@ class TaskForStartExecutionInput(object):
         'ad_audit': 'AdAuditForStartExecutionInput',
         'asr': 'AsrForStartExecutionInput',
         'audio_extract': 'AudioExtractForStartExecutionInput',
+        'erase': 'EraseForStartExecutionInput',
+        'file_delete': 'FileDeleteForStartExecutionInput',
         'highlight': 'HighlightForStartExecutionInput',
+        'ocr': 'OcrForStartExecutionInput',
+        'segment': 'SegmentForStartExecutionInput',
+        'storyline': 'StorylineForStartExecutionInput',
         'type': 'str',
+        'video_generation': 'VideoGenerationForStartExecutionInput',
+        'video_summary': 'VideoSummaryForStartExecutionInput',
         'vision': 'VisionForStartExecutionInput'
     }
 
@@ -45,12 +52,19 @@ class TaskForStartExecutionInput(object):
         'ad_audit': 'AdAudit',
         'asr': 'Asr',
         'audio_extract': 'AudioExtract',
+        'erase': 'Erase',
+        'file_delete': 'FileDelete',
         'highlight': 'Highlight',
+        'ocr': 'Ocr',
+        'segment': 'Segment',
+        'storyline': 'Storyline',
         'type': 'Type',
+        'video_generation': 'VideoGeneration',
+        'video_summary': 'VideoSummary',
         'vision': 'Vision'
     }
 
-    def __init__(self, ad_audit=None, asr=None, audio_extract=None, highlight=None, type=None, vision=None, _configuration=None):  # noqa: E501
+    def __init__(self, ad_audit=None, asr=None, audio_extract=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_summary=None, vision=None, _configuration=None):  # noqa: E501
         """TaskForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,8 +73,15 @@ class TaskForStartExecutionInput(object):
         self._ad_audit = None
         self._asr = None
         self._audio_extract = None
+        self._erase = None
+        self._file_delete = None
         self._highlight = None
+        self._ocr = None
+        self._segment = None
+        self._storyline = None
         self._type = None
+        self._video_generation = None
+        self._video_summary = None
         self._vision = None
         self.discriminator = None
 
@@ -70,10 +91,24 @@ class TaskForStartExecutionInput(object):
             self.asr = asr
         if audio_extract is not None:
             self.audio_extract = audio_extract
+        if erase is not None:
+            self.erase = erase
+        if file_delete is not None:
+            self.file_delete = file_delete
         if highlight is not None:
             self.highlight = highlight
+        if ocr is not None:
+            self.ocr = ocr
+        if segment is not None:
+            self.segment = segment
+        if storyline is not None:
+            self.storyline = storyline
         if type is not None:
             self.type = type
+        if video_generation is not None:
+            self.video_generation = video_generation
+        if video_summary is not None:
+            self.video_summary = video_summary
         if vision is not None:
             self.vision = vision
 
@@ -141,6 +176,48 @@ class TaskForStartExecutionInput(object):
         self._audio_extract = audio_extract
 
     @property
+    def erase(self):
+        """Gets the erase of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The erase of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: EraseForStartExecutionInput
+        """
+        return self._erase
+
+    @erase.setter
+    def erase(self, erase):
+        """Sets the erase of this TaskForStartExecutionInput.
+
+
+        :param erase: The erase of this TaskForStartExecutionInput.  # noqa: E501
+        :type: EraseForStartExecutionInput
+        """
+
+        self._erase = erase
+
+    @property
+    def file_delete(self):
+        """Gets the file_delete of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The file_delete of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: FileDeleteForStartExecutionInput
+        """
+        return self._file_delete
+
+    @file_delete.setter
+    def file_delete(self, file_delete):
+        """Sets the file_delete of this TaskForStartExecutionInput.
+
+
+        :param file_delete: The file_delete of this TaskForStartExecutionInput.  # noqa: E501
+        :type: FileDeleteForStartExecutionInput
+        """
+
+        self._file_delete = file_delete
+
+    @property
     def highlight(self):
         """Gets the highlight of this TaskForStartExecutionInput.  # noqa: E501
 
@@ -162,6 +239,69 @@ class TaskForStartExecutionInput(object):
         self._highlight = highlight
 
     @property
+    def ocr(self):
+        """Gets the ocr of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The ocr of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: OcrForStartExecutionInput
+        """
+        return self._ocr
+
+    @ocr.setter
+    def ocr(self, ocr):
+        """Sets the ocr of this TaskForStartExecutionInput.
+
+
+        :param ocr: The ocr of this TaskForStartExecutionInput.  # noqa: E501
+        :type: OcrForStartExecutionInput
+        """
+
+        self._ocr = ocr
+
+    @property
+    def segment(self):
+        """Gets the segment of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The segment of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: SegmentForStartExecutionInput
+        """
+        return self._segment
+
+    @segment.setter
+    def segment(self, segment):
+        """Sets the segment of this TaskForStartExecutionInput.
+
+
+        :param segment: The segment of this TaskForStartExecutionInput.  # noqa: E501
+        :type: SegmentForStartExecutionInput
+        """
+
+        self._segment = segment
+
+    @property
+    def storyline(self):
+        """Gets the storyline of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The storyline of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: StorylineForStartExecutionInput
+        """
+        return self._storyline
+
+    @storyline.setter
+    def storyline(self, storyline):
+        """Sets the storyline of this TaskForStartExecutionInput.
+
+
+        :param storyline: The storyline of this TaskForStartExecutionInput.  # noqa: E501
+        :type: StorylineForStartExecutionInput
+        """
+
+        self._storyline = storyline
+
+    @property
     def type(self):
         """Gets the type of this TaskForStartExecutionInput.  # noqa: E501
 
@@ -181,6 +321,48 @@ class TaskForStartExecutionInput(object):
         """
 
         self._type = type
+
+    @property
+    def video_generation(self):
+        """Gets the video_generation of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The video_generation of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: VideoGenerationForStartExecutionInput
+        """
+        return self._video_generation
+
+    @video_generation.setter
+    def video_generation(self, video_generation):
+        """Sets the video_generation of this TaskForStartExecutionInput.
+
+
+        :param video_generation: The video_generation of this TaskForStartExecutionInput.  # noqa: E501
+        :type: VideoGenerationForStartExecutionInput
+        """
+
+        self._video_generation = video_generation
+
+    @property
+    def video_summary(self):
+        """Gets the video_summary of this TaskForStartExecutionInput.  # noqa: E501
+
+
+        :return: The video_summary of this TaskForStartExecutionInput.  # noqa: E501
+        :rtype: VideoSummaryForStartExecutionInput
+        """
+        return self._video_summary
+
+    @video_summary.setter
+    def video_summary(self, video_summary):
+        """Sets the video_summary of this TaskForStartExecutionInput.
+
+
+        :param video_summary: The video_summary of this TaskForStartExecutionInput.  # noqa: E501
+        :type: VideoSummaryForStartExecutionInput
+        """
+
+        self._video_summary = video_summary
 
     @property
     def vision(self):

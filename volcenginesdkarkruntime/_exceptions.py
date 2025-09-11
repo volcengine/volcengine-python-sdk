@@ -1,11 +1,24 @@
-# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
 
 from __future__ import annotations
 
-from typing import Any, Optional, cast, Dict
+from typing import TYPE_CHECKING, Optional
 from typing_extensions import Literal
 
 import httpx
+
+if TYPE_CHECKING:
+    from .types.chat import ChatCompletion
 
 __all__ = [
     "ArkBadRequestError",
@@ -130,46 +143,56 @@ class ArkAPITimeoutError(ArkAPIConnectionError):
 
 
 class ArkBadRequestError(ArkAPIStatusError):
-    status_code: Literal[400] = (
-        400  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[400] = 400  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkAuthenticationError(ArkAPIStatusError):
-    status_code: Literal[401] = (
-        401  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[401] = 401  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkPermissionDeniedError(ArkAPIStatusError):
-    status_code: Literal[403] = (
-        403  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[403] = 403  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkNotFoundError(ArkAPIStatusError):
-    status_code: Literal[404] = (
-        404  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[404] = 404  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkConflictError(ArkAPIStatusError):
-    status_code: Literal[409] = (
-        409  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[409] = 409  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkUnprocessableEntityError(ArkAPIStatusError):
-    status_code: Literal[422] = (
-        422  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[422] = 422  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkRateLimitError(ArkAPIStatusError):
-    status_code: Literal[429] = (
-        429  # pyright: ignore[reportIncompatibleVariableOverride]
-    )
+    status_code: Literal[429] = 429  # pyright: ignore[reportIncompatibleVariableOverride]
 
 
 class ArkInternalServerError(ArkAPIStatusError):
     pass
+
+
+class ArkLengthFinishReasonError(ArkError):
+    completion: ChatCompletion
+    """The completion that caused this error.
+
+    Note: this will *not* be a complete `ChatCompletion` object when streaming as `usage`
+          will not be included.
+    """
+
+    def __init__(self, *, completion: ChatCompletion) -> None:
+        msg = "Could not parse response content as the length limit was reached"
+        if completion.usage:
+            msg += f" - {completion.usage}"
+
+        super().__init__(msg)
+        self.completion = completion
+
+
+class ArkContentFilterFinishReasonError(ArkError):
+    def __init__(self) -> None:
+        super().__init__(
+            "Could not parse response content as the request was rejected by the content filter",
+        )

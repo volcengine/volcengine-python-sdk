@@ -33,24 +33,29 @@ class RdmaForDescribeInstanceTypesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'rdma_network_interfaces': 'int'
+        'rdma_network_interfaces': 'int',
+        'rdma_product_name': 'str'
     }
 
     attribute_map = {
-        'rdma_network_interfaces': 'RdmaNetworkInterfaces'
+        'rdma_network_interfaces': 'RdmaNetworkInterfaces',
+        'rdma_product_name': 'RdmaProductName'
     }
 
-    def __init__(self, rdma_network_interfaces=None, _configuration=None):  # noqa: E501
+    def __init__(self, rdma_network_interfaces=None, rdma_product_name=None, _configuration=None):  # noqa: E501
         """RdmaForDescribeInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._rdma_network_interfaces = None
+        self._rdma_product_name = None
         self.discriminator = None
 
         if rdma_network_interfaces is not None:
             self.rdma_network_interfaces = rdma_network_interfaces
+        if rdma_product_name is not None:
+            self.rdma_product_name = rdma_product_name
 
     @property
     def rdma_network_interfaces(self):
@@ -72,6 +77,27 @@ class RdmaForDescribeInstanceTypesOutput(object):
         """
 
         self._rdma_network_interfaces = rdma_network_interfaces
+
+    @property
+    def rdma_product_name(self):
+        """Gets the rdma_product_name of this RdmaForDescribeInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The rdma_product_name of this RdmaForDescribeInstanceTypesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._rdma_product_name
+
+    @rdma_product_name.setter
+    def rdma_product_name(self, rdma_product_name):
+        """Sets the rdma_product_name of this RdmaForDescribeInstanceTypesOutput.
+
+
+        :param rdma_product_name: The rdma_product_name of this RdmaForDescribeInstanceTypesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._rdma_product_name = rdma_product_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

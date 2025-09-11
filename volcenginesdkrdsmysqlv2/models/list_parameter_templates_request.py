@@ -37,6 +37,7 @@ class ListParameterTemplatesRequest(object):
         'offset': 'int',
         'project_name': 'str',
         'template_category': 'str',
+        'template_name': 'str',
         'template_source': 'str',
         'template_type': 'str',
         'template_type_version': 'str'
@@ -47,12 +48,13 @@ class ListParameterTemplatesRequest(object):
         'offset': 'Offset',
         'project_name': 'ProjectName',
         'template_category': 'TemplateCategory',
+        'template_name': 'TemplateName',
         'template_source': 'TemplateSource',
         'template_type': 'TemplateType',
         'template_type_version': 'TemplateTypeVersion'
     }
 
-    def __init__(self, limit=None, offset=None, project_name=None, template_category=None, template_source=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, offset=None, project_name=None, template_category=None, template_name=None, template_source=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
         """ListParameterTemplatesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ListParameterTemplatesRequest(object):
         self._offset = None
         self._project_name = None
         self._template_category = None
+        self._template_name = None
         self._template_source = None
         self._template_type = None
         self._template_type_version = None
@@ -75,6 +78,8 @@ class ListParameterTemplatesRequest(object):
             self.project_name = project_name
         if template_category is not None:
             self.template_category = template_category
+        if template_name is not None:
+            self.template_name = template_name
         if template_source is not None:
             self.template_source = template_source
         if template_type is not None:
@@ -165,6 +170,27 @@ class ListParameterTemplatesRequest(object):
         """
 
         self._template_category = template_category
+
+    @property
+    def template_name(self):
+        """Gets the template_name of this ListParameterTemplatesRequest.  # noqa: E501
+
+
+        :return: The template_name of this ListParameterTemplatesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._template_name
+
+    @template_name.setter
+    def template_name(self, template_name):
+        """Sets the template_name of this ListParameterTemplatesRequest.
+
+
+        :param template_name: The template_name of this ListParameterTemplatesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._template_name = template_name
 
     @property
     def template_source(self):

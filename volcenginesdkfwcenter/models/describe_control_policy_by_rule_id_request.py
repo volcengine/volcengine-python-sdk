@@ -34,25 +34,30 @@ class DescribeControlPolicyByRuleIdRequest(object):
     """
     swagger_types = {
         'direction': 'str',
+        'internet_firewall_id': 'str',
         'rule_ids': 'list[str]'
     }
 
     attribute_map = {
         'direction': 'Direction',
+        'internet_firewall_id': 'InternetFirewallId',
         'rule_ids': 'RuleIds'
     }
 
-    def __init__(self, direction=None, rule_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, direction=None, internet_firewall_id=None, rule_ids=None, _configuration=None):  # noqa: E501
         """DescribeControlPolicyByRuleIdRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._direction = None
+        self._internet_firewall_id = None
         self._rule_ids = None
         self.discriminator = None
 
         self.direction = direction
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
         if rule_ids is not None:
             self.rule_ids = rule_ids
 
@@ -85,6 +90,27 @@ class DescribeControlPolicyByRuleIdRequest(object):
             )
 
         self._direction = direction
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this DescribeControlPolicyByRuleIdRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this DescribeControlPolicyByRuleIdRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this DescribeControlPolicyByRuleIdRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this DescribeControlPolicyByRuleIdRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     @property
     def rule_ids(self):

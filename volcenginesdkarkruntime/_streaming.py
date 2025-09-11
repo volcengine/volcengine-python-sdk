@@ -1,10 +1,30 @@
-# Note: initially copied from https://github.com/florimondmanca/httpx-sse/blob/master/src/httpx_sse/_decoders.py
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
 import json
 import inspect
 from types import TracebackType
-from typing import TYPE_CHECKING, Any, Generic, TypeVar, Iterator, AsyncIterator, cast, Optional
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Generic,
+    TypeVar,
+    Iterator,
+    AsyncIterator,
+    cast,
+    Optional,
+)
 from typing_extensions import (
     Self,
     Protocol,
@@ -16,13 +36,12 @@ from typing_extensions import (
 
 import httpx
 from ._constants import CLIENT_REQUEST_HEADER
-
+from ._utils import extract_type_var_from_base
 from ._exceptions import ArkAPIError
 from ._utils._utils import is_mapping
 
 if TYPE_CHECKING:
     from ._client import Ark, AsyncArk
-
 
 _T = TypeVar("_T")
 
@@ -70,13 +89,15 @@ class Stream(Generic[_T]):
         response = self.response
         process_data = self._client._process_response_data
         iterator = self._iter_events()
-        request_id = self.response.headers.get(CLIENT_REQUEST_HEADER, "") if response else None
+        request_id = (
+            self.response.headers.get(CLIENT_REQUEST_HEADER, "") if response else None
+        )
 
         for sse in iterator:
             if sse.data.startswith("[DONE]"):
                 break
 
-            if sse.event is None:
+            if sse.event is None or (isinstance(sse.event, str) and len(sse.event) > 0):
                 data = sse.json()
                 if is_mapping(data) and data.get("error"):
                     message = None
@@ -90,7 +111,7 @@ class Stream(Generic[_T]):
                         message=message,
                         request=self.response.request,
                         body=data["error"],
-                        request_id=request_id
+                        request_id=request_id,
                     )
 
                 yield process_data(data=data, cast_to=cast_to, response=response)
@@ -110,7 +131,7 @@ class Stream(Generic[_T]):
                         message=message,
                         request=self.response.request,
                         body=data["error"],
-                        request_id=request_id
+                        request_id=request_id,
                     )
 
                 yield process_data(
@@ -187,13 +208,15 @@ class AsyncStream(Generic[_T]):
         response = self.response
         process_data = self._client._process_response_data
         iterator = self._iter_events()
-        request_id = response.headers.get(CLIENT_REQUEST_HEADER, "") if response else None
+        request_id = (
+            response.headers.get(CLIENT_REQUEST_HEADER, "") if response else None
+        )
 
         async for sse in iterator:
             if sse.data.startswith("[DONE]"):
                 break
 
-            if sse.event is None:
+            if sse.event is None or (isinstance(sse.event, str) and len(sse.event) > 0):
                 data = sse.json()
                 if is_mapping(data) and data.get("error"):
                     message = None
@@ -207,7 +230,7 @@ class AsyncStream(Generic[_T]):
                         message=message,
                         request=self.response.request,
                         body=data["error"],
-                        request_id=request_id
+                        request_id=request_id,
                     )
 
                 yield process_data(data=data, cast_to=cast_to, response=response)
@@ -227,7 +250,7 @@ class AsyncStream(Generic[_T]):
                         message=message,
                         request=self.response.request,
                         body=data["error"],
-                        request_id=request_id
+                        request_id=request_id,
                     )
 
                 yield process_data(
@@ -432,3 +455,28 @@ def is_stream_class_type(
     """TypeGuard for determining whether or not the given type is a subclass of `Stream` / `AsyncStream`"""
     origin = get_origin(typ) or typ
     return inspect.isclass(origin) and issubclass(origin, (Stream, AsyncStream))
+
+
+def extract_stream_chunk_type(
+    stream_cls: type,
+    *,
+    failure_message: str | None = None,
+) -> type:
+    """Given a type like `Stream[T]`, returns the generic type variable `T`.
+
+    This also handles the case where a concrete subclass is given, e.g.
+    ```py
+    class MyStream(Stream[bytes]):
+        ...
+
+    extract_stream_chunk_type(MyStream) -> bytes
+    ```
+    """
+    from ._base_client import Stream, AsyncStream
+
+    return extract_type_var_from_base(
+        stream_cls,
+        index=0,
+        generic_bases=cast("tuple[type, ...]", (Stream, AsyncStream)),
+        failure_message=failure_message,
+    )

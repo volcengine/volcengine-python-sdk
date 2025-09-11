@@ -37,8 +37,10 @@ class IkeConfigForModifyVpnConnectionAttributesInput(object):
         'dh_group': 'str',
         'enc_alg': 'str',
         'lifetime': 'int',
+        'local_id': 'str',
         'mode': 'str',
         'psk': 'str',
+        'remote_id': 'str',
         'version': 'str'
     }
 
@@ -47,12 +49,14 @@ class IkeConfigForModifyVpnConnectionAttributesInput(object):
         'dh_group': 'DhGroup',
         'enc_alg': 'EncAlg',
         'lifetime': 'Lifetime',
+        'local_id': 'LocalId',
         'mode': 'Mode',
         'psk': 'Psk',
+        'remote_id': 'RemoteId',
         'version': 'Version'
     }
 
-    def __init__(self, auth_alg=None, dh_group=None, enc_alg=None, lifetime=None, mode=None, psk=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_alg=None, dh_group=None, enc_alg=None, lifetime=None, local_id=None, mode=None, psk=None, remote_id=None, version=None, _configuration=None):  # noqa: E501
         """IkeConfigForModifyVpnConnectionAttributesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,8 +66,10 @@ class IkeConfigForModifyVpnConnectionAttributesInput(object):
         self._dh_group = None
         self._enc_alg = None
         self._lifetime = None
+        self._local_id = None
         self._mode = None
         self._psk = None
+        self._remote_id = None
         self._version = None
         self.discriminator = None
 
@@ -75,10 +81,14 @@ class IkeConfigForModifyVpnConnectionAttributesInput(object):
             self.enc_alg = enc_alg
         if lifetime is not None:
             self.lifetime = lifetime
+        if local_id is not None:
+            self.local_id = local_id
         if mode is not None:
             self.mode = mode
         if psk is not None:
             self.psk = psk
+        if remote_id is not None:
+            self.remote_id = remote_id
         if version is not None:
             self.version = version
 
@@ -167,6 +177,27 @@ class IkeConfigForModifyVpnConnectionAttributesInput(object):
         self._lifetime = lifetime
 
     @property
+    def local_id(self):
+        """Gets the local_id of this IkeConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+
+
+        :return: The local_id of this IkeConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._local_id
+
+    @local_id.setter
+    def local_id(self, local_id):
+        """Sets the local_id of this IkeConfigForModifyVpnConnectionAttributesInput.
+
+
+        :param local_id: The local_id of this IkeConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._local_id = local_id
+
+    @property
     def mode(self):
         """Gets the mode of this IkeConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
 
@@ -207,6 +238,27 @@ class IkeConfigForModifyVpnConnectionAttributesInput(object):
         """
 
         self._psk = psk
+
+    @property
+    def remote_id(self):
+        """Gets the remote_id of this IkeConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+
+
+        :return: The remote_id of this IkeConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._remote_id
+
+    @remote_id.setter
+    def remote_id(self, remote_id):
+        """Sets the remote_id of this IkeConfigForModifyVpnConnectionAttributesInput.
+
+
+        :param remote_id: The remote_id of this IkeConfigForModifyVpnConnectionAttributesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._remote_id = remote_id
 
     @property
     def version(self):

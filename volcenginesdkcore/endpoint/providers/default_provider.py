@@ -10,6 +10,7 @@ dualstack_endpoint_suffix = '.volcengine-api.com'
 fallback_endpoint = open_prefix + endpoint_suffix
 region_code_cn_beijing_auto_driving = "cn-beijing-autodriving"
 region_code_cn_shanghai_auto_driving = "cn-shanghai-autodriving"
+region_code_cn_beijing_selfdrive = "cn-beijing-selfdrive"
 region_code_ap_southeast2 = "ap-southeast-2"
 region_code_ap_southeast3 = "ap-southeast-3"
 
@@ -417,6 +418,54 @@ default_endpoint = {
         global_endpoint='',
         region_endpoint_map={},
     ),
+    'quota': ServiceEndpointInfo(
+        service='quota',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'fasttrack': ServiceEndpointInfo(
+        service='fasttrack',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'acep': ServiceEndpointInfo(
+        service='acep',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'private_zone': ServiceEndpointInfo(
+        service='private_zone',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'sqs': ServiceEndpointInfo(
+        service='sqs',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'resourcecenter': ServiceEndpointInfo(
+        service='resourcecenter',
+        is_global=True,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'cfs': ServiceEndpointInfo(
+        service='cfs',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
+    'cloudidentity': ServiceEndpointInfo(
+        service='cloudidentity',
+        is_global=False,
+        global_endpoint='',
+        region_endpoint_map={},
+    ),
 }
 
 bootstrap_region = {
@@ -424,6 +473,7 @@ bootstrap_region = {
     region_code_ap_southeast2: {},
     region_code_ap_southeast3: {},
     region_code_cn_shanghai_auto_driving: {},
+    region_code_cn_beijing_selfdrive: {},
 }
 
 

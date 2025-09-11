@@ -1,3 +1,15 @@
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
 from typing import (
@@ -16,7 +28,7 @@ import warnings
 from typing_extensions import Literal
 
 from ..._types import Body, Query, Headers
-from ..._utils._utils import with_sts_token, async_with_sts_token
+from ..._utils._utils import deepcopy_minimal, with_sts_token, async_with_sts_token
 from ..._utils._key_agreement import aes_gcm_decrypt_base64_string
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -107,7 +119,10 @@ class Completions(SyncAPIResource):
         for chunk in resp:
             if chunk.choices is not None:
                 for index, choice in enumerate(chunk.choices):
-                    if choice.delta is not None and choice.delta.content is not None:
+                    if (
+                        choice.delta is not None and choice.delta.content is not None
+                        and choice.finish_reason != 'content_filter'
+                    ):
                         choice.delta.content = aes_gcm_decrypt_base64_string(
                             key, nonce, choice.delta.content
                         )
@@ -124,7 +139,7 @@ class Completions(SyncAPIResource):
             if resp.choices is not None:
                 for index, choice in enumerate(resp.choices):
                     if (
-                        choice.message is not None
+                        choice.message is not None and choice.finish_reason != 'content_filter'
                         and choice.message.content is not None
                     ):
                         choice.message.content = aes_gcm_decrypt_base64_string(
@@ -162,6 +177,8 @@ class Completions(SyncAPIResource):
         service_tier: Optional[Literal["auto", "default"]] | None = None,
         tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
         response_format: completion_create_params.ResponseFormat | None = None,
+        thinking: completion_create_params.Thinking | None = None,
+        max_completion_tokens: Optional[int] | None = None,
         user: str | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
@@ -174,6 +191,7 @@ class Completions(SyncAPIResource):
             and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
         ):
             is_encrypt = True
+            messages = deepcopy_minimal(messages)
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 
         resp = self._post(
@@ -201,6 +219,8 @@ class Completions(SyncAPIResource):
                 "service_tier": service_tier,
                 "tool_choice": tool_choice,
                 "response_format": response_format,
+                "thinking": thinking,
+                "max_completion_tokens": max_completion_tokens,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -248,7 +268,10 @@ class AsyncCompletions(AsyncAPIResource):
         async for chunk in resp:
             if chunk.choices is not None:
                 for index, choice in enumerate(chunk.choices):
-                    if choice.delta is not None and choice.delta.content is not None:
+                    if (
+                        choice.delta is not None and choice.delta.content is not None
+                        and choice.finish_reason != 'content_filter'
+                    ):
                         choice.delta.content = aes_gcm_decrypt_base64_string(
                             key, nonce, choice.delta.content
                         )
@@ -265,7 +288,7 @@ class AsyncCompletions(AsyncAPIResource):
             if resp.choices is not None:
                 for index, choice in enumerate(resp.choices):
                     if (
-                        choice.message is not None
+                        choice.message is not None and choice.finish_reason != 'content_filter'
                         and choice.message.content is not None
                     ):
                         choice.message.content = aes_gcm_decrypt_base64_string(
@@ -304,6 +327,8 @@ class AsyncCompletions(AsyncAPIResource):
         service_tier: Optional[Literal["auto", "default"]] | None = None,
         tool_choice: ChatCompletionToolChoiceOptionParam | None = None,
         response_format: completion_create_params.ResponseFormat | None = None,
+        thinking: completion_create_params.Thinking | None = None,
+        max_completion_tokens: Optional[int] | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -315,6 +340,7 @@ class AsyncCompletions(AsyncAPIResource):
             and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
         ):
             is_encrypt = True
+            messages = deepcopy_minimal(messages)
             e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
 
         resp = await self._post(
@@ -342,6 +368,8 @@ class AsyncCompletions(AsyncAPIResource):
                 "service_tier": service_tier,
                 "tool_choice": tool_choice,
                 "response_format": response_format,
+                "thinking": thinking,
+                "max_completion_tokens": max_completion_tokens,
             },
             options=make_request_options(
                 extra_headers=extra_headers,

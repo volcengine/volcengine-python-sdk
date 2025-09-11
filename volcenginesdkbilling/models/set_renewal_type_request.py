@@ -39,7 +39,7 @@ class SetRenewalTypeRequest(object):
         'renew_type': 'str',
         'renewal_duration': 'int',
         'renewal_duration_unit': 'str',
-        'renewal_times': 'str',
+        'renewal_times': 'int',
         'set_renewal_related_instance': 'bool'
     }
 
@@ -222,7 +222,7 @@ class SetRenewalTypeRequest(object):
 
 
         :return: The renewal_times of this SetRenewalTypeRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._renewal_times
 
@@ -232,7 +232,7 @@ class SetRenewalTypeRequest(object):
 
 
         :param renewal_times: The renewal_times of this SetRenewalTypeRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._renewal_times = renewal_times

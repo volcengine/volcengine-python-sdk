@@ -44,6 +44,7 @@ class BackupForDescribeBackupsOutput(object):
         'backup_type': 'str',
         'consistent_time': 'str',
         'create_type': 'str',
+        'db_engine_version': 'str',
         'db_table_infos': 'list[DBTableInfoForDescribeBackupsOutput]',
         'download_status': 'str',
         'error_message': 'str',
@@ -64,6 +65,7 @@ class BackupForDescribeBackupsOutput(object):
         'backup_type': 'BackupType',
         'consistent_time': 'ConsistentTime',
         'create_type': 'CreateType',
+        'db_engine_version': 'DBEngineVersion',
         'db_table_infos': 'DBTableInfos',
         'download_status': 'DownloadStatus',
         'error_message': 'ErrorMessage',
@@ -72,7 +74,7 @@ class BackupForDescribeBackupsOutput(object):
         'is_expired': 'IsExpired'
     }
 
-    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_region=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_table_infos=None, download_status=None, error_message=None, expired_time=None, is_encrypted=None, is_expired=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_region=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_engine_version=None, db_table_infos=None, download_status=None, error_message=None, expired_time=None, is_encrypted=None, is_expired=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class BackupForDescribeBackupsOutput(object):
         self._backup_type = None
         self._consistent_time = None
         self._create_type = None
+        self._db_engine_version = None
         self._db_table_infos = None
         self._download_status = None
         self._error_message = None
@@ -119,6 +122,8 @@ class BackupForDescribeBackupsOutput(object):
             self.consistent_time = consistent_time
         if create_type is not None:
             self.create_type = create_type
+        if db_engine_version is not None:
+            self.db_engine_version = db_engine_version
         if db_table_infos is not None:
             self.db_table_infos = db_table_infos
         if download_status is not None:
@@ -362,6 +367,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._create_type = create_type
+
+    @property
+    def db_engine_version(self):
+        """Gets the db_engine_version of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The db_engine_version of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_engine_version
+
+    @db_engine_version.setter
+    def db_engine_version(self, db_engine_version):
+        """Sets the db_engine_version of this BackupForDescribeBackupsOutput.
+
+
+        :param db_engine_version: The db_engine_version of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._db_engine_version = db_engine_version
 
     @property
     def db_table_infos(self):

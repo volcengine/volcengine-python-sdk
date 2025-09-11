@@ -37,7 +37,8 @@ class GrantDBAccountPrivilegeRequest(object):
         'account_privileges': 'list[AccountPrivilegeForGrantDBAccountPrivilegeInput]',
         'dry_run': 'bool',
         'host': 'str',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'table_column_privileges': 'list[TableColumnPrivilegeForGrantDBAccountPrivilegeInput]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class GrantDBAccountPrivilegeRequest(object):
         'account_privileges': 'AccountPrivileges',
         'dry_run': 'DryRun',
         'host': 'Host',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'table_column_privileges': 'TableColumnPrivileges'
     }
 
-    def __init__(self, account_name=None, account_privileges=None, dry_run=None, host=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_name=None, account_privileges=None, dry_run=None, host=None, instance_id=None, table_column_privileges=None, _configuration=None):  # noqa: E501
         """GrantDBAccountPrivilegeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class GrantDBAccountPrivilegeRequest(object):
         self._dry_run = None
         self._host = None
         self._instance_id = None
+        self._table_column_privileges = None
         self.discriminator = None
 
         self.account_name = account_name
@@ -69,6 +72,8 @@ class GrantDBAccountPrivilegeRequest(object):
         if host is not None:
             self.host = host
         self.instance_id = instance_id
+        if table_column_privileges is not None:
+            self.table_column_privileges = table_column_privileges
 
     @property
     def account_name(self):
@@ -178,6 +183,27 @@ class GrantDBAccountPrivilegeRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def table_column_privileges(self):
+        """Gets the table_column_privileges of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+
+
+        :return: The table_column_privileges of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+        :rtype: list[TableColumnPrivilegeForGrantDBAccountPrivilegeInput]
+        """
+        return self._table_column_privileges
+
+    @table_column_privileges.setter
+    def table_column_privileges(self, table_column_privileges):
+        """Sets the table_column_privileges of this GrantDBAccountPrivilegeRequest.
+
+
+        :param table_column_privileges: The table_column_privileges of this GrantDBAccountPrivilegeRequest.  # noqa: E501
+        :type: list[TableColumnPrivilegeForGrantDBAccountPrivilegeInput]
+        """
+
+        self._table_column_privileges = table_column_privileges
 
     def to_dict(self):
         """Returns the model properties as a dict"""

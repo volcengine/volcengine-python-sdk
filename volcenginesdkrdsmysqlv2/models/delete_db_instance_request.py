@@ -33,28 +33,54 @@ class DeleteDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'data_keep_days': 'int',
         'data_keep_policy': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
+        'data_keep_days': 'DataKeepDays',
         'data_keep_policy': 'DataKeepPolicy',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, data_keep_policy=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, data_keep_days=None, data_keep_policy=None, instance_id=None, _configuration=None):  # noqa: E501
         """DeleteDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._data_keep_days = None
         self._data_keep_policy = None
         self._instance_id = None
         self.discriminator = None
 
+        if data_keep_days is not None:
+            self.data_keep_days = data_keep_days
         if data_keep_policy is not None:
             self.data_keep_policy = data_keep_policy
         self.instance_id = instance_id
+
+    @property
+    def data_keep_days(self):
+        """Gets the data_keep_days of this DeleteDBInstanceRequest.  # noqa: E501
+
+
+        :return: The data_keep_days of this DeleteDBInstanceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._data_keep_days
+
+    @data_keep_days.setter
+    def data_keep_days(self, data_keep_days):
+        """Sets the data_keep_days of this DeleteDBInstanceRequest.
+
+
+        :param data_keep_days: The data_keep_days of this DeleteDBInstanceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._data_keep_days = data_keep_days
 
     @property
     def data_keep_policy(self):

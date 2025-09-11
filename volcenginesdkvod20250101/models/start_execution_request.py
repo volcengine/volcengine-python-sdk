@@ -35,16 +35,20 @@ class StartExecutionRequest(object):
     swagger_types = {
         'control': 'ControlForStartExecutionInput',
         'input': 'InputForStartExecutionInput',
-        'operation': 'OperationForStartExecutionInput'
+        'multi_inputs': 'list[MultiInputForStartExecutionInput]',
+        'operation': 'ConvertOperationForStartExecutionInput',
+        'space_name': 'str'
     }
 
     attribute_map = {
         'control': 'Control',
         'input': 'Input',
-        'operation': 'Operation'
+        'multi_inputs': 'MultiInputs',
+        'operation': 'Operation',
+        'space_name': 'SpaceName'
     }
 
-    def __init__(self, control=None, input=None, operation=None, _configuration=None):  # noqa: E501
+    def __init__(self, control=None, input=None, multi_inputs=None, operation=None, space_name=None, _configuration=None):  # noqa: E501
         """StartExecutionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,15 +56,21 @@ class StartExecutionRequest(object):
 
         self._control = None
         self._input = None
+        self._multi_inputs = None
         self._operation = None
+        self._space_name = None
         self.discriminator = None
 
         if control is not None:
             self.control = control
         if input is not None:
             self.input = input
+        if multi_inputs is not None:
+            self.multi_inputs = multi_inputs
         if operation is not None:
             self.operation = operation
+        if space_name is not None:
+            self.space_name = space_name
 
     @property
     def control(self):
@@ -105,12 +115,33 @@ class StartExecutionRequest(object):
         self._input = input
 
     @property
+    def multi_inputs(self):
+        """Gets the multi_inputs of this StartExecutionRequest.  # noqa: E501
+
+
+        :return: The multi_inputs of this StartExecutionRequest.  # noqa: E501
+        :rtype: list[MultiInputForStartExecutionInput]
+        """
+        return self._multi_inputs
+
+    @multi_inputs.setter
+    def multi_inputs(self, multi_inputs):
+        """Sets the multi_inputs of this StartExecutionRequest.
+
+
+        :param multi_inputs: The multi_inputs of this StartExecutionRequest.  # noqa: E501
+        :type: list[MultiInputForStartExecutionInput]
+        """
+
+        self._multi_inputs = multi_inputs
+
+    @property
     def operation(self):
         """Gets the operation of this StartExecutionRequest.  # noqa: E501
 
 
         :return: The operation of this StartExecutionRequest.  # noqa: E501
-        :rtype: OperationForStartExecutionInput
+        :rtype: ConvertOperationForStartExecutionInput
         """
         return self._operation
 
@@ -120,10 +151,31 @@ class StartExecutionRequest(object):
 
 
         :param operation: The operation of this StartExecutionRequest.  # noqa: E501
-        :type: OperationForStartExecutionInput
+        :type: ConvertOperationForStartExecutionInput
         """
 
         self._operation = operation
+
+    @property
+    def space_name(self):
+        """Gets the space_name of this StartExecutionRequest.  # noqa: E501
+
+
+        :return: The space_name of this StartExecutionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_name
+
+    @space_name.setter
+    def space_name(self, space_name):
+        """Sets the space_name of this StartExecutionRequest.
+
+
+        :param space_name: The space_name of this StartExecutionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._space_name = space_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

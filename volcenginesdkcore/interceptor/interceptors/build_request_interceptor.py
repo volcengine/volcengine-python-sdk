@@ -1,9 +1,9 @@
 import datetime
 import mimetypes
 import os
-from urllib.parse import quote
 
 import six
+from six.moves.urllib.parse import quote
 
 from .interceptor import RequestInterceptor
 

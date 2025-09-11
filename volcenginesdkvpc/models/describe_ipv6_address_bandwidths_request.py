@@ -33,16 +33,17 @@ class DescribeIpv6AddressBandwidthsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allocation_ids': 'str',
+        'allocation_ids': 'list[str]',
         'associated_instance_id': 'str',
         'associated_instance_type': 'str',
         'bandwidth_package_id': 'str',
         'isp': 'str',
-        'ipv6_addresses': 'str',
+        'ipv6_addresses': 'list[str]',
         'max_results': 'int',
         'network_type': 'str',
         'next_token': 'str',
         'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeIpv6AddressBandwidthsInput]',
         'vpc_id': 'str'
     }
 
@@ -57,10 +58,11 @@ class DescribeIpv6AddressBandwidthsRequest(object):
         'network_type': 'NetworkType',
         'next_token': 'NextToken',
         'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, bandwidth_package_id=None, isp=None, ipv6_addresses=None, max_results=None, network_type=None, next_token=None, project_name=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_ids=None, associated_instance_id=None, associated_instance_type=None, bandwidth_package_id=None, isp=None, ipv6_addresses=None, max_results=None, network_type=None, next_token=None, project_name=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeIpv6AddressBandwidthsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class DescribeIpv6AddressBandwidthsRequest(object):
         self._network_type = None
         self._next_token = None
         self._project_name = None
+        self._tag_filters = None
         self._vpc_id = None
         self.discriminator = None
 
@@ -99,6 +102,8 @@ class DescribeIpv6AddressBandwidthsRequest(object):
             self.next_token = next_token
         if project_name is not None:
             self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if vpc_id is not None:
             self.vpc_id = vpc_id
 
@@ -108,7 +113,7 @@ class DescribeIpv6AddressBandwidthsRequest(object):
 
 
         :return: The allocation_ids of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._allocation_ids
 
@@ -118,7 +123,7 @@ class DescribeIpv6AddressBandwidthsRequest(object):
 
 
         :param allocation_ids: The allocation_ids of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._allocation_ids = allocation_ids
@@ -213,7 +218,7 @@ class DescribeIpv6AddressBandwidthsRequest(object):
 
 
         :return: The ipv6_addresses of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._ipv6_addresses
 
@@ -223,7 +228,7 @@ class DescribeIpv6AddressBandwidthsRequest(object):
 
 
         :param ipv6_addresses: The ipv6_addresses of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._ipv6_addresses = ipv6_addresses
@@ -311,6 +316,27 @@ class DescribeIpv6AddressBandwidthsRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeIpv6AddressBandwidthsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeIpv6AddressBandwidthsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeIpv6AddressBandwidthsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeIpv6AddressBandwidthsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def vpc_id(self):

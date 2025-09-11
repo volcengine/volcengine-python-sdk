@@ -33,23 +33,49 @@ class GetRoleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id': 'int',
         'role_name': 'str'
     }
 
     attribute_map = {
+        'id': 'ID',
         'role_name': 'RoleName'
     }
 
-    def __init__(self, role_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, role_name=None, _configuration=None):  # noqa: E501
         """GetRoleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._id = None
         self._role_name = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         self.role_name = role_name
+
+    @property
+    def id(self):
+        """Gets the id of this GetRoleRequest.  # noqa: E501
+
+
+        :return: The id of this GetRoleRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this GetRoleRequest.
+
+
+        :param id: The id of this GetRoleRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     @property
     def role_name(self):

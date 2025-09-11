@@ -33,28 +33,54 @@ class DeleteVpcFirewallAclRuleRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'rule_id_list': 'list[str]',
         'rule_ids': 'list[str]',
         'vpc_firewall_id': 'str'
     }
 
     attribute_map = {
+        'rule_id_list': 'RuleIdList',
         'rule_ids': 'RuleIds',
         'vpc_firewall_id': 'VpcFirewallId'
     }
 
-    def __init__(self, rule_ids=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, rule_id_list=None, rule_ids=None, vpc_firewall_id=None, _configuration=None):  # noqa: E501
         """DeleteVpcFirewallAclRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._rule_id_list = None
         self._rule_ids = None
         self._vpc_firewall_id = None
         self.discriminator = None
 
+        if rule_id_list is not None:
+            self.rule_id_list = rule_id_list
         if rule_ids is not None:
             self.rule_ids = rule_ids
         self.vpc_firewall_id = vpc_firewall_id
+
+    @property
+    def rule_id_list(self):
+        """Gets the rule_id_list of this DeleteVpcFirewallAclRuleRequest.  # noqa: E501
+
+
+        :return: The rule_id_list of this DeleteVpcFirewallAclRuleRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._rule_id_list
+
+    @rule_id_list.setter
+    def rule_id_list(self, rule_id_list):
+        """Sets the rule_id_list of this DeleteVpcFirewallAclRuleRequest.
+
+
+        :param rule_id_list: The rule_id_list of this DeleteVpcFirewallAclRuleRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._rule_id_list = rule_id_list
 
     @property
     def rule_ids(self):

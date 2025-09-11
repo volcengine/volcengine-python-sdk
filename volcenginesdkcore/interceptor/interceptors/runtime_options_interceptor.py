@@ -32,4 +32,25 @@ class RuntimeOptionsInterceptor(RequestInterceptor):
             context.request.endpoint_provider = opt.endpoint_provider
             context.request.host = None
 
+        # retryer arguments set
+        RuntimeOptionsInterceptor.__update_retryer(context, opt)
         return context
+
+    @staticmethod
+    def __update_retryer(context, opt):
+        min_retry_delay_ms = opt.min_retry_delay_ms \
+            if opt.min_retry_delay_ms is not None else context.request.retryer.backoff_strategy.min_retry_delay_ms
+        max_retry_delay_ms = opt.max_retry_delay_ms \
+            if opt.max_retry_delay_ms is not None else context.request.retryer.backoff_strategy.max_retry_delay_ms
+        retry_error_codes = opt.retry_error_codes \
+            if opt.retry_error_codes is not None else context.request.retryer.retry_condition.retry_error_codes
+        context.request.auto_retry = opt.auto_retry if opt.auto_retry is not None else context.request.auto_retry
+        context.request.retryer.num_max_retries = opt.num_max_retries \
+            if opt.num_max_retries is not None else context.request.retryer.num_max_retries
+        context.request.retryer.backoff_strategy = opt.backoff_strategy \
+            if opt.backoff_strategy is not None else context.request.retryer.backoff_strategy
+        context.request.retryer.backoff_strategy.min_retry_delay_ms = min_retry_delay_ms
+        context.request.retryer.backoff_strategy.max_retry_delay_ms = max_retry_delay_ms
+        context.request.retryer.retry_condition = opt.retry_condition \
+            if opt.retry_condition is not None else context.request.retryer.retry_condition
+        context.request.retryer.retry_condition.retry_error_codes = retry_error_codes

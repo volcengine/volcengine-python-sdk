@@ -1,4 +1,22 @@
-# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
+from .metadata import Metadata as Metadata
 from .function_definition import FunctionDefinition as FunctionDefinition
 from .function_parameters import FunctionParameters as FunctionParameters
+from .response_format_text import ResponseFormatText as ResponseFormatText
+from .response_format_json_object import (
+    ResponseFormatJSONObject as ResponseFormatJSONObject,
+)
+from .response_format_json_schema import (
+    ResponseFormatJSONSchema as ResponseFormatJSONSchema,
+)

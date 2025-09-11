@@ -33,23 +33,57 @@ class GetDeploymentRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str'
+        'history_version_limit': 'int',
+        'id': 'str',
+        'include_instance_items': 'bool'
     }
 
     attribute_map = {
-        'id': 'Id'
+        'history_version_limit': 'HistoryVersionLimit',
+        'id': 'Id',
+        'include_instance_items': 'IncludeInstanceItems'
     }
 
-    def __init__(self, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, history_version_limit=None, id=None, include_instance_items=None, _configuration=None):  # noqa: E501
         """GetDeploymentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._history_version_limit = None
         self._id = None
+        self._include_instance_items = None
         self.discriminator = None
 
+        if history_version_limit is not None:
+            self.history_version_limit = history_version_limit
         self.id = id
+        if include_instance_items is not None:
+            self.include_instance_items = include_instance_items
+
+    @property
+    def history_version_limit(self):
+        """Gets the history_version_limit of this GetDeploymentRequest.  # noqa: E501
+
+
+        :return: The history_version_limit of this GetDeploymentRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._history_version_limit
+
+    @history_version_limit.setter
+    def history_version_limit(self, history_version_limit):
+        """Sets the history_version_limit of this GetDeploymentRequest.
+
+
+        :param history_version_limit: The history_version_limit of this GetDeploymentRequest.  # noqa: E501
+        :type: int
+        """
+        if (self._configuration.client_side_validation and
+                history_version_limit is not None and history_version_limit > 100):  # noqa: E501
+            raise ValueError("Invalid value for `history_version_limit`, must be a value less than or equal to `100`")  # noqa: E501
+
+        self._history_version_limit = history_version_limit
 
     @property
     def id(self):
@@ -73,6 +107,27 @@ class GetDeploymentRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def include_instance_items(self):
+        """Gets the include_instance_items of this GetDeploymentRequest.  # noqa: E501
+
+
+        :return: The include_instance_items of this GetDeploymentRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_instance_items
+
+    @include_instance_items.setter
+    def include_instance_items(self, include_instance_items):
+        """Sets the include_instance_items of this GetDeploymentRequest.
+
+
+        :param include_instance_items: The include_instance_items of this GetDeploymentRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_instance_items = include_instance_items
 
     def to_dict(self):
         """Returns the model properties as a dict"""

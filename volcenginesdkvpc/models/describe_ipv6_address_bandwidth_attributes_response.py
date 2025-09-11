@@ -52,6 +52,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'request_id': 'str',
         'service_managed': 'bool',
         'status': 'str',
+        'tags': 'list[TagForDescribeIpv6AddressBandwidthAttributesOutput]',
         'update_time': 'str'
     }
 
@@ -75,10 +76,11 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'request_id': 'RequestId',
         'service_managed': 'ServiceManaged',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, delete_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, request_id=None, service_managed=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, delete_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, request_id=None, service_managed=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeIpv6AddressBandwidthAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +105,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         self._request_id = None
         self._service_managed = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self.discriminator = None
 
@@ -144,6 +147,8 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
             self.service_managed = service_managed
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
 
@@ -545,6 +550,27 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :rtype: list[TagForDescribeIpv6AddressBandwidthAttributesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeIpv6AddressBandwidthAttributesResponse.
+
+
+        :param tags: The tags of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :type: list[TagForDescribeIpv6AddressBandwidthAttributesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

@@ -50,6 +50,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
         'overdue_time': 'str',
         'project_name': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeIpv6AddressBandwidthsOutput]',
         'updated_at': 'str'
     }
 
@@ -71,10 +72,11 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
         'status': 'Status',
+        'tags': 'Tags',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, status=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
         """Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,6 +99,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
         self._overdue_time = None
         self._project_name = None
         self._status = None
+        self._tags = None
         self._updated_at = None
         self.discriminator = None
 
@@ -134,6 +137,8 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
             self.project_name = project_name
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
 
@@ -493,6 +498,27 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
+
+
+        :return: The tags of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeIpv6AddressBandwidthsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.
+
+
+        :param tags: The tags of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
+        :type: list[TagForDescribeIpv6AddressBandwidthsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):

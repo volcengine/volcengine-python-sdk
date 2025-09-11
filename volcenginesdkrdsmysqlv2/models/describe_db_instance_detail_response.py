@@ -35,6 +35,7 @@ class DescribeDBInstanceDetailResponse(object):
     swagger_types = {
         'basic_info': 'BasicInfoForDescribeDBInstanceDetailOutput',
         'charge_detail': 'ChargeDetailForDescribeDBInstanceDetailOutput',
+        'disaster_recovery_instances': 'list[DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput]',
         'endpoints': 'list[EndpointForDescribeDBInstanceDetailOutput]',
         'nodes': 'list[NodeForDescribeDBInstanceDetailOutput]',
         'proxy_detail': 'ProxyDetailForDescribeDBInstanceDetailOutput'
@@ -43,12 +44,13 @@ class DescribeDBInstanceDetailResponse(object):
     attribute_map = {
         'basic_info': 'BasicInfo',
         'charge_detail': 'ChargeDetail',
+        'disaster_recovery_instances': 'DisasterRecoveryInstances',
         'endpoints': 'Endpoints',
         'nodes': 'Nodes',
         'proxy_detail': 'ProxyDetail'
     }
 
-    def __init__(self, basic_info=None, charge_detail=None, endpoints=None, nodes=None, proxy_detail=None, _configuration=None):  # noqa: E501
+    def __init__(self, basic_info=None, charge_detail=None, disaster_recovery_instances=None, endpoints=None, nodes=None, proxy_detail=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class DescribeDBInstanceDetailResponse(object):
 
         self._basic_info = None
         self._charge_detail = None
+        self._disaster_recovery_instances = None
         self._endpoints = None
         self._nodes = None
         self._proxy_detail = None
@@ -65,6 +68,8 @@ class DescribeDBInstanceDetailResponse(object):
             self.basic_info = basic_info
         if charge_detail is not None:
             self.charge_detail = charge_detail
+        if disaster_recovery_instances is not None:
+            self.disaster_recovery_instances = disaster_recovery_instances
         if endpoints is not None:
             self.endpoints = endpoints
         if nodes is not None:
@@ -113,6 +118,27 @@ class DescribeDBInstanceDetailResponse(object):
         """
 
         self._charge_detail = charge_detail
+
+    @property
+    def disaster_recovery_instances(self):
+        """Gets the disaster_recovery_instances of this DescribeDBInstanceDetailResponse.  # noqa: E501
+
+
+        :return: The disaster_recovery_instances of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :rtype: list[DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput]
+        """
+        return self._disaster_recovery_instances
+
+    @disaster_recovery_instances.setter
+    def disaster_recovery_instances(self, disaster_recovery_instances):
+        """Sets the disaster_recovery_instances of this DescribeDBInstanceDetailResponse.
+
+
+        :param disaster_recovery_instances: The disaster_recovery_instances of this DescribeDBInstanceDetailResponse.  # noqa: E501
+        :type: list[DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput]
+        """
+
+        self._disaster_recovery_instances = disaster_recovery_instances
 
     @property
     def endpoints(self):

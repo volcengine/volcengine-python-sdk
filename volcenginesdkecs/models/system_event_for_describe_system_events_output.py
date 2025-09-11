@@ -37,6 +37,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
         'created_at': 'str',
         'extra_info': 'dict(str, str)',
         'id': 'str',
+        'impact_level': 'str',
         'operated_end_at': 'str',
         'operated_start_at': 'str',
         'resource_id': 'str',
@@ -50,6 +51,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
         'created_at': 'CreatedAt',
         'extra_info': 'ExtraInfo',
         'id': 'Id',
+        'impact_level': 'ImpactLevel',
         'operated_end_at': 'OperatedEndAt',
         'operated_start_at': 'OperatedStartAt',
         'resource_id': 'ResourceId',
@@ -58,7 +60,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, category=None, created_at=None, extra_info=None, id=None, operated_end_at=None, operated_start_at=None, resource_id=None, status=None, type=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, category=None, created_at=None, extra_info=None, id=None, impact_level=None, operated_end_at=None, operated_start_at=None, resource_id=None, status=None, type=None, updated_at=None, _configuration=None):  # noqa: E501
         """SystemEventForDescribeSystemEventsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class SystemEventForDescribeSystemEventsOutput(object):
         self._created_at = None
         self._extra_info = None
         self._id = None
+        self._impact_level = None
         self._operated_end_at = None
         self._operated_start_at = None
         self._resource_id = None
@@ -84,6 +87,8 @@ class SystemEventForDescribeSystemEventsOutput(object):
             self.extra_info = extra_info
         if id is not None:
             self.id = id
+        if impact_level is not None:
+            self.impact_level = impact_level
         if operated_end_at is not None:
             self.operated_end_at = operated_end_at
         if operated_start_at is not None:
@@ -180,6 +185,27 @@ class SystemEventForDescribeSystemEventsOutput(object):
         """
 
         self._id = id
+
+    @property
+    def impact_level(self):
+        """Gets the impact_level of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+
+
+        :return: The impact_level of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._impact_level
+
+    @impact_level.setter
+    def impact_level(self, impact_level):
+        """Sets the impact_level of this SystemEventForDescribeSystemEventsOutput.
+
+
+        :param impact_level: The impact_level of this SystemEventForDescribeSystemEventsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._impact_level = impact_level
 
     @property
     def operated_end_at(self):

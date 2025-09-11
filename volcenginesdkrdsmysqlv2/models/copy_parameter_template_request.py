@@ -34,6 +34,7 @@ class CopyParameterTemplateRequest(object):
     """
     swagger_types = {
         'project_name': 'str',
+        'region': 'str',
         'src_template_id': 'str',
         'template_desc': 'str',
         'template_name': 'str'
@@ -41,18 +42,20 @@ class CopyParameterTemplateRequest(object):
 
     attribute_map = {
         'project_name': 'ProjectName',
+        'region': 'Region',
         'src_template_id': 'SrcTemplateId',
         'template_desc': 'TemplateDesc',
         'template_name': 'TemplateName'
     }
 
-    def __init__(self, project_name=None, src_template_id=None, template_desc=None, template_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, project_name=None, region=None, src_template_id=None, template_desc=None, template_name=None, _configuration=None):  # noqa: E501
         """CopyParameterTemplateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._project_name = None
+        self._region = None
         self._src_template_id = None
         self._template_desc = None
         self._template_name = None
@@ -60,6 +63,8 @@ class CopyParameterTemplateRequest(object):
 
         if project_name is not None:
             self.project_name = project_name
+        if region is not None:
+            self.region = region
         self.src_template_id = src_template_id
         if template_desc is not None:
             self.template_desc = template_desc
@@ -85,6 +90,27 @@ class CopyParameterTemplateRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def region(self):
+        """Gets the region of this CopyParameterTemplateRequest.  # noqa: E501
+
+
+        :return: The region of this CopyParameterTemplateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._region
+
+    @region.setter
+    def region(self, region):
+        """Sets the region of this CopyParameterTemplateRequest.
+
+
+        :param region: The region of this CopyParameterTemplateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._region = region
 
     @property
     def src_template_id(self):

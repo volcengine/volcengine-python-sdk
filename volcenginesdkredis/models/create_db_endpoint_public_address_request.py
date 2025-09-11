@@ -35,16 +35,18 @@ class CreateDBEndpointPublicAddressRequest(object):
     swagger_types = {
         'client_token': 'str',
         'eip_id': 'str',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'port': 'int'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'eip_id': 'EipId',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'port': 'Port'
     }
 
-    def __init__(self, client_token=None, eip_id=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, eip_id=None, instance_id=None, port=None, _configuration=None):  # noqa: E501
         """CreateDBEndpointPublicAddressRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,15 @@ class CreateDBEndpointPublicAddressRequest(object):
         self._client_token = None
         self._eip_id = None
         self._instance_id = None
+        self._port = None
         self.discriminator = None
 
         if client_token is not None:
             self.client_token = client_token
         self.eip_id = eip_id
         self.instance_id = instance_id
+        if port is not None:
+            self.port = port
 
     @property
     def client_token(self):
@@ -126,6 +131,27 @@ class CreateDBEndpointPublicAddressRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def port(self):
+        """Gets the port of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
+
+
+        :return: The port of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this CreateDBEndpointPublicAddressRequest.
+
+
+        :param port: The port of this CreateDBEndpointPublicAddressRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,13 +33,13 @@ class DescribeIpv6GatewaysRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'ipv6_gateway_ids': 'str',
+        'ipv6_gateway_ids': 'list[str]',
         'max_results': 'int',
         'name': 'str',
         'next_token': 'str',
         'project_name': 'str',
         'tag_filters': 'list[TagFilterForDescribeIpv6GatewaysInput]',
-        'vpc_ids': 'str'
+        'vpc_ids': 'list[str]'
     }
 
     attribute_map = {
@@ -88,7 +88,7 @@ class DescribeIpv6GatewaysRequest(object):
 
 
         :return: The ipv6_gateway_ids of this DescribeIpv6GatewaysRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._ipv6_gateway_ids
 
@@ -98,7 +98,7 @@ class DescribeIpv6GatewaysRequest(object):
 
 
         :param ipv6_gateway_ids: The ipv6_gateway_ids of this DescribeIpv6GatewaysRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._ipv6_gateway_ids = ipv6_gateway_ids
@@ -214,7 +214,7 @@ class DescribeIpv6GatewaysRequest(object):
 
 
         :return: The vpc_ids of this DescribeIpv6GatewaysRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._vpc_ids
 
@@ -224,7 +224,7 @@ class DescribeIpv6GatewaysRequest(object):
 
 
         :param vpc_ids: The vpc_ids of this DescribeIpv6GatewaysRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._vpc_ids = vpc_ids

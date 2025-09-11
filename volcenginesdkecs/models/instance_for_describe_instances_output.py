@@ -33,14 +33,17 @@ class InstanceForDescribeInstancesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'affinity_group_id': 'str',
         'cpu_options': 'CpuOptionsForDescribeInstancesOutput',
         'cpus': 'int',
         'created_at': 'str',
+        'deletion_protection': 'bool',
         'deployment_set_group_number': 'int',
         'deployment_set_id': 'str',
         'description': 'str',
         'eip_address': 'EipAddressForDescribeInstancesOutput',
         'elastic_scheduled_instance_type': 'str',
+        'enable_jumbo_frame': 'bool',
         'expired_at': 'str',
         'host_name': 'str',
         'hostname': 'str',
@@ -54,6 +57,7 @@ class InstanceForDescribeInstancesOutput(object):
         'key_pair_name': 'str',
         'local_volumes': 'list[LocalVolumeForDescribeInstancesOutput]',
         'memory_size': 'int',
+        'metadata_options': 'MetadataOptionsForDescribeInstancesOutput',
         'network_interfaces': 'list[NetworkInterfaceForDescribeInstancesOutput]',
         'os_name': 'str',
         'os_type': 'str',
@@ -68,19 +72,23 @@ class InstanceForDescribeInstancesOutput(object):
         'tags': 'list[TagForDescribeInstancesOutput]',
         'updated_at': 'str',
         'uuid': 'str',
+        'volumes': 'list[VolumeForDescribeInstancesOutput]',
         'vpc_id': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
+        'affinity_group_id': 'AffinityGroupId',
         'cpu_options': 'CpuOptions',
         'cpus': 'Cpus',
         'created_at': 'CreatedAt',
+        'deletion_protection': 'DeletionProtection',
         'deployment_set_group_number': 'DeploymentSetGroupNumber',
         'deployment_set_id': 'DeploymentSetId',
         'description': 'Description',
         'eip_address': 'EipAddress',
         'elastic_scheduled_instance_type': 'ElasticScheduledInstanceType',
+        'enable_jumbo_frame': 'EnableJumboFrame',
         'expired_at': 'ExpiredAt',
         'host_name': 'HostName',
         'hostname': 'Hostname',
@@ -94,6 +102,7 @@ class InstanceForDescribeInstancesOutput(object):
         'key_pair_name': 'KeyPairName',
         'local_volumes': 'LocalVolumes',
         'memory_size': 'MemorySize',
+        'metadata_options': 'MetadataOptions',
         'network_interfaces': 'NetworkInterfaces',
         'os_name': 'OsName',
         'os_type': 'OsType',
@@ -108,24 +117,28 @@ class InstanceForDescribeInstancesOutput(object):
         'tags': 'Tags',
         'updated_at': 'UpdatedAt',
         'uuid': 'Uuid',
+        'volumes': 'Volumes',
         'vpc_id': 'VpcId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, cpu_options=None, cpus=None, created_at=None, deployment_set_group_number=None, deployment_set_id=None, description=None, eip_address=None, elastic_scheduled_instance_type=None, expired_at=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, scheduled_instance_id=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, affinity_group_id=None, cpu_options=None, cpus=None, created_at=None, deletion_protection=None, deployment_set_group_number=None, deployment_set_id=None, description=None, eip_address=None, elastic_scheduled_instance_type=None, enable_jumbo_frame=None, expired_at=None, host_name=None, hostname=None, hpc_cluster_id=None, image_id=None, instance_charge_type=None, instance_id=None, instance_name=None, instance_type_id=None, key_pair_id=None, key_pair_name=None, local_volumes=None, memory_size=None, metadata_options=None, network_interfaces=None, os_name=None, os_type=None, placement=None, project_name=None, rdma_ip_addresses=None, scheduled_instance_id=None, spot_price_limit=None, spot_strategy=None, status=None, stopped_mode=None, tags=None, updated_at=None, uuid=None, volumes=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._affinity_group_id = None
         self._cpu_options = None
         self._cpus = None
         self._created_at = None
+        self._deletion_protection = None
         self._deployment_set_group_number = None
         self._deployment_set_id = None
         self._description = None
         self._eip_address = None
         self._elastic_scheduled_instance_type = None
+        self._enable_jumbo_frame = None
         self._expired_at = None
         self._host_name = None
         self._hostname = None
@@ -139,6 +152,7 @@ class InstanceForDescribeInstancesOutput(object):
         self._key_pair_name = None
         self._local_volumes = None
         self._memory_size = None
+        self._metadata_options = None
         self._network_interfaces = None
         self._os_name = None
         self._os_type = None
@@ -153,16 +167,21 @@ class InstanceForDescribeInstancesOutput(object):
         self._tags = None
         self._updated_at = None
         self._uuid = None
+        self._volumes = None
         self._vpc_id = None
         self._zone_id = None
         self.discriminator = None
 
+        if affinity_group_id is not None:
+            self.affinity_group_id = affinity_group_id
         if cpu_options is not None:
             self.cpu_options = cpu_options
         if cpus is not None:
             self.cpus = cpus
         if created_at is not None:
             self.created_at = created_at
+        if deletion_protection is not None:
+            self.deletion_protection = deletion_protection
         if deployment_set_group_number is not None:
             self.deployment_set_group_number = deployment_set_group_number
         if deployment_set_id is not None:
@@ -173,6 +192,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.eip_address = eip_address
         if elastic_scheduled_instance_type is not None:
             self.elastic_scheduled_instance_type = elastic_scheduled_instance_type
+        if enable_jumbo_frame is not None:
+            self.enable_jumbo_frame = enable_jumbo_frame
         if expired_at is not None:
             self.expired_at = expired_at
         if host_name is not None:
@@ -199,6 +220,8 @@ class InstanceForDescribeInstancesOutput(object):
             self.local_volumes = local_volumes
         if memory_size is not None:
             self.memory_size = memory_size
+        if metadata_options is not None:
+            self.metadata_options = metadata_options
         if network_interfaces is not None:
             self.network_interfaces = network_interfaces
         if os_name is not None:
@@ -227,10 +250,33 @@ class InstanceForDescribeInstancesOutput(object):
             self.updated_at = updated_at
         if uuid is not None:
             self.uuid = uuid
+        if volumes is not None:
+            self.volumes = volumes
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def affinity_group_id(self):
+        """Gets the affinity_group_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The affinity_group_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._affinity_group_id
+
+    @affinity_group_id.setter
+    def affinity_group_id(self, affinity_group_id):
+        """Sets the affinity_group_id of this InstanceForDescribeInstancesOutput.
+
+
+        :param affinity_group_id: The affinity_group_id of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._affinity_group_id = affinity_group_id
 
     @property
     def cpu_options(self):
@@ -294,6 +340,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def deletion_protection(self):
+        """Gets the deletion_protection of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The deletion_protection of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deletion_protection
+
+    @deletion_protection.setter
+    def deletion_protection(self, deletion_protection):
+        """Sets the deletion_protection of this InstanceForDescribeInstancesOutput.
+
+
+        :param deletion_protection: The deletion_protection of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._deletion_protection = deletion_protection
 
     @property
     def deployment_set_group_number(self):
@@ -399,6 +466,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._elastic_scheduled_instance_type = elastic_scheduled_instance_type
+
+    @property
+    def enable_jumbo_frame(self):
+        """Gets the enable_jumbo_frame of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The enable_jumbo_frame of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_jumbo_frame
+
+    @enable_jumbo_frame.setter
+    def enable_jumbo_frame(self, enable_jumbo_frame):
+        """Sets the enable_jumbo_frame of this InstanceForDescribeInstancesOutput.
+
+
+        :param enable_jumbo_frame: The enable_jumbo_frame of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_jumbo_frame = enable_jumbo_frame
 
     @property
     def expired_at(self):
@@ -672,6 +760,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._memory_size = memory_size
+
+    @property
+    def metadata_options(self):
+        """Gets the metadata_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The metadata_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: MetadataOptionsForDescribeInstancesOutput
+        """
+        return self._metadata_options
+
+    @metadata_options.setter
+    def metadata_options(self, metadata_options):
+        """Sets the metadata_options of this InstanceForDescribeInstancesOutput.
+
+
+        :param metadata_options: The metadata_options of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: MetadataOptionsForDescribeInstancesOutput
+        """
+
+        self._metadata_options = metadata_options
 
     @property
     def network_interfaces(self):
@@ -966,6 +1075,27 @@ class InstanceForDescribeInstancesOutput(object):
         """
 
         self._uuid = uuid
+
+    @property
+    def volumes(self):
+        """Gets the volumes of this InstanceForDescribeInstancesOutput.  # noqa: E501
+
+
+        :return: The volumes of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :rtype: list[VolumeForDescribeInstancesOutput]
+        """
+        return self._volumes
+
+    @volumes.setter
+    def volumes(self, volumes):
+        """Sets the volumes of this InstanceForDescribeInstancesOutput.
+
+
+        :param volumes: The volumes of this InstanceForDescribeInstancesOutput.  # noqa: E501
+        :type: list[VolumeForDescribeInstancesOutput]
+        """
+
+        self._volumes = volumes
 
     @property
     def vpc_id(self):

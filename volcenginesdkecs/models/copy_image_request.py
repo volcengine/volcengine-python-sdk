@@ -38,7 +38,8 @@ class CopyImageRequest(object):
         'destination_region': 'str',
         'image_id': 'str',
         'image_name': 'str',
-        'project_name': 'str'
+        'project_name': 'str',
+        'tags': 'list[TagForCopyImageInput]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class CopyImageRequest(object):
         'destination_region': 'DestinationRegion',
         'image_id': 'ImageId',
         'image_name': 'ImageName',
-        'project_name': 'ProjectName'
+        'project_name': 'ProjectName',
+        'tags': 'Tags'
     }
 
-    def __init__(self, copy_image_tags=None, description=None, destination_region=None, image_id=None, image_name=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, copy_image_tags=None, description=None, destination_region=None, image_id=None, image_name=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CopyImageRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class CopyImageRequest(object):
         self._image_id = None
         self._image_name = None
         self._project_name = None
+        self._tags = None
         self.discriminator = None
 
         if copy_image_tags is not None:
@@ -73,6 +76,8 @@ class CopyImageRequest(object):
         self.image_name = image_name
         if project_name is not None:
             self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
 
     @property
     def copy_image_tags(self):
@@ -205,6 +210,27 @@ class CopyImageRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CopyImageRequest.  # noqa: E501
+
+
+        :return: The tags of this CopyImageRequest.  # noqa: E501
+        :rtype: list[TagForCopyImageInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CopyImageRequest.
+
+
+        :param tags: The tags of this CopyImageRequest.  # noqa: E501
+        :type: list[TagForCopyImageInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

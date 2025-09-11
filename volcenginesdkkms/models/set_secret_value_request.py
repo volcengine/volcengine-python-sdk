@@ -76,8 +76,8 @@ class SetSecretValueRequest(object):
         if self._configuration.client_side_validation and secret_name is None:
             raise ValueError("Invalid value for `secret_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                secret_name is not None and len(secret_name) > 31):
-            raise ValueError("Invalid value for `secret_name`, length must be less than or equal to `31`")  # noqa: E501
+                secret_name is not None and len(secret_name) > 128):
+            raise ValueError("Invalid value for `secret_name`, length must be less than or equal to `128`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 secret_name is not None and len(secret_name) < 2):
             raise ValueError("Invalid value for `secret_name`, length must be greater than or equal to `2`")  # noqa: E501

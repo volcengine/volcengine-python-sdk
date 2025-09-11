@@ -5,6 +5,7 @@ from __future__ import absolute_import
 import io
 import json
 import logging
+import os
 import re
 import ssl
 
@@ -12,6 +13,7 @@ import certifi
 # python 2 and python 3 compatibility library
 import six
 from six.moves.urllib.parse import urlencode
+from urllib3 import Retry
 
 try:
     import urllib3
@@ -37,7 +39,6 @@ class RESTResponse(io.IOBase):
         """Returns a given response header."""
         return self.urllib3_response.getheader(name, default)
 
-
 class RESTClientObject(object):
 
     def __init__(self, configuration, pools_size=4, maxsize=None):
@@ -46,6 +47,8 @@ class RESTClientObject(object):
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680  # noqa: E501
         # maxsize is the number of requests to host that are allowed in parallel  # noqa: E501
         # Custom SSL certificates and client certificates: http://urllib3.readthedocs.io/en/latest/advanced-usage.html  # noqa: E501
+
+        proxy_url = self.__get_proxy(configuration)
 
         # cert_reqs
         if configuration.verify_ssl:
@@ -77,8 +80,8 @@ class RESTClientObject(object):
             connect=configuration.connect_timeout,
             read=configuration.read_timeout,
         )
-        # https pool manager
-        if configuration.proxy:
+
+        if proxy_url:
             self.pool_manager = urllib3.ProxyManager(
                 num_pools=pools_size,
                 maxsize=maxsize,
@@ -86,8 +89,9 @@ class RESTClientObject(object):
                 ca_certs=ca_certs,
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
-                proxy_url=configuration.proxy,
+                proxy_url=proxy_url,
                 timeout=timeout,
+                retries=Retry(total=False),
                 **addition_pool_args
             )
         else:
@@ -99,8 +103,28 @@ class RESTClientObject(object):
                 cert_file=configuration.cert_file,
                 key_file=configuration.key_file,
                 timeout=timeout,
+                retries=Retry(total=False),
                 **addition_pool_args
             )
+
+    def __get_proxy(self, configuration):
+        proxy_url = configuration.proxy
+        if not proxy_url:
+            if configuration.scheme == 'http':
+                if configuration.http_proxy:
+                    proxy_url = configuration.http_proxy
+                elif os.getenv('HTTP_PROXY'):
+                    proxy_url = os.getenv('HTTP_PROXY')
+                elif os.getenv('http_proxy'):
+                    proxy_url = os.getenv('http_proxy')
+            elif configuration.scheme == 'https':
+                if configuration.https_proxy:
+                    proxy_url = configuration.https_proxy
+                elif os.getenv('HTTPS_PROXY'):
+                    proxy_url = os.getenv('HTTPS_PROXY')
+                elif os.getenv('https_proxy'):
+                    proxy_url = os.getenv('https_proxy')
+        return proxy_url
 
     def request(self, method, url, query_params=None, headers=None,
                 body=None, post_params=None, _preload_content=True,

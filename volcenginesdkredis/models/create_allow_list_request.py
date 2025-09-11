@@ -39,6 +39,7 @@ class CreateAllowListRequest(object):
         'allow_list_name': 'str',
         'allow_list_type': 'str',
         'client_token': 'str',
+        'project_name': 'str',
         'security_group_bind_infos': 'list[SecurityGroupBindInfoForCreateAllowListInput]'
     }
 
@@ -49,10 +50,11 @@ class CreateAllowListRequest(object):
         'allow_list_name': 'AllowListName',
         'allow_list_type': 'AllowListType',
         'client_token': 'ClientToken',
+        'project_name': 'ProjectName',
         'security_group_bind_infos': 'SecurityGroupBindInfos'
     }
 
-    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, client_token=None, security_group_bind_infos=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_name=None, allow_list_type=None, client_token=None, project_name=None, security_group_bind_infos=None, _configuration=None):  # noqa: E501
         """CreateAllowListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class CreateAllowListRequest(object):
         self._allow_list_name = None
         self._allow_list_type = None
         self._client_token = None
+        self._project_name = None
         self._security_group_bind_infos = None
         self.discriminator = None
 
@@ -78,6 +81,8 @@ class CreateAllowListRequest(object):
             self.allow_list_type = allow_list_type
         if client_token is not None:
             self.client_token = client_token
+        if project_name is not None:
+            self.project_name = project_name
         if security_group_bind_infos is not None:
             self.security_group_bind_infos = security_group_bind_infos
 
@@ -215,6 +220,27 @@ class CreateAllowListRequest(object):
         """
 
         self._client_token = client_token
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateAllowListRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateAllowListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateAllowListRequest.
+
+
+        :param project_name: The project_name of this CreateAllowListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def security_group_bind_infos(self):

@@ -33,23 +33,49 @@ class DisableAccessLogRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'delivery_type': 'str',
         'load_balancer_id': 'str'
     }
 
     attribute_map = {
+        'delivery_type': 'DeliveryType',
         'load_balancer_id': 'LoadBalancerId'
     }
 
-    def __init__(self, load_balancer_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, delivery_type=None, load_balancer_id=None, _configuration=None):  # noqa: E501
         """DisableAccessLogRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._delivery_type = None
         self._load_balancer_id = None
         self.discriminator = None
 
+        if delivery_type is not None:
+            self.delivery_type = delivery_type
         self.load_balancer_id = load_balancer_id
+
+    @property
+    def delivery_type(self):
+        """Gets the delivery_type of this DisableAccessLogRequest.  # noqa: E501
+
+
+        :return: The delivery_type of this DisableAccessLogRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._delivery_type
+
+    @delivery_type.setter
+    def delivery_type(self, delivery_type):
+        """Sets the delivery_type of this DisableAccessLogRequest.
+
+
+        :param delivery_type: The delivery_type of this DisableAccessLogRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._delivery_type = delivery_type
 
     @property
     def load_balancer_id(self):

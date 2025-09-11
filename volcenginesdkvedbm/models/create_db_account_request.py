@@ -33,6 +33,7 @@ class CreateDBAccountRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_desc': 'str',
         'account_name': 'str',
         'account_password': 'str',
         'account_privileges': 'list[AccountPrivilegeForCreateDBAccountInput]',
@@ -41,6 +42,7 @@ class CreateDBAccountRequest(object):
     }
 
     attribute_map = {
+        'account_desc': 'AccountDesc',
         'account_name': 'AccountName',
         'account_password': 'AccountPassword',
         'account_privileges': 'AccountPrivileges',
@@ -48,12 +50,13 @@ class CreateDBAccountRequest(object):
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, account_name=None, account_password=None, account_privileges=None, account_type=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_desc=None, account_name=None, account_password=None, account_privileges=None, account_type=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateDBAccountRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_desc = None
         self._account_name = None
         self._account_password = None
         self._account_privileges = None
@@ -61,12 +64,35 @@ class CreateDBAccountRequest(object):
         self._instance_id = None
         self.discriminator = None
 
+        if account_desc is not None:
+            self.account_desc = account_desc
         self.account_name = account_name
         self.account_password = account_password
         if account_privileges is not None:
             self.account_privileges = account_privileges
         self.account_type = account_type
         self.instance_id = instance_id
+
+    @property
+    def account_desc(self):
+        """Gets the account_desc of this CreateDBAccountRequest.  # noqa: E501
+
+
+        :return: The account_desc of this CreateDBAccountRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_desc
+
+    @account_desc.setter
+    def account_desc(self, account_desc):
+        """Sets the account_desc of this CreateDBAccountRequest.
+
+
+        :param account_desc: The account_desc of this CreateDBAccountRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._account_desc = account_desc
 
     @property
     def account_name(self):
@@ -155,7 +181,7 @@ class CreateDBAccountRequest(object):
         """
         if self._configuration.client_side_validation and account_type is None:
             raise ValueError("Invalid value for `account_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Super", "Normal"]  # noqa: E501
+        allowed_values = ["Normal", "Super"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 account_type not in allowed_values):
             raise ValueError(

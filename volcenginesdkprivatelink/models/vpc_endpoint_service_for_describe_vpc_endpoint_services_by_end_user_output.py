@@ -55,7 +55,7 @@ class VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput(object):
         'status': 'str',
         'tags': 'list[TagForDescribeVpcEndpointServicesByEndUserOutput]',
         'update_time': 'str',
-        'wildcard_domain_enabled': 'str',
+        'wildcard_domain_enabled': 'bool',
         'zone_ids': 'list[str]'
     }
 
@@ -635,7 +635,7 @@ class VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput(object):
 
 
         :return: The wildcard_domain_enabled of this VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._wildcard_domain_enabled
 
@@ -645,7 +645,7 @@ class VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput(object):
 
 
         :param wildcard_domain_enabled: The wildcard_domain_enabled of this VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._wildcard_domain_enabled = wildcard_domain_enabled

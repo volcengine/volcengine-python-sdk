@@ -58,8 +58,7 @@ class ModifyServiceDefenceModeRequest(object):
         self._project_name = None
         self.discriminator = None
 
-        if defence_mode is not None:
-            self.defence_mode = defence_mode
+        self.defence_mode = defence_mode
         if extra_defence_mode_lb_instance is not None:
             self.extra_defence_mode_lb_instance = extra_defence_mode_lb_instance
         self.host = host
@@ -84,6 +83,8 @@ class ModifyServiceDefenceModeRequest(object):
         :param defence_mode: The defence_mode of this ModifyServiceDefenceModeRequest.  # noqa: E501
         :type: int
         """
+        if self._configuration.client_side_validation and defence_mode is None:
+            raise ValueError("Invalid value for `defence_mode`, must not be `None`")  # noqa: E501
 
         self._defence_mode = defence_mode
 

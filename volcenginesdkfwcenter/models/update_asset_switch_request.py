@@ -34,15 +34,17 @@ class UpdateAssetSwitchRequest(object):
     """
     swagger_types = {
         'asset_list': 'list[AssetListForUpdateAssetSwitchInput]',
-        'enable': 'int'
+        'enable': 'int',
+        'internet_firewall_id': 'str'
     }
 
     attribute_map = {
         'asset_list': 'AssetList',
-        'enable': 'Enable'
+        'enable': 'Enable',
+        'internet_firewall_id': 'InternetFirewallId'
     }
 
-    def __init__(self, asset_list=None, enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, asset_list=None, enable=None, internet_firewall_id=None, _configuration=None):  # noqa: E501
         """UpdateAssetSwitchRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,11 +52,14 @@ class UpdateAssetSwitchRequest(object):
 
         self._asset_list = None
         self._enable = None
+        self._internet_firewall_id = None
         self.discriminator = None
 
         if asset_list is not None:
             self.asset_list = asset_list
         self.enable = enable
+        if internet_firewall_id is not None:
+            self.internet_firewall_id = internet_firewall_id
 
     @property
     def asset_list(self):
@@ -99,6 +104,27 @@ class UpdateAssetSwitchRequest(object):
             raise ValueError("Invalid value for `enable`, must not be `None`")  # noqa: E501
 
         self._enable = enable
+
+    @property
+    def internet_firewall_id(self):
+        """Gets the internet_firewall_id of this UpdateAssetSwitchRequest.  # noqa: E501
+
+
+        :return: The internet_firewall_id of this UpdateAssetSwitchRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._internet_firewall_id
+
+    @internet_firewall_id.setter
+    def internet_firewall_id(self, internet_firewall_id):
+        """Sets the internet_firewall_id of this UpdateAssetSwitchRequest.
+
+
+        :param internet_firewall_id: The internet_firewall_id of this UpdateAssetSwitchRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._internet_firewall_id = internet_firewall_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

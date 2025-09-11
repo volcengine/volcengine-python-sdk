@@ -39,6 +39,7 @@ class ItemForListRevisionsOutput(object):
         'description': 'str',
         'envs': 'list[EnvForListRevisionsOutput]',
         'exclusive_mode': 'bool',
+        'function_type': 'str',
         'health_check_config': 'HealthCheckConfigForListRevisionsOutput',
         'id': 'str',
         'initializer_sec': 'int',
@@ -52,6 +53,7 @@ class ItemForListRevisionsOutput(object):
         'revision_creation_time': 'str',
         'revision_description': 'str',
         'revision_number': 'int',
+        'role': 'str',
         'runtime': 'str',
         'source': 'str',
         'source_location': 'str',
@@ -68,6 +70,7 @@ class ItemForListRevisionsOutput(object):
         'description': 'Description',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
+        'function_type': 'FunctionType',
         'health_check_config': 'HealthCheckConfig',
         'id': 'Id',
         'initializer_sec': 'InitializerSec',
@@ -81,6 +84,7 @@ class ItemForListRevisionsOutput(object):
         'revision_creation_time': 'RevisionCreationTime',
         'revision_description': 'RevisionDescription',
         'revision_number': 'RevisionNumber',
+        'role': 'Role',
         'runtime': 'Runtime',
         'source': 'Source',
         'source_location': 'SourceLocation',
@@ -90,7 +94,7 @@ class ItemForListRevisionsOutput(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """ItemForListRevisionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -102,6 +106,7 @@ class ItemForListRevisionsOutput(object):
         self._description = None
         self._envs = None
         self._exclusive_mode = None
+        self._function_type = None
         self._health_check_config = None
         self._id = None
         self._initializer_sec = None
@@ -115,6 +120,7 @@ class ItemForListRevisionsOutput(object):
         self._revision_creation_time = None
         self._revision_description = None
         self._revision_number = None
+        self._role = None
         self._runtime = None
         self._source = None
         self._source_location = None
@@ -136,6 +142,8 @@ class ItemForListRevisionsOutput(object):
             self.envs = envs
         if exclusive_mode is not None:
             self.exclusive_mode = exclusive_mode
+        if function_type is not None:
+            self.function_type = function_type
         if health_check_config is not None:
             self.health_check_config = health_check_config
         if id is not None:
@@ -162,6 +170,8 @@ class ItemForListRevisionsOutput(object):
             self.revision_description = revision_description
         if revision_number is not None:
             self.revision_number = revision_number
+        if role is not None:
+            self.role = role
         if runtime is not None:
             self.runtime = runtime
         if source is not None:
@@ -302,6 +312,27 @@ class ItemForListRevisionsOutput(object):
         """
 
         self._exclusive_mode = exclusive_mode
+
+    @property
+    def function_type(self):
+        """Gets the function_type of this ItemForListRevisionsOutput.  # noqa: E501
+
+
+        :return: The function_type of this ItemForListRevisionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._function_type
+
+    @function_type.setter
+    def function_type(self, function_type):
+        """Sets the function_type of this ItemForListRevisionsOutput.
+
+
+        :param function_type: The function_type of this ItemForListRevisionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._function_type = function_type
 
     @property
     def health_check_config(self):
@@ -575,6 +606,27 @@ class ItemForListRevisionsOutput(object):
         """
 
         self._revision_number = revision_number
+
+    @property
+    def role(self):
+        """Gets the role of this ItemForListRevisionsOutput.  # noqa: E501
+
+
+        :return: The role of this ItemForListRevisionsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._role
+
+    @role.setter
+    def role(self, role):
+        """Sets the role of this ItemForListRevisionsOutput.
+
+
+        :param role: The role of this ItemForListRevisionsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._role = role
 
     @property
     def runtime(self):

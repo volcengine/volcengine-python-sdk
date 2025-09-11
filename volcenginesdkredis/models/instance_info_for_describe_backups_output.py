@@ -34,65 +34,73 @@ class InstanceInfoForDescribeBackupsOutput(object):
     """
     swagger_types = {
         'account_id': 'int',
+        'arch_type': 'str',
         'charge_type': 'str',
         'deletion_protection': 'str',
         'engine_version': 'str',
         'expired_time': 'str',
-        'instance_detail': 'InstanceDetailForDescribeBackupsOutput',
         'instance_id': 'str',
         'instance_name': 'str',
+        'maintenance_time': 'str',
         'network_type': 'str',
         'region_id': 'str',
+        'replicas': 'int',
         'shard_capacity': 'float',
-        'shard_list': 'list[ShardListForDescribeBackupsOutput]',
         'shard_number': 'int',
+        'total_capacity': 'int',
         'vpc_id': 'str',
         'zone_ids': 'list[str]'
     }
 
     attribute_map = {
         'account_id': 'AccountId',
+        'arch_type': 'ArchType',
         'charge_type': 'ChargeType',
         'deletion_protection': 'DeletionProtection',
         'engine_version': 'EngineVersion',
         'expired_time': 'ExpiredTime',
-        'instance_detail': 'InstanceDetail',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
+        'maintenance_time': 'MaintenanceTime',
         'network_type': 'NetworkType',
         'region_id': 'RegionId',
+        'replicas': 'Replicas',
         'shard_capacity': 'ShardCapacity',
-        'shard_list': 'ShardList',
         'shard_number': 'ShardNumber',
+        'total_capacity': 'TotalCapacity',
         'vpc_id': 'VpcId',
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, account_id=None, charge_type=None, deletion_protection=None, engine_version=None, expired_time=None, instance_detail=None, instance_id=None, instance_name=None, network_type=None, region_id=None, shard_capacity=None, shard_list=None, shard_number=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, arch_type=None, charge_type=None, deletion_protection=None, engine_version=None, expired_time=None, instance_id=None, instance_name=None, maintenance_time=None, network_type=None, region_id=None, replicas=None, shard_capacity=None, shard_number=None, total_capacity=None, vpc_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceInfoForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_id = None
+        self._arch_type = None
         self._charge_type = None
         self._deletion_protection = None
         self._engine_version = None
         self._expired_time = None
-        self._instance_detail = None
         self._instance_id = None
         self._instance_name = None
+        self._maintenance_time = None
         self._network_type = None
         self._region_id = None
+        self._replicas = None
         self._shard_capacity = None
-        self._shard_list = None
         self._shard_number = None
+        self._total_capacity = None
         self._vpc_id = None
         self._zone_ids = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
+        if arch_type is not None:
+            self.arch_type = arch_type
         if charge_type is not None:
             self.charge_type = charge_type
         if deletion_protection is not None:
@@ -101,22 +109,24 @@ class InstanceInfoForDescribeBackupsOutput(object):
             self.engine_version = engine_version
         if expired_time is not None:
             self.expired_time = expired_time
-        if instance_detail is not None:
-            self.instance_detail = instance_detail
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
             self.instance_name = instance_name
+        if maintenance_time is not None:
+            self.maintenance_time = maintenance_time
         if network_type is not None:
             self.network_type = network_type
         if region_id is not None:
             self.region_id = region_id
+        if replicas is not None:
+            self.replicas = replicas
         if shard_capacity is not None:
             self.shard_capacity = shard_capacity
-        if shard_list is not None:
-            self.shard_list = shard_list
         if shard_number is not None:
             self.shard_number = shard_number
+        if total_capacity is not None:
+            self.total_capacity = total_capacity
         if vpc_id is not None:
             self.vpc_id = vpc_id
         if zone_ids is not None:
@@ -142,6 +152,27 @@ class InstanceInfoForDescribeBackupsOutput(object):
         """
 
         self._account_id = account_id
+
+    @property
+    def arch_type(self):
+        """Gets the arch_type of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The arch_type of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._arch_type
+
+    @arch_type.setter
+    def arch_type(self, arch_type):
+        """Sets the arch_type of this InstanceInfoForDescribeBackupsOutput.
+
+
+        :param arch_type: The arch_type of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._arch_type = arch_type
 
     @property
     def charge_type(self):
@@ -228,27 +259,6 @@ class InstanceInfoForDescribeBackupsOutput(object):
         self._expired_time = expired_time
 
     @property
-    def instance_detail(self):
-        """Gets the instance_detail of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The instance_detail of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
-        :rtype: InstanceDetailForDescribeBackupsOutput
-        """
-        return self._instance_detail
-
-    @instance_detail.setter
-    def instance_detail(self, instance_detail):
-        """Sets the instance_detail of this InstanceInfoForDescribeBackupsOutput.
-
-
-        :param instance_detail: The instance_detail of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
-        :type: InstanceDetailForDescribeBackupsOutput
-        """
-
-        self._instance_detail = instance_detail
-
-    @property
     def instance_id(self):
         """Gets the instance_id of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
 
@@ -289,6 +299,27 @@ class InstanceInfoForDescribeBackupsOutput(object):
         """
 
         self._instance_name = instance_name
+
+    @property
+    def maintenance_time(self):
+        """Gets the maintenance_time of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The maintenance_time of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._maintenance_time
+
+    @maintenance_time.setter
+    def maintenance_time(self, maintenance_time):
+        """Sets the maintenance_time of this InstanceInfoForDescribeBackupsOutput.
+
+
+        :param maintenance_time: The maintenance_time of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._maintenance_time = maintenance_time
 
     @property
     def network_type(self):
@@ -333,6 +364,27 @@ class InstanceInfoForDescribeBackupsOutput(object):
         self._region_id = region_id
 
     @property
+    def replicas(self):
+        """Gets the replicas of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The replicas of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._replicas
+
+    @replicas.setter
+    def replicas(self, replicas):
+        """Sets the replicas of this InstanceInfoForDescribeBackupsOutput.
+
+
+        :param replicas: The replicas of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._replicas = replicas
+
+    @property
     def shard_capacity(self):
         """Gets the shard_capacity of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
 
@@ -354,27 +406,6 @@ class InstanceInfoForDescribeBackupsOutput(object):
         self._shard_capacity = shard_capacity
 
     @property
-    def shard_list(self):
-        """Gets the shard_list of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
-
-
-        :return: The shard_list of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
-        :rtype: list[ShardListForDescribeBackupsOutput]
-        """
-        return self._shard_list
-
-    @shard_list.setter
-    def shard_list(self, shard_list):
-        """Sets the shard_list of this InstanceInfoForDescribeBackupsOutput.
-
-
-        :param shard_list: The shard_list of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
-        :type: list[ShardListForDescribeBackupsOutput]
-        """
-
-        self._shard_list = shard_list
-
-    @property
     def shard_number(self):
         """Gets the shard_number of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
 
@@ -394,6 +425,27 @@ class InstanceInfoForDescribeBackupsOutput(object):
         """
 
         self._shard_number = shard_number
+
+    @property
+    def total_capacity(self):
+        """Gets the total_capacity of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The total_capacity of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_capacity
+
+    @total_capacity.setter
+    def total_capacity(self, total_capacity):
+        """Sets the total_capacity of this InstanceInfoForDescribeBackupsOutput.
+
+
+        :param total_capacity: The total_capacity of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_capacity = total_capacity
 
     @property
     def vpc_id(self):

@@ -4,6 +4,42 @@
 
 Volcengine SDK for Python 非兼容升级通知
 
+影响版本：`3.0.1` 以及后续版本
+
+变更描述:
+
+为了优化SDK包文件目录多长，导致在 `Window` 系统安装失败的问题。
+
+从 `3.0.1` 版本开始，我们对 `transitrouter` 服务下的部分超长的 API model 文件名称进行了缩减，如果您之前依赖并使用了这些 API model 的完整文件名称，将会导致不兼容，建议您按照如下方式使用 API model：
+
+```python
+from volcenginesdktransitrouter import TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput
+
+var = TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutput()
+```
+
+本次升级影响的云服务和接口：
+
+Service： `transitrouter`
+
+Version:  `2020-04-01`
+
+API:
+- DescribeTransitRouterBandwidthPackages
+- DescribeTransitRouterRoutePolicyTables
+- DescribeTransitRouterRoutePolicyEntries
+- DescribeTransitRouterForwardPolicyTables
+- DescribeTransitRouterBandwidthPackagesBilling
+- DescribeTransitRouterDirectConnectGatewayAttachments
+- DescribeTransitRouterRouteTableAssociations
+- DescribeTransitRouterRouteTablePropagations
+- DescribeTransitRouterTrafficQosQueueEntries
+- DescribeTransitRouterTrafficQosQueuePolicies
+- DescribeTransitRouterTrafficQosMarkingEntries
+- DescribeTransitRouterTrafficQosMarkingPolicies
+
+--------
+
 影响版本：`2.0.1` 以及后续版本
 
 变更描述:
@@ -96,7 +132,6 @@ configuration.host = 'ecs.cn-beijing-autodriving.volcengineapi.com'
 注：
 
 - Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
-- 并非所有云产品和Region都支持标准域名，具体请前往您所使用的产品-API参考中查看。
 
 ### SDK 示例 ###
 
@@ -144,6 +179,8 @@ if __name__ == '__main__':
         print("Exception when calling ECSApi->run_instances: %s\n" % e)
 
 ```
+
+更多代码示例请参考：[SDK接入文档](./SDK_Integration_zh.md)
 
 ### FAQ ###
 

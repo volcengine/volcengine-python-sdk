@@ -39,8 +39,11 @@ class UpdateClusterConfigRequest(object):
         'description': 'str',
         'id': 'str',
         'logging_config': 'LoggingConfigForUpdateClusterConfigInput',
+        'monitoring_config': 'MonitoringConfigForUpdateClusterConfigInput',
         'name': 'str',
-        'pods_config': 'PodsConfigForUpdateClusterConfigInput'
+        'pods_config': 'PodsConfigForUpdateClusterConfigInput',
+        'register_monitoring_config': 'RegisterMonitoringConfigForUpdateClusterConfigInput',
+        'source_region': 'str'
     }
 
     attribute_map = {
@@ -50,11 +53,14 @@ class UpdateClusterConfigRequest(object):
         'description': 'Description',
         'id': 'Id',
         'logging_config': 'LoggingConfig',
+        'monitoring_config': 'MonitoringConfig',
         'name': 'Name',
-        'pods_config': 'PodsConfig'
+        'pods_config': 'PodsConfig',
+        'register_monitoring_config': 'RegisterMonitoringConfig',
+        'source_region': 'SourceRegion'
     }
 
-    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, id=None, logging_config=None, name=None, pods_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_config=None, delete_protection_enabled=None, description=None, id=None, logging_config=None, monitoring_config=None, name=None, pods_config=None, register_monitoring_config=None, source_region=None, _configuration=None):  # noqa: E501
         """UpdateClusterConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,8 +72,11 @@ class UpdateClusterConfigRequest(object):
         self._description = None
         self._id = None
         self._logging_config = None
+        self._monitoring_config = None
         self._name = None
         self._pods_config = None
+        self._register_monitoring_config = None
+        self._source_region = None
         self.discriminator = None
 
         if client_token is not None:
@@ -81,10 +90,16 @@ class UpdateClusterConfigRequest(object):
         self.id = id
         if logging_config is not None:
             self.logging_config = logging_config
+        if monitoring_config is not None:
+            self.monitoring_config = monitoring_config
         if name is not None:
             self.name = name
         if pods_config is not None:
             self.pods_config = pods_config
+        if register_monitoring_config is not None:
+            self.register_monitoring_config = register_monitoring_config
+        if source_region is not None:
+            self.source_region = source_region
 
     @property
     def client_token(self):
@@ -215,6 +230,27 @@ class UpdateClusterConfigRequest(object):
         self._logging_config = logging_config
 
     @property
+    def monitoring_config(self):
+        """Gets the monitoring_config of this UpdateClusterConfigRequest.  # noqa: E501
+
+
+        :return: The monitoring_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :rtype: MonitoringConfigForUpdateClusterConfigInput
+        """
+        return self._monitoring_config
+
+    @monitoring_config.setter
+    def monitoring_config(self, monitoring_config):
+        """Sets the monitoring_config of this UpdateClusterConfigRequest.
+
+
+        :param monitoring_config: The monitoring_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :type: MonitoringConfigForUpdateClusterConfigInput
+        """
+
+        self._monitoring_config = monitoring_config
+
+    @property
     def name(self):
         """Gets the name of this UpdateClusterConfigRequest.  # noqa: E501
 
@@ -255,6 +291,48 @@ class UpdateClusterConfigRequest(object):
         """
 
         self._pods_config = pods_config
+
+    @property
+    def register_monitoring_config(self):
+        """Gets the register_monitoring_config of this UpdateClusterConfigRequest.  # noqa: E501
+
+
+        :return: The register_monitoring_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :rtype: RegisterMonitoringConfigForUpdateClusterConfigInput
+        """
+        return self._register_monitoring_config
+
+    @register_monitoring_config.setter
+    def register_monitoring_config(self, register_monitoring_config):
+        """Sets the register_monitoring_config of this UpdateClusterConfigRequest.
+
+
+        :param register_monitoring_config: The register_monitoring_config of this UpdateClusterConfigRequest.  # noqa: E501
+        :type: RegisterMonitoringConfigForUpdateClusterConfigInput
+        """
+
+        self._register_monitoring_config = register_monitoring_config
+
+    @property
+    def source_region(self):
+        """Gets the source_region of this UpdateClusterConfigRequest.  # noqa: E501
+
+
+        :return: The source_region of this UpdateClusterConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_region
+
+    @source_region.setter
+    def source_region(self, source_region):
+        """Sets the source_region of this UpdateClusterConfigRequest.
+
+
+        :param source_region: The source_region of this UpdateClusterConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._source_region = source_region
 
     def to_dict(self):
         """Returns the model properties as a dict"""

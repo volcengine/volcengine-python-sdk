@@ -51,7 +51,6 @@ class RuleForListAclRuleOutput(object):
         'ip_location_country': 'list[str]',
         'ip_location_subregion': 'list[str]',
         'name': 'str',
-        'prefix_switch': 'list[str]',
         'rule_tag': 'str',
         'update_time': 'str',
         'url': 'str'
@@ -76,13 +75,12 @@ class RuleForListAclRuleOutput(object):
         'ip_location_country': 'IpLocationCountry',
         'ip_location_subregion': 'IpLocationSubregion',
         'name': 'Name',
-        'prefix_switch': 'PrefixSwitch',
         'rule_tag': 'RuleTag',
         'update_time': 'UpdateTime',
         'url': 'Url'
     }
 
-    def __init__(self, accurate_group=None, action=None, advanced=None, client_ip=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_groups=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, prefix_switch=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, accurate_group=None, action=None, advanced=None, client_ip=None, description=None, enable=None, host_add_type=None, host_group_id=None, host_groups=None, host_list=None, id=None, ip_add_type=None, ip_group_id=None, ip_groups=None, ip_list=None, ip_location_country=None, ip_location_subregion=None, name=None, rule_tag=None, update_time=None, url=None, _configuration=None):  # noqa: E501
         """RuleForListAclRuleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,7 +104,6 @@ class RuleForListAclRuleOutput(object):
         self._ip_location_country = None
         self._ip_location_subregion = None
         self._name = None
-        self._prefix_switch = None
         self._rule_tag = None
         self._update_time = None
         self._url = None
@@ -148,8 +145,6 @@ class RuleForListAclRuleOutput(object):
             self.ip_location_subregion = ip_location_subregion
         if name is not None:
             self.name = name
-        if prefix_switch is not None:
-            self.prefix_switch = prefix_switch
         if rule_tag is not None:
             self.rule_tag = rule_tag
         if update_time is not None:
@@ -534,27 +529,6 @@ class RuleForListAclRuleOutput(object):
         """
 
         self._name = name
-
-    @property
-    def prefix_switch(self):
-        """Gets the prefix_switch of this RuleForListAclRuleOutput.  # noqa: E501
-
-
-        :return: The prefix_switch of this RuleForListAclRuleOutput.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._prefix_switch
-
-    @prefix_switch.setter
-    def prefix_switch(self, prefix_switch):
-        """Sets the prefix_switch of this RuleForListAclRuleOutput.
-
-
-        :param prefix_switch: The prefix_switch of this RuleForListAclRuleOutput.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._prefix_switch = prefix_switch
 
     @property
     def rule_tag(self):

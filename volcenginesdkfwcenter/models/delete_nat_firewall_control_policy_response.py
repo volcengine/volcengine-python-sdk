@@ -33,24 +33,29 @@ class DeleteNatFirewallControlPolicyResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'rule_id': 'str'
+        'rule_id': 'str',
+        'rule_id_list': 'list[str]'
     }
 
     attribute_map = {
-        'rule_id': 'RuleId'
+        'rule_id': 'RuleId',
+        'rule_id_list': 'RuleIdList'
     }
 
-    def __init__(self, rule_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, rule_id=None, rule_id_list=None, _configuration=None):  # noqa: E501
         """DeleteNatFirewallControlPolicyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._rule_id = None
+        self._rule_id_list = None
         self.discriminator = None
 
         if rule_id is not None:
             self.rule_id = rule_id
+        if rule_id_list is not None:
+            self.rule_id_list = rule_id_list
 
     @property
     def rule_id(self):
@@ -72,6 +77,27 @@ class DeleteNatFirewallControlPolicyResponse(object):
         """
 
         self._rule_id = rule_id
+
+    @property
+    def rule_id_list(self):
+        """Gets the rule_id_list of this DeleteNatFirewallControlPolicyResponse.  # noqa: E501
+
+
+        :return: The rule_id_list of this DeleteNatFirewallControlPolicyResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._rule_id_list
+
+    @rule_id_list.setter
+    def rule_id_list(self, rule_id_list):
+        """Sets the rule_id_list of this DeleteNatFirewallControlPolicyResponse.
+
+
+        :param rule_id_list: The rule_id_list of this DeleteNatFirewallControlPolicyResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._rule_id_list = rule_id_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

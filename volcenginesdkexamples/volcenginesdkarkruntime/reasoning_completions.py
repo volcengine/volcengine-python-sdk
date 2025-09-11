@@ -14,17 +14,6 @@ from volcenginesdkarkruntime import Ark
 client = Ark()
 
 if __name__ == "__main__":
-    # Non-streaming:
-    print("----- standard request -----")
-    completion = client.chat.completions.create(
-        model="${YOUR_ENDPOINT_ID}",
-        messages=[
-            {"role": "user", "content": "How many Rs are there in the word 'strawberry'?"},
-        ],
-    )
-    print(completion.choices[0].message.reasoning_content)
-    print(completion.choices[0].message.content)
-
     # Streaming:
     print("----- streaming request -----")
     stream = client.chat.completions.create(
@@ -32,6 +21,7 @@ if __name__ == "__main__":
         messages=[
             {"role": "user", "content": "How many Rs are there in the word 'strawberry'?"},
         ],
+        thinking={"type": "enabled"},
         stream=True
     )
     for chunk in stream:
@@ -42,3 +32,15 @@ if __name__ == "__main__":
         else:
             print(chunk.choices[0].delta.content, end="")
     print()
+
+    # Non-streaming:
+    print("----- standard request -----")
+    completion = client.chat.completions.create(
+        model="${YOUR_ENDPOINT_ID}",
+        messages=[
+            {"role": "user", "content": "How many Rs are there in the word 'strawberry'?"},
+        ],
+        thinking={"type": "enabled"},
+    )
+    print(completion.choices[0].message.reasoning_content)
+    print(completion.choices[0].message.content)

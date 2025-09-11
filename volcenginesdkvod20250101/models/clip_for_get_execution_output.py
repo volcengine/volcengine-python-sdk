@@ -34,15 +34,17 @@ class ClipForGetExecutionOutput(object):
     """
     swagger_types = {
         'end': 'float',
-        'start': 'float'
+        'start': 'float',
+        'video_index': 'int'
     }
 
     attribute_map = {
         'end': 'End',
-        'start': 'Start'
+        'start': 'Start',
+        'video_index': 'VideoIndex'
     }
 
-    def __init__(self, end=None, start=None, _configuration=None):  # noqa: E501
+    def __init__(self, end=None, start=None, video_index=None, _configuration=None):  # noqa: E501
         """ClipForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ClipForGetExecutionOutput(object):
 
         self._end = None
         self._start = None
+        self._video_index = None
         self.discriminator = None
 
         if end is not None:
             self.end = end
         if start is not None:
             self.start = start
+        if video_index is not None:
+            self.video_index = video_index
 
     @property
     def end(self):
@@ -98,6 +103,27 @@ class ClipForGetExecutionOutput(object):
         """
 
         self._start = start
+
+    @property
+    def video_index(self):
+        """Gets the video_index of this ClipForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_index of this ClipForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._video_index
+
+    @video_index.setter
+    def video_index(self, video_index):
+        """Sets the video_index of this ClipForGetExecutionOutput.
+
+
+        :param video_index: The video_index of this ClipForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._video_index = video_index
 
     def to_dict(self):
         """Returns the model properties as a dict"""

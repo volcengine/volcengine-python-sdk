@@ -41,6 +41,7 @@ class ItemForListWorkspacesOutput(object):
         'name': 'str',
         'overdue_reclaim_time': 'str',
         'project_name': 'str',
+        'prometheus_push_intranet_endpoint': 'str',
         'prometheus_query_intranet_endpoint': 'str',
         'prometheus_write_intranet_endpoint': 'str',
         'status': 'str',
@@ -57,6 +58,7 @@ class ItemForListWorkspacesOutput(object):
         'name': 'Name',
         'overdue_reclaim_time': 'OverdueReclaimTime',
         'project_name': 'ProjectName',
+        'prometheus_push_intranet_endpoint': 'PrometheusPushIntranetEndpoint',
         'prometheus_query_intranet_endpoint': 'PrometheusQueryIntranetEndpoint',
         'prometheus_write_intranet_endpoint': 'PrometheusWriteIntranetEndpoint',
         'status': 'Status',
@@ -64,7 +66,7 @@ class ItemForListWorkspacesOutput(object):
         'username': 'Username'
     }
 
-    def __init__(self, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_query_intranet_endpoint=None, prometheus_write_intranet_endpoint=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_intranet_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_intranet_endpoint=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
         """ItemForListWorkspacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class ItemForListWorkspacesOutput(object):
         self._name = None
         self._overdue_reclaim_time = None
         self._project_name = None
+        self._prometheus_push_intranet_endpoint = None
         self._prometheus_query_intranet_endpoint = None
         self._prometheus_write_intranet_endpoint = None
         self._status = None
@@ -101,6 +104,8 @@ class ItemForListWorkspacesOutput(object):
             self.overdue_reclaim_time = overdue_reclaim_time
         if project_name is not None:
             self.project_name = project_name
+        if prometheus_push_intranet_endpoint is not None:
+            self.prometheus_push_intranet_endpoint = prometheus_push_intranet_endpoint
         if prometheus_query_intranet_endpoint is not None:
             self.prometheus_query_intranet_endpoint = prometheus_query_intranet_endpoint
         if prometheus_write_intranet_endpoint is not None:
@@ -279,6 +284,27 @@ class ItemForListWorkspacesOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def prometheus_push_intranet_endpoint(self):
+        """Gets the prometheus_push_intranet_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The prometheus_push_intranet_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_push_intranet_endpoint
+
+    @prometheus_push_intranet_endpoint.setter
+    def prometheus_push_intranet_endpoint(self, prometheus_push_intranet_endpoint):
+        """Sets the prometheus_push_intranet_endpoint of this ItemForListWorkspacesOutput.
+
+
+        :param prometheus_push_intranet_endpoint: The prometheus_push_intranet_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_push_intranet_endpoint = prometheus_push_intranet_endpoint
 
     @property
     def prometheus_query_intranet_endpoint(self):

@@ -66,7 +66,8 @@ class CreateRoleRequest(object):
 
         if description is not None:
             self.description = description
-        self.display_name = display_name
+        if display_name is not None:
+            self.display_name = display_name
         if max_session_duration is not None:
             self.max_session_duration = max_session_duration
         self.role_name = role_name
@@ -114,8 +115,6 @@ class CreateRoleRequest(object):
         :param display_name: The display_name of this CreateRoleRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and display_name is None:
-            raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
 
         self._display_name = display_name
 

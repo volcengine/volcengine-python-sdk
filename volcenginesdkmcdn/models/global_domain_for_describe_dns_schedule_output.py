@@ -35,6 +35,8 @@ class GlobalDomainForDescribeDnsScheduleOutput(object):
     swagger_types = {
         'cloud_account_id': 'str',
         'cname': 'str',
+        'ipv4_list': 'list[str]',
+        'ipv6_list': 'list[str]',
         'id': 'str',
         'is_enabled': 'bool',
         'name': 'str',
@@ -47,6 +49,8 @@ class GlobalDomainForDescribeDnsScheduleOutput(object):
     attribute_map = {
         'cloud_account_id': 'CloudAccountId',
         'cname': 'Cname',
+        'ipv4_list': 'IPv4List',
+        'ipv6_list': 'IPv6List',
         'id': 'Id',
         'is_enabled': 'IsEnabled',
         'name': 'Name',
@@ -56,7 +60,7 @@ class GlobalDomainForDescribeDnsScheduleOutput(object):
         'vendor': 'Vendor'
     }
 
-    def __init__(self, cloud_account_id=None, cname=None, id=None, is_enabled=None, name=None, region=None, status=None, sub_product=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, cloud_account_id=None, cname=None, ipv4_list=None, ipv6_list=None, id=None, is_enabled=None, name=None, region=None, status=None, sub_product=None, vendor=None, _configuration=None):  # noqa: E501
         """GlobalDomainForDescribeDnsScheduleOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +68,8 @@ class GlobalDomainForDescribeDnsScheduleOutput(object):
 
         self._cloud_account_id = None
         self._cname = None
+        self._ipv4_list = None
+        self._ipv6_list = None
         self._id = None
         self._is_enabled = None
         self._name = None
@@ -77,6 +83,10 @@ class GlobalDomainForDescribeDnsScheduleOutput(object):
             self.cloud_account_id = cloud_account_id
         if cname is not None:
             self.cname = cname
+        if ipv4_list is not None:
+            self.ipv4_list = ipv4_list
+        if ipv6_list is not None:
+            self.ipv6_list = ipv6_list
         if id is not None:
             self.id = id
         if is_enabled is not None:
@@ -133,6 +143,48 @@ class GlobalDomainForDescribeDnsScheduleOutput(object):
         """
 
         self._cname = cname
+
+    @property
+    def ipv4_list(self):
+        """Gets the ipv4_list of this GlobalDomainForDescribeDnsScheduleOutput.  # noqa: E501
+
+
+        :return: The ipv4_list of this GlobalDomainForDescribeDnsScheduleOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv4_list
+
+    @ipv4_list.setter
+    def ipv4_list(self, ipv4_list):
+        """Sets the ipv4_list of this GlobalDomainForDescribeDnsScheduleOutput.
+
+
+        :param ipv4_list: The ipv4_list of this GlobalDomainForDescribeDnsScheduleOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv4_list = ipv4_list
+
+    @property
+    def ipv6_list(self):
+        """Gets the ipv6_list of this GlobalDomainForDescribeDnsScheduleOutput.  # noqa: E501
+
+
+        :return: The ipv6_list of this GlobalDomainForDescribeDnsScheduleOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ipv6_list
+
+    @ipv6_list.setter
+    def ipv6_list(self, ipv6_list):
+        """Sets the ipv6_list of this GlobalDomainForDescribeDnsScheduleOutput.
+
+
+        :param ipv6_list: The ipv6_list of this GlobalDomainForDescribeDnsScheduleOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ipv6_list = ipv6_list
 
     @property
     def id(self):

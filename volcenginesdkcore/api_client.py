@@ -3,7 +3,9 @@
 from __future__ import absolute_import
 
 import datetime
+import logging
 from multiprocessing.pool import ThreadPool
+from time import sleep
 
 # python 2 and python 3 compatibility library
 import six
@@ -15,6 +17,8 @@ from volcenginesdkcore.interceptor import BuildRequestInterceptor, SignRequestIn
 from volcenginesdkcore.interceptor import DeserializedResponseInterceptor
 from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext
 from volcenginesdkcore.interceptor import Request, Response
+
+logger = logging.getLogger(__name__)
 
 
 class ApiClient(object):
@@ -63,7 +67,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'volcstack-python-sdk/2.0.2'
+        self.user_agent = 'volcstack-python-sdk/4.0.17'
         self.client_side_validation = configuration.client_side_validation
 
         self.interceptor_chain = InterceptorChain()
@@ -122,14 +126,35 @@ class ApiClient(object):
 
         interceptor_context = self.interceptor_chain.execute_request(interceptor_context)
 
-        # perform request and return response
-        response_data = self.request(
-            method, url=interceptor_context.request.url, query_params=interceptor_context.request.query_params,
-            headers=interceptor_context.request.header_params,
-            post_params=interceptor_context.request.post_params, body=interceptor_context.request.body,
-            _preload_content=interceptor_context.request.preload_content,
-            _request_timeout=interceptor_context.request.request_timeout)
-        self.last_response = response_data
+        retry_count = 0
+        response_data = None
+        retry_err = None
+
+        auto_retry = interceptor_context.request.auto_retry
+        retryer = interceptor_context.request.retryer
+        num_max_retries = retryer.num_max_retries
+
+        while True:
+            # perform request and return response
+            try:
+                response_data = self.request(
+                    method, url=interceptor_context.request.url, query_params=interceptor_context.request.query_params,
+                    headers=interceptor_context.request.header_params,
+                    post_params=interceptor_context.request.post_params, body=interceptor_context.request.body,
+                    _preload_content=interceptor_context.request.preload_content,
+                    _request_timeout=interceptor_context.request.request_timeout)
+                self.last_response = response_data
+            except Exception as e:
+                logger.warning("request error: {}".format(e))
+                retry_err = e
+                if retry_count >= num_max_retries:
+                    raise e
+
+            if not auto_retry or not self.request_retry(response_data, retry_count, retry_err, retryer):
+                if retry_err is not None:
+                    raise retry_err
+                break
+            retry_count += 1
 
         interceptor_context.response = Response(response_data)
         interceptor_context = self.interceptor_chain.execute_response(interceptor_context)
@@ -140,6 +165,18 @@ class ApiClient(object):
         else:
             return (response.result, response.http_response.status,
                     response.http_response.getheaders())
+
+    def request_retry(self, response_data, retry_count, retry_err, retryer):
+        if retryer.should_retry(response_data, retry_count, retry_err):
+            delay = retryer.get_backoff_delay(retry_count)
+            sleep(delay / 1000)
+            if self.configuration.debug:
+                logger.debug(
+                    "retry backoff strategy:%s, retry condition: %s, max retry count:%d, current retry count: %d, retry delay(ms):%f",
+                    type(retryer.backoff_strategy).__name__, type(retryer.retry_condition).__name__,
+                    retryer.num_max_retries, retry_count + 1, delay)
+            return True
+        return False
 
     def call_api(self, resource_path, method,
                  path_params=None, query_params=None, header_params=None,

@@ -1,3 +1,15 @@
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 __all__ = ["ContentGenerationTask"]
 
 from volcenginesdkarkruntime._models import BaseModel
@@ -11,6 +23,9 @@ class Usage(BaseModel):
 class Content(BaseModel):
     video_url: str
     """The URL of the generated video, if any."""
+
+    last_frame_url: str
+    """The URL of the last frame of the generated video, if any."""
 
 
 class ContentGenerationError(BaseModel):
@@ -45,3 +60,9 @@ class ContentGenerationTask(BaseModel):
 
     updated_at: int
     """The Unix timestamp when the task was last updated."""
+
+    seed: int
+    """The seed used in the model."""
+
+    revised_prompt: str
+    """The revised prompt the model uses to generate content"""

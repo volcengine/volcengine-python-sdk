@@ -34,15 +34,19 @@ class VisionForStartExecutionInput(object):
     """
     swagger_types = {
         'model': 'ModelForStartExecutionInput',
-        'prompt': 'str'
+        'prompt': 'str',
+        'segment': 'ConvertSegmentForStartExecutionInput',
+        'snapshot_param': 'SnapshotParamForStartExecutionInput'
     }
 
     attribute_map = {
         'model': 'Model',
-        'prompt': 'Prompt'
+        'prompt': 'Prompt',
+        'segment': 'Segment',
+        'snapshot_param': 'SnapshotParam'
     }
 
-    def __init__(self, model=None, prompt=None, _configuration=None):  # noqa: E501
+    def __init__(self, model=None, prompt=None, segment=None, snapshot_param=None, _configuration=None):  # noqa: E501
         """VisionForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +54,18 @@ class VisionForStartExecutionInput(object):
 
         self._model = None
         self._prompt = None
+        self._segment = None
+        self._snapshot_param = None
         self.discriminator = None
 
         if model is not None:
             self.model = model
         if prompt is not None:
             self.prompt = prompt
+        if segment is not None:
+            self.segment = segment
+        if snapshot_param is not None:
+            self.snapshot_param = snapshot_param
 
     @property
     def model(self):
@@ -98,6 +108,48 @@ class VisionForStartExecutionInput(object):
         """
 
         self._prompt = prompt
+
+    @property
+    def segment(self):
+        """Gets the segment of this VisionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The segment of this VisionForStartExecutionInput.  # noqa: E501
+        :rtype: ConvertSegmentForStartExecutionInput
+        """
+        return self._segment
+
+    @segment.setter
+    def segment(self, segment):
+        """Sets the segment of this VisionForStartExecutionInput.
+
+
+        :param segment: The segment of this VisionForStartExecutionInput.  # noqa: E501
+        :type: ConvertSegmentForStartExecutionInput
+        """
+
+        self._segment = segment
+
+    @property
+    def snapshot_param(self):
+        """Gets the snapshot_param of this VisionForStartExecutionInput.  # noqa: E501
+
+
+        :return: The snapshot_param of this VisionForStartExecutionInput.  # noqa: E501
+        :rtype: SnapshotParamForStartExecutionInput
+        """
+        return self._snapshot_param
+
+    @snapshot_param.setter
+    def snapshot_param(self, snapshot_param):
+        """Sets the snapshot_param of this VisionForStartExecutionInput.
+
+
+        :param snapshot_param: The snapshot_param of this VisionForStartExecutionInput.  # noqa: E501
+        :type: SnapshotParamForStartExecutionInput
+        """
+
+        self._snapshot_param = snapshot_param
 
     def to_dict(self):
         """Returns the model properties as a dict"""

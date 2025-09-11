@@ -1,6 +1,18 @@
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
-from typing import Dict, Union, Any, TYPE_CHECKING, cast
+from typing import Union, Any, TYPE_CHECKING, cast
 
 import pydantic
 from httpx import Timeout
@@ -11,27 +23,62 @@ from ._models import BaseModel
 
 __all__ = ["ExtraRequestOptions", "RequestOptions"]
 
-from ._types import NotGiven, NOT_GIVEN
-from ._utils._utils import strip_not_given
+from ._types import NotGiven
+
+from typing import (
+    Callable,
+)
+from typing_extensions import (
+    Required,
+)
+
+
+from ._types import (
+    Body,
+    Query,
+    Headers,
+    AnyMapping,
+    HttpxRequestFiles,
+)
+from ._utils import (
+    is_given,
+    strip_not_given,
+)
+from ._constants import RAW_RESPONSE_HEADER
+
+if TYPE_CHECKING:
+    pass
 
 
 class ExtraRequestOptions(TypedDict, total=False):
-    headers: Dict[str, str]
+    method: Required[str]
+    url: Required[str]
+    params: Query
+    headers: Headers
     max_retries: int
-    timeout: Union[float, Timeout]
-    params: Dict[str, Any]
-    extra_body: Dict[str, Any]
+    timeout: float | Timeout | None
+    files: HttpxRequestFiles | None
+    idempotency_key: str
+    json_data: Body
+    extra_body: AnyMapping
 
 
 class RequestOptions(BaseModel):
     method: str
     url: str
-    headers: Union[Dict[str, str], NotGiven] = NOT_GIVEN
     body: Union[object, None] = {}
-    max_retries: Union[int, NotGiven] = NOT_GIVEN
-    timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN
-    params: Dict[str, object] = {}
-    extra_body: Dict[str, object] = {}
+    params: Query = {}
+    headers: Union[Headers, NotGiven] = NotGiven()
+    max_retries: Union[int, NotGiven] = NotGiven()
+    timeout: Union[float, Timeout, None, NotGiven] = NotGiven()
+    files: Union[HttpxRequestFiles, None] = None
+    idempotency_key: Union[str, None] = None
+    post_parser: Union[Callable[[Any], Any], NotGiven] = NotGiven()
+
+    # It should be noted that we cannot use `json` here as that would override
+    # a BaseModel method in an incompatible fashion.
+    json_data: Union[Body, None] = None
+    extra_body: Union[AnyMapping, None] = None
 
     if PYDANTIC_V2:
         model_config: ClassVar[ConfigDict] = ConfigDict(arbitrary_types_allowed=True)
@@ -45,6 +92,20 @@ class RequestOptions(BaseModel):
             return max_retries
         return self.max_retries
 
+    def _strip_raw_response_header(self) -> None:
+        if not is_given(self.headers):
+            return
+
+        if self.headers.get(RAW_RESPONSE_HEADER):
+            self.headers = {**self.headers}
+            self.headers.pop(RAW_RESPONSE_HEADER)
+
+    # override the `construct` method so that we can run custom transformations.
+    # this is necessary as we don't want to do any actual runtime type checking
+    # (which means we can't use validators) but we do want to ensure that `NotGiven`
+    # values are not present
+    #
+    # type ignore required because we're adding explicit types to `**values`
     @classmethod
     def construct(  # type: ignore
         cls,
@@ -59,9 +120,7 @@ class RequestOptions(BaseModel):
         }
         if PYDANTIC_V2:
             return super().model_construct(_fields_set, **kwargs)
-        return cast(
-            RequestOptions, super().construct(_fields_set, **kwargs)
-        )  # pyright: ignore[reportDeprecated]
+        return cast(RequestOptions, super().construct(_fields_set, **kwargs))  # pyright: ignore[reportDeprecated]
 
     if not TYPE_CHECKING:
         # type checkers incorrectly complain about this assignment

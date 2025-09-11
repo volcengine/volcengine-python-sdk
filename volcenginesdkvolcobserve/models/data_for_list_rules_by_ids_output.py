@@ -51,10 +51,12 @@ class DataForListRulesByIdsOutput(object):
         'multiple_conditions': 'bool',
         'namespace': 'str',
         'notification_id': 'str',
+        'notify_templates': 'list[NotifyTemplateForListRulesByIdsOutput]',
         'original_dimensions': 'dict(str, list[str])',
         'project_name': 'str',
         'recovery_notify': 'RecoveryNotifyForListRulesByIdsOutput',
         'regions': 'list[str]',
+        'resource_type': 'str',
         'rule_name': 'str',
         'rule_type': 'str',
         'silence_time': 'int',
@@ -84,10 +86,12 @@ class DataForListRulesByIdsOutput(object):
         'multiple_conditions': 'MultipleConditions',
         'namespace': 'Namespace',
         'notification_id': 'NotificationId',
+        'notify_templates': 'NotifyTemplates',
         'original_dimensions': 'OriginalDimensions',
         'project_name': 'ProjectName',
         'recovery_notify': 'RecoveryNotify',
         'regions': 'Regions',
+        'resource_type': 'ResourceType',
         'rule_name': 'RuleName',
         'rule_type': 'RuleType',
         'silence_time': 'SilenceTime',
@@ -98,7 +102,7 @@ class DataForListRulesByIdsOutput(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, notification_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, alert_state=None, condition_operator=None, conditions=None, contact_group_ids=None, created_at=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, id=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, notification_id=None, notify_templates=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, resource_type=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, updated_at=None, web_hook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """DataForListRulesByIdsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -122,10 +126,12 @@ class DataForListRulesByIdsOutput(object):
         self._multiple_conditions = None
         self._namespace = None
         self._notification_id = None
+        self._notify_templates = None
         self._original_dimensions = None
         self._project_name = None
         self._recovery_notify = None
         self._regions = None
+        self._resource_type = None
         self._rule_name = None
         self._rule_type = None
         self._silence_time = None
@@ -172,6 +178,8 @@ class DataForListRulesByIdsOutput(object):
             self.namespace = namespace
         if notification_id is not None:
             self.notification_id = notification_id
+        if notify_templates is not None:
+            self.notify_templates = notify_templates
         if original_dimensions is not None:
             self.original_dimensions = original_dimensions
         if project_name is not None:
@@ -180,6 +188,8 @@ class DataForListRulesByIdsOutput(object):
             self.recovery_notify = recovery_notify
         if regions is not None:
             self.regions = regions
+        if resource_type is not None:
+            self.resource_type = resource_type
         if rule_name is not None:
             self.rule_name = rule_name
         if rule_type is not None:
@@ -576,6 +586,27 @@ class DataForListRulesByIdsOutput(object):
         self._notification_id = notification_id
 
     @property
+    def notify_templates(self):
+        """Gets the notify_templates of this DataForListRulesByIdsOutput.  # noqa: E501
+
+
+        :return: The notify_templates of this DataForListRulesByIdsOutput.  # noqa: E501
+        :rtype: list[NotifyTemplateForListRulesByIdsOutput]
+        """
+        return self._notify_templates
+
+    @notify_templates.setter
+    def notify_templates(self, notify_templates):
+        """Sets the notify_templates of this DataForListRulesByIdsOutput.
+
+
+        :param notify_templates: The notify_templates of this DataForListRulesByIdsOutput.  # noqa: E501
+        :type: list[NotifyTemplateForListRulesByIdsOutput]
+        """
+
+        self._notify_templates = notify_templates
+
+    @property
     def original_dimensions(self):
         """Gets the original_dimensions of this DataForListRulesByIdsOutput.  # noqa: E501
 
@@ -658,6 +689,27 @@ class DataForListRulesByIdsOutput(object):
         """
 
         self._regions = regions
+
+    @property
+    def resource_type(self):
+        """Gets the resource_type of this DataForListRulesByIdsOutput.  # noqa: E501
+
+
+        :return: The resource_type of this DataForListRulesByIdsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_type
+
+    @resource_type.setter
+    def resource_type(self, resource_type):
+        """Sets the resource_type of this DataForListRulesByIdsOutput.
+
+
+        :param resource_type: The resource_type of this DataForListRulesByIdsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_type = resource_type
 
     @property
     def rule_name(self):

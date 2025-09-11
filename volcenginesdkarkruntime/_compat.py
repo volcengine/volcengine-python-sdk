@@ -1,11 +1,23 @@
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any, Union, Generic, TypeVar, Callable, cast, overload
 from datetime import date, datetime
-from typing_extensions import Self
-
+from typing_extensions import Self, Literal
 import pydantic
 from pydantic.fields import FieldInfo
+from ._types import IncEx
 
 _T = TypeVar("_T")
 _ModelT = TypeVar("_ModelT", bound=pydantic.BaseModel)
@@ -24,9 +36,7 @@ if TYPE_CHECKING:
     def parse_date(value: date | StrBytesIntFloat) -> date:  # noqa: ARG001
         ...
 
-    def parse_datetime(
-        value: Union[datetime, StrBytesIntFloat]
-    ) -> datetime:  # noqa: ARG001
+    def parse_datetime(value: Union[datetime, StrBytesIntFloat]) -> datetime:  # noqa: ARG001
         ...
 
     def get_args(t: type[Any]) -> tuple[Any, ...]:  # noqa: ARG001
@@ -70,7 +80,6 @@ else:
             parse_datetime as parse_datetime,
         )
 
-
 # refactored config
 if TYPE_CHECKING:
     from pydantic import ConfigDict as ConfigDict
@@ -87,9 +96,7 @@ def parse_obj(model: type[_ModelT], value: object) -> _ModelT:
     if PYDANTIC_V2:
         return model.model_validate(value)
     else:
-        return cast(
-            _ModelT, model.parse_obj(value)
-        )  # pyright: ignore[reportDeprecated, reportUnnecessaryCast]
+        return cast(_ModelT, model.parse_obj(value))  # pyright: ignore[reportDeprecated, reportUnnecessaryCast]
 
 
 def field_is_required(field: FieldInfo) -> bool:
@@ -142,17 +149,25 @@ def model_json(model: pydantic.BaseModel, *, indent: int | None = None) -> str:
 def model_dump(
     model: pydantic.BaseModel,
     *,
+    exclude: IncEx | None = None,
     exclude_unset: bool = False,
     exclude_defaults: bool = False,
+    warnings: bool = True,
+    mode: Literal["json", "python"] = "python",
 ) -> dict[str, Any]:
-    if PYDANTIC_V2:
+    if PYDANTIC_V2 or hasattr(model, "model_dump"):
         return model.model_dump(
+            mode=mode,
+            exclude=exclude,
             exclude_unset=exclude_unset,
             exclude_defaults=exclude_defaults,
+            # warnings are not supported in Pydantic v1
+            warnings=warnings if PYDANTIC_V2 else True,
         )
     return cast(
         "dict[str, Any]",
         model.dict(  # pyright: ignore[reportDeprecated, reportUnnecessaryCast]
+            exclude=exclude,
             exclude_unset=exclude_unset,
             exclude_defaults=exclude_defaults,
         ),
@@ -163,6 +178,18 @@ def model_parse(model: type[_ModelT], data: Any) -> _ModelT:
     if PYDANTIC_V2:
         return model.model_validate(data)
     return model.parse_obj(data)  # pyright: ignore[reportDeprecated]
+
+
+def model_parse_json(model: type[_ModelT], data: str | bytes) -> _ModelT:
+    if PYDANTIC_V2:
+        return model.model_validate_json(data)
+    return model.parse_raw(data)  # pyright: ignore[reportDeprecated]
+
+
+def model_json_schema(model: type[_ModelT]) -> dict[str, Any]:
+    if PYDANTIC_V2:
+        return model.model_json_schema()
+    return model.schema()  # pyrigh
 
 
 # generic models

@@ -44,6 +44,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         'nat_traversal': 'bool',
         'negotiate_instantly': 'bool',
         'remote_subnet': 'list[str]',
+        'tunnel_options': 'list[TunnelOptionForModifyVpnConnectionAttributesInput]',
         'vpn_connection_id': 'str',
         'vpn_connection_name': 'str'
     }
@@ -60,11 +61,12 @@ class ModifyVpnConnectionAttributesRequest(object):
         'nat_traversal': 'NatTraversal',
         'negotiate_instantly': 'NegotiateInstantly',
         'remote_subnet': 'RemoteSubnet',
+        'tunnel_options': 'TunnelOptions',
         'vpn_connection_id': 'VpnConnectionId',
         'vpn_connection_name': 'VpnConnectionName'
     }
 
-    def __init__(self, bgp_config=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgp_config=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, tunnel_options=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
         """ModifyVpnConnectionAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         self._nat_traversal = None
         self._negotiate_instantly = None
         self._remote_subnet = None
+        self._tunnel_options = None
         self._vpn_connection_id = None
         self._vpn_connection_name = None
         self.discriminator = None
@@ -107,6 +110,8 @@ class ModifyVpnConnectionAttributesRequest(object):
             self.negotiate_instantly = negotiate_instantly
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
+        if tunnel_options is not None:
+            self.tunnel_options = tunnel_options
         self.vpn_connection_id = vpn_connection_id
         if vpn_connection_name is not None:
             self.vpn_connection_name = vpn_connection_name
@@ -341,6 +346,27 @@ class ModifyVpnConnectionAttributesRequest(object):
         """
 
         self._remote_subnet = remote_subnet
+
+    @property
+    def tunnel_options(self):
+        """Gets the tunnel_options of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The tunnel_options of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: list[TunnelOptionForModifyVpnConnectionAttributesInput]
+        """
+        return self._tunnel_options
+
+    @tunnel_options.setter
+    def tunnel_options(self, tunnel_options):
+        """Sets the tunnel_options of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param tunnel_options: The tunnel_options of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: list[TunnelOptionForModifyVpnConnectionAttributesInput]
+        """
+
+        self._tunnel_options = tunnel_options
 
     @property
     def vpn_connection_id(self):

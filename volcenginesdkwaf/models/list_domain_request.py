@@ -43,6 +43,7 @@ class ListDomainRequest(object):
         'lb_info': 'list[LBInfoForListDomainInput]',
         'page': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'public_real_server': 'list[int]',
         'region': 'str',
         'sort_by_create_time': 'str',
@@ -67,6 +68,7 @@ class ListDomainRequest(object):
         'lb_info': 'LBInfo',
         'page': 'Page',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'public_real_server': 'PublicRealServer',
         'region': 'Region',
         'sort_by_create_time': 'SortByCreateTime',
@@ -80,7 +82,7 @@ class ListDomainRequest(object):
         'vpc_owner_name': 'VpcOwnerName'
     }
 
-    def __init__(self, access_mode=None, accurate_query=None, attack_status=None, client_ip=None, defence_mode=None, domain=None, domain_or_path=None, lb_info=None, page=None, page_size=None, public_real_server=None, region=None, sort_by_create_time=None, sort_by_domain_name=None, sort_by_update_time=None, status=None, tls_enable=None, vpc_id=None, vpc_name=None, vpc_owner_id=None, vpc_owner_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_mode=None, accurate_query=None, attack_status=None, client_ip=None, defence_mode=None, domain=None, domain_or_path=None, lb_info=None, page=None, page_size=None, project_name=None, public_real_server=None, region=None, sort_by_create_time=None, sort_by_domain_name=None, sort_by_update_time=None, status=None, tls_enable=None, vpc_id=None, vpc_name=None, vpc_owner_id=None, vpc_owner_name=None, _configuration=None):  # noqa: E501
         """ListDomainRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class ListDomainRequest(object):
         self._lb_info = None
         self._page = None
         self._page_size = None
+        self._project_name = None
         self._public_real_server = None
         self._region = None
         self._sort_by_create_time = None
@@ -127,6 +130,8 @@ class ListDomainRequest(object):
             self.lb_info = lb_info
         self.page = page
         self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if public_real_server is not None:
             self.public_real_server = public_real_server
         self.region = region
@@ -362,6 +367,27 @@ class ListDomainRequest(object):
             raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListDomainRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListDomainRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListDomainRequest.
+
+
+        :param project_name: The project_name of this ListDomainRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def public_real_server(self):

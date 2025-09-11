@@ -1,7 +1,18 @@
-# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
 
 from __future__ import annotations
 
+from typing import Optional
 from typing_extensions import Required, TypedDict
 
 from ...types import shared_params
@@ -31,4 +42,11 @@ class FunctionDefinition(TypedDict, total=False):
     documentation about the format.
 
     Omitting `parameters` defines a function with an empty parameter list.
+    """
+    strict: Optional[bool]
+    """Whether to enable strict schema adherence when generating the function call.
+
+    If set to true, the model will follow the exact schema defined in the
+    `parameters` field. Only a subset of JSON Schema is supported when `strict` is
+    `true`.
     """

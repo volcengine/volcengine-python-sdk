@@ -1,6 +1,18 @@
+
+# Copyright (c) [2025] [OpenAI]
+# Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file has been modified by [ByteDance Ltd. and/or its affiliates.] on 2025.7
+#
+# Original file was released under Apache License Version 2.0, with the full license text
+# available at https://github.com/openai/openai-python/blob/main/LICENSE.
+#
+# This modified file is released under the same license.
+
 from __future__ import annotations
 
-from typing import Iterable, Union, List
+from typing import Iterable, Union, List, Optional
 
 import httpx
 
@@ -33,6 +45,8 @@ class Tasks(SyncAPIResource):
         *,
         model: str,
         content: Iterable[CreateTaskContentParam],
+        callback_url: Optional[str] = None,
+        return_last_frame: Optional[bool] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -43,6 +57,8 @@ class Tasks(SyncAPIResource):
             body={
                 "model": model,
                 "content": content,
+                "callback_url": callback_url,
+                "return_last_frame": return_last_frame,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -150,6 +166,8 @@ class AsyncTasks(AsyncAPIResource):
         *,
         model: str,
         content: Iterable[CreateTaskContentParam],
+        callback_url: Optional[str] = None,
+        return_last_frame: Optional[bool] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -160,6 +178,8 @@ class AsyncTasks(AsyncAPIResource):
             body={
                 "model": model,
                 "content": content,
+                "callback_url": callback_url,
+                "return_last_frame": return_last_frame,
             },
             options=make_request_options(
                 extra_headers=extra_headers,

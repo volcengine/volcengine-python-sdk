@@ -55,8 +55,10 @@ class ListOrderProductDetailsRequest(object):
         self._order_id = None
         self.discriminator = None
 
-        self.max_results = max_results
-        self.next_token = next_token
+        if max_results is not None:
+            self.max_results = max_results
+        if next_token is not None:
+            self.next_token = next_token
         self.order_id = order_id
 
     @property
@@ -77,8 +79,6 @@ class ListOrderProductDetailsRequest(object):
         :param max_results: The max_results of this ListOrderProductDetailsRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and max_results is None:
-            raise ValueError("Invalid value for `max_results`, must not be `None`")  # noqa: E501
 
         self._max_results = max_results
 
@@ -100,8 +100,6 @@ class ListOrderProductDetailsRequest(object):
         :param next_token: The next_token of this ListOrderProductDetailsRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and next_token is None:
-            raise ValueError("Invalid value for `next_token`, must not be `None`")  # noqa: E501
 
         self._next_token = next_token
 
