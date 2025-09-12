@@ -33,7 +33,7 @@ class TrafficLimitConfigForCreateRulesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'qps': 'str'
+        'qps': 'int'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class TrafficLimitConfigForCreateRulesInput(object):
 
 
         :return: The qps of this TrafficLimitConfigForCreateRulesInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._qps
 
@@ -68,7 +68,7 @@ class TrafficLimitConfigForCreateRulesInput(object):
 
 
         :param qps: The qps of this TrafficLimitConfigForCreateRulesInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._qps = qps

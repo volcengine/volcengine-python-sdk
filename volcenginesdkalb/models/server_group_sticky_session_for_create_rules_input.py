@@ -34,7 +34,7 @@ class ServerGroupStickySessionForCreateRulesInput(object):
     """
     swagger_types = {
         'enabled': 'str',
-        'timeout': 'str'
+        'timeout': 'int'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class ServerGroupStickySessionForCreateRulesInput(object):
 
 
         :return: The timeout of this ServerGroupStickySessionForCreateRulesInput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._timeout
 
@@ -94,7 +94,7 @@ class ServerGroupStickySessionForCreateRulesInput(object):
 
 
         :param timeout: The timeout of this ServerGroupStickySessionForCreateRulesInput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._timeout = timeout
