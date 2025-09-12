@@ -34,7 +34,7 @@ class ConvertForwardGroupConfigForModifyRulesInput(object):
     """
     swagger_types = {
         'server_group_sticky_session': 'ServerGroupStickySessionForModifyRulesInput',
-        'server_group_tuples': 'list[ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput]'
+        'server_group_tuples': 'list[ForwardGroupConfigServerGroupTupleForModifyRulesInput]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class ConvertForwardGroupConfigForModifyRulesInput(object):
 
 
         :return: The server_group_tuples of this ConvertForwardGroupConfigForModifyRulesInput.  # noqa: E501
-        :rtype: list[ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput]
+        :rtype: list[ForwardGroupConfigServerGroupTupleForModifyRulesInput]
         """
         return self._server_group_tuples
 
@@ -94,7 +94,7 @@ class ConvertForwardGroupConfigForModifyRulesInput(object):
 
 
         :param server_group_tuples: The server_group_tuples of this ConvertForwardGroupConfigForModifyRulesInput.  # noqa: E501
-        :type: list[ConvertForwardGroupConfigServerGroupTupleForModifyRulesInput]
+        :type: list[ForwardGroupConfigServerGroupTupleForModifyRulesInput]
         """
 
         self._server_group_tuples = server_group_tuples

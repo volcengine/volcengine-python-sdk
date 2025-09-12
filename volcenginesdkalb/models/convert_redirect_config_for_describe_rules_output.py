@@ -34,9 +34,9 @@ class ConvertRedirectConfigForDescribeRulesOutput(object):
     """
     swagger_types = {
         'host': 'str',
-        'http_code': 'int',
+        'http_code': 'str',
         'path': 'str',
-        'port': 'int',
+        'port': 'str',
         'protocol': 'str'
     }
 
@@ -99,7 +99,7 @@ class ConvertRedirectConfigForDescribeRulesOutput(object):
 
 
         :return: The http_code of this ConvertRedirectConfigForDescribeRulesOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._http_code
 
@@ -109,7 +109,7 @@ class ConvertRedirectConfigForDescribeRulesOutput(object):
 
 
         :param http_code: The http_code of this ConvertRedirectConfigForDescribeRulesOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._http_code = http_code
@@ -141,7 +141,7 @@ class ConvertRedirectConfigForDescribeRulesOutput(object):
 
 
         :return: The port of this ConvertRedirectConfigForDescribeRulesOutput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._port
 
@@ -151,7 +151,7 @@ class ConvertRedirectConfigForDescribeRulesOutput(object):
 
 
         :param port: The port of this ConvertRedirectConfigForDescribeRulesOutput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._port = port
