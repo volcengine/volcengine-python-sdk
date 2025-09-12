@@ -33,6 +33,9 @@ class Image(BaseModel):
     b64_json: str
     """The Base 64 encoded string of the generated image, if any."""
 
+    size: str
+    """The size of the generated image, if any."""
+
 
 class Error(BaseModel):
     message: str
