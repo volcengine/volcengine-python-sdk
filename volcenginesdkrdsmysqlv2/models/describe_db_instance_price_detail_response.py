@@ -33,24 +33,29 @@ class DescribeDBInstancePriceDetailResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'describe_db_instance_price_detail_str': 'DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput'
+        'describe_db_instance_price_detail_str': 'DescribeDBInstancePriceDetailStrForDescribeDBInstancePriceDetailOutput',
+        'hide_price_info': 'bool'
     }
 
     attribute_map = {
-        'describe_db_instance_price_detail_str': 'DescribeDBInstancePriceDetailStr'
+        'describe_db_instance_price_detail_str': 'DescribeDBInstancePriceDetailStr',
+        'hide_price_info': 'HidePriceInfo'
     }
 
-    def __init__(self, describe_db_instance_price_detail_str=None, _configuration=None):  # noqa: E501
+    def __init__(self, describe_db_instance_price_detail_str=None, hide_price_info=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancePriceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._describe_db_instance_price_detail_str = None
+        self._hide_price_info = None
         self.discriminator = None
 
         if describe_db_instance_price_detail_str is not None:
             self.describe_db_instance_price_detail_str = describe_db_instance_price_detail_str
+        if hide_price_info is not None:
+            self.hide_price_info = hide_price_info
 
     @property
     def describe_db_instance_price_detail_str(self):
@@ -72,6 +77,27 @@ class DescribeDBInstancePriceDetailResponse(object):
         """
 
         self._describe_db_instance_price_detail_str = describe_db_instance_price_detail_str
+
+    @property
+    def hide_price_info(self):
+        """Gets the hide_price_info of this DescribeDBInstancePriceDetailResponse.  # noqa: E501
+
+
+        :return: The hide_price_info of this DescribeDBInstancePriceDetailResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_price_info
+
+    @hide_price_info.setter
+    def hide_price_info(self, hide_price_info):
+        """Sets the hide_price_info of this DescribeDBInstancePriceDetailResponse.
+
+
+        :param hide_price_info: The hide_price_info of this DescribeDBInstancePriceDetailResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._hide_price_info = hide_price_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""

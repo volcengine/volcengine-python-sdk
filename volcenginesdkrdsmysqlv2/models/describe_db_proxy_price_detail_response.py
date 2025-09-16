@@ -39,6 +39,7 @@ class DescribeDBProxyPriceDetailResponse(object):
         'describe_db_instance_price_detail_str': 'DescribeDBInstancePriceDetailStrForDescribeDBProxyPriceDetailOutput',
         'describe_db_proxy_price_detail_str': 'DescribeDBProxyPriceDetailStrForDescribeDBProxyPriceDetailOutput',
         'discount_price': 'float',
+        'hide_price_info': 'bool',
         'original_price': 'float',
         'payable_price': 'float',
         'quantity': 'int',
@@ -52,13 +53,14 @@ class DescribeDBProxyPriceDetailResponse(object):
         'describe_db_instance_price_detail_str': 'DescribeDBInstancePriceDetailStr',
         'describe_db_proxy_price_detail_str': 'DescribeDBProxyPriceDetailStr',
         'discount_price': 'DiscountPrice',
+        'hide_price_info': 'HidePriceInfo',
         'original_price': 'OriginalPrice',
         'payable_price': 'PayablePrice',
         'quantity': 'Quantity',
         'refund_amount': 'RefundAmount'
     }
 
-    def __init__(self, billing_method=None, charge_item_prices=None, currency=None, describe_db_instance_price_detail_str=None, describe_db_proxy_price_detail_str=None, discount_price=None, original_price=None, payable_price=None, quantity=None, refund_amount=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_method=None, charge_item_prices=None, currency=None, describe_db_instance_price_detail_str=None, describe_db_proxy_price_detail_str=None, discount_price=None, hide_price_info=None, original_price=None, payable_price=None, quantity=None, refund_amount=None, _configuration=None):  # noqa: E501
         """DescribeDBProxyPriceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class DescribeDBProxyPriceDetailResponse(object):
         self._describe_db_instance_price_detail_str = None
         self._describe_db_proxy_price_detail_str = None
         self._discount_price = None
+        self._hide_price_info = None
         self._original_price = None
         self._payable_price = None
         self._quantity = None
@@ -88,6 +91,8 @@ class DescribeDBProxyPriceDetailResponse(object):
             self.describe_db_proxy_price_detail_str = describe_db_proxy_price_detail_str
         if discount_price is not None:
             self.discount_price = discount_price
+        if hide_price_info is not None:
+            self.hide_price_info = hide_price_info
         if original_price is not None:
             self.original_price = original_price
         if payable_price is not None:
@@ -222,6 +227,27 @@ class DescribeDBProxyPriceDetailResponse(object):
         """
 
         self._discount_price = discount_price
+
+    @property
+    def hide_price_info(self):
+        """Gets the hide_price_info of this DescribeDBProxyPriceDetailResponse.  # noqa: E501
+
+
+        :return: The hide_price_info of this DescribeDBProxyPriceDetailResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_price_info
+
+    @hide_price_info.setter
+    def hide_price_info(self, hide_price_info):
+        """Sets the hide_price_info of this DescribeDBProxyPriceDetailResponse.
+
+
+        :param hide_price_info: The hide_price_info of this DescribeDBProxyPriceDetailResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._hide_price_info = hide_price_info
 
     @property
     def original_price(self):

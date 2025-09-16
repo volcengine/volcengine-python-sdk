@@ -40,6 +40,7 @@ class AllowListForDescribeAllowListsOutput(object):
         'allow_list_name': 'str',
         'allow_list_type': 'str',
         'associated_instance_num': 'int',
+        'ip_list': 'list[str]',
         'security_group_bind_infos': 'list[SecurityGroupBindInfoForDescribeAllowListsOutput]'
     }
 
@@ -51,10 +52,11 @@ class AllowListForDescribeAllowListsOutput(object):
         'allow_list_name': 'AllowListName',
         'allow_list_type': 'AllowListType',
         'associated_instance_num': 'AssociatedInstanceNum',
+        'ip_list': 'IpList',
         'security_group_bind_infos': 'SecurityGroupBindInfos'
     }
 
-    def __init__(self, allow_list_category=None, allow_list_desc=None, allow_list_ip_num=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, security_group_bind_infos=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_category=None, allow_list_desc=None, allow_list_ip_num=None, allow_list_id=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, ip_list=None, security_group_bind_infos=None, _configuration=None):  # noqa: E501
         """AllowListForDescribeAllowListsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class AllowListForDescribeAllowListsOutput(object):
         self._allow_list_name = None
         self._allow_list_type = None
         self._associated_instance_num = None
+        self._ip_list = None
         self._security_group_bind_infos = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class AllowListForDescribeAllowListsOutput(object):
             self.allow_list_type = allow_list_type
         if associated_instance_num is not None:
             self.associated_instance_num = associated_instance_num
+        if ip_list is not None:
+            self.ip_list = ip_list
         if security_group_bind_infos is not None:
             self.security_group_bind_infos = security_group_bind_infos
 
@@ -233,6 +238,27 @@ class AllowListForDescribeAllowListsOutput(object):
         """
 
         self._associated_instance_num = associated_instance_num
+
+    @property
+    def ip_list(self):
+        """Gets the ip_list of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+
+
+        :return: The ip_list of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ip_list
+
+    @ip_list.setter
+    def ip_list(self, ip_list):
+        """Sets the ip_list of this AllowListForDescribeAllowListsOutput.
+
+
+        :param ip_list: The ip_list of this AllowListForDescribeAllowListsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ip_list = ip_list
 
     @property
     def security_group_bind_infos(self):
