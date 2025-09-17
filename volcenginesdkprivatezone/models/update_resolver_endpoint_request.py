@@ -36,7 +36,7 @@ class UpdateResolverEndpointRequest(object):
         'endpoint_id': 'int',
         'endpoint_trn': 'str',
         'endpoint_type': 'str',
-        'ip_configs': 'IpConfigsForUpdateResolverEndpointInput',
+        'ip_configs': 'list[IpConfigForUpdateResolverEndpointInput]',
         'name': 'str'
     }
 
@@ -142,7 +142,7 @@ class UpdateResolverEndpointRequest(object):
 
 
         :return: The ip_configs of this UpdateResolverEndpointRequest.  # noqa: E501
-        :rtype: IpConfigsForUpdateResolverEndpointInput
+        :rtype: list[IpConfigForUpdateResolverEndpointInput]
         """
         return self._ip_configs
 
@@ -152,7 +152,7 @@ class UpdateResolverEndpointRequest(object):
 
 
         :param ip_configs: The ip_configs of this UpdateResolverEndpointRequest.  # noqa: E501
-        :type: IpConfigsForUpdateResolverEndpointInput
+        :type: list[IpConfigForUpdateResolverEndpointInput]
         """
 
         self._ip_configs = ip_configs
