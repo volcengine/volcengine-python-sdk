@@ -24,12 +24,12 @@ if __name__ == "__main__":
     print("----- [Seededit] generate images -----")
 
     result = client.images.generate(
-        model="${YOUR_SEEDEDIT_ENDPOINT_ID}",
+        model="${YOUR_SEEDREAM_ENDPOINT_ID}",
         prompt="龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原",
-        image="${YOUR_IMAGE_URL}",
+        # image="${YOUR_IMAGE_URL}",
         seed=1234567890,
         watermark=True,
-        size="adaptive",
+        size="1024x1024",
     )
 
     print(result)
@@ -40,7 +40,7 @@ if __name__ == "__main__":
         model="${YOUR_SEEDREAM_ENDPOINT_ID}",
         prompt="星球大战, 需要三幅图片描绘不同的战斗场景",
         response_format="url",
-        image=["YOUR_IMAGE_URL_HERE", "YOUR_IMAGE_URL_HERE"],
+        # image=["YOUR_IMAGE_URL_HERE", "YOUR_IMAGE_URL_HERE"],
         seed=1234567890,
         watermark=True,
         size="1024x1024",
@@ -66,6 +66,3 @@ if __name__ == "__main__":
             if event.error is None:
                 print("Final completed event:")
                 print("recv.Usage:", event.usage)
-
-        elif event.type == "image_generation.partial_image":
-            print(f"Partial image index={event.partial_image_index}, size={len(event.b64_json)}")

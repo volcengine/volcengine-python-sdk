@@ -54,7 +54,10 @@ def _add_beta_headers(extra_headers: Headers | None = None, tools: Iterable[Tool
             if extra_headers is None:
                 extra_headers = {}
             extra_headers["ark-beta-web-search"] = "true"
-            break
+        if tool_param.get("type", "") == "mcp":
+            if extra_headers is None:
+                extra_headers = {}
+            extra_headers["ark-beta-mcp"] = "true"
     return extra_headers
 
 

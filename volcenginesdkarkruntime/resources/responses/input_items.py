@@ -107,7 +107,7 @@ class InputItems(SyncAPIResource):
                     {
                         "after": after,
                         "before": before,
-                        "include": include,
+                        "include[]": include,
                         "limit": limit,
                         "order": order,
                     },
@@ -191,7 +191,7 @@ class AsyncInputItems(AsyncAPIResource):
                     {
                         "after": after,
                         "before": before,
-                        "include": include,
+                        "include[]": include,
                         "limit": limit,
                         "order": order,
                     },
