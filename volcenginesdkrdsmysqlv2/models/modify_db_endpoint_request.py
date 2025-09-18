@@ -34,8 +34,10 @@ class ModifyDBEndpointRequest(object):
     """
     swagger_types = {
         'auto_add_new_nodes': 'bool',
+        'connect_all_slave_nodes': 'bool',
         'connection_pool_type': 'str',
         'description': 'str',
+        'enable_connection_persistent': 'bool',
         'endpoint_id': 'str',
         'endpoint_name': 'str',
         'idle_connection_reclaim': 'bool',
@@ -55,8 +57,10 @@ class ModifyDBEndpointRequest(object):
 
     attribute_map = {
         'auto_add_new_nodes': 'AutoAddNewNodes',
+        'connect_all_slave_nodes': 'ConnectAllSlaveNodes',
         'connection_pool_type': 'ConnectionPoolType',
         'description': 'Description',
+        'enable_connection_persistent': 'EnableConnectionPersistent',
         'endpoint_id': 'EndpointId',
         'endpoint_name': 'EndpointName',
         'idle_connection_reclaim': 'IdleConnectionReclaim',
@@ -74,15 +78,17 @@ class ModifyDBEndpointRequest(object):
         'read_write_spliting': 'ReadWriteSpliting'
     }
 
-    def __init__(self, auto_add_new_nodes=None, connection_pool_type=None, description=None, endpoint_id=None, endpoint_name=None, idle_connection_reclaim=None, implicit_trans_split=None, instance_id=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, nodes=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, connect_all_slave_nodes=None, connection_pool_type=None, description=None, enable_connection_persistent=None, endpoint_id=None, endpoint_name=None, idle_connection_reclaim=None, implicit_trans_split=None, instance_id=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, nodes=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
         """ModifyDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_add_new_nodes = None
+        self._connect_all_slave_nodes = None
         self._connection_pool_type = None
         self._description = None
+        self._enable_connection_persistent = None
         self._endpoint_id = None
         self._endpoint_name = None
         self._idle_connection_reclaim = None
@@ -102,10 +108,14 @@ class ModifyDBEndpointRequest(object):
 
         if auto_add_new_nodes is not None:
             self.auto_add_new_nodes = auto_add_new_nodes
+        if connect_all_slave_nodes is not None:
+            self.connect_all_slave_nodes = connect_all_slave_nodes
         if connection_pool_type is not None:
             self.connection_pool_type = connection_pool_type
         if description is not None:
             self.description = description
+        if enable_connection_persistent is not None:
+            self.enable_connection_persistent = enable_connection_persistent
         self.endpoint_id = endpoint_id
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
@@ -157,6 +167,27 @@ class ModifyDBEndpointRequest(object):
         self._auto_add_new_nodes = auto_add_new_nodes
 
     @property
+    def connect_all_slave_nodes(self):
+        """Gets the connect_all_slave_nodes of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The connect_all_slave_nodes of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._connect_all_slave_nodes
+
+    @connect_all_slave_nodes.setter
+    def connect_all_slave_nodes(self, connect_all_slave_nodes):
+        """Sets the connect_all_slave_nodes of this ModifyDBEndpointRequest.
+
+
+        :param connect_all_slave_nodes: The connect_all_slave_nodes of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._connect_all_slave_nodes = connect_all_slave_nodes
+
+    @property
     def connection_pool_type(self):
         """Gets the connection_pool_type of this ModifyDBEndpointRequest.  # noqa: E501
 
@@ -197,6 +228,27 @@ class ModifyDBEndpointRequest(object):
         """
 
         self._description = description
+
+    @property
+    def enable_connection_persistent(self):
+        """Gets the enable_connection_persistent of this ModifyDBEndpointRequest.  # noqa: E501
+
+
+        :return: The enable_connection_persistent of this ModifyDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_connection_persistent
+
+    @enable_connection_persistent.setter
+    def enable_connection_persistent(self, enable_connection_persistent):
+        """Sets the enable_connection_persistent of this ModifyDBEndpointRequest.
+
+
+        :param enable_connection_persistent: The enable_connection_persistent of this ModifyDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_connection_persistent = enable_connection_persistent
 
     @property
     def endpoint_id(self):

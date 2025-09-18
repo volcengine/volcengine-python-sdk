@@ -50,6 +50,8 @@ class DescribeBackupPolicyResponse(object):
         'data_incr_backup_periods': 'list[str]',
         'data_keep_days_after_released': 'int',
         'data_keep_policy_after_released': 'str',
+        'high_frequency_snapshot_backup_enable': 'bool',
+        'high_frequency_snapshot_backup_second_period': 'int',
         'hourly_incr_backup_enable': 'bool',
         'incr_backup_hour_period': 'int',
         'instance_id': 'str',
@@ -77,6 +79,8 @@ class DescribeBackupPolicyResponse(object):
         'data_incr_backup_periods': 'DataIncrBackupPeriods',
         'data_keep_days_after_released': 'DataKeepDaysAfterReleased',
         'data_keep_policy_after_released': 'DataKeepPolicyAfterReleased',
+        'high_frequency_snapshot_backup_enable': 'HighFrequencySnapshotBackupEnable',
+        'high_frequency_snapshot_backup_second_period': 'HighFrequencySnapshotBackupSecondPeriod',
         'hourly_incr_backup_enable': 'HourlyIncrBackupEnable',
         'incr_backup_hour_period': 'IncrBackupHourPeriod',
         'instance_id': 'InstanceId',
@@ -86,7 +90,7 @@ class DescribeBackupPolicyResponse(object):
         'retention_policy_synced': 'RetentionPolicySynced'
     }
 
-    def __init__(self, binlog_backup_all_retention=None, binlog_backup_enabled=None, binlog_backup_encryption_enabled=None, binlog_file_counts_enable=None, binlog_limit_count=None, binlog_local_retention_hour=None, binlog_space_limit_enable=None, binlog_storage_percentage=None, data_backup_all_retention=None, data_backup_encryption_enabled=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_start_utc_hour=None, data_full_backup_time=None, data_incr_backup_periods=None, data_keep_days_after_released=None, data_keep_policy_after_released=None, hourly_incr_backup_enable=None, incr_backup_hour_period=None, instance_id=None, lock_ddl_time=None, log_backup_retention_day=None, public_download_enable=None, retention_policy_synced=None, _configuration=None):  # noqa: E501
+    def __init__(self, binlog_backup_all_retention=None, binlog_backup_enabled=None, binlog_backup_encryption_enabled=None, binlog_file_counts_enable=None, binlog_limit_count=None, binlog_local_retention_hour=None, binlog_space_limit_enable=None, binlog_storage_percentage=None, data_backup_all_retention=None, data_backup_encryption_enabled=None, data_backup_retention_day=None, data_full_backup_periods=None, data_full_backup_start_utc_hour=None, data_full_backup_time=None, data_incr_backup_periods=None, data_keep_days_after_released=None, data_keep_policy_after_released=None, high_frequency_snapshot_backup_enable=None, high_frequency_snapshot_backup_second_period=None, hourly_incr_backup_enable=None, incr_backup_hour_period=None, instance_id=None, lock_ddl_time=None, log_backup_retention_day=None, public_download_enable=None, retention_policy_synced=None, _configuration=None):  # noqa: E501
         """DescribeBackupPolicyResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -109,6 +113,8 @@ class DescribeBackupPolicyResponse(object):
         self._data_incr_backup_periods = None
         self._data_keep_days_after_released = None
         self._data_keep_policy_after_released = None
+        self._high_frequency_snapshot_backup_enable = None
+        self._high_frequency_snapshot_backup_second_period = None
         self._hourly_incr_backup_enable = None
         self._incr_backup_hour_period = None
         self._instance_id = None
@@ -152,6 +158,10 @@ class DescribeBackupPolicyResponse(object):
             self.data_keep_days_after_released = data_keep_days_after_released
         if data_keep_policy_after_released is not None:
             self.data_keep_policy_after_released = data_keep_policy_after_released
+        if high_frequency_snapshot_backup_enable is not None:
+            self.high_frequency_snapshot_backup_enable = high_frequency_snapshot_backup_enable
+        if high_frequency_snapshot_backup_second_period is not None:
+            self.high_frequency_snapshot_backup_second_period = high_frequency_snapshot_backup_second_period
         if hourly_incr_backup_enable is not None:
             self.hourly_incr_backup_enable = hourly_incr_backup_enable
         if incr_backup_hour_period is not None:
@@ -523,6 +533,48 @@ class DescribeBackupPolicyResponse(object):
         """
 
         self._data_keep_policy_after_released = data_keep_policy_after_released
+
+    @property
+    def high_frequency_snapshot_backup_enable(self):
+        """Gets the high_frequency_snapshot_backup_enable of this DescribeBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The high_frequency_snapshot_backup_enable of this DescribeBackupPolicyResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._high_frequency_snapshot_backup_enable
+
+    @high_frequency_snapshot_backup_enable.setter
+    def high_frequency_snapshot_backup_enable(self, high_frequency_snapshot_backup_enable):
+        """Sets the high_frequency_snapshot_backup_enable of this DescribeBackupPolicyResponse.
+
+
+        :param high_frequency_snapshot_backup_enable: The high_frequency_snapshot_backup_enable of this DescribeBackupPolicyResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._high_frequency_snapshot_backup_enable = high_frequency_snapshot_backup_enable
+
+    @property
+    def high_frequency_snapshot_backup_second_period(self):
+        """Gets the high_frequency_snapshot_backup_second_period of this DescribeBackupPolicyResponse.  # noqa: E501
+
+
+        :return: The high_frequency_snapshot_backup_second_period of this DescribeBackupPolicyResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._high_frequency_snapshot_backup_second_period
+
+    @high_frequency_snapshot_backup_second_period.setter
+    def high_frequency_snapshot_backup_second_period(self, high_frequency_snapshot_backup_second_period):
+        """Sets the high_frequency_snapshot_backup_second_period of this DescribeBackupPolicyResponse.
+
+
+        :param high_frequency_snapshot_backup_second_period: The high_frequency_snapshot_backup_second_period of this DescribeBackupPolicyResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._high_frequency_snapshot_backup_second_period = high_frequency_snapshot_backup_second_period
 
     @property
     def hourly_incr_backup_enable(self):

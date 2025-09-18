@@ -39,6 +39,7 @@ class CreateDrDBInstanceRequest(object):
         'master_instance_id': 'str',
         'master_region': 'str',
         'node_info': 'list[NodeInfoForCreateDrDBInstanceInput]',
+        'proxy_node_custom': 'ProxyNodeCustomForCreateDrDBInstanceInput',
         'storage_space': 'int',
         'subnet_id': 'str',
         'vpc_id': 'str'
@@ -51,12 +52,13 @@ class CreateDrDBInstanceRequest(object):
         'master_instance_id': 'MasterInstanceId',
         'master_region': 'MasterRegion',
         'node_info': 'NodeInfo',
+        'proxy_node_custom': 'ProxyNodeCustom',
         'storage_space': 'StorageSpace',
         'subnet_id': 'SubnetId',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, auto_storage_scaling_config=None, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, storage_space=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_storage_scaling_config=None, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, proxy_node_custom=None, storage_space=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDrDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class CreateDrDBInstanceRequest(object):
         self._master_instance_id = None
         self._master_region = None
         self._node_info = None
+        self._proxy_node_custom = None
         self._storage_space = None
         self._subnet_id = None
         self._vpc_id = None
@@ -83,6 +86,8 @@ class CreateDrDBInstanceRequest(object):
         self.master_region = master_region
         if node_info is not None:
             self.node_info = node_info
+        if proxy_node_custom is not None:
+            self.proxy_node_custom = proxy_node_custom
         self.storage_space = storage_space
         self.subnet_id = subnet_id
         self.vpc_id = vpc_id
@@ -216,6 +221,27 @@ class CreateDrDBInstanceRequest(object):
         """
 
         self._node_info = node_info
+
+    @property
+    def proxy_node_custom(self):
+        """Gets the proxy_node_custom of this CreateDrDBInstanceRequest.  # noqa: E501
+
+
+        :return: The proxy_node_custom of this CreateDrDBInstanceRequest.  # noqa: E501
+        :rtype: ProxyNodeCustomForCreateDrDBInstanceInput
+        """
+        return self._proxy_node_custom
+
+    @proxy_node_custom.setter
+    def proxy_node_custom(self, proxy_node_custom):
+        """Sets the proxy_node_custom of this CreateDrDBInstanceRequest.
+
+
+        :param proxy_node_custom: The proxy_node_custom of this CreateDrDBInstanceRequest.  # noqa: E501
+        :type: ProxyNodeCustomForCreateDrDBInstanceInput
+        """
+
+        self._proxy_node_custom = proxy_node_custom
 
     @property
     def storage_space(self):
