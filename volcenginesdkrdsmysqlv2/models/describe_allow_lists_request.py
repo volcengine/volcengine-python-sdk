@@ -37,7 +37,8 @@ class DescribeAllowListsRequest(object):
         'instance_id': 'str',
         'project_name': 'str',
         'query_default': 'bool',
-        'region_id': 'str'
+        'region_id': 'str',
+        'with_ip_list': 'bool'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeAllowListsRequest(object):
         'instance_id': 'InstanceId',
         'project_name': 'ProjectName',
         'query_default': 'QueryDefault',
-        'region_id': 'RegionId'
+        'region_id': 'RegionId',
+        'with_ip_list': 'WithIpList'
     }
 
-    def __init__(self, ip_address=None, instance_id=None, project_name=None, query_default=None, region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, ip_address=None, instance_id=None, project_name=None, query_default=None, region_id=None, with_ip_list=None, _configuration=None):  # noqa: E501
         """DescribeAllowListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeAllowListsRequest(object):
         self._project_name = None
         self._query_default = None
         self._region_id = None
+        self._with_ip_list = None
         self.discriminator = None
 
         if ip_address is not None:
@@ -71,6 +74,8 @@ class DescribeAllowListsRequest(object):
             self.query_default = query_default
         if region_id is not None:
             self.region_id = region_id
+        if with_ip_list is not None:
+            self.with_ip_list = with_ip_list
 
     @property
     def ip_address(self):
@@ -176,6 +181,27 @@ class DescribeAllowListsRequest(object):
         """
 
         self._region_id = region_id
+
+    @property
+    def with_ip_list(self):
+        """Gets the with_ip_list of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The with_ip_list of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._with_ip_list
+
+    @with_ip_list.setter
+    def with_ip_list(self, with_ip_list):
+        """Sets the with_ip_list of this DescribeAllowListsRequest.
+
+
+        :param with_ip_list: The with_ip_list of this DescribeAllowListsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._with_ip_list = with_ip_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

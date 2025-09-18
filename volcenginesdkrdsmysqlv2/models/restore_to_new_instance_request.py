@@ -44,6 +44,7 @@ class RestoreToNewInstanceRequest(object):
         'node_info': 'list[NodeInfoForRestoreToNewInstanceInput]',
         'port': 'int',
         'project_name': 'str',
+        'proxy_node_custom': 'ProxyNodeCustomForRestoreToNewInstanceInput',
         'restore_time': 'str',
         'src_instance_id': 'str',
         'storage_space': 'int',
@@ -64,6 +65,7 @@ class RestoreToNewInstanceRequest(object):
         'node_info': 'NodeInfo',
         'port': 'Port',
         'project_name': 'ProjectName',
+        'proxy_node_custom': 'ProxyNodeCustom',
         'restore_time': 'RestoreTime',
         'src_instance_id': 'SrcInstanceId',
         'storage_space': 'StorageSpace',
@@ -72,7 +74,7 @@ class RestoreToNewInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, proxy_node_custom=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +91,7 @@ class RestoreToNewInstanceRequest(object):
         self._node_info = None
         self._port = None
         self._project_name = None
+        self._proxy_node_custom = None
         self._restore_time = None
         self._src_instance_id = None
         self._storage_space = None
@@ -119,6 +122,8 @@ class RestoreToNewInstanceRequest(object):
             self.port = port
         if project_name is not None:
             self.project_name = project_name
+        if proxy_node_custom is not None:
+            self.proxy_node_custom = proxy_node_custom
         if restore_time is not None:
             self.restore_time = restore_time
         self.src_instance_id = src_instance_id
@@ -358,6 +363,27 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def proxy_node_custom(self):
+        """Gets the proxy_node_custom of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The proxy_node_custom of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: ProxyNodeCustomForRestoreToNewInstanceInput
+        """
+        return self._proxy_node_custom
+
+    @proxy_node_custom.setter
+    def proxy_node_custom(self, proxy_node_custom):
+        """Sets the proxy_node_custom of this RestoreToNewInstanceRequest.
+
+
+        :param proxy_node_custom: The proxy_node_custom of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: ProxyNodeCustomForRestoreToNewInstanceInput
+        """
+
+        self._proxy_node_custom = proxy_node_custom
 
     @property
     def restore_time(self):

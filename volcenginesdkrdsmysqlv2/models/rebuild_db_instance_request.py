@@ -45,6 +45,7 @@ class RebuildDBInstanceRequest(object):
         'node_info': 'list[NodeInfoForRebuildDBInstanceInput]',
         'port': 'int',
         'project_name': 'str',
+        'proxy_node_custom': 'ProxyNodeCustomForRebuildDBInstanceInput',
         'request_source': 'str',
         'storage_space': 'int',
         'storage_type': 'str',
@@ -65,6 +66,7 @@ class RebuildDBInstanceRequest(object):
         'node_info': 'NodeInfo',
         'port': 'Port',
         'project_name': 'ProjectName',
+        'proxy_node_custom': 'ProxyNodeCustom',
         'request_source': 'RequestSource',
         'storage_space': 'StorageSpace',
         'storage_type': 'StorageType',
@@ -72,7 +74,7 @@ class RebuildDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, instance_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, request_source=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, backup_id=None, charge_info=None, db_param_group_id=None, deletion_protection=None, instance_id=None, instance_name=None, instance_tags=None, node_info=None, port=None, project_name=None, proxy_node_custom=None, request_source=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RebuildDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,6 +92,7 @@ class RebuildDBInstanceRequest(object):
         self._node_info = None
         self._port = None
         self._project_name = None
+        self._proxy_node_custom = None
         self._request_source = None
         self._storage_space = None
         self._storage_type = None
@@ -120,6 +123,8 @@ class RebuildDBInstanceRequest(object):
             self.port = port
         if project_name is not None:
             self.project_name = project_name
+        if proxy_node_custom is not None:
+            self.proxy_node_custom = proxy_node_custom
         if request_source is not None:
             self.request_source = request_source
         if storage_space is not None:
@@ -384,6 +389,27 @@ class RebuildDBInstanceRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def proxy_node_custom(self):
+        """Gets the proxy_node_custom of this RebuildDBInstanceRequest.  # noqa: E501
+
+
+        :return: The proxy_node_custom of this RebuildDBInstanceRequest.  # noqa: E501
+        :rtype: ProxyNodeCustomForRebuildDBInstanceInput
+        """
+        return self._proxy_node_custom
+
+    @proxy_node_custom.setter
+    def proxy_node_custom(self, proxy_node_custom):
+        """Sets the proxy_node_custom of this RebuildDBInstanceRequest.
+
+
+        :param proxy_node_custom: The proxy_node_custom of this RebuildDBInstanceRequest.  # noqa: E501
+        :type: ProxyNodeCustomForRebuildDBInstanceInput
+        """
+
+        self._proxy_node_custom = proxy_node_custom
 
     @property
     def request_source(self):
