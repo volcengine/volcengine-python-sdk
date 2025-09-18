@@ -39,7 +39,8 @@ class DescribeResourceSharesRequest(object):
         'permission_trn': 'str',
         'resource_owner': 'str',
         'resource_share_status': 'str',
-        'resource_share_trns': 'str'
+        'resource_share_trns': 'str',
+        'tag_filters': 'list[TagFilterForDescribeResourceSharesInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DescribeResourceSharesRequest(object):
         'permission_trn': 'PermissionTrn',
         'resource_owner': 'ResourceOwner',
         'resource_share_status': 'ResourceShareStatus',
-        'resource_share_trns': 'ResourceShareTrns'
+        'resource_share_trns': 'ResourceShareTrns',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, max_results=None, name=None, next_token=None, permission_trn=None, resource_owner=None, resource_share_status=None, resource_share_trns=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_results=None, name=None, next_token=None, permission_trn=None, resource_owner=None, resource_share_status=None, resource_share_trns=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeResourceSharesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeResourceSharesRequest(object):
         self._resource_owner = None
         self._resource_share_status = None
         self._resource_share_trns = None
+        self._tag_filters = None
         self.discriminator = None
 
         if max_results is not None:
@@ -75,11 +78,14 @@ class DescribeResourceSharesRequest(object):
             self.next_token = next_token
         if permission_trn is not None:
             self.permission_trn = permission_trn
-        self.resource_owner = resource_owner
+        if resource_owner is not None:
+            self.resource_owner = resource_owner
         if resource_share_status is not None:
             self.resource_share_status = resource_share_status
         if resource_share_trns is not None:
             self.resource_share_trns = resource_share_trns
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def max_results(self):
@@ -183,8 +189,6 @@ class DescribeResourceSharesRequest(object):
         :param resource_owner: The resource_owner of this DescribeResourceSharesRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and resource_owner is None:
-            raise ValueError("Invalid value for `resource_owner`, must not be `None`")  # noqa: E501
 
         self._resource_owner = resource_owner
 
@@ -229,6 +233,27 @@ class DescribeResourceSharesRequest(object):
         """
 
         self._resource_share_trns = resource_share_trns
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeResourceSharesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeResourceSharesRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeResourceSharesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeResourceSharesRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeResourceSharesRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeResourceSharesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""
