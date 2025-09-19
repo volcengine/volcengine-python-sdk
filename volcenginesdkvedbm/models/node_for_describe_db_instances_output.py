@@ -33,6 +33,7 @@ class NodeForDescribeDBInstancesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'failover_priority': 'int',
         'memory': 'int',
         'node_id': 'str',
         'node_spec': 'str',
@@ -42,6 +43,7 @@ class NodeForDescribeDBInstancesOutput(object):
     }
 
     attribute_map = {
+        'failover_priority': 'FailoverPriority',
         'memory': 'Memory',
         'node_id': 'NodeId',
         'node_spec': 'NodeSpec',
@@ -50,12 +52,13 @@ class NodeForDescribeDBInstancesOutput(object):
         'v_cpu': 'vCPU'
     }
 
-    def __init__(self, memory=None, node_id=None, node_spec=None, node_type=None, zone_id=None, v_cpu=None, _configuration=None):  # noqa: E501
+    def __init__(self, failover_priority=None, memory=None, node_id=None, node_spec=None, node_type=None, zone_id=None, v_cpu=None, _configuration=None):  # noqa: E501
         """NodeForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._failover_priority = None
         self._memory = None
         self._node_id = None
         self._node_spec = None
@@ -64,6 +67,8 @@ class NodeForDescribeDBInstancesOutput(object):
         self._v_cpu = None
         self.discriminator = None
 
+        if failover_priority is not None:
+            self.failover_priority = failover_priority
         if memory is not None:
             self.memory = memory
         if node_id is not None:
@@ -76,6 +81,27 @@ class NodeForDescribeDBInstancesOutput(object):
             self.zone_id = zone_id
         if v_cpu is not None:
             self.v_cpu = v_cpu
+
+    @property
+    def failover_priority(self):
+        """Gets the failover_priority of this NodeForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The failover_priority of this NodeForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._failover_priority
+
+    @failover_priority.setter
+    def failover_priority(self, failover_priority):
+        """Sets the failover_priority of this NodeForDescribeDBInstancesOutput.
+
+
+        :param failover_priority: The failover_priority of this NodeForDescribeDBInstancesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._failover_priority = failover_priority
 
     @property
     def memory(self):

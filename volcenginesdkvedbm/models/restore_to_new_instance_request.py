@@ -233,7 +233,7 @@ class RestoreToNewInstanceRequest(object):
         :param db_minor_version: The db_minor_version of this RestoreToNewInstanceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["2.0", "3.0", "3.1", "3.2"]  # noqa: E501
+        allowed_values = ["2.0", "3.0", "3.1", "3.2", "3.3"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 db_minor_version not in allowed_values):
             raise ValueError(
