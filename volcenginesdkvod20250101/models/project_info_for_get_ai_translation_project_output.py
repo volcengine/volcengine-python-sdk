@@ -35,6 +35,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
     swagger_types = {
         'background_audio': 'BackgroundAudioForGetAITranslationProjectOutput',
         'background_clip': 'BackgroundClipForGetAITranslationProjectOutput',
+        'bilingual_subtitle': 'BilingualSubtitleForGetAITranslationProjectOutput',
         'created_at': 'str',
         'erased_subtitle_video': 'ErasedSubtitleVideoForGetAITranslationProjectOutput',
         'error_code': 'int',
@@ -70,6 +71,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
     attribute_map = {
         'background_audio': 'BackgroundAudio',
         'background_clip': 'BackgroundClip',
+        'bilingual_subtitle': 'BilingualSubtitle',
         'created_at': 'CreatedAt',
         'erased_subtitle_video': 'ErasedSubtitleVideo',
         'error_code': 'ErrorCode',
@@ -102,7 +104,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         'workflow_id': 'WorkflowId'
     }
 
-    def __init__(self, background_audio=None, background_clip=None, created_at=None, erased_subtitle_video=None, error_code=None, error_msg=None, facial_translation_video=None, foreground_audio=None, input_subtitle=None, input_video=None, input_video_title=None, operator_config=None, output_subtitle=None, output_video=None, preview_video=None, preview_video_muted=None, project_id=None, project_version=None, source_blueprints=None, source_clips=None, source_tracks=None, source_utterances=None, speakers=None, status=None, target_blueprints=None, target_clips=None, target_tracks=None, target_utterances=None, translation_type_list=None, updated_at=None, voice_translation_video=None, workflow_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, background_audio=None, background_clip=None, bilingual_subtitle=None, created_at=None, erased_subtitle_video=None, error_code=None, error_msg=None, facial_translation_video=None, foreground_audio=None, input_subtitle=None, input_video=None, input_video_title=None, operator_config=None, output_subtitle=None, output_video=None, preview_video=None, preview_video_muted=None, project_id=None, project_version=None, source_blueprints=None, source_clips=None, source_tracks=None, source_utterances=None, speakers=None, status=None, target_blueprints=None, target_clips=None, target_tracks=None, target_utterances=None, translation_type_list=None, updated_at=None, voice_translation_video=None, workflow_id=None, _configuration=None):  # noqa: E501
         """ProjectInfoForGetAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -110,6 +112,7 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
 
         self._background_audio = None
         self._background_clip = None
+        self._bilingual_subtitle = None
         self._created_at = None
         self._erased_subtitle_video = None
         self._error_code = None
@@ -146,6 +149,8 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
             self.background_audio = background_audio
         if background_clip is not None:
             self.background_clip = background_clip
+        if bilingual_subtitle is not None:
+            self.bilingual_subtitle = bilingual_subtitle
         if created_at is not None:
             self.created_at = created_at
         if erased_subtitle_video is not None:
@@ -248,6 +253,27 @@ class ProjectInfoForGetAITranslationProjectOutput(object):
         """
 
         self._background_clip = background_clip
+
+    @property
+    def bilingual_subtitle(self):
+        """Gets the bilingual_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The bilingual_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+        :rtype: BilingualSubtitleForGetAITranslationProjectOutput
+        """
+        return self._bilingual_subtitle
+
+    @bilingual_subtitle.setter
+    def bilingual_subtitle(self, bilingual_subtitle):
+        """Sets the bilingual_subtitle of this ProjectInfoForGetAITranslationProjectOutput.
+
+
+        :param bilingual_subtitle: The bilingual_subtitle of this ProjectInfoForGetAITranslationProjectOutput.  # noqa: E501
+        :type: BilingualSubtitleForGetAITranslationProjectOutput
+        """
+
+        self._bilingual_subtitle = bilingual_subtitle
 
     @property
     def created_at(self):

@@ -33,29 +33,60 @@ class HighlightForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'highlight_cuts': 'HighlightCutsForGetExecutionOutput',
         'mode': 'str',
+        'opening_hook': 'OpeningHookForGetExecutionOutput',
         'storyline_cuts': 'StorylineCutsForGetExecutionOutput'
     }
 
     attribute_map = {
+        'highlight_cuts': 'HighlightCuts',
         'mode': 'Mode',
+        'opening_hook': 'OpeningHook',
         'storyline_cuts': 'StorylineCuts'
     }
 
-    def __init__(self, mode=None, storyline_cuts=None, _configuration=None):  # noqa: E501
+    def __init__(self, highlight_cuts=None, mode=None, opening_hook=None, storyline_cuts=None, _configuration=None):  # noqa: E501
         """HighlightForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._highlight_cuts = None
         self._mode = None
+        self._opening_hook = None
         self._storyline_cuts = None
         self.discriminator = None
 
+        if highlight_cuts is not None:
+            self.highlight_cuts = highlight_cuts
         if mode is not None:
             self.mode = mode
+        if opening_hook is not None:
+            self.opening_hook = opening_hook
         if storyline_cuts is not None:
             self.storyline_cuts = storyline_cuts
+
+    @property
+    def highlight_cuts(self):
+        """Gets the highlight_cuts of this HighlightForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The highlight_cuts of this HighlightForGetExecutionOutput.  # noqa: E501
+        :rtype: HighlightCutsForGetExecutionOutput
+        """
+        return self._highlight_cuts
+
+    @highlight_cuts.setter
+    def highlight_cuts(self, highlight_cuts):
+        """Sets the highlight_cuts of this HighlightForGetExecutionOutput.
+
+
+        :param highlight_cuts: The highlight_cuts of this HighlightForGetExecutionOutput.  # noqa: E501
+        :type: HighlightCutsForGetExecutionOutput
+        """
+
+        self._highlight_cuts = highlight_cuts
 
     @property
     def mode(self):
@@ -77,6 +108,27 @@ class HighlightForGetExecutionOutput(object):
         """
 
         self._mode = mode
+
+    @property
+    def opening_hook(self):
+        """Gets the opening_hook of this HighlightForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The opening_hook of this HighlightForGetExecutionOutput.  # noqa: E501
+        :rtype: OpeningHookForGetExecutionOutput
+        """
+        return self._opening_hook
+
+    @opening_hook.setter
+    def opening_hook(self, opening_hook):
+        """Sets the opening_hook of this HighlightForGetExecutionOutput.
+
+
+        :param opening_hook: The opening_hook of this HighlightForGetExecutionOutput.  # noqa: E501
+        :type: OpeningHookForGetExecutionOutput
+        """
+
+        self._opening_hook = opening_hook
 
     @property
     def storyline_cuts(self):
