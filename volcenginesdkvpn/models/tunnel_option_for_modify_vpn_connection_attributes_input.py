@@ -33,6 +33,7 @@ class TunnelOptionForModifyVpnConnectionAttributesInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bgp_config': 'ConvertBGPConfigForModifyVpnConnectionAttributesInput',
         'customer_gateway_id': 'str',
         'dpd_action': 'str',
         'ike_config': 'IkeConfigForModifyVpnConnectionAttributesInput',
@@ -42,6 +43,7 @@ class TunnelOptionForModifyVpnConnectionAttributesInput(object):
     }
 
     attribute_map = {
+        'bgp_config': 'BGPConfig',
         'customer_gateway_id': 'CustomerGatewayId',
         'dpd_action': 'DpdAction',
         'ike_config': 'IkeConfig',
@@ -50,12 +52,13 @@ class TunnelOptionForModifyVpnConnectionAttributesInput(object):
         'tunnel_id': 'TunnelId'
     }
 
-    def __init__(self, customer_gateway_id=None, dpd_action=None, ike_config=None, ipsec_config=None, nat_traversal=None, tunnel_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgp_config=None, customer_gateway_id=None, dpd_action=None, ike_config=None, ipsec_config=None, nat_traversal=None, tunnel_id=None, _configuration=None):  # noqa: E501
         """TunnelOptionForModifyVpnConnectionAttributesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bgp_config = None
         self._customer_gateway_id = None
         self._dpd_action = None
         self._ike_config = None
@@ -64,6 +67,8 @@ class TunnelOptionForModifyVpnConnectionAttributesInput(object):
         self._tunnel_id = None
         self.discriminator = None
 
+        if bgp_config is not None:
+            self.bgp_config = bgp_config
         if customer_gateway_id is not None:
             self.customer_gateway_id = customer_gateway_id
         if dpd_action is not None:
@@ -76,6 +81,27 @@ class TunnelOptionForModifyVpnConnectionAttributesInput(object):
             self.nat_traversal = nat_traversal
         if tunnel_id is not None:
             self.tunnel_id = tunnel_id
+
+    @property
+    def bgp_config(self):
+        """Gets the bgp_config of this TunnelOptionForModifyVpnConnectionAttributesInput.  # noqa: E501
+
+
+        :return: The bgp_config of this TunnelOptionForModifyVpnConnectionAttributesInput.  # noqa: E501
+        :rtype: ConvertBGPConfigForModifyVpnConnectionAttributesInput
+        """
+        return self._bgp_config
+
+    @bgp_config.setter
+    def bgp_config(self, bgp_config):
+        """Sets the bgp_config of this TunnelOptionForModifyVpnConnectionAttributesInput.
+
+
+        :param bgp_config: The bgp_config of this TunnelOptionForModifyVpnConnectionAttributesInput.  # noqa: E501
+        :type: ConvertBGPConfigForModifyVpnConnectionAttributesInput
+        """
+
+        self._bgp_config = bgp_config
 
     @property
     def customer_gateway_id(self):
