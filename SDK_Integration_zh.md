@@ -175,7 +175,8 @@ if __name__ == '__main__':
         host="sts.volcengineapi.com",  # 非必填，请求域名，默认sts.volcengineapi.com
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-north-1
         timeout=30,  # 非必填，请求超时时间，默认30秒
-        expired_buffer_seconds=60 #非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
+        expired_buffer_seconds=60, #非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
     )
 
     # set default configuration
@@ -235,7 +236,8 @@ if __name__ == '__main__':
         host="sts.volcengineapi.com",  # 非必填，请求域名，默认sts.volcengineapi.com
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-beijing
         timeout=30,  # 非必填，请求超时时间，默认30秒
-        expired_buffer_seconds=60  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
+        expired_buffer_seconds=60,  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
     )
 
     # set default configuration
@@ -296,7 +298,8 @@ if __name__ == '__main__':
         host="sts.volcengineapi.com",  # 非必填，请求域名，默认sts.volcengineapi.com
         region="cn-beijing",  # 非必填，请求服务器区域地址，默认cn-beijing
         timeout=30,  # 非必填，请求超时时间，默认30秒
-        expired_buffer_seconds=60  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
+        expired_buffer_seconds=60,  # 非必填，session有效期前多久过期，剩余时间小于这个设置就要请求新的token了，默认60秒
+        policy='{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
     )
 
     # set default configuration

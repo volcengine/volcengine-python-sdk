@@ -7,6 +7,7 @@ import dateutil.parser
 
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue
+import json
 
 
 class AssumeRoleOidcCredentials:
@@ -20,7 +21,7 @@ class AssumeRoleOidcCredentials:
 
 class StsOidcCredentialProvider(Provider):
     def __init__(self, role_name, account_id, oidc_token, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60):
+                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60, policy=None):
 
         self.role_name = role_name
         self.account_id = account_id
@@ -32,7 +33,8 @@ class StsOidcCredentialProvider(Provider):
         self.host = host
         self.region = region
         self.scheme = scheme
-
+        if policy is not None:
+            self.policy = json.loads(policy)
         self.expired_time = None
         if expired_buffer_seconds > 600:
             raise ValueError('expired_buffer_seconds must be less than or equal to 600')
@@ -65,7 +67,8 @@ class StsOidcCredentialProvider(Provider):
             'RoleTrn': 'trn:iam::' + self.account_id + ':role/' + self.role_name,
             'OIDCToken': self.oidc_token,
         }
-
+        if self.policy is not None:
+            params['Policy'] = self.policy
         configuration = type.__call__(Configuration)
 
         # configuration.ak = self.ak

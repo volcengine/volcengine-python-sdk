@@ -7,6 +7,7 @@ import dateutil.parser
 
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue
+import json
 
 
 class AssumeRoleSamlCredentials:
@@ -20,7 +21,7 @@ class AssumeRoleSamlCredentials:
 
 class StsSamlCredentialProvider(Provider):
     def __init__(self, role_name, account_id, provider_name, saml_resp, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60):
+                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60, policy=None):
         # self.ak = ak
         # self.sk = sk
         self.role_name = role_name
@@ -34,7 +35,8 @@ class StsSamlCredentialProvider(Provider):
         self.host = host
         self.region = region
         self.scheme = scheme
-
+        if policy is not None:
+            self.policy = json.loads(policy)
         self.expired_time = None
         if expired_buffer_seconds > 600:
             raise ValueError('expired_buffer_seconds must be less than or equal to 600')
@@ -68,7 +70,8 @@ class StsSamlCredentialProvider(Provider):
             'SAMLProviderTrn': 'trn:iam::' + self.account_id + ':saml-provider/' + self.provider_name,
             'SAMLResp': self.saml_resp,
         }
-
+        if self.policy is not None:
+            params['Policy'] = self.policy
         configuration = type.__call__(Configuration)
 
         # configuration.ak = self.ak
