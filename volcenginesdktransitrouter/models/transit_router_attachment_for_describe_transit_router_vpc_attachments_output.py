@@ -33,8 +33,10 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput(object
                             and the value is json key in definition.
     """
     swagger_types = {
+        'appliance_mode_enabled': 'bool',
         'attach_points': 'list[AttachPointForDescribeTransitRouterVpcAttachmentsOutput]',
         'auto_publish_route_enabled': 'bool',
+        'bandwidth': 'int',
         'creation_time': 'str',
         'description': 'str',
         'ipv6_enabled': 'bool',
@@ -48,8 +50,10 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput(object
     }
 
     attribute_map = {
+        'appliance_mode_enabled': 'ApplianceModeEnabled',
         'attach_points': 'AttachPoints',
         'auto_publish_route_enabled': 'AutoPublishRouteEnabled',
+        'bandwidth': 'Bandwidth',
         'creation_time': 'CreationTime',
         'description': 'Description',
         'ipv6_enabled': 'Ipv6Enabled',
@@ -62,14 +66,16 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput(object
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, attach_points=None, auto_publish_route_enabled=None, creation_time=None, description=None, ipv6_enabled=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_id=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, appliance_mode_enabled=None, attach_points=None, auto_publish_route_enabled=None, bandwidth=None, creation_time=None, description=None, ipv6_enabled=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_id=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._appliance_mode_enabled = None
         self._attach_points = None
         self._auto_publish_route_enabled = None
+        self._bandwidth = None
         self._creation_time = None
         self._description = None
         self._ipv6_enabled = None
@@ -82,10 +88,14 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput(object
         self._vpc_id = None
         self.discriminator = None
 
+        if appliance_mode_enabled is not None:
+            self.appliance_mode_enabled = appliance_mode_enabled
         if attach_points is not None:
             self.attach_points = attach_points
         if auto_publish_route_enabled is not None:
             self.auto_publish_route_enabled = auto_publish_route_enabled
+        if bandwidth is not None:
+            self.bandwidth = bandwidth
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
@@ -106,6 +116,27 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput(object
             self.update_time = update_time
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def appliance_mode_enabled(self):
+        """Gets the appliance_mode_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.  # noqa: E501
+
+
+        :return: The appliance_mode_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._appliance_mode_enabled
+
+    @appliance_mode_enabled.setter
+    def appliance_mode_enabled(self, appliance_mode_enabled):
+        """Sets the appliance_mode_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.
+
+
+        :param appliance_mode_enabled: The appliance_mode_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._appliance_mode_enabled = appliance_mode_enabled
 
     @property
     def attach_points(self):
@@ -148,6 +179,27 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput(object
         """
 
         self._auto_publish_route_enabled = auto_publish_route_enabled
+
+    @property
+    def bandwidth(self):
+        """Gets the bandwidth of this TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.  # noqa: E501
+
+
+        :return: The bandwidth of this TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bandwidth
+
+    @bandwidth.setter
+    def bandwidth(self, bandwidth):
+        """Sets the bandwidth of this TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.
+
+
+        :param bandwidth: The bandwidth of this TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bandwidth = bandwidth
 
     @property
     def creation_time(self):
