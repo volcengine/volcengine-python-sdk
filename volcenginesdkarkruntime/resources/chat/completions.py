@@ -29,7 +29,7 @@ from typing_extensions import Literal
 
 from ..._types import Body, Query, Headers
 from ..._utils._utils import deepcopy_minimal, with_sts_token, async_with_sts_token
-from ..._utils._key_agreement import aes_gcm_decrypt_base64_string
+from ..._utils._key_agreement import aes_gcm_decrypt_base64_string, aes_gcm_decrypt_base64_list
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._compat import cached_property
@@ -142,9 +142,14 @@ class Completions(SyncAPIResource):
                         choice.message is not None and choice.finish_reason != 'content_filter'
                         and choice.message.content is not None
                     ):
-                        choice.message.content = aes_gcm_decrypt_base64_string(
+                        content = aes_gcm_decrypt_base64_string(
                             key, nonce, choice.message.content
                         )
+                        if content == '':
+                            content = aes_gcm_decrypt_base64_list(
+                                key, nonce, choice.message.content
+                            )
+                        choice.message.content = content
                     resp.choices[index] = choice
             return resp
         else:
@@ -291,9 +296,14 @@ class AsyncCompletions(AsyncAPIResource):
                         choice.message is not None and choice.finish_reason != 'content_filter'
                         and choice.message.content is not None
                     ):
-                        choice.message.content = aes_gcm_decrypt_base64_string(
+                        content = aes_gcm_decrypt_base64_string(
                             key, nonce, choice.message.content
                         )
+                        if content == '':
+                            content = aes_gcm_decrypt_base64_list(
+                                key, nonce, choice.message.content
+                            )
+                        choice.message.content = content
                     resp.choices[index] = choice
             return resp
         else:
