@@ -33,34 +33,72 @@ class GetTagValuesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'match_type': 'str',
         'max_results': 'int',
         'next_token': 'str',
-        'tag_keys': 'list[str]'
+        'tag_keys': 'list[str]',
+        'tag_value': 'str'
     }
 
     attribute_map = {
+        'match_type': 'MatchType',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
-        'tag_keys': 'TagKeys'
+        'tag_keys': 'TagKeys',
+        'tag_value': 'TagValue'
     }
 
-    def __init__(self, max_results=None, next_token=None, tag_keys=None, _configuration=None):  # noqa: E501
+    def __init__(self, match_type=None, max_results=None, next_token=None, tag_keys=None, tag_value=None, _configuration=None):  # noqa: E501
         """GetTagValuesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._match_type = None
         self._max_results = None
         self._next_token = None
         self._tag_keys = None
+        self._tag_value = None
         self.discriminator = None
 
+        if match_type is not None:
+            self.match_type = match_type
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
             self.next_token = next_token
         if tag_keys is not None:
             self.tag_keys = tag_keys
+        if tag_value is not None:
+            self.tag_value = tag_value
+
+    @property
+    def match_type(self):
+        """Gets the match_type of this GetTagValuesRequest.  # noqa: E501
+
+
+        :return: The match_type of this GetTagValuesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._match_type
+
+    @match_type.setter
+    def match_type(self, match_type):
+        """Sets the match_type of this GetTagValuesRequest.
+
+
+        :param match_type: The match_type of this GetTagValuesRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["prefix", "equals", "contain"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                match_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `match_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(match_type, allowed_values)
+            )
+
+        self._match_type = match_type
 
     @property
     def max_results(self):
@@ -124,6 +162,27 @@ class GetTagValuesRequest(object):
         """
 
         self._tag_keys = tag_keys
+
+    @property
+    def tag_value(self):
+        """Gets the tag_value of this GetTagValuesRequest.  # noqa: E501
+
+
+        :return: The tag_value of this GetTagValuesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag_value
+
+    @tag_value.setter
+    def tag_value(self, tag_value):
+        """Sets the tag_value of this GetTagValuesRequest.
+
+
+        :param tag_value: The tag_value of this GetTagValuesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._tag_value = tag_value
 
     def to_dict(self):
         """Returns the model properties as a dict"""
