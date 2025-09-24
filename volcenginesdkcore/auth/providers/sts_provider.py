@@ -7,8 +7,6 @@ import dateutil.parser
 
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue
-import json
-
 
 class AssumeRoleCredentials:
     def __init__(self, ak, sk, session_token, current_time, expired_time):
@@ -33,10 +31,7 @@ class StsCredentialProvider(Provider):
         self.host = host
         self.region = region
         self.scheme = scheme
-        if policy is not None:
-            self.policy = json.loads(policy)
-        else:
-            self.policy = None
+        self.policy = policy
         self.expired_time = None
         if expired_buffer_seconds > 600:
             raise ValueError('expired_buffer_seconds must be less than or equal to 600')
