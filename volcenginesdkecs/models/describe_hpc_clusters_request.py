@@ -38,6 +38,8 @@ class DescribeHpcClustersRequest(object):
         'max_results': 'int',
         'name': 'str',
         'next_token': 'str',
+        'project_name': 'str',
+        'tag_filters': 'list[TagFilterForDescribeHpcClustersInput]',
         'zone_id': 'str'
     }
 
@@ -47,10 +49,12 @@ class DescribeHpcClustersRequest(object):
         'max_results': 'MaxResults',
         'name': 'Name',
         'next_token': 'NextToken',
+        'project_name': 'ProjectName',
+        'tag_filters': 'TagFilters',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, hpc_cluster_ids=None, max_results=None, name=None, next_token=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, hpc_cluster_ids=None, max_results=None, name=None, next_token=None, project_name=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeHpcClustersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +65,8 @@ class DescribeHpcClustersRequest(object):
         self._max_results = None
         self._name = None
         self._next_token = None
+        self._project_name = None
+        self._tag_filters = None
         self._zone_id = None
         self.discriminator = None
 
@@ -74,6 +80,10 @@ class DescribeHpcClustersRequest(object):
             self.name = name
         if next_token is not None:
             self.next_token = next_token
+        if project_name is not None:
+            self.project_name = project_name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -181,6 +191,48 @@ class DescribeHpcClustersRequest(object):
         """
 
         self._next_token = next_token
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeHpcClustersRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeHpcClustersRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeHpcClustersRequest.
+
+
+        :param project_name: The project_name of this DescribeHpcClustersRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeHpcClustersRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeHpcClustersRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeHpcClustersInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeHpcClustersRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeHpcClustersRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeHpcClustersInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def zone_id(self):
