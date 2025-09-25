@@ -33,29 +33,65 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bilingual_subtitle_file_name': 'str',
         'recognition_type': 'str',
-        'subtitle_file_name': 'str'
+        'source_subtitle_file_name': 'str',
+        'subtitle_file_name': 'str',
+        'target_subtitle_file_name': 'str'
     }
 
     attribute_map = {
+        'bilingual_subtitle_file_name': 'BilingualSubtitleFileName',
         'recognition_type': 'RecognitionType',
-        'subtitle_file_name': 'SubtitleFileName'
+        'source_subtitle_file_name': 'SourceSubtitleFileName',
+        'subtitle_file_name': 'SubtitleFileName',
+        'target_subtitle_file_name': 'TargetSubtitleFileName'
     }
 
-    def __init__(self, recognition_type=None, subtitle_file_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bilingual_subtitle_file_name=None, recognition_type=None, source_subtitle_file_name=None, subtitle_file_name=None, target_subtitle_file_name=None, _configuration=None):  # noqa: E501
         """SubtitleRecognitionConfigForListAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bilingual_subtitle_file_name = None
         self._recognition_type = None
+        self._source_subtitle_file_name = None
         self._subtitle_file_name = None
+        self._target_subtitle_file_name = None
         self.discriminator = None
 
+        if bilingual_subtitle_file_name is not None:
+            self.bilingual_subtitle_file_name = bilingual_subtitle_file_name
         if recognition_type is not None:
             self.recognition_type = recognition_type
+        if source_subtitle_file_name is not None:
+            self.source_subtitle_file_name = source_subtitle_file_name
         if subtitle_file_name is not None:
             self.subtitle_file_name = subtitle_file_name
+        if target_subtitle_file_name is not None:
+            self.target_subtitle_file_name = target_subtitle_file_name
+
+    @property
+    def bilingual_subtitle_file_name(self):
+        """Gets the bilingual_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The bilingual_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bilingual_subtitle_file_name
+
+    @bilingual_subtitle_file_name.setter
+    def bilingual_subtitle_file_name(self, bilingual_subtitle_file_name):
+        """Sets the bilingual_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.
+
+
+        :param bilingual_subtitle_file_name: The bilingual_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bilingual_subtitle_file_name = bilingual_subtitle_file_name
 
     @property
     def recognition_type(self):
@@ -79,6 +115,27 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput(object):
         self._recognition_type = recognition_type
 
     @property
+    def source_subtitle_file_name(self):
+        """Gets the source_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The source_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_subtitle_file_name
+
+    @source_subtitle_file_name.setter
+    def source_subtitle_file_name(self, source_subtitle_file_name):
+        """Sets the source_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.
+
+
+        :param source_subtitle_file_name: The source_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._source_subtitle_file_name = source_subtitle_file_name
+
+    @property
     def subtitle_file_name(self):
         """Gets the subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
 
@@ -98,6 +155,27 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput(object):
         """
 
         self._subtitle_file_name = subtitle_file_name
+
+    @property
+    def target_subtitle_file_name(self):
+        """Gets the target_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The target_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_subtitle_file_name
+
+    @target_subtitle_file_name.setter
+    def target_subtitle_file_name(self, target_subtitle_file_name):
+        """Sets the target_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.
+
+
+        :param target_subtitle_file_name: The target_subtitle_file_name of this SubtitleRecognitionConfigForListAITranslationProjectOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._target_subtitle_file_name = target_subtitle_file_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
