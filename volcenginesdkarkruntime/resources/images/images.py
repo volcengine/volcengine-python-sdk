@@ -125,7 +125,7 @@ class Images(SyncAPIResource):
         sequential_image_generation: str | None = None,
         sequential_image_generation_options: SequentialImageGenerationOptions | None = None,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
-    ) -> ImagesResponse:
+    ) -> ImagesResponse | Stream[ImageGenStreamEvent]:
         resp = self._post(
             "/images/generations",
             body={

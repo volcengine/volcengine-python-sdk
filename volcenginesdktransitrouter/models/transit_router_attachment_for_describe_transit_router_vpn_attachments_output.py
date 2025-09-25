@@ -36,7 +36,8 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'auto_publish_route_enabled': 'bool',
         'creation_time': 'str',
         'description': 'str',
-        'ipv6_enabled': 'str',
+        'health_check_revoke_route_enabled': 'bool',
+        'ipv6_enabled': 'bool',
         'status': 'str',
         'tags': 'list[TagForDescribeTransitRouterVpnAttachmentsOutput]',
         'transit_router_attachment_id': 'str',
@@ -51,6 +52,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'auto_publish_route_enabled': 'AutoPublishRouteEnabled',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'health_check_revoke_route_enabled': 'HealthCheckRevokeRouteEnabled',
         'ipv6_enabled': 'Ipv6Enabled',
         'status': 'Status',
         'tags': 'Tags',
@@ -62,7 +64,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, auto_publish_route_enabled=None, creation_time=None, description=None, ipv6_enabled=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_id=None, update_time=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_publish_route_enabled=None, creation_time=None, description=None, health_check_revoke_route_enabled=None, ipv6_enabled=None, status=None, tags=None, transit_router_attachment_id=None, transit_router_attachment_name=None, transit_router_id=None, update_time=None, vpn_connection_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         self._auto_publish_route_enabled = None
         self._creation_time = None
         self._description = None
+        self._health_check_revoke_route_enabled = None
         self._ipv6_enabled = None
         self._status = None
         self._tags = None
@@ -88,6 +91,8 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if health_check_revoke_route_enabled is not None:
+            self.health_check_revoke_route_enabled = health_check_revoke_route_enabled
         if ipv6_enabled is not None:
             self.ipv6_enabled = ipv6_enabled
         if status is not None:
@@ -171,12 +176,33 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
         self._description = description
 
     @property
+    def health_check_revoke_route_enabled(self):
+        """Gets the health_check_revoke_route_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+
+
+        :return: The health_check_revoke_route_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._health_check_revoke_route_enabled
+
+    @health_check_revoke_route_enabled.setter
+    def health_check_revoke_route_enabled(self, health_check_revoke_route_enabled):
+        """Sets the health_check_revoke_route_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.
+
+
+        :param health_check_revoke_route_enabled: The health_check_revoke_route_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._health_check_revoke_route_enabled = health_check_revoke_route_enabled
+
+    @property
     def ipv6_enabled(self):
         """Gets the ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
 
 
         :return: The ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._ipv6_enabled
 
@@ -186,7 +212,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput(object
 
 
         :param ipv6_enabled: The ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._ipv6_enabled = ipv6_enabled

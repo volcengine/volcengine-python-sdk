@@ -37,6 +37,7 @@ class CreateDBEndpointRequest(object):
         'connection_mode': 'str',
         'connection_pool_type': 'str',
         'description': 'str',
+        'enable_connection_persistent': 'bool',
         'endpoint_name': 'str',
         'endpoint_type': 'str',
         'idle_connection_reclaim': 'bool',
@@ -59,6 +60,7 @@ class CreateDBEndpointRequest(object):
         'connection_mode': 'ConnectionMode',
         'connection_pool_type': 'ConnectionPoolType',
         'description': 'Description',
+        'enable_connection_persistent': 'EnableConnectionPersistent',
         'endpoint_name': 'EndpointName',
         'endpoint_type': 'EndpointType',
         'idle_connection_reclaim': 'IdleConnectionReclaim',
@@ -76,7 +78,7 @@ class CreateDBEndpointRequest(object):
         'read_write_spliting': 'ReadWriteSpliting'
     }
 
-    def __init__(self, auto_add_new_nodes=None, connection_mode=None, connection_pool_type=None, description=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, implicit_trans_split=None, instance_id=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, nodes=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_add_new_nodes=None, connection_mode=None, connection_pool_type=None, description=None, enable_connection_persistent=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, implicit_trans_split=None, instance_id=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, nodes=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, read_write_spliting=None, _configuration=None):  # noqa: E501
         """CreateDBEndpointRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class CreateDBEndpointRequest(object):
         self._connection_mode = None
         self._connection_pool_type = None
         self._description = None
+        self._enable_connection_persistent = None
         self._endpoint_name = None
         self._endpoint_type = None
         self._idle_connection_reclaim = None
@@ -111,6 +114,8 @@ class CreateDBEndpointRequest(object):
             self.connection_pool_type = connection_pool_type
         if description is not None:
             self.description = description
+        if enable_connection_persistent is not None:
+            self.enable_connection_persistent = enable_connection_persistent
         if endpoint_name is not None:
             self.endpoint_name = endpoint_name
         self.endpoint_type = endpoint_type
@@ -223,6 +228,27 @@ class CreateDBEndpointRequest(object):
         """
 
         self._description = description
+
+    @property
+    def enable_connection_persistent(self):
+        """Gets the enable_connection_persistent of this CreateDBEndpointRequest.  # noqa: E501
+
+
+        :return: The enable_connection_persistent of this CreateDBEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_connection_persistent
+
+    @enable_connection_persistent.setter
+    def enable_connection_persistent(self, enable_connection_persistent):
+        """Sets the enable_connection_persistent of this CreateDBEndpointRequest.
+
+
+        :param enable_connection_persistent: The enable_connection_persistent of this CreateDBEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_connection_persistent = enable_connection_persistent
 
     @property
     def endpoint_name(self):

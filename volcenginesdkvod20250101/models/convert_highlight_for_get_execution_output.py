@@ -35,16 +35,18 @@ class ConvertHighlightForGetExecutionOutput(object):
     swagger_types = {
         'clips': 'list[ClipForGetExecutionOutput]',
         'duration': 'float',
+        'highlight_cuts': 'ConvertHighlightCutsForGetExecutionOutput',
         'storyline_cuts': 'ConvertStorylineCutsForGetExecutionOutput'
     }
 
     attribute_map = {
         'clips': 'Clips',
         'duration': 'Duration',
+        'highlight_cuts': 'HighlightCuts',
         'storyline_cuts': 'StorylineCuts'
     }
 
-    def __init__(self, clips=None, duration=None, storyline_cuts=None, _configuration=None):  # noqa: E501
+    def __init__(self, clips=None, duration=None, highlight_cuts=None, storyline_cuts=None, _configuration=None):  # noqa: E501
         """ConvertHighlightForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class ConvertHighlightForGetExecutionOutput(object):
 
         self._clips = None
         self._duration = None
+        self._highlight_cuts = None
         self._storyline_cuts = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class ConvertHighlightForGetExecutionOutput(object):
             self.clips = clips
         if duration is not None:
             self.duration = duration
+        if highlight_cuts is not None:
+            self.highlight_cuts = highlight_cuts
         if storyline_cuts is not None:
             self.storyline_cuts = storyline_cuts
 
@@ -103,6 +108,27 @@ class ConvertHighlightForGetExecutionOutput(object):
         """
 
         self._duration = duration
+
+    @property
+    def highlight_cuts(self):
+        """Gets the highlight_cuts of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The highlight_cuts of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertHighlightCutsForGetExecutionOutput
+        """
+        return self._highlight_cuts
+
+    @highlight_cuts.setter
+    def highlight_cuts(self, highlight_cuts):
+        """Sets the highlight_cuts of this ConvertHighlightForGetExecutionOutput.
+
+
+        :param highlight_cuts: The highlight_cuts of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+        :type: ConvertHighlightCutsForGetExecutionOutput
+        """
+
+        self._highlight_cuts = highlight_cuts
 
     @property
     def storyline_cuts(self):
