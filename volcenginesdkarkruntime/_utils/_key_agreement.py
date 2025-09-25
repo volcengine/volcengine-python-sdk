@@ -12,6 +12,7 @@
 
 from __future__ import annotations
 
+import re
 import base64
 from typing import Tuple
 
@@ -70,6 +71,28 @@ def aes_gcm_decrypt_base64_string(key: bytes, nonce: bytes, ciphertext: str) -> 
     # Decrypt message(base64.std.string) using AES-GCM
     cipher_bytes = base64.decodebytes(ciphertext.encode())
     return aes_gcm_decrypt_bytes(key, nonce, cipher_bytes).decode()
+
+
+base64_pattern = r'(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})'
+
+
+def aes_gcm_decrypt_base64_list(key: bytes, nonce: bytes, ciphertext: str) -> str:
+    # Decrypt
+    base64_array = re.findall(base64_pattern, ciphertext)
+    result = []
+    for b64 in base64_array:
+        try:
+            result.append(aes_gcm_decrypt_base64_string(key, nonce, b64))
+        except Exception:
+            for i in range(20, len(b64), 4):
+                try:
+                    decrypted = aes_gcm_decrypt_base64_string(key, nonce, b64[:i+4])
+                    result.append(decrypted)
+                    decrypted = aes_gcm_decrypt_base64_string(key, nonce, b64[i+4:])
+                    result.append(decrypted)
+                except Exception:
+                    result.append('')
+    return ''.join(result)
 
 
 def marshal_cryptography_pub_key(key) -> bytes:

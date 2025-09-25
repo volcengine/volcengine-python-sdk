@@ -34,6 +34,7 @@ class GetTagsRequest(object):
     """
     swagger_types = {
         'count_resources': 'bool',
+        'match_type': 'str',
         'max_results': 'int',
         'next_token': 'str',
         'tag_keys': 'list[str]',
@@ -42,19 +43,21 @@ class GetTagsRequest(object):
 
     attribute_map = {
         'count_resources': 'CountResources',
+        'match_type': 'MatchType',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'tag_keys': 'TagKeys',
         'tag_type': 'TagType'
     }
 
-    def __init__(self, count_resources=None, max_results=None, next_token=None, tag_keys=None, tag_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, count_resources=None, match_type=None, max_results=None, next_token=None, tag_keys=None, tag_type=None, _configuration=None):  # noqa: E501
         """GetTagsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._count_resources = None
+        self._match_type = None
         self._max_results = None
         self._next_token = None
         self._tag_keys = None
@@ -63,6 +66,8 @@ class GetTagsRequest(object):
 
         if count_resources is not None:
             self.count_resources = count_resources
+        if match_type is not None:
+            self.match_type = match_type
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
@@ -92,6 +97,34 @@ class GetTagsRequest(object):
         """
 
         self._count_resources = count_resources
+
+    @property
+    def match_type(self):
+        """Gets the match_type of this GetTagsRequest.  # noqa: E501
+
+
+        :return: The match_type of this GetTagsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._match_type
+
+    @match_type.setter
+    def match_type(self, match_type):
+        """Sets the match_type of this GetTagsRequest.
+
+
+        :param match_type: The match_type of this GetTagsRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["prefix", "equals", "contain"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                match_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `match_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(match_type, allowed_values)
+            )
+
+        self._match_type = match_type
 
     @property
     def max_results(self):

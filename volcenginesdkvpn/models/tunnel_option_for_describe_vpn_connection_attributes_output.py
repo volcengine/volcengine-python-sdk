@@ -40,6 +40,7 @@ class TunnelOptionForDescribeVpnConnectionAttributesOutput(object):
         'ipsec_config': 'IpsecConfigForDescribeVpnConnectionAttributesOutput',
         'nat_traversal': 'bool',
         'role': 'str',
+        'tunnel_bgp_info': 'TunnelBgpInfoForDescribeVpnConnectionAttributesOutput',
         'tunnel_id': 'str'
     }
 
@@ -51,10 +52,11 @@ class TunnelOptionForDescribeVpnConnectionAttributesOutput(object):
         'ipsec_config': 'IpsecConfig',
         'nat_traversal': 'NatTraversal',
         'role': 'Role',
+        'tunnel_bgp_info': 'TunnelBgpInfo',
         'tunnel_id': 'TunnelId'
     }
 
-    def __init__(self, connect_status=None, customer_gateway_id=None, dpd_action=None, ike_config=None, ipsec_config=None, nat_traversal=None, role=None, tunnel_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, connect_status=None, customer_gateway_id=None, dpd_action=None, ike_config=None, ipsec_config=None, nat_traversal=None, role=None, tunnel_bgp_info=None, tunnel_id=None, _configuration=None):  # noqa: E501
         """TunnelOptionForDescribeVpnConnectionAttributesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class TunnelOptionForDescribeVpnConnectionAttributesOutput(object):
         self._ipsec_config = None
         self._nat_traversal = None
         self._role = None
+        self._tunnel_bgp_info = None
         self._tunnel_id = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class TunnelOptionForDescribeVpnConnectionAttributesOutput(object):
             self.nat_traversal = nat_traversal
         if role is not None:
             self.role = role
+        if tunnel_bgp_info is not None:
+            self.tunnel_bgp_info = tunnel_bgp_info
         if tunnel_id is not None:
             self.tunnel_id = tunnel_id
 
@@ -233,6 +238,27 @@ class TunnelOptionForDescribeVpnConnectionAttributesOutput(object):
         """
 
         self._role = role
+
+    @property
+    def tunnel_bgp_info(self):
+        """Gets the tunnel_bgp_info of this TunnelOptionForDescribeVpnConnectionAttributesOutput.  # noqa: E501
+
+
+        :return: The tunnel_bgp_info of this TunnelOptionForDescribeVpnConnectionAttributesOutput.  # noqa: E501
+        :rtype: TunnelBgpInfoForDescribeVpnConnectionAttributesOutput
+        """
+        return self._tunnel_bgp_info
+
+    @tunnel_bgp_info.setter
+    def tunnel_bgp_info(self, tunnel_bgp_info):
+        """Sets the tunnel_bgp_info of this TunnelOptionForDescribeVpnConnectionAttributesOutput.
+
+
+        :param tunnel_bgp_info: The tunnel_bgp_info of this TunnelOptionForDescribeVpnConnectionAttributesOutput.  # noqa: E501
+        :type: TunnelBgpInfoForDescribeVpnConnectionAttributesOutput
+        """
+
+        self._tunnel_bgp_info = tunnel_bgp_info
 
     @property
     def tunnel_id(self):

@@ -45,6 +45,7 @@ class DescribeVpnConnectionAttributesResponse(object):
         'description': 'str',
         'dpd_action': 'str',
         'dual_tunnel_enabled': 'bool',
+        'enable_tunnels_bgp': 'bool',
         'health_checkers': 'list[HealthCheckerForDescribeVpnConnectionAttributesOutput]',
         'ike_config': 'IkeConfigForDescribeVpnConnectionAttributesOutput',
         'ip_address': 'str',
@@ -83,6 +84,7 @@ class DescribeVpnConnectionAttributesResponse(object):
         'description': 'Description',
         'dpd_action': 'DpdAction',
         'dual_tunnel_enabled': 'DualTunnelEnabled',
+        'enable_tunnels_bgp': 'EnableTunnelsBgp',
         'health_checkers': 'HealthCheckers',
         'ike_config': 'IkeConfig',
         'ip_address': 'IpAddress',
@@ -108,7 +110,7 @@ class DescribeVpnConnectionAttributesResponse(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, account_id=None, attach_status=None, attach_type=None, bgp_info=None, business_status=None, connect_status=None, creation_time=None, customer_gateway_id=None, deleted_time=None, description=None, dpd_action=None, dual_tunnel_enabled=None, health_checkers=None, ike_config=None, ip_address=None, ipsec_config=None, is_blocked=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, overdue_time=None, project_name=None, remote_subnet=None, request_id=None, spec=None, status=None, tags=None, transit_router_id=None, tunnel_options=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, attach_status=None, attach_type=None, bgp_info=None, business_status=None, connect_status=None, creation_time=None, customer_gateway_id=None, deleted_time=None, description=None, dpd_action=None, dual_tunnel_enabled=None, enable_tunnels_bgp=None, health_checkers=None, ike_config=None, ip_address=None, ipsec_config=None, is_blocked=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, overdue_time=None, project_name=None, remote_subnet=None, request_id=None, spec=None, status=None, tags=None, transit_router_id=None, tunnel_options=None, update_time=None, vpn_connection_id=None, vpn_connection_name=None, vpn_gateway_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeVpnConnectionAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -126,6 +128,7 @@ class DescribeVpnConnectionAttributesResponse(object):
         self._description = None
         self._dpd_action = None
         self._dual_tunnel_enabled = None
+        self._enable_tunnels_bgp = None
         self._health_checkers = None
         self._ike_config = None
         self._ip_address = None
@@ -175,6 +178,8 @@ class DescribeVpnConnectionAttributesResponse(object):
             self.dpd_action = dpd_action
         if dual_tunnel_enabled is not None:
             self.dual_tunnel_enabled = dual_tunnel_enabled
+        if enable_tunnels_bgp is not None:
+            self.enable_tunnels_bgp = enable_tunnels_bgp
         if health_checkers is not None:
             self.health_checkers = health_checkers
         if ike_config is not None:
@@ -473,6 +478,27 @@ class DescribeVpnConnectionAttributesResponse(object):
         """
 
         self._dual_tunnel_enabled = dual_tunnel_enabled
+
+    @property
+    def enable_tunnels_bgp(self):
+        """Gets the enable_tunnels_bgp of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+
+
+        :return: The enable_tunnels_bgp of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_tunnels_bgp
+
+    @enable_tunnels_bgp.setter
+    def enable_tunnels_bgp(self, enable_tunnels_bgp):
+        """Sets the enable_tunnels_bgp of this DescribeVpnConnectionAttributesResponse.
+
+
+        :param enable_tunnels_bgp: The enable_tunnels_bgp of this DescribeVpnConnectionAttributesResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_tunnels_bgp = enable_tunnels_bgp
 
     @property
     def health_checkers(self):

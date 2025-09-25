@@ -45,6 +45,8 @@ class DescribeVpnGatewayAttributesResponse(object):
         'dual_tunnel_enabled': 'bool',
         'expired_time': 'str',
         'ip_address': 'str',
+        'ip_stack_type': 'str',
+        'ip_version': 'str',
         'ipsec_enabled': 'bool',
         'is_blocked': 'bool',
         'lock_reason': 'str',
@@ -79,6 +81,8 @@ class DescribeVpnGatewayAttributesResponse(object):
         'dual_tunnel_enabled': 'DualTunnelEnabled',
         'expired_time': 'ExpiredTime',
         'ip_address': 'IpAddress',
+        'ip_stack_type': 'IpStackType',
+        'ip_version': 'IpVersion',
         'ipsec_enabled': 'IpsecEnabled',
         'is_blocked': 'IsBlocked',
         'lock_reason': 'LockReason',
@@ -100,7 +104,7 @@ class DescribeVpnGatewayAttributesResponse(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, account_id=None, asn=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, dual_tunnel_enabled=None, expired_time=None, ip_address=None, ipsec_enabled=None, is_blocked=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, route_count=None, secondary_ip_address=None, secondary_subnet_id=None, ssl_enabled=None, ssl_max_connection=None, ssl_max_connections=None, status=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, bandwidth=None, billing_type=None, business_status=None, connection_count=None, creation_time=None, deleted_time=None, description=None, dual_tunnel_enabled=None, expired_time=None, ip_address=None, ip_stack_type=None, ip_version=None, ipsec_enabled=None, is_blocked=None, lock_reason=None, overdue_time=None, project_name=None, request_id=None, route_count=None, secondary_ip_address=None, secondary_subnet_id=None, ssl_enabled=None, ssl_max_connection=None, ssl_max_connections=None, status=None, subnet_id=None, tags=None, update_time=None, vpc_id=None, vpn_gateway_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -118,6 +122,8 @@ class DescribeVpnGatewayAttributesResponse(object):
         self._dual_tunnel_enabled = None
         self._expired_time = None
         self._ip_address = None
+        self._ip_stack_type = None
+        self._ip_version = None
         self._ipsec_enabled = None
         self._is_blocked = None
         self._lock_reason = None
@@ -163,6 +169,10 @@ class DescribeVpnGatewayAttributesResponse(object):
             self.expired_time = expired_time
         if ip_address is not None:
             self.ip_address = ip_address
+        if ip_stack_type is not None:
+            self.ip_stack_type = ip_stack_type
+        if ip_version is not None:
+            self.ip_version = ip_version
         if ipsec_enabled is not None:
             self.ipsec_enabled = ipsec_enabled
         if is_blocked is not None:
@@ -453,6 +463,48 @@ class DescribeVpnGatewayAttributesResponse(object):
         """
 
         self._ip_address = ip_address
+
+    @property
+    def ip_stack_type(self):
+        """Gets the ip_stack_type of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The ip_stack_type of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_stack_type
+
+    @ip_stack_type.setter
+    def ip_stack_type(self, ip_stack_type):
+        """Sets the ip_stack_type of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param ip_stack_type: The ip_stack_type of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_stack_type = ip_stack_type
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The ip_version of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this DescribeVpnGatewayAttributesResponse.
+
+
+        :param ip_version: The ip_version of this DescribeVpnGatewayAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
 
     @property
     def ipsec_enabled(self):

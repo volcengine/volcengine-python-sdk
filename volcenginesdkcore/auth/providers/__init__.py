@@ -1,2 +1,4 @@
 from .static_provider import StaticCredentialProvider
 from .sts_provider import StsCredentialProvider
+from .sts_oidc_provider import StsOidcCredentialProvider
+from .sts_saml_provider import StsSamlCredentialProvider

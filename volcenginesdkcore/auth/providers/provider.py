@@ -23,3 +23,7 @@ class Provider(object):
     @abc.abstractmethod
     def refresh(self):
         raise NotImplementedError()
+
+    @abc.abstractmethod
+    def get_credentials(self):
+        raise NotImplementedError()
