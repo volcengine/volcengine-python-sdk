@@ -33,6 +33,7 @@ class CreateDirectConnectGatewayRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bgp_asn': 'int',
         'client_token': 'str',
         'description': 'str',
         'direct_connect_gateway_name': 'str',
@@ -42,6 +43,7 @@ class CreateDirectConnectGatewayRequest(object):
     }
 
     attribute_map = {
+        'bgp_asn': 'BgpAsn',
         'client_token': 'ClientToken',
         'description': 'Description',
         'direct_connect_gateway_name': 'DirectConnectGatewayName',
@@ -50,12 +52,13 @@ class CreateDirectConnectGatewayRequest(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, description=None, direct_connect_gateway_name=None, enable_ipv6=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgp_asn=None, client_token=None, description=None, direct_connect_gateway_name=None, enable_ipv6=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateDirectConnectGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bgp_asn = None
         self._client_token = None
         self._description = None
         self._direct_connect_gateway_name = None
@@ -64,6 +67,8 @@ class CreateDirectConnectGatewayRequest(object):
         self._tags = None
         self.discriminator = None
 
+        if bgp_asn is not None:
+            self.bgp_asn = bgp_asn
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
@@ -76,6 +81,27 @@ class CreateDirectConnectGatewayRequest(object):
             self.project_name = project_name
         if tags is not None:
             self.tags = tags
+
+    @property
+    def bgp_asn(self):
+        """Gets the bgp_asn of this CreateDirectConnectGatewayRequest.  # noqa: E501
+
+
+        :return: The bgp_asn of this CreateDirectConnectGatewayRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bgp_asn
+
+    @bgp_asn.setter
+    def bgp_asn(self, bgp_asn):
+        """Sets the bgp_asn of this CreateDirectConnectGatewayRequest.
+
+
+        :param bgp_asn: The bgp_asn of this CreateDirectConnectGatewayRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bgp_asn = bgp_asn
 
     @property
     def client_token(self):
