@@ -3,12 +3,14 @@ import time
 import uuid
 from datetime import datetime
 
-import dateutil.parser, dateutil.tz
+import dateutil.parser
 
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue
+import json
 
-class AssumeRoleCredentials:
+
+class AssumeRoleSamlCredentials:
     def __init__(self, ak, sk, session_token, current_time, expired_time):
         self.ak = ak
         self.sk = sk
@@ -17,13 +19,15 @@ class AssumeRoleCredentials:
         self.expired_time = expired_time
 
 
-class StsCredentialProvider(Provider):
-    def __init__(self, ak, sk, role_name, account_id, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-north-1', timeout=30, expired_buffer_seconds=60, policy=None):
-        self.ak = ak
-        self.sk = sk
+class StsSamlCredentialProvider(Provider):
+    def __init__(self, role_name, account_id, provider_name, saml_resp, duration_seconds=3600, scheme='https',
+                 host='sts.volcengineapi.com', region='cn-beijing', timeout=30, expired_buffer_seconds=60, policy=None):
+        # self.ak = ak
+        # self.sk = sk
         self.role_name = role_name
         self.account_id = account_id
+        self.provider_name = provider_name
+        self.saml_resp = saml_resp
 
         self.timeout = timeout
         self.duration_seconds = duration_seconds
@@ -51,30 +55,33 @@ class StsCredentialProvider(Provider):
     def refresh(self):
         with self._lock:
             if self.is_expired():
-                self._assume_role()
+                self._assume_role_saml()
 
     def get_credentials(self):
         self.refresh()
         return self.credentials
 
-    def _assume_role(self):
+    def _assume_role_saml(self):
         params = {
             'DurationSeconds': self.duration_seconds,
             'RoleSessionName': uuid.uuid4().hex,
             'RoleTrn': 'trn:iam::' + self.account_id + ':role/' + self.role_name,
+            'SAMLProviderTrn': 'trn:iam::' + self.account_id + ':saml-provider/' + self.provider_name,
+            'SAMLResp': self.saml_resp,
         }
         if self.policy is not None:
             params['Policy'] = self.policy
         configuration = type.__call__(Configuration)
-        configuration.ak = self.ak
-        configuration.sk = self.sk
+
+        # configuration.ak = self.ak
+        # configuration.sk = self.sk
         configuration.host = self.host
         configuration.region = self.region
         configuration.scheme = self.scheme
         configuration.read_timeout = self.timeout
         c = UniversalApi(ApiClient(configuration))
-        info = UniversalInfo(method='GET', service='sts', version='2018-01-01', action='AssumeRole',
-                             content_type='text/plain')
+        info = UniversalInfo(method='POST', service='sts', version='2018-01-01', action='AssumeRoleWithSAML',
+                             content_type='application/x-www-form-urlencoded')
 
         resp, status_code, resp_header = c.do_call_with_http_info(info=info, body=params)
         if 'Credentials' not in resp:
@@ -82,7 +89,7 @@ class StsCredentialProvider(Provider):
         resp_cred = resp['Credentials']
 
         # Parse the ISO string
-        dt = dateutil.parser.parse(resp_cred['ExpiredTime'])
+        dt = dateutil.parser.parse(resp_cred['Expiration'])
 
         # Convert to timestamp (seconds since epoch)
         self.expired_time = (dt - datetime(1970, 1, 1, tzinfo=dateutil.tz.tzutc())).total_seconds()
@@ -90,4 +97,4 @@ class StsCredentialProvider(Provider):
         self.credentials = CredentialValue(ak=resp_cred['AccessKeyId'],
                                            sk=resp_cred['SecretAccessKey'],
                                            session_token=resp_cred['SessionToken'],
-                                           provider_name='StsCredentialProvider')
+                                           provider_name='StsSamlCredentialProvider')
