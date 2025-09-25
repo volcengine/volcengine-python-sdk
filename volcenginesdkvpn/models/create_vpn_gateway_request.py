@@ -39,6 +39,8 @@ class CreateVpnGatewayRequest(object):
         'client_token': 'str',
         'description': 'str',
         'dual_tunnel_enabled': 'bool',
+        'ip_stack_type': 'str',
+        'ip_version': 'str',
         'ipsec_enabled': 'bool',
         'period': 'int',
         'period_unit': 'str',
@@ -59,6 +61,8 @@ class CreateVpnGatewayRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'dual_tunnel_enabled': 'DualTunnelEnabled',
+        'ip_stack_type': 'IpStackType',
+        'ip_version': 'IpVersion',
         'ipsec_enabled': 'IpsecEnabled',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
@@ -72,7 +76,7 @@ class CreateVpnGatewayRequest(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, asn=None, bandwidth=None, billing_type=None, client_token=None, description=None, dual_tunnel_enabled=None, ipsec_enabled=None, period=None, period_unit=None, project_name=None, secondary_subnet_id=None, ssl_enabled=None, ssl_max_connections=None, subnet_id=None, tags=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, asn=None, bandwidth=None, billing_type=None, client_token=None, description=None, dual_tunnel_enabled=None, ip_stack_type=None, ip_version=None, ipsec_enabled=None, period=None, period_unit=None, project_name=None, secondary_subnet_id=None, ssl_enabled=None, ssl_max_connections=None, subnet_id=None, tags=None, vpc_id=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """CreateVpnGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +88,8 @@ class CreateVpnGatewayRequest(object):
         self._client_token = None
         self._description = None
         self._dual_tunnel_enabled = None
+        self._ip_stack_type = None
+        self._ip_version = None
         self._ipsec_enabled = None
         self._period = None
         self._period_unit = None
@@ -108,6 +114,10 @@ class CreateVpnGatewayRequest(object):
             self.description = description
         if dual_tunnel_enabled is not None:
             self.dual_tunnel_enabled = dual_tunnel_enabled
+        if ip_stack_type is not None:
+            self.ip_stack_type = ip_stack_type
+        if ip_version is not None:
+            self.ip_version = ip_version
         if ipsec_enabled is not None:
             self.ipsec_enabled = ipsec_enabled
         if period is not None:
@@ -256,6 +266,48 @@ class CreateVpnGatewayRequest(object):
         """
 
         self._dual_tunnel_enabled = dual_tunnel_enabled
+
+    @property
+    def ip_stack_type(self):
+        """Gets the ip_stack_type of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The ip_stack_type of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_stack_type
+
+    @ip_stack_type.setter
+    def ip_stack_type(self, ip_stack_type):
+        """Sets the ip_stack_type of this CreateVpnGatewayRequest.
+
+
+        :param ip_stack_type: The ip_stack_type of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_stack_type = ip_stack_type
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this CreateVpnGatewayRequest.  # noqa: E501
+
+
+        :return: The ip_version of this CreateVpnGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this CreateVpnGatewayRequest.
+
+
+        :param ip_version: The ip_version of this CreateVpnGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
 
     @property
     def ipsec_enabled(self):

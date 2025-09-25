@@ -39,6 +39,7 @@ class CreateVpnConnectionRequest(object):
         'customer_gateway_id': 'str',
         'description': 'str',
         'dpd_action': 'str',
+        'enable_tunnels_bgp': 'bool',
         'ike_config': 'IkeConfigForCreateVpnConnectionInput',
         'ipsec_config': 'IpsecConfigForCreateVpnConnectionInput',
         'local_subnet': 'list[str]',
@@ -60,6 +61,7 @@ class CreateVpnConnectionRequest(object):
         'customer_gateway_id': 'CustomerGatewayId',
         'description': 'Description',
         'dpd_action': 'DpdAction',
+        'enable_tunnels_bgp': 'EnableTunnelsBgp',
         'ike_config': 'IkeConfig',
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
@@ -74,7 +76,7 @@ class CreateVpnConnectionRequest(object):
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, attach_type=None, bgp_config=None, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, spec=None, tunnel_options=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, attach_type=None, bgp_config=None, client_token=None, customer_gateway_id=None, description=None, dpd_action=None, enable_tunnels_bgp=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, project_name=None, remote_subnet=None, spec=None, tunnel_options=None, vpn_connection_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateVpnConnectionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class CreateVpnConnectionRequest(object):
         self._customer_gateway_id = None
         self._description = None
         self._dpd_action = None
+        self._enable_tunnels_bgp = None
         self._ike_config = None
         self._ipsec_config = None
         self._local_subnet = None
@@ -112,6 +115,8 @@ class CreateVpnConnectionRequest(object):
             self.description = description
         if dpd_action is not None:
             self.dpd_action = dpd_action
+        if enable_tunnels_bgp is not None:
+            self.enable_tunnels_bgp = enable_tunnels_bgp
         if ike_config is not None:
             self.ike_config = ike_config
         if ipsec_config is not None:
@@ -262,6 +267,27 @@ class CreateVpnConnectionRequest(object):
         """
 
         self._dpd_action = dpd_action
+
+    @property
+    def enable_tunnels_bgp(self):
+        """Gets the enable_tunnels_bgp of this CreateVpnConnectionRequest.  # noqa: E501
+
+
+        :return: The enable_tunnels_bgp of this CreateVpnConnectionRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_tunnels_bgp
+
+    @enable_tunnels_bgp.setter
+    def enable_tunnels_bgp(self, enable_tunnels_bgp):
+        """Sets the enable_tunnels_bgp of this CreateVpnConnectionRequest.
+
+
+        :param enable_tunnels_bgp: The enable_tunnels_bgp of this CreateVpnConnectionRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_tunnels_bgp = enable_tunnels_bgp
 
     @property
     def ike_config(self):
