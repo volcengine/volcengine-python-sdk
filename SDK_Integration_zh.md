@@ -31,6 +31,8 @@
     - [自定义退避策略](#自定义退避策略)
 - [异常处理](#异常处理)
 - [Debug机制](#debug机制)
+  - [开启Debug模式](#开启debug模式)
+  - [设置Debug级别](#设置debug级别)
 - [指定日志Logger](#指定日志logger)
 
 # 集成SDK
@@ -478,6 +480,7 @@ except ApiException as e:
 ## 配置Http(s)代理
 
 ```python
+import volcenginesdkcore,volcenginesdkecs
 configuration = volcenginesdkcore.Configuration()
 configuration.ak = "Your AK"
 configuration.sk = "Your SK"
@@ -748,6 +751,8 @@ except Exception as e:
 
 为便于客户在处理请求时进行问题排查和调试，SDK 支持日志功能，并提供多种日志级别设置。客户可根据实际需求配置日志级别，获取详细的请求与响应信息，以提升排障效率和系统可 observability（可观测性）。
 
+## 开启Debug模式
+
 > **默认**  
 > * `debug` - `False`  
 
@@ -760,6 +765,39 @@ configuration.sk = "Your SK"
 configuration.debug = True  # 开启debug模式
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
+
+## 设置debug级别
+默认情况下开启debug日志后，会输出所有的debug日志；为了按需输出日志，可以调用`configuration.log_level`进行以下设置：
+
+```python
+import volcenginesdkcore
+from volcenginesdkcore.observability.debugger import LogLevel
+configuration = volcenginesdkcore.Configuration()
+configuration.ak = "Your AK"
+configuration.sk = "Your SK"
+configuration.debug = True  # 开启debug模式
+configuration.log_level = LogLevel.LOG_DEBUG_WITH_CONFIG.mask | LogLevel.LOG_DEBUG_WITH_REQUEST.mask | LogLevel.LOG_DEBUG_WITH_RESPONSE.mask
+volcenginesdkcore.Configuration.set_default(configuration)
+
+```
+
+**支持的日志级别**
+
+
+| 枚举项                              | 父级日志(同时打印父级日志) | 打印的内容                                |
+| -------------------------------- |-----|--------------------------------------|
+| `LOG_DEBUG_WITH_REQUEST`         | —   | 请求行与基础请求信息：`HTTP方法`、`URL（含查询参数）`、`请求头` |
+| `LOG_DEBUG_WITH_REQUEST_BODY`    | `LOG_DEBUG_WITH_REQUEST` | `请求体`                                |
+| `LOG_DEBUG_WITH_REQUEST_ID`      | `LOG_DEBUG_WITH_REQUEST` | `RequestId`                          |
+| `LOG_DEBUG_WITH_RESPONSE`        | `LOG_DEBUG_WITH_REQUEST` | `响应状态码` `响应头`                        |
+| `LOG_DEBUG_WITH_RESPONSE_BODY`   | `LOG_DEBUG_WITH_RESPONSE` | `响应体`                                |
+| `LOG_DEBUG_WITH_SIGNING`         | `LOG_DEBUG_WITH_REQUEST` | `签名过程`                               |
+| `LOG_DEBUG_WITH_ENDPOINT`        | `LOG_DEBUG_WITH_REQUEST` | ` Endpoint 选择过程`                     |
+| `LOG_DEBUG_WITH_REQUEST_RETRIES` | `LOG_DEBUG_WITH_REQUEST` | `重试信息`                               |
+| `LOG_DEBUG_WITH_CONFIG`          | `LOG_DEBUG_WITH_REQUEST` | `关键配置信息`                             |
+| `LOG_DEBUG_ALL`                  |   —     | `包含上面所有信息`                           |
+
+
 
 # 指定日志Logger
 

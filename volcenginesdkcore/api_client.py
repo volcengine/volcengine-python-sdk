@@ -3,7 +3,6 @@
 from __future__ import absolute_import
 
 import datetime
-import logging
 from multiprocessing.pool import ThreadPool
 from time import sleep
 
@@ -17,9 +16,7 @@ from volcenginesdkcore.interceptor import BuildRequestInterceptor, SignRequestIn
 from volcenginesdkcore.interceptor import DeserializedResponseInterceptor
 from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext
 from volcenginesdkcore.interceptor import Request, Response
-
-logger = logging.getLogger(__name__)
-
+from volcenginesdkcore.observability.debugger import sdk_core_logger, LogLevel
 
 class ApiClient(object):
     """Generic API client for Swagger client library builds.
@@ -126,6 +123,8 @@ class ApiClient(object):
 
         interceptor_context = self.interceptor_chain.execute_request(interceptor_context)
 
+        self._log_config(interceptor_context.get_request())
+
         retry_count = 0
         response_data = None
         retry_err = None
@@ -145,7 +144,7 @@ class ApiClient(object):
                     _request_timeout=interceptor_context.request.request_timeout)
                 self.last_response = response_data
             except Exception as e:
-                logger.warning("request error: {}".format(e))
+                sdk_core_logger.warning("request error: {}".format(e))
                 retry_err = e
                 if retry_count >= num_max_retries:
                     raise e
@@ -171,7 +170,7 @@ class ApiClient(object):
             delay = retryer.get_backoff_delay(retry_count)
             sleep(delay / 1000)
             if self.configuration.debug:
-                logger.debug(
+                sdk_core_logger.debug_config(
                     "retry backoff strategy:%s, retry condition: %s, max retry count:%d, current retry count: %d, retry delay(ms):%f",
                     type(retryer.backoff_strategy).__name__, type(retryer.retry_condition).__name__,
                     retryer.num_max_retries, retry_count + 1, delay)
@@ -331,6 +330,74 @@ class ApiClient(object):
         else:
             return content_types[0]
 
+    def _log_config(self, request):
+
+        if not sdk_core_logger.is_enabled_for_loglevel(LogLevel.LOG_DEBUG_WITH_CONFIG):
+            return
+
+        sb = []
+
+        sb.append("SDK Version        : ")
+        sb.append(self.user_agent + "\n")
+
+        # 连接池配置
+        sb.append("[Connection Pool]" + "\n")
+        sb.append("  Number of pools           : ")
+        sb.append(str(self.configuration.num_pools) + "\n")
+        sb.append("  Connection pool maxsize   : ")
+        sb.append(str(self.configuration.connection_pool_maxsize) + "\n")
+
+        # SSL设置
+        sb.append("[Scheme]" + "\n")
+        sb.append("  Scheme      : ")
+        sb.append(str(request.scheme) + "\n")
+
+        # 代理设置（隐藏部分信息避免敏感泄露）
+        sb.append("[Proxy]" + "\n");
+        sb.append("  HTTP Proxy       : ")
+        sb.append(str(self.configuration.http_proxy) + "\n")
+        sb.append("  HTTPS Proxy      : ")
+        sb.append(str(self.configuration.https_proxy) + "\n")
+
+        # 超时设置
+        sb.append("[Timeout]" + "\n");
+        sb.append("  Connect Timeout(ms)  : ")
+        sb.append(str(self.configuration.connect_timeout) + "\n")
+        sb.append("  Read Timeout(ms)     : ")
+        sb.append(str(self.configuration.read_timeout) + "\n")
+
+        # 重试设置
+        sb.append("[Retry]" + "\n");
+        sb.append("  Auto Retry       : ")
+        sb.append(str(request.auto_retry) + "\n")
+        if request.auto_retry and request.retryer is not None:
+            sb.append("  Max Retries      : ")
+            sb.append(str(request.retryer.num_max_retries) + "\n")
+            sb.append("  Min Delay (ms)   : ")
+            sb.append(str(request.retryer.backoff_strategy.min_retry_delay_ms) + "\n")
+            sb.append("  Max Delay (ms)   : ")
+            sb.append(str(request.retryer.backoff_strategy.max_retry_delay_ms) + "\n")
+            sb.append("  Retry Condition  : ")
+            sb.append(type(request.retryer.retry_condition).__name__ if request.retryer.retry_condition is not None else "None" + "\n")
+            sb.append("  Backoff Strategy : ")
+            sb.append(type(request.retryer.backoff_strategy).__name__ if request.retryer.backoff_strategy is not None else "None" + "\n")
+            sb.append("  Retry ErrorCodes : ")
+            sb.append(str(request.retryer.retry_condition.retry_error_codes) + "\n")
+
+        # EndpointResolver设置
+        sb.append("[Endpoint Resolver]" + "\n")
+        sb.append("  Region           : ")
+        sb.append(str(request.region) + "\n")
+        sb.append("  Endpoint         : ")
+        sb.append(str(request.host) + "\n")
+        sb.append("  Use DualStack    : ")
+        sb.append(str(request.use_dual_stack) + "\n")
+        sb.append("  Bootstrap Region : ")
+        sb.append(str(request.custom_bootstrap_region) + "\n")
+        sb.append("  Resolver Class   : ")
+        sb.append(type(request.endpoint_provider).__name__ if request.endpoint_provider is not None else "None" + "\n")
+
+        sdk_core_logger.debug_config("".join(sb))
 
 def metadata(self):
     return self._metadata
