@@ -41,6 +41,7 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         'customer_gateway_name': 'str',
         'description': 'str',
         'ip_address': 'str',
+        'ip_version': 'str',
         'project_name': 'str',
         'status': 'str',
         'update_time': 'str'
@@ -55,12 +56,13 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         'customer_gateway_name': 'CustomerGatewayName',
         'description': 'Description',
         'ip_address': 'IpAddress',
+        'ip_version': 'IpVersion',
         'project_name': 'ProjectName',
         'status': 'Status',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, asn=None, connection_count=None, creation_time=None, customer_gateway_id=None, customer_gateway_name=None, description=None, ip_address=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, asn=None, connection_count=None, creation_time=None, customer_gateway_id=None, customer_gateway_name=None, description=None, ip_address=None, ip_version=None, project_name=None, status=None, update_time=None, _configuration=None):  # noqa: E501
         """CustomerGatewayForDescribeCustomerGatewaysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         self._customer_gateway_name = None
         self._description = None
         self._ip_address = None
+        self._ip_version = None
         self._project_name = None
         self._status = None
         self._update_time = None
@@ -95,6 +98,8 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
             self.description = description
         if ip_address is not None:
             self.ip_address = ip_address
+        if ip_version is not None:
+            self.ip_version = ip_version
         if project_name is not None:
             self.project_name = project_name
         if status is not None:
@@ -269,6 +274,27 @@ class CustomerGatewayForDescribeCustomerGatewaysOutput(object):
         """
 
         self._ip_address = ip_address
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+
+
+        :return: The ip_version of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this CustomerGatewayForDescribeCustomerGatewaysOutput.
+
+
+        :param ip_version: The ip_version of this CustomerGatewayForDescribeCustomerGatewaysOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
 
     @property
     def project_name(self):

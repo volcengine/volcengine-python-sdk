@@ -33,6 +33,7 @@ class CreateTransitRouterVpcAttachmentRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'appliance_mode_enabled': 'bool',
         'attach_points': 'list[AttachPointForCreateTransitRouterVpcAttachmentInput]',
         'auto_publish_route_enabled': 'bool',
         'client_token': 'str',
@@ -45,6 +46,7 @@ class CreateTransitRouterVpcAttachmentRequest(object):
     }
 
     attribute_map = {
+        'appliance_mode_enabled': 'ApplianceModeEnabled',
         'attach_points': 'AttachPoints',
         'auto_publish_route_enabled': 'AutoPublishRouteEnabled',
         'client_token': 'ClientToken',
@@ -56,12 +58,13 @@ class CreateTransitRouterVpcAttachmentRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, attach_points=None, auto_publish_route_enabled=None, client_token=None, description=None, ipv6_enabled=None, tags=None, transit_router_attachment_name=None, transit_router_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, appliance_mode_enabled=None, attach_points=None, auto_publish_route_enabled=None, client_token=None, description=None, ipv6_enabled=None, tags=None, transit_router_attachment_name=None, transit_router_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterVpcAttachmentRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._appliance_mode_enabled = None
         self._attach_points = None
         self._auto_publish_route_enabled = None
         self._client_token = None
@@ -73,6 +76,8 @@ class CreateTransitRouterVpcAttachmentRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if appliance_mode_enabled is not None:
+            self.appliance_mode_enabled = appliance_mode_enabled
         if attach_points is not None:
             self.attach_points = attach_points
         if auto_publish_route_enabled is not None:
@@ -89,6 +94,27 @@ class CreateTransitRouterVpcAttachmentRequest(object):
             self.transit_router_attachment_name = transit_router_attachment_name
         self.transit_router_id = transit_router_id
         self.vpc_id = vpc_id
+
+    @property
+    def appliance_mode_enabled(self):
+        """Gets the appliance_mode_enabled of this CreateTransitRouterVpcAttachmentRequest.  # noqa: E501
+
+
+        :return: The appliance_mode_enabled of this CreateTransitRouterVpcAttachmentRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._appliance_mode_enabled
+
+    @appliance_mode_enabled.setter
+    def appliance_mode_enabled(self, appliance_mode_enabled):
+        """Sets the appliance_mode_enabled of this CreateTransitRouterVpcAttachmentRequest.
+
+
+        :param appliance_mode_enabled: The appliance_mode_enabled of this CreateTransitRouterVpcAttachmentRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._appliance_mode_enabled = appliance_mode_enabled
 
     @property
     def attach_points(self):

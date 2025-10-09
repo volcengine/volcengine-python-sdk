@@ -5,6 +5,7 @@ import hashlib
 import hmac
 
 from six.moves.urllib.parse import quote, urlencode
+from volcenginesdkcore.observability.debugger import sdk_core_logger
 
 
 class SignerV4(object):
@@ -22,9 +23,11 @@ class SignerV4(object):
         if (method == 'POST' and headers.get('Content-Type').startswith('application/x-www-form-urlencoded')
                 and post_params):
             body = urlencode(post_params)
+            sdk_core_logger.debug_sign("[sign] request body after urlencode: %s", body)
 
         body_hash = hashlib.sha256(body.encode('utf-8')).hexdigest()
         headers['X-Content-Sha256'] = body_hash
+        sdk_core_logger.debug_sign("calculated body sha256: %s", body_hash)
         if session_token:
             headers['X-Security-Token'] = session_token
 
@@ -32,6 +35,7 @@ class SignerV4(object):
         for key in headers:
             if key in ['Content-Type', 'Content-Md5', 'Host'] or key.startswith('X-'):
                 signed_headers[key.lower()] = headers[key]
+        sdk_core_logger.debug_sign("signed headers: %s", signed_headers)
 
         if 'host' in signed_headers:
             v = signed_headers['host']
@@ -49,17 +53,21 @@ class SignerV4(object):
 
         canonical_request = '\n'.join(
             [method, path, SignerV4.canonical_query(dict(query)), signed_str, signed_headers_string, body_hash])
+        sdk_core_logger.debug_sign("canonical_request:\n%s", canonical_request)
         credential_scope = '/'.join([format_date[:8], region, service, 'request'])
         signing_str = '\n'.join(['HMAC-SHA256', format_date, credential_scope,
                                  hashlib.sha256(canonical_request.encode('utf-8')).hexdigest()])
+        sdk_core_logger.debug_sign("string_to_sign:\n%s", signing_str)
         signing_key = SignerV4.get_signing_secret_key_v4(sk, format_date[:8], region, service)
 
         signature = hmac.new(signing_key, signing_str.encode('utf-8'), hashlib.sha256).hexdigest()
+        sdk_core_logger.debug_sign("calculated signature: %s", signature)
 
         credential = ak + '/' + credential_scope
         headers[
             'Authorization'] = 'HMAC-SHA256' + ' Credential=' + credential + ', SignedHeaders=' + \
                                signed_headers_string + ', Signature=' + signature
+        sdk_core_logger.debug_sign("final Authorization header: %s", headers['Authorization'])
         return
 
     @staticmethod

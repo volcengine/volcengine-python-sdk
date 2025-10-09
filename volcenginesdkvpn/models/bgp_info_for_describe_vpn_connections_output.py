@@ -36,7 +36,7 @@ class BgpInfoForDescribeVpnConnectionsOutput(object):
         'enable_bgp': 'bool',
         'local_asn': 'int',
         'local_bgp_ip': 'str',
-        'peer_asn': 'str',
+        'peer_asn': 'int',
         'peer_bgp_ip': 'str',
         'session_status': 'str',
         'tunnel_cidr': 'str'
@@ -151,7 +151,7 @@ class BgpInfoForDescribeVpnConnectionsOutput(object):
 
 
         :return: The peer_asn of this BgpInfoForDescribeVpnConnectionsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._peer_asn
 
@@ -161,7 +161,7 @@ class BgpInfoForDescribeVpnConnectionsOutput(object):
 
 
         :param peer_asn: The peer_asn of this BgpInfoForDescribeVpnConnectionsOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._peer_asn = peer_asn

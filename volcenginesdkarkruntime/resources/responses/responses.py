@@ -90,6 +90,7 @@ class Responses(SyncAPIResource):
         tools: Iterable[ToolParam] | None = None,
         top_p: Optional[float] | None = None,
         max_tool_calls: Optional[int] | None = None,
+        expire_at: Optional[int] | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -114,7 +115,8 @@ class Responses(SyncAPIResource):
                 "tool_choice": tool_choice,
                 "tools": tools,
                 "top_p": top_p,
-                "max_tool_calls": max_tool_calls
+                "max_tool_calls": max_tool_calls,
+                "expire_at": expire_at,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -203,6 +205,7 @@ class AsyncResponses(AsyncAPIResource):
         tools: Iterable[ToolParam] | None = None,
         top_p: Optional[float] | None = None,
         max_tool_calls: Optional[int] | None = None,
+        expire_at: Optional[int] | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -228,6 +231,7 @@ class AsyncResponses(AsyncAPIResource):
                 "tools": tools,
                 "top_p": top_p,
                 "max_tool_calls": max_tool_calls,
+                "expire_at": expire_at,
             },
             options=make_request_options(
                 extra_headers=extra_headers,

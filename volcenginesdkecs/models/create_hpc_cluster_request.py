@@ -36,6 +36,8 @@ class CreateHpcClusterRequest(object):
         'client_token': 'str',
         'description': 'str',
         'name': 'str',
+        'project_name': 'str',
+        'tags': 'list[TagForCreateHpcClusterInput]',
         'zone_id': 'str'
     }
 
@@ -43,10 +45,12 @@ class CreateHpcClusterRequest(object):
         'client_token': 'ClientToken',
         'description': 'Description',
         'name': 'Name',
+        'project_name': 'ProjectName',
+        'tags': 'Tags',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, name=None, project_name=None, tags=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateHpcClusterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +59,8 @@ class CreateHpcClusterRequest(object):
         self._client_token = None
         self._description = None
         self._name = None
+        self._project_name = None
+        self._tags = None
         self._zone_id = None
         self.discriminator = None
 
@@ -63,6 +69,10 @@ class CreateHpcClusterRequest(object):
         if description is not None:
             self.description = description
         self.name = name
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         self.zone_id = zone_id
 
     @property
@@ -129,6 +139,48 @@ class CreateHpcClusterRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateHpcClusterRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateHpcClusterRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateHpcClusterRequest.
+
+
+        :param project_name: The project_name of this CreateHpcClusterRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateHpcClusterRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateHpcClusterRequest.  # noqa: E501
+        :rtype: list[TagForCreateHpcClusterInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateHpcClusterRequest.
+
+
+        :param tags: The tags of this CreateHpcClusterRequest.  # noqa: E501
+        :type: list[TagForCreateHpcClusterInput]
+        """
+
+        self._tags = tags
 
     @property
     def zone_id(self):

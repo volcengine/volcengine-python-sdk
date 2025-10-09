@@ -37,7 +37,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
         'bandwidth': 'int',
         'creation_time': 'str',
         'description': 'str',
-        'ipv6_enabled': 'str',
+        'ipv6_enabled': 'bool',
         'peer_transit_router_id': 'str',
         'peer_transit_router_region_id': 'str',
         'status': 'str',
@@ -227,7 +227,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
 
 
         :return: The ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._ipv6_enabled
 
@@ -237,7 +237,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput(objec
 
 
         :param ipv6_enabled: The ipv6_enabled of this TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.  # noqa: E501
-        :type: str
+        :type: bool
         """
 
         self._ipv6_enabled = ipv6_enabled

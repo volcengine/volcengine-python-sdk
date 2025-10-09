@@ -38,6 +38,7 @@ class CreateCustomerGatewayRequest(object):
         'customer_gateway_name': 'str',
         'description': 'str',
         'ip_address': 'str',
+        'ip_version': 'str',
         'project_name': 'str'
     }
 
@@ -47,10 +48,11 @@ class CreateCustomerGatewayRequest(object):
         'customer_gateway_name': 'CustomerGatewayName',
         'description': 'Description',
         'ip_address': 'IpAddress',
+        'ip_version': 'IpVersion',
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, asn=None, client_token=None, customer_gateway_name=None, description=None, ip_address=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, asn=None, client_token=None, customer_gateway_name=None, description=None, ip_address=None, ip_version=None, project_name=None, _configuration=None):  # noqa: E501
         """CreateCustomerGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +63,7 @@ class CreateCustomerGatewayRequest(object):
         self._customer_gateway_name = None
         self._description = None
         self._ip_address = None
+        self._ip_version = None
         self._project_name = None
         self.discriminator = None
 
@@ -73,6 +76,8 @@ class CreateCustomerGatewayRequest(object):
         if description is not None:
             self.description = description
         self.ip_address = ip_address
+        if ip_version is not None:
+            self.ip_version = ip_version
         if project_name is not None:
             self.project_name = project_name
 
@@ -182,6 +187,34 @@ class CreateCustomerGatewayRequest(object):
             raise ValueError("Invalid value for `ip_address`, must not be `None`")  # noqa: E501
 
         self._ip_address = ip_address
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this CreateCustomerGatewayRequest.  # noqa: E501
+
+
+        :return: The ip_version of this CreateCustomerGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this CreateCustomerGatewayRequest.
+
+
+        :param ip_version: The ip_version of this CreateCustomerGatewayRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["ipv4", "ipv6"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ip_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ip_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(ip_version, allowed_values)
+            )
+
+        self._ip_version = ip_version
 
     @property
     def project_name(self):
