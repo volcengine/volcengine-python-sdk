@@ -146,9 +146,12 @@ class Completions(SyncAPIResource):
                         choice.message is not None and choice.finish_reason != 'content_filter'
                         and choice.message.content is not None
                     ):
-                        content = aes_gcm_decrypt_base64_string(
-                            key, nonce, choice.message.content
-                        )
+                        try:
+                            content = aes_gcm_decrypt_base64_string(
+                                key, nonce, choice.message.content
+                            )
+                        except Exception:
+                            pass
                         if not decrypt_validate(choice.message.content):
                             content = aes_gcm_decrypt_base64_list(
                                 key, nonce, choice.message.content
@@ -309,9 +312,12 @@ class AsyncCompletions(AsyncAPIResource):
                         choice.message is not None and choice.finish_reason != 'content_filter'
                         and choice.message.content is not None
                     ):
-                        content = aes_gcm_decrypt_base64_string(
-                            key, nonce, choice.message.content
-                        )
+                        try:
+                            content = aes_gcm_decrypt_base64_string(
+                                key, nonce, choice.message.content
+                            )
+                        except Exception:
+                            pass
                         if not decrypt_validate(choice.message.content):
                             content = aes_gcm_decrypt_base64_list(
                                 key, nonce, choice.message.content
