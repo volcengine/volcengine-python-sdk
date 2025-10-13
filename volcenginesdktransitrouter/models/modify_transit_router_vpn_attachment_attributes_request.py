@@ -34,29 +34,34 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'health_check_revoke_route_enabled': 'str',
         'transit_router_attachment_id': 'str',
         'transit_router_attachment_name': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'health_check_revoke_route_enabled': 'HealthCheckRevokeRouteEnabled',
         'transit_router_attachment_id': 'TransitRouterAttachmentId',
         'transit_router_attachment_name': 'TransitRouterAttachmentName'
     }
 
-    def __init__(self, description=None, transit_router_attachment_id=None, transit_router_attachment_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check_revoke_route_enabled=None, transit_router_attachment_id=None, transit_router_attachment_name=None, _configuration=None):  # noqa: E501
         """ModifyTransitRouterVpnAttachmentAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._health_check_revoke_route_enabled = None
         self._transit_router_attachment_id = None
         self._transit_router_attachment_name = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if health_check_revoke_route_enabled is not None:
+            self.health_check_revoke_route_enabled = health_check_revoke_route_enabled
         self.transit_router_attachment_id = transit_router_attachment_id
         if transit_router_attachment_name is not None:
             self.transit_router_attachment_name = transit_router_attachment_name
@@ -81,6 +86,27 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest(object):
         """
 
         self._description = description
+
+    @property
+    def health_check_revoke_route_enabled(self):
+        """Gets the health_check_revoke_route_enabled of this ModifyTransitRouterVpnAttachmentAttributesRequest.  # noqa: E501
+
+
+        :return: The health_check_revoke_route_enabled of this ModifyTransitRouterVpnAttachmentAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._health_check_revoke_route_enabled
+
+    @health_check_revoke_route_enabled.setter
+    def health_check_revoke_route_enabled(self, health_check_revoke_route_enabled):
+        """Sets the health_check_revoke_route_enabled of this ModifyTransitRouterVpnAttachmentAttributesRequest.
+
+
+        :param health_check_revoke_route_enabled: The health_check_revoke_route_enabled of this ModifyTransitRouterVpnAttachmentAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._health_check_revoke_route_enabled = health_check_revoke_route_enabled
 
     @property
     def transit_router_attachment_id(self):

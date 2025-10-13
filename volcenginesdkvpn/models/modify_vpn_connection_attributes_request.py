@@ -37,6 +37,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         'customer_gateway_id': 'str',
         'description': 'str',
         'dpd_action': 'str',
+        'enable_tunnels_bgp': 'bool',
         'ike_config': 'IkeConfigForModifyVpnConnectionAttributesInput',
         'ipsec_config': 'IpsecConfigForModifyVpnConnectionAttributesInput',
         'local_subnet': 'list[str]',
@@ -44,6 +45,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         'nat_traversal': 'bool',
         'negotiate_instantly': 'bool',
         'remote_subnet': 'list[str]',
+        'spec': 'str',
         'tunnel_options': 'list[TunnelOptionForModifyVpnConnectionAttributesInput]',
         'vpn_connection_id': 'str',
         'vpn_connection_name': 'str'
@@ -54,6 +56,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         'customer_gateway_id': 'CustomerGatewayId',
         'description': 'Description',
         'dpd_action': 'DpdAction',
+        'enable_tunnels_bgp': 'EnableTunnelsBgp',
         'ike_config': 'IkeConfig',
         'ipsec_config': 'IpsecConfig',
         'local_subnet': 'LocalSubnet',
@@ -61,12 +64,13 @@ class ModifyVpnConnectionAttributesRequest(object):
         'nat_traversal': 'NatTraversal',
         'negotiate_instantly': 'NegotiateInstantly',
         'remote_subnet': 'RemoteSubnet',
+        'spec': 'Spec',
         'tunnel_options': 'TunnelOptions',
         'vpn_connection_id': 'VpnConnectionId',
         'vpn_connection_name': 'VpnConnectionName'
     }
 
-    def __init__(self, bgp_config=None, customer_gateway_id=None, description=None, dpd_action=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, tunnel_options=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgp_config=None, customer_gateway_id=None, description=None, dpd_action=None, enable_tunnels_bgp=None, ike_config=None, ipsec_config=None, local_subnet=None, log_enabled=None, nat_traversal=None, negotiate_instantly=None, remote_subnet=None, spec=None, tunnel_options=None, vpn_connection_id=None, vpn_connection_name=None, _configuration=None):  # noqa: E501
         """ModifyVpnConnectionAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +80,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         self._customer_gateway_id = None
         self._description = None
         self._dpd_action = None
+        self._enable_tunnels_bgp = None
         self._ike_config = None
         self._ipsec_config = None
         self._local_subnet = None
@@ -83,6 +88,7 @@ class ModifyVpnConnectionAttributesRequest(object):
         self._nat_traversal = None
         self._negotiate_instantly = None
         self._remote_subnet = None
+        self._spec = None
         self._tunnel_options = None
         self._vpn_connection_id = None
         self._vpn_connection_name = None
@@ -96,6 +102,8 @@ class ModifyVpnConnectionAttributesRequest(object):
             self.description = description
         if dpd_action is not None:
             self.dpd_action = dpd_action
+        if enable_tunnels_bgp is not None:
+            self.enable_tunnels_bgp = enable_tunnels_bgp
         if ike_config is not None:
             self.ike_config = ike_config
         if ipsec_config is not None:
@@ -110,6 +118,8 @@ class ModifyVpnConnectionAttributesRequest(object):
             self.negotiate_instantly = negotiate_instantly
         if remote_subnet is not None:
             self.remote_subnet = remote_subnet
+        if spec is not None:
+            self.spec = spec
         if tunnel_options is not None:
             self.tunnel_options = tunnel_options
         self.vpn_connection_id = vpn_connection_id
@@ -199,6 +209,27 @@ class ModifyVpnConnectionAttributesRequest(object):
         """
 
         self._dpd_action = dpd_action
+
+    @property
+    def enable_tunnels_bgp(self):
+        """Gets the enable_tunnels_bgp of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The enable_tunnels_bgp of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_tunnels_bgp
+
+    @enable_tunnels_bgp.setter
+    def enable_tunnels_bgp(self, enable_tunnels_bgp):
+        """Sets the enable_tunnels_bgp of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param enable_tunnels_bgp: The enable_tunnels_bgp of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_tunnels_bgp = enable_tunnels_bgp
 
     @property
     def ike_config(self):
@@ -346,6 +377,27 @@ class ModifyVpnConnectionAttributesRequest(object):
         """
 
         self._remote_subnet = remote_subnet
+
+    @property
+    def spec(self):
+        """Gets the spec of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+
+
+        :return: The spec of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._spec
+
+    @spec.setter
+    def spec(self, spec):
+        """Sets the spec of this ModifyVpnConnectionAttributesRequest.
+
+
+        :param spec: The spec of this ModifyVpnConnectionAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._spec = spec
 
     @property
     def tunnel_options(self):

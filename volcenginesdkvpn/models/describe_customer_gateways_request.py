@@ -36,6 +36,7 @@ class DescribeCustomerGatewaysRequest(object):
         'customer_gateway_ids': 'list[str]',
         'customer_gateway_name': 'str',
         'ip_address': 'str',
+        'ip_version': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -47,6 +48,7 @@ class DescribeCustomerGatewaysRequest(object):
         'customer_gateway_ids': 'CustomerGatewayIds',
         'customer_gateway_name': 'CustomerGatewayName',
         'ip_address': 'IpAddress',
+        'ip_version': 'IpVersion',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -54,7 +56,7 @@ class DescribeCustomerGatewaysRequest(object):
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, customer_gateway_ids=None, customer_gateway_name=None, ip_address=None, page_number=None, page_size=None, project_name=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer_gateway_ids=None, customer_gateway_name=None, ip_address=None, ip_version=None, page_number=None, page_size=None, project_name=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeCustomerGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class DescribeCustomerGatewaysRequest(object):
         self._customer_gateway_ids = None
         self._customer_gateway_name = None
         self._ip_address = None
+        self._ip_version = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -76,6 +79,8 @@ class DescribeCustomerGatewaysRequest(object):
             self.customer_gateway_name = customer_gateway_name
         if ip_address is not None:
             self.ip_address = ip_address
+        if ip_version is not None:
+            self.ip_version = ip_version
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -149,6 +154,27 @@ class DescribeCustomerGatewaysRequest(object):
         """
 
         self._ip_address = ip_address
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this DescribeCustomerGatewaysRequest.  # noqa: E501
+
+
+        :return: The ip_version of this DescribeCustomerGatewaysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this DescribeCustomerGatewaysRequest.
+
+
+        :param ip_version: The ip_version of this DescribeCustomerGatewaysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
 
     @property
     def page_number(self):

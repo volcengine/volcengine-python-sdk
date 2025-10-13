@@ -33,7 +33,10 @@ class DescribeVpnGatewaysRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'dual_tunnel_enabled': 'bool',
         'ip_address': 'str',
+        'ip_stack_type': 'str',
+        'ip_version': 'str',
         'ipsec_enabled': 'bool',
         'page_number': 'int',
         'page_size': 'int',
@@ -47,7 +50,10 @@ class DescribeVpnGatewaysRequest(object):
     }
 
     attribute_map = {
+        'dual_tunnel_enabled': 'DualTunnelEnabled',
         'ip_address': 'IpAddress',
+        'ip_stack_type': 'IpStackType',
+        'ip_version': 'IpVersion',
         'ipsec_enabled': 'IpsecEnabled',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
@@ -60,13 +66,16 @@ class DescribeVpnGatewaysRequest(object):
         'vpn_gateway_name': 'VpnGatewayName'
     }
 
-    def __init__(self, ip_address=None, ipsec_enabled=None, page_number=None, page_size=None, project_name=None, ssl_enabled=None, subnet_id=None, tag_filters=None, vpc_id=None, vpn_gateway_ids=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, dual_tunnel_enabled=None, ip_address=None, ip_stack_type=None, ip_version=None, ipsec_enabled=None, page_number=None, page_size=None, project_name=None, ssl_enabled=None, subnet_id=None, tag_filters=None, vpc_id=None, vpn_gateway_ids=None, vpn_gateway_name=None, _configuration=None):  # noqa: E501
         """DescribeVpnGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._dual_tunnel_enabled = None
         self._ip_address = None
+        self._ip_stack_type = None
+        self._ip_version = None
         self._ipsec_enabled = None
         self._page_number = None
         self._page_size = None
@@ -79,8 +88,14 @@ class DescribeVpnGatewaysRequest(object):
         self._vpn_gateway_name = None
         self.discriminator = None
 
+        if dual_tunnel_enabled is not None:
+            self.dual_tunnel_enabled = dual_tunnel_enabled
         if ip_address is not None:
             self.ip_address = ip_address
+        if ip_stack_type is not None:
+            self.ip_stack_type = ip_stack_type
+        if ip_version is not None:
+            self.ip_version = ip_version
         if ipsec_enabled is not None:
             self.ipsec_enabled = ipsec_enabled
         if page_number is not None:
@@ -103,6 +118,27 @@ class DescribeVpnGatewaysRequest(object):
             self.vpn_gateway_name = vpn_gateway_name
 
     @property
+    def dual_tunnel_enabled(self):
+        """Gets the dual_tunnel_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+
+
+        :return: The dual_tunnel_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dual_tunnel_enabled
+
+    @dual_tunnel_enabled.setter
+    def dual_tunnel_enabled(self, dual_tunnel_enabled):
+        """Sets the dual_tunnel_enabled of this DescribeVpnGatewaysRequest.
+
+
+        :param dual_tunnel_enabled: The dual_tunnel_enabled of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._dual_tunnel_enabled = dual_tunnel_enabled
+
+    @property
     def ip_address(self):
         """Gets the ip_address of this DescribeVpnGatewaysRequest.  # noqa: E501
 
@@ -122,6 +158,48 @@ class DescribeVpnGatewaysRequest(object):
         """
 
         self._ip_address = ip_address
+
+    @property
+    def ip_stack_type(self):
+        """Gets the ip_stack_type of this DescribeVpnGatewaysRequest.  # noqa: E501
+
+
+        :return: The ip_stack_type of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_stack_type
+
+    @ip_stack_type.setter
+    def ip_stack_type(self, ip_stack_type):
+        """Sets the ip_stack_type of this DescribeVpnGatewaysRequest.
+
+
+        :param ip_stack_type: The ip_stack_type of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_stack_type = ip_stack_type
+
+    @property
+    def ip_version(self):
+        """Gets the ip_version of this DescribeVpnGatewaysRequest.  # noqa: E501
+
+
+        :return: The ip_version of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_version
+
+    @ip_version.setter
+    def ip_version(self, ip_version):
+        """Sets the ip_version of this DescribeVpnGatewaysRequest.
+
+
+        :param ip_version: The ip_version of this DescribeVpnGatewaysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_version = ip_version
 
     @property
     def ipsec_enabled(self):

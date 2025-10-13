@@ -41,6 +41,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput(object):
         'resource_id': 'str',
         'resource_type': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeTransitRouterFlowLogsOutput]',
         'tls_project_id': 'str',
         'tls_project_name': 'str',
         'tls_topic_id': 'str',
@@ -60,6 +61,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput(object):
         'resource_id': 'ResourceId',
         'resource_type': 'ResourceType',
         'status': 'Status',
+        'tags': 'Tags',
         'tls_project_id': 'TlsProjectId',
         'tls_project_name': 'TlsProjectName',
         'tls_topic_id': 'TlsTopicId',
@@ -70,7 +72,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput(object):
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, account_id=None, aggregation_interval=None, created_at=None, description=None, log_format_string=None, resource_id=None, resource_type=None, status=None, tls_project_id=None, tls_project_name=None, tls_topic_id=None, tls_topic_name=None, transit_router_flow_log_id=None, transit_router_flow_log_name=None, transit_router_id=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aggregation_interval=None, created_at=None, description=None, log_format_string=None, resource_id=None, resource_type=None, status=None, tags=None, tls_project_id=None, tls_project_name=None, tls_topic_id=None, tls_topic_name=None, transit_router_flow_log_id=None, transit_router_flow_log_name=None, transit_router_id=None, updated_at=None, _configuration=None):  # noqa: E501
         """TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +86,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput(object):
         self._resource_id = None
         self._resource_type = None
         self._status = None
+        self._tags = None
         self._tls_project_id = None
         self._tls_project_name = None
         self._tls_topic_id = None
@@ -110,6 +113,8 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput(object):
             self.resource_type = resource_type
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if tls_project_id is not None:
             self.tls_project_id = tls_project_id
         if tls_project_name is not None:
@@ -294,6 +299,27 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.  # noqa: E501
+
+
+        :return: The tags of this TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.  # noqa: E501
+        :rtype: list[TagForDescribeTransitRouterFlowLogsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.
+
+
+        :param tags: The tags of this TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput.  # noqa: E501
+        :type: list[TagForDescribeTransitRouterFlowLogsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def tls_project_id(self):

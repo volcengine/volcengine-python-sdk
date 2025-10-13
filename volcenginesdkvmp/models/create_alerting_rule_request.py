@@ -40,7 +40,9 @@ class CreateAlertingRuleRequest(object):
         'name': 'str',
         'notify_group_policy_id': 'str',
         'notify_policy_id': 'str',
+        'project_name': 'str',
         'query': 'QueryForCreateAlertingRuleInput',
+        'tags': 'list[TagForCreateAlertingRuleInput]',
         'type': 'str'
     }
 
@@ -52,11 +54,13 @@ class CreateAlertingRuleRequest(object):
         'name': 'Name',
         'notify_group_policy_id': 'NotifyGroupPolicyId',
         'notify_policy_id': 'NotifyPolicyId',
+        'project_name': 'ProjectName',
         'query': 'Query',
+        'tags': 'Tags',
         'type': 'Type'
     }
 
-    def __init__(self, annotations=None, description=None, labels=None, levels=None, name=None, notify_group_policy_id=None, notify_policy_id=None, query=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, annotations=None, description=None, labels=None, levels=None, name=None, notify_group_policy_id=None, notify_policy_id=None, project_name=None, query=None, tags=None, type=None, _configuration=None):  # noqa: E501
         """CreateAlertingRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,7 +73,9 @@ class CreateAlertingRuleRequest(object):
         self._name = None
         self._notify_group_policy_id = None
         self._notify_policy_id = None
+        self._project_name = None
         self._query = None
+        self._tags = None
         self._type = None
         self.discriminator = None
 
@@ -85,8 +91,12 @@ class CreateAlertingRuleRequest(object):
         self.notify_group_policy_id = notify_group_policy_id
         if notify_policy_id is not None:
             self.notify_policy_id = notify_policy_id
+        if project_name is not None:
+            self.project_name = project_name
         if query is not None:
             self.query = query
+        if tags is not None:
+            self.tags = tags
         self.type = type
 
     @property
@@ -241,6 +251,27 @@ class CreateAlertingRuleRequest(object):
         self._notify_policy_id = notify_policy_id
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateAlertingRuleRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateAlertingRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateAlertingRuleRequest.
+
+
+        :param project_name: The project_name of this CreateAlertingRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def query(self):
         """Gets the query of this CreateAlertingRuleRequest.  # noqa: E501
 
@@ -260,6 +291,27 @@ class CreateAlertingRuleRequest(object):
         """
 
         self._query = query
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateAlertingRuleRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateAlertingRuleRequest.  # noqa: E501
+        :rtype: list[TagForCreateAlertingRuleInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateAlertingRuleRequest.
+
+
+        :param tags: The tags of this CreateAlertingRuleRequest.  # noqa: E501
+        :type: list[TagForCreateAlertingRuleInput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

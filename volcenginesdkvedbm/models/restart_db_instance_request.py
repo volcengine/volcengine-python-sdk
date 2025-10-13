@@ -33,23 +33,28 @@ class RestartDBInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'node_id': 'str'
     }
 
     attribute_map = {
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'node_id': 'NodeId'
     }
 
-    def __init__(self, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, node_id=None, _configuration=None):  # noqa: E501
         """RestartDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._instance_id = None
+        self._node_id = None
         self.discriminator = None
 
         self.instance_id = instance_id
+        if node_id is not None:
+            self.node_id = node_id
 
     @property
     def instance_id(self):
@@ -73,6 +78,27 @@ class RestartDBInstanceRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def node_id(self):
+        """Gets the node_id of this RestartDBInstanceRequest.  # noqa: E501
+
+
+        :return: The node_id of this RestartDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._node_id
+
+    @node_id.setter
+    def node_id(self, node_id):
+        """Sets the node_id of this RestartDBInstanceRequest.
+
+
+        :param node_id: The node_id of this RestartDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._node_id = node_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

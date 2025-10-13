@@ -15,6 +15,8 @@ import six
 from six.moves.urllib.parse import urlencode
 from urllib3 import Retry
 
+from volcenginesdkcore.observability.debugger import sdk_core_logger, LogLevel
+
 try:
     import urllib3
 except ImportError:
@@ -38,6 +40,68 @@ class RESTResponse(io.IOBase):
     def getheader(self, name, default=None):
         """Returns a given response header."""
         return self.urllib3_response.getheader(name, default)
+
+
+def log_request(method, url, query_params, headers, body, post_params, request_time_out):
+    sdk_core_logger.debug_request("request url: %s %s", method, url)
+    if request_time_out:
+        sdk_core_logger.debug_request("request timeout: %s", request_time_out)
+
+    if query_params:
+        sdk_core_logger.debug_request("query params: %s", query_params)
+
+    if headers:
+        sdk_core_logger.debug_request("headers:")
+        for k, v in headers.items():
+            sdk_core_logger.debug_request("    %s: %s", k, v)
+
+    if post_params:
+        sdk_core_logger.debug_request("post params: %s", post_params)
+
+    if body:
+        # body may be bytes and needs to be decoded
+        if isinstance(body, bytes):
+            try:
+                body = body.decode("utf-8")
+            except Exception:
+                body = str(body)
+        sdk_core_logger.debug_request("body: %s", body, is_body=True)
+
+
+def log_response(r, _preload_content):
+    sdk_core_logger.debugx(LogLevel.LOG_DEBUG_WITH_REQUEST_ID, "[Response] request id: %s", r.getheader("X-Tt-Logid"))
+    sdk_core_logger.debug_response("status: %s", r.status)
+    sdk_core_logger.debug_response("reason: %s", r.reason)
+    sdk_core_logger.debug_response("headers:")
+    for k, v in r.getheaders().items():
+        sdk_core_logger.debug_response("    %s: %s", k, v)
+    if _preload_content:
+        sdk_core_logger.debug_response("body: %s", r.data, is_body=True)
+    else:
+        preview_len = 2048
+        # Stream not preloaded: avoid consuming the stream, just do a "peek"
+        preview_bytes = b""
+        try:
+            # urllib3.HTTPResponse.peek(n) is usually available and does not advance the read pointer
+            if hasattr(r, "peek"):
+                preview_bytes = r.peek(preview_len) or b""
+            else:
+                # Some implementations may cache r.data (not read the underlying stream again)
+                cached = getattr(r, "data", b"")
+                if cached:
+                    preview_bytes = cached[:preview_len]
+        except Exception:
+            preview_bytes = b""
+
+        if preview_bytes:
+            try:
+                preview_text = preview_bytes.decode("utf-8", errors="replace")
+            except Exception:
+                preview_text = repr(preview_bytes)
+            sdk_core_logger.debug_response("response body (preview, %d bytes): %s", len(preview_bytes), preview_text, is_body=True)
+        else:
+            sdk_core_logger.debug_response("response body (preview): <streaming, not read>", is_body=True)
+
 
 class RESTClientObject(object):
 
@@ -175,6 +239,8 @@ class RESTClientObject(object):
         if 'Content-Type' not in headers:
             headers['Content-Type'] = 'application/json'
 
+        log_request(method, url, query_params, headers, body, post_params, timeout)
+
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
             if method in ['POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE']:
@@ -248,7 +314,7 @@ class RESTClientObject(object):
 
             # log response body
             logger.debug("response body: %s", r.data)
-
+        log_response(r, _preload_content)
         if not 200 <= r.status <= 299:
             raise ApiException(http_resp=r)
 

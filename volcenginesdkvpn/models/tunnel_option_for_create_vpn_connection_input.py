@@ -33,6 +33,7 @@ class TunnelOptionForCreateVpnConnectionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bgp_config': 'ConvertBGPConfigForCreateVpnConnectionInput',
         'customer_gateway_id': 'str',
         'dpd_action': 'str',
         'ike_config': 'IkeConfigForCreateVpnConnectionInput',
@@ -42,6 +43,7 @@ class TunnelOptionForCreateVpnConnectionInput(object):
     }
 
     attribute_map = {
+        'bgp_config': 'BGPConfig',
         'customer_gateway_id': 'CustomerGatewayId',
         'dpd_action': 'DpdAction',
         'ike_config': 'IkeConfig',
@@ -50,12 +52,13 @@ class TunnelOptionForCreateVpnConnectionInput(object):
         'role': 'Role'
     }
 
-    def __init__(self, customer_gateway_id=None, dpd_action=None, ike_config=None, ipsec_config=None, nat_traversal=None, role=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgp_config=None, customer_gateway_id=None, dpd_action=None, ike_config=None, ipsec_config=None, nat_traversal=None, role=None, _configuration=None):  # noqa: E501
         """TunnelOptionForCreateVpnConnectionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bgp_config = None
         self._customer_gateway_id = None
         self._dpd_action = None
         self._ike_config = None
@@ -64,6 +67,8 @@ class TunnelOptionForCreateVpnConnectionInput(object):
         self._role = None
         self.discriminator = None
 
+        if bgp_config is not None:
+            self.bgp_config = bgp_config
         if customer_gateway_id is not None:
             self.customer_gateway_id = customer_gateway_id
         if dpd_action is not None:
@@ -76,6 +81,27 @@ class TunnelOptionForCreateVpnConnectionInput(object):
             self.nat_traversal = nat_traversal
         if role is not None:
             self.role = role
+
+    @property
+    def bgp_config(self):
+        """Gets the bgp_config of this TunnelOptionForCreateVpnConnectionInput.  # noqa: E501
+
+
+        :return: The bgp_config of this TunnelOptionForCreateVpnConnectionInput.  # noqa: E501
+        :rtype: ConvertBGPConfigForCreateVpnConnectionInput
+        """
+        return self._bgp_config
+
+    @bgp_config.setter
+    def bgp_config(self, bgp_config):
+        """Sets the bgp_config of this TunnelOptionForCreateVpnConnectionInput.
+
+
+        :param bgp_config: The bgp_config of this TunnelOptionForCreateVpnConnectionInput.  # noqa: E501
+        :type: ConvertBGPConfigForCreateVpnConnectionInput
+        """
+
+        self._bgp_config = bgp_config
 
     @property
     def customer_gateway_id(self):

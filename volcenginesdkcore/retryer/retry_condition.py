@@ -8,8 +8,8 @@ import urllib3
 
 from volcenginesdkcore.rest import ApiException, RESTResponse
 from volcenginesdkcore.utils import six_utils
+from volcenginesdkcore.observability.debugger import sdk_core_logger
 
-logger = logging.getLogger(__name__)
 
 
 class RetryCondition(six_utils.get_abstract_meta_class()):
@@ -75,6 +75,7 @@ class DefaultRetryCondition(RetryCondition):
             bool: True if the request should be retried, False otherwise.
         """
         if err is not None and isinstance(err, self.__retry_exceptions):
+            sdk_core_logger.debug_retry("retry for retryable exception, err: %s", err)
             return True
 
         data = {}
@@ -89,6 +90,7 @@ class DefaultRetryCondition(RetryCondition):
 
         # retryable status code
         if str(status_code) in self.__retry_status_codes:
+            sdk_core_logger.debug_retry("retry for retryable status code, status_code: %s", status_code)
             return True
         # retryable error code
         code = None
@@ -98,7 +100,10 @@ class DefaultRetryCondition(RetryCondition):
             if error:
                 code = error.get("Code")
         if code in self.retry_error_codes:
+            sdk_core_logger.debug_retry("retry for retryable error code, code: %s", code)
             return True
+
+        sdk_core_logger.debug_retry( "no need to retry")
 
         return False
 
@@ -116,6 +121,6 @@ class DefaultRetryCondition(RetryCondition):
         try:
             return json.loads(data)
         except Exception as e:
-            logger.warning("Failed to parse response data as JSON: {}".format(e))
-            logger.warning(traceback.format_exc())
+            sdk_core_logger.warning("Failed to parse response data as JSON: {}".format(e))
+            sdk_core_logger.warning(traceback.format_exc())
         return {}

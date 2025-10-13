@@ -61,6 +61,7 @@ class Request(object):
         # retryer setting, default use global configration if value not set
         self.auto_retry = configuration.auto_retry
         self.retryer = configuration.retryer
+        self.credential_provider = configuration.credential_provider
 
         self.runtime_options = None
         if hasattr(body, '_configuration') and isinstance(body._configuration, RuntimeOption):
