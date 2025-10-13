@@ -35,6 +35,8 @@ class QuotaForUpdateWorkspaceInput(object):
     swagger_types = {
         'active_series': 'int',
         'ingest_samples_per_second': 'int',
+        'public_query_bandwidth': 'int',
+        'public_write_bandwidth': 'int',
         'query_per_second': 'int',
         'scan_samples_per_second': 'int',
         'scan_series_per_second': 'int'
@@ -43,12 +45,14 @@ class QuotaForUpdateWorkspaceInput(object):
     attribute_map = {
         'active_series': 'ActiveSeries',
         'ingest_samples_per_second': 'IngestSamplesPerSecond',
+        'public_query_bandwidth': 'PublicQueryBandwidth',
+        'public_write_bandwidth': 'PublicWriteBandwidth',
         'query_per_second': 'QueryPerSecond',
         'scan_samples_per_second': 'ScanSamplesPerSecond',
         'scan_series_per_second': 'ScanSeriesPerSecond'
     }
 
-    def __init__(self, active_series=None, ingest_samples_per_second=None, query_per_second=None, scan_samples_per_second=None, scan_series_per_second=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_series=None, ingest_samples_per_second=None, public_query_bandwidth=None, public_write_bandwidth=None, query_per_second=None, scan_samples_per_second=None, scan_series_per_second=None, _configuration=None):  # noqa: E501
         """QuotaForUpdateWorkspaceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +60,8 @@ class QuotaForUpdateWorkspaceInput(object):
 
         self._active_series = None
         self._ingest_samples_per_second = None
+        self._public_query_bandwidth = None
+        self._public_write_bandwidth = None
         self._query_per_second = None
         self._scan_samples_per_second = None
         self._scan_series_per_second = None
@@ -65,6 +71,10 @@ class QuotaForUpdateWorkspaceInput(object):
             self.active_series = active_series
         if ingest_samples_per_second is not None:
             self.ingest_samples_per_second = ingest_samples_per_second
+        if public_query_bandwidth is not None:
+            self.public_query_bandwidth = public_query_bandwidth
+        if public_write_bandwidth is not None:
+            self.public_write_bandwidth = public_write_bandwidth
         if query_per_second is not None:
             self.query_per_second = query_per_second
         if scan_samples_per_second is not None:
@@ -113,6 +123,48 @@ class QuotaForUpdateWorkspaceInput(object):
         """
 
         self._ingest_samples_per_second = ingest_samples_per_second
+
+    @property
+    def public_query_bandwidth(self):
+        """Gets the public_query_bandwidth of this QuotaForUpdateWorkspaceInput.  # noqa: E501
+
+
+        :return: The public_query_bandwidth of this QuotaForUpdateWorkspaceInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._public_query_bandwidth
+
+    @public_query_bandwidth.setter
+    def public_query_bandwidth(self, public_query_bandwidth):
+        """Sets the public_query_bandwidth of this QuotaForUpdateWorkspaceInput.
+
+
+        :param public_query_bandwidth: The public_query_bandwidth of this QuotaForUpdateWorkspaceInput.  # noqa: E501
+        :type: int
+        """
+
+        self._public_query_bandwidth = public_query_bandwidth
+
+    @property
+    def public_write_bandwidth(self):
+        """Gets the public_write_bandwidth of this QuotaForUpdateWorkspaceInput.  # noqa: E501
+
+
+        :return: The public_write_bandwidth of this QuotaForUpdateWorkspaceInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._public_write_bandwidth
+
+    @public_write_bandwidth.setter
+    def public_write_bandwidth(self, public_write_bandwidth):
+        """Sets the public_write_bandwidth of this QuotaForUpdateWorkspaceInput.
+
+
+        :param public_write_bandwidth: The public_write_bandwidth of this QuotaForUpdateWorkspaceInput.  # noqa: E501
+        :type: int
+        """
+
+        self._public_write_bandwidth = public_write_bandwidth
 
     @property
     def query_per_second(self):

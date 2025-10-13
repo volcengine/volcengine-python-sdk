@@ -41,6 +41,8 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         'transit_router_route_entry_id': 'str',
         'transit_router_route_entry_name': 'str',
         'transit_router_route_entry_next_hop_id': 'str',
+        'transit_router_route_entry_next_hop_resource_id': 'str',
+        'transit_router_route_entry_next_hop_resource_type': 'str',
         'transit_router_route_entry_next_hop_type': 'str',
         'transit_router_route_entry_type': 'str',
         'update_time': 'str'
@@ -55,12 +57,14 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         'transit_router_route_entry_id': 'TransitRouterRouteEntryId',
         'transit_router_route_entry_name': 'TransitRouterRouteEntryName',
         'transit_router_route_entry_next_hop_id': 'TransitRouterRouteEntryNextHopId',
+        'transit_router_route_entry_next_hop_resource_id': 'TransitRouterRouteEntryNextHopResourceId',
+        'transit_router_route_entry_next_hop_resource_type': 'TransitRouterRouteEntryNextHopResourceType',
         'transit_router_route_entry_next_hop_type': 'TransitRouterRouteEntryNextHopType',
         'transit_router_route_entry_type': 'TransitRouterRouteEntryType',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, as_path=None, creation_time=None, description=None, destination_cidr_block=None, status=None, transit_router_route_entry_id=None, transit_router_route_entry_name=None, transit_router_route_entry_next_hop_id=None, transit_router_route_entry_next_hop_type=None, transit_router_route_entry_type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, as_path=None, creation_time=None, description=None, destination_cidr_block=None, status=None, transit_router_route_entry_id=None, transit_router_route_entry_name=None, transit_router_route_entry_next_hop_id=None, transit_router_route_entry_next_hop_resource_id=None, transit_router_route_entry_next_hop_resource_type=None, transit_router_route_entry_next_hop_type=None, transit_router_route_entry_type=None, update_time=None, _configuration=None):  # noqa: E501
         """TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +78,8 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         self._transit_router_route_entry_id = None
         self._transit_router_route_entry_name = None
         self._transit_router_route_entry_next_hop_id = None
+        self._transit_router_route_entry_next_hop_resource_id = None
+        self._transit_router_route_entry_next_hop_resource_type = None
         self._transit_router_route_entry_next_hop_type = None
         self._transit_router_route_entry_type = None
         self._update_time = None
@@ -95,6 +101,10 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
             self.transit_router_route_entry_name = transit_router_route_entry_name
         if transit_router_route_entry_next_hop_id is not None:
             self.transit_router_route_entry_next_hop_id = transit_router_route_entry_next_hop_id
+        if transit_router_route_entry_next_hop_resource_id is not None:
+            self.transit_router_route_entry_next_hop_resource_id = transit_router_route_entry_next_hop_resource_id
+        if transit_router_route_entry_next_hop_resource_type is not None:
+            self.transit_router_route_entry_next_hop_resource_type = transit_router_route_entry_next_hop_resource_type
         if transit_router_route_entry_next_hop_type is not None:
             self.transit_router_route_entry_next_hop_type = transit_router_route_entry_next_hop_type
         if transit_router_route_entry_type is not None:
@@ -269,6 +279,48 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput(object):
         """
 
         self._transit_router_route_entry_next_hop_id = transit_router_route_entry_next_hop_id
+
+    @property
+    def transit_router_route_entry_next_hop_resource_id(self):
+        """Gets the transit_router_route_entry_next_hop_resource_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+
+
+        :return: The transit_router_route_entry_next_hop_resource_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_route_entry_next_hop_resource_id
+
+    @transit_router_route_entry_next_hop_resource_id.setter
+    def transit_router_route_entry_next_hop_resource_id(self, transit_router_route_entry_next_hop_resource_id):
+        """Sets the transit_router_route_entry_next_hop_resource_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.
+
+
+        :param transit_router_route_entry_next_hop_resource_id: The transit_router_route_entry_next_hop_resource_id of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_route_entry_next_hop_resource_id = transit_router_route_entry_next_hop_resource_id
+
+    @property
+    def transit_router_route_entry_next_hop_resource_type(self):
+        """Gets the transit_router_route_entry_next_hop_resource_type of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+
+
+        :return: The transit_router_route_entry_next_hop_resource_type of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._transit_router_route_entry_next_hop_resource_type
+
+    @transit_router_route_entry_next_hop_resource_type.setter
+    def transit_router_route_entry_next_hop_resource_type(self, transit_router_route_entry_next_hop_resource_type):
+        """Sets the transit_router_route_entry_next_hop_resource_type of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.
+
+
+        :param transit_router_route_entry_next_hop_resource_type: The transit_router_route_entry_next_hop_resource_type of this TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._transit_router_route_entry_next_hop_resource_type = transit_router_route_entry_next_hop_resource_type
 
     @property
     def transit_router_route_entry_next_hop_type(self):

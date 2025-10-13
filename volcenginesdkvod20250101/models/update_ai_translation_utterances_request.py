@@ -33,6 +33,7 @@ class UpdateAITranslationUtterancesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bilingual_subtitle_file_name': 'str',
         'input_subtitle_file_name': 'str',
         'output_subtitle_file_name': 'str',
         'project_id': 'str',
@@ -42,6 +43,7 @@ class UpdateAITranslationUtterancesRequest(object):
     }
 
     attribute_map = {
+        'bilingual_subtitle_file_name': 'BilingualSubtitleFileName',
         'input_subtitle_file_name': 'InputSubtitleFileName',
         'output_subtitle_file_name': 'OutputSubtitleFileName',
         'project_id': 'ProjectId',
@@ -50,12 +52,13 @@ class UpdateAITranslationUtterancesRequest(object):
         'utterances': 'Utterances'
     }
 
-    def __init__(self, input_subtitle_file_name=None, output_subtitle_file_name=None, project_id=None, space_name=None, update_type=None, utterances=None, _configuration=None):  # noqa: E501
+    def __init__(self, bilingual_subtitle_file_name=None, input_subtitle_file_name=None, output_subtitle_file_name=None, project_id=None, space_name=None, update_type=None, utterances=None, _configuration=None):  # noqa: E501
         """UpdateAITranslationUtterancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bilingual_subtitle_file_name = None
         self._input_subtitle_file_name = None
         self._output_subtitle_file_name = None
         self._project_id = None
@@ -64,6 +67,8 @@ class UpdateAITranslationUtterancesRequest(object):
         self._utterances = None
         self.discriminator = None
 
+        if bilingual_subtitle_file_name is not None:
+            self.bilingual_subtitle_file_name = bilingual_subtitle_file_name
         if input_subtitle_file_name is not None:
             self.input_subtitle_file_name = input_subtitle_file_name
         if output_subtitle_file_name is not None:
@@ -73,6 +78,27 @@ class UpdateAITranslationUtterancesRequest(object):
         self.update_type = update_type
         if utterances is not None:
             self.utterances = utterances
+
+    @property
+    def bilingual_subtitle_file_name(self):
+        """Gets the bilingual_subtitle_file_name of this UpdateAITranslationUtterancesRequest.  # noqa: E501
+
+
+        :return: The bilingual_subtitle_file_name of this UpdateAITranslationUtterancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bilingual_subtitle_file_name
+
+    @bilingual_subtitle_file_name.setter
+    def bilingual_subtitle_file_name(self, bilingual_subtitle_file_name):
+        """Sets the bilingual_subtitle_file_name of this UpdateAITranslationUtterancesRequest.
+
+
+        :param bilingual_subtitle_file_name: The bilingual_subtitle_file_name of this UpdateAITranslationUtterancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bilingual_subtitle_file_name = bilingual_subtitle_file_name
 
     @property
     def input_subtitle_file_name(self):

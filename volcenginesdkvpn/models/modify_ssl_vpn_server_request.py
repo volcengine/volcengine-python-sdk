@@ -35,6 +35,7 @@ class ModifySslVpnServerRequest(object):
     swagger_types = {
         'auth': 'str',
         'cipher': 'str',
+        'client_cert_session_policy': 'str',
         'client_ip_pool': 'str',
         'compress': 'bool',
         'description': 'str',
@@ -48,6 +49,7 @@ class ModifySslVpnServerRequest(object):
     attribute_map = {
         'auth': 'Auth',
         'cipher': 'Cipher',
+        'client_cert_session_policy': 'ClientCertSessionPolicy',
         'client_ip_pool': 'ClientIpPool',
         'compress': 'Compress',
         'description': 'Description',
@@ -58,7 +60,7 @@ class ModifySslVpnServerRequest(object):
         'ssl_vpn_server_name': 'SslVpnServerName'
     }
 
-    def __init__(self, auth=None, cipher=None, client_ip_pool=None, compress=None, description=None, local_subnets=None, port=None, protocol=None, ssl_vpn_server_id=None, ssl_vpn_server_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth=None, cipher=None, client_cert_session_policy=None, client_ip_pool=None, compress=None, description=None, local_subnets=None, port=None, protocol=None, ssl_vpn_server_id=None, ssl_vpn_server_name=None, _configuration=None):  # noqa: E501
         """ModifySslVpnServerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class ModifySslVpnServerRequest(object):
 
         self._auth = None
         self._cipher = None
+        self._client_cert_session_policy = None
         self._client_ip_pool = None
         self._compress = None
         self._description = None
@@ -80,6 +83,8 @@ class ModifySslVpnServerRequest(object):
             self.auth = auth
         if cipher is not None:
             self.cipher = cipher
+        if client_cert_session_policy is not None:
+            self.client_cert_session_policy = client_cert_session_policy
         if client_ip_pool is not None:
             self.client_ip_pool = client_ip_pool
         if compress is not None:
@@ -137,6 +142,34 @@ class ModifySslVpnServerRequest(object):
         """
 
         self._cipher = cipher
+
+    @property
+    def client_cert_session_policy(self):
+        """Gets the client_cert_session_policy of this ModifySslVpnServerRequest.  # noqa: E501
+
+
+        :return: The client_cert_session_policy of this ModifySslVpnServerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_cert_session_policy
+
+    @client_cert_session_policy.setter
+    def client_cert_session_policy(self, client_cert_session_policy):
+        """Sets the client_cert_session_policy of this ModifySslVpnServerRequest.
+
+
+        :param client_cert_session_policy: The client_cert_session_policy of this ModifySslVpnServerRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["AllowConcurrent", "PreemptExisting"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                client_cert_session_policy not in allowed_values):
+            raise ValueError(
+                "Invalid value for `client_cert_session_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(client_cert_session_policy, allowed_values)
+            )
+
+        self._client_cert_session_policy = client_cert_session_policy
 
     @property
     def client_ip_pool(self):

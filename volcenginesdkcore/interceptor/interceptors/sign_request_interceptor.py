@@ -10,6 +10,13 @@ class SignRequestInterceptor(RequestInterceptor):
         return 'volcengine-sign-request-interceptor'
 
     def intercept(self, context):
+        # 新增代码。处理assume_role和assume_role_oidc和assume_role_saml
+        if context.request.credential_provider is not None:
+            credentials = context.request.credential_provider.get_credentials() # 这会调用 _assume_role_oidc() 方法获取临时凭证
+            context.request.ak = credentials.ak
+            context.request.sk = credentials.sk
+            context.request.session_token = credentials.session_token
+
         self.update_params_for_auth(host=context.request.host, path=context.request.true_path,
                                     method=context.request.method,
                                     headers=context.request.header_params,

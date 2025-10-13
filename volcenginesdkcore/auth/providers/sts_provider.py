@@ -8,7 +8,6 @@ import dateutil.parser, dateutil.tz
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue
 
-
 class AssumeRoleCredentials:
     def __init__(self, ak, sk, session_token, current_time, expired_time):
         self.ak = ak
@@ -20,7 +19,7 @@ class AssumeRoleCredentials:
 
 class StsCredentialProvider(Provider):
     def __init__(self, ak, sk, role_name, account_id, duration_seconds=3600, scheme='https',
-                 host='sts.volcengineapi.com', region='cn-north-1', timeout=30, expired_buffer_seconds=60):
+                 host='sts.volcengineapi.com', region='cn-north-1', timeout=30, expired_buffer_seconds=60, policy=None):
         self.ak = ak
         self.sk = sk
         self.role_name = role_name
@@ -32,7 +31,7 @@ class StsCredentialProvider(Provider):
         self.host = host
         self.region = region
         self.scheme = scheme
-
+        self.policy = policy
         self.expired_time = None
         if expired_buffer_seconds > 600:
             raise ValueError('expired_buffer_seconds must be less than or equal to 600')
@@ -54,13 +53,19 @@ class StsCredentialProvider(Provider):
             if self.is_expired():
                 self._assume_role()
 
+    def get_credentials(self):
+        self.refresh()
+        return self.credentials
+
     def _assume_role(self):
         params = {
             'DurationSeconds': self.duration_seconds,
             'RoleSessionName': uuid.uuid4().hex,
             'RoleTrn': 'trn:iam::' + self.account_id + ':role/' + self.role_name,
         }
-        configuration = Configuration()
+        if self.policy is not None:
+            params['Policy'] = self.policy
+        configuration = type.__call__(Configuration)
         configuration.ak = self.ak
         configuration.sk = self.sk
         configuration.host = self.host
