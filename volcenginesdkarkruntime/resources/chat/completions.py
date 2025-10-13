@@ -31,7 +31,7 @@ from typing_extensions import Literal
 
 from ..._types import Body, Query, Headers
 from ..._utils._utils import deepcopy_minimal, with_sts_token, async_with_sts_token
-from ..._utils._key_agreement import aes_gcm_decrypt_base64_string, aes_gcm_decrypt_base64_list
+from ..._utils._key_agreement import aes_gcm_decrypt_base64_string, aes_gcm_decrypt_base64_list, decrypt_validate
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._compat import cached_property
@@ -149,7 +149,7 @@ class Completions(SyncAPIResource):
                         content = aes_gcm_decrypt_base64_string(
                             key, nonce, choice.message.content
                         )
-                        if content == '':
+                        if not decrypt_validate(choice.message.content):
                             content = aes_gcm_decrypt_base64_list(
                                 key, nonce, choice.message.content
                             )
@@ -312,7 +312,7 @@ class AsyncCompletions(AsyncAPIResource):
                         content = aes_gcm_decrypt_base64_string(
                             key, nonce, choice.message.content
                         )
-                        if content == '':
+                        if not decrypt_validate(choice.message.content):
                             content = aes_gcm_decrypt_base64_list(
                                 key, nonce, choice.message.content
                             )

@@ -100,15 +100,26 @@ def aes_gcm_decrypt_base64_list(key: bytes, nonce: bytes, ciphertext: str) -> st
         try:
             result.append(aes_gcm_decrypt_base64_string(key, nonce, b64))
         except Exception:
+            print("decrypt base64 string failed", b64)
             for i in range(20, len(b64), 4):
                 try:
-                    decrypted = aes_gcm_decrypt_base64_string(key, nonce, b64[:i+4])
+                    decrypted = aes_gcm_decrypt_base64_string(
+                        key, nonce, b64[:i+4])
                     result.append(decrypted)
-                    decrypted = aes_gcm_decrypt_base64_string(key, nonce, b64[i+4:])
+                    decrypted = aes_gcm_decrypt_base64_string(
+                        key, nonce, b64[i+4:])
                     result.append(decrypted)
                 except Exception:
-                    result.append('')
+                    print("decrypt base64 string failed",
+                          b64, b64[:i+4], b64[i+4:])
+    print('decrypt base64 list result', result)
     return ''.join(result)
+
+
+def decrypt_validate(ciphertext: str) -> bool:
+    cipher_bytes = ciphertext.encode()
+    cipher_b64_bytes = base64.decodebytes(cipher_bytes)
+    return len(cipher_bytes)/4 >= len(cipher_b64_bytes)/3 >= len(cipher_bytes)/4 - 1
 
 
 def marshal_cryptography_pub_key(key) -> bytes:
