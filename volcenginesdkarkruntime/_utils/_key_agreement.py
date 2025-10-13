@@ -100,7 +100,6 @@ def aes_gcm_decrypt_base64_list(key: bytes, nonce: bytes, ciphertext: str) -> st
         try:
             result.append(aes_gcm_decrypt_base64_string(key, nonce, b64))
         except Exception:
-            print("decrypt base64 string failed", b64)
             for i in range(20, len(b64), 4):
                 try:
                     decrypted = aes_gcm_decrypt_base64_string(
@@ -110,9 +109,7 @@ def aes_gcm_decrypt_base64_list(key: bytes, nonce: bytes, ciphertext: str) -> st
                         key, nonce, b64[i+4:])
                     result.append(decrypted)
                 except Exception:
-                    print("decrypt base64 string failed",
-                          b64, b64[:i+4], b64[i+4:])
-    print('decrypt base64 list result', result)
+                    pass
     return ''.join(result)
 
 
