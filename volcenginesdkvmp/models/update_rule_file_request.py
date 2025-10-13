@@ -37,6 +37,7 @@ class UpdateRuleFileRequest(object):
         'description': 'str',
         'id': 'str',
         'name': 'str',
+        'target_workspace_id': 'str',
         'workspace_id': 'str'
     }
 
@@ -45,10 +46,11 @@ class UpdateRuleFileRequest(object):
         'description': 'Description',
         'id': 'Id',
         'name': 'Name',
+        'target_workspace_id': 'TargetWorkspaceId',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, content=None, description=None, id=None, name=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, content=None, description=None, id=None, name=None, target_workspace_id=None, workspace_id=None, _configuration=None):  # noqa: E501
         """UpdateRuleFileRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class UpdateRuleFileRequest(object):
         self._description = None
         self._id = None
         self._name = None
+        self._target_workspace_id = None
         self._workspace_id = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class UpdateRuleFileRequest(object):
             self.id = id
         if name is not None:
             self.name = name
+        if target_workspace_id is not None:
+            self.target_workspace_id = target_workspace_id
         if workspace_id is not None:
             self.workspace_id = workspace_id
 
@@ -155,6 +160,27 @@ class UpdateRuleFileRequest(object):
         """
 
         self._name = name
+
+    @property
+    def target_workspace_id(self):
+        """Gets the target_workspace_id of this UpdateRuleFileRequest.  # noqa: E501
+
+
+        :return: The target_workspace_id of this UpdateRuleFileRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_workspace_id
+
+    @target_workspace_id.setter
+    def target_workspace_id(self, target_workspace_id):
+        """Sets the target_workspace_id of this UpdateRuleFileRequest.
+
+
+        :param target_workspace_id: The target_workspace_id of this UpdateRuleFileRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._target_workspace_id = target_workspace_id
 
     @property
     def workspace_id(self):

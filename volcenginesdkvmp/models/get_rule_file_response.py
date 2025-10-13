@@ -40,7 +40,8 @@ class GetRuleFileResponse(object):
         'last_update_time': 'str',
         'name': 'str',
         'rule_count': 'int',
-        'status': 'str'
+        'status': 'str',
+        'target_workspace_id': 'str'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class GetRuleFileResponse(object):
         'last_update_time': 'LastUpdateTime',
         'name': 'Name',
         'rule_count': 'RuleCount',
-        'status': 'Status'
+        'status': 'Status',
+        'target_workspace_id': 'TargetWorkspaceId'
     }
 
-    def __init__(self, content=None, create_time=None, description=None, id=None, last_update_time=None, name=None, rule_count=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, content=None, create_time=None, description=None, id=None, last_update_time=None, name=None, rule_count=None, status=None, target_workspace_id=None, _configuration=None):  # noqa: E501
         """GetRuleFileResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class GetRuleFileResponse(object):
         self._name = None
         self._rule_count = None
         self._status = None
+        self._target_workspace_id = None
         self.discriminator = None
 
         if content is not None:
@@ -86,6 +89,8 @@ class GetRuleFileResponse(object):
             self.rule_count = rule_count
         if status is not None:
             self.status = status
+        if target_workspace_id is not None:
+            self.target_workspace_id = target_workspace_id
 
     @property
     def content(self):
@@ -254,6 +259,27 @@ class GetRuleFileResponse(object):
         """
 
         self._status = status
+
+    @property
+    def target_workspace_id(self):
+        """Gets the target_workspace_id of this GetRuleFileResponse.  # noqa: E501
+
+
+        :return: The target_workspace_id of this GetRuleFileResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_workspace_id
+
+    @target_workspace_id.setter
+    def target_workspace_id(self, target_workspace_id):
+        """Sets the target_workspace_id of this GetRuleFileResponse.
+
+
+        :param target_workspace_id: The target_workspace_id of this GetRuleFileResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._target_workspace_id = target_workspace_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

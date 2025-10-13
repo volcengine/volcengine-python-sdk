@@ -35,6 +35,7 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
     swagger_types = {
         'active_series': 'int',
         'availability_zone_replicas': 'int',
+        'calculate_price_params': 'list[CalculatePriceParamForListWorkspaceInstanceTypesOutput]',
         'downsampling_periods': 'list[str]',
         'id': 'str',
         'ingest_samples_per_second': 'int',
@@ -49,6 +50,7 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
     attribute_map = {
         'active_series': 'ActiveSeries',
         'availability_zone_replicas': 'AvailabilityZoneReplicas',
+        'calculate_price_params': 'CalculatePriceParams',
         'downsampling_periods': 'DownsamplingPeriods',
         'id': 'Id',
         'ingest_samples_per_second': 'IngestSamplesPerSecond',
@@ -60,7 +62,7 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         'scan_series_per_second': 'ScanSeriesPerSecond'
     }
 
-    def __init__(self, active_series=None, availability_zone_replicas=None, downsampling_periods=None, id=None, ingest_samples_per_second=None, query_concurrency=None, query_per_second=None, replicas_per_zone=None, retention_period=None, scan_samples_per_second=None, scan_series_per_second=None, _configuration=None):  # noqa: E501
+    def __init__(self, active_series=None, availability_zone_replicas=None, calculate_price_params=None, downsampling_periods=None, id=None, ingest_samples_per_second=None, query_concurrency=None, query_per_second=None, replicas_per_zone=None, retention_period=None, scan_samples_per_second=None, scan_series_per_second=None, _configuration=None):  # noqa: E501
         """ItemForListWorkspaceInstanceTypesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
 
         self._active_series = None
         self._availability_zone_replicas = None
+        self._calculate_price_params = None
         self._downsampling_periods = None
         self._id = None
         self._ingest_samples_per_second = None
@@ -83,6 +86,8 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
             self.active_series = active_series
         if availability_zone_replicas is not None:
             self.availability_zone_replicas = availability_zone_replicas
+        if calculate_price_params is not None:
+            self.calculate_price_params = calculate_price_params
         if downsampling_periods is not None:
             self.downsampling_periods = downsampling_periods
         if id is not None:
@@ -143,6 +148,27 @@ class ItemForListWorkspaceInstanceTypesOutput(object):
         """
 
         self._availability_zone_replicas = availability_zone_replicas
+
+    @property
+    def calculate_price_params(self):
+        """Gets the calculate_price_params of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+
+
+        :return: The calculate_price_params of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+        :rtype: list[CalculatePriceParamForListWorkspaceInstanceTypesOutput]
+        """
+        return self._calculate_price_params
+
+    @calculate_price_params.setter
+    def calculate_price_params(self, calculate_price_params):
+        """Sets the calculate_price_params of this ItemForListWorkspaceInstanceTypesOutput.
+
+
+        :param calculate_price_params: The calculate_price_params of this ItemForListWorkspaceInstanceTypesOutput.  # noqa: E501
+        :type: list[CalculatePriceParamForListWorkspaceInstanceTypesOutput]
+        """
+
+        self._calculate_price_params = calculate_price_params
 
     @property
     def downsampling_periods(self):
