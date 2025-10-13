@@ -39,6 +39,7 @@ class CreateWorkspaceRequest(object):
         'name': 'str',
         'password': 'str',
         'project_name': 'str',
+        'public_access_enabled': 'bool',
         'tags': 'list[TagForCreateWorkspaceInput]',
         'username': 'str'
     }
@@ -50,11 +51,12 @@ class CreateWorkspaceRequest(object):
         'name': 'Name',
         'password': 'Password',
         'project_name': 'ProjectName',
+        'public_access_enabled': 'PublicAccessEnabled',
         'tags': 'Tags',
         'username': 'Username'
     }
 
-    def __init__(self, delete_protection_enabled=None, description=None, instance_type_id=None, name=None, password=None, project_name=None, tags=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_protection_enabled=None, description=None, instance_type_id=None, name=None, password=None, project_name=None, public_access_enabled=None, tags=None, username=None, _configuration=None):  # noqa: E501
         """CreateWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class CreateWorkspaceRequest(object):
         self._name = None
         self._password = None
         self._project_name = None
+        self._public_access_enabled = None
         self._tags = None
         self._username = None
         self.discriminator = None
@@ -80,6 +83,8 @@ class CreateWorkspaceRequest(object):
             self.password = password
         if project_name is not None:
             self.project_name = project_name
+        if public_access_enabled is not None:
+            self.public_access_enabled = public_access_enabled
         if tags is not None:
             self.tags = tags
         if username is not None:
@@ -214,6 +219,27 @@ class CreateWorkspaceRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def public_access_enabled(self):
+        """Gets the public_access_enabled of this CreateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The public_access_enabled of this CreateWorkspaceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._public_access_enabled
+
+    @public_access_enabled.setter
+    def public_access_enabled(self, public_access_enabled):
+        """Sets the public_access_enabled of this CreateWorkspaceRequest.
+
+
+        :param public_access_enabled: The public_access_enabled of this CreateWorkspaceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._public_access_enabled = public_access_enabled
 
     @property
     def tags(self):

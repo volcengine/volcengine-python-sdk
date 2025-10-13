@@ -36,9 +36,14 @@ class UpdateWorkspaceRequest(object):
         'delete_protection_enabled': 'bool',
         'description': 'str',
         'id': 'str',
+        'instance_type_id': 'str',
         'name': 'str',
         'password': 'str',
+        'public_access_enabled': 'bool',
+        'public_query_bandwidth': 'int',
+        'public_write_bandwidth': 'int',
         'quota': 'QuotaForUpdateWorkspaceInput',
+        'search_latency_offset': 'str',
         'username': 'str'
     }
 
@@ -46,13 +51,18 @@ class UpdateWorkspaceRequest(object):
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
         'id': 'Id',
+        'instance_type_id': 'InstanceTypeId',
         'name': 'Name',
         'password': 'Password',
+        'public_access_enabled': 'PublicAccessEnabled',
+        'public_query_bandwidth': 'PublicQueryBandwidth',
+        'public_write_bandwidth': 'PublicWriteBandwidth',
         'quota': 'Quota',
+        'search_latency_offset': 'SearchLatencyOffset',
         'username': 'Username'
     }
 
-    def __init__(self, delete_protection_enabled=None, description=None, id=None, name=None, password=None, quota=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, password=None, public_access_enabled=None, public_query_bandwidth=None, public_write_bandwidth=None, quota=None, search_latency_offset=None, username=None, _configuration=None):  # noqa: E501
         """UpdateWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,9 +71,14 @@ class UpdateWorkspaceRequest(object):
         self._delete_protection_enabled = None
         self._description = None
         self._id = None
+        self._instance_type_id = None
         self._name = None
         self._password = None
+        self._public_access_enabled = None
+        self._public_query_bandwidth = None
+        self._public_write_bandwidth = None
         self._quota = None
+        self._search_latency_offset = None
         self._username = None
         self.discriminator = None
 
@@ -72,12 +87,22 @@ class UpdateWorkspaceRequest(object):
         if description is not None:
             self.description = description
         self.id = id
+        if instance_type_id is not None:
+            self.instance_type_id = instance_type_id
         if name is not None:
             self.name = name
         if password is not None:
             self.password = password
+        if public_access_enabled is not None:
+            self.public_access_enabled = public_access_enabled
+        if public_query_bandwidth is not None:
+            self.public_query_bandwidth = public_query_bandwidth
+        if public_write_bandwidth is not None:
+            self.public_write_bandwidth = public_write_bandwidth
         if quota is not None:
             self.quota = quota
+        if search_latency_offset is not None:
+            self.search_latency_offset = search_latency_offset
         if username is not None:
             self.username = username
 
@@ -147,6 +172,27 @@ class UpdateWorkspaceRequest(object):
         self._id = id
 
     @property
+    def instance_type_id(self):
+        """Gets the instance_type_id of this UpdateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The instance_type_id of this UpdateWorkspaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_type_id
+
+    @instance_type_id.setter
+    def instance_type_id(self, instance_type_id):
+        """Sets the instance_type_id of this UpdateWorkspaceRequest.
+
+
+        :param instance_type_id: The instance_type_id of this UpdateWorkspaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_type_id = instance_type_id
+
+    @property
     def name(self):
         """Gets the name of this UpdateWorkspaceRequest.  # noqa: E501
 
@@ -189,6 +235,69 @@ class UpdateWorkspaceRequest(object):
         self._password = password
 
     @property
+    def public_access_enabled(self):
+        """Gets the public_access_enabled of this UpdateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The public_access_enabled of this UpdateWorkspaceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._public_access_enabled
+
+    @public_access_enabled.setter
+    def public_access_enabled(self, public_access_enabled):
+        """Sets the public_access_enabled of this UpdateWorkspaceRequest.
+
+
+        :param public_access_enabled: The public_access_enabled of this UpdateWorkspaceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._public_access_enabled = public_access_enabled
+
+    @property
+    def public_query_bandwidth(self):
+        """Gets the public_query_bandwidth of this UpdateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The public_query_bandwidth of this UpdateWorkspaceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._public_query_bandwidth
+
+    @public_query_bandwidth.setter
+    def public_query_bandwidth(self, public_query_bandwidth):
+        """Sets the public_query_bandwidth of this UpdateWorkspaceRequest.
+
+
+        :param public_query_bandwidth: The public_query_bandwidth of this UpdateWorkspaceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._public_query_bandwidth = public_query_bandwidth
+
+    @property
+    def public_write_bandwidth(self):
+        """Gets the public_write_bandwidth of this UpdateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The public_write_bandwidth of this UpdateWorkspaceRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._public_write_bandwidth
+
+    @public_write_bandwidth.setter
+    def public_write_bandwidth(self, public_write_bandwidth):
+        """Sets the public_write_bandwidth of this UpdateWorkspaceRequest.
+
+
+        :param public_write_bandwidth: The public_write_bandwidth of this UpdateWorkspaceRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._public_write_bandwidth = public_write_bandwidth
+
+    @property
     def quota(self):
         """Gets the quota of this UpdateWorkspaceRequest.  # noqa: E501
 
@@ -208,6 +317,27 @@ class UpdateWorkspaceRequest(object):
         """
 
         self._quota = quota
+
+    @property
+    def search_latency_offset(self):
+        """Gets the search_latency_offset of this UpdateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The search_latency_offset of this UpdateWorkspaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._search_latency_offset
+
+    @search_latency_offset.setter
+    def search_latency_offset(self, search_latency_offset):
+        """Sets the search_latency_offset of this UpdateWorkspaceRequest.
+
+
+        :param search_latency_offset: The search_latency_offset of this UpdateWorkspaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._search_latency_offset = search_latency_offset
 
     @property
     def username(self):
