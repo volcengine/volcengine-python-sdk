@@ -33,46 +33,46 @@ class DeleteDirectConnectTrafficQosQueueRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'delete_direct_connect_traffic_qos_queue': 'str'
+        'direct_connect_traffic_qos_queue_id': 'str'
     }
 
     attribute_map = {
-        'delete_direct_connect_traffic_qos_queue': 'DeleteDirectConnectTrafficQosQueue'
+        'direct_connect_traffic_qos_queue_id': 'DirectConnectTrafficQosQueueId'
     }
 
-    def __init__(self, delete_direct_connect_traffic_qos_queue=None, _configuration=None):  # noqa: E501
+    def __init__(self, direct_connect_traffic_qos_queue_id=None, _configuration=None):  # noqa: E501
         """DeleteDirectConnectTrafficQosQueueRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._delete_direct_connect_traffic_qos_queue = None
+        self._direct_connect_traffic_qos_queue_id = None
         self.discriminator = None
 
-        self.delete_direct_connect_traffic_qos_queue = delete_direct_connect_traffic_qos_queue
+        self.direct_connect_traffic_qos_queue_id = direct_connect_traffic_qos_queue_id
 
     @property
-    def delete_direct_connect_traffic_qos_queue(self):
-        """Gets the delete_direct_connect_traffic_qos_queue of this DeleteDirectConnectTrafficQosQueueRequest.  # noqa: E501
+    def direct_connect_traffic_qos_queue_id(self):
+        """Gets the direct_connect_traffic_qos_queue_id of this DeleteDirectConnectTrafficQosQueueRequest.  # noqa: E501
 
 
-        :return: The delete_direct_connect_traffic_qos_queue of this DeleteDirectConnectTrafficQosQueueRequest.  # noqa: E501
+        :return: The direct_connect_traffic_qos_queue_id of this DeleteDirectConnectTrafficQosQueueRequest.  # noqa: E501
         :rtype: str
         """
-        return self._delete_direct_connect_traffic_qos_queue
+        return self._direct_connect_traffic_qos_queue_id
 
-    @delete_direct_connect_traffic_qos_queue.setter
-    def delete_direct_connect_traffic_qos_queue(self, delete_direct_connect_traffic_qos_queue):
-        """Sets the delete_direct_connect_traffic_qos_queue of this DeleteDirectConnectTrafficQosQueueRequest.
+    @direct_connect_traffic_qos_queue_id.setter
+    def direct_connect_traffic_qos_queue_id(self, direct_connect_traffic_qos_queue_id):
+        """Sets the direct_connect_traffic_qos_queue_id of this DeleteDirectConnectTrafficQosQueueRequest.
 
 
-        :param delete_direct_connect_traffic_qos_queue: The delete_direct_connect_traffic_qos_queue of this DeleteDirectConnectTrafficQosQueueRequest.  # noqa: E501
+        :param direct_connect_traffic_qos_queue_id: The direct_connect_traffic_qos_queue_id of this DeleteDirectConnectTrafficQosQueueRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and delete_direct_connect_traffic_qos_queue is None:
-            raise ValueError("Invalid value for `delete_direct_connect_traffic_qos_queue`, must not be `None`")  # noqa: E501
+        if self._configuration.client_side_validation and direct_connect_traffic_qos_queue_id is None:
+            raise ValueError("Invalid value for `direct_connect_traffic_qos_queue_id`, must not be `None`")  # noqa: E501
 
-        self._delete_direct_connect_traffic_qos_queue = delete_direct_connect_traffic_qos_queue
+        self._direct_connect_traffic_qos_queue_id = direct_connect_traffic_qos_queue_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

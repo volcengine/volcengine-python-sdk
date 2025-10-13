@@ -36,19 +36,23 @@ class ListAlertingRulesRequest(object):
         'filter': 'FilterForListAlertingRulesInput',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'sort_by': 'str',
-        'sort_order': 'str'
+        'sort_order': 'str',
+        'tag_filters': 'list[TagFilterForListAlertingRulesInput]'
     }
 
     attribute_map = {
         'filter': 'Filter',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'sort_by': 'SortBy',
-        'sort_order': 'SortOrder'
+        'sort_order': 'SortOrder',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, filter=None, page_number=None, page_size=None, sort_by=None, sort_order=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, page_number=None, page_size=None, project_name=None, sort_by=None, sort_order=None, tag_filters=None, _configuration=None):  # noqa: E501
         """ListAlertingRulesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,8 +61,10 @@ class ListAlertingRulesRequest(object):
         self._filter = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._sort_by = None
         self._sort_order = None
+        self._tag_filters = None
         self.discriminator = None
 
         if filter is not None:
@@ -67,10 +73,14 @@ class ListAlertingRulesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
             self.sort_order = sort_order
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def filter(self):
@@ -136,6 +146,27 @@ class ListAlertingRulesRequest(object):
         self._page_size = page_size
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ListAlertingRulesRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListAlertingRulesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListAlertingRulesRequest.
+
+
+        :param project_name: The project_name of this ListAlertingRulesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def sort_by(self):
         """Gets the sort_by of this ListAlertingRulesRequest.  # noqa: E501
 
@@ -176,6 +207,27 @@ class ListAlertingRulesRequest(object):
         """
 
         self._sort_order = sort_order
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this ListAlertingRulesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this ListAlertingRulesRequest.  # noqa: E501
+        :rtype: list[TagFilterForListAlertingRulesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this ListAlertingRulesRequest.
+
+
+        :param tag_filters: The tag_filters of this ListAlertingRulesRequest.  # noqa: E501
+        :type: list[TagFilterForListAlertingRulesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""
