@@ -108,6 +108,7 @@ def aes_gcm_decrypt_base64_list(key: bytes, nonce: bytes, ciphertext: str) -> st
                     decrypted = aes_gcm_decrypt_base64_string(
                         key, nonce, b64[i+4:])
                     result.append(decrypted)
+                    break
                 except Exception:
                     pass
     return ''.join(result)
