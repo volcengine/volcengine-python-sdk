@@ -27,7 +27,7 @@ def get_cert_info(cert_pem: str) -> Tuple[str, str]:
         dns = cert.extensions.get_extension_for_class(
             x509.SubjectAlternativeName).value.get_values_for_type(x509.DNSName)
         if dns and len(dns) > 1 and re.match(r"^ring\..*$", dns[0]) and re.match(r"^key\..*$", dns[1]):
-            return dns[0].strip("ring."), dns[1].strip("key.")
+            return dns[0][5:], dns[1][4:]
     except Exception:
         pass
     return "", ""
