@@ -41,8 +41,10 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'image_id': 'str',
         'initialize_script': 'str',
         'instance_type_ids': 'list[str]',
+        'instances_distribution': 'InstancesDistributionForUpdateNodePoolConfigInput',
         'name_prefix': 'str',
         'period': 'int',
+        'pre_script': 'str',
         'project_name': 'str',
         'public_access_config': 'PublicAccessConfigForUpdateNodePoolConfigInput',
         'public_access_enabled': 'bool',
@@ -61,8 +63,10 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
         'instance_type_ids': 'InstanceTypeIds',
+        'instances_distribution': 'InstancesDistribution',
         'name_prefix': 'NamePrefix',
         'period': 'Period',
+        'pre_script': 'PreScript',
         'project_name': 'ProjectName',
         'public_access_config': 'PublicAccessConfig',
         'public_access_enabled': 'PublicAccessEnabled',
@@ -72,7 +76,7 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_type_ids=None, name_prefix=None, period=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,8 +90,10 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         self._image_id = None
         self._initialize_script = None
         self._instance_type_ids = None
+        self._instances_distribution = None
         self._name_prefix = None
         self._period = None
+        self._pre_script = None
         self._project_name = None
         self._public_access_config = None
         self._public_access_enabled = None
@@ -113,10 +119,14 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
             self.initialize_script = initialize_script
         if instance_type_ids is not None:
             self.instance_type_ids = instance_type_ids
+        if instances_distribution is not None:
+            self.instances_distribution = instances_distribution
         if name_prefix is not None:
             self.name_prefix = name_prefix
         if period is not None:
             self.period = period
+        if pre_script is not None:
+            self.pre_script = pre_script
         if project_name is not None:
             self.project_name = project_name
         if public_access_config is not None:
@@ -301,6 +311,27 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         self._instance_type_ids = instance_type_ids
 
     @property
+    def instances_distribution(self):
+        """Gets the instances_distribution of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The instances_distribution of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: InstancesDistributionForUpdateNodePoolConfigInput
+        """
+        return self._instances_distribution
+
+    @instances_distribution.setter
+    def instances_distribution(self, instances_distribution):
+        """Sets the instances_distribution of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param instances_distribution: The instances_distribution of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: InstancesDistributionForUpdateNodePoolConfigInput
+        """
+
+        self._instances_distribution = instances_distribution
+
+    @property
     def name_prefix(self):
         """Gets the name_prefix of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
 
@@ -341,6 +372,27 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._period = period
+
+    @property
+    def pre_script(self):
+        """Gets the pre_script of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The pre_script of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_script
+
+    @pre_script.setter
+    def pre_script(self, pre_script):
+        """Sets the pre_script of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param pre_script: The pre_script of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_script = pre_script
 
     @property
     def project_name(self):

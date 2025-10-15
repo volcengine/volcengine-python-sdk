@@ -38,6 +38,7 @@ class UpdateNodePoolConfigRequest(object):
         'cluster_id': 'str',
         'id': 'str',
         'kubernetes_config': 'KubernetesConfigForUpdateNodePoolConfigInput',
+        'management': 'ManagementForUpdateNodePoolConfigInput',
         'name': 'str',
         'node_config': 'NodeConfigForUpdateNodePoolConfigInput'
     }
@@ -48,11 +49,12 @@ class UpdateNodePoolConfigRequest(object):
         'cluster_id': 'ClusterId',
         'id': 'Id',
         'kubernetes_config': 'KubernetesConfig',
+        'management': 'Management',
         'name': 'Name',
         'node_config': 'NodeConfig'
     }
 
-    def __init__(self, auto_scaling=None, client_token=None, cluster_id=None, id=None, kubernetes_config=None, name=None, node_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, client_token=None, cluster_id=None, id=None, kubernetes_config=None, management=None, name=None, node_config=None, _configuration=None):  # noqa: E501
         """UpdateNodePoolConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class UpdateNodePoolConfigRequest(object):
         self._cluster_id = None
         self._id = None
         self._kubernetes_config = None
+        self._management = None
         self._name = None
         self._node_config = None
         self.discriminator = None
@@ -75,6 +78,8 @@ class UpdateNodePoolConfigRequest(object):
         self.id = id
         if kubernetes_config is not None:
             self.kubernetes_config = kubernetes_config
+        if management is not None:
+            self.management = management
         if name is not None:
             self.name = name
         if node_config is not None:
@@ -188,6 +193,27 @@ class UpdateNodePoolConfigRequest(object):
         """
 
         self._kubernetes_config = kubernetes_config
+
+    @property
+    def management(self):
+        """Gets the management of this UpdateNodePoolConfigRequest.  # noqa: E501
+
+
+        :return: The management of this UpdateNodePoolConfigRequest.  # noqa: E501
+        :rtype: ManagementForUpdateNodePoolConfigInput
+        """
+        return self._management
+
+    @management.setter
+    def management(self, management):
+        """Sets the management of this UpdateNodePoolConfigRequest.
+
+
+        :param management: The management of this UpdateNodePoolConfigRequest.  # noqa: E501
+        :type: ManagementForUpdateNodePoolConfigInput
+        """
+
+        self._management = management
 
     @property
     def name(self):
