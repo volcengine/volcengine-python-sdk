@@ -151,7 +151,7 @@ class Completions(SyncAPIResource):
                                 key, nonce, choice.message.content
                             )
                         except Exception:
-                             content = ''
+                            content = ''
                         if content == '' or not decrypt_validate(choice.message.content):
                             content = aes_gcm_decrypt_base64_list(
                                 key, nonce, choice.message.content
