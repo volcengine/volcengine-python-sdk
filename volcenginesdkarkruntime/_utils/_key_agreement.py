@@ -17,6 +17,22 @@ import base64
 from typing import Tuple
 
 
+def get_cert_info(cert_pem: str) -> Tuple[str, str]:
+    import re
+    from cryptography import x509
+    from cryptography.hazmat.backends import default_backend
+
+    cert = x509.load_pem_x509_certificate(cert_pem.encode(), default_backend())
+    try:
+        dns = cert.extensions.get_extension_for_class(
+            x509.SubjectAlternativeName).value.get_values_for_type(x509.DNSName)
+        if dns and len(dns) > 1 and re.match(r"^ring\..*$", dns[0]) and re.match(r"^key\..*$", dns[1]):
+            return dns[0][5:], dns[1][4:]
+    except Exception:
+        pass
+    return "", ""
+
+
 def aes_gcm_encrypt_bytes(
     key: bytes, iv: bytes, plain_bytes: bytes, associated_data: bytes = b""
 ) -> bytes:
@@ -86,13 +102,22 @@ def aes_gcm_decrypt_base64_list(key: bytes, nonce: bytes, ciphertext: str) -> st
         except Exception:
             for i in range(20, len(b64), 4):
                 try:
-                    decrypted = aes_gcm_decrypt_base64_string(key, nonce, b64[:i+4])
+                    decrypted = aes_gcm_decrypt_base64_string(
+                        key, nonce, b64[:i+4])
                     result.append(decrypted)
-                    decrypted = aes_gcm_decrypt_base64_string(key, nonce, b64[i+4:])
+                    decrypted = aes_gcm_decrypt_base64_string(
+                        key, nonce, b64[i+4:])
                     result.append(decrypted)
+                    break
                 except Exception:
-                    result.append('')
+                    pass
     return ''.join(result)
+
+
+def decrypt_validate(ciphertext: str) -> bool:
+    cipher_bytes = ciphertext.encode()
+    cipher_b64_bytes = base64.decodebytes(cipher_bytes)
+    return len(cipher_bytes)/4 >= len(cipher_b64_bytes)/3 >= len(cipher_bytes)/4 - 1
 
 
 def marshal_cryptography_pub_key(key) -> bytes:
