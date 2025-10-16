@@ -35,6 +35,7 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
     swagger_types = {
         'account_id': 'str',
         'associate_cens': 'list[AssociateCenForDescribeDirectConnectGatewayAttributesOutput]',
+        'associate_eic': 'AssociateEicForDescribeDirectConnectGatewayAttributesOutput',
         'bgp_asn': 'int',
         'business_status': 'str',
         'creation_time': 'str',
@@ -54,6 +55,7 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
     attribute_map = {
         'account_id': 'AccountId',
         'associate_cens': 'AssociateCens',
+        'associate_eic': 'AssociateEic',
         'bgp_asn': 'BgpAsn',
         'business_status': 'BusinessStatus',
         'creation_time': 'CreationTime',
@@ -70,7 +72,7 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, account_id=None, associate_cens=None, bgp_asn=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, enable_ipv6=None, lock_reason=None, overdue_time=None, request_id=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, associate_cens=None, associate_eic=None, bgp_asn=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, enable_ipv6=None, lock_reason=None, overdue_time=None, request_id=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeDirectConnectGatewayAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,6 +80,7 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
 
         self._account_id = None
         self._associate_cens = None
+        self._associate_eic = None
         self._bgp_asn = None
         self._business_status = None
         self._creation_time = None
@@ -98,6 +101,8 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
             self.account_id = account_id
         if associate_cens is not None:
             self.associate_cens = associate_cens
+        if associate_eic is not None:
+            self.associate_eic = associate_eic
         if bgp_asn is not None:
             self.bgp_asn = bgp_asn
         if business_status is not None:
@@ -168,6 +173,27 @@ class DescribeDirectConnectGatewayAttributesResponse(object):
         """
 
         self._associate_cens = associate_cens
+
+    @property
+    def associate_eic(self):
+        """Gets the associate_eic of this DescribeDirectConnectGatewayAttributesResponse.  # noqa: E501
+
+
+        :return: The associate_eic of this DescribeDirectConnectGatewayAttributesResponse.  # noqa: E501
+        :rtype: AssociateEicForDescribeDirectConnectGatewayAttributesOutput
+        """
+        return self._associate_eic
+
+    @associate_eic.setter
+    def associate_eic(self, associate_eic):
+        """Sets the associate_eic of this DescribeDirectConnectGatewayAttributesResponse.
+
+
+        :param associate_eic: The associate_eic of this DescribeDirectConnectGatewayAttributesResponse.  # noqa: E501
+        :type: AssociateEicForDescribeDirectConnectGatewayAttributesOutput
+        """
+
+        self._associate_eic = associate_eic
 
     @property
     def bgp_asn(self):

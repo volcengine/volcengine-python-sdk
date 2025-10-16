@@ -33,23 +33,28 @@ class GetEndpointCertificateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str'
+        'id': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
-        'id': 'Id'
+        'id': 'Id',
+        'type': 'Type'
     }
 
-    def __init__(self, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, _configuration=None):  # noqa: E501
         """GetEndpointCertificateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._id = None
+        self._type = None
         self.discriminator = None
 
         self.id = id
+        if type is not None:
+            self.type = type
 
     @property
     def id(self):
@@ -73,6 +78,27 @@ class GetEndpointCertificateRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def type(self):
+        """Gets the type of this GetEndpointCertificateRequest.  # noqa: E501
+
+
+        :return: The type of this GetEndpointCertificateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this GetEndpointCertificateRequest.
+
+
+        :param type: The type of this GetEndpointCertificateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

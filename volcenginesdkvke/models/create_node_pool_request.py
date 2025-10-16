@@ -37,6 +37,7 @@ class CreateNodePoolRequest(object):
         'client_token': 'str',
         'cluster_id': 'str',
         'kubernetes_config': 'KubernetesConfigForCreateNodePoolInput',
+        'management': 'ManagementForCreateNodePoolInput',
         'name': 'str',
         'node_config': 'NodeConfigForCreateNodePoolInput',
         'tags': 'list[TagForCreateNodePoolInput]'
@@ -47,12 +48,13 @@ class CreateNodePoolRequest(object):
         'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
         'kubernetes_config': 'KubernetesConfig',
+        'management': 'Management',
         'name': 'Name',
         'node_config': 'NodeConfig',
         'tags': 'Tags'
     }
 
-    def __init__(self, auto_scaling=None, client_token=None, cluster_id=None, kubernetes_config=None, name=None, node_config=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, client_token=None, cluster_id=None, kubernetes_config=None, management=None, name=None, node_config=None, tags=None, _configuration=None):  # noqa: E501
         """CreateNodePoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class CreateNodePoolRequest(object):
         self._client_token = None
         self._cluster_id = None
         self._kubernetes_config = None
+        self._management = None
         self._name = None
         self._node_config = None
         self._tags = None
@@ -74,6 +77,8 @@ class CreateNodePoolRequest(object):
         self.cluster_id = cluster_id
         if kubernetes_config is not None:
             self.kubernetes_config = kubernetes_config
+        if management is not None:
+            self.management = management
         self.name = name
         if node_config is not None:
             self.node_config = node_config
@@ -165,6 +170,27 @@ class CreateNodePoolRequest(object):
         """
 
         self._kubernetes_config = kubernetes_config
+
+    @property
+    def management(self):
+        """Gets the management of this CreateNodePoolRequest.  # noqa: E501
+
+
+        :return: The management of this CreateNodePoolRequest.  # noqa: E501
+        :rtype: ManagementForCreateNodePoolInput
+        """
+        return self._management
+
+    @management.setter
+    def management(self, management):
+        """Sets the management of this CreateNodePoolRequest.
+
+
+        :param management: The management of this CreateNodePoolRequest.  # noqa: E501
+        :type: ManagementForCreateNodePoolInput
+        """
+
+        self._management = management
 
     @property
     def name(self):

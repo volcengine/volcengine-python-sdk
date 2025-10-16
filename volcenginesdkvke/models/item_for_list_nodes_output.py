@@ -46,6 +46,7 @@ class ItemForListNodesOutput(object):
         'kubernetes_config': 'KubernetesConfigForListNodesOutput',
         'name': 'str',
         'node_pool_id': 'str',
+        'pre_script': 'str',
         'roles': 'list[str]',
         'status': 'StatusForListNodesOutput',
         'update_time': 'str',
@@ -66,13 +67,14 @@ class ItemForListNodesOutput(object):
         'kubernetes_config': 'KubernetesConfig',
         'name': 'Name',
         'node_pool_id': 'NodePoolId',
+        'pre_script': 'PreScript',
         'roles': 'Roles',
         'status': 'Status',
         'update_time': 'UpdateTime',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, image_id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, name=None, node_pool_id=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, cluster_id=None, container_storage_path=None, create_client_token=None, create_time=None, id=None, image_id=None, initialize_script=None, instance_id=None, is_virtual=None, kubernetes_config=None, name=None, node_pool_id=None, pre_script=None, roles=None, status=None, update_time=None, zone_id=None, _configuration=None):  # noqa: E501
         """ItemForListNodesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -91,6 +93,7 @@ class ItemForListNodesOutput(object):
         self._kubernetes_config = None
         self._name = None
         self._node_pool_id = None
+        self._pre_script = None
         self._roles = None
         self._status = None
         self._update_time = None
@@ -123,6 +126,8 @@ class ItemForListNodesOutput(object):
             self.name = name
         if node_pool_id is not None:
             self.node_pool_id = node_pool_id
+        if pre_script is not None:
+            self.pre_script = pre_script
         if roles is not None:
             self.roles = roles
         if status is not None:
@@ -404,6 +409,27 @@ class ItemForListNodesOutput(object):
         """
 
         self._node_pool_id = node_pool_id
+
+    @property
+    def pre_script(self):
+        """Gets the pre_script of this ItemForListNodesOutput.  # noqa: E501
+
+
+        :return: The pre_script of this ItemForListNodesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_script
+
+    @pre_script.setter
+    def pre_script(self, pre_script):
+        """Sets the pre_script of this ItemForListNodesOutput.
+
+
+        :param pre_script: The pre_script of this ItemForListNodesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_script = pre_script
 
     @property
     def roles(self):

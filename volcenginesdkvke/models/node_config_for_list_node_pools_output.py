@@ -44,12 +44,15 @@ class NodeConfigForListNodePoolsOutput(object):
         'initialize_script': 'str',
         'instance_charge_type': 'str',
         'instance_type_ids': 'list[str]',
+        'instances_distribution': 'InstancesDistributionForListNodePoolsOutput',
         'name_prefix': 'str',
         'period': 'int',
+        'pre_script': 'str',
         'project_name': 'str',
         'public_access_config': 'PublicAccessConfigForListNodePoolsOutput',
         'public_access_enabled': 'bool',
         'security': 'SecurityForListNodePoolsOutput',
+        'spot_strategy': 'str',
         'subnet_ids': 'list[str]',
         'system_volume': 'SystemVolumeForListNodePoolsOutput',
         'tags': 'list[TagForListNodePoolsOutput]'
@@ -67,18 +70,21 @@ class NodeConfigForListNodePoolsOutput(object):
         'initialize_script': 'InitializeScript',
         'instance_charge_type': 'InstanceChargeType',
         'instance_type_ids': 'InstanceTypeIds',
+        'instances_distribution': 'InstancesDistribution',
         'name_prefix': 'NamePrefix',
         'period': 'Period',
+        'pre_script': 'PreScript',
         'project_name': 'ProjectName',
         'public_access_config': 'PublicAccessConfig',
         'public_access_enabled': 'PublicAccessEnabled',
         'security': 'Security',
+        'spot_strategy': 'SpotStrategy',
         'subnet_ids': 'SubnetIds',
         'system_volume': 'SystemVolume',
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, deployment_set_group_number=None, deployment_set_id=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, deployment_set_group_number=None, deployment_set_id=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, spot_strategy=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,12 +101,15 @@ class NodeConfigForListNodePoolsOutput(object):
         self._initialize_script = None
         self._instance_charge_type = None
         self._instance_type_ids = None
+        self._instances_distribution = None
         self._name_prefix = None
         self._period = None
+        self._pre_script = None
         self._project_name = None
         self._public_access_config = None
         self._public_access_enabled = None
         self._security = None
+        self._spot_strategy = None
         self._subnet_ids = None
         self._system_volume = None
         self._tags = None
@@ -128,10 +137,14 @@ class NodeConfigForListNodePoolsOutput(object):
             self.instance_charge_type = instance_charge_type
         if instance_type_ids is not None:
             self.instance_type_ids = instance_type_ids
+        if instances_distribution is not None:
+            self.instances_distribution = instances_distribution
         if name_prefix is not None:
             self.name_prefix = name_prefix
         if period is not None:
             self.period = period
+        if pre_script is not None:
+            self.pre_script = pre_script
         if project_name is not None:
             self.project_name = project_name
         if public_access_config is not None:
@@ -140,6 +153,8 @@ class NodeConfigForListNodePoolsOutput(object):
             self.public_access_enabled = public_access_enabled
         if security is not None:
             self.security = security
+        if spot_strategy is not None:
+            self.spot_strategy = spot_strategy
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
         if system_volume is not None:
@@ -379,6 +394,27 @@ class NodeConfigForListNodePoolsOutput(object):
         self._instance_type_ids = instance_type_ids
 
     @property
+    def instances_distribution(self):
+        """Gets the instances_distribution of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The instances_distribution of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: InstancesDistributionForListNodePoolsOutput
+        """
+        return self._instances_distribution
+
+    @instances_distribution.setter
+    def instances_distribution(self, instances_distribution):
+        """Sets the instances_distribution of this NodeConfigForListNodePoolsOutput.
+
+
+        :param instances_distribution: The instances_distribution of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: InstancesDistributionForListNodePoolsOutput
+        """
+
+        self._instances_distribution = instances_distribution
+
+    @property
     def name_prefix(self):
         """Gets the name_prefix of this NodeConfigForListNodePoolsOutput.  # noqa: E501
 
@@ -419,6 +455,27 @@ class NodeConfigForListNodePoolsOutput(object):
         """
 
         self._period = period
+
+    @property
+    def pre_script(self):
+        """Gets the pre_script of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The pre_script of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_script
+
+    @pre_script.setter
+    def pre_script(self, pre_script):
+        """Sets the pre_script of this NodeConfigForListNodePoolsOutput.
+
+
+        :param pre_script: The pre_script of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_script = pre_script
 
     @property
     def project_name(self):
@@ -503,6 +560,27 @@ class NodeConfigForListNodePoolsOutput(object):
         """
 
         self._security = security
+
+    @property
+    def spot_strategy(self):
+        """Gets the spot_strategy of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The spot_strategy of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._spot_strategy
+
+    @spot_strategy.setter
+    def spot_strategy(self, spot_strategy):
+        """Sets the spot_strategy of this NodeConfigForListNodePoolsOutput.
+
+
+        :param spot_strategy: The spot_strategy of this NodeConfigForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._spot_strategy = spot_strategy
 
     @property
     def subnet_ids(self):
