@@ -35,6 +35,7 @@ class NodeConfigForCreateDefaultNodePoolInput(object):
     swagger_types = {
         'initialize_script': 'str',
         'name_prefix': 'str',
+        'pre_script': 'str',
         'security': 'SecurityForCreateDefaultNodePoolInput',
         'tags': 'list[TagForCreateDefaultNodePoolInput]'
     }
@@ -42,11 +43,12 @@ class NodeConfigForCreateDefaultNodePoolInput(object):
     attribute_map = {
         'initialize_script': 'InitializeScript',
         'name_prefix': 'NamePrefix',
+        'pre_script': 'PreScript',
         'security': 'Security',
         'tags': 'Tags'
     }
 
-    def __init__(self, initialize_script=None, name_prefix=None, security=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, initialize_script=None, name_prefix=None, pre_script=None, security=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForCreateDefaultNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class NodeConfigForCreateDefaultNodePoolInput(object):
 
         self._initialize_script = None
         self._name_prefix = None
+        self._pre_script = None
         self._security = None
         self._tags = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class NodeConfigForCreateDefaultNodePoolInput(object):
             self.initialize_script = initialize_script
         if name_prefix is not None:
             self.name_prefix = name_prefix
+        if pre_script is not None:
+            self.pre_script = pre_script
         if security is not None:
             self.security = security
         if tags is not None:
@@ -108,6 +113,27 @@ class NodeConfigForCreateDefaultNodePoolInput(object):
         """
 
         self._name_prefix = name_prefix
+
+    @property
+    def pre_script(self):
+        """Gets the pre_script of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+
+
+        :return: The pre_script of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_script
+
+    @pre_script.setter
+    def pre_script(self, pre_script):
+        """Sets the pre_script of this NodeConfigForCreateDefaultNodePoolInput.
+
+
+        :param pre_script: The pre_script of this NodeConfigForCreateDefaultNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_script = pre_script
 
     @property
     def security(self):
