@@ -36,6 +36,7 @@ class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput(object)
         'description': 'str',
         'direct_connect_access_point_id': 'str',
         'direct_connect_access_point_name': 'str',
+        'integration_type': 'str',
         'line_operators': 'list[str]',
         'location': 'str',
         'status': 'str'
@@ -45,12 +46,13 @@ class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput(object)
         'description': 'Description',
         'direct_connect_access_point_id': 'DirectConnectAccessPointId',
         'direct_connect_access_point_name': 'DirectConnectAccessPointName',
+        'integration_type': 'IntegrationType',
         'line_operators': 'LineOperators',
         'location': 'Location',
         'status': 'Status'
     }
 
-    def __init__(self, description=None, direct_connect_access_point_id=None, direct_connect_access_point_name=None, line_operators=None, location=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, direct_connect_access_point_id=None, direct_connect_access_point_name=None, integration_type=None, line_operators=None, location=None, status=None, _configuration=None):  # noqa: E501
         """DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput(object)
         self._description = None
         self._direct_connect_access_point_id = None
         self._direct_connect_access_point_name = None
+        self._integration_type = None
         self._line_operators = None
         self._location = None
         self._status = None
@@ -70,6 +73,8 @@ class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput(object)
             self.direct_connect_access_point_id = direct_connect_access_point_id
         if direct_connect_access_point_name is not None:
             self.direct_connect_access_point_name = direct_connect_access_point_name
+        if integration_type is not None:
+            self.integration_type = integration_type
         if line_operators is not None:
             self.line_operators = line_operators
         if location is not None:
@@ -139,6 +144,27 @@ class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput(object)
         """
 
         self._direct_connect_access_point_name = direct_connect_access_point_name
+
+    @property
+    def integration_type(self):
+        """Gets the integration_type of this DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput.  # noqa: E501
+
+
+        :return: The integration_type of this DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_type
+
+    @integration_type.setter
+    def integration_type(self, integration_type):
+        """Sets the integration_type of this DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput.
+
+
+        :param integration_type: The integration_type of this DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._integration_type = integration_type
 
     @property
     def line_operators(self):
