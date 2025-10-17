@@ -39,6 +39,7 @@ class ItemForListNodePoolsOutput(object):
         'create_time': 'str',
         'id': 'str',
         'kubernetes_config': 'KubernetesConfigForListNodePoolsOutput',
+        'management': 'ManagementForListNodePoolsOutput',
         'name': 'str',
         'node_config': 'NodeConfigForListNodePoolsOutput',
         'node_statistics': 'NodeStatisticsForListNodePoolsOutput',
@@ -55,6 +56,7 @@ class ItemForListNodePoolsOutput(object):
         'create_time': 'CreateTime',
         'id': 'Id',
         'kubernetes_config': 'KubernetesConfig',
+        'management': 'Management',
         'name': 'Name',
         'node_config': 'NodeConfig',
         'node_statistics': 'NodeStatistics',
@@ -64,7 +66,7 @@ class ItemForListNodePoolsOutput(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, auto_scaling=None, cluster_id=None, create_client_token=None, create_time=None, id=None, kubernetes_config=None, name=None, node_config=None, node_statistics=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_scaling=None, cluster_id=None, create_client_token=None, create_time=None, id=None, kubernetes_config=None, management=None, name=None, node_config=None, node_statistics=None, status=None, tags=None, update_client_token=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class ItemForListNodePoolsOutput(object):
         self._create_time = None
         self._id = None
         self._kubernetes_config = None
+        self._management = None
         self._name = None
         self._node_config = None
         self._node_statistics = None
@@ -97,6 +100,8 @@ class ItemForListNodePoolsOutput(object):
             self.id = id
         if kubernetes_config is not None:
             self.kubernetes_config = kubernetes_config
+        if management is not None:
+            self.management = management
         if name is not None:
             self.name = name
         if node_config is not None:
@@ -237,6 +242,27 @@ class ItemForListNodePoolsOutput(object):
         """
 
         self._kubernetes_config = kubernetes_config
+
+    @property
+    def management(self):
+        """Gets the management of this ItemForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The management of this ItemForListNodePoolsOutput.  # noqa: E501
+        :rtype: ManagementForListNodePoolsOutput
+        """
+        return self._management
+
+    @management.setter
+    def management(self, management):
+        """Sets the management of this ItemForListNodePoolsOutput.
+
+
+        :param management: The management of this ItemForListNodePoolsOutput.  # noqa: E501
+        :type: ManagementForListNodePoolsOutput
+        """
+
+        self._management = management
 
     @property
     def name(self):

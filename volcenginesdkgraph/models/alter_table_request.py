@@ -42,7 +42,8 @@ class AlterTableRequest(object):
         'instance_id': 'str',
         'rw_schedulable_idcs': 'list[str]',
         'state': 'str',
-        'table_name': 'str'
+        'table_name': 'str',
+        'table_quota': 'TableQuotaForAlterTableInput'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class AlterTableRequest(object):
         'instance_id': 'InstanceId',
         'rw_schedulable_idcs': 'RwSchedulableIdcs',
         'state': 'State',
-        'table_name': 'TableName'
+        'table_name': 'TableName',
+        'table_quota': 'TableQuota'
     }
 
-    def __init__(self, enable_read=None, enable_rw_seperate_schedule=None, enable_write=None, io_qos_options=None, idc_replica_nums=None, idc_ro_nums=None, instance_id=None, rw_schedulable_idcs=None, state=None, table_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_read=None, enable_rw_seperate_schedule=None, enable_write=None, io_qos_options=None, idc_replica_nums=None, idc_ro_nums=None, instance_id=None, rw_schedulable_idcs=None, state=None, table_name=None, table_quota=None, _configuration=None):  # noqa: E501
         """AlterTableRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class AlterTableRequest(object):
         self._rw_schedulable_idcs = None
         self._state = None
         self._table_name = None
+        self._table_quota = None
         self.discriminator = None
 
         if enable_read is not None:
@@ -94,6 +97,8 @@ class AlterTableRequest(object):
         if state is not None:
             self.state = state
         self.table_name = table_name
+        if table_quota is not None:
+            self.table_quota = table_quota
 
     @property
     def enable_read(self):
@@ -308,6 +313,27 @@ class AlterTableRequest(object):
             raise ValueError("Invalid value for `table_name`, must not be `None`")  # noqa: E501
 
         self._table_name = table_name
+
+    @property
+    def table_quota(self):
+        """Gets the table_quota of this AlterTableRequest.  # noqa: E501
+
+
+        :return: The table_quota of this AlterTableRequest.  # noqa: E501
+        :rtype: TableQuotaForAlterTableInput
+        """
+        return self._table_quota
+
+    @table_quota.setter
+    def table_quota(self, table_quota):
+        """Sets the table_quota of this AlterTableRequest.
+
+
+        :param table_quota: The table_quota of this AlterTableRequest.  # noqa: E501
+        :type: TableQuotaForAlterTableInput
+        """
+
+        self._table_quota = table_quota
 
     def to_dict(self):
         """Returns the model properties as a dict"""

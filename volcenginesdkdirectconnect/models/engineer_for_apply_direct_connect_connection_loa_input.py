@@ -58,10 +58,14 @@ class EngineerForApplyDirectConnectConnectionLoaInput(object):
         self._name = None
         self.discriminator = None
 
-        self.certificate_no = certificate_no
-        self.certificate_type = certificate_type
-        self.contact_phone = contact_phone
-        self.name = name
+        if certificate_no is not None:
+            self.certificate_no = certificate_no
+        if certificate_type is not None:
+            self.certificate_type = certificate_type
+        if contact_phone is not None:
+            self.contact_phone = contact_phone
+        if name is not None:
+            self.name = name
 
     @property
     def certificate_no(self):
@@ -81,8 +85,6 @@ class EngineerForApplyDirectConnectConnectionLoaInput(object):
         :param certificate_no: The certificate_no of this EngineerForApplyDirectConnectConnectionLoaInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and certificate_no is None:
-            raise ValueError("Invalid value for `certificate_no`, must not be `None`")  # noqa: E501
 
         self._certificate_no = certificate_no
 
@@ -104,8 +106,6 @@ class EngineerForApplyDirectConnectConnectionLoaInput(object):
         :param certificate_type: The certificate_type of this EngineerForApplyDirectConnectConnectionLoaInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and certificate_type is None:
-            raise ValueError("Invalid value for `certificate_type`, must not be `None`")  # noqa: E501
 
         self._certificate_type = certificate_type
 
@@ -127,8 +127,6 @@ class EngineerForApplyDirectConnectConnectionLoaInput(object):
         :param contact_phone: The contact_phone of this EngineerForApplyDirectConnectConnectionLoaInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and contact_phone is None:
-            raise ValueError("Invalid value for `contact_phone`, must not be `None`")  # noqa: E501
 
         self._contact_phone = contact_phone
 
@@ -150,8 +148,6 @@ class EngineerForApplyDirectConnectConnectionLoaInput(object):
         :param name: The name of this EngineerForApplyDirectConnectConnectionLoaInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
