@@ -25,6 +25,7 @@ from ...types.images import OptimizePromptOptions, SequentialImageGenerationOpti
 from ...types.images.image_gen_stream_event import ImageGenStreamEvent
 from ..._types import Body, Query, Headers
 from ..._streaming import Stream
+from ...types.images.images import OptimizePromptOptions
 
 
 class Images(SyncAPIResource):
