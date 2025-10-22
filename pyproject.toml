@@ -1,6 +1,6 @@
 [project]
 name = "volcengine-python-sdk"
-version = "4.0.25"
+version = "4.0.27"
 authors = [
     {name = "volc-engine", email = "volc-sdk-team@bytedance.com"},
 ]
