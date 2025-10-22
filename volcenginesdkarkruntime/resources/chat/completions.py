@@ -35,7 +35,7 @@ from ..._utils._key_agreement import aes_gcm_decrypt_base64_string, aes_gcm_decr
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._compat import cached_property
-
+from ...types.shared.reasoning_effort import ReasoningEffort
 from ..._response import (
     to_raw_response_wrapper,
     async_to_raw_response_wrapper,
@@ -191,6 +191,7 @@ class Completions(SyncAPIResource):
         response_format: completion_create_params.ResponseFormat | None = None,
         thinking: completion_create_params.Thinking | None = None,
         max_completion_tokens: Optional[int] | None = None,
+        reasoning_effort: Optional[ReasoningEffort] | None = None,
         user: str | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
@@ -213,6 +214,7 @@ class Completions(SyncAPIResource):
                     'KeyID': key_id,
                 }
                 extra_headers["X-Encrypt-Info"] = json.dumps(info)
+
 
         resp = self._post(
             "/chat/completions",
@@ -241,6 +243,7 @@ class Completions(SyncAPIResource):
                 "response_format": response_format,
                 "thinking": thinking,
                 "max_completion_tokens": max_completion_tokens,
+                "reasoning_effort": reasoning_effort,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -252,7 +255,6 @@ class Completions(SyncAPIResource):
             stream=stream or False,
             stream_cls=Stream[ChatCompletionChunk],
         )
-
         if is_encrypt:
             resp = self._decrypt(e2e_key, e2e_nonce, resp)
         return resp
@@ -358,6 +360,7 @@ class AsyncCompletions(AsyncAPIResource):
         response_format: completion_create_params.ResponseFormat | None = None,
         thinking: completion_create_params.Thinking | None = None,
         max_completion_tokens: Optional[int] | None = None,
+        reasoning_effort: Optional[ReasoningEffort] | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -407,6 +410,7 @@ class AsyncCompletions(AsyncAPIResource):
                 "response_format": response_format,
                 "thinking": thinking,
                 "max_completion_tokens": max_completion_tokens,
+                "reasoning_effort": reasoning_effort,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
