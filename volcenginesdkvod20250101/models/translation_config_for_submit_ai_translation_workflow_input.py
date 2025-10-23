@@ -35,16 +35,18 @@ class TranslationConfigForSubmitAITranslationWorkflowInput(object):
     swagger_types = {
         'source_language': 'str',
         'target_language': 'str',
+        'termbase_config': 'TermbaseConfigForSubmitAITranslationWorkflowInput',
         'translation_type_list': 'list[str]'
     }
 
     attribute_map = {
         'source_language': 'SourceLanguage',
         'target_language': 'TargetLanguage',
+        'termbase_config': 'TermbaseConfig',
         'translation_type_list': 'TranslationTypeList'
     }
 
-    def __init__(self, source_language=None, target_language=None, translation_type_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, source_language=None, target_language=None, termbase_config=None, translation_type_list=None, _configuration=None):  # noqa: E501
         """TranslationConfigForSubmitAITranslationWorkflowInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class TranslationConfigForSubmitAITranslationWorkflowInput(object):
 
         self._source_language = None
         self._target_language = None
+        self._termbase_config = None
         self._translation_type_list = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class TranslationConfigForSubmitAITranslationWorkflowInput(object):
             self.source_language = source_language
         if target_language is not None:
             self.target_language = target_language
+        if termbase_config is not None:
+            self.termbase_config = termbase_config
         if translation_type_list is not None:
             self.translation_type_list = translation_type_list
 
@@ -103,6 +108,27 @@ class TranslationConfigForSubmitAITranslationWorkflowInput(object):
         """
 
         self._target_language = target_language
+
+    @property
+    def termbase_config(self):
+        """Gets the termbase_config of this TranslationConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+
+
+        :return: The termbase_config of this TranslationConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :rtype: TermbaseConfigForSubmitAITranslationWorkflowInput
+        """
+        return self._termbase_config
+
+    @termbase_config.setter
+    def termbase_config(self, termbase_config):
+        """Sets the termbase_config of this TranslationConfigForSubmitAITranslationWorkflowInput.
+
+
+        :param termbase_config: The termbase_config of this TranslationConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :type: TermbaseConfigForSubmitAITranslationWorkflowInput
+        """
+
+        self._termbase_config = termbase_config
 
     @property
     def translation_type_list(self):

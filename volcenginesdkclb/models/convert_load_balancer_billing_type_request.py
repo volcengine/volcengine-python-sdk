@@ -33,6 +33,7 @@ class ConvertLoadBalancerBillingTypeRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_renewal': 'bool',
         'load_balancer_billing_type': 'int',
         'load_balancer_id': 'str',
         'load_balancer_spec': 'str',
@@ -41,6 +42,7 @@ class ConvertLoadBalancerBillingTypeRequest(object):
     }
 
     attribute_map = {
+        'auto_renewal': 'AutoRenewal',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
         'load_balancer_id': 'LoadBalancerId',
         'load_balancer_spec': 'LoadBalancerSpec',
@@ -48,12 +50,13 @@ class ConvertLoadBalancerBillingTypeRequest(object):
         'period_unit': 'PeriodUnit'
     }
 
-    def __init__(self, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_spec=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_renewal=None, load_balancer_billing_type=None, load_balancer_id=None, load_balancer_spec=None, period=None, period_unit=None, _configuration=None):  # noqa: E501
         """ConvertLoadBalancerBillingTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auto_renewal = None
         self._load_balancer_billing_type = None
         self._load_balancer_id = None
         self._load_balancer_spec = None
@@ -61,6 +64,8 @@ class ConvertLoadBalancerBillingTypeRequest(object):
         self._period_unit = None
         self.discriminator = None
 
+        if auto_renewal is not None:
+            self.auto_renewal = auto_renewal
         self.load_balancer_billing_type = load_balancer_billing_type
         self.load_balancer_id = load_balancer_id
         if load_balancer_spec is not None:
@@ -69,6 +74,27 @@ class ConvertLoadBalancerBillingTypeRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
+
+    @property
+    def auto_renewal(self):
+        """Gets the auto_renewal of this ConvertLoadBalancerBillingTypeRequest.  # noqa: E501
+
+
+        :return: The auto_renewal of this ConvertLoadBalancerBillingTypeRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_renewal
+
+    @auto_renewal.setter
+    def auto_renewal(self, auto_renewal):
+        """Sets the auto_renewal of this ConvertLoadBalancerBillingTypeRequest.
+
+
+        :param auto_renewal: The auto_renewal of this ConvertLoadBalancerBillingTypeRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_renewal = auto_renewal
 
     @property
     def load_balancer_billing_type(self):
