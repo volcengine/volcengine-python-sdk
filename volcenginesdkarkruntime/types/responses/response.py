@@ -13,6 +13,7 @@
 from typing import List, Union, Optional
 from typing_extensions import Literal, TypeAlias
 
+from volcenginesdkarkruntime.types.shared.reasoning import Reasoning
 from .tool import Tool
 from ..._models import BaseModel
 from .response_error import ResponseError
@@ -115,6 +116,11 @@ class Response(BaseModel):
     """The unique ID of the previous response to the model.
 
     Use this to create multi-turn conversations.
+    """
+
+    reasoning: Optional[Reasoning] = None
+    """
+    **reasoning-effort model only**
     """
 
     thinking: Optional[Thinking] = None
