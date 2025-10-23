@@ -50,6 +50,7 @@ class ListenerForDescribeListenersOutput(object):
         'cps': 'int',
         'create_time': 'str',
         'description': 'str',
+        'domain_extensions': 'list[DomainExtensionForDescribeListenersOutput]',
         'enabled': 'str',
         'end_port': 'int',
         'enhanced_scheduler_enable': 'str',
@@ -100,6 +101,7 @@ class ListenerForDescribeListenersOutput(object):
         'cps': 'Cps',
         'create_time': 'CreateTime',
         'description': 'Description',
+        'domain_extensions': 'DomainExtensions',
         'enabled': 'Enabled',
         'end_port': 'EndPort',
         'enhanced_scheduler_enable': 'EnhancedSchedulerEnable',
@@ -132,7 +134,7 @@ class ListenerForDescribeListenersOutput(object):
         'waf_protection_enabled': 'WafProtectionEnabled'
     }
 
-    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, ca_certificate_id=None, ca_enabled=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, cps=None, create_time=None, description=None, enabled=None, end_port=None, enhanced_scheduler_enable=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, load_balancer_id=None, load_type=None, max_connections=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, response_check_enabled=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, start_port=None, status=None, tags=None, update_time=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl_ids=None, acl_status=None, acl_type=None, bandwidth=None, ca_certificate_id=None, ca_enabled=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_body_timeout=None, client_header_timeout=None, connection_drain_enabled=None, connection_drain_timeout=None, cookie=None, cps=None, create_time=None, description=None, domain_extensions=None, enabled=None, end_port=None, enhanced_scheduler_enable=None, established_timeout=None, health_check=None, http2_enabled=None, keepalive_timeout=None, listener_id=None, listener_name=None, load_balancer_id=None, load_type=None, max_connections=None, persistence_timeout=None, persistence_type=None, port=None, protocol=None, proxy_connect_timeout=None, proxy_protocol_type=None, proxy_read_timeout=None, proxy_send_timeout=None, response_check_enabled=None, scheduler=None, security_policy_id=None, send_timeout=None, server_group_id=None, start_port=None, status=None, tags=None, update_time=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
         """ListenerForDescribeListenersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -155,6 +157,7 @@ class ListenerForDescribeListenersOutput(object):
         self._cps = None
         self._create_time = None
         self._description = None
+        self._domain_extensions = None
         self._enabled = None
         self._end_port = None
         self._enhanced_scheduler_enable = None
@@ -221,6 +224,8 @@ class ListenerForDescribeListenersOutput(object):
             self.create_time = create_time
         if description is not None:
             self.description = description
+        if domain_extensions is not None:
+            self.domain_extensions = domain_extensions
         if enabled is not None:
             self.enabled = enabled
         if end_port is not None:
@@ -638,6 +643,27 @@ class ListenerForDescribeListenersOutput(object):
         """
 
         self._description = description
+
+    @property
+    def domain_extensions(self):
+        """Gets the domain_extensions of this ListenerForDescribeListenersOutput.  # noqa: E501
+
+
+        :return: The domain_extensions of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :rtype: list[DomainExtensionForDescribeListenersOutput]
+        """
+        return self._domain_extensions
+
+    @domain_extensions.setter
+    def domain_extensions(self, domain_extensions):
+        """Sets the domain_extensions of this ListenerForDescribeListenersOutput.
+
+
+        :param domain_extensions: The domain_extensions of this ListenerForDescribeListenersOutput.  # noqa: E501
+        :type: list[DomainExtensionForDescribeListenersOutput]
+        """
+
+        self._domain_extensions = domain_extensions
 
     @property
     def enabled(self):
