@@ -9,9 +9,17 @@
 #
 # This modified file is released under the same license.
 
+from typing_extensions import Optional
 
-from .response_output_text_annotation_added_event import (
-    ResponseOutputTextAnnotationAddedEvent,
-)
+from ..._models import BaseModel
 
-__all__ = ["ResponseOutputTextAnnotationAddedEvent"]
+__all__ = ["ResponsesOutputTextAnnotationCoverImage"]
+
+
+class ResponsesOutputTextAnnotationCoverImage(BaseModel):
+    url: Optional[str] = None
+    """The url of the cover image."""
+    width: Optional[int] = None
+    """The width of the cover image."""
+    height: Optional[int] = None
+    """The height of the cover image."""

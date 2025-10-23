@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -10,27 +9,15 @@
 #
 # This modified file is released under the same license.
 
-from typing_extensions import Literal, Required, Optional, List
+from typing_extensions import Literal, Optional, List
 
 from ..._models import BaseModel
 
+from .user_location import UserLocation
+
 __all__ = [
     "WebSearchTool",
-    "UserLocation",
 ]
-
-
-class UserLocation(BaseModel):
-    type: Literal["approximate"]
-    """The type of the user location. Always `approximate`."""
-    city: Optional[str]
-    """The city of the user location."""
-    country: Optional[str]
-    """The country of the user location."""
-    region: Optional[str]
-    """The region of the user location."""
-    timezone: Optional[float]
-    """The timezone of the user location."""
 
 
 class WebSearchTool(BaseModel):
@@ -46,4 +33,3 @@ class WebSearchTool(BaseModel):
 
     user_location: Optional[UserLocation]
     """The user location."""
-

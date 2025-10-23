@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -14,6 +13,8 @@ from __future__ import annotations
 
 from typing import Optional, List
 from typing_extensions import Literal, Required, TypedDict
+
+from .user_location_param import UserLocationParam
 
 __all__ = ["WebSearchToolParam"]
 
@@ -31,16 +32,3 @@ class WebSearchToolParam(TypedDict, total=False):
 
     user_location: Optional[UserLocationParam]
     """The user location."""
-
-
-class UserLocationParam(TypedDict, total=False):
-    type: Required[Literal["approximate"]]
-    """The type of the user location. Always `approximate`."""
-    city: Optional[str]
-    """The city of the user location."""
-    country: Optional[str]
-    """The country of the user location."""
-    region: Optional[str]
-    """The region of the user location."""
-    timezone: Optional[float]
-    """The timezone of the user location."""

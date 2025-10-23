@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -26,15 +25,33 @@ from .response_output_item_done_event import ResponseOutputItemDoneEvent
 from .response_content_part_done_event import ResponseContentPartDoneEvent
 from .response_output_item_added_event import ResponseOutputItemAddedEvent
 from .response_content_part_added_event import ResponseContentPartAddedEvent
-from .response_reasoning_summary_part_done_event import ResponseReasoningSummaryPartDoneEvent
-from .response_reasoning_summary_text_done_event import ResponseReasoningSummaryTextDoneEvent
-from .response_function_call_arguments_done_event import ResponseFunctionCallArgumentsDoneEvent
-from .response_reasoning_summary_part_added_event import ResponseReasoningSummaryPartAddedEvent
-from .response_reasoning_summary_text_delta_event import ResponseReasoningSummaryTextDeltaEvent
-from .response_function_call_arguments_delta_event import ResponseFunctionCallArgumentsDeltaEvent
-from .response_web_search_call_in_progress_event import ResponseWebSearchCallInProgressEvent
-from .response_web_search_call_searching_event import ResponseWebSearchCallSearchingEvent
-from .response_web_search_call_completed_event import ResponseWebSearchCallCompletedEvent
+from .response_reasoning_summary_part_done_event import (
+    ResponseReasoningSummaryPartDoneEvent,
+)
+from .response_reasoning_summary_text_done_event import (
+    ResponseReasoningSummaryTextDoneEvent,
+)
+from .response_function_call_arguments_done_event import (
+    ResponseFunctionCallArgumentsDoneEvent,
+)
+from .response_reasoning_summary_part_added_event import (
+    ResponseReasoningSummaryPartAddedEvent,
+)
+from .response_reasoning_summary_text_delta_event import (
+    ResponseReasoningSummaryTextDeltaEvent,
+)
+from .response_function_call_arguments_delta_event import (
+    ResponseFunctionCallArgumentsDeltaEvent,
+)
+from .response_web_search_call_in_progress_event import (
+    ResponseWebSearchCallInProgressEvent,
+)
+from .response_web_search_call_searching_event import (
+    ResponseWebSearchCallSearchingEvent,
+)
+from .response_web_search_call_completed_event import (
+    ResponseWebSearchCallCompletedEvent,
+)
 from .response_annotation_added_event import ResponseOutputTextAnnotationAddedEvent
 from .response_mcp_call_failed_event import ResponseMcpCallFailedEvent
 from .response_mcp_call_in_progress_event import ResponseMcpCallInProgressEvent
@@ -42,9 +59,10 @@ from .response_mcp_call_completed_event import ResponseMcpCallCompletedEvent
 from .response_mcp_call_arguments_done_event import ResponseMcpCallArgumentsDoneEvent
 from .response_mcp_call_arguments_delta_event import ResponseMcpCallArgumentsDeltaEvent
 from .response_mcp_list_tools_failed_event import ResponseMcpListToolsFailedEvent
-from .response_mcp_list_tools_in_progress_event import ResponseMcpListToolsInProgressEvent
+from .response_mcp_list_tools_in_progress_event import (
+    ResponseMcpListToolsInProgressEvent,
+)
 from .response_mcp_list_tools_completed_event import ResponseMcpListToolsCompletedEvent
-
 
 __all__ = ["ResponseStreamEvent"]
 
@@ -55,31 +73,23 @@ ResponseStreamEvent: TypeAlias = Annotated[
         ResponseCompletedEvent,
         ResponseFailedEvent,
         ResponseIncompleteEvent,
-
         ResponseOutputItemAddedEvent,
         ResponseOutputItemDoneEvent,
-
         ResponseContentPartAddedEvent,
         ResponseContentPartDoneEvent,
-
         ResponseTextDeltaEvent,
         ResponseTextDoneEvent,
-
         ResponseReasoningSummaryPartAddedEvent,
         ResponseReasoningSummaryPartDoneEvent,
         ResponseReasoningSummaryTextDeltaEvent,
         ResponseReasoningSummaryTextDoneEvent,
-
         ResponseFunctionCallArgumentsDeltaEvent,
         ResponseFunctionCallArgumentsDoneEvent,
-
         ResponseErrorEvent,
-
         ResponseWebSearchCallInProgressEvent,
         ResponseWebSearchCallSearchingEvent,
         ResponseWebSearchCallCompletedEvent,
         ResponseOutputTextAnnotationAddedEvent,
-
         ResponseMcpCallFailedEvent,
         ResponseMcpCallInProgressEvent,
         ResponseMcpCallCompletedEvent,

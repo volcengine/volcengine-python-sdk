@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -13,7 +12,7 @@
 from typing import Optional
 from typing_extensions import Literal
 
-from pydantic import BaseModel
+from ..._models import BaseModel
 
 __all__ = ["ResponseCaching"]
 
