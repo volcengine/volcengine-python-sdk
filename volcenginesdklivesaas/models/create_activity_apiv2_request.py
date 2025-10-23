@@ -34,6 +34,7 @@ class CreateActivityAPIV2Request(object):
     """
     swagger_types = {
         'activity_type': 'int',
+        'auto_start_config': 'AutoStartConfigForCreateActivityAPIV2Input',
         'copy_stream': 'bool',
         'cover_image': 'str',
         'creator_name': 'str',
@@ -58,6 +59,7 @@ class CreateActivityAPIV2Request(object):
 
     attribute_map = {
         'activity_type': 'ActivityType',
+        'auto_start_config': 'AutoStartConfig',
         'copy_stream': 'CopyStream',
         'cover_image': 'CoverImage',
         'creator_name': 'CreatorName',
@@ -80,13 +82,14 @@ class CreateActivityAPIV2Request(object):
         'view_url_path': 'ViewUrlPath'
     }
 
-    def __init__(self, activity_type=None, copy_stream=None, cover_image=None, creator_name=None, end_time=None, is_answer_repetition_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_replay_auto_online_enable=None, live_layout=None, live_mode=None, live_time=None, loop_videos=None, name=None, old_id=None, site_tags=None, template_id=None, text_site_tags=None, vertical_cover_image=None, vid=None, view_url_path=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_type=None, auto_start_config=None, copy_stream=None, cover_image=None, creator_name=None, end_time=None, is_answer_repetition_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_replay_auto_online_enable=None, live_layout=None, live_mode=None, live_time=None, loop_videos=None, name=None, old_id=None, site_tags=None, template_id=None, text_site_tags=None, vertical_cover_image=None, vid=None, view_url_path=None, _configuration=None):  # noqa: E501
         """CreateActivityAPIV2Request - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._activity_type = None
+        self._auto_start_config = None
         self._copy_stream = None
         self._cover_image = None
         self._creator_name = None
@@ -111,6 +114,8 @@ class CreateActivityAPIV2Request(object):
 
         if activity_type is not None:
             self.activity_type = activity_type
+        if auto_start_config is not None:
+            self.auto_start_config = auto_start_config
         if copy_stream is not None:
             self.copy_stream = copy_stream
         if cover_image is not None:
@@ -171,6 +176,27 @@ class CreateActivityAPIV2Request(object):
         """
 
         self._activity_type = activity_type
+
+    @property
+    def auto_start_config(self):
+        """Gets the auto_start_config of this CreateActivityAPIV2Request.  # noqa: E501
+
+
+        :return: The auto_start_config of this CreateActivityAPIV2Request.  # noqa: E501
+        :rtype: AutoStartConfigForCreateActivityAPIV2Input
+        """
+        return self._auto_start_config
+
+    @auto_start_config.setter
+    def auto_start_config(self, auto_start_config):
+        """Sets the auto_start_config of this CreateActivityAPIV2Request.
+
+
+        :param auto_start_config: The auto_start_config of this CreateActivityAPIV2Request.  # noqa: E501
+        :type: AutoStartConfigForCreateActivityAPIV2Input
+        """
+
+        self._auto_start_config = auto_start_config
 
     @property
     def copy_stream(self):
