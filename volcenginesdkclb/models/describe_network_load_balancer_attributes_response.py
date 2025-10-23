@@ -33,6 +33,7 @@ class DescribeNetworkLoadBalancerAttributesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_log': 'AccessLogForDescribeNetworkLoadBalancerAttributesOutput',
         'account_id': 'str',
         'billing_status': 'str',
         'billing_type': 'int',
@@ -63,6 +64,7 @@ class DescribeNetworkLoadBalancerAttributesResponse(object):
     }
 
     attribute_map = {
+        'access_log': 'AccessLog',
         'account_id': 'AccountId',
         'billing_status': 'BillingStatus',
         'billing_type': 'BillingType',
@@ -92,12 +94,13 @@ class DescribeNetworkLoadBalancerAttributesResponse(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, account_id=None, billing_status=None, billing_type=None, create_time=None, cross_zone_enabled=None, dns_name=None, description=None, expected_overdue_time=None, ip_address_version=None, ipv4_bandwidth_package_id=None, ipv4_network_type=None, ipv6_bandwidth_package_id=None, ipv6_network_type=None, load_balancer_id=None, load_balancer_name=None, managed_security_group_id=None, modification_protection_status=None, overdue_time=None, project_name=None, reclaimed_time=None, request_id=None, security_group_ids=None, status=None, tags=None, update_time=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log=None, account_id=None, billing_status=None, billing_type=None, create_time=None, cross_zone_enabled=None, dns_name=None, description=None, expected_overdue_time=None, ip_address_version=None, ipv4_bandwidth_package_id=None, ipv4_network_type=None, ipv6_bandwidth_package_id=None, ipv6_network_type=None, load_balancer_id=None, load_balancer_name=None, managed_security_group_id=None, modification_protection_status=None, overdue_time=None, project_name=None, reclaimed_time=None, request_id=None, security_group_ids=None, status=None, tags=None, update_time=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """DescribeNetworkLoadBalancerAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._access_log = None
         self._account_id = None
         self._billing_status = None
         self._billing_type = None
@@ -127,6 +130,8 @@ class DescribeNetworkLoadBalancerAttributesResponse(object):
         self._zone_mappings = None
         self.discriminator = None
 
+        if access_log is not None:
+            self.access_log = access_log
         if account_id is not None:
             self.account_id = account_id
         if billing_status is not None:
@@ -181,6 +186,27 @@ class DescribeNetworkLoadBalancerAttributesResponse(object):
             self.vpc_id = vpc_id
         if zone_mappings is not None:
             self.zone_mappings = zone_mappings
+
+    @property
+    def access_log(self):
+        """Gets the access_log of this DescribeNetworkLoadBalancerAttributesResponse.  # noqa: E501
+
+
+        :return: The access_log of this DescribeNetworkLoadBalancerAttributesResponse.  # noqa: E501
+        :rtype: AccessLogForDescribeNetworkLoadBalancerAttributesOutput
+        """
+        return self._access_log
+
+    @access_log.setter
+    def access_log(self, access_log):
+        """Sets the access_log of this DescribeNetworkLoadBalancerAttributesResponse.
+
+
+        :param access_log: The access_log of this DescribeNetworkLoadBalancerAttributesResponse.  # noqa: E501
+        :type: AccessLogForDescribeNetworkLoadBalancerAttributesOutput
+        """
+
+        self._access_log = access_log
 
     @property
     def account_id(self):

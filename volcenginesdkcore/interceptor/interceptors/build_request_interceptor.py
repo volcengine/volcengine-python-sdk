@@ -184,11 +184,15 @@ class BuildRequestInterceptor(RequestInterceptor):
         for key, value in req.items():
             if value is None:
                 continue
+            if isinstance(value, bool):
+                value = str(value).lower()
             if isinstance(value, list):
                 for index in range(len(value)):
                     if isinstance(value[index], dict):
                         self.__req_to_params(value[index], prefix + key + "." + str((index + 1)) + ".", params)
                     else:
+                        if isinstance(value[index], bool):
+                            value[index] = str(value[index]).lower()
                         params.append((prefix + key + "." + str((index + 1)), value[index]))
             elif isinstance(value, dict):
                 self.__req_to_params(value, prefix + key + ".", params)

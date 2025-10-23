@@ -37,8 +37,10 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'activity_id': 'int',
         'announcement': 'str',
         'auto_reservation_window_enable': 'int',
+        'auto_start_config': 'AutoStartConfigForUpdateActivityBasicConfigAPIInput',
         'auto_start_type': 'int',
         'background_color': 'str',
+        'bind_account_level_group_id': 'int',
         'color_theme_index': 'str',
         'config_version': 'int',
         'cover_image_url': 'str',
@@ -127,8 +129,10 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'activity_id': 'ActivityId',
         'announcement': 'Announcement',
         'auto_reservation_window_enable': 'AutoReservationWindowEnable',
+        'auto_start_config': 'AutoStartConfig',
         'auto_start_type': 'AutoStartType',
         'background_color': 'BackgroundColor',
+        'bind_account_level_group_id': 'BindAccountLevelGroupId',
         'color_theme_index': 'ColorThemeIndex',
         'config_version': 'ConfigVersion',
         'cover_image_url': 'CoverImageUrl',
@@ -212,7 +216,7 @@ class UpdateActivityBasicConfigAPIRequest(object):
         'watermark_position': 'WatermarkPosition'
     }
 
-    def __init__(self, account_id=None, activity_id=None, announcement=None, auto_reservation_window_enable=None, auto_start_type=None, background_color=None, color_theme_index=None, config_version=None, cover_image_url=None, default_subtitle_language=None, end_time=None, feedback_message=None, font_color=None, header_image_url=None, interaction_color=None, is_announcement_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_avatar_show_enable=None, is_background_blur=None, is_color_sync=None, is_comment_translate_enable=None, is_countdown_enable=None, is_cover_image_enable=None, is_feedback_enable=None, is_header_image_enable=None, is_language_enable=None, is_live_bullet_chat=None, is_mobile_back_image_enable=None, is_pc_header_image_enable=None, is_page_limit_enable=None, is_pc_back_image_enable=None, is_people_count_enable=None, is_player_top_enable=None, is_preview_prompt_enable=None, is_preview_video_enable=None, is_replay_auto_online_enable=None, is_replay_bullet_chat=None, is_reservation_enable=None, is_reservation_sms_enable=None, is_share_icon_enable=None, is_thumb_up_enable=None, is_thumb_up_number_enable=None, is_time_shift=None, is_viewer_level_show_enable=None, is_watermark_image_enable=None, language_type=None, live_time=None, live_zone=None, mobile_back_image_url=None, mobile_back_image_url_default=None, mobile_background_color=None, mobile_chat_background_color=None, mobile_login_background_image_url=None, name=None, open_live_avextractor_task=None, pc_header_image_url=None, page_limit_type=None, pc_back_image_url=None, pc_back_image_url_default=None, pc_login_background_image_url=None, player_top_type=None, presenter_chat_color=None, preview_prompt=None, preview_video_cover_image=None, preview_video_id=None, preview_video_media_name=None, preview_video_review_status=None, preview_video_url=None, preview_video_vid=None, preview_video_vid_default=None, reservation_text=None, reservation_time=None, risk_warning_setting=None, share_icon_url=None, share_icon_url_default=None, site_tags=None, sms_language=None, source_subtitle_language=None, text_site_tags=None, thumb_up_effect_urls=None, thumb_up_url=None, thumb_up_url_default=None, use_default_thumb_up_effect=None, vertical_cover_image_url=None, watermark_image_url=None, watermark_position=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, activity_id=None, announcement=None, auto_reservation_window_enable=None, auto_start_config=None, auto_start_type=None, background_color=None, bind_account_level_group_id=None, color_theme_index=None, config_version=None, cover_image_url=None, default_subtitle_language=None, end_time=None, feedback_message=None, font_color=None, header_image_url=None, interaction_color=None, is_announcement_enable=None, is_auto_end_enable=None, is_auto_start_enable=None, is_avatar_show_enable=None, is_background_blur=None, is_color_sync=None, is_comment_translate_enable=None, is_countdown_enable=None, is_cover_image_enable=None, is_feedback_enable=None, is_header_image_enable=None, is_language_enable=None, is_live_bullet_chat=None, is_mobile_back_image_enable=None, is_pc_header_image_enable=None, is_page_limit_enable=None, is_pc_back_image_enable=None, is_people_count_enable=None, is_player_top_enable=None, is_preview_prompt_enable=None, is_preview_video_enable=None, is_replay_auto_online_enable=None, is_replay_bullet_chat=None, is_reservation_enable=None, is_reservation_sms_enable=None, is_share_icon_enable=None, is_thumb_up_enable=None, is_thumb_up_number_enable=None, is_time_shift=None, is_viewer_level_show_enable=None, is_watermark_image_enable=None, language_type=None, live_time=None, live_zone=None, mobile_back_image_url=None, mobile_back_image_url_default=None, mobile_background_color=None, mobile_chat_background_color=None, mobile_login_background_image_url=None, name=None, open_live_avextractor_task=None, pc_header_image_url=None, page_limit_type=None, pc_back_image_url=None, pc_back_image_url_default=None, pc_login_background_image_url=None, player_top_type=None, presenter_chat_color=None, preview_prompt=None, preview_video_cover_image=None, preview_video_id=None, preview_video_media_name=None, preview_video_review_status=None, preview_video_url=None, preview_video_vid=None, preview_video_vid_default=None, reservation_text=None, reservation_time=None, risk_warning_setting=None, share_icon_url=None, share_icon_url_default=None, site_tags=None, sms_language=None, source_subtitle_language=None, text_site_tags=None, thumb_up_effect_urls=None, thumb_up_url=None, thumb_up_url_default=None, use_default_thumb_up_effect=None, vertical_cover_image_url=None, watermark_image_url=None, watermark_position=None, _configuration=None):  # noqa: E501
         """UpdateActivityBasicConfigAPIRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -222,8 +226,10 @@ class UpdateActivityBasicConfigAPIRequest(object):
         self._activity_id = None
         self._announcement = None
         self._auto_reservation_window_enable = None
+        self._auto_start_config = None
         self._auto_start_type = None
         self._background_color = None
+        self._bind_account_level_group_id = None
         self._color_theme_index = None
         self._config_version = None
         self._cover_image_url = None
@@ -314,10 +320,14 @@ class UpdateActivityBasicConfigAPIRequest(object):
             self.announcement = announcement
         if auto_reservation_window_enable is not None:
             self.auto_reservation_window_enable = auto_reservation_window_enable
+        if auto_start_config is not None:
+            self.auto_start_config = auto_start_config
         if auto_start_type is not None:
             self.auto_start_type = auto_start_type
         if background_color is not None:
             self.background_color = background_color
+        if bind_account_level_group_id is not None:
+            self.bind_account_level_group_id = bind_account_level_group_id
         if color_theme_index is not None:
             self.color_theme_index = color_theme_index
         if config_version is not None:
@@ -567,6 +577,27 @@ class UpdateActivityBasicConfigAPIRequest(object):
         self._auto_reservation_window_enable = auto_reservation_window_enable
 
     @property
+    def auto_start_config(self):
+        """Gets the auto_start_config of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+
+
+        :return: The auto_start_config of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :rtype: AutoStartConfigForUpdateActivityBasicConfigAPIInput
+        """
+        return self._auto_start_config
+
+    @auto_start_config.setter
+    def auto_start_config(self, auto_start_config):
+        """Sets the auto_start_config of this UpdateActivityBasicConfigAPIRequest.
+
+
+        :param auto_start_config: The auto_start_config of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :type: AutoStartConfigForUpdateActivityBasicConfigAPIInput
+        """
+
+        self._auto_start_config = auto_start_config
+
+    @property
     def auto_start_type(self):
         """Gets the auto_start_type of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
 
@@ -607,6 +638,27 @@ class UpdateActivityBasicConfigAPIRequest(object):
         """
 
         self._background_color = background_color
+
+    @property
+    def bind_account_level_group_id(self):
+        """Gets the bind_account_level_group_id of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+
+
+        :return: The bind_account_level_group_id of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bind_account_level_group_id
+
+    @bind_account_level_group_id.setter
+    def bind_account_level_group_id(self, bind_account_level_group_id):
+        """Sets the bind_account_level_group_id of this UpdateActivityBasicConfigAPIRequest.
+
+
+        :param bind_account_level_group_id: The bind_account_level_group_id of this UpdateActivityBasicConfigAPIRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bind_account_level_group_id = bind_account_level_group_id
 
     @property
     def color_theme_index(self):
