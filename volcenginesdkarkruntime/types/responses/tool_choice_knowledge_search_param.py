@@ -11,15 +11,10 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing_extensions import Literal, Required, TypedDict
 
-from typing_extensions import Literal, TypedDict
-
-__all__ = ["ResponseCaching"]
+__all__ = ["ToolChoiceKnowledgeSearchParam"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
-
-    prefix: Optional[bool]
+class ToolChoiceKnowledgeSearchParam(TypedDict, total=False):
+    type: Required[Literal["knowledge_search"]]

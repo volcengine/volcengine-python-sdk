@@ -13,13 +13,20 @@ from __future__ import annotations
 
 from typing import Optional
 
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal
 
-__all__ = ["ResponseCaching"]
+from ..._models import BaseModel
+
+__all__ = ["ResponseInputFile"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class ResponseInputFile(BaseModel):
+    type: Literal["input_file"]
 
-    prefix: Optional[bool]
+    file_data: Optional[str] = None
+
+    file_id: Optional[str] = None
+
+    file_url: Optional[str] = None
+
+    filename: Optional[str] = None

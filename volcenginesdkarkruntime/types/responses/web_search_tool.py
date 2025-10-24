@@ -9,10 +9,11 @@
 #
 # This modified file is released under the same license.
 
-from typing_extensions import Literal, Optional, List
+from typing import List, Optional
+
+from typing_extensions import List, Literal, Optional
 
 from ..._models import BaseModel
-
 from .user_location import UserLocation
 
 __all__ = [
@@ -21,15 +22,17 @@ __all__ = [
 
 
 class WebSearchTool(BaseModel):
-
     type: Literal["web_search"]
     """The type of the web search. Always `web_search`."""
 
-    limit: Optional[int]
+    limit: Optional[int] = None
     """The maximum number of results to return. Defaults to 3."""
 
-    sources: Optional[List[Literal["toutiao", "douyin", "moji", "search_engine"]]]
+    user_location: Optional[UserLocation] = None
+    """The user location."""
+
+    sources: List[Literal["toutiao", "douyin", "moji", "search_engine"]]
     """The source type of web search."""
 
-    user_location: Optional[UserLocation]
-    """The user location."""
+    max_keyword: Optional[int] = None
+    """Max number of keywords to search per web search call"""

@@ -13,13 +13,11 @@ from __future__ import annotations
 
 from typing import Optional
 
-from typing_extensions import Literal, TypedDict
+from ..._models import BaseModel
 
-__all__ = ["ResponseCaching"]
+__all__ = ["ImageProcessPointOptions"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
-
-    prefix: Optional[bool]
+class ImageProcessPointOptions(BaseModel):
+    type: Optional[str] = None
+    """`disabled` or `enabled`."""

@@ -11,15 +11,14 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing_extensions import Literal
 
-from typing_extensions import Literal, TypedDict
+from ..._models import BaseModel
 
-__all__ = ["ResponseCaching"]
+__all__ = ["ResponseImageProcessCallInProgressEvent"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class ResponseImageProcessCallInProgressEvent(BaseModel):
+    type: Literal["response.image_process_call.in_progress"]
 
-    prefix: Optional[bool]
+    item_id: str

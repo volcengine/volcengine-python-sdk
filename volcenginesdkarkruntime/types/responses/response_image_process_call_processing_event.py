@@ -11,15 +11,20 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing_extensions import Literal
 
-from typing_extensions import Literal, TypedDict
+from ..._models import BaseModel
+from .response_image_process_action import ResponseImageProcessAction
+from .response_image_process_args import ResponseImageProcessArgs
 
-__all__ = ["ResponseCaching"]
+__all__ = ["ResponseImageProcessCallProcessingEvent"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class ResponseImageProcessCallProcessingEvent(BaseModel):
+    type: Literal["response.image_process_call.progressing"]
 
-    prefix: Optional[bool]
+    item_id: str
+
+    action: ResponseImageProcessAction
+
+    arguments: ResponseImageProcessArgs

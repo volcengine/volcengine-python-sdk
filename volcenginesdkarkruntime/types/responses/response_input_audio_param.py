@@ -13,13 +13,20 @@ from __future__ import annotations
 
 from typing import Optional
 
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal, Required, TypedDict
 
-__all__ = ["ResponseCaching"]
+from .audio_chunking_strategy_param import AudioChunkingStrategyParam
+
+__all__ = ["ResponseInputAudioParam"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class ResponseInputAudioParam(TypedDict, total=False):
+    type: Required[Literal["input_audio"]]
 
-    prefix: Optional[bool]
+    chunking_strategy: Optional[AudioChunkingStrategyParam]
+
+    audio_url: Required[str]
+
+    file_id: Optional[str]
+
+    audio_bytes: Optional[bytes]

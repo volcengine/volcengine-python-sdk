@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -11,15 +10,19 @@
 # This modified file is released under the same license.
 
 from typing import Union
+
 from typing_extensions import Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
 from .function_tool import FunctionTool
+from .image_process_tool import ImageProcessTool
+from .knowledge_search_tool import KnowledgeSearchTool
 from .mcp_tool import Mcp
 from .web_search_tool import WebSearchTool
 
 __all__ = ["Tool"]
 
 Tool: TypeAlias = Annotated[
-    Union[FunctionTool, WebSearchTool, Mcp], PropertyInfo(discriminator="type")
+    Union[FunctionTool, WebSearchTool, ImageProcessTool, Mcp, KnowledgeSearchTool],
+    PropertyInfo(discriminator="type"),
 ]

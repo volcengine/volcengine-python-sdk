@@ -15,18 +15,16 @@ from typing import Union
 
 from typing_extensions import TypeAlias
 
-from .function_tool_param import FunctionToolParam
-from .image_process_tool_param import ImageProcessToolParam
-from .knowledge_search_tool_param import KnowledgeSearchToolParam
-from .mcp_tool_param import Mcp
-from .web_search_tool_param import WebSearchToolParam
+from .response_image_process_grounding_args import ResponseImageProcessGroundingArgs
+from .response_image_process_point_args import ResponseImageProcessPointArgs
+from .response_image_process_rotate_args import ResponseImageProcessRotateArgs
+from .response_image_process_zoom_args import ResponseImageProcessZoomArgs
 
-__all__ = ["ToolParam"]
+__all__ = ["ResponseImageProcessArgs"]
 
-ToolParam: TypeAlias = Union[
-    FunctionToolParam,
-    WebSearchToolParam,
-    ImageProcessToolParam,
-    Mcp,
-    KnowledgeSearchToolParam,
+ResponseImageProcessArgs: TypeAlias = Union[
+    ResponseImageProcessPointArgs,
+    ResponseImageProcessGroundingArgs,
+    ResponseImageProcessRotateArgs,
+    ResponseImageProcessZoomArgs,
 ]

@@ -9,17 +9,25 @@
 #
 # This modified file is released under the same license.
 
+from __future__ import annotations
+
 from typing import Optional
 
 from typing_extensions import Literal
 
 from ..._models import BaseModel
 
-__all__ = ["ResponseCaching"]
+__all__ = ["ResponseInputVideo"]
 
 
-class ResponseCaching(BaseModel):
-    type: Optional[Literal["disabled", "enabled"]] = None
-    """Whether to enable caching."""
+class ResponseInputVideo(BaseModel):
+    type: Literal["input_video"]
+    """The type of the input item. Always `input_video`."""
 
-    prefix: Optional[bool] = None
+    video_url: str
+    """The URL of the video to be sent to the model. A fully qualified URL or base64 encoded video in a data URL."""
+
+    file_id: Optional[str] = None
+
+    fps: Optional[float] = None
+    """Extract a specified number of images from the video every second."""

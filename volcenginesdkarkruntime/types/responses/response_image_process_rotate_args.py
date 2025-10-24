@@ -11,15 +11,12 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from ..._models import BaseModel
 
-from typing_extensions import Literal, TypedDict
-
-__all__ = ["ResponseCaching"]
+__all__ = ["ResponseImageProcessRotateArgs"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class ResponseImageProcessRotateArgs(BaseModel):
+    image_index: int
 
-    prefix: Optional[bool]
+    degree: int

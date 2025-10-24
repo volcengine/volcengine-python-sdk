@@ -13,13 +13,20 @@ from __future__ import annotations
 
 from typing import Optional
 
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal
 
-__all__ = ["ResponseCaching"]
+from ..._models import BaseModel
+
+__all__ = ["ResponseKnowledgeSearchItem"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class ResponseKnowledgeSearchItem(BaseModel):
+    type: Literal["knowledge_search_call"]
 
-    prefix: Optional[bool]
+    queries: list[str]
+
+    knowledge_resource_id: str
+
+    status: Literal["in_progress", "completed", "incomplete", "searching", "failed"]
+
+    id: Optional[str] = None

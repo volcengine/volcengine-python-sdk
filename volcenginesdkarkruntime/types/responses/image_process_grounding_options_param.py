@@ -13,13 +13,11 @@ from __future__ import annotations
 
 from typing import Optional
 
-from typing_extensions import Literal, TypedDict
+from typing_extensions import TypedDict
 
-__all__ = ["ResponseCaching"]
+__all__ = ["ImageProcessGroundingOptionsParam"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
-
-    prefix: Optional[bool]
+class ImageProcessGroundingOptionsParam(TypedDict, total=False):
+    type: Optional[str]
+    """`disabled` or `enabled`."""

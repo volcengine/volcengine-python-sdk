@@ -13,13 +13,18 @@ from __future__ import annotations
 
 from typing import Optional
 
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal, Required, TypedDict
 
-__all__ = ["ResponseCaching"]
+__all__ = ["ResponseInputFileParam"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class ResponseInputFileParam(TypedDict, total=False):
+    type: Required[Literal["input_file"]]
 
-    prefix: Optional[bool]
+    file_data: Optional[str]
+
+    file_id: Optional[str]
+
+    file_url: Optional[str]
+
+    filename: Optional[str]

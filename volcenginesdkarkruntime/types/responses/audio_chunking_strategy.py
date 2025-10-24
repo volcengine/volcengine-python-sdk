@@ -13,13 +13,18 @@ from __future__ import annotations
 
 from typing import Optional
 
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal
 
-__all__ = ["ResponseCaching"]
+from ..._models import BaseModel
+
+__all__ = ["AudioChunkingStrategy"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class AudioChunkingStrategy(BaseModel):
+    type: Literal["server_vad"]
 
-    prefix: Optional[bool]
+    prefix_padding_ms: Optional[int] = None
+
+    silence_duration_ms: Optional[int] = None
+
+    threshold: Optional[float] = None

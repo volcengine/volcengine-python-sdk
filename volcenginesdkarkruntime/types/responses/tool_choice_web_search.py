@@ -11,15 +11,12 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing_extensions import Literal
 
-from typing_extensions import Literal, TypedDict
+from ..._models import BaseModel
 
-__all__ = ["ResponseCaching"]
+__all__ = ["ToolChoiceWebSearch"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
-
-    prefix: Optional[bool]
+class ToolChoiceWebSearch(BaseModel):
+    type: Literal["web_search"]

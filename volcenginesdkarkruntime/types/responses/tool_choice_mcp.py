@@ -13,13 +13,19 @@ from __future__ import annotations
 
 from typing import Optional
 
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal
 
-__all__ = ["ResponseCaching"]
+from ..._models import BaseModel
+
+__all__ = ["ToolChoiceMcp"]
 
 
-class ResponseCaching(TypedDict, total=False):
-    type: Optional[Literal["disabled", "enabled"]]
-    """Whether to enable caching."""
+class ToolChoiceMcp(BaseModel):
+    type: Literal["mcp"]
+    """For MCP tools, the type is always `mcp`."""
 
-    prefix: Optional[bool]
+    server_label: str
+    """The label of the MCP server to use."""
+
+    name: Optional[str] = None
+    """The name of the tool to call on the server."""
