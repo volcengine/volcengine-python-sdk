@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -41,14 +40,15 @@ from ...types.responses.response_input_param import ResponseInputParam
 from ...types.responses.response_stream_event import ResponseStreamEvent
 from ...types.responses.response_text_config_param import ResponseTextConfigParam
 from ...types.responses.response_caching_param import ResponseCaching
-from ...types.shared import Reasoning,ReasoningEffort
-from ...types.shared_params import Reasoning,ReasoningEffort
+from ...types.shared_params import Reasoning
 from volcenginesdkarkruntime.types.shared_params.thinking import Thinking
 
 __all__ = ["Responses", "AsyncResponses"]
 
 
-def _add_beta_headers(extra_headers: Headers | None = None, tools: Iterable[ToolParam] | None = ()) -> Headers:
+def _add_beta_headers(
+    extra_headers: Headers | None = None, tools: Iterable[ToolParam] | None = ()
+) -> Headers:
     if tools is None:
         return extra_headers
     for tool_param in tools:
@@ -138,14 +138,15 @@ class Responses(SyncAPIResource):
         self,
         response_id: str,
         *,
-
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> Response:
         if not response_id:
-            raise ValueError(f"Expected a non-empty value for `response_id` but received {response_id!r}")
+            raise ValueError(
+                f"Expected a non-empty value for `response_id` but received {response_id!r}"
+            )
         return self._get(
             f"/responses/{response_id}",
             options=make_request_options(
@@ -169,12 +170,17 @@ class Responses(SyncAPIResource):
         timeout: float | httpx.Timeout | None = None,
     ) -> None:
         if not response_id:
-            raise ValueError(f"Expected a non-empty value for `response_id` but received {response_id!r}")
+            raise ValueError(
+                f"Expected a non-empty value for `response_id` but received {response_id!r}"
+            )
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._delete(
             f"/responses/{response_id}",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
             ),
             cast_to=type(None),
         )
@@ -214,6 +220,7 @@ class AsyncResponses(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | None = None,
+        reasoning: Optional[Reasoning] | None = None,
     ) -> Response | AsyncStream[ResponseStreamEvent]:
         extra_headers = _add_beta_headers(extra_headers, tools)
         resp = await self._post(
@@ -236,6 +243,7 @@ class AsyncResponses(AsyncAPIResource):
                 "top_p": top_p,
                 "max_tool_calls": max_tool_calls,
                 "expire_at": expire_at,
+                "reasoning": reasoning,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -251,17 +259,18 @@ class AsyncResponses(AsyncAPIResource):
         return resp
 
     async def retrieve(
-            self,
-            response_id: str,
-            *,
-
-            extra_headers: Headers | None = None,
-            extra_query: Query | None = None,
-            extra_body: Body | None = None,
-            timeout: float | httpx.Timeout | None = None,
+        self,
+        response_id: str,
+        *,
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None = None,
     ) -> Response:
         if not response_id:
-            raise ValueError(f"Expected a non-empty value for `response_id` but received {response_id!r}")
+            raise ValueError(
+                f"Expected a non-empty value for `response_id` but received {response_id!r}"
+            )
         return await self._get(
             f"/responses/{response_id}",
             options=make_request_options(
@@ -276,21 +285,26 @@ class AsyncResponses(AsyncAPIResource):
         )
 
     async def delete(
-            self,
-            response_id: str,
-            *,
-            extra_headers: Headers | None = None,
-            extra_query: Query | None = None,
-            extra_body: Body | None = None,
-            timeout: float | httpx.Timeout | None = None,
+        self,
+        response_id: str,
+        *,
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None = None,
     ) -> None:
         if not response_id:
-            raise ValueError(f"Expected a non-empty value for `response_id` but received {response_id!r}")
+            raise ValueError(
+                f"Expected a non-empty value for `response_id` but received {response_id!r}"
+            )
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._delete(
             f"/responses/{response_id}",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
             ),
             cast_to=type(None),
         )
