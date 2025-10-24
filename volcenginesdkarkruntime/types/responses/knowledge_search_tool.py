@@ -11,7 +11,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any, Dict, Optional
 
 from typing_extensions import Literal
 
@@ -36,10 +36,10 @@ class KnowledgeSearchTool(BaseModel):
     dense_weight: Optional[float] = None
     """Knowledge search dense_weight"""
 
-    doc_filter: Optional[dict[str, Any]] = None
+    doc_filter: Optional[Dict[str, Any]] = None
     """Knowledge search filter"""
 
-    ranking_options: Optional[dict[str, Any]] = None
+    ranking_options: Optional[Dict[str, Any]] = None
     """Knowledge search ranking options"""
 
     max_keyword: Optional[int] = None

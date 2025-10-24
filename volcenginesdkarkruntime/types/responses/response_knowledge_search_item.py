@@ -11,7 +11,7 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional
 
 from typing_extensions import Literal
 
@@ -23,7 +23,7 @@ __all__ = ["ResponseKnowledgeSearchItem"]
 class ResponseKnowledgeSearchItem(BaseModel):
     type: Literal["knowledge_search_call"]
 
-    queries: list[str]
+    queries: List[str]
 
     knowledge_resource_id: str
 
