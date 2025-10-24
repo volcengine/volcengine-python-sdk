@@ -41,6 +41,8 @@ from ...types.responses.response_input_param import ResponseInputParam
 from ...types.responses.response_stream_event import ResponseStreamEvent
 from ...types.responses.response_text_config_param import ResponseTextConfigParam
 from ...types.responses.response_caching_param import ResponseCaching
+from ...types.shared import Reasoning,ReasoningEffort
+from ...types.shared_params import Reasoning,ReasoningEffort
 from volcenginesdkarkruntime.types.shared_params.thinking import Thinking
 
 __all__ = ["Responses", "AsyncResponses"]
@@ -95,6 +97,7 @@ class Responses(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | None = None,
+        reasoning: Optional[Reasoning] | None = None,
     ) -> Response | Stream[ResponseStreamEvent]:
         extra_headers = _add_beta_headers(extra_headers, tools)
         resp = self._post(
@@ -117,6 +120,7 @@ class Responses(SyncAPIResource):
                 "top_p": top_p,
                 "max_tool_calls": max_tool_calls,
                 "expire_at": expire_at,
+                "reasoning": reasoning,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
