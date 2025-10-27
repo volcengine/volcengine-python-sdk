@@ -11,7 +11,7 @@
 
 from typing import Any, Dict, List, Optional
 
-from typing_extensions import Literal, Optional
+from typing_extensions import Literal
 
 from ..._models import BaseModel
 from .responses_output_text_annotation_cover_image import (
