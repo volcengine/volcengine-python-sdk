@@ -143,7 +143,7 @@ class Ark(SyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
 
-    def _get_endpoint_certificate(self, endpoint_id: str) -> tuple[key_agreement_client, str, str]:
+    def _get_endpoint_certificate(self, endpoint_id: str) -> Tuple[key_agreement_client, str, str, float]:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (
@@ -279,7 +279,7 @@ class AsyncArk(AsyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(bot_id, resource_type="bot")
 
-    def _get_endpoint_certificate(self, endpoint_id: str) -> tuple[key_agreement_client, str, str]:
+    def _get_endpoint_certificate(self, endpoint_id: str) -> Tuple[key_agreement_client, str, str, float]:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (
@@ -429,7 +429,7 @@ class E2ECertificateManager(object):
         base_url: str | URL = BASE_URL,
         api_key: str | None = None,
     ):
-        self._certificate_manager: Dict[str, Tuple[key_agreement_client, str, str]] = {}
+        self._certificate_manager: Dict[str, Tuple[key_agreement_client, str, str, float]] = {}
 
         # local cache prepare
         self._init_local_cert_cache()
@@ -522,7 +522,7 @@ class E2ECertificateManager(object):
                 cert_pem = None
                 with open(cert_file_path, "r") as f:
                     cert_pem = f.read()
-                ring, key = get_cert_info(cert_pem)
+                ring, key, _ = get_cert_info(cert_pem)
                 # check cert is complement with AICC/PCA
                 if (ring == "" or key == "") and not self._aicc_enabled:
                     return cert_pem
@@ -545,7 +545,7 @@ class E2ECertificateManager(object):
                     "failed to create certificate directory %s: %s\n" % (self._cert_storage_path, e)
                 )
 
-    def get(self, ep: str) -> tuple[key_agreement_client, str, str]:
+    def get(self, ep: str) -> Tuple[key_agreement_client, str, str, float]:
         if ep not in self._certificate_manager:
             cert_pem = self._load_cert_locally(ep)
             if cert_pem is None:
@@ -556,12 +556,13 @@ class E2ECertificateManager(object):
                 else:
                     cert_pem = self._load_cert_by_ak_sk(ep)
                 self._save_cert_to_file(ep, cert_pem)
-            ring, key = get_cert_info(cert_pem)
+            ring, key, exp_time = get_cert_info(cert_pem)
             self._certificate_manager[ep] = (
                 key_agreement_client(
                     certificate_pem_string=cert_pem
                 ),
                 ring,
                 key,
+                exp_time,
             )
         return self._certificate_manager[ep]

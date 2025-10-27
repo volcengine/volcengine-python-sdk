@@ -14,12 +14,18 @@ from typing import List, Optional
 
 from volcenginesdkarkruntime._models import BaseModel
 
-__all__ = ["SequentialImageGenerationOptions", "ImagesResponse"]
+__all__ = ["OptimizePromptOptions", "SequentialImageGenerationOptions", "ImagesResponse"]
+
+
+class OptimizePromptOptions(BaseModel):
+    thinking: Optional[str] = None
+    mode: Optional[str] = None
 
 
 class SequentialImageGenerationOptions(BaseModel):
     max_images: Optional[int] = None
     """ Maximum number of images to generate in this request; effective only when the multi-image feature is enabled """
+
 
 class Usage(BaseModel):
     generated_images: int

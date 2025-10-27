@@ -9,8 +9,9 @@
 # available at https://github.com/openai/openai-python/blob/main/LICENSE.
 #
 # This modified file is released under the same license.
+from typing import Optional
+from typing_extensions import Literal, TypeAlias
 
-from .images import OptimizePromptOptions, SequentialImageGenerationOptions, ImagesResponse
+__all__ = ["ReasoningEffort"]
 
-
-__all__ = ["OptimizePromptOptions", "SequentialImageGenerationOptions", "ImagesResponse"]
+ReasoningEffort: TypeAlias = Optional[Literal["minimal", "low", "medium", "high"]]
