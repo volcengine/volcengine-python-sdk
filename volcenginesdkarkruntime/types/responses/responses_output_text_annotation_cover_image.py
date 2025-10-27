@@ -9,7 +9,7 @@
 #
 # This modified file is released under the same license.
 
-from typing_extensions import Optional
+from typing import Optional
 
 from ..._models import BaseModel
 

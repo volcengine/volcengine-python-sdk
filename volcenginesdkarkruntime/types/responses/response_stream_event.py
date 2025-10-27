@@ -14,7 +14,6 @@ from typing import Union
 from typing_extensions import Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
-from .response_annotation_added_event import ResponseOutputTextAnnotationAddedEvent
 from .response_completed_event import ResponseCompletedEvent
 from .response_content_part_added_event import ResponseContentPartAddedEvent
 from .response_content_part_done_event import ResponseContentPartDoneEvent

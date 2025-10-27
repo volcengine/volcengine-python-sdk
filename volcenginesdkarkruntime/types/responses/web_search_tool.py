@@ -11,7 +11,7 @@
 
 from typing import List, Optional
 
-from typing_extensions import List, Literal, Optional
+from typing_extensions import Literal
 
 from ..._models import BaseModel
 from .user_location import UserLocation
