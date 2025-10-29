@@ -34,35 +34,50 @@ class ModifyNatGatewayAttributesRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'direct_mode': 'bool',
         'nat_gateway_id': 'str',
         'nat_gateway_name': 'str',
+        'smart_schedule_enabled': 'bool',
+        'smart_schedule_rule': 'str',
         'spec': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'direct_mode': 'DirectMode',
         'nat_gateway_id': 'NatGatewayId',
         'nat_gateway_name': 'NatGatewayName',
+        'smart_schedule_enabled': 'SmartScheduleEnabled',
+        'smart_schedule_rule': 'SmartScheduleRule',
         'spec': 'Spec'
     }
 
-    def __init__(self, description=None, nat_gateway_id=None, nat_gateway_name=None, spec=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, direct_mode=None, nat_gateway_id=None, nat_gateway_name=None, smart_schedule_enabled=None, smart_schedule_rule=None, spec=None, _configuration=None):  # noqa: E501
         """ModifyNatGatewayAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._direct_mode = None
         self._nat_gateway_id = None
         self._nat_gateway_name = None
+        self._smart_schedule_enabled = None
+        self._smart_schedule_rule = None
         self._spec = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if direct_mode is not None:
+            self.direct_mode = direct_mode
         self.nat_gateway_id = nat_gateway_id
         if nat_gateway_name is not None:
             self.nat_gateway_name = nat_gateway_name
+        if smart_schedule_enabled is not None:
+            self.smart_schedule_enabled = smart_schedule_enabled
+        if smart_schedule_rule is not None:
+            self.smart_schedule_rule = smart_schedule_rule
         if spec is not None:
             self.spec = spec
 
@@ -92,6 +107,27 @@ class ModifyNatGatewayAttributesRequest(object):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def direct_mode(self):
+        """Gets the direct_mode of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+
+
+        :return: The direct_mode of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._direct_mode
+
+    @direct_mode.setter
+    def direct_mode(self, direct_mode):
+        """Sets the direct_mode of this ModifyNatGatewayAttributesRequest.
+
+
+        :param direct_mode: The direct_mode of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._direct_mode = direct_mode
 
     @property
     def nat_gateway_id(self):
@@ -142,6 +178,48 @@ class ModifyNatGatewayAttributesRequest(object):
             raise ValueError("Invalid value for `nat_gateway_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._nat_gateway_name = nat_gateway_name
+
+    @property
+    def smart_schedule_enabled(self):
+        """Gets the smart_schedule_enabled of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+
+
+        :return: The smart_schedule_enabled of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._smart_schedule_enabled
+
+    @smart_schedule_enabled.setter
+    def smart_schedule_enabled(self, smart_schedule_enabled):
+        """Sets the smart_schedule_enabled of this ModifyNatGatewayAttributesRequest.
+
+
+        :param smart_schedule_enabled: The smart_schedule_enabled of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._smart_schedule_enabled = smart_schedule_enabled
+
+    @property
+    def smart_schedule_rule(self):
+        """Gets the smart_schedule_rule of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+
+
+        :return: The smart_schedule_rule of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._smart_schedule_rule
+
+    @smart_schedule_rule.setter
+    def smart_schedule_rule(self, smart_schedule_rule):
+        """Sets the smart_schedule_rule of this ModifyNatGatewayAttributesRequest.
+
+
+        :param smart_schedule_rule: The smart_schedule_rule of this ModifyNatGatewayAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._smart_schedule_rule = smart_schedule_rule
 
     @property
     def spec(self):
