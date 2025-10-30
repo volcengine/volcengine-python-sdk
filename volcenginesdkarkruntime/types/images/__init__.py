@@ -10,7 +10,7 @@
 #
 # This modified file is released under the same license.
 
-from .images import SequentialImageGenerationOptions, ImagesResponse
+from .images import OptimizePromptOptions, SequentialImageGenerationOptions, ImagesResponse
 
 
-__all__ = ["SequentialImageGenerationOptions", "ImagesResponse"]
+__all__ = ["OptimizePromptOptions", "SequentialImageGenerationOptions", "ImagesResponse"]
