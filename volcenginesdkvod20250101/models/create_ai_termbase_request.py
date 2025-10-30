@@ -35,7 +35,7 @@ class CreateAITermbaseRequest(object):
     swagger_types = {
         'description': 'str',
         'name': 'str',
-        'scenario': 'ScenarioForCreateAITermbaseInput',
+        'scenario': 'str',
         'source_language': 'str',
         'space_name': 'str',
         'target_language': 'str'
@@ -67,8 +67,7 @@ class CreateAITermbaseRequest(object):
         if description is not None:
             self.description = description
         self.name = name
-        if scenario is not None:
-            self.scenario = scenario
+        self.scenario = scenario
         self.source_language = source_language
         self.space_name = space_name
         if target_language is not None:
@@ -124,7 +123,7 @@ class CreateAITermbaseRequest(object):
 
 
         :return: The scenario of this CreateAITermbaseRequest.  # noqa: E501
-        :rtype: ScenarioForCreateAITermbaseInput
+        :rtype: str
         """
         return self._scenario
 
@@ -134,8 +133,10 @@ class CreateAITermbaseRequest(object):
 
 
         :param scenario: The scenario of this CreateAITermbaseRequest.  # noqa: E501
-        :type: ScenarioForCreateAITermbaseInput
+        :type: str
         """
+        if self._configuration.client_side_validation and scenario is None:
+            raise ValueError("Invalid value for `scenario`, must not be `None`")  # noqa: E501
 
         self._scenario = scenario
 

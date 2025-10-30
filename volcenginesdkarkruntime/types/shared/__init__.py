@@ -17,3 +17,6 @@ from .response_format_json_object import (
 from .response_format_json_schema import (
     ResponseFormatJSONSchema as ResponseFormatJSONSchema,
 )
+from .reasoning import Reasoning as Reasoning
+
+from .reasoning_effort import ReasoningEffort as ReasoningEffort

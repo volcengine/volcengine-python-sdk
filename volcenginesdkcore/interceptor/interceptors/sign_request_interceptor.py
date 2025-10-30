@@ -1,3 +1,4 @@
+# coding: utf-8
 import json
 
 from volcenginesdkcore.signv4 import SignerV4
