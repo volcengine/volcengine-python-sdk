@@ -35,12 +35,14 @@ class DataForGetFingerprintServiceOutput(object):
     swagger_types = {
         'agent_id': 'str',
         'agent_tags': 'list[str]',
+        'boot_state': 'str',
         'checksum': 'str',
         'command': 'str',
         'eip_address': 'str',
         'hostname': 'str',
         'id': 'str',
         'name': 'str',
+        'on_boot': 'str',
         'primary_ip_address': 'str',
         'restart': 'str',
         'start_time': 'int',
@@ -52,12 +54,14 @@ class DataForGetFingerprintServiceOutput(object):
     attribute_map = {
         'agent_id': 'AgentID',
         'agent_tags': 'AgentTags',
+        'boot_state': 'BootState',
         'checksum': 'Checksum',
         'command': 'Command',
         'eip_address': 'EipAddress',
         'hostname': 'Hostname',
         'id': 'ID',
         'name': 'Name',
+        'on_boot': 'OnBoot',
         'primary_ip_address': 'PrimaryIpAddress',
         'restart': 'Restart',
         'start_time': 'StartTime',
@@ -66,7 +70,7 @@ class DataForGetFingerprintServiceOutput(object):
         'working_directory': 'WorkingDirectory'
     }
 
-    def __init__(self, agent_id=None, agent_tags=None, checksum=None, command=None, eip_address=None, hostname=None, id=None, name=None, primary_ip_address=None, restart=None, start_time=None, type=None, update_time=None, working_directory=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, agent_tags=None, boot_state=None, checksum=None, command=None, eip_address=None, hostname=None, id=None, name=None, on_boot=None, primary_ip_address=None, restart=None, start_time=None, type=None, update_time=None, working_directory=None, _configuration=None):  # noqa: E501
         """DataForGetFingerprintServiceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,12 +78,14 @@ class DataForGetFingerprintServiceOutput(object):
 
         self._agent_id = None
         self._agent_tags = None
+        self._boot_state = None
         self._checksum = None
         self._command = None
         self._eip_address = None
         self._hostname = None
         self._id = None
         self._name = None
+        self._on_boot = None
         self._primary_ip_address = None
         self._restart = None
         self._start_time = None
@@ -92,6 +98,8 @@ class DataForGetFingerprintServiceOutput(object):
             self.agent_id = agent_id
         if agent_tags is not None:
             self.agent_tags = agent_tags
+        if boot_state is not None:
+            self.boot_state = boot_state
         if checksum is not None:
             self.checksum = checksum
         if command is not None:
@@ -104,6 +112,8 @@ class DataForGetFingerprintServiceOutput(object):
             self.id = id
         if name is not None:
             self.name = name
+        if on_boot is not None:
+            self.on_boot = on_boot
         if primary_ip_address is not None:
             self.primary_ip_address = primary_ip_address
         if restart is not None:
@@ -158,6 +168,27 @@ class DataForGetFingerprintServiceOutput(object):
         """
 
         self._agent_tags = agent_tags
+
+    @property
+    def boot_state(self):
+        """Gets the boot_state of this DataForGetFingerprintServiceOutput.  # noqa: E501
+
+
+        :return: The boot_state of this DataForGetFingerprintServiceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._boot_state
+
+    @boot_state.setter
+    def boot_state(self, boot_state):
+        """Sets the boot_state of this DataForGetFingerprintServiceOutput.
+
+
+        :param boot_state: The boot_state of this DataForGetFingerprintServiceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._boot_state = boot_state
 
     @property
     def checksum(self):
@@ -284,6 +315,27 @@ class DataForGetFingerprintServiceOutput(object):
         """
 
         self._name = name
+
+    @property
+    def on_boot(self):
+        """Gets the on_boot of this DataForGetFingerprintServiceOutput.  # noqa: E501
+
+
+        :return: The on_boot of this DataForGetFingerprintServiceOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._on_boot
+
+    @on_boot.setter
+    def on_boot(self, on_boot):
+        """Sets the on_boot of this DataForGetFingerprintServiceOutput.
+
+
+        :param on_boot: The on_boot of this DataForGetFingerprintServiceOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._on_boot = on_boot
 
     @property
     def primary_ip_address(self):

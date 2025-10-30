@@ -35,6 +35,10 @@ class CheckInstallAgentClientResponse(object):
     swagger_types = {
         'auto_agent_ids': 'list[str]',
         'auto_count': 'int',
+        'auto_enable_count': 'int',
+        'auto_enable_ids': 'list[str]',
+        'auto_install_and_enable_count': 'int',
+        'auto_install_and_enable_ids': 'list[str]',
         'current_quota': 'CurrentQuotaForCheckInstallAgentClientOutput',
         'hit_limit': 'bool',
         'manual_count': 'int',
@@ -44,13 +48,17 @@ class CheckInstallAgentClientResponse(object):
     attribute_map = {
         'auto_agent_ids': 'AutoAgentIDs',
         'auto_count': 'AutoCount',
+        'auto_enable_count': 'AutoEnableCount',
+        'auto_enable_ids': 'AutoEnableIDs',
+        'auto_install_and_enable_count': 'AutoInstallAndEnableCount',
+        'auto_install_and_enable_ids': 'AutoInstallAndEnableIDs',
         'current_quota': 'CurrentQuota',
         'hit_limit': 'HitLimit',
         'manual_count': 'ManualCount',
         'request_quota': 'RequestQuota'
     }
 
-    def __init__(self, auto_agent_ids=None, auto_count=None, current_quota=None, hit_limit=None, manual_count=None, request_quota=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_agent_ids=None, auto_count=None, auto_enable_count=None, auto_enable_ids=None, auto_install_and_enable_count=None, auto_install_and_enable_ids=None, current_quota=None, hit_limit=None, manual_count=None, request_quota=None, _configuration=None):  # noqa: E501
         """CheckInstallAgentClientResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +66,10 @@ class CheckInstallAgentClientResponse(object):
 
         self._auto_agent_ids = None
         self._auto_count = None
+        self._auto_enable_count = None
+        self._auto_enable_ids = None
+        self._auto_install_and_enable_count = None
+        self._auto_install_and_enable_ids = None
         self._current_quota = None
         self._hit_limit = None
         self._manual_count = None
@@ -68,6 +80,14 @@ class CheckInstallAgentClientResponse(object):
             self.auto_agent_ids = auto_agent_ids
         if auto_count is not None:
             self.auto_count = auto_count
+        if auto_enable_count is not None:
+            self.auto_enable_count = auto_enable_count
+        if auto_enable_ids is not None:
+            self.auto_enable_ids = auto_enable_ids
+        if auto_install_and_enable_count is not None:
+            self.auto_install_and_enable_count = auto_install_and_enable_count
+        if auto_install_and_enable_ids is not None:
+            self.auto_install_and_enable_ids = auto_install_and_enable_ids
         if current_quota is not None:
             self.current_quota = current_quota
         if hit_limit is not None:
@@ -118,6 +138,90 @@ class CheckInstallAgentClientResponse(object):
         """
 
         self._auto_count = auto_count
+
+    @property
+    def auto_enable_count(self):
+        """Gets the auto_enable_count of this CheckInstallAgentClientResponse.  # noqa: E501
+
+
+        :return: The auto_enable_count of this CheckInstallAgentClientResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_enable_count
+
+    @auto_enable_count.setter
+    def auto_enable_count(self, auto_enable_count):
+        """Sets the auto_enable_count of this CheckInstallAgentClientResponse.
+
+
+        :param auto_enable_count: The auto_enable_count of this CheckInstallAgentClientResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_enable_count = auto_enable_count
+
+    @property
+    def auto_enable_ids(self):
+        """Gets the auto_enable_ids of this CheckInstallAgentClientResponse.  # noqa: E501
+
+
+        :return: The auto_enable_ids of this CheckInstallAgentClientResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._auto_enable_ids
+
+    @auto_enable_ids.setter
+    def auto_enable_ids(self, auto_enable_ids):
+        """Sets the auto_enable_ids of this CheckInstallAgentClientResponse.
+
+
+        :param auto_enable_ids: The auto_enable_ids of this CheckInstallAgentClientResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._auto_enable_ids = auto_enable_ids
+
+    @property
+    def auto_install_and_enable_count(self):
+        """Gets the auto_install_and_enable_count of this CheckInstallAgentClientResponse.  # noqa: E501
+
+
+        :return: The auto_install_and_enable_count of this CheckInstallAgentClientResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_install_and_enable_count
+
+    @auto_install_and_enable_count.setter
+    def auto_install_and_enable_count(self, auto_install_and_enable_count):
+        """Sets the auto_install_and_enable_count of this CheckInstallAgentClientResponse.
+
+
+        :param auto_install_and_enable_count: The auto_install_and_enable_count of this CheckInstallAgentClientResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_install_and_enable_count = auto_install_and_enable_count
+
+    @property
+    def auto_install_and_enable_ids(self):
+        """Gets the auto_install_and_enable_ids of this CheckInstallAgentClientResponse.  # noqa: E501
+
+
+        :return: The auto_install_and_enable_ids of this CheckInstallAgentClientResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._auto_install_and_enable_ids
+
+    @auto_install_and_enable_ids.setter
+    def auto_install_and_enable_ids(self, auto_install_and_enable_ids):
+        """Sets the auto_install_and_enable_ids of this CheckInstallAgentClientResponse.
+
+
+        :param auto_install_and_enable_ids: The auto_install_and_enable_ids of this CheckInstallAgentClientResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._auto_install_and_enable_ids = auto_install_and_enable_ids
 
     @property
     def current_quota(self):

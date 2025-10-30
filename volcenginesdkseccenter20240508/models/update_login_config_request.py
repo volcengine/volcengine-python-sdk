@@ -41,6 +41,7 @@ class UpdateLoginConfigRequest(object):
         'leaf_group_ids': 'list[str]',
         'legal_user': 'list[str]',
         'login_config_rules': 'list[str]',
+        'login_locations': 'list[LoginLocationForUpdateLoginConfigInput]',
         'time_intervals': 'list[str]',
         'top_group_id': 'str'
     }
@@ -54,11 +55,12 @@ class UpdateLoginConfigRequest(object):
         'leaf_group_ids': 'LeafGroupIDs',
         'legal_user': 'LegalUser',
         'login_config_rules': 'LoginConfigRules',
+        'login_locations': 'LoginLocations',
         'time_intervals': 'TimeIntervals',
         'top_group_id': 'TopGroupID'
     }
 
-    def __init__(self, agent_id_list=None, description=None, id=None, ip_list=None, if_all_host=None, leaf_group_ids=None, legal_user=None, login_config_rules=None, time_intervals=None, top_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id_list=None, description=None, id=None, ip_list=None, if_all_host=None, leaf_group_ids=None, legal_user=None, login_config_rules=None, login_locations=None, time_intervals=None, top_group_id=None, _configuration=None):  # noqa: E501
         """UpdateLoginConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class UpdateLoginConfigRequest(object):
         self._leaf_group_ids = None
         self._legal_user = None
         self._login_config_rules = None
+        self._login_locations = None
         self._time_intervals = None
         self._top_group_id = None
         self.discriminator = None
@@ -91,6 +94,8 @@ class UpdateLoginConfigRequest(object):
             self.legal_user = legal_user
         if login_config_rules is not None:
             self.login_config_rules = login_config_rules
+        if login_locations is not None:
+            self.login_locations = login_locations
         if time_intervals is not None:
             self.time_intervals = time_intervals
         if top_group_id is not None:
@@ -265,6 +270,27 @@ class UpdateLoginConfigRequest(object):
         """
 
         self._login_config_rules = login_config_rules
+
+    @property
+    def login_locations(self):
+        """Gets the login_locations of this UpdateLoginConfigRequest.  # noqa: E501
+
+
+        :return: The login_locations of this UpdateLoginConfigRequest.  # noqa: E501
+        :rtype: list[LoginLocationForUpdateLoginConfigInput]
+        """
+        return self._login_locations
+
+    @login_locations.setter
+    def login_locations(self, login_locations):
+        """Sets the login_locations of this UpdateLoginConfigRequest.
+
+
+        :param login_locations: The login_locations of this UpdateLoginConfigRequest.  # noqa: E501
+        :type: list[LoginLocationForUpdateLoginConfigInput]
+        """
+
+        self._login_locations = login_locations
 
     @property
     def time_intervals(self):

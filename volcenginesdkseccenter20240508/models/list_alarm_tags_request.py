@@ -33,9 +33,9 @@ class ListAlarmTagsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'alarm_id_list': 'str',
+        'alarm_id_list': 'list[str]',
         'alarm_type': 'str',
-        'alert_tags': 'str',
+        'alert_tags': 'list[str]',
         'top_group_id': 'str'
     }
 
@@ -73,7 +73,7 @@ class ListAlarmTagsRequest(object):
 
 
         :return: The alarm_id_list of this ListAlarmTagsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._alarm_id_list
 
@@ -83,7 +83,7 @@ class ListAlarmTagsRequest(object):
 
 
         :param alarm_id_list: The alarm_id_list of this ListAlarmTagsRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._alarm_id_list = alarm_id_list
@@ -115,7 +115,7 @@ class ListAlarmTagsRequest(object):
 
 
         :return: The alert_tags of this ListAlarmTagsRequest.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._alert_tags
 
@@ -125,7 +125,7 @@ class ListAlarmTagsRequest(object):
 
 
         :param alert_tags: The alert_tags of this ListAlarmTagsRequest.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._alert_tags = alert_tags
