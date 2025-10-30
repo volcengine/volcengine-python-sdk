@@ -36,6 +36,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         'access_key': 'str',
         'account_id': 'str',
         'cpu': 'int',
+        'created_at': 'str',
         'ecs_update_at': 'str',
         'eip_address': 'str',
         'host_name': 'str',
@@ -48,6 +49,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         'platform_version': 'str',
         'primary_ip_address': 'str',
         'region': 'str',
+        'security_enhancement_strategy': 'str',
         'status': 'str',
         'visibility': 'str',
         'vpc_id': 'str',
@@ -59,6 +61,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         'access_key': 'AccessKey',
         'account_id': 'AccountID',
         'cpu': 'Cpu',
+        'created_at': 'CreatedAt',
         'ecs_update_at': 'ECSUpdateAt',
         'eip_address': 'EipAddress',
         'host_name': 'HostName',
@@ -71,6 +74,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         'platform_version': 'PlatformVersion',
         'primary_ip_address': 'PrimaryIpAddress',
         'region': 'Region',
+        'security_enhancement_strategy': 'SecurityEnhancementStrategy',
         'status': 'Status',
         'visibility': 'Visibility',
         'vpc_id': 'VpcId',
@@ -78,7 +82,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, access_key=None, account_id=None, cpu=None, ecs_update_at=None, eip_address=None, host_name=None, ip_list=None, instance_name=None, mem=None, os_name=None, os_type=None, platform=None, platform_version=None, primary_ip_address=None, region=None, status=None, visibility=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key=None, account_id=None, cpu=None, created_at=None, ecs_update_at=None, eip_address=None, host_name=None, ip_list=None, instance_name=None, mem=None, os_name=None, os_type=None, platform=None, platform_version=None, primary_ip_address=None, region=None, security_enhancement_strategy=None, status=None, visibility=None, vpc_id=None, vpc_name=None, zone_id=None, _configuration=None):  # noqa: E501
         """EcsInstanceForListRaspConfigAgentInfosOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +91,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         self._access_key = None
         self._account_id = None
         self._cpu = None
+        self._created_at = None
         self._ecs_update_at = None
         self._eip_address = None
         self._host_name = None
@@ -99,6 +104,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         self._platform_version = None
         self._primary_ip_address = None
         self._region = None
+        self._security_enhancement_strategy = None
         self._status = None
         self._visibility = None
         self._vpc_id = None
@@ -112,6 +118,8 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
             self.account_id = account_id
         if cpu is not None:
             self.cpu = cpu
+        if created_at is not None:
+            self.created_at = created_at
         if ecs_update_at is not None:
             self.ecs_update_at = ecs_update_at
         if eip_address is not None:
@@ -136,6 +144,8 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
             self.primary_ip_address = primary_ip_address
         if region is not None:
             self.region = region
+        if security_enhancement_strategy is not None:
+            self.security_enhancement_strategy = security_enhancement_strategy
         if status is not None:
             self.status = status
         if visibility is not None:
@@ -209,6 +219,27 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         """
 
         self._cpu = cpu
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this EcsInstanceForListRaspConfigAgentInfosOutput.  # noqa: E501
+
+
+        :return: The created_at of this EcsInstanceForListRaspConfigAgentInfosOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this EcsInstanceForListRaspConfigAgentInfosOutput.
+
+
+        :param created_at: The created_at of this EcsInstanceForListRaspConfigAgentInfosOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
 
     @property
     def ecs_update_at(self):
@@ -461,6 +492,27 @@ class EcsInstanceForListRaspConfigAgentInfosOutput(object):
         """
 
         self._region = region
+
+    @property
+    def security_enhancement_strategy(self):
+        """Gets the security_enhancement_strategy of this EcsInstanceForListRaspConfigAgentInfosOutput.  # noqa: E501
+
+
+        :return: The security_enhancement_strategy of this EcsInstanceForListRaspConfigAgentInfosOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._security_enhancement_strategy
+
+    @security_enhancement_strategy.setter
+    def security_enhancement_strategy(self, security_enhancement_strategy):
+        """Sets the security_enhancement_strategy of this EcsInstanceForListRaspConfigAgentInfosOutput.
+
+
+        :param security_enhancement_strategy: The security_enhancement_strategy of this EcsInstanceForListRaspConfigAgentInfosOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._security_enhancement_strategy = security_enhancement_strategy
 
     @property
     def status(self):
