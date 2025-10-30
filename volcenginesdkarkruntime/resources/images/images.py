@@ -21,10 +21,11 @@ from ..._types import NOT_GIVEN, NotGiven
 from ..._base_client import make_request_options
 from ..._utils._utils import apikey_required, async_apikey_required
 from ..._resource import SyncAPIResource, AsyncAPIResource
-from ...types.images import SequentialImageGenerationOptions, ImagesResponse
+from ...types.images import OptimizePromptOptions, SequentialImageGenerationOptions, ImagesResponse
 from ...types.images.image_gen_stream_event import ImageGenStreamEvent
 from ..._types import Body, Query, Headers
 from ..._streaming import Stream
+from ...types.images.images import OptimizePromptOptions
 
 
 class Images(SyncAPIResource):
@@ -41,6 +42,7 @@ class Images(SyncAPIResource):
         guidance_scale: float | None = None,
         watermark: bool | None = None,
         optimize_prompt: bool | None = None,
+        optimize_prompt_options: OptimizePromptOptions | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -72,6 +74,7 @@ class Images(SyncAPIResource):
         guidance_scale: float | None = None,
         watermark: bool | None = None,
         optimize_prompt: bool | None = None,
+        optimize_prompt_options: OptimizePromptOptions | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -95,6 +98,7 @@ class Images(SyncAPIResource):
         guidance_scale: float | None = None,
         watermark: bool | None = None,
         optimize_prompt: bool | None = None,
+        optimize_prompt_options: OptimizePromptOptions | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -118,6 +122,7 @@ class Images(SyncAPIResource):
         guidance_scale: float | None = None,
         watermark: bool | None = None,
         optimize_prompt: bool | None = None,
+        optimize_prompt_options: OptimizePromptOptions | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -138,6 +143,10 @@ class Images(SyncAPIResource):
                 "guidance_scale": guidance_scale,
                 "watermark": watermark,
                 "optimize_prompt": optimize_prompt,
+                "optimize_prompt_options": (
+                    optimize_prompt_options.model_dump(mode="json")
+                    if optimize_prompt_options is not None else None
+                ),
                 "sequential_image_generation": sequential_image_generation,
                 "sequential_image_generation_options": (
                     sequential_image_generation_options.model_dump(mode="json")
@@ -162,70 +171,73 @@ class Images(SyncAPIResource):
 class AsyncImages(AsyncAPIResource):
     @overload
     async def generate(
-            self,
-            *,
-            model: str,
-            prompt: str,
-            image: str | list[str] | None = None,
-            response_format: str | None = None,
-            size: str | None = None,
-            seed: int | None = None,
-            guidance_scale: float | None = None,
-            watermark: bool | None = None,
-            optimize_prompt: bool | None = None,
-            extra_headers: Headers | None = None,
-            extra_query: Query | None = None,
-            extra_body: Body | None = None,
-            timeout: float | httpx.Timeout | None = None,
-            sequential_image_generation: str | None = None,
-            sequential_image_generation_options: SequentialImageGenerationOptions | None = None,
-            stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        self,
+        *,
+        model: str,
+        prompt: str,
+        image: str | list[str] | None = None,
+        response_format: str | None = None,
+        size: str | None = None,
+        seed: int | None = None,
+        guidance_scale: float | None = None,
+        watermark: bool | None = None,
+        optimize_prompt: bool | None = None,
+        optimize_prompt_options: OptimizePromptOptions | None = None,
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None = None,
+        sequential_image_generation: str | None = None,
+        sequential_image_generation_options: SequentialImageGenerationOptions | None = None,
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
     ) -> ImagesResponse:
         ...
 
     @overload
     async def generate(
-            self,
-            *,
-            model: str,
-            prompt: str,
-            image: str | list[str] | None = None,
-            response_format: str | None = None,
-            size: str | None = None,
-            seed: int | None = None,
-            guidance_scale: float | None = None,
-            watermark: bool | None = None,
-            optimize_prompt: bool | None = None,
-            extra_headers: Headers | None = None,
-            extra_query: Query | None = None,
-            extra_body: Body | None = None,
-            timeout: float | httpx.Timeout | None = None,
-            sequential_image_generation: str | None = None,
-            sequential_image_generation_options: SequentialImageGenerationOptions | None = None,
-            stream: Literal[True],
+        self,
+        *,
+        model: str,
+        prompt: str,
+        image: str | list[str] | None = None,
+        response_format: str | None = None,
+        size: str | None = None,
+        seed: int | None = None,
+        guidance_scale: float | None = None,
+        watermark: bool | None = None,
+        optimize_prompt: bool | None = None,
+        optimize_prompt_options: OptimizePromptOptions | None = None,
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None = None,
+        sequential_image_generation: str | None = None,
+        sequential_image_generation_options: SequentialImageGenerationOptions | None = None,
+        stream: Literal[True],
     ) -> Stream[ImageGenStreamEvent]:
         ...
 
     @overload
     async def generate(
-            self,
-            *,
-            model: str,
-            prompt: str,
-            image: str | list[str] | None = None,
-            response_format: str | None = None,
-            size: str | None = None,
-            seed: int | None = None,
-            guidance_scale: float | None = None,
-            watermark: bool | None = None,
-            optimize_prompt: bool | None = None,
-            extra_headers: Headers | None = None,
-            extra_query: Query | None = None,
-            extra_body: Body | None = None,
-            timeout: float | httpx.Timeout | None = None,
-            sequential_image_generation: str | None = None,
-            sequential_image_generation_options: SequentialImageGenerationOptions | None = None,
-            stream: bool,
+        self,
+        *,
+        model: str,
+        prompt: str,
+        image: str | list[str] | None = None,
+        response_format: str | None = None,
+        size: str | None = None,
+        seed: int | None = None,
+        guidance_scale: float | None = None,
+        watermark: bool | None = None,
+        optimize_prompt: bool | None = None,
+        optimize_prompt_options: OptimizePromptOptions | None = None,
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None = None,
+        sequential_image_generation: str | None = None,
+        sequential_image_generation_options: SequentialImageGenerationOptions | None = None,
+        stream: bool,
     ) -> ImagesResponse | Stream[ImageGenStreamEvent]:
         ...
 
@@ -242,6 +254,7 @@ class AsyncImages(AsyncAPIResource):
         guidance_scale: float | None = None,
         watermark: bool | None = None,
         optimize_prompt: bool | None = None,
+        optimize_prompt_options: OptimizePromptOptions | None = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -262,6 +275,10 @@ class AsyncImages(AsyncAPIResource):
                 "guidance_scale": guidance_scale,
                 "watermark": watermark,
                 "optimize_prompt": optimize_prompt,
+                "optimize_prompt_options": (
+                    optimize_prompt_options.model_dump(mode="json")
+                    if optimize_prompt_options is not None else None
+                ),
                 "sequential_image_generation": sequential_image_generation,
                 "sequential_image_generation_options": (
                     sequential_image_generation_options.model_dump(mode="json")
