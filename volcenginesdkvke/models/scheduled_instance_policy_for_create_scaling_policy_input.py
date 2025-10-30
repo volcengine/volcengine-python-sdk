@@ -34,6 +34,7 @@ class ScheduledInstancePolicyForCreateScalingPolicyInput(object):
     """
     swagger_types = {
         'auto_release_time': 'str',
+        'best_effort': 'bool',
         'delivery_type': 'str',
         'elastic_scheduled_instance_type': 'str',
         'end_delivery_time': 'str',
@@ -42,19 +43,21 @@ class ScheduledInstancePolicyForCreateScalingPolicyInput(object):
 
     attribute_map = {
         'auto_release_time': 'AutoReleaseTime',
+        'best_effort': 'BestEffort',
         'delivery_type': 'DeliveryType',
         'elastic_scheduled_instance_type': 'ElasticScheduledInstanceType',
         'end_delivery_time': 'EndDeliveryTime',
         'start_delivery_time': 'StartDeliveryTime'
     }
 
-    def __init__(self, auto_release_time=None, delivery_type=None, elastic_scheduled_instance_type=None, end_delivery_time=None, start_delivery_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_release_time=None, best_effort=None, delivery_type=None, elastic_scheduled_instance_type=None, end_delivery_time=None, start_delivery_time=None, _configuration=None):  # noqa: E501
         """ScheduledInstancePolicyForCreateScalingPolicyInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_release_time = None
+        self._best_effort = None
         self._delivery_type = None
         self._elastic_scheduled_instance_type = None
         self._end_delivery_time = None
@@ -63,6 +66,8 @@ class ScheduledInstancePolicyForCreateScalingPolicyInput(object):
 
         if auto_release_time is not None:
             self.auto_release_time = auto_release_time
+        if best_effort is not None:
+            self.best_effort = best_effort
         if delivery_type is not None:
             self.delivery_type = delivery_type
         if elastic_scheduled_instance_type is not None:
@@ -92,6 +97,27 @@ class ScheduledInstancePolicyForCreateScalingPolicyInput(object):
         """
 
         self._auto_release_time = auto_release_time
+
+    @property
+    def best_effort(self):
+        """Gets the best_effort of this ScheduledInstancePolicyForCreateScalingPolicyInput.  # noqa: E501
+
+
+        :return: The best_effort of this ScheduledInstancePolicyForCreateScalingPolicyInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._best_effort
+
+    @best_effort.setter
+    def best_effort(self, best_effort):
+        """Sets the best_effort of this ScheduledInstancePolicyForCreateScalingPolicyInput.
+
+
+        :param best_effort: The best_effort of this ScheduledInstancePolicyForCreateScalingPolicyInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._best_effort = best_effort
 
     @property
     def delivery_type(self):

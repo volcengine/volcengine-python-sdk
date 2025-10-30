@@ -48,6 +48,7 @@ class DataForGetFingerprintProcessOutput(object):
         'hostname': 'str',
         'id': 'str',
         'integrity': 'bool',
+        'pexe': 'str',
         'pid': 'str',
         'ppid': 'str',
         'primary_ip_address': 'str',
@@ -74,6 +75,7 @@ class DataForGetFingerprintProcessOutput(object):
         'hostname': 'Hostname',
         'id': 'ID',
         'integrity': 'Integrity',
+        'pexe': 'Pexe',
         'pid': 'Pid',
         'ppid': 'Ppid',
         'primary_ip_address': 'PrimaryIpAddress',
@@ -84,7 +86,7 @@ class DataForGetFingerprintProcessOutput(object):
         'username': 'Username'
     }
 
-    def __init__(self, agent_id=None, agent_tags=None, checksum=None, cmdline=None, comm=None, common=None, container_id=None, container_name=None, eip_address=None, euid=None, eusername=None, exe=None, hostname=None, id=None, integrity=None, pid=None, ppid=None, primary_ip_address=None, start_time=None, state=None, uid=None, update_time=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, agent_tags=None, checksum=None, cmdline=None, comm=None, common=None, container_id=None, container_name=None, eip_address=None, euid=None, eusername=None, exe=None, hostname=None, id=None, integrity=None, pexe=None, pid=None, ppid=None, primary_ip_address=None, start_time=None, state=None, uid=None, update_time=None, username=None, _configuration=None):  # noqa: E501
         """DataForGetFingerprintProcessOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -105,6 +107,7 @@ class DataForGetFingerprintProcessOutput(object):
         self._hostname = None
         self._id = None
         self._integrity = None
+        self._pexe = None
         self._pid = None
         self._ppid = None
         self._primary_ip_address = None
@@ -145,6 +148,8 @@ class DataForGetFingerprintProcessOutput(object):
             self.id = id
         if integrity is not None:
             self.integrity = integrity
+        if pexe is not None:
+            self.pexe = pexe
         if pid is not None:
             self.pid = pid
         if ppid is not None:
@@ -476,6 +481,27 @@ class DataForGetFingerprintProcessOutput(object):
         """
 
         self._integrity = integrity
+
+    @property
+    def pexe(self):
+        """Gets the pexe of this DataForGetFingerprintProcessOutput.  # noqa: E501
+
+
+        :return: The pexe of this DataForGetFingerprintProcessOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pexe
+
+    @pexe.setter
+    def pexe(self, pexe):
+        """Sets the pexe of this DataForGetFingerprintProcessOutput.
+
+
+        :param pexe: The pexe of this DataForGetFingerprintProcessOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pexe = pexe
 
     @property
     def pid(self):

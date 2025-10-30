@@ -27,6 +27,9 @@ class Content(BaseModel):
     last_frame_url: str
     """The URL of the last frame of the generated video, if any."""
 
+    file_url: str
+    """The URL of the generated file, if any."""
+
 
 class ContentGenerationError(BaseModel):
     message: str
@@ -54,6 +57,18 @@ class ContentGenerationTask(BaseModel):
 
     usage: Usage
     """The usage information for the task."""
+
+    subdivisionlevel: str
+    """The subdivision level of the task."""
+
+    fileformat: str
+    """The file format of the generated content."""
+
+    frames: int
+    """The number of frames in the generated content."""
+
+    framespersecond: int
+    """The number of frames per second in the generated content."""
 
     created_at: int
     """The Unix timestamp when the task was created."""

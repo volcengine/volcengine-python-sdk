@@ -33,43 +33,51 @@ class DescribeNLBServerGroupsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'instance_ids': 'list[str]',
         'max_results': 'int',
         'next_token': 'str',
         'project_name': 'str',
         'server_group_ids': 'list[str]',
         'server_group_name': 'str',
+        'server_ips': 'list[str]',
         'tag_filters': 'list[TagFilterForDescribeNLBServerGroupsInput]',
         'type': 'str',
         'vpc_id': 'str'
     }
 
     attribute_map = {
+        'instance_ids': 'InstanceIds',
         'max_results': 'MaxResults',
         'next_token': 'NextToken',
         'project_name': 'ProjectName',
         'server_group_ids': 'ServerGroupIds',
         'server_group_name': 'ServerGroupName',
+        'server_ips': 'ServerIps',
         'tag_filters': 'TagFilters',
         'type': 'Type',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, max_results=None, next_token=None, project_name=None, server_group_ids=None, server_group_name=None, tag_filters=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_ids=None, max_results=None, next_token=None, project_name=None, server_group_ids=None, server_group_name=None, server_ips=None, tag_filters=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeNLBServerGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._instance_ids = None
         self._max_results = None
         self._next_token = None
         self._project_name = None
         self._server_group_ids = None
         self._server_group_name = None
+        self._server_ips = None
         self._tag_filters = None
         self._type = None
         self._vpc_id = None
         self.discriminator = None
 
+        if instance_ids is not None:
+            self.instance_ids = instance_ids
         if max_results is not None:
             self.max_results = max_results
         if next_token is not None:
@@ -80,12 +88,35 @@ class DescribeNLBServerGroupsRequest(object):
             self.server_group_ids = server_group_ids
         if server_group_name is not None:
             self.server_group_name = server_group_name
+        if server_ips is not None:
+            self.server_ips = server_ips
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if type is not None:
             self.type = type
         if vpc_id is not None:
             self.vpc_id = vpc_id
+
+    @property
+    def instance_ids(self):
+        """Gets the instance_ids of this DescribeNLBServerGroupsRequest.  # noqa: E501
+
+
+        :return: The instance_ids of this DescribeNLBServerGroupsRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_ids
+
+    @instance_ids.setter
+    def instance_ids(self, instance_ids):
+        """Sets the instance_ids of this DescribeNLBServerGroupsRequest.
+
+
+        :param instance_ids: The instance_ids of this DescribeNLBServerGroupsRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_ids = instance_ids
 
     @property
     def max_results(self):
@@ -191,6 +222,27 @@ class DescribeNLBServerGroupsRequest(object):
         """
 
         self._server_group_name = server_group_name
+
+    @property
+    def server_ips(self):
+        """Gets the server_ips of this DescribeNLBServerGroupsRequest.  # noqa: E501
+
+
+        :return: The server_ips of this DescribeNLBServerGroupsRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._server_ips
+
+    @server_ips.setter
+    def server_ips(self, server_ips):
+        """Sets the server_ips of this DescribeNLBServerGroupsRequest.
+
+
+        :param server_ips: The server_ips of this DescribeNLBServerGroupsRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._server_ips = server_ips
 
     @property
     def tag_filters(self):

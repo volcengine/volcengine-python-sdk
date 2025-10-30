@@ -33,24 +33,76 @@ class ProcessConfigForSubmitAITranslationWorkflowInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'disable_smart_subtitle_rewrite': 'bool',
+        'disable_subtitle_punct_split': 'bool',
         'suspension_stage_list': 'list[str]'
     }
 
     attribute_map = {
+        'disable_smart_subtitle_rewrite': 'DisableSmartSubtitleRewrite',
+        'disable_subtitle_punct_split': 'DisableSubtitlePunctSplit',
         'suspension_stage_list': 'SuspensionStageList'
     }
 
-    def __init__(self, suspension_stage_list=None, _configuration=None):  # noqa: E501
+    def __init__(self, disable_smart_subtitle_rewrite=None, disable_subtitle_punct_split=None, suspension_stage_list=None, _configuration=None):  # noqa: E501
         """ProcessConfigForSubmitAITranslationWorkflowInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._disable_smart_subtitle_rewrite = None
+        self._disable_subtitle_punct_split = None
         self._suspension_stage_list = None
         self.discriminator = None
 
+        if disable_smart_subtitle_rewrite is not None:
+            self.disable_smart_subtitle_rewrite = disable_smart_subtitle_rewrite
+        if disable_subtitle_punct_split is not None:
+            self.disable_subtitle_punct_split = disable_subtitle_punct_split
         if suspension_stage_list is not None:
             self.suspension_stage_list = suspension_stage_list
+
+    @property
+    def disable_smart_subtitle_rewrite(self):
+        """Gets the disable_smart_subtitle_rewrite of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+
+
+        :return: The disable_smart_subtitle_rewrite of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_smart_subtitle_rewrite
+
+    @disable_smart_subtitle_rewrite.setter
+    def disable_smart_subtitle_rewrite(self, disable_smart_subtitle_rewrite):
+        """Sets the disable_smart_subtitle_rewrite of this ProcessConfigForSubmitAITranslationWorkflowInput.
+
+
+        :param disable_smart_subtitle_rewrite: The disable_smart_subtitle_rewrite of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._disable_smart_subtitle_rewrite = disable_smart_subtitle_rewrite
+
+    @property
+    def disable_subtitle_punct_split(self):
+        """Gets the disable_subtitle_punct_split of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+
+
+        :return: The disable_subtitle_punct_split of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_subtitle_punct_split
+
+    @disable_subtitle_punct_split.setter
+    def disable_subtitle_punct_split(self, disable_subtitle_punct_split):
+        """Sets the disable_subtitle_punct_split of this ProcessConfigForSubmitAITranslationWorkflowInput.
+
+
+        :param disable_subtitle_punct_split: The disable_subtitle_punct_split of this ProcessConfigForSubmitAITranslationWorkflowInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._disable_subtitle_punct_split = disable_subtitle_punct_split
 
     @property
     def suspension_stage_list(self):

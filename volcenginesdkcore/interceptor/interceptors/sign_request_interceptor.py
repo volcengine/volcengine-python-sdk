@@ -39,7 +39,7 @@ class SignRequestInterceptor(RequestInterceptor):
 
         for auth in auth_settings:
             headers["Host"] = host
-            if method in ["POST", "PUT", "DELETE", "PATCH"]:
+            if method in ["POST", "PUT", "DELETE", "PATCH"] and body is not None:
                 body = json.dumps(body)
             else:
                 body = ""

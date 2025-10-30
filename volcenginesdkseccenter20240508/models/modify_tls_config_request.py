@@ -33,29 +33,138 @@ class ModifyTLSConfigRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alarm_topic_config': 'AlarmTopicConfigForModifyTLSConfigInput',
+        'login_topic_config': 'LoginTopicConfigForModifyTLSConfigInput',
+        'port_change_topic_config': 'PortChangeTopicConfigForModifyTLSConfigInput',
+        'process_start_topic_config': 'ProcessStartTopicConfigForModifyTLSConfigInput',
         'storage_days': 'int',
-        'threshold': 'int'
+        'threshold': 'int',
+        'vuln_topic_config': 'VulnTopicConfigForModifyTLSConfigInput'
     }
 
     attribute_map = {
+        'alarm_topic_config': 'AlarmTopicConfig',
+        'login_topic_config': 'LoginTopicConfig',
+        'port_change_topic_config': 'PortChangeTopicConfig',
+        'process_start_topic_config': 'ProcessStartTopicConfig',
         'storage_days': 'StorageDays',
-        'threshold': 'Threshold'
+        'threshold': 'Threshold',
+        'vuln_topic_config': 'VulnTopicConfig'
     }
 
-    def __init__(self, storage_days=None, threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, alarm_topic_config=None, login_topic_config=None, port_change_topic_config=None, process_start_topic_config=None, storage_days=None, threshold=None, vuln_topic_config=None, _configuration=None):  # noqa: E501
         """ModifyTLSConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._alarm_topic_config = None
+        self._login_topic_config = None
+        self._port_change_topic_config = None
+        self._process_start_topic_config = None
         self._storage_days = None
         self._threshold = None
+        self._vuln_topic_config = None
         self.discriminator = None
 
+        if alarm_topic_config is not None:
+            self.alarm_topic_config = alarm_topic_config
+        if login_topic_config is not None:
+            self.login_topic_config = login_topic_config
+        if port_change_topic_config is not None:
+            self.port_change_topic_config = port_change_topic_config
+        if process_start_topic_config is not None:
+            self.process_start_topic_config = process_start_topic_config
         if storage_days is not None:
             self.storage_days = storage_days
         if threshold is not None:
             self.threshold = threshold
+        if vuln_topic_config is not None:
+            self.vuln_topic_config = vuln_topic_config
+
+    @property
+    def alarm_topic_config(self):
+        """Gets the alarm_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+
+
+        :return: The alarm_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :rtype: AlarmTopicConfigForModifyTLSConfigInput
+        """
+        return self._alarm_topic_config
+
+    @alarm_topic_config.setter
+    def alarm_topic_config(self, alarm_topic_config):
+        """Sets the alarm_topic_config of this ModifyTLSConfigRequest.
+
+
+        :param alarm_topic_config: The alarm_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :type: AlarmTopicConfigForModifyTLSConfigInput
+        """
+
+        self._alarm_topic_config = alarm_topic_config
+
+    @property
+    def login_topic_config(self):
+        """Gets the login_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+
+
+        :return: The login_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :rtype: LoginTopicConfigForModifyTLSConfigInput
+        """
+        return self._login_topic_config
+
+    @login_topic_config.setter
+    def login_topic_config(self, login_topic_config):
+        """Sets the login_topic_config of this ModifyTLSConfigRequest.
+
+
+        :param login_topic_config: The login_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :type: LoginTopicConfigForModifyTLSConfigInput
+        """
+
+        self._login_topic_config = login_topic_config
+
+    @property
+    def port_change_topic_config(self):
+        """Gets the port_change_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+
+
+        :return: The port_change_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :rtype: PortChangeTopicConfigForModifyTLSConfigInput
+        """
+        return self._port_change_topic_config
+
+    @port_change_topic_config.setter
+    def port_change_topic_config(self, port_change_topic_config):
+        """Sets the port_change_topic_config of this ModifyTLSConfigRequest.
+
+
+        :param port_change_topic_config: The port_change_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :type: PortChangeTopicConfigForModifyTLSConfigInput
+        """
+
+        self._port_change_topic_config = port_change_topic_config
+
+    @property
+    def process_start_topic_config(self):
+        """Gets the process_start_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+
+
+        :return: The process_start_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :rtype: ProcessStartTopicConfigForModifyTLSConfigInput
+        """
+        return self._process_start_topic_config
+
+    @process_start_topic_config.setter
+    def process_start_topic_config(self, process_start_topic_config):
+        """Sets the process_start_topic_config of this ModifyTLSConfigRequest.
+
+
+        :param process_start_topic_config: The process_start_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :type: ProcessStartTopicConfigForModifyTLSConfigInput
+        """
+
+        self._process_start_topic_config = process_start_topic_config
 
     @property
     def storage_days(self):
@@ -98,6 +207,27 @@ class ModifyTLSConfigRequest(object):
         """
 
         self._threshold = threshold
+
+    @property
+    def vuln_topic_config(self):
+        """Gets the vuln_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+
+
+        :return: The vuln_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :rtype: VulnTopicConfigForModifyTLSConfigInput
+        """
+        return self._vuln_topic_config
+
+    @vuln_topic_config.setter
+    def vuln_topic_config(self, vuln_topic_config):
+        """Sets the vuln_topic_config of this ModifyTLSConfigRequest.
+
+
+        :param vuln_topic_config: The vuln_topic_config of this ModifyTLSConfigRequest.  # noqa: E501
+        :type: VulnTopicConfigForModifyTLSConfigInput
+        """
+
+        self._vuln_topic_config = vuln_topic_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""
