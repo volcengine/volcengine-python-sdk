@@ -10,6 +10,7 @@ import os
 import json
 import warnings
 from copy import deepcopy
+from urllib.parse import urlparse
 from typing import (
     Union,
     Iterable,
@@ -187,13 +188,20 @@ def _process_messages(
                     if part.get("type", None) == "text":
                         part["text"] = f(part["text"])
                     elif part.get("type", None) == "image_url":
-                        if part["image_url"]["url"].startswith("data:"):
+                        parse_result = urlparse(part["image_url"]["url"])
+                        if parse_result.scheme == 'data':
                             part["image_url"]["url"] = f(
                                 part["image_url"]["url"])
-                        else:
+                        elif parse_result.scheme == 'http' or parse_result.scheme == 'https':
                             warnings.warn(
                                 "encryption is not supported for image url, "
                                 "please use base64 image if you want encryption"
+                            )
+                        else:
+                            raise TypeError(
+                                "encryption is not supported for image url scheme {}".format(
+                                    parse_result
+                                )
                             )
                     else:
                         raise TypeError(

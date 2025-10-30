@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -12,11 +11,15 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
+from typing import Optional
+
+from typing_extensions import Literal, TypedDict
 
 __all__ = ["ResponseCaching"]
 
 
 class ResponseCaching(TypedDict, total=False):
-    type: Required[Literal["disabled", "enabled"]]
-    """The type of caching."""
+    type: Optional[Literal["disabled", "enabled"]]
+    """Whether to enable caching."""
+
+    prefix: Optional[bool]

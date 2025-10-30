@@ -16,6 +16,8 @@ from .shared import (
     ResponseFormatText as ResponseFormatText,
     ResponseFormatJSONObject as ResponseFormatJSONObject,
     ResponseFormatJSONSchema as ResponseFormatJSONSchema,
+    Reasoning as Reasoning,
+    ReasoningEffort as ReasoningEffort,
 )
 from .embedding import Embedding as Embedding
 from .completion_usage import CompletionUsage as CompletionUsage

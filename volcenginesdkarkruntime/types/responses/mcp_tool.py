@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -10,7 +9,8 @@
 #
 # This modified file is released under the same license.
 
-from typing_extensions import Literal, Optional, Dict, TypeAlias, Union, List
+from typing import Optional, Dict, Union, List
+from typing_extensions import Literal, TypeAlias
 
 from ..._models import BaseModel
 
@@ -49,9 +49,13 @@ class McpRequireApprovalMcpToolApprovalFilter(BaseModel):
     """A list of tools that never require approval."""
 
 
-McpAllowedTools: TypeAlias = Union[List[str], McpAllowedToolsMcpAllowedToolsFilter, None]
+McpAllowedTools: TypeAlias = Union[
+    List[str], McpAllowedToolsMcpAllowedToolsFilter, None
+]
 
-McpRequireApproval: TypeAlias = Union[McpRequireApprovalMcpToolApprovalFilter, Literal["always", "never"], None]
+McpRequireApproval: TypeAlias = Union[
+    McpRequireApprovalMcpToolApprovalFilter, Literal["always", "never"], None
+]
 
 
 class Mcp(BaseModel):
