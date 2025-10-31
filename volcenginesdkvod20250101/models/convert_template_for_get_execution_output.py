@@ -34,7 +34,7 @@ class ConvertTemplateForGetExecutionOutput(object):
     """
     swagger_types = {
         'byte_hd': 'ConvertByteHDForGetExecutionOutput',
-        'enhance': 'ConvertEnhanceForGetExecutionOutput',
+        'enhance': 'ConvertConvertEnhanceForGetExecutionOutput',
         'transcode_audio': 'ConvertTranscodeAudioForGetExecutionOutput',
         'transcode_video': 'ConvertTranscodeVideoForGetExecutionOutput',
         'type': 'str'
@@ -99,7 +99,7 @@ class ConvertTemplateForGetExecutionOutput(object):
 
 
         :return: The enhance of this ConvertTemplateForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertEnhanceForGetExecutionOutput
+        :rtype: ConvertConvertEnhanceForGetExecutionOutput
         """
         return self._enhance
 
@@ -109,7 +109,7 @@ class ConvertTemplateForGetExecutionOutput(object):
 
 
         :param enhance: The enhance of this ConvertTemplateForGetExecutionOutput.  # noqa: E501
-        :type: ConvertEnhanceForGetExecutionOutput
+        :type: ConvertConvertEnhanceForGetExecutionOutput
         """
 
         self._enhance = enhance

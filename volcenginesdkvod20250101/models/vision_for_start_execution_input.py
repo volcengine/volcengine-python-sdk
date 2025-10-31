@@ -33,11 +33,11 @@ class VisionForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'model': 'ModelForStartExecutionInput',
+        'model': 'ConvertModelForStartExecutionInput',
         'need_asr_speaker': 'bool',
         'prompt': 'str',
         'response_format_type': 'str',
-        'segment': 'ConvertSegmentForStartExecutionInput',
+        'segment': 'ConvertConvertSegmentForStartExecutionInput',
         'snapshot_param': 'SnapshotParamForStartExecutionInput'
     }
 
@@ -83,7 +83,7 @@ class VisionForStartExecutionInput(object):
 
 
         :return: The model of this VisionForStartExecutionInput.  # noqa: E501
-        :rtype: ModelForStartExecutionInput
+        :rtype: ConvertModelForStartExecutionInput
         """
         return self._model
 
@@ -93,7 +93,7 @@ class VisionForStartExecutionInput(object):
 
 
         :param model: The model of this VisionForStartExecutionInput.  # noqa: E501
-        :type: ModelForStartExecutionInput
+        :type: ConvertModelForStartExecutionInput
         """
 
         self._model = model
@@ -167,7 +167,7 @@ class VisionForStartExecutionInput(object):
 
 
         :return: The segment of this VisionForStartExecutionInput.  # noqa: E501
-        :rtype: ConvertSegmentForStartExecutionInput
+        :rtype: ConvertConvertSegmentForStartExecutionInput
         """
         return self._segment
 
@@ -177,7 +177,7 @@ class VisionForStartExecutionInput(object):
 
 
         :param segment: The segment of this VisionForStartExecutionInput.  # noqa: E501
-        :type: ConvertSegmentForStartExecutionInput
+        :type: ConvertConvertSegmentForStartExecutionInput
         """
 
         self._segment = segment
