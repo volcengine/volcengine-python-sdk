@@ -37,7 +37,6 @@ class PurchaseReservedStorageCapacityRequest(object):
         'effective_at': 'str',
         'period': 'int',
         'period_unit': 'str',
-        'rsc_auto_renew': 'bool',
         'reserved_capacity': 'int',
         'reserved_storage_capacity_name': 'str',
         'volume_type': 'str',
@@ -49,14 +48,13 @@ class PurchaseReservedStorageCapacityRequest(object):
         'effective_at': 'EffectiveAt',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
-        'rsc_auto_renew': 'RSCAutoRenew',
         'reserved_capacity': 'ReservedCapacity',
         'reserved_storage_capacity_name': 'ReservedStorageCapacityName',
         'volume_type': 'VolumeType',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, effective_at=None, period=None, period_unit=None, rsc_auto_renew=None, reserved_capacity=None, reserved_storage_capacity_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, effective_at=None, period=None, period_unit=None, reserved_capacity=None, reserved_storage_capacity_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """PurchaseReservedStorageCapacityRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,7 +64,6 @@ class PurchaseReservedStorageCapacityRequest(object):
         self._effective_at = None
         self._period = None
         self._period_unit = None
-        self._rsc_auto_renew = None
         self._reserved_capacity = None
         self._reserved_storage_capacity_name = None
         self._volume_type = None
@@ -81,8 +78,6 @@ class PurchaseReservedStorageCapacityRequest(object):
             self.period = period
         if period_unit is not None:
             self.period_unit = period_unit
-        if rsc_auto_renew is not None:
-            self.rsc_auto_renew = rsc_auto_renew
         if reserved_capacity is not None:
             self.reserved_capacity = reserved_capacity
         if reserved_storage_capacity_name is not None:
@@ -175,27 +170,6 @@ class PurchaseReservedStorageCapacityRequest(object):
         """
 
         self._period_unit = period_unit
-
-    @property
-    def rsc_auto_renew(self):
-        """Gets the rsc_auto_renew of this PurchaseReservedStorageCapacityRequest.  # noqa: E501
-
-
-        :return: The rsc_auto_renew of this PurchaseReservedStorageCapacityRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._rsc_auto_renew
-
-    @rsc_auto_renew.setter
-    def rsc_auto_renew(self, rsc_auto_renew):
-        """Sets the rsc_auto_renew of this PurchaseReservedStorageCapacityRequest.
-
-
-        :param rsc_auto_renew: The rsc_auto_renew of this PurchaseReservedStorageCapacityRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._rsc_auto_renew = rsc_auto_renew
 
     @property
     def reserved_capacity(self):

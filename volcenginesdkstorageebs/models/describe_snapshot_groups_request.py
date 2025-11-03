@@ -39,7 +39,8 @@ class DescribeSnapshotGroupsRequest(object):
         'page_size': 'int',
         'project_name': 'str',
         'snapshot_group_ids': 'list[str]',
-        'status': 'list[str]'
+        'status': 'list[str]',
+        'tag_filters': 'list[TagFilterForDescribeSnapshotGroupsInput]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class DescribeSnapshotGroupsRequest(object):
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
         'snapshot_group_ids': 'SnapshotGroupIds',
-        'status': 'Status'
+        'status': 'Status',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, instance_id=None, name=None, page_number=None, page_size=None, project_name=None, snapshot_group_ids=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, name=None, page_number=None, page_size=None, project_name=None, snapshot_group_ids=None, status=None, tag_filters=None, _configuration=None):  # noqa: E501
         """DescribeSnapshotGroupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class DescribeSnapshotGroupsRequest(object):
         self._project_name = None
         self._snapshot_group_ids = None
         self._status = None
+        self._tag_filters = None
         self.discriminator = None
 
         if instance_id is not None:
@@ -81,6 +84,8 @@ class DescribeSnapshotGroupsRequest(object):
             self.snapshot_group_ids = snapshot_group_ids
         if status is not None:
             self.status = status
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
 
     @property
     def instance_id(self):
@@ -231,6 +236,27 @@ class DescribeSnapshotGroupsRequest(object):
         """
 
         self._status = status
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeSnapshotGroupsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeSnapshotGroupsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeSnapshotGroupsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeSnapshotGroupsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeSnapshotGroupsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeSnapshotGroupsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""
