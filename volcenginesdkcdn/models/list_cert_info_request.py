@@ -41,6 +41,7 @@ class ListCertInfoRequest(object):
         'name': 'str',
         'page_num': 'int',
         'page_size': 'int',
+        'search_cert_name': 'str',
         'sort_rule': 'SortRuleForListCertInfoInput',
         'source': 'str',
         'status': 'str'
@@ -55,12 +56,13 @@ class ListCertInfoRequest(object):
         'name': 'Name',
         'page_num': 'PageNum',
         'page_size': 'PageSize',
+        'search_cert_name': 'SearchCertName',
         'sort_rule': 'SortRule',
         'source': 'Source',
         'status': 'Status'
     }
 
-    def __init__(self, cert_id=None, cert_type=None, configured_domain=None, encry_type=None, fuzzy_match=None, name=None, page_num=None, page_size=None, sort_rule=None, source=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_id=None, cert_type=None, configured_domain=None, encry_type=None, fuzzy_match=None, name=None, page_num=None, page_size=None, search_cert_name=None, sort_rule=None, source=None, status=None, _configuration=None):  # noqa: E501
         """ListCertInfoRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class ListCertInfoRequest(object):
         self._name = None
         self._page_num = None
         self._page_size = None
+        self._search_cert_name = None
         self._sort_rule = None
         self._source = None
         self._status = None
@@ -95,6 +98,8 @@ class ListCertInfoRequest(object):
             self.page_num = page_num
         if page_size is not None:
             self.page_size = page_size
+        if search_cert_name is not None:
+            self.search_cert_name = search_cert_name
         if sort_rule is not None:
             self.sort_rule = sort_rule
         self.source = source
@@ -268,6 +273,27 @@ class ListCertInfoRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def search_cert_name(self):
+        """Gets the search_cert_name of this ListCertInfoRequest.  # noqa: E501
+
+
+        :return: The search_cert_name of this ListCertInfoRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._search_cert_name
+
+    @search_cert_name.setter
+    def search_cert_name(self, search_cert_name):
+        """Sets the search_cert_name of this ListCertInfoRequest.
+
+
+        :param search_cert_name: The search_cert_name of this ListCertInfoRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._search_cert_name = search_cert_name
 
     @property
     def sort_rule(self):
