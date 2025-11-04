@@ -36,6 +36,7 @@ class CreateScalingPolicyRequest(object):
         'adjustment_type': 'str',
         'adjustment_value': 'int',
         'alarm_policy': 'AlarmPolicyForCreateScalingPolicyInput',
+        'client_token': 'str',
         'cooldown': 'int',
         'scaling_group_id': 'str',
         'scaling_policy_name': 'str',
@@ -47,6 +48,7 @@ class CreateScalingPolicyRequest(object):
         'adjustment_type': 'AdjustmentType',
         'adjustment_value': 'AdjustmentValue',
         'alarm_policy': 'AlarmPolicy',
+        'client_token': 'ClientToken',
         'cooldown': 'Cooldown',
         'scaling_group_id': 'ScalingGroupId',
         'scaling_policy_name': 'ScalingPolicyName',
@@ -54,7 +56,7 @@ class CreateScalingPolicyRequest(object):
         'scheduled_policy': 'ScheduledPolicy'
     }
 
-    def __init__(self, adjustment_type=None, adjustment_value=None, alarm_policy=None, cooldown=None, scaling_group_id=None, scaling_policy_name=None, scaling_policy_type=None, scheduled_policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, adjustment_type=None, adjustment_value=None, alarm_policy=None, client_token=None, cooldown=None, scaling_group_id=None, scaling_policy_name=None, scaling_policy_type=None, scheduled_policy=None, _configuration=None):  # noqa: E501
         """CreateScalingPolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class CreateScalingPolicyRequest(object):
         self._adjustment_type = None
         self._adjustment_value = None
         self._alarm_policy = None
+        self._client_token = None
         self._cooldown = None
         self._scaling_group_id = None
         self._scaling_policy_name = None
@@ -76,6 +79,8 @@ class CreateScalingPolicyRequest(object):
             self.adjustment_value = adjustment_value
         if alarm_policy is not None:
             self.alarm_policy = alarm_policy
+        if client_token is not None:
+            self.client_token = client_token
         if cooldown is not None:
             self.cooldown = cooldown
         self.scaling_group_id = scaling_group_id
@@ -146,6 +151,27 @@ class CreateScalingPolicyRequest(object):
         """
 
         self._alarm_policy = alarm_policy
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateScalingPolicyRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateScalingPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateScalingPolicyRequest.
+
+
+        :param client_token: The client_token of this CreateScalingPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def cooldown(self):
