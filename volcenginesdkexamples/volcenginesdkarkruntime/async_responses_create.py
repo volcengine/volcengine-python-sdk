@@ -41,7 +41,8 @@ async def main():
             {"role": "user", "content": [
                 {
                     "type": "input_image",
-                    "file_id": file.id # ref image file id
+                    # ref image file id
+                    "file_id": file.id
                 },
                 {
                     "type": "input_text",
