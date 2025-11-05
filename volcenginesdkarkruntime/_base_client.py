@@ -75,7 +75,7 @@ from ._types import (
     Query,
     HttpxRequestFiles,
 )
-from ._utils._utils import _gen_request_id, is_given, is_mapping, is_dict
+from ._utils._utils import _gen_request_id, is_given, is_mapping, is_dict, is_list
 from ._compat import model_copy, PYDANTIC_V2, model_dump
 
 SyncPageT = TypeVar("SyncPageT", bound="BaseSyncPage[Any]")
