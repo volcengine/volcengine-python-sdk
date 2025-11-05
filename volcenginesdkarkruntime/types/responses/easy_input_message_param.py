@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -15,7 +14,9 @@ from __future__ import annotations
 from typing import Union
 from typing_extensions import Literal, Required, TypedDict
 
-from .response_input_message_content_list_param import ResponseInputMessageContentListParam
+from .response_input_message_content_list_param import (
+    ResponseInputMessageContentListParam,
+)
 
 __all__ = ["EasyInputMessageParam"]
 

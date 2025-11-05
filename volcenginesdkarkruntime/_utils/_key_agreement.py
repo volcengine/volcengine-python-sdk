@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -25,8 +24,14 @@ def get_cert_info(cert_pem: str) -> Tuple[str, str, float]:
     cert = x509.load_pem_x509_certificate(cert_pem.encode(), default_backend())
     try:
         dns = cert.extensions.get_extension_for_class(
-            x509.SubjectAlternativeName).value.get_values_for_type(x509.DNSName)
-        if dns and len(dns) > 1 and re.match(r"^ring\..*$", dns[0]) and re.match(r"^key\..*$", dns[1]):
+            x509.SubjectAlternativeName
+        ).value.get_values_for_type(x509.DNSName)
+        if (
+            dns
+            and len(dns) > 1
+            and re.match(r"^ring\..*$", dns[0])
+            and re.match(r"^key\..*$", dns[1])
+        ):
             return dns[0][5:], dns[1][4:], cert.not_valid_after_utc.timestamp()
     except Exception:
         pass
@@ -89,19 +94,21 @@ def aes_gcm_decrypt_base64_string(key: bytes, nonce: bytes, ciphertext: str) -> 
     return aes_gcm_decrypt_bytes(key, nonce, cipher_bytes).decode()
 
 
-base64_pattern = r'(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})'
+base64_pattern = (
+    r"(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})"
+)
 
 
 def decrypt_corner_case(key: bytes, nonce: bytes, data: str) -> str:
     """decrypt_corner_case Decrypt corner case data"""
     if len(data) < 24:
-        return ''
+        return ""
     for i in range(20, len(data), 4):
         try:
-            decrypted = aes_gcm_decrypt_base64_string(key, nonce, data[:i+4])
-            if i+4 == len(data):
+            decrypted = aes_gcm_decrypt_base64_string(key, nonce, data[: i + 4])
+            if i + 4 == len(data):
                 return decrypted
-            return decrypted + decrypt_corner_case(key, nonce, data[i+4:])
+            return decrypted + decrypt_corner_case(key, nonce, data[i + 4 :])
         except Exception:
             pass
 
@@ -115,13 +122,15 @@ def aes_gcm_decrypt_base64_list(key: bytes, nonce: bytes, ciphertext: str) -> st
             result.append(aes_gcm_decrypt_base64_string(key, nonce, b64))
         except Exception:
             result.append(decrypt_corner_case(key, nonce, b64))
-    return ''.join(result)
+    return "".join(result)
 
 
 def decrypt_validate(ciphertext: str) -> bool:
     cipher_bytes = ciphertext.encode()
     cipher_b64_bytes = base64.decodebytes(cipher_bytes)
-    return len(cipher_bytes)/4 >= len(cipher_b64_bytes)/3 >= len(cipher_bytes)/4 - 1
+    return (
+        len(cipher_bytes) / 4 >= len(cipher_b64_bytes) / 3 >= len(cipher_bytes) / 4 - 1
+    )
 
 
 def marshal_cryptography_pub_key(key) -> bytes:

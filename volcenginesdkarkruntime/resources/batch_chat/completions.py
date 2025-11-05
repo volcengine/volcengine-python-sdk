@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -16,7 +15,7 @@ import asyncio
 import time
 from datetime import timedelta, datetime
 from random import random
-from typing import Dict, List, Union, Iterable, Optional, Callable
+from typing import Dict, List, Union, Iterable, Optional
 from typing_extensions import Literal
 
 import httpx
@@ -41,7 +40,6 @@ from ...types.chat import (
     ChatCompletionToolChoiceOptionParam,
 )
 from ..._constants import (
-    ARK_E2E_ENCRYPTION_HEADER,
     INITIAL_RETRY_DELAY,
     MAX_RETRY_DELAY,
 )
@@ -51,8 +49,7 @@ __all__ = ["Completions", "AsyncCompletions"]
 
 def _calculate_retry_timeout(retry_times) -> float:
     nbRetries = min(retry_times, MAX_RETRY_DELAY / INITIAL_RETRY_DELAY)
-    sleep_seconds = min(INITIAL_RETRY_DELAY *
-                        pow(2, nbRetries), MAX_RETRY_DELAY)
+    sleep_seconds = min(INITIAL_RETRY_DELAY * pow(2, nbRetries), MAX_RETRY_DELAY)
     # Apply some jitter, plus-or-minus half a second.
     jitter = 1 - 0.25 * random()
     timeout = sleep_seconds * jitter
@@ -195,8 +192,7 @@ class Completions(SyncAPIResource):
             timeoutSeconds = timeout
         else:
             raise TypeError(
-                "timeout type {} is not supported".format(
-                    type(self._client.timeout))
+                "timeout type {} is not supported".format(type(self._client.timeout))
             )
         return datetime.now() + timedelta(seconds=timeoutSeconds)
 
@@ -238,7 +234,6 @@ class AsyncCompletions(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion:
-
         retryTimes = 0
         last_time = self._get_request_last_time(timeout)
         model_breaker = await self._client.get_model_breaker(model)
@@ -310,8 +305,7 @@ class AsyncCompletions(AsyncAPIResource):
             timeoutSeconds = timeout
         else:
             raise TypeError(
-                "timeout type {} is not supported".format(
-                    type(self._client.timeout))
+                "timeout type {} is not supported".format(type(self._client.timeout))
             )
         return datetime.now() + timedelta(seconds=timeoutSeconds)
 

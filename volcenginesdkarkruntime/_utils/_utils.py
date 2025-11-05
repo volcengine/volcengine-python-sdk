@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -361,7 +360,7 @@ def removeprefix(string: str, prefix: str) -> str:
     Backport of `str.removeprefix` for Python < 3.9
     """
     if string.startswith(prefix):
-        return string[len(prefix):]
+        return string[len(prefix) :]
     return string
 
 

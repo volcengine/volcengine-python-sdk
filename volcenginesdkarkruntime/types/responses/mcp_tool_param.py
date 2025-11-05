@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -10,7 +9,16 @@
 #
 # This modified file is released under the same license.
 
-from typing_extensions import Literal, TypedDict, Required, Optional, Dict, TypeAlias, Union, List
+from typing_extensions import (
+    Literal,
+    TypedDict,
+    Required,
+    Optional,
+    Dict,
+    TypeAlias,
+    Union,
+    List,
+)
 
 __all__ = [
     "Mcp",
@@ -49,7 +57,9 @@ class McpRequireApprovalMcpToolApprovalFilter(TypedDict, total=False):
 McpAllowedTools: TypeAlias = Union[List[str], McpAllowedToolsMcpAllowedToolsFilter]
 
 
-McpRequireApproval: TypeAlias = Union[McpRequireApprovalMcpToolApprovalFilter, Literal["always", "never"]]
+McpRequireApproval: TypeAlias = Union[
+    McpRequireApprovalMcpToolApprovalFilter, Literal["always", "never"]
+]
 
 
 class Mcp(TypedDict, total=False):

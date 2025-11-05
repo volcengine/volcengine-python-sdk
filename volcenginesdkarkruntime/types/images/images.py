@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -14,7 +13,11 @@ from typing import List, Optional
 
 from volcenginesdkarkruntime._models import BaseModel
 
-__all__ = ["OptimizePromptOptions", "SequentialImageGenerationOptions", "ImagesResponse"]
+__all__ = [
+    "OptimizePromptOptions",
+    "SequentialImageGenerationOptions",
+    "ImagesResponse",
+]
 
 
 class OptimizePromptOptions(BaseModel):

@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -22,6 +21,8 @@ from .images import Images, AsyncImages
 from .batch_chat import BatchChat, AsyncBatchChat
 from .batch import Batch, AsyncBatch
 from .responses import Responses, AsyncResponses, InputItems, AsyncInputItems
+from .files import Files, AsyncFiles
+
 
 __all__ = [
     "Chat",
@@ -51,4 +52,6 @@ __all__ = [
     "Responses",
     "InputItems",
     "AsyncInputItems",
+    "Files",
+    "AsyncFiles",
 ]

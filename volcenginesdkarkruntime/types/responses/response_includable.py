@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -14,6 +13,4 @@ from typing_extensions import Literal, TypeAlias
 
 __all__ = ["ResponseIncludable"]
 
-ResponseIncludable: TypeAlias = Literal[
-    "message.input_image.image_url",
-]
+ResponseIncludable: TypeAlias = Literal["message.input_image.image_url",]
