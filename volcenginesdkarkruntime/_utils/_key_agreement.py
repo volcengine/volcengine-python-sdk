@@ -108,7 +108,7 @@ def decrypt_corner_case(key: bytes, nonce: bytes, data: str) -> str:
             decrypted = aes_gcm_decrypt_base64_string(key, nonce, data[: i + 4])
             if i + 4 == len(data):
                 return decrypted
-            return decrypted + decrypt_corner_case(key, nonce, data[i + 4 :])
+            return decrypted + decrypt_corner_case(key, nonce, data[i + 4:])
         except Exception:
             pass
 

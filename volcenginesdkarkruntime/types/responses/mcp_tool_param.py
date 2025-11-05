@@ -8,16 +8,13 @@
 # available at https://github.com/openai/openai-python/blob/main/LICENSE.
 #
 # This modified file is released under the same license.
+from typing import Optional, Dict, Union, List
 
 from typing_extensions import (
     Literal,
     TypedDict,
     Required,
-    Optional,
-    Dict,
     TypeAlias,
-    Union,
-    List,
 )
 
 __all__ = [
@@ -55,7 +52,6 @@ class McpRequireApprovalMcpToolApprovalFilter(TypedDict, total=False):
 
 
 McpAllowedTools: TypeAlias = Union[List[str], McpAllowedToolsMcpAllowedToolsFilter]
-
 
 McpRequireApproval: TypeAlias = Union[
     McpRequireApprovalMcpToolApprovalFilter, Literal["always", "never"]

@@ -36,7 +36,6 @@ from ..pagination import SyncCursorPage, AsyncCursorPage
 from .._base_client import AsyncPaginator, make_request_options
 from ..types.file_object import FileObject
 from ..types.file_deleted import FileDeleted
-from ..types.file_purpose import FilePurpose
 
 __all__ = ["Files", "AsyncFiles"]
 
