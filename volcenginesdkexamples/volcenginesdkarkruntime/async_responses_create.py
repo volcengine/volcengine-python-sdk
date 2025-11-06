@@ -18,6 +18,7 @@ client = AsyncArk()
 
 
 async def main():
+    image_path = "/path/to/your/image.jpg"
     # ==========================================================
     # 示例 1：多轮对话，开启 caching
     # ==========================================================
@@ -32,7 +33,7 @@ async def main():
                 {
                     "type": "input_image",
                     # local image file path, will be automatically uploaded to file
-                    "image_url": f"file://{your_image_path}"
+                    "image_url": f"file://{image_path}"
                 },
                 {
                     "type": "input_text",
