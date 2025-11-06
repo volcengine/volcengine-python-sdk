@@ -33,17 +33,45 @@ class GetViewerLevelConfigRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'viewer_level_group_id': 'int'
     }
 
     attribute_map = {
+        'viewer_level_group_id': 'ViewerLevelGroupId'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, viewer_level_group_id=None, _configuration=None):  # noqa: E501
         """GetViewerLevelConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._viewer_level_group_id = None
         self.discriminator = None
+
+        if viewer_level_group_id is not None:
+            self.viewer_level_group_id = viewer_level_group_id
+
+    @property
+    def viewer_level_group_id(self):
+        """Gets the viewer_level_group_id of this GetViewerLevelConfigRequest.  # noqa: E501
+
+
+        :return: The viewer_level_group_id of this GetViewerLevelConfigRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._viewer_level_group_id
+
+    @viewer_level_group_id.setter
+    def viewer_level_group_id(self, viewer_level_group_id):
+        """Sets the viewer_level_group_id of this GetViewerLevelConfigRequest.
+
+
+        :param viewer_level_group_id: The viewer_level_group_id of this GetViewerLevelConfigRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._viewer_level_group_id = viewer_level_group_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
