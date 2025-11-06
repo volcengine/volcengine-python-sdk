@@ -35,6 +35,7 @@ class MultiInputForStartExecutionInput(object):
     swagger_types = {
         'direct_url': 'DirectUrlForStartExecutionInput',
         'file_id': 'FileIdForStartExecutionInput',
+        'schema': 'str',
         'tag': 'str',
         'type': 'str',
         'vid': 'str'
@@ -43,12 +44,13 @@ class MultiInputForStartExecutionInput(object):
     attribute_map = {
         'direct_url': 'DirectUrl',
         'file_id': 'FileId',
+        'schema': 'Schema',
         'tag': 'Tag',
         'type': 'Type',
         'vid': 'Vid'
     }
 
-    def __init__(self, direct_url=None, file_id=None, tag=None, type=None, vid=None, _configuration=None):  # noqa: E501
+    def __init__(self, direct_url=None, file_id=None, schema=None, tag=None, type=None, vid=None, _configuration=None):  # noqa: E501
         """MultiInputForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class MultiInputForStartExecutionInput(object):
 
         self._direct_url = None
         self._file_id = None
+        self._schema = None
         self._tag = None
         self._type = None
         self._vid = None
@@ -65,6 +68,8 @@ class MultiInputForStartExecutionInput(object):
             self.direct_url = direct_url
         if file_id is not None:
             self.file_id = file_id
+        if schema is not None:
+            self.schema = schema
         if tag is not None:
             self.tag = tag
         if type is not None:
@@ -113,6 +118,27 @@ class MultiInputForStartExecutionInput(object):
         """
 
         self._file_id = file_id
+
+    @property
+    def schema(self):
+        """Gets the schema of this MultiInputForStartExecutionInput.  # noqa: E501
+
+
+        :return: The schema of this MultiInputForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._schema
+
+    @schema.setter
+    def schema(self, schema):
+        """Sets the schema of this MultiInputForStartExecutionInput.
+
+
+        :param schema: The schema of this MultiInputForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._schema = schema
 
     @property
     def tag(self):

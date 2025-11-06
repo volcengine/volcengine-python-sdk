@@ -33,7 +33,7 @@ class ConvertHighlightCutsForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cuts': 'list[int]',
+        'cuts': 'list[CutForGetExecutionOutput]',
         'storyboard': 'list[StoryboardForGetExecutionOutput]'
     }
 
@@ -63,7 +63,7 @@ class ConvertHighlightCutsForGetExecutionOutput(object):
 
 
         :return: The cuts of this ConvertHighlightCutsForGetExecutionOutput.  # noqa: E501
-        :rtype: list[int]
+        :rtype: list[CutForGetExecutionOutput]
         """
         return self._cuts
 
@@ -73,7 +73,7 @@ class ConvertHighlightCutsForGetExecutionOutput(object):
 
 
         :param cuts: The cuts of this ConvertHighlightCutsForGetExecutionOutput.  # noqa: E501
-        :type: list[int]
+        :type: list[CutForGetExecutionOutput]
         """
 
         self._cuts = cuts

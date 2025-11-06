@@ -38,6 +38,7 @@ class ProductForUpdateActivityProductOutput(object):
         'explain_status': 'int',
         'explain_time': 'int',
         'floating_status': 'int',
+        'floating_time': 'int',
         'highlight': 'str',
         'hot_sale': 'str',
         'id': 'int',
@@ -45,7 +46,9 @@ class ProductForUpdateActivityProductOutput(object):
         'introduce_image': 'str',
         'is_order_msg_enable': 'int',
         'mini_app_direct_url': 'str',
+        'out_of_stock': 'int',
         'page_advertisement_type': 'int',
+        'price_hidden': 'int',
         'promotion_tag_type': 'int',
         'promotion_tag_url': 'str',
         'redirect_image': 'str',
@@ -64,6 +67,7 @@ class ProductForUpdateActivityProductOutput(object):
         'explain_status': 'ExplainStatus',
         'explain_time': 'ExplainTime',
         'floating_status': 'FloatingStatus',
+        'floating_time': 'FloatingTime',
         'highlight': 'Highlight',
         'hot_sale': 'HotSale',
         'id': 'Id',
@@ -71,7 +75,9 @@ class ProductForUpdateActivityProductOutput(object):
         'introduce_image': 'IntroduceImage',
         'is_order_msg_enable': 'IsOrderMsgEnable',
         'mini_app_direct_url': 'MiniAppDirectUrl',
+        'out_of_stock': 'OutOfStock',
         'page_advertisement_type': 'PageAdvertisementType',
+        'price_hidden': 'PriceHidden',
         'promotion_tag_type': 'PromotionTagType',
         'promotion_tag_url': 'PromotionTagUrl',
         'redirect_image': 'RedirectImage',
@@ -84,7 +90,7 @@ class ProductForUpdateActivityProductOutput(object):
         'title': 'Title'
     }
 
-    def __init__(self, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, mini_app_direct_url=None, page_advertisement_type=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
+    def __init__(self, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, mini_app_direct_url=None, out_of_stock=None, page_advertisement_type=None, price_hidden=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
         """ProductForUpdateActivityProductOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +101,7 @@ class ProductForUpdateActivityProductOutput(object):
         self._explain_status = None
         self._explain_time = None
         self._floating_status = None
+        self._floating_time = None
         self._highlight = None
         self._hot_sale = None
         self._id = None
@@ -102,7 +109,9 @@ class ProductForUpdateActivityProductOutput(object):
         self._introduce_image = None
         self._is_order_msg_enable = None
         self._mini_app_direct_url = None
+        self._out_of_stock = None
         self._page_advertisement_type = None
+        self._price_hidden = None
         self._promotion_tag_type = None
         self._promotion_tag_url = None
         self._redirect_image = None
@@ -125,6 +134,8 @@ class ProductForUpdateActivityProductOutput(object):
             self.explain_time = explain_time
         if floating_status is not None:
             self.floating_status = floating_status
+        if floating_time is not None:
+            self.floating_time = floating_time
         if highlight is not None:
             self.highlight = highlight
         if hot_sale is not None:
@@ -139,8 +150,12 @@ class ProductForUpdateActivityProductOutput(object):
             self.is_order_msg_enable = is_order_msg_enable
         if mini_app_direct_url is not None:
             self.mini_app_direct_url = mini_app_direct_url
+        if out_of_stock is not None:
+            self.out_of_stock = out_of_stock
         if page_advertisement_type is not None:
             self.page_advertisement_type = page_advertisement_type
+        if price_hidden is not None:
+            self.price_hidden = price_hidden
         if promotion_tag_type is not None:
             self.promotion_tag_type = promotion_tag_type
         if promotion_tag_url is not None:
@@ -266,6 +281,27 @@ class ProductForUpdateActivityProductOutput(object):
         """
 
         self._floating_status = floating_status
+
+    @property
+    def floating_time(self):
+        """Gets the floating_time of this ProductForUpdateActivityProductOutput.  # noqa: E501
+
+
+        :return: The floating_time of this ProductForUpdateActivityProductOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._floating_time
+
+    @floating_time.setter
+    def floating_time(self, floating_time):
+        """Sets the floating_time of this ProductForUpdateActivityProductOutput.
+
+
+        :param floating_time: The floating_time of this ProductForUpdateActivityProductOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._floating_time = floating_time
 
     @property
     def highlight(self):
@@ -415,6 +451,27 @@ class ProductForUpdateActivityProductOutput(object):
         self._mini_app_direct_url = mini_app_direct_url
 
     @property
+    def out_of_stock(self):
+        """Gets the out_of_stock of this ProductForUpdateActivityProductOutput.  # noqa: E501
+
+
+        :return: The out_of_stock of this ProductForUpdateActivityProductOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._out_of_stock
+
+    @out_of_stock.setter
+    def out_of_stock(self, out_of_stock):
+        """Sets the out_of_stock of this ProductForUpdateActivityProductOutput.
+
+
+        :param out_of_stock: The out_of_stock of this ProductForUpdateActivityProductOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._out_of_stock = out_of_stock
+
+    @property
     def page_advertisement_type(self):
         """Gets the page_advertisement_type of this ProductForUpdateActivityProductOutput.  # noqa: E501
 
@@ -434,6 +491,27 @@ class ProductForUpdateActivityProductOutput(object):
         """
 
         self._page_advertisement_type = page_advertisement_type
+
+    @property
+    def price_hidden(self):
+        """Gets the price_hidden of this ProductForUpdateActivityProductOutput.  # noqa: E501
+
+
+        :return: The price_hidden of this ProductForUpdateActivityProductOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._price_hidden
+
+    @price_hidden.setter
+    def price_hidden(self, price_hidden):
+        """Sets the price_hidden of this ProductForUpdateActivityProductOutput.
+
+
+        :param price_hidden: The price_hidden of this ProductForUpdateActivityProductOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._price_hidden = price_hidden
 
     @property
     def promotion_tag_type(self):

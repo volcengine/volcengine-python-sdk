@@ -46,6 +46,7 @@ class UpdateActivityRedPacketRequest(object):
         'is_open_sms_notification': 'int',
         'mini_app_id': 'str',
         'mini_app_redirect_url': 'str',
+        'name': 'str',
         'open_red_packet_type': 'int',
         'range_status': 'int',
         'red_packet_cover_image': 'str',
@@ -72,6 +73,7 @@ class UpdateActivityRedPacketRequest(object):
         'is_open_sms_notification': 'IsOpenSmsNotification',
         'mini_app_id': 'MiniAppId',
         'mini_app_redirect_url': 'MiniAppRedirectUrl',
+        'name': 'Name',
         'open_red_packet_type': 'OpenRedPacketType',
         'range_status': 'RangeStatus',
         'red_packet_cover_image': 'RedPacketCoverImage',
@@ -84,7 +86,7 @@ class UpdateActivityRedPacketRequest(object):
         'vip_user_info_id': 'VipUserInfoId'
     }
 
-    def __init__(self, activity_id=None, award_condition=None, barrage_pwd=None, black_user_info_id=None, claim_failure_text=None, claim_success_text=None, custom_redirect_url=None, dead_line=None, enable_custom_redirect=None, enable_mini_app=None, is_open_sms_notification=None, mini_app_id=None, mini_app_redirect_url=None, open_red_packet_type=None, range_status=None, red_packet_cover_image=None, red_packet_id=None, red_packet_number=None, red_packet_type=None, repeated_award_limit=None, rewards_points_config=None, total_amount=None, vip_user_info_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, award_condition=None, barrage_pwd=None, black_user_info_id=None, claim_failure_text=None, claim_success_text=None, custom_redirect_url=None, dead_line=None, enable_custom_redirect=None, enable_mini_app=None, is_open_sms_notification=None, mini_app_id=None, mini_app_redirect_url=None, name=None, open_red_packet_type=None, range_status=None, red_packet_cover_image=None, red_packet_id=None, red_packet_number=None, red_packet_type=None, repeated_award_limit=None, rewards_points_config=None, total_amount=None, vip_user_info_id=None, _configuration=None):  # noqa: E501
         """UpdateActivityRedPacketRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +105,7 @@ class UpdateActivityRedPacketRequest(object):
         self._is_open_sms_notification = None
         self._mini_app_id = None
         self._mini_app_redirect_url = None
+        self._name = None
         self._open_red_packet_type = None
         self._range_status = None
         self._red_packet_cover_image = None
@@ -140,6 +143,8 @@ class UpdateActivityRedPacketRequest(object):
             self.mini_app_id = mini_app_id
         if mini_app_redirect_url is not None:
             self.mini_app_redirect_url = mini_app_redirect_url
+        if name is not None:
+            self.name = name
         if open_red_packet_type is not None:
             self.open_red_packet_type = open_red_packet_type
         if range_status is not None:
@@ -434,6 +439,27 @@ class UpdateActivityRedPacketRequest(object):
         """
 
         self._mini_app_redirect_url = mini_app_redirect_url
+
+    @property
+    def name(self):
+        """Gets the name of this UpdateActivityRedPacketRequest.  # noqa: E501
+
+
+        :return: The name of this UpdateActivityRedPacketRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this UpdateActivityRedPacketRequest.
+
+
+        :param name: The name of this UpdateActivityRedPacketRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def open_red_packet_type(self):
