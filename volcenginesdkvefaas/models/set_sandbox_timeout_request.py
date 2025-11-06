@@ -35,16 +35,18 @@ class SetSandboxTimeoutRequest(object):
     swagger_types = {
         'function_id': 'str',
         'sandbox_id': 'str',
-        'timeout': 'int'
+        'timeout': 'int',
+        'timeout_unit': 'str'
     }
 
     attribute_map = {
         'function_id': 'FunctionId',
         'sandbox_id': 'SandboxId',
-        'timeout': 'Timeout'
+        'timeout': 'Timeout',
+        'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, function_id=None, sandbox_id=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, function_id=None, sandbox_id=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """SetSandboxTimeoutRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,11 +55,14 @@ class SetSandboxTimeoutRequest(object):
         self._function_id = None
         self._sandbox_id = None
         self._timeout = None
+        self._timeout_unit = None
         self.discriminator = None
 
         self.function_id = function_id
         self.sandbox_id = sandbox_id
         self.timeout = timeout
+        if timeout_unit is not None:
+            self.timeout_unit = timeout_unit
 
     @property
     def function_id(self):
@@ -127,6 +132,27 @@ class SetSandboxTimeoutRequest(object):
             raise ValueError("Invalid value for `timeout`, must not be `None`")  # noqa: E501
 
         self._timeout = timeout
+
+    @property
+    def timeout_unit(self):
+        """Gets the timeout_unit of this SetSandboxTimeoutRequest.  # noqa: E501
+
+
+        :return: The timeout_unit of this SetSandboxTimeoutRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._timeout_unit
+
+    @timeout_unit.setter
+    def timeout_unit(self, timeout_unit):
+        """Sets the timeout_unit of this SetSandboxTimeoutRequest.
+
+
+        :param timeout_unit: The timeout_unit of this SetSandboxTimeoutRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._timeout_unit = timeout_unit
 
     def to_dict(self):
         """Returns the model properties as a dict"""
