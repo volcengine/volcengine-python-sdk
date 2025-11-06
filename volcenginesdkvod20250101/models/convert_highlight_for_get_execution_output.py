@@ -33,8 +33,9 @@ class ConvertHighlightForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'clips': 'list[ClipForGetExecutionOutput]',
+        'clips': 'list[ConvertClipForGetExecutionOutput]',
         'duration': 'float',
+        'edits': 'list[ConvertEditForGetExecutionOutput]',
         'highlight_cuts': 'ConvertHighlightCutsForGetExecutionOutput',
         'storyline_cuts': 'ConvertStorylineCutsForGetExecutionOutput'
     }
@@ -42,11 +43,12 @@ class ConvertHighlightForGetExecutionOutput(object):
     attribute_map = {
         'clips': 'Clips',
         'duration': 'Duration',
+        'edits': 'Edits',
         'highlight_cuts': 'HighlightCuts',
         'storyline_cuts': 'StorylineCuts'
     }
 
-    def __init__(self, clips=None, duration=None, highlight_cuts=None, storyline_cuts=None, _configuration=None):  # noqa: E501
+    def __init__(self, clips=None, duration=None, edits=None, highlight_cuts=None, storyline_cuts=None, _configuration=None):  # noqa: E501
         """ConvertHighlightForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class ConvertHighlightForGetExecutionOutput(object):
 
         self._clips = None
         self._duration = None
+        self._edits = None
         self._highlight_cuts = None
         self._storyline_cuts = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ConvertHighlightForGetExecutionOutput(object):
             self.clips = clips
         if duration is not None:
             self.duration = duration
+        if edits is not None:
+            self.edits = edits
         if highlight_cuts is not None:
             self.highlight_cuts = highlight_cuts
         if storyline_cuts is not None:
@@ -73,7 +78,7 @@ class ConvertHighlightForGetExecutionOutput(object):
 
 
         :return: The clips of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ClipForGetExecutionOutput]
+        :rtype: list[ConvertClipForGetExecutionOutput]
         """
         return self._clips
 
@@ -83,7 +88,7 @@ class ConvertHighlightForGetExecutionOutput(object):
 
 
         :param clips: The clips of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
-        :type: list[ClipForGetExecutionOutput]
+        :type: list[ConvertClipForGetExecutionOutput]
         """
 
         self._clips = clips
@@ -108,6 +113,27 @@ class ConvertHighlightForGetExecutionOutput(object):
         """
 
         self._duration = duration
+
+    @property
+    def edits(self):
+        """Gets the edits of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The edits of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+        :rtype: list[ConvertEditForGetExecutionOutput]
+        """
+        return self._edits
+
+    @edits.setter
+    def edits(self, edits):
+        """Sets the edits of this ConvertHighlightForGetExecutionOutput.
+
+
+        :param edits: The edits of this ConvertHighlightForGetExecutionOutput.  # noqa: E501
+        :type: list[ConvertEditForGetExecutionOutput]
+        """
+
+        self._edits = edits
 
     @property
     def highlight_cuts(self):

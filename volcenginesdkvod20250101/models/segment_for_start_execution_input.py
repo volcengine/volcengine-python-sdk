@@ -33,24 +33,107 @@ class SegmentForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'no_file': 'bool'
+        'clip_fade': 'bool',
+        'max_duration': 'float',
+        'min_duration': 'float',
+        'no_file': 'bool',
+        'threshold': 'float'
     }
 
     attribute_map = {
-        'no_file': 'NoFile'
+        'clip_fade': 'ClipFade',
+        'max_duration': 'MaxDuration',
+        'min_duration': 'MinDuration',
+        'no_file': 'NoFile',
+        'threshold': 'Threshold'
     }
 
-    def __init__(self, no_file=None, _configuration=None):  # noqa: E501
+    def __init__(self, clip_fade=None, max_duration=None, min_duration=None, no_file=None, threshold=None, _configuration=None):  # noqa: E501
         """SegmentForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._clip_fade = None
+        self._max_duration = None
+        self._min_duration = None
         self._no_file = None
+        self._threshold = None
         self.discriminator = None
 
+        if clip_fade is not None:
+            self.clip_fade = clip_fade
+        if max_duration is not None:
+            self.max_duration = max_duration
+        if min_duration is not None:
+            self.min_duration = min_duration
         if no_file is not None:
             self.no_file = no_file
+        if threshold is not None:
+            self.threshold = threshold
+
+    @property
+    def clip_fade(self):
+        """Gets the clip_fade of this SegmentForStartExecutionInput.  # noqa: E501
+
+
+        :return: The clip_fade of this SegmentForStartExecutionInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._clip_fade
+
+    @clip_fade.setter
+    def clip_fade(self, clip_fade):
+        """Sets the clip_fade of this SegmentForStartExecutionInput.
+
+
+        :param clip_fade: The clip_fade of this SegmentForStartExecutionInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._clip_fade = clip_fade
+
+    @property
+    def max_duration(self):
+        """Gets the max_duration of this SegmentForStartExecutionInput.  # noqa: E501
+
+
+        :return: The max_duration of this SegmentForStartExecutionInput.  # noqa: E501
+        :rtype: float
+        """
+        return self._max_duration
+
+    @max_duration.setter
+    def max_duration(self, max_duration):
+        """Sets the max_duration of this SegmentForStartExecutionInput.
+
+
+        :param max_duration: The max_duration of this SegmentForStartExecutionInput.  # noqa: E501
+        :type: float
+        """
+
+        self._max_duration = max_duration
+
+    @property
+    def min_duration(self):
+        """Gets the min_duration of this SegmentForStartExecutionInput.  # noqa: E501
+
+
+        :return: The min_duration of this SegmentForStartExecutionInput.  # noqa: E501
+        :rtype: float
+        """
+        return self._min_duration
+
+    @min_duration.setter
+    def min_duration(self, min_duration):
+        """Sets the min_duration of this SegmentForStartExecutionInput.
+
+
+        :param min_duration: The min_duration of this SegmentForStartExecutionInput.  # noqa: E501
+        :type: float
+        """
+
+        self._min_duration = min_duration
 
     @property
     def no_file(self):
@@ -72,6 +155,27 @@ class SegmentForStartExecutionInput(object):
         """
 
         self._no_file = no_file
+
+    @property
+    def threshold(self):
+        """Gets the threshold of this SegmentForStartExecutionInput.  # noqa: E501
+
+
+        :return: The threshold of this SegmentForStartExecutionInput.  # noqa: E501
+        :rtype: float
+        """
+        return self._threshold
+
+    @threshold.setter
+    def threshold(self, threshold):
+        """Sets the threshold of this SegmentForStartExecutionInput.
+
+
+        :param threshold: The threshold of this SegmentForStartExecutionInput.  # noqa: E501
+        :type: float
+        """
+
+        self._threshold = threshold
 
     def to_dict(self):
         """Returns the model properties as a dict"""

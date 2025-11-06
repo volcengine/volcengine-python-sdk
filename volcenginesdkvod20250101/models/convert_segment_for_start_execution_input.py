@@ -33,71 +33,97 @@ class ConvertSegmentForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'end': 'float',
-        'start': 'float'
+        'max_duration': 'float',
+        'min_duration': 'float',
+        'threshold': 'float'
     }
 
     attribute_map = {
-        'end': 'End',
-        'start': 'Start'
+        'max_duration': 'MaxDuration',
+        'min_duration': 'MinDuration',
+        'threshold': 'Threshold'
     }
 
-    def __init__(self, end=None, start=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_duration=None, min_duration=None, threshold=None, _configuration=None):  # noqa: E501
         """ConvertSegmentForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._end = None
-        self._start = None
+        self._max_duration = None
+        self._min_duration = None
+        self._threshold = None
         self.discriminator = None
 
-        if end is not None:
-            self.end = end
-        if start is not None:
-            self.start = start
+        if max_duration is not None:
+            self.max_duration = max_duration
+        if min_duration is not None:
+            self.min_duration = min_duration
+        if threshold is not None:
+            self.threshold = threshold
 
     @property
-    def end(self):
-        """Gets the end of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+    def max_duration(self):
+        """Gets the max_duration of this ConvertSegmentForStartExecutionInput.  # noqa: E501
 
 
-        :return: The end of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :return: The max_duration of this ConvertSegmentForStartExecutionInput.  # noqa: E501
         :rtype: float
         """
-        return self._end
+        return self._max_duration
 
-    @end.setter
-    def end(self, end):
-        """Sets the end of this ConvertSegmentForStartExecutionInput.
+    @max_duration.setter
+    def max_duration(self, max_duration):
+        """Sets the max_duration of this ConvertSegmentForStartExecutionInput.
 
 
-        :param end: The end of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :param max_duration: The max_duration of this ConvertSegmentForStartExecutionInput.  # noqa: E501
         :type: float
         """
 
-        self._end = end
+        self._max_duration = max_duration
 
     @property
-    def start(self):
-        """Gets the start of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+    def min_duration(self):
+        """Gets the min_duration of this ConvertSegmentForStartExecutionInput.  # noqa: E501
 
 
-        :return: The start of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :return: The min_duration of this ConvertSegmentForStartExecutionInput.  # noqa: E501
         :rtype: float
         """
-        return self._start
+        return self._min_duration
 
-    @start.setter
-    def start(self, start):
-        """Sets the start of this ConvertSegmentForStartExecutionInput.
+    @min_duration.setter
+    def min_duration(self, min_duration):
+        """Sets the min_duration of this ConvertSegmentForStartExecutionInput.
 
 
-        :param start: The start of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :param min_duration: The min_duration of this ConvertSegmentForStartExecutionInput.  # noqa: E501
         :type: float
         """
 
-        self._start = start
+        self._min_duration = min_duration
+
+    @property
+    def threshold(self):
+        """Gets the threshold of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+
+
+        :return: The threshold of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :rtype: float
+        """
+        return self._threshold
+
+    @threshold.setter
+    def threshold(self, threshold):
+        """Sets the threshold of this ConvertSegmentForStartExecutionInput.
+
+
+        :param threshold: The threshold of this ConvertSegmentForStartExecutionInput.  # noqa: E501
+        :type: float
+        """
+
+        self._threshold = threshold
 
     def to_dict(self):
         """Returns the model properties as a dict"""
