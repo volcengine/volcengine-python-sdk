@@ -25,7 +25,7 @@ from ..._utils._utils import with_sts_token, async_with_sts_token
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._compat import cached_property
-
+from ..._exceptions import ArkAPIError
 from ..._response import (
     to_raw_response_wrapper,
     async_to_raw_response_wrapper,
@@ -365,8 +365,12 @@ class AsyncResponses(AsyncAPIResource):
 
         file_path = Path(full_path)
         file = await self._client.files.create(file=file_path, purpose="user_data")
-        await self._client.files.wait_for_processing(id=file.id)
-        content[content_data_key] = None  # replace with file id
+        file = await self._client.files.wait_for_processing(id=file.id)
+        if file.status != "active":
+            raise ArkAPIError(f"File path: {full_path},id: {file.id} processing failed with status {file.status}.")
+
+        # replace with file id
+        content[content_data_key] = None
         content["file_id"] = file.id
 
 
