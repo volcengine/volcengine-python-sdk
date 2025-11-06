@@ -42,7 +42,8 @@ class CreateSandboxRequest(object):
         'memory_mb': 'int',
         'metadata': 'dict(str, str)',
         'request_timeout': 'int',
-        'timeout': 'int'
+        'timeout': 'int',
+        'timeout_unit': 'str'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class CreateSandboxRequest(object):
         'memory_mb': 'MemoryMB',
         'metadata': 'Metadata',
         'request_timeout': 'RequestTimeout',
-        'timeout': 'Timeout'
+        'timeout': 'Timeout',
+        'timeout_unit': 'TimeoutUnit'
     }
 
-    def __init__(self, cpu_milli=None, envs=None, function_id=None, instance_image_info=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, timeout=None, _configuration=None):  # noqa: E501
+    def __init__(self, cpu_milli=None, envs=None, function_id=None, instance_image_info=None, instance_tos_mount_config=None, max_concurrency=None, memory_mb=None, metadata=None, request_timeout=None, timeout=None, timeout_unit=None, _configuration=None):  # noqa: E501
         """CreateSandboxRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class CreateSandboxRequest(object):
         self._metadata = None
         self._request_timeout = None
         self._timeout = None
+        self._timeout_unit = None
         self.discriminator = None
 
         if cpu_milli is not None:
@@ -95,6 +98,8 @@ class CreateSandboxRequest(object):
             self.request_timeout = request_timeout
         if timeout is not None:
             self.timeout = timeout
+        if timeout_unit is not None:
+            self.timeout_unit = timeout_unit
 
     @property
     def cpu_milli(self):
@@ -307,6 +312,27 @@ class CreateSandboxRequest(object):
         """
 
         self._timeout = timeout
+
+    @property
+    def timeout_unit(self):
+        """Gets the timeout_unit of this CreateSandboxRequest.  # noqa: E501
+
+
+        :return: The timeout_unit of this CreateSandboxRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._timeout_unit
+
+    @timeout_unit.setter
+    def timeout_unit(self, timeout_unit):
+        """Sets the timeout_unit of this CreateSandboxRequest.
+
+
+        :param timeout_unit: The timeout_unit of this CreateSandboxRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._timeout_unit = timeout_unit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

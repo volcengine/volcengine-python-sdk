@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -13,22 +12,20 @@
 from __future__ import annotations
 
 from typing import Optional
+
 from typing_extensions import Literal, Required, TypedDict
 
 __all__ = ["ResponseInputVideoParam"]
 
 
 class ResponseInputVideoParam(TypedDict, total=False):
-
     type: Required[Literal["input_video"]]
     """The type of the input item. Always `input_video`."""
 
-    video_url: Optional[str]
-    """The URL of the video to be sent to the model.
+    video_url: Required[str]
+    """The URL of the video to be sent to the model. A fully qualified URL or base64 encoded video in a data URL."""
 
-    A fully qualified URL or base64 encoded video in a data URL.
-    """
+    file_id: Optional[str]
+
     fps: Optional[float]
-    """
-    Extract a specified number of images from the video every second.
-    """
+    """Extract a specified number of images from the video every second."""

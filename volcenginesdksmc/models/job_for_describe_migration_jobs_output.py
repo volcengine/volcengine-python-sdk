@@ -37,10 +37,12 @@ class JobForDescribeMigrationJobsOutput(object):
         'destination_config': 'DestinationConfigForDescribeMigrationJobsOutput',
         'finished_at': 'str',
         'last_sync_time': 'str',
+        'lvm_info': 'LvmInfoForDescribeMigrationJobsOutput',
         'migration_job_description': 'str',
         'migration_job_id': 'str',
         'migration_job_name': 'str',
         'migration_source_id': 'str',
+        'migration_source_info': 'MigrationSourceInfoForDescribeMigrationJobsOutput',
         'migration_source_name': 'str',
         'migration_state_tips': 'str',
         'network_config': 'NetworkConfigForDescribeMigrationJobsOutput',
@@ -61,10 +63,12 @@ class JobForDescribeMigrationJobsOutput(object):
         'destination_config': 'DestinationConfig',
         'finished_at': 'FinishedAt',
         'last_sync_time': 'LastSyncTime',
+        'lvm_info': 'LvmInfo',
         'migration_job_description': 'MigrationJobDescription',
         'migration_job_id': 'MigrationJobId',
         'migration_job_name': 'MigrationJobName',
         'migration_source_id': 'MigrationSourceId',
+        'migration_source_info': 'MigrationSourceInfo',
         'migration_source_name': 'MigrationSourceName',
         'migration_state_tips': 'MigrationStateTips',
         'network_config': 'NetworkConfig',
@@ -80,7 +84,7 @@ class JobForDescribeMigrationJobsOutput(object):
         'temporary_resources': 'TemporaryResources'
     }
 
-    def __init__(self, created_at=None, destination_config=None, finished_at=None, last_sync_time=None, migration_job_description=None, migration_job_id=None, migration_job_name=None, migration_source_id=None, migration_source_name=None, migration_state_tips=None, network_config=None, progress=None, project_name=None, source_project_name=None, source_type=None, started_at=None, state=None, sync_config=None, system_config=None, tags=None, temporary_resources=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, destination_config=None, finished_at=None, last_sync_time=None, lvm_info=None, migration_job_description=None, migration_job_id=None, migration_job_name=None, migration_source_id=None, migration_source_info=None, migration_source_name=None, migration_state_tips=None, network_config=None, progress=None, project_name=None, source_project_name=None, source_type=None, started_at=None, state=None, sync_config=None, system_config=None, tags=None, temporary_resources=None, _configuration=None):  # noqa: E501
         """JobForDescribeMigrationJobsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,10 +94,12 @@ class JobForDescribeMigrationJobsOutput(object):
         self._destination_config = None
         self._finished_at = None
         self._last_sync_time = None
+        self._lvm_info = None
         self._migration_job_description = None
         self._migration_job_id = None
         self._migration_job_name = None
         self._migration_source_id = None
+        self._migration_source_info = None
         self._migration_source_name = None
         self._migration_state_tips = None
         self._network_config = None
@@ -117,6 +123,8 @@ class JobForDescribeMigrationJobsOutput(object):
             self.finished_at = finished_at
         if last_sync_time is not None:
             self.last_sync_time = last_sync_time
+        if lvm_info is not None:
+            self.lvm_info = lvm_info
         if migration_job_description is not None:
             self.migration_job_description = migration_job_description
         if migration_job_id is not None:
@@ -125,6 +133,8 @@ class JobForDescribeMigrationJobsOutput(object):
             self.migration_job_name = migration_job_name
         if migration_source_id is not None:
             self.migration_source_id = migration_source_id
+        if migration_source_info is not None:
+            self.migration_source_info = migration_source_info
         if migration_source_name is not None:
             self.migration_source_name = migration_source_name
         if migration_state_tips is not None:
@@ -237,6 +247,27 @@ class JobForDescribeMigrationJobsOutput(object):
         self._last_sync_time = last_sync_time
 
     @property
+    def lvm_info(self):
+        """Gets the lvm_info of this JobForDescribeMigrationJobsOutput.  # noqa: E501
+
+
+        :return: The lvm_info of this JobForDescribeMigrationJobsOutput.  # noqa: E501
+        :rtype: LvmInfoForDescribeMigrationJobsOutput
+        """
+        return self._lvm_info
+
+    @lvm_info.setter
+    def lvm_info(self, lvm_info):
+        """Sets the lvm_info of this JobForDescribeMigrationJobsOutput.
+
+
+        :param lvm_info: The lvm_info of this JobForDescribeMigrationJobsOutput.  # noqa: E501
+        :type: LvmInfoForDescribeMigrationJobsOutput
+        """
+
+        self._lvm_info = lvm_info
+
+    @property
     def migration_job_description(self):
         """Gets the migration_job_description of this JobForDescribeMigrationJobsOutput.  # noqa: E501
 
@@ -319,6 +350,27 @@ class JobForDescribeMigrationJobsOutput(object):
         """
 
         self._migration_source_id = migration_source_id
+
+    @property
+    def migration_source_info(self):
+        """Gets the migration_source_info of this JobForDescribeMigrationJobsOutput.  # noqa: E501
+
+
+        :return: The migration_source_info of this JobForDescribeMigrationJobsOutput.  # noqa: E501
+        :rtype: MigrationSourceInfoForDescribeMigrationJobsOutput
+        """
+        return self._migration_source_info
+
+    @migration_source_info.setter
+    def migration_source_info(self, migration_source_info):
+        """Sets the migration_source_info of this JobForDescribeMigrationJobsOutput.
+
+
+        :param migration_source_info: The migration_source_info of this JobForDescribeMigrationJobsOutput.  # noqa: E501
+        :type: MigrationSourceInfoForDescribeMigrationJobsOutput
+        """
+
+        self._migration_source_info = migration_source_info
 
     @property
     def migration_source_name(self):

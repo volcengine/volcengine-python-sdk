@@ -36,6 +36,7 @@ class DiskInfoForDescribeMigrationSourcesOutput(object):
         'disk_index': 'int',
         'disk_name': 'str',
         'disk_size': 'int',
+        'disk_used_size': 'int',
         'file_system_format': 'str',
         'is_system_disk': 'bool',
         'partitions': 'list[PartitionForDescribeMigrationSourcesOutput]'
@@ -45,12 +46,13 @@ class DiskInfoForDescribeMigrationSourcesOutput(object):
         'disk_index': 'DiskIndex',
         'disk_name': 'DiskName',
         'disk_size': 'DiskSize',
+        'disk_used_size': 'DiskUsedSize',
         'file_system_format': 'FileSystemFormat',
         'is_system_disk': 'IsSystemDisk',
         'partitions': 'Partitions'
     }
 
-    def __init__(self, disk_index=None, disk_name=None, disk_size=None, file_system_format=None, is_system_disk=None, partitions=None, _configuration=None):  # noqa: E501
+    def __init__(self, disk_index=None, disk_name=None, disk_size=None, disk_used_size=None, file_system_format=None, is_system_disk=None, partitions=None, _configuration=None):  # noqa: E501
         """DiskInfoForDescribeMigrationSourcesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DiskInfoForDescribeMigrationSourcesOutput(object):
         self._disk_index = None
         self._disk_name = None
         self._disk_size = None
+        self._disk_used_size = None
         self._file_system_format = None
         self._is_system_disk = None
         self._partitions = None
@@ -70,6 +73,8 @@ class DiskInfoForDescribeMigrationSourcesOutput(object):
             self.disk_name = disk_name
         if disk_size is not None:
             self.disk_size = disk_size
+        if disk_used_size is not None:
+            self.disk_used_size = disk_used_size
         if file_system_format is not None:
             self.file_system_format = file_system_format
         if is_system_disk is not None:
@@ -139,6 +144,27 @@ class DiskInfoForDescribeMigrationSourcesOutput(object):
         """
 
         self._disk_size = disk_size
+
+    @property
+    def disk_used_size(self):
+        """Gets the disk_used_size of this DiskInfoForDescribeMigrationSourcesOutput.  # noqa: E501
+
+
+        :return: The disk_used_size of this DiskInfoForDescribeMigrationSourcesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._disk_used_size
+
+    @disk_used_size.setter
+    def disk_used_size(self, disk_used_size):
+        """Sets the disk_used_size of this DiskInfoForDescribeMigrationSourcesOutput.
+
+
+        :param disk_used_size: The disk_used_size of this DiskInfoForDescribeMigrationSourcesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._disk_used_size = disk_used_size
 
     @property
     def file_system_format(self):
