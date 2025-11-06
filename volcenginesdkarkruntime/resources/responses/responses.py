@@ -10,7 +10,7 @@
 # This modified file is released under the same license.
 
 from __future__ import annotations
-
+from pathlib import Path
 from typing import (
     Union,
     Iterable,
@@ -19,7 +19,7 @@ from typing import (
 
 import httpx
 from typing_extensions import Literal
-
+from urllib.parse import urlparse, unquote_plus
 from ..._types import Body, Query, Headers
 from ..._utils._utils import with_sts_token, async_with_sts_token
 from ..._base_client import make_request_options
@@ -36,7 +36,12 @@ from ..._streaming import Stream, AsyncStream
 from ...types.responses.response_create_params import ToolChoice
 from ...types.responses.response import Response
 from ...types.responses.tool_param import ToolParam
-from ...types.responses.response_input_param import ResponseInputParam
+from ...types.responses.response_input_param import (
+    ResponseInputParam,
+)
+from ...types.responses.response_input_message_content_list_param import (
+    ResponseInputContentParam,
+)
 from ...types.responses.response_stream_event import ResponseStreamEvent
 from ...types.responses.response_text_config_param import ResponseTextConfigParam
 from ...types.responses.response_caching_param import ResponseCaching
@@ -44,6 +49,14 @@ from ...types.shared_params import Reasoning
 from volcenginesdkarkruntime.types.shared_params.thinking import Thinking
 
 __all__ = ["Responses", "AsyncResponses"]
+
+RESPONSES_MULTIMODAL_CONTENT_DATA_KEYS = {
+    "input_image": "image_url",
+    "input_video": "video_url",
+    "input_file": "file_data",
+}
+
+FILE_PATH_SCHEME = "file"
 
 
 def _add_beta_headers(
@@ -185,6 +198,51 @@ class Responses(SyncAPIResource):
             cast_to=type(None),
         )
 
+    def _prepare_responses_input(self, input: ResponseInputParam):
+        for input_item in input:  # type: ResponseInputItemParam
+            if "content" not in input_item:  # skip non-content message
+                continue
+            content_list = input_item["content"]
+
+            if not isinstance(content_list, list):  # skip non-list content
+                continue
+
+            for content in content_list:  # type: ResponseInputContentParam
+                self._prepare_responses_input_file(content=content)
+
+    def _prepare_responses_input_file(self, content: ResponseInputContentParam):
+        if "type" not in content:  # skip non-type content
+            return
+        content_type = content["type"]
+        if (
+            content_type not in RESPONSES_MULTIMODAL_CONTENT_DATA_KEYS.keys()
+        ):  # skip non-multimodal content
+            return
+        content_data_key = RESPONSES_MULTIMODAL_CONTENT_DATA_KEYS[content_type]
+        if content_data_key not in content:  # skip non-url content
+            return
+        content_data: str = content[content_data_key]
+
+        parsed = urlparse(content_data)
+        if parsed.scheme != FILE_PATH_SCHEME:  # skip non-file-scheme content
+            return
+
+        # Decode percent-encoded parts in the path
+        decoded_path = unquote_plus(parsed.path)
+
+        if parsed.netloc:
+            # Handle cases like file://hostname/share/path or Windows UNC
+            # For simplicity, prefix double-slash for network path
+            full_path = f"{parsed.netloc}{decoded_path}"
+        else:
+            full_path = decoded_path
+
+        file_path = Path(full_path)
+        file = self._client.files.create(file=file_path, purpose="user_data")
+        self._client.files.wait_for_processing(id=file.id)
+        content[content_data_key] = None  # replace with file id
+        content["file_id"] = file.id
+
 
 class AsyncResponses(AsyncAPIResource):
     @cached_property
@@ -223,6 +281,8 @@ class AsyncResponses(AsyncAPIResource):
         reasoning: Optional[Reasoning] | None = None,
     ) -> Response | AsyncStream[ResponseStreamEvent]:
         extra_headers = _add_beta_headers(extra_headers, tools)
+        await self._prepare_responses_input(input=input)
+
         resp = await self._post(
             "/responses",
             body={
@@ -308,6 +368,51 @@ class AsyncResponses(AsyncAPIResource):
             ),
             cast_to=type(None),
         )
+
+    async def _prepare_responses_input(self, input: ResponseInputParam):
+        for input_item in input:  # type: ResponseInputItemParam
+            if "content" not in input_item:  # skip non-content message
+                continue
+            content_list = input_item["content"]
+
+            if not isinstance(content_list, list):  # skip non-list content
+                continue
+
+            for content in content_list:  # type: ResponseInputContentParam
+                await self._prepare_responses_input_file(content=content)
+
+    async def _prepare_responses_input_file(self, content: ResponseInputContentParam):
+        if "type" not in content:  # skip non-type content
+            return
+        content_type = content["type"]
+        if (
+            content_type not in RESPONSES_MULTIMODAL_CONTENT_DATA_KEYS.keys()
+        ):  # skip non-multimodal content
+            return
+        content_data_key = RESPONSES_MULTIMODAL_CONTENT_DATA_KEYS[content_type]
+        if content_data_key not in content:  # skip non-url content
+            return
+        content_data: str = content[content_data_key]
+
+        parsed = urlparse(content_data)
+        if parsed.scheme != FILE_PATH_SCHEME:  # skip non-file-scheme content
+            return
+
+        # Decode percent-encoded parts in the path
+        decoded_path = unquote_plus(parsed.path)
+
+        if parsed.netloc:
+            # Handle cases like file://hostname/share/path or Windows UNC
+            # For simplicity, prefix double-slash for network path
+            full_path = f"{parsed.netloc}{decoded_path}"
+        else:
+            full_path = decoded_path
+
+        file_path = Path(full_path)
+        file = await self._client.files.create(file=file_path, purpose="user_data")
+        await self._client.files.wait_for_processing(id=file.id)
+        content[content_data_key] = None  # replace with file id
+        content["file_id"] = file.id
 
 
 class ResponsesWithRawResponse:

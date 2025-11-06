@@ -1,5 +1,4 @@
 import asyncio
-
 from volcenginesdkarkruntime import AsyncArk
 from volcenginesdkarkruntime.types.responses.response_completed_event import ResponseCompletedEvent
 from volcenginesdkarkruntime.types.responses.response_output_item_done_event import ResponseOutputItemDoneEvent
@@ -19,15 +18,6 @@ client = AsyncArk()
 
 
 async def main():
-    # upload image file
-    print("Upload image file")
-    file = await client.files.create(
-        # replace with your local image path
-        file=open("path/to/sample.jpg", "rb"),
-        purpose="user_data"
-    )
-    print(f"File uploaded: {file.id}")
-
     # ==========================================================
     # 示例 1：多轮对话，开启 caching
     # ==========================================================
@@ -41,8 +31,8 @@ async def main():
             {"role": "user", "content": [
                 {
                     "type": "input_image",
-                    # ref image file id
-                    "file_id": file.id
+                    # local image file path, will be automatically uploaded to file
+                    "image_url": f"file://{your_image_path}"
                 },
                 {
                     "type": "input_text",
