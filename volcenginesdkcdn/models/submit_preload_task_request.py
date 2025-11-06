@@ -37,6 +37,7 @@ class SubmitPreloadTaskRequest(object):
         'concurrent_limit': 'int',
         'layer': 'str',
         'request_header_instances': 'list[RequestHeaderInstanceForSubmitPreloadTaskInput]',
+        'url_list': 'list[str]',
         'urls': 'str'
     }
 
@@ -45,10 +46,11 @@ class SubmitPreloadTaskRequest(object):
         'concurrent_limit': 'ConcurrentLimit',
         'layer': 'Layer',
         'request_header_instances': 'RequestHeaderInstances',
+        'url_list': 'UrlList',
         'urls': 'Urls'
     }
 
-    def __init__(self, area=None, concurrent_limit=None, layer=None, request_header_instances=None, urls=None, _configuration=None):  # noqa: E501
+    def __init__(self, area=None, concurrent_limit=None, layer=None, request_header_instances=None, url_list=None, urls=None, _configuration=None):  # noqa: E501
         """SubmitPreloadTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class SubmitPreloadTaskRequest(object):
         self._concurrent_limit = None
         self._layer = None
         self._request_header_instances = None
+        self._url_list = None
         self._urls = None
         self.discriminator = None
 
@@ -69,7 +72,10 @@ class SubmitPreloadTaskRequest(object):
             self.layer = layer
         if request_header_instances is not None:
             self.request_header_instances = request_header_instances
-        self.urls = urls
+        if url_list is not None:
+            self.url_list = url_list
+        if urls is not None:
+            self.urls = urls
 
     @property
     def area(self):
@@ -156,6 +162,27 @@ class SubmitPreloadTaskRequest(object):
         self._request_header_instances = request_header_instances
 
     @property
+    def url_list(self):
+        """Gets the url_list of this SubmitPreloadTaskRequest.  # noqa: E501
+
+
+        :return: The url_list of this SubmitPreloadTaskRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._url_list
+
+    @url_list.setter
+    def url_list(self, url_list):
+        """Sets the url_list of this SubmitPreloadTaskRequest.
+
+
+        :param url_list: The url_list of this SubmitPreloadTaskRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._url_list = url_list
+
+    @property
     def urls(self):
         """Gets the urls of this SubmitPreloadTaskRequest.  # noqa: E501
 
@@ -173,8 +200,6 @@ class SubmitPreloadTaskRequest(object):
         :param urls: The urls of this SubmitPreloadTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and urls is None:
-            raise ValueError("Invalid value for `urls`, must not be `None`")  # noqa: E501
 
         self._urls = urls
 
