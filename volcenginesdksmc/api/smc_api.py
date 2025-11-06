@@ -109,13 +109,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/CreateMigrationJob/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/CreateMigrationJob/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -206,13 +206,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteMigrationJob/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/DeleteMigrationJob/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -303,13 +303,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DeleteMigrationSource/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/DeleteMigrationSource/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -400,13 +400,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeMigrationJobs/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/DescribeMigrationJobs/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -497,13 +497,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeMigrationLogs/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/DescribeMigrationLogs/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -594,13 +594,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeMigrationSources/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/DescribeMigrationSources/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -691,13 +691,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/DescribeMigrationSystemSupportTypes/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/DescribeMigrationSystemSupportTypes/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -788,13 +788,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyMigrationJobAttribute/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/ModifyMigrationJobAttribute/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -885,13 +885,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ModifyMigrationSourceAttribute/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/ModifyMigrationSourceAttribute/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -982,13 +982,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/SetIncrementalSyncInterval/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/SetIncrementalSyncInterval/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1079,13 +1079,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/TagResources/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/TagResources/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1176,13 +1176,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/TriggerLastIncrementalSync/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/TriggerLastIncrementalSync/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1273,13 +1273,13 @@ class SMCApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['volcengineSign']  # noqa: E501
 
         return self.api_client.call_api(
-            '/UnTagResources/2020-04-01/smc/post/application_x-www-form-urlencoded/', 'POST',
+            '/UnTagResources/2020-04-01/smc/get/text_plain/', 'GET',
             path_params,
             query_params,
             header_params,
