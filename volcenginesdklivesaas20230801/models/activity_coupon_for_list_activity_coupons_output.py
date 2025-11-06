@@ -40,12 +40,14 @@ class ActivityCouponForListActivityCouponsOutput(object):
         'duration': 'int',
         'end_time': 'int',
         'id': 'int',
+        'is_viewer_level_limit': 'int',
         'is_watch_live_limit': 'int',
         'pickup_count': 'int',
         'pickup_people_count': 'int',
         'rule': 'int',
         'send_time': 'int',
-        'status': 'int'
+        'status': 'int',
+        'viewer_level_config_metas': 'list[ViewerLevelConfigMetaForListActivityCouponsOutput]'
     }
 
     attribute_map = {
@@ -56,15 +58,17 @@ class ActivityCouponForListActivityCouponsOutput(object):
         'duration': 'Duration',
         'end_time': 'EndTime',
         'id': 'Id',
+        'is_viewer_level_limit': 'IsViewerLevelLimit',
         'is_watch_live_limit': 'IsWatchLiveLimit',
         'pickup_count': 'PickupCount',
         'pickup_people_count': 'PickupPeopleCount',
         'rule': 'Rule',
         'send_time': 'SendTime',
-        'status': 'Status'
+        'status': 'Status',
+        'viewer_level_config_metas': 'ViewerLevelConfigMetas'
     }
 
-    def __init__(self, allow_close_icon=None, count=None, coupon=None, cut_off_time=None, duration=None, end_time=None, id=None, is_watch_live_limit=None, pickup_count=None, pickup_people_count=None, rule=None, send_time=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_close_icon=None, count=None, coupon=None, cut_off_time=None, duration=None, end_time=None, id=None, is_viewer_level_limit=None, is_watch_live_limit=None, pickup_count=None, pickup_people_count=None, rule=None, send_time=None, status=None, viewer_level_config_metas=None, _configuration=None):  # noqa: E501
         """ActivityCouponForListActivityCouponsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,12 +81,14 @@ class ActivityCouponForListActivityCouponsOutput(object):
         self._duration = None
         self._end_time = None
         self._id = None
+        self._is_viewer_level_limit = None
         self._is_watch_live_limit = None
         self._pickup_count = None
         self._pickup_people_count = None
         self._rule = None
         self._send_time = None
         self._status = None
+        self._viewer_level_config_metas = None
         self.discriminator = None
 
         if allow_close_icon is not None:
@@ -99,6 +105,8 @@ class ActivityCouponForListActivityCouponsOutput(object):
             self.end_time = end_time
         if id is not None:
             self.id = id
+        if is_viewer_level_limit is not None:
+            self.is_viewer_level_limit = is_viewer_level_limit
         if is_watch_live_limit is not None:
             self.is_watch_live_limit = is_watch_live_limit
         if pickup_count is not None:
@@ -111,6 +119,8 @@ class ActivityCouponForListActivityCouponsOutput(object):
             self.send_time = send_time
         if status is not None:
             self.status = status
+        if viewer_level_config_metas is not None:
+            self.viewer_level_config_metas = viewer_level_config_metas
 
     @property
     def allow_close_icon(self):
@@ -260,6 +270,27 @@ class ActivityCouponForListActivityCouponsOutput(object):
         self._id = id
 
     @property
+    def is_viewer_level_limit(self):
+        """Gets the is_viewer_level_limit of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+
+
+        :return: The is_viewer_level_limit of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_viewer_level_limit
+
+    @is_viewer_level_limit.setter
+    def is_viewer_level_limit(self, is_viewer_level_limit):
+        """Sets the is_viewer_level_limit of this ActivityCouponForListActivityCouponsOutput.
+
+
+        :param is_viewer_level_limit: The is_viewer_level_limit of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._is_viewer_level_limit = is_viewer_level_limit
+
+    @property
     def is_watch_live_limit(self):
         """Gets the is_watch_live_limit of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
 
@@ -384,6 +415,27 @@ class ActivityCouponForListActivityCouponsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def viewer_level_config_metas(self):
+        """Gets the viewer_level_config_metas of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+
+
+        :return: The viewer_level_config_metas of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+        :rtype: list[ViewerLevelConfigMetaForListActivityCouponsOutput]
+        """
+        return self._viewer_level_config_metas
+
+    @viewer_level_config_metas.setter
+    def viewer_level_config_metas(self, viewer_level_config_metas):
+        """Sets the viewer_level_config_metas of this ActivityCouponForListActivityCouponsOutput.
+
+
+        :param viewer_level_config_metas: The viewer_level_config_metas of this ActivityCouponForListActivityCouponsOutput.  # noqa: E501
+        :type: list[ViewerLevelConfigMetaForListActivityCouponsOutput]
+        """
+
+        self._viewer_level_config_metas = viewer_level_config_metas
 
     def to_dict(self):
         """Returns the model properties as a dict"""

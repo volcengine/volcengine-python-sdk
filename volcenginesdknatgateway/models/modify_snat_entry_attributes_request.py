@@ -34,29 +34,34 @@ class ModifySnatEntryAttributesRequest(object):
     """
     swagger_types = {
         'eip_id': 'str',
+        'nat_ip_id': 'str',
         'snat_entry_id': 'str',
         'snat_entry_name': 'str'
     }
 
     attribute_map = {
         'eip_id': 'EipId',
+        'nat_ip_id': 'NatIpId',
         'snat_entry_id': 'SnatEntryId',
         'snat_entry_name': 'SnatEntryName'
     }
 
-    def __init__(self, eip_id=None, snat_entry_id=None, snat_entry_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_id=None, nat_ip_id=None, snat_entry_id=None, snat_entry_name=None, _configuration=None):  # noqa: E501
         """ModifySnatEntryAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._eip_id = None
+        self._nat_ip_id = None
         self._snat_entry_id = None
         self._snat_entry_name = None
         self.discriminator = None
 
         if eip_id is not None:
             self.eip_id = eip_id
+        if nat_ip_id is not None:
+            self.nat_ip_id = nat_ip_id
         self.snat_entry_id = snat_entry_id
         if snat_entry_name is not None:
             self.snat_entry_name = snat_entry_name
@@ -81,6 +86,27 @@ class ModifySnatEntryAttributesRequest(object):
         """
 
         self._eip_id = eip_id
+
+    @property
+    def nat_ip_id(self):
+        """Gets the nat_ip_id of this ModifySnatEntryAttributesRequest.  # noqa: E501
+
+
+        :return: The nat_ip_id of this ModifySnatEntryAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._nat_ip_id
+
+    @nat_ip_id.setter
+    def nat_ip_id(self, nat_ip_id):
+        """Sets the nat_ip_id of this ModifySnatEntryAttributesRequest.
+
+
+        :param nat_ip_id: The nat_ip_id of this ModifySnatEntryAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._nat_ip_id = nat_ip_id
 
     @property
     def snat_entry_id(self):

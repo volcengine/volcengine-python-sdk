@@ -36,6 +36,7 @@ class DescribeNatGatewaysRequest(object):
         'description': 'str',
         'nat_gateway_ids': 'list[str]',
         'nat_gateway_name': 'str',
+        'network_type': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -49,6 +50,7 @@ class DescribeNatGatewaysRequest(object):
         'description': 'Description',
         'nat_gateway_ids': 'NatGatewayIds',
         'nat_gateway_name': 'NatGatewayName',
+        'network_type': 'NetworkType',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -58,7 +60,7 @@ class DescribeNatGatewaysRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, description=None, nat_gateway_ids=None, nat_gateway_name=None, page_number=None, page_size=None, project_name=None, spec=None, subnet_id=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, nat_gateway_ids=None, nat_gateway_name=None, network_type=None, page_number=None, page_size=None, project_name=None, spec=None, subnet_id=None, tag_filters=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeNatGatewaysRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class DescribeNatGatewaysRequest(object):
         self._description = None
         self._nat_gateway_ids = None
         self._nat_gateway_name = None
+        self._network_type = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -82,6 +85,8 @@ class DescribeNatGatewaysRequest(object):
             self.nat_gateway_ids = nat_gateway_ids
         if nat_gateway_name is not None:
             self.nat_gateway_name = nat_gateway_name
+        if network_type is not None:
+            self.network_type = network_type
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -159,6 +164,27 @@ class DescribeNatGatewaysRequest(object):
         """
 
         self._nat_gateway_name = nat_gateway_name
+
+    @property
+    def network_type(self):
+        """Gets the network_type of this DescribeNatGatewaysRequest.  # noqa: E501
+
+
+        :return: The network_type of this DescribeNatGatewaysRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_type
+
+    @network_type.setter
+    def network_type(self, network_type):
+        """Sets the network_type of this DescribeNatGatewaysRequest.
+
+
+        :param network_type: The network_type of this DescribeNatGatewaysRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._network_type = network_type
 
     @property
     def page_number(self):

@@ -33,17 +33,45 @@ class ListNatGatewayAvailableZonesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'product': 'str'
     }
 
     attribute_map = {
+        'product': 'Product'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, product=None, _configuration=None):  # noqa: E501
         """ListNatGatewayAvailableZonesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._product = None
         self.discriminator = None
+
+        if product is not None:
+            self.product = product
+
+    @property
+    def product(self):
+        """Gets the product of this ListNatGatewayAvailableZonesRequest.  # noqa: E501
+
+
+        :return: The product of this ListNatGatewayAvailableZonesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._product
+
+    @product.setter
+    def product(self, product):
+        """Sets the product of this ListNatGatewayAvailableZonesRequest.
+
+
+        :param product: The product of this ListNatGatewayAvailableZonesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._product = product
 
     def to_dict(self):
         """Returns the model properties as a dict"""

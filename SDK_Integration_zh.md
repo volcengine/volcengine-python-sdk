@@ -13,6 +13,7 @@
   - [自定义RegionId](#自定义regionid)
   - [自动化Endpoint寻址](#自动化endpoint寻址)
     - [Endpoint默认寻址](#endpoint默认寻址)
+    - [Endpoint标准寻址](#endpoint标准寻址)
 - [Http连接池配置](#http连接池配置)
 - [Https请求配置](#https请求配置)
   - [指定scheme](#指定scheme)
@@ -414,6 +415,33 @@ configuration.custom_bootstrap_region = {
 } # 自定义自动寻址Region列表
 volcenginesdkcore.Configuration.set_default(configuration)
 ```
+
+### Endpoint标准寻址
+**标准寻址规则**  
+
+| Global服务 | 双栈 | 格式                                                                                                               |
+|----------|----|------------------------------------------------------------------------------------------------------------------|
+| 是        | 是  | `{Service}.volcengine-api.com`                                                                                   |
+| 是        | 否  | `{Service}.volcengineapi.com`                                                                                    |
+| 否        | 是  | `{Service}.{region}.volcengine-api.com`|
+| 否        | 否  | `{Service}.{region}.volcengineapi.com` |
+
+**代码示例：**  
+
+是否global服务根据具体调用的服务决定的，是否global无法修改的。  
+可以参考列表：[./volcenginesdkcore/endpoint/providers/standard_provider.py#ServiceInfos](./volcenginesdkcore/endpoint/providers/standard_provider.py#L51)  
+```python
+import volcenginesdkcore
+from volcenginesdkcore.endpoint.providers.standard_provider import StandardEndpointResolver
+configuration = volcenginesdkcore.Configuration()
+configuration.ak = "Your ak"
+configuration.sk = "Your sk"
+configuration.endpoint_provider = StandardEndpointResolver() # 配置标准寻址
+configuration.use_dual_stack = True # 配置是否双栈
+configuration.region = "cn-beijing" # 配置region
+volcenginesdkcore.Configuration.set_default(configuration)
+```
+
 
 # Http连接池配置
 

@@ -40,6 +40,7 @@ class DestinationConfigForCreateMigrationJobInput(object):
         'destination_type': 'str',
         'image_name': 'str',
         'instance_id': 'str',
+        'license_type': 'str',
         'region': 'str'
     }
 
@@ -51,10 +52,11 @@ class DestinationConfigForCreateMigrationJobInput(object):
         'destination_type': 'DestinationType',
         'image_name': 'ImageName',
         'instance_id': 'InstanceId',
+        'license_type': 'LicenseType',
         'region': 'Region'
     }
 
-    def __init__(self, auto_install_blk_none=None, auto_install_virtio11=None, auto_replicate=None, destination_system=None, destination_type=None, image_name=None, instance_id=None, region=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_install_blk_none=None, auto_install_virtio11=None, auto_replicate=None, destination_system=None, destination_type=None, image_name=None, instance_id=None, license_type=None, region=None, _configuration=None):  # noqa: E501
         """DestinationConfigForCreateMigrationJobInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class DestinationConfigForCreateMigrationJobInput(object):
         self._destination_type = None
         self._image_name = None
         self._instance_id = None
+        self._license_type = None
         self._region = None
         self.discriminator = None
 
@@ -83,6 +86,8 @@ class DestinationConfigForCreateMigrationJobInput(object):
             self.image_name = image_name
         if instance_id is not None:
             self.instance_id = instance_id
+        if license_type is not None:
+            self.license_type = license_type
         self.region = region
 
     @property
@@ -233,6 +238,27 @@ class DestinationConfigForCreateMigrationJobInput(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def license_type(self):
+        """Gets the license_type of this DestinationConfigForCreateMigrationJobInput.  # noqa: E501
+
+
+        :return: The license_type of this DestinationConfigForCreateMigrationJobInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this DestinationConfigForCreateMigrationJobInput.
+
+
+        :param license_type: The license_type of this DestinationConfigForCreateMigrationJobInput.  # noqa: E501
+        :type: str
+        """
+
+        self._license_type = license_type
 
     @property
     def region(self):

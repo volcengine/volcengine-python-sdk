@@ -36,7 +36,9 @@ class CreateNatGatewayRequest(object):
         'billing_type': 'int',
         'client_token': 'str',
         'description': 'str',
+        'direct_mode': 'bool',
         'nat_gateway_name': 'str',
+        'network_type': 'str',
         'period': 'int',
         'period_unit': 'str',
         'project_name': 'str',
@@ -50,7 +52,9 @@ class CreateNatGatewayRequest(object):
         'billing_type': 'BillingType',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'direct_mode': 'DirectMode',
         'nat_gateway_name': 'NatGatewayName',
+        'network_type': 'NetworkType',
         'period': 'Period',
         'period_unit': 'PeriodUnit',
         'project_name': 'ProjectName',
@@ -60,7 +64,7 @@ class CreateNatGatewayRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, billing_type=None, client_token=None, description=None, nat_gateway_name=None, period=None, period_unit=None, project_name=None, spec=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, client_token=None, description=None, direct_mode=None, nat_gateway_name=None, network_type=None, period=None, period_unit=None, project_name=None, spec=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateNatGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,7 +73,9 @@ class CreateNatGatewayRequest(object):
         self._billing_type = None
         self._client_token = None
         self._description = None
+        self._direct_mode = None
         self._nat_gateway_name = None
+        self._network_type = None
         self._period = None
         self._period_unit = None
         self._project_name = None
@@ -85,8 +91,12 @@ class CreateNatGatewayRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if direct_mode is not None:
+            self.direct_mode = direct_mode
         if nat_gateway_name is not None:
             self.nat_gateway_name = nat_gateway_name
+        if network_type is not None:
+            self.network_type = network_type
         if period is not None:
             self.period = period
         if period_unit is not None:
@@ -177,6 +187,27 @@ class CreateNatGatewayRequest(object):
         self._description = description
 
     @property
+    def direct_mode(self):
+        """Gets the direct_mode of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The direct_mode of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._direct_mode
+
+    @direct_mode.setter
+    def direct_mode(self, direct_mode):
+        """Sets the direct_mode of this CreateNatGatewayRequest.
+
+
+        :param direct_mode: The direct_mode of this CreateNatGatewayRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._direct_mode = direct_mode
+
+    @property
     def nat_gateway_name(self):
         """Gets the nat_gateway_name of this CreateNatGatewayRequest.  # noqa: E501
 
@@ -202,6 +233,27 @@ class CreateNatGatewayRequest(object):
             raise ValueError("Invalid value for `nat_gateway_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._nat_gateway_name = nat_gateway_name
+
+    @property
+    def network_type(self):
+        """Gets the network_type of this CreateNatGatewayRequest.  # noqa: E501
+
+
+        :return: The network_type of this CreateNatGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_type
+
+    @network_type.setter
+    def network_type(self, network_type):
+        """Sets the network_type of this CreateNatGatewayRequest.
+
+
+        :param network_type: The network_type of this CreateNatGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._network_type = network_type
 
     @property
     def period(self):

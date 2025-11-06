@@ -33,6 +33,7 @@ class HighlightForStartExecutionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'edit': 'EditForStartExecutionInput',
         'highlight_cuts': 'HighlightCutsForStartExecutionInput',
         'mode': 'str',
         'opening_hook': 'OpeningHookForStartExecutionInput',
@@ -40,24 +41,28 @@ class HighlightForStartExecutionInput(object):
     }
 
     attribute_map = {
+        'edit': 'Edit',
         'highlight_cuts': 'HighlightCuts',
         'mode': 'Mode',
         'opening_hook': 'OpeningHook',
         'storyline_cuts': 'StorylineCuts'
     }
 
-    def __init__(self, highlight_cuts=None, mode=None, opening_hook=None, storyline_cuts=None, _configuration=None):  # noqa: E501
+    def __init__(self, edit=None, highlight_cuts=None, mode=None, opening_hook=None, storyline_cuts=None, _configuration=None):  # noqa: E501
         """HighlightForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._edit = None
         self._highlight_cuts = None
         self._mode = None
         self._opening_hook = None
         self._storyline_cuts = None
         self.discriminator = None
 
+        if edit is not None:
+            self.edit = edit
         if highlight_cuts is not None:
             self.highlight_cuts = highlight_cuts
         if mode is not None:
@@ -66,6 +71,27 @@ class HighlightForStartExecutionInput(object):
             self.opening_hook = opening_hook
         if storyline_cuts is not None:
             self.storyline_cuts = storyline_cuts
+
+    @property
+    def edit(self):
+        """Gets the edit of this HighlightForStartExecutionInput.  # noqa: E501
+
+
+        :return: The edit of this HighlightForStartExecutionInput.  # noqa: E501
+        :rtype: EditForStartExecutionInput
+        """
+        return self._edit
+
+    @edit.setter
+    def edit(self, edit):
+        """Sets the edit of this HighlightForStartExecutionInput.
+
+
+        :param edit: The edit of this HighlightForStartExecutionInput.  # noqa: E501
+        :type: EditForStartExecutionInput
+        """
+
+        self._edit = edit
 
     @property
     def highlight_cuts(self):
