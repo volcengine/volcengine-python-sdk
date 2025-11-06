@@ -198,51 +198,6 @@ class Responses(SyncAPIResource):
             cast_to=type(None),
         )
 
-    def _prepare_responses_input(self, input: ResponseInputParam):
-        for input_item in input:  # type: ResponseInputItemParam
-            if "content" not in input_item:  # skip non-content message
-                continue
-            content_list = input_item["content"]
-
-            if not isinstance(content_list, list):  # skip non-list content
-                continue
-
-            for content in content_list:  # type: ResponseInputContentParam
-                self._prepare_responses_input_file(content=content)
-
-    def _prepare_responses_input_file(self, content: ResponseInputContentParam):
-        if "type" not in content:  # skip non-type content
-            return
-        content_type = content["type"]
-        if (
-            content_type not in RESPONSES_MULTIMODAL_CONTENT_DATA_KEYS.keys()
-        ):  # skip non-multimodal content
-            return
-        content_data_key = RESPONSES_MULTIMODAL_CONTENT_DATA_KEYS[content_type]
-        if content_data_key not in content:  # skip non-url content
-            return
-        content_data: str = content[content_data_key]
-
-        parsed = urlparse(content_data)
-        if parsed.scheme != FILE_PATH_SCHEME:  # skip non-file-scheme content
-            return
-
-        # Decode percent-encoded parts in the path
-        decoded_path = unquote_plus(parsed.path)
-
-        if parsed.netloc:
-            # Handle cases like file://hostname/share/path or Windows UNC
-            # For simplicity, prefix double-slash for network path
-            full_path = f"{parsed.netloc}{decoded_path}"
-        else:
-            full_path = decoded_path
-
-        file_path = Path(full_path)
-        file = self._client.files.create(file=file_path, purpose="user_data")
-        self._client.files.wait_for_processing(id=file.id)
-        content[content_data_key] = None  # replace with file id
-        content["file_id"] = file.id
-
 
 class AsyncResponses(AsyncAPIResource):
     @cached_property
