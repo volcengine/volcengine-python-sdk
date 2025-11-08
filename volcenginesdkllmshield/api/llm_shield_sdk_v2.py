@@ -17,7 +17,7 @@ class ContentTypeV2:
     AUDIO = 2
     IMAGE = 3
     VIDEO = 4
-
+    FILE  = 5
 
 # 定义决策类型常量
 class DecisionTypeV2:
@@ -198,6 +198,7 @@ class ModerateV2Result(BaseModel):
     risk_info: RiskInfoV2 = Field(default_factory=RiskInfoV2, alias="RiskInfo")
     decision: DecisionV2 = Field(default_factory=DecisionV2, alias="Decision")
     permit_info: PermitInfoV2 = Field(default_factory=PermitInfoV2, alias="PermitInfo")
+    content_info: str = Field("", alias="ContentInfo")
     degraded: bool = Field(False, alias="Degraded")
     degrade_reason: str = Field("", alias="DegradeReason")
 
