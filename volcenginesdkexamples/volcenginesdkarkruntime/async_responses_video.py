@@ -12,7 +12,12 @@ async def main():
     file = await client.files.create(
         # replace with your local video path
         file=open("ark_vlm_video_input.mp4", "rb"),
-        purpose="user_data"
+        purpose="user_data",
+        preprocess_configs={
+            "video": {
+                "fps": 0.3,  # define the sampling fps of the video, default is 1.0
+            }
+        }
     )
     print(f"File uploaded: {file.id}")
 

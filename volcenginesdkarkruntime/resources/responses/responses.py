@@ -53,7 +53,7 @@ __all__ = ["Responses", "AsyncResponses"]
 RESPONSES_MULTIMODAL_CONTENT_DATA_KEYS = {
     "input_image": "image_url",
     "input_video": "video_url",
-    "input_file": "file_data",
+    "input_file": "file_url",
 }
 
 FILE_PATH_SCHEME = "file"
@@ -367,7 +367,9 @@ class AsyncResponses(AsyncAPIResource):
         file = await self._client.files.create(file=file_path, purpose="user_data")
         file = await self._client.files.wait_for_processing(id=file.id)
         if file.status != "active":
-            raise ArkAPIError(f"File path: {full_path},id: {file.id} processing failed with status {file.status}.")
+            raise ArkAPIError(
+                f"File path: {full_path},id: {file.id} processing failed with status {file.status}."
+            )
 
         # replace with file id
         content[content_data_key] = None

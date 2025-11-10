@@ -16,7 +16,7 @@ from typing import Optional
 from .._types import FileTypes
 from .file_purpose import FilePurpose
 
-__all__ = ["FileCreateParams"]
+__all__ = ["FileCreateParams", "PreprocessConfigs"]
 
 
 class FileCreateParams(TypedDict, total=False):
@@ -30,6 +30,9 @@ class FileCreateParams(TypedDict, total=False):
     expire_at: datetime.datetime
     """The expiration timestamp for the file.
     """
+
+    preprocess_configs: Optional[PreprocessConfigs]
+    """The preprocess configs of the file."""
 
 
 class Video(TypedDict, total=False):

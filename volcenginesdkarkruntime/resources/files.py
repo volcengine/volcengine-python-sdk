@@ -18,7 +18,7 @@ from typing_extensions import Literal
 import httpx
 
 from .. import _legacy_response
-from ..types import FilePurpose, file_list_params, file_create_params
+from ..types import FilePurpose, PreprocessConfigs, file_list_params, file_create_params
 from .._types import Body, Query, Headers, FileTypes
 from .._utils import (
     extract_files,
@@ -66,6 +66,7 @@ class Files(SyncAPIResource):
         file: FileTypes,
         purpose: FilePurpose,
         expires_at: datetime.datetime | int | None = None,
+        preprocess_configs: PreprocessConfigs | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -97,6 +98,7 @@ class Files(SyncAPIResource):
                 "file": file,
                 "purpose": purpose,
                 "expires_at": expires_at,
+                "preprocess_configs": preprocess_configs,
             }
         )
         files = extract_files(cast(Mapping[str, object], body), paths=[["file"]])
@@ -304,6 +306,7 @@ class AsyncFiles(AsyncAPIResource):
         file: FileTypes,
         purpose: FilePurpose,
         expire_at: int | None = None,
+        preprocess_configs: PreprocessConfigs | None = None,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -335,6 +338,7 @@ class AsyncFiles(AsyncAPIResource):
                 "file": file,
                 "purpose": purpose,
                 "expire_at": expire_at,
+                "preprocess_configs": preprocess_configs,
             }
         )
         files = extract_files(cast(Mapping[str, object], body), paths=[["file"]])
