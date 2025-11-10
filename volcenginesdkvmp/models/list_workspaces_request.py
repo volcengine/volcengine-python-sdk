@@ -37,6 +37,8 @@ class ListWorkspacesRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'show_aggregate_query_workspaces': 'bool',
+        'show_external_prom_workspaces': 'bool',
         'tag_filters': 'list[TagFilterForListWorkspacesInput]'
     }
 
@@ -45,10 +47,12 @@ class ListWorkspacesRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'show_aggregate_query_workspaces': 'ShowAggregateQueryWorkspaces',
+        'show_external_prom_workspaces': 'ShowExternalPromWorkspaces',
         'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, filters=None, page_number=None, page_size=None, project_name=None, tag_filters=None, _configuration=None):  # noqa: E501
+    def __init__(self, filters=None, page_number=None, page_size=None, project_name=None, show_aggregate_query_workspaces=None, show_external_prom_workspaces=None, tag_filters=None, _configuration=None):  # noqa: E501
         """ListWorkspacesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +62,8 @@ class ListWorkspacesRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._show_aggregate_query_workspaces = None
+        self._show_external_prom_workspaces = None
         self._tag_filters = None
         self.discriminator = None
 
@@ -69,6 +75,10 @@ class ListWorkspacesRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if show_aggregate_query_workspaces is not None:
+            self.show_aggregate_query_workspaces = show_aggregate_query_workspaces
+        if show_external_prom_workspaces is not None:
+            self.show_external_prom_workspaces = show_external_prom_workspaces
         if tag_filters is not None:
             self.tag_filters = tag_filters
 
@@ -155,6 +165,48 @@ class ListWorkspacesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def show_aggregate_query_workspaces(self):
+        """Gets the show_aggregate_query_workspaces of this ListWorkspacesRequest.  # noqa: E501
+
+
+        :return: The show_aggregate_query_workspaces of this ListWorkspacesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_aggregate_query_workspaces
+
+    @show_aggregate_query_workspaces.setter
+    def show_aggregate_query_workspaces(self, show_aggregate_query_workspaces):
+        """Sets the show_aggregate_query_workspaces of this ListWorkspacesRequest.
+
+
+        :param show_aggregate_query_workspaces: The show_aggregate_query_workspaces of this ListWorkspacesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_aggregate_query_workspaces = show_aggregate_query_workspaces
+
+    @property
+    def show_external_prom_workspaces(self):
+        """Gets the show_external_prom_workspaces of this ListWorkspacesRequest.  # noqa: E501
+
+
+        :return: The show_external_prom_workspaces of this ListWorkspacesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_external_prom_workspaces
+
+    @show_external_prom_workspaces.setter
+    def show_external_prom_workspaces(self, show_external_prom_workspaces):
+        """Sets the show_external_prom_workspaces of this ListWorkspacesRequest.
+
+
+        :param show_external_prom_workspaces: The show_external_prom_workspaces of this ListWorkspacesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_external_prom_workspaces = show_external_prom_workspaces
 
     @property
     def tag_filters(self):
