@@ -18,6 +18,7 @@ from typing import (
 )
 
 import httpx
+import asyncio
 from typing_extensions import Literal
 from urllib.parse import urlparse, unquote_plus
 from ..._types import Body, Query, Headers
@@ -38,6 +39,7 @@ from ...types.responses.response import Response
 from ...types.responses.tool_param import ToolParam
 from ...types.responses.response_input_param import (
     ResponseInputParam,
+    ResponseInputItemParam,
 )
 from ...types.responses.response_input_message_content_list_param import (
     ResponseInputContentParam,
@@ -325,6 +327,7 @@ class AsyncResponses(AsyncAPIResource):
         )
 
     async def _prepare_responses_input(self, input: ResponseInputParam):
+        tasks = []
         for input_item in input:  # type: ResponseInputItemParam
             if "content" not in input_item:  # skip non-content message
                 continue
@@ -334,7 +337,9 @@ class AsyncResponses(AsyncAPIResource):
                 continue
 
             for content in content_list:  # type: ResponseInputContentParam
-                await self._prepare_responses_input_file(content=content)
+                tasks.append(self._prepare_responses_input_file(content=content))
+
+        await asyncio.gather(*tasks)
 
     async def _prepare_responses_input_file(self, content: ResponseInputContentParam):
         if "type" not in content:  # skip non-type content
