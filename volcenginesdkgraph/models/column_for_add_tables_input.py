@@ -36,17 +36,19 @@ class ColumnForAddTablesInput(object):
         'column_name': 'str',
         'default_value': 'str',
         'enable_default_value': 'bool',
-        'schema_column_type': 'str'
+        'schema_column_type': 'str',
+        'vector_size': 'int'
     }
 
     attribute_map = {
         'column_name': 'column_name',
         'default_value': 'default_value',
         'enable_default_value': 'enable_default_value',
-        'schema_column_type': 'schema_column_type'
+        'schema_column_type': 'schema_column_type',
+        'vector_size': 'vector_size'
     }
 
-    def __init__(self, column_name=None, default_value=None, enable_default_value=None, schema_column_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, column_name=None, default_value=None, enable_default_value=None, schema_column_type=None, vector_size=None, _configuration=None):  # noqa: E501
         """ColumnForAddTablesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ColumnForAddTablesInput(object):
         self._default_value = None
         self._enable_default_value = None
         self._schema_column_type = None
+        self._vector_size = None
         self.discriminator = None
 
         if column_name is not None:
@@ -66,6 +69,8 @@ class ColumnForAddTablesInput(object):
             self.enable_default_value = enable_default_value
         if schema_column_type is not None:
             self.schema_column_type = schema_column_type
+        if vector_size is not None:
+            self.vector_size = vector_size
 
     @property
     def column_name(self):
@@ -150,6 +155,27 @@ class ColumnForAddTablesInput(object):
         """
 
         self._schema_column_type = schema_column_type
+
+    @property
+    def vector_size(self):
+        """Gets the vector_size of this ColumnForAddTablesInput.  # noqa: E501
+
+
+        :return: The vector_size of this ColumnForAddTablesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._vector_size
+
+    @vector_size.setter
+    def vector_size(self, vector_size):
+        """Sets the vector_size of this ColumnForAddTablesInput.
+
+
+        :param vector_size: The vector_size of this ColumnForAddTablesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._vector_size = vector_size
 
     def to_dict(self):
         """Returns the model properties as a dict"""
