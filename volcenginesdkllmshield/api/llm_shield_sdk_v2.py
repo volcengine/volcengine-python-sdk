@@ -4,6 +4,7 @@ from datetime import datetime, date
 from uuid import UUID
 import requests
 import json
+import os
 
 from ..models.llm_shield_sign import request_sign, Version
 
@@ -306,6 +307,9 @@ class ClientV2:
         self.region = region
         self.http_client = requests.Session()
         self.http_client.timeout = timeout
+
+    def setProxy(self, proxy: dict):
+        self.http_client.proxies = proxy
 
     def Moderate(self, request: Optional[ModerateV2Request] = None) -> ModerateV2Response:
         path = "/v2/moderate"
