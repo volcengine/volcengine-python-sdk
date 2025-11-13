@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -20,4 +19,6 @@ from .response_input_image_param import ResponseInputImageParam
 
 __all__ = ["ResponseInputContentParam"]
 
-ResponseInputContentParam: TypeAlias = Union[ResponseInputTextParam, ResponseInputImageParam]
+ResponseInputContentParam: TypeAlias = Union[
+    ResponseInputTextParam, ResponseInputImageParam
+]

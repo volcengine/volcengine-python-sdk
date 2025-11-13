@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -65,6 +64,7 @@ class Ark(SyncAPIClient):
     batch: batch.Batch
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: threading.Lock
+    files: resources.Files
 
     def __init__(
         self,
@@ -134,6 +134,7 @@ class Ark(SyncAPIClient):
         self.batch = batch.Batch(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = threading.Lock()
+        self.files = resources.Files(self)
         # self.classification = resources.Classification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
@@ -143,7 +144,9 @@ class Ark(SyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(endpoint_id)
 
-    def _get_endpoint_certificate(self, endpoint_id: str) -> Tuple[key_agreement_client, str, str, float]:
+    def _get_endpoint_certificate(
+        self, endpoint_id: str
+    ) -> Tuple[key_agreement_client, str, str, float]:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (
@@ -194,6 +197,7 @@ class AsyncArk(AsyncAPIClient):
     batch: batch.AsyncBatch
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: asyncio.Lock
+    files: resources.AsyncFiles
 
     def __init__(
         self,
@@ -263,6 +267,7 @@ class AsyncArk(AsyncAPIClient):
         self.batch = batch.AsyncBatch(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = asyncio.Lock()
+        self.files = resources.AsyncFiles(self)
         # self.classification = resources.AsyncClassification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
@@ -279,7 +284,9 @@ class AsyncArk(AsyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(bot_id, resource_type="bot")
 
-    def _get_endpoint_certificate(self, endpoint_id: str) -> Tuple[key_agreement_client, str, str, float]:
+    def _get_endpoint_certificate(
+        self, endpoint_id: str
+    ) -> Tuple[key_agreement_client, str, str, float]:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (
@@ -429,7 +436,9 @@ class E2ECertificateManager(object):
         base_url: str | URL = BASE_URL,
         api_key: str | None = None,
     ):
-        self._certificate_manager: Dict[str, Tuple[key_agreement_client, str, str, float]] = {}
+        self._certificate_manager: Dict[
+            str, Tuple[key_agreement_client, str, str, float]
+        ] = {}
 
         # local cache prepare
         self._init_local_cert_cache()
@@ -542,7 +551,8 @@ class E2ECertificateManager(object):
                 pass
             except Exception as e:
                 raise ArkAPIError(
-                    "failed to create certificate directory %s: %s\n" % (self._cert_storage_path, e)
+                    "failed to create certificate directory %s: %s\n"
+                    % (self._cert_storage_path, e)
                 )
 
     def get(self, ep: str) -> Tuple[key_agreement_client, str, str, float]:
@@ -558,9 +568,7 @@ class E2ECertificateManager(object):
                 self._save_cert_to_file(ep, cert_pem)
             ring, key, exp_time = get_cert_info(cert_pem)
             self._certificate_manager[ep] = (
-                key_agreement_client(
-                    certificate_pem_string=cert_pem
-                ),
+                key_agreement_client(certificate_pem_string=cert_pem),
                 ring,
                 key,
                 exp_time,

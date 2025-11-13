@@ -34,6 +34,8 @@ class DescribeSnapshotsRequest(object):
     """
     swagger_types = {
         'filter': 'list[FilterForDescribeSnapshotsInput]',
+        'max_results': 'int',
+        'next_token': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
@@ -41,12 +43,15 @@ class DescribeSnapshotsRequest(object):
         'snapshot_name': 'str',
         'snapshot_status': 'list[str]',
         'snapshot_types': 'list[str]',
+        'tag_filters': 'list[TagFilterForDescribeSnapshotsInput]',
         'volume_id': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
         'filter': 'Filter',
+        'max_results': 'MaxResults',
+        'next_token': 'NextToken',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
@@ -54,17 +59,20 @@ class DescribeSnapshotsRequest(object):
         'snapshot_name': 'SnapshotName',
         'snapshot_status': 'SnapshotStatus',
         'snapshot_types': 'SnapshotTypes',
+        'tag_filters': 'TagFilters',
         'volume_id': 'VolumeId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, filter=None, page_number=None, page_size=None, project_name=None, snapshot_ids=None, snapshot_name=None, snapshot_status=None, snapshot_types=None, volume_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, max_results=None, next_token=None, page_number=None, page_size=None, project_name=None, snapshot_ids=None, snapshot_name=None, snapshot_status=None, snapshot_types=None, tag_filters=None, volume_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeSnapshotsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._filter = None
+        self._max_results = None
+        self._next_token = None
         self._page_number = None
         self._page_size = None
         self._project_name = None
@@ -72,12 +80,17 @@ class DescribeSnapshotsRequest(object):
         self._snapshot_name = None
         self._snapshot_status = None
         self._snapshot_types = None
+        self._tag_filters = None
         self._volume_id = None
         self._zone_id = None
         self.discriminator = None
 
         if filter is not None:
             self.filter = filter
+        if max_results is not None:
+            self.max_results = max_results
+        if next_token is not None:
+            self.next_token = next_token
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -92,6 +105,8 @@ class DescribeSnapshotsRequest(object):
             self.snapshot_status = snapshot_status
         if snapshot_types is not None:
             self.snapshot_types = snapshot_types
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if volume_id is not None:
             self.volume_id = volume_id
         if zone_id is not None:
@@ -117,6 +132,48 @@ class DescribeSnapshotsRequest(object):
         """
 
         self._filter = filter
+
+    @property
+    def max_results(self):
+        """Gets the max_results of this DescribeSnapshotsRequest.  # noqa: E501
+
+
+        :return: The max_results of this DescribeSnapshotsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_results
+
+    @max_results.setter
+    def max_results(self, max_results):
+        """Sets the max_results of this DescribeSnapshotsRequest.
+
+
+        :param max_results: The max_results of this DescribeSnapshotsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._max_results = max_results
+
+    @property
+    def next_token(self):
+        """Gets the next_token of this DescribeSnapshotsRequest.  # noqa: E501
+
+
+        :return: The next_token of this DescribeSnapshotsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_token
+
+    @next_token.setter
+    def next_token(self, next_token):
+        """Sets the next_token of this DescribeSnapshotsRequest.
+
+
+        :param next_token: The next_token of this DescribeSnapshotsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._next_token = next_token
 
     @property
     def page_number(self):
@@ -267,6 +324,27 @@ class DescribeSnapshotsRequest(object):
         """
 
         self._snapshot_types = snapshot_types
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this DescribeSnapshotsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this DescribeSnapshotsRequest.  # noqa: E501
+        :rtype: list[TagFilterForDescribeSnapshotsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this DescribeSnapshotsRequest.
+
+
+        :param tag_filters: The tag_filters of this DescribeSnapshotsRequest.  # noqa: E501
+        :type: list[TagFilterForDescribeSnapshotsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def volume_id(self):

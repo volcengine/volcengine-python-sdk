@@ -33,7 +33,7 @@ class FieldForCreateVikingdbCollectionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_value': 'DefaultValueForCreateVikingdbCollectionInput',
+        'default_value': 'object',
         'dim': 'int',
         'field_name': 'str',
         'field_type': 'str',
@@ -78,7 +78,7 @@ class FieldForCreateVikingdbCollectionInput(object):
 
 
         :return: The default_value of this FieldForCreateVikingdbCollectionInput.  # noqa: E501
-        :rtype: DefaultValueForCreateVikingdbCollectionInput
+        :rtype: object
         """
         return self._default_value
 
@@ -88,7 +88,7 @@ class FieldForCreateVikingdbCollectionInput(object):
 
 
         :param default_value: The default_value of this FieldForCreateVikingdbCollectionInput.  # noqa: E501
-        :type: DefaultValueForCreateVikingdbCollectionInput
+        :type: object
         """
 
         self._default_value = default_value
@@ -159,7 +159,7 @@ class FieldForCreateVikingdbCollectionInput(object):
         :param field_type: The field_type of this FieldForCreateVikingdbCollectionInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["vector", "sparse_vector", "string", "int64", "float32", "bool", "list<string>", "list<int64>", "text", "image", "video"]  # noqa: E501
+        allowed_values = ["vector", "sparse_vector", "string", "int64", "float32", "bool", "list<string>", "list<int64>", "text", "image", "video", "date_time", "geo_point"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 field_type not in allowed_values):
             raise ValueError(

@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -24,3 +23,6 @@ from .completion_usage import CompletionUsage as CompletionUsage
 from .create_embedding_response import (
     CreateEmbeddingResponse as CreateEmbeddingResponse,
 )
+from .file_purpose import FilePurpose as FilePurpose
+from .file_list_params import FileListParams as FileListParams
+from .file_create_params import PreprocessConfigs as PreprocessConfigs

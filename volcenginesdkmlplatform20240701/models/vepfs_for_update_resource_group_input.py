@@ -33,34 +33,70 @@ class VepfsForUpdateResourceGroupInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'available_num': 'int',
         'enable_prefetch': 'bool',
         'file_system_ids': 'list[str]',
-        'mount_service_id': 'str'
+        'mount_service_id': 'str',
+        'total_num': 'int',
+        'unavailable_num': 'int'
     }
 
     attribute_map = {
+        'available_num': 'AvailableNum',
         'enable_prefetch': 'EnablePrefetch',
         'file_system_ids': 'FileSystemIds',
-        'mount_service_id': 'MountServiceId'
+        'mount_service_id': 'MountServiceId',
+        'total_num': 'TotalNum',
+        'unavailable_num': 'UnavailableNum'
     }
 
-    def __init__(self, enable_prefetch=None, file_system_ids=None, mount_service_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, available_num=None, enable_prefetch=None, file_system_ids=None, mount_service_id=None, total_num=None, unavailable_num=None, _configuration=None):  # noqa: E501
         """VepfsForUpdateResourceGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._available_num = None
         self._enable_prefetch = None
         self._file_system_ids = None
         self._mount_service_id = None
+        self._total_num = None
+        self._unavailable_num = None
         self.discriminator = None
 
+        if available_num is not None:
+            self.available_num = available_num
         if enable_prefetch is not None:
             self.enable_prefetch = enable_prefetch
         if file_system_ids is not None:
             self.file_system_ids = file_system_ids
         if mount_service_id is not None:
             self.mount_service_id = mount_service_id
+        if total_num is not None:
+            self.total_num = total_num
+        if unavailable_num is not None:
+            self.unavailable_num = unavailable_num
+
+    @property
+    def available_num(self):
+        """Gets the available_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The available_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._available_num
+
+    @available_num.setter
+    def available_num(self, available_num):
+        """Sets the available_num of this VepfsForUpdateResourceGroupInput.
+
+
+        :param available_num: The available_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+        :type: int
+        """
+
+        self._available_num = available_num
 
     @property
     def enable_prefetch(self):
@@ -124,6 +160,48 @@ class VepfsForUpdateResourceGroupInput(object):
         """
 
         self._mount_service_id = mount_service_id
+
+    @property
+    def total_num(self):
+        """Gets the total_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The total_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_num
+
+    @total_num.setter
+    def total_num(self, total_num):
+        """Sets the total_num of this VepfsForUpdateResourceGroupInput.
+
+
+        :param total_num: The total_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+        :type: int
+        """
+
+        self._total_num = total_num
+
+    @property
+    def unavailable_num(self):
+        """Gets the unavailable_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The unavailable_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._unavailable_num
+
+    @unavailable_num.setter
+    def unavailable_num(self, unavailable_num):
+        """Sets the unavailable_num of this VepfsForUpdateResourceGroupInput.
+
+
+        :param unavailable_num: The unavailable_num of this VepfsForUpdateResourceGroupInput.  # noqa: E501
+        :type: int
+        """
+
+        self._unavailable_num = unavailable_num
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,26 +34,36 @@ class DescribeDBInstanceBandwidthPerShardResponse(object):
     """
     swagger_types = {
         'additional_bandwidth_per_shard': 'int',
+        'additional_read_bandwidth_per_shard': 'int',
+        'additional_write_bandwidth_per_shard': 'int',
         'default_bandwidth_per_shard': 'int'
     }
 
     attribute_map = {
         'additional_bandwidth_per_shard': 'AdditionalBandwidthPerShard',
+        'additional_read_bandwidth_per_shard': 'AdditionalReadBandwidthPerShard',
+        'additional_write_bandwidth_per_shard': 'AdditionalWriteBandwidthPerShard',
         'default_bandwidth_per_shard': 'DefaultBandwidthPerShard'
     }
 
-    def __init__(self, additional_bandwidth_per_shard=None, default_bandwidth_per_shard=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_bandwidth_per_shard=None, additional_read_bandwidth_per_shard=None, additional_write_bandwidth_per_shard=None, default_bandwidth_per_shard=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceBandwidthPerShardResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._additional_bandwidth_per_shard = None
+        self._additional_read_bandwidth_per_shard = None
+        self._additional_write_bandwidth_per_shard = None
         self._default_bandwidth_per_shard = None
         self.discriminator = None
 
         if additional_bandwidth_per_shard is not None:
             self.additional_bandwidth_per_shard = additional_bandwidth_per_shard
+        if additional_read_bandwidth_per_shard is not None:
+            self.additional_read_bandwidth_per_shard = additional_read_bandwidth_per_shard
+        if additional_write_bandwidth_per_shard is not None:
+            self.additional_write_bandwidth_per_shard = additional_write_bandwidth_per_shard
         if default_bandwidth_per_shard is not None:
             self.default_bandwidth_per_shard = default_bandwidth_per_shard
 
@@ -77,6 +87,48 @@ class DescribeDBInstanceBandwidthPerShardResponse(object):
         """
 
         self._additional_bandwidth_per_shard = additional_bandwidth_per_shard
+
+    @property
+    def additional_read_bandwidth_per_shard(self):
+        """Gets the additional_read_bandwidth_per_shard of this DescribeDBInstanceBandwidthPerShardResponse.  # noqa: E501
+
+
+        :return: The additional_read_bandwidth_per_shard of this DescribeDBInstanceBandwidthPerShardResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._additional_read_bandwidth_per_shard
+
+    @additional_read_bandwidth_per_shard.setter
+    def additional_read_bandwidth_per_shard(self, additional_read_bandwidth_per_shard):
+        """Sets the additional_read_bandwidth_per_shard of this DescribeDBInstanceBandwidthPerShardResponse.
+
+
+        :param additional_read_bandwidth_per_shard: The additional_read_bandwidth_per_shard of this DescribeDBInstanceBandwidthPerShardResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._additional_read_bandwidth_per_shard = additional_read_bandwidth_per_shard
+
+    @property
+    def additional_write_bandwidth_per_shard(self):
+        """Gets the additional_write_bandwidth_per_shard of this DescribeDBInstanceBandwidthPerShardResponse.  # noqa: E501
+
+
+        :return: The additional_write_bandwidth_per_shard of this DescribeDBInstanceBandwidthPerShardResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._additional_write_bandwidth_per_shard
+
+    @additional_write_bandwidth_per_shard.setter
+    def additional_write_bandwidth_per_shard(self, additional_write_bandwidth_per_shard):
+        """Sets the additional_write_bandwidth_per_shard of this DescribeDBInstanceBandwidthPerShardResponse.
+
+
+        :param additional_write_bandwidth_per_shard: The additional_write_bandwidth_per_shard of this DescribeDBInstanceBandwidthPerShardResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._additional_write_bandwidth_per_shard = additional_write_bandwidth_per_shard
 
     @property
     def default_bandwidth_per_shard(self):

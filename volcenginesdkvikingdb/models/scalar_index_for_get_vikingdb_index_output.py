@@ -33,7 +33,7 @@ class ScalarIndexForGetVikingdbIndexOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_value': 'DefaultValueForGetVikingdbIndexOutput',
+        'default_value': 'object',
         'dim': 'int',
         'field_name': 'str',
         'field_type': 'str',
@@ -78,7 +78,7 @@ class ScalarIndexForGetVikingdbIndexOutput(object):
 
 
         :return: The default_value of this ScalarIndexForGetVikingdbIndexOutput.  # noqa: E501
-        :rtype: DefaultValueForGetVikingdbIndexOutput
+        :rtype: object
         """
         return self._default_value
 
@@ -88,7 +88,7 @@ class ScalarIndexForGetVikingdbIndexOutput(object):
 
 
         :param default_value: The default_value of this ScalarIndexForGetVikingdbIndexOutput.  # noqa: E501
-        :type: DefaultValueForGetVikingdbIndexOutput
+        :type: object
         """
 
         self._default_value = default_value

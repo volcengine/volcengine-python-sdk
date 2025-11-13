@@ -77,8 +77,10 @@ class ListVikingdbTaskRequest(object):
             self.project_name = project_name
         if resource_id is not None:
             self.resource_id = resource_id
-        self.task_status = task_status
-        self.task_type = task_type
+        if task_status is not None:
+            self.task_status = task_status
+        if task_type is not None:
+            self.task_type = task_type
 
     @property
     def collection_name(self):
@@ -212,13 +214,11 @@ class ListVikingdbTaskRequest(object):
         :param task_status: The task_status of this ListVikingdbTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and task_status is None:
-            raise ValueError("Invalid value for `task_status`, must not be `None`")  # noqa: E501
         allowed_values = ["init", "queued", "running", "done", "fail", "confirm", "confirmed"]  # noqa: E501
-        if (self._configuration.client_side_validation and
+        if (self._configuration.client_side_validation and task_status is not None and
                 task_status not in allowed_values):
             raise ValueError(
-                "Invalid value for `task_status` ({0}), must be one of {1}"  # noqa: E501
+                "Invalid value for `task_status` ({0}), must be one of {1} or None"  # noqa: E501
                 .format(task_status, allowed_values)
             )
 
@@ -242,13 +242,11 @@ class ListVikingdbTaskRequest(object):
         :param task_type: The task_type of this ListVikingdbTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and task_type is None:
-            raise ValueError("Invalid value for `task_type`, must not be `None`")  # noqa: E501
         allowed_values = ["data_import", "filter_update", "filter_delete", "data_export"]  # noqa: E501
-        if (self._configuration.client_side_validation and
+        if (self._configuration.client_side_validation and task_type is not None and
                 task_type not in allowed_values):
             raise ValueError(
-                "Invalid value for `task_type` ({0}), must be one of {1}"  # noqa: E501
+                "Invalid value for `task_type` ({0}), must be one of {1} or None"  # noqa: E501
                 .format(task_type, allowed_values)
             )
 

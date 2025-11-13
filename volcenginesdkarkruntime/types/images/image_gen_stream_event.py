@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -20,5 +19,6 @@ from .image_gen_generating_event import ImageGenGeneratingEvent
 __all__ = ["ImageGenStreamEvent"]
 
 ImageGenStreamEvent: TypeAlias = Annotated[
-    Union[ImageGenGeneratingEvent, ImageGenCompletedEvent], PropertyInfo(discriminator="type")
+    Union[ImageGenGeneratingEvent, ImageGenCompletedEvent],
+    PropertyInfo(discriminator="type"),
 ]

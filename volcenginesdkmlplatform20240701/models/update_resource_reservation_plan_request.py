@@ -36,6 +36,7 @@ class UpdateResourceReservationPlanRequest(object):
         'description': 'str',
         'dry_run': 'bool',
         'id': 'str',
+        'matching_reservation_plan_time_config': 'MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput',
         'name': 'str',
         'schedule_config': 'ScheduleConfigForUpdateResourceReservationPlanInput',
         'storage_config': 'StorageConfigForUpdateResourceReservationPlanInput',
@@ -47,6 +48,7 @@ class UpdateResourceReservationPlanRequest(object):
         'description': 'Description',
         'dry_run': 'DryRun',
         'id': 'Id',
+        'matching_reservation_plan_time_config': 'MatchingReservationPlanTimeConfig',
         'name': 'Name',
         'schedule_config': 'ScheduleConfig',
         'storage_config': 'StorageConfig',
@@ -54,7 +56,7 @@ class UpdateResourceReservationPlanRequest(object):
         'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, description=None, dry_run=None, id=None, name=None, schedule_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, dry_run=None, id=None, matching_reservation_plan_time_config=None, name=None, schedule_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """UpdateResourceReservationPlanRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class UpdateResourceReservationPlanRequest(object):
         self._description = None
         self._dry_run = None
         self._id = None
+        self._matching_reservation_plan_time_config = None
         self._name = None
         self._schedule_config = None
         self._storage_config = None
@@ -75,6 +78,8 @@ class UpdateResourceReservationPlanRequest(object):
         if dry_run is not None:
             self.dry_run = dry_run
         self.id = id
+        if matching_reservation_plan_time_config is not None:
+            self.matching_reservation_plan_time_config = matching_reservation_plan_time_config
         if name is not None:
             self.name = name
         if schedule_config is not None:
@@ -156,6 +161,27 @@ class UpdateResourceReservationPlanRequest(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def matching_reservation_plan_time_config(self):
+        """Gets the matching_reservation_plan_time_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The matching_reservation_plan_time_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput
+        """
+        return self._matching_reservation_plan_time_config
+
+    @matching_reservation_plan_time_config.setter
+    def matching_reservation_plan_time_config(self, matching_reservation_plan_time_config):
+        """Sets the matching_reservation_plan_time_config of this UpdateResourceReservationPlanRequest.
+
+
+        :param matching_reservation_plan_time_config: The matching_reservation_plan_time_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :type: MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput
+        """
+
+        self._matching_reservation_plan_time_config = matching_reservation_plan_time_config
 
     @property
     def name(self):

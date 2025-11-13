@@ -64,8 +64,7 @@ class AlarmPolicyConditionForCreateScalingPolicyInput(object):
             self.metric_name = metric_name
         if metric_unit is not None:
             self.metric_unit = metric_unit
-        if threshold is not None:
-            self.threshold = threshold
+        self.threshold = threshold
 
     @property
     def comparison_operator(self):
@@ -148,6 +147,8 @@ class AlarmPolicyConditionForCreateScalingPolicyInput(object):
         :param threshold: The threshold of this AlarmPolicyConditionForCreateScalingPolicyInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and threshold is None:
+            raise ValueError("Invalid value for `threshold`, must not be `None`")  # noqa: E501
 
         self._threshold = threshold
 

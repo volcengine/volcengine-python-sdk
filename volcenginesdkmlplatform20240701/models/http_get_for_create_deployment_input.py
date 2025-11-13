@@ -148,13 +148,6 @@ class HTTPGetForCreateDeploymentInput(object):
         :param scheme: The scheme of this HTTPGetForCreateDeploymentInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["HTTP", "HTTPS"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                scheme not in allowed_values):
-            raise ValueError(
-                "Invalid value for `scheme` ({0}), must be one of {1}"  # noqa: E501
-                .format(scheme, allowed_values)
-            )
 
         self._scheme = scheme
 

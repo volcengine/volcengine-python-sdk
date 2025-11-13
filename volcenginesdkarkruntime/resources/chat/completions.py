@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -18,9 +17,6 @@ from typing import (
     Union,
     Iterable,
     Optional,
-    Callable,
-    Iterator,
-    AsyncIterator,
 )
 
 import httpx
@@ -183,7 +179,6 @@ class AsyncCompletions(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
-
         resp = await self._post(
             "/chat/completions",
             body={

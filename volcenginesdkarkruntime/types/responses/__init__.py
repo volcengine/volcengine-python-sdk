@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -42,29 +41,71 @@ from .response_reasoning_item import ResponseReasoningItem as ResponseReasoningI
 from .easy_input_message_param import EasyInputMessageParam as EasyInputMessageParam
 from .response_completed_event import ResponseCompletedEvent as ResponseCompletedEvent
 from .response_text_done_event import ResponseTextDoneEvent as ResponseTextDoneEvent
-from .response_incomplete_event import ResponseIncompleteEvent as ResponseIncompleteEvent
+from .response_incomplete_event import (
+    ResponseIncompleteEvent as ResponseIncompleteEvent,
+)
 from .response_input_text_param import ResponseInputTextParam as ResponseInputTextParam
 from .response_text_delta_event import ResponseTextDeltaEvent as ResponseTextDeltaEvent
-from .response_in_progress_event import ResponseInProgressEvent as ResponseInProgressEvent
-from .response_input_image_param import ResponseInputImageParam as ResponseInputImageParam
-from .response_output_text_param import ResponseOutputTextParam as ResponseOutputTextParam
-from .response_text_config_param import ResponseTextConfigParam as ResponseTextConfigParam
-from .tool_choice_function_param import ToolChoiceFunctionParam as ToolChoiceFunctionParam
-from .response_format_text_config import ResponseFormatTextConfig as ResponseFormatTextConfig
-from .response_function_tool_call import ResponseFunctionToolCall as ResponseFunctionToolCall
-from .response_input_message_item import ResponseInputMessageItem as ResponseInputMessageItem
-from .response_input_content_param import ResponseInputContentParam as ResponseInputContentParam
-from .response_reasoning_item_param import ResponseReasoningItemParam as ResponseReasoningItemParam
-from .response_output_item_done_event import ResponseOutputItemDoneEvent as ResponseOutputItemDoneEvent
-from .response_content_part_done_event import ResponseContentPartDoneEvent as ResponseContentPartDoneEvent
-from .response_output_item_added_event import ResponseOutputItemAddedEvent as ResponseOutputItemAddedEvent
-from .response_content_part_added_event import ResponseContentPartAddedEvent as ResponseContentPartAddedEvent
-from .response_format_text_config_param import ResponseFormatTextConfigParam as ResponseFormatTextConfigParam
-from .response_function_tool_call_param import ResponseFunctionToolCallParam as ResponseFunctionToolCallParam
-from .response_input_message_content_list import ResponseInputMessageContentList as ResponseInputMessageContentList
-from .response_web_search_call_in_progress_event import ResponseWebSearchCallInProgressEvent
-from .response_web_search_call_searching_event import ResponseWebSearchCallSearchingEvent
-from .response_web_search_call_completed_event import ResponseWebSearchCallCompletedEvent
+from .response_in_progress_event import (
+    ResponseInProgressEvent as ResponseInProgressEvent,
+)
+from .response_input_image_param import (
+    ResponseInputImageParam as ResponseInputImageParam,
+)
+from .response_output_text_param import (
+    ResponseOutputTextParam as ResponseOutputTextParam,
+)
+from .response_text_config_param import (
+    ResponseTextConfigParam as ResponseTextConfigParam,
+)
+from .tool_choice_function_param import (
+    ToolChoiceFunctionParam as ToolChoiceFunctionParam,
+)
+from .response_format_text_config import (
+    ResponseFormatTextConfig as ResponseFormatTextConfig,
+)
+from .response_function_tool_call import (
+    ResponseFunctionToolCall as ResponseFunctionToolCall,
+)
+from .response_input_message_item import (
+    ResponseInputMessageItem as ResponseInputMessageItem,
+)
+from .response_input_content_param import (
+    ResponseInputContentParam as ResponseInputContentParam,
+)
+from .response_reasoning_item_param import (
+    ResponseReasoningItemParam as ResponseReasoningItemParam,
+)
+from .response_output_item_done_event import (
+    ResponseOutputItemDoneEvent as ResponseOutputItemDoneEvent,
+)
+from .response_content_part_done_event import (
+    ResponseContentPartDoneEvent as ResponseContentPartDoneEvent,
+)
+from .response_output_item_added_event import (
+    ResponseOutputItemAddedEvent as ResponseOutputItemAddedEvent,
+)
+from .response_content_part_added_event import (
+    ResponseContentPartAddedEvent as ResponseContentPartAddedEvent,
+)
+from .response_format_text_config_param import (
+    ResponseFormatTextConfigParam as ResponseFormatTextConfigParam,
+)
+from .response_function_tool_call_param import (
+    ResponseFunctionToolCallParam as ResponseFunctionToolCallParam,
+)
+from .response_input_message_content_list import (
+    ResponseInputMessageContentList as ResponseInputMessageContentList,
+)
+from .response_web_search_call_in_progress_event import (
+    ResponseWebSearchCallInProgressEvent,
+)
+from .response_web_search_call_searching_event import (
+    ResponseWebSearchCallSearchingEvent,
+)
+from .response_web_search_call_completed_event import (
+    ResponseWebSearchCallCompletedEvent,
+)
 from .response_annotation_added_event import ResponseOutputTextAnnotationAddedEvent
 
 

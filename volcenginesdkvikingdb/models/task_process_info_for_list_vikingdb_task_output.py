@@ -34,8 +34,8 @@ class TaskProcessInfoForListVikingdbTaskOutput(object):
     """
     swagger_types = {
         'error_message': 'str',
-        'sample_data': 'list[SampleDataForListVikingdbTaskOutput]',
-        'sample_timestamp': 'str',
+        'sample_data': 'list[object]',
+        'sample_timestamp': 'int',
         'scan_data_count': 'int',
         'task_progress': 'str',
         'total_data_count': 'int',
@@ -109,7 +109,7 @@ class TaskProcessInfoForListVikingdbTaskOutput(object):
 
 
         :return: The sample_data of this TaskProcessInfoForListVikingdbTaskOutput.  # noqa: E501
-        :rtype: list[SampleDataForListVikingdbTaskOutput]
+        :rtype: list[object]
         """
         return self._sample_data
 
@@ -119,7 +119,7 @@ class TaskProcessInfoForListVikingdbTaskOutput(object):
 
 
         :param sample_data: The sample_data of this TaskProcessInfoForListVikingdbTaskOutput.  # noqa: E501
-        :type: list[SampleDataForListVikingdbTaskOutput]
+        :type: list[object]
         """
 
         self._sample_data = sample_data
@@ -130,7 +130,7 @@ class TaskProcessInfoForListVikingdbTaskOutput(object):
 
 
         :return: The sample_timestamp of this TaskProcessInfoForListVikingdbTaskOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._sample_timestamp
 
@@ -140,7 +140,7 @@ class TaskProcessInfoForListVikingdbTaskOutput(object):
 
 
         :param sample_timestamp: The sample_timestamp of this TaskProcessInfoForListVikingdbTaskOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._sample_timestamp = sample_timestamp

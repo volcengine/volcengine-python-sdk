@@ -37,7 +37,6 @@ class DescribeVolumeTypeRequest(object):
         'order_by': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'resource_class': 'str',
         'volume_type_ids': 'list[str]',
         'zone_id': 'str'
     }
@@ -47,12 +46,11 @@ class DescribeVolumeTypeRequest(object):
         'order_by': 'OrderBy',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'resource_class': 'ResourceClass',
         'volume_type_ids': 'VolumeTypeIds',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, filter=None, order_by=None, page_number=None, page_size=None, resource_class=None, volume_type_ids=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, order_by=None, page_number=None, page_size=None, volume_type_ids=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeVolumeTypeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,7 +60,6 @@ class DescribeVolumeTypeRequest(object):
         self._order_by = None
         self._page_number = None
         self._page_size = None
-        self._resource_class = None
         self._volume_type_ids = None
         self._zone_id = None
         self.discriminator = None
@@ -75,8 +72,6 @@ class DescribeVolumeTypeRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        if resource_class is not None:
-            self.resource_class = resource_class
         if volume_type_ids is not None:
             self.volume_type_ids = volume_type_ids
         if zone_id is not None:
@@ -165,27 +160,6 @@ class DescribeVolumeTypeRequest(object):
         """
 
         self._page_size = page_size
-
-    @property
-    def resource_class(self):
-        """Gets the resource_class of this DescribeVolumeTypeRequest.  # noqa: E501
-
-
-        :return: The resource_class of this DescribeVolumeTypeRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_class
-
-    @resource_class.setter
-    def resource_class(self, resource_class):
-        """Sets the resource_class of this DescribeVolumeTypeRequest.
-
-
-        :param resource_class: The resource_class of this DescribeVolumeTypeRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_class = resource_class
 
     @property
     def volume_type_ids(self):

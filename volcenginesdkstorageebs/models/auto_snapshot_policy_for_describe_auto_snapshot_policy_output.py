@@ -36,9 +36,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput(object):
         'auto_snapshot_policy_id': 'str',
         'auto_snapshot_policy_name': 'str',
         'created_at': 'str',
-        'destination_region': 'str',
-        'destination_retention_days': 'int',
-        'enable_copy': 'bool',
         'project_name': 'str',
         'repeat_days': 'int',
         'repeat_weekdays': 'list[str]',
@@ -54,9 +51,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput(object):
         'auto_snapshot_policy_id': 'AutoSnapshotPolicyId',
         'auto_snapshot_policy_name': 'AutoSnapshotPolicyName',
         'created_at': 'CreatedAt',
-        'destination_region': 'DestinationRegion',
-        'destination_retention_days': 'DestinationRetentionDays',
-        'enable_copy': 'EnableCopy',
         'project_name': 'ProjectName',
         'repeat_days': 'RepeatDays',
         'repeat_weekdays': 'RepeatWeekdays',
@@ -68,7 +62,7 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput(object):
         'volume_nums': 'VolumeNums'
     }
 
-    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, created_at=None, destination_region=None, destination_retention_days=None, enable_copy=None, project_name=None, repeat_days=None, repeat_weekdays=None, retention_days=None, status=None, tags=None, time_points=None, updated_at=None, volume_nums=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, created_at=None, project_name=None, repeat_days=None, repeat_weekdays=None, retention_days=None, status=None, tags=None, time_points=None, updated_at=None, volume_nums=None, _configuration=None):  # noqa: E501
         """AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,9 +71,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput(object):
         self._auto_snapshot_policy_id = None
         self._auto_snapshot_policy_name = None
         self._created_at = None
-        self._destination_region = None
-        self._destination_retention_days = None
-        self._enable_copy = None
         self._project_name = None
         self._repeat_days = None
         self._repeat_weekdays = None
@@ -97,12 +88,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput(object):
             self.auto_snapshot_policy_name = auto_snapshot_policy_name
         if created_at is not None:
             self.created_at = created_at
-        if destination_region is not None:
-            self.destination_region = destination_region
-        if destination_retention_days is not None:
-            self.destination_retention_days = destination_retention_days
-        if enable_copy is not None:
-            self.enable_copy = enable_copy
         if project_name is not None:
             self.project_name = project_name
         if repeat_days is not None:
@@ -184,69 +169,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput(object):
         """
 
         self._created_at = created_at
-
-    @property
-    def destination_region(self):
-        """Gets the destination_region of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-
-
-        :return: The destination_region of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._destination_region
-
-    @destination_region.setter
-    def destination_region(self, destination_region):
-        """Sets the destination_region of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.
-
-
-        :param destination_region: The destination_region of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._destination_region = destination_region
-
-    @property
-    def destination_retention_days(self):
-        """Gets the destination_retention_days of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-
-
-        :return: The destination_retention_days of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._destination_retention_days
-
-    @destination_retention_days.setter
-    def destination_retention_days(self, destination_retention_days):
-        """Sets the destination_retention_days of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.
-
-
-        :param destination_retention_days: The destination_retention_days of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._destination_retention_days = destination_retention_days
-
-    @property
-    def enable_copy(self):
-        """Gets the enable_copy of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-
-
-        :return: The enable_copy of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._enable_copy
-
-    @enable_copy.setter
-    def enable_copy(self, enable_copy):
-        """Sets the enable_copy of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.
-
-
-        :param enable_copy: The enable_copy of this AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.  # noqa: E501
-        :type: bool
-        """
-
-        self._enable_copy = enable_copy
 
     @property
     def project_name(self):

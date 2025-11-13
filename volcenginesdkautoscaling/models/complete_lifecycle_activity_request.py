@@ -35,16 +35,18 @@ class CompleteLifecycleActivityRequest(object):
     swagger_types = {
         'client_token': 'str',
         'lifecycle_activity_id': 'str',
-        'lifecycle_activity_policy': 'str'
+        'lifecycle_activity_policy': 'str',
+        'lifecycle_hook_id': 'str'
     }
 
     attribute_map = {
         'client_token': 'ClientToken',
         'lifecycle_activity_id': 'LifecycleActivityId',
-        'lifecycle_activity_policy': 'LifecycleActivityPolicy'
+        'lifecycle_activity_policy': 'LifecycleActivityPolicy',
+        'lifecycle_hook_id': 'LifecycleHookId'
     }
 
-    def __init__(self, client_token=None, lifecycle_activity_id=None, lifecycle_activity_policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, lifecycle_activity_id=None, lifecycle_activity_policy=None, lifecycle_hook_id=None, _configuration=None):  # noqa: E501
         """CompleteLifecycleActivityRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class CompleteLifecycleActivityRequest(object):
         self._client_token = None
         self._lifecycle_activity_id = None
         self._lifecycle_activity_policy = None
+        self._lifecycle_hook_id = None
         self.discriminator = None
 
         if client_token is not None:
@@ -60,6 +63,8 @@ class CompleteLifecycleActivityRequest(object):
         self.lifecycle_activity_id = lifecycle_activity_id
         if lifecycle_activity_policy is not None:
             self.lifecycle_activity_policy = lifecycle_activity_policy
+        if lifecycle_hook_id is not None:
+            self.lifecycle_hook_id = lifecycle_hook_id
 
     @property
     def client_token(self):
@@ -125,6 +130,27 @@ class CompleteLifecycleActivityRequest(object):
         """
 
         self._lifecycle_activity_policy = lifecycle_activity_policy
+
+    @property
+    def lifecycle_hook_id(self):
+        """Gets the lifecycle_hook_id of this CompleteLifecycleActivityRequest.  # noqa: E501
+
+
+        :return: The lifecycle_hook_id of this CompleteLifecycleActivityRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._lifecycle_hook_id
+
+    @lifecycle_hook_id.setter
+    def lifecycle_hook_id(self, lifecycle_hook_id):
+        """Sets the lifecycle_hook_id of this CompleteLifecycleActivityRequest.
+
+
+        :param lifecycle_hook_id: The lifecycle_hook_id of this CompleteLifecycleActivityRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._lifecycle_hook_id = lifecycle_hook_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

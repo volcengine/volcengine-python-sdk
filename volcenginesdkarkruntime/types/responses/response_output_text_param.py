@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -63,7 +62,9 @@ class AnnotationFilePath(TypedDict, total=False):
     """The type of the file path. Always `file_path`."""
 
 
-Annotation: TypeAlias = Union[AnnotationFileCitation, AnnotationURLCitation, AnnotationFilePath]
+Annotation: TypeAlias = Union[
+    AnnotationFileCitation, AnnotationURLCitation, AnnotationFilePath
+]
 
 
 class ResponseOutputTextParam(TypedDict, total=False):

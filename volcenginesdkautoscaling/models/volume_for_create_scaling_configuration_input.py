@@ -34,29 +34,44 @@ class VolumeForCreateScalingConfigurationInput(object):
     """
     swagger_types = {
         'delete_with_instance': 'bool',
+        'extra_performance_iops': 'int',
+        'extra_performance_throughput_mb': 'int',
+        'extra_performance_type_id': 'str',
         'size': 'int',
         'volume_type': 'str'
     }
 
     attribute_map = {
         'delete_with_instance': 'DeleteWithInstance',
+        'extra_performance_iops': 'ExtraPerformanceIOPS',
+        'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMB',
+        'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'size': 'Size',
         'volume_type': 'VolumeType'
     }
 
-    def __init__(self, delete_with_instance=None, size=None, volume_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_with_instance=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, size=None, volume_type=None, _configuration=None):  # noqa: E501
         """VolumeForCreateScalingConfigurationInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._delete_with_instance = None
+        self._extra_performance_iops = None
+        self._extra_performance_throughput_mb = None
+        self._extra_performance_type_id = None
         self._size = None
         self._volume_type = None
         self.discriminator = None
 
         if delete_with_instance is not None:
             self.delete_with_instance = delete_with_instance
+        if extra_performance_iops is not None:
+            self.extra_performance_iops = extra_performance_iops
+        if extra_performance_throughput_mb is not None:
+            self.extra_performance_throughput_mb = extra_performance_throughput_mb
+        if extra_performance_type_id is not None:
+            self.extra_performance_type_id = extra_performance_type_id
         self.size = size
         self.volume_type = volume_type
 
@@ -80,6 +95,69 @@ class VolumeForCreateScalingConfigurationInput(object):
         """
 
         self._delete_with_instance = delete_with_instance
+
+    @property
+    def extra_performance_iops(self):
+        """Gets the extra_performance_iops of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+
+
+        :return: The extra_performance_iops of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_iops
+
+    @extra_performance_iops.setter
+    def extra_performance_iops(self, extra_performance_iops):
+        """Sets the extra_performance_iops of this VolumeForCreateScalingConfigurationInput.
+
+
+        :param extra_performance_iops: The extra_performance_iops of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_iops = extra_performance_iops
+
+    @property
+    def extra_performance_throughput_mb(self):
+        """Gets the extra_performance_throughput_mb of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+
+
+        :return: The extra_performance_throughput_mb of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._extra_performance_throughput_mb
+
+    @extra_performance_throughput_mb.setter
+    def extra_performance_throughput_mb(self, extra_performance_throughput_mb):
+        """Sets the extra_performance_throughput_mb of this VolumeForCreateScalingConfigurationInput.
+
+
+        :param extra_performance_throughput_mb: The extra_performance_throughput_mb of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+        :type: int
+        """
+
+        self._extra_performance_throughput_mb = extra_performance_throughput_mb
+
+    @property
+    def extra_performance_type_id(self):
+        """Gets the extra_performance_type_id of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+
+
+        :return: The extra_performance_type_id of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._extra_performance_type_id
+
+    @extra_performance_type_id.setter
+    def extra_performance_type_id(self, extra_performance_type_id):
+        """Sets the extra_performance_type_id of this VolumeForCreateScalingConfigurationInput.
+
+
+        :param extra_performance_type_id: The extra_performance_type_id of this VolumeForCreateScalingConfigurationInput.  # noqa: E501
+        :type: str
+        """
+
+        self._extra_performance_type_id = extra_performance_type_id
 
     @property
     def size(self):

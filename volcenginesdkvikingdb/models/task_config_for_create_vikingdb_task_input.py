@@ -36,13 +36,13 @@ class TaskConfigForCreateVikingdbTaskInput(object):
         'collection_name': 'str',
         'export_all': 'bool',
         'file_type': 'str',
-        'filter_conds': 'list[FilterCondForCreateVikingdbTaskInput]',
+        'filter_conds': 'list[object]',
         'ignore_error': 'bool',
         'need_confirm': 'bool',
         'project_name': 'str',
         'resource_id': 'str',
         'tos_path': 'str',
-        'update_fields': 'UpdateFieldsForCreateVikingdbTaskInput',
+        'update_fields': 'object',
         'use_public': 'bool'
     }
 
@@ -178,7 +178,7 @@ class TaskConfigForCreateVikingdbTaskInput(object):
 
 
         :return: The filter_conds of this TaskConfigForCreateVikingdbTaskInput.  # noqa: E501
-        :rtype: list[FilterCondForCreateVikingdbTaskInput]
+        :rtype: list[object]
         """
         return self._filter_conds
 
@@ -188,7 +188,7 @@ class TaskConfigForCreateVikingdbTaskInput(object):
 
 
         :param filter_conds: The filter_conds of this TaskConfigForCreateVikingdbTaskInput.  # noqa: E501
-        :type: list[FilterCondForCreateVikingdbTaskInput]
+        :type: list[object]
         """
 
         self._filter_conds = filter_conds
@@ -304,7 +304,7 @@ class TaskConfigForCreateVikingdbTaskInput(object):
 
 
         :return: The update_fields of this TaskConfigForCreateVikingdbTaskInput.  # noqa: E501
-        :rtype: UpdateFieldsForCreateVikingdbTaskInput
+        :rtype: object
         """
         return self._update_fields
 
@@ -314,7 +314,7 @@ class TaskConfigForCreateVikingdbTaskInput(object):
 
 
         :param update_fields: The update_fields of this TaskConfigForCreateVikingdbTaskInput.  # noqa: E501
-        :type: UpdateFieldsForCreateVikingdbTaskInput
+        :type: object
         """
 
         self._update_fields = update_fields
