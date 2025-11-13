@@ -43,8 +43,11 @@ class ItemForListWorkspacesOutput(object):
         'name': 'str',
         'overdue_reclaim_time': 'str',
         'project_name': 'str',
+        'prometheus_push_endpoint': 'str',
         'prometheus_push_intranet_endpoint': 'str',
+        'prometheus_query_endpoint': 'str',
         'prometheus_query_intranet_endpoint': 'str',
+        'prometheus_write_endpoint': 'str',
         'prometheus_write_intranet_endpoint': 'str',
         'public_access_enabled': 'bool',
         'region': 'str',
@@ -65,8 +68,11 @@ class ItemForListWorkspacesOutput(object):
         'name': 'Name',
         'overdue_reclaim_time': 'OverdueReclaimTime',
         'project_name': 'ProjectName',
+        'prometheus_push_endpoint': 'PrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint': 'PrometheusPushIntranetEndpoint',
+        'prometheus_query_endpoint': 'PrometheusQueryEndpoint',
         'prometheus_query_intranet_endpoint': 'PrometheusQueryIntranetEndpoint',
+        'prometheus_write_endpoint': 'PrometheusWriteEndpoint',
         'prometheus_write_intranet_endpoint': 'PrometheusWriteIntranetEndpoint',
         'public_access_enabled': 'PublicAccessEnabled',
         'region': 'Region',
@@ -76,7 +82,7 @@ class ItemForListWorkspacesOutput(object):
         'username': 'Username'
     }
 
-    def __init__(self, account_id=None, account_name=None, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_intranet_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_intranet_endpoint=None, public_access_enabled=None, region=None, search_latency_offset=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, account_name=None, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_endpoint=None, prometheus_push_intranet_endpoint=None, prometheus_query_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_endpoint=None, prometheus_write_intranet_endpoint=None, public_access_enabled=None, region=None, search_latency_offset=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
         """ItemForListWorkspacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,8 +98,11 @@ class ItemForListWorkspacesOutput(object):
         self._name = None
         self._overdue_reclaim_time = None
         self._project_name = None
+        self._prometheus_push_endpoint = None
         self._prometheus_push_intranet_endpoint = None
+        self._prometheus_query_endpoint = None
         self._prometheus_query_intranet_endpoint = None
+        self._prometheus_write_endpoint = None
         self._prometheus_write_intranet_endpoint = None
         self._public_access_enabled = None
         self._region = None
@@ -123,10 +132,16 @@ class ItemForListWorkspacesOutput(object):
             self.overdue_reclaim_time = overdue_reclaim_time
         if project_name is not None:
             self.project_name = project_name
+        if prometheus_push_endpoint is not None:
+            self.prometheus_push_endpoint = prometheus_push_endpoint
         if prometheus_push_intranet_endpoint is not None:
             self.prometheus_push_intranet_endpoint = prometheus_push_intranet_endpoint
+        if prometheus_query_endpoint is not None:
+            self.prometheus_query_endpoint = prometheus_query_endpoint
         if prometheus_query_intranet_endpoint is not None:
             self.prometheus_query_intranet_endpoint = prometheus_query_intranet_endpoint
+        if prometheus_write_endpoint is not None:
+            self.prometheus_write_endpoint = prometheus_write_endpoint
         if prometheus_write_intranet_endpoint is not None:
             self.prometheus_write_intranet_endpoint = prometheus_write_intranet_endpoint
         if public_access_enabled is not None:
@@ -353,6 +368,27 @@ class ItemForListWorkspacesOutput(object):
         self._project_name = project_name
 
     @property
+    def prometheus_push_endpoint(self):
+        """Gets the prometheus_push_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The prometheus_push_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_push_endpoint
+
+    @prometheus_push_endpoint.setter
+    def prometheus_push_endpoint(self, prometheus_push_endpoint):
+        """Sets the prometheus_push_endpoint of this ItemForListWorkspacesOutput.
+
+
+        :param prometheus_push_endpoint: The prometheus_push_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_push_endpoint = prometheus_push_endpoint
+
+    @property
     def prometheus_push_intranet_endpoint(self):
         """Gets the prometheus_push_intranet_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
 
@@ -374,6 +410,27 @@ class ItemForListWorkspacesOutput(object):
         self._prometheus_push_intranet_endpoint = prometheus_push_intranet_endpoint
 
     @property
+    def prometheus_query_endpoint(self):
+        """Gets the prometheus_query_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The prometheus_query_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_query_endpoint
+
+    @prometheus_query_endpoint.setter
+    def prometheus_query_endpoint(self, prometheus_query_endpoint):
+        """Sets the prometheus_query_endpoint of this ItemForListWorkspacesOutput.
+
+
+        :param prometheus_query_endpoint: The prometheus_query_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_query_endpoint = prometheus_query_endpoint
+
+    @property
     def prometheus_query_intranet_endpoint(self):
         """Gets the prometheus_query_intranet_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
 
@@ -393,6 +450,27 @@ class ItemForListWorkspacesOutput(object):
         """
 
         self._prometheus_query_intranet_endpoint = prometheus_query_intranet_endpoint
+
+    @property
+    def prometheus_write_endpoint(self):
+        """Gets the prometheus_write_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The prometheus_write_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_write_endpoint
+
+    @prometheus_write_endpoint.setter
+    def prometheus_write_endpoint(self, prometheus_write_endpoint):
+        """Sets the prometheus_write_endpoint of this ItemForListWorkspacesOutput.
+
+
+        :param prometheus_write_endpoint: The prometheus_write_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_write_endpoint = prometheus_write_endpoint
 
     @property
     def prometheus_write_intranet_endpoint(self):
