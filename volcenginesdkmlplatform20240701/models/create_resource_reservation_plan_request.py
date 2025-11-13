@@ -34,6 +34,7 @@ class CreateResourceReservationPlanRequest(object):
     """
     swagger_types = {
         'compute_resource': 'ComputeResourceForCreateResourceReservationPlanInput',
+        'custom_compute_resource': 'list[CustomComputeResourceForCreateResourceReservationPlanInput]',
         'description': 'str',
         'dry_run': 'bool',
         'name': 'str',
@@ -47,6 +48,7 @@ class CreateResourceReservationPlanRequest(object):
 
     attribute_map = {
         'compute_resource': 'ComputeResource',
+        'custom_compute_resource': 'CustomComputeResource',
         'description': 'Description',
         'dry_run': 'DryRun',
         'name': 'Name',
@@ -58,13 +60,14 @@ class CreateResourceReservationPlanRequest(object):
         'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, compute_resource=None, description=None, dry_run=None, name=None, project_name=None, reservation_config=None, schedule_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, compute_resource=None, custom_compute_resource=None, description=None, dry_run=None, name=None, project_name=None, reservation_config=None, schedule_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """CreateResourceReservationPlanRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._compute_resource = None
+        self._custom_compute_resource = None
         self._description = None
         self._dry_run = None
         self._name = None
@@ -78,6 +81,8 @@ class CreateResourceReservationPlanRequest(object):
 
         if compute_resource is not None:
             self.compute_resource = compute_resource
+        if custom_compute_resource is not None:
+            self.custom_compute_resource = custom_compute_resource
         if description is not None:
             self.description = description
         if dry_run is not None:
@@ -116,6 +121,27 @@ class CreateResourceReservationPlanRequest(object):
         """
 
         self._compute_resource = compute_resource
+
+    @property
+    def custom_compute_resource(self):
+        """Gets the custom_compute_resource of this CreateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The custom_compute_resource of this CreateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: list[CustomComputeResourceForCreateResourceReservationPlanInput]
+        """
+        return self._custom_compute_resource
+
+    @custom_compute_resource.setter
+    def custom_compute_resource(self, custom_compute_resource):
+        """Sets the custom_compute_resource of this CreateResourceReservationPlanRequest.
+
+
+        :param custom_compute_resource: The custom_compute_resource of this CreateResourceReservationPlanRequest.  # noqa: E501
+        :type: list[CustomComputeResourceForCreateResourceReservationPlanInput]
+        """
+
+        self._custom_compute_resource = custom_compute_resource
 
     @property
     def description(self):

@@ -33,29 +33,85 @@ class ModelForUpdateDeploymentInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'format': 'str',
         'model_id': 'str',
-        'model_version_id': 'str'
+        'model_version_id': 'str',
+        'name': 'str',
+        'path': 'str',
+        'source': 'str',
+        'tensor_config': 'TensorConfigForUpdateDeploymentInput',
+        'type': 'str',
+        'version': 'str'
     }
 
     attribute_map = {
+        'format': 'Format',
         'model_id': 'ModelID',
-        'model_version_id': 'ModelVersionID'
+        'model_version_id': 'ModelVersionID',
+        'name': 'Name',
+        'path': 'Path',
+        'source': 'Source',
+        'tensor_config': 'TensorConfig',
+        'type': 'Type',
+        'version': 'Version'
     }
 
-    def __init__(self, model_id=None, model_version_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, format=None, model_id=None, model_version_id=None, name=None, path=None, source=None, tensor_config=None, type=None, version=None, _configuration=None):  # noqa: E501
         """ModelForUpdateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._format = None
         self._model_id = None
         self._model_version_id = None
+        self._name = None
+        self._path = None
+        self._source = None
+        self._tensor_config = None
+        self._type = None
+        self._version = None
         self.discriminator = None
 
+        if format is not None:
+            self.format = format
         if model_id is not None:
             self.model_id = model_id
         if model_version_id is not None:
             self.model_version_id = model_version_id
+        if name is not None:
+            self.name = name
+        if path is not None:
+            self.path = path
+        if source is not None:
+            self.source = source
+        if tensor_config is not None:
+            self.tensor_config = tensor_config
+        if type is not None:
+            self.type = type
+        if version is not None:
+            self.version = version
+
+    @property
+    def format(self):
+        """Gets the format of this ModelForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The format of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._format
+
+    @format.setter
+    def format(self, format):
+        """Sets the format of this ModelForUpdateDeploymentInput.
+
+
+        :param format: The format of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._format = format
 
     @property
     def model_id(self):
@@ -98,6 +154,132 @@ class ModelForUpdateDeploymentInput(object):
         """
 
         self._model_version_id = model_version_id
+
+    @property
+    def name(self):
+        """Gets the name of this ModelForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The name of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ModelForUpdateDeploymentInput.
+
+
+        :param name: The name of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def path(self):
+        """Gets the path of this ModelForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The path of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """Sets the path of this ModelForUpdateDeploymentInput.
+
+
+        :param path: The path of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._path = path
+
+    @property
+    def source(self):
+        """Gets the source of this ModelForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The source of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this ModelForUpdateDeploymentInput.
+
+
+        :param source: The source of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
+
+    @property
+    def tensor_config(self):
+        """Gets the tensor_config of this ModelForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The tensor_config of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :rtype: TensorConfigForUpdateDeploymentInput
+        """
+        return self._tensor_config
+
+    @tensor_config.setter
+    def tensor_config(self, tensor_config):
+        """Sets the tensor_config of this ModelForUpdateDeploymentInput.
+
+
+        :param tensor_config: The tensor_config of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :type: TensorConfigForUpdateDeploymentInput
+        """
+
+        self._tensor_config = tensor_config
+
+    @property
+    def type(self):
+        """Gets the type of this ModelForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The type of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ModelForUpdateDeploymentInput.
+
+
+        :param type: The type of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
+
+    @property
+    def version(self):
+        """Gets the version of this ModelForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The version of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this ModelForUpdateDeploymentInput.
+
+
+        :param version: The version of this ModelForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

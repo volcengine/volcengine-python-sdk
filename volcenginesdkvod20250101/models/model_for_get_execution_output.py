@@ -33,123 +33,71 @@ class ModelForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'asr_app_id': 'str',
-        'asr_app_type': 'str',
-        'doubao_text_endpoint': 'str',
-        'doubao_vision_endpoint': 'str'
+        'temperature': 'float',
+        'top_p': 'float'
     }
 
     attribute_map = {
-        'asr_app_id': 'AsrAppId',
-        'asr_app_type': 'AsrAppType',
-        'doubao_text_endpoint': 'DoubaoTextEndpoint',
-        'doubao_vision_endpoint': 'DoubaoVisionEndpoint'
+        'temperature': 'Temperature',
+        'top_p': 'TopP'
     }
 
-    def __init__(self, asr_app_id=None, asr_app_type=None, doubao_text_endpoint=None, doubao_vision_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, temperature=None, top_p=None, _configuration=None):  # noqa: E501
         """ModelForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._asr_app_id = None
-        self._asr_app_type = None
-        self._doubao_text_endpoint = None
-        self._doubao_vision_endpoint = None
+        self._temperature = None
+        self._top_p = None
         self.discriminator = None
 
-        if asr_app_id is not None:
-            self.asr_app_id = asr_app_id
-        if asr_app_type is not None:
-            self.asr_app_type = asr_app_type
-        if doubao_text_endpoint is not None:
-            self.doubao_text_endpoint = doubao_text_endpoint
-        if doubao_vision_endpoint is not None:
-            self.doubao_vision_endpoint = doubao_vision_endpoint
+        if temperature is not None:
+            self.temperature = temperature
+        if top_p is not None:
+            self.top_p = top_p
 
     @property
-    def asr_app_id(self):
-        """Gets the asr_app_id of this ModelForGetExecutionOutput.  # noqa: E501
+    def temperature(self):
+        """Gets the temperature of this ModelForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The asr_app_id of this ModelForGetExecutionOutput.  # noqa: E501
-        :rtype: str
+        :return: The temperature of this ModelForGetExecutionOutput.  # noqa: E501
+        :rtype: float
         """
-        return self._asr_app_id
+        return self._temperature
 
-    @asr_app_id.setter
-    def asr_app_id(self, asr_app_id):
-        """Sets the asr_app_id of this ModelForGetExecutionOutput.
+    @temperature.setter
+    def temperature(self, temperature):
+        """Sets the temperature of this ModelForGetExecutionOutput.
 
 
-        :param asr_app_id: The asr_app_id of this ModelForGetExecutionOutput.  # noqa: E501
-        :type: str
+        :param temperature: The temperature of this ModelForGetExecutionOutput.  # noqa: E501
+        :type: float
         """
 
-        self._asr_app_id = asr_app_id
+        self._temperature = temperature
 
     @property
-    def asr_app_type(self):
-        """Gets the asr_app_type of this ModelForGetExecutionOutput.  # noqa: E501
+    def top_p(self):
+        """Gets the top_p of this ModelForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The asr_app_type of this ModelForGetExecutionOutput.  # noqa: E501
-        :rtype: str
+        :return: The top_p of this ModelForGetExecutionOutput.  # noqa: E501
+        :rtype: float
         """
-        return self._asr_app_type
+        return self._top_p
 
-    @asr_app_type.setter
-    def asr_app_type(self, asr_app_type):
-        """Sets the asr_app_type of this ModelForGetExecutionOutput.
-
-
-        :param asr_app_type: The asr_app_type of this ModelForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._asr_app_type = asr_app_type
-
-    @property
-    def doubao_text_endpoint(self):
-        """Gets the doubao_text_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
+    @top_p.setter
+    def top_p(self, top_p):
+        """Sets the top_p of this ModelForGetExecutionOutput.
 
 
-        :return: The doubao_text_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._doubao_text_endpoint
-
-    @doubao_text_endpoint.setter
-    def doubao_text_endpoint(self, doubao_text_endpoint):
-        """Sets the doubao_text_endpoint of this ModelForGetExecutionOutput.
-
-
-        :param doubao_text_endpoint: The doubao_text_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
-        :type: str
+        :param top_p: The top_p of this ModelForGetExecutionOutput.  # noqa: E501
+        :type: float
         """
 
-        self._doubao_text_endpoint = doubao_text_endpoint
-
-    @property
-    def doubao_vision_endpoint(self):
-        """Gets the doubao_vision_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The doubao_vision_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._doubao_vision_endpoint
-
-    @doubao_vision_endpoint.setter
-    def doubao_vision_endpoint(self, doubao_vision_endpoint):
-        """Sets the doubao_vision_endpoint of this ModelForGetExecutionOutput.
-
-
-        :param doubao_vision_endpoint: The doubao_vision_endpoint of this ModelForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._doubao_vision_endpoint = doubao_vision_endpoint
+        self._top_p = top_p
 
     def to_dict(self):
         """Returns the model properties as a dict"""

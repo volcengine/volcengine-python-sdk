@@ -35,7 +35,7 @@ class ConvertNodeForGetExecutionOutput(object):
     swagger_types = {
         'code': 'str',
         'name': 'str',
-        'output': 'OutputForGetExecutionOutput',
+        'output': 'ConvertOutputForGetExecutionOutput',
         'status': 'str'
     }
 
@@ -115,7 +115,7 @@ class ConvertNodeForGetExecutionOutput(object):
 
 
         :return: The output of this ConvertNodeForGetExecutionOutput.  # noqa: E501
-        :rtype: OutputForGetExecutionOutput
+        :rtype: ConvertOutputForGetExecutionOutput
         """
         return self._output
 
@@ -125,7 +125,7 @@ class ConvertNodeForGetExecutionOutput(object):
 
 
         :param output: The output of this ConvertNodeForGetExecutionOutput.  # noqa: E501
-        :type: OutputForGetExecutionOutput
+        :type: ConvertOutputForGetExecutionOutput
         """
 
         self._output = output

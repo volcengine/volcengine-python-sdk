@@ -33,55 +33,81 @@ class ImageForCreateDevInstanceInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'credential': 'ConvertCredentialForCreateDevInstanceInput',
+        'id': 'str',
+        'image_credential': 'ImageCredentialForCreateDevInstanceInput',
         'type': 'str',
         'url': 'str'
     }
 
     attribute_map = {
-        'credential': 'Credential',
+        'id': 'Id',
+        'image_credential': 'ImageCredential',
         'type': 'Type',
         'url': 'Url'
     }
 
-    def __init__(self, credential=None, type=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, image_credential=None, type=None, url=None, _configuration=None):  # noqa: E501
         """ImageForCreateDevInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._credential = None
+        self._id = None
+        self._image_credential = None
         self._type = None
         self._url = None
         self.discriminator = None
 
-        if credential is not None:
-            self.credential = credential
+        if id is not None:
+            self.id = id
+        if image_credential is not None:
+            self.image_credential = image_credential
         if type is not None:
             self.type = type
         if url is not None:
             self.url = url
 
     @property
-    def credential(self):
-        """Gets the credential of this ImageForCreateDevInstanceInput.  # noqa: E501
+    def id(self):
+        """Gets the id of this ImageForCreateDevInstanceInput.  # noqa: E501
 
 
-        :return: The credential of this ImageForCreateDevInstanceInput.  # noqa: E501
-        :rtype: ConvertCredentialForCreateDevInstanceInput
+        :return: The id of this ImageForCreateDevInstanceInput.  # noqa: E501
+        :rtype: str
         """
-        return self._credential
+        return self._id
 
-    @credential.setter
-    def credential(self, credential):
-        """Sets the credential of this ImageForCreateDevInstanceInput.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this ImageForCreateDevInstanceInput.
 
 
-        :param credential: The credential of this ImageForCreateDevInstanceInput.  # noqa: E501
-        :type: ConvertCredentialForCreateDevInstanceInput
+        :param id: The id of this ImageForCreateDevInstanceInput.  # noqa: E501
+        :type: str
         """
 
-        self._credential = credential
+        self._id = id
+
+    @property
+    def image_credential(self):
+        """Gets the image_credential of this ImageForCreateDevInstanceInput.  # noqa: E501
+
+
+        :return: The image_credential of this ImageForCreateDevInstanceInput.  # noqa: E501
+        :rtype: ImageCredentialForCreateDevInstanceInput
+        """
+        return self._image_credential
+
+    @image_credential.setter
+    def image_credential(self, image_credential):
+        """Sets the image_credential of this ImageForCreateDevInstanceInput.
+
+
+        :param image_credential: The image_credential of this ImageForCreateDevInstanceInput.  # noqa: E501
+        :type: ImageCredentialForCreateDevInstanceInput
+        """
+
+        self._image_credential = image_credential
 
     @property
     def type(self):

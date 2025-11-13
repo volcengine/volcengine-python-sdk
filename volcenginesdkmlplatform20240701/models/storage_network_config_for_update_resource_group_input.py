@@ -34,29 +34,34 @@ class StorageNetworkConfigForUpdateResourceGroupInput(object):
     """
     swagger_types = {
         'security_group_ids': 'list[str]',
+        'subnet_id': 'str',
         'subnet_ids': 'list[str]',
         'vpc_id': 'str'
     }
 
     attribute_map = {
         'security_group_ids': 'SecurityGroupIds',
+        'subnet_id': 'SubnetId',
         'subnet_ids': 'SubnetIds',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, security_group_ids=None, subnet_ids=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, security_group_ids=None, subnet_id=None, subnet_ids=None, vpc_id=None, _configuration=None):  # noqa: E501
         """StorageNetworkConfigForUpdateResourceGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._security_group_ids = None
+        self._subnet_id = None
         self._subnet_ids = None
         self._vpc_id = None
         self.discriminator = None
 
         if security_group_ids is not None:
             self.security_group_ids = security_group_ids
+        if subnet_id is not None:
+            self.subnet_id = subnet_id
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
         if vpc_id is not None:
@@ -82,6 +87,27 @@ class StorageNetworkConfigForUpdateResourceGroupInput(object):
         """
 
         self._security_group_ids = security_group_ids
+
+    @property
+    def subnet_id(self):
+        """Gets the subnet_id of this StorageNetworkConfigForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The subnet_id of this StorageNetworkConfigForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._subnet_id
+
+    @subnet_id.setter
+    def subnet_id(self, subnet_id):
+        """Sets the subnet_id of this StorageNetworkConfigForUpdateResourceGroupInput.
+
+
+        :param subnet_id: The subnet_id of this StorageNetworkConfigForUpdateResourceGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._subnet_id = subnet_id
 
     @property
     def subnet_ids(self):

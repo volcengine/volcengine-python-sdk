@@ -33,24 +33,29 @@ class DeleteViewerLevelConfigRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'level_ids': 'list[int]'
+        'level_ids': 'list[int]',
+        'viewer_level_group_id': 'int'
     }
 
     attribute_map = {
-        'level_ids': 'LevelIds'
+        'level_ids': 'LevelIds',
+        'viewer_level_group_id': 'ViewerLevelGroupId'
     }
 
-    def __init__(self, level_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, level_ids=None, viewer_level_group_id=None, _configuration=None):  # noqa: E501
         """DeleteViewerLevelConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._level_ids = None
+        self._viewer_level_group_id = None
         self.discriminator = None
 
         if level_ids is not None:
             self.level_ids = level_ids
+        if viewer_level_group_id is not None:
+            self.viewer_level_group_id = viewer_level_group_id
 
     @property
     def level_ids(self):
@@ -72,6 +77,27 @@ class DeleteViewerLevelConfigRequest(object):
         """
 
         self._level_ids = level_ids
+
+    @property
+    def viewer_level_group_id(self):
+        """Gets the viewer_level_group_id of this DeleteViewerLevelConfigRequest.  # noqa: E501
+
+
+        :return: The viewer_level_group_id of this DeleteViewerLevelConfigRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._viewer_level_group_id
+
+    @viewer_level_group_id.setter
+    def viewer_level_group_id(self, viewer_level_group_id):
+        """Sets the viewer_level_group_id of this DeleteViewerLevelConfigRequest.
+
+
+        :param viewer_level_group_id: The viewer_level_group_id of this DeleteViewerLevelConfigRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._viewer_level_group_id = viewer_level_group_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
