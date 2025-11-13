@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -18,7 +17,6 @@ __all__ = ["ResponseWebSearchCallInProgressEvent"]
 
 
 class ResponseWebSearchCallInProgressEvent(BaseModel):
-
     item_id: str
     """The ID of the item this event is associated with."""
 

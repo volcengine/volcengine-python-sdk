@@ -16,7 +16,6 @@ from .response_output_text import ResponseOutputTextAnnotation
 
 
 class ResponseOutputTextAnnotationAddedEvent(BaseModel):
-
     item_id: str
     """The ID of the item this event is associated with."""
 

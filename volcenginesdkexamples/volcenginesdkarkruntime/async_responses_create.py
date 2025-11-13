@@ -1,5 +1,4 @@
 import asyncio
-
 from volcenginesdkarkruntime import AsyncArk
 from volcenginesdkarkruntime.types.responses.response_completed_event import ResponseCompletedEvent
 from volcenginesdkarkruntime.types.responses.response_output_item_done_event import ResponseOutputItemDoneEvent
@@ -15,10 +14,11 @@ from volcenginesdkarkruntime.types.responses.response_mcp_item import McpApprova
 4. 使用MCP工具 (MCP)
 """
 
-client = AsyncArk(api_key="${YOUR_API_KEY}")
+client = AsyncArk()
 
 
 async def main():
+    image_path = "/path/to/your/image.jpg"
     # ==========================================================
     # 示例 1：多轮对话，开启 caching
     # ==========================================================
@@ -26,10 +26,20 @@ async def main():
     # ---------- 第 1 轮 ----------
     # 说明：开启 caching，store=True 表示把对话存储在服务端，以便后续引用
     stream = await client.responses.create(
-        model="${YOUR_ENDPOINT_ID}",
+        model="doubao-seed-1-6",
         input=[
             {"role": "system", "content": "你是豆包，是由字节跳动开发的 AI 人工智能助手"},
-            {"role": "user", "content": "你好"},
+            {"role": "user", "content": [
+                {
+                    "type": "input_image",
+                    # local image file path, will be automatically uploaded to file
+                    "image_url": f"file://{image_path}"
+                },
+                {
+                    "type": "input_text",
+                    "text": "图里有什么内容"
+                }
+            ]},
         ],
         caching={
             "type": "enabled",
@@ -46,10 +56,10 @@ async def main():
     # ---------- 第 2 轮 ----------
     # 说明：通过 previous_response_id 关联上一轮的上下文
     stream = await client.responses.create(
-        model="${YOUR_ENDPOINT_ID}",
+        model="doubao-seed-1-6",
         previous_response_id=response_id,
         input=[
-            {"role": "user", "content": "你是谁"},
+            {"role": "user", "content": "上一轮对话里图里的内容是"},
         ],
         caching={
             "type": "enabled",
@@ -68,7 +78,7 @@ async def main():
     # ---------- 第 1 轮 ----------
     # 用户询问北京天气，模型会触发工具调用
     stream = await client.responses.create(
-        model="${YOUR_ENDPOINT_ID}",
+        model="doubao-seed-1-6",
         input=[
             {"role": "user", "content": "请问北京今天天气怎么样"},
         ],
@@ -111,7 +121,7 @@ async def main():
     # ---------- 第 2 轮 ----------
     # 把函数返回结果传回模型，让它继续生成最终回答
     stream = await client.responses.create(
-        model="${YOUR_ENDPOINT_ID}",
+        model="doubao-seed-1-6",
         previous_response_id=response_id,
         input=[
             {
@@ -134,7 +144,7 @@ async def main():
     # ==========================================================
     print("Example 3: Use responses API for web search")
     stream = await client.responses.create(
-        model="${YOUR_ENDPOINT_ID}",
+        model="doubao-seed-1-6",
         input=[
             {"role": "user", "content": "今天的新闻"},
         ],
@@ -163,7 +173,7 @@ async def main():
     # ---------- 第 1 轮 ----------
     # 用户询问repo信息，模型会触发mcp工具调用
     stream = await client.responses.create(
-        model="${YOUR_ENDPOINT_ID}",
+        model="doubao-seed-1-6",
         input=[{
             "role": "user",
             "content": [
@@ -196,7 +206,7 @@ async def main():
     # ---------- 第 2 轮 ----------
     # 用户同意mcp工具调用，模型会继续生成最终回答
     stream = await client.responses.create(
-        model="${YOUR_ENDPOINT_ID}",
+        model="doubao-seed-1-6",
         input=[
             {
                 "type": "mcp_approval_response",

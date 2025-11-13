@@ -21,7 +21,6 @@ __all__ = ["ResponseOutputText", "ResponseOutputTextAnnotation"]
 
 
 class ResponseOutputText(BaseModel):
-
     text: str
     """The text output from the model."""
 
