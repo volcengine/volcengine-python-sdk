@@ -33,39 +33,80 @@ class ConvertConvertConvertSegmentForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'description': 'str',
         'end': 'float',
-        'file': 'FileForGetExecutionOutput',
-        'frames': 'list[int]',
-        'start': 'float'
+        'location': 'str',
+        'ocr': 'str',
+        'score': 'float',
+        'shot': 'str',
+        'start': 'float',
+        'video_index': 'int'
     }
 
     attribute_map = {
+        'description': 'Description',
         'end': 'End',
-        'file': 'File',
-        'frames': 'Frames',
-        'start': 'Start'
+        'location': 'Location',
+        'ocr': 'Ocr',
+        'score': 'Score',
+        'shot': 'Shot',
+        'start': 'Start',
+        'video_index': 'VideoIndex'
     }
 
-    def __init__(self, end=None, file=None, frames=None, start=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, end=None, location=None, ocr=None, score=None, shot=None, start=None, video_index=None, _configuration=None):  # noqa: E501
         """ConvertConvertConvertSegmentForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._description = None
         self._end = None
-        self._file = None
-        self._frames = None
+        self._location = None
+        self._ocr = None
+        self._score = None
+        self._shot = None
         self._start = None
+        self._video_index = None
         self.discriminator = None
 
+        if description is not None:
+            self.description = description
         if end is not None:
             self.end = end
-        if file is not None:
-            self.file = file
-        if frames is not None:
-            self.frames = frames
+        if location is not None:
+            self.location = location
+        if ocr is not None:
+            self.ocr = ocr
+        if score is not None:
+            self.score = score
+        if shot is not None:
+            self.shot = shot
         if start is not None:
             self.start = start
+        if video_index is not None:
+            self.video_index = video_index
+
+    @property
+    def description(self):
+        """Gets the description of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The description of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ConvertConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param description: The description of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def end(self):
@@ -89,46 +130,88 @@ class ConvertConvertConvertSegmentForGetExecutionOutput(object):
         self._end = end
 
     @property
-    def file(self):
-        """Gets the file of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+    def location(self):
+        """Gets the location of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The file of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :rtype: FileForGetExecutionOutput
+        :return: The location of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._file
+        return self._location
 
-    @file.setter
-    def file(self, file):
-        """Sets the file of this ConvertConvertConvertSegmentForGetExecutionOutput.
+    @location.setter
+    def location(self, location):
+        """Sets the location of this ConvertConvertConvertSegmentForGetExecutionOutput.
 
 
-        :param file: The file of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :type: FileForGetExecutionOutput
+        :param location: The location of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._file = file
+        self._location = location
 
     @property
-    def frames(self):
-        """Gets the frames of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+    def ocr(self):
+        """Gets the ocr of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The frames of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :rtype: list[int]
+        :return: The ocr of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._frames
+        return self._ocr
 
-    @frames.setter
-    def frames(self, frames):
-        """Sets the frames of this ConvertConvertConvertSegmentForGetExecutionOutput.
+    @ocr.setter
+    def ocr(self, ocr):
+        """Sets the ocr of this ConvertConvertConvertSegmentForGetExecutionOutput.
 
 
-        :param frames: The frames of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :type: list[int]
+        :param ocr: The ocr of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._frames = frames
+        self._ocr = ocr
+
+    @property
+    def score(self):
+        """Gets the score of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The score of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        """Sets the score of this ConvertConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param score: The score of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._score = score
+
+    @property
+    def shot(self):
+        """Gets the shot of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The shot of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._shot
+
+    @shot.setter
+    def shot(self, shot):
+        """Sets the shot of this ConvertConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param shot: The shot of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._shot = shot
 
     @property
     def start(self):
@@ -150,6 +233,27 @@ class ConvertConvertConvertSegmentForGetExecutionOutput(object):
         """
 
         self._start = start
+
+    @property
+    def video_index(self):
+        """Gets the video_index of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_index of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._video_index
+
+    @video_index.setter
+    def video_index(self, video_index):
+        """Sets the video_index of this ConvertConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param video_index: The video_index of this ConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._video_index = video_index
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,71 +33,123 @@ class ConvertConvertConvertConvertSegmentForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'duration': 'float',
-        'segments': 'list[ConvertConvertConvertSegmentForGetExecutionOutput]'
+        'end': 'float',
+        'file': 'ConvertEditForGetExecutionOutput',
+        'frames': 'list[int]',
+        'start': 'float'
     }
 
     attribute_map = {
-        'duration': 'Duration',
-        'segments': 'Segments'
+        'end': 'End',
+        'file': 'File',
+        'frames': 'Frames',
+        'start': 'Start'
     }
 
-    def __init__(self, duration=None, segments=None, _configuration=None):  # noqa: E501
+    def __init__(self, end=None, file=None, frames=None, start=None, _configuration=None):  # noqa: E501
         """ConvertConvertConvertConvertSegmentForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._duration = None
-        self._segments = None
+        self._end = None
+        self._file = None
+        self._frames = None
+        self._start = None
         self.discriminator = None
 
-        if duration is not None:
-            self.duration = duration
-        if segments is not None:
-            self.segments = segments
+        if end is not None:
+            self.end = end
+        if file is not None:
+            self.file = file
+        if frames is not None:
+            self.frames = frames
+        if start is not None:
+            self.start = start
 
     @property
-    def duration(self):
-        """Gets the duration of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+    def end(self):
+        """Gets the end of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The duration of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :return: The end of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
         :rtype: float
         """
-        return self._duration
+        return self._end
 
-    @duration.setter
-    def duration(self, duration):
-        """Sets the duration of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.
+    @end.setter
+    def end(self, end):
+        """Sets the end of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.
 
 
-        :param duration: The duration of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :param end: The end of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
         :type: float
         """
 
-        self._duration = duration
+        self._end = end
 
     @property
-    def segments(self):
-        """Gets the segments of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+    def file(self):
+        """Gets the file of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The segments of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :rtype: list[ConvertConvertConvertSegmentForGetExecutionOutput]
+        :return: The file of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertEditForGetExecutionOutput
         """
-        return self._segments
+        return self._file
 
-    @segments.setter
-    def segments(self, segments):
-        """Sets the segments of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.
+    @file.setter
+    def file(self, file):
+        """Sets the file of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.
 
 
-        :param segments: The segments of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
-        :type: list[ConvertConvertConvertSegmentForGetExecutionOutput]
+        :param file: The file of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: ConvertEditForGetExecutionOutput
         """
 
-        self._segments = segments
+        self._file = file
+
+    @property
+    def frames(self):
+        """Gets the frames of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The frames of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._frames
+
+    @frames.setter
+    def frames(self, frames):
+        """Sets the frames of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param frames: The frames of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._frames = frames
+
+    @property
+    def start(self):
+        """Gets the start of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The start of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._start
+
+    @start.setter
+    def start(self, start):
+        """Sets the start of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.
+
+
+        :param start: The start of this ConvertConvertConvertConvertSegmentForGetExecutionOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._start = start
 
     def to_dict(self):
         """Returns the model properties as a dict"""

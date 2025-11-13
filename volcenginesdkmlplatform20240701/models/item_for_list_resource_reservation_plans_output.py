@@ -35,6 +35,7 @@ class ItemForListResourceReservationPlansOutput(object):
     swagger_types = {
         'create_time': 'str',
         'creator_trn': 'str',
+        'custom_compute_resource': 'list[CustomComputeResourceForListResourceReservationPlansOutput]',
         'description': 'str',
         'desired_compute_resource': 'DesiredComputeResourceForListResourceReservationPlansOutput',
         'id': 'str',
@@ -52,6 +53,7 @@ class ItemForListResourceReservationPlansOutput(object):
     attribute_map = {
         'create_time': 'CreateTime',
         'creator_trn': 'CreatorTrn',
+        'custom_compute_resource': 'CustomComputeResource',
         'description': 'Description',
         'desired_compute_resource': 'DesiredComputeResource',
         'id': 'Id',
@@ -66,7 +68,7 @@ class ItemForListResourceReservationPlansOutput(object):
         'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, create_time=None, creator_trn=None, description=None, desired_compute_resource=None, id=None, name=None, project_name=None, reservation_config=None, schedule_config=None, status=None, storage_config=None, update_time=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, creator_trn=None, custom_compute_resource=None, description=None, desired_compute_resource=None, id=None, name=None, project_name=None, reservation_config=None, schedule_config=None, status=None, storage_config=None, update_time=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """ItemForListResourceReservationPlansOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class ItemForListResourceReservationPlansOutput(object):
 
         self._create_time = None
         self._creator_trn = None
+        self._custom_compute_resource = None
         self._description = None
         self._desired_compute_resource = None
         self._id = None
@@ -92,6 +95,8 @@ class ItemForListResourceReservationPlansOutput(object):
             self.create_time = create_time
         if creator_trn is not None:
             self.creator_trn = creator_trn
+        if custom_compute_resource is not None:
+            self.custom_compute_resource = custom_compute_resource
         if description is not None:
             self.description = description
         if desired_compute_resource is not None:
@@ -158,6 +163,27 @@ class ItemForListResourceReservationPlansOutput(object):
         """
 
         self._creator_trn = creator_trn
+
+    @property
+    def custom_compute_resource(self):
+        """Gets the custom_compute_resource of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+
+
+        :return: The custom_compute_resource of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :rtype: list[CustomComputeResourceForListResourceReservationPlansOutput]
+        """
+        return self._custom_compute_resource
+
+    @custom_compute_resource.setter
+    def custom_compute_resource(self, custom_compute_resource):
+        """Sets the custom_compute_resource of this ItemForListResourceReservationPlansOutput.
+
+
+        :param custom_compute_resource: The custom_compute_resource of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :type: list[CustomComputeResourceForListResourceReservationPlansOutput]
+        """
+
+        self._custom_compute_resource = custom_compute_resource
 
     @property
     def description(self):

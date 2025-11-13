@@ -33,85 +33,34 @@ class ConvertClipForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dialogue': 'str',
         'end': 'float',
-        'offset': 'int',
-        'score': 'float',
-        'snapshot': 'str',
         'start': 'float',
-        'summary': 'str',
-        'title': 'str',
         'video_index': 'int'
     }
 
     attribute_map = {
-        'dialogue': 'Dialogue',
         'end': 'End',
-        'offset': 'Offset',
-        'score': 'Score',
-        'snapshot': 'Snapshot',
         'start': 'Start',
-        'summary': 'Summary',
-        'title': 'Title',
         'video_index': 'VideoIndex'
     }
 
-    def __init__(self, dialogue=None, end=None, offset=None, score=None, snapshot=None, start=None, summary=None, title=None, video_index=None, _configuration=None):  # noqa: E501
+    def __init__(self, end=None, start=None, video_index=None, _configuration=None):  # noqa: E501
         """ConvertClipForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._dialogue = None
         self._end = None
-        self._offset = None
-        self._score = None
-        self._snapshot = None
         self._start = None
-        self._summary = None
-        self._title = None
         self._video_index = None
         self.discriminator = None
 
-        if dialogue is not None:
-            self.dialogue = dialogue
         if end is not None:
             self.end = end
-        if offset is not None:
-            self.offset = offset
-        if score is not None:
-            self.score = score
-        if snapshot is not None:
-            self.snapshot = snapshot
         if start is not None:
             self.start = start
-        if summary is not None:
-            self.summary = summary
-        if title is not None:
-            self.title = title
         if video_index is not None:
             self.video_index = video_index
-
-    @property
-    def dialogue(self):
-        """Gets the dialogue of this ConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The dialogue of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._dialogue
-
-    @dialogue.setter
-    def dialogue(self, dialogue):
-        """Sets the dialogue of this ConvertClipForGetExecutionOutput.
-
-
-        :param dialogue: The dialogue of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._dialogue = dialogue
 
     @property
     def end(self):
@@ -135,69 +84,6 @@ class ConvertClipForGetExecutionOutput(object):
         self._end = end
 
     @property
-    def offset(self):
-        """Gets the offset of this ConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The offset of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._offset
-
-    @offset.setter
-    def offset(self, offset):
-        """Sets the offset of this ConvertClipForGetExecutionOutput.
-
-
-        :param offset: The offset of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._offset = offset
-
-    @property
-    def score(self):
-        """Gets the score of this ConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The score of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: float
-        """
-        return self._score
-
-    @score.setter
-    def score(self, score):
-        """Sets the score of this ConvertClipForGetExecutionOutput.
-
-
-        :param score: The score of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: float
-        """
-
-        self._score = score
-
-    @property
-    def snapshot(self):
-        """Gets the snapshot of this ConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The snapshot of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._snapshot
-
-    @snapshot.setter
-    def snapshot(self, snapshot):
-        """Sets the snapshot of this ConvertClipForGetExecutionOutput.
-
-
-        :param snapshot: The snapshot of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._snapshot = snapshot
-
-    @property
     def start(self):
         """Gets the start of this ConvertClipForGetExecutionOutput.  # noqa: E501
 
@@ -217,48 +103,6 @@ class ConvertClipForGetExecutionOutput(object):
         """
 
         self._start = start
-
-    @property
-    def summary(self):
-        """Gets the summary of this ConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The summary of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._summary
-
-    @summary.setter
-    def summary(self, summary):
-        """Sets the summary of this ConvertClipForGetExecutionOutput.
-
-
-        :param summary: The summary of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._summary = summary
-
-    @property
-    def title(self):
-        """Gets the title of this ConvertClipForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The title of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._title
-
-    @title.setter
-    def title(self, title):
-        """Sets the title of this ConvertClipForGetExecutionOutput.
-
-
-        :param title: The title of this ConvertClipForGetExecutionOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._title = title
 
     @property
     def video_index(self):

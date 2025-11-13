@@ -34,28 +34,28 @@ class NodeAffinitySpecForCreateDeploymentInput(object):
     """
     swagger_types = {
         'gpucpu_node_preference': 'str',
-        'strategy_type': 'str'
+        'source': 'str'
     }
 
     attribute_map = {
         'gpucpu_node_preference': 'GPUCPUNodePreference',
-        'strategy_type': 'StrategyType'
+        'source': 'Source'
     }
 
-    def __init__(self, gpucpu_node_preference=None, strategy_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, gpucpu_node_preference=None, source=None, _configuration=None):  # noqa: E501
         """NodeAffinitySpecForCreateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._gpucpu_node_preference = None
-        self._strategy_type = None
+        self._source = None
         self.discriminator = None
 
         if gpucpu_node_preference is not None:
             self.gpucpu_node_preference = gpucpu_node_preference
-        if strategy_type is not None:
-            self.strategy_type = strategy_type
+        if source is not None:
+            self.source = source
 
     @property
     def gpucpu_node_preference(self):
@@ -75,36 +75,29 @@ class NodeAffinitySpecForCreateDeploymentInput(object):
         :param gpucpu_node_preference: The gpucpu_node_preference of this NodeAffinitySpecForCreateDeploymentInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["GPURequired", "GPUPreferred", "CPURequired", "CPUPreferred"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                gpucpu_node_preference not in allowed_values):
-            raise ValueError(
-                "Invalid value for `gpucpu_node_preference` ({0}), must be one of {1}"  # noqa: E501
-                .format(gpucpu_node_preference, allowed_values)
-            )
 
         self._gpucpu_node_preference = gpucpu_node_preference
 
     @property
-    def strategy_type(self):
-        """Gets the strategy_type of this NodeAffinitySpecForCreateDeploymentInput.  # noqa: E501
+    def source(self):
+        """Gets the source of this NodeAffinitySpecForCreateDeploymentInput.  # noqa: E501
 
 
-        :return: The strategy_type of this NodeAffinitySpecForCreateDeploymentInput.  # noqa: E501
+        :return: The source of this NodeAffinitySpecForCreateDeploymentInput.  # noqa: E501
         :rtype: str
         """
-        return self._strategy_type
+        return self._source
 
-    @strategy_type.setter
-    def strategy_type(self, strategy_type):
-        """Sets the strategy_type of this NodeAffinitySpecForCreateDeploymentInput.
+    @source.setter
+    def source(self, source):
+        """Sets the source of this NodeAffinitySpecForCreateDeploymentInput.
 
 
-        :param strategy_type: The strategy_type of this NodeAffinitySpecForCreateDeploymentInput.  # noqa: E501
+        :param source: The source of this NodeAffinitySpecForCreateDeploymentInput.  # noqa: E501
         :type: str
         """
 
-        self._strategy_type = strategy_type
+        self._source = source
 
     def to_dict(self):
         """Returns the model properties as a dict"""

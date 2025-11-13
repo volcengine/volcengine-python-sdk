@@ -40,8 +40,10 @@ class UpdateActivityCouponRequest(object):
         'cut_off_time': 'int',
         'duration': 'int',
         'id': 'int',
+        'is_viewer_level_limit': 'int',
         'is_watch_live_limit': 'int',
-        'rule': 'int'
+        'rule': 'int',
+        'viewer_level_config_ids': 'list[int]'
     }
 
     attribute_map = {
@@ -52,11 +54,13 @@ class UpdateActivityCouponRequest(object):
         'cut_off_time': 'CutOffTime',
         'duration': 'Duration',
         'id': 'Id',
+        'is_viewer_level_limit': 'IsViewerLevelLimit',
         'is_watch_live_limit': 'IsWatchLiveLimit',
-        'rule': 'Rule'
+        'rule': 'Rule',
+        'viewer_level_config_ids': 'ViewerLevelConfigIds'
     }
 
-    def __init__(self, activity_id=None, allow_close_icon=None, count=None, coupon_id=None, cut_off_time=None, duration=None, id=None, is_watch_live_limit=None, rule=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, allow_close_icon=None, count=None, coupon_id=None, cut_off_time=None, duration=None, id=None, is_viewer_level_limit=None, is_watch_live_limit=None, rule=None, viewer_level_config_ids=None, _configuration=None):  # noqa: E501
         """UpdateActivityCouponRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,8 +73,10 @@ class UpdateActivityCouponRequest(object):
         self._cut_off_time = None
         self._duration = None
         self._id = None
+        self._is_viewer_level_limit = None
         self._is_watch_live_limit = None
         self._rule = None
+        self._viewer_level_config_ids = None
         self.discriminator = None
 
         self.activity_id = activity_id
@@ -85,10 +91,14 @@ class UpdateActivityCouponRequest(object):
         if duration is not None:
             self.duration = duration
         self.id = id
+        if is_viewer_level_limit is not None:
+            self.is_viewer_level_limit = is_viewer_level_limit
         if is_watch_live_limit is not None:
             self.is_watch_live_limit = is_watch_live_limit
         if rule is not None:
             self.rule = rule
+        if viewer_level_config_ids is not None:
+            self.viewer_level_config_ids = viewer_level_config_ids
 
     @property
     def activity_id(self):
@@ -242,6 +252,27 @@ class UpdateActivityCouponRequest(object):
         self._id = id
 
     @property
+    def is_viewer_level_limit(self):
+        """Gets the is_viewer_level_limit of this UpdateActivityCouponRequest.  # noqa: E501
+
+
+        :return: The is_viewer_level_limit of this UpdateActivityCouponRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_viewer_level_limit
+
+    @is_viewer_level_limit.setter
+    def is_viewer_level_limit(self, is_viewer_level_limit):
+        """Sets the is_viewer_level_limit of this UpdateActivityCouponRequest.
+
+
+        :param is_viewer_level_limit: The is_viewer_level_limit of this UpdateActivityCouponRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._is_viewer_level_limit = is_viewer_level_limit
+
+    @property
     def is_watch_live_limit(self):
         """Gets the is_watch_live_limit of this UpdateActivityCouponRequest.  # noqa: E501
 
@@ -282,6 +313,27 @@ class UpdateActivityCouponRequest(object):
         """
 
         self._rule = rule
+
+    @property
+    def viewer_level_config_ids(self):
+        """Gets the viewer_level_config_ids of this UpdateActivityCouponRequest.  # noqa: E501
+
+
+        :return: The viewer_level_config_ids of this UpdateActivityCouponRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._viewer_level_config_ids
+
+    @viewer_level_config_ids.setter
+    def viewer_level_config_ids(self, viewer_level_config_ids):
+        """Sets the viewer_level_config_ids of this UpdateActivityCouponRequest.
+
+
+        :param viewer_level_config_ids: The viewer_level_config_ids of this UpdateActivityCouponRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._viewer_level_config_ids = viewer_level_config_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

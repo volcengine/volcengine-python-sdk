@@ -40,9 +40,11 @@ class CreateVolumeRequest(object):
         'extra_performance_type_id': 'str',
         'instance_id': 'str',
         'kind': 'str',
+        'placement_group_id': 'str',
         'project_name': 'str',
         'size': 'str',
         'snapshot_id': 'str',
+        'subgroup_number': 'int',
         'tags': 'list[TagForCreateVolumeInput]',
         'volume_charge_type': 'str',
         'volume_name': 'str',
@@ -58,9 +60,11 @@ class CreateVolumeRequest(object):
         'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'instance_id': 'InstanceId',
         'kind': 'Kind',
+        'placement_group_id': 'PlacementGroupId',
         'project_name': 'ProjectName',
         'size': 'Size',
         'snapshot_id': 'SnapshotId',
+        'subgroup_number': 'SubgroupNumber',
         'tags': 'Tags',
         'volume_charge_type': 'VolumeChargeType',
         'volume_name': 'VolumeName',
@@ -68,7 +72,7 @@ class CreateVolumeRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, client_token=None, description=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, instance_id=None, kind=None, project_name=None, size=None, snapshot_id=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, description=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, instance_id=None, kind=None, placement_group_id=None, project_name=None, size=None, snapshot_id=None, subgroup_number=None, tags=None, volume_charge_type=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateVolumeRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,9 +85,11 @@ class CreateVolumeRequest(object):
         self._extra_performance_type_id = None
         self._instance_id = None
         self._kind = None
+        self._placement_group_id = None
         self._project_name = None
         self._size = None
         self._snapshot_id = None
+        self._subgroup_number = None
         self._tags = None
         self._volume_charge_type = None
         self._volume_name = None
@@ -105,11 +111,15 @@ class CreateVolumeRequest(object):
             self.instance_id = instance_id
         if kind is not None:
             self.kind = kind
+        if placement_group_id is not None:
+            self.placement_group_id = placement_group_id
         if project_name is not None:
             self.project_name = project_name
         self.size = size
         if snapshot_id is not None:
             self.snapshot_id = snapshot_id
+        if subgroup_number is not None:
+            self.subgroup_number = subgroup_number
         if tags is not None:
             self.tags = tags
         if volume_charge_type is not None:
@@ -267,6 +277,27 @@ class CreateVolumeRequest(object):
         self._kind = kind
 
     @property
+    def placement_group_id(self):
+        """Gets the placement_group_id of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The placement_group_id of this CreateVolumeRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._placement_group_id
+
+    @placement_group_id.setter
+    def placement_group_id(self, placement_group_id):
+        """Sets the placement_group_id of this CreateVolumeRequest.
+
+
+        :param placement_group_id: The placement_group_id of this CreateVolumeRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._placement_group_id = placement_group_id
+
+    @property
     def project_name(self):
         """Gets the project_name of this CreateVolumeRequest.  # noqa: E501
 
@@ -330,6 +361,27 @@ class CreateVolumeRequest(object):
         """
 
         self._snapshot_id = snapshot_id
+
+    @property
+    def subgroup_number(self):
+        """Gets the subgroup_number of this CreateVolumeRequest.  # noqa: E501
+
+
+        :return: The subgroup_number of this CreateVolumeRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._subgroup_number
+
+    @subgroup_number.setter
+    def subgroup_number(self, subgroup_number):
+        """Sets the subgroup_number of this CreateVolumeRequest.
+
+
+        :param subgroup_number: The subgroup_number of this CreateVolumeRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._subgroup_number = subgroup_number
 
     @property
     def tags(self):

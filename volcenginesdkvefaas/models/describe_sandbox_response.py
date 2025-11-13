@@ -47,7 +47,6 @@ class DescribeSandboxResponse(object):
         'instance_type': 'str',
         'max_concurrency': 'int',
         'memory_mb': 'int',
-        'metadata': 'dict(str, str)',
         'metadata_list': 'list[MetadataListForDescribeSandboxOutput]',
         'pending': 'bool',
         'request_timeout': 'int',
@@ -70,7 +69,6 @@ class DescribeSandboxResponse(object):
         'instance_type': 'InstanceType',
         'max_concurrency': 'MaxConcurrency',
         'memory_mb': 'MemoryMB',
-        'metadata': 'Metadata',
         'metadata_list': 'MetadataList',
         'pending': 'Pending',
         'request_timeout': 'RequestTimeout',
@@ -78,7 +76,7 @@ class DescribeSandboxResponse(object):
         'status': 'Status'
     }
 
-    def __init__(self, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata=None, metadata_list=None, pending=None, request_timeout=None, revision_number=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, availability_zone=None, cpu_milli=None, created_at=None, envs=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image_info=None, instance_tos_mount_config=None, instance_type=None, max_concurrency=None, memory_mb=None, metadata_list=None, pending=None, request_timeout=None, revision_number=None, status=None, _configuration=None):  # noqa: E501
         """DescribeSandboxResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,7 +96,6 @@ class DescribeSandboxResponse(object):
         self._instance_type = None
         self._max_concurrency = None
         self._memory_mb = None
-        self._metadata = None
         self._metadata_list = None
         self._pending = None
         self._request_timeout = None
@@ -134,8 +131,6 @@ class DescribeSandboxResponse(object):
             self.max_concurrency = max_concurrency
         if memory_mb is not None:
             self.memory_mb = memory_mb
-        if metadata is not None:
-            self.metadata = metadata
         if metadata_list is not None:
             self.metadata_list = metadata_list
         if pending is not None:
@@ -440,27 +435,6 @@ class DescribeSandboxResponse(object):
         """
 
         self._memory_mb = memory_mb
-
-    @property
-    def metadata(self):
-        """Gets the metadata of this DescribeSandboxResponse.  # noqa: E501
-
-
-        :return: The metadata of this DescribeSandboxResponse.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._metadata
-
-    @metadata.setter
-    def metadata(self, metadata):
-        """Sets the metadata of this DescribeSandboxResponse.
-
-
-        :param metadata: The metadata of this DescribeSandboxResponse.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._metadata = metadata
 
     @property
     def metadata_list(self):

@@ -33,24 +33,29 @@ class FeatureConfigForListCdnDomainsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'origin_v2': 'bool'
+        'origin_v2': 'bool',
+        'rule_engine': 'bool'
     }
 
     attribute_map = {
-        'origin_v2': 'OriginV2'
+        'origin_v2': 'OriginV2',
+        'rule_engine': 'RuleEngine'
     }
 
-    def __init__(self, origin_v2=None, _configuration=None):  # noqa: E501
+    def __init__(self, origin_v2=None, rule_engine=None, _configuration=None):  # noqa: E501
         """FeatureConfigForListCdnDomainsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._origin_v2 = None
+        self._rule_engine = None
         self.discriminator = None
 
         if origin_v2 is not None:
             self.origin_v2 = origin_v2
+        if rule_engine is not None:
+            self.rule_engine = rule_engine
 
     @property
     def origin_v2(self):
@@ -72,6 +77,27 @@ class FeatureConfigForListCdnDomainsOutput(object):
         """
 
         self._origin_v2 = origin_v2
+
+    @property
+    def rule_engine(self):
+        """Gets the rule_engine of this FeatureConfigForListCdnDomainsOutput.  # noqa: E501
+
+
+        :return: The rule_engine of this FeatureConfigForListCdnDomainsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._rule_engine
+
+    @rule_engine.setter
+    def rule_engine(self, rule_engine):
+        """Sets the rule_engine of this FeatureConfigForListCdnDomainsOutput.
+
+
+        :param rule_engine: The rule_engine of this FeatureConfigForListCdnDomainsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._rule_engine = rule_engine
 
     def to_dict(self):
         """Returns the model properties as a dict"""
