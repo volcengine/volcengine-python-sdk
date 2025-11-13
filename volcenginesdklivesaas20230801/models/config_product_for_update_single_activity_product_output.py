@@ -46,6 +46,8 @@ class ConfigProductForUpdateSingleActivityProductOutput(object):
         'introduce_image': 'str',
         'is_order_msg_enable': 'int',
         'mini_app_direct_url': 'str',
+        'out_of_stock': 'int',
+        'price_hidden': 'int',
         'promotion_tag_type': 'int',
         'promotion_tag_url': 'str',
         'redirect_image': 'str',
@@ -72,6 +74,8 @@ class ConfigProductForUpdateSingleActivityProductOutput(object):
         'introduce_image': 'IntroduceImage',
         'is_order_msg_enable': 'IsOrderMsgEnable',
         'mini_app_direct_url': 'MiniAppDirectUrl',
+        'out_of_stock': 'OutOfStock',
+        'price_hidden': 'PriceHidden',
         'promotion_tag_type': 'PromotionTagType',
         'promotion_tag_url': 'PromotionTagUrl',
         'redirect_image': 'RedirectImage',
@@ -84,7 +88,7 @@ class ConfigProductForUpdateSingleActivityProductOutput(object):
         'title': 'Title'
     }
 
-    def __init__(self, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, mini_app_direct_url=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
+    def __init__(self, direct_urls=None, enable_status=None, explain_status=None, explain_time=None, floating_status=None, floating_time=None, highlight=None, hot_sale=None, id=None, index=None, introduce_image=None, is_order_msg_enable=None, mini_app_direct_url=None, out_of_stock=None, price_hidden=None, promotion_tag_type=None, promotion_tag_url=None, redirect_image=None, redirect_url=None, remark=None, reminder_type=None, selling_point_tag=None, stock=None, strikethrough=None, title=None, _configuration=None):  # noqa: E501
         """ConfigProductForUpdateSingleActivityProductOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -103,6 +107,8 @@ class ConfigProductForUpdateSingleActivityProductOutput(object):
         self._introduce_image = None
         self._is_order_msg_enable = None
         self._mini_app_direct_url = None
+        self._out_of_stock = None
+        self._price_hidden = None
         self._promotion_tag_type = None
         self._promotion_tag_url = None
         self._redirect_image = None
@@ -141,6 +147,10 @@ class ConfigProductForUpdateSingleActivityProductOutput(object):
             self.is_order_msg_enable = is_order_msg_enable
         if mini_app_direct_url is not None:
             self.mini_app_direct_url = mini_app_direct_url
+        if out_of_stock is not None:
+            self.out_of_stock = out_of_stock
+        if price_hidden is not None:
+            self.price_hidden = price_hidden
         if promotion_tag_type is not None:
             self.promotion_tag_type = promotion_tag_type
         if promotion_tag_url is not None:
@@ -434,6 +444,48 @@ class ConfigProductForUpdateSingleActivityProductOutput(object):
         """
 
         self._mini_app_direct_url = mini_app_direct_url
+
+    @property
+    def out_of_stock(self):
+        """Gets the out_of_stock of this ConfigProductForUpdateSingleActivityProductOutput.  # noqa: E501
+
+
+        :return: The out_of_stock of this ConfigProductForUpdateSingleActivityProductOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._out_of_stock
+
+    @out_of_stock.setter
+    def out_of_stock(self, out_of_stock):
+        """Sets the out_of_stock of this ConfigProductForUpdateSingleActivityProductOutput.
+
+
+        :param out_of_stock: The out_of_stock of this ConfigProductForUpdateSingleActivityProductOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._out_of_stock = out_of_stock
+
+    @property
+    def price_hidden(self):
+        """Gets the price_hidden of this ConfigProductForUpdateSingleActivityProductOutput.  # noqa: E501
+
+
+        :return: The price_hidden of this ConfigProductForUpdateSingleActivityProductOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._price_hidden
+
+    @price_hidden.setter
+    def price_hidden(self, price_hidden):
+        """Sets the price_hidden of this ConfigProductForUpdateSingleActivityProductOutput.
+
+
+        :param price_hidden: The price_hidden of this ConfigProductForUpdateSingleActivityProductOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._price_hidden = price_hidden
 
     @property
     def promotion_tag_type(self):

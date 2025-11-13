@@ -33,11 +33,11 @@ class VisionForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'model': 'ModelForGetExecutionOutput',
+        'model': 'ConvertModelForGetExecutionOutput',
         'need_asr_speaker': 'bool',
         'prompt': 'str',
         'response_format_type': 'str',
-        'segment': 'ConvertSegmentForGetExecutionOutput',
+        'segment': 'ConvertConvertSegmentForGetExecutionOutput',
         'snapshot_param': 'SnapshotParamForGetExecutionOutput'
     }
 
@@ -83,7 +83,7 @@ class VisionForGetExecutionOutput(object):
 
 
         :return: The model of this VisionForGetExecutionOutput.  # noqa: E501
-        :rtype: ModelForGetExecutionOutput
+        :rtype: ConvertModelForGetExecutionOutput
         """
         return self._model
 
@@ -93,7 +93,7 @@ class VisionForGetExecutionOutput(object):
 
 
         :param model: The model of this VisionForGetExecutionOutput.  # noqa: E501
-        :type: ModelForGetExecutionOutput
+        :type: ConvertModelForGetExecutionOutput
         """
 
         self._model = model
@@ -167,7 +167,7 @@ class VisionForGetExecutionOutput(object):
 
 
         :return: The segment of this VisionForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertSegmentForGetExecutionOutput
+        :rtype: ConvertConvertSegmentForGetExecutionOutput
         """
         return self._segment
 
@@ -177,7 +177,7 @@ class VisionForGetExecutionOutput(object):
 
 
         :param segment: The segment of this VisionForGetExecutionOutput.  # noqa: E501
-        :type: ConvertSegmentForGetExecutionOutput
+        :type: ConvertConvertSegmentForGetExecutionOutput
         """
 
         self._segment = segment

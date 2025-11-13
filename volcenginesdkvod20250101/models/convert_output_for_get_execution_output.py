@@ -34,38 +34,28 @@ class ConvertOutputForGetExecutionOutput(object):
     """
     swagger_types = {
         'task': 'ConvertTaskForGetExecutionOutput',
-        'template': 'ConvertTemplateForGetExecutionOutput',
-        'type': 'str',
-        'workflow': 'ConvertWorkflowForGetExecutionOutput'
+        'type': 'str'
     }
 
     attribute_map = {
         'task': 'Task',
-        'template': 'Template',
-        'type': 'Type',
-        'workflow': 'Workflow'
+        'type': 'Type'
     }
 
-    def __init__(self, task=None, template=None, type=None, workflow=None, _configuration=None):  # noqa: E501
+    def __init__(self, task=None, type=None, _configuration=None):  # noqa: E501
         """ConvertOutputForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._task = None
-        self._template = None
         self._type = None
-        self._workflow = None
         self.discriminator = None
 
         if task is not None:
             self.task = task
-        if template is not None:
-            self.template = template
         if type is not None:
             self.type = type
-        if workflow is not None:
-            self.workflow = workflow
 
     @property
     def task(self):
@@ -89,27 +79,6 @@ class ConvertOutputForGetExecutionOutput(object):
         self._task = task
 
     @property
-    def template(self):
-        """Gets the template of this ConvertOutputForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The template of this ConvertOutputForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertTemplateForGetExecutionOutput
-        """
-        return self._template
-
-    @template.setter
-    def template(self, template):
-        """Sets the template of this ConvertOutputForGetExecutionOutput.
-
-
-        :param template: The template of this ConvertOutputForGetExecutionOutput.  # noqa: E501
-        :type: ConvertTemplateForGetExecutionOutput
-        """
-
-        self._template = template
-
-    @property
     def type(self):
         """Gets the type of this ConvertOutputForGetExecutionOutput.  # noqa: E501
 
@@ -129,27 +98,6 @@ class ConvertOutputForGetExecutionOutput(object):
         """
 
         self._type = type
-
-    @property
-    def workflow(self):
-        """Gets the workflow of this ConvertOutputForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The workflow of this ConvertOutputForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertWorkflowForGetExecutionOutput
-        """
-        return self._workflow
-
-    @workflow.setter
-    def workflow(self, workflow):
-        """Sets the workflow of this ConvertOutputForGetExecutionOutput.
-
-
-        :param workflow: The workflow of this ConvertOutputForGetExecutionOutput.  # noqa: E501
-        :type: ConvertWorkflowForGetExecutionOutput
-        """
-
-        self._workflow = workflow
 
     def to_dict(self):
         """Returns the model properties as a dict"""

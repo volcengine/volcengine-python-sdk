@@ -42,7 +42,8 @@ class DescribeContentTasksRequest(object):
         'status': 'str',
         'task_id': 'str',
         'task_type': 'str',
-        'url': 'str'
+        'url': 'str',
+        'url_list': 'list[str]'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class DescribeContentTasksRequest(object):
         'status': 'Status',
         'task_id': 'TaskID',
         'task_type': 'TaskType',
-        'url': 'Url'
+        'url': 'Url',
+        'url_list': 'UrlList'
     }
 
-    def __init__(self, domain_name=None, end_time=None, page_num=None, page_size=None, remark=None, start_time=None, status=None, task_id=None, task_type=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, domain_name=None, end_time=None, page_num=None, page_size=None, remark=None, start_time=None, status=None, task_id=None, task_type=None, url=None, url_list=None, _configuration=None):  # noqa: E501
         """DescribeContentTasksRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class DescribeContentTasksRequest(object):
         self._task_id = None
         self._task_type = None
         self._url = None
+        self._url_list = None
         self.discriminator = None
 
         if domain_name is not None:
@@ -95,6 +98,8 @@ class DescribeContentTasksRequest(object):
         self.task_type = task_type
         if url is not None:
             self.url = url
+        if url_list is not None:
+            self.url_list = url_list
 
     @property
     def domain_name(self):
@@ -307,6 +312,27 @@ class DescribeContentTasksRequest(object):
         """
 
         self._url = url
+
+    @property
+    def url_list(self):
+        """Gets the url_list of this DescribeContentTasksRequest.  # noqa: E501
+
+
+        :return: The url_list of this DescribeContentTasksRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._url_list
+
+    @url_list.setter
+    def url_list(self, url_list):
+        """Sets the url_list of this DescribeContentTasksRequest.
+
+
+        :param url_list: The url_list of this DescribeContentTasksRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._url_list = url_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

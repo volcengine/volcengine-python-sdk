@@ -35,16 +35,18 @@ class BatchDeployCertRequest(object):
     swagger_types = {
         'cert_id': 'str',
         'cert_id2': 'str',
-        'domain': 'str'
+        'domain': 'str',
+        'target_config': 'str'
     }
 
     attribute_map = {
         'cert_id': 'CertId',
         'cert_id2': 'CertId2',
-        'domain': 'Domain'
+        'domain': 'Domain',
+        'target_config': 'TargetConfig'
     }
 
-    def __init__(self, cert_id=None, cert_id2=None, domain=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_id=None, cert_id2=None, domain=None, target_config=None, _configuration=None):  # noqa: E501
         """BatchDeployCertRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,12 +55,15 @@ class BatchDeployCertRequest(object):
         self._cert_id = None
         self._cert_id2 = None
         self._domain = None
+        self._target_config = None
         self.discriminator = None
 
         self.cert_id = cert_id
         if cert_id2 is not None:
             self.cert_id2 = cert_id2
         self.domain = domain
+        if target_config is not None:
+            self.target_config = target_config
 
     @property
     def cert_id(self):
@@ -126,6 +131,27 @@ class BatchDeployCertRequest(object):
             raise ValueError("Invalid value for `domain`, must not be `None`")  # noqa: E501
 
         self._domain = domain
+
+    @property
+    def target_config(self):
+        """Gets the target_config of this BatchDeployCertRequest.  # noqa: E501
+
+
+        :return: The target_config of this BatchDeployCertRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_config
+
+    @target_config.setter
+    def target_config(self, target_config):
+        """Sets the target_config of this BatchDeployCertRequest.
+
+
+        :param target_config: The target_config of this BatchDeployCertRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._target_config = target_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

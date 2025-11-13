@@ -35,7 +35,7 @@ class ConvertVisionForGetExecutionOutput(object):
     swagger_types = {
         'content': 'str',
         'duration': 'float',
-        'model': 'ConvertModelForGetExecutionOutput',
+        'model': 'ConvertConvertModelForGetExecutionOutput',
         'snapshots_number': 'int'
     }
 
@@ -115,7 +115,7 @@ class ConvertVisionForGetExecutionOutput(object):
 
 
         :return: The model of this ConvertVisionForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertModelForGetExecutionOutput
+        :rtype: ConvertConvertModelForGetExecutionOutput
         """
         return self._model
 
@@ -125,7 +125,7 @@ class ConvertVisionForGetExecutionOutput(object):
 
 
         :param model: The model of this ConvertVisionForGetExecutionOutput.  # noqa: E501
-        :type: ConvertModelForGetExecutionOutput
+        :type: ConvertConvertModelForGetExecutionOutput
         """
 
         self._model = model

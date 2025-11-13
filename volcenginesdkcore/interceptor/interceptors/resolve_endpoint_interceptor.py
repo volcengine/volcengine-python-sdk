@@ -1,4 +1,5 @@
 from .interceptor import RequestInterceptor
+from ...observability.debugger import sdk_core_logger
 
 
 class ResolveEndpointInterceptor(RequestInterceptor):
@@ -20,5 +21,7 @@ class ResolveEndpointInterceptor(RequestInterceptor):
         else:
             prefix = scheme + '://' + host
         context.request.url = prefix + context.request.true_path
-
+        sdk_core_logger.debug_endpoint(
+            "Using endpoint: %s", context.request.host
+        )
         return context

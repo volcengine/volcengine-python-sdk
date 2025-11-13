@@ -35,6 +35,7 @@ class DescribeSnatEntriesRequest(object):
     swagger_types = {
         'eip_id': 'str',
         'nat_gateway_id': 'str',
+        'nat_ip_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'snat_entry_ids': 'list[str]',
@@ -46,6 +47,7 @@ class DescribeSnatEntriesRequest(object):
     attribute_map = {
         'eip_id': 'EipId',
         'nat_gateway_id': 'NatGatewayId',
+        'nat_ip_id': 'NatIpId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'snat_entry_ids': 'SnatEntryIds',
@@ -54,7 +56,7 @@ class DescribeSnatEntriesRequest(object):
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, eip_id=None, nat_gateway_id=None, page_number=None, page_size=None, snat_entry_ids=None, snat_entry_name=None, source_cidr=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_id=None, nat_gateway_id=None, nat_ip_id=None, page_number=None, page_size=None, snat_entry_ids=None, snat_entry_name=None, source_cidr=None, subnet_id=None, _configuration=None):  # noqa: E501
         """DescribeSnatEntriesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class DescribeSnatEntriesRequest(object):
 
         self._eip_id = None
         self._nat_gateway_id = None
+        self._nat_ip_id = None
         self._page_number = None
         self._page_size = None
         self._snat_entry_ids = None
@@ -74,6 +77,8 @@ class DescribeSnatEntriesRequest(object):
             self.eip_id = eip_id
         if nat_gateway_id is not None:
             self.nat_gateway_id = nat_gateway_id
+        if nat_ip_id is not None:
+            self.nat_ip_id = nat_ip_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -128,6 +133,27 @@ class DescribeSnatEntriesRequest(object):
         """
 
         self._nat_gateway_id = nat_gateway_id
+
+    @property
+    def nat_ip_id(self):
+        """Gets the nat_ip_id of this DescribeSnatEntriesRequest.  # noqa: E501
+
+
+        :return: The nat_ip_id of this DescribeSnatEntriesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._nat_ip_id
+
+    @nat_ip_id.setter
+    def nat_ip_id(self, nat_ip_id):
+        """Sets the nat_ip_id of this DescribeSnatEntriesRequest.
+
+
+        :param nat_ip_id: The nat_ip_id of this DescribeSnatEntriesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._nat_ip_id = nat_ip_id
 
     @property
     def page_number(self):
