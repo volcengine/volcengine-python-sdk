@@ -36,13 +36,13 @@ class TaskConfigForListVikingdbTaskOutput(object):
         'collection_name': 'str',
         'export_all': 'bool',
         'file_type': 'str',
-        'filter_conds': 'list[FilterCondForListVikingdbTaskOutput]',
+        'filter_conds': 'list[object]',
         'ignore_error': 'bool',
         'need_confirm': 'bool',
         'project_name': 'str',
         'resource_id': 'str',
         'tos_path': 'str',
-        'update_fields': 'UpdateFieldsForListVikingdbTaskOutput',
+        'update_fields': 'object',
         'use_public': 'bool'
     }
 
@@ -171,7 +171,7 @@ class TaskConfigForListVikingdbTaskOutput(object):
 
 
         :return: The filter_conds of this TaskConfigForListVikingdbTaskOutput.  # noqa: E501
-        :rtype: list[FilterCondForListVikingdbTaskOutput]
+        :rtype: list[object]
         """
         return self._filter_conds
 
@@ -181,7 +181,7 @@ class TaskConfigForListVikingdbTaskOutput(object):
 
 
         :param filter_conds: The filter_conds of this TaskConfigForListVikingdbTaskOutput.  # noqa: E501
-        :type: list[FilterCondForListVikingdbTaskOutput]
+        :type: list[object]
         """
 
         self._filter_conds = filter_conds
@@ -297,7 +297,7 @@ class TaskConfigForListVikingdbTaskOutput(object):
 
 
         :return: The update_fields of this TaskConfigForListVikingdbTaskOutput.  # noqa: E501
-        :rtype: UpdateFieldsForListVikingdbTaskOutput
+        :rtype: object
         """
         return self._update_fields
 
@@ -307,7 +307,7 @@ class TaskConfigForListVikingdbTaskOutput(object):
 
 
         :param update_fields: The update_fields of this TaskConfigForListVikingdbTaskOutput.  # noqa: E501
-        :type: UpdateFieldsForListVikingdbTaskOutput
+        :type: object
         """
 
         self._update_fields = update_fields

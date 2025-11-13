@@ -33,7 +33,7 @@ class FieldForUpdateVikingdbCollectionInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_value': 'DefaultValueForUpdateVikingdbCollectionInput',
+        'default_value': 'object',
         'dim': 'int',
         'field_name': 'str',
         'field_type': 'str',
@@ -78,7 +78,7 @@ class FieldForUpdateVikingdbCollectionInput(object):
 
 
         :return: The default_value of this FieldForUpdateVikingdbCollectionInput.  # noqa: E501
-        :rtype: DefaultValueForUpdateVikingdbCollectionInput
+        :rtype: object
         """
         return self._default_value
 
@@ -88,7 +88,7 @@ class FieldForUpdateVikingdbCollectionInput(object):
 
 
         :param default_value: The default_value of this FieldForUpdateVikingdbCollectionInput.  # noqa: E501
-        :type: DefaultValueForUpdateVikingdbCollectionInput
+        :type: object
         """
 
         self._default_value = default_value
