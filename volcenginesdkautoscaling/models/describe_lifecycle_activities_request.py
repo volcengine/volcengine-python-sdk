@@ -35,20 +35,24 @@ class DescribeLifecycleActivitiesRequest(object):
     swagger_types = {
         'instance_id': 'str',
         'lifecycle_activity_status': 'str',
+        'lifecycle_hook_ids': 'list[str]',
         'page_number': 'int',
         'page_size': 'int',
-        'scaling_activity_id': 'str'
+        'scaling_activity_id': 'str',
+        'scaling_group_id': 'str'
     }
 
     attribute_map = {
         'instance_id': 'InstanceId',
         'lifecycle_activity_status': 'LifecycleActivityStatus',
+        'lifecycle_hook_ids': 'LifecycleHookIds',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'scaling_activity_id': 'ScalingActivityId'
+        'scaling_activity_id': 'ScalingActivityId',
+        'scaling_group_id': 'ScalingGroupId'
     }
 
-    def __init__(self, instance_id=None, lifecycle_activity_status=None, page_number=None, page_size=None, scaling_activity_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, lifecycle_activity_status=None, lifecycle_hook_ids=None, page_number=None, page_size=None, scaling_activity_id=None, scaling_group_id=None, _configuration=None):  # noqa: E501
         """DescribeLifecycleActivitiesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,21 +60,27 @@ class DescribeLifecycleActivitiesRequest(object):
 
         self._instance_id = None
         self._lifecycle_activity_status = None
+        self._lifecycle_hook_ids = None
         self._page_number = None
         self._page_size = None
         self._scaling_activity_id = None
+        self._scaling_group_id = None
         self.discriminator = None
 
         if instance_id is not None:
             self.instance_id = instance_id
         if lifecycle_activity_status is not None:
             self.lifecycle_activity_status = lifecycle_activity_status
+        if lifecycle_hook_ids is not None:
+            self.lifecycle_hook_ids = lifecycle_hook_ids
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
         if scaling_activity_id is not None:
             self.scaling_activity_id = scaling_activity_id
+        if scaling_group_id is not None:
+            self.scaling_group_id = scaling_group_id
 
     @property
     def instance_id(self):
@@ -113,6 +123,27 @@ class DescribeLifecycleActivitiesRequest(object):
         """
 
         self._lifecycle_activity_status = lifecycle_activity_status
+
+    @property
+    def lifecycle_hook_ids(self):
+        """Gets the lifecycle_hook_ids of this DescribeLifecycleActivitiesRequest.  # noqa: E501
+
+
+        :return: The lifecycle_hook_ids of this DescribeLifecycleActivitiesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._lifecycle_hook_ids
+
+    @lifecycle_hook_ids.setter
+    def lifecycle_hook_ids(self, lifecycle_hook_ids):
+        """Sets the lifecycle_hook_ids of this DescribeLifecycleActivitiesRequest.
+
+
+        :param lifecycle_hook_ids: The lifecycle_hook_ids of this DescribeLifecycleActivitiesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._lifecycle_hook_ids = lifecycle_hook_ids
 
     @property
     def page_number(self):
@@ -176,6 +207,27 @@ class DescribeLifecycleActivitiesRequest(object):
         """
 
         self._scaling_activity_id = scaling_activity_id
+
+    @property
+    def scaling_group_id(self):
+        """Gets the scaling_group_id of this DescribeLifecycleActivitiesRequest.  # noqa: E501
+
+
+        :return: The scaling_group_id of this DescribeLifecycleActivitiesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._scaling_group_id
+
+    @scaling_group_id.setter
+    def scaling_group_id(self, scaling_group_id):
+        """Sets the scaling_group_id of this DescribeLifecycleActivitiesRequest.
+
+
+        :param scaling_group_id: The scaling_group_id of this DescribeLifecycleActivitiesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._scaling_group_id = scaling_group_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
