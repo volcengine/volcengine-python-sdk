@@ -33,76 +33,59 @@ class SfcsForUpdateResourceGroupInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'name': 'str',
-        'replicas': 'int'
+        'replicas': 'int',
+        'sfcs_description': 'str',
+        'sfcs_existed': 'bool',
+        'sfcs_id': 'str',
+        'sfcs_name': 'str',
+        'sfcs_resource_group_id': 'str',
+        'sfcs_status': 'str',
+        'sfcs_zone_id': 'str'
     }
 
     attribute_map = {
-        'description': 'Description',
-        'name': 'Name',
-        'replicas': 'Replicas'
+        'replicas': 'Replicas',
+        'sfcs_description': 'SfcsDescription',
+        'sfcs_existed': 'SfcsExisted',
+        'sfcs_id': 'SfcsId',
+        'sfcs_name': 'SfcsName',
+        'sfcs_resource_group_id': 'SfcsResourceGroupId',
+        'sfcs_status': 'SfcsStatus',
+        'sfcs_zone_id': 'SfcsZoneId'
     }
 
-    def __init__(self, description=None, name=None, replicas=None, _configuration=None):  # noqa: E501
+    def __init__(self, replicas=None, sfcs_description=None, sfcs_existed=None, sfcs_id=None, sfcs_name=None, sfcs_resource_group_id=None, sfcs_status=None, sfcs_zone_id=None, _configuration=None):  # noqa: E501
         """SfcsForUpdateResourceGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._description = None
-        self._name = None
         self._replicas = None
+        self._sfcs_description = None
+        self._sfcs_existed = None
+        self._sfcs_id = None
+        self._sfcs_name = None
+        self._sfcs_resource_group_id = None
+        self._sfcs_status = None
+        self._sfcs_zone_id = None
         self.discriminator = None
 
-        if description is not None:
-            self.description = description
-        if name is not None:
-            self.name = name
         if replicas is not None:
             self.replicas = replicas
-
-    @property
-    def description(self):
-        """Gets the description of this SfcsForUpdateResourceGroupInput.  # noqa: E501
-
-
-        :return: The description of this SfcsForUpdateResourceGroupInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this SfcsForUpdateResourceGroupInput.
-
-
-        :param description: The description of this SfcsForUpdateResourceGroupInput.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def name(self):
-        """Gets the name of this SfcsForUpdateResourceGroupInput.  # noqa: E501
-
-
-        :return: The name of this SfcsForUpdateResourceGroupInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this SfcsForUpdateResourceGroupInput.
-
-
-        :param name: The name of this SfcsForUpdateResourceGroupInput.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
+        if sfcs_description is not None:
+            self.sfcs_description = sfcs_description
+        if sfcs_existed is not None:
+            self.sfcs_existed = sfcs_existed
+        if sfcs_id is not None:
+            self.sfcs_id = sfcs_id
+        if sfcs_name is not None:
+            self.sfcs_name = sfcs_name
+        if sfcs_resource_group_id is not None:
+            self.sfcs_resource_group_id = sfcs_resource_group_id
+        if sfcs_status is not None:
+            self.sfcs_status = sfcs_status
+        if sfcs_zone_id is not None:
+            self.sfcs_zone_id = sfcs_zone_id
 
     @property
     def replicas(self):
@@ -124,6 +107,153 @@ class SfcsForUpdateResourceGroupInput(object):
         """
 
         self._replicas = replicas
+
+    @property
+    def sfcs_description(self):
+        """Gets the sfcs_description of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The sfcs_description of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sfcs_description
+
+    @sfcs_description.setter
+    def sfcs_description(self, sfcs_description):
+        """Sets the sfcs_description of this SfcsForUpdateResourceGroupInput.
+
+
+        :param sfcs_description: The sfcs_description of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._sfcs_description = sfcs_description
+
+    @property
+    def sfcs_existed(self):
+        """Gets the sfcs_existed of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The sfcs_existed of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sfcs_existed
+
+    @sfcs_existed.setter
+    def sfcs_existed(self, sfcs_existed):
+        """Sets the sfcs_existed of this SfcsForUpdateResourceGroupInput.
+
+
+        :param sfcs_existed: The sfcs_existed of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._sfcs_existed = sfcs_existed
+
+    @property
+    def sfcs_id(self):
+        """Gets the sfcs_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The sfcs_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sfcs_id
+
+    @sfcs_id.setter
+    def sfcs_id(self, sfcs_id):
+        """Sets the sfcs_id of this SfcsForUpdateResourceGroupInput.
+
+
+        :param sfcs_id: The sfcs_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._sfcs_id = sfcs_id
+
+    @property
+    def sfcs_name(self):
+        """Gets the sfcs_name of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The sfcs_name of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sfcs_name
+
+    @sfcs_name.setter
+    def sfcs_name(self, sfcs_name):
+        """Sets the sfcs_name of this SfcsForUpdateResourceGroupInput.
+
+
+        :param sfcs_name: The sfcs_name of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._sfcs_name = sfcs_name
+
+    @property
+    def sfcs_resource_group_id(self):
+        """Gets the sfcs_resource_group_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The sfcs_resource_group_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sfcs_resource_group_id
+
+    @sfcs_resource_group_id.setter
+    def sfcs_resource_group_id(self, sfcs_resource_group_id):
+        """Sets the sfcs_resource_group_id of this SfcsForUpdateResourceGroupInput.
+
+
+        :param sfcs_resource_group_id: The sfcs_resource_group_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._sfcs_resource_group_id = sfcs_resource_group_id
+
+    @property
+    def sfcs_status(self):
+        """Gets the sfcs_status of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The sfcs_status of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sfcs_status
+
+    @sfcs_status.setter
+    def sfcs_status(self, sfcs_status):
+        """Sets the sfcs_status of this SfcsForUpdateResourceGroupInput.
+
+
+        :param sfcs_status: The sfcs_status of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._sfcs_status = sfcs_status
+
+    @property
+    def sfcs_zone_id(self):
+        """Gets the sfcs_zone_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+
+
+        :return: The sfcs_zone_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sfcs_zone_id
+
+    @sfcs_zone_id.setter
+    def sfcs_zone_id(self, sfcs_zone_id):
+        """Sets the sfcs_zone_id of this SfcsForUpdateResourceGroupInput.
+
+
+        :param sfcs_zone_id: The sfcs_zone_id of this SfcsForUpdateResourceGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._sfcs_zone_id = sfcs_zone_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

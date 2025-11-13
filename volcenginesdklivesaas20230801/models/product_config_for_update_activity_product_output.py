@@ -33,7 +33,6 @@ class ProductConfigForUpdateActivityProductOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_redirect_image': 'str',
         'display_enable': 'int',
         'enable_floating': 'bool',
         'enable_mini_app': 'bool',
@@ -47,7 +46,6 @@ class ProductConfigForUpdateActivityProductOutput(object):
     }
 
     attribute_map = {
-        'default_redirect_image': 'DefaultRedirectImage',
         'display_enable': 'DisplayEnable',
         'enable_floating': 'EnableFloating',
         'enable_mini_app': 'EnableMiniApp',
@@ -60,13 +58,12 @@ class ProductConfigForUpdateActivityProductOutput(object):
         'ua_info': 'UAInfo'
     }
 
-    def __init__(self, default_redirect_image=None, display_enable=None, enable_floating=None, enable_mini_app=None, enable_ua=None, id=None, menu_name=None, mini_app_id=None, product=None, products_position=None, ua_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, display_enable=None, enable_floating=None, enable_mini_app=None, enable_ua=None, id=None, menu_name=None, mini_app_id=None, product=None, products_position=None, ua_info=None, _configuration=None):  # noqa: E501
         """ProductConfigForUpdateActivityProductOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._default_redirect_image = None
         self._display_enable = None
         self._enable_floating = None
         self._enable_mini_app = None
@@ -79,8 +76,6 @@ class ProductConfigForUpdateActivityProductOutput(object):
         self._ua_info = None
         self.discriminator = None
 
-        if default_redirect_image is not None:
-            self.default_redirect_image = default_redirect_image
         if display_enable is not None:
             self.display_enable = display_enable
         if enable_floating is not None:
@@ -101,27 +96,6 @@ class ProductConfigForUpdateActivityProductOutput(object):
             self.products_position = products_position
         if ua_info is not None:
             self.ua_info = ua_info
-
-    @property
-    def default_redirect_image(self):
-        """Gets the default_redirect_image of this ProductConfigForUpdateActivityProductOutput.  # noqa: E501
-
-
-        :return: The default_redirect_image of this ProductConfigForUpdateActivityProductOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._default_redirect_image
-
-    @default_redirect_image.setter
-    def default_redirect_image(self, default_redirect_image):
-        """Sets the default_redirect_image of this ProductConfigForUpdateActivityProductOutput.
-
-
-        :param default_redirect_image: The default_redirect_image of this ProductConfigForUpdateActivityProductOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._default_redirect_image = default_redirect_image
 
     @property
     def display_enable(self):

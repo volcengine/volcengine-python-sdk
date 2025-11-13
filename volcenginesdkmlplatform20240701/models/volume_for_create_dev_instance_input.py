@@ -34,28 +34,28 @@ class VolumeForCreateDevInstanceInput(object):
     """
     swagger_types = {
         'size': 'int',
-        'volume_type_id': 'str'
+        'type': 'str'
     }
 
     attribute_map = {
         'size': 'Size',
-        'volume_type_id': 'VolumeTypeId'
+        'type': 'Type'
     }
 
-    def __init__(self, size=None, volume_type_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, size=None, type=None, _configuration=None):  # noqa: E501
         """VolumeForCreateDevInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._size = None
-        self._volume_type_id = None
+        self._type = None
         self.discriminator = None
 
         if size is not None:
             self.size = size
-        if volume_type_id is not None:
-            self.volume_type_id = volume_type_id
+        if type is not None:
+            self.type = type
 
     @property
     def size(self):
@@ -79,25 +79,25 @@ class VolumeForCreateDevInstanceInput(object):
         self._size = size
 
     @property
-    def volume_type_id(self):
-        """Gets the volume_type_id of this VolumeForCreateDevInstanceInput.  # noqa: E501
+    def type(self):
+        """Gets the type of this VolumeForCreateDevInstanceInput.  # noqa: E501
 
 
-        :return: The volume_type_id of this VolumeForCreateDevInstanceInput.  # noqa: E501
+        :return: The type of this VolumeForCreateDevInstanceInput.  # noqa: E501
         :rtype: str
         """
-        return self._volume_type_id
+        return self._type
 
-    @volume_type_id.setter
-    def volume_type_id(self, volume_type_id):
-        """Sets the volume_type_id of this VolumeForCreateDevInstanceInput.
+    @type.setter
+    def type(self, type):
+        """Sets the type of this VolumeForCreateDevInstanceInput.
 
 
-        :param volume_type_id: The volume_type_id of this VolumeForCreateDevInstanceInput.  # noqa: E501
+        :param type: The type of this VolumeForCreateDevInstanceInput.  # noqa: E501
         :type: str
         """
 
-        self._volume_type_id = volume_type_id
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

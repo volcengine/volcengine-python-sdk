@@ -33,64 +33,65 @@ class ReadinessProbeForUpdateDeploymentInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'command': 'str',
         'enabled': 'bool',
-        '_exec': 'ExecForUpdateDeploymentInput',
         'failure_threshold': 'int',
-        'http_get': 'HTTPGetForUpdateDeploymentInput',
         'initial_delay_seconds': 'int',
-        'period_seconds': 'int',
-        'success_threshold': 'int',
-        'tcp_socket': 'TCPSocketForUpdateDeploymentInput',
-        'timeout_seconds': 'int'
+        'period_seconds': 'int'
     }
 
     attribute_map = {
+        'command': 'Command',
         'enabled': 'Enabled',
-        '_exec': 'Exec',
         'failure_threshold': 'FailureThreshold',
-        'http_get': 'HTTPGet',
         'initial_delay_seconds': 'InitialDelaySeconds',
-        'period_seconds': 'PeriodSeconds',
-        'success_threshold': 'SuccessThreshold',
-        'tcp_socket': 'TCPSocket',
-        'timeout_seconds': 'TimeoutSeconds'
+        'period_seconds': 'PeriodSeconds'
     }
 
-    def __init__(self, enabled=None, _exec=None, failure_threshold=None, http_get=None, initial_delay_seconds=None, period_seconds=None, success_threshold=None, tcp_socket=None, timeout_seconds=None, _configuration=None):  # noqa: E501
+    def __init__(self, command=None, enabled=None, failure_threshold=None, initial_delay_seconds=None, period_seconds=None, _configuration=None):  # noqa: E501
         """ReadinessProbeForUpdateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._command = None
         self._enabled = None
-        self.__exec = None
         self._failure_threshold = None
-        self._http_get = None
         self._initial_delay_seconds = None
         self._period_seconds = None
-        self._success_threshold = None
-        self._tcp_socket = None
-        self._timeout_seconds = None
         self.discriminator = None
 
+        if command is not None:
+            self.command = command
         if enabled is not None:
             self.enabled = enabled
-        if _exec is not None:
-            self._exec = _exec
         if failure_threshold is not None:
             self.failure_threshold = failure_threshold
-        if http_get is not None:
-            self.http_get = http_get
         if initial_delay_seconds is not None:
             self.initial_delay_seconds = initial_delay_seconds
         if period_seconds is not None:
             self.period_seconds = period_seconds
-        if success_threshold is not None:
-            self.success_threshold = success_threshold
-        if tcp_socket is not None:
-            self.tcp_socket = tcp_socket
-        if timeout_seconds is not None:
-            self.timeout_seconds = timeout_seconds
+
+    @property
+    def command(self):
+        """Gets the command of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The command of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._command
+
+    @command.setter
+    def command(self, command):
+        """Sets the command of this ReadinessProbeForUpdateDeploymentInput.
+
+
+        :param command: The command of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._command = command
 
     @property
     def enabled(self):
@@ -114,27 +115,6 @@ class ReadinessProbeForUpdateDeploymentInput(object):
         self._enabled = enabled
 
     @property
-    def _exec(self):
-        """Gets the _exec of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-
-
-        :return: The _exec of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :rtype: ExecForUpdateDeploymentInput
-        """
-        return self.__exec
-
-    @_exec.setter
-    def _exec(self, _exec):
-        """Sets the _exec of this ReadinessProbeForUpdateDeploymentInput.
-
-
-        :param _exec: The _exec of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :type: ExecForUpdateDeploymentInput
-        """
-
-        self.__exec = _exec
-
-    @property
     def failure_threshold(self):
         """Gets the failure_threshold of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
 
@@ -154,27 +134,6 @@ class ReadinessProbeForUpdateDeploymentInput(object):
         """
 
         self._failure_threshold = failure_threshold
-
-    @property
-    def http_get(self):
-        """Gets the http_get of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-
-
-        :return: The http_get of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :rtype: HTTPGetForUpdateDeploymentInput
-        """
-        return self._http_get
-
-    @http_get.setter
-    def http_get(self, http_get):
-        """Sets the http_get of this ReadinessProbeForUpdateDeploymentInput.
-
-
-        :param http_get: The http_get of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :type: HTTPGetForUpdateDeploymentInput
-        """
-
-        self._http_get = http_get
 
     @property
     def initial_delay_seconds(self):
@@ -217,69 +176,6 @@ class ReadinessProbeForUpdateDeploymentInput(object):
         """
 
         self._period_seconds = period_seconds
-
-    @property
-    def success_threshold(self):
-        """Gets the success_threshold of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-
-
-        :return: The success_threshold of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :rtype: int
-        """
-        return self._success_threshold
-
-    @success_threshold.setter
-    def success_threshold(self, success_threshold):
-        """Sets the success_threshold of this ReadinessProbeForUpdateDeploymentInput.
-
-
-        :param success_threshold: The success_threshold of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :type: int
-        """
-
-        self._success_threshold = success_threshold
-
-    @property
-    def tcp_socket(self):
-        """Gets the tcp_socket of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-
-
-        :return: The tcp_socket of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :rtype: TCPSocketForUpdateDeploymentInput
-        """
-        return self._tcp_socket
-
-    @tcp_socket.setter
-    def tcp_socket(self, tcp_socket):
-        """Sets the tcp_socket of this ReadinessProbeForUpdateDeploymentInput.
-
-
-        :param tcp_socket: The tcp_socket of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :type: TCPSocketForUpdateDeploymentInput
-        """
-
-        self._tcp_socket = tcp_socket
-
-    @property
-    def timeout_seconds(self):
-        """Gets the timeout_seconds of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-
-
-        :return: The timeout_seconds of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :rtype: int
-        """
-        return self._timeout_seconds
-
-    @timeout_seconds.setter
-    def timeout_seconds(self, timeout_seconds):
-        """Sets the timeout_seconds of this ReadinessProbeForUpdateDeploymentInput.
-
-
-        :param timeout_seconds: The timeout_seconds of this ReadinessProbeForUpdateDeploymentInput.  # noqa: E501
-        :type: int
-        """
-
-        self._timeout_seconds = timeout_seconds
 
     def to_dict(self):
         """Returns the model properties as a dict"""

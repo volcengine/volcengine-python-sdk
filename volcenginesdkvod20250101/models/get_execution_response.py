@@ -39,8 +39,9 @@ class GetExecutionResponse(object):
         'meta': 'MetaForGetExecutionOutput',
         'multi_inputs': 'list[MultiInputForGetExecutionOutput]',
         'operation': 'ConvertOperationForGetExecutionOutput',
-        'output': 'ConvertOutputForGetExecutionOutput',
+        'output': 'ConvertConvertOutputForGetExecutionOutput',
         'run_id': 'str',
+        'space_name': 'str',
         'status': 'str'
     }
 
@@ -53,10 +54,11 @@ class GetExecutionResponse(object):
         'operation': 'Operation',
         'output': 'Output',
         'run_id': 'RunId',
+        'space_name': 'SpaceName',
         'status': 'Status'
     }
 
-    def __init__(self, code=None, control=None, input=None, meta=None, multi_inputs=None, operation=None, output=None, run_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, code=None, control=None, input=None, meta=None, multi_inputs=None, operation=None, output=None, run_id=None, space_name=None, status=None, _configuration=None):  # noqa: E501
         """GetExecutionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class GetExecutionResponse(object):
         self._operation = None
         self._output = None
         self._run_id = None
+        self._space_name = None
         self._status = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class GetExecutionResponse(object):
             self.output = output
         if run_id is not None:
             self.run_id = run_id
+        if space_name is not None:
+            self.space_name = space_name
         if status is not None:
             self.status = status
 
@@ -224,7 +229,7 @@ class GetExecutionResponse(object):
 
 
         :return: The output of this GetExecutionResponse.  # noqa: E501
-        :rtype: ConvertOutputForGetExecutionOutput
+        :rtype: ConvertConvertOutputForGetExecutionOutput
         """
         return self._output
 
@@ -234,7 +239,7 @@ class GetExecutionResponse(object):
 
 
         :param output: The output of this GetExecutionResponse.  # noqa: E501
-        :type: ConvertOutputForGetExecutionOutput
+        :type: ConvertConvertOutputForGetExecutionOutput
         """
 
         self._output = output
@@ -259,6 +264,27 @@ class GetExecutionResponse(object):
         """
 
         self._run_id = run_id
+
+    @property
+    def space_name(self):
+        """Gets the space_name of this GetExecutionResponse.  # noqa: E501
+
+
+        :return: The space_name of this GetExecutionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_name
+
+    @space_name.setter
+    def space_name(self, space_name):
+        """Sets the space_name of this GetExecutionResponse.
+
+
+        :param space_name: The space_name of this GetExecutionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._space_name = space_name
 
     @property
     def status(self):

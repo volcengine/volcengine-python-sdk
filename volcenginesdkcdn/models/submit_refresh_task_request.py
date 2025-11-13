@@ -36,6 +36,7 @@ class SubmitRefreshTaskRequest(object):
         'delete': 'bool',
         'prefix': 'bool',
         'type': 'str',
+        'url_list': 'list[str]',
         'urls': 'str'
     }
 
@@ -43,10 +44,11 @@ class SubmitRefreshTaskRequest(object):
         'delete': 'Delete',
         'prefix': 'Prefix',
         'type': 'Type',
+        'url_list': 'UrlList',
         'urls': 'Urls'
     }
 
-    def __init__(self, delete=None, prefix=None, type=None, urls=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete=None, prefix=None, type=None, url_list=None, urls=None, _configuration=None):  # noqa: E501
         """SubmitRefreshTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class SubmitRefreshTaskRequest(object):
         self._delete = None
         self._prefix = None
         self._type = None
+        self._url_list = None
         self._urls = None
         self.discriminator = None
 
@@ -64,7 +67,10 @@ class SubmitRefreshTaskRequest(object):
             self.prefix = prefix
         if type is not None:
             self.type = type
-        self.urls = urls
+        if url_list is not None:
+            self.url_list = url_list
+        if urls is not None:
+            self.urls = urls
 
     @property
     def delete(self):
@@ -130,6 +136,27 @@ class SubmitRefreshTaskRequest(object):
         self._type = type
 
     @property
+    def url_list(self):
+        """Gets the url_list of this SubmitRefreshTaskRequest.  # noqa: E501
+
+
+        :return: The url_list of this SubmitRefreshTaskRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._url_list
+
+    @url_list.setter
+    def url_list(self, url_list):
+        """Sets the url_list of this SubmitRefreshTaskRequest.
+
+
+        :param url_list: The url_list of this SubmitRefreshTaskRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._url_list = url_list
+
+    @property
     def urls(self):
         """Gets the urls of this SubmitRefreshTaskRequest.  # noqa: E501
 
@@ -147,8 +174,6 @@ class SubmitRefreshTaskRequest(object):
         :param urls: The urls of this SubmitRefreshTaskRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and urls is None:
-            raise ValueError("Invalid value for `urls`, must not be `None`")  # noqa: E501
 
         self._urls = urls
 

@@ -33,50 +33,50 @@ class CredentialForUpdateDevInstanceInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_key': 'str',
+        'access_key_id': 'str',
         'secret_access_key': 'str'
     }
 
     attribute_map = {
-        'access_key': 'AccessKey',
+        'access_key_id': 'AccessKeyId',
         'secret_access_key': 'SecretAccessKey'
     }
 
-    def __init__(self, access_key=None, secret_access_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key_id=None, secret_access_key=None, _configuration=None):  # noqa: E501
         """CredentialForUpdateDevInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._access_key = None
+        self._access_key_id = None
         self._secret_access_key = None
         self.discriminator = None
 
-        if access_key is not None:
-            self.access_key = access_key
+        if access_key_id is not None:
+            self.access_key_id = access_key_id
         if secret_access_key is not None:
             self.secret_access_key = secret_access_key
 
     @property
-    def access_key(self):
-        """Gets the access_key of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+    def access_key_id(self):
+        """Gets the access_key_id of this CredentialForUpdateDevInstanceInput.  # noqa: E501
 
 
-        :return: The access_key of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+        :return: The access_key_id of this CredentialForUpdateDevInstanceInput.  # noqa: E501
         :rtype: str
         """
-        return self._access_key
+        return self._access_key_id
 
-    @access_key.setter
-    def access_key(self, access_key):
-        """Sets the access_key of this CredentialForUpdateDevInstanceInput.
+    @access_key_id.setter
+    def access_key_id(self, access_key_id):
+        """Sets the access_key_id of this CredentialForUpdateDevInstanceInput.
 
 
-        :param access_key: The access_key of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+        :param access_key_id: The access_key_id of this CredentialForUpdateDevInstanceInput.  # noqa: E501
         :type: str
         """
 
-        self._access_key = access_key
+        self._access_key_id = access_key_id
 
     @property
     def secret_access_key(self):

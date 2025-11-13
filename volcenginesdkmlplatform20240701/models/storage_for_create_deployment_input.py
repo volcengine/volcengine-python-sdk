@@ -33,60 +33,535 @@ class StorageForCreateDeploymentInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'config': 'ConfigForCreateDeploymentInput',
+        'advanced_options': 'AdvancedOptionsForCreateDeploymentInput',
+        'annotation_id': 'str',
+        'asset_id': 'str',
+        'asset_name': 'str',
+        'asset_version': 'str',
+        'bucket': 'str',
+        'cache_policy_id': 'str',
+        'cloudfs_type': 'str',
+        'credential': 'ConvertCredentialForCreateDeploymentInput',
+        'dataset_id': 'str',
+        'external_cfs': 'bool',
+        'external_sfcs': 'bool',
+        'external_tos': 'bool',
+        'fs_name': 'str',
+        'meta_url': 'str',
+        'mount_options': 'list[str]',
         'mount_path': 'str',
+        'nas_access_point_options': 'NasAccessPointOptionsForCreateDeploymentInput',
+        'nas_addr': 'str',
+        'nas_id': 'str',
+        'nas_name': 'str',
+        'ns_id': 'str',
+        'prefix': 'str',
         'read_only': 'bool',
-        'type': 'str'
+        'role_name': 'str',
+        'sfcs_advanced_options': 'SfcsAdvancedOptionsForCreateDeploymentInput',
+        'sfcs_id': 'str',
+        'sub_path': 'str',
+        'tenant_account': 'int',
+        'type': 'str',
+        'use_as_default_mount_path': 'bool',
+        'use_eic': 'bool',
+        'vepfs_access_point_options': 'VepfsAccessPointOptionsForCreateDeploymentInput',
+        'vepfs_host_path': 'str',
+        'vepfs_id': 'str',
+        'vepfs_name': 'str'
     }
 
     attribute_map = {
-        'config': 'Config',
+        'advanced_options': 'AdvancedOptions',
+        'annotation_id': 'AnnotationId',
+        'asset_id': 'AssetId',
+        'asset_name': 'AssetName',
+        'asset_version': 'AssetVersion',
+        'bucket': 'Bucket',
+        'cache_policy_id': 'CachePolicyId',
+        'cloudfs_type': 'CloudfsType',
+        'credential': 'Credential',
+        'dataset_id': 'DatasetId',
+        'external_cfs': 'ExternalCFS',
+        'external_sfcs': 'ExternalSfcs',
+        'external_tos': 'ExternalTos',
+        'fs_name': 'FsName',
+        'meta_url': 'MetaURL',
+        'mount_options': 'MountOptions',
         'mount_path': 'MountPath',
+        'nas_access_point_options': 'NasAccessPointOptions',
+        'nas_addr': 'NasAddr',
+        'nas_id': 'NasId',
+        'nas_name': 'NasName',
+        'ns_id': 'NsId',
+        'prefix': 'Prefix',
         'read_only': 'ReadOnly',
-        'type': 'Type'
+        'role_name': 'RoleName',
+        'sfcs_advanced_options': 'SfcsAdvancedOptions',
+        'sfcs_id': 'SfcsId',
+        'sub_path': 'SubPath',
+        'tenant_account': 'TenantAccount',
+        'type': 'Type',
+        'use_as_default_mount_path': 'UseAsDefaultMountPath',
+        'use_eic': 'UseEic',
+        'vepfs_access_point_options': 'VepfsAccessPointOptions',
+        'vepfs_host_path': 'VepfsHostPath',
+        'vepfs_id': 'VepfsId',
+        'vepfs_name': 'VepfsName'
     }
 
-    def __init__(self, config=None, mount_path=None, read_only=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, advanced_options=None, annotation_id=None, asset_id=None, asset_name=None, asset_version=None, bucket=None, cache_policy_id=None, cloudfs_type=None, credential=None, dataset_id=None, external_cfs=None, external_sfcs=None, external_tos=None, fs_name=None, meta_url=None, mount_options=None, mount_path=None, nas_access_point_options=None, nas_addr=None, nas_id=None, nas_name=None, ns_id=None, prefix=None, read_only=None, role_name=None, sfcs_advanced_options=None, sfcs_id=None, sub_path=None, tenant_account=None, type=None, use_as_default_mount_path=None, use_eic=None, vepfs_access_point_options=None, vepfs_host_path=None, vepfs_id=None, vepfs_name=None, _configuration=None):  # noqa: E501
         """StorageForCreateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._config = None
+        self._advanced_options = None
+        self._annotation_id = None
+        self._asset_id = None
+        self._asset_name = None
+        self._asset_version = None
+        self._bucket = None
+        self._cache_policy_id = None
+        self._cloudfs_type = None
+        self._credential = None
+        self._dataset_id = None
+        self._external_cfs = None
+        self._external_sfcs = None
+        self._external_tos = None
+        self._fs_name = None
+        self._meta_url = None
+        self._mount_options = None
         self._mount_path = None
+        self._nas_access_point_options = None
+        self._nas_addr = None
+        self._nas_id = None
+        self._nas_name = None
+        self._ns_id = None
+        self._prefix = None
         self._read_only = None
+        self._role_name = None
+        self._sfcs_advanced_options = None
+        self._sfcs_id = None
+        self._sub_path = None
+        self._tenant_account = None
         self._type = None
+        self._use_as_default_mount_path = None
+        self._use_eic = None
+        self._vepfs_access_point_options = None
+        self._vepfs_host_path = None
+        self._vepfs_id = None
+        self._vepfs_name = None
         self.discriminator = None
 
-        if config is not None:
-            self.config = config
+        if advanced_options is not None:
+            self.advanced_options = advanced_options
+        if annotation_id is not None:
+            self.annotation_id = annotation_id
+        if asset_id is not None:
+            self.asset_id = asset_id
+        if asset_name is not None:
+            self.asset_name = asset_name
+        if asset_version is not None:
+            self.asset_version = asset_version
+        if bucket is not None:
+            self.bucket = bucket
+        if cache_policy_id is not None:
+            self.cache_policy_id = cache_policy_id
+        if cloudfs_type is not None:
+            self.cloudfs_type = cloudfs_type
+        if credential is not None:
+            self.credential = credential
+        if dataset_id is not None:
+            self.dataset_id = dataset_id
+        if external_cfs is not None:
+            self.external_cfs = external_cfs
+        if external_sfcs is not None:
+            self.external_sfcs = external_sfcs
+        if external_tos is not None:
+            self.external_tos = external_tos
+        if fs_name is not None:
+            self.fs_name = fs_name
+        if meta_url is not None:
+            self.meta_url = meta_url
+        if mount_options is not None:
+            self.mount_options = mount_options
         if mount_path is not None:
             self.mount_path = mount_path
+        if nas_access_point_options is not None:
+            self.nas_access_point_options = nas_access_point_options
+        if nas_addr is not None:
+            self.nas_addr = nas_addr
+        if nas_id is not None:
+            self.nas_id = nas_id
+        if nas_name is not None:
+            self.nas_name = nas_name
+        if ns_id is not None:
+            self.ns_id = ns_id
+        if prefix is not None:
+            self.prefix = prefix
         if read_only is not None:
             self.read_only = read_only
+        if role_name is not None:
+            self.role_name = role_name
+        if sfcs_advanced_options is not None:
+            self.sfcs_advanced_options = sfcs_advanced_options
+        if sfcs_id is not None:
+            self.sfcs_id = sfcs_id
+        if sub_path is not None:
+            self.sub_path = sub_path
+        if tenant_account is not None:
+            self.tenant_account = tenant_account
         if type is not None:
             self.type = type
+        if use_as_default_mount_path is not None:
+            self.use_as_default_mount_path = use_as_default_mount_path
+        if use_eic is not None:
+            self.use_eic = use_eic
+        if vepfs_access_point_options is not None:
+            self.vepfs_access_point_options = vepfs_access_point_options
+        if vepfs_host_path is not None:
+            self.vepfs_host_path = vepfs_host_path
+        if vepfs_id is not None:
+            self.vepfs_id = vepfs_id
+        if vepfs_name is not None:
+            self.vepfs_name = vepfs_name
 
     @property
-    def config(self):
-        """Gets the config of this StorageForCreateDeploymentInput.  # noqa: E501
+    def advanced_options(self):
+        """Gets the advanced_options of this StorageForCreateDeploymentInput.  # noqa: E501
 
 
-        :return: The config of this StorageForCreateDeploymentInput.  # noqa: E501
-        :rtype: ConfigForCreateDeploymentInput
+        :return: The advanced_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: AdvancedOptionsForCreateDeploymentInput
         """
-        return self._config
+        return self._advanced_options
 
-    @config.setter
-    def config(self, config):
-        """Sets the config of this StorageForCreateDeploymentInput.
+    @advanced_options.setter
+    def advanced_options(self, advanced_options):
+        """Sets the advanced_options of this StorageForCreateDeploymentInput.
 
 
-        :param config: The config of this StorageForCreateDeploymentInput.  # noqa: E501
-        :type: ConfigForCreateDeploymentInput
+        :param advanced_options: The advanced_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: AdvancedOptionsForCreateDeploymentInput
         """
 
-        self._config = config
+        self._advanced_options = advanced_options
+
+    @property
+    def annotation_id(self):
+        """Gets the annotation_id of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The annotation_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._annotation_id
+
+    @annotation_id.setter
+    def annotation_id(self, annotation_id):
+        """Sets the annotation_id of this StorageForCreateDeploymentInput.
+
+
+        :param annotation_id: The annotation_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._annotation_id = annotation_id
+
+    @property
+    def asset_id(self):
+        """Gets the asset_id of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The asset_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._asset_id
+
+    @asset_id.setter
+    def asset_id(self, asset_id):
+        """Sets the asset_id of this StorageForCreateDeploymentInput.
+
+
+        :param asset_id: The asset_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._asset_id = asset_id
+
+    @property
+    def asset_name(self):
+        """Gets the asset_name of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The asset_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._asset_name
+
+    @asset_name.setter
+    def asset_name(self, asset_name):
+        """Sets the asset_name of this StorageForCreateDeploymentInput.
+
+
+        :param asset_name: The asset_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._asset_name = asset_name
+
+    @property
+    def asset_version(self):
+        """Gets the asset_version of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The asset_version of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._asset_version
+
+    @asset_version.setter
+    def asset_version(self, asset_version):
+        """Sets the asset_version of this StorageForCreateDeploymentInput.
+
+
+        :param asset_version: The asset_version of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._asset_version = asset_version
+
+    @property
+    def bucket(self):
+        """Gets the bucket of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The bucket of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bucket
+
+    @bucket.setter
+    def bucket(self, bucket):
+        """Sets the bucket of this StorageForCreateDeploymentInput.
+
+
+        :param bucket: The bucket of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._bucket = bucket
+
+    @property
+    def cache_policy_id(self):
+        """Gets the cache_policy_id of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The cache_policy_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cache_policy_id
+
+    @cache_policy_id.setter
+    def cache_policy_id(self, cache_policy_id):
+        """Sets the cache_policy_id of this StorageForCreateDeploymentInput.
+
+
+        :param cache_policy_id: The cache_policy_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._cache_policy_id = cache_policy_id
+
+    @property
+    def cloudfs_type(self):
+        """Gets the cloudfs_type of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The cloudfs_type of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cloudfs_type
+
+    @cloudfs_type.setter
+    def cloudfs_type(self, cloudfs_type):
+        """Sets the cloudfs_type of this StorageForCreateDeploymentInput.
+
+
+        :param cloudfs_type: The cloudfs_type of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._cloudfs_type = cloudfs_type
+
+    @property
+    def credential(self):
+        """Gets the credential of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The credential of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: ConvertCredentialForCreateDeploymentInput
+        """
+        return self._credential
+
+    @credential.setter
+    def credential(self, credential):
+        """Sets the credential of this StorageForCreateDeploymentInput.
+
+
+        :param credential: The credential of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: ConvertCredentialForCreateDeploymentInput
+        """
+
+        self._credential = credential
+
+    @property
+    def dataset_id(self):
+        """Gets the dataset_id of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The dataset_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._dataset_id
+
+    @dataset_id.setter
+    def dataset_id(self, dataset_id):
+        """Sets the dataset_id of this StorageForCreateDeploymentInput.
+
+
+        :param dataset_id: The dataset_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._dataset_id = dataset_id
+
+    @property
+    def external_cfs(self):
+        """Gets the external_cfs of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The external_cfs of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._external_cfs
+
+    @external_cfs.setter
+    def external_cfs(self, external_cfs):
+        """Sets the external_cfs of this StorageForCreateDeploymentInput.
+
+
+        :param external_cfs: The external_cfs of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._external_cfs = external_cfs
+
+    @property
+    def external_sfcs(self):
+        """Gets the external_sfcs of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The external_sfcs of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._external_sfcs
+
+    @external_sfcs.setter
+    def external_sfcs(self, external_sfcs):
+        """Sets the external_sfcs of this StorageForCreateDeploymentInput.
+
+
+        :param external_sfcs: The external_sfcs of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._external_sfcs = external_sfcs
+
+    @property
+    def external_tos(self):
+        """Gets the external_tos of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The external_tos of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._external_tos
+
+    @external_tos.setter
+    def external_tos(self, external_tos):
+        """Sets the external_tos of this StorageForCreateDeploymentInput.
+
+
+        :param external_tos: The external_tos of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._external_tos = external_tos
+
+    @property
+    def fs_name(self):
+        """Gets the fs_name of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The fs_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._fs_name
+
+    @fs_name.setter
+    def fs_name(self, fs_name):
+        """Sets the fs_name of this StorageForCreateDeploymentInput.
+
+
+        :param fs_name: The fs_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._fs_name = fs_name
+
+    @property
+    def meta_url(self):
+        """Gets the meta_url of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The meta_url of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._meta_url
+
+    @meta_url.setter
+    def meta_url(self, meta_url):
+        """Sets the meta_url of this StorageForCreateDeploymentInput.
+
+
+        :param meta_url: The meta_url of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._meta_url = meta_url
+
+    @property
+    def mount_options(self):
+        """Gets the mount_options of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The mount_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._mount_options
+
+    @mount_options.setter
+    def mount_options(self, mount_options):
+        """Sets the mount_options of this StorageForCreateDeploymentInput.
+
+
+        :param mount_options: The mount_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._mount_options = mount_options
 
     @property
     def mount_path(self):
@@ -110,6 +585,132 @@ class StorageForCreateDeploymentInput(object):
         self._mount_path = mount_path
 
     @property
+    def nas_access_point_options(self):
+        """Gets the nas_access_point_options of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The nas_access_point_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: NasAccessPointOptionsForCreateDeploymentInput
+        """
+        return self._nas_access_point_options
+
+    @nas_access_point_options.setter
+    def nas_access_point_options(self, nas_access_point_options):
+        """Sets the nas_access_point_options of this StorageForCreateDeploymentInput.
+
+
+        :param nas_access_point_options: The nas_access_point_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: NasAccessPointOptionsForCreateDeploymentInput
+        """
+
+        self._nas_access_point_options = nas_access_point_options
+
+    @property
+    def nas_addr(self):
+        """Gets the nas_addr of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The nas_addr of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._nas_addr
+
+    @nas_addr.setter
+    def nas_addr(self, nas_addr):
+        """Sets the nas_addr of this StorageForCreateDeploymentInput.
+
+
+        :param nas_addr: The nas_addr of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._nas_addr = nas_addr
+
+    @property
+    def nas_id(self):
+        """Gets the nas_id of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The nas_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._nas_id
+
+    @nas_id.setter
+    def nas_id(self, nas_id):
+        """Sets the nas_id of this StorageForCreateDeploymentInput.
+
+
+        :param nas_id: The nas_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._nas_id = nas_id
+
+    @property
+    def nas_name(self):
+        """Gets the nas_name of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The nas_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._nas_name
+
+    @nas_name.setter
+    def nas_name(self, nas_name):
+        """Sets the nas_name of this StorageForCreateDeploymentInput.
+
+
+        :param nas_name: The nas_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._nas_name = nas_name
+
+    @property
+    def ns_id(self):
+        """Gets the ns_id of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The ns_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._ns_id
+
+    @ns_id.setter
+    def ns_id(self, ns_id):
+        """Sets the ns_id of this StorageForCreateDeploymentInput.
+
+
+        :param ns_id: The ns_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._ns_id = ns_id
+
+    @property
+    def prefix(self):
+        """Gets the prefix of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The prefix of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix
+
+    @prefix.setter
+    def prefix(self, prefix):
+        """Sets the prefix of this StorageForCreateDeploymentInput.
+
+
+        :param prefix: The prefix of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix = prefix
+
+    @property
     def read_only(self):
         """Gets the read_only of this StorageForCreateDeploymentInput.  # noqa: E501
 
@@ -131,6 +732,111 @@ class StorageForCreateDeploymentInput(object):
         self._read_only = read_only
 
     @property
+    def role_name(self):
+        """Gets the role_name of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The role_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._role_name
+
+    @role_name.setter
+    def role_name(self, role_name):
+        """Sets the role_name of this StorageForCreateDeploymentInput.
+
+
+        :param role_name: The role_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._role_name = role_name
+
+    @property
+    def sfcs_advanced_options(self):
+        """Gets the sfcs_advanced_options of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The sfcs_advanced_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: SfcsAdvancedOptionsForCreateDeploymentInput
+        """
+        return self._sfcs_advanced_options
+
+    @sfcs_advanced_options.setter
+    def sfcs_advanced_options(self, sfcs_advanced_options):
+        """Sets the sfcs_advanced_options of this StorageForCreateDeploymentInput.
+
+
+        :param sfcs_advanced_options: The sfcs_advanced_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: SfcsAdvancedOptionsForCreateDeploymentInput
+        """
+
+        self._sfcs_advanced_options = sfcs_advanced_options
+
+    @property
+    def sfcs_id(self):
+        """Gets the sfcs_id of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The sfcs_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sfcs_id
+
+    @sfcs_id.setter
+    def sfcs_id(self, sfcs_id):
+        """Sets the sfcs_id of this StorageForCreateDeploymentInput.
+
+
+        :param sfcs_id: The sfcs_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._sfcs_id = sfcs_id
+
+    @property
+    def sub_path(self):
+        """Gets the sub_path of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The sub_path of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._sub_path
+
+    @sub_path.setter
+    def sub_path(self, sub_path):
+        """Sets the sub_path of this StorageForCreateDeploymentInput.
+
+
+        :param sub_path: The sub_path of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._sub_path = sub_path
+
+    @property
+    def tenant_account(self):
+        """Gets the tenant_account of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The tenant_account of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._tenant_account
+
+    @tenant_account.setter
+    def tenant_account(self, tenant_account):
+        """Sets the tenant_account of this StorageForCreateDeploymentInput.
+
+
+        :param tenant_account: The tenant_account of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: int
+        """
+
+        self._tenant_account = tenant_account
+
+    @property
     def type(self):
         """Gets the type of this StorageForCreateDeploymentInput.  # noqa: E501
 
@@ -150,6 +856,132 @@ class StorageForCreateDeploymentInput(object):
         """
 
         self._type = type
+
+    @property
+    def use_as_default_mount_path(self):
+        """Gets the use_as_default_mount_path of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The use_as_default_mount_path of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_as_default_mount_path
+
+    @use_as_default_mount_path.setter
+    def use_as_default_mount_path(self, use_as_default_mount_path):
+        """Sets the use_as_default_mount_path of this StorageForCreateDeploymentInput.
+
+
+        :param use_as_default_mount_path: The use_as_default_mount_path of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_as_default_mount_path = use_as_default_mount_path
+
+    @property
+    def use_eic(self):
+        """Gets the use_eic of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The use_eic of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_eic
+
+    @use_eic.setter
+    def use_eic(self, use_eic):
+        """Sets the use_eic of this StorageForCreateDeploymentInput.
+
+
+        :param use_eic: The use_eic of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_eic = use_eic
+
+    @property
+    def vepfs_access_point_options(self):
+        """Gets the vepfs_access_point_options of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The vepfs_access_point_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: VepfsAccessPointOptionsForCreateDeploymentInput
+        """
+        return self._vepfs_access_point_options
+
+    @vepfs_access_point_options.setter
+    def vepfs_access_point_options(self, vepfs_access_point_options):
+        """Sets the vepfs_access_point_options of this StorageForCreateDeploymentInput.
+
+
+        :param vepfs_access_point_options: The vepfs_access_point_options of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: VepfsAccessPointOptionsForCreateDeploymentInput
+        """
+
+        self._vepfs_access_point_options = vepfs_access_point_options
+
+    @property
+    def vepfs_host_path(self):
+        """Gets the vepfs_host_path of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The vepfs_host_path of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vepfs_host_path
+
+    @vepfs_host_path.setter
+    def vepfs_host_path(self, vepfs_host_path):
+        """Sets the vepfs_host_path of this StorageForCreateDeploymentInput.
+
+
+        :param vepfs_host_path: The vepfs_host_path of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._vepfs_host_path = vepfs_host_path
+
+    @property
+    def vepfs_id(self):
+        """Gets the vepfs_id of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The vepfs_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vepfs_id
+
+    @vepfs_id.setter
+    def vepfs_id(self, vepfs_id):
+        """Sets the vepfs_id of this StorageForCreateDeploymentInput.
+
+
+        :param vepfs_id: The vepfs_id of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._vepfs_id = vepfs_id
+
+    @property
+    def vepfs_name(self):
+        """Gets the vepfs_name of this StorageForCreateDeploymentInput.  # noqa: E501
+
+
+        :return: The vepfs_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vepfs_name
+
+    @vepfs_name.setter
+    def vepfs_name(self, vepfs_name):
+        """Sets the vepfs_name of this StorageForCreateDeploymentInput.
+
+
+        :param vepfs_name: The vepfs_name of this StorageForCreateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._vepfs_name = vepfs_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

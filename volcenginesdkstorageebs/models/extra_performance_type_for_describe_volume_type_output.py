@@ -33,86 +33,34 @@ class ExtraPerformanceTypeForDescribeVolumeTypeOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'base_qos_type': 'str',
-        'conversion_ratio': 'str',
         'id': 'str',
         'max_iops': 'str',
         'max_throughput': 'str'
     }
 
     attribute_map = {
-        'base_qos_type': 'BaseQosType',
-        'conversion_ratio': 'ConversionRatio',
         'id': 'Id',
         'max_iops': 'MaxIops',
         'max_throughput': 'MaxThroughput'
     }
 
-    def __init__(self, base_qos_type=None, conversion_ratio=None, id=None, max_iops=None, max_throughput=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, max_iops=None, max_throughput=None, _configuration=None):  # noqa: E501
         """ExtraPerformanceTypeForDescribeVolumeTypeOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._base_qos_type = None
-        self._conversion_ratio = None
         self._id = None
         self._max_iops = None
         self._max_throughput = None
         self.discriminator = None
 
-        if base_qos_type is not None:
-            self.base_qos_type = base_qos_type
-        if conversion_ratio is not None:
-            self.conversion_ratio = conversion_ratio
         if id is not None:
             self.id = id
         if max_iops is not None:
             self.max_iops = max_iops
         if max_throughput is not None:
             self.max_throughput = max_throughput
-
-    @property
-    def base_qos_type(self):
-        """Gets the base_qos_type of this ExtraPerformanceTypeForDescribeVolumeTypeOutput.  # noqa: E501
-
-
-        :return: The base_qos_type of this ExtraPerformanceTypeForDescribeVolumeTypeOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._base_qos_type
-
-    @base_qos_type.setter
-    def base_qos_type(self, base_qos_type):
-        """Sets the base_qos_type of this ExtraPerformanceTypeForDescribeVolumeTypeOutput.
-
-
-        :param base_qos_type: The base_qos_type of this ExtraPerformanceTypeForDescribeVolumeTypeOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._base_qos_type = base_qos_type
-
-    @property
-    def conversion_ratio(self):
-        """Gets the conversion_ratio of this ExtraPerformanceTypeForDescribeVolumeTypeOutput.  # noqa: E501
-
-
-        :return: The conversion_ratio of this ExtraPerformanceTypeForDescribeVolumeTypeOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._conversion_ratio
-
-    @conversion_ratio.setter
-    def conversion_ratio(self, conversion_ratio):
-        """Sets the conversion_ratio of this ExtraPerformanceTypeForDescribeVolumeTypeOutput.
-
-
-        :param conversion_ratio: The conversion_ratio of this ExtraPerformanceTypeForDescribeVolumeTypeOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._conversion_ratio = conversion_ratio
 
     @property
     def id(self):

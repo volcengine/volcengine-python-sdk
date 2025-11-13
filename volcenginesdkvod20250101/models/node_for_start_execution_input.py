@@ -38,7 +38,8 @@ class NodeForStartExecutionInput(object):
         'multi_inputs': 'list[MultiInputForStartExecutionInput]',
         'name': 'str',
         'operation': 'OperationForStartExecutionInput',
-        'policy': 'PolicyForStartExecutionInput'
+        'policy': 'PolicyForStartExecutionInput',
+        'space_name': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class NodeForStartExecutionInput(object):
         'multi_inputs': 'MultiInputs',
         'name': 'Name',
         'operation': 'Operation',
-        'policy': 'Policy'
+        'policy': 'Policy',
+        'space_name': 'SpaceName'
     }
 
-    def __init__(self, dependencies=None, input=None, multi_inputs=None, name=None, operation=None, policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, dependencies=None, input=None, multi_inputs=None, name=None, operation=None, policy=None, space_name=None, _configuration=None):  # noqa: E501
         """NodeForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class NodeForStartExecutionInput(object):
         self._name = None
         self._operation = None
         self._policy = None
+        self._space_name = None
         self.discriminator = None
 
         if dependencies is not None:
@@ -76,6 +79,8 @@ class NodeForStartExecutionInput(object):
             self.operation = operation
         if policy is not None:
             self.policy = policy
+        if space_name is not None:
+            self.space_name = space_name
 
     @property
     def dependencies(self):
@@ -202,6 +207,27 @@ class NodeForStartExecutionInput(object):
         """
 
         self._policy = policy
+
+    @property
+    def space_name(self):
+        """Gets the space_name of this NodeForStartExecutionInput.  # noqa: E501
+
+
+        :return: The space_name of this NodeForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._space_name
+
+    @space_name.setter
+    def space_name(self, space_name):
+        """Sets the space_name of this NodeForStartExecutionInput.
+
+
+        :param space_name: The space_name of this NodeForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._space_name = space_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
