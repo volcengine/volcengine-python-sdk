@@ -33,7 +33,6 @@ class VolumeForDescribeVolumesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'attachments': 'list[AttachmentForDescribeVolumesOutput]',
         'auto_snapshot_policy_id': 'str',
         'auto_snapshot_policy_name': 'str',
         'baseline_performance': 'BaselinePerformanceForDescribeVolumesOutput',
@@ -41,25 +40,23 @@ class VolumeForDescribeVolumesOutput(object):
         'created_at': 'str',
         'delete_with_instance': 'bool',
         'description': 'str',
-        'device_name': 'str',
         'error_detail': 'str',
         'expired_time': 'str',
         'extra_performance': 'ExtraPerformanceForDescribeVolumesOutput',
-        'extra_performance_iops': 'int',
-        'extra_performance_throughput_mb': 'int',
-        'extra_performance_type_id': 'str',
         'image_id': 'str',
         'instance_id': 'str',
         'kind': 'str',
         'overdue_reclaim_time': 'str',
         'overdue_time': 'str',
         'pay_type': 'str',
+        'placement_group_id': 'str',
         'project_name': 'str',
         'renew_type': 'int',
         'size': 'str',
         'snapshot_count': 'int',
         'source_snapshot_id': 'str',
         'status': 'str',
+        'subgroup_number': 'int',
         'tags': 'list[TagForDescribeVolumesOutput]',
         'total_performance': 'TotalPerformanceForDescribeVolumesOutput',
         'trade_status': 'int',
@@ -71,7 +68,6 @@ class VolumeForDescribeVolumesOutput(object):
     }
 
     attribute_map = {
-        'attachments': 'Attachments',
         'auto_snapshot_policy_id': 'AutoSnapshotPolicyId',
         'auto_snapshot_policy_name': 'AutoSnapshotPolicyName',
         'baseline_performance': 'BaselinePerformance',
@@ -79,25 +75,23 @@ class VolumeForDescribeVolumesOutput(object):
         'created_at': 'CreatedAt',
         'delete_with_instance': 'DeleteWithInstance',
         'description': 'Description',
-        'device_name': 'DeviceName',
         'error_detail': 'ErrorDetail',
         'expired_time': 'ExpiredTime',
         'extra_performance': 'ExtraPerformance',
-        'extra_performance_iops': 'ExtraPerformanceIOPS',
-        'extra_performance_throughput_mb': 'ExtraPerformanceThroughputMB',
-        'extra_performance_type_id': 'ExtraPerformanceTypeId',
         'image_id': 'ImageId',
         'instance_id': 'InstanceId',
         'kind': 'Kind',
         'overdue_reclaim_time': 'OverdueReclaimTime',
         'overdue_time': 'OverdueTime',
         'pay_type': 'PayType',
+        'placement_group_id': 'PlacementGroupId',
         'project_name': 'ProjectName',
         'renew_type': 'RenewType',
         'size': 'Size',
         'snapshot_count': 'SnapshotCount',
         'source_snapshot_id': 'SourceSnapshotId',
         'status': 'Status',
+        'subgroup_number': 'SubgroupNumber',
         'tags': 'Tags',
         'total_performance': 'TotalPerformance',
         'trade_status': 'TradeStatus',
@@ -108,13 +102,12 @@ class VolumeForDescribeVolumesOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, attachments=None, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, extra_performance=None, extra_performance_iops=None, extra_performance_throughput_mb=None, extra_performance_type_id=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, billing_type=None, created_at=None, delete_with_instance=None, description=None, error_detail=None, expired_time=None, extra_performance=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, placement_group_id=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, subgroup_number=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """VolumeForDescribeVolumesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._attachments = None
         self._auto_snapshot_policy_id = None
         self._auto_snapshot_policy_name = None
         self._baseline_performance = None
@@ -122,25 +115,23 @@ class VolumeForDescribeVolumesOutput(object):
         self._created_at = None
         self._delete_with_instance = None
         self._description = None
-        self._device_name = None
         self._error_detail = None
         self._expired_time = None
         self._extra_performance = None
-        self._extra_performance_iops = None
-        self._extra_performance_throughput_mb = None
-        self._extra_performance_type_id = None
         self._image_id = None
         self._instance_id = None
         self._kind = None
         self._overdue_reclaim_time = None
         self._overdue_time = None
         self._pay_type = None
+        self._placement_group_id = None
         self._project_name = None
         self._renew_type = None
         self._size = None
         self._snapshot_count = None
         self._source_snapshot_id = None
         self._status = None
+        self._subgroup_number = None
         self._tags = None
         self._total_performance = None
         self._trade_status = None
@@ -151,8 +142,6 @@ class VolumeForDescribeVolumesOutput(object):
         self._zone_id = None
         self.discriminator = None
 
-        if attachments is not None:
-            self.attachments = attachments
         if auto_snapshot_policy_id is not None:
             self.auto_snapshot_policy_id = auto_snapshot_policy_id
         if auto_snapshot_policy_name is not None:
@@ -167,20 +156,12 @@ class VolumeForDescribeVolumesOutput(object):
             self.delete_with_instance = delete_with_instance
         if description is not None:
             self.description = description
-        if device_name is not None:
-            self.device_name = device_name
         if error_detail is not None:
             self.error_detail = error_detail
         if expired_time is not None:
             self.expired_time = expired_time
         if extra_performance is not None:
             self.extra_performance = extra_performance
-        if extra_performance_iops is not None:
-            self.extra_performance_iops = extra_performance_iops
-        if extra_performance_throughput_mb is not None:
-            self.extra_performance_throughput_mb = extra_performance_throughput_mb
-        if extra_performance_type_id is not None:
-            self.extra_performance_type_id = extra_performance_type_id
         if image_id is not None:
             self.image_id = image_id
         if instance_id is not None:
@@ -193,6 +174,8 @@ class VolumeForDescribeVolumesOutput(object):
             self.overdue_time = overdue_time
         if pay_type is not None:
             self.pay_type = pay_type
+        if placement_group_id is not None:
+            self.placement_group_id = placement_group_id
         if project_name is not None:
             self.project_name = project_name
         if renew_type is not None:
@@ -205,6 +188,8 @@ class VolumeForDescribeVolumesOutput(object):
             self.source_snapshot_id = source_snapshot_id
         if status is not None:
             self.status = status
+        if subgroup_number is not None:
+            self.subgroup_number = subgroup_number
         if tags is not None:
             self.tags = tags
         if total_performance is not None:
@@ -221,27 +206,6 @@ class VolumeForDescribeVolumesOutput(object):
             self.volume_type = volume_type
         if zone_id is not None:
             self.zone_id = zone_id
-
-    @property
-    def attachments(self):
-        """Gets the attachments of this VolumeForDescribeVolumesOutput.  # noqa: E501
-
-
-        :return: The attachments of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :rtype: list[AttachmentForDescribeVolumesOutput]
-        """
-        return self._attachments
-
-    @attachments.setter
-    def attachments(self, attachments):
-        """Sets the attachments of this VolumeForDescribeVolumesOutput.
-
-
-        :param attachments: The attachments of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :type: list[AttachmentForDescribeVolumesOutput]
-        """
-
-        self._attachments = attachments
 
     @property
     def auto_snapshot_policy_id(self):
@@ -391,27 +355,6 @@ class VolumeForDescribeVolumesOutput(object):
         self._description = description
 
     @property
-    def device_name(self):
-        """Gets the device_name of this VolumeForDescribeVolumesOutput.  # noqa: E501
-
-
-        :return: The device_name of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._device_name
-
-    @device_name.setter
-    def device_name(self, device_name):
-        """Sets the device_name of this VolumeForDescribeVolumesOutput.
-
-
-        :param device_name: The device_name of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._device_name = device_name
-
-    @property
     def error_detail(self):
         """Gets the error_detail of this VolumeForDescribeVolumesOutput.  # noqa: E501
 
@@ -473,69 +416,6 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._extra_performance = extra_performance
-
-    @property
-    def extra_performance_iops(self):
-        """Gets the extra_performance_iops of this VolumeForDescribeVolumesOutput.  # noqa: E501
-
-
-        :return: The extra_performance_iops of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._extra_performance_iops
-
-    @extra_performance_iops.setter
-    def extra_performance_iops(self, extra_performance_iops):
-        """Sets the extra_performance_iops of this VolumeForDescribeVolumesOutput.
-
-
-        :param extra_performance_iops: The extra_performance_iops of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._extra_performance_iops = extra_performance_iops
-
-    @property
-    def extra_performance_throughput_mb(self):
-        """Gets the extra_performance_throughput_mb of this VolumeForDescribeVolumesOutput.  # noqa: E501
-
-
-        :return: The extra_performance_throughput_mb of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._extra_performance_throughput_mb
-
-    @extra_performance_throughput_mb.setter
-    def extra_performance_throughput_mb(self, extra_performance_throughput_mb):
-        """Sets the extra_performance_throughput_mb of this VolumeForDescribeVolumesOutput.
-
-
-        :param extra_performance_throughput_mb: The extra_performance_throughput_mb of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._extra_performance_throughput_mb = extra_performance_throughput_mb
-
-    @property
-    def extra_performance_type_id(self):
-        """Gets the extra_performance_type_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
-
-
-        :return: The extra_performance_type_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._extra_performance_type_id
-
-    @extra_performance_type_id.setter
-    def extra_performance_type_id(self, extra_performance_type_id):
-        """Sets the extra_performance_type_id of this VolumeForDescribeVolumesOutput.
-
-
-        :param extra_performance_type_id: The extra_performance_type_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._extra_performance_type_id = extra_performance_type_id
 
     @property
     def image_id(self):
@@ -664,6 +544,27 @@ class VolumeForDescribeVolumesOutput(object):
         self._pay_type = pay_type
 
     @property
+    def placement_group_id(self):
+        """Gets the placement_group_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The placement_group_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._placement_group_id
+
+    @placement_group_id.setter
+    def placement_group_id(self, placement_group_id):
+        """Sets the placement_group_id of this VolumeForDescribeVolumesOutput.
+
+
+        :param placement_group_id: The placement_group_id of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._placement_group_id = placement_group_id
+
+    @property
     def project_name(self):
         """Gets the project_name of this VolumeForDescribeVolumesOutput.  # noqa: E501
 
@@ -788,6 +689,27 @@ class VolumeForDescribeVolumesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def subgroup_number(self):
+        """Gets the subgroup_number of this VolumeForDescribeVolumesOutput.  # noqa: E501
+
+
+        :return: The subgroup_number of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._subgroup_number
+
+    @subgroup_number.setter
+    def subgroup_number(self, subgroup_number):
+        """Sets the subgroup_number of this VolumeForDescribeVolumesOutput.
+
+
+        :param subgroup_number: The subgroup_number of this VolumeForDescribeVolumesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._subgroup_number = subgroup_number
 
     @property
     def tags(self):

@@ -39,6 +39,7 @@ class DescribeVolumesRequest(object):
         'page_number': 'int',
         'page_size': 'int',
         'project_name': 'str',
+        'sys_tag_visible': 'bool',
         'tag_filters': 'list[TagFilterForDescribeVolumesInput]',
         'volume_ids': 'list[str]',
         'volume_name': 'str',
@@ -54,6 +55,7 @@ class DescribeVolumesRequest(object):
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'project_name': 'ProjectName',
+        'sys_tag_visible': 'SysTagVisible',
         'tag_filters': 'TagFilters',
         'volume_ids': 'VolumeIds',
         'volume_name': 'VolumeName',
@@ -62,7 +64,7 @@ class DescribeVolumesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, billing_type=None, instance_id=None, kind=None, page_number=None, page_size=None, project_name=None, tag_filters=None, volume_ids=None, volume_name=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, instance_id=None, kind=None, page_number=None, page_size=None, project_name=None, sys_tag_visible=None, tag_filters=None, volume_ids=None, volume_name=None, volume_status=None, volume_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeVolumesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class DescribeVolumesRequest(object):
         self._page_number = None
         self._page_size = None
         self._project_name = None
+        self._sys_tag_visible = None
         self._tag_filters = None
         self._volume_ids = None
         self._volume_name = None
@@ -94,6 +97,8 @@ class DescribeVolumesRequest(object):
             self.page_size = page_size
         if project_name is not None:
             self.project_name = project_name
+        if sys_tag_visible is not None:
+            self.sys_tag_visible = sys_tag_visible
         if tag_filters is not None:
             self.tag_filters = tag_filters
         if volume_ids is not None:
@@ -235,6 +240,27 @@ class DescribeVolumesRequest(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def sys_tag_visible(self):
+        """Gets the sys_tag_visible of this DescribeVolumesRequest.  # noqa: E501
+
+
+        :return: The sys_tag_visible of this DescribeVolumesRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sys_tag_visible
+
+    @sys_tag_visible.setter
+    def sys_tag_visible(self, sys_tag_visible):
+        """Sets the sys_tag_visible of this DescribeVolumesRequest.
+
+
+        :param sys_tag_visible: The sys_tag_visible of this DescribeVolumesRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sys_tag_visible = sys_tag_visible
 
     @property
     def tag_filters(self):
