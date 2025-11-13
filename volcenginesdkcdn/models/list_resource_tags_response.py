@@ -33,24 +33,29 @@ class ListResourceTagsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'resource_tags': 'list[ResourceTagForListResourceTagsOutput]'
+        'resource_tags': 'list[ResourceTagForListResourceTagsOutput]',
+        'system_tags': 'list[SystemTagForListResourceTagsOutput]'
     }
 
     attribute_map = {
-        'resource_tags': 'ResourceTags'
+        'resource_tags': 'ResourceTags',
+        'system_tags': 'SystemTags'
     }
 
-    def __init__(self, resource_tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, resource_tags=None, system_tags=None, _configuration=None):  # noqa: E501
         """ListResourceTagsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._resource_tags = None
+        self._system_tags = None
         self.discriminator = None
 
         if resource_tags is not None:
             self.resource_tags = resource_tags
+        if system_tags is not None:
+            self.system_tags = system_tags
 
     @property
     def resource_tags(self):
@@ -72,6 +77,27 @@ class ListResourceTagsResponse(object):
         """
 
         self._resource_tags = resource_tags
+
+    @property
+    def system_tags(self):
+        """Gets the system_tags of this ListResourceTagsResponse.  # noqa: E501
+
+
+        :return: The system_tags of this ListResourceTagsResponse.  # noqa: E501
+        :rtype: list[SystemTagForListResourceTagsOutput]
+        """
+        return self._system_tags
+
+    @system_tags.setter
+    def system_tags(self, system_tags):
+        """Sets the system_tags of this ListResourceTagsResponse.
+
+
+        :param system_tags: The system_tags of this ListResourceTagsResponse.  # noqa: E501
+        :type: list[SystemTagForListResourceTagsOutput]
+        """
+
+        self._system_tags = system_tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

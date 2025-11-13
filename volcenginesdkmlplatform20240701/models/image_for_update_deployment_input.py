@@ -33,55 +33,112 @@ class ImageForUpdateDeploymentInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'credential': 'ConvertCredentialForUpdateDeploymentInput',
+        'description': 'str',
+        'id': 'str',
+        'image_credential': 'ImageCredentialForUpdateDeploymentInput',
         'type': 'str',
-        'url': 'str'
+        'url': 'str',
+        'version': 'str'
     }
 
     attribute_map = {
-        'credential': 'Credential',
+        'description': 'Description',
+        'id': 'Id',
+        'image_credential': 'ImageCredential',
         'type': 'Type',
-        'url': 'Url'
+        'url': 'Url',
+        'version': 'Version'
     }
 
-    def __init__(self, credential=None, type=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, id=None, image_credential=None, type=None, url=None, version=None, _configuration=None):  # noqa: E501
         """ImageForUpdateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._credential = None
+        self._description = None
+        self._id = None
+        self._image_credential = None
         self._type = None
         self._url = None
+        self._version = None
         self.discriminator = None
 
-        if credential is not None:
-            self.credential = credential
+        if description is not None:
+            self.description = description
+        if id is not None:
+            self.id = id
+        if image_credential is not None:
+            self.image_credential = image_credential
         if type is not None:
             self.type = type
         if url is not None:
             self.url = url
+        if version is not None:
+            self.version = version
 
     @property
-    def credential(self):
-        """Gets the credential of this ImageForUpdateDeploymentInput.  # noqa: E501
+    def description(self):
+        """Gets the description of this ImageForUpdateDeploymentInput.  # noqa: E501
 
 
-        :return: The credential of this ImageForUpdateDeploymentInput.  # noqa: E501
-        :rtype: ConvertCredentialForUpdateDeploymentInput
+        :return: The description of this ImageForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
         """
-        return self._credential
+        return self._description
 
-    @credential.setter
-    def credential(self, credential):
-        """Sets the credential of this ImageForUpdateDeploymentInput.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ImageForUpdateDeploymentInput.
 
 
-        :param credential: The credential of this ImageForUpdateDeploymentInput.  # noqa: E501
-        :type: ConvertCredentialForUpdateDeploymentInput
+        :param description: The description of this ImageForUpdateDeploymentInput.  # noqa: E501
+        :type: str
         """
 
-        self._credential = credential
+        self._description = description
+
+    @property
+    def id(self):
+        """Gets the id of this ImageForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The id of this ImageForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this ImageForUpdateDeploymentInput.
+
+
+        :param id: The id of this ImageForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def image_credential(self):
+        """Gets the image_credential of this ImageForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The image_credential of this ImageForUpdateDeploymentInput.  # noqa: E501
+        :rtype: ImageCredentialForUpdateDeploymentInput
+        """
+        return self._image_credential
+
+    @image_credential.setter
+    def image_credential(self, image_credential):
+        """Sets the image_credential of this ImageForUpdateDeploymentInput.
+
+
+        :param image_credential: The image_credential of this ImageForUpdateDeploymentInput.  # noqa: E501
+        :type: ImageCredentialForUpdateDeploymentInput
+        """
+
+        self._image_credential = image_credential
 
     @property
     def type(self):
@@ -124,6 +181,27 @@ class ImageForUpdateDeploymentInput(object):
         """
 
         self._url = url
+
+    @property
+    def version(self):
+        """Gets the version of this ImageForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The version of this ImageForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this ImageForUpdateDeploymentInput.
+
+
+        :param version: The version of this ImageForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

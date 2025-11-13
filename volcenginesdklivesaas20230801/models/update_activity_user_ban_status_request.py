@@ -37,6 +37,7 @@ class UpdateActivityUserBanStatusRequest(object):
         'ban_status': 'int',
         'ban_type': 'int',
         'cookies': 'list[str]',
+        'external_user_ids': 'list[str]',
         'user_ids': 'list[int]'
     }
 
@@ -45,10 +46,11 @@ class UpdateActivityUserBanStatusRequest(object):
         'ban_status': 'BanStatus',
         'ban_type': 'BanType',
         'cookies': 'Cookies',
+        'external_user_ids': 'ExternalUserIds',
         'user_ids': 'UserIds'
     }
 
-    def __init__(self, activity_id=None, ban_status=None, ban_type=None, cookies=None, user_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, ban_status=None, ban_type=None, cookies=None, external_user_ids=None, user_ids=None, _configuration=None):  # noqa: E501
         """UpdateActivityUserBanStatusRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class UpdateActivityUserBanStatusRequest(object):
         self._ban_status = None
         self._ban_type = None
         self._cookies = None
+        self._external_user_ids = None
         self._user_ids = None
         self.discriminator = None
 
@@ -68,6 +71,8 @@ class UpdateActivityUserBanStatusRequest(object):
             self.ban_type = ban_type
         if cookies is not None:
             self.cookies = cookies
+        if external_user_ids is not None:
+            self.external_user_ids = external_user_ids
         if user_ids is not None:
             self.user_ids = user_ids
 
@@ -156,6 +161,27 @@ class UpdateActivityUserBanStatusRequest(object):
         """
 
         self._cookies = cookies
+
+    @property
+    def external_user_ids(self):
+        """Gets the external_user_ids of this UpdateActivityUserBanStatusRequest.  # noqa: E501
+
+
+        :return: The external_user_ids of this UpdateActivityUserBanStatusRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._external_user_ids
+
+    @external_user_ids.setter
+    def external_user_ids(self, external_user_ids):
+        """Sets the external_user_ids of this UpdateActivityUserBanStatusRequest.
+
+
+        :param external_user_ids: The external_user_ids of this UpdateActivityUserBanStatusRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._external_user_ids = external_user_ids
 
     @property
     def user_ids(self):

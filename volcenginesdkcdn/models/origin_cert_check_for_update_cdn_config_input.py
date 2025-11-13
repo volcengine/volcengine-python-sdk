@@ -33,24 +33,50 @@ class OriginCertCheckForUpdateCdnConfigInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cert_info_list': 'list[CertInfoListForUpdateCdnConfigInput]',
         'switch': 'bool'
     }
 
     attribute_map = {
+        'cert_info_list': 'CertInfoList',
         'switch': 'Switch'
     }
 
-    def __init__(self, switch=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_info_list=None, switch=None, _configuration=None):  # noqa: E501
         """OriginCertCheckForUpdateCdnConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cert_info_list = None
         self._switch = None
         self.discriminator = None
 
+        if cert_info_list is not None:
+            self.cert_info_list = cert_info_list
         if switch is not None:
             self.switch = switch
+
+    @property
+    def cert_info_list(self):
+        """Gets the cert_info_list of this OriginCertCheckForUpdateCdnConfigInput.  # noqa: E501
+
+
+        :return: The cert_info_list of this OriginCertCheckForUpdateCdnConfigInput.  # noqa: E501
+        :rtype: list[CertInfoListForUpdateCdnConfigInput]
+        """
+        return self._cert_info_list
+
+    @cert_info_list.setter
+    def cert_info_list(self, cert_info_list):
+        """Sets the cert_info_list of this OriginCertCheckForUpdateCdnConfigInput.
+
+
+        :param cert_info_list: The cert_info_list of this OriginCertCheckForUpdateCdnConfigInput.  # noqa: E501
+        :type: list[CertInfoListForUpdateCdnConfigInput]
+        """
+
+        self._cert_info_list = cert_info_list
 
     @property
     def switch(self):

@@ -33,76 +33,102 @@ class VolumeResourceForCreateResourceGroupInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'size': 'int',
-        'volume_type_id': 'str',
+        'id': 'str',
+        'name': 'str',
+        'num': 'int',
         'zone_id': 'str'
     }
 
     attribute_map = {
-        'size': 'Size',
-        'volume_type_id': 'VolumeTypeId',
+        'id': 'Id',
+        'name': 'Name',
+        'num': 'Num',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, size=None, volume_type_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, num=None, zone_id=None, _configuration=None):  # noqa: E501
         """VolumeResourceForCreateResourceGroupInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._size = None
-        self._volume_type_id = None
+        self._id = None
+        self._name = None
+        self._num = None
         self._zone_id = None
         self.discriminator = None
 
-        if size is not None:
-            self.size = size
-        if volume_type_id is not None:
-            self.volume_type_id = volume_type_id
+        if id is not None:
+            self.id = id
+        if name is not None:
+            self.name = name
+        if num is not None:
+            self.num = num
         if zone_id is not None:
             self.zone_id = zone_id
 
     @property
-    def size(self):
-        """Gets the size of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+    def id(self):
+        """Gets the id of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
 
 
-        :return: The size of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
-        :rtype: int
-        """
-        return self._size
-
-    @size.setter
-    def size(self, size):
-        """Sets the size of this VolumeResourceForCreateResourceGroupInput.
-
-
-        :param size: The size of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
-        :type: int
-        """
-
-        self._size = size
-
-    @property
-    def volume_type_id(self):
-        """Gets the volume_type_id of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
-
-
-        :return: The volume_type_id of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+        :return: The id of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
         :rtype: str
         """
-        return self._volume_type_id
+        return self._id
 
-    @volume_type_id.setter
-    def volume_type_id(self, volume_type_id):
-        """Sets the volume_type_id of this VolumeResourceForCreateResourceGroupInput.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this VolumeResourceForCreateResourceGroupInput.
 
 
-        :param volume_type_id: The volume_type_id of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+        :param id: The id of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
         :type: str
         """
 
-        self._volume_type_id = volume_type_id
+        self._id = id
+
+    @property
+    def name(self):
+        """Gets the name of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+
+
+        :return: The name of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this VolumeResourceForCreateResourceGroupInput.
+
+
+        :param name: The name of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def num(self):
+        """Gets the num of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+
+
+        :return: The num of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._num
+
+    @num.setter
+    def num(self, num):
+        """Sets the num of this VolumeResourceForCreateResourceGroupInput.
+
+
+        :param num: The num of this VolumeResourceForCreateResourceGroupInput.  # noqa: E501
+        :type: int
+        """
+
+        self._num = num
 
     @property
     def zone_id(self):

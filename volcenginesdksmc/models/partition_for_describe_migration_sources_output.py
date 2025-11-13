@@ -36,17 +36,21 @@ class PartitionForDescribeMigrationSourcesOutput(object):
         'file_system_format': 'str',
         'mountpoint': 'str',
         'partition_index': 'int',
-        'partition_size': 'int'
+        'partition_name': 'str',
+        'partition_size': 'int',
+        'partition_used_size': 'int'
     }
 
     attribute_map = {
         'file_system_format': 'FileSystemFormat',
         'mountpoint': 'Mountpoint',
         'partition_index': 'PartitionIndex',
-        'partition_size': 'PartitionSize'
+        'partition_name': 'PartitionName',
+        'partition_size': 'PartitionSize',
+        'partition_used_size': 'PartitionUsedSize'
     }
 
-    def __init__(self, file_system_format=None, mountpoint=None, partition_index=None, partition_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, file_system_format=None, mountpoint=None, partition_index=None, partition_name=None, partition_size=None, partition_used_size=None, _configuration=None):  # noqa: E501
         """PartitionForDescribeMigrationSourcesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,7 +59,9 @@ class PartitionForDescribeMigrationSourcesOutput(object):
         self._file_system_format = None
         self._mountpoint = None
         self._partition_index = None
+        self._partition_name = None
         self._partition_size = None
+        self._partition_used_size = None
         self.discriminator = None
 
         if file_system_format is not None:
@@ -64,8 +70,12 @@ class PartitionForDescribeMigrationSourcesOutput(object):
             self.mountpoint = mountpoint
         if partition_index is not None:
             self.partition_index = partition_index
+        if partition_name is not None:
+            self.partition_name = partition_name
         if partition_size is not None:
             self.partition_size = partition_size
+        if partition_used_size is not None:
+            self.partition_used_size = partition_used_size
 
     @property
     def file_system_format(self):
@@ -131,6 +141,27 @@ class PartitionForDescribeMigrationSourcesOutput(object):
         self._partition_index = partition_index
 
     @property
+    def partition_name(self):
+        """Gets the partition_name of this PartitionForDescribeMigrationSourcesOutput.  # noqa: E501
+
+
+        :return: The partition_name of this PartitionForDescribeMigrationSourcesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._partition_name
+
+    @partition_name.setter
+    def partition_name(self, partition_name):
+        """Sets the partition_name of this PartitionForDescribeMigrationSourcesOutput.
+
+
+        :param partition_name: The partition_name of this PartitionForDescribeMigrationSourcesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._partition_name = partition_name
+
+    @property
     def partition_size(self):
         """Gets the partition_size of this PartitionForDescribeMigrationSourcesOutput.  # noqa: E501
 
@@ -150,6 +181,27 @@ class PartitionForDescribeMigrationSourcesOutput(object):
         """
 
         self._partition_size = partition_size
+
+    @property
+    def partition_used_size(self):
+        """Gets the partition_used_size of this PartitionForDescribeMigrationSourcesOutput.  # noqa: E501
+
+
+        :return: The partition_used_size of this PartitionForDescribeMigrationSourcesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._partition_used_size
+
+    @partition_used_size.setter
+    def partition_used_size(self, partition_used_size):
+        """Sets the partition_used_size of this PartitionForDescribeMigrationSourcesOutput.
+
+
+        :param partition_used_size: The partition_used_size of this PartitionForDescribeMigrationSourcesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._partition_used_size = partition_used_size
 
     def to_dict(self):
         """Returns the model properties as a dict"""

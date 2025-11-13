@@ -39,6 +39,7 @@ class GetContactResponse(object):
         'email': 'str',
         'email_active': 'bool',
         'id': 'str',
+        'lark_bot': 'LarkBotForGetContactOutput',
         'lark_bot_webhook': 'LarkBotWebhookForGetContactOutput',
         'name': 'str',
         'we_com_bot_webhook': 'WeComBotWebhookForGetContactOutput',
@@ -52,13 +53,14 @@ class GetContactResponse(object):
         'email': 'Email',
         'email_active': 'EmailActive',
         'id': 'Id',
+        'lark_bot': 'LarkBot',
         'lark_bot_webhook': 'LarkBotWebhook',
         'name': 'Name',
         'we_com_bot_webhook': 'WeComBotWebhook',
         'webhook': 'Webhook'
     }
 
-    def __init__(self, contact_group_ids=None, create_time=None, ding_talk_bot_webhook=None, email=None, email_active=None, id=None, lark_bot_webhook=None, name=None, we_com_bot_webhook=None, webhook=None, _configuration=None):  # noqa: E501
+    def __init__(self, contact_group_ids=None, create_time=None, ding_talk_bot_webhook=None, email=None, email_active=None, id=None, lark_bot=None, lark_bot_webhook=None, name=None, we_com_bot_webhook=None, webhook=None, _configuration=None):  # noqa: E501
         """GetContactResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class GetContactResponse(object):
         self._email = None
         self._email_active = None
         self._id = None
+        self._lark_bot = None
         self._lark_bot_webhook = None
         self._name = None
         self._we_com_bot_webhook = None
@@ -88,6 +91,8 @@ class GetContactResponse(object):
             self.email_active = email_active
         if id is not None:
             self.id = id
+        if lark_bot is not None:
+            self.lark_bot = lark_bot
         if lark_bot_webhook is not None:
             self.lark_bot_webhook = lark_bot_webhook
         if name is not None:
@@ -222,6 +227,27 @@ class GetContactResponse(object):
         """
 
         self._id = id
+
+    @property
+    def lark_bot(self):
+        """Gets the lark_bot of this GetContactResponse.  # noqa: E501
+
+
+        :return: The lark_bot of this GetContactResponse.  # noqa: E501
+        :rtype: LarkBotForGetContactOutput
+        """
+        return self._lark_bot
+
+    @lark_bot.setter
+    def lark_bot(self, lark_bot):
+        """Sets the lark_bot of this GetContactResponse.
+
+
+        :param lark_bot: The lark_bot of this GetContactResponse.  # noqa: E501
+        :type: LarkBotForGetContactOutput
+        """
+
+        self._lark_bot = lark_bot
 
     @property
     def lark_bot_webhook(self):

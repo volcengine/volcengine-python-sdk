@@ -40,6 +40,7 @@ class DataForDescribeContentTasksOutput(object):
         'refresh_prefix': 'bool',
         'remark': 'str',
         'status': 'str',
+        'status_code': 'int',
         'task_id': 'str',
         'task_type': 'str',
         'url': 'str'
@@ -53,12 +54,13 @@ class DataForDescribeContentTasksOutput(object):
         'refresh_prefix': 'RefreshPrefix',
         'remark': 'Remark',
         'status': 'Status',
+        'status_code': 'StatusCode',
         'task_id': 'TaskID',
         'task_type': 'TaskType',
         'url': 'Url'
     }
 
-    def __init__(self, create_time=None, delete=None, layer=None, process=None, refresh_prefix=None, remark=None, status=None, task_id=None, task_type=None, url=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, delete=None, layer=None, process=None, refresh_prefix=None, remark=None, status=None, status_code=None, task_id=None, task_type=None, url=None, _configuration=None):  # noqa: E501
         """DataForDescribeContentTasksOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DataForDescribeContentTasksOutput(object):
         self._refresh_prefix = None
         self._remark = None
         self._status = None
+        self._status_code = None
         self._task_id = None
         self._task_type = None
         self._url = None
@@ -90,6 +93,8 @@ class DataForDescribeContentTasksOutput(object):
             self.remark = remark
         if status is not None:
             self.status = status
+        if status_code is not None:
+            self.status_code = status_code
         if task_id is not None:
             self.task_id = task_id
         if task_type is not None:
@@ -243,6 +248,27 @@ class DataForDescribeContentTasksOutput(object):
         """
 
         self._status = status
+
+    @property
+    def status_code(self):
+        """Gets the status_code of this DataForDescribeContentTasksOutput.  # noqa: E501
+
+
+        :return: The status_code of this DataForDescribeContentTasksOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._status_code
+
+    @status_code.setter
+    def status_code(self, status_code):
+        """Sets the status_code of this DataForDescribeContentTasksOutput.
+
+
+        :param status_code: The status_code of this DataForDescribeContentTasksOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._status_code = status_code
 
     @property
     def task_id(self):

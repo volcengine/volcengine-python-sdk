@@ -75,13 +75,6 @@ class ConsistentHashConfigForCreateDeploymentInput(object):
         :param hash_key_type: The hash_key_type of this ConsistentHashConfigForCreateDeploymentInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["HttpHeaderName"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                hash_key_type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `hash_key_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(hash_key_type, allowed_values)
-            )
 
         self._hash_key_type = hash_key_type
 
