@@ -36,6 +36,7 @@ class PortForUpdateDeploymentInput(object):
         'expose_port': 'str',
         'listen_port': 'str',
         'path': 'str',
+        'source': 'str',
         'type': 'str'
     }
 
@@ -43,10 +44,11 @@ class PortForUpdateDeploymentInput(object):
         'expose_port': 'ExposePort',
         'listen_port': 'ListenPort',
         'path': 'Path',
+        'source': 'Source',
         'type': 'Type'
     }
 
-    def __init__(self, expose_port=None, listen_port=None, path=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, expose_port=None, listen_port=None, path=None, source=None, type=None, _configuration=None):  # noqa: E501
         """PortForUpdateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class PortForUpdateDeploymentInput(object):
         self._expose_port = None
         self._listen_port = None
         self._path = None
+        self._source = None
         self._type = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class PortForUpdateDeploymentInput(object):
             self.listen_port = listen_port
         if path is not None:
             self.path = path
+        if source is not None:
+            self.source = source
         if type is not None:
             self.type = type
 
@@ -131,6 +136,27 @@ class PortForUpdateDeploymentInput(object):
         self._path = path
 
     @property
+    def source(self):
+        """Gets the source of this PortForUpdateDeploymentInput.  # noqa: E501
+
+
+        :return: The source of this PortForUpdateDeploymentInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this PortForUpdateDeploymentInput.
+
+
+        :param source: The source of this PortForUpdateDeploymentInput.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
+
+    @property
     def type(self):
         """Gets the type of this PortForUpdateDeploymentInput.  # noqa: E501
 
@@ -148,13 +174,6 @@ class PortForUpdateDeploymentInput(object):
         :param type: The type of this PortForUpdateDeploymentInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["HTTP/1.1", "HTTP2", "GRPC", "Metrics", "Other"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                type not in allowed_values):
-            raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 

@@ -35,6 +35,8 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
     swagger_types = {
         'available_resource_id': 'str',
         'max_duration_hours': 'int',
+        'max_task_lifetime_seconds': 'int',
+        'min_continuous_resource_duration_seconds': 'int',
         'min_duration_hours': 'int',
         'recurrence_end_time': 'str',
         'recurrence_interval': 'str',
@@ -45,6 +47,8 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
     attribute_map = {
         'available_resource_id': 'AvailableResourceId',
         'max_duration_hours': 'MaxDurationHours',
+        'max_task_lifetime_seconds': 'MaxTaskLifetimeSeconds',
+        'min_continuous_resource_duration_seconds': 'MinContinuousResourceDurationSeconds',
         'min_duration_hours': 'MinDurationHours',
         'recurrence_end_time': 'RecurrenceEndTime',
         'recurrence_interval': 'RecurrenceInterval',
@@ -52,7 +56,7 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
         'reservation_type': 'ReservationType'
     }
 
-    def __init__(self, available_resource_id=None, max_duration_hours=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_start_time=None, reservation_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, available_resource_id=None, max_duration_hours=None, max_task_lifetime_seconds=None, min_continuous_resource_duration_seconds=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_start_time=None, reservation_type=None, _configuration=None):  # noqa: E501
         """ReservationConfigForCreateResourceReservationPlanInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +64,8 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
 
         self._available_resource_id = None
         self._max_duration_hours = None
+        self._max_task_lifetime_seconds = None
+        self._min_continuous_resource_duration_seconds = None
         self._min_duration_hours = None
         self._recurrence_end_time = None
         self._recurrence_interval = None
@@ -71,6 +77,10 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
             self.available_resource_id = available_resource_id
         if max_duration_hours is not None:
             self.max_duration_hours = max_duration_hours
+        if max_task_lifetime_seconds is not None:
+            self.max_task_lifetime_seconds = max_task_lifetime_seconds
+        if min_continuous_resource_duration_seconds is not None:
+            self.min_continuous_resource_duration_seconds = min_continuous_resource_duration_seconds
         if min_duration_hours is not None:
             self.min_duration_hours = min_duration_hours
         if recurrence_end_time is not None:
@@ -129,6 +139,48 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
             raise ValueError("Invalid value for `max_duration_hours`, must be a value greater than or equal to `4`")  # noqa: E501
 
         self._max_duration_hours = max_duration_hours
+
+    @property
+    def max_task_lifetime_seconds(self):
+        """Gets the max_task_lifetime_seconds of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+
+
+        :return: The max_task_lifetime_seconds of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_task_lifetime_seconds
+
+    @max_task_lifetime_seconds.setter
+    def max_task_lifetime_seconds(self, max_task_lifetime_seconds):
+        """Sets the max_task_lifetime_seconds of this ReservationConfigForCreateResourceReservationPlanInput.
+
+
+        :param max_task_lifetime_seconds: The max_task_lifetime_seconds of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_task_lifetime_seconds = max_task_lifetime_seconds
+
+    @property
+    def min_continuous_resource_duration_seconds(self):
+        """Gets the min_continuous_resource_duration_seconds of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+
+
+        :return: The min_continuous_resource_duration_seconds of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._min_continuous_resource_duration_seconds
+
+    @min_continuous_resource_duration_seconds.setter
+    def min_continuous_resource_duration_seconds(self, min_continuous_resource_duration_seconds):
+        """Sets the min_continuous_resource_duration_seconds of this ReservationConfigForCreateResourceReservationPlanInput.
+
+
+        :param min_continuous_resource_duration_seconds: The min_continuous_resource_duration_seconds of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+        :type: int
+        """
+
+        self._min_continuous_resource_duration_seconds = min_continuous_resource_duration_seconds
 
     @property
     def min_duration_hours(self):
