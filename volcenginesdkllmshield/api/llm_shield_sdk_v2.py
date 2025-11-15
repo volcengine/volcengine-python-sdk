@@ -6,7 +6,7 @@ import requests
 import json
 import os
 
-from ..models.llm_shield_sign import request_sign, Version
+from ..models.llm_shield_sign import request_sign, Version, ServiceCodeDev, ServiceCodeOnline, Service
 
 LLM_STREAM_SEND_BASE_WINDOW_V2 = 10
 LLM_STREAM_SEND_EXPONENT_V2 = 2
@@ -44,16 +44,23 @@ class MatchSource:
     ADMIN_CONTENTLIB = 2
     USER_CONTENTLIB = 3
 
-
 # 定义消息结构体
-class MessageV2(BaseModel):
-    role: str = Field("", alias="Role")
+class MultiPart(BaseModel):
     content: str = Field("", alias="Content")
     content_type: int = Field(ContentTypeV2.TEXT, alias="ContentType")
 
     class Config:
         populate_by_name = True
 
+# 定义消息结构体
+class MessageV2(BaseModel):
+    role: str = Field("", alias="Role")
+    content: str = Field("", alias="Content")
+    content_type: int = Field(ContentTypeV2.TEXT, alias="ContentType")
+    multi_part: Optional[MultiPart] = Field(None, alias="MultiPart")
+
+    class Config:
+        populate_by_name = True
 
 # 定义审核请求结构体
 class ModerateV2Request(BaseModel):
@@ -308,8 +315,18 @@ class ClientV2:
         self.http_client = requests.Session()
         self.http_client.timeout = timeout
 
-    def setProxy(self, proxy: dict):
+    def SetProxy(self, proxy: dict):
         self.http_client.proxies = proxy
+
+    def SetServiceCode(self, IsDev :bool):
+        global Service, ServiceCodeDev, ServiceCodeOnline
+        if IsDev:
+            Service = ServiceCodeDev
+        else:
+            Service = ServiceCodeOnline
+
+    def GetServiceCode(self):
+        return Service
 
     def Moderate(self, request: Optional[ModerateV2Request] = None) -> ModerateV2Response:
         path = "/v2/moderate"
