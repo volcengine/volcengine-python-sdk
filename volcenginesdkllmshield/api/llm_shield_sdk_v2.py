@@ -6,7 +6,7 @@ import requests
 import json
 import os
 
-from ..models.llm_shield_sign import request_sign, Version, SetServiceCode, GetServiceCode
+from ..models.llm_shield_sign import request_sign, Version, SetServiceDev, GetServiceCode
 
 LLM_STREAM_SEND_BASE_WINDOW_V2 = 10
 LLM_STREAM_SEND_EXPONENT_V2 = 2

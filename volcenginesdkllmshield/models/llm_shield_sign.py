@@ -30,7 +30,7 @@ ServiceCodeDev = "llmshield_dev"
 ServiceCodeOnline = "llmshield"
 Service = ServiceCodeOnline
 
-def SetServiceCode(IsDev :bool):
+def SetServiceDev(IsDev :bool):
     global Service, ServiceCodeDev, ServiceCodeOnline
     if IsDev:
         Service = ServiceCodeDev

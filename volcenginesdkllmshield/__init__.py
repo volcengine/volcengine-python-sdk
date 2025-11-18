@@ -15,7 +15,7 @@
 from __future__ import absolute_import
 
 # 导入API模块
-from volcenginesdkllmshield.api.llm_shield_sdk_v2 import ClientV2, SetServiceCode, GetServiceCode
+from volcenginesdkllmshield.api.llm_shield_sdk_v2 import ClientV2, SetServiceDev, GetServiceCode
 from volcenginesdkllmshield.api.llm_shield_sdk_v2 import (
     ContentTypeV2,
     DecisionTypeV2,
@@ -45,7 +45,7 @@ from volcenginesdkllmshield.api.llm_shield_sdk_v2 import (
     GenerateStreamResult,
     GenerateStreamV2ResponseData,
     CustomJSONEncoder,
-    SetServiceCode,
+    SetServiceDev,
     GetServiceCode
 )
 
@@ -83,6 +83,6 @@ __all__ = [
     'GenerateStreamResult',
     'GenerateStreamV2ResponseData',
     'CustomJSONEncoder',
-    'SetServiceCode',
+    'SetServiceDev',
     'GetServiceCode',
 ]
