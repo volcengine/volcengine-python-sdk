@@ -34,17 +34,15 @@ class ApigConfigForCreateDeploymentInput(object):
     """
     swagger_types = {
         'instance_id': 'str',
-        'upstream_config': 'UpstreamConfigForCreateDeploymentInput',
-        'use_public_instance': 'bool'
+        'upstream_config': 'UpstreamConfigForCreateDeploymentInput'
     }
 
     attribute_map = {
         'instance_id': 'InstanceID',
-        'upstream_config': 'UpstreamConfig',
-        'use_public_instance': 'UsePublicInstance'
+        'upstream_config': 'UpstreamConfig'
     }
 
-    def __init__(self, instance_id=None, upstream_config=None, use_public_instance=None, _configuration=None):  # noqa: E501
+    def __init__(self, instance_id=None, upstream_config=None, _configuration=None):  # noqa: E501
         """ApigConfigForCreateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,15 +50,12 @@ class ApigConfigForCreateDeploymentInput(object):
 
         self._instance_id = None
         self._upstream_config = None
-        self._use_public_instance = None
         self.discriminator = None
 
         if instance_id is not None:
             self.instance_id = instance_id
         if upstream_config is not None:
             self.upstream_config = upstream_config
-        if use_public_instance is not None:
-            self.use_public_instance = use_public_instance
 
     @property
     def instance_id(self):
@@ -103,27 +98,6 @@ class ApigConfigForCreateDeploymentInput(object):
         """
 
         self._upstream_config = upstream_config
-
-    @property
-    def use_public_instance(self):
-        """Gets the use_public_instance of this ApigConfigForCreateDeploymentInput.  # noqa: E501
-
-
-        :return: The use_public_instance of this ApigConfigForCreateDeploymentInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._use_public_instance
-
-    @use_public_instance.setter
-    def use_public_instance(self, use_public_instance):
-        """Sets the use_public_instance of this ApigConfigForCreateDeploymentInput.
-
-
-        :param use_public_instance: The use_public_instance of this ApigConfigForCreateDeploymentInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._use_public_instance = use_public_instance
 
     def to_dict(self):
         """Returns the model properties as a dict"""

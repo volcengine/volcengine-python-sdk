@@ -33,71 +33,97 @@ class CredentialForGetDevInstanceOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'registry_token': 'str',
-        'registry_username': 'str'
+        'access_key': 'str',
+        'secret_access_key': 'str',
+        'use_service_linked_role': 'bool'
     }
 
     attribute_map = {
-        'registry_token': 'RegistryToken',
-        'registry_username': 'RegistryUsername'
+        'access_key': 'AccessKey',
+        'secret_access_key': 'SecretAccessKey',
+        'use_service_linked_role': 'UseServiceLinkedRole'
     }
 
-    def __init__(self, registry_token=None, registry_username=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key=None, secret_access_key=None, use_service_linked_role=None, _configuration=None):  # noqa: E501
         """CredentialForGetDevInstanceOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._registry_token = None
-        self._registry_username = None
+        self._access_key = None
+        self._secret_access_key = None
+        self._use_service_linked_role = None
         self.discriminator = None
 
-        if registry_token is not None:
-            self.registry_token = registry_token
-        if registry_username is not None:
-            self.registry_username = registry_username
+        if access_key is not None:
+            self.access_key = access_key
+        if secret_access_key is not None:
+            self.secret_access_key = secret_access_key
+        if use_service_linked_role is not None:
+            self.use_service_linked_role = use_service_linked_role
 
     @property
-    def registry_token(self):
-        """Gets the registry_token of this CredentialForGetDevInstanceOutput.  # noqa: E501
+    def access_key(self):
+        """Gets the access_key of this CredentialForGetDevInstanceOutput.  # noqa: E501
 
 
-        :return: The registry_token of this CredentialForGetDevInstanceOutput.  # noqa: E501
+        :return: The access_key of this CredentialForGetDevInstanceOutput.  # noqa: E501
         :rtype: str
         """
-        return self._registry_token
+        return self._access_key
 
-    @registry_token.setter
-    def registry_token(self, registry_token):
-        """Sets the registry_token of this CredentialForGetDevInstanceOutput.
+    @access_key.setter
+    def access_key(self, access_key):
+        """Sets the access_key of this CredentialForGetDevInstanceOutput.
 
 
-        :param registry_token: The registry_token of this CredentialForGetDevInstanceOutput.  # noqa: E501
+        :param access_key: The access_key of this CredentialForGetDevInstanceOutput.  # noqa: E501
         :type: str
         """
 
-        self._registry_token = registry_token
+        self._access_key = access_key
 
     @property
-    def registry_username(self):
-        """Gets the registry_username of this CredentialForGetDevInstanceOutput.  # noqa: E501
+    def secret_access_key(self):
+        """Gets the secret_access_key of this CredentialForGetDevInstanceOutput.  # noqa: E501
 
 
-        :return: The registry_username of this CredentialForGetDevInstanceOutput.  # noqa: E501
+        :return: The secret_access_key of this CredentialForGetDevInstanceOutput.  # noqa: E501
         :rtype: str
         """
-        return self._registry_username
+        return self._secret_access_key
 
-    @registry_username.setter
-    def registry_username(self, registry_username):
-        """Sets the registry_username of this CredentialForGetDevInstanceOutput.
+    @secret_access_key.setter
+    def secret_access_key(self, secret_access_key):
+        """Sets the secret_access_key of this CredentialForGetDevInstanceOutput.
 
 
-        :param registry_username: The registry_username of this CredentialForGetDevInstanceOutput.  # noqa: E501
+        :param secret_access_key: The secret_access_key of this CredentialForGetDevInstanceOutput.  # noqa: E501
         :type: str
         """
 
-        self._registry_username = registry_username
+        self._secret_access_key = secret_access_key
+
+    @property
+    def use_service_linked_role(self):
+        """Gets the use_service_linked_role of this CredentialForGetDevInstanceOutput.  # noqa: E501
+
+
+        :return: The use_service_linked_role of this CredentialForGetDevInstanceOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_service_linked_role
+
+    @use_service_linked_role.setter
+    def use_service_linked_role(self, use_service_linked_role):
+        """Sets the use_service_linked_role of this CredentialForGetDevInstanceOutput.
+
+
+        :param use_service_linked_role: The use_service_linked_role of this CredentialForGetDevInstanceOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_service_linked_role = use_service_linked_role
 
     def to_dict(self):
         """Returns the model properties as a dict"""

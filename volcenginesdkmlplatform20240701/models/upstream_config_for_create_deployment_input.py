@@ -96,6 +96,13 @@ class UpstreamConfigForCreateDeploymentInput(object):
         :param load_balance_policy: The load_balance_policy of this UpstreamConfigForCreateDeploymentInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ROUND_ROBIN", "LEAST_CONN", "RANDOM", "CONSISTENT_HASH"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                load_balance_policy not in allowed_values):
+            raise ValueError(
+                "Invalid value for `load_balance_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(load_balance_policy, allowed_values)
+            )
 
         self._load_balance_policy = load_balance_policy
 

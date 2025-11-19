@@ -34,15 +34,17 @@ class ConvertCredentialForCreateJobInput(object):
     """
     swagger_types = {
         'access_key': 'str',
-        'secret_access_key': 'str'
+        'secret_access_key': 'str',
+        'use_service_linked_role': 'bool'
     }
 
     attribute_map = {
         'access_key': 'AccessKey',
-        'secret_access_key': 'SecretAccessKey'
+        'secret_access_key': 'SecretAccessKey',
+        'use_service_linked_role': 'UseServiceLinkedRole'
     }
 
-    def __init__(self, access_key=None, secret_access_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key=None, secret_access_key=None, use_service_linked_role=None, _configuration=None):  # noqa: E501
         """ConvertCredentialForCreateJobInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class ConvertCredentialForCreateJobInput(object):
 
         self._access_key = None
         self._secret_access_key = None
+        self._use_service_linked_role = None
         self.discriminator = None
 
         if access_key is not None:
             self.access_key = access_key
         if secret_access_key is not None:
             self.secret_access_key = secret_access_key
+        if use_service_linked_role is not None:
+            self.use_service_linked_role = use_service_linked_role
 
     @property
     def access_key(self):
@@ -98,6 +103,27 @@ class ConvertCredentialForCreateJobInput(object):
         """
 
         self._secret_access_key = secret_access_key
+
+    @property
+    def use_service_linked_role(self):
+        """Gets the use_service_linked_role of this ConvertCredentialForCreateJobInput.  # noqa: E501
+
+
+        :return: The use_service_linked_role of this ConvertCredentialForCreateJobInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_service_linked_role
+
+    @use_service_linked_role.setter
+    def use_service_linked_role(self, use_service_linked_role):
+        """Sets the use_service_linked_role of this ConvertCredentialForCreateJobInput.
+
+
+        :param use_service_linked_role: The use_service_linked_role of this ConvertCredentialForCreateJobInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_service_linked_role = use_service_linked_role
 
     def to_dict(self):
         """Returns the model properties as a dict"""
