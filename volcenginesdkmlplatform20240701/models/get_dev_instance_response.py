@@ -36,6 +36,7 @@ class GetDevInstanceResponse(object):
         'allow_image_build': 'bool',
         'create_time': 'str',
         'creator_trn': 'str',
+        'credential': 'CredentialForGetDevInstanceOutput',
         'default_folder': 'str',
         'description': 'str',
         'expected_stop_time': 'str',
@@ -66,6 +67,7 @@ class GetDevInstanceResponse(object):
         'allow_image_build': 'AllowImageBuild',
         'create_time': 'CreateTime',
         'creator_trn': 'CreatorTrn',
+        'credential': 'Credential',
         'default_folder': 'DefaultFolder',
         'description': 'Description',
         'expected_stop_time': 'ExpectedStopTime',
@@ -92,7 +94,7 @@ class GetDevInstanceResponse(object):
         'zone_id': 'ZoneID'
     }
 
-    def __init__(self, allow_image_build=None, create_time=None, creator_trn=None, default_folder=None, description=None, expected_stop_time=None, id=None, image=None, is_building_image=None, launch_time=None, name=None, node_affinity_spec=None, numa_affinity=None, numa_status=None, ports=None, project_name=None, resource_claim=None, resource_queue_id=None, resource_reservation_plan_id=None, ssh_public_key=None, status=None, stop_time=None, stopped_time=None, storages=None, update_time=None, volume=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_image_build=None, create_time=None, creator_trn=None, credential=None, default_folder=None, description=None, expected_stop_time=None, id=None, image=None, is_building_image=None, launch_time=None, name=None, node_affinity_spec=None, numa_affinity=None, numa_status=None, ports=None, project_name=None, resource_claim=None, resource_queue_id=None, resource_reservation_plan_id=None, ssh_public_key=None, status=None, stop_time=None, stopped_time=None, storages=None, update_time=None, volume=None, zone_id=None, _configuration=None):  # noqa: E501
         """GetDevInstanceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,6 +103,7 @@ class GetDevInstanceResponse(object):
         self._allow_image_build = None
         self._create_time = None
         self._creator_trn = None
+        self._credential = None
         self._default_folder = None
         self._description = None
         self._expected_stop_time = None
@@ -133,6 +136,8 @@ class GetDevInstanceResponse(object):
             self.create_time = create_time
         if creator_trn is not None:
             self.creator_trn = creator_trn
+        if credential is not None:
+            self.credential = credential
         if default_folder is not None:
             self.default_folder = default_folder
         if description is not None:
@@ -244,6 +249,27 @@ class GetDevInstanceResponse(object):
         """
 
         self._creator_trn = creator_trn
+
+    @property
+    def credential(self):
+        """Gets the credential of this GetDevInstanceResponse.  # noqa: E501
+
+
+        :return: The credential of this GetDevInstanceResponse.  # noqa: E501
+        :rtype: CredentialForGetDevInstanceOutput
+        """
+        return self._credential
+
+    @credential.setter
+    def credential(self, credential):
+        """Sets the credential of this GetDevInstanceResponse.
+
+
+        :param credential: The credential of this GetDevInstanceResponse.  # noqa: E501
+        :type: CredentialForGetDevInstanceOutput
+        """
+
+        self._credential = credential
 
     @property
     def default_folder(self):

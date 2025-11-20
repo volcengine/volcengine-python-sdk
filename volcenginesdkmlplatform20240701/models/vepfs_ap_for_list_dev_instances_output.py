@@ -34,15 +34,17 @@ class VepfsAPForListDevInstancesOutput(object):
     """
     swagger_types = {
         'access_point_id': 'str',
-        'id': 'str'
+        'id': 'str',
+        'use_eic': 'bool'
     }
 
     attribute_map = {
         'access_point_id': 'AccessPointId',
-        'id': 'Id'
+        'id': 'Id',
+        'use_eic': 'UseEic'
     }
 
-    def __init__(self, access_point_id=None, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_point_id=None, id=None, use_eic=None, _configuration=None):  # noqa: E501
         """VepfsAPForListDevInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class VepfsAPForListDevInstancesOutput(object):
 
         self._access_point_id = None
         self._id = None
+        self._use_eic = None
         self.discriminator = None
 
         if access_point_id is not None:
             self.access_point_id = access_point_id
         if id is not None:
             self.id = id
+        if use_eic is not None:
+            self.use_eic = use_eic
 
     @property
     def access_point_id(self):
@@ -98,6 +103,27 @@ class VepfsAPForListDevInstancesOutput(object):
         """
 
         self._id = id
+
+    @property
+    def use_eic(self):
+        """Gets the use_eic of this VepfsAPForListDevInstancesOutput.  # noqa: E501
+
+
+        :return: The use_eic of this VepfsAPForListDevInstancesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_eic
+
+    @use_eic.setter
+    def use_eic(self, use_eic):
+        """Sets the use_eic of this VepfsAPForListDevInstancesOutput.
+
+
+        :param use_eic: The use_eic of this VepfsAPForListDevInstancesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_eic = use_eic
 
     def to_dict(self):
         """Returns the model properties as a dict"""
