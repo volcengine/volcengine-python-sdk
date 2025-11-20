@@ -45,6 +45,7 @@ class ConvertTaskForGetExecutionOutput(object):
         'storyline': 'ConvertConvertConvertStorylineForGetExecutionOutput',
         'type': 'str',
         'video_generation': 'ConvertVideoGenerationForGetExecutionOutput',
+        'video_matting': 'ConvertVideoMattingForGetExecutionOutput',
         'video_summary': 'ConvertVideoSummaryForGetExecutionOutput',
         'video_understanding': 'ConvertVideoUnderstandingForGetExecutionOutput',
         'vision': 'ConvertVisionForGetExecutionOutput'
@@ -63,12 +64,13 @@ class ConvertTaskForGetExecutionOutput(object):
         'storyline': 'Storyline',
         'type': 'Type',
         'video_generation': 'VideoGeneration',
+        'video_matting': 'VideoMatting',
         'video_summary': 'VideoSummary',
         'video_understanding': 'VideoUnderstanding',
         'vision': 'Vision'
     }
 
-    def __init__(self, ad_audit=None, asr=None, audio_extract=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
+    def __init__(self, ad_audit=None, asr=None, audio_extract=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_matting=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
         """ConvertTaskForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,6 +88,7 @@ class ConvertTaskForGetExecutionOutput(object):
         self._storyline = None
         self._type = None
         self._video_generation = None
+        self._video_matting = None
         self._video_summary = None
         self._video_understanding = None
         self._vision = None
@@ -115,6 +118,8 @@ class ConvertTaskForGetExecutionOutput(object):
             self.type = type
         if video_generation is not None:
             self.video_generation = video_generation
+        if video_matting is not None:
+            self.video_matting = video_matting
         if video_summary is not None:
             self.video_summary = video_summary
         if video_understanding is not None:
@@ -373,6 +378,27 @@ class ConvertTaskForGetExecutionOutput(object):
         """
 
         self._video_generation = video_generation
+
+    @property
+    def video_matting(self):
+        """Gets the video_matting of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_matting of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :rtype: ConvertVideoMattingForGetExecutionOutput
+        """
+        return self._video_matting
+
+    @video_matting.setter
+    def video_matting(self, video_matting):
+        """Sets the video_matting of this ConvertTaskForGetExecutionOutput.
+
+
+        :param video_matting: The video_matting of this ConvertTaskForGetExecutionOutput.  # noqa: E501
+        :type: ConvertVideoMattingForGetExecutionOutput
+        """
+
+        self._video_matting = video_matting
 
     @property
     def video_summary(self):
