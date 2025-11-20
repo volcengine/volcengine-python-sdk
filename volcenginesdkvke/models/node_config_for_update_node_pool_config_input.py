@@ -37,12 +37,16 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'auto_renew': 'bool',
         'auto_renew_period': 'int',
         'data_volumes': 'list[DataVolumeForUpdateNodePoolConfigInput]',
+        'hostname': 'str',
         'hpc_cluster_ids': 'list[str]',
         'image_id': 'str',
         'initialize_script': 'str',
+        'instance_charge_type': 'str',
+        'instance_name': 'str',
         'instance_type_ids': 'list[str]',
         'instances_distribution': 'InstancesDistributionForUpdateNodePoolConfigInput',
         'name_prefix': 'str',
+        'network_traffic_mode': 'str',
         'period': 'int',
         'pre_script': 'str',
         'project_name': 'str',
@@ -59,12 +63,16 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'auto_renew': 'AutoRenew',
         'auto_renew_period': 'AutoRenewPeriod',
         'data_volumes': 'DataVolumes',
+        'hostname': 'Hostname',
         'hpc_cluster_ids': 'HpcClusterIds',
         'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
+        'instance_charge_type': 'InstanceChargeType',
+        'instance_name': 'InstanceName',
         'instance_type_ids': 'InstanceTypeIds',
         'instances_distribution': 'InstancesDistribution',
         'name_prefix': 'NamePrefix',
+        'network_traffic_mode': 'NetworkTrafficMode',
         'period': 'Period',
         'pre_script': 'PreScript',
         'project_name': 'ProjectName',
@@ -76,7 +84,7 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, hostname=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_name=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, network_traffic_mode=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,12 +94,16 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         self._auto_renew = None
         self._auto_renew_period = None
         self._data_volumes = None
+        self._hostname = None
         self._hpc_cluster_ids = None
         self._image_id = None
         self._initialize_script = None
+        self._instance_charge_type = None
+        self._instance_name = None
         self._instance_type_ids = None
         self._instances_distribution = None
         self._name_prefix = None
+        self._network_traffic_mode = None
         self._period = None
         self._pre_script = None
         self._project_name = None
@@ -111,18 +123,26 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
             self.auto_renew_period = auto_renew_period
         if data_volumes is not None:
             self.data_volumes = data_volumes
+        if hostname is not None:
+            self.hostname = hostname
         if hpc_cluster_ids is not None:
             self.hpc_cluster_ids = hpc_cluster_ids
         if image_id is not None:
             self.image_id = image_id
         if initialize_script is not None:
             self.initialize_script = initialize_script
+        if instance_charge_type is not None:
+            self.instance_charge_type = instance_charge_type
+        if instance_name is not None:
+            self.instance_name = instance_name
         if instance_type_ids is not None:
             self.instance_type_ids = instance_type_ids
         if instances_distribution is not None:
             self.instances_distribution = instances_distribution
         if name_prefix is not None:
             self.name_prefix = name_prefix
+        if network_traffic_mode is not None:
+            self.network_traffic_mode = network_traffic_mode
         if period is not None:
             self.period = period
         if pre_script is not None:
@@ -227,6 +247,27 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         self._data_volumes = data_volumes
 
     @property
+    def hostname(self):
+        """Gets the hostname of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The hostname of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._hostname
+
+    @hostname.setter
+    def hostname(self, hostname):
+        """Sets the hostname of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param hostname: The hostname of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._hostname = hostname
+
+    @property
     def hpc_cluster_ids(self):
         """Gets the hpc_cluster_ids of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
 
@@ -290,6 +331,55 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         self._initialize_script = initialize_script
 
     @property
+    def instance_charge_type(self):
+        """Gets the instance_charge_type of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The instance_charge_type of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_charge_type
+
+    @instance_charge_type.setter
+    def instance_charge_type(self, instance_charge_type):
+        """Sets the instance_charge_type of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param instance_charge_type: The instance_charge_type of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["PostPaid", "PrePaid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                instance_charge_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `instance_charge_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(instance_charge_type, allowed_values)
+            )
+
+        self._instance_charge_type = instance_charge_type
+
+    @property
+    def instance_name(self):
+        """Gets the instance_name of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The instance_name of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param instance_name: The instance_name of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
+
+    @property
     def instance_type_ids(self):
         """Gets the instance_type_ids of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
 
@@ -351,6 +441,27 @@ class NodeConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._name_prefix = name_prefix
+
+    @property
+    def network_traffic_mode(self):
+        """Gets the network_traffic_mode of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The network_traffic_mode of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_traffic_mode
+
+    @network_traffic_mode.setter
+    def network_traffic_mode(self, network_traffic_mode):
+        """Sets the network_traffic_mode of this NodeConfigForUpdateNodePoolConfigInput.
+
+
+        :param network_traffic_mode: The network_traffic_mode of this NodeConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._network_traffic_mode = network_traffic_mode
 
     @property
     def period(self):
