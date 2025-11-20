@@ -36,17 +36,19 @@ class PortForCreateDevInstanceInput(object):
         'enable_public_network_access': 'bool',
         'external_port': 'int',
         'internal_port': 'int',
-        'name': 'str'
+        'name': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
         'enable_public_network_access': 'EnablePublicNetworkAccess',
         'external_port': 'ExternalPort',
         'internal_port': 'InternalPort',
-        'name': 'Name'
+        'name': 'Name',
+        'type': 'Type'
     }
 
-    def __init__(self, enable_public_network_access=None, external_port=None, internal_port=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable_public_network_access=None, external_port=None, internal_port=None, name=None, type=None, _configuration=None):  # noqa: E501
         """PortForCreateDevInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class PortForCreateDevInstanceInput(object):
         self._external_port = None
         self._internal_port = None
         self._name = None
+        self._type = None
         self.discriminator = None
 
         if enable_public_network_access is not None:
@@ -66,6 +69,8 @@ class PortForCreateDevInstanceInput(object):
             self.internal_port = internal_port
         if name is not None:
             self.name = name
+        if type is not None:
+            self.type = type
 
     @property
     def enable_public_network_access(self):
@@ -150,6 +155,34 @@ class PortForCreateDevInstanceInput(object):
         """
 
         self._name = name
+
+    @property
+    def type(self):
+        """Gets the type of this PortForCreateDevInstanceInput.  # noqa: E501
+
+
+        :return: The type of this PortForCreateDevInstanceInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this PortForCreateDevInstanceInput.
+
+
+        :param type: The type of this PortForCreateDevInstanceInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["system", "custom"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

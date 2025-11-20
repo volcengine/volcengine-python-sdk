@@ -38,6 +38,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
         'kubelet_config': 'KubeletConfigForUpdateNodePoolConfigInput',
         'labels': 'list[LabelForUpdateNodePoolConfigInput]',
         'name_prefix': 'str',
+        'name_suffix': 'str',
+        'name_use_hostname': 'bool',
         'taints': 'list[TaintForUpdateNodePoolConfigInput]'
     }
 
@@ -47,10 +49,12 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
         'kubelet_config': 'KubeletConfig',
         'labels': 'Labels',
         'name_prefix': 'NamePrefix',
+        'name_suffix': 'NameSuffix',
+        'name_use_hostname': 'NameUseHostname',
         'taints': 'Taints'
     }
 
-    def __init__(self, auto_sync_disabled=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, taints=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_sync_disabled=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, name_suffix=None, name_use_hostname=None, taints=None, _configuration=None):  # noqa: E501
         """KubernetesConfigForUpdateNodePoolConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,6 +65,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
         self._kubelet_config = None
         self._labels = None
         self._name_prefix = None
+        self._name_suffix = None
+        self._name_use_hostname = None
         self._taints = None
         self.discriminator = None
 
@@ -74,6 +80,10 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
             self.labels = labels
         if name_prefix is not None:
             self.name_prefix = name_prefix
+        if name_suffix is not None:
+            self.name_suffix = name_suffix
+        if name_use_hostname is not None:
+            self.name_use_hostname = name_use_hostname
         if taints is not None:
             self.taints = taints
 
@@ -181,6 +191,48 @@ class KubernetesConfigForUpdateNodePoolConfigInput(object):
         """
 
         self._name_prefix = name_prefix
+
+    @property
+    def name_suffix(self):
+        """Gets the name_suffix of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The name_suffix of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name_suffix
+
+    @name_suffix.setter
+    def name_suffix(self, name_suffix):
+        """Sets the name_suffix of this KubernetesConfigForUpdateNodePoolConfigInput.
+
+
+        :param name_suffix: The name_suffix of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: str
+        """
+
+        self._name_suffix = name_suffix
+
+    @property
+    def name_use_hostname(self):
+        """Gets the name_use_hostname of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+
+
+        :return: The name_use_hostname of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._name_use_hostname
+
+    @name_use_hostname.setter
+    def name_use_hostname(self, name_use_hostname):
+        """Sets the name_use_hostname of this KubernetesConfigForUpdateNodePoolConfigInput.
+
+
+        :param name_use_hostname: The name_use_hostname of this KubernetesConfigForUpdateNodePoolConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._name_use_hostname = name_use_hostname
 
     @property
     def taints(self):
