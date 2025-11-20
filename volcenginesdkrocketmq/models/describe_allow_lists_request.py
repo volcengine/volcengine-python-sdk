@@ -33,23 +33,338 @@ class DescribeAllowListsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_desc': 'str',
+        'allow_list_id': 'str',
+        'allow_list_name': 'str',
+        'ascending': 'bool',
+        'filter_info': 'FilterInfoForDescribeAllowListsInput',
+        'ip_address': 'str',
+        'instance_id': 'str',
+        'lbid': 'str',
+        'plb_address_type': 'str',
+        'page_number': 'int',
+        'page_size': 'int',
+        'project_name': 'str',
         'region_id': 'str'
     }
 
     attribute_map = {
-        'region_id': 'RegionID'
+        'allow_list_desc': 'AllowListDesc',
+        'allow_list_id': 'AllowListId',
+        'allow_list_name': 'AllowListName',
+        'ascending': 'Ascending',
+        'filter_info': 'FilterInfo',
+        'ip_address': 'IPAddress',
+        'instance_id': 'InstanceId',
+        'lbid': 'LBId',
+        'plb_address_type': 'PLBAddressType',
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize',
+        'project_name': 'ProjectName',
+        'region_id': 'RegionId'
     }
 
-    def __init__(self, region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_desc=None, allow_list_id=None, allow_list_name=None, ascending=None, filter_info=None, ip_address=None, instance_id=None, lbid=None, plb_address_type=None, page_number=None, page_size=None, project_name=None, region_id=None, _configuration=None):  # noqa: E501
         """DescribeAllowListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_desc = None
+        self._allow_list_id = None
+        self._allow_list_name = None
+        self._ascending = None
+        self._filter_info = None
+        self._ip_address = None
+        self._instance_id = None
+        self._lbid = None
+        self._plb_address_type = None
+        self._page_number = None
+        self._page_size = None
+        self._project_name = None
         self._region_id = None
         self.discriminator = None
 
-        self.region_id = region_id
+        if allow_list_desc is not None:
+            self.allow_list_desc = allow_list_desc
+        if allow_list_id is not None:
+            self.allow_list_id = allow_list_id
+        self.allow_list_name = allow_list_name
+        if ascending is not None:
+            self.ascending = ascending
+        if filter_info is not None:
+            self.filter_info = filter_info
+        if ip_address is not None:
+            self.ip_address = ip_address
+        self.instance_id = instance_id
+        if lbid is not None:
+            self.lbid = lbid
+        if plb_address_type is not None:
+            self.plb_address_type = plb_address_type
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
+        if region_id is not None:
+            self.region_id = region_id
+
+    @property
+    def allow_list_desc(self):
+        """Gets the allow_list_desc of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The allow_list_desc of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_desc
+
+    @allow_list_desc.setter
+    def allow_list_desc(self, allow_list_desc):
+        """Sets the allow_list_desc of this DescribeAllowListsRequest.
+
+
+        :param allow_list_desc: The allow_list_desc of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_desc = allow_list_desc
+
+    @property
+    def allow_list_id(self):
+        """Gets the allow_list_id of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The allow_list_id of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_id
+
+    @allow_list_id.setter
+    def allow_list_id(self, allow_list_id):
+        """Sets the allow_list_id of this DescribeAllowListsRequest.
+
+
+        :param allow_list_id: The allow_list_id of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_id = allow_list_id
+
+    @property
+    def allow_list_name(self):
+        """Gets the allow_list_name of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The allow_list_name of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_name
+
+    @allow_list_name.setter
+    def allow_list_name(self, allow_list_name):
+        """Sets the allow_list_name of this DescribeAllowListsRequest.
+
+
+        :param allow_list_name: The allow_list_name of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and allow_list_name is None:
+            raise ValueError("Invalid value for `allow_list_name`, must not be `None`")  # noqa: E501
+
+        self._allow_list_name = allow_list_name
+
+    @property
+    def ascending(self):
+        """Gets the ascending of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The ascending of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ascending
+
+    @ascending.setter
+    def ascending(self, ascending):
+        """Sets the ascending of this DescribeAllowListsRequest.
+
+
+        :param ascending: The ascending of this DescribeAllowListsRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._ascending = ascending
+
+    @property
+    def filter_info(self):
+        """Gets the filter_info of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The filter_info of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: FilterInfoForDescribeAllowListsInput
+        """
+        return self._filter_info
+
+    @filter_info.setter
+    def filter_info(self, filter_info):
+        """Sets the filter_info of this DescribeAllowListsRequest.
+
+
+        :param filter_info: The filter_info of this DescribeAllowListsRequest.  # noqa: E501
+        :type: FilterInfoForDescribeAllowListsInput
+        """
+
+        self._filter_info = filter_info
+
+    @property
+    def ip_address(self):
+        """Gets the ip_address of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The ip_address of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address
+
+    @ip_address.setter
+    def ip_address(self, ip_address):
+        """Sets the ip_address of this DescribeAllowListsRequest.
+
+
+        :param ip_address: The ip_address of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address = ip_address
+
+    @property
+    def instance_id(self):
+        """Gets the instance_id of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The instance_id of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_id
+
+    @instance_id.setter
+    def instance_id(self, instance_id):
+        """Sets the instance_id of this DescribeAllowListsRequest.
+
+
+        :param instance_id: The instance_id of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and instance_id is None:
+            raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
+
+        self._instance_id = instance_id
+
+    @property
+    def lbid(self):
+        """Gets the lbid of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The lbid of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._lbid
+
+    @lbid.setter
+    def lbid(self, lbid):
+        """Sets the lbid of this DescribeAllowListsRequest.
+
+
+        :param lbid: The lbid of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._lbid = lbid
+
+    @property
+    def plb_address_type(self):
+        """Gets the plb_address_type of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The plb_address_type of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._plb_address_type
+
+    @plb_address_type.setter
+    def plb_address_type(self, plb_address_type):
+        """Sets the plb_address_type of this DescribeAllowListsRequest.
+
+
+        :param plb_address_type: The plb_address_type of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._plb_address_type = plb_address_type
+
+    @property
+    def page_number(self):
+        """Gets the page_number of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The page_number of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this DescribeAllowListsRequest.
+
+
+        :param page_number: The page_number of this DescribeAllowListsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The page_size of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this DescribeAllowListsRequest.
+
+
+        :param page_size: The page_size of this DescribeAllowListsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The project_name of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DescribeAllowListsRequest.
+
+
+        :param project_name: The project_name of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def region_id(self):
@@ -69,8 +384,6 @@ class DescribeAllowListsRequest(object):
         :param region_id: The region_id of this DescribeAllowListsRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and region_id is None:
-            raise ValueError("Invalid value for `region_id`, must not be `None`")  # noqa: E501
 
         self._region_id = region_id
 

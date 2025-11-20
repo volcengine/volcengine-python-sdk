@@ -34,6 +34,7 @@ class MessageSendResponse(object):
     """
     swagger_types = {
         'msg_id': 'str',
+        'msgqueue': 'MsgqueueForMessageSendOutput',
         'offset_msg_id': 'str',
         'qeueue_offset': 'int',
         'send_status': 'str'
@@ -41,18 +42,20 @@ class MessageSendResponse(object):
 
     attribute_map = {
         'msg_id': 'MsgId',
+        'msgqueue': 'Msgqueue',
         'offset_msg_id': 'OffsetMsgId',
         'qeueue_offset': 'QeueueOffset',
         'send_status': 'SendStatus'
     }
 
-    def __init__(self, msg_id=None, offset_msg_id=None, qeueue_offset=None, send_status=None, _configuration=None):  # noqa: E501
+    def __init__(self, msg_id=None, msgqueue=None, offset_msg_id=None, qeueue_offset=None, send_status=None, _configuration=None):  # noqa: E501
         """MessageSendResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._msg_id = None
+        self._msgqueue = None
         self._offset_msg_id = None
         self._qeueue_offset = None
         self._send_status = None
@@ -60,6 +63,8 @@ class MessageSendResponse(object):
 
         if msg_id is not None:
             self.msg_id = msg_id
+        if msgqueue is not None:
+            self.msgqueue = msgqueue
         if offset_msg_id is not None:
             self.offset_msg_id = offset_msg_id
         if qeueue_offset is not None:
@@ -87,6 +92,27 @@ class MessageSendResponse(object):
         """
 
         self._msg_id = msg_id
+
+    @property
+    def msgqueue(self):
+        """Gets the msgqueue of this MessageSendResponse.  # noqa: E501
+
+
+        :return: The msgqueue of this MessageSendResponse.  # noqa: E501
+        :rtype: MsgqueueForMessageSendOutput
+        """
+        return self._msgqueue
+
+    @msgqueue.setter
+    def msgqueue(self, msgqueue):
+        """Sets the msgqueue of this MessageSendResponse.
+
+
+        :param msgqueue: The msgqueue of this MessageSendResponse.  # noqa: E501
+        :type: MsgqueueForMessageSendOutput
+        """
+
+        self._msgqueue = msgqueue
 
     @property
     def offset_msg_id(self):
