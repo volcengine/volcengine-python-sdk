@@ -3,6 +3,7 @@ from typing import List, Optional, Any, Union
 from datetime import datetime, date
 from uuid import UUID
 import requests
+from requests.adapters import HTTPAdapter
 import json
 import os
 
@@ -315,7 +316,21 @@ class ClientV2:
         self.http_client.timeout = timeout
 
     def SetProxy(self, proxy: dict):
-        self.http_client.proxies = proxy
+        if proxy:
+            self.http_client.proxies = proxy
+        else:
+            self.http_client.proxies.clear()
+
+    def SetConnMax(self, connMax):
+        if connMax > 0:
+            adapter = HTTPAdapter(
+                pool_connections=connMax,  # 全局连接池数量：最多维护多少个 Host 的连接池
+                pool_maxsize=connMax,   # 单 Host 最大连接数：控制并发的核心（= 目标并发数）
+                pool_block=False  # 连接池满时是否阻塞：False=非阻塞（超时抛异常），True=阻塞等待
+            )
+            # 将适配器挂载到 Session：所有 HTTP/HTTPS 请求都使用该连接池
+            self.http_client.mount("http://", adapter)
+            self.http_client.mount("https://", adapter)
 
     def Moderate(self, request: Optional[ModerateV2Request] = None) -> ModerateV2Response:
         path = "/v2/moderate"
