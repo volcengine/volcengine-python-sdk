@@ -34,6 +34,7 @@ class UpstreamSpecForListUpstreamsOutput(object):
     """
     swagger_types = {
         'ai_provider': 'AIProviderForListUpstreamsOutput',
+        'domain': 'DomainForListUpstreamsOutput',
         'ecs_list': 'list[EcsListForListUpstreamsOutput]',
         'k8_s_service': 'K8SServiceForListUpstreamsOutput',
         'nacos_service': 'NacosServiceForListUpstreamsOutput',
@@ -42,19 +43,21 @@ class UpstreamSpecForListUpstreamsOutput(object):
 
     attribute_map = {
         'ai_provider': 'AIProvider',
+        'domain': 'Domain',
         'ecs_list': 'EcsList',
         'k8_s_service': 'K8SService',
         'nacos_service': 'NacosService',
         've_faas': 'VeFaas'
     }
 
-    def __init__(self, ai_provider=None, ecs_list=None, k8_s_service=None, nacos_service=None, ve_faas=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_provider=None, domain=None, ecs_list=None, k8_s_service=None, nacos_service=None, ve_faas=None, _configuration=None):  # noqa: E501
         """UpstreamSpecForListUpstreamsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._ai_provider = None
+        self._domain = None
         self._ecs_list = None
         self._k8_s_service = None
         self._nacos_service = None
@@ -63,6 +66,8 @@ class UpstreamSpecForListUpstreamsOutput(object):
 
         if ai_provider is not None:
             self.ai_provider = ai_provider
+        if domain is not None:
+            self.domain = domain
         if ecs_list is not None:
             self.ecs_list = ecs_list
         if k8_s_service is not None:
@@ -92,6 +97,27 @@ class UpstreamSpecForListUpstreamsOutput(object):
         """
 
         self._ai_provider = ai_provider
+
+    @property
+    def domain(self):
+        """Gets the domain of this UpstreamSpecForListUpstreamsOutput.  # noqa: E501
+
+
+        :return: The domain of this UpstreamSpecForListUpstreamsOutput.  # noqa: E501
+        :rtype: DomainForListUpstreamsOutput
+        """
+        return self._domain
+
+    @domain.setter
+    def domain(self, domain):
+        """Sets the domain of this UpstreamSpecForListUpstreamsOutput.
+
+
+        :param domain: The domain of this UpstreamSpecForListUpstreamsOutput.  # noqa: E501
+        :type: DomainForListUpstreamsOutput
+        """
+
+        self._domain = domain
 
     @property
     def ecs_list(self):

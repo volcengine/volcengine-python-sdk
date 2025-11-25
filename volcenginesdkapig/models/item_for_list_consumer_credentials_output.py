@@ -36,17 +36,19 @@ class ItemForListConsumerCredentialsOutput(object):
         'credential_type': 'str',
         'hmac_auth_credential': 'HmacAuthCredentialForListConsumerCredentialsOutput',
         'id': 'str',
-        'key_auth_credential': 'KeyAuthCredentialForListConsumerCredentialsOutput'
+        'key_auth_credential': 'KeyAuthCredentialForListConsumerCredentialsOutput',
+        'oauth2_credential': 'Oauth2CredentialForListConsumerCredentialsOutput'
     }
 
     attribute_map = {
         'credential_type': 'CredentialType',
         'hmac_auth_credential': 'HmacAuthCredential',
         'id': 'Id',
-        'key_auth_credential': 'KeyAuthCredential'
+        'key_auth_credential': 'KeyAuthCredential',
+        'oauth2_credential': 'Oauth2Credential'
     }
 
-    def __init__(self, credential_type=None, hmac_auth_credential=None, id=None, key_auth_credential=None, _configuration=None):  # noqa: E501
+    def __init__(self, credential_type=None, hmac_auth_credential=None, id=None, key_auth_credential=None, oauth2_credential=None, _configuration=None):  # noqa: E501
         """ItemForListConsumerCredentialsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ItemForListConsumerCredentialsOutput(object):
         self._hmac_auth_credential = None
         self._id = None
         self._key_auth_credential = None
+        self._oauth2_credential = None
         self.discriminator = None
 
         if credential_type is not None:
@@ -66,6 +69,8 @@ class ItemForListConsumerCredentialsOutput(object):
             self.id = id
         if key_auth_credential is not None:
             self.key_auth_credential = key_auth_credential
+        if oauth2_credential is not None:
+            self.oauth2_credential = oauth2_credential
 
     @property
     def credential_type(self):
@@ -150,6 +155,27 @@ class ItemForListConsumerCredentialsOutput(object):
         """
 
         self._key_auth_credential = key_auth_credential
+
+    @property
+    def oauth2_credential(self):
+        """Gets the oauth2_credential of this ItemForListConsumerCredentialsOutput.  # noqa: E501
+
+
+        :return: The oauth2_credential of this ItemForListConsumerCredentialsOutput.  # noqa: E501
+        :rtype: Oauth2CredentialForListConsumerCredentialsOutput
+        """
+        return self._oauth2_credential
+
+    @oauth2_credential.setter
+    def oauth2_credential(self, oauth2_credential):
+        """Sets the oauth2_credential of this ItemForListConsumerCredentialsOutput.
+
+
+        :param oauth2_credential: The oauth2_credential of this ItemForListConsumerCredentialsOutput.  # noqa: E501
+        :type: Oauth2CredentialForListConsumerCredentialsOutput
+        """
+
+        self._oauth2_credential = oauth2_credential
 
     def to_dict(self):
         """Returns the model properties as a dict"""
