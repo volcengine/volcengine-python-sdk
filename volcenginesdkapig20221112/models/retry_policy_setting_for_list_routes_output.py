@@ -36,7 +36,6 @@ class RetryPolicySettingForListRoutesOutput(object):
         'attempts': 'int',
         'enable': 'bool',
         'http_codes': 'list[str]',
-        'per_try_timeout': 'int',
         'retry_on': 'list[str]'
     }
 
@@ -44,11 +43,10 @@ class RetryPolicySettingForListRoutesOutput(object):
         'attempts': 'Attempts',
         'enable': 'Enable',
         'http_codes': 'HttpCodes',
-        'per_try_timeout': 'PerTryTimeout',
         'retry_on': 'RetryOn'
     }
 
-    def __init__(self, attempts=None, enable=None, http_codes=None, per_try_timeout=None, retry_on=None, _configuration=None):  # noqa: E501
+    def __init__(self, attempts=None, enable=None, http_codes=None, retry_on=None, _configuration=None):  # noqa: E501
         """RetryPolicySettingForListRoutesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,7 +55,6 @@ class RetryPolicySettingForListRoutesOutput(object):
         self._attempts = None
         self._enable = None
         self._http_codes = None
-        self._per_try_timeout = None
         self._retry_on = None
         self.discriminator = None
 
@@ -67,8 +64,6 @@ class RetryPolicySettingForListRoutesOutput(object):
             self.enable = enable
         if http_codes is not None:
             self.http_codes = http_codes
-        if per_try_timeout is not None:
-            self.per_try_timeout = per_try_timeout
         if retry_on is not None:
             self.retry_on = retry_on
 
@@ -134,27 +129,6 @@ class RetryPolicySettingForListRoutesOutput(object):
         """
 
         self._http_codes = http_codes
-
-    @property
-    def per_try_timeout(self):
-        """Gets the per_try_timeout of this RetryPolicySettingForListRoutesOutput.  # noqa: E501
-
-
-        :return: The per_try_timeout of this RetryPolicySettingForListRoutesOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._per_try_timeout
-
-    @per_try_timeout.setter
-    def per_try_timeout(self, per_try_timeout):
-        """Sets the per_try_timeout of this RetryPolicySettingForListRoutesOutput.
-
-
-        :param per_try_timeout: The per_try_timeout of this RetryPolicySettingForListRoutesOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._per_try_timeout = per_try_timeout
 
     @property
     def retry_on(self):
