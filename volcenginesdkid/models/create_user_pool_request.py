@@ -34,27 +34,67 @@ class CreateUserPoolRequest(object):
     """
     swagger_types = {
         'description': 'str',
-        'name': 'str'
+        'email_passwordless_sign_in_enabled': 'bool',
+        'name': 'str',
+        'password_sign_in_enabled': 'bool',
+        'project_name': 'str',
+        'required_sign_up_attributes': 'list[str]',
+        'self_sign_up_enabled': 'bool',
+        'sign_in_attributes': 'list[str]',
+        'sms_passwordless_sign_in_enabled': 'bool',
+        'tags': 'list[TagForCreateUserPoolInput]'
     }
 
     attribute_map = {
         'description': 'Description',
-        'name': 'Name'
+        'email_passwordless_sign_in_enabled': 'EmailPasswordlessSignInEnabled',
+        'name': 'Name',
+        'password_sign_in_enabled': 'PasswordSignInEnabled',
+        'project_name': 'ProjectName',
+        'required_sign_up_attributes': 'RequiredSignUpAttributes',
+        'self_sign_up_enabled': 'SelfSignUpEnabled',
+        'sign_in_attributes': 'SignInAttributes',
+        'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
+        'tags': 'Tags'
     }
 
-    def __init__(self, description=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, self_sign_up_enabled=None, sign_in_attributes=None, sms_passwordless_sign_in_enabled=None, tags=None, _configuration=None):  # noqa: E501
         """CreateUserPoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._email_passwordless_sign_in_enabled = None
         self._name = None
+        self._password_sign_in_enabled = None
+        self._project_name = None
+        self._required_sign_up_attributes = None
+        self._self_sign_up_enabled = None
+        self._sign_in_attributes = None
+        self._sms_passwordless_sign_in_enabled = None
+        self._tags = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if email_passwordless_sign_in_enabled is not None:
+            self.email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
         self.name = name
+        if password_sign_in_enabled is not None:
+            self.password_sign_in_enabled = password_sign_in_enabled
+        if project_name is not None:
+            self.project_name = project_name
+        if required_sign_up_attributes is not None:
+            self.required_sign_up_attributes = required_sign_up_attributes
+        if self_sign_up_enabled is not None:
+            self.self_sign_up_enabled = self_sign_up_enabled
+        if sign_in_attributes is not None:
+            self.sign_in_attributes = sign_in_attributes
+        if sms_passwordless_sign_in_enabled is not None:
+            self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
+        if tags is not None:
+            self.tags = tags
 
     @property
     def description(self):
@@ -78,6 +118,27 @@ class CreateUserPoolRequest(object):
         self._description = description
 
     @property
+    def email_passwordless_sign_in_enabled(self):
+        """Gets the email_passwordless_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The email_passwordless_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_passwordless_sign_in_enabled
+
+    @email_passwordless_sign_in_enabled.setter
+    def email_passwordless_sign_in_enabled(self, email_passwordless_sign_in_enabled):
+        """Sets the email_passwordless_sign_in_enabled of this CreateUserPoolRequest.
+
+
+        :param email_passwordless_sign_in_enabled: The email_passwordless_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
+
+    @property
     def name(self):
         """Gets the name of this CreateUserPoolRequest.  # noqa: E501
 
@@ -99,6 +160,156 @@ class CreateUserPoolRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def password_sign_in_enabled(self):
+        """Gets the password_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The password_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._password_sign_in_enabled
+
+    @password_sign_in_enabled.setter
+    def password_sign_in_enabled(self, password_sign_in_enabled):
+        """Sets the password_sign_in_enabled of this CreateUserPoolRequest.
+
+
+        :param password_sign_in_enabled: The password_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._password_sign_in_enabled = password_sign_in_enabled
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateUserPoolRequest.
+
+
+        :param project_name: The project_name of this CreateUserPoolRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 255):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._project_name = project_name
+
+    @property
+    def required_sign_up_attributes(self):
+        """Gets the required_sign_up_attributes of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The required_sign_up_attributes of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._required_sign_up_attributes
+
+    @required_sign_up_attributes.setter
+    def required_sign_up_attributes(self, required_sign_up_attributes):
+        """Sets the required_sign_up_attributes of this CreateUserPoolRequest.
+
+
+        :param required_sign_up_attributes: The required_sign_up_attributes of this CreateUserPoolRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._required_sign_up_attributes = required_sign_up_attributes
+
+    @property
+    def self_sign_up_enabled(self):
+        """Gets the self_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The self_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._self_sign_up_enabled
+
+    @self_sign_up_enabled.setter
+    def self_sign_up_enabled(self, self_sign_up_enabled):
+        """Sets the self_sign_up_enabled of this CreateUserPoolRequest.
+
+
+        :param self_sign_up_enabled: The self_sign_up_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._self_sign_up_enabled = self_sign_up_enabled
+
+    @property
+    def sign_in_attributes(self):
+        """Gets the sign_in_attributes of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The sign_in_attributes of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._sign_in_attributes
+
+    @sign_in_attributes.setter
+    def sign_in_attributes(self, sign_in_attributes):
+        """Sets the sign_in_attributes of this CreateUserPoolRequest.
+
+
+        :param sign_in_attributes: The sign_in_attributes of this CreateUserPoolRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._sign_in_attributes = sign_in_attributes
+
+    @property
+    def sms_passwordless_sign_in_enabled(self):
+        """Gets the sms_passwordless_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The sms_passwordless_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sms_passwordless_sign_in_enabled
+
+    @sms_passwordless_sign_in_enabled.setter
+    def sms_passwordless_sign_in_enabled(self, sms_passwordless_sign_in_enabled):
+        """Sets the sms_passwordless_sign_in_enabled of this CreateUserPoolRequest.
+
+
+        :param sms_passwordless_sign_in_enabled: The sms_passwordless_sign_in_enabled of this CreateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateUserPoolRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateUserPoolRequest.  # noqa: E501
+        :rtype: list[TagForCreateUserPoolInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateUserPoolRequest.
+
+
+        :param tags: The tags of this CreateUserPoolRequest.  # noqa: E501
+        :type: list[TagForCreateUserPoolInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

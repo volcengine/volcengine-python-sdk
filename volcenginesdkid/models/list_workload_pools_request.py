@@ -34,15 +34,27 @@ class ListWorkloadPoolsRequest(object):
     """
     swagger_types = {
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'project_name': 'str',
+        'sort_by': 'str',
+        'sort_order': 'str',
+        'tag_filters': 'list[TagFilterForListWorkloadPoolsInput]',
+        'workload_pool_id': 'str',
+        'workload_pool_name': 'str'
     }
 
     attribute_map = {
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'project_name': 'ProjectName',
+        'sort_by': 'SortBy',
+        'sort_order': 'SortOrder',
+        'tag_filters': 'TagFilters',
+        'workload_pool_id': 'WorkloadPoolId',
+        'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, page_number=None, page_size=None, project_name=None, sort_by=None, sort_order=None, tag_filters=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """ListWorkloadPoolsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,10 +62,28 @@ class ListWorkloadPoolsRequest(object):
 
         self._page_number = None
         self._page_size = None
+        self._project_name = None
+        self._sort_by = None
+        self._sort_order = None
+        self._tag_filters = None
+        self._workload_pool_id = None
+        self._workload_pool_name = None
         self.discriminator = None
 
         self.page_number = page_number
         self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
+        if sort_by is not None:
+            self.sort_by = sort_by
+        if sort_order is not None:
+            self.sort_order = sort_order
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
+        if workload_pool_id is not None:
+            self.workload_pool_id = workload_pool_id
+        if workload_pool_name is not None:
+            self.workload_pool_name = workload_pool_name
 
     @property
     def page_number(self):
@@ -106,6 +136,132 @@ class ListWorkloadPoolsRequest(object):
             raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListWorkloadPoolsRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListWorkloadPoolsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListWorkloadPoolsRequest.
+
+
+        :param project_name: The project_name of this ListWorkloadPoolsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def sort_by(self):
+        """Gets the sort_by of this ListWorkloadPoolsRequest.  # noqa: E501
+
+
+        :return: The sort_by of this ListWorkloadPoolsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_by
+
+    @sort_by.setter
+    def sort_by(self, sort_by):
+        """Sets the sort_by of this ListWorkloadPoolsRequest.
+
+
+        :param sort_by: The sort_by of this ListWorkloadPoolsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_by = sort_by
+
+    @property
+    def sort_order(self):
+        """Gets the sort_order of this ListWorkloadPoolsRequest.  # noqa: E501
+
+
+        :return: The sort_order of this ListWorkloadPoolsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_order
+
+    @sort_order.setter
+    def sort_order(self, sort_order):
+        """Sets the sort_order of this ListWorkloadPoolsRequest.
+
+
+        :param sort_order: The sort_order of this ListWorkloadPoolsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_order = sort_order
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this ListWorkloadPoolsRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this ListWorkloadPoolsRequest.  # noqa: E501
+        :rtype: list[TagFilterForListWorkloadPoolsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this ListWorkloadPoolsRequest.
+
+
+        :param tag_filters: The tag_filters of this ListWorkloadPoolsRequest.  # noqa: E501
+        :type: list[TagFilterForListWorkloadPoolsInput]
+        """
+
+        self._tag_filters = tag_filters
+
+    @property
+    def workload_pool_id(self):
+        """Gets the workload_pool_id of this ListWorkloadPoolsRequest.  # noqa: E501
+
+
+        :return: The workload_pool_id of this ListWorkloadPoolsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_pool_id
+
+    @workload_pool_id.setter
+    def workload_pool_id(self, workload_pool_id):
+        """Sets the workload_pool_id of this ListWorkloadPoolsRequest.
+
+
+        :param workload_pool_id: The workload_pool_id of this ListWorkloadPoolsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_pool_id = workload_pool_id
+
+    @property
+    def workload_pool_name(self):
+        """Gets the workload_pool_name of this ListWorkloadPoolsRequest.  # noqa: E501
+
+
+        :return: The workload_pool_name of this ListWorkloadPoolsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_pool_name
+
+    @workload_pool_name.setter
+    def workload_pool_name(self, workload_pool_name):
+        """Sets the workload_pool_name of this ListWorkloadPoolsRequest.
+
+
+        :param workload_pool_name: The workload_pool_name of this ListWorkloadPoolsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_pool_name = workload_pool_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

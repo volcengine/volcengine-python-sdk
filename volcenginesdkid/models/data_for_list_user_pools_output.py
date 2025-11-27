@@ -37,6 +37,8 @@ class DataForListUserPoolsOutput(object):
         'description': 'str',
         'domain': 'str',
         'name': 'str',
+        'project_name': 'str',
+        'tags': 'list[TagForListUserPoolsOutput]',
         'trn': 'str',
         'uid': 'str',
         'update_time': 'str'
@@ -47,12 +49,14 @@ class DataForListUserPoolsOutput(object):
         'description': 'Description',
         'domain': 'Domain',
         'name': 'Name',
+        'project_name': 'ProjectName',
+        'tags': 'Tags',
         'trn': 'Trn',
         'uid': 'Uid',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, domain=None, name=None, trn=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, domain=None, name=None, project_name=None, tags=None, trn=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListUserPoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +66,8 @@ class DataForListUserPoolsOutput(object):
         self._description = None
         self._domain = None
         self._name = None
+        self._project_name = None
+        self._tags = None
         self._trn = None
         self._uid = None
         self._update_time = None
@@ -75,6 +81,10 @@ class DataForListUserPoolsOutput(object):
             self.domain = domain
         if name is not None:
             self.name = name
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         if trn is not None:
             self.trn = trn
         if uid is not None:
@@ -165,6 +175,48 @@ class DataForListUserPoolsOutput(object):
         """
 
         self._name = name
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this DataForListUserPoolsOutput.  # noqa: E501
+
+
+        :return: The project_name of this DataForListUserPoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this DataForListUserPoolsOutput.
+
+
+        :param project_name: The project_name of this DataForListUserPoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this DataForListUserPoolsOutput.  # noqa: E501
+
+
+        :return: The tags of this DataForListUserPoolsOutput.  # noqa: E501
+        :rtype: list[TagForListUserPoolsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DataForListUserPoolsOutput.
+
+
+        :param tags: The tags of this DataForListUserPoolsOutput.  # noqa: E501
+        :type: list[TagForListUserPoolsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def trn(self):
