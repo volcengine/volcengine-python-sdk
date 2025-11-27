@@ -35,6 +35,7 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput(object):
     swagger_types = {
         'authorization_endpoint': 'str',
         'issuer': 'str',
+        'registration_endpoint': 'str',
         'response_types': 'list[str]',
         'token_endpoint': 'str'
     }
@@ -42,11 +43,12 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput(object):
     attribute_map = {
         'authorization_endpoint': 'AuthorizationEndpoint',
         'issuer': 'Issuer',
+        'registration_endpoint': 'RegistrationEndpoint',
         'response_types': 'ResponseTypes',
         'token_endpoint': 'TokenEndpoint'
     }
 
-    def __init__(self, authorization_endpoint=None, issuer=None, response_types=None, token_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorization_endpoint=None, issuer=None, registration_endpoint=None, response_types=None, token_endpoint=None, _configuration=None):  # noqa: E501
         """AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput(object):
 
         self._authorization_endpoint = None
         self._issuer = None
+        self._registration_endpoint = None
         self._response_types = None
         self._token_endpoint = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput(object):
             self.authorization_endpoint = authorization_endpoint
         if issuer is not None:
             self.issuer = issuer
+        if registration_endpoint is not None:
+            self.registration_endpoint = registration_endpoint
         if response_types is not None:
             self.response_types = response_types
         if token_endpoint is not None:
@@ -108,6 +113,27 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput(object):
         """
 
         self._issuer = issuer
+
+    @property
+    def registration_endpoint(self):
+        """Gets the registration_endpoint of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+
+
+        :return: The registration_endpoint of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._registration_endpoint
+
+    @registration_endpoint.setter
+    def registration_endpoint(self, registration_endpoint):
+        """Sets the registration_endpoint of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.
+
+
+        :param registration_endpoint: The registration_endpoint of this AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput.  # noqa: E501
+        :type: str
+        """
+
+        self._registration_endpoint = registration_endpoint
 
     @property
     def response_types(self):

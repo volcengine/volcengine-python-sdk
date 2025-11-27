@@ -33,36 +33,67 @@ class CreateGroupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'consume_message_orderly': 'bool',
         'description': 'str',
         'group_id': 'str',
         'group_type': 'str',
-        'instance_id': 'str'
+        'instance_id': 'str',
+        'retry_max_times': 'int'
     }
 
     attribute_map = {
+        'consume_message_orderly': 'ConsumeMessageOrderly',
         'description': 'Description',
         'group_id': 'GroupId',
         'group_type': 'GroupType',
-        'instance_id': 'InstanceId'
+        'instance_id': 'InstanceId',
+        'retry_max_times': 'RetryMaxTimes'
     }
 
-    def __init__(self, description=None, group_id=None, group_type=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, consume_message_orderly=None, description=None, group_id=None, group_type=None, instance_id=None, retry_max_times=None, _configuration=None):  # noqa: E501
         """CreateGroupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._consume_message_orderly = None
         self._description = None
         self._group_id = None
         self._group_type = None
         self._instance_id = None
+        self._retry_max_times = None
         self.discriminator = None
 
+        if consume_message_orderly is not None:
+            self.consume_message_orderly = consume_message_orderly
         if description is not None:
             self.description = description
         self.group_id = group_id
         self.group_type = group_type
         self.instance_id = instance_id
+        if retry_max_times is not None:
+            self.retry_max_times = retry_max_times
+
+    @property
+    def consume_message_orderly(self):
+        """Gets the consume_message_orderly of this CreateGroupRequest.  # noqa: E501
+
+
+        :return: The consume_message_orderly of this CreateGroupRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._consume_message_orderly
+
+    @consume_message_orderly.setter
+    def consume_message_orderly(self, consume_message_orderly):
+        """Sets the consume_message_orderly of this CreateGroupRequest.
+
+
+        :param consume_message_orderly: The consume_message_orderly of this CreateGroupRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._consume_message_orderly = consume_message_orderly
 
     @property
     def description(self):
@@ -153,6 +184,27 @@ class CreateGroupRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def retry_max_times(self):
+        """Gets the retry_max_times of this CreateGroupRequest.  # noqa: E501
+
+
+        :return: The retry_max_times of this CreateGroupRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._retry_max_times
+
+    @retry_max_times.setter
+    def retry_max_times(self, retry_max_times):
+        """Sets the retry_max_times of this CreateGroupRequest.
+
+
+        :param retry_max_times: The retry_max_times of this CreateGroupRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._retry_max_times = retry_max_times
 
     def to_dict(self):
         """Returns the model properties as a dict"""

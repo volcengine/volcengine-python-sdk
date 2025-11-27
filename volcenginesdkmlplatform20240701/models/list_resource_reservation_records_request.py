@@ -33,6 +33,9 @@ class ListResourceReservationRecordsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'activation_end_time': 'str',
+        'activation_start_time': 'str',
+        'job_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
         'reservation_plan_id': 'str',
@@ -42,6 +45,9 @@ class ListResourceReservationRecordsRequest(object):
     }
 
     attribute_map = {
+        'activation_end_time': 'ActivationEndTime',
+        'activation_start_time': 'ActivationStartTime',
+        'job_id': 'JobId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'reservation_plan_id': 'ReservationPlanId',
@@ -50,12 +56,15 @@ class ListResourceReservationRecordsRequest(object):
         'states': 'States'
     }
 
-    def __init__(self, page_number=None, page_size=None, reservation_plan_id=None, sort_by=None, sort_order=None, states=None, _configuration=None):  # noqa: E501
+    def __init__(self, activation_end_time=None, activation_start_time=None, job_id=None, page_number=None, page_size=None, reservation_plan_id=None, sort_by=None, sort_order=None, states=None, _configuration=None):  # noqa: E501
         """ListResourceReservationRecordsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._activation_end_time = None
+        self._activation_start_time = None
+        self._job_id = None
         self._page_number = None
         self._page_size = None
         self._reservation_plan_id = None
@@ -64,17 +73,87 @@ class ListResourceReservationRecordsRequest(object):
         self._states = None
         self.discriminator = None
 
+        if activation_end_time is not None:
+            self.activation_end_time = activation_end_time
+        if activation_start_time is not None:
+            self.activation_start_time = activation_start_time
+        if job_id is not None:
+            self.job_id = job_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        self.reservation_plan_id = reservation_plan_id
+        if reservation_plan_id is not None:
+            self.reservation_plan_id = reservation_plan_id
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
             self.sort_order = sort_order
         if states is not None:
             self.states = states
+
+    @property
+    def activation_end_time(self):
+        """Gets the activation_end_time of this ListResourceReservationRecordsRequest.  # noqa: E501
+
+
+        :return: The activation_end_time of this ListResourceReservationRecordsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._activation_end_time
+
+    @activation_end_time.setter
+    def activation_end_time(self, activation_end_time):
+        """Sets the activation_end_time of this ListResourceReservationRecordsRequest.
+
+
+        :param activation_end_time: The activation_end_time of this ListResourceReservationRecordsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._activation_end_time = activation_end_time
+
+    @property
+    def activation_start_time(self):
+        """Gets the activation_start_time of this ListResourceReservationRecordsRequest.  # noqa: E501
+
+
+        :return: The activation_start_time of this ListResourceReservationRecordsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._activation_start_time
+
+    @activation_start_time.setter
+    def activation_start_time(self, activation_start_time):
+        """Sets the activation_start_time of this ListResourceReservationRecordsRequest.
+
+
+        :param activation_start_time: The activation_start_time of this ListResourceReservationRecordsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._activation_start_time = activation_start_time
+
+    @property
+    def job_id(self):
+        """Gets the job_id of this ListResourceReservationRecordsRequest.  # noqa: E501
+
+
+        :return: The job_id of this ListResourceReservationRecordsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._job_id
+
+    @job_id.setter
+    def job_id(self, job_id):
+        """Sets the job_id of this ListResourceReservationRecordsRequest.
+
+
+        :param job_id: The job_id of this ListResourceReservationRecordsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._job_id = job_id
 
     @property
     def page_number(self):
@@ -142,8 +221,6 @@ class ListResourceReservationRecordsRequest(object):
         :param reservation_plan_id: The reservation_plan_id of this ListResourceReservationRecordsRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and reservation_plan_id is None:
-            raise ValueError("Invalid value for `reservation_plan_id`, must not be `None`")  # noqa: E501
 
         self._reservation_plan_id = reservation_plan_id
 

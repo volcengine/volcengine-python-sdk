@@ -33,17 +33,71 @@ class CreateTopicResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'create_success': 'bool',
+        'expect_minimal_topic_queue_number': 'int'
     }
 
     attribute_map = {
+        'create_success': 'CreateSuccess',
+        'expect_minimal_topic_queue_number': 'ExpectMinimalTopicQueueNumber'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, create_success=None, expect_minimal_topic_queue_number=None, _configuration=None):  # noqa: E501
         """CreateTopicResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._create_success = None
+        self._expect_minimal_topic_queue_number = None
         self.discriminator = None
+
+        if create_success is not None:
+            self.create_success = create_success
+        if expect_minimal_topic_queue_number is not None:
+            self.expect_minimal_topic_queue_number = expect_minimal_topic_queue_number
+
+    @property
+    def create_success(self):
+        """Gets the create_success of this CreateTopicResponse.  # noqa: E501
+
+
+        :return: The create_success of this CreateTopicResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._create_success
+
+    @create_success.setter
+    def create_success(self, create_success):
+        """Sets the create_success of this CreateTopicResponse.
+
+
+        :param create_success: The create_success of this CreateTopicResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._create_success = create_success
+
+    @property
+    def expect_minimal_topic_queue_number(self):
+        """Gets the expect_minimal_topic_queue_number of this CreateTopicResponse.  # noqa: E501
+
+
+        :return: The expect_minimal_topic_queue_number of this CreateTopicResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._expect_minimal_topic_queue_number
+
+    @expect_minimal_topic_queue_number.setter
+    def expect_minimal_topic_queue_number(self, expect_minimal_topic_queue_number):
+        """Sets the expect_minimal_topic_queue_number of this CreateTopicResponse.
+
+
+        :param expect_minimal_topic_queue_number: The expect_minimal_topic_queue_number of this CreateTopicResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._expect_minimal_topic_queue_number = expect_minimal_topic_queue_number
 
     def to_dict(self):
         """Returns the model properties as a dict"""

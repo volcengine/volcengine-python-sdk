@@ -33,364 +33,60 @@ class StorageForUpdateDevInstanceInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'advanced_options': 'AdvancedOptionsForUpdateDevInstanceInput',
-        'annotation_id': 'str',
-        'asset_id': 'str',
-        'asset_name': 'str',
-        'asset_version': 'str',
-        'bucket': 'str',
-        'cache_policy_id': 'str',
-        'cloudfs_type': 'str',
-        'dataset_id': 'str',
-        'fs_name': 'str',
+        'config': 'ConfigForUpdateDevInstanceInput',
         'mount_path': 'str',
-        'nas_access_point_options': 'NasAccessPointOptionsForUpdateDevInstanceInput',
-        'nas_addr': 'str',
-        'nas_id': 'str',
-        'nas_name': 'str',
-        'ns_id': 'str',
-        'prefix': 'str',
         'read_only': 'bool',
-        'sfcs_advanced_options': 'SfcsAdvancedOptionsForUpdateDevInstanceInput',
-        'sfcs_id': 'str',
-        'sub_path': 'str',
-        'type': 'str',
-        'use_as_default_mount_path': 'bool',
-        'use_eic': 'bool',
-        'vepfs_access_point_options': 'VepfsAccessPointOptionsForUpdateDevInstanceInput',
-        'vepfs_host_path': 'str',
-        'vepfs_id': 'str'
+        'type': 'str'
     }
 
     attribute_map = {
-        'advanced_options': 'AdvancedOptions',
-        'annotation_id': 'AnnotationId',
-        'asset_id': 'AssetId',
-        'asset_name': 'AssetName',
-        'asset_version': 'AssetVersion',
-        'bucket': 'Bucket',
-        'cache_policy_id': 'CachePolicyId',
-        'cloudfs_type': 'CloudfsType',
-        'dataset_id': 'DatasetId',
-        'fs_name': 'FsName',
+        'config': 'Config',
         'mount_path': 'MountPath',
-        'nas_access_point_options': 'NasAccessPointOptions',
-        'nas_addr': 'NasAddr',
-        'nas_id': 'NasId',
-        'nas_name': 'NasName',
-        'ns_id': 'NsId',
-        'prefix': 'Prefix',
         'read_only': 'ReadOnly',
-        'sfcs_advanced_options': 'SfcsAdvancedOptions',
-        'sfcs_id': 'SfcsId',
-        'sub_path': 'SubPath',
-        'type': 'Type',
-        'use_as_default_mount_path': 'UseAsDefaultMountPath',
-        'use_eic': 'UseEic',
-        'vepfs_access_point_options': 'VepfsAccessPointOptions',
-        'vepfs_host_path': 'VepfsHostPath',
-        'vepfs_id': 'VepfsId'
+        'type': 'Type'
     }
 
-    def __init__(self, advanced_options=None, annotation_id=None, asset_id=None, asset_name=None, asset_version=None, bucket=None, cache_policy_id=None, cloudfs_type=None, dataset_id=None, fs_name=None, mount_path=None, nas_access_point_options=None, nas_addr=None, nas_id=None, nas_name=None, ns_id=None, prefix=None, read_only=None, sfcs_advanced_options=None, sfcs_id=None, sub_path=None, type=None, use_as_default_mount_path=None, use_eic=None, vepfs_access_point_options=None, vepfs_host_path=None, vepfs_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, config=None, mount_path=None, read_only=None, type=None, _configuration=None):  # noqa: E501
         """StorageForUpdateDevInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._advanced_options = None
-        self._annotation_id = None
-        self._asset_id = None
-        self._asset_name = None
-        self._asset_version = None
-        self._bucket = None
-        self._cache_policy_id = None
-        self._cloudfs_type = None
-        self._dataset_id = None
-        self._fs_name = None
+        self._config = None
         self._mount_path = None
-        self._nas_access_point_options = None
-        self._nas_addr = None
-        self._nas_id = None
-        self._nas_name = None
-        self._ns_id = None
-        self._prefix = None
         self._read_only = None
-        self._sfcs_advanced_options = None
-        self._sfcs_id = None
-        self._sub_path = None
         self._type = None
-        self._use_as_default_mount_path = None
-        self._use_eic = None
-        self._vepfs_access_point_options = None
-        self._vepfs_host_path = None
-        self._vepfs_id = None
         self.discriminator = None
 
-        if advanced_options is not None:
-            self.advanced_options = advanced_options
-        if annotation_id is not None:
-            self.annotation_id = annotation_id
-        if asset_id is not None:
-            self.asset_id = asset_id
-        if asset_name is not None:
-            self.asset_name = asset_name
-        if asset_version is not None:
-            self.asset_version = asset_version
-        if bucket is not None:
-            self.bucket = bucket
-        if cache_policy_id is not None:
-            self.cache_policy_id = cache_policy_id
-        if cloudfs_type is not None:
-            self.cloudfs_type = cloudfs_type
-        if dataset_id is not None:
-            self.dataset_id = dataset_id
-        if fs_name is not None:
-            self.fs_name = fs_name
+        if config is not None:
+            self.config = config
         if mount_path is not None:
             self.mount_path = mount_path
-        if nas_access_point_options is not None:
-            self.nas_access_point_options = nas_access_point_options
-        if nas_addr is not None:
-            self.nas_addr = nas_addr
-        if nas_id is not None:
-            self.nas_id = nas_id
-        if nas_name is not None:
-            self.nas_name = nas_name
-        if ns_id is not None:
-            self.ns_id = ns_id
-        if prefix is not None:
-            self.prefix = prefix
         if read_only is not None:
             self.read_only = read_only
-        if sfcs_advanced_options is not None:
-            self.sfcs_advanced_options = sfcs_advanced_options
-        if sfcs_id is not None:
-            self.sfcs_id = sfcs_id
-        if sub_path is not None:
-            self.sub_path = sub_path
         if type is not None:
             self.type = type
-        if use_as_default_mount_path is not None:
-            self.use_as_default_mount_path = use_as_default_mount_path
-        if use_eic is not None:
-            self.use_eic = use_eic
-        if vepfs_access_point_options is not None:
-            self.vepfs_access_point_options = vepfs_access_point_options
-        if vepfs_host_path is not None:
-            self.vepfs_host_path = vepfs_host_path
-        if vepfs_id is not None:
-            self.vepfs_id = vepfs_id
 
     @property
-    def advanced_options(self):
-        """Gets the advanced_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
+    def config(self):
+        """Gets the config of this StorageForUpdateDevInstanceInput.  # noqa: E501
 
 
-        :return: The advanced_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: AdvancedOptionsForUpdateDevInstanceInput
+        :return: The config of this StorageForUpdateDevInstanceInput.  # noqa: E501
+        :rtype: ConfigForUpdateDevInstanceInput
         """
-        return self._advanced_options
+        return self._config
 
-    @advanced_options.setter
-    def advanced_options(self, advanced_options):
-        """Sets the advanced_options of this StorageForUpdateDevInstanceInput.
-
-
-        :param advanced_options: The advanced_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: AdvancedOptionsForUpdateDevInstanceInput
-        """
-
-        self._advanced_options = advanced_options
-
-    @property
-    def annotation_id(self):
-        """Gets the annotation_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
+    @config.setter
+    def config(self, config):
+        """Sets the config of this StorageForUpdateDevInstanceInput.
 
 
-        :return: The annotation_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._annotation_id
-
-    @annotation_id.setter
-    def annotation_id(self, annotation_id):
-        """Sets the annotation_id of this StorageForUpdateDevInstanceInput.
-
-
-        :param annotation_id: The annotation_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
+        :param config: The config of this StorageForUpdateDevInstanceInput.  # noqa: E501
+        :type: ConfigForUpdateDevInstanceInput
         """
 
-        self._annotation_id = annotation_id
-
-    @property
-    def asset_id(self):
-        """Gets the asset_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The asset_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._asset_id
-
-    @asset_id.setter
-    def asset_id(self, asset_id):
-        """Sets the asset_id of this StorageForUpdateDevInstanceInput.
-
-
-        :param asset_id: The asset_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._asset_id = asset_id
-
-    @property
-    def asset_name(self):
-        """Gets the asset_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The asset_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._asset_name
-
-    @asset_name.setter
-    def asset_name(self, asset_name):
-        """Sets the asset_name of this StorageForUpdateDevInstanceInput.
-
-
-        :param asset_name: The asset_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._asset_name = asset_name
-
-    @property
-    def asset_version(self):
-        """Gets the asset_version of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The asset_version of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._asset_version
-
-    @asset_version.setter
-    def asset_version(self, asset_version):
-        """Sets the asset_version of this StorageForUpdateDevInstanceInput.
-
-
-        :param asset_version: The asset_version of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._asset_version = asset_version
-
-    @property
-    def bucket(self):
-        """Gets the bucket of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The bucket of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._bucket
-
-    @bucket.setter
-    def bucket(self, bucket):
-        """Sets the bucket of this StorageForUpdateDevInstanceInput.
-
-
-        :param bucket: The bucket of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._bucket = bucket
-
-    @property
-    def cache_policy_id(self):
-        """Gets the cache_policy_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The cache_policy_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cache_policy_id
-
-    @cache_policy_id.setter
-    def cache_policy_id(self, cache_policy_id):
-        """Sets the cache_policy_id of this StorageForUpdateDevInstanceInput.
-
-
-        :param cache_policy_id: The cache_policy_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._cache_policy_id = cache_policy_id
-
-    @property
-    def cloudfs_type(self):
-        """Gets the cloudfs_type of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The cloudfs_type of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._cloudfs_type
-
-    @cloudfs_type.setter
-    def cloudfs_type(self, cloudfs_type):
-        """Sets the cloudfs_type of this StorageForUpdateDevInstanceInput.
-
-
-        :param cloudfs_type: The cloudfs_type of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._cloudfs_type = cloudfs_type
-
-    @property
-    def dataset_id(self):
-        """Gets the dataset_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The dataset_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._dataset_id
-
-    @dataset_id.setter
-    def dataset_id(self, dataset_id):
-        """Sets the dataset_id of this StorageForUpdateDevInstanceInput.
-
-
-        :param dataset_id: The dataset_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._dataset_id = dataset_id
-
-    @property
-    def fs_name(self):
-        """Gets the fs_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The fs_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._fs_name
-
-    @fs_name.setter
-    def fs_name(self, fs_name):
-        """Sets the fs_name of this StorageForUpdateDevInstanceInput.
-
-
-        :param fs_name: The fs_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._fs_name = fs_name
+        self._config = config
 
     @property
     def mount_path(self):
@@ -414,132 +110,6 @@ class StorageForUpdateDevInstanceInput(object):
         self._mount_path = mount_path
 
     @property
-    def nas_access_point_options(self):
-        """Gets the nas_access_point_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The nas_access_point_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: NasAccessPointOptionsForUpdateDevInstanceInput
-        """
-        return self._nas_access_point_options
-
-    @nas_access_point_options.setter
-    def nas_access_point_options(self, nas_access_point_options):
-        """Sets the nas_access_point_options of this StorageForUpdateDevInstanceInput.
-
-
-        :param nas_access_point_options: The nas_access_point_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: NasAccessPointOptionsForUpdateDevInstanceInput
-        """
-
-        self._nas_access_point_options = nas_access_point_options
-
-    @property
-    def nas_addr(self):
-        """Gets the nas_addr of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The nas_addr of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._nas_addr
-
-    @nas_addr.setter
-    def nas_addr(self, nas_addr):
-        """Sets the nas_addr of this StorageForUpdateDevInstanceInput.
-
-
-        :param nas_addr: The nas_addr of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._nas_addr = nas_addr
-
-    @property
-    def nas_id(self):
-        """Gets the nas_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The nas_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._nas_id
-
-    @nas_id.setter
-    def nas_id(self, nas_id):
-        """Sets the nas_id of this StorageForUpdateDevInstanceInput.
-
-
-        :param nas_id: The nas_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._nas_id = nas_id
-
-    @property
-    def nas_name(self):
-        """Gets the nas_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The nas_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._nas_name
-
-    @nas_name.setter
-    def nas_name(self, nas_name):
-        """Sets the nas_name of this StorageForUpdateDevInstanceInput.
-
-
-        :param nas_name: The nas_name of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._nas_name = nas_name
-
-    @property
-    def ns_id(self):
-        """Gets the ns_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The ns_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._ns_id
-
-    @ns_id.setter
-    def ns_id(self, ns_id):
-        """Sets the ns_id of this StorageForUpdateDevInstanceInput.
-
-
-        :param ns_id: The ns_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._ns_id = ns_id
-
-    @property
-    def prefix(self):
-        """Gets the prefix of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The prefix of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._prefix
-
-    @prefix.setter
-    def prefix(self, prefix):
-        """Sets the prefix of this StorageForUpdateDevInstanceInput.
-
-
-        :param prefix: The prefix of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._prefix = prefix
-
-    @property
     def read_only(self):
         """Gets the read_only of this StorageForUpdateDevInstanceInput.  # noqa: E501
 
@@ -561,69 +131,6 @@ class StorageForUpdateDevInstanceInput(object):
         self._read_only = read_only
 
     @property
-    def sfcs_advanced_options(self):
-        """Gets the sfcs_advanced_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The sfcs_advanced_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: SfcsAdvancedOptionsForUpdateDevInstanceInput
-        """
-        return self._sfcs_advanced_options
-
-    @sfcs_advanced_options.setter
-    def sfcs_advanced_options(self, sfcs_advanced_options):
-        """Sets the sfcs_advanced_options of this StorageForUpdateDevInstanceInput.
-
-
-        :param sfcs_advanced_options: The sfcs_advanced_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: SfcsAdvancedOptionsForUpdateDevInstanceInput
-        """
-
-        self._sfcs_advanced_options = sfcs_advanced_options
-
-    @property
-    def sfcs_id(self):
-        """Gets the sfcs_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The sfcs_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._sfcs_id
-
-    @sfcs_id.setter
-    def sfcs_id(self, sfcs_id):
-        """Sets the sfcs_id of this StorageForUpdateDevInstanceInput.
-
-
-        :param sfcs_id: The sfcs_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._sfcs_id = sfcs_id
-
-    @property
-    def sub_path(self):
-        """Gets the sub_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The sub_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._sub_path
-
-    @sub_path.setter
-    def sub_path(self, sub_path):
-        """Sets the sub_path of this StorageForUpdateDevInstanceInput.
-
-
-        :param sub_path: The sub_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._sub_path = sub_path
-
-    @property
     def type(self):
         """Gets the type of this StorageForUpdateDevInstanceInput.  # noqa: E501
 
@@ -643,111 +150,6 @@ class StorageForUpdateDevInstanceInput(object):
         """
 
         self._type = type
-
-    @property
-    def use_as_default_mount_path(self):
-        """Gets the use_as_default_mount_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The use_as_default_mount_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._use_as_default_mount_path
-
-    @use_as_default_mount_path.setter
-    def use_as_default_mount_path(self, use_as_default_mount_path):
-        """Sets the use_as_default_mount_path of this StorageForUpdateDevInstanceInput.
-
-
-        :param use_as_default_mount_path: The use_as_default_mount_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._use_as_default_mount_path = use_as_default_mount_path
-
-    @property
-    def use_eic(self):
-        """Gets the use_eic of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The use_eic of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._use_eic
-
-    @use_eic.setter
-    def use_eic(self, use_eic):
-        """Sets the use_eic of this StorageForUpdateDevInstanceInput.
-
-
-        :param use_eic: The use_eic of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._use_eic = use_eic
-
-    @property
-    def vepfs_access_point_options(self):
-        """Gets the vepfs_access_point_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The vepfs_access_point_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: VepfsAccessPointOptionsForUpdateDevInstanceInput
-        """
-        return self._vepfs_access_point_options
-
-    @vepfs_access_point_options.setter
-    def vepfs_access_point_options(self, vepfs_access_point_options):
-        """Sets the vepfs_access_point_options of this StorageForUpdateDevInstanceInput.
-
-
-        :param vepfs_access_point_options: The vepfs_access_point_options of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: VepfsAccessPointOptionsForUpdateDevInstanceInput
-        """
-
-        self._vepfs_access_point_options = vepfs_access_point_options
-
-    @property
-    def vepfs_host_path(self):
-        """Gets the vepfs_host_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The vepfs_host_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._vepfs_host_path
-
-    @vepfs_host_path.setter
-    def vepfs_host_path(self, vepfs_host_path):
-        """Sets the vepfs_host_path of this StorageForUpdateDevInstanceInput.
-
-
-        :param vepfs_host_path: The vepfs_host_path of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._vepfs_host_path = vepfs_host_path
-
-    @property
-    def vepfs_id(self):
-        """Gets the vepfs_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-
-
-        :return: The vepfs_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :rtype: str
-        """
-        return self._vepfs_id
-
-    @vepfs_id.setter
-    def vepfs_id(self, vepfs_id):
-        """Sets the vepfs_id of this StorageForUpdateDevInstanceInput.
-
-
-        :param vepfs_id: The vepfs_id of this StorageForUpdateDevInstanceInput.  # noqa: E501
-        :type: str
-        """
-
-        self._vepfs_id = vepfs_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
