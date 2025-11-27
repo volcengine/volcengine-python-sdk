@@ -39,6 +39,7 @@ class CreateIdentityProviderOIDCRequest(object):
         'is_id_token_mapping': 'bool',
         'issuer': 'str',
         'name': 'str',
+        'provider': 'str',
         'provider_options': 'ProviderOptionsForCreateIdentityProviderOIDCInput',
         'scopes_list': 'list[str]',
         'use_pkce': 'bool',
@@ -52,13 +53,14 @@ class CreateIdentityProviderOIDCRequest(object):
         'is_id_token_mapping': 'IsIdTokenMapping',
         'issuer': 'Issuer',
         'name': 'Name',
+        'provider': 'Provider',
         'provider_options': 'ProviderOptions',
         'scopes_list': 'ScopesList',
         'use_pkce': 'UsePkce',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider_options=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scopes_list=None, use_pkce=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """CreateIdentityProviderOIDCRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class CreateIdentityProviderOIDCRequest(object):
         self._is_id_token_mapping = None
         self._issuer = None
         self._name = None
+        self._provider = None
         self._provider_options = None
         self._scopes_list = None
         self._use_pkce = None
@@ -82,6 +85,8 @@ class CreateIdentityProviderOIDCRequest(object):
         self.is_id_token_mapping = is_id_token_mapping
         self.issuer = issuer
         self.name = name
+        if provider is not None:
+            self.provider = provider
         if provider_options is not None:
             self.provider_options = provider_options
         if scopes_list is not None:
@@ -226,6 +231,27 @@ class CreateIdentityProviderOIDCRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def provider(self):
+        """Gets the provider of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+
+
+        :return: The provider of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._provider
+
+    @provider.setter
+    def provider(self, provider):
+        """Sets the provider of this CreateIdentityProviderOIDCRequest.
+
+
+        :param provider: The provider of this CreateIdentityProviderOIDCRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._provider = provider
 
     @property
     def provider_options(self):

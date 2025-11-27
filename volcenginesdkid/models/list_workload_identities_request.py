@@ -34,34 +34,54 @@ class ListWorkloadIdentitiesRequest(object):
     """
     swagger_types = {
         'category': 'str',
+        'name': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'sort_by': 'str',
+        'sort_order': 'str',
+        'trn': 'str',
         'workload_pool_name': 'str'
     }
 
     attribute_map = {
         'category': 'Category',
+        'name': 'Name',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'sort_by': 'SortBy',
+        'sort_order': 'SortOrder',
+        'trn': 'Trn',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, category=None, page_number=None, page_size=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, category=None, name=None, page_number=None, page_size=None, sort_by=None, sort_order=None, trn=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """ListWorkloadIdentitiesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._category = None
+        self._name = None
         self._page_number = None
         self._page_size = None
+        self._sort_by = None
+        self._sort_order = None
+        self._trn = None
         self._workload_pool_name = None
         self.discriminator = None
 
         if category is not None:
             self.category = category
+        if name is not None:
+            self.name = name
         self.page_number = page_number
         self.page_size = page_size
+        if sort_by is not None:
+            self.sort_by = sort_by
+        if sort_order is not None:
+            self.sort_order = sort_order
+        if trn is not None:
+            self.trn = trn
         if workload_pool_name is not None:
             self.workload_pool_name = workload_pool_name
 
@@ -85,6 +105,27 @@ class ListWorkloadIdentitiesRequest(object):
         """
 
         self._category = category
+
+    @property
+    def name(self):
+        """Gets the name of this ListWorkloadIdentitiesRequest.  # noqa: E501
+
+
+        :return: The name of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ListWorkloadIdentitiesRequest.
+
+
+        :param name: The name of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def page_number(self):
@@ -137,6 +178,69 @@ class ListWorkloadIdentitiesRequest(object):
             raise ValueError("Invalid value for `page_size`, must be a value less than or equal to `100`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def sort_by(self):
+        """Gets the sort_by of this ListWorkloadIdentitiesRequest.  # noqa: E501
+
+
+        :return: The sort_by of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_by
+
+    @sort_by.setter
+    def sort_by(self, sort_by):
+        """Sets the sort_by of this ListWorkloadIdentitiesRequest.
+
+
+        :param sort_by: The sort_by of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_by = sort_by
+
+    @property
+    def sort_order(self):
+        """Gets the sort_order of this ListWorkloadIdentitiesRequest.  # noqa: E501
+
+
+        :return: The sort_order of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_order
+
+    @sort_order.setter
+    def sort_order(self, sort_order):
+        """Sets the sort_order of this ListWorkloadIdentitiesRequest.
+
+
+        :param sort_order: The sort_order of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_order = sort_order
+
+    @property
+    def trn(self):
+        """Gets the trn of this ListWorkloadIdentitiesRequest.  # noqa: E501
+
+
+        :return: The trn of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._trn
+
+    @trn.setter
+    def trn(self, trn):
+        """Sets the trn of this ListWorkloadIdentitiesRequest.
+
+
+        :param trn: The trn of this ListWorkloadIdentitiesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._trn = trn
 
     @property
     def workload_pool_name(self):

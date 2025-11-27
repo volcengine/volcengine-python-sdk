@@ -40,7 +40,7 @@ class GetOauth2CredentialProviderResponse(object):
         'pool_name': 'str',
         'secret_trn': 'str',
         'updated_at': 'str',
-        'vendor': 'str'
+        'vendor': 'int'
     }
 
     attribute_map = {
@@ -240,7 +240,7 @@ class GetOauth2CredentialProviderResponse(object):
 
 
         :return: The vendor of this GetOauth2CredentialProviderResponse.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._vendor
 
@@ -250,7 +250,7 @@ class GetOauth2CredentialProviderResponse(object):
 
 
         :param vendor: The vendor of this GetOauth2CredentialProviderResponse.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._vendor = vendor

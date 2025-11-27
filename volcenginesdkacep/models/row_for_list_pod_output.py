@@ -42,6 +42,7 @@ class RowForListPodOutput(object):
         'authority_status': 'int',
         'configuration': 'ConfigurationForListPodOutput',
         'create_at': 'int',
+        'custom_route_id': 'str',
         'dnsid': 'str',
         'data_size': 'str',
         'data_size_used': 'str',
@@ -73,6 +74,7 @@ class RowForListPodOutput(object):
         'authority_status': 'AuthorityStatus',
         'configuration': 'Configuration',
         'create_at': 'CreateAt',
+        'custom_route_id': 'CustomRouteId',
         'dnsid': 'DNSId',
         'data_size': 'DataSize',
         'data_size_used': 'DataSizeUsed',
@@ -94,7 +96,7 @@ class RowForListPodOutput(object):
         'up_bandwidth_limit': 'UpBandwidthLimit'
     }
 
-    def __init__(self, adb=None, adb_expire_time=None, adb_status=None, aosp_version=None, archive_status=None, authority_expire_time=None, authority_status=None, configuration=None, create_at=None, dnsid=None, data_size=None, data_size_used=None, dc_info=None, display_layout_id=None, down_bandwidth_limit=None, host_id=None, image_id=None, image_name=None, intranet_ip=None, online=None, pod_id=None, pod_name=None, port_mapping_rule_list=None, product_id=None, server_type_code=None, stream_status=None, tag=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, adb=None, adb_expire_time=None, adb_status=None, aosp_version=None, archive_status=None, authority_expire_time=None, authority_status=None, configuration=None, create_at=None, custom_route_id=None, dnsid=None, data_size=None, data_size_used=None, dc_info=None, display_layout_id=None, down_bandwidth_limit=None, host_id=None, image_id=None, image_name=None, intranet_ip=None, online=None, pod_id=None, pod_name=None, port_mapping_rule_list=None, product_id=None, server_type_code=None, stream_status=None, tag=None, up_bandwidth_limit=None, _configuration=None):  # noqa: E501
         """RowForListPodOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -109,6 +111,7 @@ class RowForListPodOutput(object):
         self._authority_status = None
         self._configuration = None
         self._create_at = None
+        self._custom_route_id = None
         self._dnsid = None
         self._data_size = None
         self._data_size_used = None
@@ -148,6 +151,8 @@ class RowForListPodOutput(object):
             self.configuration = configuration
         if create_at is not None:
             self.create_at = create_at
+        if custom_route_id is not None:
+            self.custom_route_id = custom_route_id
         if dnsid is not None:
             self.dnsid = dnsid
         if data_size is not None:
@@ -375,6 +380,27 @@ class RowForListPodOutput(object):
         """
 
         self._create_at = create_at
+
+    @property
+    def custom_route_id(self):
+        """Gets the custom_route_id of this RowForListPodOutput.  # noqa: E501
+
+
+        :return: The custom_route_id of this RowForListPodOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_route_id
+
+    @custom_route_id.setter
+    def custom_route_id(self, custom_route_id):
+        """Sets the custom_route_id of this RowForListPodOutput.
+
+
+        :param custom_route_id: The custom_route_id of this RowForListPodOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_route_id = custom_route_id
 
     @property
     def dnsid(self):
