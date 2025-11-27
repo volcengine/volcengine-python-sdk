@@ -38,10 +38,13 @@ class ItemForListResourceReservationRecordsOutput(object):
         'delivered_compute_resource': 'DeliveredComputeResourceForListResourceReservationRecordsOutput',
         'desired_compute_resource': 'DesiredComputeResourceForListResourceReservationRecordsOutput',
         'id': 'str',
+        'locked_compute_resource': 'LockedComputeResourceForListResourceReservationRecordsOutput',
+        'min_compute_resource': 'MinComputeResourceForListResourceReservationRecordsOutput',
         'resource_end_time': 'str',
         'resource_start_time': 'str',
         'resource_zone_id': 'str',
-        'status': 'StatusForListResourceReservationRecordsOutput'
+        'status': 'StatusForListResourceReservationRecordsOutput',
+        'target_compute_resource': 'TargetComputeResourceForListResourceReservationRecordsOutput'
     }
 
     attribute_map = {
@@ -50,13 +53,16 @@ class ItemForListResourceReservationRecordsOutput(object):
         'delivered_compute_resource': 'DeliveredComputeResource',
         'desired_compute_resource': 'DesiredComputeResource',
         'id': 'Id',
+        'locked_compute_resource': 'LockedComputeResource',
+        'min_compute_resource': 'MinComputeResource',
         'resource_end_time': 'ResourceEndTime',
         'resource_start_time': 'ResourceStartTime',
         'resource_zone_id': 'ResourceZoneId',
-        'status': 'Status'
+        'status': 'Status',
+        'target_compute_resource': 'TargetComputeResource'
     }
 
-    def __init__(self, activation_time=None, allocated_compute_resource=None, delivered_compute_resource=None, desired_compute_resource=None, id=None, resource_end_time=None, resource_start_time=None, resource_zone_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, activation_time=None, allocated_compute_resource=None, delivered_compute_resource=None, desired_compute_resource=None, id=None, locked_compute_resource=None, min_compute_resource=None, resource_end_time=None, resource_start_time=None, resource_zone_id=None, status=None, target_compute_resource=None, _configuration=None):  # noqa: E501
         """ItemForListResourceReservationRecordsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,10 +73,13 @@ class ItemForListResourceReservationRecordsOutput(object):
         self._delivered_compute_resource = None
         self._desired_compute_resource = None
         self._id = None
+        self._locked_compute_resource = None
+        self._min_compute_resource = None
         self._resource_end_time = None
         self._resource_start_time = None
         self._resource_zone_id = None
         self._status = None
+        self._target_compute_resource = None
         self.discriminator = None
 
         if activation_time is not None:
@@ -83,6 +92,10 @@ class ItemForListResourceReservationRecordsOutput(object):
             self.desired_compute_resource = desired_compute_resource
         if id is not None:
             self.id = id
+        if locked_compute_resource is not None:
+            self.locked_compute_resource = locked_compute_resource
+        if min_compute_resource is not None:
+            self.min_compute_resource = min_compute_resource
         if resource_end_time is not None:
             self.resource_end_time = resource_end_time
         if resource_start_time is not None:
@@ -91,6 +104,8 @@ class ItemForListResourceReservationRecordsOutput(object):
             self.resource_zone_id = resource_zone_id
         if status is not None:
             self.status = status
+        if target_compute_resource is not None:
+            self.target_compute_resource = target_compute_resource
 
     @property
     def activation_time(self):
@@ -198,6 +213,48 @@ class ItemForListResourceReservationRecordsOutput(object):
         self._id = id
 
     @property
+    def locked_compute_resource(self):
+        """Gets the locked_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+
+
+        :return: The locked_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+        :rtype: LockedComputeResourceForListResourceReservationRecordsOutput
+        """
+        return self._locked_compute_resource
+
+    @locked_compute_resource.setter
+    def locked_compute_resource(self, locked_compute_resource):
+        """Sets the locked_compute_resource of this ItemForListResourceReservationRecordsOutput.
+
+
+        :param locked_compute_resource: The locked_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+        :type: LockedComputeResourceForListResourceReservationRecordsOutput
+        """
+
+        self._locked_compute_resource = locked_compute_resource
+
+    @property
+    def min_compute_resource(self):
+        """Gets the min_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+
+
+        :return: The min_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+        :rtype: MinComputeResourceForListResourceReservationRecordsOutput
+        """
+        return self._min_compute_resource
+
+    @min_compute_resource.setter
+    def min_compute_resource(self, min_compute_resource):
+        """Sets the min_compute_resource of this ItemForListResourceReservationRecordsOutput.
+
+
+        :param min_compute_resource: The min_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+        :type: MinComputeResourceForListResourceReservationRecordsOutput
+        """
+
+        self._min_compute_resource = min_compute_resource
+
+    @property
     def resource_end_time(self):
         """Gets the resource_end_time of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
 
@@ -280,6 +337,27 @@ class ItemForListResourceReservationRecordsOutput(object):
         """
 
         self._status = status
+
+    @property
+    def target_compute_resource(self):
+        """Gets the target_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+
+
+        :return: The target_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+        :rtype: TargetComputeResourceForListResourceReservationRecordsOutput
+        """
+        return self._target_compute_resource
+
+    @target_compute_resource.setter
+    def target_compute_resource(self, target_compute_resource):
+        """Sets the target_compute_resource of this ItemForListResourceReservationRecordsOutput.
+
+
+        :param target_compute_resource: The target_compute_resource of this ItemForListResourceReservationRecordsOutput.  # noqa: E501
+        :type: TargetComputeResourceForListResourceReservationRecordsOutput
+        """
+
+        self._target_compute_resource = target_compute_resource
 
     def to_dict(self):
         """Returns the model properties as a dict"""

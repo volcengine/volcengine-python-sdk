@@ -33,43 +33,101 @@ class GrantPermissionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'description': 'str',
+        'effect': 'str',
         'namespace_name': 'str',
         'operation': 'OperationForGrantPermissionInput',
         'original_callers': 'list[OriginalCallerForGrantPermissionInput]',
+        'policy_name': 'str',
         'principal': 'PrincipalForGrantPermissionInput',
         'resource': 'ResourceForGrantPermissionInput'
     }
 
     attribute_map = {
+        'description': 'Description',
+        'effect': 'Effect',
         'namespace_name': 'NamespaceName',
         'operation': 'Operation',
         'original_callers': 'OriginalCallers',
+        'policy_name': 'PolicyName',
         'principal': 'Principal',
         'resource': 'Resource'
     }
 
-    def __init__(self, namespace_name=None, operation=None, original_callers=None, principal=None, resource=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, effect=None, namespace_name=None, operation=None, original_callers=None, policy_name=None, principal=None, resource=None, _configuration=None):  # noqa: E501
         """GrantPermissionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._description = None
+        self._effect = None
         self._namespace_name = None
         self._operation = None
         self._original_callers = None
+        self._policy_name = None
         self._principal = None
         self._resource = None
         self.discriminator = None
 
-        self.namespace_name = namespace_name
+        if description is not None:
+            self.description = description
+        if effect is not None:
+            self.effect = effect
+        if namespace_name is not None:
+            self.namespace_name = namespace_name
         if operation is not None:
             self.operation = operation
         if original_callers is not None:
             self.original_callers = original_callers
+        if policy_name is not None:
+            self.policy_name = policy_name
         if principal is not None:
             self.principal = principal
         if resource is not None:
             self.resource = resource
+
+    @property
+    def description(self):
+        """Gets the description of this GrantPermissionRequest.  # noqa: E501
+
+
+        :return: The description of this GrantPermissionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this GrantPermissionRequest.
+
+
+        :param description: The description of this GrantPermissionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def effect(self):
+        """Gets the effect of this GrantPermissionRequest.  # noqa: E501
+
+
+        :return: The effect of this GrantPermissionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._effect
+
+    @effect.setter
+    def effect(self, effect):
+        """Sets the effect of this GrantPermissionRequest.
+
+
+        :param effect: The effect of this GrantPermissionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._effect = effect
 
     @property
     def namespace_name(self):
@@ -89,8 +147,6 @@ class GrantPermissionRequest(object):
         :param namespace_name: The namespace_name of this GrantPermissionRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and namespace_name is None:
-            raise ValueError("Invalid value for `namespace_name`, must not be `None`")  # noqa: E501
 
         self._namespace_name = namespace_name
 
@@ -135,6 +191,27 @@ class GrantPermissionRequest(object):
         """
 
         self._original_callers = original_callers
+
+    @property
+    def policy_name(self):
+        """Gets the policy_name of this GrantPermissionRequest.  # noqa: E501
+
+
+        :return: The policy_name of this GrantPermissionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._policy_name
+
+    @policy_name.setter
+    def policy_name(self, policy_name):
+        """Sets the policy_name of this GrantPermissionRequest.
+
+
+        :param policy_name: The policy_name of this GrantPermissionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._policy_name = policy_name
 
     @property
     def principal(self):

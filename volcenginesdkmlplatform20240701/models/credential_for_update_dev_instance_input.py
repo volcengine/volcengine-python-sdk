@@ -33,50 +33,55 @@ class CredentialForUpdateDevInstanceInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_key_id': 'str',
-        'secret_access_key': 'str'
+        'access_key': 'str',
+        'secret_access_key': 'str',
+        'use_service_linked_role': 'bool'
     }
 
     attribute_map = {
-        'access_key_id': 'AccessKeyId',
-        'secret_access_key': 'SecretAccessKey'
+        'access_key': 'AccessKey',
+        'secret_access_key': 'SecretAccessKey',
+        'use_service_linked_role': 'UseServiceLinkedRole'
     }
 
-    def __init__(self, access_key_id=None, secret_access_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_key=None, secret_access_key=None, use_service_linked_role=None, _configuration=None):  # noqa: E501
         """CredentialForUpdateDevInstanceInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._access_key_id = None
+        self._access_key = None
         self._secret_access_key = None
+        self._use_service_linked_role = None
         self.discriminator = None
 
-        if access_key_id is not None:
-            self.access_key_id = access_key_id
+        if access_key is not None:
+            self.access_key = access_key
         if secret_access_key is not None:
             self.secret_access_key = secret_access_key
+        if use_service_linked_role is not None:
+            self.use_service_linked_role = use_service_linked_role
 
     @property
-    def access_key_id(self):
-        """Gets the access_key_id of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+    def access_key(self):
+        """Gets the access_key of this CredentialForUpdateDevInstanceInput.  # noqa: E501
 
 
-        :return: The access_key_id of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+        :return: The access_key of this CredentialForUpdateDevInstanceInput.  # noqa: E501
         :rtype: str
         """
-        return self._access_key_id
+        return self._access_key
 
-    @access_key_id.setter
-    def access_key_id(self, access_key_id):
-        """Sets the access_key_id of this CredentialForUpdateDevInstanceInput.
+    @access_key.setter
+    def access_key(self, access_key):
+        """Sets the access_key of this CredentialForUpdateDevInstanceInput.
 
 
-        :param access_key_id: The access_key_id of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+        :param access_key: The access_key of this CredentialForUpdateDevInstanceInput.  # noqa: E501
         :type: str
         """
 
-        self._access_key_id = access_key_id
+        self._access_key = access_key
 
     @property
     def secret_access_key(self):
@@ -98,6 +103,27 @@ class CredentialForUpdateDevInstanceInput(object):
         """
 
         self._secret_access_key = secret_access_key
+
+    @property
+    def use_service_linked_role(self):
+        """Gets the use_service_linked_role of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+
+
+        :return: The use_service_linked_role of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_service_linked_role
+
+    @use_service_linked_role.setter
+    def use_service_linked_role(self, use_service_linked_role):
+        """Sets the use_service_linked_role of this CredentialForUpdateDevInstanceInput.
+
+
+        :param use_service_linked_role: The use_service_linked_role of this CredentialForUpdateDevInstanceInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_service_linked_role = use_service_linked_role
 
     def to_dict(self):
         """Returns the model properties as a dict"""

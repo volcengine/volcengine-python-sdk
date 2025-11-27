@@ -40,6 +40,7 @@ class StartScreenShotRequest(object):
         'product_id': 'str',
         'quality': 'int',
         'rotation': 'int',
+        'round_id': 'str',
         'scale': 'float',
         'tos_info': 'TosInfoForStartScreenShotInput',
         'upload_type': 'int'
@@ -53,12 +54,13 @@ class StartScreenShotRequest(object):
         'product_id': 'ProductId',
         'quality': 'Quality',
         'rotation': 'Rotation',
+        'round_id': 'RoundId',
         'scale': 'Scale',
         'tos_info': 'TosInfo',
         'upload_type': 'UploadType'
     }
 
-    def __init__(self, duration_limit=None, file_type=None, interval=None, pod_id_list=None, product_id=None, quality=None, rotation=None, scale=None, tos_info=None, upload_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, duration_limit=None, file_type=None, interval=None, pod_id_list=None, product_id=None, quality=None, rotation=None, round_id=None, scale=None, tos_info=None, upload_type=None, _configuration=None):  # noqa: E501
         """StartScreenShotRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class StartScreenShotRequest(object):
         self._product_id = None
         self._quality = None
         self._rotation = None
+        self._round_id = None
         self._scale = None
         self._tos_info = None
         self._upload_type = None
@@ -89,6 +92,8 @@ class StartScreenShotRequest(object):
             self.quality = quality
         if rotation is not None:
             self.rotation = rotation
+        if round_id is not None:
+            self.round_id = round_id
         if scale is not None:
             self.scale = scale
         if tos_info is not None:
@@ -244,6 +249,27 @@ class StartScreenShotRequest(object):
         """
 
         self._rotation = rotation
+
+    @property
+    def round_id(self):
+        """Gets the round_id of this StartScreenShotRequest.  # noqa: E501
+
+
+        :return: The round_id of this StartScreenShotRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._round_id
+
+    @round_id.setter
+    def round_id(self, round_id):
+        """Sets the round_id of this StartScreenShotRequest.
+
+
+        :param round_id: The round_id of this StartScreenShotRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._round_id = round_id
 
     @property
     def scale(self):

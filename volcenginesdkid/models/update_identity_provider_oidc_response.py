@@ -39,6 +39,7 @@ class UpdateIdentityProviderOIDCResponse(object):
         'is_id_token_mapping': 'bool',
         'issuer': 'str',
         'name': 'str',
+        'provider': 'str',
         'provider_options': 'ProviderOptionsForUpdateIdentityProviderOIDCOutput',
         'scopes_list': 'list[str]',
         'uid': 'str',
@@ -52,13 +53,14 @@ class UpdateIdentityProviderOIDCResponse(object):
         'is_id_token_mapping': 'IsIdTokenMapping',
         'issuer': 'Issuer',
         'name': 'Name',
+        'provider': 'Provider',
         'provider_options': 'ProviderOptions',
         'scopes_list': 'ScopesList',
         'uid': 'Uid',
         'use_pkce': 'UsePkce'
     }
 
-    def __init__(self, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider_options=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_id=None, client_secret=None, enabled=None, is_id_token_mapping=None, issuer=None, name=None, provider=None, provider_options=None, scopes_list=None, uid=None, use_pkce=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderOIDCResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class UpdateIdentityProviderOIDCResponse(object):
         self._is_id_token_mapping = None
         self._issuer = None
         self._name = None
+        self._provider = None
         self._provider_options = None
         self._scopes_list = None
         self._uid = None
@@ -88,6 +91,8 @@ class UpdateIdentityProviderOIDCResponse(object):
             self.issuer = issuer
         if name is not None:
             self.name = name
+        if provider is not None:
+            self.provider = provider
         if provider_options is not None:
             self.provider_options = provider_options
         if scopes_list is not None:
@@ -222,6 +227,27 @@ class UpdateIdentityProviderOIDCResponse(object):
         """
 
         self._name = name
+
+    @property
+    def provider(self):
+        """Gets the provider of this UpdateIdentityProviderOIDCResponse.  # noqa: E501
+
+
+        :return: The provider of this UpdateIdentityProviderOIDCResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._provider
+
+    @provider.setter
+    def provider(self, provider):
+        """Sets the provider of this UpdateIdentityProviderOIDCResponse.
+
+
+        :param provider: The provider of this UpdateIdentityProviderOIDCResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._provider = provider
 
     @property
     def provider_options(self):

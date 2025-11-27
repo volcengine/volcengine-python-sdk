@@ -33,71 +33,71 @@ class ConvertCredentialForCreateDeploymentInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_key_id': 'str',
-        'secret_access_key': 'str'
+        'registry_token': 'str',
+        'registry_username': 'str'
     }
 
     attribute_map = {
-        'access_key_id': 'AccessKeyId',
-        'secret_access_key': 'SecretAccessKey'
+        'registry_token': 'RegistryToken',
+        'registry_username': 'RegistryUsername'
     }
 
-    def __init__(self, access_key_id=None, secret_access_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, registry_token=None, registry_username=None, _configuration=None):  # noqa: E501
         """ConvertCredentialForCreateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._access_key_id = None
-        self._secret_access_key = None
+        self._registry_token = None
+        self._registry_username = None
         self.discriminator = None
 
-        if access_key_id is not None:
-            self.access_key_id = access_key_id
-        if secret_access_key is not None:
-            self.secret_access_key = secret_access_key
+        if registry_token is not None:
+            self.registry_token = registry_token
+        if registry_username is not None:
+            self.registry_username = registry_username
 
     @property
-    def access_key_id(self):
-        """Gets the access_key_id of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
+    def registry_token(self):
+        """Gets the registry_token of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
 
 
-        :return: The access_key_id of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
+        :return: The registry_token of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
         :rtype: str
         """
-        return self._access_key_id
+        return self._registry_token
 
-    @access_key_id.setter
-    def access_key_id(self, access_key_id):
-        """Sets the access_key_id of this ConvertCredentialForCreateDeploymentInput.
+    @registry_token.setter
+    def registry_token(self, registry_token):
+        """Sets the registry_token of this ConvertCredentialForCreateDeploymentInput.
 
 
-        :param access_key_id: The access_key_id of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
+        :param registry_token: The registry_token of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
         :type: str
         """
 
-        self._access_key_id = access_key_id
+        self._registry_token = registry_token
 
     @property
-    def secret_access_key(self):
-        """Gets the secret_access_key of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
+    def registry_username(self):
+        """Gets the registry_username of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
 
 
-        :return: The secret_access_key of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
+        :return: The registry_username of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
         :rtype: str
         """
-        return self._secret_access_key
+        return self._registry_username
 
-    @secret_access_key.setter
-    def secret_access_key(self, secret_access_key):
-        """Sets the secret_access_key of this ConvertCredentialForCreateDeploymentInput.
+    @registry_username.setter
+    def registry_username(self, registry_username):
+        """Sets the registry_username of this ConvertCredentialForCreateDeploymentInput.
 
 
-        :param secret_access_key: The secret_access_key of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
+        :param registry_username: The registry_username of this ConvertCredentialForCreateDeploymentInput.  # noqa: E501
         :type: str
         """
 
-        self._secret_access_key = secret_access_key
+        self._registry_username = registry_username
 
     def to_dict(self):
         """Returns the model properties as a dict"""

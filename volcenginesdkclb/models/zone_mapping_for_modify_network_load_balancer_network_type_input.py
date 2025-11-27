@@ -34,26 +34,36 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput(object):
     """
     swagger_types = {
         'eip_id': 'str',
+        'eip_isp': 'str',
+        'eip_specific_egress': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
         'eip_id': 'EipId',
+        'eip_isp': 'EipIsp',
+        'eip_specific_egress': 'EipSpecificEgress',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, eip_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_id=None, eip_isp=None, eip_specific_egress=None, zone_id=None, _configuration=None):  # noqa: E501
         """ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._eip_id = None
+        self._eip_isp = None
+        self._eip_specific_egress = None
         self._zone_id = None
         self.discriminator = None
 
         if eip_id is not None:
             self.eip_id = eip_id
+        if eip_isp is not None:
+            self.eip_isp = eip_isp
+        if eip_specific_egress is not None:
+            self.eip_specific_egress = eip_specific_egress
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -77,6 +87,48 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput(object):
         """
 
         self._eip_id = eip_id
+
+    @property
+    def eip_isp(self):
+        """Gets the eip_isp of this ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.  # noqa: E501
+
+
+        :return: The eip_isp of this ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_isp
+
+    @eip_isp.setter
+    def eip_isp(self, eip_isp):
+        """Sets the eip_isp of this ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.
+
+
+        :param eip_isp: The eip_isp of this ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_isp = eip_isp
+
+    @property
+    def eip_specific_egress(self):
+        """Gets the eip_specific_egress of this ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.  # noqa: E501
+
+
+        :return: The eip_specific_egress of this ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_specific_egress
+
+    @eip_specific_egress.setter
+    def eip_specific_egress(self, eip_specific_egress):
+        """Sets the eip_specific_egress of this ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.
+
+
+        :param eip_specific_egress: The eip_specific_egress of this ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_specific_egress = eip_specific_egress
 
     @property
     def zone_id(self):

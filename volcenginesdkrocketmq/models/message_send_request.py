@@ -36,6 +36,7 @@ class MessageSendRequest(object):
         'body': 'str',
         'instance_id': 'str',
         'key': 'str',
+        'properties': 'list[str]',
         'tag': 'str',
         'topic': 'str'
     }
@@ -44,11 +45,12 @@ class MessageSendRequest(object):
         'body': 'Body',
         'instance_id': 'InstanceId',
         'key': 'Key',
+        'properties': 'Properties',
         'tag': 'Tag',
         'topic': 'Topic'
     }
 
-    def __init__(self, body=None, instance_id=None, key=None, tag=None, topic=None, _configuration=None):  # noqa: E501
+    def __init__(self, body=None, instance_id=None, key=None, properties=None, tag=None, topic=None, _configuration=None):  # noqa: E501
         """MessageSendRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class MessageSendRequest(object):
         self._body = None
         self._instance_id = None
         self._key = None
+        self._properties = None
         self._tag = None
         self._topic = None
         self.discriminator = None
@@ -65,6 +68,8 @@ class MessageSendRequest(object):
         self.instance_id = instance_id
         if key is not None:
             self.key = key
+        if properties is not None:
+            self.properties = properties
         if tag is not None:
             self.tag = tag
         self.topic = topic
@@ -135,6 +140,27 @@ class MessageSendRequest(object):
         """
 
         self._key = key
+
+    @property
+    def properties(self):
+        """Gets the properties of this MessageSendRequest.  # noqa: E501
+
+
+        :return: The properties of this MessageSendRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this MessageSendRequest.
+
+
+        :param properties: The properties of this MessageSendRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._properties = properties
 
     @property
     def tag(self):

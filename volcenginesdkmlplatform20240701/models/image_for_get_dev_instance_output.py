@@ -33,7 +33,7 @@ class ImageForGetDevInstanceOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'credential': 'CredentialForGetDevInstanceOutput',
+        'credential': 'ConvertCredentialForGetDevInstanceOutput',
         'type': 'str',
         'url': 'str'
     }
@@ -68,7 +68,7 @@ class ImageForGetDevInstanceOutput(object):
 
 
         :return: The credential of this ImageForGetDevInstanceOutput.  # noqa: E501
-        :rtype: CredentialForGetDevInstanceOutput
+        :rtype: ConvertCredentialForGetDevInstanceOutput
         """
         return self._credential
 
@@ -78,7 +78,7 @@ class ImageForGetDevInstanceOutput(object):
 
 
         :param credential: The credential of this ImageForGetDevInstanceOutput.  # noqa: E501
-        :type: CredentialForGetDevInstanceOutput
+        :type: ConvertCredentialForGetDevInstanceOutput
         """
 
         self._credential = credential

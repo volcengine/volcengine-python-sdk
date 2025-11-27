@@ -33,24 +33,70 @@ class ListPoliciesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'namespace_name': 'str'
+        'filter': 'FilterForListPoliciesInput',
+        'namespace_name': 'str',
+        'page_number': 'int',
+        'page_size': 'int',
+        'sort_direction': 'str',
+        'sort_field': 'str'
     }
 
     attribute_map = {
-        'namespace_name': 'NamespaceName'
+        'filter': 'Filter',
+        'namespace_name': 'NamespaceName',
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize',
+        'sort_direction': 'SortDirection',
+        'sort_field': 'SortField'
     }
 
-    def __init__(self, namespace_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, namespace_name=None, page_number=None, page_size=None, sort_direction=None, sort_field=None, _configuration=None):  # noqa: E501
         """ListPoliciesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filter = None
         self._namespace_name = None
+        self._page_number = None
+        self._page_size = None
+        self._sort_direction = None
+        self._sort_field = None
         self.discriminator = None
 
+        if filter is not None:
+            self.filter = filter
         if namespace_name is not None:
             self.namespace_name = namespace_name
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
+        if sort_direction is not None:
+            self.sort_direction = sort_direction
+        if sort_field is not None:
+            self.sort_field = sort_field
+
+    @property
+    def filter(self):
+        """Gets the filter of this ListPoliciesRequest.  # noqa: E501
+
+
+        :return: The filter of this ListPoliciesRequest.  # noqa: E501
+        :rtype: FilterForListPoliciesInput
+        """
+        return self._filter
+
+    @filter.setter
+    def filter(self, filter):
+        """Sets the filter of this ListPoliciesRequest.
+
+
+        :param filter: The filter of this ListPoliciesRequest.  # noqa: E501
+        :type: FilterForListPoliciesInput
+        """
+
+        self._filter = filter
 
     @property
     def namespace_name(self):
@@ -72,6 +118,90 @@ class ListPoliciesRequest(object):
         """
 
         self._namespace_name = namespace_name
+
+    @property
+    def page_number(self):
+        """Gets the page_number of this ListPoliciesRequest.  # noqa: E501
+
+
+        :return: The page_number of this ListPoliciesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this ListPoliciesRequest.
+
+
+        :param page_number: The page_number of this ListPoliciesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this ListPoliciesRequest.  # noqa: E501
+
+
+        :return: The page_size of this ListPoliciesRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this ListPoliciesRequest.
+
+
+        :param page_size: The page_size of this ListPoliciesRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
+
+    @property
+    def sort_direction(self):
+        """Gets the sort_direction of this ListPoliciesRequest.  # noqa: E501
+
+
+        :return: The sort_direction of this ListPoliciesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_direction
+
+    @sort_direction.setter
+    def sort_direction(self, sort_direction):
+        """Sets the sort_direction of this ListPoliciesRequest.
+
+
+        :param sort_direction: The sort_direction of this ListPoliciesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_direction = sort_direction
+
+    @property
+    def sort_field(self):
+        """Gets the sort_field of this ListPoliciesRequest.  # noqa: E501
+
+
+        :return: The sort_field of this ListPoliciesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_field
+
+    @sort_field.setter
+    def sort_field(self, sort_field):
+        """Sets the sort_field of this ListPoliciesRequest.
+
+
+        :param sort_field: The sort_field of this ListPoliciesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_field = sort_field
 
     def to_dict(self):
         """Returns the model properties as a dict"""

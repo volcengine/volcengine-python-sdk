@@ -33,6 +33,7 @@ class GetFunctionResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_config': 'AsyncTaskConfigForGetFunctionOutput',
         'code_size': 'int',
         'code_size_limit': 'int',
         'command': 'str',
@@ -67,6 +68,7 @@ class GetFunctionResponse(object):
     }
 
     attribute_map = {
+        'async_task_config': 'AsyncTaskConfig',
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
         'command': 'Command',
@@ -100,12 +102,13 @@ class GetFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, command=None, cpu=None, cpu_strategy=None, creation_time=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, code_size=None, code_size_limit=None, command=None, cpu=None, cpu_strategy=None, creation_time=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """GetFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_config = None
         self._code_size = None
         self._code_size_limit = None
         self._command = None
@@ -139,6 +142,8 @@ class GetFunctionResponse(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if async_task_config is not None:
+            self.async_task_config = async_task_config
         if code_size is not None:
             self.code_size = code_size
         if code_size_limit is not None:
@@ -201,6 +206,27 @@ class GetFunctionResponse(object):
             self.triggers_count = triggers_count
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def async_task_config(self):
+        """Gets the async_task_config of this GetFunctionResponse.  # noqa: E501
+
+
+        :return: The async_task_config of this GetFunctionResponse.  # noqa: E501
+        :rtype: AsyncTaskConfigForGetFunctionOutput
+        """
+        return self._async_task_config
+
+    @async_task_config.setter
+    def async_task_config(self, async_task_config):
+        """Sets the async_task_config of this GetFunctionResponse.
+
+
+        :param async_task_config: The async_task_config of this GetFunctionResponse.  # noqa: E501
+        :type: AsyncTaskConfigForGetFunctionOutput
+        """
+
+        self._async_task_config = async_task_config
 
     @property
     def code_size(self):

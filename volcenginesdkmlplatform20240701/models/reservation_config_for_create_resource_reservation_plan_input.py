@@ -40,6 +40,7 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
         'min_duration_hours': 'int',
         'recurrence_end_time': 'str',
         'recurrence_interval': 'str',
+        'recurrence_resource_segments': 'list[RecurrenceResourceSegmentForCreateResourceReservationPlanInput]',
         'recurrence_start_time': 'str',
         'reservation_type': 'str'
     }
@@ -52,11 +53,12 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
         'min_duration_hours': 'MinDurationHours',
         'recurrence_end_time': 'RecurrenceEndTime',
         'recurrence_interval': 'RecurrenceInterval',
+        'recurrence_resource_segments': 'RecurrenceResourceSegments',
         'recurrence_start_time': 'RecurrenceStartTime',
         'reservation_type': 'ReservationType'
     }
 
-    def __init__(self, available_resource_id=None, max_duration_hours=None, max_task_lifetime_seconds=None, min_continuous_resource_duration_seconds=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_start_time=None, reservation_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, available_resource_id=None, max_duration_hours=None, max_task_lifetime_seconds=None, min_continuous_resource_duration_seconds=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_resource_segments=None, recurrence_start_time=None, reservation_type=None, _configuration=None):  # noqa: E501
         """ReservationConfigForCreateResourceReservationPlanInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
         self._min_duration_hours = None
         self._recurrence_end_time = None
         self._recurrence_interval = None
+        self._recurrence_resource_segments = None
         self._recurrence_start_time = None
         self._reservation_type = None
         self.discriminator = None
@@ -87,6 +90,8 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
             self.recurrence_end_time = recurrence_end_time
         if recurrence_interval is not None:
             self.recurrence_interval = recurrence_interval
+        if recurrence_resource_segments is not None:
+            self.recurrence_resource_segments = recurrence_resource_segments
         if recurrence_start_time is not None:
             self.recurrence_start_time = recurrence_start_time
         if reservation_type is not None:
@@ -250,6 +255,27 @@ class ReservationConfigForCreateResourceReservationPlanInput(object):
         """
 
         self._recurrence_interval = recurrence_interval
+
+    @property
+    def recurrence_resource_segments(self):
+        """Gets the recurrence_resource_segments of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+
+
+        :return: The recurrence_resource_segments of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+        :rtype: list[RecurrenceResourceSegmentForCreateResourceReservationPlanInput]
+        """
+        return self._recurrence_resource_segments
+
+    @recurrence_resource_segments.setter
+    def recurrence_resource_segments(self, recurrence_resource_segments):
+        """Sets the recurrence_resource_segments of this ReservationConfigForCreateResourceReservationPlanInput.
+
+
+        :param recurrence_resource_segments: The recurrence_resource_segments of this ReservationConfigForCreateResourceReservationPlanInput.  # noqa: E501
+        :type: list[RecurrenceResourceSegmentForCreateResourceReservationPlanInput]
+        """
+
+        self._recurrence_resource_segments = recurrence_resource_segments
 
     @property
     def recurrence_start_time(self):

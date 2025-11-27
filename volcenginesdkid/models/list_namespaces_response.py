@@ -33,33 +33,33 @@ class ListNamespacesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'list[str]',
+        'namespaces': 'list[NamespaceForListNamespacesOutput]',
         'page_number': 'int',
         'page_size': 'int',
         'total_count': 'int'
     }
 
     attribute_map = {
-        'data': 'Data',
+        'namespaces': 'Namespaces',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'total_count': 'TotalCount'
     }
 
-    def __init__(self, data=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, namespaces=None, page_number=None, page_size=None, total_count=None, _configuration=None):  # noqa: E501
         """ListNamespacesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._data = None
+        self._namespaces = None
         self._page_number = None
         self._page_size = None
         self._total_count = None
         self.discriminator = None
 
-        if data is not None:
-            self.data = data
+        if namespaces is not None:
+            self.namespaces = namespaces
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -68,25 +68,25 @@ class ListNamespacesResponse(object):
             self.total_count = total_count
 
     @property
-    def data(self):
-        """Gets the data of this ListNamespacesResponse.  # noqa: E501
+    def namespaces(self):
+        """Gets the namespaces of this ListNamespacesResponse.  # noqa: E501
 
 
-        :return: The data of this ListNamespacesResponse.  # noqa: E501
-        :rtype: list[str]
+        :return: The namespaces of this ListNamespacesResponse.  # noqa: E501
+        :rtype: list[NamespaceForListNamespacesOutput]
         """
-        return self._data
+        return self._namespaces
 
-    @data.setter
-    def data(self, data):
-        """Sets the data of this ListNamespacesResponse.
+    @namespaces.setter
+    def namespaces(self, namespaces):
+        """Sets the namespaces of this ListNamespacesResponse.
 
 
-        :param data: The data of this ListNamespacesResponse.  # noqa: E501
-        :type: list[str]
+        :param namespaces: The namespaces of this ListNamespacesResponse.  # noqa: E501
+        :type: list[NamespaceForListNamespacesOutput]
         """
 
-        self._data = data
+        self._namespaces = namespaces
 
     @property
     def page_number(self):
