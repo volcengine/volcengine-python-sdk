@@ -33,34 +33,101 @@ class GrantPermissionResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'create_time': 'str',
+        'description': 'str',
         'namespace_id': 'str',
         'policy': 'str',
-        'policy_id': 'str'
+        'policy_id': 'str',
+        'policy_name': 'str',
+        'trn': 'str',
+        'update_time': 'str'
     }
 
     attribute_map = {
+        'create_time': 'CreateTime',
+        'description': 'Description',
         'namespace_id': 'NamespaceId',
         'policy': 'Policy',
-        'policy_id': 'PolicyId'
+        'policy_id': 'PolicyId',
+        'policy_name': 'PolicyName',
+        'trn': 'Trn',
+        'update_time': 'UpdateTime'
     }
 
-    def __init__(self, namespace_id=None, policy=None, policy_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, namespace_id=None, policy=None, policy_id=None, policy_name=None, trn=None, update_time=None, _configuration=None):  # noqa: E501
         """GrantPermissionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._create_time = None
+        self._description = None
         self._namespace_id = None
         self._policy = None
         self._policy_id = None
+        self._policy_name = None
+        self._trn = None
+        self._update_time = None
         self.discriminator = None
 
+        if create_time is not None:
+            self.create_time = create_time
+        if description is not None:
+            self.description = description
         if namespace_id is not None:
             self.namespace_id = namespace_id
         if policy is not None:
             self.policy = policy
         if policy_id is not None:
             self.policy_id = policy_id
+        if policy_name is not None:
+            self.policy_name = policy_name
+        if trn is not None:
+            self.trn = trn
+        if update_time is not None:
+            self.update_time = update_time
+
+    @property
+    def create_time(self):
+        """Gets the create_time of this GrantPermissionResponse.  # noqa: E501
+
+
+        :return: The create_time of this GrantPermissionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this GrantPermissionResponse.
+
+
+        :param create_time: The create_time of this GrantPermissionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._create_time = create_time
+
+    @property
+    def description(self):
+        """Gets the description of this GrantPermissionResponse.  # noqa: E501
+
+
+        :return: The description of this GrantPermissionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this GrantPermissionResponse.
+
+
+        :param description: The description of this GrantPermissionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def namespace_id(self):
@@ -124,6 +191,69 @@ class GrantPermissionResponse(object):
         """
 
         self._policy_id = policy_id
+
+    @property
+    def policy_name(self):
+        """Gets the policy_name of this GrantPermissionResponse.  # noqa: E501
+
+
+        :return: The policy_name of this GrantPermissionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._policy_name
+
+    @policy_name.setter
+    def policy_name(self, policy_name):
+        """Sets the policy_name of this GrantPermissionResponse.
+
+
+        :param policy_name: The policy_name of this GrantPermissionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._policy_name = policy_name
+
+    @property
+    def trn(self):
+        """Gets the trn of this GrantPermissionResponse.  # noqa: E501
+
+
+        :return: The trn of this GrantPermissionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._trn
+
+    @trn.setter
+    def trn(self, trn):
+        """Sets the trn of this GrantPermissionResponse.
+
+
+        :param trn: The trn of this GrantPermissionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._trn = trn
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this GrantPermissionResponse.  # noqa: E501
+
+
+        :return: The update_time of this GrantPermissionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this GrantPermissionResponse.
+
+
+        :param update_time: The update_time of this GrantPermissionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

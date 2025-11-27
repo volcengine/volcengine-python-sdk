@@ -35,6 +35,8 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
     swagger_types = {
         'created_at': 'str',
         'description': 'str',
+        'project_name': 'str',
+        'tags': 'list[TagForListWorkloadPoolsOutput]',
         'trn': 'str',
         'updated_at': 'str',
         'workload_pool_id': 'str',
@@ -44,13 +46,15 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
     attribute_map = {
         'created_at': 'CreatedAt',
         'description': 'Description',
+        'project_name': 'ProjectName',
+        'tags': 'Tags',
         'trn': 'Trn',
         'updated_at': 'UpdatedAt',
         'workload_pool_id': 'WorkloadPoolId',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, created_at=None, description=None, trn=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, description=None, project_name=None, tags=None, trn=None, updated_at=None, workload_pool_id=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """WorkloadPoolForListWorkloadPoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +62,8 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
 
         self._created_at = None
         self._description = None
+        self._project_name = None
+        self._tags = None
         self._trn = None
         self._updated_at = None
         self._workload_pool_id = None
@@ -68,6 +74,10 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
             self.created_at = created_at
         if description is not None:
             self.description = description
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         if trn is not None:
             self.trn = trn
         if updated_at is not None:
@@ -118,6 +128,48 @@ class WorkloadPoolForListWorkloadPoolsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+
+
+        :return: The project_name of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this WorkloadPoolForListWorkloadPoolsOutput.
+
+
+        :param project_name: The project_name of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+
+
+        :return: The tags of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+        :rtype: list[TagForListWorkloadPoolsOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this WorkloadPoolForListWorkloadPoolsOutput.
+
+
+        :param tags: The tags of this WorkloadPoolForListWorkloadPoolsOutput.  # noqa: E501
+        :type: list[TagForListWorkloadPoolsOutput]
+        """
+
+        self._tags = tags
 
     @property
     def trn(self):

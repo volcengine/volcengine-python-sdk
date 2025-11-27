@@ -34,28 +34,28 @@ class DeletePolicyRequest(object):
     """
     swagger_types = {
         'namespace_name': 'str',
-        'policy_id': 'str'
+        'policy_name': 'str'
     }
 
     attribute_map = {
         'namespace_name': 'NamespaceName',
-        'policy_id': 'PolicyId'
+        'policy_name': 'PolicyName'
     }
 
-    def __init__(self, namespace_name=None, policy_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, namespace_name=None, policy_name=None, _configuration=None):  # noqa: E501
         """DeletePolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._namespace_name = None
-        self._policy_id = None
+        self._policy_name = None
         self.discriminator = None
 
         if namespace_name is not None:
             self.namespace_name = namespace_name
-        if policy_id is not None:
-            self.policy_id = policy_id
+        if policy_name is not None:
+            self.policy_name = policy_name
 
     @property
     def namespace_name(self):
@@ -79,25 +79,25 @@ class DeletePolicyRequest(object):
         self._namespace_name = namespace_name
 
     @property
-    def policy_id(self):
-        """Gets the policy_id of this DeletePolicyRequest.  # noqa: E501
+    def policy_name(self):
+        """Gets the policy_name of this DeletePolicyRequest.  # noqa: E501
 
 
-        :return: The policy_id of this DeletePolicyRequest.  # noqa: E501
+        :return: The policy_name of this DeletePolicyRequest.  # noqa: E501
         :rtype: str
         """
-        return self._policy_id
+        return self._policy_name
 
-    @policy_id.setter
-    def policy_id(self, policy_id):
-        """Sets the policy_id of this DeletePolicyRequest.
+    @policy_name.setter
+    def policy_name(self, policy_name):
+        """Sets the policy_name of this DeletePolicyRequest.
 
 
-        :param policy_id: The policy_id of this DeletePolicyRequest.  # noqa: E501
+        :param policy_name: The policy_name of this DeletePolicyRequest.  # noqa: E501
         :type: str
         """
 
-        self._policy_id = policy_id
+        self._policy_name = policy_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,6 +36,7 @@ class DataForListIdentityProvidersOutput(object):
         'connection_type': 'str',
         'create_time': 'str',
         'name': 'str',
+        'provider': 'str',
         'uid': 'str',
         'update_time': 'str'
     }
@@ -44,11 +45,12 @@ class DataForListIdentityProvidersOutput(object):
         'connection_type': 'ConnectionType',
         'create_time': 'CreateTime',
         'name': 'Name',
+        'provider': 'Provider',
         'uid': 'Uid',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, connection_type=None, create_time=None, name=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection_type=None, create_time=None, name=None, provider=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListIdentityProvidersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class DataForListIdentityProvidersOutput(object):
         self._connection_type = None
         self._create_time = None
         self._name = None
+        self._provider = None
         self._uid = None
         self._update_time = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class DataForListIdentityProvidersOutput(object):
             self.create_time = create_time
         if name is not None:
             self.name = name
+        if provider is not None:
+            self.provider = provider
         if uid is not None:
             self.uid = uid
         if update_time is not None:
@@ -134,6 +139,27 @@ class DataForListIdentityProvidersOutput(object):
         """
 
         self._name = name
+
+    @property
+    def provider(self):
+        """Gets the provider of this DataForListIdentityProvidersOutput.  # noqa: E501
+
+
+        :return: The provider of this DataForListIdentityProvidersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._provider
+
+    @provider.setter
+    def provider(self, provider):
+        """Sets the provider of this DataForListIdentityProvidersOutput.
+
+
+        :param provider: The provider of this DataForListIdentityProvidersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._provider = provider
 
     @property
     def uid(self):
