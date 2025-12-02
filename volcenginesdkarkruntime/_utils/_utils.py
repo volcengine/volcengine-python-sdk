@@ -31,8 +31,6 @@ from pathlib import Path
 from datetime import date, datetime
 from typing_extensions import TypeGuard
 
-import sniffio
-
 from .._types import NotGiven, FileTypes, NotGivenOr
 
 _T = TypeVar("_T")
@@ -382,6 +380,7 @@ def file_from_path(path: str) -> FileTypes:
 
 def get_async_library() -> str:
     try:
+        import sniffio
         return sniffio.current_async_library()
     except Exception:
         return "false"
