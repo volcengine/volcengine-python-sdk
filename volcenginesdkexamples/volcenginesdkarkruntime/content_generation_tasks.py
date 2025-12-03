@@ -24,6 +24,8 @@ if __name__ == "__main__":
                 # "role": "first_frame"
             }
         ],
+        service_tier="default",
+        execution_expires_after=3600,
         # callback_url="${YOUR_CALLBACK_URL}"
     )
     print(create_result)
@@ -31,6 +33,8 @@ if __name__ == "__main__":
     print("----- get request -----")
     get_result = client.content_generation.tasks.get(task_id=create_result.id)
     print(get_result)
+    print("ServiceTier:", getattr(get_result, "service_tier", None))
+    print("ExecutionExpiresAfter:", getattr(get_result, "execution_expires_after", None))
 
     print("----- list request -----")
     list_result = client.content_generation.tasks.list(
@@ -41,6 +45,9 @@ if __name__ == "__main__":
         # task_ids=["test-id-1", "test-id-2"] # Filter by task_ids
     )
     print(list_result)
+    if list_result.items:
+        print("List Item ServiceTier:", getattr(list_result.items[0], "service_tier", None))
+        print("List Item ExecutionExpiresAfter:", getattr(list_result.items[0], "execution_expires_after", None))
 
     print("----- delete request -----")
     try:
@@ -48,3 +55,42 @@ if __name__ == "__main__":
         print(create_result.id)
     except Exception as e:
         print(f"failed to delete task: {e}")
+
+    # ---- flex tier flow: create + GET + LIST + DELETE ----
+    print("----- create request (flex) -----")
+    create_result_flex = client.content_generation.tasks.create(
+        model="${YOUR_MODEL_EP}",
+        content=[
+            {
+                "type": "text",
+                "text": "使用 flex 级别进行内容生成测试，验证 service_tier 与 expire 字段"
+            }
+        ],
+        service_tier="flex",
+        execution_expires_after=3600,
+    )
+    print(create_result_flex)
+
+    print("----- get request (flex) -----")
+    get_result_flex = client.content_generation.tasks.get(task_id=create_result_flex.id)
+    print(get_result_flex)
+    print("Flex ServiceTier:", getattr(get_result_flex, "service_tier", None))
+    print("Flex ExecutionExpiresAfter:", getattr(get_result_flex, "execution_expires_after", None))
+
+    print("----- list request (flex) -----")
+    list_result_flex = client.content_generation.tasks.list(
+        page_num=1,
+        page_size=10,
+        service_tier="flex",
+    )
+    print(list_result_flex)
+    if list_result_flex.items:
+        print("Flex List Item ServiceTier:", getattr(list_result_flex.items[0], "service_tier", None))
+        print("Flex List Item ExecutionExpiresAfter:", getattr(list_result_flex.items[0], "execution_expires_after", None))
+
+    print("----- delete request (flex) -----")
+    try:
+        client.content_generation.tasks.delete(task_id=create_result_flex.id)
+        print(create_result_flex.id)
+    except Exception as e:
+        print(f"failed to delete flex task: {e}")
