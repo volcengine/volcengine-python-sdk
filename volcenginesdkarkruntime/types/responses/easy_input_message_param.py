@@ -11,7 +11,7 @@
 
 from __future__ import annotations
 
-from typing import Union
+from typing import Union, Optional
 from typing_extensions import Literal, Required, TypedDict
 
 from .response_input_message_content_list_param import (
@@ -36,3 +36,6 @@ class EasyInputMessageParam(TypedDict, total=False):
 
     type: Literal["message"]
     """The type of the message input. Always `message`."""
+
+    partial : Optional[bool] = None
+    """Whether or not to include partial assistant responses."""

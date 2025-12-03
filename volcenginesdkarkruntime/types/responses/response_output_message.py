@@ -9,7 +9,7 @@
 #
 # This modified file is released under the same license.
 
-from typing import List, Union
+from typing import List, Union, Optional
 from typing_extensions import Literal, Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
@@ -42,3 +42,6 @@ class ResponseOutputMessage(BaseModel):
 
     type: Literal["message"]
     """The type of the output message. Always `message`."""
+
+    partial :Optional[bool]
+    """Whether or not to include partial assistant responses."""
