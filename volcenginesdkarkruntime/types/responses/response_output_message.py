@@ -43,5 +43,5 @@ class ResponseOutputMessage(BaseModel):
     type: Literal["message"]
     """The type of the output message. Always `message`."""
 
-    partial :Optional[bool]
+    partial: Optional[bool]
     """Whether or not to include partial assistant responses."""
