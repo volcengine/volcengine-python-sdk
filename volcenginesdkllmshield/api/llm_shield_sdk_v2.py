@@ -19,7 +19,7 @@ class ContentTypeV2:
     AUDIO = 2
     IMAGE = 3
     VIDEO = 4
-    FILE  = 5
+    FILE = 5
 
 # 定义决策类型常量
 class DecisionTypeV2:
@@ -45,6 +45,7 @@ class MatchSource:
     ADMIN_CONTENTLIB = 2
     USER_CONTENTLIB = 3
 
+
 # 定义消息结构体
 class MultiPart(BaseModel):
     content: str = Field("", alias="Content")
@@ -52,6 +53,7 @@ class MultiPart(BaseModel):
 
     class Config:
         populate_by_name = True
+
 
 # 定义消息结构体
 class MessageV2(BaseModel):
@@ -62,6 +64,7 @@ class MessageV2(BaseModel):
 
     class Config:
         populate_by_name = True
+
 
 # 定义审核请求结构体
 class ModerateV2Request(BaseModel):
