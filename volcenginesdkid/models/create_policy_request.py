@@ -58,7 +58,8 @@ class CreatePolicyRequest(object):
         self._policy_name = None
         self.discriminator = None
 
-        self.description = description
+        if description is not None:
+            self.description = description
         if namespace_name is not None:
             self.namespace_name = namespace_name
         if policy is not None:
@@ -84,8 +85,6 @@ class CreatePolicyRequest(object):
         :param description: The description of this CreatePolicyRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 

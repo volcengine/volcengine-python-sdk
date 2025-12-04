@@ -35,26 +35,56 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
     swagger_types = {
         'create_time': 'str',
         'current_stage': 'str',
+        'default_style': 'str',
+        'episode_num': 'int',
         'id': 'str',
         'op_status': 'str',
         'source_language': 'str',
+        'source_subtitle_file_info': 'SourceSubtitleFileInfoForVideoProjectTaskDetailOutput',
         'status': 'str',
+        'subtask_type': 'int',
+        'suppression_status': 'int',
+        'suppression_video_info': 'SuppressionVideoInfoForVideoProjectTaskDetailOutput',
+        'target_language': 'str',
+        'target_subtitle_file_info': 'TargetSubtitleFileInfoForVideoProjectTaskDetailOutput',
+        'text_ai_remove': 'bool',
+        'translate_ocr_text': 'bool',
         'update_time': 'str',
-        'use_dub_task': 'str'
+        'use_dub_task': 'str',
+        'use_mt': 'bool',
+        'use_ocr': 'bool',
+        'vid_with_ai_remove': 'str',
+        'video_id': 'str',
+        'workflow': 'int'
     }
 
     attribute_map = {
         'create_time': 'createTime',
         'current_stage': 'currentStage',
+        'default_style': 'defaultStyle',
+        'episode_num': 'episodeNum',
         'id': 'id',
         'op_status': 'opStatus',
         'source_language': 'sourceLanguage',
+        'source_subtitle_file_info': 'sourceSubtitleFileInfo',
         'status': 'status',
+        'subtask_type': 'subtaskType',
+        'suppression_status': 'suppressionStatus',
+        'suppression_video_info': 'suppressionVideoInfo',
+        'target_language': 'targetLanguage',
+        'target_subtitle_file_info': 'targetSubtitleFileInfo',
+        'text_ai_remove': 'textAiRemove',
+        'translate_ocr_text': 'translateOcrText',
         'update_time': 'updateTime',
-        'use_dub_task': 'useDubTask'
+        'use_dub_task': 'useDubTask',
+        'use_mt': 'useMt',
+        'use_ocr': 'useOcr',
+        'vid_with_ai_remove': 'vidWithAiRemove',
+        'video_id': 'videoId',
+        'workflow': 'workflow'
     }
 
-    def __init__(self, create_time=None, current_stage=None, id=None, op_status=None, source_language=None, status=None, update_time=None, use_dub_task=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, current_stage=None, default_style=None, episode_num=None, id=None, op_status=None, source_language=None, source_subtitle_file_info=None, status=None, subtask_type=None, suppression_status=None, suppression_video_info=None, target_language=None, target_subtitle_file_info=None, text_ai_remove=None, translate_ocr_text=None, update_time=None, use_dub_task=None, use_mt=None, use_ocr=None, vid_with_ai_remove=None, video_id=None, workflow=None, _configuration=None):  # noqa: E501
         """SubTaskForVideoProjectTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,30 +92,75 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
 
         self._create_time = None
         self._current_stage = None
+        self._default_style = None
+        self._episode_num = None
         self._id = None
         self._op_status = None
         self._source_language = None
+        self._source_subtitle_file_info = None
         self._status = None
+        self._subtask_type = None
+        self._suppression_status = None
+        self._suppression_video_info = None
+        self._target_language = None
+        self._target_subtitle_file_info = None
+        self._text_ai_remove = None
+        self._translate_ocr_text = None
         self._update_time = None
         self._use_dub_task = None
+        self._use_mt = None
+        self._use_ocr = None
+        self._vid_with_ai_remove = None
+        self._video_id = None
+        self._workflow = None
         self.discriminator = None
 
         if create_time is not None:
             self.create_time = create_time
         if current_stage is not None:
             self.current_stage = current_stage
+        if default_style is not None:
+            self.default_style = default_style
+        if episode_num is not None:
+            self.episode_num = episode_num
         if id is not None:
             self.id = id
         if op_status is not None:
             self.op_status = op_status
         if source_language is not None:
             self.source_language = source_language
+        if source_subtitle_file_info is not None:
+            self.source_subtitle_file_info = source_subtitle_file_info
         if status is not None:
             self.status = status
+        if subtask_type is not None:
+            self.subtask_type = subtask_type
+        if suppression_status is not None:
+            self.suppression_status = suppression_status
+        if suppression_video_info is not None:
+            self.suppression_video_info = suppression_video_info
+        if target_language is not None:
+            self.target_language = target_language
+        if target_subtitle_file_info is not None:
+            self.target_subtitle_file_info = target_subtitle_file_info
+        if text_ai_remove is not None:
+            self.text_ai_remove = text_ai_remove
+        if translate_ocr_text is not None:
+            self.translate_ocr_text = translate_ocr_text
         if update_time is not None:
             self.update_time = update_time
         if use_dub_task is not None:
             self.use_dub_task = use_dub_task
+        if use_mt is not None:
+            self.use_mt = use_mt
+        if use_ocr is not None:
+            self.use_ocr = use_ocr
+        if vid_with_ai_remove is not None:
+            self.vid_with_ai_remove = vid_with_ai_remove
+        if video_id is not None:
+            self.video_id = video_id
+        if workflow is not None:
+            self.workflow = workflow
 
     @property
     def create_time(self):
@@ -128,6 +203,48 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
         """
 
         self._current_stage = current_stage
+
+    @property
+    def default_style(self):
+        """Gets the default_style of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The default_style of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_style
+
+    @default_style.setter
+    def default_style(self, default_style):
+        """Sets the default_style of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param default_style: The default_style of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._default_style = default_style
+
+    @property
+    def episode_num(self):
+        """Gets the episode_num of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The episode_num of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._episode_num
+
+    @episode_num.setter
+    def episode_num(self, episode_num):
+        """Sets the episode_num of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param episode_num: The episode_num of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._episode_num = episode_num
 
     @property
     def id(self):
@@ -193,6 +310,27 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
         self._source_language = source_language
 
     @property
+    def source_subtitle_file_info(self):
+        """Gets the source_subtitle_file_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The source_subtitle_file_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: SourceSubtitleFileInfoForVideoProjectTaskDetailOutput
+        """
+        return self._source_subtitle_file_info
+
+    @source_subtitle_file_info.setter
+    def source_subtitle_file_info(self, source_subtitle_file_info):
+        """Sets the source_subtitle_file_info of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param source_subtitle_file_info: The source_subtitle_file_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: SourceSubtitleFileInfoForVideoProjectTaskDetailOutput
+        """
+
+        self._source_subtitle_file_info = source_subtitle_file_info
+
+    @property
     def status(self):
         """Gets the status of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
 
@@ -212,6 +350,153 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
         """
 
         self._status = status
+
+    @property
+    def subtask_type(self):
+        """Gets the subtask_type of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The subtask_type of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._subtask_type
+
+    @subtask_type.setter
+    def subtask_type(self, subtask_type):
+        """Sets the subtask_type of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param subtask_type: The subtask_type of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._subtask_type = subtask_type
+
+    @property
+    def suppression_status(self):
+        """Gets the suppression_status of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The suppression_status of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._suppression_status
+
+    @suppression_status.setter
+    def suppression_status(self, suppression_status):
+        """Sets the suppression_status of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param suppression_status: The suppression_status of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._suppression_status = suppression_status
+
+    @property
+    def suppression_video_info(self):
+        """Gets the suppression_video_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The suppression_video_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: SuppressionVideoInfoForVideoProjectTaskDetailOutput
+        """
+        return self._suppression_video_info
+
+    @suppression_video_info.setter
+    def suppression_video_info(self, suppression_video_info):
+        """Sets the suppression_video_info of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param suppression_video_info: The suppression_video_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: SuppressionVideoInfoForVideoProjectTaskDetailOutput
+        """
+
+        self._suppression_video_info = suppression_video_info
+
+    @property
+    def target_language(self):
+        """Gets the target_language of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The target_language of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_language
+
+    @target_language.setter
+    def target_language(self, target_language):
+        """Sets the target_language of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param target_language: The target_language of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._target_language = target_language
+
+    @property
+    def target_subtitle_file_info(self):
+        """Gets the target_subtitle_file_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The target_subtitle_file_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: TargetSubtitleFileInfoForVideoProjectTaskDetailOutput
+        """
+        return self._target_subtitle_file_info
+
+    @target_subtitle_file_info.setter
+    def target_subtitle_file_info(self, target_subtitle_file_info):
+        """Sets the target_subtitle_file_info of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param target_subtitle_file_info: The target_subtitle_file_info of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: TargetSubtitleFileInfoForVideoProjectTaskDetailOutput
+        """
+
+        self._target_subtitle_file_info = target_subtitle_file_info
+
+    @property
+    def text_ai_remove(self):
+        """Gets the text_ai_remove of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The text_ai_remove of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._text_ai_remove
+
+    @text_ai_remove.setter
+    def text_ai_remove(self, text_ai_remove):
+        """Sets the text_ai_remove of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param text_ai_remove: The text_ai_remove of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._text_ai_remove = text_ai_remove
+
+    @property
+    def translate_ocr_text(self):
+        """Gets the translate_ocr_text of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The translate_ocr_text of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._translate_ocr_text
+
+    @translate_ocr_text.setter
+    def translate_ocr_text(self, translate_ocr_text):
+        """Sets the translate_ocr_text of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param translate_ocr_text: The translate_ocr_text of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._translate_ocr_text = translate_ocr_text
 
     @property
     def update_time(self):
@@ -254,6 +539,111 @@ class SubTaskForVideoProjectTaskDetailOutput(object):
         """
 
         self._use_dub_task = use_dub_task
+
+    @property
+    def use_mt(self):
+        """Gets the use_mt of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The use_mt of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_mt
+
+    @use_mt.setter
+    def use_mt(self, use_mt):
+        """Sets the use_mt of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param use_mt: The use_mt of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_mt = use_mt
+
+    @property
+    def use_ocr(self):
+        """Gets the use_ocr of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The use_ocr of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_ocr
+
+    @use_ocr.setter
+    def use_ocr(self, use_ocr):
+        """Sets the use_ocr of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param use_ocr: The use_ocr of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_ocr = use_ocr
+
+    @property
+    def vid_with_ai_remove(self):
+        """Gets the vid_with_ai_remove of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The vid_with_ai_remove of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._vid_with_ai_remove
+
+    @vid_with_ai_remove.setter
+    def vid_with_ai_remove(self, vid_with_ai_remove):
+        """Sets the vid_with_ai_remove of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param vid_with_ai_remove: The vid_with_ai_remove of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._vid_with_ai_remove = vid_with_ai_remove
+
+    @property
+    def video_id(self):
+        """Gets the video_id of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The video_id of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._video_id
+
+    @video_id.setter
+    def video_id(self, video_id):
+        """Sets the video_id of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param video_id: The video_id of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._video_id = video_id
+
+    @property
+    def workflow(self):
+        """Gets the workflow of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The workflow of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._workflow
+
+    @workflow.setter
+    def workflow(self, workflow):
+        """Sets the workflow of this SubTaskForVideoProjectTaskDetailOutput.
+
+
+        :param workflow: The workflow of this SubTaskForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._workflow = workflow
 
     def to_dict(self):
         """Returns the model properties as a dict"""
