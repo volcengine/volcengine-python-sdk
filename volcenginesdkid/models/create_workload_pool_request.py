@@ -34,26 +34,36 @@ class CreateWorkloadPoolRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'project_name': 'str',
+        'tags': 'list[TagForCreateWorkloadPoolInput]',
         'workload_pool_name': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'project_name': 'ProjectName',
+        'tags': 'Tags',
         'workload_pool_name': 'WorkloadPoolName'
     }
 
-    def __init__(self, description=None, workload_pool_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, project_name=None, tags=None, workload_pool_name=None, _configuration=None):  # noqa: E501
         """CreateWorkloadPoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._project_name = None
+        self._tags = None
         self._workload_pool_name = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         if workload_pool_name is not None:
             self.workload_pool_name = workload_pool_name
 
@@ -77,6 +87,48 @@ class CreateWorkloadPoolRequest(object):
         """
 
         self._description = description
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateWorkloadPoolRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateWorkloadPoolRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateWorkloadPoolRequest.
+
+
+        :param project_name: The project_name of this CreateWorkloadPoolRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateWorkloadPoolRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateWorkloadPoolRequest.  # noqa: E501
+        :rtype: list[TagForCreateWorkloadPoolInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateWorkloadPoolRequest.
+
+
+        :param tags: The tags of this CreateWorkloadPoolRequest.  # noqa: E501
+        :type: list[TagForCreateWorkloadPoolInput]
+        """
+
+        self._tags = tags
 
     @property
     def workload_pool_name(self):

@@ -33,6 +33,7 @@ class CreateFunctionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_config': 'AsyncTaskConfigForCreateFunctionInput',
         'cell': 'str',
         'command': 'str',
         'cpu_milli': 'int',
@@ -62,6 +63,7 @@ class CreateFunctionRequest(object):
     }
 
     attribute_map = {
+        'async_task_config': 'AsyncTaskConfig',
         'cell': 'Cell',
         'command': 'Command',
         'cpu_milli': 'CpuMilli',
@@ -90,12 +92,13 @@ class CreateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_config = None
         self._cell = None
         self._command = None
         self._cpu_milli = None
@@ -124,6 +127,8 @@ class CreateFunctionRequest(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if async_task_config is not None:
+            self.async_task_config = async_task_config
         if cell is not None:
             self.cell = cell
         if command is not None:
@@ -174,6 +179,27 @@ class CreateFunctionRequest(object):
             self.tos_mount_config = tos_mount_config
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def async_task_config(self):
+        """Gets the async_task_config of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The async_task_config of this CreateFunctionRequest.  # noqa: E501
+        :rtype: AsyncTaskConfigForCreateFunctionInput
+        """
+        return self._async_task_config
+
+    @async_task_config.setter
+    def async_task_config(self, async_task_config):
+        """Sets the async_task_config of this CreateFunctionRequest.
+
+
+        :param async_task_config: The async_task_config of this CreateFunctionRequest.  # noqa: E501
+        :type: AsyncTaskConfigForCreateFunctionInput
+        """
+
+        self._async_task_config = async_task_config
 
     @property
     def cell(self):

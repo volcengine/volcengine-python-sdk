@@ -34,31 +34,51 @@ class UpdateUserPoolRequest(object):
     """
     swagger_types = {
         'description': 'str',
+        'email_passwordless_sign_in_enabled': 'bool',
         'name': 'str',
+        'password_sign_in_enabled': 'bool',
+        'self_sign_up_enabled': 'bool',
+        'sms_passwordless_sign_in_enabled': 'bool',
         'user_pool_uid': 'str'
     }
 
     attribute_map = {
         'description': 'Description',
+        'email_passwordless_sign_in_enabled': 'EmailPasswordlessSignInEnabled',
         'name': 'Name',
+        'password_sign_in_enabled': 'PasswordSignInEnabled',
+        'self_sign_up_enabled': 'SelfSignUpEnabled',
+        'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, description=None, name=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, self_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateUserPoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._description = None
+        self._email_passwordless_sign_in_enabled = None
         self._name = None
+        self._password_sign_in_enabled = None
+        self._self_sign_up_enabled = None
+        self._sms_passwordless_sign_in_enabled = None
         self._user_pool_uid = None
         self.discriminator = None
 
         if description is not None:
             self.description = description
+        if email_passwordless_sign_in_enabled is not None:
+            self.email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
         if name is not None:
             self.name = name
+        if password_sign_in_enabled is not None:
+            self.password_sign_in_enabled = password_sign_in_enabled
+        if self_sign_up_enabled is not None:
+            self.self_sign_up_enabled = self_sign_up_enabled
+        if sms_passwordless_sign_in_enabled is not None:
+            self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
         self.user_pool_uid = user_pool_uid
 
     @property
@@ -83,6 +103,27 @@ class UpdateUserPoolRequest(object):
         self._description = description
 
     @property
+    def email_passwordless_sign_in_enabled(self):
+        """Gets the email_passwordless_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The email_passwordless_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_passwordless_sign_in_enabled
+
+    @email_passwordless_sign_in_enabled.setter
+    def email_passwordless_sign_in_enabled(self, email_passwordless_sign_in_enabled):
+        """Sets the email_passwordless_sign_in_enabled of this UpdateUserPoolRequest.
+
+
+        :param email_passwordless_sign_in_enabled: The email_passwordless_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
+
+    @property
     def name(self):
         """Gets the name of this UpdateUserPoolRequest.  # noqa: E501
 
@@ -102,6 +143,69 @@ class UpdateUserPoolRequest(object):
         """
 
         self._name = name
+
+    @property
+    def password_sign_in_enabled(self):
+        """Gets the password_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The password_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._password_sign_in_enabled
+
+    @password_sign_in_enabled.setter
+    def password_sign_in_enabled(self, password_sign_in_enabled):
+        """Sets the password_sign_in_enabled of this UpdateUserPoolRequest.
+
+
+        :param password_sign_in_enabled: The password_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._password_sign_in_enabled = password_sign_in_enabled
+
+    @property
+    def self_sign_up_enabled(self):
+        """Gets the self_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The self_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._self_sign_up_enabled
+
+    @self_sign_up_enabled.setter
+    def self_sign_up_enabled(self, self_sign_up_enabled):
+        """Sets the self_sign_up_enabled of this UpdateUserPoolRequest.
+
+
+        :param self_sign_up_enabled: The self_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._self_sign_up_enabled = self_sign_up_enabled
+
+    @property
+    def sms_passwordless_sign_in_enabled(self):
+        """Gets the sms_passwordless_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The sms_passwordless_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sms_passwordless_sign_in_enabled
+
+    @sms_passwordless_sign_in_enabled.setter
+    def sms_passwordless_sign_in_enabled(self, sms_passwordless_sign_in_enabled):
+        """Sets the sms_passwordless_sign_in_enabled of this UpdateUserPoolRequest.
+
+
+        :param sms_passwordless_sign_in_enabled: The sms_passwordless_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
 
     @property
     def user_pool_uid(self):
