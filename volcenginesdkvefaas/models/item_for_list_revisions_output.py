@@ -33,6 +33,7 @@ class ItemForListRevisionsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_config': 'AsyncTaskConfigForListRevisionsOutput',
         'code_size': 'int',
         'code_size_limit': 'int',
         'creation_time': 'str',
@@ -64,6 +65,7 @@ class ItemForListRevisionsOutput(object):
     }
 
     attribute_map = {
+        'async_task_config': 'AsyncTaskConfig',
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
         'creation_time': 'CreationTime',
@@ -94,12 +96,13 @@ class ItemForListRevisionsOutput(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, code_size=None, code_size_limit=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, health_check_config=None, id=None, initializer_sec=None, instance_type=None, max_concurrency=None, max_replicas=None, memory_mb=None, name=None, nas_storage=None, request_timeout=None, revision_creation_time=None, revision_description=None, revision_number=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """ItemForListRevisionsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_config = None
         self._code_size = None
         self._code_size_limit = None
         self._creation_time = None
@@ -130,6 +133,8 @@ class ItemForListRevisionsOutput(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if async_task_config is not None:
+            self.async_task_config = async_task_config
         if code_size is not None:
             self.code_size = code_size
         if code_size_limit is not None:
@@ -186,6 +191,27 @@ class ItemForListRevisionsOutput(object):
             self.tos_mount_config = tos_mount_config
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def async_task_config(self):
+        """Gets the async_task_config of this ItemForListRevisionsOutput.  # noqa: E501
+
+
+        :return: The async_task_config of this ItemForListRevisionsOutput.  # noqa: E501
+        :rtype: AsyncTaskConfigForListRevisionsOutput
+        """
+        return self._async_task_config
+
+    @async_task_config.setter
+    def async_task_config(self, async_task_config):
+        """Sets the async_task_config of this ItemForListRevisionsOutput.
+
+
+        :param async_task_config: The async_task_config of this ItemForListRevisionsOutput.  # noqa: E501
+        :type: AsyncTaskConfigForListRevisionsOutput
+        """
+
+        self._async_task_config = async_task_config
 
     @property
     def code_size(self):

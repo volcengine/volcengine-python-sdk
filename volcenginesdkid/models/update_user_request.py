@@ -33,77 +33,143 @@ class UpdateUserRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'birthdate': 'str',
         'email': 'str',
         'email_verified': 'bool',
         'family_name': 'str',
+        'gender': 'str',
         'given_name': 'str',
+        'locale': 'str',
         'middle_name': 'str',
         'name': 'str',
+        'nickname': 'str',
         'phone_number': 'str',
         'phone_number_verified': 'bool',
+        'picture': 'str',
         'preferred_username': 'str',
+        'profile': 'str',
         'user_metadata': 'str',
         'user_pool_uid': 'str',
-        'user_uid': 'str'
+        'user_state': 'str',
+        'user_uid': 'str',
+        'website': 'str',
+        'zoneinfo': 'str'
     }
 
     attribute_map = {
+        'birthdate': 'Birthdate',
         'email': 'Email',
         'email_verified': 'EmailVerified',
         'family_name': 'FamilyName',
+        'gender': 'Gender',
         'given_name': 'GivenName',
+        'locale': 'Locale',
         'middle_name': 'MiddleName',
         'name': 'Name',
+        'nickname': 'Nickname',
         'phone_number': 'PhoneNumber',
         'phone_number_verified': 'PhoneNumberVerified',
+        'picture': 'Picture',
         'preferred_username': 'PreferredUsername',
+        'profile': 'Profile',
         'user_metadata': 'UserMetadata',
         'user_pool_uid': 'UserPoolUid',
-        'user_uid': 'UserUid'
+        'user_state': 'UserState',
+        'user_uid': 'UserUid',
+        'website': 'Website',
+        'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, email=None, email_verified=None, family_name=None, given_name=None, middle_name=None, name=None, phone_number=None, phone_number_verified=None, preferred_username=None, user_metadata=None, user_pool_uid=None, user_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, user_pool_uid=None, user_state=None, user_uid=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """UpdateUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._birthdate = None
         self._email = None
         self._email_verified = None
         self._family_name = None
+        self._gender = None
         self._given_name = None
+        self._locale = None
         self._middle_name = None
         self._name = None
+        self._nickname = None
         self._phone_number = None
         self._phone_number_verified = None
+        self._picture = None
         self._preferred_username = None
+        self._profile = None
         self._user_metadata = None
         self._user_pool_uid = None
+        self._user_state = None
         self._user_uid = None
+        self._website = None
+        self._zoneinfo = None
         self.discriminator = None
 
+        if birthdate is not None:
+            self.birthdate = birthdate
         if email is not None:
             self.email = email
         if email_verified is not None:
             self.email_verified = email_verified
         if family_name is not None:
             self.family_name = family_name
+        if gender is not None:
+            self.gender = gender
         if given_name is not None:
             self.given_name = given_name
+        if locale is not None:
+            self.locale = locale
         if middle_name is not None:
             self.middle_name = middle_name
         if name is not None:
             self.name = name
+        if nickname is not None:
+            self.nickname = nickname
         if phone_number is not None:
             self.phone_number = phone_number
         if phone_number_verified is not None:
             self.phone_number_verified = phone_number_verified
+        if picture is not None:
+            self.picture = picture
         if preferred_username is not None:
             self.preferred_username = preferred_username
+        if profile is not None:
+            self.profile = profile
         if user_metadata is not None:
             self.user_metadata = user_metadata
         self.user_pool_uid = user_pool_uid
+        if user_state is not None:
+            self.user_state = user_state
         self.user_uid = user_uid
+        if website is not None:
+            self.website = website
+        if zoneinfo is not None:
+            self.zoneinfo = zoneinfo
+
+    @property
+    def birthdate(self):
+        """Gets the birthdate of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The birthdate of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._birthdate
+
+    @birthdate.setter
+    def birthdate(self, birthdate):
+        """Sets the birthdate of this UpdateUserRequest.
+
+
+        :param birthdate: The birthdate of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._birthdate = birthdate
 
     @property
     def email(self):
@@ -169,6 +235,27 @@ class UpdateUserRequest(object):
         self._family_name = family_name
 
     @property
+    def gender(self):
+        """Gets the gender of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The gender of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._gender
+
+    @gender.setter
+    def gender(self, gender):
+        """Sets the gender of this UpdateUserRequest.
+
+
+        :param gender: The gender of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._gender = gender
+
+    @property
     def given_name(self):
         """Gets the given_name of this UpdateUserRequest.  # noqa: E501
 
@@ -188,6 +275,27 @@ class UpdateUserRequest(object):
         """
 
         self._given_name = given_name
+
+    @property
+    def locale(self):
+        """Gets the locale of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The locale of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._locale
+
+    @locale.setter
+    def locale(self, locale):
+        """Sets the locale of this UpdateUserRequest.
+
+
+        :param locale: The locale of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._locale = locale
 
     @property
     def middle_name(self):
@@ -232,6 +340,27 @@ class UpdateUserRequest(object):
         self._name = name
 
     @property
+    def nickname(self):
+        """Gets the nickname of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The nickname of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._nickname
+
+    @nickname.setter
+    def nickname(self, nickname):
+        """Sets the nickname of this UpdateUserRequest.
+
+
+        :param nickname: The nickname of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._nickname = nickname
+
+    @property
     def phone_number(self):
         """Gets the phone_number of this UpdateUserRequest.  # noqa: E501
 
@@ -274,6 +403,27 @@ class UpdateUserRequest(object):
         self._phone_number_verified = phone_number_verified
 
     @property
+    def picture(self):
+        """Gets the picture of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The picture of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._picture
+
+    @picture.setter
+    def picture(self, picture):
+        """Sets the picture of this UpdateUserRequest.
+
+
+        :param picture: The picture of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._picture = picture
+
+    @property
     def preferred_username(self):
         """Gets the preferred_username of this UpdateUserRequest.  # noqa: E501
 
@@ -293,6 +443,27 @@ class UpdateUserRequest(object):
         """
 
         self._preferred_username = preferred_username
+
+    @property
+    def profile(self):
+        """Gets the profile of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The profile of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._profile
+
+    @profile.setter
+    def profile(self, profile):
+        """Sets the profile of this UpdateUserRequest.
+
+
+        :param profile: The profile of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._profile = profile
 
     @property
     def user_metadata(self):
@@ -339,6 +510,27 @@ class UpdateUserRequest(object):
         self._user_pool_uid = user_pool_uid
 
     @property
+    def user_state(self):
+        """Gets the user_state of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The user_state of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_state
+
+    @user_state.setter
+    def user_state(self, user_state):
+        """Sets the user_state of this UpdateUserRequest.
+
+
+        :param user_state: The user_state of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._user_state = user_state
+
+    @property
     def user_uid(self):
         """Gets the user_uid of this UpdateUserRequest.  # noqa: E501
 
@@ -360,6 +552,48 @@ class UpdateUserRequest(object):
             raise ValueError("Invalid value for `user_uid`, must not be `None`")  # noqa: E501
 
         self._user_uid = user_uid
+
+    @property
+    def website(self):
+        """Gets the website of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The website of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._website
+
+    @website.setter
+    def website(self, website):
+        """Sets the website of this UpdateUserRequest.
+
+
+        :param website: The website of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._website = website
+
+    @property
+    def zoneinfo(self):
+        """Gets the zoneinfo of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The zoneinfo of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._zoneinfo
+
+    @zoneinfo.setter
+    def zoneinfo(self, zoneinfo):
+        """Sets the zoneinfo of this UpdateUserRequest.
+
+
+        :param zoneinfo: The zoneinfo of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._zoneinfo = zoneinfo
 
     def to_dict(self):
         """Returns the model properties as a dict"""

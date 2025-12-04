@@ -35,16 +35,18 @@ class DataForVideoProjectTaskDetailOutput(object):
     swagger_types = {
         'sub_tasks': 'list[SubTaskForVideoProjectTaskDetailOutput]',
         'task': 'TaskForVideoProjectTaskDetailOutput',
-        'video_details': 'VideoDetailsForVideoProjectTaskDetailOutput'
+        'video_details': 'list[VideoDetailForVideoProjectTaskDetailOutput]',
+        'video_details_with_ai_remove': 'list[VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput]'
     }
 
     attribute_map = {
         'sub_tasks': 'subTasks',
         'task': 'task',
-        'video_details': 'videoDetails'
+        'video_details': 'videoDetails',
+        'video_details_with_ai_remove': 'videoDetailsWithAiRemove'
     }
 
-    def __init__(self, sub_tasks=None, task=None, video_details=None, _configuration=None):  # noqa: E501
+    def __init__(self, sub_tasks=None, task=None, video_details=None, video_details_with_ai_remove=None, _configuration=None):  # noqa: E501
         """DataForVideoProjectTaskDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class DataForVideoProjectTaskDetailOutput(object):
         self._sub_tasks = None
         self._task = None
         self._video_details = None
+        self._video_details_with_ai_remove = None
         self.discriminator = None
 
         if sub_tasks is not None:
@@ -61,6 +64,8 @@ class DataForVideoProjectTaskDetailOutput(object):
             self.task = task
         if video_details is not None:
             self.video_details = video_details
+        if video_details_with_ai_remove is not None:
+            self.video_details_with_ai_remove = video_details_with_ai_remove
 
     @property
     def sub_tasks(self):
@@ -110,7 +115,7 @@ class DataForVideoProjectTaskDetailOutput(object):
 
 
         :return: The video_details of this DataForVideoProjectTaskDetailOutput.  # noqa: E501
-        :rtype: VideoDetailsForVideoProjectTaskDetailOutput
+        :rtype: list[VideoDetailForVideoProjectTaskDetailOutput]
         """
         return self._video_details
 
@@ -120,10 +125,31 @@ class DataForVideoProjectTaskDetailOutput(object):
 
 
         :param video_details: The video_details of this DataForVideoProjectTaskDetailOutput.  # noqa: E501
-        :type: VideoDetailsForVideoProjectTaskDetailOutput
+        :type: list[VideoDetailForVideoProjectTaskDetailOutput]
         """
 
         self._video_details = video_details
+
+    @property
+    def video_details_with_ai_remove(self):
+        """Gets the video_details_with_ai_remove of this DataForVideoProjectTaskDetailOutput.  # noqa: E501
+
+
+        :return: The video_details_with_ai_remove of this DataForVideoProjectTaskDetailOutput.  # noqa: E501
+        :rtype: list[VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput]
+        """
+        return self._video_details_with_ai_remove
+
+    @video_details_with_ai_remove.setter
+    def video_details_with_ai_remove(self, video_details_with_ai_remove):
+        """Sets the video_details_with_ai_remove of this DataForVideoProjectTaskDetailOutput.
+
+
+        :param video_details_with_ai_remove: The video_details_with_ai_remove of this DataForVideoProjectTaskDetailOutput.  # noqa: E501
+        :type: list[VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput]
+        """
+
+        self._video_details_with_ai_remove = video_details_with_ai_remove
 
     def to_dict(self):
         """Returns the model properties as a dict"""

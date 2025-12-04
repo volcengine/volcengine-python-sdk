@@ -34,6 +34,8 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput(object):
     """
     swagger_types = {
         'eip_id': 'str',
+        'eip_isp': 'str',
+        'eip_specific_egress': 'str',
         'ipv4_address': 'str',
         'subnet_id': 'str',
         'zone_id': 'str'
@@ -41,18 +43,22 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput(object):
 
     attribute_map = {
         'eip_id': 'EipId',
+        'eip_isp': 'EipIsp',
+        'eip_specific_egress': 'EipSpecificEgress',
         'ipv4_address': 'Ipv4Address',
         'subnet_id': 'SubnetId',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, eip_id=None, ipv4_address=None, subnet_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, eip_id=None, eip_isp=None, eip_specific_egress=None, ipv4_address=None, subnet_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """AddZoneMappingForModifyNetworkLoadBalancerZonesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._eip_id = None
+        self._eip_isp = None
+        self._eip_specific_egress = None
         self._ipv4_address = None
         self._subnet_id = None
         self._zone_id = None
@@ -60,6 +66,10 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput(object):
 
         if eip_id is not None:
             self.eip_id = eip_id
+        if eip_isp is not None:
+            self.eip_isp = eip_isp
+        if eip_specific_egress is not None:
+            self.eip_specific_egress = eip_specific_egress
         if ipv4_address is not None:
             self.ipv4_address = ipv4_address
         if subnet_id is not None:
@@ -87,6 +97,48 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput(object):
         """
 
         self._eip_id = eip_id
+
+    @property
+    def eip_isp(self):
+        """Gets the eip_isp of this AddZoneMappingForModifyNetworkLoadBalancerZonesInput.  # noqa: E501
+
+
+        :return: The eip_isp of this AddZoneMappingForModifyNetworkLoadBalancerZonesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_isp
+
+    @eip_isp.setter
+    def eip_isp(self, eip_isp):
+        """Sets the eip_isp of this AddZoneMappingForModifyNetworkLoadBalancerZonesInput.
+
+
+        :param eip_isp: The eip_isp of this AddZoneMappingForModifyNetworkLoadBalancerZonesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_isp = eip_isp
+
+    @property
+    def eip_specific_egress(self):
+        """Gets the eip_specific_egress of this AddZoneMappingForModifyNetworkLoadBalancerZonesInput.  # noqa: E501
+
+
+        :return: The eip_specific_egress of this AddZoneMappingForModifyNetworkLoadBalancerZonesInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._eip_specific_egress
+
+    @eip_specific_egress.setter
+    def eip_specific_egress(self, eip_specific_egress):
+        """Sets the eip_specific_egress of this AddZoneMappingForModifyNetworkLoadBalancerZonesInput.
+
+
+        :param eip_specific_egress: The eip_specific_egress of this AddZoneMappingForModifyNetworkLoadBalancerZonesInput.  # noqa: E501
+        :type: str
+        """
+
+        self._eip_specific_egress = eip_specific_egress
 
     @property
     def ipv4_address(self):

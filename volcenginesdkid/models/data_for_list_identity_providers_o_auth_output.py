@@ -39,6 +39,7 @@ class DataForListIdentityProvidersOAuthOutput(object):
         'enabled': 'bool',
         'id_attribute': 'str',
         'name': 'str',
+        'provider': 'str',
         'provider_options': 'ProviderOptionsForListIdentityProvidersOAuthOutput',
         'scopes_list': 'list[str]',
         'token_endpoint': 'str',
@@ -54,6 +55,7 @@ class DataForListIdentityProvidersOAuthOutput(object):
         'enabled': 'Enabled',
         'id_attribute': 'IdAttribute',
         'name': 'Name',
+        'provider': 'Provider',
         'provider_options': 'ProviderOptions',
         'scopes_list': 'ScopesList',
         'token_endpoint': 'TokenEndpoint',
@@ -62,7 +64,7 @@ class DataForListIdentityProvidersOAuthOutput(object):
         'user_endpoint': 'UserEndpoint'
     }
 
-    def __init__(self, authorization_endpoint=None, client_id=None, client_secret=None, enabled=None, id_attribute=None, name=None, provider_options=None, scopes_list=None, token_endpoint=None, uid=None, use_pkce=None, user_endpoint=None, _configuration=None):  # noqa: E501
+    def __init__(self, authorization_endpoint=None, client_id=None, client_secret=None, enabled=None, id_attribute=None, name=None, provider=None, provider_options=None, scopes_list=None, token_endpoint=None, uid=None, use_pkce=None, user_endpoint=None, _configuration=None):  # noqa: E501
         """DataForListIdentityProvidersOAuthOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -74,6 +76,7 @@ class DataForListIdentityProvidersOAuthOutput(object):
         self._enabled = None
         self._id_attribute = None
         self._name = None
+        self._provider = None
         self._provider_options = None
         self._scopes_list = None
         self._token_endpoint = None
@@ -94,6 +97,8 @@ class DataForListIdentityProvidersOAuthOutput(object):
             self.id_attribute = id_attribute
         if name is not None:
             self.name = name
+        if provider is not None:
+            self.provider = provider
         if provider_options is not None:
             self.provider_options = provider_options
         if scopes_list is not None:
@@ -232,6 +237,27 @@ class DataForListIdentityProvidersOAuthOutput(object):
         """
 
         self._name = name
+
+    @property
+    def provider(self):
+        """Gets the provider of this DataForListIdentityProvidersOAuthOutput.  # noqa: E501
+
+
+        :return: The provider of this DataForListIdentityProvidersOAuthOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._provider
+
+    @provider.setter
+    def provider(self, provider):
+        """Sets the provider of this DataForListIdentityProvidersOAuthOutput.
+
+
+        :param provider: The provider of this DataForListIdentityProvidersOAuthOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._provider = provider
 
     @property
     def provider_options(self):

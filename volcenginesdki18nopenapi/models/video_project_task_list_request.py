@@ -37,6 +37,7 @@ class VideoProjectTaskListRequest(object):
         'limit': 'int',
         'offset': 'int',
         'project_id': 'str',
+        'source_languages': 'str',
         'start_time': 'int',
         'status': 'str',
         'subtask_id': 'str',
@@ -44,7 +45,7 @@ class VideoProjectTaskListRequest(object):
         'task_ids': 'str',
         'task_name': 'str',
         'task_type': 'str',
-        'task_types': 'int'
+        'task_types': 'str'
     }
 
     attribute_map = {
@@ -52,6 +53,7 @@ class VideoProjectTaskListRequest(object):
         'limit': 'limit',
         'offset': 'offset',
         'project_id': 'projectId',
+        'source_languages': 'sourceLanguages',
         'start_time': 'startTime',
         'status': 'status',
         'subtask_id': 'subtaskId',
@@ -62,7 +64,7 @@ class VideoProjectTaskListRequest(object):
         'task_types': 'taskTypes'
     }
 
-    def __init__(self, end_time=None, limit=None, offset=None, project_id=None, start_time=None, status=None, subtask_id=None, target_languages=None, task_ids=None, task_name=None, task_type=None, task_types=None, _configuration=None):  # noqa: E501
+    def __init__(self, end_time=None, limit=None, offset=None, project_id=None, source_languages=None, start_time=None, status=None, subtask_id=None, target_languages=None, task_ids=None, task_name=None, task_type=None, task_types=None, _configuration=None):  # noqa: E501
         """VideoProjectTaskListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class VideoProjectTaskListRequest(object):
         self._limit = None
         self._offset = None
         self._project_id = None
+        self._source_languages = None
         self._start_time = None
         self._status = None
         self._subtask_id = None
@@ -89,6 +92,8 @@ class VideoProjectTaskListRequest(object):
         if offset is not None:
             self.offset = offset
         self.project_id = project_id
+        if source_languages is not None:
+            self.source_languages = source_languages
         if start_time is not None:
             self.start_time = start_time
         if status is not None:
@@ -191,6 +196,27 @@ class VideoProjectTaskListRequest(object):
             raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
 
         self._project_id = project_id
+
+    @property
+    def source_languages(self):
+        """Gets the source_languages of this VideoProjectTaskListRequest.  # noqa: E501
+
+
+        :return: The source_languages of this VideoProjectTaskListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_languages
+
+    @source_languages.setter
+    def source_languages(self, source_languages):
+        """Sets the source_languages of this VideoProjectTaskListRequest.
+
+
+        :param source_languages: The source_languages of this VideoProjectTaskListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._source_languages = source_languages
 
     @property
     def start_time(self):
@@ -345,7 +371,7 @@ class VideoProjectTaskListRequest(object):
 
 
         :return: The task_types of this VideoProjectTaskListRequest.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._task_types
 
@@ -355,7 +381,7 @@ class VideoProjectTaskListRequest(object):
 
 
         :param task_types: The task_types of this VideoProjectTaskListRequest.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._task_types = task_types
