@@ -37,7 +37,9 @@ from ._constants import (
     _DEFAULT_MANDATORY_REFRESH_TIMEOUT,
     _DEFAULT_STS_TIMEOUT,
     _DEFAULT_RESOURCE_TYPE,
+    _PRESETENDPOINT_RESOURCE_TYPE,
     DEFAULT_TIMEOUT,
+    _BOT_RESOURCE_TYPE,
 )
 from ._streaming import Stream
 
@@ -137,12 +139,15 @@ class Ark(SyncAPIClient):
         self.files = resources.Files(self)
         # self.classification = resources.Classification(self)
 
-    def _get_endpoint_sts_token(self, endpoint_id: str):
+    def _get_endpoint_sts_token(self, endpoint_id: str, project_name: str = None):
         if self._sts_token_manager is None:
             if self.ak is None or self.sk is None:
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
-        return self._sts_token_manager.get(endpoint_id)
+        resource_type: str = self.get_resource_type_by_endpoint_id(endpoint_id)
+        if resource_type == _PRESETENDPOINT_RESOURCE_TYPE and (project_name is None or project_name.strip() == ""):
+            raise ArkAPIError("must set project_name when get preset endpoint token.")
+        return self._sts_token_manager.get(endpoint_id, resource_type=resource_type, project_name=project_name)
 
     def _get_endpoint_certificate(
         self, endpoint_id: str
@@ -178,6 +183,16 @@ class Ark(SyncAPIClient):
     def get_model_breaker(self, model_name: str) -> ModelBreaker:
         with self.model_breaker_lock:
             return self.model_breaker_map[model_name]
+
+    def get_resource_type_by_endpoint_id(self, endpoint_id: str) -> str:
+        if endpoint_id.startswith("ep-m-"):
+            return _PRESETENDPOINT_RESOURCE_TYPE
+        if endpoint_id.startswith("ep-"):
+            return _DEFAULT_RESOURCE_TYPE
+        if endpoint_id.startswith("bot-"):
+            return _BOT_RESOURCE_TYPE
+        # for model id, default to preset endpoint
+        return _PRESETENDPOINT_RESOURCE_TYPE
 
 
 class AsyncArk(AsyncAPIClient):
@@ -350,6 +365,7 @@ class StsTokenManager(object):
         ttl: int = _DEFAULT_STS_TIMEOUT,
         is_mandatory: bool = False,
         resource_type: str = _DEFAULT_RESOURCE_TYPE,
+        project_name: str = None,
     ):
         if ttl < self._advisory_refresh_timeout * 2:
             raise ArkAPIError(
@@ -360,7 +376,7 @@ class StsTokenManager(object):
 
         try:
             api_key, expired_time = self._load_api_key(
-                ep, ttl, resource_type=resource_type
+                ep, ttl, resource_type=resource_type, project_name=project_name
             )
             self._endpoint_sts_tokens[ep] = (api_key, expired_time)
         except ApiException as e:
@@ -369,7 +385,7 @@ class StsTokenManager(object):
             else:
                 logging.error("load api key cause error: e={}".format(e))
 
-    def _refresh(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE):
+    def _refresh(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE, project_name: str = None):
         if not self._need_refresh(ep, self._advisory_refresh_timeout):
             return
 
@@ -383,7 +399,7 @@ class StsTokenManager(object):
                 )
 
                 self._protected_refresh(
-                    ep, is_mandatory=is_mandatory_refresh, resource_type=resource_type
+                    ep, is_mandatory=is_mandatory_refresh, resource_type=resource_type, project_name=project_name
                 )
                 return
             finally:
@@ -394,11 +410,11 @@ class StsTokenManager(object):
                     return
 
                 self._protected_refresh(
-                    ep, is_mandatory=True, resource_type=resource_type
+                    ep, is_mandatory=True, resource_type=resource_type, project_name=project_name
                 )
 
-    def get(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE) -> str:
-        self._refresh(ep, resource_type=resource_type)
+    def get(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE, project_name: str = None) -> str:
+        self._refresh(ep, resource_type=resource_type, project_name=project_name)
         return self._endpoint_sts_tokens[ep][0]
 
     def _load_api_key(
@@ -406,12 +422,15 @@ class StsTokenManager(object):
         ep: str,
         duration_seconds: int,
         resource_type: str = _DEFAULT_RESOURCE_TYPE,
+        project_name: str = None,
     ) -> Tuple[str, int]:
         get_api_key_request = volcenginesdkark.GetApiKeyRequest(
             duration_seconds=duration_seconds,
             resource_type=resource_type,
             resource_ids=[ep],
         )
+        if project_name is not None and project_name.strip() != "":
+            get_api_key_request.project_name = project_name
         resp: volcenginesdkark.GetApiKeyResponse = self.api_instance.get_api_key(
             get_api_key_request
         )
