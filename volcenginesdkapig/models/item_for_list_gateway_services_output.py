@@ -45,6 +45,7 @@ class ItemForListGatewayServicesOutput(object):
         'message': 'str',
         'name': 'str',
         'protocol': 'list[str]',
+        'service_type': 'str',
         'status': 'str'
     }
 
@@ -61,10 +62,11 @@ class ItemForListGatewayServicesOutput(object):
         'message': 'Message',
         'name': 'Name',
         'protocol': 'Protocol',
+        'service_type': 'ServiceType',
         'status': 'Status'
     }
 
-    def __init__(self, auth_spec=None, comments=None, create_time=None, custom_domains=None, domain_spec=None, domains=None, gateway_id=None, gateway_name=None, id=None, message=None, name=None, protocol=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_spec=None, comments=None, create_time=None, custom_domains=None, domain_spec=None, domains=None, gateway_id=None, gateway_name=None, id=None, message=None, name=None, protocol=None, service_type=None, status=None, _configuration=None):  # noqa: E501
         """ItemForListGatewayServicesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class ItemForListGatewayServicesOutput(object):
         self._message = None
         self._name = None
         self._protocol = None
+        self._service_type = None
         self._status = None
         self.discriminator = None
 
@@ -109,6 +112,8 @@ class ItemForListGatewayServicesOutput(object):
             self.name = name
         if protocol is not None:
             self.protocol = protocol
+        if service_type is not None:
+            self.service_type = service_type
         if status is not None:
             self.status = status
 
@@ -363,6 +368,27 @@ class ItemForListGatewayServicesOutput(object):
         """
 
         self._protocol = protocol
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this ItemForListGatewayServicesOutput.  # noqa: E501
+
+
+        :return: The service_type of this ItemForListGatewayServicesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this ItemForListGatewayServicesOutput.
+
+
+        :param service_type: The service_type of this ItemForListGatewayServicesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._service_type = service_type
 
     @property
     def status(self):

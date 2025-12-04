@@ -34,29 +34,34 @@ class FilterForListPluginBindingsInput(object):
     """
     swagger_types = {
         'enable': 'bool',
+        'gateway_id': 'str',
         'name': 'str',
         'scope': 'str'
     }
 
     attribute_map = {
         'enable': 'Enable',
+        'gateway_id': 'GatewayId',
         'name': 'Name',
         'scope': 'Scope'
     }
 
-    def __init__(self, enable=None, name=None, scope=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable=None, gateway_id=None, name=None, scope=None, _configuration=None):  # noqa: E501
         """FilterForListPluginBindingsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._enable = None
+        self._gateway_id = None
         self._name = None
         self._scope = None
         self.discriminator = None
 
         if enable is not None:
             self.enable = enable
+        if gateway_id is not None:
+            self.gateway_id = gateway_id
         if name is not None:
             self.name = name
         if scope is not None:
@@ -82,6 +87,27 @@ class FilterForListPluginBindingsInput(object):
         """
 
         self._enable = enable
+
+    @property
+    def gateway_id(self):
+        """Gets the gateway_id of this FilterForListPluginBindingsInput.  # noqa: E501
+
+
+        :return: The gateway_id of this FilterForListPluginBindingsInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._gateway_id
+
+    @gateway_id.setter
+    def gateway_id(self, gateway_id):
+        """Sets the gateway_id of this FilterForListPluginBindingsInput.
+
+
+        :param gateway_id: The gateway_id of this FilterForListPluginBindingsInput.  # noqa: E501
+        :type: str
+        """
+
+        self._gateway_id = gateway_id
 
     @property
     def name(self):

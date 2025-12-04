@@ -33,3 +33,6 @@ class EasyInputMessage(BaseModel):
 
     type: Optional[Literal["message"]] = None
     """The type of the message input. Always `message`."""
+
+    partial: Optional[bool] = None
+    """Whether or not to include partial assistant responses."""
