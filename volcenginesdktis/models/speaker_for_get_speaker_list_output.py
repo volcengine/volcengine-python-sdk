@@ -33,44 +33,116 @@ class SpeakerForGetSpeakerListOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'avatar': 'str',
+        'category': 'list[CategoryForGetSpeakerListOutput]',
         'description': 'str',
+        'gender': 'str',
         'id': 'str',
+        'labels': 'list[str]',
         'language': 'str',
+        'languages': 'list[LanguageForGetSpeakerListOutput]',
         'name': 'str',
-        'type': 'str'
+        'type': 'str',
+        'voice_configs': 'list[VoiceConfigForGetSpeakerListOutput]'
     }
 
     attribute_map = {
+        'avatar': 'Avatar',
+        'category': 'Category',
         'description': 'Description',
+        'gender': 'Gender',
         'id': 'ID',
+        'labels': 'Labels',
         'language': 'Language',
+        'languages': 'Languages',
         'name': 'Name',
-        'type': 'Type'
+        'type': 'Type',
+        'voice_configs': 'VoiceConfigs'
     }
 
-    def __init__(self, description=None, id=None, language=None, name=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, avatar=None, category=None, description=None, gender=None, id=None, labels=None, language=None, languages=None, name=None, type=None, voice_configs=None, _configuration=None):  # noqa: E501
         """SpeakerForGetSpeakerListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._avatar = None
+        self._category = None
         self._description = None
+        self._gender = None
         self._id = None
+        self._labels = None
         self._language = None
+        self._languages = None
         self._name = None
         self._type = None
+        self._voice_configs = None
         self.discriminator = None
 
+        if avatar is not None:
+            self.avatar = avatar
+        if category is not None:
+            self.category = category
         if description is not None:
             self.description = description
+        if gender is not None:
+            self.gender = gender
         if id is not None:
             self.id = id
+        if labels is not None:
+            self.labels = labels
         if language is not None:
             self.language = language
+        if languages is not None:
+            self.languages = languages
         if name is not None:
             self.name = name
         if type is not None:
             self.type = type
+        if voice_configs is not None:
+            self.voice_configs = voice_configs
+
+    @property
+    def avatar(self):
+        """Gets the avatar of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+
+
+        :return: The avatar of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._avatar
+
+    @avatar.setter
+    def avatar(self, avatar):
+        """Sets the avatar of this SpeakerForGetSpeakerListOutput.
+
+
+        :param avatar: The avatar of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._avatar = avatar
+
+    @property
+    def category(self):
+        """Gets the category of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+
+
+        :return: The category of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :rtype: list[CategoryForGetSpeakerListOutput]
+        """
+        return self._category
+
+    @category.setter
+    def category(self, category):
+        """Sets the category of this SpeakerForGetSpeakerListOutput.
+
+
+        :param category: The category of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :type: list[CategoryForGetSpeakerListOutput]
+        """
+
+        self._category = category
 
     @property
     def description(self):
@@ -94,6 +166,27 @@ class SpeakerForGetSpeakerListOutput(object):
         self._description = description
 
     @property
+    def gender(self):
+        """Gets the gender of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+
+
+        :return: The gender of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._gender
+
+    @gender.setter
+    def gender(self, gender):
+        """Sets the gender of this SpeakerForGetSpeakerListOutput.
+
+
+        :param gender: The gender of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._gender = gender
+
+    @property
     def id(self):
         """Gets the id of this SpeakerForGetSpeakerListOutput.  # noqa: E501
 
@@ -115,6 +208,27 @@ class SpeakerForGetSpeakerListOutput(object):
         self._id = id
 
     @property
+    def labels(self):
+        """Gets the labels of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+
+
+        :return: The labels of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._labels
+
+    @labels.setter
+    def labels(self, labels):
+        """Sets the labels of this SpeakerForGetSpeakerListOutput.
+
+
+        :param labels: The labels of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._labels = labels
+
+    @property
     def language(self):
         """Gets the language of this SpeakerForGetSpeakerListOutput.  # noqa: E501
 
@@ -134,6 +248,27 @@ class SpeakerForGetSpeakerListOutput(object):
         """
 
         self._language = language
+
+    @property
+    def languages(self):
+        """Gets the languages of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+
+
+        :return: The languages of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :rtype: list[LanguageForGetSpeakerListOutput]
+        """
+        return self._languages
+
+    @languages.setter
+    def languages(self, languages):
+        """Sets the languages of this SpeakerForGetSpeakerListOutput.
+
+
+        :param languages: The languages of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :type: list[LanguageForGetSpeakerListOutput]
+        """
+
+        self._languages = languages
 
     @property
     def name(self):
@@ -176,6 +311,27 @@ class SpeakerForGetSpeakerListOutput(object):
         """
 
         self._type = type
+
+    @property
+    def voice_configs(self):
+        """Gets the voice_configs of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+
+
+        :return: The voice_configs of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :rtype: list[VoiceConfigForGetSpeakerListOutput]
+        """
+        return self._voice_configs
+
+    @voice_configs.setter
+    def voice_configs(self, voice_configs):
+        """Sets the voice_configs of this SpeakerForGetSpeakerListOutput.
+
+
+        :param voice_configs: The voice_configs of this SpeakerForGetSpeakerListOutput.  # noqa: E501
+        :type: list[VoiceConfigForGetSpeakerListOutput]
+        """
+
+        self._voice_configs = voice_configs
 
     def to_dict(self):
         """Returns the model properties as a dict"""
