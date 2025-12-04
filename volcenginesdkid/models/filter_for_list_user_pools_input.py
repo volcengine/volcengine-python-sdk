@@ -35,6 +35,7 @@ class FilterForListUserPoolsInput(object):
     swagger_types = {
         'description': 'str',
         'name': 'str',
+        'tag_filters': 'list[TagFilterForListUserPoolsInput]',
         'trn': 'str',
         'uid': 'str'
     }
@@ -42,11 +43,12 @@ class FilterForListUserPoolsInput(object):
     attribute_map = {
         'description': 'Description',
         'name': 'Name',
+        'tag_filters': 'TagFilters',
         'trn': 'Trn',
         'uid': 'Uid'
     }
 
-    def __init__(self, description=None, name=None, trn=None, uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, name=None, tag_filters=None, trn=None, uid=None, _configuration=None):  # noqa: E501
         """FilterForListUserPoolsInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class FilterForListUserPoolsInput(object):
 
         self._description = None
         self._name = None
+        self._tag_filters = None
         self._trn = None
         self._uid = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class FilterForListUserPoolsInput(object):
             self.description = description
         if name is not None:
             self.name = name
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
         if trn is not None:
             self.trn = trn
         if uid is not None:
@@ -108,6 +113,27 @@ class FilterForListUserPoolsInput(object):
         """
 
         self._name = name
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this FilterForListUserPoolsInput.  # noqa: E501
+
+
+        :return: The tag_filters of this FilterForListUserPoolsInput.  # noqa: E501
+        :rtype: list[TagFilterForListUserPoolsInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this FilterForListUserPoolsInput.
+
+
+        :param tag_filters: The tag_filters of this FilterForListUserPoolsInput.  # noqa: E501
+        :type: list[TagFilterForListUserPoolsInput]
+        """
+
+        self._tag_filters = tag_filters
 
     @property
     def trn(self):

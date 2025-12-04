@@ -130,7 +130,7 @@ class ListResourceQueuesRequest(object):
         :param charge_type: The charge_type of this ListResourceQueuesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Paused", "Running", "Closed", "Closing"]  # noqa: E501
+        allowed_values = ["PrePaid", "PostPaid", "OnDemand"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 charge_type not in allowed_values):
             raise ValueError(
@@ -373,7 +373,7 @@ class ListResourceQueuesRequest(object):
         :param status: The status of this ListResourceQueuesRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["PrePaid", "PostPaid"]  # noqa: E501
+        allowed_values = ["Paused", "Running", "Closed", "Closing"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(status).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

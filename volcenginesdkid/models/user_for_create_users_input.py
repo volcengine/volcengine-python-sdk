@@ -33,74 +33,135 @@ class UserForCreateUsersInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'birthdate': 'str',
         'email': 'str',
         'email_verified': 'bool',
         'family_name': 'str',
+        'gender': 'str',
         'given_name': 'str',
+        'locale': 'str',
         'middle_name': 'str',
         'name': 'str',
+        'nickname': 'str',
         'password': 'str',
         'phone_number': 'str',
         'phone_number_verified': 'bool',
+        'picture': 'str',
         'preferred_username': 'str',
-        'user_metadata': 'str'
+        'profile': 'str',
+        'user_metadata': 'str',
+        'website': 'str',
+        'zoneinfo': 'str'
     }
 
     attribute_map = {
+        'birthdate': 'Birthdate',
         'email': 'Email',
         'email_verified': 'EmailVerified',
         'family_name': 'FamilyName',
+        'gender': 'Gender',
         'given_name': 'GivenName',
+        'locale': 'Locale',
         'middle_name': 'MiddleName',
         'name': 'Name',
+        'nickname': 'Nickname',
         'password': 'Password',
         'phone_number': 'PhoneNumber',
         'phone_number_verified': 'PhoneNumberVerified',
+        'picture': 'Picture',
         'preferred_username': 'PreferredUsername',
-        'user_metadata': 'UserMetadata'
+        'profile': 'Profile',
+        'user_metadata': 'UserMetadata',
+        'website': 'Website',
+        'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, email=None, email_verified=None, family_name=None, given_name=None, middle_name=None, name=None, password=None, phone_number=None, phone_number_verified=None, preferred_username=None, user_metadata=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, password=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """UserForCreateUsersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._birthdate = None
         self._email = None
         self._email_verified = None
         self._family_name = None
+        self._gender = None
         self._given_name = None
+        self._locale = None
         self._middle_name = None
         self._name = None
+        self._nickname = None
         self._password = None
         self._phone_number = None
         self._phone_number_verified = None
+        self._picture = None
         self._preferred_username = None
+        self._profile = None
         self._user_metadata = None
+        self._website = None
+        self._zoneinfo = None
         self.discriminator = None
 
+        if birthdate is not None:
+            self.birthdate = birthdate
         if email is not None:
             self.email = email
         if email_verified is not None:
             self.email_verified = email_verified
         if family_name is not None:
             self.family_name = family_name
+        if gender is not None:
+            self.gender = gender
         if given_name is not None:
             self.given_name = given_name
+        if locale is not None:
+            self.locale = locale
         if middle_name is not None:
             self.middle_name = middle_name
         if name is not None:
             self.name = name
+        if nickname is not None:
+            self.nickname = nickname
         if password is not None:
             self.password = password
         if phone_number is not None:
             self.phone_number = phone_number
         if phone_number_verified is not None:
             self.phone_number_verified = phone_number_verified
+        if picture is not None:
+            self.picture = picture
         if preferred_username is not None:
             self.preferred_username = preferred_username
+        if profile is not None:
+            self.profile = profile
         if user_metadata is not None:
             self.user_metadata = user_metadata
+        if website is not None:
+            self.website = website
+        if zoneinfo is not None:
+            self.zoneinfo = zoneinfo
+
+    @property
+    def birthdate(self):
+        """Gets the birthdate of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The birthdate of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._birthdate
+
+    @birthdate.setter
+    def birthdate(self, birthdate):
+        """Sets the birthdate of this UserForCreateUsersInput.
+
+
+        :param birthdate: The birthdate of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._birthdate = birthdate
 
     @property
     def email(self):
@@ -166,6 +227,27 @@ class UserForCreateUsersInput(object):
         self._family_name = family_name
 
     @property
+    def gender(self):
+        """Gets the gender of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The gender of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._gender
+
+    @gender.setter
+    def gender(self, gender):
+        """Sets the gender of this UserForCreateUsersInput.
+
+
+        :param gender: The gender of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._gender = gender
+
+    @property
     def given_name(self):
         """Gets the given_name of this UserForCreateUsersInput.  # noqa: E501
 
@@ -185,6 +267,27 @@ class UserForCreateUsersInput(object):
         """
 
         self._given_name = given_name
+
+    @property
+    def locale(self):
+        """Gets the locale of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The locale of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._locale
+
+    @locale.setter
+    def locale(self, locale):
+        """Sets the locale of this UserForCreateUsersInput.
+
+
+        :param locale: The locale of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._locale = locale
 
     @property
     def middle_name(self):
@@ -227,6 +330,27 @@ class UserForCreateUsersInput(object):
         """
 
         self._name = name
+
+    @property
+    def nickname(self):
+        """Gets the nickname of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The nickname of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._nickname
+
+    @nickname.setter
+    def nickname(self, nickname):
+        """Sets the nickname of this UserForCreateUsersInput.
+
+
+        :param nickname: The nickname of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._nickname = nickname
 
     @property
     def password(self):
@@ -292,6 +416,27 @@ class UserForCreateUsersInput(object):
         self._phone_number_verified = phone_number_verified
 
     @property
+    def picture(self):
+        """Gets the picture of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The picture of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._picture
+
+    @picture.setter
+    def picture(self, picture):
+        """Sets the picture of this UserForCreateUsersInput.
+
+
+        :param picture: The picture of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._picture = picture
+
+    @property
     def preferred_username(self):
         """Gets the preferred_username of this UserForCreateUsersInput.  # noqa: E501
 
@@ -313,6 +458,27 @@ class UserForCreateUsersInput(object):
         self._preferred_username = preferred_username
 
     @property
+    def profile(self):
+        """Gets the profile of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The profile of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._profile
+
+    @profile.setter
+    def profile(self, profile):
+        """Sets the profile of this UserForCreateUsersInput.
+
+
+        :param profile: The profile of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._profile = profile
+
+    @property
     def user_metadata(self):
         """Gets the user_metadata of this UserForCreateUsersInput.  # noqa: E501
 
@@ -332,6 +498,48 @@ class UserForCreateUsersInput(object):
         """
 
         self._user_metadata = user_metadata
+
+    @property
+    def website(self):
+        """Gets the website of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The website of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._website
+
+    @website.setter
+    def website(self, website):
+        """Sets the website of this UserForCreateUsersInput.
+
+
+        :param website: The website of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._website = website
+
+    @property
+    def zoneinfo(self):
+        """Gets the zoneinfo of this UserForCreateUsersInput.  # noqa: E501
+
+
+        :return: The zoneinfo of this UserForCreateUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._zoneinfo
+
+    @zoneinfo.setter
+    def zoneinfo(self, zoneinfo):
+        """Sets the zoneinfo of this UserForCreateUsersInput.
+
+
+        :param zoneinfo: The zoneinfo of this UserForCreateUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._zoneinfo = zoneinfo
 
     def to_dict(self):
         """Returns the model properties as a dict"""

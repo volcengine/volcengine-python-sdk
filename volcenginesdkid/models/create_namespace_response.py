@@ -33,34 +33,101 @@ class CreateNamespaceResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'create_time': 'str',
+        'description': 'str',
         'namespace_id': 'str',
         'namespace_name': 'str',
-        'trn': 'str'
+        'project_name': 'str',
+        'tags': 'list[TagForCreateNamespaceOutput]',
+        'trn': 'str',
+        'update_time': 'str'
     }
 
     attribute_map = {
+        'create_time': 'CreateTime',
+        'description': 'Description',
         'namespace_id': 'NamespaceId',
         'namespace_name': 'NamespaceName',
-        'trn': 'Trn'
+        'project_name': 'ProjectName',
+        'tags': 'Tags',
+        'trn': 'Trn',
+        'update_time': 'UpdateTime'
     }
 
-    def __init__(self, namespace_id=None, namespace_name=None, trn=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, namespace_id=None, namespace_name=None, project_name=None, tags=None, trn=None, update_time=None, _configuration=None):  # noqa: E501
         """CreateNamespaceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._create_time = None
+        self._description = None
         self._namespace_id = None
         self._namespace_name = None
+        self._project_name = None
+        self._tags = None
         self._trn = None
+        self._update_time = None
         self.discriminator = None
 
+        if create_time is not None:
+            self.create_time = create_time
+        if description is not None:
+            self.description = description
         if namespace_id is not None:
             self.namespace_id = namespace_id
         if namespace_name is not None:
             self.namespace_name = namespace_name
+        if project_name is not None:
+            self.project_name = project_name
+        if tags is not None:
+            self.tags = tags
         if trn is not None:
             self.trn = trn
+        if update_time is not None:
+            self.update_time = update_time
+
+    @property
+    def create_time(self):
+        """Gets the create_time of this CreateNamespaceResponse.  # noqa: E501
+
+
+        :return: The create_time of this CreateNamespaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this CreateNamespaceResponse.
+
+
+        :param create_time: The create_time of this CreateNamespaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._create_time = create_time
+
+    @property
+    def description(self):
+        """Gets the description of this CreateNamespaceResponse.  # noqa: E501
+
+
+        :return: The description of this CreateNamespaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this CreateNamespaceResponse.
+
+
+        :param description: The description of this CreateNamespaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def namespace_id(self):
@@ -105,6 +172,48 @@ class CreateNamespaceResponse(object):
         self._namespace_name = namespace_name
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateNamespaceResponse.  # noqa: E501
+
+
+        :return: The project_name of this CreateNamespaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateNamespaceResponse.
+
+
+        :param project_name: The project_name of this CreateNamespaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateNamespaceResponse.  # noqa: E501
+
+
+        :return: The tags of this CreateNamespaceResponse.  # noqa: E501
+        :rtype: list[TagForCreateNamespaceOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateNamespaceResponse.
+
+
+        :param tags: The tags of this CreateNamespaceResponse.  # noqa: E501
+        :type: list[TagForCreateNamespaceOutput]
+        """
+
+        self._tags = tags
+
+    @property
     def trn(self):
         """Gets the trn of this CreateNamespaceResponse.  # noqa: E501
 
@@ -124,6 +233,27 @@ class CreateNamespaceResponse(object):
         """
 
         self._trn = trn
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this CreateNamespaceResponse.  # noqa: E501
+
+
+        :return: The update_time of this CreateNamespaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this CreateNamespaceResponse.
+
+
+        :param update_time: The update_time of this CreateNamespaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

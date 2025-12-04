@@ -33,29 +33,60 @@ class CreatePolicyRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'description': 'str',
         'namespace_name': 'str',
-        'policy': 'str'
+        'policy': 'str',
+        'policy_name': 'str'
     }
 
     attribute_map = {
+        'description': 'Description',
         'namespace_name': 'NamespaceName',
-        'policy': 'Policy'
+        'policy': 'Policy',
+        'policy_name': 'PolicyName'
     }
 
-    def __init__(self, namespace_name=None, policy=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, namespace_name=None, policy=None, policy_name=None, _configuration=None):  # noqa: E501
         """CreatePolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._description = None
         self._namespace_name = None
         self._policy = None
+        self._policy_name = None
         self.discriminator = None
 
+        if description is not None:
+            self.description = description
         if namespace_name is not None:
             self.namespace_name = namespace_name
         if policy is not None:
             self.policy = policy
+        if policy_name is not None:
+            self.policy_name = policy_name
+
+    @property
+    def description(self):
+        """Gets the description of this CreatePolicyRequest.  # noqa: E501
+
+
+        :return: The description of this CreatePolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this CreatePolicyRequest.
+
+
+        :param description: The description of this CreatePolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def namespace_name(self):
@@ -98,6 +129,27 @@ class CreatePolicyRequest(object):
         """
 
         self._policy = policy
+
+    @property
+    def policy_name(self):
+        """Gets the policy_name of this CreatePolicyRequest.  # noqa: E501
+
+
+        :return: The policy_name of this CreatePolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._policy_name
+
+    @policy_name.setter
+    def policy_name(self, policy_name):
+        """Sets the policy_name of this CreatePolicyRequest.
+
+
+        :param policy_name: The policy_name of this CreatePolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._policy_name = policy_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

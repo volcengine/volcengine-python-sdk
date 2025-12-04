@@ -46,7 +46,7 @@ class DataForListUsersOutput(object):
         'locale': 'str',
         'middle_name': 'str',
         'name': 'str',
-        'nick_name': 'str',
+        'nickname': 'str',
         'num_logins': 'int',
         'phone_number': 'str',
         'phone_number_verified': 'bool',
@@ -57,8 +57,9 @@ class DataForListUsersOutput(object):
         'uid': 'str',
         'update_time': 'str',
         'user_metadata': 'str',
+        'user_state': 'str',
         'website': 'str',
-        'zone_info': 'str'
+        'zoneinfo': 'str'
     }
 
     attribute_map = {
@@ -75,7 +76,7 @@ class DataForListUsersOutput(object):
         'locale': 'Locale',
         'middle_name': 'MiddleName',
         'name': 'Name',
-        'nick_name': 'NickName',
+        'nickname': 'Nickname',
         'num_logins': 'NumLogins',
         'phone_number': 'PhoneNumber',
         'phone_number_verified': 'PhoneNumberVerified',
@@ -86,11 +87,12 @@ class DataForListUsersOutput(object):
         'uid': 'Uid',
         'update_time': 'UpdateTime',
         'user_metadata': 'UserMetadata',
+        'user_state': 'UserState',
         'website': 'Website',
-        'zone_info': 'ZoneInfo'
+        'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, birthdate=None, connection=None, create_time=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, latest_browser=None, latest_login=None, locale=None, middle_name=None, name=None, nick_name=None, num_logins=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, sub=None, uid=None, update_time=None, user_metadata=None, website=None, zone_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, connection=None, create_time=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, latest_browser=None, latest_login=None, locale=None, middle_name=None, name=None, nickname=None, num_logins=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, sub=None, uid=None, update_time=None, user_metadata=None, user_state=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """DataForListUsersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -109,7 +111,7 @@ class DataForListUsersOutput(object):
         self._locale = None
         self._middle_name = None
         self._name = None
-        self._nick_name = None
+        self._nickname = None
         self._num_logins = None
         self._phone_number = None
         self._phone_number_verified = None
@@ -120,8 +122,9 @@ class DataForListUsersOutput(object):
         self._uid = None
         self._update_time = None
         self._user_metadata = None
+        self._user_state = None
         self._website = None
-        self._zone_info = None
+        self._zoneinfo = None
         self.discriminator = None
 
         if birthdate is not None:
@@ -150,8 +153,8 @@ class DataForListUsersOutput(object):
             self.middle_name = middle_name
         if name is not None:
             self.name = name
-        if nick_name is not None:
-            self.nick_name = nick_name
+        if nickname is not None:
+            self.nickname = nickname
         if num_logins is not None:
             self.num_logins = num_logins
         if phone_number is not None:
@@ -172,10 +175,12 @@ class DataForListUsersOutput(object):
             self.update_time = update_time
         if user_metadata is not None:
             self.user_metadata = user_metadata
+        if user_state is not None:
+            self.user_state = user_state
         if website is not None:
             self.website = website
-        if zone_info is not None:
-            self.zone_info = zone_info
+        if zoneinfo is not None:
+            self.zoneinfo = zoneinfo
 
     @property
     def birthdate(self):
@@ -451,25 +456,25 @@ class DataForListUsersOutput(object):
         self._name = name
 
     @property
-    def nick_name(self):
-        """Gets the nick_name of this DataForListUsersOutput.  # noqa: E501
+    def nickname(self):
+        """Gets the nickname of this DataForListUsersOutput.  # noqa: E501
 
 
-        :return: The nick_name of this DataForListUsersOutput.  # noqa: E501
+        :return: The nickname of this DataForListUsersOutput.  # noqa: E501
         :rtype: str
         """
-        return self._nick_name
+        return self._nickname
 
-    @nick_name.setter
-    def nick_name(self, nick_name):
-        """Sets the nick_name of this DataForListUsersOutput.
+    @nickname.setter
+    def nickname(self, nickname):
+        """Sets the nickname of this DataForListUsersOutput.
 
 
-        :param nick_name: The nick_name of this DataForListUsersOutput.  # noqa: E501
+        :param nickname: The nickname of this DataForListUsersOutput.  # noqa: E501
         :type: str
         """
 
-        self._nick_name = nick_name
+        self._nickname = nickname
 
     @property
     def num_logins(self):
@@ -682,6 +687,27 @@ class DataForListUsersOutput(object):
         self._user_metadata = user_metadata
 
     @property
+    def user_state(self):
+        """Gets the user_state of this DataForListUsersOutput.  # noqa: E501
+
+
+        :return: The user_state of this DataForListUsersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_state
+
+    @user_state.setter
+    def user_state(self, user_state):
+        """Sets the user_state of this DataForListUsersOutput.
+
+
+        :param user_state: The user_state of this DataForListUsersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._user_state = user_state
+
+    @property
     def website(self):
         """Gets the website of this DataForListUsersOutput.  # noqa: E501
 
@@ -703,25 +729,25 @@ class DataForListUsersOutput(object):
         self._website = website
 
     @property
-    def zone_info(self):
-        """Gets the zone_info of this DataForListUsersOutput.  # noqa: E501
+    def zoneinfo(self):
+        """Gets the zoneinfo of this DataForListUsersOutput.  # noqa: E501
 
 
-        :return: The zone_info of this DataForListUsersOutput.  # noqa: E501
+        :return: The zoneinfo of this DataForListUsersOutput.  # noqa: E501
         :rtype: str
         """
-        return self._zone_info
+        return self._zoneinfo
 
-    @zone_info.setter
-    def zone_info(self, zone_info):
-        """Sets the zone_info of this DataForListUsersOutput.
+    @zoneinfo.setter
+    def zoneinfo(self, zoneinfo):
+        """Sets the zoneinfo of this DataForListUsersOutput.
 
 
-        :param zone_info: The zone_info of this DataForListUsersOutput.  # noqa: E501
+        :param zoneinfo: The zoneinfo of this DataForListUsersOutput.  # noqa: E501
         :type: str
         """
 
-        self._zone_info = zone_info
+        self._zoneinfo = zoneinfo
 
     def to_dict(self):
         """Returns the model properties as a dict"""

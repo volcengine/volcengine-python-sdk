@@ -33,49 +33,66 @@ class DescribeGroupsDetailResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'consume_message_orderly': 'bool',
         'create_time': 'str',
         'description': 'str',
         'group_id': 'str',
         'group_type': 'str',
         'is_sub_same': 'bool',
+        'last_update_timestamp': 'str',
         'message_delay_time': 'str',
         'message_model': 'str',
+        'retry_max_times': 'int',
+        'rocketmq_version': 'str',
+        'service_status': 'str',
         'status': 'str',
         'total_consumed_rate': 'str',
         'total_diff': 'int'
     }
 
     attribute_map = {
+        'consume_message_orderly': 'ConsumeMessageOrderly',
         'create_time': 'CreateTime',
         'description': 'Description',
         'group_id': 'GroupId',
         'group_type': 'GroupType',
         'is_sub_same': 'IsSubSame',
+        'last_update_timestamp': 'LastUpdateTimestamp',
         'message_delay_time': 'MessageDelayTime',
         'message_model': 'MessageModel',
+        'retry_max_times': 'RetryMaxTimes',
+        'rocketmq_version': 'RocketmqVersion',
+        'service_status': 'ServiceStatus',
         'status': 'Status',
         'total_consumed_rate': 'TotalConsumedRate',
         'total_diff': 'TotalDiff'
     }
 
-    def __init__(self, create_time=None, description=None, group_id=None, group_type=None, is_sub_same=None, message_delay_time=None, message_model=None, status=None, total_consumed_rate=None, total_diff=None, _configuration=None):  # noqa: E501
+    def __init__(self, consume_message_orderly=None, create_time=None, description=None, group_id=None, group_type=None, is_sub_same=None, last_update_timestamp=None, message_delay_time=None, message_model=None, retry_max_times=None, rocketmq_version=None, service_status=None, status=None, total_consumed_rate=None, total_diff=None, _configuration=None):  # noqa: E501
         """DescribeGroupsDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._consume_message_orderly = None
         self._create_time = None
         self._description = None
         self._group_id = None
         self._group_type = None
         self._is_sub_same = None
+        self._last_update_timestamp = None
         self._message_delay_time = None
         self._message_model = None
+        self._retry_max_times = None
+        self._rocketmq_version = None
+        self._service_status = None
         self._status = None
         self._total_consumed_rate = None
         self._total_diff = None
         self.discriminator = None
 
+        if consume_message_orderly is not None:
+            self.consume_message_orderly = consume_message_orderly
         if create_time is not None:
             self.create_time = create_time
         if description is not None:
@@ -86,16 +103,45 @@ class DescribeGroupsDetailResponse(object):
             self.group_type = group_type
         if is_sub_same is not None:
             self.is_sub_same = is_sub_same
+        if last_update_timestamp is not None:
+            self.last_update_timestamp = last_update_timestamp
         if message_delay_time is not None:
             self.message_delay_time = message_delay_time
         if message_model is not None:
             self.message_model = message_model
+        if retry_max_times is not None:
+            self.retry_max_times = retry_max_times
+        if rocketmq_version is not None:
+            self.rocketmq_version = rocketmq_version
+        if service_status is not None:
+            self.service_status = service_status
         if status is not None:
             self.status = status
         if total_consumed_rate is not None:
             self.total_consumed_rate = total_consumed_rate
         if total_diff is not None:
             self.total_diff = total_diff
+
+    @property
+    def consume_message_orderly(self):
+        """Gets the consume_message_orderly of this DescribeGroupsDetailResponse.  # noqa: E501
+
+
+        :return: The consume_message_orderly of this DescribeGroupsDetailResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._consume_message_orderly
+
+    @consume_message_orderly.setter
+    def consume_message_orderly(self, consume_message_orderly):
+        """Sets the consume_message_orderly of this DescribeGroupsDetailResponse.
+
+
+        :param consume_message_orderly: The consume_message_orderly of this DescribeGroupsDetailResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._consume_message_orderly = consume_message_orderly
 
     @property
     def create_time(self):
@@ -203,6 +249,27 @@ class DescribeGroupsDetailResponse(object):
         self._is_sub_same = is_sub_same
 
     @property
+    def last_update_timestamp(self):
+        """Gets the last_update_timestamp of this DescribeGroupsDetailResponse.  # noqa: E501
+
+
+        :return: The last_update_timestamp of this DescribeGroupsDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_update_timestamp
+
+    @last_update_timestamp.setter
+    def last_update_timestamp(self, last_update_timestamp):
+        """Sets the last_update_timestamp of this DescribeGroupsDetailResponse.
+
+
+        :param last_update_timestamp: The last_update_timestamp of this DescribeGroupsDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._last_update_timestamp = last_update_timestamp
+
+    @property
     def message_delay_time(self):
         """Gets the message_delay_time of this DescribeGroupsDetailResponse.  # noqa: E501
 
@@ -243,6 +310,69 @@ class DescribeGroupsDetailResponse(object):
         """
 
         self._message_model = message_model
+
+    @property
+    def retry_max_times(self):
+        """Gets the retry_max_times of this DescribeGroupsDetailResponse.  # noqa: E501
+
+
+        :return: The retry_max_times of this DescribeGroupsDetailResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._retry_max_times
+
+    @retry_max_times.setter
+    def retry_max_times(self, retry_max_times):
+        """Sets the retry_max_times of this DescribeGroupsDetailResponse.
+
+
+        :param retry_max_times: The retry_max_times of this DescribeGroupsDetailResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._retry_max_times = retry_max_times
+
+    @property
+    def rocketmq_version(self):
+        """Gets the rocketmq_version of this DescribeGroupsDetailResponse.  # noqa: E501
+
+
+        :return: The rocketmq_version of this DescribeGroupsDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._rocketmq_version
+
+    @rocketmq_version.setter
+    def rocketmq_version(self, rocketmq_version):
+        """Sets the rocketmq_version of this DescribeGroupsDetailResponse.
+
+
+        :param rocketmq_version: The rocketmq_version of this DescribeGroupsDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._rocketmq_version = rocketmq_version
+
+    @property
+    def service_status(self):
+        """Gets the service_status of this DescribeGroupsDetailResponse.  # noqa: E501
+
+
+        :return: The service_status of this DescribeGroupsDetailResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_status
+
+    @service_status.setter
+    def service_status(self, service_status):
+        """Sets the service_status of this DescribeGroupsDetailResponse.
+
+
+        :param service_status: The service_status of this DescribeGroupsDetailResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._service_status = service_status
 
     @property
     def status(self):

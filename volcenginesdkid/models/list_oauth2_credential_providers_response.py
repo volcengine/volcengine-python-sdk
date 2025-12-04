@@ -36,7 +36,7 @@ class ListOauth2CredentialProvidersResponse(object):
         'oauth2_credential_providers': 'list[Oauth2CredentialProviderForListOauth2CredentialProvidersOutput]',
         'page_number': 'int',
         'page_size': 'int',
-        'total_count': 'list[int]'
+        'total_count': 'int'
     }
 
     attribute_map = {
@@ -136,7 +136,7 @@ class ListOauth2CredentialProvidersResponse(object):
 
 
         :return: The total_count of this ListOauth2CredentialProvidersResponse.  # noqa: E501
-        :rtype: list[int]
+        :rtype: int
         """
         return self._total_count
 
@@ -146,7 +146,7 @@ class ListOauth2CredentialProvidersResponse(object):
 
 
         :param total_count: The total_count of this ListOauth2CredentialProvidersResponse.  # noqa: E501
-        :type: list[int]
+        :type: int
         """
 
         self._total_count = total_count

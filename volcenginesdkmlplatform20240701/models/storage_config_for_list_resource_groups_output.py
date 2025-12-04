@@ -33,34 +33,60 @@ class StorageConfigForListResourceGroupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'eic': 'EicForListResourceGroupsOutput',
         'sfcs': 'SfcsForListResourceGroupsOutput',
         'storage_network_config': 'StorageNetworkConfigForListResourceGroupsOutput',
         'vepfs': 'VepfsForListResourceGroupsOutput'
     }
 
     attribute_map = {
+        'eic': 'Eic',
         'sfcs': 'Sfcs',
         'storage_network_config': 'StorageNetworkConfig',
         'vepfs': 'Vepfs'
     }
 
-    def __init__(self, sfcs=None, storage_network_config=None, vepfs=None, _configuration=None):  # noqa: E501
+    def __init__(self, eic=None, sfcs=None, storage_network_config=None, vepfs=None, _configuration=None):  # noqa: E501
         """StorageConfigForListResourceGroupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._eic = None
         self._sfcs = None
         self._storage_network_config = None
         self._vepfs = None
         self.discriminator = None
 
+        if eic is not None:
+            self.eic = eic
         if sfcs is not None:
             self.sfcs = sfcs
         if storage_network_config is not None:
             self.storage_network_config = storage_network_config
         if vepfs is not None:
             self.vepfs = vepfs
+
+    @property
+    def eic(self):
+        """Gets the eic of this StorageConfigForListResourceGroupsOutput.  # noqa: E501
+
+
+        :return: The eic of this StorageConfigForListResourceGroupsOutput.  # noqa: E501
+        :rtype: EicForListResourceGroupsOutput
+        """
+        return self._eic
+
+    @eic.setter
+    def eic(self, eic):
+        """Sets the eic of this StorageConfigForListResourceGroupsOutput.
+
+
+        :param eic: The eic of this StorageConfigForListResourceGroupsOutput.  # noqa: E501
+        :type: EicForListResourceGroupsOutput
+        """
+
+        self._eic = eic
 
     @property
     def sfcs(self):

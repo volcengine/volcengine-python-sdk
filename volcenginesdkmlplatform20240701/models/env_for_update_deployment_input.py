@@ -33,55 +33,29 @@ class EnvForUpdateDeploymentInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'is_private': 'bool',
         'name': 'str',
         'value': 'str'
     }
 
     attribute_map = {
-        'is_private': 'IsPrivate',
         'name': 'Name',
         'value': 'Value'
     }
 
-    def __init__(self, is_private=None, name=None, value=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, value=None, _configuration=None):  # noqa: E501
         """EnvForUpdateDeploymentInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._is_private = None
         self._name = None
         self._value = None
         self.discriminator = None
 
-        if is_private is not None:
-            self.is_private = is_private
         if name is not None:
             self.name = name
         if value is not None:
             self.value = value
-
-    @property
-    def is_private(self):
-        """Gets the is_private of this EnvForUpdateDeploymentInput.  # noqa: E501
-
-
-        :return: The is_private of this EnvForUpdateDeploymentInput.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_private
-
-    @is_private.setter
-    def is_private(self, is_private):
-        """Sets the is_private of this EnvForUpdateDeploymentInput.
-
-
-        :param is_private: The is_private of this EnvForUpdateDeploymentInput.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_private = is_private
 
     @property
     def name(self):
