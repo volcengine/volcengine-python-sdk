@@ -40,6 +40,7 @@ class SecretForDescribeSecretOutput(object):
         'id': 'str',
         'last_rotation_time': 'str',
         'managed': 'bool',
+        'owning_service': 'str',
         'project_name': 'str',
         'rotation_interval': 'int',
         'rotation_state': 'str',
@@ -61,6 +62,7 @@ class SecretForDescribeSecretOutput(object):
         'id': 'ID',
         'last_rotation_time': 'LastRotationTime',
         'managed': 'Managed',
+        'owning_service': 'OwningService',
         'project_name': 'ProjectName',
         'rotation_interval': 'RotationInterval',
         'rotation_state': 'RotationState',
@@ -74,7 +76,7 @@ class SecretForDescribeSecretOutput(object):
         'update_date': 'UpdateDate'
     }
 
-    def __init__(self, creation_date=None, description=None, encryption_key=None, extended_config=None, id=None, last_rotation_time=None, managed=None, project_name=None, rotation_interval=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, secret_name=None, secret_state=None, secret_type=None, trn=None, uid=None, update_date=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_date=None, description=None, encryption_key=None, extended_config=None, id=None, last_rotation_time=None, managed=None, owning_service=None, project_name=None, rotation_interval=None, rotation_state=None, schedule_delete_time=None, schedule_rotation_time=None, secret_name=None, secret_state=None, secret_type=None, trn=None, uid=None, update_date=None, _configuration=None):  # noqa: E501
         """SecretForDescribeSecretOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +89,7 @@ class SecretForDescribeSecretOutput(object):
         self._id = None
         self._last_rotation_time = None
         self._managed = None
+        self._owning_service = None
         self._project_name = None
         self._rotation_interval = None
         self._rotation_state = None
@@ -114,6 +117,8 @@ class SecretForDescribeSecretOutput(object):
             self.last_rotation_time = last_rotation_time
         if managed is not None:
             self.managed = managed
+        if owning_service is not None:
+            self.owning_service = owning_service
         if project_name is not None:
             self.project_name = project_name
         if rotation_interval is not None:
@@ -283,6 +288,27 @@ class SecretForDescribeSecretOutput(object):
         """
 
         self._managed = managed
+
+    @property
+    def owning_service(self):
+        """Gets the owning_service of this SecretForDescribeSecretOutput.  # noqa: E501
+
+
+        :return: The owning_service of this SecretForDescribeSecretOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._owning_service
+
+    @owning_service.setter
+    def owning_service(self, owning_service):
+        """Sets the owning_service of this SecretForDescribeSecretOutput.
+
+
+        :param owning_service: The owning_service of this SecretForDescribeSecretOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._owning_service = owning_service
 
     @property
     def project_name(self):

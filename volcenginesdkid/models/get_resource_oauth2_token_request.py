@@ -40,6 +40,7 @@ class GetResourceOauth2TokenRequest(object):
         'pool_name': 'str',
         'provider_name': 'str',
         'redirect_url': 'str',
+        'resource_oauth2_return_url': 'str',
         'scopes': 'list[str]'
     }
 
@@ -51,10 +52,11 @@ class GetResourceOauth2TokenRequest(object):
         'pool_name': 'PoolName',
         'provider_name': 'ProviderName',
         'redirect_url': 'RedirectUrl',
+        'resource_oauth2_return_url': 'ResourceOauth2ReturnUrl',
         'scopes': 'Scopes'
     }
 
-    def __init__(self, custom_parameters=None, flow=None, force_authentication=None, identity_token=None, pool_name=None, provider_name=None, redirect_url=None, scopes=None, _configuration=None):  # noqa: E501
+    def __init__(self, custom_parameters=None, flow=None, force_authentication=None, identity_token=None, pool_name=None, provider_name=None, redirect_url=None, resource_oauth2_return_url=None, scopes=None, _configuration=None):  # noqa: E501
         """GetResourceOauth2TokenRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class GetResourceOauth2TokenRequest(object):
         self._pool_name = None
         self._provider_name = None
         self._redirect_url = None
+        self._resource_oauth2_return_url = None
         self._scopes = None
         self.discriminator = None
 
@@ -82,6 +85,8 @@ class GetResourceOauth2TokenRequest(object):
         self.provider_name = provider_name
         if redirect_url is not None:
             self.redirect_url = redirect_url
+        if resource_oauth2_return_url is not None:
+            self.resource_oauth2_return_url = resource_oauth2_return_url
         if scopes is not None:
             self.scopes = scopes
 
@@ -235,6 +240,27 @@ class GetResourceOauth2TokenRequest(object):
         """
 
         self._redirect_url = redirect_url
+
+    @property
+    def resource_oauth2_return_url(self):
+        """Gets the resource_oauth2_return_url of this GetResourceOauth2TokenRequest.  # noqa: E501
+
+
+        :return: The resource_oauth2_return_url of this GetResourceOauth2TokenRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_oauth2_return_url
+
+    @resource_oauth2_return_url.setter
+    def resource_oauth2_return_url(self, resource_oauth2_return_url):
+        """Sets the resource_oauth2_return_url of this GetResourceOauth2TokenRequest.
+
+
+        :param resource_oauth2_return_url: The resource_oauth2_return_url of this GetResourceOauth2TokenRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_oauth2_return_url = resource_oauth2_return_url
 
     @property
     def scopes(self):

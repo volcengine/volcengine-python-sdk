@@ -33,71 +33,45 @@ class VideoProjectCreateResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'project_id': 'int',
-        'project_name': 'str'
+        'data': 'DataForVideoProjectCreateOutput'
     }
 
     attribute_map = {
-        'project_id': 'projectId',
-        'project_name': 'projectName'
+        'data': 'data'
     }
 
-    def __init__(self, project_id=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, data=None, _configuration=None):  # noqa: E501
         """VideoProjectCreateResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._project_id = None
-        self._project_name = None
+        self._data = None
         self.discriminator = None
 
-        if project_id is not None:
-            self.project_id = project_id
-        if project_name is not None:
-            self.project_name = project_name
+        if data is not None:
+            self.data = data
 
     @property
-    def project_id(self):
-        """Gets the project_id of this VideoProjectCreateResponse.  # noqa: E501
+    def data(self):
+        """Gets the data of this VideoProjectCreateResponse.  # noqa: E501
 
 
-        :return: The project_id of this VideoProjectCreateResponse.  # noqa: E501
-        :rtype: int
+        :return: The data of this VideoProjectCreateResponse.  # noqa: E501
+        :rtype: DataForVideoProjectCreateOutput
         """
-        return self._project_id
+        return self._data
 
-    @project_id.setter
-    def project_id(self, project_id):
-        """Sets the project_id of this VideoProjectCreateResponse.
-
-
-        :param project_id: The project_id of this VideoProjectCreateResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._project_id = project_id
-
-    @property
-    def project_name(self):
-        """Gets the project_name of this VideoProjectCreateResponse.  # noqa: E501
+    @data.setter
+    def data(self, data):
+        """Sets the data of this VideoProjectCreateResponse.
 
 
-        :return: The project_name of this VideoProjectCreateResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_name
-
-    @project_name.setter
-    def project_name(self, project_name):
-        """Sets the project_name of this VideoProjectCreateResponse.
-
-
-        :param project_name: The project_name of this VideoProjectCreateResponse.  # noqa: E501
-        :type: str
+        :param data: The data of this VideoProjectCreateResponse.  # noqa: E501
+        :type: DataForVideoProjectCreateOutput
         """
 
-        self._project_name = project_name
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

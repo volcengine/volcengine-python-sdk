@@ -33,29 +33,75 @@ class ListNamespacesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filter': 'FilterForListNamespacesInput',
         'page_number': 'int',
-        'page_size': 'int'
+        'page_size': 'int',
+        'project_name': 'str',
+        'sort_direction': 'str',
+        'sort_field': 'str',
+        'tag_filters': 'list[TagFilterForListNamespacesInput]'
     }
 
     attribute_map = {
+        'filter': 'Filter',
         'page_number': 'PageNumber',
-        'page_size': 'PageSize'
+        'page_size': 'PageSize',
+        'project_name': 'ProjectName',
+        'sort_direction': 'SortDirection',
+        'sort_field': 'SortField',
+        'tag_filters': 'TagFilters'
     }
 
-    def __init__(self, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, page_number=None, page_size=None, project_name=None, sort_direction=None, sort_field=None, tag_filters=None, _configuration=None):  # noqa: E501
         """ListNamespacesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filter = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
+        self._sort_direction = None
+        self._sort_field = None
+        self._tag_filters = None
         self.discriminator = None
 
+        if filter is not None:
+            self.filter = filter
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
+        if sort_direction is not None:
+            self.sort_direction = sort_direction
+        if sort_field is not None:
+            self.sort_field = sort_field
+        if tag_filters is not None:
+            self.tag_filters = tag_filters
+
+    @property
+    def filter(self):
+        """Gets the filter of this ListNamespacesRequest.  # noqa: E501
+
+
+        :return: The filter of this ListNamespacesRequest.  # noqa: E501
+        :rtype: FilterForListNamespacesInput
+        """
+        return self._filter
+
+    @filter.setter
+    def filter(self, filter):
+        """Sets the filter of this ListNamespacesRequest.
+
+
+        :param filter: The filter of this ListNamespacesRequest.  # noqa: E501
+        :type: FilterForListNamespacesInput
+        """
+
+        self._filter = filter
 
     @property
     def page_number(self):
@@ -98,6 +144,90 @@ class ListNamespacesRequest(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListNamespacesRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListNamespacesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListNamespacesRequest.
+
+
+        :param project_name: The project_name of this ListNamespacesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def sort_direction(self):
+        """Gets the sort_direction of this ListNamespacesRequest.  # noqa: E501
+
+
+        :return: The sort_direction of this ListNamespacesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_direction
+
+    @sort_direction.setter
+    def sort_direction(self, sort_direction):
+        """Sets the sort_direction of this ListNamespacesRequest.
+
+
+        :param sort_direction: The sort_direction of this ListNamespacesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_direction = sort_direction
+
+    @property
+    def sort_field(self):
+        """Gets the sort_field of this ListNamespacesRequest.  # noqa: E501
+
+
+        :return: The sort_field of this ListNamespacesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_field
+
+    @sort_field.setter
+    def sort_field(self, sort_field):
+        """Sets the sort_field of this ListNamespacesRequest.
+
+
+        :param sort_field: The sort_field of this ListNamespacesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._sort_field = sort_field
+
+    @property
+    def tag_filters(self):
+        """Gets the tag_filters of this ListNamespacesRequest.  # noqa: E501
+
+
+        :return: The tag_filters of this ListNamespacesRequest.  # noqa: E501
+        :rtype: list[TagFilterForListNamespacesInput]
+        """
+        return self._tag_filters
+
+    @tag_filters.setter
+    def tag_filters(self, tag_filters):
+        """Sets the tag_filters of this ListNamespacesRequest.
+
+
+        :param tag_filters: The tag_filters of this ListNamespacesRequest.  # noqa: E501
+        :type: list[TagFilterForListNamespacesInput]
+        """
+
+        self._tag_filters = tag_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

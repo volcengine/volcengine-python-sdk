@@ -35,8 +35,23 @@ class CreateUserPoolResponse(object):
     swagger_types = {
         'create_time': 'str',
         'description': 'str',
+        'discovery_url': 'str',
         'domain': 'str',
+        'email_passwordless_sign_in_enabled': 'bool',
         'name': 'str',
+        'oauth_login_callback_url': 'str',
+        'oauth_sign_up_callback_url': 'str',
+        'oidc_login_callback_url': 'str',
+        'oidc_sign_up_callback_url': 'str',
+        'password_sign_in_enabled': 'bool',
+        'project_name': 'str',
+        'required_sign_up_attributes': 'list[str]',
+        'saml_login_callback_url': 'str',
+        'saml_sign_up_callback_url': 'str',
+        'self_sign_up_enabled': 'bool',
+        'sign_in_attributes': 'list[str]',
+        'sms_passwordless_sign_in_enabled': 'bool',
+        'tags': 'list[TagForCreateUserPoolOutput]',
         'token_signing_key_url': 'str',
         'total_clients': 'int',
         'total_connections': 'int',
@@ -49,8 +64,23 @@ class CreateUserPoolResponse(object):
     attribute_map = {
         'create_time': 'CreateTime',
         'description': 'Description',
+        'discovery_url': 'DiscoveryUrl',
         'domain': 'Domain',
+        'email_passwordless_sign_in_enabled': 'EmailPasswordlessSignInEnabled',
         'name': 'Name',
+        'oauth_login_callback_url': 'OauthLoginCallbackUrl',
+        'oauth_sign_up_callback_url': 'OauthSignUpCallbackUrl',
+        'oidc_login_callback_url': 'OidcLoginCallbackUrl',
+        'oidc_sign_up_callback_url': 'OidcSignUpCallbackUrl',
+        'password_sign_in_enabled': 'PasswordSignInEnabled',
+        'project_name': 'ProjectName',
+        'required_sign_up_attributes': 'RequiredSignUpAttributes',
+        'saml_login_callback_url': 'SamlLoginCallbackUrl',
+        'saml_sign_up_callback_url': 'SamlSignUpCallbackUrl',
+        'self_sign_up_enabled': 'SelfSignUpEnabled',
+        'sign_in_attributes': 'SignInAttributes',
+        'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
+        'tags': 'Tags',
         'token_signing_key_url': 'TokenSigningKeyUrl',
         'total_clients': 'TotalClients',
         'total_connections': 'TotalConnections',
@@ -60,7 +90,7 @@ class CreateUserPoolResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, description=None, domain=None, name=None, token_signing_key_url=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, description=None, discovery_url=None, domain=None, email_passwordless_sign_in_enabled=None, name=None, oauth_login_callback_url=None, oauth_sign_up_callback_url=None, oidc_login_callback_url=None, oidc_sign_up_callback_url=None, password_sign_in_enabled=None, project_name=None, required_sign_up_attributes=None, saml_login_callback_url=None, saml_sign_up_callback_url=None, self_sign_up_enabled=None, sign_in_attributes=None, sms_passwordless_sign_in_enabled=None, tags=None, token_signing_key_url=None, total_clients=None, total_connections=None, total_users=None, trn=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """CreateUserPoolResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,8 +98,23 @@ class CreateUserPoolResponse(object):
 
         self._create_time = None
         self._description = None
+        self._discovery_url = None
         self._domain = None
+        self._email_passwordless_sign_in_enabled = None
         self._name = None
+        self._oauth_login_callback_url = None
+        self._oauth_sign_up_callback_url = None
+        self._oidc_login_callback_url = None
+        self._oidc_sign_up_callback_url = None
+        self._password_sign_in_enabled = None
+        self._project_name = None
+        self._required_sign_up_attributes = None
+        self._saml_login_callback_url = None
+        self._saml_sign_up_callback_url = None
+        self._self_sign_up_enabled = None
+        self._sign_in_attributes = None
+        self._sms_passwordless_sign_in_enabled = None
+        self._tags = None
         self._token_signing_key_url = None
         self._total_clients = None
         self._total_connections = None
@@ -83,10 +128,40 @@ class CreateUserPoolResponse(object):
             self.create_time = create_time
         if description is not None:
             self.description = description
+        if discovery_url is not None:
+            self.discovery_url = discovery_url
         if domain is not None:
             self.domain = domain
+        if email_passwordless_sign_in_enabled is not None:
+            self.email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
         if name is not None:
             self.name = name
+        if oauth_login_callback_url is not None:
+            self.oauth_login_callback_url = oauth_login_callback_url
+        if oauth_sign_up_callback_url is not None:
+            self.oauth_sign_up_callback_url = oauth_sign_up_callback_url
+        if oidc_login_callback_url is not None:
+            self.oidc_login_callback_url = oidc_login_callback_url
+        if oidc_sign_up_callback_url is not None:
+            self.oidc_sign_up_callback_url = oidc_sign_up_callback_url
+        if password_sign_in_enabled is not None:
+            self.password_sign_in_enabled = password_sign_in_enabled
+        if project_name is not None:
+            self.project_name = project_name
+        if required_sign_up_attributes is not None:
+            self.required_sign_up_attributes = required_sign_up_attributes
+        if saml_login_callback_url is not None:
+            self.saml_login_callback_url = saml_login_callback_url
+        if saml_sign_up_callback_url is not None:
+            self.saml_sign_up_callback_url = saml_sign_up_callback_url
+        if self_sign_up_enabled is not None:
+            self.self_sign_up_enabled = self_sign_up_enabled
+        if sign_in_attributes is not None:
+            self.sign_in_attributes = sign_in_attributes
+        if sms_passwordless_sign_in_enabled is not None:
+            self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
+        if tags is not None:
+            self.tags = tags
         if token_signing_key_url is not None:
             self.token_signing_key_url = token_signing_key_url
         if total_clients is not None:
@@ -145,6 +220,27 @@ class CreateUserPoolResponse(object):
         self._description = description
 
     @property
+    def discovery_url(self):
+        """Gets the discovery_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The discovery_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._discovery_url
+
+    @discovery_url.setter
+    def discovery_url(self, discovery_url):
+        """Sets the discovery_url of this CreateUserPoolResponse.
+
+
+        :param discovery_url: The discovery_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._discovery_url = discovery_url
+
+    @property
     def domain(self):
         """Gets the domain of this CreateUserPoolResponse.  # noqa: E501
 
@@ -166,6 +262,27 @@ class CreateUserPoolResponse(object):
         self._domain = domain
 
     @property
+    def email_passwordless_sign_in_enabled(self):
+        """Gets the email_passwordless_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The email_passwordless_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_passwordless_sign_in_enabled
+
+    @email_passwordless_sign_in_enabled.setter
+    def email_passwordless_sign_in_enabled(self, email_passwordless_sign_in_enabled):
+        """Sets the email_passwordless_sign_in_enabled of this CreateUserPoolResponse.
+
+
+        :param email_passwordless_sign_in_enabled: The email_passwordless_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_passwordless_sign_in_enabled = email_passwordless_sign_in_enabled
+
+    @property
     def name(self):
         """Gets the name of this CreateUserPoolResponse.  # noqa: E501
 
@@ -185,6 +302,279 @@ class CreateUserPoolResponse(object):
         """
 
         self._name = name
+
+    @property
+    def oauth_login_callback_url(self):
+        """Gets the oauth_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The oauth_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._oauth_login_callback_url
+
+    @oauth_login_callback_url.setter
+    def oauth_login_callback_url(self, oauth_login_callback_url):
+        """Sets the oauth_login_callback_url of this CreateUserPoolResponse.
+
+
+        :param oauth_login_callback_url: The oauth_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._oauth_login_callback_url = oauth_login_callback_url
+
+    @property
+    def oauth_sign_up_callback_url(self):
+        """Gets the oauth_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The oauth_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._oauth_sign_up_callback_url
+
+    @oauth_sign_up_callback_url.setter
+    def oauth_sign_up_callback_url(self, oauth_sign_up_callback_url):
+        """Sets the oauth_sign_up_callback_url of this CreateUserPoolResponse.
+
+
+        :param oauth_sign_up_callback_url: The oauth_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._oauth_sign_up_callback_url = oauth_sign_up_callback_url
+
+    @property
+    def oidc_login_callback_url(self):
+        """Gets the oidc_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The oidc_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._oidc_login_callback_url
+
+    @oidc_login_callback_url.setter
+    def oidc_login_callback_url(self, oidc_login_callback_url):
+        """Sets the oidc_login_callback_url of this CreateUserPoolResponse.
+
+
+        :param oidc_login_callback_url: The oidc_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._oidc_login_callback_url = oidc_login_callback_url
+
+    @property
+    def oidc_sign_up_callback_url(self):
+        """Gets the oidc_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The oidc_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._oidc_sign_up_callback_url
+
+    @oidc_sign_up_callback_url.setter
+    def oidc_sign_up_callback_url(self, oidc_sign_up_callback_url):
+        """Sets the oidc_sign_up_callback_url of this CreateUserPoolResponse.
+
+
+        :param oidc_sign_up_callback_url: The oidc_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._oidc_sign_up_callback_url = oidc_sign_up_callback_url
+
+    @property
+    def password_sign_in_enabled(self):
+        """Gets the password_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The password_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._password_sign_in_enabled
+
+    @password_sign_in_enabled.setter
+    def password_sign_in_enabled(self, password_sign_in_enabled):
+        """Sets the password_sign_in_enabled of this CreateUserPoolResponse.
+
+
+        :param password_sign_in_enabled: The password_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._password_sign_in_enabled = password_sign_in_enabled
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The project_name of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateUserPoolResponse.
+
+
+        :param project_name: The project_name of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def required_sign_up_attributes(self):
+        """Gets the required_sign_up_attributes of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The required_sign_up_attributes of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._required_sign_up_attributes
+
+    @required_sign_up_attributes.setter
+    def required_sign_up_attributes(self, required_sign_up_attributes):
+        """Sets the required_sign_up_attributes of this CreateUserPoolResponse.
+
+
+        :param required_sign_up_attributes: The required_sign_up_attributes of this CreateUserPoolResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._required_sign_up_attributes = required_sign_up_attributes
+
+    @property
+    def saml_login_callback_url(self):
+        """Gets the saml_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The saml_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._saml_login_callback_url
+
+    @saml_login_callback_url.setter
+    def saml_login_callback_url(self, saml_login_callback_url):
+        """Sets the saml_login_callback_url of this CreateUserPoolResponse.
+
+
+        :param saml_login_callback_url: The saml_login_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._saml_login_callback_url = saml_login_callback_url
+
+    @property
+    def saml_sign_up_callback_url(self):
+        """Gets the saml_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The saml_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._saml_sign_up_callback_url
+
+    @saml_sign_up_callback_url.setter
+    def saml_sign_up_callback_url(self, saml_sign_up_callback_url):
+        """Sets the saml_sign_up_callback_url of this CreateUserPoolResponse.
+
+
+        :param saml_sign_up_callback_url: The saml_sign_up_callback_url of this CreateUserPoolResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._saml_sign_up_callback_url = saml_sign_up_callback_url
+
+    @property
+    def self_sign_up_enabled(self):
+        """Gets the self_sign_up_enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The self_sign_up_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._self_sign_up_enabled
+
+    @self_sign_up_enabled.setter
+    def self_sign_up_enabled(self, self_sign_up_enabled):
+        """Sets the self_sign_up_enabled of this CreateUserPoolResponse.
+
+
+        :param self_sign_up_enabled: The self_sign_up_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._self_sign_up_enabled = self_sign_up_enabled
+
+    @property
+    def sign_in_attributes(self):
+        """Gets the sign_in_attributes of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The sign_in_attributes of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._sign_in_attributes
+
+    @sign_in_attributes.setter
+    def sign_in_attributes(self, sign_in_attributes):
+        """Sets the sign_in_attributes of this CreateUserPoolResponse.
+
+
+        :param sign_in_attributes: The sign_in_attributes of this CreateUserPoolResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._sign_in_attributes = sign_in_attributes
+
+    @property
+    def sms_passwordless_sign_in_enabled(self):
+        """Gets the sms_passwordless_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The sms_passwordless_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sms_passwordless_sign_in_enabled
+
+    @sms_passwordless_sign_in_enabled.setter
+    def sms_passwordless_sign_in_enabled(self, sms_passwordless_sign_in_enabled):
+        """Sets the sms_passwordless_sign_in_enabled of this CreateUserPoolResponse.
+
+
+        :param sms_passwordless_sign_in_enabled: The sms_passwordless_sign_in_enabled of this CreateUserPoolResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateUserPoolResponse.  # noqa: E501
+
+
+        :return: The tags of this CreateUserPoolResponse.  # noqa: E501
+        :rtype: list[TagForCreateUserPoolOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateUserPoolResponse.
+
+
+        :param tags: The tags of this CreateUserPoolResponse.  # noqa: E501
+        :type: list[TagForCreateUserPoolOutput]
+        """
+
+        self._tags = tags
 
     @property
     def token_signing_key_url(self):
