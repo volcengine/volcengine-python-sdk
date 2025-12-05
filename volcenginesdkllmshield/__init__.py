@@ -15,12 +15,13 @@
 from __future__ import absolute_import
 
 # 导入API模块
-from volcenginesdkllmshield.api.llm_shield_sdk_v2 import ClientV2
+from volcenginesdkllmshield.api.llm_shield_sdk_v2 import ClientV2, SetServiceDev, GetServiceCode
 from volcenginesdkllmshield.api.llm_shield_sdk_v2 import (
     ContentTypeV2,
     DecisionTypeV2,
     UserAction,
     MatchSource,
+    MultiPart,
     MessageV2,
     ModerateV2Request,
     RiskMatchV2,
@@ -43,7 +44,9 @@ from volcenginesdkllmshield.api.llm_shield_sdk_v2 import (
     GenerateSummarizeV2,
     GenerateStreamResult,
     GenerateStreamV2ResponseData,
-    CustomJSONEncoder
+    CustomJSONEncoder,
+    SetServiceDev,
+    GetServiceCode
 )
 
 
@@ -56,6 +59,7 @@ __all__ = [
     'UserAction',
     'MatchSource',
     # 数据模型
+    'MultiPart',
     'MessageV2',
     'ModerateV2Request',
     'RiskMatchV2',
@@ -79,4 +83,6 @@ __all__ = [
     'GenerateStreamResult',
     'GenerateStreamV2ResponseData',
     'CustomJSONEncoder',
+    'SetServiceDev',
+    'GetServiceCode',
 ]
