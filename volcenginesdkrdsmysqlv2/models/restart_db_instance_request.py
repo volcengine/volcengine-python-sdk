@@ -35,7 +35,9 @@ class RestartDBInstanceRequest(object):
     swagger_types = {
         'apply_scope': 'str',
         'custom_node_ids': 'list[str]',
+        'force_restart_master': 'bool',
         'instance_id': 'str',
+        'restart_with_proxy': 'bool',
         'specified_switch_end_time': 'str',
         'specified_switch_start_time': 'str',
         'switch_type': 'str'
@@ -44,13 +46,15 @@ class RestartDBInstanceRequest(object):
     attribute_map = {
         'apply_scope': 'ApplyScope',
         'custom_node_ids': 'CustomNodeIds',
+        'force_restart_master': 'ForceRestartMaster',
         'instance_id': 'InstanceId',
+        'restart_with_proxy': 'RestartWithProxy',
         'specified_switch_end_time': 'SpecifiedSwitchEndTime',
         'specified_switch_start_time': 'SpecifiedSwitchStartTime',
         'switch_type': 'SwitchType'
     }
 
-    def __init__(self, apply_scope=None, custom_node_ids=None, instance_id=None, specified_switch_end_time=None, specified_switch_start_time=None, switch_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, apply_scope=None, custom_node_ids=None, force_restart_master=None, instance_id=None, restart_with_proxy=None, specified_switch_end_time=None, specified_switch_start_time=None, switch_type=None, _configuration=None):  # noqa: E501
         """RestartDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,7 +62,9 @@ class RestartDBInstanceRequest(object):
 
         self._apply_scope = None
         self._custom_node_ids = None
+        self._force_restart_master = None
         self._instance_id = None
+        self._restart_with_proxy = None
         self._specified_switch_end_time = None
         self._specified_switch_start_time = None
         self._switch_type = None
@@ -68,7 +74,11 @@ class RestartDBInstanceRequest(object):
             self.apply_scope = apply_scope
         if custom_node_ids is not None:
             self.custom_node_ids = custom_node_ids
+        if force_restart_master is not None:
+            self.force_restart_master = force_restart_master
         self.instance_id = instance_id
+        if restart_with_proxy is not None:
+            self.restart_with_proxy = restart_with_proxy
         if specified_switch_end_time is not None:
             self.specified_switch_end_time = specified_switch_end_time
         if specified_switch_start_time is not None:
@@ -119,6 +129,27 @@ class RestartDBInstanceRequest(object):
         self._custom_node_ids = custom_node_ids
 
     @property
+    def force_restart_master(self):
+        """Gets the force_restart_master of this RestartDBInstanceRequest.  # noqa: E501
+
+
+        :return: The force_restart_master of this RestartDBInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._force_restart_master
+
+    @force_restart_master.setter
+    def force_restart_master(self, force_restart_master):
+        """Sets the force_restart_master of this RestartDBInstanceRequest.
+
+
+        :param force_restart_master: The force_restart_master of this RestartDBInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._force_restart_master = force_restart_master
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this RestartDBInstanceRequest.  # noqa: E501
 
@@ -140,6 +171,27 @@ class RestartDBInstanceRequest(object):
             raise ValueError("Invalid value for `instance_id`, must not be `None`")  # noqa: E501
 
         self._instance_id = instance_id
+
+    @property
+    def restart_with_proxy(self):
+        """Gets the restart_with_proxy of this RestartDBInstanceRequest.  # noqa: E501
+
+
+        :return: The restart_with_proxy of this RestartDBInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._restart_with_proxy
+
+    @restart_with_proxy.setter
+    def restart_with_proxy(self, restart_with_proxy):
+        """Sets the restart_with_proxy of this RestartDBInstanceRequest.
+
+
+        :param restart_with_proxy: The restart_with_proxy of this RestartDBInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._restart_with_proxy = restart_with_proxy
 
     @property
     def specified_switch_end_time(self):

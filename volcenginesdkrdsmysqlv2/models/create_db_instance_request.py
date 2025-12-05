@@ -40,6 +40,8 @@ class CreateDBInstanceRequest(object):
         'db_param_group_id': 'str',
         'db_time_zone': 'str',
         'deletion_protection': 'str',
+        'enable_external_replication': 'bool',
+        'engine_type': 'str',
         'instance_name': 'str',
         'instance_tags': 'list[InstanceTagForCreateDBInstanceInput]',
         'instance_type': 'str',
@@ -65,6 +67,8 @@ class CreateDBInstanceRequest(object):
         'db_param_group_id': 'DBParamGroupId',
         'db_time_zone': 'DBTimeZone',
         'deletion_protection': 'DeletionProtection',
+        'enable_external_replication': 'EnableExternalReplication',
+        'engine_type': 'EngineType',
         'instance_name': 'InstanceName',
         'instance_tags': 'InstanceTags',
         'instance_type': 'InstanceType',
@@ -82,7 +86,7 @@ class CreateDBInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, deletion_protection=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, port=None, project_name=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, auto_storage_scaling_config=None, charge_info=None, db_engine_version=None, db_param_group_id=None, db_time_zone=None, deletion_protection=None, enable_external_replication=None, engine_type=None, instance_name=None, instance_tags=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, node_info=None, port=None, project_name=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, super_account_name=None, super_account_password=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +99,8 @@ class CreateDBInstanceRequest(object):
         self._db_param_group_id = None
         self._db_time_zone = None
         self._deletion_protection = None
+        self._enable_external_replication = None
+        self._engine_type = None
         self._instance_name = None
         self._instance_tags = None
         self._instance_type = None
@@ -125,6 +131,10 @@ class CreateDBInstanceRequest(object):
             self.db_time_zone = db_time_zone
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
+        if enable_external_replication is not None:
+            self.enable_external_replication = enable_external_replication
+        if engine_type is not None:
+            self.engine_type = engine_type
         if instance_name is not None:
             self.instance_name = instance_name
         if instance_tags is not None:
@@ -300,6 +310,48 @@ class CreateDBInstanceRequest(object):
         """
 
         self._deletion_protection = deletion_protection
+
+    @property
+    def enable_external_replication(self):
+        """Gets the enable_external_replication of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The enable_external_replication of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_external_replication
+
+    @enable_external_replication.setter
+    def enable_external_replication(self, enable_external_replication):
+        """Sets the enable_external_replication of this CreateDBInstanceRequest.
+
+
+        :param enable_external_replication: The enable_external_replication of this CreateDBInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_external_replication = enable_external_replication
+
+    @property
+    def engine_type(self):
+        """Gets the engine_type of this CreateDBInstanceRequest.  # noqa: E501
+
+
+        :return: The engine_type of this CreateDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_type
+
+    @engine_type.setter
+    def engine_type(self, engine_type):
+        """Sets the engine_type of this CreateDBInstanceRequest.
+
+
+        :param engine_type: The engine_type of this CreateDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_type = engine_type
 
     @property
     def instance_name(self):

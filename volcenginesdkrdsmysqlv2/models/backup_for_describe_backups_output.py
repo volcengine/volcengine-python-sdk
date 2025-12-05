@@ -38,6 +38,7 @@ class BackupForDescribeBackupsOutput(object):
         'backup_file_size': 'int',
         'backup_id': 'str',
         'backup_method': 'str',
+        'backup_name': 'str',
         'backup_region': 'str',
         'backup_start_time': 'str',
         'backup_status': 'str',
@@ -47,6 +48,7 @@ class BackupForDescribeBackupsOutput(object):
         'db_engine_version': 'str',
         'db_table_infos': 'list[DBTableInfoForDescribeBackupsOutput]',
         'download_status': 'str',
+        'engine_type': 'str',
         'error_message': 'str',
         'expired_time': 'str',
         'is_encrypted': 'bool',
@@ -59,6 +61,7 @@ class BackupForDescribeBackupsOutput(object):
         'backup_file_size': 'BackupFileSize',
         'backup_id': 'BackupId',
         'backup_method': 'BackupMethod',
+        'backup_name': 'BackupName',
         'backup_region': 'BackupRegion',
         'backup_start_time': 'BackupStartTime',
         'backup_status': 'BackupStatus',
@@ -68,13 +71,14 @@ class BackupForDescribeBackupsOutput(object):
         'db_engine_version': 'DBEngineVersion',
         'db_table_infos': 'DBTableInfos',
         'download_status': 'DownloadStatus',
+        'engine_type': 'EngineType',
         'error_message': 'ErrorMessage',
         'expired_time': 'ExpiredTime',
         'is_encrypted': 'IsEncrypted',
         'is_expired': 'IsExpired'
     }
 
-    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_region=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_engine_version=None, db_table_infos=None, download_status=None, error_message=None, expired_time=None, is_encrypted=None, is_expired=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_end_time=None, backup_file_name=None, backup_file_size=None, backup_id=None, backup_method=None, backup_name=None, backup_region=None, backup_start_time=None, backup_status=None, backup_type=None, consistent_time=None, create_type=None, db_engine_version=None, db_table_infos=None, download_status=None, engine_type=None, error_message=None, expired_time=None, is_encrypted=None, is_expired=None, _configuration=None):  # noqa: E501
         """BackupForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +89,7 @@ class BackupForDescribeBackupsOutput(object):
         self._backup_file_size = None
         self._backup_id = None
         self._backup_method = None
+        self._backup_name = None
         self._backup_region = None
         self._backup_start_time = None
         self._backup_status = None
@@ -94,6 +99,7 @@ class BackupForDescribeBackupsOutput(object):
         self._db_engine_version = None
         self._db_table_infos = None
         self._download_status = None
+        self._engine_type = None
         self._error_message = None
         self._expired_time = None
         self._is_encrypted = None
@@ -110,6 +116,8 @@ class BackupForDescribeBackupsOutput(object):
             self.backup_id = backup_id
         if backup_method is not None:
             self.backup_method = backup_method
+        if backup_name is not None:
+            self.backup_name = backup_name
         if backup_region is not None:
             self.backup_region = backup_region
         if backup_start_time is not None:
@@ -128,6 +136,8 @@ class BackupForDescribeBackupsOutput(object):
             self.db_table_infos = db_table_infos
         if download_status is not None:
             self.download_status = download_status
+        if engine_type is not None:
+            self.engine_type = engine_type
         if error_message is not None:
             self.error_message = error_message
         if expired_time is not None:
@@ -241,6 +251,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._backup_method = backup_method
+
+    @property
+    def backup_name(self):
+        """Gets the backup_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The backup_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_name
+
+    @backup_name.setter
+    def backup_name(self, backup_name):
+        """Sets the backup_name of this BackupForDescribeBackupsOutput.
+
+
+        :param backup_name: The backup_name of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_name = backup_name
 
     @property
     def backup_region(self):
@@ -430,6 +461,27 @@ class BackupForDescribeBackupsOutput(object):
         """
 
         self._download_status = download_status
+
+    @property
+    def engine_type(self):
+        """Gets the engine_type of this BackupForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The engine_type of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_type
+
+    @engine_type.setter
+    def engine_type(self, engine_type):
+        """Sets the engine_type of this BackupForDescribeBackupsOutput.
+
+
+        :param engine_type: The engine_type of this BackupForDescribeBackupsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_type = engine_type
 
     @property
     def error_message(self):
