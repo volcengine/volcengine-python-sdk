@@ -22,10 +22,26 @@ from urllib.parse import quote, urlparse
 import requests
 
 # 以下参数视服务不同而不同，一个服务内通常是一致的
-Service = "llmshield"
 Version = "2025-08-31"
 ContentType = "application/json"
 Method = "POST"
+
+ServiceCodeDev = "llmshield_dev"
+ServiceCodeOnline = "llmshield"
+Service = ServiceCodeOnline
+
+
+def SetServiceDev(IsDev: bool):
+    global Service, ServiceCodeDev, ServiceCodeOnline
+    if IsDev:
+        Service = ServiceCodeDev
+    else:
+        Service = ServiceCodeOnline
+
+
+def GetServiceCode():
+    global Service
+    return Service
 
 
 def norm_query(params):
