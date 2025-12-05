@@ -34,6 +34,7 @@ class ConsistentHashLBForGetUpstreamOutput(object):
     """
     swagger_types = {
         'http_cookie': 'HTTPCookieForGetUpstreamOutput',
+        'hash_balance_factor': 'int',
         'hash_key': 'str',
         'http_header_name': 'str',
         'http_query_parameter_name': 'str',
@@ -42,19 +43,21 @@ class ConsistentHashLBForGetUpstreamOutput(object):
 
     attribute_map = {
         'http_cookie': 'HTTPCookie',
+        'hash_balance_factor': 'HashBalanceFactor',
         'hash_key': 'HashKey',
         'http_header_name': 'HttpHeaderName',
         'http_query_parameter_name': 'HttpQueryParameterName',
         'use_source_ip': 'UseSourceIp'
     }
 
-    def __init__(self, http_cookie=None, hash_key=None, http_header_name=None, http_query_parameter_name=None, use_source_ip=None, _configuration=None):  # noqa: E501
+    def __init__(self, http_cookie=None, hash_balance_factor=None, hash_key=None, http_header_name=None, http_query_parameter_name=None, use_source_ip=None, _configuration=None):  # noqa: E501
         """ConsistentHashLBForGetUpstreamOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._http_cookie = None
+        self._hash_balance_factor = None
         self._hash_key = None
         self._http_header_name = None
         self._http_query_parameter_name = None
@@ -63,6 +66,8 @@ class ConsistentHashLBForGetUpstreamOutput(object):
 
         if http_cookie is not None:
             self.http_cookie = http_cookie
+        if hash_balance_factor is not None:
+            self.hash_balance_factor = hash_balance_factor
         if hash_key is not None:
             self.hash_key = hash_key
         if http_header_name is not None:
@@ -92,6 +97,27 @@ class ConsistentHashLBForGetUpstreamOutput(object):
         """
 
         self._http_cookie = http_cookie
+
+    @property
+    def hash_balance_factor(self):
+        """Gets the hash_balance_factor of this ConsistentHashLBForGetUpstreamOutput.  # noqa: E501
+
+
+        :return: The hash_balance_factor of this ConsistentHashLBForGetUpstreamOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._hash_balance_factor
+
+    @hash_balance_factor.setter
+    def hash_balance_factor(self, hash_balance_factor):
+        """Sets the hash_balance_factor of this ConsistentHashLBForGetUpstreamOutput.
+
+
+        :param hash_balance_factor: The hash_balance_factor of this ConsistentHashLBForGetUpstreamOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._hash_balance_factor = hash_balance_factor
 
     @property
     def hash_key(self):
