@@ -38,7 +38,9 @@ class ModifyDBEndpointReadWriteFlagRequest(object):
         'read_only_node_distribution_type': 'str',
         'read_only_node_max_delay_time': 'int',
         'read_only_node_weight': 'list[ReadOnlyNodeWeightForModifyDBEndpointReadWriteFlagInput]',
-        'read_write_spliting': 'bool'
+        'read_write_proxy_connection': 'int',
+        'read_write_spliting': 'bool',
+        'write_node_halt_writing': 'bool'
     }
 
     attribute_map = {
@@ -47,10 +49,12 @@ class ModifyDBEndpointReadWriteFlagRequest(object):
         'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
         'read_only_node_max_delay_time': 'ReadOnlyNodeMaxDelayTime',
         'read_only_node_weight': 'ReadOnlyNodeWeight',
-        'read_write_spliting': 'ReadWriteSpliting'
+        'read_write_proxy_connection': 'ReadWriteProxyConnection',
+        'read_write_spliting': 'ReadWriteSpliting',
+        'write_node_halt_writing': 'WriteNodeHaltWriting'
     }
 
-    def __init__(self, endpoint_id=None, instance_id=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_spliting=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint_id=None, instance_id=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_proxy_connection=None, read_write_spliting=None, write_node_halt_writing=None, _configuration=None):  # noqa: E501
         """ModifyDBEndpointReadWriteFlagRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -61,7 +65,9 @@ class ModifyDBEndpointReadWriteFlagRequest(object):
         self._read_only_node_distribution_type = None
         self._read_only_node_max_delay_time = None
         self._read_only_node_weight = None
+        self._read_write_proxy_connection = None
         self._read_write_spliting = None
+        self._write_node_halt_writing = None
         self.discriminator = None
 
         self.endpoint_id = endpoint_id
@@ -72,7 +78,11 @@ class ModifyDBEndpointReadWriteFlagRequest(object):
             self.read_only_node_max_delay_time = read_only_node_max_delay_time
         if read_only_node_weight is not None:
             self.read_only_node_weight = read_only_node_weight
+        if read_write_proxy_connection is not None:
+            self.read_write_proxy_connection = read_write_proxy_connection
         self.read_write_spliting = read_write_spliting
+        if write_node_halt_writing is not None:
+            self.write_node_halt_writing = write_node_halt_writing
 
     @property
     def endpoint_id(self):
@@ -184,6 +194,27 @@ class ModifyDBEndpointReadWriteFlagRequest(object):
         self._read_only_node_weight = read_only_node_weight
 
     @property
+    def read_write_proxy_connection(self):
+        """Gets the read_write_proxy_connection of this ModifyDBEndpointReadWriteFlagRequest.  # noqa: E501
+
+
+        :return: The read_write_proxy_connection of this ModifyDBEndpointReadWriteFlagRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._read_write_proxy_connection
+
+    @read_write_proxy_connection.setter
+    def read_write_proxy_connection(self, read_write_proxy_connection):
+        """Sets the read_write_proxy_connection of this ModifyDBEndpointReadWriteFlagRequest.
+
+
+        :param read_write_proxy_connection: The read_write_proxy_connection of this ModifyDBEndpointReadWriteFlagRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._read_write_proxy_connection = read_write_proxy_connection
+
+    @property
     def read_write_spliting(self):
         """Gets the read_write_spliting of this ModifyDBEndpointReadWriteFlagRequest.  # noqa: E501
 
@@ -205,6 +236,27 @@ class ModifyDBEndpointReadWriteFlagRequest(object):
             raise ValueError("Invalid value for `read_write_spliting`, must not be `None`")  # noqa: E501
 
         self._read_write_spliting = read_write_spliting
+
+    @property
+    def write_node_halt_writing(self):
+        """Gets the write_node_halt_writing of this ModifyDBEndpointReadWriteFlagRequest.  # noqa: E501
+
+
+        :return: The write_node_halt_writing of this ModifyDBEndpointReadWriteFlagRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._write_node_halt_writing
+
+    @write_node_halt_writing.setter
+    def write_node_halt_writing(self, write_node_halt_writing):
+        """Sets the write_node_halt_writing of this ModifyDBEndpointReadWriteFlagRequest.
+
+
+        :param write_node_halt_writing: The write_node_halt_writing of this ModifyDBEndpointReadWriteFlagRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._write_node_halt_writing = write_node_halt_writing
 
     def to_dict(self):
         """Returns the model properties as a dict"""

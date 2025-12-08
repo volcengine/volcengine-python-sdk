@@ -33,28 +33,132 @@ class CreateBackupRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_description': 'str',
+        'backup_meta': 'list[BackupMetaForCreateBackupInput]',
+        'backup_method': 'str',
+        'backup_scope': 'str',
         'backup_type': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
+        'backup_description': 'BackupDescription',
+        'backup_meta': 'BackupMeta',
+        'backup_method': 'BackupMethod',
+        'backup_scope': 'BackupScope',
         'backup_type': 'BackupType',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, backup_type=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_description=None, backup_meta=None, backup_method=None, backup_scope=None, backup_type=None, instance_id=None, _configuration=None):  # noqa: E501
         """CreateBackupRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_description = None
+        self._backup_meta = None
+        self._backup_method = None
+        self._backup_scope = None
         self._backup_type = None
         self._instance_id = None
         self.discriminator = None
 
+        if backup_description is not None:
+            self.backup_description = backup_description
+        if backup_meta is not None:
+            self.backup_meta = backup_meta
+        if backup_method is not None:
+            self.backup_method = backup_method
+        if backup_scope is not None:
+            self.backup_scope = backup_scope
         if backup_type is not None:
             self.backup_type = backup_type
         self.instance_id = instance_id
+
+    @property
+    def backup_description(self):
+        """Gets the backup_description of this CreateBackupRequest.  # noqa: E501
+
+
+        :return: The backup_description of this CreateBackupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_description
+
+    @backup_description.setter
+    def backup_description(self, backup_description):
+        """Sets the backup_description of this CreateBackupRequest.
+
+
+        :param backup_description: The backup_description of this CreateBackupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_description = backup_description
+
+    @property
+    def backup_meta(self):
+        """Gets the backup_meta of this CreateBackupRequest.  # noqa: E501
+
+
+        :return: The backup_meta of this CreateBackupRequest.  # noqa: E501
+        :rtype: list[BackupMetaForCreateBackupInput]
+        """
+        return self._backup_meta
+
+    @backup_meta.setter
+    def backup_meta(self, backup_meta):
+        """Sets the backup_meta of this CreateBackupRequest.
+
+
+        :param backup_meta: The backup_meta of this CreateBackupRequest.  # noqa: E501
+        :type: list[BackupMetaForCreateBackupInput]
+        """
+
+        self._backup_meta = backup_meta
+
+    @property
+    def backup_method(self):
+        """Gets the backup_method of this CreateBackupRequest.  # noqa: E501
+
+
+        :return: The backup_method of this CreateBackupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_method
+
+    @backup_method.setter
+    def backup_method(self, backup_method):
+        """Sets the backup_method of this CreateBackupRequest.
+
+
+        :param backup_method: The backup_method of this CreateBackupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_method = backup_method
+
+    @property
+    def backup_scope(self):
+        """Gets the backup_scope of this CreateBackupRequest.  # noqa: E501
+
+
+        :return: The backup_scope of this CreateBackupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_scope
+
+    @backup_scope.setter
+    def backup_scope(self, backup_scope):
+        """Sets the backup_scope of this CreateBackupRequest.
+
+
+        :param backup_scope: The backup_scope of this CreateBackupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_scope = backup_scope
 
     @property
     def backup_type(self):

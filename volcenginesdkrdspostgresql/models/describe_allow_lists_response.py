@@ -33,24 +33,29 @@ class DescribeAllowListsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allow_lists': 'list[AllowListForDescribeAllowListsOutput]'
+        'allow_lists': 'list[AllowListForDescribeAllowListsOutput]',
+        'total': 'int'
     }
 
     attribute_map = {
-        'allow_lists': 'AllowLists'
+        'allow_lists': 'AllowLists',
+        'total': 'Total'
     }
 
-    def __init__(self, allow_lists=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_lists=None, total=None, _configuration=None):  # noqa: E501
         """DescribeAllowListsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._allow_lists = None
+        self._total = None
         self.discriminator = None
 
         if allow_lists is not None:
             self.allow_lists = allow_lists
+        if total is not None:
+            self.total = total
 
     @property
     def allow_lists(self):
@@ -72,6 +77,27 @@ class DescribeAllowListsResponse(object):
         """
 
         self._allow_lists = allow_lists
+
+    @property
+    def total(self):
+        """Gets the total of this DescribeAllowListsResponse.  # noqa: E501
+
+
+        :return: The total of this DescribeAllowListsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """Sets the total of this DescribeAllowListsResponse.
+
+
+        :param total: The total of this DescribeAllowListsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._total = total
 
     def to_dict(self):
         """Returns the model properties as a dict"""

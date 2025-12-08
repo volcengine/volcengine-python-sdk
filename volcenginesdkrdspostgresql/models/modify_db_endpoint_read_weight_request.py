@@ -36,17 +36,19 @@ class ModifyDBEndpointReadWeightRequest(object):
         'endpoint_id': 'str',
         'instance_id': 'str',
         'read_only_node_distribution_type': 'str',
-        'read_only_node_weight': 'list[ReadOnlyNodeWeightForModifyDBEndpointReadWeightInput]'
+        'read_only_node_weight': 'list[ReadOnlyNodeWeightForModifyDBEndpointReadWeightInput]',
+        'write_node_halt_writing': 'bool'
     }
 
     attribute_map = {
         'endpoint_id': 'EndpointId',
         'instance_id': 'InstanceId',
         'read_only_node_distribution_type': 'ReadOnlyNodeDistributionType',
-        'read_only_node_weight': 'ReadOnlyNodeWeight'
+        'read_only_node_weight': 'ReadOnlyNodeWeight',
+        'write_node_halt_writing': 'WriteNodeHaltWriting'
     }
 
-    def __init__(self, endpoint_id=None, instance_id=None, read_only_node_distribution_type=None, read_only_node_weight=None, _configuration=None):  # noqa: E501
+    def __init__(self, endpoint_id=None, instance_id=None, read_only_node_distribution_type=None, read_only_node_weight=None, write_node_halt_writing=None, _configuration=None):  # noqa: E501
         """ModifyDBEndpointReadWeightRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ModifyDBEndpointReadWeightRequest(object):
         self._instance_id = None
         self._read_only_node_distribution_type = None
         self._read_only_node_weight = None
+        self._write_node_halt_writing = None
         self.discriminator = None
 
         self.endpoint_id = endpoint_id
@@ -64,6 +67,8 @@ class ModifyDBEndpointReadWeightRequest(object):
             self.read_only_node_distribution_type = read_only_node_distribution_type
         if read_only_node_weight is not None:
             self.read_only_node_weight = read_only_node_weight
+        if write_node_halt_writing is not None:
+            self.write_node_halt_writing = write_node_halt_writing
 
     @property
     def endpoint_id(self):
@@ -152,6 +157,27 @@ class ModifyDBEndpointReadWeightRequest(object):
         """
 
         self._read_only_node_weight = read_only_node_weight
+
+    @property
+    def write_node_halt_writing(self):
+        """Gets the write_node_halt_writing of this ModifyDBEndpointReadWeightRequest.  # noqa: E501
+
+
+        :return: The write_node_halt_writing of this ModifyDBEndpointReadWeightRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._write_node_halt_writing
+
+    @write_node_halt_writing.setter
+    def write_node_halt_writing(self, write_node_halt_writing):
+        """Sets the write_node_halt_writing of this ModifyDBEndpointReadWeightRequest.
+
+
+        :param write_node_halt_writing: The write_node_halt_writing of this ModifyDBEndpointReadWeightRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._write_node_halt_writing = write_node_halt_writing
 
     def to_dict(self):
         """Returns the model properties as a dict"""

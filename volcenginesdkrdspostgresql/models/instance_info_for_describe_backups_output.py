@@ -33,6 +33,7 @@ class InstanceInfoForDescribeBackupsOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_ids': 'list[str]',
         'charge_detail': 'ChargeDetailForDescribeBackupsOutput',
         'db_engine_version': 'str',
         'instance_id': 'str',
@@ -51,6 +52,7 @@ class InstanceInfoForDescribeBackupsOutput(object):
     }
 
     attribute_map = {
+        'allow_list_ids': 'AllowListIds',
         'charge_detail': 'ChargeDetail',
         'db_engine_version': 'DBEngineVersion',
         'instance_id': 'InstanceId',
@@ -68,12 +70,13 @@ class InstanceInfoForDescribeBackupsOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_detail=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, memory=None, nodes=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, charge_detail=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, memory=None, nodes=None, project_name=None, storage_space=None, storage_type=None, subnet_id=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """InstanceInfoForDescribeBackupsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_ids = None
         self._charge_detail = None
         self._db_engine_version = None
         self._instance_id = None
@@ -91,6 +94,8 @@ class InstanceInfoForDescribeBackupsOutput(object):
         self._zone_id = None
         self.discriminator = None
 
+        if allow_list_ids is not None:
+            self.allow_list_ids = allow_list_ids
         if charge_detail is not None:
             self.charge_detail = charge_detail
         if db_engine_version is not None:
@@ -121,6 +126,27 @@ class InstanceInfoForDescribeBackupsOutput(object):
             self.vpc_id = vpc_id
         if zone_id is not None:
             self.zone_id = zone_id
+
+    @property
+    def allow_list_ids(self):
+        """Gets the allow_list_ids of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+
+
+        :return: The allow_list_ids of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_list_ids
+
+    @allow_list_ids.setter
+    def allow_list_ids(self, allow_list_ids):
+        """Sets the allow_list_ids of this InstanceInfoForDescribeBackupsOutput.
+
+
+        :param allow_list_ids: The allow_list_ids of this InstanceInfoForDescribeBackupsOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_list_ids = allow_list_ids
 
     @property
     def charge_detail(self):
