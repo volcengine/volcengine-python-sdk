@@ -34,6 +34,7 @@ class CreateCenInterRegionBandwidthRequest(object):
     """
     swagger_types = {
         'bandwidth': 'int',
+        'cen_bandwidth_package_id': 'str',
         'cen_id': 'str',
         'local_region_id': 'str',
         'peer_region_id': 'str'
@@ -41,24 +42,28 @@ class CreateCenInterRegionBandwidthRequest(object):
 
     attribute_map = {
         'bandwidth': 'Bandwidth',
+        'cen_bandwidth_package_id': 'CenBandwidthPackageId',
         'cen_id': 'CenId',
         'local_region_id': 'LocalRegionId',
         'peer_region_id': 'PeerRegionId'
     }
 
-    def __init__(self, bandwidth=None, cen_id=None, local_region_id=None, peer_region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, bandwidth=None, cen_bandwidth_package_id=None, cen_id=None, local_region_id=None, peer_region_id=None, _configuration=None):  # noqa: E501
         """CreateCenInterRegionBandwidthRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._bandwidth = None
+        self._cen_bandwidth_package_id = None
         self._cen_id = None
         self._local_region_id = None
         self._peer_region_id = None
         self.discriminator = None
 
         self.bandwidth = bandwidth
+        if cen_bandwidth_package_id is not None:
+            self.cen_bandwidth_package_id = cen_bandwidth_package_id
         self.cen_id = cen_id
         self.local_region_id = local_region_id
         self.peer_region_id = peer_region_id
@@ -85,6 +90,27 @@ class CreateCenInterRegionBandwidthRequest(object):
             raise ValueError("Invalid value for `bandwidth`, must not be `None`")  # noqa: E501
 
         self._bandwidth = bandwidth
+
+    @property
+    def cen_bandwidth_package_id(self):
+        """Gets the cen_bandwidth_package_id of this CreateCenInterRegionBandwidthRequest.  # noqa: E501
+
+
+        :return: The cen_bandwidth_package_id of this CreateCenInterRegionBandwidthRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._cen_bandwidth_package_id
+
+    @cen_bandwidth_package_id.setter
+    def cen_bandwidth_package_id(self, cen_bandwidth_package_id):
+        """Sets the cen_bandwidth_package_id of this CreateCenInterRegionBandwidthRequest.
+
+
+        :param cen_bandwidth_package_id: The cen_bandwidth_package_id of this CreateCenInterRegionBandwidthRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._cen_bandwidth_package_id = cen_bandwidth_package_id
 
     @property
     def cen_id(self):

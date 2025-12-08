@@ -42,10 +42,17 @@ class GetWorkspaceResponse(object):
         'name': 'str',
         'overdue_reclaim_time': 'str',
         'project_name': 'str',
+        'prometheus_push_endpoint': 'str',
         'prometheus_push_intranet_endpoint': 'str',
+        'prometheus_query_endpoint': 'str',
         'prometheus_query_intranet_endpoint': 'str',
+        'prometheus_write_endpoint': 'str',
         'prometheus_write_intranet_endpoint': 'str',
+        'public_access_enabled': 'bool',
+        'public_query_bandwidth': 'int',
+        'public_write_bandwidth': 'int',
         'quota': 'QuotaForGetWorkspaceOutput',
+        'search_latency_offset': 'str',
         'status': 'str',
         'tags': 'list[TagForGetWorkspaceOutput]',
         'username': 'str'
@@ -61,16 +68,23 @@ class GetWorkspaceResponse(object):
         'name': 'Name',
         'overdue_reclaim_time': 'OverdueReclaimTime',
         'project_name': 'ProjectName',
+        'prometheus_push_endpoint': 'PrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint': 'PrometheusPushIntranetEndpoint',
+        'prometheus_query_endpoint': 'PrometheusQueryEndpoint',
         'prometheus_query_intranet_endpoint': 'PrometheusQueryIntranetEndpoint',
+        'prometheus_write_endpoint': 'PrometheusWriteEndpoint',
         'prometheus_write_intranet_endpoint': 'PrometheusWriteIntranetEndpoint',
+        'public_access_enabled': 'PublicAccessEnabled',
+        'public_query_bandwidth': 'PublicQueryBandwidth',
+        'public_write_bandwidth': 'PublicWriteBandwidth',
         'quota': 'Quota',
+        'search_latency_offset': 'SearchLatencyOffset',
         'status': 'Status',
         'tags': 'Tags',
         'username': 'Username'
     }
 
-    def __init__(self, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_intranet_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_intranet_endpoint=None, quota=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_endpoint=None, prometheus_push_intranet_endpoint=None, prometheus_query_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_endpoint=None, prometheus_write_intranet_endpoint=None, public_access_enabled=None, public_query_bandwidth=None, public_write_bandwidth=None, quota=None, search_latency_offset=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
         """GetWorkspaceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,10 +99,17 @@ class GetWorkspaceResponse(object):
         self._name = None
         self._overdue_reclaim_time = None
         self._project_name = None
+        self._prometheus_push_endpoint = None
         self._prometheus_push_intranet_endpoint = None
+        self._prometheus_query_endpoint = None
         self._prometheus_query_intranet_endpoint = None
+        self._prometheus_write_endpoint = None
         self._prometheus_write_intranet_endpoint = None
+        self._public_access_enabled = None
+        self._public_query_bandwidth = None
+        self._public_write_bandwidth = None
         self._quota = None
+        self._search_latency_offset = None
         self._status = None
         self._tags = None
         self._username = None
@@ -112,14 +133,28 @@ class GetWorkspaceResponse(object):
             self.overdue_reclaim_time = overdue_reclaim_time
         if project_name is not None:
             self.project_name = project_name
+        if prometheus_push_endpoint is not None:
+            self.prometheus_push_endpoint = prometheus_push_endpoint
         if prometheus_push_intranet_endpoint is not None:
             self.prometheus_push_intranet_endpoint = prometheus_push_intranet_endpoint
+        if prometheus_query_endpoint is not None:
+            self.prometheus_query_endpoint = prometheus_query_endpoint
         if prometheus_query_intranet_endpoint is not None:
             self.prometheus_query_intranet_endpoint = prometheus_query_intranet_endpoint
+        if prometheus_write_endpoint is not None:
+            self.prometheus_write_endpoint = prometheus_write_endpoint
         if prometheus_write_intranet_endpoint is not None:
             self.prometheus_write_intranet_endpoint = prometheus_write_intranet_endpoint
+        if public_access_enabled is not None:
+            self.public_access_enabled = public_access_enabled
+        if public_query_bandwidth is not None:
+            self.public_query_bandwidth = public_query_bandwidth
+        if public_write_bandwidth is not None:
+            self.public_write_bandwidth = public_write_bandwidth
         if quota is not None:
             self.quota = quota
+        if search_latency_offset is not None:
+            self.search_latency_offset = search_latency_offset
         if status is not None:
             self.status = status
         if tags is not None:
@@ -317,6 +352,27 @@ class GetWorkspaceResponse(object):
         self._project_name = project_name
 
     @property
+    def prometheus_push_endpoint(self):
+        """Gets the prometheus_push_endpoint of this GetWorkspaceResponse.  # noqa: E501
+
+
+        :return: The prometheus_push_endpoint of this GetWorkspaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_push_endpoint
+
+    @prometheus_push_endpoint.setter
+    def prometheus_push_endpoint(self, prometheus_push_endpoint):
+        """Sets the prometheus_push_endpoint of this GetWorkspaceResponse.
+
+
+        :param prometheus_push_endpoint: The prometheus_push_endpoint of this GetWorkspaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_push_endpoint = prometheus_push_endpoint
+
+    @property
     def prometheus_push_intranet_endpoint(self):
         """Gets the prometheus_push_intranet_endpoint of this GetWorkspaceResponse.  # noqa: E501
 
@@ -336,6 +392,27 @@ class GetWorkspaceResponse(object):
         """
 
         self._prometheus_push_intranet_endpoint = prometheus_push_intranet_endpoint
+
+    @property
+    def prometheus_query_endpoint(self):
+        """Gets the prometheus_query_endpoint of this GetWorkspaceResponse.  # noqa: E501
+
+
+        :return: The prometheus_query_endpoint of this GetWorkspaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_query_endpoint
+
+    @prometheus_query_endpoint.setter
+    def prometheus_query_endpoint(self, prometheus_query_endpoint):
+        """Sets the prometheus_query_endpoint of this GetWorkspaceResponse.
+
+
+        :param prometheus_query_endpoint: The prometheus_query_endpoint of this GetWorkspaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_query_endpoint = prometheus_query_endpoint
 
     @property
     def prometheus_query_intranet_endpoint(self):
@@ -359,6 +436,27 @@ class GetWorkspaceResponse(object):
         self._prometheus_query_intranet_endpoint = prometheus_query_intranet_endpoint
 
     @property
+    def prometheus_write_endpoint(self):
+        """Gets the prometheus_write_endpoint of this GetWorkspaceResponse.  # noqa: E501
+
+
+        :return: The prometheus_write_endpoint of this GetWorkspaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_write_endpoint
+
+    @prometheus_write_endpoint.setter
+    def prometheus_write_endpoint(self, prometheus_write_endpoint):
+        """Sets the prometheus_write_endpoint of this GetWorkspaceResponse.
+
+
+        :param prometheus_write_endpoint: The prometheus_write_endpoint of this GetWorkspaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_write_endpoint = prometheus_write_endpoint
+
+    @property
     def prometheus_write_intranet_endpoint(self):
         """Gets the prometheus_write_intranet_endpoint of this GetWorkspaceResponse.  # noqa: E501
 
@@ -380,6 +478,69 @@ class GetWorkspaceResponse(object):
         self._prometheus_write_intranet_endpoint = prometheus_write_intranet_endpoint
 
     @property
+    def public_access_enabled(self):
+        """Gets the public_access_enabled of this GetWorkspaceResponse.  # noqa: E501
+
+
+        :return: The public_access_enabled of this GetWorkspaceResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._public_access_enabled
+
+    @public_access_enabled.setter
+    def public_access_enabled(self, public_access_enabled):
+        """Sets the public_access_enabled of this GetWorkspaceResponse.
+
+
+        :param public_access_enabled: The public_access_enabled of this GetWorkspaceResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._public_access_enabled = public_access_enabled
+
+    @property
+    def public_query_bandwidth(self):
+        """Gets the public_query_bandwidth of this GetWorkspaceResponse.  # noqa: E501
+
+
+        :return: The public_query_bandwidth of this GetWorkspaceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._public_query_bandwidth
+
+    @public_query_bandwidth.setter
+    def public_query_bandwidth(self, public_query_bandwidth):
+        """Sets the public_query_bandwidth of this GetWorkspaceResponse.
+
+
+        :param public_query_bandwidth: The public_query_bandwidth of this GetWorkspaceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._public_query_bandwidth = public_query_bandwidth
+
+    @property
+    def public_write_bandwidth(self):
+        """Gets the public_write_bandwidth of this GetWorkspaceResponse.  # noqa: E501
+
+
+        :return: The public_write_bandwidth of this GetWorkspaceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._public_write_bandwidth
+
+    @public_write_bandwidth.setter
+    def public_write_bandwidth(self, public_write_bandwidth):
+        """Sets the public_write_bandwidth of this GetWorkspaceResponse.
+
+
+        :param public_write_bandwidth: The public_write_bandwidth of this GetWorkspaceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._public_write_bandwidth = public_write_bandwidth
+
+    @property
     def quota(self):
         """Gets the quota of this GetWorkspaceResponse.  # noqa: E501
 
@@ -399,6 +560,27 @@ class GetWorkspaceResponse(object):
         """
 
         self._quota = quota
+
+    @property
+    def search_latency_offset(self):
+        """Gets the search_latency_offset of this GetWorkspaceResponse.  # noqa: E501
+
+
+        :return: The search_latency_offset of this GetWorkspaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._search_latency_offset
+
+    @search_latency_offset.setter
+    def search_latency_offset(self, search_latency_offset):
+        """Sets the search_latency_offset of this GetWorkspaceResponse.
+
+
+        :param search_latency_offset: The search_latency_offset of this GetWorkspaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._search_latency_offset = search_latency_offset
 
     @property
     def status(self):

@@ -220,13 +220,15 @@ class SdkCoreLogger(logging.Logger):
     def debug_config(self, msg, *args, **kwargs):
         self.debugx(LogLevel.LOG_DEBUG_WITH_CONFIG, "[Config] " + msg, *args, **kwargs)
 
-    def debug_request(self, msg, *args, is_body=False, **kwargs):
+    def debug_request(self, msg, *args, **kwargs):
+        is_body = kwargs.pop('is_body', False)
         if is_body:
             self.debugx(LogLevel.LOG_DEBUG_WITH_REQUEST_BODY, "[Request] " + msg, *args, **kwargs)
         else:
             self.debugx(LogLevel.LOG_DEBUG_WITH_REQUEST, "[Request] " + msg, *args, **kwargs)
 
-    def debug_response(self, msg, *args, is_body=False, **kwargs):
+    def debug_response(self, msg, *args, **kwargs):
+        is_body = kwargs.pop('is_body', False)
         if is_body:
             self.debugx(LogLevel.LOG_DEBUG_WITH_RESPONSE_BODY, "[Response] " + msg, *args, **kwargs)
         else:

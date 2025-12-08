@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -10,7 +9,7 @@
 #
 # This modified file is released under the same license.
 
-from typing import List, Union
+from typing import List, Union, Optional
 from typing_extensions import Literal, Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
@@ -19,7 +18,9 @@ from .response_output_text import ResponseOutputText
 
 __all__ = ["ResponseOutputMessage", "Content"]
 
-Content: TypeAlias = Annotated[Union[ResponseOutputText], PropertyInfo(discriminator="type")]
+Content: TypeAlias = Annotated[
+    Union[ResponseOutputText], PropertyInfo(discriminator="type")
+]
 
 
 class ResponseOutputMessage(BaseModel):
@@ -41,3 +42,6 @@ class ResponseOutputMessage(BaseModel):
 
     type: Literal["message"]
     """The type of the output message. Always `message`."""
+
+    partial: Optional[bool]
+    """Whether or not to include partial assistant responses."""

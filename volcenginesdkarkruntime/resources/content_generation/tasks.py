@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -47,6 +46,8 @@ class Tasks(SyncAPIResource):
         content: Iterable[CreateTaskContentParam],
         callback_url: Optional[str] = None,
         return_last_frame: Optional[bool] = None,
+        service_tier: Optional[str] = None,
+        execution_expires_after: Optional[int] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -59,6 +60,8 @@ class Tasks(SyncAPIResource):
                 "content": content,
                 "callback_url": callback_url,
                 "return_last_frame": return_last_frame,
+                "service_tier": service_tier,
+                "execution_expires_after": execution_expires_after,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -100,6 +103,7 @@ class Tasks(SyncAPIResource):
         status: str | None = None,
         task_ids: Union[List[str], str] | None = None,
         model: str | None = None,
+        service_tier: str | None = None,
         extra_headers: Headers | None = None,
         extra_body: Body | None = None,
         extra_query: Query | None = None,
@@ -114,6 +118,8 @@ class Tasks(SyncAPIResource):
             query_params.append(("filter.status", status))
         if model:
             query_params.append(("filter.model", model))
+        if service_tier:
+            query_params.append(("filter.service_tier", service_tier))
         if task_ids:
             if isinstance(task_ids, str):
                 task_ids = [task_ids]
@@ -168,6 +174,8 @@ class AsyncTasks(AsyncAPIResource):
         content: Iterable[CreateTaskContentParam],
         callback_url: Optional[str] = None,
         return_last_frame: Optional[bool] = None,
+        service_tier: Optional[str] = None,
+        execution_expires_after: Optional[int] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -180,6 +188,8 @@ class AsyncTasks(AsyncAPIResource):
                 "content": content,
                 "callback_url": callback_url,
                 "return_last_frame": return_last_frame,
+                "service_tier": service_tier,
+                "execution_expires_after": execution_expires_after,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -221,6 +231,7 @@ class AsyncTasks(AsyncAPIResource):
         status: str | None = None,
         task_ids: Union[List[str], str] | None = None,
         model: str | None = None,
+        service_tier: str | None = None,
         extra_headers: Headers | None = None,
         extra_body: Body | None = None,
         extra_query: Query | None = None,
@@ -235,6 +246,8 @@ class AsyncTasks(AsyncAPIResource):
             query_params.append(("filter.status", status))
         if model:
             query_params.append(("filter.model", model))
+        if service_tier:
+            query_params.append(("filter.service_tier", service_tier))
         if task_ids:
             if isinstance(task_ids, str):
                 task_ids = [task_ids]

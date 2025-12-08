@@ -33,7 +33,6 @@ class GatewayForGetGatewayOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'backend_spec': 'BackendSpecForGetGatewayOutput',
         'comments': 'str',
         'create_time': 'str',
         'custom_log': 'CustomLogForGetGatewayOutput',
@@ -48,13 +47,12 @@ class GatewayForGetGatewayOutput(object):
         'region': 'str',
         'resource_spec': 'ResourceSpecForGetGatewayOutput',
         'status': 'str',
-        'tags': 'list[TagForGetGatewayOutput]',
+        'trace_spec': 'TraceSpecForGetGatewayOutput',
         'type': 'str',
         'version': 'str'
     }
 
     attribute_map = {
-        'backend_spec': 'BackendSpec',
         'comments': 'Comments',
         'create_time': 'CreateTime',
         'custom_log': 'CustomLog',
@@ -69,18 +67,17 @@ class GatewayForGetGatewayOutput(object):
         'region': 'Region',
         'resource_spec': 'ResourceSpec',
         'status': 'Status',
-        'tags': 'Tags',
+        'trace_spec': 'TraceSpec',
         'type': 'Type',
         'version': 'Version'
     }
 
-    def __init__(self, backend_spec=None, comments=None, create_time=None, custom_log=None, events=None, id=None, log_spec=None, message=None, monitor_spec=None, name=None, network_spec=None, project_name=None, region=None, resource_spec=None, status=None, tags=None, type=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, comments=None, create_time=None, custom_log=None, events=None, id=None, log_spec=None, message=None, monitor_spec=None, name=None, network_spec=None, project_name=None, region=None, resource_spec=None, status=None, trace_spec=None, type=None, version=None, _configuration=None):  # noqa: E501
         """GatewayForGetGatewayOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._backend_spec = None
         self._comments = None
         self._create_time = None
         self._custom_log = None
@@ -95,13 +92,11 @@ class GatewayForGetGatewayOutput(object):
         self._region = None
         self._resource_spec = None
         self._status = None
-        self._tags = None
+        self._trace_spec = None
         self._type = None
         self._version = None
         self.discriminator = None
 
-        if backend_spec is not None:
-            self.backend_spec = backend_spec
         if comments is not None:
             self.comments = comments
         if create_time is not None:
@@ -130,33 +125,12 @@ class GatewayForGetGatewayOutput(object):
             self.resource_spec = resource_spec
         if status is not None:
             self.status = status
-        if tags is not None:
-            self.tags = tags
+        if trace_spec is not None:
+            self.trace_spec = trace_spec
         if type is not None:
             self.type = type
         if version is not None:
             self.version = version
-
-    @property
-    def backend_spec(self):
-        """Gets the backend_spec of this GatewayForGetGatewayOutput.  # noqa: E501
-
-
-        :return: The backend_spec of this GatewayForGetGatewayOutput.  # noqa: E501
-        :rtype: BackendSpecForGetGatewayOutput
-        """
-        return self._backend_spec
-
-    @backend_spec.setter
-    def backend_spec(self, backend_spec):
-        """Sets the backend_spec of this GatewayForGetGatewayOutput.
-
-
-        :param backend_spec: The backend_spec of this GatewayForGetGatewayOutput.  # noqa: E501
-        :type: BackendSpecForGetGatewayOutput
-        """
-
-        self._backend_spec = backend_spec
 
     @property
     def comments(self):
@@ -453,25 +427,25 @@ class GatewayForGetGatewayOutput(object):
         self._status = status
 
     @property
-    def tags(self):
-        """Gets the tags of this GatewayForGetGatewayOutput.  # noqa: E501
+    def trace_spec(self):
+        """Gets the trace_spec of this GatewayForGetGatewayOutput.  # noqa: E501
 
 
-        :return: The tags of this GatewayForGetGatewayOutput.  # noqa: E501
-        :rtype: list[TagForGetGatewayOutput]
+        :return: The trace_spec of this GatewayForGetGatewayOutput.  # noqa: E501
+        :rtype: TraceSpecForGetGatewayOutput
         """
-        return self._tags
+        return self._trace_spec
 
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this GatewayForGetGatewayOutput.
+    @trace_spec.setter
+    def trace_spec(self, trace_spec):
+        """Sets the trace_spec of this GatewayForGetGatewayOutput.
 
 
-        :param tags: The tags of this GatewayForGetGatewayOutput.  # noqa: E501
-        :type: list[TagForGetGatewayOutput]
+        :param trace_spec: The trace_spec of this GatewayForGetGatewayOutput.  # noqa: E501
+        :type: TraceSpecForGetGatewayOutput
         """
 
-        self._tags = tags
+        self._trace_spec = trace_spec
 
     @property
     def type(self):

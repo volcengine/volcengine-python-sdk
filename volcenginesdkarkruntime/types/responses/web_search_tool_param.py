@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -12,35 +11,27 @@
 
 from __future__ import annotations
 
-from typing import Optional, List
+from typing import List, Optional
+
 from typing_extensions import Literal, Required, TypedDict
+
+from .user_location_param import UserLocationParam
 
 __all__ = ["WebSearchToolParam"]
 
 
 class WebSearchToolParam(TypedDict, total=False):
-
     type: Required[Literal["web_search"]]
     """The type of the web search. Always `web_search`."""
 
     limit: Optional[int]
     """The maximum number of results to return. Defaults to 3."""
 
-    sources: Optional[List[Literal["toutiao", "douyin", "moji"]]]
-    """The source type of web search."""
-
     user_location: Optional[UserLocationParam]
     """The user location."""
 
+    sources: Required[List[Literal["toutiao", "douyin", "moji", "search_engine"]]]
+    """The source type of web search."""
 
-class UserLocationParam(TypedDict, total=False):
-    type: Required[Literal["approximate"]]
-    """The type of the user location. Always `approximate`."""
-    city: Optional[str]
-    """The city of the user location."""
-    country: Optional[str]
-    """The country of the user location."""
-    region: Optional[str]
-    """The region of the user location."""
-    timezone: Optional[float]
-    """The timezone of the user location."""
+    max_keyword: Optional[int]
+    """Max number of keywords to search per web search call"""

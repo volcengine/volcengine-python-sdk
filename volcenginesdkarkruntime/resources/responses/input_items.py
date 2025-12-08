@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -22,7 +21,10 @@ from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ..._utils import maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
-from ..._response import to_streamed_response_wrapper, async_to_streamed_response_wrapper
+from ..._response import (
+    to_streamed_response_wrapper,
+    async_to_streamed_response_wrapper,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.responses import input_item_list_params
@@ -94,7 +96,9 @@ class InputItems(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         if not response_id:
-            raise ValueError(f"Expected a non-empty value for `response_id` but received {response_id!r}")
+            raise ValueError(
+                f"Expected a non-empty value for `response_id` but received {response_id!r}"
+            )
         return self._get_api_list(
             f"/responses/{response_id}/input_items",
             page=SyncCursorPage[ResponseItem],
@@ -107,14 +111,16 @@ class InputItems(SyncAPIResource):
                     {
                         "after": after,
                         "before": before,
-                        "include": include,
+                        "include[]": include,
                         "limit": limit,
                         "order": order,
                     },
                     input_item_list_params.InputItemListParams,
                 ),
             ),
-            model=cast(Any, ResponseItem),  # Union types cannot be passed in as arguments in the type system
+            model=cast(
+                Any, ResponseItem
+            ),  # Union types cannot be passed in as arguments in the type system
         )
 
 
@@ -178,7 +184,9 @@ class AsyncInputItems(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         if not response_id:
-            raise ValueError(f"Expected a non-empty value for `response_id` but received {response_id!r}")
+            raise ValueError(
+                f"Expected a non-empty value for `response_id` but received {response_id!r}"
+            )
         return self._get_api_list(
             f"/responses/{response_id}/input_items",
             page=AsyncCursorPage[ResponseItem],
@@ -191,14 +199,16 @@ class AsyncInputItems(AsyncAPIResource):
                     {
                         "after": after,
                         "before": before,
-                        "include": include,
+                        "include[]": include,
                         "limit": limit,
                         "order": order,
                     },
                     input_item_list_params.InputItemListParams,
                 ),
             ),
-            model=cast(Any, ResponseItem),  # Union types cannot be passed in as arguments in the type system
+            model=cast(
+                Any, ResponseItem
+            ),  # Union types cannot be passed in as arguments in the type system
         )
 
 

@@ -33,6 +33,8 @@ class ItemForListWorkspacesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_id': 'int',
+        'account_name': 'str',
         'create_time': 'str',
         'delete_protection_enabled': 'bool',
         'description': 'str',
@@ -41,15 +43,23 @@ class ItemForListWorkspacesOutput(object):
         'name': 'str',
         'overdue_reclaim_time': 'str',
         'project_name': 'str',
+        'prometheus_push_endpoint': 'str',
         'prometheus_push_intranet_endpoint': 'str',
+        'prometheus_query_endpoint': 'str',
         'prometheus_query_intranet_endpoint': 'str',
+        'prometheus_write_endpoint': 'str',
         'prometheus_write_intranet_endpoint': 'str',
+        'public_access_enabled': 'bool',
+        'region': 'str',
+        'search_latency_offset': 'str',
         'status': 'str',
         'tags': 'list[TagForListWorkspacesOutput]',
         'username': 'str'
     }
 
     attribute_map = {
+        'account_id': 'AccountId',
+        'account_name': 'AccountName',
         'create_time': 'CreateTime',
         'delete_protection_enabled': 'DeleteProtectionEnabled',
         'description': 'Description',
@@ -58,20 +68,28 @@ class ItemForListWorkspacesOutput(object):
         'name': 'Name',
         'overdue_reclaim_time': 'OverdueReclaimTime',
         'project_name': 'ProjectName',
+        'prometheus_push_endpoint': 'PrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint': 'PrometheusPushIntranetEndpoint',
+        'prometheus_query_endpoint': 'PrometheusQueryEndpoint',
         'prometheus_query_intranet_endpoint': 'PrometheusQueryIntranetEndpoint',
+        'prometheus_write_endpoint': 'PrometheusWriteEndpoint',
         'prometheus_write_intranet_endpoint': 'PrometheusWriteIntranetEndpoint',
+        'public_access_enabled': 'PublicAccessEnabled',
+        'region': 'Region',
+        'search_latency_offset': 'SearchLatencyOffset',
         'status': 'Status',
         'tags': 'Tags',
         'username': 'Username'
     }
 
-    def __init__(self, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_intranet_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_intranet_endpoint=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, account_name=None, create_time=None, delete_protection_enabled=None, description=None, id=None, instance_type_id=None, name=None, overdue_reclaim_time=None, project_name=None, prometheus_push_endpoint=None, prometheus_push_intranet_endpoint=None, prometheus_query_endpoint=None, prometheus_query_intranet_endpoint=None, prometheus_write_endpoint=None, prometheus_write_intranet_endpoint=None, public_access_enabled=None, region=None, search_latency_offset=None, status=None, tags=None, username=None, _configuration=None):  # noqa: E501
         """ItemForListWorkspacesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account_id = None
+        self._account_name = None
         self._create_time = None
         self._delete_protection_enabled = None
         self._description = None
@@ -80,14 +98,24 @@ class ItemForListWorkspacesOutput(object):
         self._name = None
         self._overdue_reclaim_time = None
         self._project_name = None
+        self._prometheus_push_endpoint = None
         self._prometheus_push_intranet_endpoint = None
+        self._prometheus_query_endpoint = None
         self._prometheus_query_intranet_endpoint = None
+        self._prometheus_write_endpoint = None
         self._prometheus_write_intranet_endpoint = None
+        self._public_access_enabled = None
+        self._region = None
+        self._search_latency_offset = None
         self._status = None
         self._tags = None
         self._username = None
         self.discriminator = None
 
+        if account_id is not None:
+            self.account_id = account_id
+        if account_name is not None:
+            self.account_name = account_name
         if create_time is not None:
             self.create_time = create_time
         if delete_protection_enabled is not None:
@@ -104,18 +132,72 @@ class ItemForListWorkspacesOutput(object):
             self.overdue_reclaim_time = overdue_reclaim_time
         if project_name is not None:
             self.project_name = project_name
+        if prometheus_push_endpoint is not None:
+            self.prometheus_push_endpoint = prometheus_push_endpoint
         if prometheus_push_intranet_endpoint is not None:
             self.prometheus_push_intranet_endpoint = prometheus_push_intranet_endpoint
+        if prometheus_query_endpoint is not None:
+            self.prometheus_query_endpoint = prometheus_query_endpoint
         if prometheus_query_intranet_endpoint is not None:
             self.prometheus_query_intranet_endpoint = prometheus_query_intranet_endpoint
+        if prometheus_write_endpoint is not None:
+            self.prometheus_write_endpoint = prometheus_write_endpoint
         if prometheus_write_intranet_endpoint is not None:
             self.prometheus_write_intranet_endpoint = prometheus_write_intranet_endpoint
+        if public_access_enabled is not None:
+            self.public_access_enabled = public_access_enabled
+        if region is not None:
+            self.region = region
+        if search_latency_offset is not None:
+            self.search_latency_offset = search_latency_offset
         if status is not None:
             self.status = status
         if tags is not None:
             self.tags = tags
         if username is not None:
             self.username = username
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The account_id of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this ItemForListWorkspacesOutput.
+
+
+        :param account_id: The account_id of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._account_id = account_id
+
+    @property
+    def account_name(self):
+        """Gets the account_name of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The account_name of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_name
+
+    @account_name.setter
+    def account_name(self, account_name):
+        """Sets the account_name of this ItemForListWorkspacesOutput.
+
+
+        :param account_name: The account_name of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._account_name = account_name
 
     @property
     def create_time(self):
@@ -286,6 +368,27 @@ class ItemForListWorkspacesOutput(object):
         self._project_name = project_name
 
     @property
+    def prometheus_push_endpoint(self):
+        """Gets the prometheus_push_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The prometheus_push_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_push_endpoint
+
+    @prometheus_push_endpoint.setter
+    def prometheus_push_endpoint(self, prometheus_push_endpoint):
+        """Sets the prometheus_push_endpoint of this ItemForListWorkspacesOutput.
+
+
+        :param prometheus_push_endpoint: The prometheus_push_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_push_endpoint = prometheus_push_endpoint
+
+    @property
     def prometheus_push_intranet_endpoint(self):
         """Gets the prometheus_push_intranet_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
 
@@ -305,6 +408,27 @@ class ItemForListWorkspacesOutput(object):
         """
 
         self._prometheus_push_intranet_endpoint = prometheus_push_intranet_endpoint
+
+    @property
+    def prometheus_query_endpoint(self):
+        """Gets the prometheus_query_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The prometheus_query_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_query_endpoint
+
+    @prometheus_query_endpoint.setter
+    def prometheus_query_endpoint(self, prometheus_query_endpoint):
+        """Sets the prometheus_query_endpoint of this ItemForListWorkspacesOutput.
+
+
+        :param prometheus_query_endpoint: The prometheus_query_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_query_endpoint = prometheus_query_endpoint
 
     @property
     def prometheus_query_intranet_endpoint(self):
@@ -328,6 +452,27 @@ class ItemForListWorkspacesOutput(object):
         self._prometheus_query_intranet_endpoint = prometheus_query_intranet_endpoint
 
     @property
+    def prometheus_write_endpoint(self):
+        """Gets the prometheus_write_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The prometheus_write_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._prometheus_write_endpoint
+
+    @prometheus_write_endpoint.setter
+    def prometheus_write_endpoint(self, prometheus_write_endpoint):
+        """Sets the prometheus_write_endpoint of this ItemForListWorkspacesOutput.
+
+
+        :param prometheus_write_endpoint: The prometheus_write_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._prometheus_write_endpoint = prometheus_write_endpoint
+
+    @property
     def prometheus_write_intranet_endpoint(self):
         """Gets the prometheus_write_intranet_endpoint of this ItemForListWorkspacesOutput.  # noqa: E501
 
@@ -347,6 +492,69 @@ class ItemForListWorkspacesOutput(object):
         """
 
         self._prometheus_write_intranet_endpoint = prometheus_write_intranet_endpoint
+
+    @property
+    def public_access_enabled(self):
+        """Gets the public_access_enabled of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The public_access_enabled of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._public_access_enabled
+
+    @public_access_enabled.setter
+    def public_access_enabled(self, public_access_enabled):
+        """Sets the public_access_enabled of this ItemForListWorkspacesOutput.
+
+
+        :param public_access_enabled: The public_access_enabled of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._public_access_enabled = public_access_enabled
+
+    @property
+    def region(self):
+        """Gets the region of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The region of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._region
+
+    @region.setter
+    def region(self, region):
+        """Sets the region of this ItemForListWorkspacesOutput.
+
+
+        :param region: The region of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._region = region
+
+    @property
+    def search_latency_offset(self):
+        """Gets the search_latency_offset of this ItemForListWorkspacesOutput.  # noqa: E501
+
+
+        :return: The search_latency_offset of this ItemForListWorkspacesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._search_latency_offset
+
+    @search_latency_offset.setter
+    def search_latency_offset(self, search_latency_offset):
+        """Sets the search_latency_offset of this ItemForListWorkspacesOutput.
+
+
+        :param search_latency_offset: The search_latency_offset of this ItemForListWorkspacesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._search_latency_offset = search_latency_offset
 
     @property
     def status(self):

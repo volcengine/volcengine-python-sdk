@@ -33,49 +33,23 @@ class DeleteGatewayRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'force_delete': 'bool',
         'id': 'str'
     }
 
     attribute_map = {
-        'force_delete': 'ForceDelete',
         'id': 'Id'
     }
 
-    def __init__(self, force_delete=None, id=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, _configuration=None):  # noqa: E501
         """DeleteGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._force_delete = None
         self._id = None
         self.discriminator = None
 
-        if force_delete is not None:
-            self.force_delete = force_delete
         self.id = id
-
-    @property
-    def force_delete(self):
-        """Gets the force_delete of this DeleteGatewayRequest.  # noqa: E501
-
-
-        :return: The force_delete of this DeleteGatewayRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._force_delete
-
-    @force_delete.setter
-    def force_delete(self, force_delete):
-        """Sets the force_delete of this DeleteGatewayRequest.
-
-
-        :param force_delete: The force_delete of this DeleteGatewayRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._force_delete = force_delete
 
     @property
     def id(self):

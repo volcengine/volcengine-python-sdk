@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -10,6 +9,15 @@
 #
 # This modified file is released under the same license.
 
-from .images import ImagesResponse
+from .images import (
+    OptimizePromptOptions,
+    SequentialImageGenerationOptions,
+    ImagesResponse,
+)
 
-__all__ = ["ImagesResponse"]
+
+__all__ = [
+    "OptimizePromptOptions",
+    "SequentialImageGenerationOptions",
+    "ImagesResponse",
+]

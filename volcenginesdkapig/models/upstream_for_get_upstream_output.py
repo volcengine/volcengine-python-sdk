@@ -36,15 +36,14 @@ class UpstreamForGetUpstreamOutput(object):
         'backend_target_list': 'list[BackendTargetListForGetUpstreamOutput]',
         'circuit_breaking_settings': 'CircuitBreakingSettingsForGetUpstreamOutput',
         'comments': 'str',
+        'connection_pool_settings': 'ConnectionPoolSettingsForGetUpstreamOutput',
         'create_time': 'str',
         'gateway_id': 'str',
         'id': 'str',
         'load_balancer_settings': 'LoadBalancerSettingsForGetUpstreamOutput',
         'name': 'str',
         'protocol': 'str',
-        'resource_type': 'str',
         'source_type': 'str',
-        'tags': 'list[TagForGetUpstreamOutput]',
         'tls_settings': 'TlsSettingsForGetUpstreamOutput',
         'update_time': 'str',
         'upstream_spec': 'UpstreamSpecForGetUpstreamOutput',
@@ -55,22 +54,21 @@ class UpstreamForGetUpstreamOutput(object):
         'backend_target_list': 'BackendTargetList',
         'circuit_breaking_settings': 'CircuitBreakingSettings',
         'comments': 'Comments',
+        'connection_pool_settings': 'ConnectionPoolSettings',
         'create_time': 'CreateTime',
         'gateway_id': 'GatewayId',
         'id': 'Id',
         'load_balancer_settings': 'LoadBalancerSettings',
         'name': 'Name',
         'protocol': 'Protocol',
-        'resource_type': 'ResourceType',
         'source_type': 'SourceType',
-        'tags': 'Tags',
         'tls_settings': 'TlsSettings',
         'update_time': 'UpdateTime',
         'upstream_spec': 'UpstreamSpec',
         'version_details': 'VersionDetails'
     }
 
-    def __init__(self, backend_target_list=None, circuit_breaking_settings=None, comments=None, create_time=None, gateway_id=None, id=None, load_balancer_settings=None, name=None, protocol=None, resource_type=None, source_type=None, tags=None, tls_settings=None, update_time=None, upstream_spec=None, version_details=None, _configuration=None):  # noqa: E501
+    def __init__(self, backend_target_list=None, circuit_breaking_settings=None, comments=None, connection_pool_settings=None, create_time=None, gateway_id=None, id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, update_time=None, upstream_spec=None, version_details=None, _configuration=None):  # noqa: E501
         """UpstreamForGetUpstreamOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -79,15 +77,14 @@ class UpstreamForGetUpstreamOutput(object):
         self._backend_target_list = None
         self._circuit_breaking_settings = None
         self._comments = None
+        self._connection_pool_settings = None
         self._create_time = None
         self._gateway_id = None
         self._id = None
         self._load_balancer_settings = None
         self._name = None
         self._protocol = None
-        self._resource_type = None
         self._source_type = None
-        self._tags = None
         self._tls_settings = None
         self._update_time = None
         self._upstream_spec = None
@@ -100,6 +97,8 @@ class UpstreamForGetUpstreamOutput(object):
             self.circuit_breaking_settings = circuit_breaking_settings
         if comments is not None:
             self.comments = comments
+        if connection_pool_settings is not None:
+            self.connection_pool_settings = connection_pool_settings
         if create_time is not None:
             self.create_time = create_time
         if gateway_id is not None:
@@ -112,12 +111,8 @@ class UpstreamForGetUpstreamOutput(object):
             self.name = name
         if protocol is not None:
             self.protocol = protocol
-        if resource_type is not None:
-            self.resource_type = resource_type
         if source_type is not None:
             self.source_type = source_type
-        if tags is not None:
-            self.tags = tags
         if tls_settings is not None:
             self.tls_settings = tls_settings
         if update_time is not None:
@@ -189,6 +184,27 @@ class UpstreamForGetUpstreamOutput(object):
         """
 
         self._comments = comments
+
+    @property
+    def connection_pool_settings(self):
+        """Gets the connection_pool_settings of this UpstreamForGetUpstreamOutput.  # noqa: E501
+
+
+        :return: The connection_pool_settings of this UpstreamForGetUpstreamOutput.  # noqa: E501
+        :rtype: ConnectionPoolSettingsForGetUpstreamOutput
+        """
+        return self._connection_pool_settings
+
+    @connection_pool_settings.setter
+    def connection_pool_settings(self, connection_pool_settings):
+        """Sets the connection_pool_settings of this UpstreamForGetUpstreamOutput.
+
+
+        :param connection_pool_settings: The connection_pool_settings of this UpstreamForGetUpstreamOutput.  # noqa: E501
+        :type: ConnectionPoolSettingsForGetUpstreamOutput
+        """
+
+        self._connection_pool_settings = connection_pool_settings
 
     @property
     def create_time(self):
@@ -317,27 +333,6 @@ class UpstreamForGetUpstreamOutput(object):
         self._protocol = protocol
 
     @property
-    def resource_type(self):
-        """Gets the resource_type of this UpstreamForGetUpstreamOutput.  # noqa: E501
-
-
-        :return: The resource_type of this UpstreamForGetUpstreamOutput.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_type
-
-    @resource_type.setter
-    def resource_type(self, resource_type):
-        """Sets the resource_type of this UpstreamForGetUpstreamOutput.
-
-
-        :param resource_type: The resource_type of this UpstreamForGetUpstreamOutput.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_type = resource_type
-
-    @property
     def source_type(self):
         """Gets the source_type of this UpstreamForGetUpstreamOutput.  # noqa: E501
 
@@ -357,27 +352,6 @@ class UpstreamForGetUpstreamOutput(object):
         """
 
         self._source_type = source_type
-
-    @property
-    def tags(self):
-        """Gets the tags of this UpstreamForGetUpstreamOutput.  # noqa: E501
-
-
-        :return: The tags of this UpstreamForGetUpstreamOutput.  # noqa: E501
-        :rtype: list[TagForGetUpstreamOutput]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this UpstreamForGetUpstreamOutput.
-
-
-        :param tags: The tags of this UpstreamForGetUpstreamOutput.  # noqa: E501
-        :type: list[TagForGetUpstreamOutput]
-        """
-
-        self._tags = tags
 
     @property
     def tls_settings(self):

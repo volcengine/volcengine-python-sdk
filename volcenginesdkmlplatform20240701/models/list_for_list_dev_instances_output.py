@@ -36,6 +36,8 @@ class ListForListDevInstancesOutput(object):
         'allow_image_build': 'bool',
         'create_time': 'str',
         'creator_trn': 'str',
+        'credential': 'CredentialForListDevInstancesOutput',
+        'default_folder': 'str',
         'description': 'str',
         'expected_stop_time': 'str',
         'id': 'str',
@@ -47,8 +49,10 @@ class ListForListDevInstancesOutput(object):
         'numa_affinity': 'str',
         'numa_status': 'str',
         'ports': 'list[PortForListDevInstancesOutput]',
+        'project_name': 'str',
         'resource_claim': 'ResourceClaimForListDevInstancesOutput',
         'resource_queue_id': 'str',
+        'resource_reservation_plan_id': 'str',
         'ssh_public_key': 'str',
         'status': 'StatusForListDevInstancesOutput',
         'stop_time': 'str',
@@ -63,6 +67,8 @@ class ListForListDevInstancesOutput(object):
         'allow_image_build': 'AllowImageBuild',
         'create_time': 'CreateTime',
         'creator_trn': 'CreatorTrn',
+        'credential': 'Credential',
+        'default_folder': 'DefaultFolder',
         'description': 'Description',
         'expected_stop_time': 'ExpectedStopTime',
         'id': 'Id',
@@ -74,8 +80,10 @@ class ListForListDevInstancesOutput(object):
         'numa_affinity': 'NumaAffinity',
         'numa_status': 'NumaStatus',
         'ports': 'Ports',
+        'project_name': 'ProjectName',
         'resource_claim': 'ResourceClaim',
         'resource_queue_id': 'ResourceQueueId',
+        'resource_reservation_plan_id': 'ResourceReservationPlanId',
         'ssh_public_key': 'SshPublicKey',
         'status': 'Status',
         'stop_time': 'StopTime',
@@ -86,7 +94,7 @@ class ListForListDevInstancesOutput(object):
         'zone_id': 'ZoneID'
     }
 
-    def __init__(self, allow_image_build=None, create_time=None, creator_trn=None, description=None, expected_stop_time=None, id=None, image=None, is_building_image=None, launch_time=None, name=None, node_affinity_spec=None, numa_affinity=None, numa_status=None, ports=None, resource_claim=None, resource_queue_id=None, ssh_public_key=None, status=None, stop_time=None, stopped_time=None, storages=None, update_time=None, volume=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_image_build=None, create_time=None, creator_trn=None, credential=None, default_folder=None, description=None, expected_stop_time=None, id=None, image=None, is_building_image=None, launch_time=None, name=None, node_affinity_spec=None, numa_affinity=None, numa_status=None, ports=None, project_name=None, resource_claim=None, resource_queue_id=None, resource_reservation_plan_id=None, ssh_public_key=None, status=None, stop_time=None, stopped_time=None, storages=None, update_time=None, volume=None, zone_id=None, _configuration=None):  # noqa: E501
         """ListForListDevInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +103,8 @@ class ListForListDevInstancesOutput(object):
         self._allow_image_build = None
         self._create_time = None
         self._creator_trn = None
+        self._credential = None
+        self._default_folder = None
         self._description = None
         self._expected_stop_time = None
         self._id = None
@@ -106,8 +116,10 @@ class ListForListDevInstancesOutput(object):
         self._numa_affinity = None
         self._numa_status = None
         self._ports = None
+        self._project_name = None
         self._resource_claim = None
         self._resource_queue_id = None
+        self._resource_reservation_plan_id = None
         self._ssh_public_key = None
         self._status = None
         self._stop_time = None
@@ -124,6 +136,10 @@ class ListForListDevInstancesOutput(object):
             self.create_time = create_time
         if creator_trn is not None:
             self.creator_trn = creator_trn
+        if credential is not None:
+            self.credential = credential
+        if default_folder is not None:
+            self.default_folder = default_folder
         if description is not None:
             self.description = description
         if expected_stop_time is not None:
@@ -146,10 +162,14 @@ class ListForListDevInstancesOutput(object):
             self.numa_status = numa_status
         if ports is not None:
             self.ports = ports
+        if project_name is not None:
+            self.project_name = project_name
         if resource_claim is not None:
             self.resource_claim = resource_claim
         if resource_queue_id is not None:
             self.resource_queue_id = resource_queue_id
+        if resource_reservation_plan_id is not None:
+            self.resource_reservation_plan_id = resource_reservation_plan_id
         if ssh_public_key is not None:
             self.ssh_public_key = ssh_public_key
         if status is not None:
@@ -229,6 +249,48 @@ class ListForListDevInstancesOutput(object):
         """
 
         self._creator_trn = creator_trn
+
+    @property
+    def credential(self):
+        """Gets the credential of this ListForListDevInstancesOutput.  # noqa: E501
+
+
+        :return: The credential of this ListForListDevInstancesOutput.  # noqa: E501
+        :rtype: CredentialForListDevInstancesOutput
+        """
+        return self._credential
+
+    @credential.setter
+    def credential(self, credential):
+        """Sets the credential of this ListForListDevInstancesOutput.
+
+
+        :param credential: The credential of this ListForListDevInstancesOutput.  # noqa: E501
+        :type: CredentialForListDevInstancesOutput
+        """
+
+        self._credential = credential
+
+    @property
+    def default_folder(self):
+        """Gets the default_folder of this ListForListDevInstancesOutput.  # noqa: E501
+
+
+        :return: The default_folder of this ListForListDevInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_folder
+
+    @default_folder.setter
+    def default_folder(self, default_folder):
+        """Sets the default_folder of this ListForListDevInstancesOutput.
+
+
+        :param default_folder: The default_folder of this ListForListDevInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._default_folder = default_folder
 
     @property
     def description(self):
@@ -462,6 +524,27 @@ class ListForListDevInstancesOutput(object):
         self._ports = ports
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ListForListDevInstancesOutput.  # noqa: E501
+
+
+        :return: The project_name of this ListForListDevInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListForListDevInstancesOutput.
+
+
+        :param project_name: The project_name of this ListForListDevInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def resource_claim(self):
         """Gets the resource_claim of this ListForListDevInstancesOutput.  # noqa: E501
 
@@ -502,6 +585,27 @@ class ListForListDevInstancesOutput(object):
         """
 
         self._resource_queue_id = resource_queue_id
+
+    @property
+    def resource_reservation_plan_id(self):
+        """Gets the resource_reservation_plan_id of this ListForListDevInstancesOutput.  # noqa: E501
+
+
+        :return: The resource_reservation_plan_id of this ListForListDevInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_reservation_plan_id
+
+    @resource_reservation_plan_id.setter
+    def resource_reservation_plan_id(self, resource_reservation_plan_id):
+        """Sets the resource_reservation_plan_id of this ListForListDevInstancesOutput.
+
+
+        :param resource_reservation_plan_id: The resource_reservation_plan_id of this ListForListDevInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_reservation_plan_id = resource_reservation_plan_id
 
     @property
     def ssh_public_key(self):

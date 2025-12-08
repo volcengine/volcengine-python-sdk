@@ -39,7 +39,7 @@ class RobotCommentForListRobotCommentsOutput(object):
 
     attribute_map = {
         'comment_content': 'CommentContent',
-        'id': 'ID'
+        'id': 'Id'
     }
 
     def __init__(self, comment_content=None, id=None, _configuration=None):  # noqa: E501

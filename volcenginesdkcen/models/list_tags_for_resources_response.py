@@ -34,31 +34,26 @@ class ListTagsForResourcesResponse(object):
     """
     swagger_types = {
         'next_token': 'str',
-        'request_id': 'str',
         'resource_tags': 'list[ResourceTagForListTagsForResourcesOutput]'
     }
 
     attribute_map = {
         'next_token': 'NextToken',
-        'request_id': 'RequestId',
         'resource_tags': 'ResourceTags'
     }
 
-    def __init__(self, next_token=None, request_id=None, resource_tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, next_token=None, resource_tags=None, _configuration=None):  # noqa: E501
         """ListTagsForResourcesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._next_token = None
-        self._request_id = None
         self._resource_tags = None
         self.discriminator = None
 
         if next_token is not None:
             self.next_token = next_token
-        if request_id is not None:
-            self.request_id = request_id
         if resource_tags is not None:
             self.resource_tags = resource_tags
 
@@ -82,27 +77,6 @@ class ListTagsForResourcesResponse(object):
         """
 
         self._next_token = next_token
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this ListTagsForResourcesResponse.  # noqa: E501
-
-
-        :return: The request_id of this ListTagsForResourcesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this ListTagsForResourcesResponse.
-
-
-        :param request_id: The request_id of this ListTagsForResourcesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     @property
     def resource_tags(self):

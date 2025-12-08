@@ -33,8 +33,11 @@ class UpdateFunctionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_config': 'AsyncTaskConfigForUpdateFunctionInput',
+        'command': 'str',
         'cpu_milli': 'int',
         'description': 'str',
+        'enable_apmplus': 'bool',
         'envs': 'list[EnvForUpdateFunctionInput]',
         'exclusive_mode': 'bool',
         'id': 'str',
@@ -55,8 +58,11 @@ class UpdateFunctionRequest(object):
     }
 
     attribute_map = {
+        'async_task_config': 'AsyncTaskConfig',
+        'command': 'Command',
         'cpu_milli': 'CpuMilli',
         'description': 'Description',
+        'enable_apmplus': 'EnableApmplus',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
         'id': 'Id',
@@ -76,14 +82,17 @@ class UpdateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, cpu_milli=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, memory_mb=None, nas_storage=None, project_name=None, request_timeout=None, role=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, command=None, cpu_milli=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, max_concurrency=None, memory_mb=None, nas_storage=None, project_name=None, request_timeout=None, role=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """UpdateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_config = None
+        self._command = None
         self._cpu_milli = None
         self._description = None
+        self._enable_apmplus = None
         self._envs = None
         self._exclusive_mode = None
         self._id = None
@@ -103,10 +112,16 @@ class UpdateFunctionRequest(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if async_task_config is not None:
+            self.async_task_config = async_task_config
+        if command is not None:
+            self.command = command
         if cpu_milli is not None:
             self.cpu_milli = cpu_milli
         if description is not None:
             self.description = description
+        if enable_apmplus is not None:
+            self.enable_apmplus = enable_apmplus
         if envs is not None:
             self.envs = envs
         if exclusive_mode is not None:
@@ -140,6 +155,48 @@ class UpdateFunctionRequest(object):
             self.tos_mount_config = tos_mount_config
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def async_task_config(self):
+        """Gets the async_task_config of this UpdateFunctionRequest.  # noqa: E501
+
+
+        :return: The async_task_config of this UpdateFunctionRequest.  # noqa: E501
+        :rtype: AsyncTaskConfigForUpdateFunctionInput
+        """
+        return self._async_task_config
+
+    @async_task_config.setter
+    def async_task_config(self, async_task_config):
+        """Sets the async_task_config of this UpdateFunctionRequest.
+
+
+        :param async_task_config: The async_task_config of this UpdateFunctionRequest.  # noqa: E501
+        :type: AsyncTaskConfigForUpdateFunctionInput
+        """
+
+        self._async_task_config = async_task_config
+
+    @property
+    def command(self):
+        """Gets the command of this UpdateFunctionRequest.  # noqa: E501
+
+
+        :return: The command of this UpdateFunctionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._command
+
+    @command.setter
+    def command(self, command):
+        """Sets the command of this UpdateFunctionRequest.
+
+
+        :param command: The command of this UpdateFunctionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._command = command
 
     @property
     def cpu_milli(self):
@@ -182,6 +239,27 @@ class UpdateFunctionRequest(object):
         """
 
         self._description = description
+
+    @property
+    def enable_apmplus(self):
+        """Gets the enable_apmplus of this UpdateFunctionRequest.  # noqa: E501
+
+
+        :return: The enable_apmplus of this UpdateFunctionRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_apmplus
+
+    @enable_apmplus.setter
+    def enable_apmplus(self, enable_apmplus):
+        """Sets the enable_apmplus of this UpdateFunctionRequest.
+
+
+        :param enable_apmplus: The enable_apmplus of this UpdateFunctionRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_apmplus = enable_apmplus
 
     @property
     def envs(self):

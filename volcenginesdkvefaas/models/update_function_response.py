@@ -33,6 +33,7 @@ class UpdateFunctionResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_config': 'AsyncTaskConfigForUpdateFunctionOutput',
         'cell': 'str',
         'code_size': 'int',
         'code_size_limit': 'int',
@@ -40,6 +41,7 @@ class UpdateFunctionResponse(object):
         'cpu_strategy': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'enable_apmplus': 'bool',
         'envs': 'list[EnvForUpdateFunctionOutput]',
         'exclusive_mode': 'bool',
         'function_type': 'str',
@@ -68,6 +70,7 @@ class UpdateFunctionResponse(object):
     }
 
     attribute_map = {
+        'async_task_config': 'AsyncTaskConfig',
         'cell': 'Cell',
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
@@ -75,6 +78,7 @@ class UpdateFunctionResponse(object):
         'cpu_strategy': 'CpuStrategy',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'enable_apmplus': 'EnableApmplus',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
         'function_type': 'FunctionType',
@@ -102,12 +106,13 @@ class UpdateFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, cell=None, code_size=None, code_size_limit=None, command=None, cpu_strategy=None, creation_time=None, description=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, cell=None, code_size=None, code_size_limit=None, command=None, cpu_strategy=None, creation_time=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, function_type=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """UpdateFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_config = None
         self._cell = None
         self._code_size = None
         self._code_size_limit = None
@@ -115,6 +120,7 @@ class UpdateFunctionResponse(object):
         self._cpu_strategy = None
         self._creation_time = None
         self._description = None
+        self._enable_apmplus = None
         self._envs = None
         self._exclusive_mode = None
         self._function_type = None
@@ -142,6 +148,8 @@ class UpdateFunctionResponse(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if async_task_config is not None:
+            self.async_task_config = async_task_config
         if cell is not None:
             self.cell = cell
         if code_size is not None:
@@ -156,6 +164,8 @@ class UpdateFunctionResponse(object):
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if enable_apmplus is not None:
+            self.enable_apmplus = enable_apmplus
         if envs is not None:
             self.envs = envs
         if exclusive_mode is not None:
@@ -206,6 +216,27 @@ class UpdateFunctionResponse(object):
             self.triggers_count = triggers_count
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def async_task_config(self):
+        """Gets the async_task_config of this UpdateFunctionResponse.  # noqa: E501
+
+
+        :return: The async_task_config of this UpdateFunctionResponse.  # noqa: E501
+        :rtype: AsyncTaskConfigForUpdateFunctionOutput
+        """
+        return self._async_task_config
+
+    @async_task_config.setter
+    def async_task_config(self, async_task_config):
+        """Sets the async_task_config of this UpdateFunctionResponse.
+
+
+        :param async_task_config: The async_task_config of this UpdateFunctionResponse.  # noqa: E501
+        :type: AsyncTaskConfigForUpdateFunctionOutput
+        """
+
+        self._async_task_config = async_task_config
 
     @property
     def cell(self):
@@ -353,6 +384,27 @@ class UpdateFunctionResponse(object):
         """
 
         self._description = description
+
+    @property
+    def enable_apmplus(self):
+        """Gets the enable_apmplus of this UpdateFunctionResponse.  # noqa: E501
+
+
+        :return: The enable_apmplus of this UpdateFunctionResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_apmplus
+
+    @enable_apmplus.setter
+    def enable_apmplus(self, enable_apmplus):
+        """Sets the enable_apmplus of this UpdateFunctionResponse.
+
+
+        :param enable_apmplus: The enable_apmplus of this UpdateFunctionResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_apmplus = enable_apmplus
 
     @property
     def envs(self):

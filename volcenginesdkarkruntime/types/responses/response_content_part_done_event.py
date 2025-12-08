@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -19,7 +18,9 @@ from .response_output_text import ResponseOutputText
 
 __all__ = ["ResponseContentPartDoneEvent", "Part"]
 
-Part: TypeAlias = Annotated[Union[ResponseOutputText], PropertyInfo(discriminator="type")]
+Part: TypeAlias = Annotated[
+    Union[ResponseOutputText], PropertyInfo(discriminator="type")
+]
 
 
 class ResponseContentPartDoneEvent(BaseModel):

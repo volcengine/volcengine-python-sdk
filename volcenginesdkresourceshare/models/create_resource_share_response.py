@@ -33,17 +33,45 @@ class CreateResourceShareResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'resource_share_trn': 'str'
     }
 
     attribute_map = {
+        'resource_share_trn': 'ResourceShareTrn'
     }
 
-    def __init__(self, _configuration=None):  # noqa: E501
+    def __init__(self, resource_share_trn=None, _configuration=None):  # noqa: E501
         """CreateResourceShareResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
+
+        self._resource_share_trn = None
         self.discriminator = None
+
+        if resource_share_trn is not None:
+            self.resource_share_trn = resource_share_trn
+
+    @property
+    def resource_share_trn(self):
+        """Gets the resource_share_trn of this CreateResourceShareResponse.  # noqa: E501
+
+
+        :return: The resource_share_trn of this CreateResourceShareResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_share_trn
+
+    @resource_share_trn.setter
+    def resource_share_trn(self, resource_share_trn):
+        """Sets the resource_share_trn of this CreateResourceShareResponse.
+
+
+        :param resource_share_trn: The resource_share_trn of this CreateResourceShareResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_share_trn = resource_share_trn
 
     def to_dict(self):
         """Returns the model properties as a dict"""

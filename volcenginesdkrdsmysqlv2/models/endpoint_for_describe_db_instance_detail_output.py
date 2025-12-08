@@ -39,6 +39,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'connection_mode': 'str',
         'connection_pool_type': 'str',
         'description': 'str',
+        'enable_connection_persistent': 'bool',
         'enable_read_only': 'str',
         'enable_read_write_splitting': 'str',
         'endpoint_id': 'str',
@@ -63,6 +64,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'connection_mode': 'ConnectionMode',
         'connection_pool_type': 'ConnectionPoolType',
         'description': 'Description',
+        'enable_connection_persistent': 'EnableConnectionPersistent',
         'enable_read_only': 'EnableReadOnly',
         'enable_read_write_splitting': 'EnableReadWriteSplitting',
         'endpoint_id': 'EndpointId',
@@ -80,7 +82,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         'read_write_mode': 'ReadWriteMode'
     }
 
-    def __init__(self, addresses=None, auto_add_new_nodes=None, connection_info_tags=None, connection_mode=None, connection_pool_type=None, description=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, implicit_trans_split=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
+    def __init__(self, addresses=None, auto_add_new_nodes=None, connection_info_tags=None, connection_mode=None, connection_pool_type=None, description=None, enable_connection_persistent=None, enable_read_only=None, enable_read_write_splitting=None, endpoint_id=None, endpoint_name=None, endpoint_type=None, idle_connection_reclaim=None, implicit_trans_split=None, master_node_routing=None, master_protector_timeout=None, multi_statements_mode=None, overload_protection=None, read_only_node_distribution_type=None, read_only_node_max_delay_time=None, read_only_node_weight=None, read_write_mode=None, _configuration=None):  # noqa: E501
         """EndpointForDescribeDBInstanceDetailOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -92,6 +94,7 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         self._connection_mode = None
         self._connection_pool_type = None
         self._description = None
+        self._enable_connection_persistent = None
         self._enable_read_only = None
         self._enable_read_write_splitting = None
         self._endpoint_id = None
@@ -121,6 +124,8 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
             self.connection_pool_type = connection_pool_type
         if description is not None:
             self.description = description
+        if enable_connection_persistent is not None:
+            self.enable_connection_persistent = enable_connection_persistent
         if enable_read_only is not None:
             self.enable_read_only = enable_read_only
         if enable_read_write_splitting is not None:
@@ -277,6 +282,27 @@ class EndpointForDescribeDBInstanceDetailOutput(object):
         """
 
         self._description = description
+
+    @property
+    def enable_connection_persistent(self):
+        """Gets the enable_connection_persistent of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+
+
+        :return: The enable_connection_persistent of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_connection_persistent
+
+    @enable_connection_persistent.setter
+    def enable_connection_persistent(self, enable_connection_persistent):
+        """Sets the enable_connection_persistent of this EndpointForDescribeDBInstanceDetailOutput.
+
+
+        :param enable_connection_persistent: The enable_connection_persistent of this EndpointForDescribeDBInstanceDetailOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_connection_persistent = enable_connection_persistent
 
     @property
     def enable_read_only(self):

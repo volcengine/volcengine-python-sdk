@@ -35,6 +35,7 @@ class CreateLoadBalancerRequest(object):
     swagger_types = {
         'address_ip_version': 'str',
         'bandwidth_package_id': 'str',
+        'client_token': 'str',
         'delete_protection': 'str',
         'description': 'str',
         'eip_billing_config': 'EipBillingConfigForCreateLoadBalancerInput',
@@ -56,6 +57,7 @@ class CreateLoadBalancerRequest(object):
     attribute_map = {
         'address_ip_version': 'AddressIpVersion',
         'bandwidth_package_id': 'BandwidthPackageId',
+        'client_token': 'ClientToken',
         'delete_protection': 'DeleteProtection',
         'description': 'Description',
         'eip_billing_config': 'EipBillingConfig',
@@ -74,7 +76,7 @@ class CreateLoadBalancerRequest(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, address_ip_version=None, bandwidth_package_id=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, bandwidth_package_id=None, client_token=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class CreateLoadBalancerRequest(object):
 
         self._address_ip_version = None
         self._bandwidth_package_id = None
+        self._client_token = None
         self._delete_protection = None
         self._description = None
         self._eip_billing_config = None
@@ -104,6 +107,8 @@ class CreateLoadBalancerRequest(object):
             self.address_ip_version = address_ip_version
         if bandwidth_package_id is not None:
             self.bandwidth_package_id = bandwidth_package_id
+        if client_token is not None:
+            self.client_token = client_token
         if delete_protection is not None:
             self.delete_protection = delete_protection
         if description is not None:
@@ -176,6 +181,27 @@ class CreateLoadBalancerRequest(object):
         """
 
         self._bandwidth_package_id = bandwidth_package_id
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The client_token of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this CreateLoadBalancerRequest.
+
+
+        :param client_token: The client_token of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def delete_protection(self):

@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -16,16 +15,15 @@ import asyncio
 import time
 from datetime import timedelta, datetime
 from random import random
-from typing import Dict, List, Union, Iterable, Optional, Callable
+from typing import Dict, List, Union, Iterable, Optional
 from typing_extensions import Literal
 
 import httpx
-import warnings
 
 from ..._exceptions import ArkAPITimeoutError, ArkAPIConnectionError, ArkAPIStatusError
 from ..._types import Body, Query, Headers
-from ..._utils import with_sts_token, async_with_sts_token, deepcopy_minimal
-from ..._utils._key_agreement import aes_gcm_decrypt_base64_string
+from ..._utils import with_sts_token, async_with_sts_token
+from ..encryption import with_e2e_encryption, async_with_e2e_encryption
 from ..._base_client import make_request_options
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._compat import cached_property
@@ -42,46 +40,11 @@ from ...types.chat import (
     ChatCompletionToolChoiceOptionParam,
 )
 from ..._constants import (
-    ARK_E2E_ENCRYPTION_HEADER,
     INITIAL_RETRY_DELAY,
     MAX_RETRY_DELAY,
 )
 
 __all__ = ["Completions", "AsyncCompletions"]
-
-
-def _process_messages(
-    messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
-):
-    for message in messages:
-        if message.get("content", None) is not None:
-            current_content = message.get("content")
-            if isinstance(current_content, str):
-                message["content"] = f(current_content)
-            elif isinstance(current_content, Iterable):
-                for part in current_content:
-                    if part.get("type", None) == "text":
-                        part["text"] = f(part["text"])
-                    elif part.get("type", None) == "image_url":
-                        if part["image_url"]["url"].startswith("data:"):
-                            part["image_url"]["url"] = f(part["image_url"]["url"])
-                        else:
-                            warnings.warn(
-                                "encryption is not supported for image url, "
-                                "please use base64 image if you want encryption"
-                            )
-                    else:
-                        raise TypeError(
-                            "encryption is not supported for content type {}".format(
-                                type(part)
-                            )
-                        )
-            else:
-                raise TypeError(
-                    "encryption is not supported for content type {}".format(
-                        type(message.get("content"))
-                    )
-                )
 
 
 def _calculate_retry_timeout(retry_times) -> float:
@@ -126,58 +89,8 @@ class Completions(SyncAPIResource):
     def with_raw_response(self) -> CompletionsWithRawResponse:
         return CompletionsWithRawResponse(self)
 
-    def _process_messages(
-        self, messages: Iterable[ChatCompletionMessageParam], f: Callable[[str], str]
-    ):
-        for message in messages:
-            if message.get("content", None) is not None:
-                current_content = message.get("content")
-                if isinstance(current_content, str):
-                    message["content"] = f(current_content)
-                elif isinstance(current_content, Iterable):
-                    raise TypeError(
-                        "content type {} is not supported end-to-end encryption".format(
-                            type(message.get("content"))
-                        )
-                    )
-                else:
-                    raise TypeError(
-                        "content type {} is not supported end-to-end encryption".format(
-                            type(message.get("content"))
-                        )
-                    )
-
-    def _encrypt(
-        self,
-        model: str,
-        messages: Iterable[ChatCompletionMessageParam],
-        extra_headers: Headers,
-    ) -> tuple[bytes, bytes]:
-        client = self._client._get_endpoint_certificate(model)
-        _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
-        extra_headers["X-Session-Token"] = session_token
-        _process_messages(
-            messages,
-            lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
-        )
-        return _crypto_key, _crypto_nonce
-
-    def _decrypt(
-        self, key: bytes, nonce: bytes, resp: ChatCompletion
-    ) -> ChatCompletion:
-        if resp.choices is not None:
-            for index, choice in enumerate(resp.choices):
-                if (
-                    choice.message is not None and choice.finish_reason != 'content_filter'
-                    and choice.message.content is not None
-                ):
-                    choice.message.content = aes_gcm_decrypt_base64_string(
-                        key, nonce, choice.message.content
-                    )
-                resp.choices[index] = choice
-        return resp
-
     @with_sts_token
+    @with_e2e_encryption
     def create(
         self,
         *,
@@ -208,14 +121,6 @@ class Completions(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion:
-        is_encrypt = False
-        if (
-            extra_headers is not None
-            and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
-        ):
-            is_encrypt = True
-            messages = deepcopy_minimal(messages)
-            e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
         retryTimes = 0
         last_time = self._get_request_last_time(timeout)
         model_breaker = self._client.get_model_breaker(model)
@@ -273,8 +178,6 @@ class Completions(SyncAPIResource):
                     continue
                 else:
                     raise err
-            if is_encrypt:
-                resp = self._decrypt(e2e_key, e2e_nonce, resp)
             return resp
 
     def _get_request_last_time(self, timeout):
@@ -299,37 +202,8 @@ class AsyncCompletions(AsyncAPIResource):
     def with_raw_response(self) -> AsyncCompletionsWithRawResponse:
         return AsyncCompletionsWithRawResponse(self)
 
-    def _encrypt(
-        self,
-        model: str,
-        messages: Iterable[ChatCompletionMessageParam],
-        extra_headers: Headers,
-    ) -> tuple[bytes, bytes]:
-        client = self._client._get_endpoint_certificate(model)
-        _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
-        extra_headers["X-Session-Token"] = session_token
-        _process_messages(
-            messages,
-            lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
-        )
-        return _crypto_key, _crypto_nonce
-
-    async def _decrypt(
-        self, key: bytes, nonce: bytes, resp: ChatCompletion
-    ) -> ChatCompletion:
-        if resp.choices is not None:
-            for index, choice in enumerate(resp.choices):
-                if (
-                    choice.message is not None and choice.finish_reason != 'content_filter'
-                    and choice.message.content is not None
-                ):
-                    choice.message.content = aes_gcm_decrypt_base64_string(
-                        key, nonce, choice.message.content
-                    )
-                resp.choices[index] = choice
-        return resp
-
     @async_with_sts_token
+    @async_with_e2e_encryption
     async def create(
         self,
         *,
@@ -360,15 +234,6 @@ class AsyncCompletions(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None = None,
     ) -> ChatCompletion:
-        is_encrypt = False
-        if (
-            extra_headers is not None
-            and extra_headers.get(ARK_E2E_ENCRYPTION_HEADER, None) == "true"
-        ):
-            is_encrypt = True
-            messages = deepcopy_minimal(messages)
-            e2e_key, e2e_nonce = self._encrypt(model, messages, extra_headers)
-
         retryTimes = 0
         last_time = self._get_request_last_time(timeout)
         model_breaker = await self._client.get_model_breaker(model)
@@ -426,8 +291,6 @@ class AsyncCompletions(AsyncAPIResource):
                     continue
                 else:
                     raise err
-            if is_encrypt:
-                resp = await self._decrypt(e2e_key, e2e_nonce, resp)
             return resp
 
     def _get_request_last_time(self, timeout):

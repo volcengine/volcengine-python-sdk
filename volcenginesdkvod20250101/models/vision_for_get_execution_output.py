@@ -33,35 +33,45 @@ class VisionForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'model': 'ModelForGetExecutionOutput',
+        'model': 'ConvertModelForGetExecutionOutput',
+        'need_asr_speaker': 'bool',
         'prompt': 'str',
-        'segment': 'ConvertSegmentForGetExecutionOutput',
+        'response_format_type': 'str',
+        'segment': 'ConvertConvertSegmentForGetExecutionOutput',
         'snapshot_param': 'SnapshotParamForGetExecutionOutput'
     }
 
     attribute_map = {
         'model': 'Model',
+        'need_asr_speaker': 'NeedAsrSpeaker',
         'prompt': 'Prompt',
+        'response_format_type': 'ResponseFormatType',
         'segment': 'Segment',
         'snapshot_param': 'SnapshotParam'
     }
 
-    def __init__(self, model=None, prompt=None, segment=None, snapshot_param=None, _configuration=None):  # noqa: E501
+    def __init__(self, model=None, need_asr_speaker=None, prompt=None, response_format_type=None, segment=None, snapshot_param=None, _configuration=None):  # noqa: E501
         """VisionForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._model = None
+        self._need_asr_speaker = None
         self._prompt = None
+        self._response_format_type = None
         self._segment = None
         self._snapshot_param = None
         self.discriminator = None
 
         if model is not None:
             self.model = model
+        if need_asr_speaker is not None:
+            self.need_asr_speaker = need_asr_speaker
         if prompt is not None:
             self.prompt = prompt
+        if response_format_type is not None:
+            self.response_format_type = response_format_type
         if segment is not None:
             self.segment = segment
         if snapshot_param is not None:
@@ -73,7 +83,7 @@ class VisionForGetExecutionOutput(object):
 
 
         :return: The model of this VisionForGetExecutionOutput.  # noqa: E501
-        :rtype: ModelForGetExecutionOutput
+        :rtype: ConvertModelForGetExecutionOutput
         """
         return self._model
 
@@ -83,10 +93,31 @@ class VisionForGetExecutionOutput(object):
 
 
         :param model: The model of this VisionForGetExecutionOutput.  # noqa: E501
-        :type: ModelForGetExecutionOutput
+        :type: ConvertModelForGetExecutionOutput
         """
 
         self._model = model
+
+    @property
+    def need_asr_speaker(self):
+        """Gets the need_asr_speaker of this VisionForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The need_asr_speaker of this VisionForGetExecutionOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._need_asr_speaker
+
+    @need_asr_speaker.setter
+    def need_asr_speaker(self, need_asr_speaker):
+        """Sets the need_asr_speaker of this VisionForGetExecutionOutput.
+
+
+        :param need_asr_speaker: The need_asr_speaker of this VisionForGetExecutionOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._need_asr_speaker = need_asr_speaker
 
     @property
     def prompt(self):
@@ -110,12 +141,33 @@ class VisionForGetExecutionOutput(object):
         self._prompt = prompt
 
     @property
+    def response_format_type(self):
+        """Gets the response_format_type of this VisionForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The response_format_type of this VisionForGetExecutionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._response_format_type
+
+    @response_format_type.setter
+    def response_format_type(self, response_format_type):
+        """Sets the response_format_type of this VisionForGetExecutionOutput.
+
+
+        :param response_format_type: The response_format_type of this VisionForGetExecutionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._response_format_type = response_format_type
+
+    @property
     def segment(self):
         """Gets the segment of this VisionForGetExecutionOutput.  # noqa: E501
 
 
         :return: The segment of this VisionForGetExecutionOutput.  # noqa: E501
-        :rtype: ConvertSegmentForGetExecutionOutput
+        :rtype: ConvertConvertSegmentForGetExecutionOutput
         """
         return self._segment
 
@@ -125,7 +177,7 @@ class VisionForGetExecutionOutput(object):
 
 
         :param segment: The segment of this VisionForGetExecutionOutput.  # noqa: E501
-        :type: ConvertSegmentForGetExecutionOutput
+        :type: ConvertConvertSegmentForGetExecutionOutput
         """
 
         self._segment = segment

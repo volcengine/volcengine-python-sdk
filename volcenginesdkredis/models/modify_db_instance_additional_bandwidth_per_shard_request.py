@@ -34,28 +34,39 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest(object):
     """
     swagger_types = {
         'additional_bandwidth': 'int',
+        'additional_read_bandwidth': 'int',
+        'additional_write_bandwidth': 'int',
         'client_token': 'str',
         'instance_id': 'str'
     }
 
     attribute_map = {
         'additional_bandwidth': 'AdditionalBandwidth',
+        'additional_read_bandwidth': 'AdditionalReadBandwidth',
+        'additional_write_bandwidth': 'AdditionalWriteBandwidth',
         'client_token': 'ClientToken',
         'instance_id': 'InstanceId'
     }
 
-    def __init__(self, additional_bandwidth=None, client_token=None, instance_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_bandwidth=None, additional_read_bandwidth=None, additional_write_bandwidth=None, client_token=None, instance_id=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceAdditionalBandwidthPerShardRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._additional_bandwidth = None
+        self._additional_read_bandwidth = None
+        self._additional_write_bandwidth = None
         self._client_token = None
         self._instance_id = None
         self.discriminator = None
 
-        self.additional_bandwidth = additional_bandwidth
+        if additional_bandwidth is not None:
+            self.additional_bandwidth = additional_bandwidth
+        if additional_read_bandwidth is not None:
+            self.additional_read_bandwidth = additional_read_bandwidth
+        if additional_write_bandwidth is not None:
+            self.additional_write_bandwidth = additional_write_bandwidth
         if client_token is not None:
             self.client_token = client_token
         self.instance_id = instance_id
@@ -78,10 +89,50 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest(object):
         :param additional_bandwidth: The additional_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and additional_bandwidth is None:
-            raise ValueError("Invalid value for `additional_bandwidth`, must not be `None`")  # noqa: E501
 
         self._additional_bandwidth = additional_bandwidth
+
+    @property
+    def additional_read_bandwidth(self):
+        """Gets the additional_read_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.  # noqa: E501
+
+
+        :return: The additional_read_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._additional_read_bandwidth
+
+    @additional_read_bandwidth.setter
+    def additional_read_bandwidth(self, additional_read_bandwidth):
+        """Sets the additional_read_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.
+
+
+        :param additional_read_bandwidth: The additional_read_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._additional_read_bandwidth = additional_read_bandwidth
+
+    @property
+    def additional_write_bandwidth(self):
+        """Gets the additional_write_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.  # noqa: E501
+
+
+        :return: The additional_write_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._additional_write_bandwidth
+
+    @additional_write_bandwidth.setter
+    def additional_write_bandwidth(self, additional_write_bandwidth):
+        """Sets the additional_write_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.
+
+
+        :param additional_write_bandwidth: The additional_write_bandwidth of this ModifyDBInstanceAdditionalBandwidthPerShardRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._additional_write_bandwidth = additional_write_bandwidth
 
     @property
     def client_token(self):

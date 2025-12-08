@@ -33,11 +33,13 @@ class CreateFunctionRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_config': 'AsyncTaskConfigForCreateFunctionInput',
         'cell': 'str',
         'command': 'str',
         'cpu_milli': 'int',
         'cpu_strategy': 'str',
         'description': 'str',
+        'enable_apmplus': 'bool',
         'envs': 'list[EnvForCreateFunctionInput]',
         'exclusive_mode': 'bool',
         'initializer_sec': 'int',
@@ -46,6 +48,7 @@ class CreateFunctionRequest(object):
         'memory_mb': 'int',
         'name': 'str',
         'nas_storage': 'NasStorageForCreateFunctionInput',
+        'port': 'int',
         'project_name': 'str',
         'request_timeout': 'int',
         'role': 'str',
@@ -60,11 +63,13 @@ class CreateFunctionRequest(object):
     }
 
     attribute_map = {
+        'async_task_config': 'AsyncTaskConfig',
         'cell': 'Cell',
         'command': 'Command',
         'cpu_milli': 'CpuMilli',
         'cpu_strategy': 'CpuStrategy',
         'description': 'Description',
+        'enable_apmplus': 'EnableApmplus',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
         'initializer_sec': 'InitializerSec',
@@ -73,6 +78,7 @@ class CreateFunctionRequest(object):
         'memory_mb': 'MemoryMB',
         'name': 'Name',
         'nas_storage': 'NasStorage',
+        'port': 'Port',
         'project_name': 'ProjectName',
         'request_timeout': 'RequestTimeout',
         'role': 'Role',
@@ -86,17 +92,19 @@ class CreateFunctionRequest(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, cell=None, command=None, cpu_milli=None, cpu_strategy=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, initializer_sec=None, instance_type=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_access_config=None, source_type=None, tags=None, tls_config=None, tos_mount_config=None, vpc_config=None, _configuration=None):  # noqa: E501
         """CreateFunctionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_config = None
         self._cell = None
         self._command = None
         self._cpu_milli = None
         self._cpu_strategy = None
         self._description = None
+        self._enable_apmplus = None
         self._envs = None
         self._exclusive_mode = None
         self._initializer_sec = None
@@ -105,6 +113,7 @@ class CreateFunctionRequest(object):
         self._memory_mb = None
         self._name = None
         self._nas_storage = None
+        self._port = None
         self._project_name = None
         self._request_timeout = None
         self._role = None
@@ -118,6 +127,8 @@ class CreateFunctionRequest(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if async_task_config is not None:
+            self.async_task_config = async_task_config
         if cell is not None:
             self.cell = cell
         if command is not None:
@@ -128,6 +139,8 @@ class CreateFunctionRequest(object):
             self.cpu_strategy = cpu_strategy
         if description is not None:
             self.description = description
+        if enable_apmplus is not None:
+            self.enable_apmplus = enable_apmplus
         if envs is not None:
             self.envs = envs
         if exclusive_mode is not None:
@@ -143,6 +156,8 @@ class CreateFunctionRequest(object):
         self.name = name
         if nas_storage is not None:
             self.nas_storage = nas_storage
+        if port is not None:
+            self.port = port
         if project_name is not None:
             self.project_name = project_name
         if request_timeout is not None:
@@ -164,6 +179,27 @@ class CreateFunctionRequest(object):
             self.tos_mount_config = tos_mount_config
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def async_task_config(self):
+        """Gets the async_task_config of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The async_task_config of this CreateFunctionRequest.  # noqa: E501
+        :rtype: AsyncTaskConfigForCreateFunctionInput
+        """
+        return self._async_task_config
+
+    @async_task_config.setter
+    def async_task_config(self, async_task_config):
+        """Sets the async_task_config of this CreateFunctionRequest.
+
+
+        :param async_task_config: The async_task_config of this CreateFunctionRequest.  # noqa: E501
+        :type: AsyncTaskConfigForCreateFunctionInput
+        """
+
+        self._async_task_config = async_task_config
 
     @property
     def cell(self):
@@ -269,6 +305,27 @@ class CreateFunctionRequest(object):
         """
 
         self._description = description
+
+    @property
+    def enable_apmplus(self):
+        """Gets the enable_apmplus of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The enable_apmplus of this CreateFunctionRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_apmplus
+
+    @enable_apmplus.setter
+    def enable_apmplus(self, enable_apmplus):
+        """Sets the enable_apmplus of this CreateFunctionRequest.
+
+
+        :param enable_apmplus: The enable_apmplus of this CreateFunctionRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_apmplus = enable_apmplus
 
     @property
     def envs(self):
@@ -439,6 +496,27 @@ class CreateFunctionRequest(object):
         """
 
         self._nas_storage = nas_storage
+
+    @property
+    def port(self):
+        """Gets the port of this CreateFunctionRequest.  # noqa: E501
+
+
+        :return: The port of this CreateFunctionRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this CreateFunctionRequest.
+
+
+        :param port: The port of this CreateFunctionRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._port = port
 
     @property
     def project_name(self):

@@ -101,7 +101,7 @@ class ExportDevFingerprintDataRequest(object):
         :param fingerprint_type: The fingerprint_type of this ExportDevFingerprintDataRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["process", " port", " software"]  # noqa: E501
+        allowed_values = ["process", "port", "software"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 fingerprint_type not in allowed_values):
             raise ValueError(

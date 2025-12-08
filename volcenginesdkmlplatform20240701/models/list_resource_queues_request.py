@@ -38,6 +38,7 @@ class ListResourceQueuesRequest(object):
         'name_contains': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
         'resource_group_ids': 'list[str]',
         'shareable': 'bool',
         'sort_by': 'str',
@@ -53,6 +54,7 @@ class ListResourceQueuesRequest(object):
         'name_contains': 'NameContains',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
         'resource_group_ids': 'ResourceGroupIds',
         'shareable': 'Shareable',
         'sort_by': 'SortBy',
@@ -62,7 +64,7 @@ class ListResourceQueuesRequest(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, charge_type=None, ids=None, name_contains=None, page_number=None, page_size=None, resource_group_ids=None, shareable=None, sort_by=None, sort_order=None, status=None, workload_types=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, ids=None, name_contains=None, page_number=None, page_size=None, project_name=None, resource_group_ids=None, shareable=None, sort_by=None, sort_order=None, status=None, workload_types=None, zone_ids=None, _configuration=None):  # noqa: E501
         """ListResourceQueuesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class ListResourceQueuesRequest(object):
         self._name_contains = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
         self._resource_group_ids = None
         self._shareable = None
         self._sort_by = None
@@ -92,6 +95,8 @@ class ListResourceQueuesRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
         if resource_group_ids is not None:
             self.resource_group_ids = resource_group_ids
         if shareable is not None:
@@ -125,7 +130,7 @@ class ListResourceQueuesRequest(object):
         :param charge_type: The charge_type of this ListResourceQueuesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Paused", "Running", "Closed", "Closing"]  # noqa: E501
+        allowed_values = ["PrePaid", "PostPaid", "OnDemand"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 charge_type not in allowed_values):
             raise ValueError(
@@ -224,6 +229,33 @@ class ListResourceQueuesRequest(object):
             raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `10`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListResourceQueuesRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListResourceQueuesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListResourceQueuesRequest.
+
+
+        :param project_name: The project_name of this ListResourceQueuesRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
 
     @property
     def resource_group_ids(self):
@@ -341,7 +373,7 @@ class ListResourceQueuesRequest(object):
         :param status: The status of this ListResourceQueuesRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["PrePaid", "PostPaid"]  # noqa: E501
+        allowed_values = ["Paused", "Running", "Closed", "Closing"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(status).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

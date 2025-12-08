@@ -1,0 +1,25 @@
+[project]
+name = "volcengine-python-sdk"
+version = "4.0.38"
+authors = [
+    {name = "volc-engine", email = "volc-sdk-team@bytedance.com"},
+]
+description = "Volcengine SDK for Python"
+readme = "README.md"
+requires-python = ">=2.7"
+keywords = ["volcengine", "sdk"]
+license = "Apache-2.0"
+dependencies = ["certifi>=2017.4.17", "python-dateutil>=2.1", "six>=1.16", "urllib3>=1.26.5"]
+
+[project.optional-dependencies]
+ark = [
+    "pydantic>=1.9.0, <3",
+    "httpx>=0.23.0, <1",
+    "anyio>=3.5.0, <5",
+    "cached-property; python_version < '3.8'",
+    "cryptography>=44.0.1",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

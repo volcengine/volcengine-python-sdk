@@ -39,17 +39,23 @@ class NodeConfigForCreateNodePoolInput(object):
         'data_volumes': 'list[DataVolumeForCreateNodePoolInput]',
         'deployment_set_group_number': 'int',
         'deployment_set_id': 'str',
+        'hostname': 'str',
         'hpc_cluster_ids': 'list[str]',
         'image_id': 'str',
         'initialize_script': 'str',
         'instance_charge_type': 'str',
+        'instance_name': 'str',
         'instance_type_ids': 'list[str]',
+        'instances_distribution': 'InstancesDistributionForCreateNodePoolInput',
         'name_prefix': 'str',
+        'network_traffic_mode': 'str',
         'period': 'int',
+        'pre_script': 'str',
         'project_name': 'str',
         'public_access_config': 'PublicAccessConfigForCreateNodePoolInput',
         'public_access_enabled': 'bool',
         'security': 'SecurityForCreateNodePoolInput',
+        'spot_strategy': 'str',
         'subnet_ids': 'list[str]',
         'system_volume': 'SystemVolumeForCreateNodePoolInput',
         'tags': 'list[TagForCreateNodePoolInput]'
@@ -62,23 +68,29 @@ class NodeConfigForCreateNodePoolInput(object):
         'data_volumes': 'DataVolumes',
         'deployment_set_group_number': 'DeploymentSetGroupNumber',
         'deployment_set_id': 'DeploymentSetId',
+        'hostname': 'Hostname',
         'hpc_cluster_ids': 'HpcClusterIds',
         'image_id': 'ImageId',
         'initialize_script': 'InitializeScript',
         'instance_charge_type': 'InstanceChargeType',
+        'instance_name': 'InstanceName',
         'instance_type_ids': 'InstanceTypeIds',
+        'instances_distribution': 'InstancesDistribution',
         'name_prefix': 'NamePrefix',
+        'network_traffic_mode': 'NetworkTrafficMode',
         'period': 'Period',
+        'pre_script': 'PreScript',
         'project_name': 'ProjectName',
         'public_access_config': 'PublicAccessConfig',
         'public_access_enabled': 'PublicAccessEnabled',
         'security': 'Security',
+        'spot_strategy': 'SpotStrategy',
         'subnet_ids': 'SubnetIds',
         'system_volume': 'SystemVolume',
         'tags': 'Tags'
     }
 
-    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, deployment_set_group_number=None, deployment_set_id=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_type_ids=None, name_prefix=None, period=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_container_storage_enabled=None, auto_renew=None, auto_renew_period=None, data_volumes=None, deployment_set_group_number=None, deployment_set_id=None, hostname=None, hpc_cluster_ids=None, image_id=None, initialize_script=None, instance_charge_type=None, instance_name=None, instance_type_ids=None, instances_distribution=None, name_prefix=None, network_traffic_mode=None, period=None, pre_script=None, project_name=None, public_access_config=None, public_access_enabled=None, security=None, spot_strategy=None, subnet_ids=None, system_volume=None, tags=None, _configuration=None):  # noqa: E501
         """NodeConfigForCreateNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,17 +102,23 @@ class NodeConfigForCreateNodePoolInput(object):
         self._data_volumes = None
         self._deployment_set_group_number = None
         self._deployment_set_id = None
+        self._hostname = None
         self._hpc_cluster_ids = None
         self._image_id = None
         self._initialize_script = None
         self._instance_charge_type = None
+        self._instance_name = None
         self._instance_type_ids = None
+        self._instances_distribution = None
         self._name_prefix = None
+        self._network_traffic_mode = None
         self._period = None
+        self._pre_script = None
         self._project_name = None
         self._public_access_config = None
         self._public_access_enabled = None
         self._security = None
+        self._spot_strategy = None
         self._subnet_ids = None
         self._system_volume = None
         self._tags = None
@@ -118,6 +136,8 @@ class NodeConfigForCreateNodePoolInput(object):
             self.deployment_set_group_number = deployment_set_group_number
         if deployment_set_id is not None:
             self.deployment_set_id = deployment_set_id
+        if hostname is not None:
+            self.hostname = hostname
         if hpc_cluster_ids is not None:
             self.hpc_cluster_ids = hpc_cluster_ids
         if image_id is not None:
@@ -126,12 +146,20 @@ class NodeConfigForCreateNodePoolInput(object):
             self.initialize_script = initialize_script
         if instance_charge_type is not None:
             self.instance_charge_type = instance_charge_type
+        if instance_name is not None:
+            self.instance_name = instance_name
         if instance_type_ids is not None:
             self.instance_type_ids = instance_type_ids
+        if instances_distribution is not None:
+            self.instances_distribution = instances_distribution
         if name_prefix is not None:
             self.name_prefix = name_prefix
+        if network_traffic_mode is not None:
+            self.network_traffic_mode = network_traffic_mode
         if period is not None:
             self.period = period
+        if pre_script is not None:
+            self.pre_script = pre_script
         if project_name is not None:
             self.project_name = project_name
         if public_access_config is not None:
@@ -140,6 +168,8 @@ class NodeConfigForCreateNodePoolInput(object):
             self.public_access_enabled = public_access_enabled
         if security is not None:
             self.security = security
+        if spot_strategy is not None:
+            self.spot_strategy = spot_strategy
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
         if system_volume is not None:
@@ -274,6 +304,27 @@ class NodeConfigForCreateNodePoolInput(object):
         self._deployment_set_id = deployment_set_id
 
     @property
+    def hostname(self):
+        """Gets the hostname of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The hostname of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._hostname
+
+    @hostname.setter
+    def hostname(self, hostname):
+        """Sets the hostname of this NodeConfigForCreateNodePoolInput.
+
+
+        :param hostname: The hostname of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._hostname = hostname
+
+    @property
     def hpc_cluster_ids(self):
         """Gets the hpc_cluster_ids of this NodeConfigForCreateNodePoolInput.  # noqa: E501
 
@@ -365,6 +416,27 @@ class NodeConfigForCreateNodePoolInput(object):
         self._instance_charge_type = instance_charge_type
 
     @property
+    def instance_name(self):
+        """Gets the instance_name of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The instance_name of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this NodeConfigForCreateNodePoolInput.
+
+
+        :param instance_name: The instance_name of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
+
+    @property
     def instance_type_ids(self):
         """Gets the instance_type_ids of this NodeConfigForCreateNodePoolInput.  # noqa: E501
 
@@ -384,6 +456,27 @@ class NodeConfigForCreateNodePoolInput(object):
         """
 
         self._instance_type_ids = instance_type_ids
+
+    @property
+    def instances_distribution(self):
+        """Gets the instances_distribution of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The instances_distribution of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: InstancesDistributionForCreateNodePoolInput
+        """
+        return self._instances_distribution
+
+    @instances_distribution.setter
+    def instances_distribution(self, instances_distribution):
+        """Sets the instances_distribution of this NodeConfigForCreateNodePoolInput.
+
+
+        :param instances_distribution: The instances_distribution of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: InstancesDistributionForCreateNodePoolInput
+        """
+
+        self._instances_distribution = instances_distribution
 
     @property
     def name_prefix(self):
@@ -407,6 +500,27 @@ class NodeConfigForCreateNodePoolInput(object):
         self._name_prefix = name_prefix
 
     @property
+    def network_traffic_mode(self):
+        """Gets the network_traffic_mode of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The network_traffic_mode of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_traffic_mode
+
+    @network_traffic_mode.setter
+    def network_traffic_mode(self, network_traffic_mode):
+        """Sets the network_traffic_mode of this NodeConfigForCreateNodePoolInput.
+
+
+        :param network_traffic_mode: The network_traffic_mode of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._network_traffic_mode = network_traffic_mode
+
+    @property
     def period(self):
         """Gets the period of this NodeConfigForCreateNodePoolInput.  # noqa: E501
 
@@ -426,6 +540,27 @@ class NodeConfigForCreateNodePoolInput(object):
         """
 
         self._period = period
+
+    @property
+    def pre_script(self):
+        """Gets the pre_script of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The pre_script of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pre_script
+
+    @pre_script.setter
+    def pre_script(self, pre_script):
+        """Sets the pre_script of this NodeConfigForCreateNodePoolInput.
+
+
+        :param pre_script: The pre_script of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+
+        self._pre_script = pre_script
 
     @property
     def project_name(self):
@@ -510,6 +645,34 @@ class NodeConfigForCreateNodePoolInput(object):
         """
 
         self._security = security
+
+    @property
+    def spot_strategy(self):
+        """Gets the spot_strategy of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+
+
+        :return: The spot_strategy of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._spot_strategy
+
+    @spot_strategy.setter
+    def spot_strategy(self, spot_strategy):
+        """Sets the spot_strategy of this NodeConfigForCreateNodePoolInput.
+
+
+        :param spot_strategy: The spot_strategy of this NodeConfigForCreateNodePoolInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["NoSpot", "SpotAsPriceGo"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                spot_strategy not in allowed_values):
+            raise ValueError(
+                "Invalid value for `spot_strategy` ({0}), must be one of {1}"  # noqa: E501
+                .format(spot_strategy, allowed_values)
+            )
+
+        self._spot_strategy = spot_strategy
 
     @property
     def subnet_ids(self):

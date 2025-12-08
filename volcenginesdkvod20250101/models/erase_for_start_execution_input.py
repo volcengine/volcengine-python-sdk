@@ -34,36 +34,46 @@ class EraseForStartExecutionInput(object):
     """
     swagger_types = {
         'auto': 'AutoForStartExecutionInput',
+        'erase_option': 'EraseOptionForStartExecutionInput',
         'manual': 'ManualForStartExecutionInput',
         'mode': 'str',
+        'new_vid': 'bool',
         'with_erase_info': 'bool'
     }
 
     attribute_map = {
         'auto': 'Auto',
+        'erase_option': 'EraseOption',
         'manual': 'Manual',
         'mode': 'Mode',
+        'new_vid': 'NewVid',
         'with_erase_info': 'WithEraseInfo'
     }
 
-    def __init__(self, auto=None, manual=None, mode=None, with_erase_info=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto=None, erase_option=None, manual=None, mode=None, new_vid=None, with_erase_info=None, _configuration=None):  # noqa: E501
         """EraseForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto = None
+        self._erase_option = None
         self._manual = None
         self._mode = None
+        self._new_vid = None
         self._with_erase_info = None
         self.discriminator = None
 
         if auto is not None:
             self.auto = auto
+        if erase_option is not None:
+            self.erase_option = erase_option
         if manual is not None:
             self.manual = manual
         if mode is not None:
             self.mode = mode
+        if new_vid is not None:
+            self.new_vid = new_vid
         if with_erase_info is not None:
             self.with_erase_info = with_erase_info
 
@@ -87,6 +97,27 @@ class EraseForStartExecutionInput(object):
         """
 
         self._auto = auto
+
+    @property
+    def erase_option(self):
+        """Gets the erase_option of this EraseForStartExecutionInput.  # noqa: E501
+
+
+        :return: The erase_option of this EraseForStartExecutionInput.  # noqa: E501
+        :rtype: EraseOptionForStartExecutionInput
+        """
+        return self._erase_option
+
+    @erase_option.setter
+    def erase_option(self, erase_option):
+        """Sets the erase_option of this EraseForStartExecutionInput.
+
+
+        :param erase_option: The erase_option of this EraseForStartExecutionInput.  # noqa: E501
+        :type: EraseOptionForStartExecutionInput
+        """
+
+        self._erase_option = erase_option
 
     @property
     def manual(self):
@@ -129,6 +160,27 @@ class EraseForStartExecutionInput(object):
         """
 
         self._mode = mode
+
+    @property
+    def new_vid(self):
+        """Gets the new_vid of this EraseForStartExecutionInput.  # noqa: E501
+
+
+        :return: The new_vid of this EraseForStartExecutionInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._new_vid
+
+    @new_vid.setter
+    def new_vid(self, new_vid):
+        """Sets the new_vid of this EraseForStartExecutionInput.
+
+
+        :param new_vid: The new_vid of this EraseForStartExecutionInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._new_vid = new_vid
 
     @property
     def with_erase_info(self):

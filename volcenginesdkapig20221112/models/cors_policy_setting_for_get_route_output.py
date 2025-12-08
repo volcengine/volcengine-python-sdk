@@ -33,24 +33,138 @@ class CorsPolicySettingForGetRouteOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'enable': 'bool'
+        'allow_credentials': 'bool',
+        'allow_headers': 'list[str]',
+        'allow_methods': 'list[str]',
+        'allow_origins': 'list[AllowOriginForGetRouteOutput]',
+        'enable': 'bool',
+        'expose_headers': 'list[str]',
+        'max_age': 'int'
     }
 
     attribute_map = {
-        'enable': 'Enable'
+        'allow_credentials': 'AllowCredentials',
+        'allow_headers': 'AllowHeaders',
+        'allow_methods': 'AllowMethods',
+        'allow_origins': 'AllowOrigins',
+        'enable': 'Enable',
+        'expose_headers': 'ExposeHeaders',
+        'max_age': 'MaxAge'
     }
 
-    def __init__(self, enable=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_credentials=None, allow_headers=None, allow_methods=None, allow_origins=None, enable=None, expose_headers=None, max_age=None, _configuration=None):  # noqa: E501
         """CorsPolicySettingForGetRouteOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_credentials = None
+        self._allow_headers = None
+        self._allow_methods = None
+        self._allow_origins = None
         self._enable = None
+        self._expose_headers = None
+        self._max_age = None
         self.discriminator = None
 
+        if allow_credentials is not None:
+            self.allow_credentials = allow_credentials
+        if allow_headers is not None:
+            self.allow_headers = allow_headers
+        if allow_methods is not None:
+            self.allow_methods = allow_methods
+        if allow_origins is not None:
+            self.allow_origins = allow_origins
         if enable is not None:
             self.enable = enable
+        if expose_headers is not None:
+            self.expose_headers = expose_headers
+        if max_age is not None:
+            self.max_age = max_age
+
+    @property
+    def allow_credentials(self):
+        """Gets the allow_credentials of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+
+
+        :return: The allow_credentials of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_credentials
+
+    @allow_credentials.setter
+    def allow_credentials(self, allow_credentials):
+        """Sets the allow_credentials of this CorsPolicySettingForGetRouteOutput.
+
+
+        :param allow_credentials: The allow_credentials of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_credentials = allow_credentials
+
+    @property
+    def allow_headers(self):
+        """Gets the allow_headers of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+
+
+        :return: The allow_headers of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_headers
+
+    @allow_headers.setter
+    def allow_headers(self, allow_headers):
+        """Sets the allow_headers of this CorsPolicySettingForGetRouteOutput.
+
+
+        :param allow_headers: The allow_headers of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_headers = allow_headers
+
+    @property
+    def allow_methods(self):
+        """Gets the allow_methods of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+
+
+        :return: The allow_methods of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_methods
+
+    @allow_methods.setter
+    def allow_methods(self, allow_methods):
+        """Sets the allow_methods of this CorsPolicySettingForGetRouteOutput.
+
+
+        :param allow_methods: The allow_methods of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_methods = allow_methods
+
+    @property
+    def allow_origins(self):
+        """Gets the allow_origins of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+
+
+        :return: The allow_origins of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :rtype: list[AllowOriginForGetRouteOutput]
+        """
+        return self._allow_origins
+
+    @allow_origins.setter
+    def allow_origins(self, allow_origins):
+        """Sets the allow_origins of this CorsPolicySettingForGetRouteOutput.
+
+
+        :param allow_origins: The allow_origins of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :type: list[AllowOriginForGetRouteOutput]
+        """
+
+        self._allow_origins = allow_origins
 
     @property
     def enable(self):
@@ -72,6 +186,48 @@ class CorsPolicySettingForGetRouteOutput(object):
         """
 
         self._enable = enable
+
+    @property
+    def expose_headers(self):
+        """Gets the expose_headers of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+
+
+        :return: The expose_headers of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._expose_headers
+
+    @expose_headers.setter
+    def expose_headers(self, expose_headers):
+        """Sets the expose_headers of this CorsPolicySettingForGetRouteOutput.
+
+
+        :param expose_headers: The expose_headers of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._expose_headers = expose_headers
+
+    @property
+    def max_age(self):
+        """Gets the max_age of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+
+
+        :return: The max_age of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_age
+
+    @max_age.setter
+    def max_age(self, max_age):
+        """Sets the max_age of this CorsPolicySettingForGetRouteOutput.
+
+
+        :param max_age: The max_age of this CorsPolicySettingForGetRouteOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_age = max_age
 
     def to_dict(self):
         """Returns the model properties as a dict"""

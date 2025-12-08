@@ -33,34 +33,65 @@ class GetInstanceInspectResultResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'inspect_cnt': 'int',
         'instance_id': 'str',
         'results': 'list[ResultForGetInstanceInspectResultOutput]',
-        'total': 'int'
+        'total': 'int',
+        'un_expected_cnt': 'int'
     }
 
     attribute_map = {
+        'inspect_cnt': 'InspectCnt',
         'instance_id': 'InstanceId',
         'results': 'Results',
-        'total': 'Total'
+        'total': 'Total',
+        'un_expected_cnt': 'UnExpectedCnt'
     }
 
-    def __init__(self, instance_id=None, results=None, total=None, _configuration=None):  # noqa: E501
+    def __init__(self, inspect_cnt=None, instance_id=None, results=None, total=None, un_expected_cnt=None, _configuration=None):  # noqa: E501
         """GetInstanceInspectResultResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._inspect_cnt = None
         self._instance_id = None
         self._results = None
         self._total = None
+        self._un_expected_cnt = None
         self.discriminator = None
 
+        if inspect_cnt is not None:
+            self.inspect_cnt = inspect_cnt
         if instance_id is not None:
             self.instance_id = instance_id
         if results is not None:
             self.results = results
         if total is not None:
             self.total = total
+        if un_expected_cnt is not None:
+            self.un_expected_cnt = un_expected_cnt
+
+    @property
+    def inspect_cnt(self):
+        """Gets the inspect_cnt of this GetInstanceInspectResultResponse.  # noqa: E501
+
+
+        :return: The inspect_cnt of this GetInstanceInspectResultResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._inspect_cnt
+
+    @inspect_cnt.setter
+    def inspect_cnt(self, inspect_cnt):
+        """Sets the inspect_cnt of this GetInstanceInspectResultResponse.
+
+
+        :param inspect_cnt: The inspect_cnt of this GetInstanceInspectResultResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._inspect_cnt = inspect_cnt
 
     @property
     def instance_id(self):
@@ -124,6 +155,27 @@ class GetInstanceInspectResultResponse(object):
         """
 
         self._total = total
+
+    @property
+    def un_expected_cnt(self):
+        """Gets the un_expected_cnt of this GetInstanceInspectResultResponse.  # noqa: E501
+
+
+        :return: The un_expected_cnt of this GetInstanceInspectResultResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._un_expected_cnt
+
+    @un_expected_cnt.setter
+    def un_expected_cnt(self, un_expected_cnt):
+        """Sets the un_expected_cnt of this GetInstanceInspectResultResponse.
+
+
+        :param un_expected_cnt: The un_expected_cnt of this GetInstanceInspectResultResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._un_expected_cnt = un_expected_cnt
 
     def to_dict(self):
         """Returns the model properties as a dict"""

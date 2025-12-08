@@ -33,7 +33,6 @@ class CreateInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'apply_private_dnsto_public': 'bool',
         'charge_info': 'ChargeInfoForCreateInstanceInput',
         'client_token': 'str',
         'compute_spec': 'str',
@@ -52,7 +51,6 @@ class CreateInstanceRequest(object):
     }
 
     attribute_map = {
-        'apply_private_dnsto_public': 'ApplyPrivateDNSToPublic',
         'charge_info': 'ChargeInfo',
         'client_token': 'ClientToken',
         'compute_spec': 'ComputeSpec',
@@ -70,13 +68,12 @@ class CreateInstanceRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, apply_private_dnsto_public=None, charge_info=None, client_token=None, compute_spec=None, eip_id=None, instance_description=None, instance_name=None, project_name=None, storage_space=None, subnet_id=None, tags=None, user_name=None, user_password=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_info=None, client_token=None, compute_spec=None, eip_id=None, instance_description=None, instance_name=None, project_name=None, storage_space=None, subnet_id=None, tags=None, user_name=None, user_password=None, version=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """CreateInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._apply_private_dnsto_public = None
         self._charge_info = None
         self._client_token = None
         self._compute_spec = None
@@ -94,8 +91,6 @@ class CreateInstanceRequest(object):
         self._zone_id = None
         self.discriminator = None
 
-        if apply_private_dnsto_public is not None:
-            self.apply_private_dnsto_public = apply_private_dnsto_public
         if charge_info is not None:
             self.charge_info = charge_info
         self.client_token = client_token
@@ -117,27 +112,6 @@ class CreateInstanceRequest(object):
         self.version = version
         self.vpc_id = vpc_id
         self.zone_id = zone_id
-
-    @property
-    def apply_private_dnsto_public(self):
-        """Gets the apply_private_dnsto_public of this CreateInstanceRequest.  # noqa: E501
-
-
-        :return: The apply_private_dnsto_public of this CreateInstanceRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._apply_private_dnsto_public
-
-    @apply_private_dnsto_public.setter
-    def apply_private_dnsto_public(self, apply_private_dnsto_public):
-        """Sets the apply_private_dnsto_public of this CreateInstanceRequest.
-
-
-        :param apply_private_dnsto_public: The apply_private_dnsto_public of this CreateInstanceRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._apply_private_dnsto_public = apply_private_dnsto_public
 
     @property
     def charge_info(self):

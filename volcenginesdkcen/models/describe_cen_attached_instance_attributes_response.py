@@ -34,41 +34,43 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
     """
     swagger_types = {
         'cen_id': 'str',
+        'creation_time': 'str',
         'instance_id': 'str',
         'instance_owner_id': 'str',
         'instance_region_id': 'str',
         'instance_type': 'str',
-        'request_id': 'str',
         'status': 'str'
     }
 
     attribute_map = {
         'cen_id': 'CenId',
+        'creation_time': 'CreationTime',
         'instance_id': 'InstanceId',
         'instance_owner_id': 'InstanceOwnerId',
         'instance_region_id': 'InstanceRegionId',
         'instance_type': 'InstanceType',
-        'request_id': 'RequestId',
         'status': 'Status'
     }
 
-    def __init__(self, cen_id=None, instance_id=None, instance_owner_id=None, instance_region_id=None, instance_type=None, request_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_id=None, creation_time=None, instance_id=None, instance_owner_id=None, instance_region_id=None, instance_type=None, status=None, _configuration=None):  # noqa: E501
         """DescribeCenAttachedInstanceAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cen_id = None
+        self._creation_time = None
         self._instance_id = None
         self._instance_owner_id = None
         self._instance_region_id = None
         self._instance_type = None
-        self._request_id = None
         self._status = None
         self.discriminator = None
 
         if cen_id is not None:
             self.cen_id = cen_id
+        if creation_time is not None:
+            self.creation_time = creation_time
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_owner_id is not None:
@@ -77,8 +79,6 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
             self.instance_region_id = instance_region_id
         if instance_type is not None:
             self.instance_type = instance_type
-        if request_id is not None:
-            self.request_id = request_id
         if status is not None:
             self.status = status
 
@@ -102,6 +102,27 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
         """
 
         self._cen_id = cen_id
+
+    @property
+    def creation_time(self):
+        """Gets the creation_time of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
+
+
+        :return: The creation_time of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._creation_time
+
+    @creation_time.setter
+    def creation_time(self, creation_time):
+        """Sets the creation_time of this DescribeCenAttachedInstanceAttributesResponse.
+
+
+        :param creation_time: The creation_time of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._creation_time = creation_time
 
     @property
     def instance_id(self):
@@ -186,27 +207,6 @@ class DescribeCenAttachedInstanceAttributesResponse(object):
         """
 
         self._instance_type = instance_type
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
-
-
-        :return: The request_id of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this DescribeCenAttachedInstanceAttributesResponse.
-
-
-        :param request_id: The request_id of this DescribeCenAttachedInstanceAttributesResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     @property
     def status(self):

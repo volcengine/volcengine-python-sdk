@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -34,3 +33,6 @@ class EasyInputMessage(BaseModel):
 
     type: Optional[Literal["message"]] = None
     """The type of the message input. Always `message`."""
+
+    partial: Optional[bool] = None
+    """Whether or not to include partial assistant responses."""

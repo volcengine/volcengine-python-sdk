@@ -34,6 +34,7 @@ class BackgroundAudioForGetAITranslationProjectOutput(object):
     """
     swagger_types = {
         'duration_second': 'float',
+        'file_name': 'str',
         'is_audio': 'bool',
         'uri': 'str',
         'url': 'str',
@@ -42,19 +43,21 @@ class BackgroundAudioForGetAITranslationProjectOutput(object):
 
     attribute_map = {
         'duration_second': 'DurationSecond',
+        'file_name': 'FileName',
         'is_audio': 'IsAudio',
         'uri': 'Uri',
         'url': 'Url',
         'vid': 'Vid'
     }
 
-    def __init__(self, duration_second=None, is_audio=None, uri=None, url=None, vid=None, _configuration=None):  # noqa: E501
+    def __init__(self, duration_second=None, file_name=None, is_audio=None, uri=None, url=None, vid=None, _configuration=None):  # noqa: E501
         """BackgroundAudioForGetAITranslationProjectOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._duration_second = None
+        self._file_name = None
         self._is_audio = None
         self._uri = None
         self._url = None
@@ -63,6 +66,8 @@ class BackgroundAudioForGetAITranslationProjectOutput(object):
 
         if duration_second is not None:
             self.duration_second = duration_second
+        if file_name is not None:
+            self.file_name = file_name
         if is_audio is not None:
             self.is_audio = is_audio
         if uri is not None:
@@ -92,6 +97,27 @@ class BackgroundAudioForGetAITranslationProjectOutput(object):
         """
 
         self._duration_second = duration_second
+
+    @property
+    def file_name(self):
+        """Gets the file_name of this BackgroundAudioForGetAITranslationProjectOutput.  # noqa: E501
+
+
+        :return: The file_name of this BackgroundAudioForGetAITranslationProjectOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_name
+
+    @file_name.setter
+    def file_name(self, file_name):
+        """Sets the file_name of this BackgroundAudioForGetAITranslationProjectOutput.
+
+
+        :param file_name: The file_name of this BackgroundAudioForGetAITranslationProjectOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._file_name = file_name
 
     @property
     def is_audio(self):

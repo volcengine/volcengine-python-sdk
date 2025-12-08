@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -12,7 +11,7 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Optional
+from typing import Iterable
 from typing_extensions import Literal, Required, TypedDict
 
 __all__ = ["ResponseReasoningItemParam", "Summary"]
@@ -29,7 +28,6 @@ class Summary(TypedDict, total=False):
 
 
 class ResponseReasoningItemParam(TypedDict, total=False):
-
     summary: Required[Iterable[Summary]]
     """Reasoning text contents."""
 

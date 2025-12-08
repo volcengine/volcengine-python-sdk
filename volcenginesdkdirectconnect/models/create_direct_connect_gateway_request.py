@@ -33,34 +33,42 @@ class CreateDirectConnectGatewayRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'bgp_asn': 'int',
         'client_token': 'str',
         'description': 'str',
         'direct_connect_gateway_name': 'str',
         'enable_ipv6': 'bool',
+        'project_name': 'str',
         'tags': 'list[TagForCreateDirectConnectGatewayInput]'
     }
 
     attribute_map = {
+        'bgp_asn': 'BgpAsn',
         'client_token': 'ClientToken',
         'description': 'Description',
         'direct_connect_gateway_name': 'DirectConnectGatewayName',
         'enable_ipv6': 'EnableIpv6',
+        'project_name': 'ProjectName',
         'tags': 'Tags'
     }
 
-    def __init__(self, client_token=None, description=None, direct_connect_gateway_name=None, enable_ipv6=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, bgp_asn=None, client_token=None, description=None, direct_connect_gateway_name=None, enable_ipv6=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateDirectConnectGatewayRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._bgp_asn = None
         self._client_token = None
         self._description = None
         self._direct_connect_gateway_name = None
         self._enable_ipv6 = None
+        self._project_name = None
         self._tags = None
         self.discriminator = None
 
+        if bgp_asn is not None:
+            self.bgp_asn = bgp_asn
         if client_token is not None:
             self.client_token = client_token
         if description is not None:
@@ -69,8 +77,31 @@ class CreateDirectConnectGatewayRequest(object):
             self.direct_connect_gateway_name = direct_connect_gateway_name
         if enable_ipv6 is not None:
             self.enable_ipv6 = enable_ipv6
+        if project_name is not None:
+            self.project_name = project_name
         if tags is not None:
             self.tags = tags
+
+    @property
+    def bgp_asn(self):
+        """Gets the bgp_asn of this CreateDirectConnectGatewayRequest.  # noqa: E501
+
+
+        :return: The bgp_asn of this CreateDirectConnectGatewayRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._bgp_asn
+
+    @bgp_asn.setter
+    def bgp_asn(self, bgp_asn):
+        """Sets the bgp_asn of this CreateDirectConnectGatewayRequest.
+
+
+        :param bgp_asn: The bgp_asn of this CreateDirectConnectGatewayRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._bgp_asn = bgp_asn
 
     @property
     def client_token(self):
@@ -155,6 +186,27 @@ class CreateDirectConnectGatewayRequest(object):
         """
 
         self._enable_ipv6 = enable_ipv6
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateDirectConnectGatewayRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateDirectConnectGatewayRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateDirectConnectGatewayRequest.
+
+
+        :param project_name: The project_name of this CreateDirectConnectGatewayRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def tags(self):

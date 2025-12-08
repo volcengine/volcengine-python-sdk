@@ -33,23 +33,27 @@ class ListAwardConfigsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'activity_id': 'int'
+        'activity_id': 'int',
+        'all': 'int'
     }
 
     attribute_map = {
-        'activity_id': 'ActivityId'
+        'activity_id': 'ActivityId',
+        'all': 'All'
     }
 
-    def __init__(self, activity_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, all=None, _configuration=None):  # noqa: E501
         """ListAwardConfigsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._activity_id = None
+        self._all = None
         self.discriminator = None
 
         self.activity_id = activity_id
+        self.all = all
 
     @property
     def activity_id(self):
@@ -73,6 +77,29 @@ class ListAwardConfigsRequest(object):
             raise ValueError("Invalid value for `activity_id`, must not be `None`")  # noqa: E501
 
         self._activity_id = activity_id
+
+    @property
+    def all(self):
+        """Gets the all of this ListAwardConfigsRequest.  # noqa: E501
+
+
+        :return: The all of this ListAwardConfigsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._all
+
+    @all.setter
+    def all(self, all):
+        """Sets the all of this ListAwardConfigsRequest.
+
+
+        :param all: The all of this ListAwardConfigsRequest.  # noqa: E501
+        :type: int
+        """
+        if self._configuration.client_side_validation and all is None:
+            raise ValueError("Invalid value for `all`, must not be `None`")  # noqa: E501
+
+        self._all = all
 
     def to_dict(self):
         """Returns the model properties as a dict"""

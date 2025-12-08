@@ -38,6 +38,8 @@ class ListResourceReservationPlansRequest(object):
         'name_contains': 'str',
         'page_number': 'int',
         'page_size': 'int',
+        'project_name': 'str',
+        'reservation_types': 'list[str]',
         'sort_by': 'str',
         'sort_order': 'str',
         'states': 'list[str]'
@@ -49,12 +51,14 @@ class ListResourceReservationPlansRequest(object):
         'name_contains': 'NameContains',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
+        'project_name': 'ProjectName',
+        'reservation_types': 'ReservationTypes',
         'sort_by': 'SortBy',
         'sort_order': 'SortOrder',
         'states': 'States'
     }
 
-    def __init__(self, ids=None, name=None, name_contains=None, page_number=None, page_size=None, sort_by=None, sort_order=None, states=None, _configuration=None):  # noqa: E501
+    def __init__(self, ids=None, name=None, name_contains=None, page_number=None, page_size=None, project_name=None, reservation_types=None, sort_by=None, sort_order=None, states=None, _configuration=None):  # noqa: E501
         """ListResourceReservationPlansRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +69,8 @@ class ListResourceReservationPlansRequest(object):
         self._name_contains = None
         self._page_number = None
         self._page_size = None
+        self._project_name = None
+        self._reservation_types = None
         self._sort_by = None
         self._sort_order = None
         self._states = None
@@ -80,6 +86,10 @@ class ListResourceReservationPlansRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+        if project_name is not None:
+            self.project_name = project_name
+        if reservation_types is not None:
+            self.reservation_types = reservation_types
         if sort_by is not None:
             self.sort_by = sort_by
         if sort_order is not None:
@@ -197,6 +207,54 @@ class ListResourceReservationPlansRequest(object):
             raise ValueError("Invalid value for `page_size`, must be a value greater than or equal to `10`")  # noqa: E501
 
         self._page_size = page_size
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this ListResourceReservationPlansRequest.  # noqa: E501
+
+
+        :return: The project_name of this ListResourceReservationPlansRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ListResourceReservationPlansRequest.
+
+
+        :param project_name: The project_name of this ListResourceReservationPlansRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
+
+    @property
+    def reservation_types(self):
+        """Gets the reservation_types of this ListResourceReservationPlansRequest.  # noqa: E501
+
+
+        :return: The reservation_types of this ListResourceReservationPlansRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._reservation_types
+
+    @reservation_types.setter
+    def reservation_types(self, reservation_types):
+        """Sets the reservation_types of this ListResourceReservationPlansRequest.
+
+
+        :param reservation_types: The reservation_types of this ListResourceReservationPlansRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._reservation_types = reservation_types
 
     @property
     def sort_by(self):

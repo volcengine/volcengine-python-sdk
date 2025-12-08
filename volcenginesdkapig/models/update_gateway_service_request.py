@@ -35,18 +35,22 @@ class UpdateGatewayServiceRequest(object):
     swagger_types = {
         'auth_spec': 'AuthSpecForUpdateGatewayServiceInput',
         'comments': 'str',
+        'domain_spec': 'DomainSpecForUpdateGatewayServiceInput',
         'id': 'str',
-        'protocol': 'list[str]'
+        'protocol': 'list[str]',
+        'service_network_spec': 'ServiceNetworkSpecForUpdateGatewayServiceInput'
     }
 
     attribute_map = {
         'auth_spec': 'AuthSpec',
         'comments': 'Comments',
+        'domain_spec': 'DomainSpec',
         'id': 'Id',
-        'protocol': 'Protocol'
+        'protocol': 'Protocol',
+        'service_network_spec': 'ServiceNetworkSpec'
     }
 
-    def __init__(self, auth_spec=None, comments=None, id=None, protocol=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_spec=None, comments=None, domain_spec=None, id=None, protocol=None, service_network_spec=None, _configuration=None):  # noqa: E501
         """UpdateGatewayServiceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,17 +58,23 @@ class UpdateGatewayServiceRequest(object):
 
         self._auth_spec = None
         self._comments = None
+        self._domain_spec = None
         self._id = None
         self._protocol = None
+        self._service_network_spec = None
         self.discriminator = None
 
         if auth_spec is not None:
             self.auth_spec = auth_spec
         if comments is not None:
             self.comments = comments
+        if domain_spec is not None:
+            self.domain_spec = domain_spec
         self.id = id
         if protocol is not None:
             self.protocol = protocol
+        if service_network_spec is not None:
+            self.service_network_spec = service_network_spec
 
     @property
     def auth_spec(self):
@@ -109,6 +119,27 @@ class UpdateGatewayServiceRequest(object):
         self._comments = comments
 
     @property
+    def domain_spec(self):
+        """Gets the domain_spec of this UpdateGatewayServiceRequest.  # noqa: E501
+
+
+        :return: The domain_spec of this UpdateGatewayServiceRequest.  # noqa: E501
+        :rtype: DomainSpecForUpdateGatewayServiceInput
+        """
+        return self._domain_spec
+
+    @domain_spec.setter
+    def domain_spec(self, domain_spec):
+        """Sets the domain_spec of this UpdateGatewayServiceRequest.
+
+
+        :param domain_spec: The domain_spec of this UpdateGatewayServiceRequest.  # noqa: E501
+        :type: DomainSpecForUpdateGatewayServiceInput
+        """
+
+        self._domain_spec = domain_spec
+
+    @property
     def id(self):
         """Gets the id of this UpdateGatewayServiceRequest.  # noqa: E501
 
@@ -151,6 +182,27 @@ class UpdateGatewayServiceRequest(object):
         """
 
         self._protocol = protocol
+
+    @property
+    def service_network_spec(self):
+        """Gets the service_network_spec of this UpdateGatewayServiceRequest.  # noqa: E501
+
+
+        :return: The service_network_spec of this UpdateGatewayServiceRequest.  # noqa: E501
+        :rtype: ServiceNetworkSpecForUpdateGatewayServiceInput
+        """
+        return self._service_network_spec
+
+    @service_network_spec.setter
+    def service_network_spec(self, service_network_spec):
+        """Sets the service_network_spec of this UpdateGatewayServiceRequest.
+
+
+        :param service_network_spec: The service_network_spec of this UpdateGatewayServiceRequest.  # noqa: E501
+        :type: ServiceNetworkSpecForUpdateGatewayServiceInput
+        """
+
+        self._service_network_spec = service_network_spec
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,30 +33,45 @@ class AlarmPolicyForCreateScalingPolicyInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'condition': 'AlarmPolicyConditionForCreateScalingPolicyInput',
+        'condition': 'ConditionForCreateScalingPolicyInput',
+        'condition_operator': 'str',
+        'conditions': 'list[AlarmPolicyConditionForCreateScalingPolicyInput]',
+        'effective': 'str',
         'evaluation_count': 'int',
         'rule_type': 'str'
     }
 
     attribute_map = {
         'condition': 'Condition',
+        'condition_operator': 'ConditionOperator',
+        'conditions': 'Conditions',
+        'effective': 'Effective',
         'evaluation_count': 'EvaluationCount',
         'rule_type': 'RuleType'
     }
 
-    def __init__(self, condition=None, evaluation_count=None, rule_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, condition=None, condition_operator=None, conditions=None, effective=None, evaluation_count=None, rule_type=None, _configuration=None):  # noqa: E501
         """AlarmPolicyForCreateScalingPolicyInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._condition = None
+        self._condition_operator = None
+        self._conditions = None
+        self._effective = None
         self._evaluation_count = None
         self._rule_type = None
         self.discriminator = None
 
         if condition is not None:
             self.condition = condition
+        if condition_operator is not None:
+            self.condition_operator = condition_operator
+        if conditions is not None:
+            self.conditions = conditions
+        if effective is not None:
+            self.effective = effective
         if evaluation_count is not None:
             self.evaluation_count = evaluation_count
         if rule_type is not None:
@@ -68,7 +83,7 @@ class AlarmPolicyForCreateScalingPolicyInput(object):
 
 
         :return: The condition of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
-        :rtype: AlarmPolicyConditionForCreateScalingPolicyInput
+        :rtype: ConditionForCreateScalingPolicyInput
         """
         return self._condition
 
@@ -78,10 +93,73 @@ class AlarmPolicyForCreateScalingPolicyInput(object):
 
 
         :param condition: The condition of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
-        :type: AlarmPolicyConditionForCreateScalingPolicyInput
+        :type: ConditionForCreateScalingPolicyInput
         """
 
         self._condition = condition
+
+    @property
+    def condition_operator(self):
+        """Gets the condition_operator of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+
+
+        :return: The condition_operator of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._condition_operator
+
+    @condition_operator.setter
+    def condition_operator(self, condition_operator):
+        """Sets the condition_operator of this AlarmPolicyForCreateScalingPolicyInput.
+
+
+        :param condition_operator: The condition_operator of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+        :type: str
+        """
+
+        self._condition_operator = condition_operator
+
+    @property
+    def conditions(self):
+        """Gets the conditions of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+
+
+        :return: The conditions of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+        :rtype: list[AlarmPolicyConditionForCreateScalingPolicyInput]
+        """
+        return self._conditions
+
+    @conditions.setter
+    def conditions(self, conditions):
+        """Sets the conditions of this AlarmPolicyForCreateScalingPolicyInput.
+
+
+        :param conditions: The conditions of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+        :type: list[AlarmPolicyConditionForCreateScalingPolicyInput]
+        """
+
+        self._conditions = conditions
+
+    @property
+    def effective(self):
+        """Gets the effective of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+
+
+        :return: The effective of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._effective
+
+    @effective.setter
+    def effective(self, effective):
+        """Sets the effective of this AlarmPolicyForCreateScalingPolicyInput.
+
+
+        :param effective: The effective of this AlarmPolicyForCreateScalingPolicyInput.  # noqa: E501
+        :type: str
+        """
+
+        self._effective = effective
 
     @property
     def evaluation_count(self):

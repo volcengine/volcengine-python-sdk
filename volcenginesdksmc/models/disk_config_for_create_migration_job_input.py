@@ -33,28 +33,59 @@ class DiskConfigForCreateMigrationJobInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'destination_disk_size': 'int',
         'disk_index': 'int',
-        'disk_size': 'int'
+        'disk_size': 'int',
+        'partitions': 'list[DiskConfigsPartitionForCreateMigrationJobInput]'
     }
 
     attribute_map = {
+        'destination_disk_size': 'DestinationDiskSize',
         'disk_index': 'DiskIndex',
-        'disk_size': 'DiskSize'
+        'disk_size': 'DiskSize',
+        'partitions': 'Partitions'
     }
 
-    def __init__(self, disk_index=None, disk_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination_disk_size=None, disk_index=None, disk_size=None, partitions=None, _configuration=None):  # noqa: E501
         """DiskConfigForCreateMigrationJobInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._destination_disk_size = None
         self._disk_index = None
         self._disk_size = None
+        self._partitions = None
         self.discriminator = None
 
+        if destination_disk_size is not None:
+            self.destination_disk_size = destination_disk_size
         self.disk_index = disk_index
         if disk_size is not None:
             self.disk_size = disk_size
+        if partitions is not None:
+            self.partitions = partitions
+
+    @property
+    def destination_disk_size(self):
+        """Gets the destination_disk_size of this DiskConfigForCreateMigrationJobInput.  # noqa: E501
+
+
+        :return: The destination_disk_size of this DiskConfigForCreateMigrationJobInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._destination_disk_size
+
+    @destination_disk_size.setter
+    def destination_disk_size(self, destination_disk_size):
+        """Sets the destination_disk_size of this DiskConfigForCreateMigrationJobInput.
+
+
+        :param destination_disk_size: The destination_disk_size of this DiskConfigForCreateMigrationJobInput.  # noqa: E501
+        :type: int
+        """
+
+        self._destination_disk_size = destination_disk_size
 
     @property
     def disk_index(self):
@@ -99,6 +130,27 @@ class DiskConfigForCreateMigrationJobInput(object):
         """
 
         self._disk_size = disk_size
+
+    @property
+    def partitions(self):
+        """Gets the partitions of this DiskConfigForCreateMigrationJobInput.  # noqa: E501
+
+
+        :return: The partitions of this DiskConfigForCreateMigrationJobInput.  # noqa: E501
+        :rtype: list[DiskConfigsPartitionForCreateMigrationJobInput]
+        """
+        return self._partitions
+
+    @partitions.setter
+    def partitions(self, partitions):
+        """Sets the partitions of this DiskConfigForCreateMigrationJobInput.
+
+
+        :param partitions: The partitions of this DiskConfigForCreateMigrationJobInput.  # noqa: E501
+        :type: list[DiskConfigsPartitionForCreateMigrationJobInput]
+        """
+
+        self._partitions = partitions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

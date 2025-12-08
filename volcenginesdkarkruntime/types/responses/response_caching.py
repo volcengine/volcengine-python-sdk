@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -11,15 +10,16 @@
 # This modified file is released under the same license.
 
 from typing import Optional
+
 from typing_extensions import Literal
 
-from pydantic import BaseModel
+from ..._models import BaseModel
 
 __all__ = ["ResponseCaching"]
 
 
 class ResponseCaching(BaseModel):
-    type: Optional[Literal["enabled", "disabled"]]
-    """
-    Whether to enable caching.
-    """
+    type: Optional[Literal["disabled", "enabled"]] = None
+    """Whether to enable caching."""
+
+    prefix: Optional[bool] = None

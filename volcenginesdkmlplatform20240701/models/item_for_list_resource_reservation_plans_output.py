@@ -35,32 +35,40 @@ class ItemForListResourceReservationPlansOutput(object):
     swagger_types = {
         'create_time': 'str',
         'creator_trn': 'str',
+        'custom_compute_resource': 'list[CustomComputeResourceForListResourceReservationPlansOutput]',
         'description': 'str',
         'desired_compute_resource': 'DesiredComputeResourceForListResourceReservationPlansOutput',
         'id': 'str',
         'name': 'str',
+        'project_name': 'str',
         'reservation_config': 'ReservationConfigForListResourceReservationPlansOutput',
+        'schedule_config': 'ScheduleConfigForListResourceReservationPlansOutput',
         'status': 'StatusForListResourceReservationPlansOutput',
         'storage_config': 'StorageConfigForListResourceReservationPlansOutput',
         'update_time': 'str',
-        'workload_network_config': 'WorkloadNetworkConfigForListResourceReservationPlansOutput'
+        'workload_network_config': 'WorkloadNetworkConfigForListResourceReservationPlansOutput',
+        'workload_network_mode': 'str'
     }
 
     attribute_map = {
         'create_time': 'CreateTime',
         'creator_trn': 'CreatorTrn',
+        'custom_compute_resource': 'CustomComputeResource',
         'description': 'Description',
         'desired_compute_resource': 'DesiredComputeResource',
         'id': 'Id',
         'name': 'Name',
+        'project_name': 'ProjectName',
         'reservation_config': 'ReservationConfig',
+        'schedule_config': 'ScheduleConfig',
         'status': 'Status',
         'storage_config': 'StorageConfig',
         'update_time': 'UpdateTime',
-        'workload_network_config': 'WorkloadNetworkConfig'
+        'workload_network_config': 'WorkloadNetworkConfig',
+        'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, create_time=None, creator_trn=None, description=None, desired_compute_resource=None, id=None, name=None, reservation_config=None, status=None, storage_config=None, update_time=None, workload_network_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, creator_trn=None, custom_compute_resource=None, description=None, desired_compute_resource=None, id=None, name=None, project_name=None, reservation_config=None, schedule_config=None, status=None, storage_config=None, update_time=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """ItemForListResourceReservationPlansOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,21 +76,27 @@ class ItemForListResourceReservationPlansOutput(object):
 
         self._create_time = None
         self._creator_trn = None
+        self._custom_compute_resource = None
         self._description = None
         self._desired_compute_resource = None
         self._id = None
         self._name = None
+        self._project_name = None
         self._reservation_config = None
+        self._schedule_config = None
         self._status = None
         self._storage_config = None
         self._update_time = None
         self._workload_network_config = None
+        self._workload_network_mode = None
         self.discriminator = None
 
         if create_time is not None:
             self.create_time = create_time
         if creator_trn is not None:
             self.creator_trn = creator_trn
+        if custom_compute_resource is not None:
+            self.custom_compute_resource = custom_compute_resource
         if description is not None:
             self.description = description
         if desired_compute_resource is not None:
@@ -91,8 +105,12 @@ class ItemForListResourceReservationPlansOutput(object):
             self.id = id
         if name is not None:
             self.name = name
+        if project_name is not None:
+            self.project_name = project_name
         if reservation_config is not None:
             self.reservation_config = reservation_config
+        if schedule_config is not None:
+            self.schedule_config = schedule_config
         if status is not None:
             self.status = status
         if storage_config is not None:
@@ -101,6 +119,8 @@ class ItemForListResourceReservationPlansOutput(object):
             self.update_time = update_time
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
+        if workload_network_mode is not None:
+            self.workload_network_mode = workload_network_mode
 
     @property
     def create_time(self):
@@ -143,6 +163,27 @@ class ItemForListResourceReservationPlansOutput(object):
         """
 
         self._creator_trn = creator_trn
+
+    @property
+    def custom_compute_resource(self):
+        """Gets the custom_compute_resource of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+
+
+        :return: The custom_compute_resource of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :rtype: list[CustomComputeResourceForListResourceReservationPlansOutput]
+        """
+        return self._custom_compute_resource
+
+    @custom_compute_resource.setter
+    def custom_compute_resource(self, custom_compute_resource):
+        """Sets the custom_compute_resource of this ItemForListResourceReservationPlansOutput.
+
+
+        :param custom_compute_resource: The custom_compute_resource of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :type: list[CustomComputeResourceForListResourceReservationPlansOutput]
+        """
+
+        self._custom_compute_resource = custom_compute_resource
 
     @property
     def description(self):
@@ -229,6 +270,27 @@ class ItemForListResourceReservationPlansOutput(object):
         self._name = name
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+
+
+        :return: The project_name of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ItemForListResourceReservationPlansOutput.
+
+
+        :param project_name: The project_name of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def reservation_config(self):
         """Gets the reservation_config of this ItemForListResourceReservationPlansOutput.  # noqa: E501
 
@@ -248,6 +310,27 @@ class ItemForListResourceReservationPlansOutput(object):
         """
 
         self._reservation_config = reservation_config
+
+    @property
+    def schedule_config(self):
+        """Gets the schedule_config of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+
+
+        :return: The schedule_config of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :rtype: ScheduleConfigForListResourceReservationPlansOutput
+        """
+        return self._schedule_config
+
+    @schedule_config.setter
+    def schedule_config(self, schedule_config):
+        """Sets the schedule_config of this ItemForListResourceReservationPlansOutput.
+
+
+        :param schedule_config: The schedule_config of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :type: ScheduleConfigForListResourceReservationPlansOutput
+        """
+
+        self._schedule_config = schedule_config
 
     @property
     def status(self):
@@ -332,6 +415,27 @@ class ItemForListResourceReservationPlansOutput(object):
         """
 
         self._workload_network_config = workload_network_config
+
+    @property
+    def workload_network_mode(self):
+        """Gets the workload_network_mode of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+
+
+        :return: The workload_network_mode of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_network_mode
+
+    @workload_network_mode.setter
+    def workload_network_mode(self, workload_network_mode):
+        """Sets the workload_network_mode of this ItemForListResourceReservationPlansOutput.
+
+
+        :param workload_network_mode: The workload_network_mode of this ItemForListResourceReservationPlansOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_network_mode = workload_network_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

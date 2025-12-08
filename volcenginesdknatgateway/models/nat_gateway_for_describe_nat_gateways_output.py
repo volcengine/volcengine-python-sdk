@@ -38,6 +38,7 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'creation_time': 'str',
         'deleted_time': 'str',
         'description': 'str',
+        'direct_mode': 'bool',
         'dnat_entry_ids': 'list[str]',
         'eip_addresses': 'list[EipAddressForDescribeNatGatewaysOutput]',
         'expired_time': 'str',
@@ -48,6 +49,8 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'network_type': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
+        'smart_schedule_enabled': 'bool',
+        'smart_schedule_rule': 'str',
         'snat_entry_ids': 'list[str]',
         'spec': 'str',
         'status': 'str',
@@ -64,6 +67,7 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'creation_time': 'CreationTime',
         'deleted_time': 'DeletedTime',
         'description': 'Description',
+        'direct_mode': 'DirectMode',
         'dnat_entry_ids': 'DnatEntryIds',
         'eip_addresses': 'EipAddresses',
         'expired_time': 'ExpiredTime',
@@ -74,6 +78,8 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'network_type': 'NetworkType',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
+        'smart_schedule_enabled': 'SmartScheduleEnabled',
+        'smart_schedule_rule': 'SmartScheduleRule',
         'snat_entry_ids': 'SnatEntryIds',
         'spec': 'Spec',
         'status': 'Status',
@@ -84,7 +90,7 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, dnat_entry_ids=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, network_type=None, overdue_time=None, project_name=None, snat_entry_ids=None, spec=None, status=None, subnet_id=None, tags=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, billing_type=None, business_status=None, creation_time=None, deleted_time=None, description=None, direct_mode=None, dnat_entry_ids=None, eip_addresses=None, expired_time=None, lock_reason=None, nat_gateway_id=None, nat_gateway_name=None, network_interface_id=None, network_type=None, overdue_time=None, project_name=None, smart_schedule_enabled=None, smart_schedule_rule=None, snat_entry_ids=None, spec=None, status=None, subnet_id=None, tags=None, updated_at=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """NatGatewayForDescribeNatGatewaysOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -95,6 +101,7 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         self._creation_time = None
         self._deleted_time = None
         self._description = None
+        self._direct_mode = None
         self._dnat_entry_ids = None
         self._eip_addresses = None
         self._expired_time = None
@@ -105,6 +112,8 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         self._network_type = None
         self._overdue_time = None
         self._project_name = None
+        self._smart_schedule_enabled = None
+        self._smart_schedule_rule = None
         self._snat_entry_ids = None
         self._spec = None
         self._status = None
@@ -125,6 +134,8 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
             self.deleted_time = deleted_time
         if description is not None:
             self.description = description
+        if direct_mode is not None:
+            self.direct_mode = direct_mode
         if dnat_entry_ids is not None:
             self.dnat_entry_ids = dnat_entry_ids
         if eip_addresses is not None:
@@ -145,6 +156,10 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
             self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
+        if smart_schedule_enabled is not None:
+            self.smart_schedule_enabled = smart_schedule_enabled
+        if smart_schedule_rule is not None:
+            self.smart_schedule_rule = smart_schedule_rule
         if snat_entry_ids is not None:
             self.snat_entry_ids = snat_entry_ids
         if spec is not None:
@@ -266,6 +281,27 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         """
 
         self._description = description
+
+    @property
+    def direct_mode(self):
+        """Gets the direct_mode of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+
+
+        :return: The direct_mode of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._direct_mode
+
+    @direct_mode.setter
+    def direct_mode(self, direct_mode):
+        """Sets the direct_mode of this NatGatewayForDescribeNatGatewaysOutput.
+
+
+        :param direct_mode: The direct_mode of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._direct_mode = direct_mode
 
     @property
     def dnat_entry_ids(self):
@@ -476,6 +512,48 @@ class NatGatewayForDescribeNatGatewaysOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def smart_schedule_enabled(self):
+        """Gets the smart_schedule_enabled of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+
+
+        :return: The smart_schedule_enabled of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._smart_schedule_enabled
+
+    @smart_schedule_enabled.setter
+    def smart_schedule_enabled(self, smart_schedule_enabled):
+        """Sets the smart_schedule_enabled of this NatGatewayForDescribeNatGatewaysOutput.
+
+
+        :param smart_schedule_enabled: The smart_schedule_enabled of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._smart_schedule_enabled = smart_schedule_enabled
+
+    @property
+    def smart_schedule_rule(self):
+        """Gets the smart_schedule_rule of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+
+
+        :return: The smart_schedule_rule of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._smart_schedule_rule
+
+    @smart_schedule_rule.setter
+    def smart_schedule_rule(self, smart_schedule_rule):
+        """Sets the smart_schedule_rule of this NatGatewayForDescribeNatGatewaysOutput.
+
+
+        :param smart_schedule_rule: The smart_schedule_rule of this NatGatewayForDescribeNatGatewaysOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._smart_schedule_rule = smart_schedule_rule
 
     @property
     def snat_entry_ids(self):

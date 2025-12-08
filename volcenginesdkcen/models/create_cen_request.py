@@ -132,6 +132,9 @@ class CreateCenRequest(object):
         :param description: The description of this CreateCenRequest.  # noqa: E501
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 255):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `255`")  # noqa: E501
 
         self._description = description
 

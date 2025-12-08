@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -38,11 +37,13 @@ from ._constants import (
     _DEFAULT_MANDATORY_REFRESH_TIMEOUT,
     _DEFAULT_STS_TIMEOUT,
     _DEFAULT_RESOURCE_TYPE,
+    _PRESETENDPOINT_RESOURCE_TYPE,
     DEFAULT_TIMEOUT,
+    _BOT_RESOURCE_TYPE,
 )
 from ._streaming import Stream
 
-from ._utils._key_agreement import key_agreement_client
+from ._utils._key_agreement import key_agreement_client, get_cert_info
 from ._utils._model_breaker import ModelBreaker
 
 __all__ = ["Ark", "AsyncArk"]
@@ -65,6 +66,7 @@ class Ark(SyncAPIClient):
     batch: batch.Batch
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: threading.Lock
+    files: resources.Files
 
     def __init__(
         self,
@@ -134,16 +136,22 @@ class Ark(SyncAPIClient):
         self.batch = batch.Batch(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = threading.Lock()
+        self.files = resources.Files(self)
         # self.classification = resources.Classification(self)
 
-    def _get_endpoint_sts_token(self, endpoint_id: str):
+    def _get_endpoint_sts_token(self, endpoint_id: str, project_name: str = None):
         if self._sts_token_manager is None:
             if self.ak is None or self.sk is None:
                 raise ArkAPIError("must set ak and sk before get endpoint token.")
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
-        return self._sts_token_manager.get(endpoint_id)
+        resource_type: str = self.get_resource_type_by_endpoint_id(endpoint_id)
+        if resource_type == _PRESETENDPOINT_RESOURCE_TYPE and (project_name is None or project_name.strip() == ""):
+            raise ArkAPIError("must set project_name when get preset endpoint token.")
+        return self._sts_token_manager.get(endpoint_id, resource_type=resource_type, project_name=project_name)
 
-    def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
+    def _get_endpoint_certificate(
+        self, endpoint_id: str
+    ) -> Tuple[key_agreement_client, str, str, float]:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (
@@ -176,6 +184,16 @@ class Ark(SyncAPIClient):
         with self.model_breaker_lock:
             return self.model_breaker_map[model_name]
 
+    def get_resource_type_by_endpoint_id(self, endpoint_id: str) -> str:
+        if endpoint_id.startswith("ep-m-"):
+            return _PRESETENDPOINT_RESOURCE_TYPE
+        if endpoint_id.startswith("ep-"):
+            return _DEFAULT_RESOURCE_TYPE
+        if endpoint_id.startswith("bot-"):
+            return _BOT_RESOURCE_TYPE
+        # for model id, default to preset endpoint
+        return _PRESETENDPOINT_RESOURCE_TYPE
+
 
 class AsyncArk(AsyncAPIClient):
     beta: beta.AsyncBeta
@@ -194,6 +212,7 @@ class AsyncArk(AsyncAPIClient):
     batch: batch.AsyncBatch
     model_breaker_map: dict[str, ModelBreaker]
     model_breaker_lock: asyncio.Lock
+    files: resources.AsyncFiles
 
     def __init__(
         self,
@@ -263,6 +282,7 @@ class AsyncArk(AsyncAPIClient):
         self.batch = batch.AsyncBatch(self)
         self.model_breaker_map = defaultdict(ModelBreaker)
         self.model_breaker_lock = asyncio.Lock()
+        self.files = resources.AsyncFiles(self)
         # self.classification = resources.AsyncClassification(self)
 
     def _get_endpoint_sts_token(self, endpoint_id: str):
@@ -279,7 +299,9 @@ class AsyncArk(AsyncAPIClient):
             self._sts_token_manager = StsTokenManager(self.ak, self.sk, self.region)
         return self._sts_token_manager.get(bot_id, resource_type="bot")
 
-    def _get_endpoint_certificate(self, endpoint_id: str) -> key_agreement_client:
+    def _get_endpoint_certificate(
+        self, endpoint_id: str
+    ) -> Tuple[key_agreement_client, str, str, float]:
         if self._certificate_manager is None:
             cert_path = os.environ.get("E2E_CERTIFICATE_PATH")
             if (
@@ -343,6 +365,7 @@ class StsTokenManager(object):
         ttl: int = _DEFAULT_STS_TIMEOUT,
         is_mandatory: bool = False,
         resource_type: str = _DEFAULT_RESOURCE_TYPE,
+        project_name: str = None,
     ):
         if ttl < self._advisory_refresh_timeout * 2:
             raise ArkAPIError(
@@ -353,7 +376,7 @@ class StsTokenManager(object):
 
         try:
             api_key, expired_time = self._load_api_key(
-                ep, ttl, resource_type=resource_type
+                ep, ttl, resource_type=resource_type, project_name=project_name
             )
             self._endpoint_sts_tokens[ep] = (api_key, expired_time)
         except ApiException as e:
@@ -362,7 +385,7 @@ class StsTokenManager(object):
             else:
                 logging.error("load api key cause error: e={}".format(e))
 
-    def _refresh(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE):
+    def _refresh(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE, project_name: str = None):
         if not self._need_refresh(ep, self._advisory_refresh_timeout):
             return
 
@@ -376,7 +399,7 @@ class StsTokenManager(object):
                 )
 
                 self._protected_refresh(
-                    ep, is_mandatory=is_mandatory_refresh, resource_type=resource_type
+                    ep, is_mandatory=is_mandatory_refresh, resource_type=resource_type, project_name=project_name
                 )
                 return
             finally:
@@ -387,11 +410,11 @@ class StsTokenManager(object):
                     return
 
                 self._protected_refresh(
-                    ep, is_mandatory=True, resource_type=resource_type
+                    ep, is_mandatory=True, resource_type=resource_type, project_name=project_name
                 )
 
-    def get(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE) -> str:
-        self._refresh(ep, resource_type=resource_type)
+    def get(self, ep: str, resource_type: str = _DEFAULT_RESOURCE_TYPE, project_name: str = None) -> str:
+        self._refresh(ep, resource_type=resource_type, project_name=project_name)
         return self._endpoint_sts_tokens[ep][0]
 
     def _load_api_key(
@@ -399,12 +422,15 @@ class StsTokenManager(object):
         ep: str,
         duration_seconds: int,
         resource_type: str = _DEFAULT_RESOURCE_TYPE,
+        project_name: str = None,
     ) -> Tuple[str, int]:
         get_api_key_request = volcenginesdkark.GetApiKeyRequest(
             duration_seconds=duration_seconds,
             resource_type=resource_type,
             resource_ids=[ep],
         )
+        if project_name is not None and project_name.strip() != "":
+            get_api_key_request.project_name = project_name
         resp: volcenginesdkark.GetApiKeyResponse = self.api_instance.get_api_key(
             get_api_key_request
         )
@@ -429,7 +455,9 @@ class E2ECertificateManager(object):
         base_url: str | URL = BASE_URL,
         api_key: str | None = None,
     ):
-        self._certificate_manager: Dict[str, key_agreement_client] = {}
+        self._certificate_manager: Dict[
+            str, Tuple[key_agreement_client, str, str, float]
+        ] = {}
 
         # local cache prepare
         self._init_local_cert_cache()
@@ -460,6 +488,10 @@ class E2ECertificateManager(object):
         self._e2e_uri = "/e2e/get/certificate"
         self._x_session_token = {"X-Session-Token": self._e2e_uri}
 
+        self._aicc_enabled = False
+        if os.environ.get("VOLC_ARK_ENCRYPTION") == "AICC":
+            self._aicc_enabled = True
+
     def _load_cert_by_cert_path(self) -> str:
         with open(self.cert_path, "r") as f:
             cert_pem = f.read()
@@ -469,6 +501,10 @@ class E2ECertificateManager(object):
         get_endpoint_certificate_request = (
             volcenginesdkark.GetEndpointCertificateRequest(id=ep)
         )
+        if self._aicc_enabled:
+            get_endpoint_certificate_request = (
+                volcenginesdkark.GetEndpointCertificateRequest(id=ep, type="AICCv0.1")
+            )
         try:
             resp: volcenginesdkark.GetEndpointCertificateResponse = (
                 self.api_instance.get_endpoint_certificate(
@@ -484,10 +520,13 @@ class E2ECertificateManager(object):
 
     def _sync_load_cert_by_auth(self, ep: str) -> str:
         try:  # try to make request with session header (used for header statistic)
+            req_body = {"model": ep}
+            if self._aicc_enabled:
+                req_body["type"] = "AICCv0.1"
             resp = self.client.post(
                 self._e2e_uri,
                 options={"headers": self._x_session_token},
-                body={"model": ep},
+                body=req_body,
                 cast_to=CertificateResponse,
             )
         except Exception as e:
@@ -508,10 +547,16 @@ class E2ECertificateManager(object):
             current_time = time.time()
             time_difference = current_time - last_modified_time
             if time_difference <= self._cert_expiration_seconds:
+                cert_pem = None
                 with open(cert_file_path, "r") as f:
-                    return f.read()
-            else:
-                os.remove(cert_file_path)
+                    cert_pem = f.read()
+                ring, key, _ = get_cert_info(cert_pem)
+                # check cert is complement with AICC/PCA
+                if (ring == "" or key == "") and not self._aicc_enabled:
+                    return cert_pem
+                if ring != "" and key != "" and self._aicc_enabled:
+                    return cert_pem
+            os.remove(cert_file_path)
         return None
 
     def _init_local_cert_cache(self):
@@ -525,10 +570,11 @@ class E2ECertificateManager(object):
                 pass
             except Exception as e:
                 raise ArkAPIError(
-                    "failed to create certificate directory %s: %s\n" % (self._cert_storage_path, e)
+                    "failed to create certificate directory %s: %s\n"
+                    % (self._cert_storage_path, e)
                 )
 
-    def get(self, ep: str) -> key_agreement_client:
+    def get(self, ep: str) -> Tuple[key_agreement_client, str, str, float]:
         if ep not in self._certificate_manager:
             cert_pem = self._load_cert_locally(ep)
             if cert_pem is None:
@@ -539,7 +585,11 @@ class E2ECertificateManager(object):
                 else:
                     cert_pem = self._load_cert_by_ak_sk(ep)
                 self._save_cert_to_file(ep, cert_pem)
-            self._certificate_manager[ep] = key_agreement_client(
-                certificate_pem_string=cert_pem
+            ring, key, exp_time = get_cert_info(cert_pem)
+            self._certificate_manager[ep] = (
+                key_agreement_client(certificate_pem_string=cert_pem),
+                ring,
+                key,
+                exp_time,
             )
         return self._certificate_manager[ep]

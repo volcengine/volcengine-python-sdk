@@ -38,6 +38,7 @@ class ModifyListenerAttributesRequest(object):
         'acl_status': 'str',
         'acl_type': 'str',
         'ca_certificate_id': 'str',
+        'ca_certificate_source': 'str',
         'cert_center_certificate_id': 'str',
         'certificate_id': 'str',
         'certificate_source': 'str',
@@ -50,6 +51,9 @@ class ModifyListenerAttributesRequest(object):
         'enabled': 'str',
         'listener_id': 'str',
         'listener_name': 'str',
+        'pca_leaf_certificate_id': 'str',
+        'pca_root_ca_certificate_id': 'str',
+        'pca_sub_ca_certificate_id': 'str',
         'proxy_protocol_disabled': 'str',
         'server_group_id': 'str'
     }
@@ -60,6 +64,7 @@ class ModifyListenerAttributesRequest(object):
         'acl_status': 'AclStatus',
         'acl_type': 'AclType',
         'ca_certificate_id': 'CACertificateId',
+        'ca_certificate_source': 'CACertificateSource',
         'cert_center_certificate_id': 'CertCenterCertificateId',
         'certificate_id': 'CertificateId',
         'certificate_source': 'CertificateSource',
@@ -72,11 +77,14 @@ class ModifyListenerAttributesRequest(object):
         'enabled': 'Enabled',
         'listener_id': 'ListenerId',
         'listener_name': 'ListenerName',
+        'pca_leaf_certificate_id': 'PcaLeafCertificateId',
+        'pca_root_ca_certificate_id': 'PcaRootCACertificateId',
+        'pca_sub_ca_certificate_id': 'PcaSubCACertificateId',
         'proxy_protocol_disabled': 'ProxyProtocolDisabled',
         'server_group_id': 'ServerGroupId'
     }
 
-    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_log_record_customized_headers_enabled=None, acl_ids=None, acl_status=None, acl_type=None, ca_certificate_id=None, ca_certificate_source=None, cert_center_certificate_id=None, certificate_id=None, certificate_source=None, client_address_transmission_protocol=None, customized_cfg_id=None, description=None, domain_extensions=None, enable_http2=None, enable_quic=None, enabled=None, listener_id=None, listener_name=None, pca_leaf_certificate_id=None, pca_root_ca_certificate_id=None, pca_sub_ca_certificate_id=None, proxy_protocol_disabled=None, server_group_id=None, _configuration=None):  # noqa: E501
         """ModifyListenerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -87,6 +95,7 @@ class ModifyListenerAttributesRequest(object):
         self._acl_status = None
         self._acl_type = None
         self._ca_certificate_id = None
+        self._ca_certificate_source = None
         self._cert_center_certificate_id = None
         self._certificate_id = None
         self._certificate_source = None
@@ -99,6 +108,9 @@ class ModifyListenerAttributesRequest(object):
         self._enabled = None
         self._listener_id = None
         self._listener_name = None
+        self._pca_leaf_certificate_id = None
+        self._pca_root_ca_certificate_id = None
+        self._pca_sub_ca_certificate_id = None
         self._proxy_protocol_disabled = None
         self._server_group_id = None
         self.discriminator = None
@@ -113,6 +125,8 @@ class ModifyListenerAttributesRequest(object):
             self.acl_type = acl_type
         if ca_certificate_id is not None:
             self.ca_certificate_id = ca_certificate_id
+        if ca_certificate_source is not None:
+            self.ca_certificate_source = ca_certificate_source
         if cert_center_certificate_id is not None:
             self.cert_center_certificate_id = cert_center_certificate_id
         if certificate_id is not None:
@@ -136,6 +150,12 @@ class ModifyListenerAttributesRequest(object):
         self.listener_id = listener_id
         if listener_name is not None:
             self.listener_name = listener_name
+        if pca_leaf_certificate_id is not None:
+            self.pca_leaf_certificate_id = pca_leaf_certificate_id
+        if pca_root_ca_certificate_id is not None:
+            self.pca_root_ca_certificate_id = pca_root_ca_certificate_id
+        if pca_sub_ca_certificate_id is not None:
+            self.pca_sub_ca_certificate_id = pca_sub_ca_certificate_id
         if proxy_protocol_disabled is not None:
             self.proxy_protocol_disabled = proxy_protocol_disabled
         if server_group_id is not None:
@@ -245,6 +265,27 @@ class ModifyListenerAttributesRequest(object):
         """
 
         self._ca_certificate_id = ca_certificate_id
+
+    @property
+    def ca_certificate_source(self):
+        """Gets the ca_certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The ca_certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ca_certificate_source
+
+    @ca_certificate_source.setter
+    def ca_certificate_source(self, ca_certificate_source):
+        """Sets the ca_certificate_source of this ModifyListenerAttributesRequest.
+
+
+        :param ca_certificate_source: The ca_certificate_source of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ca_certificate_source = ca_certificate_source
 
     @property
     def cert_center_certificate_id(self):
@@ -505,6 +546,69 @@ class ModifyListenerAttributesRequest(object):
             raise ValueError("Invalid value for `listener_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._listener_name = listener_name
+
+    @property
+    def pca_leaf_certificate_id(self):
+        """Gets the pca_leaf_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The pca_leaf_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_leaf_certificate_id
+
+    @pca_leaf_certificate_id.setter
+    def pca_leaf_certificate_id(self, pca_leaf_certificate_id):
+        """Sets the pca_leaf_certificate_id of this ModifyListenerAttributesRequest.
+
+
+        :param pca_leaf_certificate_id: The pca_leaf_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_leaf_certificate_id = pca_leaf_certificate_id
+
+    @property
+    def pca_root_ca_certificate_id(self):
+        """Gets the pca_root_ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The pca_root_ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_root_ca_certificate_id
+
+    @pca_root_ca_certificate_id.setter
+    def pca_root_ca_certificate_id(self, pca_root_ca_certificate_id):
+        """Sets the pca_root_ca_certificate_id of this ModifyListenerAttributesRequest.
+
+
+        :param pca_root_ca_certificate_id: The pca_root_ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_root_ca_certificate_id = pca_root_ca_certificate_id
+
+    @property
+    def pca_sub_ca_certificate_id(self):
+        """Gets the pca_sub_ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+
+
+        :return: The pca_sub_ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._pca_sub_ca_certificate_id
+
+    @pca_sub_ca_certificate_id.setter
+    def pca_sub_ca_certificate_id(self, pca_sub_ca_certificate_id):
+        """Sets the pca_sub_ca_certificate_id of this ModifyListenerAttributesRequest.
+
+
+        :param pca_sub_ca_certificate_id: The pca_sub_ca_certificate_id of this ModifyListenerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._pca_sub_ca_certificate_id = pca_sub_ca_certificate_id
 
     @property
     def proxy_protocol_disabled(self):

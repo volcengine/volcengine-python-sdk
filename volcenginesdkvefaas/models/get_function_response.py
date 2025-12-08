@@ -33,12 +33,15 @@ class GetFunctionResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_config': 'AsyncTaskConfigForGetFunctionOutput',
         'code_size': 'int',
         'code_size_limit': 'int',
         'command': 'str',
+        'cpu': 'int',
         'cpu_strategy': 'str',
         'creation_time': 'str',
         'description': 'str',
+        'enable_apmplus': 'bool',
         'envs': 'list[EnvForGetFunctionOutput]',
         'exclusive_mode': 'bool',
         'id': 'str',
@@ -65,12 +68,15 @@ class GetFunctionResponse(object):
     }
 
     attribute_map = {
+        'async_task_config': 'AsyncTaskConfig',
         'code_size': 'CodeSize',
         'code_size_limit': 'CodeSizeLimit',
         'command': 'Command',
+        'cpu': 'Cpu',
         'cpu_strategy': 'CpuStrategy',
         'creation_time': 'CreationTime',
         'description': 'Description',
+        'enable_apmplus': 'EnableApmplus',
         'envs': 'Envs',
         'exclusive_mode': 'ExclusiveMode',
         'id': 'Id',
@@ -96,18 +102,21 @@ class GetFunctionResponse(object):
         'vpc_config': 'VpcConfig'
     }
 
-    def __init__(self, code_size=None, code_size_limit=None, command=None, cpu_strategy=None, creation_time=None, description=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_config=None, code_size=None, code_size_limit=None, command=None, cpu=None, cpu_strategy=None, creation_time=None, description=None, enable_apmplus=None, envs=None, exclusive_mode=None, id=None, initializer_sec=None, instance_type=None, last_update_time=None, max_concurrency=None, memory_mb=None, name=None, nas_storage=None, owner=None, port=None, project_name=None, request_timeout=None, role=None, runtime=None, source=None, source_location=None, source_type=None, tls_config=None, tos_mount_config=None, triggers_count=None, vpc_config=None, _configuration=None):  # noqa: E501
         """GetFunctionResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_config = None
         self._code_size = None
         self._code_size_limit = None
         self._command = None
+        self._cpu = None
         self._cpu_strategy = None
         self._creation_time = None
         self._description = None
+        self._enable_apmplus = None
         self._envs = None
         self._exclusive_mode = None
         self._id = None
@@ -133,18 +142,24 @@ class GetFunctionResponse(object):
         self._vpc_config = None
         self.discriminator = None
 
+        if async_task_config is not None:
+            self.async_task_config = async_task_config
         if code_size is not None:
             self.code_size = code_size
         if code_size_limit is not None:
             self.code_size_limit = code_size_limit
         if command is not None:
             self.command = command
+        if cpu is not None:
+            self.cpu = cpu
         if cpu_strategy is not None:
             self.cpu_strategy = cpu_strategy
         if creation_time is not None:
             self.creation_time = creation_time
         if description is not None:
             self.description = description
+        if enable_apmplus is not None:
+            self.enable_apmplus = enable_apmplus
         if envs is not None:
             self.envs = envs
         if exclusive_mode is not None:
@@ -191,6 +206,27 @@ class GetFunctionResponse(object):
             self.triggers_count = triggers_count
         if vpc_config is not None:
             self.vpc_config = vpc_config
+
+    @property
+    def async_task_config(self):
+        """Gets the async_task_config of this GetFunctionResponse.  # noqa: E501
+
+
+        :return: The async_task_config of this GetFunctionResponse.  # noqa: E501
+        :rtype: AsyncTaskConfigForGetFunctionOutput
+        """
+        return self._async_task_config
+
+    @async_task_config.setter
+    def async_task_config(self, async_task_config):
+        """Sets the async_task_config of this GetFunctionResponse.
+
+
+        :param async_task_config: The async_task_config of this GetFunctionResponse.  # noqa: E501
+        :type: AsyncTaskConfigForGetFunctionOutput
+        """
+
+        self._async_task_config = async_task_config
 
     @property
     def code_size(self):
@@ -256,6 +292,27 @@ class GetFunctionResponse(object):
         self._command = command
 
     @property
+    def cpu(self):
+        """Gets the cpu of this GetFunctionResponse.  # noqa: E501
+
+
+        :return: The cpu of this GetFunctionResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._cpu
+
+    @cpu.setter
+    def cpu(self, cpu):
+        """Sets the cpu of this GetFunctionResponse.
+
+
+        :param cpu: The cpu of this GetFunctionResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._cpu = cpu
+
+    @property
     def cpu_strategy(self):
         """Gets the cpu_strategy of this GetFunctionResponse.  # noqa: E501
 
@@ -317,6 +374,27 @@ class GetFunctionResponse(object):
         """
 
         self._description = description
+
+    @property
+    def enable_apmplus(self):
+        """Gets the enable_apmplus of this GetFunctionResponse.  # noqa: E501
+
+
+        :return: The enable_apmplus of this GetFunctionResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_apmplus
+
+    @enable_apmplus.setter
+    def enable_apmplus(self, enable_apmplus):
+        """Sets the enable_apmplus of this GetFunctionResponse.
+
+
+        :param enable_apmplus: The enable_apmplus of this GetFunctionResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_apmplus = enable_apmplus
 
     @property
     def envs(self):

@@ -33,48 +33,94 @@ class UpdateResourceReservationPlanRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'compute_resource': 'ComputeResourceForUpdateResourceReservationPlanInput',
         'description': 'str',
         'dry_run': 'bool',
         'id': 'str',
+        'matching_reservation_plan_time_config': 'MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput',
         'name': 'str',
+        'reservation_config': 'ReservationConfigForUpdateResourceReservationPlanInput',
+        'schedule_config': 'ScheduleConfigForUpdateResourceReservationPlanInput',
         'storage_config': 'StorageConfigForUpdateResourceReservationPlanInput',
-        'workload_network_config': 'WorkloadNetworkConfigForUpdateResourceReservationPlanInput'
+        'workload_network_config': 'WorkloadNetworkConfigForUpdateResourceReservationPlanInput',
+        'workload_network_mode': 'str'
     }
 
     attribute_map = {
+        'compute_resource': 'ComputeResource',
         'description': 'Description',
         'dry_run': 'DryRun',
         'id': 'Id',
+        'matching_reservation_plan_time_config': 'MatchingReservationPlanTimeConfig',
         'name': 'Name',
+        'reservation_config': 'ReservationConfig',
+        'schedule_config': 'ScheduleConfig',
         'storage_config': 'StorageConfig',
-        'workload_network_config': 'WorkloadNetworkConfig'
+        'workload_network_config': 'WorkloadNetworkConfig',
+        'workload_network_mode': 'WorkloadNetworkMode'
     }
 
-    def __init__(self, description=None, dry_run=None, id=None, name=None, storage_config=None, workload_network_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, compute_resource=None, description=None, dry_run=None, id=None, matching_reservation_plan_time_config=None, name=None, reservation_config=None, schedule_config=None, storage_config=None, workload_network_config=None, workload_network_mode=None, _configuration=None):  # noqa: E501
         """UpdateResourceReservationPlanRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._compute_resource = None
         self._description = None
         self._dry_run = None
         self._id = None
+        self._matching_reservation_plan_time_config = None
         self._name = None
+        self._reservation_config = None
+        self._schedule_config = None
         self._storage_config = None
         self._workload_network_config = None
+        self._workload_network_mode = None
         self.discriminator = None
 
+        if compute_resource is not None:
+            self.compute_resource = compute_resource
         if description is not None:
             self.description = description
         if dry_run is not None:
             self.dry_run = dry_run
         self.id = id
+        if matching_reservation_plan_time_config is not None:
+            self.matching_reservation_plan_time_config = matching_reservation_plan_time_config
         if name is not None:
             self.name = name
+        if reservation_config is not None:
+            self.reservation_config = reservation_config
+        if schedule_config is not None:
+            self.schedule_config = schedule_config
         if storage_config is not None:
             self.storage_config = storage_config
         if workload_network_config is not None:
             self.workload_network_config = workload_network_config
+        if workload_network_mode is not None:
+            self.workload_network_mode = workload_network_mode
+
+    @property
+    def compute_resource(self):
+        """Gets the compute_resource of this UpdateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The compute_resource of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: ComputeResourceForUpdateResourceReservationPlanInput
+        """
+        return self._compute_resource
+
+    @compute_resource.setter
+    def compute_resource(self, compute_resource):
+        """Sets the compute_resource of this UpdateResourceReservationPlanRequest.
+
+
+        :param compute_resource: The compute_resource of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :type: ComputeResourceForUpdateResourceReservationPlanInput
+        """
+
+        self._compute_resource = compute_resource
 
     @property
     def description(self):
@@ -148,6 +194,27 @@ class UpdateResourceReservationPlanRequest(object):
         self._id = id
 
     @property
+    def matching_reservation_plan_time_config(self):
+        """Gets the matching_reservation_plan_time_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The matching_reservation_plan_time_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput
+        """
+        return self._matching_reservation_plan_time_config
+
+    @matching_reservation_plan_time_config.setter
+    def matching_reservation_plan_time_config(self, matching_reservation_plan_time_config):
+        """Sets the matching_reservation_plan_time_config of this UpdateResourceReservationPlanRequest.
+
+
+        :param matching_reservation_plan_time_config: The matching_reservation_plan_time_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :type: MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput
+        """
+
+        self._matching_reservation_plan_time_config = matching_reservation_plan_time_config
+
+    @property
     def name(self):
         """Gets the name of this UpdateResourceReservationPlanRequest.  # noqa: E501
 
@@ -173,6 +240,48 @@ class UpdateResourceReservationPlanRequest(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def reservation_config(self):
+        """Gets the reservation_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The reservation_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: ReservationConfigForUpdateResourceReservationPlanInput
+        """
+        return self._reservation_config
+
+    @reservation_config.setter
+    def reservation_config(self, reservation_config):
+        """Sets the reservation_config of this UpdateResourceReservationPlanRequest.
+
+
+        :param reservation_config: The reservation_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :type: ReservationConfigForUpdateResourceReservationPlanInput
+        """
+
+        self._reservation_config = reservation_config
+
+    @property
+    def schedule_config(self):
+        """Gets the schedule_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The schedule_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: ScheduleConfigForUpdateResourceReservationPlanInput
+        """
+        return self._schedule_config
+
+    @schedule_config.setter
+    def schedule_config(self, schedule_config):
+        """Sets the schedule_config of this UpdateResourceReservationPlanRequest.
+
+
+        :param schedule_config: The schedule_config of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :type: ScheduleConfigForUpdateResourceReservationPlanInput
+        """
+
+        self._schedule_config = schedule_config
 
     @property
     def storage_config(self):
@@ -215,6 +324,27 @@ class UpdateResourceReservationPlanRequest(object):
         """
 
         self._workload_network_config = workload_network_config
+
+    @property
+    def workload_network_mode(self):
+        """Gets the workload_network_mode of this UpdateResourceReservationPlanRequest.  # noqa: E501
+
+
+        :return: The workload_network_mode of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._workload_network_mode
+
+    @workload_network_mode.setter
+    def workload_network_mode(self, workload_network_mode):
+        """Sets the workload_network_mode of this UpdateResourceReservationPlanRequest.
+
+
+        :param workload_network_mode: The workload_network_mode of this UpdateResourceReservationPlanRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._workload_network_mode = workload_network_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

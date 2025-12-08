@@ -54,7 +54,8 @@ class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput(object):
 
         if key is not None:
             self.key = key
-        self.value = value
+        if value is not None:
+            self.value = value
 
     @property
     def key(self):
@@ -95,8 +96,6 @@ class HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput(object):
         :param value: The value of this HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and value is None:
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
 

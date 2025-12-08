@@ -36,17 +36,19 @@ class CreateResourceShareRequest(object):
         'allow_share_type': 'str',
         'name': 'str',
         'principals': 'str',
-        'resource_trns': 'str'
+        'resource_trns': 'str',
+        'tags': 'list[TagForCreateResourceShareInput]'
     }
 
     attribute_map = {
         'allow_share_type': 'AllowShareType',
         'name': 'Name',
         'principals': 'Principals',
-        'resource_trns': 'ResourceTrns'
+        'resource_trns': 'ResourceTrns',
+        'tags': 'Tags'
     }
 
-    def __init__(self, allow_share_type=None, name=None, principals=None, resource_trns=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_share_type=None, name=None, principals=None, resource_trns=None, tags=None, _configuration=None):  # noqa: E501
         """CreateResourceShareRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class CreateResourceShareRequest(object):
         self._name = None
         self._principals = None
         self._resource_trns = None
+        self._tags = None
         self.discriminator = None
 
         if allow_share_type is not None:
@@ -65,6 +68,8 @@ class CreateResourceShareRequest(object):
             self.principals = principals
         if resource_trns is not None:
             self.resource_trns = resource_trns
+        if tags is not None:
+            self.tags = tags
 
     @property
     def allow_share_type(self):
@@ -151,6 +156,27 @@ class CreateResourceShareRequest(object):
         """
 
         self._resource_trns = resource_trns
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateResourceShareRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateResourceShareRequest.  # noqa: E501
+        :rtype: list[TagForCreateResourceShareInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateResourceShareRequest.
+
+
+        :param tags: The tags of this CreateResourceShareRequest.  # noqa: E501
+        :type: list[TagForCreateResourceShareInput]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -16,9 +15,14 @@ from .shared import (
     ResponseFormatText as ResponseFormatText,
     ResponseFormatJSONObject as ResponseFormatJSONObject,
     ResponseFormatJSONSchema as ResponseFormatJSONSchema,
+    Reasoning as Reasoning,
+    ReasoningEffort as ReasoningEffort,
 )
 from .embedding import Embedding as Embedding
 from .completion_usage import CompletionUsage as CompletionUsage
 from .create_embedding_response import (
     CreateEmbeddingResponse as CreateEmbeddingResponse,
 )
+from .file_purpose import FilePurpose as FilePurpose
+from .file_list_params import FileListParams as FileListParams
+from .file_create_params import PreprocessConfigs as PreprocessConfigs

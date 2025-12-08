@@ -38,6 +38,7 @@ class CreateServiceRequest(object):
         'description': 'str',
         'dry_run': 'bool',
         'ports': 'list[PortForCreateServiceInput]',
+        'project_name': 'str',
         'resource_group_id': 'str',
         'service_name': 'str',
         'traffic_config': 'TrafficConfigForCreateServiceInput'
@@ -49,12 +50,13 @@ class CreateServiceRequest(object):
         'description': 'Description',
         'dry_run': 'DryRun',
         'ports': 'Ports',
+        'project_name': 'ProjectName',
         'resource_group_id': 'ResourceGroupId',
         'service_name': 'ServiceName',
         'traffic_config': 'TrafficConfig'
     }
 
-    def __init__(self, apig_config=None, clb_config=None, description=None, dry_run=None, ports=None, resource_group_id=None, service_name=None, traffic_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, apig_config=None, clb_config=None, description=None, dry_run=None, ports=None, project_name=None, resource_group_id=None, service_name=None, traffic_config=None, _configuration=None):  # noqa: E501
         """CreateServiceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class CreateServiceRequest(object):
         self._description = None
         self._dry_run = None
         self._ports = None
+        self._project_name = None
         self._resource_group_id = None
         self._service_name = None
         self._traffic_config = None
@@ -80,6 +83,8 @@ class CreateServiceRequest(object):
             self.dry_run = dry_run
         if ports is not None:
             self.ports = ports
+        if project_name is not None:
+            self.project_name = project_name
         self.resource_group_id = resource_group_id
         self.service_name = service_name
         if traffic_config is not None:
@@ -189,6 +194,33 @@ class CreateServiceRequest(object):
         """
 
         self._ports = ports
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this CreateServiceRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateServiceRequest.
+
+
+        :param project_name: The project_name of this CreateServiceRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
 
     @property
     def resource_group_id(self):

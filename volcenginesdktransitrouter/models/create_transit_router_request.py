@@ -36,6 +36,7 @@ class CreateTransitRouterRequest(object):
         'asn': 'int',
         'client_token': 'str',
         'description': 'str',
+        'multicast_enabled': 'bool',
         'project_name': 'str',
         'tags': 'list[TagForCreateTransitRouterInput]',
         'transit_router_name': 'str'
@@ -45,12 +46,13 @@ class CreateTransitRouterRequest(object):
         'asn': 'Asn',
         'client_token': 'ClientToken',
         'description': 'Description',
+        'multicast_enabled': 'MulticastEnabled',
         'project_name': 'ProjectName',
         'tags': 'Tags',
         'transit_router_name': 'TransitRouterName'
     }
 
-    def __init__(self, asn=None, client_token=None, description=None, project_name=None, tags=None, transit_router_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, asn=None, client_token=None, description=None, multicast_enabled=None, project_name=None, tags=None, transit_router_name=None, _configuration=None):  # noqa: E501
         """CreateTransitRouterRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateTransitRouterRequest(object):
         self._asn = None
         self._client_token = None
         self._description = None
+        self._multicast_enabled = None
         self._project_name = None
         self._tags = None
         self._transit_router_name = None
@@ -70,6 +73,8 @@ class CreateTransitRouterRequest(object):
             self.client_token = client_token
         if description is not None:
             self.description = description
+        if multicast_enabled is not None:
+            self.multicast_enabled = multicast_enabled
         if project_name is not None:
             self.project_name = project_name
         if tags is not None:
@@ -139,6 +144,27 @@ class CreateTransitRouterRequest(object):
         """
 
         self._description = description
+
+    @property
+    def multicast_enabled(self):
+        """Gets the multicast_enabled of this CreateTransitRouterRequest.  # noqa: E501
+
+
+        :return: The multicast_enabled of this CreateTransitRouterRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._multicast_enabled
+
+    @multicast_enabled.setter
+    def multicast_enabled(self, multicast_enabled):
+        """Sets the multicast_enabled of this CreateTransitRouterRequest.
+
+
+        :param multicast_enabled: The multicast_enabled of this CreateTransitRouterRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._multicast_enabled = multicast_enabled
 
     @property
     def project_name(self):

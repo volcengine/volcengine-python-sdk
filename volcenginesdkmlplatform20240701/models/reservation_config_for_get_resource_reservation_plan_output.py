@@ -34,48 +34,68 @@ class ReservationConfigForGetResourceReservationPlanOutput(object):
     """
     swagger_types = {
         'max_duration_hours': 'int',
+        'max_task_lifetime_seconds': 'int',
+        'min_continuous_resource_duration_seconds': 'int',
         'min_duration_hours': 'int',
         'recurrence_end_time': 'str',
         'recurrence_interval': 'str',
+        'recurrence_resource_segments': 'list[RecurrenceResourceSegmentForGetResourceReservationPlanOutput]',
         'recurrence_start_time': 'str',
-        'reservation_type': 'str'
+        'reservation_type': 'str',
+        'resource_segments': 'list[ResourceSegmentForGetResourceReservationPlanOutput]'
     }
 
     attribute_map = {
         'max_duration_hours': 'MaxDurationHours',
+        'max_task_lifetime_seconds': 'MaxTaskLifetimeSeconds',
+        'min_continuous_resource_duration_seconds': 'MinContinuousResourceDurationSeconds',
         'min_duration_hours': 'MinDurationHours',
         'recurrence_end_time': 'RecurrenceEndTime',
         'recurrence_interval': 'RecurrenceInterval',
+        'recurrence_resource_segments': 'RecurrenceResourceSegments',
         'recurrence_start_time': 'RecurrenceStartTime',
-        'reservation_type': 'ReservationType'
+        'reservation_type': 'ReservationType',
+        'resource_segments': 'ResourceSegments'
     }
 
-    def __init__(self, max_duration_hours=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_start_time=None, reservation_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, max_duration_hours=None, max_task_lifetime_seconds=None, min_continuous_resource_duration_seconds=None, min_duration_hours=None, recurrence_end_time=None, recurrence_interval=None, recurrence_resource_segments=None, recurrence_start_time=None, reservation_type=None, resource_segments=None, _configuration=None):  # noqa: E501
         """ReservationConfigForGetResourceReservationPlanOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._max_duration_hours = None
+        self._max_task_lifetime_seconds = None
+        self._min_continuous_resource_duration_seconds = None
         self._min_duration_hours = None
         self._recurrence_end_time = None
         self._recurrence_interval = None
+        self._recurrence_resource_segments = None
         self._recurrence_start_time = None
         self._reservation_type = None
+        self._resource_segments = None
         self.discriminator = None
 
         if max_duration_hours is not None:
             self.max_duration_hours = max_duration_hours
+        if max_task_lifetime_seconds is not None:
+            self.max_task_lifetime_seconds = max_task_lifetime_seconds
+        if min_continuous_resource_duration_seconds is not None:
+            self.min_continuous_resource_duration_seconds = min_continuous_resource_duration_seconds
         if min_duration_hours is not None:
             self.min_duration_hours = min_duration_hours
         if recurrence_end_time is not None:
             self.recurrence_end_time = recurrence_end_time
         if recurrence_interval is not None:
             self.recurrence_interval = recurrence_interval
+        if recurrence_resource_segments is not None:
+            self.recurrence_resource_segments = recurrence_resource_segments
         if recurrence_start_time is not None:
             self.recurrence_start_time = recurrence_start_time
         if reservation_type is not None:
             self.reservation_type = reservation_type
+        if resource_segments is not None:
+            self.resource_segments = resource_segments
 
     @property
     def max_duration_hours(self):
@@ -97,6 +117,48 @@ class ReservationConfigForGetResourceReservationPlanOutput(object):
         """
 
         self._max_duration_hours = max_duration_hours
+
+    @property
+    def max_task_lifetime_seconds(self):
+        """Gets the max_task_lifetime_seconds of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+
+
+        :return: The max_task_lifetime_seconds of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_task_lifetime_seconds
+
+    @max_task_lifetime_seconds.setter
+    def max_task_lifetime_seconds(self, max_task_lifetime_seconds):
+        """Sets the max_task_lifetime_seconds of this ReservationConfigForGetResourceReservationPlanOutput.
+
+
+        :param max_task_lifetime_seconds: The max_task_lifetime_seconds of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._max_task_lifetime_seconds = max_task_lifetime_seconds
+
+    @property
+    def min_continuous_resource_duration_seconds(self):
+        """Gets the min_continuous_resource_duration_seconds of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+
+
+        :return: The min_continuous_resource_duration_seconds of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._min_continuous_resource_duration_seconds
+
+    @min_continuous_resource_duration_seconds.setter
+    def min_continuous_resource_duration_seconds(self, min_continuous_resource_duration_seconds):
+        """Sets the min_continuous_resource_duration_seconds of this ReservationConfigForGetResourceReservationPlanOutput.
+
+
+        :param min_continuous_resource_duration_seconds: The min_continuous_resource_duration_seconds of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._min_continuous_resource_duration_seconds = min_continuous_resource_duration_seconds
 
     @property
     def min_duration_hours(self):
@@ -162,6 +224,27 @@ class ReservationConfigForGetResourceReservationPlanOutput(object):
         self._recurrence_interval = recurrence_interval
 
     @property
+    def recurrence_resource_segments(self):
+        """Gets the recurrence_resource_segments of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+
+
+        :return: The recurrence_resource_segments of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+        :rtype: list[RecurrenceResourceSegmentForGetResourceReservationPlanOutput]
+        """
+        return self._recurrence_resource_segments
+
+    @recurrence_resource_segments.setter
+    def recurrence_resource_segments(self, recurrence_resource_segments):
+        """Sets the recurrence_resource_segments of this ReservationConfigForGetResourceReservationPlanOutput.
+
+
+        :param recurrence_resource_segments: The recurrence_resource_segments of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+        :type: list[RecurrenceResourceSegmentForGetResourceReservationPlanOutput]
+        """
+
+        self._recurrence_resource_segments = recurrence_resource_segments
+
+    @property
     def recurrence_start_time(self):
         """Gets the recurrence_start_time of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
 
@@ -202,6 +285,27 @@ class ReservationConfigForGetResourceReservationPlanOutput(object):
         """
 
         self._reservation_type = reservation_type
+
+    @property
+    def resource_segments(self):
+        """Gets the resource_segments of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+
+
+        :return: The resource_segments of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+        :rtype: list[ResourceSegmentForGetResourceReservationPlanOutput]
+        """
+        return self._resource_segments
+
+    @resource_segments.setter
+    def resource_segments(self, resource_segments):
+        """Sets the resource_segments of this ReservationConfigForGetResourceReservationPlanOutput.
+
+
+        :param resource_segments: The resource_segments of this ReservationConfigForGetResourceReservationPlanOutput.  # noqa: E501
+        :type: list[ResourceSegmentForGetResourceReservationPlanOutput]
+        """
+
+        self._resource_segments = resource_segments
 
     def to_dict(self):
         """Returns the model properties as a dict"""

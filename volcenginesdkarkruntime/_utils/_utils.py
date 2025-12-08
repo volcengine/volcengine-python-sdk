@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -32,9 +31,8 @@ from pathlib import Path
 from datetime import date, datetime
 from typing_extensions import TypeGuard
 
-import sniffio
-
 from .._types import NotGiven, FileTypes, NotGivenOr
+from .._constants import ARK_APIKEY_PROJECT_NAME
 
 _T = TypeVar("_T")
 _TupleT = TypeVar("_TupleT", bound=Tuple[object, ...])
@@ -383,6 +381,7 @@ def file_from_path(path: str) -> FileTypes:
 
 def get_async_library() -> str:
     try:
+        import sniffio
         return sniffio.current_async_library()
     except Exception:
         return "false"
@@ -446,20 +445,6 @@ def _insert_sts_token(args, kwargs):
     if (
         ark_client.api_key is None
         and model
-        and model.startswith("ep-")
-        and ark_client.ak
-        and ark_client.sk
-    ):
-        default_auth_header = {
-            "Authorization": "Bearer " + ark_client._get_endpoint_sts_token(model)
-        }
-        extra_headers = (
-            kwargs.get("extra_headers") if kwargs.get("extra_headers") else {}
-        )
-        kwargs["extra_headers"] = {**default_auth_header, **extra_headers}
-    elif (
-        ark_client.api_key is None
-        and model
         and model.startswith("bot-")
         and ark_client.ak
         and ark_client.sk
@@ -470,6 +455,22 @@ def _insert_sts_token(args, kwargs):
         extra_headers = (
             kwargs.get("extra_headers") if kwargs.get("extra_headers") else {}
         )
+        kwargs["extra_headers"] = {**default_auth_header, **extra_headers}
+    elif (
+        ark_client.api_key is None
+        and model
+        and ark_client.ak
+        and ark_client.sk
+    ):
+        extra_headers = (
+            kwargs.get("extra_headers") if kwargs.get("extra_headers") else {}
+        )
+        project_name: str = None
+        if extra_headers is not None and extra_headers.get(ARK_APIKEY_PROJECT_NAME, None) is not None:
+            project_name = extra_headers[ARK_APIKEY_PROJECT_NAME]
+        default_auth_header = {
+            "Authorization": "Bearer " + ark_client._get_endpoint_sts_token(model, project_name)
+        }
         kwargs["extra_headers"] = {**default_auth_header, **extra_headers}
 
 

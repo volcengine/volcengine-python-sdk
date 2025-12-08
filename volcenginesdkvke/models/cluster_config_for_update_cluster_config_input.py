@@ -35,16 +35,20 @@ class ClusterConfigForUpdateClusterConfigInput(object):
     swagger_types = {
         'api_server_public_access_config': 'ApiServerPublicAccessConfigForUpdateClusterConfigInput',
         'api_server_public_access_enabled': 'bool',
+        'cluster_connector_config_request': 'ClusterConnectorConfigRequestForUpdateClusterConfigInput',
+        'resource_public_access_default_enabled': 'bool',
         'subnet_ids': 'list[str]'
     }
 
     attribute_map = {
         'api_server_public_access_config': 'ApiServerPublicAccessConfig',
         'api_server_public_access_enabled': 'ApiServerPublicAccessEnabled',
+        'cluster_connector_config_request': 'ClusterConnectorConfigRequest',
+        'resource_public_access_default_enabled': 'ResourcePublicAccessDefaultEnabled',
         'subnet_ids': 'SubnetIds'
     }
 
-    def __init__(self, api_server_public_access_config=None, api_server_public_access_enabled=None, subnet_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, api_server_public_access_config=None, api_server_public_access_enabled=None, cluster_connector_config_request=None, resource_public_access_default_enabled=None, subnet_ids=None, _configuration=None):  # noqa: E501
         """ClusterConfigForUpdateClusterConfigInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +56,8 @@ class ClusterConfigForUpdateClusterConfigInput(object):
 
         self._api_server_public_access_config = None
         self._api_server_public_access_enabled = None
+        self._cluster_connector_config_request = None
+        self._resource_public_access_default_enabled = None
         self._subnet_ids = None
         self.discriminator = None
 
@@ -59,6 +65,10 @@ class ClusterConfigForUpdateClusterConfigInput(object):
             self.api_server_public_access_config = api_server_public_access_config
         if api_server_public_access_enabled is not None:
             self.api_server_public_access_enabled = api_server_public_access_enabled
+        if cluster_connector_config_request is not None:
+            self.cluster_connector_config_request = cluster_connector_config_request
+        if resource_public_access_default_enabled is not None:
+            self.resource_public_access_default_enabled = resource_public_access_default_enabled
         if subnet_ids is not None:
             self.subnet_ids = subnet_ids
 
@@ -103,6 +113,48 @@ class ClusterConfigForUpdateClusterConfigInput(object):
         """
 
         self._api_server_public_access_enabled = api_server_public_access_enabled
+
+    @property
+    def cluster_connector_config_request(self):
+        """Gets the cluster_connector_config_request of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+
+
+        :return: The cluster_connector_config_request of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+        :rtype: ClusterConnectorConfigRequestForUpdateClusterConfigInput
+        """
+        return self._cluster_connector_config_request
+
+    @cluster_connector_config_request.setter
+    def cluster_connector_config_request(self, cluster_connector_config_request):
+        """Sets the cluster_connector_config_request of this ClusterConfigForUpdateClusterConfigInput.
+
+
+        :param cluster_connector_config_request: The cluster_connector_config_request of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+        :type: ClusterConnectorConfigRequestForUpdateClusterConfigInput
+        """
+
+        self._cluster_connector_config_request = cluster_connector_config_request
+
+    @property
+    def resource_public_access_default_enabled(self):
+        """Gets the resource_public_access_default_enabled of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+
+
+        :return: The resource_public_access_default_enabled of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._resource_public_access_default_enabled
+
+    @resource_public_access_default_enabled.setter
+    def resource_public_access_default_enabled(self, resource_public_access_default_enabled):
+        """Sets the resource_public_access_default_enabled of this ClusterConfigForUpdateClusterConfigInput.
+
+
+        :param resource_public_access_default_enabled: The resource_public_access_default_enabled of this ClusterConfigForUpdateClusterConfigInput.  # noqa: E501
+        :type: bool
+        """
+
+        self._resource_public_access_default_enabled = resource_public_access_default_enabled
 
     @property
     def subnet_ids(self):

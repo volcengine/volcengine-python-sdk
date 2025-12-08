@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -175,7 +174,8 @@ def _overload_dummy(*args, **kwds):
         "You should not call an overloaded function. "
         "A series of @overload-decorated functions "
         "outside a stub module should always be followed "
-        "by an implementation that is not @overload-ed.")
+        "by an implementation that is not @overload-ed."
+    )
 
 
 def overload(func):
@@ -212,7 +212,9 @@ def overload(func):
     # classmethod and staticmethod
     f = getattr(func, "__func__", func)
     try:
-        _overload_registry[f.__module__][f.__qualname__][f.__code__.co_firstlineno] = func
+        _overload_registry[f.__module__][f.__qualname__][f.__code__.co_firstlineno] = (
+            func
+        )
     except AttributeError:
         # Not a normal function; ignore.
         pass

@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -56,6 +55,8 @@ from ....types.chat.chat_completion_stream_options_param import (
 from ....types.chat.chat_completion_tool_choice_option_param import (
     ChatCompletionToolChoiceOptionParam,
 )
+from ....types.shared.reasoning_effort import ReasoningEffort
+
 
 __all__ = ["Completions", "AsyncCompletions"]
 
@@ -100,6 +101,7 @@ class Completions(SyncAPIResource):
         top_logprobs: Optional[int] | NotGiven = NOT_GIVEN,
         top_p: Optional[float] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
+        reasoning_effort: Optional[ReasoningEffort] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -147,6 +149,7 @@ class Completions(SyncAPIResource):
                     "top_logprobs": top_logprobs,
                     "top_p": top_p,
                     "user": user,
+                    "reasoning_effort": reasoning_effort,
                 },
                 completion_create_params.CompletionCreateParams,
             ),
@@ -188,6 +191,7 @@ class Completions(SyncAPIResource):
         top_logprobs: Optional[int] | NotGiven = NOT_GIVEN,
         top_p: Optional[float] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
+        reasoning_effort: Optional[ReasoningEffort] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -202,6 +206,7 @@ class Completions(SyncAPIResource):
 
         api_request: partial[Stream[ChatCompletionChunk]] = partial(
             self._client.chat.completions.create,
+            reasoning_effort=reasoning_effort,
             messages=messages,
             model=model,
             stream=True,
@@ -274,6 +279,7 @@ class AsyncCompletions(AsyncAPIResource):
         top_logprobs: Optional[int] | NotGiven = NOT_GIVEN,
         top_p: Optional[float] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
+        reasoning_effort: Optional[ReasoningEffort] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -321,6 +327,7 @@ class AsyncCompletions(AsyncAPIResource):
                     "top_logprobs": top_logprobs,
                     "top_p": top_p,
                     "user": user,
+                    "reasoning_effort": reasoning_effort,
                 },
                 completion_create_params.CompletionCreateParams,
             ),
@@ -362,6 +369,7 @@ class AsyncCompletions(AsyncAPIResource):
         top_logprobs: Optional[int] | NotGiven = NOT_GIVEN,
         top_p: Optional[float] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
+        reasoning_effort: Optional[ReasoningEffort] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -397,6 +405,7 @@ class AsyncCompletions(AsyncAPIResource):
             top_logprobs=top_logprobs,
             top_p=top_p,
             user=user,
+            reasoning_effort=reasoning_effort,
             extra_headers=extra_headers,
             extra_query=extra_query,
             extra_body=extra_body,

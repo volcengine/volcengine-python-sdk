@@ -36,6 +36,7 @@ class GetFingerprintStatisticsResponse(object):
         'app': 'int',
         'container': 'int',
         'cron': 'int',
+        'env': 'int',
         'integrity': 'int',
         'kmod': 'int',
         'port': 'int',
@@ -50,6 +51,7 @@ class GetFingerprintStatisticsResponse(object):
         'app': 'App',
         'container': 'Container',
         'cron': 'Cron',
+        'env': 'Env',
         'integrity': 'Integrity',
         'kmod': 'Kmod',
         'port': 'Port',
@@ -60,7 +62,7 @@ class GetFingerprintStatisticsResponse(object):
         'web': 'Web'
     }
 
-    def __init__(self, app=None, container=None, cron=None, integrity=None, kmod=None, port=None, process=None, service=None, software=None, user=None, web=None, _configuration=None):  # noqa: E501
+    def __init__(self, app=None, container=None, cron=None, env=None, integrity=None, kmod=None, port=None, process=None, service=None, software=None, user=None, web=None, _configuration=None):  # noqa: E501
         """GetFingerprintStatisticsResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -69,6 +71,7 @@ class GetFingerprintStatisticsResponse(object):
         self._app = None
         self._container = None
         self._cron = None
+        self._env = None
         self._integrity = None
         self._kmod = None
         self._port = None
@@ -85,6 +88,8 @@ class GetFingerprintStatisticsResponse(object):
             self.container = container
         if cron is not None:
             self.cron = cron
+        if env is not None:
+            self.env = env
         if integrity is not None:
             self.integrity = integrity
         if kmod is not None:
@@ -164,6 +169,27 @@ class GetFingerprintStatisticsResponse(object):
         """
 
         self._cron = cron
+
+    @property
+    def env(self):
+        """Gets the env of this GetFingerprintStatisticsResponse.  # noqa: E501
+
+
+        :return: The env of this GetFingerprintStatisticsResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._env
+
+    @env.setter
+    def env(self, env):
+        """Sets the env of this GetFingerprintStatisticsResponse.
+
+
+        :param env: The env of this GetFingerprintStatisticsResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._env = env
 
     @property
     def integrity(self):

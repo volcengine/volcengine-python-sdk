@@ -33,29 +33,24 @@ class CreateCenBandwidthPackageResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cen_bandwidth_package_id': 'str',
-        'request_id': 'str'
+        'cen_bandwidth_package_id': 'str'
     }
 
     attribute_map = {
-        'cen_bandwidth_package_id': 'CenBandwidthPackageId',
-        'request_id': 'RequestId'
+        'cen_bandwidth_package_id': 'CenBandwidthPackageId'
     }
 
-    def __init__(self, cen_bandwidth_package_id=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cen_bandwidth_package_id=None, _configuration=None):  # noqa: E501
         """CreateCenBandwidthPackageResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cen_bandwidth_package_id = None
-        self._request_id = None
         self.discriminator = None
 
         if cen_bandwidth_package_id is not None:
             self.cen_bandwidth_package_id = cen_bandwidth_package_id
-        if request_id is not None:
-            self.request_id = request_id
 
     @property
     def cen_bandwidth_package_id(self):
@@ -77,27 +72,6 @@ class CreateCenBandwidthPackageResponse(object):
         """
 
         self._cen_bandwidth_package_id = cen_bandwidth_package_id
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this CreateCenBandwidthPackageResponse.  # noqa: E501
-
-
-        :return: The request_id of this CreateCenBandwidthPackageResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this CreateCenBandwidthPackageResponse.
-
-
-        :param request_id: The request_id of this CreateCenBandwidthPackageResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

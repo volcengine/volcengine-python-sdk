@@ -42,6 +42,7 @@ class GetJobResponse(object):
         'name': 'str',
         'observable_config': 'ObservableConfigForGetJobOutput',
         'private_network_config': 'PrivateNetworkConfigForGetJobOutput',
+        'project_name': 'str',
         'resource_config': 'ResourceConfigForGetJobOutput',
         'retry_config': 'RetryConfigForGetJobOutput',
         'runtime_config': 'RuntimeConfigForGetJobOutput',
@@ -61,6 +62,7 @@ class GetJobResponse(object):
         'name': 'Name',
         'observable_config': 'ObservableConfig',
         'private_network_config': 'PrivateNetworkConfig',
+        'project_name': 'ProjectName',
         'resource_config': 'ResourceConfig',
         'retry_config': 'RetryConfig',
         'runtime_config': 'RuntimeConfig',
@@ -70,7 +72,7 @@ class GetJobResponse(object):
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, create_time=None, created_by=None, description=None, diagnose_config=None, id=None, initial_id=None, name=None, observable_config=None, private_network_config=None, resource_config=None, retry_config=None, runtime_config=None, status=None, stop_reason=None, storage_config=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, create_time=None, created_by=None, description=None, diagnose_config=None, id=None, initial_id=None, name=None, observable_config=None, private_network_config=None, project_name=None, resource_config=None, retry_config=None, runtime_config=None, status=None, stop_reason=None, storage_config=None, update_time=None, _configuration=None):  # noqa: E501
         """GetJobResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -85,6 +87,7 @@ class GetJobResponse(object):
         self._name = None
         self._observable_config = None
         self._private_network_config = None
+        self._project_name = None
         self._resource_config = None
         self._retry_config = None
         self._runtime_config = None
@@ -112,6 +115,8 @@ class GetJobResponse(object):
             self.observable_config = observable_config
         if private_network_config is not None:
             self.private_network_config = private_network_config
+        if project_name is not None:
+            self.project_name = project_name
         if resource_config is not None:
             self.resource_config = resource_config
         if retry_config is not None:
@@ -315,6 +320,27 @@ class GetJobResponse(object):
         """
 
         self._private_network_config = private_network_config
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this GetJobResponse.  # noqa: E501
+
+
+        :return: The project_name of this GetJobResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this GetJobResponse.
+
+
+        :param project_name: The project_name of this GetJobResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
 
     @property
     def resource_config(self):

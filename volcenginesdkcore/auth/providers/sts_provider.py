@@ -3,7 +3,7 @@ import time
 import uuid
 from datetime import datetime
 
-import dateutil.parser
+import dateutil.parser, dateutil.tz
 
 from volcenginesdkcore import UniversalApi, UniversalInfo, ApiClient, Configuration
 from .provider import Provider, CredentialValue

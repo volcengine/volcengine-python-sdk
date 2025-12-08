@@ -383,13 +383,6 @@ class GetFingerprintServiceRequest(object):
         :param restart: The restart of this GetFingerprintServiceRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["false", "true"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                restart not in allowed_values):
-            raise ValueError(
-                "Invalid value for `restart` ({0}), must be one of {1}"  # noqa: E501
-                .format(restart, allowed_values)
-            )
 
         self._restart = restart
 

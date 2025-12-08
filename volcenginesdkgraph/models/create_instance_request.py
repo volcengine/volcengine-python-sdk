@@ -39,7 +39,8 @@ class CreateInstanceRequest(object):
         'instance_tags': 'list[InstanceTagForCreateInstanceInput]',
         'network_descriptions': 'list[NetworkDescriptionForCreateInstanceInput]',
         'one_step': 'bool',
-        'version_set_id': 'int'
+        'version_set_id': 'int',
+        'with_graph_rag': 'bool'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class CreateInstanceRequest(object):
         'instance_tags': 'InstanceTags',
         'network_descriptions': 'NetworkDescriptions',
         'one_step': 'OneStep',
-        'version_set_id': 'VersionSetId'
+        'version_set_id': 'VersionSetId',
+        'with_graph_rag': 'WithGraphRAG'
     }
 
-    def __init__(self, client_token=None, deletion_protection=None, info=None, instance_tags=None, network_descriptions=None, one_step=None, version_set_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, deletion_protection=None, info=None, instance_tags=None, network_descriptions=None, one_step=None, version_set_id=None, with_graph_rag=None, _configuration=None):  # noqa: E501
         """CreateInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class CreateInstanceRequest(object):
         self._network_descriptions = None
         self._one_step = None
         self._version_set_id = None
+        self._with_graph_rag = None
         self.discriminator = None
 
         if client_token is not None:
@@ -81,6 +84,8 @@ class CreateInstanceRequest(object):
             self.one_step = one_step
         if version_set_id is not None:
             self.version_set_id = version_set_id
+        if with_graph_rag is not None:
+            self.with_graph_rag = with_graph_rag
 
     @property
     def client_token(self):
@@ -228,6 +233,27 @@ class CreateInstanceRequest(object):
         """
 
         self._version_set_id = version_set_id
+
+    @property
+    def with_graph_rag(self):
+        """Gets the with_graph_rag of this CreateInstanceRequest.  # noqa: E501
+
+
+        :return: The with_graph_rag of this CreateInstanceRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._with_graph_rag
+
+    @with_graph_rag.setter
+    def with_graph_rag(self, with_graph_rag):
+        """Sets the with_graph_rag of this CreateInstanceRequest.
+
+
+        :param with_graph_rag: The with_graph_rag of this CreateInstanceRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._with_graph_rag = with_graph_rag
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,6 +36,7 @@ class CreateRuleFileRequest(object):
         'content': 'str',
         'description': 'str',
         'name': 'str',
+        'target_workspace_id': 'str',
         'workspace_id': 'str'
     }
 
@@ -43,10 +44,11 @@ class CreateRuleFileRequest(object):
         'content': 'Content',
         'description': 'Description',
         'name': 'Name',
+        'target_workspace_id': 'TargetWorkspaceId',
         'workspace_id': 'WorkspaceId'
     }
 
-    def __init__(self, content=None, description=None, name=None, workspace_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, content=None, description=None, name=None, target_workspace_id=None, workspace_id=None, _configuration=None):  # noqa: E501
         """CreateRuleFileRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class CreateRuleFileRequest(object):
         self._content = None
         self._description = None
         self._name = None
+        self._target_workspace_id = None
         self._workspace_id = None
         self.discriminator = None
 
@@ -62,6 +65,8 @@ class CreateRuleFileRequest(object):
         if description is not None:
             self.description = description
         self.name = name
+        if target_workspace_id is not None:
+            self.target_workspace_id = target_workspace_id
         self.workspace_id = workspace_id
 
     @property
@@ -130,6 +135,27 @@ class CreateRuleFileRequest(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def target_workspace_id(self):
+        """Gets the target_workspace_id of this CreateRuleFileRequest.  # noqa: E501
+
+
+        :return: The target_workspace_id of this CreateRuleFileRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_workspace_id
+
+    @target_workspace_id.setter
+    def target_workspace_id(self, target_workspace_id):
+        """Sets the target_workspace_id of this CreateRuleFileRequest.
+
+
+        :param target_workspace_id: The target_workspace_id of this CreateRuleFileRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._target_workspace_id = target_workspace_id
 
     @property
     def workspace_id(self):

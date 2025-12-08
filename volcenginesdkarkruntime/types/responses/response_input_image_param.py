@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -36,6 +35,10 @@ class ResponseInputImageParam(TypedDict, total=False):
 
     A fully qualified URL or base64 encoded image in a data URL.
     """
+
+    file_id: Optional[str]
+    """The ID of the file to be sent to the model."""
+
     image_pixel_limit: Optional[ResponseInputImagePixelLimit]
     """
     If the image size is not within this range, it will be proportionally scaled up or down to fit within the range.

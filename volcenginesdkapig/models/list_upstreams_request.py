@@ -37,7 +37,6 @@ class ListUpstreamsRequest(object):
         'gateway_id': 'str',
         'page_number': 'int',
         'page_size': 'int',
-        'resource_type': 'str',
         'source_type': 'str'
     }
 
@@ -46,11 +45,10 @@ class ListUpstreamsRequest(object):
         'gateway_id': 'GatewayId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
-        'resource_type': 'ResourceType',
         'source_type': 'SourceType'
     }
 
-    def __init__(self, filter=None, gateway_id=None, page_number=None, page_size=None, resource_type=None, source_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, filter=None, gateway_id=None, page_number=None, page_size=None, source_type=None, _configuration=None):  # noqa: E501
         """ListUpstreamsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,7 +58,6 @@ class ListUpstreamsRequest(object):
         self._gateway_id = None
         self._page_number = None
         self._page_size = None
-        self._resource_type = None
         self._source_type = None
         self.discriminator = None
 
@@ -72,8 +69,6 @@ class ListUpstreamsRequest(object):
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
-        if resource_type is not None:
-            self.resource_type = resource_type
         if source_type is not None:
             self.source_type = source_type
 
@@ -160,27 +155,6 @@ class ListUpstreamsRequest(object):
         """
 
         self._page_size = page_size
-
-    @property
-    def resource_type(self):
-        """Gets the resource_type of this ListUpstreamsRequest.  # noqa: E501
-
-
-        :return: The resource_type of this ListUpstreamsRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._resource_type
-
-    @resource_type.setter
-    def resource_type(self, resource_type):
-        """Sets the resource_type of this ListUpstreamsRequest.
-
-
-        :param resource_type: The resource_type of this ListUpstreamsRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._resource_type = resource_type
 
     @property
     def source_type(self):

@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -12,12 +11,17 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable, Optional
+from typing import List, Union
 from typing_extensions import Literal, Required, TypeAlias, TypedDict
 
 from .easy_input_message_param import EasyInputMessageParam
-from .response_reasoning_item_param import ResponseReasoningItemParam
 from .response_function_tool_call_param import ResponseFunctionToolCallParam
+from .mcp_input_item_param import (
+    McpApprovalRequest,
+    McpApprovalResponse,
+    McpListTools,
+    McpCall,
+)
 
 __all__ = [
     "ResponseInputParam",
@@ -41,6 +45,10 @@ ResponseInputItemParam: TypeAlias = Union[
     EasyInputMessageParam,
     ResponseFunctionToolCallParam,
     FunctionCallOutput,
+    McpApprovalRequest,
+    McpApprovalResponse,
+    McpListTools,
+    McpCall,
 ]
 
 ResponseInputParam: TypeAlias = List[ResponseInputItemParam]

@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -10,11 +9,25 @@
 #
 # This modified file is released under the same license.
 
-from typing import List
+from typing import List, Optional
 
 from volcenginesdkarkruntime._models import BaseModel
 
-__all__ = ["ImagesResponse"]
+__all__ = [
+    "OptimizePromptOptions",
+    "SequentialImageGenerationOptions",
+    "ImagesResponse",
+]
+
+
+class OptimizePromptOptions(BaseModel):
+    thinking: Optional[str] = None
+    mode: Optional[str] = None
+
+
+class SequentialImageGenerationOptions(BaseModel):
+    max_images: Optional[int] = None
+    """ Maximum number of images to generate in this request; effective only when the multi-image feature is enabled """
 
 
 class Usage(BaseModel):
@@ -28,6 +41,9 @@ class Image(BaseModel):
 
     b64_json: str
     """The Base 64 encoded string of the generated image, if any."""
+
+    size: str
+    """The size of the generated image, if any."""
 
 
 class Error(BaseModel):

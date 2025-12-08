@@ -36,6 +36,8 @@ class DescribeLoadBalancersRequest(object):
         'address_ip_version': 'str',
         'eip_address': 'str',
         'eni_address': 'str',
+        'instance_ids': 'list[str]',
+        'instance_ips': 'list[str]',
         'load_balancer_ids': 'list[str]',
         'load_balancer_name': 'str',
         'master_zone_id': 'str',
@@ -52,6 +54,8 @@ class DescribeLoadBalancersRequest(object):
         'address_ip_version': 'AddressIpVersion',
         'eip_address': 'EipAddress',
         'eni_address': 'EniAddress',
+        'instance_ids': 'InstanceIds',
+        'instance_ips': 'InstanceIps',
         'load_balancer_ids': 'LoadBalancerIds',
         'load_balancer_name': 'LoadBalancerName',
         'master_zone_id': 'MasterZoneId',
@@ -64,7 +68,7 @@ class DescribeLoadBalancersRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, address_ip_version=None, eip_address=None, eni_address=None, load_balancer_ids=None, load_balancer_name=None, master_zone_id=None, page_number=None, page_size=None, project_name=None, status=None, tag_filters=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, eip_address=None, eni_address=None, instance_ids=None, instance_ips=None, load_balancer_ids=None, load_balancer_name=None, master_zone_id=None, page_number=None, page_size=None, project_name=None, status=None, tag_filters=None, type=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeLoadBalancersRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +77,8 @@ class DescribeLoadBalancersRequest(object):
         self._address_ip_version = None
         self._eip_address = None
         self._eni_address = None
+        self._instance_ids = None
+        self._instance_ips = None
         self._load_balancer_ids = None
         self._load_balancer_name = None
         self._master_zone_id = None
@@ -91,6 +97,10 @@ class DescribeLoadBalancersRequest(object):
             self.eip_address = eip_address
         if eni_address is not None:
             self.eni_address = eni_address
+        if instance_ids is not None:
+            self.instance_ids = instance_ids
+        if instance_ips is not None:
+            self.instance_ips = instance_ips
         if load_balancer_ids is not None:
             self.load_balancer_ids = load_balancer_ids
         if load_balancer_name is not None:
@@ -174,6 +184,48 @@ class DescribeLoadBalancersRequest(object):
         """
 
         self._eni_address = eni_address
+
+    @property
+    def instance_ids(self):
+        """Gets the instance_ids of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The instance_ids of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_ids
+
+    @instance_ids.setter
+    def instance_ids(self, instance_ids):
+        """Sets the instance_ids of this DescribeLoadBalancersRequest.
+
+
+        :param instance_ids: The instance_ids of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_ids = instance_ids
+
+    @property
+    def instance_ips(self):
+        """Gets the instance_ips of this DescribeLoadBalancersRequest.  # noqa: E501
+
+
+        :return: The instance_ips of this DescribeLoadBalancersRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._instance_ips
+
+    @instance_ips.setter
+    def instance_ips(self, instance_ips):
+        """Sets the instance_ips of this DescribeLoadBalancersRequest.
+
+
+        :param instance_ips: The instance_ips of this DescribeLoadBalancersRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._instance_ips = instance_ips
 
     @property
     def load_balancer_ids(self):

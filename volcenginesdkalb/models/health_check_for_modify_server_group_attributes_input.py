@@ -96,7 +96,8 @@ class HealthCheckForModifyServerGroupAttributesInput(object):
             self.interval = interval
         if method is not None:
             self.method = method
-        self.port = port
+        if port is not None:
+            self.port = port
         if protocol is not None:
             self.protocol = protocol
         if timeout is not None:
@@ -271,8 +272,6 @@ class HealthCheckForModifyServerGroupAttributesInput(object):
         :param port: The port of this HealthCheckForModifyServerGroupAttributesInput.  # noqa: E501
         :type: int
         """
-        if self._configuration.client_side_validation and port is None:
-            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 port is not None and port > 65535):  # noqa: E501
             raise ValueError("Invalid value for `port`, must be a value less than or equal to `65535`")  # noqa: E501

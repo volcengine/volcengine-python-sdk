@@ -37,7 +37,8 @@ class DescribeCertConfigRequest(object):
         'cert_id2': 'str',
         'cert_type': 'str',
         'encry_type': 'str',
-        'status': 'str'
+        'status': 'str',
+        'target_config': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class DescribeCertConfigRequest(object):
         'cert_id2': 'CertId2',
         'cert_type': 'CertType',
         'encry_type': 'EncryType',
-        'status': 'Status'
+        'status': 'Status',
+        'target_config': 'TargetConfig'
     }
 
-    def __init__(self, cert_id=None, cert_id2=None, cert_type=None, encry_type=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, cert_id=None, cert_id2=None, cert_type=None, encry_type=None, status=None, target_config=None, _configuration=None):  # noqa: E501
         """DescribeCertConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DescribeCertConfigRequest(object):
         self._cert_type = None
         self._encry_type = None
         self._status = None
+        self._target_config = None
         self.discriminator = None
 
         self.cert_id = cert_id
@@ -70,6 +73,8 @@ class DescribeCertConfigRequest(object):
             self.encry_type = encry_type
         if status is not None:
             self.status = status
+        if target_config is not None:
+            self.target_config = target_config
 
     @property
     def cert_id(self):
@@ -177,6 +182,27 @@ class DescribeCertConfigRequest(object):
         """
 
         self._status = status
+
+    @property
+    def target_config(self):
+        """Gets the target_config of this DescribeCertConfigRequest.  # noqa: E501
+
+
+        :return: The target_config of this DescribeCertConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._target_config
+
+    @target_config.setter
+    def target_config(self, target_config):
+        """Sets the target_config of this DescribeCertConfigRequest.
+
+
+        :param target_config: The target_config of this DescribeCertConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._target_config = target_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

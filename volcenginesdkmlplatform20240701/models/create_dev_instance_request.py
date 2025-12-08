@@ -34,14 +34,17 @@ class CreateDevInstanceRequest(object):
     """
     swagger_types = {
         'credential': 'CredentialForCreateDevInstanceInput',
+        'default_folder': 'str',
         'description': 'str',
         'image': 'ImageForCreateDevInstanceInput',
         'name': 'str',
         'node_affinity_spec': 'NodeAffinitySpecForCreateDevInstanceInput',
         'numa_affinity': 'str',
         'ports': 'list[PortForCreateDevInstanceInput]',
+        'project_name': 'str',
         'resource_claim': 'ResourceClaimForCreateDevInstanceInput',
         'resource_queue_id': 'str',
+        'resource_reservation_plan_id': 'str',
         'ssh_public_key': 'str',
         'storages': 'list[StorageForCreateDevInstanceInput]',
         'volume': 'VolumeForCreateDevInstanceInput'
@@ -49,34 +52,40 @@ class CreateDevInstanceRequest(object):
 
     attribute_map = {
         'credential': 'Credential',
+        'default_folder': 'DefaultFolder',
         'description': 'Description',
         'image': 'Image',
         'name': 'Name',
         'node_affinity_spec': 'NodeAffinitySpec',
         'numa_affinity': 'NumaAffinity',
         'ports': 'Ports',
+        'project_name': 'ProjectName',
         'resource_claim': 'ResourceClaim',
         'resource_queue_id': 'ResourceQueueId',
+        'resource_reservation_plan_id': 'ResourceReservationPlanId',
         'ssh_public_key': 'SshPublicKey',
         'storages': 'Storages',
         'volume': 'Volume'
     }
 
-    def __init__(self, credential=None, description=None, image=None, name=None, node_affinity_spec=None, numa_affinity=None, ports=None, resource_claim=None, resource_queue_id=None, ssh_public_key=None, storages=None, volume=None, _configuration=None):  # noqa: E501
+    def __init__(self, credential=None, default_folder=None, description=None, image=None, name=None, node_affinity_spec=None, numa_affinity=None, ports=None, project_name=None, resource_claim=None, resource_queue_id=None, resource_reservation_plan_id=None, ssh_public_key=None, storages=None, volume=None, _configuration=None):  # noqa: E501
         """CreateDevInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._credential = None
+        self._default_folder = None
         self._description = None
         self._image = None
         self._name = None
         self._node_affinity_spec = None
         self._numa_affinity = None
         self._ports = None
+        self._project_name = None
         self._resource_claim = None
         self._resource_queue_id = None
+        self._resource_reservation_plan_id = None
         self._ssh_public_key = None
         self._storages = None
         self._volume = None
@@ -84,6 +93,8 @@ class CreateDevInstanceRequest(object):
 
         if credential is not None:
             self.credential = credential
+        if default_folder is not None:
+            self.default_folder = default_folder
         if description is not None:
             self.description = description
         if image is not None:
@@ -95,9 +106,14 @@ class CreateDevInstanceRequest(object):
             self.numa_affinity = numa_affinity
         if ports is not None:
             self.ports = ports
+        if project_name is not None:
+            self.project_name = project_name
         if resource_claim is not None:
             self.resource_claim = resource_claim
-        self.resource_queue_id = resource_queue_id
+        if resource_queue_id is not None:
+            self.resource_queue_id = resource_queue_id
+        if resource_reservation_plan_id is not None:
+            self.resource_reservation_plan_id = resource_reservation_plan_id
         if ssh_public_key is not None:
             self.ssh_public_key = ssh_public_key
         if storages is not None:
@@ -125,6 +141,27 @@ class CreateDevInstanceRequest(object):
         """
 
         self._credential = credential
+
+    @property
+    def default_folder(self):
+        """Gets the default_folder of this CreateDevInstanceRequest.  # noqa: E501
+
+
+        :return: The default_folder of this CreateDevInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_folder
+
+    @default_folder.setter
+    def default_folder(self, default_folder):
+        """Sets the default_folder of this CreateDevInstanceRequest.
+
+
+        :param default_folder: The default_folder of this CreateDevInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._default_folder = default_folder
 
     @property
     def description(self):
@@ -255,6 +292,33 @@ class CreateDevInstanceRequest(object):
         self._ports = ports
 
     @property
+    def project_name(self):
+        """Gets the project_name of this CreateDevInstanceRequest.  # noqa: E501
+
+
+        :return: The project_name of this CreateDevInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this CreateDevInstanceRequest.
+
+
+        :param project_name: The project_name of this CreateDevInstanceRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) > 64):
+            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                project_name is not None and len(project_name) < 1):
+            raise ValueError("Invalid value for `project_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._project_name = project_name
+
+    @property
     def resource_claim(self):
         """Gets the resource_claim of this CreateDevInstanceRequest.  # noqa: E501
 
@@ -293,10 +357,29 @@ class CreateDevInstanceRequest(object):
         :param resource_queue_id: The resource_queue_id of this CreateDevInstanceRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and resource_queue_id is None:
-            raise ValueError("Invalid value for `resource_queue_id`, must not be `None`")  # noqa: E501
 
         self._resource_queue_id = resource_queue_id
+
+    @property
+    def resource_reservation_plan_id(self):
+        """Gets the resource_reservation_plan_id of this CreateDevInstanceRequest.  # noqa: E501
+
+
+        :return: The resource_reservation_plan_id of this CreateDevInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_reservation_plan_id
+
+    @resource_reservation_plan_id.setter
+    def resource_reservation_plan_id(self, resource_reservation_plan_id):
+        """Sets the resource_reservation_plan_id of this CreateDevInstanceRequest.
+
+
+        :param resource_reservation_plan_id: The resource_reservation_plan_id of this CreateDevInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_reservation_plan_id = resource_reservation_plan_id
 
     @property
     def ssh_public_key(self):

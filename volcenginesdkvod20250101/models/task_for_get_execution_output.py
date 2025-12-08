@@ -36,6 +36,7 @@ class TaskForGetExecutionOutput(object):
         'ad_audit': 'AdAuditForGetExecutionOutput',
         'asr': 'AsrForGetExecutionOutput',
         'audio_extract': 'AudioExtractForGetExecutionOutput',
+        'enhance': 'EnhanceForGetExecutionOutput',
         'erase': 'EraseForGetExecutionOutput',
         'file_delete': 'FileDeleteForGetExecutionOutput',
         'highlight': 'HighlightForGetExecutionOutput',
@@ -44,7 +45,9 @@ class TaskForGetExecutionOutput(object):
         'storyline': 'StorylineForGetExecutionOutput',
         'type': 'str',
         'video_generation': 'VideoGenerationForGetExecutionOutput',
+        'video_matting': 'VideoMattingForGetExecutionOutput',
         'video_summary': 'VideoSummaryForGetExecutionOutput',
+        'video_understanding': 'VideoUnderstandingForGetExecutionOutput',
         'vision': 'VisionForGetExecutionOutput'
     }
 
@@ -52,6 +55,7 @@ class TaskForGetExecutionOutput(object):
         'ad_audit': 'AdAudit',
         'asr': 'Asr',
         'audio_extract': 'AudioExtract',
+        'enhance': 'Enhance',
         'erase': 'Erase',
         'file_delete': 'FileDelete',
         'highlight': 'Highlight',
@@ -60,11 +64,13 @@ class TaskForGetExecutionOutput(object):
         'storyline': 'Storyline',
         'type': 'Type',
         'video_generation': 'VideoGeneration',
+        'video_matting': 'VideoMatting',
         'video_summary': 'VideoSummary',
+        'video_understanding': 'VideoUnderstanding',
         'vision': 'Vision'
     }
 
-    def __init__(self, ad_audit=None, asr=None, audio_extract=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_summary=None, vision=None, _configuration=None):  # noqa: E501
+    def __init__(self, ad_audit=None, asr=None, audio_extract=None, enhance=None, erase=None, file_delete=None, highlight=None, ocr=None, segment=None, storyline=None, type=None, video_generation=None, video_matting=None, video_summary=None, video_understanding=None, vision=None, _configuration=None):  # noqa: E501
         """TaskForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +79,7 @@ class TaskForGetExecutionOutput(object):
         self._ad_audit = None
         self._asr = None
         self._audio_extract = None
+        self._enhance = None
         self._erase = None
         self._file_delete = None
         self._highlight = None
@@ -81,7 +88,9 @@ class TaskForGetExecutionOutput(object):
         self._storyline = None
         self._type = None
         self._video_generation = None
+        self._video_matting = None
         self._video_summary = None
+        self._video_understanding = None
         self._vision = None
         self.discriminator = None
 
@@ -91,6 +100,8 @@ class TaskForGetExecutionOutput(object):
             self.asr = asr
         if audio_extract is not None:
             self.audio_extract = audio_extract
+        if enhance is not None:
+            self.enhance = enhance
         if erase is not None:
             self.erase = erase
         if file_delete is not None:
@@ -107,8 +118,12 @@ class TaskForGetExecutionOutput(object):
             self.type = type
         if video_generation is not None:
             self.video_generation = video_generation
+        if video_matting is not None:
+            self.video_matting = video_matting
         if video_summary is not None:
             self.video_summary = video_summary
+        if video_understanding is not None:
+            self.video_understanding = video_understanding
         if vision is not None:
             self.vision = vision
 
@@ -174,6 +189,27 @@ class TaskForGetExecutionOutput(object):
         """
 
         self._audio_extract = audio_extract
+
+    @property
+    def enhance(self):
+        """Gets the enhance of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The enhance of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: EnhanceForGetExecutionOutput
+        """
+        return self._enhance
+
+    @enhance.setter
+    def enhance(self, enhance):
+        """Sets the enhance of this TaskForGetExecutionOutput.
+
+
+        :param enhance: The enhance of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: EnhanceForGetExecutionOutput
+        """
+
+        self._enhance = enhance
 
     @property
     def erase(self):
@@ -344,6 +380,27 @@ class TaskForGetExecutionOutput(object):
         self._video_generation = video_generation
 
     @property
+    def video_matting(self):
+        """Gets the video_matting of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_matting of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: VideoMattingForGetExecutionOutput
+        """
+        return self._video_matting
+
+    @video_matting.setter
+    def video_matting(self, video_matting):
+        """Sets the video_matting of this TaskForGetExecutionOutput.
+
+
+        :param video_matting: The video_matting of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: VideoMattingForGetExecutionOutput
+        """
+
+        self._video_matting = video_matting
+
+    @property
     def video_summary(self):
         """Gets the video_summary of this TaskForGetExecutionOutput.  # noqa: E501
 
@@ -363,6 +420,27 @@ class TaskForGetExecutionOutput(object):
         """
 
         self._video_summary = video_summary
+
+    @property
+    def video_understanding(self):
+        """Gets the video_understanding of this TaskForGetExecutionOutput.  # noqa: E501
+
+
+        :return: The video_understanding of this TaskForGetExecutionOutput.  # noqa: E501
+        :rtype: VideoUnderstandingForGetExecutionOutput
+        """
+        return self._video_understanding
+
+    @video_understanding.setter
+    def video_understanding(self, video_understanding):
+        """Sets the video_understanding of this TaskForGetExecutionOutput.
+
+
+        :param video_understanding: The video_understanding of this TaskForGetExecutionOutput.  # noqa: E501
+        :type: VideoUnderstandingForGetExecutionOutput
+        """
+
+        self._video_understanding = video_understanding
 
     @property
     def vision(self):

@@ -33,175 +33,123 @@ class ConvertModelForGetExecutionOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'doubao_input_tokens': 'int',
-        'doubao_output_tokens': 'int',
-        'doubao_text_input_tokens': 'int',
-        'doubao_text_output_tokens': 'int',
-        'doubao_text_total_tokens': 'int',
-        'doubao_total_tokens': 'int'
+        'asr_app_id': 'str',
+        'asr_app_type': 'str',
+        'doubao_text_endpoint': 'str',
+        'doubao_vision_endpoint': 'str'
     }
 
     attribute_map = {
-        'doubao_input_tokens': 'DoubaoInputTokens',
-        'doubao_output_tokens': 'DoubaoOutputTokens',
-        'doubao_text_input_tokens': 'DoubaoTextInputTokens',
-        'doubao_text_output_tokens': 'DoubaoTextOutputTokens',
-        'doubao_text_total_tokens': 'DoubaoTextTotalTokens',
-        'doubao_total_tokens': 'DoubaoTotalTokens'
+        'asr_app_id': 'AsrAppId',
+        'asr_app_type': 'AsrAppType',
+        'doubao_text_endpoint': 'DoubaoTextEndpoint',
+        'doubao_vision_endpoint': 'DoubaoVisionEndpoint'
     }
 
-    def __init__(self, doubao_input_tokens=None, doubao_output_tokens=None, doubao_text_input_tokens=None, doubao_text_output_tokens=None, doubao_text_total_tokens=None, doubao_total_tokens=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr_app_id=None, asr_app_type=None, doubao_text_endpoint=None, doubao_vision_endpoint=None, _configuration=None):  # noqa: E501
         """ConvertModelForGetExecutionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._doubao_input_tokens = None
-        self._doubao_output_tokens = None
-        self._doubao_text_input_tokens = None
-        self._doubao_text_output_tokens = None
-        self._doubao_text_total_tokens = None
-        self._doubao_total_tokens = None
+        self._asr_app_id = None
+        self._asr_app_type = None
+        self._doubao_text_endpoint = None
+        self._doubao_vision_endpoint = None
         self.discriminator = None
 
-        if doubao_input_tokens is not None:
-            self.doubao_input_tokens = doubao_input_tokens
-        if doubao_output_tokens is not None:
-            self.doubao_output_tokens = doubao_output_tokens
-        if doubao_text_input_tokens is not None:
-            self.doubao_text_input_tokens = doubao_text_input_tokens
-        if doubao_text_output_tokens is not None:
-            self.doubao_text_output_tokens = doubao_text_output_tokens
-        if doubao_text_total_tokens is not None:
-            self.doubao_text_total_tokens = doubao_text_total_tokens
-        if doubao_total_tokens is not None:
-            self.doubao_total_tokens = doubao_total_tokens
+        if asr_app_id is not None:
+            self.asr_app_id = asr_app_id
+        if asr_app_type is not None:
+            self.asr_app_type = asr_app_type
+        if doubao_text_endpoint is not None:
+            self.doubao_text_endpoint = doubao_text_endpoint
+        if doubao_vision_endpoint is not None:
+            self.doubao_vision_endpoint = doubao_vision_endpoint
 
     @property
-    def doubao_input_tokens(self):
-        """Gets the doubao_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+    def asr_app_id(self):
+        """Gets the asr_app_id of this ConvertModelForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The doubao_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :rtype: int
+        :return: The asr_app_id of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._doubao_input_tokens
+        return self._asr_app_id
 
-    @doubao_input_tokens.setter
-    def doubao_input_tokens(self, doubao_input_tokens):
-        """Sets the doubao_input_tokens of this ConvertModelForGetExecutionOutput.
+    @asr_app_id.setter
+    def asr_app_id(self, asr_app_id):
+        """Sets the asr_app_id of this ConvertModelForGetExecutionOutput.
 
 
-        :param doubao_input_tokens: The doubao_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :type: int
+        :param asr_app_id: The asr_app_id of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._doubao_input_tokens = doubao_input_tokens
+        self._asr_app_id = asr_app_id
 
     @property
-    def doubao_output_tokens(self):
-        """Gets the doubao_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+    def asr_app_type(self):
+        """Gets the asr_app_type of this ConvertModelForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The doubao_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :rtype: int
+        :return: The asr_app_type of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._doubao_output_tokens
+        return self._asr_app_type
 
-    @doubao_output_tokens.setter
-    def doubao_output_tokens(self, doubao_output_tokens):
-        """Sets the doubao_output_tokens of this ConvertModelForGetExecutionOutput.
+    @asr_app_type.setter
+    def asr_app_type(self, asr_app_type):
+        """Sets the asr_app_type of this ConvertModelForGetExecutionOutput.
 
 
-        :param doubao_output_tokens: The doubao_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :type: int
+        :param asr_app_type: The asr_app_type of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._doubao_output_tokens = doubao_output_tokens
+        self._asr_app_type = asr_app_type
 
     @property
-    def doubao_text_input_tokens(self):
-        """Gets the doubao_text_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+    def doubao_text_endpoint(self):
+        """Gets the doubao_text_endpoint of this ConvertModelForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The doubao_text_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :rtype: int
+        :return: The doubao_text_endpoint of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._doubao_text_input_tokens
+        return self._doubao_text_endpoint
 
-    @doubao_text_input_tokens.setter
-    def doubao_text_input_tokens(self, doubao_text_input_tokens):
-        """Sets the doubao_text_input_tokens of this ConvertModelForGetExecutionOutput.
+    @doubao_text_endpoint.setter
+    def doubao_text_endpoint(self, doubao_text_endpoint):
+        """Sets the doubao_text_endpoint of this ConvertModelForGetExecutionOutput.
 
 
-        :param doubao_text_input_tokens: The doubao_text_input_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :type: int
+        :param doubao_text_endpoint: The doubao_text_endpoint of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._doubao_text_input_tokens = doubao_text_input_tokens
+        self._doubao_text_endpoint = doubao_text_endpoint
 
     @property
-    def doubao_text_output_tokens(self):
-        """Gets the doubao_text_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+    def doubao_vision_endpoint(self):
+        """Gets the doubao_vision_endpoint of this ConvertModelForGetExecutionOutput.  # noqa: E501
 
 
-        :return: The doubao_text_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :rtype: int
+        :return: The doubao_vision_endpoint of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :rtype: str
         """
-        return self._doubao_text_output_tokens
+        return self._doubao_vision_endpoint
 
-    @doubao_text_output_tokens.setter
-    def doubao_text_output_tokens(self, doubao_text_output_tokens):
-        """Sets the doubao_text_output_tokens of this ConvertModelForGetExecutionOutput.
-
-
-        :param doubao_text_output_tokens: The doubao_text_output_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._doubao_text_output_tokens = doubao_text_output_tokens
-
-    @property
-    def doubao_text_total_tokens(self):
-        """Gets the doubao_text_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
+    @doubao_vision_endpoint.setter
+    def doubao_vision_endpoint(self, doubao_vision_endpoint):
+        """Sets the doubao_vision_endpoint of this ConvertModelForGetExecutionOutput.
 
 
-        :return: The doubao_text_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._doubao_text_total_tokens
-
-    @doubao_text_total_tokens.setter
-    def doubao_text_total_tokens(self, doubao_text_total_tokens):
-        """Sets the doubao_text_total_tokens of this ConvertModelForGetExecutionOutput.
-
-
-        :param doubao_text_total_tokens: The doubao_text_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :type: int
+        :param doubao_vision_endpoint: The doubao_vision_endpoint of this ConvertModelForGetExecutionOutput.  # noqa: E501
+        :type: str
         """
 
-        self._doubao_text_total_tokens = doubao_text_total_tokens
-
-    @property
-    def doubao_total_tokens(self):
-        """Gets the doubao_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-
-
-        :return: The doubao_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :rtype: int
-        """
-        return self._doubao_total_tokens
-
-    @doubao_total_tokens.setter
-    def doubao_total_tokens(self, doubao_total_tokens):
-        """Sets the doubao_total_tokens of this ConvertModelForGetExecutionOutput.
-
-
-        :param doubao_total_tokens: The doubao_total_tokens of this ConvertModelForGetExecutionOutput.  # noqa: E501
-        :type: int
-        """
-
-        self._doubao_total_tokens = doubao_total_tokens
+        self._doubao_vision_endpoint = doubao_vision_endpoint
 
     def to_dict(self):
         """Returns the model properties as a dict"""

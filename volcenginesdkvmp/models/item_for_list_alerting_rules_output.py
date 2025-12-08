@@ -43,8 +43,10 @@ class ItemForListAlertingRulesOutput(object):
         'name': 'str',
         'notify_group_policy_id': 'str',
         'notify_policy_id': 'str',
+        'project_name': 'str',
         'query': 'QueryForListAlertingRulesOutput',
         'status': 'str',
+        'tags': 'list[TagForListAlertingRulesOutput]',
         'type': 'str',
         'update_time': 'str'
     }
@@ -60,13 +62,15 @@ class ItemForListAlertingRulesOutput(object):
         'name': 'Name',
         'notify_group_policy_id': 'NotifyGroupPolicyId',
         'notify_policy_id': 'NotifyPolicyId',
+        'project_name': 'ProjectName',
         'query': 'Query',
         'status': 'Status',
+        'tags': 'Tags',
         'type': 'Type',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, annotations=None, create_time=None, description=None, group_id=None, id=None, labels=None, levels=None, name=None, notify_group_policy_id=None, notify_policy_id=None, query=None, status=None, type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, annotations=None, create_time=None, description=None, group_id=None, id=None, labels=None, levels=None, name=None, notify_group_policy_id=None, notify_policy_id=None, project_name=None, query=None, status=None, tags=None, type=None, update_time=None, _configuration=None):  # noqa: E501
         """ItemForListAlertingRulesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,8 +86,10 @@ class ItemForListAlertingRulesOutput(object):
         self._name = None
         self._notify_group_policy_id = None
         self._notify_policy_id = None
+        self._project_name = None
         self._query = None
         self._status = None
+        self._tags = None
         self._type = None
         self._update_time = None
         self.discriminator = None
@@ -108,10 +114,14 @@ class ItemForListAlertingRulesOutput(object):
             self.notify_group_policy_id = notify_group_policy_id
         if notify_policy_id is not None:
             self.notify_policy_id = notify_policy_id
+        if project_name is not None:
+            self.project_name = project_name
         if query is not None:
             self.query = query
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if type is not None:
             self.type = type
         if update_time is not None:
@@ -328,6 +338,27 @@ class ItemForListAlertingRulesOutput(object):
         self._notify_policy_id = notify_policy_id
 
     @property
+    def project_name(self):
+        """Gets the project_name of this ItemForListAlertingRulesOutput.  # noqa: E501
+
+
+        :return: The project_name of this ItemForListAlertingRulesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this ItemForListAlertingRulesOutput.
+
+
+        :param project_name: The project_name of this ItemForListAlertingRulesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
     def query(self):
         """Gets the query of this ItemForListAlertingRulesOutput.  # noqa: E501
 
@@ -368,6 +399,27 @@ class ItemForListAlertingRulesOutput(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this ItemForListAlertingRulesOutput.  # noqa: E501
+
+
+        :return: The tags of this ItemForListAlertingRulesOutput.  # noqa: E501
+        :rtype: list[TagForListAlertingRulesOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ItemForListAlertingRulesOutput.
+
+
+        :param tags: The tags of this ItemForListAlertingRulesOutput.  # noqa: E501
+        :type: list[TagForListAlertingRulesOutput]
+        """
+
+        self._tags = tags
 
     @property
     def type(self):

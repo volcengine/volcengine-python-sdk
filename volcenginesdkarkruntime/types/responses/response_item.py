@@ -1,4 +1,3 @@
-
 # Copyright (c) [2025] [OpenAI]
 # Copyright (c) [2025] [ByteDance Ltd. and/or its affiliates.]
 # SPDX-License-Identifier: Apache-2.0
@@ -10,15 +9,15 @@
 #
 # This modified file is released under the same license.
 
-from typing import Dict, List, Union, Optional
-from typing_extensions import Literal, Annotated, TypeAlias
+from typing import Union
+from typing_extensions import Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
-from ..._models import BaseModel
 from .response_output_message import ResponseOutputMessage
 from .response_input_message_item import ResponseInputMessageItem
 from .response_function_tool_call_item import ResponseFunctionToolCallItem
 from .response_function_tool_call_output_item import ResponseFunctionToolCallOutputItem
+from .response_mcp_item import McpListTools, McpApprovalRequest, McpCall
 
 
 __all__ = [
@@ -31,6 +30,9 @@ ResponseItem: TypeAlias = Annotated[
         ResponseOutputMessage,
         ResponseFunctionToolCallItem,
         ResponseFunctionToolCallOutputItem,
+        McpListTools,
+        McpApprovalRequest,
+        McpCall,
     ],
     PropertyInfo(discriminator="type"),
 ]
