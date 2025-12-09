@@ -33,8 +33,10 @@ class AddressObjectForDescribeDBInstancesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cross_region_domain': 'str',
         'dns_visibility': 'bool',
         'domain': 'str',
+        'domain_visibility_setting': 'str',
         'eip_id': 'str',
         'ip_address': 'str',
         'network_type': 'str',
@@ -43,8 +45,10 @@ class AddressObjectForDescribeDBInstancesOutput(object):
     }
 
     attribute_map = {
+        'cross_region_domain': 'CrossRegionDomain',
         'dns_visibility': 'DNSVisibility',
         'domain': 'Domain',
+        'domain_visibility_setting': 'DomainVisibilitySetting',
         'eip_id': 'EipId',
         'ip_address': 'IPAddress',
         'network_type': 'NetworkType',
@@ -52,14 +56,16 @@ class AddressObjectForDescribeDBInstancesOutput(object):
         'subnet_id': 'SubnetId'
     }
 
-    def __init__(self, dns_visibility=None, domain=None, eip_id=None, ip_address=None, network_type=None, port=None, subnet_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, cross_region_domain=None, dns_visibility=None, domain=None, domain_visibility_setting=None, eip_id=None, ip_address=None, network_type=None, port=None, subnet_id=None, _configuration=None):  # noqa: E501
         """AddressObjectForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._cross_region_domain = None
         self._dns_visibility = None
         self._domain = None
+        self._domain_visibility_setting = None
         self._eip_id = None
         self._ip_address = None
         self._network_type = None
@@ -67,10 +73,14 @@ class AddressObjectForDescribeDBInstancesOutput(object):
         self._subnet_id = None
         self.discriminator = None
 
+        if cross_region_domain is not None:
+            self.cross_region_domain = cross_region_domain
         if dns_visibility is not None:
             self.dns_visibility = dns_visibility
         if domain is not None:
             self.domain = domain
+        if domain_visibility_setting is not None:
+            self.domain_visibility_setting = domain_visibility_setting
         if eip_id is not None:
             self.eip_id = eip_id
         if ip_address is not None:
@@ -81,6 +91,27 @@ class AddressObjectForDescribeDBInstancesOutput(object):
             self.port = port
         if subnet_id is not None:
             self.subnet_id = subnet_id
+
+    @property
+    def cross_region_domain(self):
+        """Gets the cross_region_domain of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The cross_region_domain of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._cross_region_domain
+
+    @cross_region_domain.setter
+    def cross_region_domain(self, cross_region_domain):
+        """Sets the cross_region_domain of this AddressObjectForDescribeDBInstancesOutput.
+
+
+        :param cross_region_domain: The cross_region_domain of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._cross_region_domain = cross_region_domain
 
     @property
     def dns_visibility(self):
@@ -123,6 +154,27 @@ class AddressObjectForDescribeDBInstancesOutput(object):
         """
 
         self._domain = domain
+
+    @property
+    def domain_visibility_setting(self):
+        """Gets the domain_visibility_setting of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The domain_visibility_setting of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_visibility_setting
+
+    @domain_visibility_setting.setter
+    def domain_visibility_setting(self, domain_visibility_setting):
+        """Sets the domain_visibility_setting of this AddressObjectForDescribeDBInstancesOutput.
+
+
+        :param domain_visibility_setting: The domain_visibility_setting of this AddressObjectForDescribeDBInstancesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._domain_visibility_setting = domain_visibility_setting
 
     @property
     def eip_id(self):

@@ -33,29 +33,55 @@ class ModifyDBInstanceSpecResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'estimation_result': 'EstimationResultForModifyDBInstanceSpecOutput',
         'instance_id': 'str',
         'order_id': 'str'
     }
 
     attribute_map = {
+        'estimation_result': 'EstimationResult',
         'instance_id': 'InstanceId',
         'order_id': 'OrderId'
     }
 
-    def __init__(self, instance_id=None, order_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, estimation_result=None, instance_id=None, order_id=None, _configuration=None):  # noqa: E501
         """ModifyDBInstanceSpecResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._estimation_result = None
         self._instance_id = None
         self._order_id = None
         self.discriminator = None
 
+        if estimation_result is not None:
+            self.estimation_result = estimation_result
         if instance_id is not None:
             self.instance_id = instance_id
         if order_id is not None:
             self.order_id = order_id
+
+    @property
+    def estimation_result(self):
+        """Gets the estimation_result of this ModifyDBInstanceSpecResponse.  # noqa: E501
+
+
+        :return: The estimation_result of this ModifyDBInstanceSpecResponse.  # noqa: E501
+        :rtype: EstimationResultForModifyDBInstanceSpecOutput
+        """
+        return self._estimation_result
+
+    @estimation_result.setter
+    def estimation_result(self, estimation_result):
+        """Sets the estimation_result of this ModifyDBInstanceSpecResponse.
+
+
+        :param estimation_result: The estimation_result of this ModifyDBInstanceSpecResponse.  # noqa: E501
+        :type: EstimationResultForModifyDBInstanceSpecOutput
+        """
+
+        self._estimation_result = estimation_result
 
     @property
     def instance_id(self):

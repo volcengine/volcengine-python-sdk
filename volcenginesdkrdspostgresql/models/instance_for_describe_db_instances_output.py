@@ -37,10 +37,12 @@ class InstanceForDescribeDBInstancesOutput(object):
         'charge_detail': 'ChargeDetailForDescribeDBInstancesOutput',
         'create_time': 'str',
         'db_engine_version': 'str',
+        'endpoints': 'list[EndpointForDescribeDBInstancesOutput]',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
         'instance_type': 'str',
+        'maintenance_window': 'MaintenanceWindowForDescribeDBInstancesOutput',
         'node_number': 'int',
         'node_spec': 'str',
         'project_name': 'str',
@@ -59,10 +61,12 @@ class InstanceForDescribeDBInstancesOutput(object):
         'charge_detail': 'ChargeDetail',
         'create_time': 'CreateTime',
         'db_engine_version': 'DBEngineVersion',
+        'endpoints': 'Endpoints',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
         'instance_type': 'InstanceType',
+        'maintenance_window': 'MaintenanceWindow',
         'node_number': 'NodeNumber',
         'node_spec': 'NodeSpec',
         'project_name': 'ProjectName',
@@ -76,7 +80,7 @@ class InstanceForDescribeDBInstancesOutput(object):
         'zone_ids': 'ZoneIds'
     }
 
-    def __init__(self, address_object=None, charge_detail=None, create_time=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_object=None, charge_detail=None, create_time=None, db_engine_version=None, endpoints=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, maintenance_window=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, zone_id=None, zone_ids=None, _configuration=None):  # noqa: E501
         """InstanceForDescribeDBInstancesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -86,10 +90,12 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._charge_detail = None
         self._create_time = None
         self._db_engine_version = None
+        self._endpoints = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
         self._instance_type = None
+        self._maintenance_window = None
         self._node_number = None
         self._node_spec = None
         self._project_name = None
@@ -111,6 +117,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.create_time = create_time
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if endpoints is not None:
+            self.endpoints = endpoints
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -119,6 +127,8 @@ class InstanceForDescribeDBInstancesOutput(object):
             self.instance_status = instance_status
         if instance_type is not None:
             self.instance_type = instance_type
+        if maintenance_window is not None:
+            self.maintenance_window = maintenance_window
         if node_number is not None:
             self.node_number = node_number
         if node_spec is not None:
@@ -227,6 +237,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         self._db_engine_version = db_engine_version
 
     @property
+    def endpoints(self):
+        """Gets the endpoints of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The endpoints of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: list[EndpointForDescribeDBInstancesOutput]
+        """
+        return self._endpoints
+
+    @endpoints.setter
+    def endpoints(self, endpoints):
+        """Sets the endpoints of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param endpoints: The endpoints of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: list[EndpointForDescribeDBInstancesOutput]
+        """
+
+        self._endpoints = endpoints
+
+    @property
     def instance_id(self):
         """Gets the instance_id of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
 
@@ -309,6 +340,27 @@ class InstanceForDescribeDBInstancesOutput(object):
         """
 
         self._instance_type = instance_type
+
+    @property
+    def maintenance_window(self):
+        """Gets the maintenance_window of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+
+
+        :return: The maintenance_window of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :rtype: MaintenanceWindowForDescribeDBInstancesOutput
+        """
+        return self._maintenance_window
+
+    @maintenance_window.setter
+    def maintenance_window(self, maintenance_window):
+        """Sets the maintenance_window of this InstanceForDescribeDBInstancesOutput.
+
+
+        :param maintenance_window: The maintenance_window of this InstanceForDescribeDBInstancesOutput.  # noqa: E501
+        :type: MaintenanceWindowForDescribeDBInstancesOutput
+        """
+
+        self._maintenance_window = maintenance_window
 
     @property
     def node_number(self):
