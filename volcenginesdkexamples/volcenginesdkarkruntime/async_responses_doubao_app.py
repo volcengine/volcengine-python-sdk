@@ -4,21 +4,9 @@ from volcenginesdkarkruntime import AsyncArk
 from volcenginesdkarkruntime.types.responses.response_completed_event import (
     ResponseCompletedEvent,
 )
-from volcenginesdkarkruntime.types.responses.response_output_item_done_event import (
-    ResponseOutputItemDoneEvent,
-)
-from volcenginesdkarkruntime.types.responses.response_function_tool_call import (
-    ResponseFunctionToolCall,
-)
-from volcenginesdkarkruntime.types.responses.response_mcp_item import McpApprovalRequest
 
 """
-示例代码：演示 Responses API 的常见用法
--------------------------------------------------
-1. 多轮对话中使用缓存 (caching)
-2. 调用外部函数 (function calling)
-3. Web 搜索工具 (web search)
-4. 使用MCP工具 (MCP)
+示例代码：演示 Responses API + 豆包助手 built in tool
 """
 
 client = AsyncArk()
