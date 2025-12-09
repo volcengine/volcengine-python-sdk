@@ -9,39 +9,30 @@
 #
 # This modified file is released under the same license.
 
-from typing import List, Union, Optional
-from typing_extensions import Literal, Annotated, TypeAlias
+from typing import List, Optional
 
-from ..._utils import PropertyInfo
+from typing_extensions import Literal
+
 from ..._models import BaseModel
-from .response_output_text import ResponseOutputText
+from .content import Content
 
-__all__ = ["ResponseOutputMessage", "Content"]
-
-Content: TypeAlias = Annotated[
-    Union[ResponseOutputText], PropertyInfo(discriminator="type")
-]
+__all__ = ["ResponseOutputMessage"]
 
 
 class ResponseOutputMessage(BaseModel):
-    id: str
-    """The unique ID of the output message."""
-
-    content: List[Content]
-    """The content of the output message."""
+    type: Literal["message"]
+    """The type of the output message. Always `message`."""
 
     role: Literal["assistant"]
     """The role of the output message. Always `assistant`."""
 
-    status: Literal["in_progress", "completed", "incomplete"]
-    """The status of the message input.
+    content: List[Content]
+    """The content of the output message."""
 
-    One of `in_progress`, `completed`, or `incomplete`. Populated when input items
-    are returned via API.
-    """
+    status: Literal["in_progress", "completed", "incomplete", "searching", "failed"]
+    """The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API."""
 
-    type: Literal["message"]
-    """The type of the output message. Always `message`."""
+    id: str
+    """The unique ID of the output message."""
 
-    partial: Optional[bool]
-    """Whether or not to include partial assistant responses."""
+    partial: Optional[bool] = None

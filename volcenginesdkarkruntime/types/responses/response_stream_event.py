@@ -18,6 +18,49 @@ from .response_completed_event import ResponseCompletedEvent
 from .response_content_part_added_event import ResponseContentPartAddedEvent
 from .response_content_part_done_event import ResponseContentPartDoneEvent
 from .response_created_event import ResponseCreatedEvent
+from .response_doubao_app_call_block_added_event import (
+    ResponseDoubaoAppCallBlockAddedEvent,
+)
+from .response_doubao_app_call_block_done_event import (
+    ResponseDoubaoAppCallBlockDoneEvent,
+)
+from .response_doubao_app_call_completed_event import (
+    ResponseDoubaoAppCallCompletedEvent,
+)
+from .response_doubao_app_call_failed_event import ResponseDoubaoAppCallFailedEvent
+from .response_doubao_app_call_in_progress_event import (
+    ResponseDoubaoAppCallInProgressEvent,
+)
+from .response_doubao_app_call_output_text_delta_event import (
+    ResponseDoubaoAppCallOutputTextDeltaEvent,
+)
+from .response_doubao_app_call_output_text_done_event import (
+    ResponseDoubaoAppCallOutputTextDoneEvent,
+)
+from .response_doubao_app_call_reasoning_search_completed_event import (
+    ResponseDoubaoAppCallReasoningSearchCompletedEvent,
+)
+from .response_doubao_app_call_reasoning_search_in_progress_event import (
+    ResponseDoubaoAppCallReasoningSearchInProgressEvent,
+)
+from .response_doubao_app_call_reasoning_search_searching_event import (
+    ResponseDoubaoAppCallReasoningSearchSearchingEvent,
+)
+from .response_doubao_app_call_reasoning_text_delta_event import (
+    ResponseDoubaoAppCallReasoningTextDeltaEvent,
+)
+from .response_doubao_app_call_reasoning_text_done_event import (
+    ResponseDoubaoAppCallReasoningTextDoneEvent,
+)
+from .response_doubao_app_call_search_completed_event import (
+    ResponseDoubaoAppCallSearchCompletedEvent,
+)
+from .response_doubao_app_call_search_in_progress_event import (
+    ResponseDoubaoAppCallSearchInProgressEvent,
+)
+from .response_doubao_app_call_search_searching_event import (
+    ResponseDoubaoAppCallSearchSearchingEvent,
+)
 from .response_error_event import ResponseErrorEvent
 from .response_failed_event import ResponseFailedEvent
 from .response_function_call_arguments_delta_event import (
@@ -127,6 +170,21 @@ ResponseStreamEvent: TypeAlias = Annotated[
         ResponseReasoningSummaryPartDoneEvent,
         ResponseReasoningSummaryTextDoneEvent,
         ResponseFunctionCallArgumentsDoneEvent,
+        ResponseDoubaoAppCallInProgressEvent,
+        ResponseDoubaoAppCallCompletedEvent,
+        ResponseDoubaoAppCallFailedEvent,
+        ResponseDoubaoAppCallOutputTextDeltaEvent,
+        ResponseDoubaoAppCallOutputTextDoneEvent,
+        ResponseDoubaoAppCallSearchInProgressEvent,
+        ResponseDoubaoAppCallSearchSearchingEvent,
+        ResponseDoubaoAppCallSearchCompletedEvent,
+        ResponseDoubaoAppCallReasoningTextDeltaEvent,
+        ResponseDoubaoAppCallReasoningTextDoneEvent,
+        ResponseDoubaoAppCallReasoningSearchInProgressEvent,
+        ResponseDoubaoAppCallReasoningSearchSearchingEvent,
+        ResponseDoubaoAppCallReasoningSearchCompletedEvent,
+        ResponseDoubaoAppCallBlockAddedEvent,
+        ResponseDoubaoAppCallBlockDoneEvent,
     ],
     PropertyInfo(discriminator="type"),
 ]

@@ -9,22 +9,20 @@
 #
 # This modified file is released under the same license.
 
-from typing import List, Optional
+from typing import Optional
 
-from typing_extensions import Literal
 
 from ..._models import BaseModel
-from .response_output_text_annotation import ResponseOutputTextAnnotation
+from .doubao_app_feature_item import DoubaoAppFeatureItem
 
-__all__ = ["ResponseOutputText"]
+__all__ = ["DoubaoAppFeature"]
 
 
-class ResponseOutputText(BaseModel):
-    type: Literal["output_text"]
-    """The type of the output text. Always `output_text`."""
+class DoubaoAppFeature(BaseModel):
+    chat: Optional[DoubaoAppFeatureItem] = None
 
-    text: str
-    """The text output from the model."""
+    deep_chat: Optional[DoubaoAppFeatureItem] = None
 
-    annotations: Optional[List[ResponseOutputTextAnnotation]] = None
-    """The annotation of the output text."""
+    ai_search: Optional[DoubaoAppFeatureItem] = None
+
+    reasoning_search: Optional[DoubaoAppFeatureItem] = None

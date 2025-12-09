@@ -9,22 +9,22 @@
 #
 # This modified file is released under the same license.
 
-from typing import List, Optional
+from typing import Optional
 
 from typing_extensions import Literal
 
 from ..._models import BaseModel
-from .response_output_text_annotation import ResponseOutputTextAnnotation
 
-__all__ = ["ResponseOutputText"]
+__all__ = ["DoubaoAppCallBlockOutputText"]
 
 
-class ResponseOutputText(BaseModel):
+class DoubaoAppCallBlockOutputText(BaseModel):
+    id: Optional[str] = None
+
     type: Literal["output_text"]
-    """The type of the output text. Always `output_text`."""
 
     text: str
-    """The text output from the model."""
 
-    annotations: Optional[List[ResponseOutputTextAnnotation]] = None
-    """The annotation of the output text."""
+    status: Literal["in_progress", "completed", "incomplete", "searching", "failed"]
+
+    parent_id: Optional[str] = None

@@ -14,23 +14,11 @@ from typing import Union
 from typing_extensions import Annotated, TypeAlias
 
 from ..._utils import PropertyInfo
-from .doubao_app_tool import DoubaoAppTool
-from .function_tool import FunctionTool
-from .image_process_tool import ImageProcessTool
-from .knowledge_search_tool import KnowledgeSearchTool
-from .mcp_tool import Mcp
-from .web_search_tool import WebSearchTool
+from .response_output_text import ResponseOutputText
 
-__all__ = ["Tool"]
+__all__ = ["Content"]
 
-Tool: TypeAlias = Annotated[
-    Union[
-        FunctionTool,
-        WebSearchTool,
-        ImageProcessTool,
-        Mcp,
-        KnowledgeSearchTool,
-        DoubaoAppTool,
-    ],
+Content: TypeAlias = Annotated[
+    Union[ResponseOutputText],
     PropertyInfo(discriminator="type"),
 ]

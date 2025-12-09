@@ -14,17 +14,24 @@ from typing import List, Optional
 from typing_extensions import Literal
 
 from ..._models import BaseModel
-from .response_output_text_annotation import ResponseOutputTextAnnotation
+from .doubao_app_search_result import DoubaoAppSearchResult
 
-__all__ = ["ResponseOutputText"]
+__all__ = ["ResponseDoubaoAppCallReasoningSearchCompletedEvent"]
 
 
-class ResponseOutputText(BaseModel):
-    type: Literal["output_text"]
-    """The type of the output text. Always `output_text`."""
+class ResponseDoubaoAppCallReasoningSearchCompletedEvent(BaseModel):
+    type: Literal["response.doubao_app_call_search.completed"]
 
-    text: str
-    """The text output from the model."""
+    item_id: str
 
-    annotations: Optional[List[ResponseOutputTextAnnotation]] = None
-    """The annotation of the output text."""
+    output_index: int
+
+    block_index: int
+
+    sequence_number: int
+
+    summary: Optional[str] = None
+
+    queries: List[str]
+
+    results: List[DoubaoAppSearchResult]

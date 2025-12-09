@@ -15,6 +15,7 @@ from typing import Union
 
 from typing_extensions import TypeAlias
 
+from .doubao_app_tool_param import DoubaoAppToolParam
 from .function_tool_param import FunctionToolParam
 from .image_process_tool_param import ImageProcessToolParam
 from .knowledge_search_tool_param import KnowledgeSearchToolParam
@@ -29,4 +30,5 @@ ToolParam: TypeAlias = Union[
     ImageProcessToolParam,
     Mcp,
     KnowledgeSearchToolParam,
+    DoubaoAppToolParam,
 ]
