@@ -10,7 +10,6 @@
 # This modified file is released under the same license.
 
 
-
 from ..._models import BaseModel
 from .doubao_app_search_text_item import DoubaoAppSearchTextItem
 

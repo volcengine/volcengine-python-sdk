@@ -10,7 +10,6 @@
 # This modified file is released under the same license.
 
 
-
 from ..._models import BaseModel
 
 __all__ = ["DoubaoAppSearchTextItem"]
