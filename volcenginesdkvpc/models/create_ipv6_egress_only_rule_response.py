@@ -33,29 +33,55 @@ class CreateIpv6EgressOnlyRuleResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_id': 'str',
         'ipv6_egress_only_rule_id': 'str',
         'request_id': 'str'
     }
 
     attribute_map = {
+        'async_task_id': 'AsyncTaskId',
         'ipv6_egress_only_rule_id': 'Ipv6EgressOnlyRuleId',
         'request_id': 'RequestId'
     }
 
-    def __init__(self, ipv6_egress_only_rule_id=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_id=None, ipv6_egress_only_rule_id=None, request_id=None, _configuration=None):  # noqa: E501
         """CreateIpv6EgressOnlyRuleResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_id = None
         self._ipv6_egress_only_rule_id = None
         self._request_id = None
         self.discriminator = None
 
+        if async_task_id is not None:
+            self.async_task_id = async_task_id
         if ipv6_egress_only_rule_id is not None:
             self.ipv6_egress_only_rule_id = ipv6_egress_only_rule_id
         if request_id is not None:
             self.request_id = request_id
+
+    @property
+    def async_task_id(self):
+        """Gets the async_task_id of this CreateIpv6EgressOnlyRuleResponse.  # noqa: E501
+
+
+        :return: The async_task_id of this CreateIpv6EgressOnlyRuleResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._async_task_id
+
+    @async_task_id.setter
+    def async_task_id(self, async_task_id):
+        """Sets the async_task_id of this CreateIpv6EgressOnlyRuleResponse.
+
+
+        :param async_task_id: The async_task_id of this CreateIpv6EgressOnlyRuleResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._async_task_id = async_task_id
 
     @property
     def ipv6_egress_only_rule_id(self):
