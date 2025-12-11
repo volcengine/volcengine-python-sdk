@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "volcengine-python-sdk"
-VERSION = "4.0.40"
+VERSION = "4.0.42"
 # To install the library, run the following
 #
 # python setup.py install
