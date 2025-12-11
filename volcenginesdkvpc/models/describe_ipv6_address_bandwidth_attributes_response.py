@@ -51,6 +51,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'project_name': 'str',
         'request_id': 'str',
         'service_managed': 'bool',
+        'specific_egress': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeIpv6AddressBandwidthAttributesOutput]',
         'update_time': 'str'
@@ -75,12 +76,13 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         'project_name': 'ProjectName',
         'request_id': 'RequestId',
         'service_managed': 'ServiceManaged',
+        'specific_egress': 'SpecificEgress',
         'status': 'Status',
         'tags': 'Tags',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, delete_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, request_id=None, service_managed=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, delete_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, request_id=None, service_managed=None, specific_egress=None, status=None, tags=None, update_time=None, _configuration=None):  # noqa: E501
         """DescribeIpv6AddressBandwidthAttributesResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -104,6 +106,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         self._project_name = None
         self._request_id = None
         self._service_managed = None
+        self._specific_egress = None
         self._status = None
         self._tags = None
         self._update_time = None
@@ -145,6 +148,8 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
             self.request_id = request_id
         if service_managed is not None:
             self.service_managed = service_managed
+        if specific_egress is not None:
+            self.specific_egress = specific_egress
         if status is not None:
             self.status = status
         if tags is not None:
@@ -529,6 +534,27 @@ class DescribeIpv6AddressBandwidthAttributesResponse(object):
         """
 
         self._service_managed = service_managed
+
+    @property
+    def specific_egress(self):
+        """Gets the specific_egress of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+
+
+        :return: The specific_egress of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._specific_egress
+
+    @specific_egress.setter
+    def specific_egress(self, specific_egress):
+        """Sets the specific_egress of this DescribeIpv6AddressBandwidthAttributesResponse.
+
+
+        :param specific_egress: The specific_egress of this DescribeIpv6AddressBandwidthAttributesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._specific_egress = specific_egress
 
     @property
     def status(self):

@@ -41,6 +41,7 @@ class DescribeIpv6GatewayAttributeResponse(object):
         'request_id': 'str',
         'route_table_id': 'str',
         'status': 'str',
+        'tags': 'list[TagForDescribeIpv6GatewayAttributeOutput]',
         'update_time': 'str',
         'vpc_id': 'str'
     }
@@ -54,11 +55,12 @@ class DescribeIpv6GatewayAttributeResponse(object):
         'request_id': 'RequestId',
         'route_table_id': 'RouteTableId',
         'status': 'Status',
+        'tags': 'Tags',
         'update_time': 'UpdateTime',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, creation_time=None, description=None, ipv6_gateway_id=None, name=None, project_name=None, request_id=None, route_table_id=None, status=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, description=None, ipv6_gateway_id=None, name=None, project_name=None, request_id=None, route_table_id=None, status=None, tags=None, update_time=None, vpc_id=None, _configuration=None):  # noqa: E501
         """DescribeIpv6GatewayAttributeResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class DescribeIpv6GatewayAttributeResponse(object):
         self._request_id = None
         self._route_table_id = None
         self._status = None
+        self._tags = None
         self._update_time = None
         self._vpc_id = None
         self.discriminator = None
@@ -92,6 +95,8 @@ class DescribeIpv6GatewayAttributeResponse(object):
             self.route_table_id = route_table_id
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if update_time is not None:
             self.update_time = update_time
         if vpc_id is not None:
@@ -264,6 +269,27 @@ class DescribeIpv6GatewayAttributeResponse(object):
         """
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+
+
+        :return: The tags of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+        :rtype: list[TagForDescribeIpv6GatewayAttributeOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this DescribeIpv6GatewayAttributeResponse.
+
+
+        :param tags: The tags of this DescribeIpv6GatewayAttributeResponse.  # noqa: E501
+        :type: list[TagForDescribeIpv6GatewayAttributeOutput]
+        """
+
+        self._tags = tags
 
     @property
     def update_time(self):

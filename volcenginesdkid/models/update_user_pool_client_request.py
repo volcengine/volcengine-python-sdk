@@ -40,6 +40,7 @@ class UpdateUserPoolClientRequest(object):
         'client_uid': 'str',
         'description': 'str',
         'id_token': 'IdTokenForUpdateUserPoolClientInput',
+        'logo_uri': 'str',
         'name': 'str',
         'refresh_token': 'RefreshTokenForUpdateUserPoolClientInput',
         'user_pool_uid': 'str'
@@ -53,12 +54,13 @@ class UpdateUserPoolClientRequest(object):
         'client_uid': 'ClientUid',
         'description': 'Description',
         'id_token': 'IdToken',
+        'logo_uri': 'LogoUri',
         'name': 'Name',
         'refresh_token': 'RefreshToken',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_uid=None, description=None, id_token=None, name=None, refresh_token=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, allowed_callback_urls=None, allowed_cors=None, allowed_logout_urls=None, allowed_web_origins=None, client_uid=None, description=None, id_token=None, logo_uri=None, name=None, refresh_token=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateUserPoolClientRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class UpdateUserPoolClientRequest(object):
         self._client_uid = None
         self._description = None
         self._id_token = None
+        self._logo_uri = None
         self._name = None
         self._refresh_token = None
         self._user_pool_uid = None
@@ -89,6 +92,8 @@ class UpdateUserPoolClientRequest(object):
             self.description = description
         if id_token is not None:
             self.id_token = id_token
+        if logo_uri is not None:
+            self.logo_uri = logo_uri
         if name is not None:
             self.name = name
         if refresh_token is not None:
@@ -243,6 +248,27 @@ class UpdateUserPoolClientRequest(object):
         """
 
         self._id_token = id_token
+
+    @property
+    def logo_uri(self):
+        """Gets the logo_uri of this UpdateUserPoolClientRequest.  # noqa: E501
+
+
+        :return: The logo_uri of this UpdateUserPoolClientRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._logo_uri
+
+    @logo_uri.setter
+    def logo_uri(self, logo_uri):
+        """Sets the logo_uri of this UpdateUserPoolClientRequest.
+
+
+        :param logo_uri: The logo_uri of this UpdateUserPoolClientRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._logo_uri = logo_uri
 
     @property
     def name(self):

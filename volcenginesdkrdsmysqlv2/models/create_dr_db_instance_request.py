@@ -41,6 +41,7 @@ class CreateDrDBInstanceRequest(object):
         'node_info': 'list[NodeInfoForCreateDrDBInstanceInput]',
         'proxy_node_custom': 'ProxyNodeCustomForCreateDrDBInstanceInput',
         'storage_space': 'int',
+        'storage_type': 'str',
         'subnet_id': 'str',
         'vpc_id': 'str'
     }
@@ -54,11 +55,12 @@ class CreateDrDBInstanceRequest(object):
         'node_info': 'NodeInfo',
         'proxy_node_custom': 'ProxyNodeCustom',
         'storage_space': 'StorageSpace',
+        'storage_type': 'StorageType',
         'subnet_id': 'SubnetId',
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, auto_storage_scaling_config=None, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, proxy_node_custom=None, storage_space=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_storage_scaling_config=None, deletion_protection=None, instance_name=None, master_instance_id=None, master_region=None, node_info=None, proxy_node_custom=None, storage_space=None, storage_type=None, subnet_id=None, vpc_id=None, _configuration=None):  # noqa: E501
         """CreateDrDBInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class CreateDrDBInstanceRequest(object):
         self._node_info = None
         self._proxy_node_custom = None
         self._storage_space = None
+        self._storage_type = None
         self._subnet_id = None
         self._vpc_id = None
         self.discriminator = None
@@ -89,6 +92,8 @@ class CreateDrDBInstanceRequest(object):
         if proxy_node_custom is not None:
             self.proxy_node_custom = proxy_node_custom
         self.storage_space = storage_space
+        if storage_type is not None:
+            self.storage_type = storage_type
         self.subnet_id = subnet_id
         self.vpc_id = vpc_id
 
@@ -265,6 +270,27 @@ class CreateDrDBInstanceRequest(object):
             raise ValueError("Invalid value for `storage_space`, must not be `None`")  # noqa: E501
 
         self._storage_space = storage_space
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this CreateDrDBInstanceRequest.  # noqa: E501
+
+
+        :return: The storage_type of this CreateDrDBInstanceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this CreateDrDBInstanceRequest.
+
+
+        :param storage_type: The storage_type of this CreateDrDBInstanceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
 
     @property
     def subnet_id(self):

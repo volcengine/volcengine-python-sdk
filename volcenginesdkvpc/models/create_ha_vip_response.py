@@ -33,34 +33,60 @@ class CreateHaVipResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'async_task_id': 'str',
         'ha_vip_id': 'str',
         'ip_address': 'str',
         'request_id': 'str'
     }
 
     attribute_map = {
+        'async_task_id': 'AsyncTaskId',
         'ha_vip_id': 'HaVipId',
         'ip_address': 'IpAddress',
         'request_id': 'RequestId'
     }
 
-    def __init__(self, ha_vip_id=None, ip_address=None, request_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, async_task_id=None, ha_vip_id=None, ip_address=None, request_id=None, _configuration=None):  # noqa: E501
         """CreateHaVipResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._async_task_id = None
         self._ha_vip_id = None
         self._ip_address = None
         self._request_id = None
         self.discriminator = None
 
+        if async_task_id is not None:
+            self.async_task_id = async_task_id
         if ha_vip_id is not None:
             self.ha_vip_id = ha_vip_id
         if ip_address is not None:
             self.ip_address = ip_address
         if request_id is not None:
             self.request_id = request_id
+
+    @property
+    def async_task_id(self):
+        """Gets the async_task_id of this CreateHaVipResponse.  # noqa: E501
+
+
+        :return: The async_task_id of this CreateHaVipResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._async_task_id
+
+    @async_task_id.setter
+    def async_task_id(self, async_task_id):
+        """Sets the async_task_id of this CreateHaVipResponse.
+
+
+        :param async_task_id: The async_task_id of this CreateHaVipResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._async_task_id = async_task_id
 
     @property
     def ha_vip_id(self):

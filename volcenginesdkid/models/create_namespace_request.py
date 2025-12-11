@@ -33,6 +33,7 @@ class CreateNamespaceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'associates': 'list[str]',
         'description': 'str',
         'namespace_name': 'str',
         'project_name': 'str',
@@ -40,24 +41,28 @@ class CreateNamespaceRequest(object):
     }
 
     attribute_map = {
+        'associates': 'Associates',
         'description': 'Description',
         'namespace_name': 'NamespaceName',
         'project_name': 'ProjectName',
         'tags': 'Tags'
     }
 
-    def __init__(self, description=None, namespace_name=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, associates=None, description=None, namespace_name=None, project_name=None, tags=None, _configuration=None):  # noqa: E501
         """CreateNamespaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._associates = None
         self._description = None
         self._namespace_name = None
         self._project_name = None
         self._tags = None
         self.discriminator = None
 
+        if associates is not None:
+            self.associates = associates
         if description is not None:
             self.description = description
         if namespace_name is not None:
@@ -66,6 +71,27 @@ class CreateNamespaceRequest(object):
             self.project_name = project_name
         if tags is not None:
             self.tags = tags
+
+    @property
+    def associates(self):
+        """Gets the associates of this CreateNamespaceRequest.  # noqa: E501
+
+
+        :return: The associates of this CreateNamespaceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._associates
+
+    @associates.setter
+    def associates(self, associates):
+        """Sets the associates of this CreateNamespaceRequest.
+
+
+        :param associates: The associates of this CreateNamespaceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._associates = associates
 
     @property
     def description(self):

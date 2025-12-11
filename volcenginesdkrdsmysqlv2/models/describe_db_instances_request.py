@@ -37,6 +37,7 @@ class DescribeDBInstancesRequest(object):
         'create_time_end': 'str',
         'create_time_start': 'str',
         'db_engine_version': 'str',
+        'engine_type': 'str',
         'instance_id': 'str',
         'instance_name': 'str',
         'instance_status': 'str',
@@ -58,6 +59,7 @@ class DescribeDBInstancesRequest(object):
         'create_time_end': 'CreateTimeEnd',
         'create_time_start': 'CreateTimeStart',
         'db_engine_version': 'DBEngineVersion',
+        'engine_type': 'EngineType',
         'instance_id': 'InstanceId',
         'instance_name': 'InstanceName',
         'instance_status': 'InstanceStatus',
@@ -74,7 +76,7 @@ class DescribeDBInstancesRequest(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, kernel_version=None, node_spec=None, page_number=None, page_size=None, private_network_ip_address=None, private_network_vpc_id=None, project_name=None, storage_type=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, charge_type=None, create_time_end=None, create_time_start=None, db_engine_version=None, engine_type=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, kernel_version=None, node_spec=None, page_number=None, page_size=None, private_network_ip_address=None, private_network_vpc_id=None, project_name=None, storage_type=None, tag_filters=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstancesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,6 +86,7 @@ class DescribeDBInstancesRequest(object):
         self._create_time_end = None
         self._create_time_start = None
         self._db_engine_version = None
+        self._engine_type = None
         self._instance_id = None
         self._instance_name = None
         self._instance_status = None
@@ -108,6 +111,8 @@ class DescribeDBInstancesRequest(object):
             self.create_time_start = create_time_start
         if db_engine_version is not None:
             self.db_engine_version = db_engine_version
+        if engine_type is not None:
+            self.engine_type = engine_type
         if instance_id is not None:
             self.instance_id = instance_id
         if instance_name is not None:
@@ -220,6 +225,27 @@ class DescribeDBInstancesRequest(object):
         """
 
         self._db_engine_version = db_engine_version
+
+    @property
+    def engine_type(self):
+        """Gets the engine_type of this DescribeDBInstancesRequest.  # noqa: E501
+
+
+        :return: The engine_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_type
+
+    @engine_type.setter
+    def engine_type(self, engine_type):
+        """Sets the engine_type of this DescribeDBInstancesRequest.
+
+
+        :param engine_type: The engine_type of this DescribeDBInstancesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_type = engine_type
 
     @property
     def instance_id(self):
