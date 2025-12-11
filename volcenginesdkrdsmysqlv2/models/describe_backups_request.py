@@ -36,6 +36,7 @@ class DescribeBackupsRequest(object):
         'backup_end_time': 'str',
         'backup_id': 'str',
         'backup_method': 'str',
+        'backup_name': 'str',
         'backup_start_time': 'str',
         'backup_status': 'str',
         'backup_type': 'str',
@@ -51,6 +52,7 @@ class DescribeBackupsRequest(object):
         'backup_end_time': 'BackupEndTime',
         'backup_id': 'BackupId',
         'backup_method': 'BackupMethod',
+        'backup_name': 'BackupName',
         'backup_start_time': 'BackupStartTime',
         'backup_status': 'BackupStatus',
         'backup_type': 'BackupType',
@@ -62,7 +64,7 @@ class DescribeBackupsRequest(object):
         'project_name': 'ProjectName'
     }
 
-    def __init__(self, backup_end_time=None, backup_id=None, backup_method=None, backup_start_time=None, backup_status=None, backup_type=None, create_type=None, instance_id=None, option=None, page_number=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_end_time=None, backup_id=None, backup_method=None, backup_name=None, backup_start_time=None, backup_status=None, backup_type=None, create_type=None, instance_id=None, option=None, page_number=None, page_size=None, project_name=None, _configuration=None):  # noqa: E501
         """DescribeBackupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class DescribeBackupsRequest(object):
         self._backup_end_time = None
         self._backup_id = None
         self._backup_method = None
+        self._backup_name = None
         self._backup_start_time = None
         self._backup_status = None
         self._backup_type = None
@@ -88,6 +91,8 @@ class DescribeBackupsRequest(object):
             self.backup_id = backup_id
         if backup_method is not None:
             self.backup_method = backup_method
+        if backup_name is not None:
+            self.backup_name = backup_name
         if backup_start_time is not None:
             self.backup_start_time = backup_start_time
         if backup_status is not None:
@@ -169,6 +174,27 @@ class DescribeBackupsRequest(object):
         """
 
         self._backup_method = backup_method
+
+    @property
+    def backup_name(self):
+        """Gets the backup_name of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The backup_name of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_name
+
+    @backup_name.setter
+    def backup_name(self, backup_name):
+        """Sets the backup_name of this DescribeBackupsRequest.
+
+
+        :param backup_name: The backup_name of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_name = backup_name
 
     @property
     def backup_start_time(self):

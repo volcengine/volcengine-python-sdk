@@ -39,6 +39,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput(object):
         'current_kernel_version': 'str',
         'db_engine_version': 'str',
         'deletion_protection': 'str',
+        'engine_type': 'str',
         'has_disaster_recovery_instances': 'bool',
         'has_green_instance': 'bool',
         'instance_id': 'str',
@@ -70,6 +71,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput(object):
         'current_kernel_version': 'CurrentKernelVersion',
         'db_engine_version': 'DBEngineVersion',
         'deletion_protection': 'DeletionProtection',
+        'engine_type': 'EngineType',
         'has_disaster_recovery_instances': 'HasDisasterRecoveryInstances',
         'has_green_instance': 'HasGreenInstance',
         'instance_id': 'InstanceId',
@@ -94,7 +96,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput(object):
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, allow_list_version=None, auto_upgrade_minor_version=None, create_time=None, current_kernel_version=None, db_engine_version=None, deletion_protection=None, has_disaster_recovery_instances=None, has_green_instance=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_version=None, auto_upgrade_minor_version=None, create_time=None, current_kernel_version=None, db_engine_version=None, deletion_protection=None, engine_type=None, has_disaster_recovery_instances=None, has_green_instance=None, instance_id=None, instance_name=None, instance_status=None, instance_type=None, lower_case_table_names=None, maintenance_window=None, memory=None, node_number=None, node_spec=None, project_name=None, region_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, time_zone=None, update_time=None, vcpu=None, vpc_id=None, zone_id=None, _configuration=None):  # noqa: E501
         """DBInstanceAttributeForDescribeDBInstanceAttributeOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,6 +108,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput(object):
         self._current_kernel_version = None
         self._db_engine_version = None
         self._deletion_protection = None
+        self._engine_type = None
         self._has_disaster_recovery_instances = None
         self._has_green_instance = None
         self._instance_id = None
@@ -142,6 +145,8 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput(object):
             self.db_engine_version = db_engine_version
         if deletion_protection is not None:
             self.deletion_protection = deletion_protection
+        if engine_type is not None:
+            self.engine_type = engine_type
         if has_disaster_recovery_instances is not None:
             self.has_disaster_recovery_instances = has_disaster_recovery_instances
         if has_green_instance is not None:
@@ -312,6 +317,27 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput(object):
         """
 
         self._deletion_protection = deletion_protection
+
+    @property
+    def engine_type(self):
+        """Gets the engine_type of this DBInstanceAttributeForDescribeDBInstanceAttributeOutput.  # noqa: E501
+
+
+        :return: The engine_type of this DBInstanceAttributeForDescribeDBInstanceAttributeOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_type
+
+    @engine_type.setter
+    def engine_type(self, engine_type):
+        """Sets the engine_type of this DBInstanceAttributeForDescribeDBInstanceAttributeOutput.
+
+
+        :param engine_type: The engine_type of this DBInstanceAttributeForDescribeDBInstanceAttributeOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_type = engine_type
 
     @property
     def has_disaster_recovery_instances(self):
