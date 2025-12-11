@@ -36,6 +36,7 @@ class GetOauth2CredentialProviderResponse(object):
         'config': 'ConfigForGetOauth2CredentialProviderOutput',
         'created_at': 'str',
         'credential_provider_trn': 'str',
+        'dcr_client_info': 'DcrClientInfoForGetOauth2CredentialProviderOutput',
         'name': 'str',
         'pool_name': 'str',
         'secret_trn': 'str',
@@ -47,6 +48,7 @@ class GetOauth2CredentialProviderResponse(object):
         'config': 'Config',
         'created_at': 'CreatedAt',
         'credential_provider_trn': 'CredentialProviderTrn',
+        'dcr_client_info': 'DcrClientInfo',
         'name': 'Name',
         'pool_name': 'PoolName',
         'secret_trn': 'SecretTrn',
@@ -54,7 +56,7 @@ class GetOauth2CredentialProviderResponse(object):
         'vendor': 'Vendor'
     }
 
-    def __init__(self, config=None, created_at=None, credential_provider_trn=None, name=None, pool_name=None, secret_trn=None, updated_at=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, config=None, created_at=None, credential_provider_trn=None, dcr_client_info=None, name=None, pool_name=None, secret_trn=None, updated_at=None, vendor=None, _configuration=None):  # noqa: E501
         """GetOauth2CredentialProviderResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,6 +65,7 @@ class GetOauth2CredentialProviderResponse(object):
         self._config = None
         self._created_at = None
         self._credential_provider_trn = None
+        self._dcr_client_info = None
         self._name = None
         self._pool_name = None
         self._secret_trn = None
@@ -76,6 +79,8 @@ class GetOauth2CredentialProviderResponse(object):
             self.created_at = created_at
         if credential_provider_trn is not None:
             self.credential_provider_trn = credential_provider_trn
+        if dcr_client_info is not None:
+            self.dcr_client_info = dcr_client_info
         if name is not None:
             self.name = name
         if pool_name is not None:
@@ -149,6 +154,27 @@ class GetOauth2CredentialProviderResponse(object):
         """
 
         self._credential_provider_trn = credential_provider_trn
+
+    @property
+    def dcr_client_info(self):
+        """Gets the dcr_client_info of this GetOauth2CredentialProviderResponse.  # noqa: E501
+
+
+        :return: The dcr_client_info of this GetOauth2CredentialProviderResponse.  # noqa: E501
+        :rtype: DcrClientInfoForGetOauth2CredentialProviderOutput
+        """
+        return self._dcr_client_info
+
+    @dcr_client_info.setter
+    def dcr_client_info(self, dcr_client_info):
+        """Sets the dcr_client_info of this GetOauth2CredentialProviderResponse.
+
+
+        :param dcr_client_info: The dcr_client_info of this GetOauth2CredentialProviderResponse.  # noqa: E501
+        :type: DcrClientInfoForGetOauth2CredentialProviderOutput
+        """
+
+        self._dcr_client_info = dcr_client_info
 
     @property
     def name(self):

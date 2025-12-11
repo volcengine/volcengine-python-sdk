@@ -39,6 +39,7 @@ class FilterForListUsersInput(object):
         'gender': 'str',
         'given_name': 'str',
         'latest_browser': 'str',
+        'latest_login_method': 'str',
         'locale': 'str',
         'middle_name': 'str',
         'name': 'str',
@@ -55,6 +56,7 @@ class FilterForListUsersInput(object):
         'gender': 'Gender',
         'given_name': 'GivenName',
         'latest_browser': 'LatestBrowser',
+        'latest_login_method': 'LatestLoginMethod',
         'locale': 'Locale',
         'middle_name': 'MiddleName',
         'name': 'Name',
@@ -64,7 +66,7 @@ class FilterForListUsersInput(object):
         'website': 'Website'
     }
 
-    def __init__(self, connection=None, email=None, family_name=None, gender=None, given_name=None, latest_browser=None, locale=None, middle_name=None, name=None, nickname=None, phone_number=None, preferred_username=None, website=None, _configuration=None):  # noqa: E501
+    def __init__(self, connection=None, email=None, family_name=None, gender=None, given_name=None, latest_browser=None, latest_login_method=None, locale=None, middle_name=None, name=None, nickname=None, phone_number=None, preferred_username=None, website=None, _configuration=None):  # noqa: E501
         """FilterForListUsersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class FilterForListUsersInput(object):
         self._gender = None
         self._given_name = None
         self._latest_browser = None
+        self._latest_login_method = None
         self._locale = None
         self._middle_name = None
         self._name = None
@@ -97,6 +100,8 @@ class FilterForListUsersInput(object):
             self.given_name = given_name
         if latest_browser is not None:
             self.latest_browser = latest_browser
+        if latest_login_method is not None:
+            self.latest_login_method = latest_login_method
         if locale is not None:
             self.locale = locale
         if middle_name is not None:
@@ -237,6 +242,27 @@ class FilterForListUsersInput(object):
         """
 
         self._latest_browser = latest_browser
+
+    @property
+    def latest_login_method(self):
+        """Gets the latest_login_method of this FilterForListUsersInput.  # noqa: E501
+
+
+        :return: The latest_login_method of this FilterForListUsersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._latest_login_method
+
+    @latest_login_method.setter
+    def latest_login_method(self, latest_login_method):
+        """Sets the latest_login_method of this FilterForListUsersInput.
+
+
+        :param latest_login_method: The latest_login_method of this FilterForListUsersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._latest_login_method = latest_login_method
 
     @property
     def locale(self):
