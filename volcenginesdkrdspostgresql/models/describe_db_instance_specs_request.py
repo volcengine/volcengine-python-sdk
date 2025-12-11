@@ -35,16 +35,18 @@ class DescribeDBInstanceSpecsRequest(object):
     swagger_types = {
         'db_engine_version': 'str',
         'spec_code': 'str',
+        'storage_type': 'str',
         'zone_id': 'str'
     }
 
     attribute_map = {
         'db_engine_version': 'DBEngineVersion',
         'spec_code': 'SpecCode',
+        'storage_type': 'StorageType',
         'zone_id': 'ZoneId'
     }
 
-    def __init__(self, db_engine_version=None, spec_code=None, zone_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, db_engine_version=None, spec_code=None, storage_type=None, zone_id=None, _configuration=None):  # noqa: E501
         """DescribeDBInstanceSpecsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class DescribeDBInstanceSpecsRequest(object):
 
         self._db_engine_version = None
         self._spec_code = None
+        self._storage_type = None
         self._zone_id = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class DescribeDBInstanceSpecsRequest(object):
             self.db_engine_version = db_engine_version
         if spec_code is not None:
             self.spec_code = spec_code
+        if storage_type is not None:
+            self.storage_type = storage_type
         if zone_id is not None:
             self.zone_id = zone_id
 
@@ -103,6 +108,27 @@ class DescribeDBInstanceSpecsRequest(object):
         """
 
         self._spec_code = spec_code
+
+    @property
+    def storage_type(self):
+        """Gets the storage_type of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+
+
+        :return: The storage_type of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_type
+
+    @storage_type.setter
+    def storage_type(self, storage_type):
+        """Sets the storage_type of this DescribeDBInstanceSpecsRequest.
+
+
+        :param storage_type: The storage_type of this DescribeDBInstanceSpecsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._storage_type = storage_type
 
     @property
     def zone_id(self):

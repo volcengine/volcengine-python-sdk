@@ -33,40 +33,54 @@ class UpdateUserPoolRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'brand': 'BrandForUpdateUserPoolInput',
         'description': 'str',
         'email_passwordless_sign_in_enabled': 'bool',
         'name': 'str',
         'password_sign_in_enabled': 'bool',
+        'self_account_recovery_enabled': 'bool',
         'self_sign_up_enabled': 'bool',
+        'sign_up_auto_verification_enabled': 'bool',
         'sms_passwordless_sign_in_enabled': 'bool',
+        'unconfirmed_user_sign_in_enabled': 'bool',
         'user_pool_uid': 'str'
     }
 
     attribute_map = {
+        'brand': 'Brand',
         'description': 'Description',
         'email_passwordless_sign_in_enabled': 'EmailPasswordlessSignInEnabled',
         'name': 'Name',
         'password_sign_in_enabled': 'PasswordSignInEnabled',
+        'self_account_recovery_enabled': 'SelfAccountRecoveryEnabled',
         'self_sign_up_enabled': 'SelfSignUpEnabled',
+        'sign_up_auto_verification_enabled': 'SignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled': 'SmsPasswordlessSignInEnabled',
+        'unconfirmed_user_sign_in_enabled': 'UnconfirmedUserSignInEnabled',
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, self_sign_up_enabled=None, sms_passwordless_sign_in_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, brand=None, description=None, email_passwordless_sign_in_enabled=None, name=None, password_sign_in_enabled=None, self_account_recovery_enabled=None, self_sign_up_enabled=None, sign_up_auto_verification_enabled=None, sms_passwordless_sign_in_enabled=None, unconfirmed_user_sign_in_enabled=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateUserPoolRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._brand = None
         self._description = None
         self._email_passwordless_sign_in_enabled = None
         self._name = None
         self._password_sign_in_enabled = None
+        self._self_account_recovery_enabled = None
         self._self_sign_up_enabled = None
+        self._sign_up_auto_verification_enabled = None
         self._sms_passwordless_sign_in_enabled = None
+        self._unconfirmed_user_sign_in_enabled = None
         self._user_pool_uid = None
         self.discriminator = None
 
+        if brand is not None:
+            self.brand = brand
         if description is not None:
             self.description = description
         if email_passwordless_sign_in_enabled is not None:
@@ -75,11 +89,38 @@ class UpdateUserPoolRequest(object):
             self.name = name
         if password_sign_in_enabled is not None:
             self.password_sign_in_enabled = password_sign_in_enabled
+        if self_account_recovery_enabled is not None:
+            self.self_account_recovery_enabled = self_account_recovery_enabled
         if self_sign_up_enabled is not None:
             self.self_sign_up_enabled = self_sign_up_enabled
+        if sign_up_auto_verification_enabled is not None:
+            self.sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
         if sms_passwordless_sign_in_enabled is not None:
             self.sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
+        if unconfirmed_user_sign_in_enabled is not None:
+            self.unconfirmed_user_sign_in_enabled = unconfirmed_user_sign_in_enabled
         self.user_pool_uid = user_pool_uid
+
+    @property
+    def brand(self):
+        """Gets the brand of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The brand of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: BrandForUpdateUserPoolInput
+        """
+        return self._brand
+
+    @brand.setter
+    def brand(self, brand):
+        """Sets the brand of this UpdateUserPoolRequest.
+
+
+        :param brand: The brand of this UpdateUserPoolRequest.  # noqa: E501
+        :type: BrandForUpdateUserPoolInput
+        """
+
+        self._brand = brand
 
     @property
     def description(self):
@@ -166,6 +207,27 @@ class UpdateUserPoolRequest(object):
         self._password_sign_in_enabled = password_sign_in_enabled
 
     @property
+    def self_account_recovery_enabled(self):
+        """Gets the self_account_recovery_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The self_account_recovery_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._self_account_recovery_enabled
+
+    @self_account_recovery_enabled.setter
+    def self_account_recovery_enabled(self, self_account_recovery_enabled):
+        """Sets the self_account_recovery_enabled of this UpdateUserPoolRequest.
+
+
+        :param self_account_recovery_enabled: The self_account_recovery_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._self_account_recovery_enabled = self_account_recovery_enabled
+
+    @property
     def self_sign_up_enabled(self):
         """Gets the self_sign_up_enabled of this UpdateUserPoolRequest.  # noqa: E501
 
@@ -187,6 +249,27 @@ class UpdateUserPoolRequest(object):
         self._self_sign_up_enabled = self_sign_up_enabled
 
     @property
+    def sign_up_auto_verification_enabled(self):
+        """Gets the sign_up_auto_verification_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The sign_up_auto_verification_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sign_up_auto_verification_enabled
+
+    @sign_up_auto_verification_enabled.setter
+    def sign_up_auto_verification_enabled(self, sign_up_auto_verification_enabled):
+        """Sets the sign_up_auto_verification_enabled of this UpdateUserPoolRequest.
+
+
+        :param sign_up_auto_verification_enabled: The sign_up_auto_verification_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sign_up_auto_verification_enabled = sign_up_auto_verification_enabled
+
+    @property
     def sms_passwordless_sign_in_enabled(self):
         """Gets the sms_passwordless_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
 
@@ -206,6 +289,27 @@ class UpdateUserPoolRequest(object):
         """
 
         self._sms_passwordless_sign_in_enabled = sms_passwordless_sign_in_enabled
+
+    @property
+    def unconfirmed_user_sign_in_enabled(self):
+        """Gets the unconfirmed_user_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+
+
+        :return: The unconfirmed_user_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._unconfirmed_user_sign_in_enabled
+
+    @unconfirmed_user_sign_in_enabled.setter
+    def unconfirmed_user_sign_in_enabled(self, unconfirmed_user_sign_in_enabled):
+        """Sets the unconfirmed_user_sign_in_enabled of this UpdateUserPoolRequest.
+
+
+        :param unconfirmed_user_sign_in_enabled: The unconfirmed_user_sign_in_enabled of this UpdateUserPoolRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._unconfirmed_user_sign_in_enabled = unconfirmed_user_sign_in_enabled
 
     @property
     def user_pool_uid(self):

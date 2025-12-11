@@ -33,9 +33,11 @@ class RestoreToNewInstanceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_ids': 'list[str]',
         'backup_id': 'str',
         'charge_info': 'ChargeInfoForRestoreToNewInstanceInput',
         'instance_name': 'str',
+        'maintenance_window': 'MaintenanceWindowForRestoreToNewInstanceInput',
         'node_info': 'list[NodeInfoForRestoreToNewInstanceInput]',
         'project_name': 'str',
         'restore_time': 'str',
@@ -48,9 +50,11 @@ class RestoreToNewInstanceRequest(object):
     }
 
     attribute_map = {
+        'allow_list_ids': 'AllowListIds',
         'backup_id': 'BackupId',
         'charge_info': 'ChargeInfo',
         'instance_name': 'InstanceName',
+        'maintenance_window': 'MaintenanceWindow',
         'node_info': 'NodeInfo',
         'project_name': 'ProjectName',
         'restore_time': 'RestoreTime',
@@ -62,15 +66,17 @@ class RestoreToNewInstanceRequest(object):
         'vpc_id': 'VpcId'
     }
 
-    def __init__(self, backup_id=None, charge_info=None, instance_name=None, node_info=None, project_name=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_ids=None, backup_id=None, charge_info=None, instance_name=None, maintenance_window=None, node_info=None, project_name=None, restore_time=None, src_instance_id=None, storage_space=None, storage_type=None, subnet_id=None, tags=None, vpc_id=None, _configuration=None):  # noqa: E501
         """RestoreToNewInstanceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_ids = None
         self._backup_id = None
         self._charge_info = None
         self._instance_name = None
+        self._maintenance_window = None
         self._node_info = None
         self._project_name = None
         self._restore_time = None
@@ -82,12 +88,16 @@ class RestoreToNewInstanceRequest(object):
         self._vpc_id = None
         self.discriminator = None
 
+        if allow_list_ids is not None:
+            self.allow_list_ids = allow_list_ids
         if backup_id is not None:
             self.backup_id = backup_id
         if charge_info is not None:
             self.charge_info = charge_info
         if instance_name is not None:
             self.instance_name = instance_name
+        if maintenance_window is not None:
+            self.maintenance_window = maintenance_window
         if node_info is not None:
             self.node_info = node_info
         if project_name is not None:
@@ -102,6 +112,27 @@ class RestoreToNewInstanceRequest(object):
         if tags is not None:
             self.tags = tags
         self.vpc_id = vpc_id
+
+    @property
+    def allow_list_ids(self):
+        """Gets the allow_list_ids of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The allow_list_ids of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._allow_list_ids
+
+    @allow_list_ids.setter
+    def allow_list_ids(self, allow_list_ids):
+        """Sets the allow_list_ids of this RestoreToNewInstanceRequest.
+
+
+        :param allow_list_ids: The allow_list_ids of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._allow_list_ids = allow_list_ids
 
     @property
     def backup_id(self):
@@ -165,6 +196,27 @@ class RestoreToNewInstanceRequest(object):
         """
 
         self._instance_name = instance_name
+
+    @property
+    def maintenance_window(self):
+        """Gets the maintenance_window of this RestoreToNewInstanceRequest.  # noqa: E501
+
+
+        :return: The maintenance_window of this RestoreToNewInstanceRequest.  # noqa: E501
+        :rtype: MaintenanceWindowForRestoreToNewInstanceInput
+        """
+        return self._maintenance_window
+
+    @maintenance_window.setter
+    def maintenance_window(self, maintenance_window):
+        """Sets the maintenance_window of this RestoreToNewInstanceRequest.
+
+
+        :param maintenance_window: The maintenance_window of this RestoreToNewInstanceRequest.  # noqa: E501
+        :type: MaintenanceWindowForRestoreToNewInstanceInput
+        """
+
+        self._maintenance_window = maintenance_window
 
     @property
     def node_info(self):

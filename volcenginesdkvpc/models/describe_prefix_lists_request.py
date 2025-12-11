@@ -110,6 +110,13 @@ class DescribePrefixListsRequest(object):
         :param ip_version: The ip_version of this DescribePrefixListsRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["IPv4", "IPv6"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                ip_version not in allowed_values):
+            raise ValueError(
+                "Invalid value for `ip_version` ({0}), must be one of {1}"  # noqa: E501
+                .format(ip_version, allowed_values)
+            )
 
         self._ip_version = ip_version
 

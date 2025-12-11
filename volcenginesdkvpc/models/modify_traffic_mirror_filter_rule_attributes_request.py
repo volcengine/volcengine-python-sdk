@@ -226,7 +226,7 @@ class ModifyTrafficMirrorFilterRuleAttributesRequest(object):
         :param protocol: The protocol of this ModifyTrafficMirrorFilterRuleAttributesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["icmp", "icmpv6", "tcp", "udp", "all"]  # noqa: E501
+        allowed_values = ["tcp", " udp", " icmp", " all"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 protocol not in allowed_values):
             raise ValueError(
@@ -296,7 +296,7 @@ class ModifyTrafficMirrorFilterRuleAttributesRequest(object):
         :param traffic_direction: The traffic_direction of this ModifyTrafficMirrorFilterRuleAttributesRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["egress", "ingress"]  # noqa: E501
+        allowed_values = ["ingress", "egress"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 traffic_direction not in allowed_values):
             raise ValueError(

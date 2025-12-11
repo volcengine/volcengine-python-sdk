@@ -327,7 +327,7 @@ class CreateTrafficMirrorFilterRuleRequest(object):
         """
         if self._configuration.client_side_validation and traffic_direction is None:
             raise ValueError("Invalid value for `traffic_direction`, must not be `None`")  # noqa: E501
-        allowed_values = ["egress", "ingress"]  # noqa: E501
+        allowed_values = ["ingress", "egress"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 traffic_direction not in allowed_values):
             raise ValueError(
