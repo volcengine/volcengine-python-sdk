@@ -34,28 +34,34 @@ class Oauth2CallbackRequest(object):
     """
     swagger_types = {
         'code': 'str',
+        'error': 'str',
         'identity_token': 'str',
         'state': 'str'
     }
 
     attribute_map = {
         'code': 'Code',
+        'error': 'Error',
         'identity_token': 'IdentityToken',
         'state': 'State'
     }
 
-    def __init__(self, code=None, identity_token=None, state=None, _configuration=None):  # noqa: E501
+    def __init__(self, code=None, error=None, identity_token=None, state=None, _configuration=None):  # noqa: E501
         """Oauth2CallbackRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._code = None
+        self._error = None
         self._identity_token = None
         self._state = None
         self.discriminator = None
 
-        self.code = code
+        if code is not None:
+            self.code = code
+        if error is not None:
+            self.error = error
         self.identity_token = identity_token
         self.state = state
 
@@ -77,10 +83,29 @@ class Oauth2CallbackRequest(object):
         :param code: The code of this Oauth2CallbackRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and code is None:
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
+
+    @property
+    def error(self):
+        """Gets the error of this Oauth2CallbackRequest.  # noqa: E501
+
+
+        :return: The error of this Oauth2CallbackRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._error
+
+    @error.setter
+    def error(self, error):
+        """Sets the error of this Oauth2CallbackRequest.
+
+
+        :param error: The error of this Oauth2CallbackRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._error = error
 
     @property
     def identity_token(self):

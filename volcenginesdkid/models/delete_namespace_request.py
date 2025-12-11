@@ -49,8 +49,7 @@ class DeleteNamespaceRequest(object):
         self._namespace_name = None
         self.discriminator = None
 
-        if namespace_name is not None:
-            self.namespace_name = namespace_name
+        self.namespace_name = namespace_name
 
     @property
     def namespace_name(self):
@@ -70,6 +69,8 @@ class DeleteNamespaceRequest(object):
         :param namespace_name: The namespace_name of this DeleteNamespaceRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and namespace_name is None:
+            raise ValueError("Invalid value for `namespace_name`, must not be `None`")  # noqa: E501
 
         self._namespace_name = namespace_name
 

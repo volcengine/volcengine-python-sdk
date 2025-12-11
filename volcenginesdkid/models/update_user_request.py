@@ -43,6 +43,7 @@ class UpdateUserRequest(object):
         'middle_name': 'str',
         'name': 'str',
         'nickname': 'str',
+        'password': 'str',
         'phone_number': 'str',
         'phone_number_verified': 'bool',
         'picture': 'str',
@@ -67,6 +68,7 @@ class UpdateUserRequest(object):
         'middle_name': 'MiddleName',
         'name': 'Name',
         'nickname': 'Nickname',
+        'password': 'Password',
         'phone_number': 'PhoneNumber',
         'phone_number_verified': 'PhoneNumberVerified',
         'picture': 'Picture',
@@ -80,7 +82,7 @@ class UpdateUserRequest(object):
         'zoneinfo': 'Zoneinfo'
     }
 
-    def __init__(self, birthdate=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, user_pool_uid=None, user_state=None, user_uid=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
+    def __init__(self, birthdate=None, email=None, email_verified=None, family_name=None, gender=None, given_name=None, locale=None, middle_name=None, name=None, nickname=None, password=None, phone_number=None, phone_number_verified=None, picture=None, preferred_username=None, profile=None, user_metadata=None, user_pool_uid=None, user_state=None, user_uid=None, website=None, zoneinfo=None, _configuration=None):  # noqa: E501
         """UpdateUserRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class UpdateUserRequest(object):
         self._middle_name = None
         self._name = None
         self._nickname = None
+        self._password = None
         self._phone_number = None
         self._phone_number_verified = None
         self._picture = None
@@ -129,6 +132,8 @@ class UpdateUserRequest(object):
             self.name = name
         if nickname is not None:
             self.nickname = nickname
+        if password is not None:
+            self.password = password
         if phone_number is not None:
             self.phone_number = phone_number
         if phone_number_verified is not None:
@@ -359,6 +364,27 @@ class UpdateUserRequest(object):
         """
 
         self._nickname = nickname
+
+    @property
+    def password(self):
+        """Gets the password of this UpdateUserRequest.  # noqa: E501
+
+
+        :return: The password of this UpdateUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._password
+
+    @password.setter
+    def password(self, password):
+        """Sets the password of this UpdateUserRequest.
+
+
+        :param password: The password of this UpdateUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._password = password
 
     @property
     def phone_number(self):
