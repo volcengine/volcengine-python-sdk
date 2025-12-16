@@ -154,6 +154,7 @@ class ApiClient(object):
                     raise retry_err
                 break
             retry_count += 1
+            retry_err = None
 
         interceptor_context.response = Response(response_data)
         interceptor_context = self.interceptor_chain.execute_response(interceptor_context)
