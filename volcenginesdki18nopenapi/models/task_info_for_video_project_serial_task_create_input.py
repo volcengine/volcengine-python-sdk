@@ -35,12 +35,13 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
     swagger_types = {
         'ai_remove_type': 'str',
         'asr_model': 'int',
+        'bgm_policy': 'int',
         'comment': 'str',
         'deadline': 'int',
         'drama_cover_url': 'str',
         'drama_description': 'str',
         'drama_title': 'str',
-        'is_dub': 'int',
+        'is_dub': 'bool',
         'need_translate_cover': 'bool',
         'need_translate_desc': 'bool',
         'need_translate_title': 'bool',
@@ -56,6 +57,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
     attribute_map = {
         'ai_remove_type': 'aiRemoveType',
         'asr_model': 'asrModel',
+        'bgm_policy': 'bgmPolicy',
         'comment': 'comment',
         'deadline': 'deadline',
         'drama_cover_url': 'dramaCoverUrl',
@@ -74,7 +76,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         'use_mt': 'useMT'
     }
 
-    def __init__(self, ai_remove_type=None, asr_model=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, serial_number=None, source_lang=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
+    def __init__(self, ai_remove_type=None, asr_model=None, bgm_policy=None, comment=None, deadline=None, drama_cover_url=None, drama_description=None, drama_title=None, is_dub=None, need_translate_cover=None, need_translate_desc=None, need_translate_title=None, need_translate_title_and_desc=None, serial_number=None, source_lang=None, target_langs=None, target_style_map=None, task_name=None, use_mt=None, _configuration=None):  # noqa: E501
         """TaskInfoForVideoProjectSerialTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
 
         self._ai_remove_type = None
         self._asr_model = None
+        self._bgm_policy = None
         self._comment = None
         self._deadline = None
         self._drama_cover_url = None
@@ -104,6 +107,8 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
             self.ai_remove_type = ai_remove_type
         if asr_model is not None:
             self.asr_model = asr_model
+        if bgm_policy is not None:
+            self.bgm_policy = bgm_policy
         if comment is not None:
             self.comment = comment
         if deadline is not None:
@@ -178,6 +183,27 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
         """
 
         self._asr_model = asr_model
+
+    @property
+    def bgm_policy(self):
+        """Gets the bgm_policy of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The bgm_policy of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bgm_policy
+
+    @bgm_policy.setter
+    def bgm_policy(self, bgm_policy):
+        """Sets the bgm_policy of this TaskInfoForVideoProjectSerialTaskCreateInput.
+
+
+        :param bgm_policy: The bgm_policy of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: int
+        """
+
+        self._bgm_policy = bgm_policy
 
     @property
     def comment(self):
@@ -290,7 +316,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
 
 
         :return: The is_dub of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
-        :rtype: int
+        :rtype: bool
         """
         return self._is_dub
 
@@ -300,7 +326,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput(object):
 
 
         :param is_dub: The is_dub of this TaskInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
-        :type: int
+        :type: bool
         """
 
         self._is_dub = is_dub
