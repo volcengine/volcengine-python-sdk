@@ -603,7 +603,7 @@ configuration.sk = "Your sk"
 # 全局配置
 configuration.auto_retry = True # 开启自动重试,默认开启
 configuration.num_max_retries = 4 # 最大重试次数，默认3次
-configuration.min_retry_delay_ms = 200 # 最小重试延迟毫秒，默认30毫秒
+configuration.min_retry_delay_ms = 200 # 最小重试延迟毫秒，默认300毫秒
 configuration.max_retry_delay_ms = 6000 # 最大重试延迟毫秒，默认300000毫秒
 configuration.backoff_strategy = ExponentialWithRandomJitterBackoffStrategy() # 重试策略，默认ExponentialWithRandomJitterBackoffStrategy
 configuration.retry_condition = DefaultRetryCondition() # 重试条件，默认DefaultRetryCondition
@@ -614,7 +614,7 @@ volcenginesdkcore.Configuration.set_default(configuration)
 runtime_options = RuntimeOption(
   auto_retry = True, # 开启自动重试,默认开启
   num_max_retries = 4, # 最大重试次数，默认3次
-  min_retry_delay_ms = 200, # 最小重试延迟毫秒，默认30毫秒
+  min_retry_delay_ms = 200, # 最小重试延迟毫秒，默认300毫秒
   max_retry_delay_ms = 6000, # 最大重试延迟毫秒，默认300000毫秒
   backoff_strategy = ExponentialWithRandomJitterBackoffStrategy(), # 重试策略，默认ExponentialWithRandomJitterBackoffStrategy
   retry_condition = DefaultRetryCondition(), # 重试条件，默认DefaultRetryCondition
