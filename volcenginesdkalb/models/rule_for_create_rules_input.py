@@ -63,7 +63,7 @@ class RuleForCreateRulesInput(object):
         'server_group_id': 'ServerGroupId',
         'traffic_limit_enabled': 'TrafficLimitEnabled',
         'traffic_limit_qps': 'TrafficLimitQPS',
-        'url': 'URL'
+        'url': 'Url'
     }
 
     def __init__(self, description=None, domain=None, forward_group_config=None, priority=None, redirect_config=None, rewrite_config=None, rewrite_enabled=None, rule_action=None, rule_actions=None, rule_conditions=None, server_group_id=None, traffic_limit_enabled=None, traffic_limit_qps=None, url=None, _configuration=None):  # noqa: E501

@@ -47,7 +47,7 @@ class DescribeLoadBalancerAttributesResponse(object):
         'enabled': 'bool',
         'eni_address': 'str',
         'eni_id': 'str',
-        'global_accelerators': 'GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput',
+        'global_accelerators': 'list[GlobalAcceleratorForDescribeLoadBalancerAttributesOutput]',
         'health_log': 'HealthLogForDescribeLoadBalancerAttributesOutput',
         'listeners': 'list[ListenerForDescribeLoadBalancerAttributesOutput]',
         'load_balancer_billing_type': 'int',
@@ -542,7 +542,7 @@ class DescribeLoadBalancerAttributesResponse(object):
 
 
         :return: The global_accelerators of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
-        :rtype: GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput
+        :rtype: list[GlobalAcceleratorForDescribeLoadBalancerAttributesOutput]
         """
         return self._global_accelerators
 
@@ -552,7 +552,7 @@ class DescribeLoadBalancerAttributesResponse(object):
 
 
         :param global_accelerators: The global_accelerators of this DescribeLoadBalancerAttributesResponse.  # noqa: E501
-        :type: GlobalAcceleratorsForDescribeLoadBalancerAttributesOutput
+        :type: list[GlobalAcceleratorForDescribeLoadBalancerAttributesOutput]
         """
 
         self._global_accelerators = global_accelerators

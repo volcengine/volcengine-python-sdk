@@ -56,7 +56,7 @@ class DescribeServerGroupAttributesResponse(object):
         'cross_zone_enabled': 'CrossZoneEnabled',
         'description': 'Description',
         'health_check': 'HealthCheck',
-        'ip_address_type': 'IPAddressType',
+        'ip_address_type': 'IpAddressType',
         'listeners': 'Listeners',
         'project_name': 'ProjectName',
         'protocol': 'Protocol',

@@ -53,8 +53,7 @@ class TagForTagResourcesInput(object):
         self.discriminator = None
 
         self.key = key
-        if value is not None:
-            self.value = value
+        self.value = value
 
     @property
     def key(self):
@@ -97,6 +96,8 @@ class TagForTagResourcesInput(object):
         :param value: The value of this TagForTagResourcesInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and value is None:
+            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
 
