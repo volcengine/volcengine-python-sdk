@@ -9,22 +9,39 @@
 #
 # This modified file is released under the same license.
 
-from typing import List, Optional
-
-from typing_extensions import Literal
 
 from ..._models import BaseModel
-from .response_output_text_annotation import ResponseOutputTextAnnotation
 
-__all__ = ["ResponseOutputText"]
+__all__ = ["DoubaoAppSearchTextItem"]
 
 
-class ResponseOutputText(BaseModel):
-    type: Literal["output_text"]
-    """The type of the output text. Always `output_text`."""
+class DoubaoAppSearchTextItem(BaseModel):
+    id: int
 
-    text: str
-    """The text output from the model."""
+    summary: str
 
-    annotations: Optional[List[ResponseOutputTextAnnotation]] = None
-    """The annotation of the output text."""
+    title: str
+
+    sitename: str
+
+    url: str
+
+    logo_url: str
+
+    doc_id: str
+
+    image_url: str
+
+    has_image: bool
+
+    publish_time_second: str
+
+    original_doc_rank: int
+
+    source_from: int
+
+    source_id: str
+
+    source_for_baike: str
+
+    index: int

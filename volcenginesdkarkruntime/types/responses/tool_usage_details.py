@@ -9,22 +9,22 @@
 #
 # This modified file is released under the same license.
 
-from typing import List, Optional
+from typing import Any, Optional
 
-from typing_extensions import Literal
 
 from ..._models import BaseModel
-from .response_output_text_annotation import ResponseOutputTextAnnotation
 
-__all__ = ["ResponseOutputText"]
+__all__ = ["ToolUsageDetails"]
 
 
-class ResponseOutputText(BaseModel):
-    type: Literal["output_text"]
-    """The type of the output text. Always `output_text`."""
+class ToolUsageDetails(BaseModel):
+    web_search: Optional[Any] = None
+    """The usage of web search tools."""
 
-    text: str
-    """The text output from the model."""
+    mcp: Optional[Any] = None
+    """The usage of MCP tools."""
 
-    annotations: Optional[List[ResponseOutputTextAnnotation]] = None
-    """The annotation of the output text."""
+    knowledge_search: Optional[Any] = None
+    """The usage of knowledge search tools."""
+
+    doubao_app: Optional[Any] = None

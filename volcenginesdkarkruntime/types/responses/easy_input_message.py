@@ -9,7 +9,8 @@
 #
 # This modified file is released under the same license.
 
-from typing import Union, Optional
+from typing import Optional, Union
+
 from typing_extensions import Literal
 
 from ..._models import BaseModel
@@ -19,20 +20,13 @@ __all__ = ["EasyInputMessage"]
 
 
 class EasyInputMessage(BaseModel):
-    content: Union[str, ResponseInputMessageContentList]
-    """
-    Text, image, or audio input to the model, used to generate a response. Can also
-    contain previous assistant responses.
-    """
-
-    role: Literal["user", "assistant", "system", "developer"]
-    """The role of the message input.
-
-    One of `user`, `assistant`, `system`, or `developer`.
-    """
-
     type: Optional[Literal["message"]] = None
     """The type of the message input. Always `message`."""
 
+    role: Literal["user", "system", "developer", "assistant"]
+    """The role of the message input. One of `user`, `assistant`, `system`, or `developer`."""
+
+    content: Union[str, ResponseInputMessageContentList]
+    """Text, image, or audio input to the model, used to generate a response. Can also contain previous assistant responses."""
+
     partial: Optional[bool] = None
-    """Whether or not to include partial assistant responses."""
