@@ -40,7 +40,7 @@ class ResourceTagForListTagsForResourcesOutput(object):
     }
 
     attribute_map = {
-        'resource_id': 'ResourceId',
+        'resource_id': 'ResourceID',
         'resource_type': 'ResourceType',
         'tag_key': 'TagKey',
         'tag_value': 'TagValue'

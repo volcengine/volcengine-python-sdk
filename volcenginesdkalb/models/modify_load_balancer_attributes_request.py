@@ -40,6 +40,7 @@ class ModifyLoadBalancerAttributesRequest(object):
         'load_balancer_name': 'str',
         'modification_protection_reason': 'str',
         'modification_protection_status': 'str',
+        'proxy_protocol_enabled': 'str',
         'waf_instance_id': 'str',
         'waf_protected_domain': 'str',
         'waf_protection_enabled': 'str'
@@ -53,12 +54,13 @@ class ModifyLoadBalancerAttributesRequest(object):
         'load_balancer_name': 'LoadBalancerName',
         'modification_protection_reason': 'ModificationProtectionReason',
         'modification_protection_status': 'ModificationProtectionStatus',
+        'proxy_protocol_enabled': 'ProxyProtocolEnabled',
         'waf_instance_id': 'WafInstanceId',
         'waf_protected_domain': 'WafProtectedDomain',
         'waf_protection_enabled': 'WafProtectionEnabled'
     }
 
-    def __init__(self, delete_protection=None, description=None, global_accelerator=None, load_balancer_id=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, waf_instance_id=None, waf_protected_domain=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
+    def __init__(self, delete_protection=None, description=None, global_accelerator=None, load_balancer_id=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, proxy_protocol_enabled=None, waf_instance_id=None, waf_protected_domain=None, waf_protection_enabled=None, _configuration=None):  # noqa: E501
         """ModifyLoadBalancerAttributesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,6 +73,7 @@ class ModifyLoadBalancerAttributesRequest(object):
         self._load_balancer_name = None
         self._modification_protection_reason = None
         self._modification_protection_status = None
+        self._proxy_protocol_enabled = None
         self._waf_instance_id = None
         self._waf_protected_domain = None
         self._waf_protection_enabled = None
@@ -89,6 +92,8 @@ class ModifyLoadBalancerAttributesRequest(object):
             self.modification_protection_reason = modification_protection_reason
         if modification_protection_status is not None:
             self.modification_protection_status = modification_protection_status
+        if proxy_protocol_enabled is not None:
+            self.proxy_protocol_enabled = proxy_protocol_enabled
         if waf_instance_id is not None:
             self.waf_instance_id = waf_instance_id
         if waf_protected_domain is not None:
@@ -244,6 +249,27 @@ class ModifyLoadBalancerAttributesRequest(object):
         """
 
         self._modification_protection_status = modification_protection_status
+
+    @property
+    def proxy_protocol_enabled(self):
+        """Gets the proxy_protocol_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+
+
+        :return: The proxy_protocol_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_protocol_enabled
+
+    @proxy_protocol_enabled.setter
+    def proxy_protocol_enabled(self, proxy_protocol_enabled):
+        """Sets the proxy_protocol_enabled of this ModifyLoadBalancerAttributesRequest.
+
+
+        :param proxy_protocol_enabled: The proxy_protocol_enabled of this ModifyLoadBalancerAttributesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._proxy_protocol_enabled = proxy_protocol_enabled
 
     @property
     def waf_instance_id(self):

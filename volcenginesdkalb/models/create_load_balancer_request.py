@@ -39,6 +39,7 @@ class CreateLoadBalancerRequest(object):
         'delete_protection': 'str',
         'description': 'str',
         'eip_billing_config': 'EipBillingConfigForCreateLoadBalancerInput',
+        'ipv6_bandwidth_package_id': 'str',
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfigForCreateLoadBalancerInput',
         'load_balancer_billing_type': 'int',
         'load_balancer_edition': 'str',
@@ -61,6 +62,7 @@ class CreateLoadBalancerRequest(object):
         'delete_protection': 'DeleteProtection',
         'description': 'Description',
         'eip_billing_config': 'EipBillingConfig',
+        'ipv6_bandwidth_package_id': 'Ipv6BandwidthPackageId',
         'ipv6_eip_billing_config': 'Ipv6EipBillingConfig',
         'load_balancer_billing_type': 'LoadBalancerBillingType',
         'load_balancer_edition': 'LoadBalancerEdition',
@@ -76,7 +78,7 @@ class CreateLoadBalancerRequest(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, address_ip_version=None, bandwidth_package_id=None, client_token=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, bandwidth_package_id=None, client_token=None, delete_protection=None, description=None, eip_billing_config=None, ipv6_bandwidth_package_id=None, ipv6_eip_billing_config=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_name=None, modification_protection_reason=None, modification_protection_status=None, project_name=None, region_id=None, subnet_id=None, tags=None, type=None, vpc_id=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """CreateLoadBalancerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class CreateLoadBalancerRequest(object):
         self._delete_protection = None
         self._description = None
         self._eip_billing_config = None
+        self._ipv6_bandwidth_package_id = None
         self._ipv6_eip_billing_config = None
         self._load_balancer_billing_type = None
         self._load_balancer_edition = None
@@ -115,6 +118,8 @@ class CreateLoadBalancerRequest(object):
             self.description = description
         if eip_billing_config is not None:
             self.eip_billing_config = eip_billing_config
+        if ipv6_bandwidth_package_id is not None:
+            self.ipv6_bandwidth_package_id = ipv6_bandwidth_package_id
         if ipv6_eip_billing_config is not None:
             self.ipv6_eip_billing_config = ipv6_eip_billing_config
         if load_balancer_billing_type is not None:
@@ -265,6 +270,27 @@ class CreateLoadBalancerRequest(object):
         """
 
         self._eip_billing_config = eip_billing_config
+
+    @property
+    def ipv6_bandwidth_package_id(self):
+        """Gets the ipv6_bandwidth_package_id of this CreateLoadBalancerRequest.  # noqa: E501
+
+
+        :return: The ipv6_bandwidth_package_id of this CreateLoadBalancerRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ipv6_bandwidth_package_id
+
+    @ipv6_bandwidth_package_id.setter
+    def ipv6_bandwidth_package_id(self, ipv6_bandwidth_package_id):
+        """Sets the ipv6_bandwidth_package_id of this CreateLoadBalancerRequest.
+
+
+        :param ipv6_bandwidth_package_id: The ipv6_bandwidth_package_id of this CreateLoadBalancerRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ipv6_bandwidth_package_id = ipv6_bandwidth_package_id
 
     @property
     def ipv6_eip_billing_config(self):
