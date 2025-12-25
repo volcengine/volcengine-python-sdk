@@ -48,6 +48,7 @@ class Tasks(SyncAPIResource):
         return_last_frame: Optional[bool] = None,
         service_tier: Optional[str] = None,
         execution_expires_after: Optional[int] = None,
+        generate_audio: Optional[bool] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -62,6 +63,7 @@ class Tasks(SyncAPIResource):
                 "return_last_frame": return_last_frame,
                 "service_tier": service_tier,
                 "execution_expires_after": execution_expires_after,
+                "generate_audio": generate_audio,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -176,6 +178,7 @@ class AsyncTasks(AsyncAPIResource):
         return_last_frame: Optional[bool] = None,
         service_tier: Optional[str] = None,
         execution_expires_after: Optional[int] = None,
+        generate_audio: Optional[bool] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -190,6 +193,7 @@ class AsyncTasks(AsyncAPIResource):
                 "return_last_frame": return_last_frame,
                 "service_tier": service_tier,
                 "execution_expires_after": execution_expires_after,
+                "generate_audio": generate_audio,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
