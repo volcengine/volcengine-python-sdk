@@ -47,6 +47,7 @@ class SandboxForListSandboxesOutput(object):
         'metadata': 'dict(str, str)',
         'pending': 'bool',
         'revision_number': 'int',
+        'session_id': 'str',
         'status': 'str'
     }
 
@@ -65,10 +66,11 @@ class SandboxForListSandboxesOutput(object):
         'metadata': 'Metadata',
         'pending': 'Pending',
         'revision_number': 'RevisionNumber',
+        'session_id': 'SessionId',
         'status': 'Status'
     }
 
-    def __init__(self, availability_zone=None, cpu_milli=None, created_at=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_type=None, memory_mb=None, metadata=None, pending=None, revision_number=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, availability_zone=None, cpu_milli=None, created_at=None, error_code=None, error_message=None, expire_at=None, function_id=None, id=None, image=None, instance_type=None, memory_mb=None, metadata=None, pending=None, revision_number=None, session_id=None, status=None, _configuration=None):  # noqa: E501
         """SandboxForListSandboxesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -88,6 +90,7 @@ class SandboxForListSandboxesOutput(object):
         self._metadata = None
         self._pending = None
         self._revision_number = None
+        self._session_id = None
         self._status = None
         self.discriminator = None
 
@@ -119,6 +122,8 @@ class SandboxForListSandboxesOutput(object):
             self.pending = pending
         if revision_number is not None:
             self.revision_number = revision_number
+        if session_id is not None:
+            self.session_id = session_id
         if status is not None:
             self.status = status
 
@@ -415,6 +420,27 @@ class SandboxForListSandboxesOutput(object):
         """
 
         self._revision_number = revision_number
+
+    @property
+    def session_id(self):
+        """Gets the session_id of this SandboxForListSandboxesOutput.  # noqa: E501
+
+
+        :return: The session_id of this SandboxForListSandboxesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._session_id
+
+    @session_id.setter
+    def session_id(self, session_id):
+        """Sets the session_id of this SandboxForListSandboxesOutput.
+
+
+        :param session_id: The session_id of this SandboxForListSandboxesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._session_id = session_id
 
     @property
     def status(self):
