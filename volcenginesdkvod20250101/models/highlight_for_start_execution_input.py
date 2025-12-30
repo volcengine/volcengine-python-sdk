@@ -35,7 +35,9 @@ class HighlightForStartExecutionInput(object):
     swagger_types = {
         'edit': 'EditForStartExecutionInput',
         'highlight_cuts': 'HighlightCutsForStartExecutionInput',
+        'mini_game': 'MiniGameForStartExecutionInput',
         'mode': 'str',
+        'model': 'str',
         'opening_hook': 'OpeningHookForStartExecutionInput',
         'storyline_cuts': 'StorylineCutsForStartExecutionInput'
     }
@@ -43,12 +45,14 @@ class HighlightForStartExecutionInput(object):
     attribute_map = {
         'edit': 'Edit',
         'highlight_cuts': 'HighlightCuts',
+        'mini_game': 'MiniGame',
         'mode': 'Mode',
+        'model': 'Model',
         'opening_hook': 'OpeningHook',
         'storyline_cuts': 'StorylineCuts'
     }
 
-    def __init__(self, edit=None, highlight_cuts=None, mode=None, opening_hook=None, storyline_cuts=None, _configuration=None):  # noqa: E501
+    def __init__(self, edit=None, highlight_cuts=None, mini_game=None, mode=None, model=None, opening_hook=None, storyline_cuts=None, _configuration=None):  # noqa: E501
         """HighlightForStartExecutionInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,7 +60,9 @@ class HighlightForStartExecutionInput(object):
 
         self._edit = None
         self._highlight_cuts = None
+        self._mini_game = None
         self._mode = None
+        self._model = None
         self._opening_hook = None
         self._storyline_cuts = None
         self.discriminator = None
@@ -65,8 +71,12 @@ class HighlightForStartExecutionInput(object):
             self.edit = edit
         if highlight_cuts is not None:
             self.highlight_cuts = highlight_cuts
+        if mini_game is not None:
+            self.mini_game = mini_game
         if mode is not None:
             self.mode = mode
+        if model is not None:
+            self.model = model
         if opening_hook is not None:
             self.opening_hook = opening_hook
         if storyline_cuts is not None:
@@ -115,6 +125,27 @@ class HighlightForStartExecutionInput(object):
         self._highlight_cuts = highlight_cuts
 
     @property
+    def mini_game(self):
+        """Gets the mini_game of this HighlightForStartExecutionInput.  # noqa: E501
+
+
+        :return: The mini_game of this HighlightForStartExecutionInput.  # noqa: E501
+        :rtype: MiniGameForStartExecutionInput
+        """
+        return self._mini_game
+
+    @mini_game.setter
+    def mini_game(self, mini_game):
+        """Sets the mini_game of this HighlightForStartExecutionInput.
+
+
+        :param mini_game: The mini_game of this HighlightForStartExecutionInput.  # noqa: E501
+        :type: MiniGameForStartExecutionInput
+        """
+
+        self._mini_game = mini_game
+
+    @property
     def mode(self):
         """Gets the mode of this HighlightForStartExecutionInput.  # noqa: E501
 
@@ -134,6 +165,27 @@ class HighlightForStartExecutionInput(object):
         """
 
         self._mode = mode
+
+    @property
+    def model(self):
+        """Gets the model of this HighlightForStartExecutionInput.  # noqa: E501
+
+
+        :return: The model of this HighlightForStartExecutionInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._model
+
+    @model.setter
+    def model(self, model):
+        """Sets the model of this HighlightForStartExecutionInput.
+
+
+        :param model: The model of this HighlightForStartExecutionInput.  # noqa: E501
+        :type: str
+        """
+
+        self._model = model
 
     @property
     def opening_hook(self):
