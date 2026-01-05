@@ -35,8 +35,12 @@ class DenseForListVikingdbCollectionOutput(object):
     swagger_types = {
         'dim': 'int',
         'image_field': 'str',
+        'instruction': 'InstructionForListVikingdbCollectionOutput',
         'model_name': 'str',
         'model_version': 'str',
+        'n_dim': 'int',
+        'shape': 'list[int]',
+        'tensor_quant_type': 'str',
         'text_field': 'str',
         'video_field': 'str'
     }
@@ -44,13 +48,17 @@ class DenseForListVikingdbCollectionOutput(object):
     attribute_map = {
         'dim': 'Dim',
         'image_field': 'ImageField',
+        'instruction': 'Instruction',
         'model_name': 'ModelName',
         'model_version': 'ModelVersion',
+        'n_dim': 'NDim',
+        'shape': 'Shape',
+        'tensor_quant_type': 'TensorQuantType',
         'text_field': 'TextField',
         'video_field': 'VideoField'
     }
 
-    def __init__(self, dim=None, image_field=None, model_name=None, model_version=None, text_field=None, video_field=None, _configuration=None):  # noqa: E501
+    def __init__(self, dim=None, image_field=None, instruction=None, model_name=None, model_version=None, n_dim=None, shape=None, tensor_quant_type=None, text_field=None, video_field=None, _configuration=None):  # noqa: E501
         """DenseForListVikingdbCollectionOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,8 +66,12 @@ class DenseForListVikingdbCollectionOutput(object):
 
         self._dim = None
         self._image_field = None
+        self._instruction = None
         self._model_name = None
         self._model_version = None
+        self._n_dim = None
+        self._shape = None
+        self._tensor_quant_type = None
         self._text_field = None
         self._video_field = None
         self.discriminator = None
@@ -68,10 +80,18 @@ class DenseForListVikingdbCollectionOutput(object):
             self.dim = dim
         if image_field is not None:
             self.image_field = image_field
+        if instruction is not None:
+            self.instruction = instruction
         if model_name is not None:
             self.model_name = model_name
         if model_version is not None:
             self.model_version = model_version
+        if n_dim is not None:
+            self.n_dim = n_dim
+        if shape is not None:
+            self.shape = shape
+        if tensor_quant_type is not None:
+            self.tensor_quant_type = tensor_quant_type
         if text_field is not None:
             self.text_field = text_field
         if video_field is not None:
@@ -120,6 +140,27 @@ class DenseForListVikingdbCollectionOutput(object):
         self._image_field = image_field
 
     @property
+    def instruction(self):
+        """Gets the instruction of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+
+
+        :return: The instruction of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+        :rtype: InstructionForListVikingdbCollectionOutput
+        """
+        return self._instruction
+
+    @instruction.setter
+    def instruction(self, instruction):
+        """Sets the instruction of this DenseForListVikingdbCollectionOutput.
+
+
+        :param instruction: The instruction of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+        :type: InstructionForListVikingdbCollectionOutput
+        """
+
+        self._instruction = instruction
+
+    @property
     def model_name(self):
         """Gets the model_name of this DenseForListVikingdbCollectionOutput.  # noqa: E501
 
@@ -160,6 +201,69 @@ class DenseForListVikingdbCollectionOutput(object):
         """
 
         self._model_version = model_version
+
+    @property
+    def n_dim(self):
+        """Gets the n_dim of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+
+
+        :return: The n_dim of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._n_dim
+
+    @n_dim.setter
+    def n_dim(self, n_dim):
+        """Sets the n_dim of this DenseForListVikingdbCollectionOutput.
+
+
+        :param n_dim: The n_dim of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._n_dim = n_dim
+
+    @property
+    def shape(self):
+        """Gets the shape of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+
+
+        :return: The shape of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._shape
+
+    @shape.setter
+    def shape(self, shape):
+        """Sets the shape of this DenseForListVikingdbCollectionOutput.
+
+
+        :param shape: The shape of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._shape = shape
+
+    @property
+    def tensor_quant_type(self):
+        """Gets the tensor_quant_type of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+
+
+        :return: The tensor_quant_type of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._tensor_quant_type
+
+    @tensor_quant_type.setter
+    def tensor_quant_type(self, tensor_quant_type):
+        """Sets the tensor_quant_type of this DenseForListVikingdbCollectionOutput.
+
+
+        :param tensor_quant_type: The tensor_quant_type of this DenseForListVikingdbCollectionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._tensor_quant_type = tensor_quant_type
 
     @property
     def text_field(self):
