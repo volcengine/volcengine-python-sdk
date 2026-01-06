@@ -37,7 +37,6 @@ class DescribeDiagnosisInstanceDetailResponse(object):
         'diagnosis_category_items': 'list[DiagnosisCategoryItemForDescribeDiagnosisInstanceDetailOutput]',
         'diagnosis_instance_id': 'str',
         'diagnosis_instance_status': 'str',
-        'have_feedback': 'bool',
         'request_id': 'str',
         'resource_deleted': 'bool',
         'resource_instance_id': 'str',
@@ -51,7 +50,6 @@ class DescribeDiagnosisInstanceDetailResponse(object):
         'diagnosis_category_items': 'DiagnosisCategoryItems',
         'diagnosis_instance_id': 'DiagnosisInstanceId',
         'diagnosis_instance_status': 'DiagnosisInstanceStatus',
-        'have_feedback': 'HaveFeedback',
         'request_id': 'RequestId',
         'resource_deleted': 'ResourceDeleted',
         'resource_instance_id': 'ResourceInstanceId',
@@ -60,7 +58,7 @@ class DescribeDiagnosisInstanceDetailResponse(object):
         'resource_type': 'ResourceType'
     }
 
-    def __init__(self, creation_time=None, diagnosis_category_items=None, diagnosis_instance_id=None, diagnosis_instance_status=None, have_feedback=None, request_id=None, resource_deleted=None, resource_instance_id=None, resource_instance_name=None, resource_region=None, resource_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, creation_time=None, diagnosis_category_items=None, diagnosis_instance_id=None, diagnosis_instance_status=None, request_id=None, resource_deleted=None, resource_instance_id=None, resource_instance_name=None, resource_region=None, resource_type=None, _configuration=None):  # noqa: E501
         """DescribeDiagnosisInstanceDetailResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,7 +68,6 @@ class DescribeDiagnosisInstanceDetailResponse(object):
         self._diagnosis_category_items = None
         self._diagnosis_instance_id = None
         self._diagnosis_instance_status = None
-        self._have_feedback = None
         self._request_id = None
         self._resource_deleted = None
         self._resource_instance_id = None
@@ -87,8 +84,6 @@ class DescribeDiagnosisInstanceDetailResponse(object):
             self.diagnosis_instance_id = diagnosis_instance_id
         if diagnosis_instance_status is not None:
             self.diagnosis_instance_status = diagnosis_instance_status
-        if have_feedback is not None:
-            self.have_feedback = have_feedback
         if request_id is not None:
             self.request_id = request_id
         if resource_deleted is not None:
@@ -185,27 +180,6 @@ class DescribeDiagnosisInstanceDetailResponse(object):
         """
 
         self._diagnosis_instance_status = diagnosis_instance_status
-
-    @property
-    def have_feedback(self):
-        """Gets the have_feedback of this DescribeDiagnosisInstanceDetailResponse.  # noqa: E501
-
-
-        :return: The have_feedback of this DescribeDiagnosisInstanceDetailResponse.  # noqa: E501
-        :rtype: bool
-        """
-        return self._have_feedback
-
-    @have_feedback.setter
-    def have_feedback(self, have_feedback):
-        """Sets the have_feedback of this DescribeDiagnosisInstanceDetailResponse.
-
-
-        :param have_feedback: The have_feedback of this DescribeDiagnosisInstanceDetailResponse.  # noqa: E501
-        :type: bool
-        """
-
-        self._have_feedback = have_feedback
 
     @property
     def request_id(self):
