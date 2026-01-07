@@ -179,4 +179,4 @@ For more examples, see: [SDK Integration Guide](./SDK_Integration.md)
 
 ### FAQ
 
-For common issues when using the SDK, see [FAQ](FAQ.md).
+For common issues when using the SDK, see [FAQ](FAQ.EN.md).
