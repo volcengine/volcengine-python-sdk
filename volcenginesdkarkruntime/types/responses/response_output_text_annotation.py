@@ -9,7 +9,7 @@
 #
 # This modified file is released under the same license.
 
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 
 from typing_extensions import Literal
 
@@ -59,5 +59,5 @@ class ResponseOutputTextAnnotation(BaseModel):
     chunk_id: Optional[int] = None
     """The chunk id of the doc_citation"""
 
-    chunk_attachment: List[Dict[str, Any]]
+    chunk_attachment: List[Dict[str, object]]
     """The chunk_attachment of the doc_citation"""
