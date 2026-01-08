@@ -33,6 +33,7 @@ class GetAggregateWorkspaceResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth_type': 'str',
         'create_time': 'str',
         'cross_workspaces': 'list[CrossWorkspaceForGetAggregateWorkspaceOutput]',
         'description': 'str',
@@ -51,6 +52,7 @@ class GetAggregateWorkspaceResponse(object):
     }
 
     attribute_map = {
+        'auth_type': 'AuthType',
         'create_time': 'CreateTime',
         'cross_workspaces': 'CrossWorkspaces',
         'description': 'Description',
@@ -68,12 +70,13 @@ class GetAggregateWorkspaceResponse(object):
         'workspaces_detail': 'WorkspacesDetail'
     }
 
-    def __init__(self, create_time=None, cross_workspaces=None, description=None, external_prometheus=None, id=None, ignore_error=None, max_query_rate=None, name=None, project_name=None, prometheus_aggregate_query_endpoint=None, status=None, tags=None, username=None, workspaces=None, workspaces_detail=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_type=None, create_time=None, cross_workspaces=None, description=None, external_prometheus=None, id=None, ignore_error=None, max_query_rate=None, name=None, project_name=None, prometheus_aggregate_query_endpoint=None, status=None, tags=None, username=None, workspaces=None, workspaces_detail=None, _configuration=None):  # noqa: E501
         """GetAggregateWorkspaceResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth_type = None
         self._create_time = None
         self._cross_workspaces = None
         self._description = None
@@ -91,6 +94,8 @@ class GetAggregateWorkspaceResponse(object):
         self._workspaces_detail = None
         self.discriminator = None
 
+        if auth_type is not None:
+            self.auth_type = auth_type
         if create_time is not None:
             self.create_time = create_time
         if cross_workspaces is not None:
@@ -121,6 +126,27 @@ class GetAggregateWorkspaceResponse(object):
             self.workspaces = workspaces
         if workspaces_detail is not None:
             self.workspaces_detail = workspaces_detail
+
+    @property
+    def auth_type(self):
+        """Gets the auth_type of this GetAggregateWorkspaceResponse.  # noqa: E501
+
+
+        :return: The auth_type of this GetAggregateWorkspaceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_type
+
+    @auth_type.setter
+    def auth_type(self, auth_type):
+        """Sets the auth_type of this GetAggregateWorkspaceResponse.
+
+
+        :param auth_type: The auth_type of this GetAggregateWorkspaceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_type = auth_type
 
     @property
     def create_time(self):
