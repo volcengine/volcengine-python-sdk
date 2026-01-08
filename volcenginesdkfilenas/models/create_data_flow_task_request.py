@@ -36,6 +36,7 @@ class CreateDataFlowTaskRequest(object):
         'bucket_name': 'str',
         'bucket_prefix': 'str',
         'data_flow_id': 'str',
+        'entry_list_file_bucket': 'str',
         'entry_list_file_key': 'str',
         'entry_list_file_name': 'str',
         'evict_policy': 'EvictPolicyForCreateDataFlowTaskInput',
@@ -52,6 +53,7 @@ class CreateDataFlowTaskRequest(object):
         'bucket_name': 'BucketName',
         'bucket_prefix': 'BucketPrefix',
         'data_flow_id': 'DataFlowId',
+        'entry_list_file_bucket': 'EntryListFileBucket',
         'entry_list_file_key': 'EntryListFileKey',
         'entry_list_file_name': 'EntryListFileName',
         'evict_policy': 'EvictPolicy',
@@ -64,7 +66,7 @@ class CreateDataFlowTaskRequest(object):
         'type': 'Type'
     }
 
-    def __init__(self, bucket_name=None, bucket_prefix=None, data_flow_id=None, entry_list_file_key=None, entry_list_file_name=None, evict_policy=None, export_policy=None, file_system_id=None, file_system_path=None, import_policy=None, same_name_file_policy=None, src_id=None, type=None, _configuration=None):  # noqa: E501
+    def __init__(self, bucket_name=None, bucket_prefix=None, data_flow_id=None, entry_list_file_bucket=None, entry_list_file_key=None, entry_list_file_name=None, evict_policy=None, export_policy=None, file_system_id=None, file_system_path=None, import_policy=None, same_name_file_policy=None, src_id=None, type=None, _configuration=None):  # noqa: E501
         """CreateDataFlowTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,6 +75,7 @@ class CreateDataFlowTaskRequest(object):
         self._bucket_name = None
         self._bucket_prefix = None
         self._data_flow_id = None
+        self._entry_list_file_bucket = None
         self._entry_list_file_key = None
         self._entry_list_file_name = None
         self._evict_policy = None
@@ -91,6 +94,8 @@ class CreateDataFlowTaskRequest(object):
             self.bucket_prefix = bucket_prefix
         if data_flow_id is not None:
             self.data_flow_id = data_flow_id
+        if entry_list_file_bucket is not None:
+            self.entry_list_file_bucket = entry_list_file_bucket
         if entry_list_file_key is not None:
             self.entry_list_file_key = entry_list_file_key
         if entry_list_file_name is not None:
@@ -174,6 +179,27 @@ class CreateDataFlowTaskRequest(object):
         """
 
         self._data_flow_id = data_flow_id
+
+    @property
+    def entry_list_file_bucket(self):
+        """Gets the entry_list_file_bucket of this CreateDataFlowTaskRequest.  # noqa: E501
+
+
+        :return: The entry_list_file_bucket of this CreateDataFlowTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._entry_list_file_bucket
+
+    @entry_list_file_bucket.setter
+    def entry_list_file_bucket(self, entry_list_file_bucket):
+        """Sets the entry_list_file_bucket of this CreateDataFlowTaskRequest.
+
+
+        :param entry_list_file_bucket: The entry_list_file_bucket of this CreateDataFlowTaskRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._entry_list_file_bucket = entry_list_file_bucket
 
     @property
     def entry_list_file_key(self):
