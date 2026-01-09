@@ -154,7 +154,9 @@ def _content_encryption(args, kwargs):
         model: str = kwargs.get("model", "")
         messages = deepcopy(kwargs["messages"])
         ark_client = args[0]._client
-        client, ring_id, key_id, exp_time = ark_client._get_endpoint_certificate(model)
+        client = ark_client._get_endpoint_certificate(model)
+        ring_id, key_id = client.get_cert_ring_key_id()
+        exp_time = client.get_cert_expiration_time()
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers["X-Session-Token"] = session_token
         _process_messages(

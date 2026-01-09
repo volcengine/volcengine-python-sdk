@@ -235,3 +235,11 @@ class key_agreement_client:
                 self._key_id = ""
         except Exception:
             pass
+
+    def get_cert_ring_key_id(self) -> Tuple[str, str]:
+        """get_cert_ring_key_id get ring id and key id from cert"""
+        return self._ring_id, self._key_id
+
+    def get_cert_expiration_time(self) -> float:
+        """get_cert_expiration_time get cert expiration time"""
+        return self._not_valid_after_utc
