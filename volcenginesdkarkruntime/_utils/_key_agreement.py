@@ -165,21 +165,8 @@ class key_agreement_client:
             cert_pub.x, cert_pub.y, self._curve
         ).public_key()
         self._not_valid_after_utc = self._cert.not_valid_after_utc.timestamp()
-        self._reload_time = time.time() + 60 * 60 * 12 * 14 # 14 days
-        try:
-            dns = self._cert.extensions.get_extension_for_class(
-                x509.SubjectAlternativeName
-            ).value.get_values_for_type(x509.DNSName)
-            if (
-                dns
-                and len(dns) > 1
-                and re.match(r"^ring\..*$", dns[0])
-                and re.match(r"^key\..*$", dns[1])
-            ):
-                self._ring_id = dns[0][5:]
-                self._key_id = dns[1][4:]
-        except Exception:
-            pass
+        self._reload_time = time.time() + 60 * 60 * 12 * 14  # 14 days
+        self.init_cert_ring_key_id()
 
     def encrypt_string(self, plaintext: str) -> Tuple[bytes, bytes, str, str]:
         """encrypt_string encrypt plaintext with ECIES DH protocol"""
@@ -223,3 +210,28 @@ class key_agreement_client:
 
         token = marshal_cryptography_pub_key(R)
         return key, nonce, base64.b64encode(token).decode()
+
+    def is_expired(self) -> bool:
+        """is_expired check if the cert is expired"""
+        return time.time() > self._not_valid_after_utc
+
+    def init_cert_ring_key_id(self) -> None:
+        """init_cert_ring_key_id init ring id and key id from cert"""
+        try:
+            from cryptography import x509
+            dns = self._cert.extensions.get_extension_for_class(
+                x509.SubjectAlternativeName
+            ).value.get_values_for_type(x509.DNSName)
+            if (
+                dns
+                and len(dns) > 1
+                and re.match(r"^ring\..*$", dns[0])
+                and re.match(r"^key\..*$", dns[1])
+            ):
+                self._ring_id = dns[0][5:]
+                self._key_id = dns[1][4:]
+            else:
+                self._ring_id = ""
+                self._key_id = ""
+        except Exception:
+            pass
