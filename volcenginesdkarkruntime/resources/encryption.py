@@ -155,16 +155,15 @@ def _content_encryption(args, kwargs):
         messages = deepcopy(kwargs["messages"])
         ark_client = args[0]._client
         client = ark_client._get_endpoint_certificate(model)
-        ring_id, key_id = client.get_cert_ring_key_id()
-        exp_time = client.get_cert_expiration_time()
         _crypto_key, _crypto_nonce, session_token = client.generate_ecies_key_pair()
         extra_headers["X-Session-Token"] = session_token
         _process_messages(
             messages,
             lambda x: client.encrypt_string_with_key(_crypto_key, _crypto_nonce, x),
         )
-        info = {"ExpireTime": exp_time}
+        info = {"ExpireTime": client.get_cert_expiration_time()}
         if os.environ.get("VOLC_ARK_ENCRYPTION") == "AICC":
+            ring_id, key_id = client.get_cert_ring_key_id()
             info["Version"] = "AICCv0.1"
             info["KeyID"] = key_id
             info["RingID"] = ring_id

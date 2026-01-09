@@ -596,4 +596,6 @@ class E2ECertificateManager(object):
             else:
                 cert_pem = self._load_cert_by_ak_sk(ep)
             self._save_cert_to_file(ep, cert_pem)
-        self._certificate_manager[ep] = key_agreement_client(certificate_pem_string=cert_pem)
+        client = key_agreement_client(certificate_pem_string=cert_pem)
+        self._certificate_manager[ep] = client
+        return client
