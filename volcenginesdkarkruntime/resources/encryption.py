@@ -202,6 +202,8 @@ def _process_messages(messages, f: Callable[[str], str]):
                                     parse_result
                                 )
                             )
+                    elif part.get("type", None) == "video_url":
+                        pass
                     else:
                         raise TypeError(
                             "encryption is not supported for content type {}".format(
