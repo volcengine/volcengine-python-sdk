@@ -85,7 +85,7 @@ class ClusterConnectorConfigRequestForUpdateClusterConfigInput(object):
         :param provider: The provider of this ClusterConnectorConfigRequestForUpdateClusterConfigInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Ack", "Tke", "Cce", "Gke", "Eks", "BaiduCce", "None"]  # noqa: E501
+        allowed_values = ["VeStack", "Vke", "Ack", "Tke", "Cce", "None", "BaiduCce", "Gke", "Eks"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 provider not in allowed_values):
             raise ValueError(
@@ -155,7 +155,7 @@ class ClusterConnectorConfigRequestForUpdateClusterConfigInput(object):
         :param type: The type of this ClusterConnectorConfigRequestForUpdateClusterConfigInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Direct", "Proxy"]  # noqa: E501
+        allowed_values = ["Direct", "Proxy", "Agent"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 type not in allowed_values):
             raise ValueError(
