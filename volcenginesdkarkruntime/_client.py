@@ -585,7 +585,7 @@ class E2ECertificateManager(object):
                 )
 
     def get(self, ep: str) -> key_agreement_client:
-        if ep in self._certificate_manager and not self._certificate_manager[ep].is_expired():
+        if ep in self._certificate_manager and not self._certificate_manager[ep].need_reload():
             return self._certificate_manager[ep]
         cert_pem = self._load_cert_locally(ep)
         if cert_pem is None:

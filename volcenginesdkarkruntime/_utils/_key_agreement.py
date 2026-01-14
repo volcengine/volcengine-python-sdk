@@ -211,9 +211,9 @@ class key_agreement_client:
         token = marshal_cryptography_pub_key(R)
         return key, nonce, base64.b64encode(token).decode()
 
-    def is_expired(self) -> bool:
-        """is_expired check if the cert is expired"""
-        return time.time() > self._not_valid_after_utc
+    def need_reload(self) -> bool:
+        """need_reload check if the cert need reload"""
+        return time.time() > self._reload_time
 
     def init_cert_ring_key_id(self) -> None:
         """init_cert_ring_key_id init ring id and key id from cert"""
