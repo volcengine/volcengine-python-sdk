@@ -34,6 +34,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput(object):
     """
     swagger_types = {
         'auto_sync_disabled': 'bool',
+        'containerd_config': 'ContainerdConfigForCreateDefaultNodePoolInput',
         'cordon': 'bool',
         'kubelet_config': 'KubeletConfigForCreateDefaultNodePoolInput',
         'labels': 'list[LabelForCreateDefaultNodePoolInput]',
@@ -45,6 +46,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput(object):
 
     attribute_map = {
         'auto_sync_disabled': 'AutoSyncDisabled',
+        'containerd_config': 'ContainerdConfig',
         'cordon': 'Cordon',
         'kubelet_config': 'KubeletConfig',
         'labels': 'Labels',
@@ -54,13 +56,14 @@ class KubernetesConfigForCreateDefaultNodePoolInput(object):
         'taints': 'Taints'
     }
 
-    def __init__(self, auto_sync_disabled=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, name_suffix=None, name_use_hostname=None, taints=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_sync_disabled=None, containerd_config=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, name_suffix=None, name_use_hostname=None, taints=None, _configuration=None):  # noqa: E501
         """KubernetesConfigForCreateDefaultNodePoolInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_sync_disabled = None
+        self._containerd_config = None
         self._cordon = None
         self._kubelet_config = None
         self._labels = None
@@ -72,6 +75,8 @@ class KubernetesConfigForCreateDefaultNodePoolInput(object):
 
         if auto_sync_disabled is not None:
             self.auto_sync_disabled = auto_sync_disabled
+        if containerd_config is not None:
+            self.containerd_config = containerd_config
         if cordon is not None:
             self.cordon = cordon
         if kubelet_config is not None:
@@ -107,6 +112,27 @@ class KubernetesConfigForCreateDefaultNodePoolInput(object):
         """
 
         self._auto_sync_disabled = auto_sync_disabled
+
+    @property
+    def containerd_config(self):
+        """Gets the containerd_config of this KubernetesConfigForCreateDefaultNodePoolInput.  # noqa: E501
+
+
+        :return: The containerd_config of this KubernetesConfigForCreateDefaultNodePoolInput.  # noqa: E501
+        :rtype: ContainerdConfigForCreateDefaultNodePoolInput
+        """
+        return self._containerd_config
+
+    @containerd_config.setter
+    def containerd_config(self, containerd_config):
+        """Sets the containerd_config of this KubernetesConfigForCreateDefaultNodePoolInput.
+
+
+        :param containerd_config: The containerd_config of this KubernetesConfigForCreateDefaultNodePoolInput.  # noqa: E501
+        :type: ContainerdConfigForCreateDefaultNodePoolInput
+        """
+
+        self._containerd_config = containerd_config
 
     @property
     def cordon(self):

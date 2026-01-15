@@ -75,7 +75,7 @@ class StatusForListClustersInput(object):
         :param conditions_type: The conditions_type of this StatusForListClustersInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Ok", "CreateError", "Progressing", "ClusterVersionUpgrading", "Disconnected", "InvalidCertificate", "SetByProvider", "StockOut", "LimitedByQuota", "SetByUser", "Security", "Balance", "Degraded", "Waiting", "ResourceCleanupFailed", "Unknown"]  # noqa: E501
+        allowed_values = ["Ok", "CreateError", "Progressing", "ClusterVersionUpgrading", "Disconnected", "InvalidCertificate", "SetByProvider", "StockOut", "LimitedByQuota", "SetByUser", "Security", "Balance", "Degraded", "Waiting", "ResourceCleanupFailed", "Unknown", "UpdatingCluster", "SyncingAddon", "SyncingNode", "SyncingNodePool"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 conditions_type not in allowed_values):
             raise ValueError(
