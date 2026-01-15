@@ -33,6 +33,7 @@ class BindingRemedyConfigRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'client_token': 'str',
         'cluster_id': 'str',
         'id': 'str',
         'resource_ids': 'list[str]',
@@ -41,6 +42,7 @@ class BindingRemedyConfigRequest(object):
     }
 
     attribute_map = {
+        'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
         'id': 'Id',
         'resource_ids': 'ResourceIds',
@@ -48,12 +50,13 @@ class BindingRemedyConfigRequest(object):
         'use_recommended_remedy_configs': 'UseRecommendedRemedyConfigs'
     }
 
-    def __init__(self, cluster_id=None, id=None, resource_ids=None, resource_type=None, use_recommended_remedy_configs=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_token=None, cluster_id=None, id=None, resource_ids=None, resource_type=None, use_recommended_remedy_configs=None, _configuration=None):  # noqa: E501
         """BindingRemedyConfigRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._client_token = None
         self._cluster_id = None
         self._id = None
         self._resource_ids = None
@@ -61,6 +64,8 @@ class BindingRemedyConfigRequest(object):
         self._use_recommended_remedy_configs = None
         self.discriminator = None
 
+        if client_token is not None:
+            self.client_token = client_token
         self.cluster_id = cluster_id
         if id is not None:
             self.id = id
@@ -69,6 +74,27 @@ class BindingRemedyConfigRequest(object):
         self.resource_type = resource_type
         if use_recommended_remedy_configs is not None:
             self.use_recommended_remedy_configs = use_recommended_remedy_configs
+
+    @property
+    def client_token(self):
+        """Gets the client_token of this BindingRemedyConfigRequest.  # noqa: E501
+
+
+        :return: The client_token of this BindingRemedyConfigRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_token
+
+    @client_token.setter
+    def client_token(self, client_token):
+        """Sets the client_token of this BindingRemedyConfigRequest.
+
+
+        :param client_token: The client_token of this BindingRemedyConfigRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_token = client_token
 
     @property
     def cluster_id(self):

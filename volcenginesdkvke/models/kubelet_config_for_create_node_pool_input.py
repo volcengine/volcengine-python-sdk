@@ -130,6 +130,13 @@ class KubeletConfigForCreateNodePoolInput(object):
         :param cpu_manager_policy: The cpu_manager_policy of this KubeletConfigForCreateNodePoolInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["none", "static"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                cpu_manager_policy not in allowed_values):
+            raise ValueError(
+                "Invalid value for `cpu_manager_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(cpu_manager_policy, allowed_values)
+            )
 
         self._cpu_manager_policy = cpu_manager_policy
 
@@ -193,12 +200,6 @@ class KubeletConfigForCreateNodePoolInput(object):
         :param kube_api_burst: The kube_api_burst of this KubeletConfigForCreateNodePoolInput.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                kube_api_burst is not None and kube_api_burst > 100):  # noqa: E501
-            raise ValueError("Invalid value for `kube_api_burst`, must be a value less than or equal to `100`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                kube_api_burst is not None and kube_api_burst < 1):  # noqa: E501
-            raise ValueError("Invalid value for `kube_api_burst`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._kube_api_burst = kube_api_burst
 
@@ -220,12 +221,6 @@ class KubeletConfigForCreateNodePoolInput(object):
         :param kube_api_qps: The kube_api_qps of this KubeletConfigForCreateNodePoolInput.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                kube_api_qps is not None and kube_api_qps > 50):  # noqa: E501
-            raise ValueError("Invalid value for `kube_api_qps`, must be a value less than or equal to `50`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                kube_api_qps is not None and kube_api_qps < 1):  # noqa: E501
-            raise ValueError("Invalid value for `kube_api_qps`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._kube_api_qps = kube_api_qps
 
@@ -289,12 +284,6 @@ class KubeletConfigForCreateNodePoolInput(object):
         :param registry_burst: The registry_burst of this KubeletConfigForCreateNodePoolInput.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                registry_burst is not None and registry_burst > 100):  # noqa: E501
-            raise ValueError("Invalid value for `registry_burst`, must be a value less than or equal to `100`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                registry_burst is not None and registry_burst < 1):  # noqa: E501
-            raise ValueError("Invalid value for `registry_burst`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._registry_burst = registry_burst
 
@@ -316,12 +305,6 @@ class KubeletConfigForCreateNodePoolInput(object):
         :param registry_pull_qps: The registry_pull_qps of this KubeletConfigForCreateNodePoolInput.  # noqa: E501
         :type: int
         """
-        if (self._configuration.client_side_validation and
-                registry_pull_qps is not None and registry_pull_qps > 50):  # noqa: E501
-            raise ValueError("Invalid value for `registry_pull_qps`, must be a value less than or equal to `50`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                registry_pull_qps is not None and registry_pull_qps < 1):  # noqa: E501
-            raise ValueError("Invalid value for `registry_pull_qps`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._registry_pull_qps = registry_pull_qps
 

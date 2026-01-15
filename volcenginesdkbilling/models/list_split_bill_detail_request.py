@@ -115,7 +115,8 @@ class ListSplitBillDetailRequest(object):
             self.payer_id = payer_id
         if product is not None:
             self.product = product
-        self.split_dimension = split_dimension
+        if split_dimension is not None:
+            self.split_dimension = split_dimension
         if split_item_id is not None:
             self.split_item_id = split_item_id
 
@@ -414,8 +415,6 @@ class ListSplitBillDetailRequest(object):
         :param split_dimension: The split_dimension of this ListSplitBillDetailRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and split_dimension is None:
-            raise ValueError("Invalid value for `split_dimension`, must not be `None`")  # noqa: E501
 
         self._split_dimension = split_dimension
 
