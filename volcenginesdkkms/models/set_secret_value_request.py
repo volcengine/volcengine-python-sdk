@@ -34,15 +34,17 @@ class SetSecretValueRequest(object):
     """
     swagger_types = {
         'secret_name': 'str',
-        'secret_value': 'str'
+        'secret_value': 'str',
+        'version_name': 'str'
     }
 
     attribute_map = {
         'secret_name': 'SecretName',
-        'secret_value': 'SecretValue'
+        'secret_value': 'SecretValue',
+        'version_name': 'VersionName'
     }
 
-    def __init__(self, secret_name=None, secret_value=None, _configuration=None):  # noqa: E501
+    def __init__(self, secret_name=None, secret_value=None, version_name=None, _configuration=None):  # noqa: E501
         """SetSecretValueRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,10 +52,13 @@ class SetSecretValueRequest(object):
 
         self._secret_name = None
         self._secret_value = None
+        self._version_name = None
         self.discriminator = None
 
         self.secret_name = secret_name
         self.secret_value = secret_value
+        if version_name is not None:
+            self.version_name = version_name
 
     @property
     def secret_name(self):
@@ -109,6 +114,33 @@ class SetSecretValueRequest(object):
             raise ValueError("Invalid value for `secret_value`, length must be less than or equal to `30720`")  # noqa: E501
 
         self._secret_value = secret_value
+
+    @property
+    def version_name(self):
+        """Gets the version_name of this SetSecretValueRequest.  # noqa: E501
+
+
+        :return: The version_name of this SetSecretValueRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._version_name
+
+    @version_name.setter
+    def version_name(self, version_name):
+        """Sets the version_name of this SetSecretValueRequest.
+
+
+        :param version_name: The version_name of this SetSecretValueRequest.  # noqa: E501
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                version_name is not None and len(version_name) > 128):
+            raise ValueError("Invalid value for `version_name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                version_name is not None and len(version_name) < 2):
+            raise ValueError("Invalid value for `version_name`, length must be greater than or equal to `2`")  # noqa: E501
+
+        self._version_name = version_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
