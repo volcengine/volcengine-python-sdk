@@ -35,16 +35,18 @@ class ListRolesRequest(object):
     swagger_types = {
         'limit': 'int',
         'offset': 'int',
-        'query': 'str'
+        'query': 'str',
+        'role_name': 'str'
     }
 
     attribute_map = {
         'limit': 'Limit',
         'offset': 'Offset',
-        'query': 'Query'
+        'query': 'Query',
+        'role_name': 'RoleName'
     }
 
-    def __init__(self, limit=None, offset=None, query=None, _configuration=None):  # noqa: E501
+    def __init__(self, limit=None, offset=None, query=None, role_name=None, _configuration=None):  # noqa: E501
         """ListRolesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ListRolesRequest(object):
         self._limit = None
         self._offset = None
         self._query = None
+        self._role_name = None
         self.discriminator = None
 
         if limit is not None:
@@ -61,6 +64,8 @@ class ListRolesRequest(object):
             self.offset = offset
         if query is not None:
             self.query = query
+        if role_name is not None:
+            self.role_name = role_name
 
     @property
     def limit(self):
@@ -124,6 +129,27 @@ class ListRolesRequest(object):
         """
 
         self._query = query
+
+    @property
+    def role_name(self):
+        """Gets the role_name of this ListRolesRequest.  # noqa: E501
+
+
+        :return: The role_name of this ListRolesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._role_name
+
+    @role_name.setter
+    def role_name(self, role_name):
+        """Sets the role_name of this ListRolesRequest.
+
+
+        :param role_name: The role_name of this ListRolesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._role_name = role_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
