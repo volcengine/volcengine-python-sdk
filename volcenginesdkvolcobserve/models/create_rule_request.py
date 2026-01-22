@@ -50,6 +50,7 @@ class CreateRuleRequest(object):
         'no_data': 'NoDataForCreateRuleInput',
         'notification_id': 'str',
         'notify_templates': 'list[NotifyTemplateForCreateRuleInput]',
+        'object_group_id': 'str',
         'original_dimensions': 'dict(str, list[str])',
         'project_name': 'str',
         'recovery_notify': 'RecoveryNotifyForCreateRuleInput',
@@ -81,6 +82,7 @@ class CreateRuleRequest(object):
         'no_data': 'NoData',
         'notification_id': 'NotificationId',
         'notify_templates': 'NotifyTemplates',
+        'object_group_id': 'ObjectGroupId',
         'original_dimensions': 'OriginalDimensions',
         'project_name': 'ProjectName',
         'recovery_notify': 'RecoveryNotify',
@@ -94,7 +96,7 @@ class CreateRuleRequest(object):
         'webhook_ids': 'WebhookIds'
     }
 
-    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, notify_templates=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_methods=None, condition_operator=None, conditions=None, contact_group_ids=None, description=None, dimension_conditions=None, effect_end_at=None, effect_start_at=None, enable_state=None, evaluation_count=None, level=None, level_conditions=None, multiple_conditions=None, namespace=None, no_data=None, notification_id=None, notify_templates=None, object_group_id=None, original_dimensions=None, project_name=None, recovery_notify=None, regions=None, rule_name=None, rule_type=None, silence_time=None, sub_namespace=None, tags=None, webhook=None, webhook_ids=None, _configuration=None):  # noqa: E501
         """CreateRuleRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -117,6 +119,7 @@ class CreateRuleRequest(object):
         self._no_data = None
         self._notification_id = None
         self._notify_templates = None
+        self._object_group_id = None
         self._original_dimensions = None
         self._project_name = None
         self._recovery_notify = None
@@ -158,6 +161,8 @@ class CreateRuleRequest(object):
             self.notification_id = notification_id
         if notify_templates is not None:
             self.notify_templates = notify_templates
+        if object_group_id is not None:
+            self.object_group_id = object_group_id
         if original_dimensions is not None:
             self.original_dimensions = original_dimensions
         if project_name is not None:
@@ -553,6 +558,27 @@ class CreateRuleRequest(object):
         """
 
         self._notify_templates = notify_templates
+
+    @property
+    def object_group_id(self):
+        """Gets the object_group_id of this CreateRuleRequest.  # noqa: E501
+
+
+        :return: The object_group_id of this CreateRuleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._object_group_id
+
+    @object_group_id.setter
+    def object_group_id(self, object_group_id):
+        """Sets the object_group_id of this CreateRuleRequest.
+
+
+        :param object_group_id: The object_group_id of this CreateRuleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._object_group_id = object_group_id
 
     @property
     def original_dimensions(self):
