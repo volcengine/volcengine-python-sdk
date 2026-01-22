@@ -55,7 +55,8 @@ class ListNodesRequest(object):
         self._project_name = None
         self.discriminator = None
 
-        self.is_mainland = is_mainland
+        if is_mainland is not None:
+            self.is_mainland = is_mainland
         if line_type is not None:
             self.line_type = line_type
         if project_name is not None:
@@ -79,8 +80,6 @@ class ListNodesRequest(object):
         :param is_mainland: The is_mainland of this ListNodesRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and is_mainland is None:
-            raise ValueError("Invalid value for `is_mainland`, must not be `None`")  # noqa: E501
 
         self._is_mainland = is_mainland
 

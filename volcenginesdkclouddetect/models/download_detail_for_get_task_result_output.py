@@ -43,6 +43,7 @@ class DownloadDetailForGetTaskResultOutput(object):
         'http_response_header': 'str',
         'http_version': 'str',
         'location_detail': 'list[LocationDetailForGetTaskResultOutput]',
+        'pcap_uri': 'str',
         'recv_cost': 'int',
         'redirect_cost': 'int',
         'redirect_nums': 'int',
@@ -67,6 +68,7 @@ class DownloadDetailForGetTaskResultOutput(object):
         'http_response_header': 'HTTPResponseHeader',
         'http_version': 'HTTPVersion',
         'location_detail': 'LocationDetail',
+        'pcap_uri': 'PcapURI',
         'recv_cost': 'RecvCost',
         'redirect_cost': 'RedirectCost',
         'redirect_nums': 'RedirectNums',
@@ -80,7 +82,7 @@ class DownloadDetailForGetTaskResultOutput(object):
         'upload_time': 'UploadTime'
     }
 
-    def __init__(self, dns_cost=None, diagnose_detail=None, download_size=None, download_speed=None, http_code=None, http_request_header=None, http_response_body=None, http_response_header=None, http_version=None, location_detail=None, recv_cost=None, redirect_cost=None, redirect_nums=None, send_cost=None, ssl_cost=None, tcp_cost=None, total_cost=None, ttfb_cost=None, upload_size=None, upload_speed=None, upload_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, dns_cost=None, diagnose_detail=None, download_size=None, download_speed=None, http_code=None, http_request_header=None, http_response_body=None, http_response_header=None, http_version=None, location_detail=None, pcap_uri=None, recv_cost=None, redirect_cost=None, redirect_nums=None, send_cost=None, ssl_cost=None, tcp_cost=None, total_cost=None, ttfb_cost=None, upload_size=None, upload_speed=None, upload_time=None, _configuration=None):  # noqa: E501
         """DownloadDetailForGetTaskResultOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class DownloadDetailForGetTaskResultOutput(object):
         self._http_response_header = None
         self._http_version = None
         self._location_detail = None
+        self._pcap_uri = None
         self._recv_cost = None
         self._redirect_cost = None
         self._redirect_nums = None
@@ -129,6 +132,8 @@ class DownloadDetailForGetTaskResultOutput(object):
             self.http_version = http_version
         if location_detail is not None:
             self.location_detail = location_detail
+        if pcap_uri is not None:
+            self.pcap_uri = pcap_uri
         if recv_cost is not None:
             self.recv_cost = recv_cost
         if redirect_cost is not None:
@@ -361,6 +366,27 @@ class DownloadDetailForGetTaskResultOutput(object):
         """
 
         self._location_detail = location_detail
+
+    @property
+    def pcap_uri(self):
+        """Gets the pcap_uri of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
+
+
+        :return: The pcap_uri of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pcap_uri
+
+    @pcap_uri.setter
+    def pcap_uri(self, pcap_uri):
+        """Sets the pcap_uri of this DownloadDetailForGetTaskResultOutput.
+
+
+        :param pcap_uri: The pcap_uri of this DownloadDetailForGetTaskResultOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._pcap_uri = pcap_uri
 
     @property
     def recv_cost(self):
