@@ -3,9 +3,11 @@ from typing import List, Optional, Any, Union
 from datetime import datetime, date
 from uuid import UUID
 import requests
+from requests.adapters import HTTPAdapter
 import json
+import os
 
-from ..models.llm_shield_sign import request_sign, Version
+from ..models.llm_shield_sign import request_sign, Version, SetServiceDev, GetServiceCode
 
 LLM_STREAM_SEND_BASE_WINDOW_V2 = 10
 LLM_STREAM_SEND_EXPONENT_V2 = 2
@@ -17,7 +19,7 @@ class ContentTypeV2:
     AUDIO = 2
     IMAGE = 3
     VIDEO = 4
-
+    FILE = 5
 
 # 定义决策类型常量
 class DecisionTypeV2:
@@ -45,10 +47,20 @@ class MatchSource:
 
 
 # 定义消息结构体
+class MultiPart(BaseModel):
+    content: str = Field("", alias="Content")
+    content_type: int = Field(ContentTypeV2.TEXT, alias="ContentType")
+
+    class Config:
+        populate_by_name = True
+
+
+# 定义消息结构体
 class MessageV2(BaseModel):
     role: str = Field("", alias="Role")
     content: str = Field("", alias="Content")
     content_type: int = Field(ContentTypeV2.TEXT, alias="ContentType")
+    multi_part: Optional[List[MultiPart]] = Field(None, alias="MultiPart")
 
     class Config:
         populate_by_name = True
@@ -198,6 +210,7 @@ class ModerateV2Result(BaseModel):
     risk_info: RiskInfoV2 = Field(default_factory=RiskInfoV2, alias="RiskInfo")
     decision: DecisionV2 = Field(default_factory=DecisionV2, alias="Decision")
     permit_info: PermitInfoV2 = Field(default_factory=PermitInfoV2, alias="PermitInfo")
+    content_info: str = Field("", alias="ContentInfo")
     degraded: bool = Field(False, alias="Degraded")
     degrade_reason: str = Field("", alias="DegradeReason")
 
@@ -295,7 +308,6 @@ class GenerateStreamV2ResponseData(BaseModel):
     class Config:
         populate_by_name = True
 
-
 # 定义客户端类
 class ClientV2:
     def __init__(self, url: str, ak: str, sk: str, region: str, timeout: float):
@@ -305,6 +317,23 @@ class ClientV2:
         self.region = region
         self.http_client = requests.Session()
         self.http_client.timeout = timeout
+
+    def SetProxy(self, proxy: dict):
+        if proxy:
+            self.http_client.proxies = proxy
+        else:
+            self.http_client.proxies.clear()
+
+    def SetConnMax(self, connMax):
+        if connMax > 0:
+            adapter = HTTPAdapter(
+                pool_connections=connMax,  # 全局连接池数量：最多维护多少个 Host 的连接池
+                pool_maxsize=connMax,   # 单 Host 最大连接数：控制并发的核心（= 目标并发数）
+                pool_block=False  # 连接池满时是否阻塞：False=非阻塞（超时抛异常），True=阻塞等待
+            )
+            # 将适配器挂载到 Session：所有 HTTP/HTTPS 请求都使用该连接池
+            self.http_client.mount("http://", adapter)
+            self.http_client.mount("https://", adapter)
 
     def Moderate(self, request: Optional[ModerateV2Request] = None) -> ModerateV2Response:
         path = "/v2/moderate"

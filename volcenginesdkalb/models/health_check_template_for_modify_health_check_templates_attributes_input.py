@@ -39,13 +39,13 @@ class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput(object):
         'health_check_http_version': 'str',
         'health_check_interval': 'int',
         'health_check_method': 'str',
+        'health_check_port': 'int',
         'health_check_protocol': 'str',
         'health_check_template_id': 'str',
         'health_check_template_name': 'str',
         'health_check_timeout': 'int',
         'health_check_uri': 'str',
         'healthy_threshold': 'int',
-        'port': 'int',
         'unhealthy_threshold': 'int'
     }
 
@@ -56,17 +56,17 @@ class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput(object):
         'health_check_http_version': 'HealthCheckHttpVersion',
         'health_check_interval': 'HealthCheckInterval',
         'health_check_method': 'HealthCheckMethod',
+        'health_check_port': 'HealthCheckPort',
         'health_check_protocol': 'HealthCheckProtocol',
         'health_check_template_id': 'HealthCheckTemplateId',
         'health_check_template_name': 'HealthCheckTemplateName',
         'health_check_timeout': 'HealthCheckTimeout',
         'health_check_uri': 'HealthCheckURI',
         'healthy_threshold': 'HealthyThreshold',
-        'port': 'Port',
         'unhealthy_threshold': 'UnhealthyThreshold'
     }
 
-    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, port=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, health_check_domain=None, health_check_http_code=None, health_check_http_version=None, health_check_interval=None, health_check_method=None, health_check_port=None, health_check_protocol=None, health_check_template_id=None, health_check_template_name=None, health_check_timeout=None, health_check_uri=None, healthy_threshold=None, unhealthy_threshold=None, _configuration=None):  # noqa: E501
         """HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -78,13 +78,13 @@ class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput(object):
         self._health_check_http_version = None
         self._health_check_interval = None
         self._health_check_method = None
+        self._health_check_port = None
         self._health_check_protocol = None
         self._health_check_template_id = None
         self._health_check_template_name = None
         self._health_check_timeout = None
         self._health_check_uri = None
         self._healthy_threshold = None
-        self._port = None
         self._unhealthy_threshold = None
         self.discriminator = None
 
@@ -100,6 +100,8 @@ class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput(object):
             self.health_check_interval = health_check_interval
         if health_check_method is not None:
             self.health_check_method = health_check_method
+        if health_check_port is not None:
+            self.health_check_port = health_check_port
         if health_check_protocol is not None:
             self.health_check_protocol = health_check_protocol
         self.health_check_template_id = health_check_template_id
@@ -111,7 +113,6 @@ class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput(object):
             self.health_check_uri = health_check_uri
         if healthy_threshold is not None:
             self.healthy_threshold = healthy_threshold
-        self.port = port
         if unhealthy_threshold is not None:
             self.unhealthy_threshold = unhealthy_threshold
 
@@ -240,6 +241,27 @@ class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput(object):
         """
 
         self._health_check_method = health_check_method
+
+    @property
+    def health_check_port(self):
+        """Gets the health_check_port of this HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.  # noqa: E501
+
+
+        :return: The health_check_port of this HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.  # noqa: E501
+        :rtype: int
+        """
+        return self._health_check_port
+
+    @health_check_port.setter
+    def health_check_port(self, health_check_port):
+        """Sets the health_check_port of this HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.
+
+
+        :param health_check_port: The health_check_port of this HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.  # noqa: E501
+        :type: int
+        """
+
+        self._health_check_port = health_check_port
 
     @property
     def health_check_protocol(self):
@@ -380,35 +402,6 @@ class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput(object):
         """
 
         self._healthy_threshold = healthy_threshold
-
-    @property
-    def port(self):
-        """Gets the port of this HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.  # noqa: E501
-
-
-        :return: The port of this HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.  # noqa: E501
-        :rtype: int
-        """
-        return self._port
-
-    @port.setter
-    def port(self, port):
-        """Sets the port of this HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.
-
-
-        :param port: The port of this HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.  # noqa: E501
-        :type: int
-        """
-        if self._configuration.client_side_validation and port is None:
-            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                port is not None and port > 65535):  # noqa: E501
-            raise ValueError("Invalid value for `port`, must be a value less than or equal to `65535`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                port is not None and port < 0):  # noqa: E501
-            raise ValueError("Invalid value for `port`, must be a value greater than or equal to `0`")  # noqa: E501
-
-        self._port = port
 
     @property
     def unhealthy_threshold(self):

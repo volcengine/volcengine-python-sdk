@@ -33,24 +33,50 @@ class GetAgentListRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'agent_id': 'str',
         'app_id': 'str'
     }
 
     attribute_map = {
+        'agent_id': 'AgentID',
         'app_id': 'AppID'
     }
 
-    def __init__(self, app_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, app_id=None, _configuration=None):  # noqa: E501
         """GetAgentListRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._agent_id = None
         self._app_id = None
         self.discriminator = None
 
+        if agent_id is not None:
+            self.agent_id = agent_id
         if app_id is not None:
             self.app_id = app_id
+
+    @property
+    def agent_id(self):
+        """Gets the agent_id of this GetAgentListRequest.  # noqa: E501
+
+
+        :return: The agent_id of this GetAgentListRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._agent_id
+
+    @agent_id.setter
+    def agent_id(self, agent_id):
+        """Sets the agent_id of this GetAgentListRequest.
+
+
+        :param agent_id: The agent_id of this GetAgentListRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._agent_id = agent_id
 
     @property
     def app_id(self):

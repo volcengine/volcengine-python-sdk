@@ -35,6 +35,7 @@ class UpdateUpstreamRequest(object):
     swagger_types = {
         'circuit_breaking_settings': 'CircuitBreakingSettingsForUpdateUpstreamInput',
         'comments': 'str',
+        'connection_pool_settings': 'ConnectionPoolSettingsForUpdateUpstreamInput',
         'id': 'str',
         'load_balancer_settings': 'LoadBalancerSettingsForUpdateUpstreamInput',
         'name': 'str',
@@ -47,6 +48,7 @@ class UpdateUpstreamRequest(object):
     attribute_map = {
         'circuit_breaking_settings': 'CircuitBreakingSettings',
         'comments': 'Comments',
+        'connection_pool_settings': 'ConnectionPoolSettings',
         'id': 'Id',
         'load_balancer_settings': 'LoadBalancerSettings',
         'name': 'Name',
@@ -56,7 +58,7 @@ class UpdateUpstreamRequest(object):
         'upstream_spec': 'UpstreamSpec'
     }
 
-    def __init__(self, circuit_breaking_settings=None, comments=None, id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, upstream_spec=None, _configuration=None):  # noqa: E501
+    def __init__(self, circuit_breaking_settings=None, comments=None, connection_pool_settings=None, id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, upstream_spec=None, _configuration=None):  # noqa: E501
         """UpdateUpstreamRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class UpdateUpstreamRequest(object):
 
         self._circuit_breaking_settings = None
         self._comments = None
+        self._connection_pool_settings = None
         self._id = None
         self._load_balancer_settings = None
         self._name = None
@@ -77,6 +80,8 @@ class UpdateUpstreamRequest(object):
             self.circuit_breaking_settings = circuit_breaking_settings
         if comments is not None:
             self.comments = comments
+        if connection_pool_settings is not None:
+            self.connection_pool_settings = connection_pool_settings
         self.id = id
         if load_balancer_settings is not None:
             self.load_balancer_settings = load_balancer_settings
@@ -130,6 +135,27 @@ class UpdateUpstreamRequest(object):
         """
 
         self._comments = comments
+
+    @property
+    def connection_pool_settings(self):
+        """Gets the connection_pool_settings of this UpdateUpstreamRequest.  # noqa: E501
+
+
+        :return: The connection_pool_settings of this UpdateUpstreamRequest.  # noqa: E501
+        :rtype: ConnectionPoolSettingsForUpdateUpstreamInput
+        """
+        return self._connection_pool_settings
+
+    @connection_pool_settings.setter
+    def connection_pool_settings(self, connection_pool_settings):
+        """Sets the connection_pool_settings of this UpdateUpstreamRequest.
+
+
+        :param connection_pool_settings: The connection_pool_settings of this UpdateUpstreamRequest.  # noqa: E501
+        :type: ConnectionPoolSettingsForUpdateUpstreamInput
+        """
+
+        self._connection_pool_settings = connection_pool_settings
 
     @property
     def id(self):

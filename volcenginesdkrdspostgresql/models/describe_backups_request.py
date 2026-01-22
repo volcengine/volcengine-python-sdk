@@ -33,58 +33,130 @@ class DescribeBackupsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'backup_database_name': 'str',
+        'backup_description': 'str',
         'backup_end_time': 'str',
         'backup_id': 'str',
+        'backup_method': 'str',
+        'backup_scope': 'str',
         'backup_start_time': 'str',
         'backup_status': 'str',
         'backup_type': 'str',
+        'create_type': 'str',
+        'download_status': 'str',
         'instance_id': 'str',
         'page_number': 'int',
         'page_size': 'int'
     }
 
     attribute_map = {
+        'backup_database_name': 'BackupDatabaseName',
+        'backup_description': 'BackupDescription',
         'backup_end_time': 'BackupEndTime',
         'backup_id': 'BackupId',
+        'backup_method': 'BackupMethod',
+        'backup_scope': 'BackupScope',
         'backup_start_time': 'BackupStartTime',
         'backup_status': 'BackupStatus',
         'backup_type': 'BackupType',
+        'create_type': 'CreateType',
+        'download_status': 'DownloadStatus',
         'instance_id': 'InstanceId',
         'page_number': 'PageNumber',
         'page_size': 'PageSize'
     }
 
-    def __init__(self, backup_end_time=None, backup_id=None, backup_start_time=None, backup_status=None, backup_type=None, instance_id=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
+    def __init__(self, backup_database_name=None, backup_description=None, backup_end_time=None, backup_id=None, backup_method=None, backup_scope=None, backup_start_time=None, backup_status=None, backup_type=None, create_type=None, download_status=None, instance_id=None, page_number=None, page_size=None, _configuration=None):  # noqa: E501
         """DescribeBackupsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._backup_database_name = None
+        self._backup_description = None
         self._backup_end_time = None
         self._backup_id = None
+        self._backup_method = None
+        self._backup_scope = None
         self._backup_start_time = None
         self._backup_status = None
         self._backup_type = None
+        self._create_type = None
+        self._download_status = None
         self._instance_id = None
         self._page_number = None
         self._page_size = None
         self.discriminator = None
 
+        if backup_database_name is not None:
+            self.backup_database_name = backup_database_name
+        if backup_description is not None:
+            self.backup_description = backup_description
         if backup_end_time is not None:
             self.backup_end_time = backup_end_time
         if backup_id is not None:
             self.backup_id = backup_id
+        if backup_method is not None:
+            self.backup_method = backup_method
+        if backup_scope is not None:
+            self.backup_scope = backup_scope
         if backup_start_time is not None:
             self.backup_start_time = backup_start_time
         if backup_status is not None:
             self.backup_status = backup_status
         if backup_type is not None:
             self.backup_type = backup_type
+        if create_type is not None:
+            self.create_type = create_type
+        if download_status is not None:
+            self.download_status = download_status
         self.instance_id = instance_id
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
             self.page_size = page_size
+
+    @property
+    def backup_database_name(self):
+        """Gets the backup_database_name of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The backup_database_name of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_database_name
+
+    @backup_database_name.setter
+    def backup_database_name(self, backup_database_name):
+        """Sets the backup_database_name of this DescribeBackupsRequest.
+
+
+        :param backup_database_name: The backup_database_name of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_database_name = backup_database_name
+
+    @property
+    def backup_description(self):
+        """Gets the backup_description of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The backup_description of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_description
+
+    @backup_description.setter
+    def backup_description(self, backup_description):
+        """Sets the backup_description of this DescribeBackupsRequest.
+
+
+        :param backup_description: The backup_description of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_description = backup_description
 
     @property
     def backup_end_time(self):
@@ -127,6 +199,48 @@ class DescribeBackupsRequest(object):
         """
 
         self._backup_id = backup_id
+
+    @property
+    def backup_method(self):
+        """Gets the backup_method of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The backup_method of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_method
+
+    @backup_method.setter
+    def backup_method(self, backup_method):
+        """Sets the backup_method of this DescribeBackupsRequest.
+
+
+        :param backup_method: The backup_method of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_method = backup_method
+
+    @property
+    def backup_scope(self):
+        """Gets the backup_scope of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The backup_scope of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._backup_scope
+
+    @backup_scope.setter
+    def backup_scope(self, backup_scope):
+        """Sets the backup_scope of this DescribeBackupsRequest.
+
+
+        :param backup_scope: The backup_scope of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._backup_scope = backup_scope
 
     @property
     def backup_start_time(self):
@@ -190,6 +304,48 @@ class DescribeBackupsRequest(object):
         """
 
         self._backup_type = backup_type
+
+    @property
+    def create_type(self):
+        """Gets the create_type of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The create_type of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_type
+
+    @create_type.setter
+    def create_type(self, create_type):
+        """Sets the create_type of this DescribeBackupsRequest.
+
+
+        :param create_type: The create_type of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._create_type = create_type
+
+    @property
+    def download_status(self):
+        """Gets the download_status of this DescribeBackupsRequest.  # noqa: E501
+
+
+        :return: The download_status of this DescribeBackupsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._download_status
+
+    @download_status.setter
+    def download_status(self, download_status):
+        """Sets the download_status of this DescribeBackupsRequest.
+
+
+        :param download_status: The download_status of this DescribeBackupsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._download_status = download_status
 
     @property
     def instance_id(self):

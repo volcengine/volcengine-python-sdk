@@ -33,6 +33,8 @@ class AgentForGetAgentListOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'asr_lang': 'str',
+        'description': 'str',
         'id': 'str',
         'name': 'str',
         'speaker_id': 'str',
@@ -40,24 +42,32 @@ class AgentForGetAgentListOutput(object):
     }
 
     attribute_map = {
+        'asr_lang': 'AsrLang',
+        'description': 'Description',
         'id': 'ID',
         'name': 'Name',
         'speaker_id': 'SpeakerID',
         'speaker_type': 'SpeakerType'
     }
 
-    def __init__(self, id=None, name=None, speaker_id=None, speaker_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, asr_lang=None, description=None, id=None, name=None, speaker_id=None, speaker_type=None, _configuration=None):  # noqa: E501
         """AgentForGetAgentListOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._asr_lang = None
+        self._description = None
         self._id = None
         self._name = None
         self._speaker_id = None
         self._speaker_type = None
         self.discriminator = None
 
+        if asr_lang is not None:
+            self.asr_lang = asr_lang
+        if description is not None:
+            self.description = description
         if id is not None:
             self.id = id
         if name is not None:
@@ -66,6 +76,48 @@ class AgentForGetAgentListOutput(object):
             self.speaker_id = speaker_id
         if speaker_type is not None:
             self.speaker_type = speaker_type
+
+    @property
+    def asr_lang(self):
+        """Gets the asr_lang of this AgentForGetAgentListOutput.  # noqa: E501
+
+
+        :return: The asr_lang of this AgentForGetAgentListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._asr_lang
+
+    @asr_lang.setter
+    def asr_lang(self, asr_lang):
+        """Sets the asr_lang of this AgentForGetAgentListOutput.
+
+
+        :param asr_lang: The asr_lang of this AgentForGetAgentListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._asr_lang = asr_lang
+
+    @property
+    def description(self):
+        """Gets the description of this AgentForGetAgentListOutput.  # noqa: E501
+
+
+        :return: The description of this AgentForGetAgentListOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this AgentForGetAgentListOutput.
+
+
+        :param description: The description of this AgentForGetAgentListOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def id(self):

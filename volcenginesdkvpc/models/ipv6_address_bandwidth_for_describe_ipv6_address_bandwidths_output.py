@@ -34,7 +34,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
     """
     swagger_types = {
         'allocation_id': 'str',
-        'bandwidth': 'str',
+        'bandwidth': 'int',
         'bandwidth_package_id': 'str',
         'billing_type': 'int',
         'business_status': 'str',
@@ -49,6 +49,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
         'network_type': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
+        'specific_egress': 'str',
         'status': 'str',
         'tags': 'list[TagForDescribeIpv6AddressBandwidthsOutput]',
         'updated_at': 'str'
@@ -71,12 +72,13 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
         'network_type': 'NetworkType',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
+        'specific_egress': 'SpecificEgress',
         'status': 'Status',
         'tags': 'Tags',
         'updated_at': 'UpdatedAt'
     }
 
-    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, allocation_id=None, bandwidth=None, bandwidth_package_id=None, billing_type=None, business_status=None, creation_time=None, deleted_time=None, isp=None, instance_id=None, instance_type=None, ipv6_address=None, ipv6_gateway_id=None, lock_reason=None, network_type=None, overdue_time=None, project_name=None, specific_egress=None, status=None, tags=None, updated_at=None, _configuration=None):  # noqa: E501
         """Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -98,6 +100,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
         self._network_type = None
         self._overdue_time = None
         self._project_name = None
+        self._specific_egress = None
         self._status = None
         self._tags = None
         self._updated_at = None
@@ -135,6 +138,8 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
             self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
+        if specific_egress is not None:
+            self.specific_egress = specific_egress
         if status is not None:
             self.status = status
         if tags is not None:
@@ -169,7 +174,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
 
 
         :return: The bandwidth of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._bandwidth
 
@@ -179,7 +184,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
 
 
         :param bandwidth: The bandwidth of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._bandwidth = bandwidth
@@ -477,6 +482,27 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def specific_egress(self):
+        """Gets the specific_egress of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
+
+
+        :return: The specific_egress of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._specific_egress
+
+    @specific_egress.setter
+    def specific_egress(self, specific_egress):
+        """Sets the specific_egress of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.
+
+
+        :param specific_egress: The specific_egress of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._specific_egress = specific_egress
 
     @property
     def status(self):

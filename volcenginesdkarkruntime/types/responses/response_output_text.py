@@ -9,23 +9,22 @@
 #
 # This modified file is released under the same license.
 
-from typing_extensions import Literal, Optional, List
+from typing import List, Optional
+
+from typing_extensions import Literal
 
 from ..._models import BaseModel
+from .response_output_text_annotation import ResponseOutputTextAnnotation
 
-from .response_output_text_annotation import (
-    ResponseOutputTextAnnotation,
-)
-
-__all__ = ["ResponseOutputText", "ResponseOutputTextAnnotation"]
+__all__ = ["ResponseOutputText"]
 
 
 class ResponseOutputText(BaseModel):
-    text: str
-    """The text output from the model."""
-
     type: Literal["output_text"]
     """The type of the output text. Always `output_text`."""
 
-    annotations: Optional[List[ResponseOutputTextAnnotation]]
+    text: str
+    """The text output from the model."""
+
+    annotations: Optional[List[ResponseOutputTextAnnotation]] = None
     """The annotation of the output text."""

@@ -80,3 +80,27 @@ class ContentGenerationTask(BaseModel):
 
     revised_prompt: str
     """The revised prompt the model uses to generate content"""
+
+    service_tier: str
+    """The service tier used to run the task (optional)."""
+
+    execution_expires_after: int
+    """The expiration time in seconds after which execution should end (optional)."""
+
+    generate_audio: bool
+    """Whether to generate audio."""
+
+    duration: int
+    """The duration of the generated content in seconds."""
+
+    ratio: str
+    """The aspect ratio of the generated content."""
+
+    resolution: str
+    """The resolution of the generated content."""
+
+    draft: bool
+    """Whether to generate a draft version of the content."""
+
+    draft_task_id: str
+    """The ID of the draft task, if applicable."""

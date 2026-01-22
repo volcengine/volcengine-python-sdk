@@ -54,6 +54,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'modification_protection_status': 'str',
         'overdue_time': 'str',
         'project_name': 'str',
+        'proxy_protocol_enabled': 'str',
         'sni_auto_match': 'str',
         'status': 'str',
         'subnet_id': 'str',
@@ -88,6 +89,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'modification_protection_status': 'ModificationProtectionStatus',
         'overdue_time': 'OverdueTime',
         'project_name': 'ProjectName',
+        'proxy_protocol_enabled': 'ProxyProtocolEnabled',
         'sni_auto_match': 'SniAutoMatch',
         'status': 'Status',
         'subnet_id': 'SubnetId',
@@ -100,7 +102,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         'zone_mappings': 'ZoneMappings'
     }
 
-    def __init__(self, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, sni_auto_match=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
+    def __init__(self, address_ip_version=None, business_status=None, create_time=None, dns_name=None, delete_protection=None, deleted_time=None, description=None, eip_address=None, eip_id=None, eni_address=None, eni_id=None, load_balancer_billing_type=None, load_balancer_edition=None, load_balancer_id=None, load_balancer_name=None, local_addresses=None, lock_reason=None, modification_protection_reason=None, modification_protection_status=None, overdue_time=None, project_name=None, proxy_protocol_enabled=None, sni_auto_match=None, status=None, subnet_id=None, tags=None, type=None, update_time=None, vpc_id=None, waf_instance_id=None, waf_protection_enabled=None, zone_mappings=None, _configuration=None):  # noqa: E501
         """LoadBalancerForDescribeLoadBalancersOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -127,6 +129,7 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         self._modification_protection_status = None
         self._overdue_time = None
         self._project_name = None
+        self._proxy_protocol_enabled = None
         self._sni_auto_match = None
         self._status = None
         self._subnet_id = None
@@ -181,6 +184,8 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
             self.overdue_time = overdue_time
         if project_name is not None:
             self.project_name = project_name
+        if proxy_protocol_enabled is not None:
+            self.proxy_protocol_enabled = proxy_protocol_enabled
         if sni_auto_match is not None:
             self.sni_auto_match = sni_auto_match
         if status is not None:
@@ -642,6 +647,27 @@ class LoadBalancerForDescribeLoadBalancersOutput(object):
         """
 
         self._project_name = project_name
+
+    @property
+    def proxy_protocol_enabled(self):
+        """Gets the proxy_protocol_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+
+
+        :return: The proxy_protocol_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_protocol_enabled
+
+    @proxy_protocol_enabled.setter
+    def proxy_protocol_enabled(self, proxy_protocol_enabled):
+        """Sets the proxy_protocol_enabled of this LoadBalancerForDescribeLoadBalancersOutput.
+
+
+        :param proxy_protocol_enabled: The proxy_protocol_enabled of this LoadBalancerForDescribeLoadBalancersOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._proxy_protocol_enabled = proxy_protocol_enabled
 
     @property
     def sni_auto_match(self):

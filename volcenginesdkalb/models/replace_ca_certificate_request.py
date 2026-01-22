@@ -70,7 +70,8 @@ class ReplaceCACertificateRequest(object):
         self._update_mode = None
         self.discriminator = None
 
-        self.ca_certificate = ca_certificate
+        if ca_certificate is not None:
+            self.ca_certificate = ca_certificate
         if ca_certificate_id is not None:
             self.ca_certificate_id = ca_certificate_id
         if ca_certificate_name is not None:
@@ -102,8 +103,6 @@ class ReplaceCACertificateRequest(object):
         :param ca_certificate: The ca_certificate of this ReplaceCACertificateRequest.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and ca_certificate is None:
-            raise ValueError("Invalid value for `ca_certificate`, must not be `None`")  # noqa: E501
 
         self._ca_certificate = ca_certificate
 

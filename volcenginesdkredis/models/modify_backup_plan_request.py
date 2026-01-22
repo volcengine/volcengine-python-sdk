@@ -61,7 +61,8 @@ class ModifyBackupPlanRequest(object):
         self._period = None
         self.discriminator = None
 
-        self.active = active
+        if active is not None:
+            self.active = active
         if backup_hour is not None:
             self.backup_hour = backup_hour
         if client_token is not None:
@@ -88,8 +89,6 @@ class ModifyBackupPlanRequest(object):
         :param active: The active of this ModifyBackupPlanRequest.  # noqa: E501
         :type: bool
         """
-        if self._configuration.client_side_validation and active is None:
-            raise ValueError("Invalid value for `active`, must not be `None`")  # noqa: E501
 
         self._active = active
 

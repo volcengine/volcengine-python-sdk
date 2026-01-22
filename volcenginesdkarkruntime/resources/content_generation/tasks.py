@@ -46,6 +46,17 @@ class Tasks(SyncAPIResource):
         content: Iterable[CreateTaskContentParam],
         callback_url: Optional[str] = None,
         return_last_frame: Optional[bool] = None,
+        service_tier: Optional[str] = None,
+        execution_expires_after: Optional[int] = None,
+        generate_audio: Optional[bool] = None,
+        draft: Optional[bool] = None,
+        camera_fixed: Optional[bool] = None,
+        watermark: Optional[bool] = None,
+        seed: Optional[int] = None,
+        resolution: Optional[str] = None,
+        ratio: Optional[str] = None,
+        duration: Optional[int] = None,
+        frames: Optional[int] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -58,6 +69,17 @@ class Tasks(SyncAPIResource):
                 "content": content,
                 "callback_url": callback_url,
                 "return_last_frame": return_last_frame,
+                "service_tier": service_tier,
+                "execution_expires_after": execution_expires_after,
+                "generate_audio": generate_audio,
+                "draft": draft,
+                "camera_fixed": camera_fixed,
+                "watermark": watermark,
+                "seed": seed,
+                "resolution": resolution,
+                "ratio": ratio,
+                "duration": duration,
+                "frames": frames,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -99,6 +121,7 @@ class Tasks(SyncAPIResource):
         status: str | None = None,
         task_ids: Union[List[str], str] | None = None,
         model: str | None = None,
+        service_tier: str | None = None,
         extra_headers: Headers | None = None,
         extra_body: Body | None = None,
         extra_query: Query | None = None,
@@ -113,6 +136,8 @@ class Tasks(SyncAPIResource):
             query_params.append(("filter.status", status))
         if model:
             query_params.append(("filter.model", model))
+        if service_tier:
+            query_params.append(("filter.service_tier", service_tier))
         if task_ids:
             if isinstance(task_ids, str):
                 task_ids = [task_ids]
@@ -167,6 +192,17 @@ class AsyncTasks(AsyncAPIResource):
         content: Iterable[CreateTaskContentParam],
         callback_url: Optional[str] = None,
         return_last_frame: Optional[bool] = None,
+        service_tier: Optional[str] = None,
+        execution_expires_after: Optional[int] = None,
+        generate_audio: Optional[bool] = None,
+        draft: Optional[bool] = None,
+        camera_fixed: Optional[bool] = None,
+        watermark: Optional[bool] = None,
+        seed: Optional[int] = None,
+        resolution: Optional[str] = None,
+        ratio: Optional[str] = None,
+        duration: Optional[int] = None,
+        frames: Optional[int] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -179,6 +215,17 @@ class AsyncTasks(AsyncAPIResource):
                 "content": content,
                 "callback_url": callback_url,
                 "return_last_frame": return_last_frame,
+                "service_tier": service_tier,
+                "execution_expires_after": execution_expires_after,
+                "generate_audio": generate_audio,
+                "draft": draft,
+                "camera_fixed": camera_fixed,
+                "watermark": watermark,
+                "seed": seed,
+                "resolution": resolution,
+                "ratio": ratio,
+                "duration": duration,
+                "frames": frames,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -220,6 +267,7 @@ class AsyncTasks(AsyncAPIResource):
         status: str | None = None,
         task_ids: Union[List[str], str] | None = None,
         model: str | None = None,
+        service_tier: str | None = None,
         extra_headers: Headers | None = None,
         extra_body: Body | None = None,
         extra_query: Query | None = None,
@@ -234,6 +282,8 @@ class AsyncTasks(AsyncAPIResource):
             query_params.append(("filter.status", status))
         if model:
             query_params.append(("filter.model", model))
+        if service_tier:
+            query_params.append(("filter.service_tier", service_tier))
         if task_ids:
             if isinstance(task_ids, str):
                 task_ids = [task_ids]

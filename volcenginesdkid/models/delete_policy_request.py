@@ -54,8 +54,7 @@ class DeletePolicyRequest(object):
 
         if namespace_name is not None:
             self.namespace_name = namespace_name
-        if policy_name is not None:
-            self.policy_name = policy_name
+        self.policy_name = policy_name
 
     @property
     def namespace_name(self):
@@ -96,6 +95,8 @@ class DeletePolicyRequest(object):
         :param policy_name: The policy_name of this DeletePolicyRequest.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and policy_name is None:
+            raise ValueError("Invalid value for `policy_name`, must not be `None`")  # noqa: E501
 
         self._policy_name = policy_name
 

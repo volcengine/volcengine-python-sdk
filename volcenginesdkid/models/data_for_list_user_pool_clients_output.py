@@ -36,6 +36,7 @@ class DataForListUserPoolClientsOutput(object):
         'client_type': 'str',
         'create_time': 'str',
         'description': 'str',
+        'logo_uri': 'str',
         'name': 'str',
         'uid': 'str',
         'update_time': 'str'
@@ -45,12 +46,13 @@ class DataForListUserPoolClientsOutput(object):
         'client_type': 'ClientType',
         'create_time': 'CreateTime',
         'description': 'Description',
+        'logo_uri': 'LogoUri',
         'name': 'Name',
         'uid': 'Uid',
         'update_time': 'UpdateTime'
     }
 
-    def __init__(self, client_type=None, create_time=None, description=None, name=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, client_type=None, create_time=None, description=None, logo_uri=None, name=None, uid=None, update_time=None, _configuration=None):  # noqa: E501
         """DataForListUserPoolClientsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class DataForListUserPoolClientsOutput(object):
         self._client_type = None
         self._create_time = None
         self._description = None
+        self._logo_uri = None
         self._name = None
         self._uid = None
         self._update_time = None
@@ -70,6 +73,8 @@ class DataForListUserPoolClientsOutput(object):
             self.create_time = create_time
         if description is not None:
             self.description = description
+        if logo_uri is not None:
+            self.logo_uri = logo_uri
         if name is not None:
             self.name = name
         if uid is not None:
@@ -139,6 +144,27 @@ class DataForListUserPoolClientsOutput(object):
         """
 
         self._description = description
+
+    @property
+    def logo_uri(self):
+        """Gets the logo_uri of this DataForListUserPoolClientsOutput.  # noqa: E501
+
+
+        :return: The logo_uri of this DataForListUserPoolClientsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._logo_uri
+
+    @logo_uri.setter
+    def logo_uri(self, logo_uri):
+        """Sets the logo_uri of this DataForListUserPoolClientsOutput.
+
+
+        :param logo_uri: The logo_uri of this DataForListUserPoolClientsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._logo_uri = logo_uri
 
     @property
     def name(self):

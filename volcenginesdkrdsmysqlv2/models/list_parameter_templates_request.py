@@ -33,6 +33,7 @@ class ListParameterTemplatesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'engine_type': 'str',
         'limit': 'int',
         'offset': 'int',
         'project_name': 'str',
@@ -44,6 +45,7 @@ class ListParameterTemplatesRequest(object):
     }
 
     attribute_map = {
+        'engine_type': 'EngineType',
         'limit': 'Limit',
         'offset': 'Offset',
         'project_name': 'ProjectName',
@@ -54,12 +56,13 @@ class ListParameterTemplatesRequest(object):
         'template_type_version': 'TemplateTypeVersion'
     }
 
-    def __init__(self, limit=None, offset=None, project_name=None, template_category=None, template_name=None, template_source=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
+    def __init__(self, engine_type=None, limit=None, offset=None, project_name=None, template_category=None, template_name=None, template_source=None, template_type=None, template_type_version=None, _configuration=None):  # noqa: E501
         """ListParameterTemplatesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._engine_type = None
         self._limit = None
         self._offset = None
         self._project_name = None
@@ -70,6 +73,8 @@ class ListParameterTemplatesRequest(object):
         self._template_type_version = None
         self.discriminator = None
 
+        if engine_type is not None:
+            self.engine_type = engine_type
         if limit is not None:
             self.limit = limit
         if offset is not None:
@@ -86,6 +91,27 @@ class ListParameterTemplatesRequest(object):
             self.template_type = template_type
         if template_type_version is not None:
             self.template_type_version = template_type_version
+
+    @property
+    def engine_type(self):
+        """Gets the engine_type of this ListParameterTemplatesRequest.  # noqa: E501
+
+
+        :return: The engine_type of this ListParameterTemplatesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._engine_type
+
+    @engine_type.setter
+    def engine_type(self, engine_type):
+        """Sets the engine_type of this ListParameterTemplatesRequest.
+
+
+        :param engine_type: The engine_type of this ListParameterTemplatesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._engine_type = engine_type
 
     @property
     def limit(self):

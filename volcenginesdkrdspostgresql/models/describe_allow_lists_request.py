@@ -33,28 +33,168 @@ class DescribeAllowListsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_list_category': 'str',
+        'allow_list_desc': 'str',
+        'allow_list_id': 'str',
+        'allow_list_name': 'str',
+        'ip_address': 'str',
         'instance_id': 'str',
+        'page_number': 'int',
+        'page_size': 'int',
         'region_id': 'str'
     }
 
     attribute_map = {
+        'allow_list_category': 'AllowListCategory',
+        'allow_list_desc': 'AllowListDesc',
+        'allow_list_id': 'AllowListId',
+        'allow_list_name': 'AllowListName',
+        'ip_address': 'IPAddress',
         'instance_id': 'InstanceId',
+        'page_number': 'PageNumber',
+        'page_size': 'PageSize',
         'region_id': 'RegionId'
     }
 
-    def __init__(self, instance_id=None, region_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_name=None, ip_address=None, instance_id=None, page_number=None, page_size=None, region_id=None, _configuration=None):  # noqa: E501
         """DescribeAllowListsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._allow_list_category = None
+        self._allow_list_desc = None
+        self._allow_list_id = None
+        self._allow_list_name = None
+        self._ip_address = None
         self._instance_id = None
+        self._page_number = None
+        self._page_size = None
         self._region_id = None
         self.discriminator = None
 
+        if allow_list_category is not None:
+            self.allow_list_category = allow_list_category
+        if allow_list_desc is not None:
+            self.allow_list_desc = allow_list_desc
+        if allow_list_id is not None:
+            self.allow_list_id = allow_list_id
+        if allow_list_name is not None:
+            self.allow_list_name = allow_list_name
+        if ip_address is not None:
+            self.ip_address = ip_address
         if instance_id is not None:
             self.instance_id = instance_id
+        if page_number is not None:
+            self.page_number = page_number
+        if page_size is not None:
+            self.page_size = page_size
         self.region_id = region_id
+
+    @property
+    def allow_list_category(self):
+        """Gets the allow_list_category of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The allow_list_category of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_category
+
+    @allow_list_category.setter
+    def allow_list_category(self, allow_list_category):
+        """Sets the allow_list_category of this DescribeAllowListsRequest.
+
+
+        :param allow_list_category: The allow_list_category of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_category = allow_list_category
+
+    @property
+    def allow_list_desc(self):
+        """Gets the allow_list_desc of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The allow_list_desc of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_desc
+
+    @allow_list_desc.setter
+    def allow_list_desc(self, allow_list_desc):
+        """Sets the allow_list_desc of this DescribeAllowListsRequest.
+
+
+        :param allow_list_desc: The allow_list_desc of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_desc = allow_list_desc
+
+    @property
+    def allow_list_id(self):
+        """Gets the allow_list_id of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The allow_list_id of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_id
+
+    @allow_list_id.setter
+    def allow_list_id(self, allow_list_id):
+        """Sets the allow_list_id of this DescribeAllowListsRequest.
+
+
+        :param allow_list_id: The allow_list_id of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_id = allow_list_id
+
+    @property
+    def allow_list_name(self):
+        """Gets the allow_list_name of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The allow_list_name of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._allow_list_name
+
+    @allow_list_name.setter
+    def allow_list_name(self, allow_list_name):
+        """Sets the allow_list_name of this DescribeAllowListsRequest.
+
+
+        :param allow_list_name: The allow_list_name of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._allow_list_name = allow_list_name
+
+    @property
+    def ip_address(self):
+        """Gets the ip_address of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The ip_address of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_address
+
+    @ip_address.setter
+    def ip_address(self, ip_address):
+        """Sets the ip_address of this DescribeAllowListsRequest.
+
+
+        :param ip_address: The ip_address of this DescribeAllowListsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_address = ip_address
 
     @property
     def instance_id(self):
@@ -76,6 +216,48 @@ class DescribeAllowListsRequest(object):
         """
 
         self._instance_id = instance_id
+
+    @property
+    def page_number(self):
+        """Gets the page_number of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The page_number of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_number
+
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this DescribeAllowListsRequest.
+
+
+        :param page_number: The page_number of this DescribeAllowListsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_number = page_number
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this DescribeAllowListsRequest.  # noqa: E501
+
+
+        :return: The page_size of this DescribeAllowListsRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this DescribeAllowListsRequest.
+
+
+        :param page_size: The page_size of this DescribeAllowListsRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_size = page_size
 
     @property
     def region_id(self):

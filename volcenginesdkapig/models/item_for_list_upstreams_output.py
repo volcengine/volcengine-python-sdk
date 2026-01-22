@@ -36,6 +36,7 @@ class ItemForListUpstreamsOutput(object):
         'backend_target_list': 'list[BackendTargetListForListUpstreamsOutput]',
         'circuit_breaking_settings': 'CircuitBreakingSettingsForListUpstreamsOutput',
         'comments': 'str',
+        'connection_pool_settings': 'ConnectionPoolSettingsForListUpstreamsOutput',
         'create_time': 'str',
         'gateway_id': 'str',
         'id': 'str',
@@ -53,6 +54,7 @@ class ItemForListUpstreamsOutput(object):
         'backend_target_list': 'BackendTargetList',
         'circuit_breaking_settings': 'CircuitBreakingSettings',
         'comments': 'Comments',
+        'connection_pool_settings': 'ConnectionPoolSettings',
         'create_time': 'CreateTime',
         'gateway_id': 'GatewayId',
         'id': 'Id',
@@ -66,7 +68,7 @@ class ItemForListUpstreamsOutput(object):
         'version_details': 'VersionDetails'
     }
 
-    def __init__(self, backend_target_list=None, circuit_breaking_settings=None, comments=None, create_time=None, gateway_id=None, id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, update_time=None, upstream_spec=None, version_details=None, _configuration=None):  # noqa: E501
+    def __init__(self, backend_target_list=None, circuit_breaking_settings=None, comments=None, connection_pool_settings=None, create_time=None, gateway_id=None, id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, update_time=None, upstream_spec=None, version_details=None, _configuration=None):  # noqa: E501
         """ItemForListUpstreamsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class ItemForListUpstreamsOutput(object):
         self._backend_target_list = None
         self._circuit_breaking_settings = None
         self._comments = None
+        self._connection_pool_settings = None
         self._create_time = None
         self._gateway_id = None
         self._id = None
@@ -94,6 +97,8 @@ class ItemForListUpstreamsOutput(object):
             self.circuit_breaking_settings = circuit_breaking_settings
         if comments is not None:
             self.comments = comments
+        if connection_pool_settings is not None:
+            self.connection_pool_settings = connection_pool_settings
         if create_time is not None:
             self.create_time = create_time
         if gateway_id is not None:
@@ -179,6 +184,27 @@ class ItemForListUpstreamsOutput(object):
         """
 
         self._comments = comments
+
+    @property
+    def connection_pool_settings(self):
+        """Gets the connection_pool_settings of this ItemForListUpstreamsOutput.  # noqa: E501
+
+
+        :return: The connection_pool_settings of this ItemForListUpstreamsOutput.  # noqa: E501
+        :rtype: ConnectionPoolSettingsForListUpstreamsOutput
+        """
+        return self._connection_pool_settings
+
+    @connection_pool_settings.setter
+    def connection_pool_settings(self, connection_pool_settings):
+        """Sets the connection_pool_settings of this ItemForListUpstreamsOutput.
+
+
+        :param connection_pool_settings: The connection_pool_settings of this ItemForListUpstreamsOutput.  # noqa: E501
+        :type: ConnectionPoolSettingsForListUpstreamsOutput
+        """
+
+        self._connection_pool_settings = connection_pool_settings
 
     @property
     def create_time(self):

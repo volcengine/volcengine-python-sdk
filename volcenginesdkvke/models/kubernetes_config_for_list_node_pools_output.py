@@ -34,38 +34,49 @@ class KubernetesConfigForListNodePoolsOutput(object):
     """
     swagger_types = {
         'auto_sync_disabled': 'bool',
+        'containerd_config': 'ContainerdConfigForListNodePoolsOutput',
         'cordon': 'bool',
         'kubelet_config': 'KubeletConfigForListNodePoolsOutput',
         'labels': 'list[LabelForListNodePoolsOutput]',
         'name_prefix': 'str',
+        'name_suffix': 'str',
+        'name_use_hostname': 'bool',
         'taints': 'list[TaintForListNodePoolsOutput]'
     }
 
     attribute_map = {
         'auto_sync_disabled': 'AutoSyncDisabled',
+        'containerd_config': 'ContainerdConfig',
         'cordon': 'Cordon',
         'kubelet_config': 'KubeletConfig',
         'labels': 'Labels',
         'name_prefix': 'NamePrefix',
+        'name_suffix': 'NameSuffix',
+        'name_use_hostname': 'NameUseHostname',
         'taints': 'Taints'
     }
 
-    def __init__(self, auto_sync_disabled=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, taints=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_sync_disabled=None, containerd_config=None, cordon=None, kubelet_config=None, labels=None, name_prefix=None, name_suffix=None, name_use_hostname=None, taints=None, _configuration=None):  # noqa: E501
         """KubernetesConfigForListNodePoolsOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auto_sync_disabled = None
+        self._containerd_config = None
         self._cordon = None
         self._kubelet_config = None
         self._labels = None
         self._name_prefix = None
+        self._name_suffix = None
+        self._name_use_hostname = None
         self._taints = None
         self.discriminator = None
 
         if auto_sync_disabled is not None:
             self.auto_sync_disabled = auto_sync_disabled
+        if containerd_config is not None:
+            self.containerd_config = containerd_config
         if cordon is not None:
             self.cordon = cordon
         if kubelet_config is not None:
@@ -74,6 +85,10 @@ class KubernetesConfigForListNodePoolsOutput(object):
             self.labels = labels
         if name_prefix is not None:
             self.name_prefix = name_prefix
+        if name_suffix is not None:
+            self.name_suffix = name_suffix
+        if name_use_hostname is not None:
+            self.name_use_hostname = name_use_hostname
         if taints is not None:
             self.taints = taints
 
@@ -97,6 +112,27 @@ class KubernetesConfigForListNodePoolsOutput(object):
         """
 
         self._auto_sync_disabled = auto_sync_disabled
+
+    @property
+    def containerd_config(self):
+        """Gets the containerd_config of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The containerd_config of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: ContainerdConfigForListNodePoolsOutput
+        """
+        return self._containerd_config
+
+    @containerd_config.setter
+    def containerd_config(self, containerd_config):
+        """Sets the containerd_config of this KubernetesConfigForListNodePoolsOutput.
+
+
+        :param containerd_config: The containerd_config of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+        :type: ContainerdConfigForListNodePoolsOutput
+        """
+
+        self._containerd_config = containerd_config
 
     @property
     def cordon(self):
@@ -181,6 +217,48 @@ class KubernetesConfigForListNodePoolsOutput(object):
         """
 
         self._name_prefix = name_prefix
+
+    @property
+    def name_suffix(self):
+        """Gets the name_suffix of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The name_suffix of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._name_suffix
+
+    @name_suffix.setter
+    def name_suffix(self, name_suffix):
+        """Sets the name_suffix of this KubernetesConfigForListNodePoolsOutput.
+
+
+        :param name_suffix: The name_suffix of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._name_suffix = name_suffix
+
+    @property
+    def name_use_hostname(self):
+        """Gets the name_use_hostname of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+
+
+        :return: The name_use_hostname of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+        :rtype: bool
+        """
+        return self._name_use_hostname
+
+    @name_use_hostname.setter
+    def name_use_hostname(self, name_use_hostname):
+        """Sets the name_use_hostname of this KubernetesConfigForListNodePoolsOutput.
+
+
+        :param name_use_hostname: The name_use_hostname of this KubernetesConfigForListNodePoolsOutput.  # noqa: E501
+        :type: bool
+        """
+
+        self._name_use_hostname = name_use_hostname
 
     @property
     def taints(self):

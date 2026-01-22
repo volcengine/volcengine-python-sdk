@@ -43,6 +43,7 @@ class GetVikingdbIndexResponse(object):
         'scalar_index': 'list[ScalarIndexForGetVikingdbIndexOutput]',
         'shard_count': 'int',
         'shard_policy': 'str',
+        'status': 'str',
         'vector_index': 'VectorIndexForGetVikingdbIndexOutput'
     }
 
@@ -57,10 +58,11 @@ class GetVikingdbIndexResponse(object):
         'scalar_index': 'ScalarIndex',
         'shard_count': 'ShardCount',
         'shard_policy': 'ShardPolicy',
+        'status': 'Status',
         'vector_index': 'VectorIndex'
     }
 
-    def __init__(self, actual_cu=None, collection_name=None, cpu_quota=None, description=None, index_name=None, project_name=None, resource_id=None, scalar_index=None, shard_count=None, shard_policy=None, vector_index=None, _configuration=None):  # noqa: E501
+    def __init__(self, actual_cu=None, collection_name=None, cpu_quota=None, description=None, index_name=None, project_name=None, resource_id=None, scalar_index=None, shard_count=None, shard_policy=None, status=None, vector_index=None, _configuration=None):  # noqa: E501
         """GetVikingdbIndexResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +78,7 @@ class GetVikingdbIndexResponse(object):
         self._scalar_index = None
         self._shard_count = None
         self._shard_policy = None
+        self._status = None
         self._vector_index = None
         self.discriminator = None
 
@@ -99,6 +102,8 @@ class GetVikingdbIndexResponse(object):
             self.shard_count = shard_count
         if shard_policy is not None:
             self.shard_policy = shard_policy
+        if status is not None:
+            self.status = status
         if vector_index is not None:
             self.vector_index = vector_index
 
@@ -311,6 +316,27 @@ class GetVikingdbIndexResponse(object):
         """
 
         self._shard_policy = shard_policy
+
+    @property
+    def status(self):
+        """Gets the status of this GetVikingdbIndexResponse.  # noqa: E501
+
+
+        :return: The status of this GetVikingdbIndexResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this GetVikingdbIndexResponse.
+
+
+        :param status: The status of this GetVikingdbIndexResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     @property
     def vector_index(self):

@@ -35,6 +35,7 @@ class CreateUpstreamRequest(object):
     swagger_types = {
         'circuit_breaking_settings': 'CircuitBreakingSettingsForCreateUpstreamInput',
         'comments': 'str',
+        'connection_pool_settings': 'ConnectionPoolSettingsForCreateUpstreamInput',
         'gateway_id': 'str',
         'load_balancer_settings': 'LoadBalancerSettingsForCreateUpstreamInput',
         'name': 'str',
@@ -47,6 +48,7 @@ class CreateUpstreamRequest(object):
     attribute_map = {
         'circuit_breaking_settings': 'CircuitBreakingSettings',
         'comments': 'Comments',
+        'connection_pool_settings': 'ConnectionPoolSettings',
         'gateway_id': 'GatewayId',
         'load_balancer_settings': 'LoadBalancerSettings',
         'name': 'Name',
@@ -56,7 +58,7 @@ class CreateUpstreamRequest(object):
         'upstream_spec': 'UpstreamSpec'
     }
 
-    def __init__(self, circuit_breaking_settings=None, comments=None, gateway_id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, upstream_spec=None, _configuration=None):  # noqa: E501
+    def __init__(self, circuit_breaking_settings=None, comments=None, connection_pool_settings=None, gateway_id=None, load_balancer_settings=None, name=None, protocol=None, source_type=None, tls_settings=None, upstream_spec=None, _configuration=None):  # noqa: E501
         """CreateUpstreamRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class CreateUpstreamRequest(object):
 
         self._circuit_breaking_settings = None
         self._comments = None
+        self._connection_pool_settings = None
         self._gateway_id = None
         self._load_balancer_settings = None
         self._name = None
@@ -77,6 +80,8 @@ class CreateUpstreamRequest(object):
             self.circuit_breaking_settings = circuit_breaking_settings
         if comments is not None:
             self.comments = comments
+        if connection_pool_settings is not None:
+            self.connection_pool_settings = connection_pool_settings
         self.gateway_id = gateway_id
         if load_balancer_settings is not None:
             self.load_balancer_settings = load_balancer_settings
@@ -130,6 +135,27 @@ class CreateUpstreamRequest(object):
         """
 
         self._comments = comments
+
+    @property
+    def connection_pool_settings(self):
+        """Gets the connection_pool_settings of this CreateUpstreamRequest.  # noqa: E501
+
+
+        :return: The connection_pool_settings of this CreateUpstreamRequest.  # noqa: E501
+        :rtype: ConnectionPoolSettingsForCreateUpstreamInput
+        """
+        return self._connection_pool_settings
+
+    @connection_pool_settings.setter
+    def connection_pool_settings(self, connection_pool_settings):
+        """Sets the connection_pool_settings of this CreateUpstreamRequest.
+
+
+        :param connection_pool_settings: The connection_pool_settings of this CreateUpstreamRequest.  # noqa: E501
+        :type: ConnectionPoolSettingsForCreateUpstreamInput
+        """
+
+        self._connection_pool_settings = connection_pool_settings
 
     @property
     def gateway_id(self):

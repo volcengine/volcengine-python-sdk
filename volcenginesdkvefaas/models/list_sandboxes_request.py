@@ -33,6 +33,7 @@ class ListSandboxesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filters': 'list[FilterForListSandboxesInput]',
         'function_id': 'str',
         'image_url': 'str',
         'metadata': 'dict(str, str)',
@@ -43,6 +44,7 @@ class ListSandboxesRequest(object):
     }
 
     attribute_map = {
+        'filters': 'Filters',
         'function_id': 'FunctionId',
         'image_url': 'ImageUrl',
         'metadata': 'Metadata',
@@ -52,12 +54,13 @@ class ListSandboxesRequest(object):
         'status': 'Status'
     }
 
-    def __init__(self, function_id=None, image_url=None, metadata=None, page_number=None, page_size=None, sandbox_id=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, filters=None, function_id=None, image_url=None, metadata=None, page_number=None, page_size=None, sandbox_id=None, status=None, _configuration=None):  # noqa: E501
         """ListSandboxesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._filters = None
         self._function_id = None
         self._image_url = None
         self._metadata = None
@@ -67,6 +70,8 @@ class ListSandboxesRequest(object):
         self._status = None
         self.discriminator = None
 
+        if filters is not None:
+            self.filters = filters
         self.function_id = function_id
         if image_url is not None:
             self.image_url = image_url
@@ -80,6 +85,27 @@ class ListSandboxesRequest(object):
             self.sandbox_id = sandbox_id
         if status is not None:
             self.status = status
+
+    @property
+    def filters(self):
+        """Gets the filters of this ListSandboxesRequest.  # noqa: E501
+
+
+        :return: The filters of this ListSandboxesRequest.  # noqa: E501
+        :rtype: list[FilterForListSandboxesInput]
+        """
+        return self._filters
+
+    @filters.setter
+    def filters(self, filters):
+        """Sets the filters of this ListSandboxesRequest.
+
+
+        :param filters: The filters of this ListSandboxesRequest.  # noqa: E501
+        :type: list[FilterForListSandboxesInput]
+        """
+
+        self._filters = filters
 
     @property
     def function_id(self):

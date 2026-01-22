@@ -35,20 +35,28 @@ class CreateGatewayServiceRequest(object):
     swagger_types = {
         'auth_spec': 'AuthSpecForCreateGatewayServiceInput',
         'comments': 'str',
+        'custom_domains': 'list[CustomDomainForCreateGatewayServiceInput]',
+        'domain_type': 'str',
         'gateway_id': 'str',
         'protocol': 'list[str]',
-        'service_name': 'str'
+        'service_name': 'str',
+        'service_network_spec': 'ServiceNetworkSpecForCreateGatewayServiceInput',
+        'service_type': 'str'
     }
 
     attribute_map = {
         'auth_spec': 'AuthSpec',
         'comments': 'Comments',
+        'custom_domains': 'CustomDomains',
+        'domain_type': 'DomainType',
         'gateway_id': 'GatewayId',
         'protocol': 'Protocol',
-        'service_name': 'ServiceName'
+        'service_name': 'ServiceName',
+        'service_network_spec': 'ServiceNetworkSpec',
+        'service_type': 'ServiceType'
     }
 
-    def __init__(self, auth_spec=None, comments=None, gateway_id=None, protocol=None, service_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_spec=None, comments=None, custom_domains=None, domain_type=None, gateway_id=None, protocol=None, service_name=None, service_network_spec=None, service_type=None, _configuration=None):  # noqa: E501
         """CreateGatewayServiceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,19 +64,31 @@ class CreateGatewayServiceRequest(object):
 
         self._auth_spec = None
         self._comments = None
+        self._custom_domains = None
+        self._domain_type = None
         self._gateway_id = None
         self._protocol = None
         self._service_name = None
+        self._service_network_spec = None
+        self._service_type = None
         self.discriminator = None
 
         if auth_spec is not None:
             self.auth_spec = auth_spec
         if comments is not None:
             self.comments = comments
+        if custom_domains is not None:
+            self.custom_domains = custom_domains
+        if domain_type is not None:
+            self.domain_type = domain_type
         self.gateway_id = gateway_id
         if protocol is not None:
             self.protocol = protocol
         self.service_name = service_name
+        if service_network_spec is not None:
+            self.service_network_spec = service_network_spec
+        if service_type is not None:
+            self.service_type = service_type
 
     @property
     def auth_spec(self):
@@ -111,6 +131,48 @@ class CreateGatewayServiceRequest(object):
         """
 
         self._comments = comments
+
+    @property
+    def custom_domains(self):
+        """Gets the custom_domains of this CreateGatewayServiceRequest.  # noqa: E501
+
+
+        :return: The custom_domains of this CreateGatewayServiceRequest.  # noqa: E501
+        :rtype: list[CustomDomainForCreateGatewayServiceInput]
+        """
+        return self._custom_domains
+
+    @custom_domains.setter
+    def custom_domains(self, custom_domains):
+        """Sets the custom_domains of this CreateGatewayServiceRequest.
+
+
+        :param custom_domains: The custom_domains of this CreateGatewayServiceRequest.  # noqa: E501
+        :type: list[CustomDomainForCreateGatewayServiceInput]
+        """
+
+        self._custom_domains = custom_domains
+
+    @property
+    def domain_type(self):
+        """Gets the domain_type of this CreateGatewayServiceRequest.  # noqa: E501
+
+
+        :return: The domain_type of this CreateGatewayServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain_type
+
+    @domain_type.setter
+    def domain_type(self, domain_type):
+        """Sets the domain_type of this CreateGatewayServiceRequest.
+
+
+        :param domain_type: The domain_type of this CreateGatewayServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._domain_type = domain_type
 
     @property
     def gateway_id(self):
@@ -178,6 +240,48 @@ class CreateGatewayServiceRequest(object):
             raise ValueError("Invalid value for `service_name`, must not be `None`")  # noqa: E501
 
         self._service_name = service_name
+
+    @property
+    def service_network_spec(self):
+        """Gets the service_network_spec of this CreateGatewayServiceRequest.  # noqa: E501
+
+
+        :return: The service_network_spec of this CreateGatewayServiceRequest.  # noqa: E501
+        :rtype: ServiceNetworkSpecForCreateGatewayServiceInput
+        """
+        return self._service_network_spec
+
+    @service_network_spec.setter
+    def service_network_spec(self, service_network_spec):
+        """Sets the service_network_spec of this CreateGatewayServiceRequest.
+
+
+        :param service_network_spec: The service_network_spec of this CreateGatewayServiceRequest.  # noqa: E501
+        :type: ServiceNetworkSpecForCreateGatewayServiceInput
+        """
+
+        self._service_network_spec = service_network_spec
+
+    @property
+    def service_type(self):
+        """Gets the service_type of this CreateGatewayServiceRequest.  # noqa: E501
+
+
+        :return: The service_type of this CreateGatewayServiceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_type
+
+    @service_type.setter
+    def service_type(self, service_type):
+        """Sets the service_type of this CreateGatewayServiceRequest.
+
+
+        :param service_type: The service_type of this CreateGatewayServiceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._service_type = service_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

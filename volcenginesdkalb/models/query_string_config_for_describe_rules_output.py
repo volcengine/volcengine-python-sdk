@@ -33,7 +33,7 @@ class QueryStringConfigForDescribeRulesOutput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'values': 'list[str]'
+        'values': 'list[ValueForDescribeRulesOutput]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class QueryStringConfigForDescribeRulesOutput(object):
 
 
         :return: The values of this QueryStringConfigForDescribeRulesOutput.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[ValueForDescribeRulesOutput]
         """
         return self._values
 
@@ -68,7 +68,7 @@ class QueryStringConfigForDescribeRulesOutput(object):
 
 
         :param values: The values of this QueryStringConfigForDescribeRulesOutput.  # noqa: E501
-        :type: list[str]
+        :type: list[ValueForDescribeRulesOutput]
         """
 
         self._values = values

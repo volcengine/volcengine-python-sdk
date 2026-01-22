@@ -33,6 +33,8 @@ class UpdateAggregateWorkspaceRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth_type': 'str',
+        'bearer_token': 'str',
         'cross_workspaces': 'list[CrossWorkspaceForUpdateAggregateWorkspaceInput]',
         'description': 'str',
         'external_prometheus': 'list[str]',
@@ -46,6 +48,8 @@ class UpdateAggregateWorkspaceRequest(object):
     }
 
     attribute_map = {
+        'auth_type': 'AuthType',
+        'bearer_token': 'BearerToken',
         'cross_workspaces': 'CrossWorkspaces',
         'description': 'Description',
         'external_prometheus': 'ExternalPrometheus',
@@ -58,12 +62,14 @@ class UpdateAggregateWorkspaceRequest(object):
         'workspaces': 'Workspaces'
     }
 
-    def __init__(self, cross_workspaces=None, description=None, external_prometheus=None, id=None, ignore_error=None, max_query_rate=None, name=None, password=None, username=None, workspaces=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_type=None, bearer_token=None, cross_workspaces=None, description=None, external_prometheus=None, id=None, ignore_error=None, max_query_rate=None, name=None, password=None, username=None, workspaces=None, _configuration=None):  # noqa: E501
         """UpdateAggregateWorkspaceRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth_type = None
+        self._bearer_token = None
         self._cross_workspaces = None
         self._description = None
         self._external_prometheus = None
@@ -76,6 +82,10 @@ class UpdateAggregateWorkspaceRequest(object):
         self._workspaces = None
         self.discriminator = None
 
+        if auth_type is not None:
+            self.auth_type = auth_type
+        if bearer_token is not None:
+            self.bearer_token = bearer_token
         if cross_workspaces is not None:
             self.cross_workspaces = cross_workspaces
         if description is not None:
@@ -95,6 +105,48 @@ class UpdateAggregateWorkspaceRequest(object):
             self.username = username
         if workspaces is not None:
             self.workspaces = workspaces
+
+    @property
+    def auth_type(self):
+        """Gets the auth_type of this UpdateAggregateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The auth_type of this UpdateAggregateWorkspaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_type
+
+    @auth_type.setter
+    def auth_type(self, auth_type):
+        """Sets the auth_type of this UpdateAggregateWorkspaceRequest.
+
+
+        :param auth_type: The auth_type of this UpdateAggregateWorkspaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_type = auth_type
+
+    @property
+    def bearer_token(self):
+        """Gets the bearer_token of this UpdateAggregateWorkspaceRequest.  # noqa: E501
+
+
+        :return: The bearer_token of this UpdateAggregateWorkspaceRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._bearer_token
+
+    @bearer_token.setter
+    def bearer_token(self, bearer_token):
+        """Sets the bearer_token of this UpdateAggregateWorkspaceRequest.
+
+
+        :param bearer_token: The bearer_token of this UpdateAggregateWorkspaceRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._bearer_token = bearer_token
 
     @property
     def cross_workspaces(self):
