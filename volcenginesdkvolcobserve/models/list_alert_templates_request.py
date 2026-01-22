@@ -35,6 +35,7 @@ class ListAlertTemplatesRequest(object):
     swagger_types = {
         'name': 'str',
         'namespaces': 'list[str]',
+        'object_group_ids': 'list[str]',
         'page_number': 'int',
         'page_size': 'int',
         'template_ids': 'list[str]'
@@ -43,12 +44,13 @@ class ListAlertTemplatesRequest(object):
     attribute_map = {
         'name': 'Name',
         'namespaces': 'Namespaces',
+        'object_group_ids': 'ObjectGroupIds',
         'page_number': 'PageNumber',
         'page_size': 'PageSize',
         'template_ids': 'TemplateIds'
     }
 
-    def __init__(self, name=None, namespaces=None, page_number=None, page_size=None, template_ids=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, namespaces=None, object_group_ids=None, page_number=None, page_size=None, template_ids=None, _configuration=None):  # noqa: E501
         """ListAlertTemplatesRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class ListAlertTemplatesRequest(object):
 
         self._name = None
         self._namespaces = None
+        self._object_group_ids = None
         self._page_number = None
         self._page_size = None
         self._template_ids = None
@@ -65,6 +68,8 @@ class ListAlertTemplatesRequest(object):
             self.name = name
         if namespaces is not None:
             self.namespaces = namespaces
+        if object_group_ids is not None:
+            self.object_group_ids = object_group_ids
         if page_number is not None:
             self.page_number = page_number
         if page_size is not None:
@@ -113,6 +118,27 @@ class ListAlertTemplatesRequest(object):
         """
 
         self._namespaces = namespaces
+
+    @property
+    def object_group_ids(self):
+        """Gets the object_group_ids of this ListAlertTemplatesRequest.  # noqa: E501
+
+
+        :return: The object_group_ids of this ListAlertTemplatesRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._object_group_ids
+
+    @object_group_ids.setter
+    def object_group_ids(self, object_group_ids):
+        """Sets the object_group_ids of this ListAlertTemplatesRequest.
+
+
+        :param object_group_ids: The object_group_ids of this ListAlertTemplatesRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._object_group_ids = object_group_ids
 
     @property
     def page_number(self):
