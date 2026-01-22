@@ -34,113 +34,213 @@ class TaskListForListTaskOutput(object):
     """
     swagger_types = {
         'address': 'str',
+        'alarm_id_list': 'list[int]',
+        'alarm_list': 'list[AlarmListForListTaskOutput]',
+        'bind_group_id': 'int',
+        'bind_group_name': 'str',
         'create_time': 'int',
+        'create_time_str': 'str',
+        'dns_config': 'DNSConfigForListTaskOutput',
+        'dns_hijack_config': 'DNSHijackConfigForListTaskOutput',
+        'diagnose_config': 'DiagnoseConfigForListTaskOutput',
+        'download_config': 'DownloadConfigForListTaskOutput',
         'enable_shuffle': 'bool',
         'finish_time': 'int',
+        'http_config': 'HTTPConfigForListTaskOutput',
         'http_method': 'int',
         'id': 'int',
+        'id_str': 'str',
         'interval_seconds': 'int',
-        'labels': 'list[LabelForListTaskOutput]',
         'line_id_list': 'list[int]',
         'name': 'str',
         'owner': 'str',
+        'page_config': 'PageConfigForListTaskOutput',
         'period_config': 'PeriodConfigForListTaskOutput',
+        'ping_config': 'PingConfigForListTaskOutput',
+        'project_name': 'str',
+        'result_assert': 'ResultAssertForListTaskOutput',
         'runner_id_list': 'list[int]',
         'status': 'int',
         'sub_task_type': 'int',
+        'tcp_config': 'TCPConfigForListTaskOutput',
+        'tags': 'list[TagForListTaskOutput]',
+        'target_server_type': 'int',
         'task_group_id': 'int',
         'task_group_name': 'str',
         'task_type': 'int',
-        'update_time': 'int'
+        'type': 'int',
+        'udp_config': 'UDPConfigForListTaskOutput',
+        'update_time': 'int',
+        'upload_config': 'UploadConfigForListTaskOutput'
     }
 
     attribute_map = {
         'address': 'Address',
+        'alarm_id_list': 'AlarmIDList',
+        'alarm_list': 'AlarmList',
+        'bind_group_id': 'BindGroupID',
+        'bind_group_name': 'BindGroupName',
         'create_time': 'CreateTime',
+        'create_time_str': 'CreateTimeStr',
+        'dns_config': 'DNSConfig',
+        'dns_hijack_config': 'DNSHijackConfig',
+        'diagnose_config': 'DiagnoseConfig',
+        'download_config': 'DownloadConfig',
         'enable_shuffle': 'EnableShuffle',
         'finish_time': 'FinishTime',
+        'http_config': 'HTTPConfig',
         'http_method': 'HTTPMethod',
         'id': 'ID',
+        'id_str': 'IDStr',
         'interval_seconds': 'IntervalSeconds',
-        'labels': 'Labels',
         'line_id_list': 'LineIDList',
         'name': 'Name',
         'owner': 'Owner',
+        'page_config': 'PageConfig',
         'period_config': 'PeriodConfig',
+        'ping_config': 'PingConfig',
+        'project_name': 'ProjectName',
+        'result_assert': 'ResultAssert',
         'runner_id_list': 'RunnerIDList',
         'status': 'Status',
         'sub_task_type': 'SubTaskType',
+        'tcp_config': 'TCPConfig',
+        'tags': 'Tags',
+        'target_server_type': 'TargetServerType',
         'task_group_id': 'TaskGroupID',
         'task_group_name': 'TaskGroupName',
         'task_type': 'TaskType',
-        'update_time': 'UpdateTime'
+        'type': 'Type',
+        'udp_config': 'UDPConfig',
+        'update_time': 'UpdateTime',
+        'upload_config': 'UploadConfig'
     }
 
-    def __init__(self, address=None, create_time=None, enable_shuffle=None, finish_time=None, http_method=None, id=None, interval_seconds=None, labels=None, line_id_list=None, name=None, owner=None, period_config=None, runner_id_list=None, status=None, sub_task_type=None, task_group_id=None, task_group_name=None, task_type=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, alarm_id_list=None, alarm_list=None, bind_group_id=None, bind_group_name=None, create_time=None, create_time_str=None, dns_config=None, dns_hijack_config=None, diagnose_config=None, download_config=None, enable_shuffle=None, finish_time=None, http_config=None, http_method=None, id=None, id_str=None, interval_seconds=None, line_id_list=None, name=None, owner=None, page_config=None, period_config=None, ping_config=None, project_name=None, result_assert=None, runner_id_list=None, status=None, sub_task_type=None, tcp_config=None, tags=None, target_server_type=None, task_group_id=None, task_group_name=None, task_type=None, type=None, udp_config=None, update_time=None, upload_config=None, _configuration=None):  # noqa: E501
         """TaskListForListTaskOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address = None
+        self._alarm_id_list = None
+        self._alarm_list = None
+        self._bind_group_id = None
+        self._bind_group_name = None
         self._create_time = None
+        self._create_time_str = None
+        self._dns_config = None
+        self._dns_hijack_config = None
+        self._diagnose_config = None
+        self._download_config = None
         self._enable_shuffle = None
         self._finish_time = None
+        self._http_config = None
         self._http_method = None
         self._id = None
+        self._id_str = None
         self._interval_seconds = None
-        self._labels = None
         self._line_id_list = None
         self._name = None
         self._owner = None
+        self._page_config = None
         self._period_config = None
+        self._ping_config = None
+        self._project_name = None
+        self._result_assert = None
         self._runner_id_list = None
         self._status = None
         self._sub_task_type = None
+        self._tcp_config = None
+        self._tags = None
+        self._target_server_type = None
         self._task_group_id = None
         self._task_group_name = None
         self._task_type = None
+        self._type = None
+        self._udp_config = None
         self._update_time = None
+        self._upload_config = None
         self.discriminator = None
 
         if address is not None:
             self.address = address
+        if alarm_id_list is not None:
+            self.alarm_id_list = alarm_id_list
+        if alarm_list is not None:
+            self.alarm_list = alarm_list
+        if bind_group_id is not None:
+            self.bind_group_id = bind_group_id
+        if bind_group_name is not None:
+            self.bind_group_name = bind_group_name
         if create_time is not None:
             self.create_time = create_time
+        if create_time_str is not None:
+            self.create_time_str = create_time_str
+        if dns_config is not None:
+            self.dns_config = dns_config
+        if dns_hijack_config is not None:
+            self.dns_hijack_config = dns_hijack_config
+        if diagnose_config is not None:
+            self.diagnose_config = diagnose_config
+        if download_config is not None:
+            self.download_config = download_config
         if enable_shuffle is not None:
             self.enable_shuffle = enable_shuffle
         if finish_time is not None:
             self.finish_time = finish_time
+        if http_config is not None:
+            self.http_config = http_config
         if http_method is not None:
             self.http_method = http_method
         if id is not None:
             self.id = id
+        if id_str is not None:
+            self.id_str = id_str
         if interval_seconds is not None:
             self.interval_seconds = interval_seconds
-        if labels is not None:
-            self.labels = labels
         if line_id_list is not None:
             self.line_id_list = line_id_list
         if name is not None:
             self.name = name
         if owner is not None:
             self.owner = owner
+        if page_config is not None:
+            self.page_config = page_config
         if period_config is not None:
             self.period_config = period_config
+        if ping_config is not None:
+            self.ping_config = ping_config
+        if project_name is not None:
+            self.project_name = project_name
+        if result_assert is not None:
+            self.result_assert = result_assert
         if runner_id_list is not None:
             self.runner_id_list = runner_id_list
         if status is not None:
             self.status = status
         if sub_task_type is not None:
             self.sub_task_type = sub_task_type
+        if tcp_config is not None:
+            self.tcp_config = tcp_config
+        if tags is not None:
+            self.tags = tags
+        if target_server_type is not None:
+            self.target_server_type = target_server_type
         if task_group_id is not None:
             self.task_group_id = task_group_id
         if task_group_name is not None:
             self.task_group_name = task_group_name
         if task_type is not None:
             self.task_type = task_type
+        if type is not None:
+            self.type = type
+        if udp_config is not None:
+            self.udp_config = udp_config
         if update_time is not None:
             self.update_time = update_time
+        if upload_config is not None:
+            self.upload_config = upload_config
 
     @property
     def address(self):
@@ -164,6 +264,90 @@ class TaskListForListTaskOutput(object):
         self._address = address
 
     @property
+    def alarm_id_list(self):
+        """Gets the alarm_id_list of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The alarm_id_list of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._alarm_id_list
+
+    @alarm_id_list.setter
+    def alarm_id_list(self, alarm_id_list):
+        """Sets the alarm_id_list of this TaskListForListTaskOutput.
+
+
+        :param alarm_id_list: The alarm_id_list of this TaskListForListTaskOutput.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._alarm_id_list = alarm_id_list
+
+    @property
+    def alarm_list(self):
+        """Gets the alarm_list of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The alarm_list of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: list[AlarmListForListTaskOutput]
+        """
+        return self._alarm_list
+
+    @alarm_list.setter
+    def alarm_list(self, alarm_list):
+        """Sets the alarm_list of this TaskListForListTaskOutput.
+
+
+        :param alarm_list: The alarm_list of this TaskListForListTaskOutput.  # noqa: E501
+        :type: list[AlarmListForListTaskOutput]
+        """
+
+        self._alarm_list = alarm_list
+
+    @property
+    def bind_group_id(self):
+        """Gets the bind_group_id of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The bind_group_id of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._bind_group_id
+
+    @bind_group_id.setter
+    def bind_group_id(self, bind_group_id):
+        """Sets the bind_group_id of this TaskListForListTaskOutput.
+
+
+        :param bind_group_id: The bind_group_id of this TaskListForListTaskOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._bind_group_id = bind_group_id
+
+    @property
+    def bind_group_name(self):
+        """Gets the bind_group_name of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The bind_group_name of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._bind_group_name
+
+    @bind_group_name.setter
+    def bind_group_name(self, bind_group_name):
+        """Sets the bind_group_name of this TaskListForListTaskOutput.
+
+
+        :param bind_group_name: The bind_group_name of this TaskListForListTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._bind_group_name = bind_group_name
+
+    @property
     def create_time(self):
         """Gets the create_time of this TaskListForListTaskOutput.  # noqa: E501
 
@@ -183,6 +367,111 @@ class TaskListForListTaskOutput(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def create_time_str(self):
+        """Gets the create_time_str of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The create_time_str of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_time_str
+
+    @create_time_str.setter
+    def create_time_str(self, create_time_str):
+        """Sets the create_time_str of this TaskListForListTaskOutput.
+
+
+        :param create_time_str: The create_time_str of this TaskListForListTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._create_time_str = create_time_str
+
+    @property
+    def dns_config(self):
+        """Gets the dns_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The dns_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: DNSConfigForListTaskOutput
+        """
+        return self._dns_config
+
+    @dns_config.setter
+    def dns_config(self, dns_config):
+        """Sets the dns_config of this TaskListForListTaskOutput.
+
+
+        :param dns_config: The dns_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: DNSConfigForListTaskOutput
+        """
+
+        self._dns_config = dns_config
+
+    @property
+    def dns_hijack_config(self):
+        """Gets the dns_hijack_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The dns_hijack_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: DNSHijackConfigForListTaskOutput
+        """
+        return self._dns_hijack_config
+
+    @dns_hijack_config.setter
+    def dns_hijack_config(self, dns_hijack_config):
+        """Sets the dns_hijack_config of this TaskListForListTaskOutput.
+
+
+        :param dns_hijack_config: The dns_hijack_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: DNSHijackConfigForListTaskOutput
+        """
+
+        self._dns_hijack_config = dns_hijack_config
+
+    @property
+    def diagnose_config(self):
+        """Gets the diagnose_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The diagnose_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: DiagnoseConfigForListTaskOutput
+        """
+        return self._diagnose_config
+
+    @diagnose_config.setter
+    def diagnose_config(self, diagnose_config):
+        """Sets the diagnose_config of this TaskListForListTaskOutput.
+
+
+        :param diagnose_config: The diagnose_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: DiagnoseConfigForListTaskOutput
+        """
+
+        self._diagnose_config = diagnose_config
+
+    @property
+    def download_config(self):
+        """Gets the download_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The download_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: DownloadConfigForListTaskOutput
+        """
+        return self._download_config
+
+    @download_config.setter
+    def download_config(self, download_config):
+        """Sets the download_config of this TaskListForListTaskOutput.
+
+
+        :param download_config: The download_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: DownloadConfigForListTaskOutput
+        """
+
+        self._download_config = download_config
 
     @property
     def enable_shuffle(self):
@@ -227,6 +516,27 @@ class TaskListForListTaskOutput(object):
         self._finish_time = finish_time
 
     @property
+    def http_config(self):
+        """Gets the http_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The http_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: HTTPConfigForListTaskOutput
+        """
+        return self._http_config
+
+    @http_config.setter
+    def http_config(self, http_config):
+        """Sets the http_config of this TaskListForListTaskOutput.
+
+
+        :param http_config: The http_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: HTTPConfigForListTaskOutput
+        """
+
+        self._http_config = http_config
+
+    @property
     def http_method(self):
         """Gets the http_method of this TaskListForListTaskOutput.  # noqa: E501
 
@@ -269,6 +579,27 @@ class TaskListForListTaskOutput(object):
         self._id = id
 
     @property
+    def id_str(self):
+        """Gets the id_str of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The id_str of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._id_str
+
+    @id_str.setter
+    def id_str(self, id_str):
+        """Sets the id_str of this TaskListForListTaskOutput.
+
+
+        :param id_str: The id_str of this TaskListForListTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._id_str = id_str
+
+    @property
     def interval_seconds(self):
         """Gets the interval_seconds of this TaskListForListTaskOutput.  # noqa: E501
 
@@ -288,27 +619,6 @@ class TaskListForListTaskOutput(object):
         """
 
         self._interval_seconds = interval_seconds
-
-    @property
-    def labels(self):
-        """Gets the labels of this TaskListForListTaskOutput.  # noqa: E501
-
-
-        :return: The labels of this TaskListForListTaskOutput.  # noqa: E501
-        :rtype: list[LabelForListTaskOutput]
-        """
-        return self._labels
-
-    @labels.setter
-    def labels(self, labels):
-        """Sets the labels of this TaskListForListTaskOutput.
-
-
-        :param labels: The labels of this TaskListForListTaskOutput.  # noqa: E501
-        :type: list[LabelForListTaskOutput]
-        """
-
-        self._labels = labels
 
     @property
     def line_id_list(self):
@@ -374,6 +684,27 @@ class TaskListForListTaskOutput(object):
         self._owner = owner
 
     @property
+    def page_config(self):
+        """Gets the page_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The page_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: PageConfigForListTaskOutput
+        """
+        return self._page_config
+
+    @page_config.setter
+    def page_config(self, page_config):
+        """Sets the page_config of this TaskListForListTaskOutput.
+
+
+        :param page_config: The page_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: PageConfigForListTaskOutput
+        """
+
+        self._page_config = page_config
+
+    @property
     def period_config(self):
         """Gets the period_config of this TaskListForListTaskOutput.  # noqa: E501
 
@@ -393,6 +724,69 @@ class TaskListForListTaskOutput(object):
         """
 
         self._period_config = period_config
+
+    @property
+    def ping_config(self):
+        """Gets the ping_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The ping_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: PingConfigForListTaskOutput
+        """
+        return self._ping_config
+
+    @ping_config.setter
+    def ping_config(self, ping_config):
+        """Sets the ping_config of this TaskListForListTaskOutput.
+
+
+        :param ping_config: The ping_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: PingConfigForListTaskOutput
+        """
+
+        self._ping_config = ping_config
+
+    @property
+    def project_name(self):
+        """Gets the project_name of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The project_name of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_name
+
+    @project_name.setter
+    def project_name(self, project_name):
+        """Sets the project_name of this TaskListForListTaskOutput.
+
+
+        :param project_name: The project_name of this TaskListForListTaskOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._project_name = project_name
+
+    @property
+    def result_assert(self):
+        """Gets the result_assert of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The result_assert of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: ResultAssertForListTaskOutput
+        """
+        return self._result_assert
+
+    @result_assert.setter
+    def result_assert(self, result_assert):
+        """Sets the result_assert of this TaskListForListTaskOutput.
+
+
+        :param result_assert: The result_assert of this TaskListForListTaskOutput.  # noqa: E501
+        :type: ResultAssertForListTaskOutput
+        """
+
+        self._result_assert = result_assert
 
     @property
     def runner_id_list(self):
@@ -458,6 +852,69 @@ class TaskListForListTaskOutput(object):
         self._sub_task_type = sub_task_type
 
     @property
+    def tcp_config(self):
+        """Gets the tcp_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The tcp_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: TCPConfigForListTaskOutput
+        """
+        return self._tcp_config
+
+    @tcp_config.setter
+    def tcp_config(self, tcp_config):
+        """Sets the tcp_config of this TaskListForListTaskOutput.
+
+
+        :param tcp_config: The tcp_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: TCPConfigForListTaskOutput
+        """
+
+        self._tcp_config = tcp_config
+
+    @property
+    def tags(self):
+        """Gets the tags of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The tags of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: list[TagForListTaskOutput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this TaskListForListTaskOutput.
+
+
+        :param tags: The tags of this TaskListForListTaskOutput.  # noqa: E501
+        :type: list[TagForListTaskOutput]
+        """
+
+        self._tags = tags
+
+    @property
+    def target_server_type(self):
+        """Gets the target_server_type of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The target_server_type of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._target_server_type
+
+    @target_server_type.setter
+    def target_server_type(self, target_server_type):
+        """Sets the target_server_type of this TaskListForListTaskOutput.
+
+
+        :param target_server_type: The target_server_type of this TaskListForListTaskOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._target_server_type = target_server_type
+
+    @property
     def task_group_id(self):
         """Gets the task_group_id of this TaskListForListTaskOutput.  # noqa: E501
 
@@ -521,6 +978,48 @@ class TaskListForListTaskOutput(object):
         self._task_type = task_type
 
     @property
+    def type(self):
+        """Gets the type of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The type of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: int
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this TaskListForListTaskOutput.
+
+
+        :param type: The type of this TaskListForListTaskOutput.  # noqa: E501
+        :type: int
+        """
+
+        self._type = type
+
+    @property
+    def udp_config(self):
+        """Gets the udp_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The udp_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: UDPConfigForListTaskOutput
+        """
+        return self._udp_config
+
+    @udp_config.setter
+    def udp_config(self, udp_config):
+        """Sets the udp_config of this TaskListForListTaskOutput.
+
+
+        :param udp_config: The udp_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: UDPConfigForListTaskOutput
+        """
+
+        self._udp_config = udp_config
+
+    @property
     def update_time(self):
         """Gets the update_time of this TaskListForListTaskOutput.  # noqa: E501
 
@@ -540,6 +1039,27 @@ class TaskListForListTaskOutput(object):
         """
 
         self._update_time = update_time
+
+    @property
+    def upload_config(self):
+        """Gets the upload_config of this TaskListForListTaskOutput.  # noqa: E501
+
+
+        :return: The upload_config of this TaskListForListTaskOutput.  # noqa: E501
+        :rtype: UploadConfigForListTaskOutput
+        """
+        return self._upload_config
+
+    @upload_config.setter
+    def upload_config(self, upload_config):
+        """Sets the upload_config of this TaskListForListTaskOutput.
+
+
+        :param upload_config: The upload_config of this TaskListForListTaskOutput.  # noqa: E501
+        :type: UploadConfigForListTaskOutput
+        """
+
+        self._upload_config = upload_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""
