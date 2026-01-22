@@ -34,7 +34,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
     """
     swagger_types = {
         'allocation_id': 'str',
-        'bandwidth': 'str',
+        'bandwidth': 'int',
         'bandwidth_package_id': 'str',
         'billing_type': 'int',
         'business_status': 'str',
@@ -174,7 +174,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
 
 
         :return: The bandwidth of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._bandwidth
 
@@ -184,7 +184,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput(object):
 
 
         :param bandwidth: The bandwidth of this Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._bandwidth = bandwidth
