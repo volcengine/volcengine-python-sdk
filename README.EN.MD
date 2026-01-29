@@ -1,6 +1,28 @@
 English | [中文](README.md)
 
 # Volcengine SDK for Python
+## ⚠️ Known Issue (Historical Versions)
+
+In some historical versions of **volcengine-python-sdk** (**4.0.1 – 4.0.42**, inclusive), the SDK’s built-in retry mechanism has a defect.
+
+When a request encounters an exception (such as network instability or API errors), the SDK may trigger its retry logic internally; however, due to this defect, the retry does not take effect as expected. As a result, the client may still experience the exception from the initial request, and the retry mechanism cannot effectively improve request success rates.
+
+### Affected Versions
+
+- **SDK**: volcengine-python-sdk  
+- **Versions**: 4.0.1 – 4.0.42 (inclusive)
+
+### Impact
+
+For applications that rely on the SDK’s retry mechanism to handle transient failures or network instability:
+
+- Actual request availability may be lower than expected  
+- Retry configurations may not function as intended  
+
+### Resolution and Recommendation
+
+This issue has been fixed in **version 4.0.43 and above**.  
+**We strongly recommend all users upgrade to volcengine-python-sdk ≥ 4.0.43** to ensure the retry mechanism functions correctly in exception scenarios.
 
 ## Breaking Change Notice
 
@@ -180,3 +202,4 @@ For more examples, see: [SDK Integration Guide](./SDK_Integration.md)
 ### FAQ
 
 For common issues when using the SDK, see [FAQ](FAQ.EN.md).
+

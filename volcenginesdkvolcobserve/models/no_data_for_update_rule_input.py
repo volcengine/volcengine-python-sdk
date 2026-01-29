@@ -34,15 +34,17 @@ class NoDataForUpdateRuleInput(object):
     """
     swagger_types = {
         'enable': 'bool',
-        'evaluation_count': 'int'
+        'evaluation_count': 'int',
+        'level': 'str'
     }
 
     attribute_map = {
         'enable': 'Enable',
-        'evaluation_count': 'EvaluationCount'
+        'evaluation_count': 'EvaluationCount',
+        'level': 'Level'
     }
 
-    def __init__(self, enable=None, evaluation_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, enable=None, evaluation_count=None, level=None, _configuration=None):  # noqa: E501
         """NoDataForUpdateRuleInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class NoDataForUpdateRuleInput(object):
 
         self._enable = None
         self._evaluation_count = None
+        self._level = None
         self.discriminator = None
 
         if enable is not None:
             self.enable = enable
         if evaluation_count is not None:
             self.evaluation_count = evaluation_count
+        if level is not None:
+            self.level = level
 
     @property
     def enable(self):
@@ -98,6 +103,27 @@ class NoDataForUpdateRuleInput(object):
         """
 
         self._evaluation_count = evaluation_count
+
+    @property
+    def level(self):
+        """Gets the level of this NoDataForUpdateRuleInput.  # noqa: E501
+
+
+        :return: The level of this NoDataForUpdateRuleInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._level
+
+    @level.setter
+    def level(self, level):
+        """Sets the level of this NoDataForUpdateRuleInput.
+
+
+        :param level: The level of this NoDataForUpdateRuleInput.  # noqa: E501
+        :type: str
+        """
+
+        self._level = level
 
     def to_dict(self):
         """Returns the model properties as a dict"""
