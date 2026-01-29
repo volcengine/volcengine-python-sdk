@@ -85,13 +85,6 @@ class ModifySystemEventDefaultActionRequest(object):
         """
         if self._configuration.client_side_validation and default_action is None:
             raise ValueError("Invalid value for `default_action`, must not be `None`")  # noqa: E501
-        allowed_values = ["ColdMigrate", "ReplaceDisk"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                default_action not in allowed_values):
-            raise ValueError(
-                "Invalid value for `default_action` ({0}), must be one of {1}"  # noqa: E501
-                .format(default_action, allowed_values)
-            )
 
         self._default_action = default_action
 
