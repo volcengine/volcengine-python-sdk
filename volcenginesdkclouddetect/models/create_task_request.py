@@ -34,68 +34,104 @@ class CreateTaskRequest(object):
     """
     swagger_types = {
         'address': 'str',
+        'alarm_id_list': 'list[int]',
         'dns_config': 'DNSConfigForCreateTaskInput',
+        'dns_hijack_config': 'DNSHijackConfigForCreateTaskInput',
         'diagnose_config': 'DiagnoseConfigForCreateTaskInput',
+        'download_config': 'DownloadConfigForCreateTaskInput',
         'finish_time': 'int',
         'http_config': 'HTTPConfigForCreateTaskInput',
         'interval_seconds': 'int',
         'line_id_list': 'list[int]',
         'name': 'str',
         'node_count': 'int',
+        'page_config': 'PageConfigForCreateTaskInput',
         'period_config': 'PeriodConfigForCreateTaskInput',
         'ping_config': 'PingConfigForCreateTaskInput',
         'project_name': 'str',
+        'result_assert': 'ResultAssertForCreateTaskInput',
+        'selection_config': 'SelectionConfigForCreateTaskInput',
         'tcp_config': 'TCPConfigForCreateTaskInput',
+        'tags': 'list[TagForCreateTaskInput]',
+        'target_server_type': 'int',
+        'task_group_id': 'int',
         'type': 'int',
-        'udp_config': 'UDPConfigForCreateTaskInput'
+        'udp_config': 'UDPConfigForCreateTaskInput',
+        'upload_config': 'UploadConfigForCreateTaskInput'
     }
 
     attribute_map = {
         'address': 'Address',
+        'alarm_id_list': 'AlarmIDList',
         'dns_config': 'DNSConfig',
+        'dns_hijack_config': 'DNSHijackConfig',
         'diagnose_config': 'DiagnoseConfig',
+        'download_config': 'DownloadConfig',
         'finish_time': 'FinishTime',
         'http_config': 'HTTPConfig',
         'interval_seconds': 'IntervalSeconds',
         'line_id_list': 'LineIDList',
         'name': 'Name',
         'node_count': 'NodeCount',
+        'page_config': 'PageConfig',
         'period_config': 'PeriodConfig',
         'ping_config': 'PingConfig',
         'project_name': 'ProjectName',
+        'result_assert': 'ResultAssert',
+        'selection_config': 'SelectionConfig',
         'tcp_config': 'TCPConfig',
+        'tags': 'Tags',
+        'target_server_type': 'TargetServerType',
+        'task_group_id': 'TaskGroupID',
         'type': 'Type',
-        'udp_config': 'UDPConfig'
+        'udp_config': 'UDPConfig',
+        'upload_config': 'UploadConfig'
     }
 
-    def __init__(self, address=None, dns_config=None, diagnose_config=None, finish_time=None, http_config=None, interval_seconds=None, line_id_list=None, name=None, node_count=None, period_config=None, ping_config=None, project_name=None, tcp_config=None, type=None, udp_config=None, _configuration=None):  # noqa: E501
+    def __init__(self, address=None, alarm_id_list=None, dns_config=None, dns_hijack_config=None, diagnose_config=None, download_config=None, finish_time=None, http_config=None, interval_seconds=None, line_id_list=None, name=None, node_count=None, page_config=None, period_config=None, ping_config=None, project_name=None, result_assert=None, selection_config=None, tcp_config=None, tags=None, target_server_type=None, task_group_id=None, type=None, udp_config=None, upload_config=None, _configuration=None):  # noqa: E501
         """CreateTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._address = None
+        self._alarm_id_list = None
         self._dns_config = None
+        self._dns_hijack_config = None
         self._diagnose_config = None
+        self._download_config = None
         self._finish_time = None
         self._http_config = None
         self._interval_seconds = None
         self._line_id_list = None
         self._name = None
         self._node_count = None
+        self._page_config = None
         self._period_config = None
         self._ping_config = None
         self._project_name = None
+        self._result_assert = None
+        self._selection_config = None
         self._tcp_config = None
+        self._tags = None
+        self._target_server_type = None
+        self._task_group_id = None
         self._type = None
         self._udp_config = None
+        self._upload_config = None
         self.discriminator = None
 
         self.address = address
+        if alarm_id_list is not None:
+            self.alarm_id_list = alarm_id_list
         if dns_config is not None:
             self.dns_config = dns_config
+        if dns_hijack_config is not None:
+            self.dns_hijack_config = dns_hijack_config
         if diagnose_config is not None:
             self.diagnose_config = diagnose_config
+        if download_config is not None:
+            self.download_config = download_config
         self.finish_time = finish_time
         if http_config is not None:
             self.http_config = http_config
@@ -104,17 +140,31 @@ class CreateTaskRequest(object):
             self.line_id_list = line_id_list
         self.name = name
         self.node_count = node_count
+        if page_config is not None:
+            self.page_config = page_config
         if period_config is not None:
             self.period_config = period_config
         if ping_config is not None:
             self.ping_config = ping_config
         if project_name is not None:
             self.project_name = project_name
+        if result_assert is not None:
+            self.result_assert = result_assert
+        if selection_config is not None:
+            self.selection_config = selection_config
         if tcp_config is not None:
             self.tcp_config = tcp_config
+        if tags is not None:
+            self.tags = tags
+        if target_server_type is not None:
+            self.target_server_type = target_server_type
+        if task_group_id is not None:
+            self.task_group_id = task_group_id
         self.type = type
         if udp_config is not None:
             self.udp_config = udp_config
+        if upload_config is not None:
+            self.upload_config = upload_config
 
     @property
     def address(self):
@@ -140,6 +190,27 @@ class CreateTaskRequest(object):
         self._address = address
 
     @property
+    def alarm_id_list(self):
+        """Gets the alarm_id_list of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The alarm_id_list of this CreateTaskRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._alarm_id_list
+
+    @alarm_id_list.setter
+    def alarm_id_list(self, alarm_id_list):
+        """Sets the alarm_id_list of this CreateTaskRequest.
+
+
+        :param alarm_id_list: The alarm_id_list of this CreateTaskRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._alarm_id_list = alarm_id_list
+
+    @property
     def dns_config(self):
         """Gets the dns_config of this CreateTaskRequest.  # noqa: E501
 
@@ -161,6 +232,27 @@ class CreateTaskRequest(object):
         self._dns_config = dns_config
 
     @property
+    def dns_hijack_config(self):
+        """Gets the dns_hijack_config of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The dns_hijack_config of this CreateTaskRequest.  # noqa: E501
+        :rtype: DNSHijackConfigForCreateTaskInput
+        """
+        return self._dns_hijack_config
+
+    @dns_hijack_config.setter
+    def dns_hijack_config(self, dns_hijack_config):
+        """Sets the dns_hijack_config of this CreateTaskRequest.
+
+
+        :param dns_hijack_config: The dns_hijack_config of this CreateTaskRequest.  # noqa: E501
+        :type: DNSHijackConfigForCreateTaskInput
+        """
+
+        self._dns_hijack_config = dns_hijack_config
+
+    @property
     def diagnose_config(self):
         """Gets the diagnose_config of this CreateTaskRequest.  # noqa: E501
 
@@ -180,6 +272,27 @@ class CreateTaskRequest(object):
         """
 
         self._diagnose_config = diagnose_config
+
+    @property
+    def download_config(self):
+        """Gets the download_config of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The download_config of this CreateTaskRequest.  # noqa: E501
+        :rtype: DownloadConfigForCreateTaskInput
+        """
+        return self._download_config
+
+    @download_config.setter
+    def download_config(self, download_config):
+        """Sets the download_config of this CreateTaskRequest.
+
+
+        :param download_config: The download_config of this CreateTaskRequest.  # noqa: E501
+        :type: DownloadConfigForCreateTaskInput
+        """
+
+        self._download_config = download_config
 
     @property
     def finish_time(self):
@@ -316,6 +429,27 @@ class CreateTaskRequest(object):
         self._node_count = node_count
 
     @property
+    def page_config(self):
+        """Gets the page_config of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The page_config of this CreateTaskRequest.  # noqa: E501
+        :rtype: PageConfigForCreateTaskInput
+        """
+        return self._page_config
+
+    @page_config.setter
+    def page_config(self, page_config):
+        """Sets the page_config of this CreateTaskRequest.
+
+
+        :param page_config: The page_config of this CreateTaskRequest.  # noqa: E501
+        :type: PageConfigForCreateTaskInput
+        """
+
+        self._page_config = page_config
+
+    @property
     def period_config(self):
         """Gets the period_config of this CreateTaskRequest.  # noqa: E501
 
@@ -379,6 +513,48 @@ class CreateTaskRequest(object):
         self._project_name = project_name
 
     @property
+    def result_assert(self):
+        """Gets the result_assert of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The result_assert of this CreateTaskRequest.  # noqa: E501
+        :rtype: ResultAssertForCreateTaskInput
+        """
+        return self._result_assert
+
+    @result_assert.setter
+    def result_assert(self, result_assert):
+        """Sets the result_assert of this CreateTaskRequest.
+
+
+        :param result_assert: The result_assert of this CreateTaskRequest.  # noqa: E501
+        :type: ResultAssertForCreateTaskInput
+        """
+
+        self._result_assert = result_assert
+
+    @property
+    def selection_config(self):
+        """Gets the selection_config of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The selection_config of this CreateTaskRequest.  # noqa: E501
+        :rtype: SelectionConfigForCreateTaskInput
+        """
+        return self._selection_config
+
+    @selection_config.setter
+    def selection_config(self, selection_config):
+        """Sets the selection_config of this CreateTaskRequest.
+
+
+        :param selection_config: The selection_config of this CreateTaskRequest.  # noqa: E501
+        :type: SelectionConfigForCreateTaskInput
+        """
+
+        self._selection_config = selection_config
+
+    @property
     def tcp_config(self):
         """Gets the tcp_config of this CreateTaskRequest.  # noqa: E501
 
@@ -398,6 +574,69 @@ class CreateTaskRequest(object):
         """
 
         self._tcp_config = tcp_config
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateTaskRequest.  # noqa: E501
+        :rtype: list[TagForCreateTaskInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateTaskRequest.
+
+
+        :param tags: The tags of this CreateTaskRequest.  # noqa: E501
+        :type: list[TagForCreateTaskInput]
+        """
+
+        self._tags = tags
+
+    @property
+    def target_server_type(self):
+        """Gets the target_server_type of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The target_server_type of this CreateTaskRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._target_server_type
+
+    @target_server_type.setter
+    def target_server_type(self, target_server_type):
+        """Sets the target_server_type of this CreateTaskRequest.
+
+
+        :param target_server_type: The target_server_type of this CreateTaskRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._target_server_type = target_server_type
+
+    @property
+    def task_group_id(self):
+        """Gets the task_group_id of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The task_group_id of this CreateTaskRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._task_group_id
+
+    @task_group_id.setter
+    def task_group_id(self, task_group_id):
+        """Sets the task_group_id of this CreateTaskRequest.
+
+
+        :param task_group_id: The task_group_id of this CreateTaskRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._task_group_id = task_group_id
 
     @property
     def type(self):
@@ -442,6 +681,27 @@ class CreateTaskRequest(object):
         """
 
         self._udp_config = udp_config
+
+    @property
+    def upload_config(self):
+        """Gets the upload_config of this CreateTaskRequest.  # noqa: E501
+
+
+        :return: The upload_config of this CreateTaskRequest.  # noqa: E501
+        :rtype: UploadConfigForCreateTaskInput
+        """
+        return self._upload_config
+
+    @upload_config.setter
+    def upload_config(self, upload_config):
+        """Sets the upload_config of this CreateTaskRequest.
+
+
+        :param upload_config: The upload_config of this CreateTaskRequest.  # noqa: E501
+        :type: UploadConfigForCreateTaskInput
+        """
+
+        self._upload_config = upload_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

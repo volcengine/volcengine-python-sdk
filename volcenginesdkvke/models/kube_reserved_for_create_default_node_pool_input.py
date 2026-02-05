@@ -75,6 +75,13 @@ class KubeReservedForCreateDefaultNodePoolInput(object):
         :param name: The name of this KubeReservedForCreateDefaultNodePoolInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["cpu", "memory"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name not in allowed_values):
+            raise ValueError(
+                "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
+                .format(name, allowed_values)
+            )
 
         self._name = name
 

@@ -36,6 +36,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput(object):
         'episode': 'int',
         'pure_video': 'PureVideoForVideoProjectSerialTaskCreateInput',
         'subtitle': 'SubtitleForVideoProjectSerialTaskCreateInput',
+        'subtitles': 'list[ConvertsubtitleForVideoProjectSerialTaskCreateInput]',
         'video': 'VideoForVideoProjectSerialTaskCreateInput'
     }
 
@@ -43,10 +44,11 @@ class SerialInfoForVideoProjectSerialTaskCreateInput(object):
         'episode': 'episode',
         'pure_video': 'pureVideo',
         'subtitle': 'subtitle',
+        'subtitles': 'subtitles',
         'video': 'video'
     }
 
-    def __init__(self, episode=None, pure_video=None, subtitle=None, video=None, _configuration=None):  # noqa: E501
+    def __init__(self, episode=None, pure_video=None, subtitle=None, subtitles=None, video=None, _configuration=None):  # noqa: E501
         """SerialInfoForVideoProjectSerialTaskCreateInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,6 +57,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput(object):
         self._episode = None
         self._pure_video = None
         self._subtitle = None
+        self._subtitles = None
         self._video = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class SerialInfoForVideoProjectSerialTaskCreateInput(object):
             self.pure_video = pure_video
         if subtitle is not None:
             self.subtitle = subtitle
+        if subtitles is not None:
+            self.subtitles = subtitles
         if video is not None:
             self.video = video
 
@@ -129,6 +134,27 @@ class SerialInfoForVideoProjectSerialTaskCreateInput(object):
         """
 
         self._subtitle = subtitle
+
+    @property
+    def subtitles(self):
+        """Gets the subtitles of this SerialInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+
+
+        :return: The subtitles of this SerialInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :rtype: list[ConvertsubtitleForVideoProjectSerialTaskCreateInput]
+        """
+        return self._subtitles
+
+    @subtitles.setter
+    def subtitles(self, subtitles):
+        """Sets the subtitles of this SerialInfoForVideoProjectSerialTaskCreateInput.
+
+
+        :param subtitles: The subtitles of this SerialInfoForVideoProjectSerialTaskCreateInput.  # noqa: E501
+        :type: list[ConvertsubtitleForVideoProjectSerialTaskCreateInput]
+        """
+
+        self._subtitles = subtitles
 
     @property
     def video(self):

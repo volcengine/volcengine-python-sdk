@@ -33,28 +33,54 @@ class SubmitPreloadTaskRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'region': 'str',
         'urls': 'str',
         'vendor': 'str'
     }
 
     attribute_map = {
+        'region': 'Region',
         'urls': 'Urls',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, urls=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, region=None, urls=None, vendor=None, _configuration=None):  # noqa: E501
         """SubmitPreloadTaskRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._region = None
         self._urls = None
         self._vendor = None
         self.discriminator = None
 
+        if region is not None:
+            self.region = region
         self.urls = urls
         if vendor is not None:
             self.vendor = vendor
+
+    @property
+    def region(self):
+        """Gets the region of this SubmitPreloadTaskRequest.  # noqa: E501
+
+
+        :return: The region of this SubmitPreloadTaskRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._region
+
+    @region.setter
+    def region(self, region):
+        """Sets the region of this SubmitPreloadTaskRequest.
+
+
+        :param region: The region of this SubmitPreloadTaskRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._region = region
 
     @property
     def urls(self):

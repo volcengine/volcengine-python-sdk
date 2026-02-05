@@ -75,7 +75,7 @@ class StatusForListNodePoolsInput(object):
         :param conditions_type: The conditions_type of this StatusForListNodePoolsInput.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Ok", "StockOut", "LimitedByQuota", "Balance", "VersionPartlyUpgraded", "ResourceCleanupFailed", "ClusterNotRunning", "Unknown", "Progressing", "ClusterVersionUpgrading"]  # noqa: E501
+        allowed_values = ["Ok", "StockOut", "LimitedByQuota", "Balance", "VersionPartlyUpgraded", "ResourceCleanupFailed", "ClusterNotRunning", "Unknown", "Progressing", "ClusterVersionUpgrading", "ScalingFailed"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 conditions_type not in allowed_values):
             raise ValueError(

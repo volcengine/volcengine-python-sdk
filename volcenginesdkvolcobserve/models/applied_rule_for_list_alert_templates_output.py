@@ -34,15 +34,19 @@ class AppliedRuleForListAlertTemplatesOutput(object):
     """
     swagger_types = {
         'id': 'str',
-        'name': 'str'
+        'name': 'str',
+        'object_group_id': 'str',
+        'object_id': 'str'
     }
 
     attribute_map = {
         'id': 'Id',
-        'name': 'Name'
+        'name': 'Name',
+        'object_group_id': 'ObjectGroupId',
+        'object_id': 'ObjectId'
     }
 
-    def __init__(self, id=None, name=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, object_group_id=None, object_id=None, _configuration=None):  # noqa: E501
         """AppliedRuleForListAlertTemplatesOutput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +54,18 @@ class AppliedRuleForListAlertTemplatesOutput(object):
 
         self._id = None
         self._name = None
+        self._object_group_id = None
+        self._object_id = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
         if name is not None:
             self.name = name
+        if object_group_id is not None:
+            self.object_group_id = object_group_id
+        if object_id is not None:
+            self.object_id = object_id
 
     @property
     def id(self):
@@ -98,6 +108,48 @@ class AppliedRuleForListAlertTemplatesOutput(object):
         """
 
         self._name = name
+
+    @property
+    def object_group_id(self):
+        """Gets the object_group_id of this AppliedRuleForListAlertTemplatesOutput.  # noqa: E501
+
+
+        :return: The object_group_id of this AppliedRuleForListAlertTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._object_group_id
+
+    @object_group_id.setter
+    def object_group_id(self, object_group_id):
+        """Sets the object_group_id of this AppliedRuleForListAlertTemplatesOutput.
+
+
+        :param object_group_id: The object_group_id of this AppliedRuleForListAlertTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._object_group_id = object_group_id
+
+    @property
+    def object_id(self):
+        """Gets the object_id of this AppliedRuleForListAlertTemplatesOutput.  # noqa: E501
+
+
+        :return: The object_id of this AppliedRuleForListAlertTemplatesOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._object_id
+
+    @object_id.setter
+    def object_id(self, object_id):
+        """Sets the object_id of this AppliedRuleForListAlertTemplatesOutput.
+
+
+        :param object_id: The object_id of this AppliedRuleForListAlertTemplatesOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._object_id = object_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
