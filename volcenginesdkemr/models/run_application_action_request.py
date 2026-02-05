@@ -38,8 +38,8 @@ class RunApplicationActionRequest(object):
         'client_token': 'str',
         'cluster_id': 'str',
         'command_params': 'list[CommandParamForRunApplicationActionInput]',
-        'remark': 'str',
-        'component_name': 'str'
+        'component_name': 'str',
+        'remark': 'str'
     }
 
     attribute_map = {
@@ -48,11 +48,11 @@ class RunApplicationActionRequest(object):
         'client_token': 'ClientToken',
         'cluster_id': 'ClusterId',
         'command_params': 'CommandParams',
-        'remark': 'Remark',
-        'component_name': 'componentName'
+        'component_name': 'ComponentName',
+        'remark': 'Remark'
     }
 
-    def __init__(self, action_name=None, application_name=None, client_token=None, cluster_id=None, command_params=None, remark=None, component_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_name=None, application_name=None, client_token=None, cluster_id=None, command_params=None, component_name=None, remark=None, _configuration=None):  # noqa: E501
         """RunApplicationActionRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -63,8 +63,8 @@ class RunApplicationActionRequest(object):
         self._client_token = None
         self._cluster_id = None
         self._command_params = None
-        self._remark = None
         self._component_name = None
+        self._remark = None
         self.discriminator = None
 
         self.action_name = action_name
@@ -74,9 +74,9 @@ class RunApplicationActionRequest(object):
         self.cluster_id = cluster_id
         if command_params is not None:
             self.command_params = command_params
-        self.remark = remark
         if component_name is not None:
             self.component_name = component_name
+        self.remark = remark
 
     @property
     def action_name(self):
@@ -190,6 +190,27 @@ class RunApplicationActionRequest(object):
         self._command_params = command_params
 
     @property
+    def component_name(self):
+        """Gets the component_name of this RunApplicationActionRequest.  # noqa: E501
+
+
+        :return: The component_name of this RunApplicationActionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._component_name
+
+    @component_name.setter
+    def component_name(self, component_name):
+        """Sets the component_name of this RunApplicationActionRequest.
+
+
+        :param component_name: The component_name of this RunApplicationActionRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._component_name = component_name
+
+    @property
     def remark(self):
         """Gets the remark of this RunApplicationActionRequest.  # noqa: E501
 
@@ -211,27 +232,6 @@ class RunApplicationActionRequest(object):
             raise ValueError("Invalid value for `remark`, must not be `None`")  # noqa: E501
 
         self._remark = remark
-
-    @property
-    def component_name(self):
-        """Gets the component_name of this RunApplicationActionRequest.  # noqa: E501
-
-
-        :return: The component_name of this RunApplicationActionRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._component_name
-
-    @component_name.setter
-    def component_name(self, component_name):
-        """Sets the component_name of this RunApplicationActionRequest.
-
-
-        :param component_name: The component_name of this RunApplicationActionRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._component_name = component_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
