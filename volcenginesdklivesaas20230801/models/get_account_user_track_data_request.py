@@ -35,6 +35,9 @@ class GetAccountUserTrackDataRequest(object):
     swagger_types = {
         'activity_id': 'int',
         'external_id': 'str',
+        'page_item_count': 'int',
+        'page_no': 'int',
+        'scroll_id': 'str',
         'select_tags': 'list[SelectTagForGetAccountUserTrackDataInput]',
         'user_id': 'int',
         'watch_type': 'str'
@@ -43,12 +46,15 @@ class GetAccountUserTrackDataRequest(object):
     attribute_map = {
         'activity_id': 'ActivityId',
         'external_id': 'ExternalId',
+        'page_item_count': 'PageItemCount',
+        'page_no': 'PageNo',
+        'scroll_id': 'ScrollId',
         'select_tags': 'SelectTags',
         'user_id': 'UserId',
         'watch_type': 'WatchType'
     }
 
-    def __init__(self, activity_id=None, external_id=None, select_tags=None, user_id=None, watch_type=None, _configuration=None):  # noqa: E501
+    def __init__(self, activity_id=None, external_id=None, page_item_count=None, page_no=None, scroll_id=None, select_tags=None, user_id=None, watch_type=None, _configuration=None):  # noqa: E501
         """GetAccountUserTrackDataRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +62,9 @@ class GetAccountUserTrackDataRequest(object):
 
         self._activity_id = None
         self._external_id = None
+        self._page_item_count = None
+        self._page_no = None
+        self._scroll_id = None
         self._select_tags = None
         self._user_id = None
         self._watch_type = None
@@ -65,6 +74,12 @@ class GetAccountUserTrackDataRequest(object):
             self.activity_id = activity_id
         if external_id is not None:
             self.external_id = external_id
+        if page_item_count is not None:
+            self.page_item_count = page_item_count
+        if page_no is not None:
+            self.page_no = page_no
+        if scroll_id is not None:
+            self.scroll_id = scroll_id
         if select_tags is not None:
             self.select_tags = select_tags
         if user_id is not None:
@@ -113,6 +128,69 @@ class GetAccountUserTrackDataRequest(object):
         """
 
         self._external_id = external_id
+
+    @property
+    def page_item_count(self):
+        """Gets the page_item_count of this GetAccountUserTrackDataRequest.  # noqa: E501
+
+
+        :return: The page_item_count of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_item_count
+
+    @page_item_count.setter
+    def page_item_count(self, page_item_count):
+        """Sets the page_item_count of this GetAccountUserTrackDataRequest.
+
+
+        :param page_item_count: The page_item_count of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_item_count = page_item_count
+
+    @property
+    def page_no(self):
+        """Gets the page_no of this GetAccountUserTrackDataRequest.  # noqa: E501
+
+
+        :return: The page_no of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_no
+
+    @page_no.setter
+    def page_no(self, page_no):
+        """Sets the page_no of this GetAccountUserTrackDataRequest.
+
+
+        :param page_no: The page_no of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._page_no = page_no
+
+    @property
+    def scroll_id(self):
+        """Gets the scroll_id of this GetAccountUserTrackDataRequest.  # noqa: E501
+
+
+        :return: The scroll_id of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._scroll_id
+
+    @scroll_id.setter
+    def scroll_id(self, scroll_id):
+        """Sets the scroll_id of this GetAccountUserTrackDataRequest.
+
+
+        :param scroll_id: The scroll_id of this GetAccountUserTrackDataRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._scroll_id = scroll_id
 
     @property
     def select_tags(self):
