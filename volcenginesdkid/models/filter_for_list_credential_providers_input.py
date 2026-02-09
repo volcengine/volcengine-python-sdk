@@ -33,34 +33,72 @@ class FilterForListCredentialProvidersInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'flow': 'str',
         'name': 'str',
+        'pool_name': 'str',
         'type': 'str',
         'vendor': 'int'
     }
 
     attribute_map = {
+        'flow': 'Flow',
         'name': 'Name',
+        'pool_name': 'PoolName',
         'type': 'Type',
         'vendor': 'Vendor'
     }
 
-    def __init__(self, name=None, type=None, vendor=None, _configuration=None):  # noqa: E501
+    def __init__(self, flow=None, name=None, pool_name=None, type=None, vendor=None, _configuration=None):  # noqa: E501
         """FilterForListCredentialProvidersInput - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._flow = None
         self._name = None
+        self._pool_name = None
         self._type = None
         self._vendor = None
         self.discriminator = None
 
+        if flow is not None:
+            self.flow = flow
         if name is not None:
             self.name = name
+        if pool_name is not None:
+            self.pool_name = pool_name
         if type is not None:
             self.type = type
         if vendor is not None:
             self.vendor = vendor
+
+    @property
+    def flow(self):
+        """Gets the flow of this FilterForListCredentialProvidersInput.  # noqa: E501
+
+
+        :return: The flow of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._flow
+
+    @flow.setter
+    def flow(self, flow):
+        """Sets the flow of this FilterForListCredentialProvidersInput.
+
+
+        :param flow: The flow of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["USER_FEDERATION", "M2M"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                flow not in allowed_values):
+            raise ValueError(
+                "Invalid value for `flow` ({0}), must be one of {1}"  # noqa: E501
+                .format(flow, allowed_values)
+            )
+
+        self._flow = flow
 
     @property
     def name(self):
@@ -84,6 +122,27 @@ class FilterForListCredentialProvidersInput(object):
         self._name = name
 
     @property
+    def pool_name(self):
+        """Gets the pool_name of this FilterForListCredentialProvidersInput.  # noqa: E501
+
+
+        :return: The pool_name of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._pool_name
+
+    @pool_name.setter
+    def pool_name(self, pool_name):
+        """Sets the pool_name of this FilterForListCredentialProvidersInput.
+
+
+        :param pool_name: The pool_name of this FilterForListCredentialProvidersInput.  # noqa: E501
+        :type: str
+        """
+
+        self._pool_name = pool_name
+
+    @property
     def type(self):
         """Gets the type of this FilterForListCredentialProvidersInput.  # noqa: E501
 
@@ -101,6 +160,13 @@ class FilterForListCredentialProvidersInput(object):
         :param type: The type of this FilterForListCredentialProvidersInput.  # noqa: E501
         :type: str
         """
+        allowed_values = ["api_key", "oauth2"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 
@@ -122,6 +188,9 @@ class FilterForListCredentialProvidersInput(object):
         :param vendor: The vendor of this FilterForListCredentialProvidersInput.  # noqa: E501
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                vendor is not None and vendor < 0):  # noqa: E501
+            raise ValueError("Invalid value for `vendor`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._vendor = vendor
 

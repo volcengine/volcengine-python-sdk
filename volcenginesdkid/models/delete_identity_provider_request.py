@@ -38,8 +38,8 @@ class DeleteIdentityProviderRequest(object):
     }
 
     attribute_map = {
-        'connection_uid': 'ConnectionUID',
-        'user_pool_uid': 'UserPoolUID'
+        'connection_uid': 'ConnectionUid',
+        'user_pool_uid': 'UserPoolUid'
     }
 
     def __init__(self, connection_uid=None, user_pool_uid=None, _configuration=None):  # noqa: E501

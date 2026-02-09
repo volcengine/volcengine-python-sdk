@@ -34,6 +34,7 @@ class UpdateIdentityProviderSAMLRequest(object):
     """
     swagger_types = {
         'attribute_mapping': 'str',
+        'claims_propagation_config': 'ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput',
         'connection_uid': 'str',
         'enabled': 'bool',
         'enabled_encryption': 'bool',
@@ -47,6 +48,7 @@ class UpdateIdentityProviderSAMLRequest(object):
 
     attribute_map = {
         'attribute_mapping': 'AttributeMapping',
+        'claims_propagation_config': 'ClaimsPropagationConfig',
         'connection_uid': 'ConnectionUid',
         'enabled': 'Enabled',
         'enabled_encryption': 'EnabledEncryption',
@@ -58,13 +60,14 @@ class UpdateIdentityProviderSAMLRequest(object):
         'user_pool_uid': 'UserPoolUid'
     }
 
-    def __init__(self, attribute_mapping=None, connection_uid=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider_options=None, user_pool_uid=None, _configuration=None):  # noqa: E501
+    def __init__(self, attribute_mapping=None, claims_propagation_config=None, connection_uid=None, enabled=None, enabled_encryption=None, enabled_sign=None, id_attribute=None, idp_metadata=None, name=None, provider_options=None, user_pool_uid=None, _configuration=None):  # noqa: E501
         """UpdateIdentityProviderSAMLRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._attribute_mapping = None
+        self._claims_propagation_config = None
         self._connection_uid = None
         self._enabled = None
         self._enabled_encryption = None
@@ -78,6 +81,8 @@ class UpdateIdentityProviderSAMLRequest(object):
 
         if attribute_mapping is not None:
             self.attribute_mapping = attribute_mapping
+        if claims_propagation_config is not None:
+            self.claims_propagation_config = claims_propagation_config
         self.connection_uid = connection_uid
         if enabled is not None:
             self.enabled = enabled
@@ -115,6 +120,27 @@ class UpdateIdentityProviderSAMLRequest(object):
         """
 
         self._attribute_mapping = attribute_mapping
+
+    @property
+    def claims_propagation_config(self):
+        """Gets the claims_propagation_config of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+
+
+        :return: The claims_propagation_config of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+        :rtype: ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput
+        """
+        return self._claims_propagation_config
+
+    @claims_propagation_config.setter
+    def claims_propagation_config(self, claims_propagation_config):
+        """Sets the claims_propagation_config of this UpdateIdentityProviderSAMLRequest.
+
+
+        :param claims_propagation_config: The claims_propagation_config of this UpdateIdentityProviderSAMLRequest.  # noqa: E501
+        :type: ClaimsPropagationConfigForUpdateIdentityProviderSAMLInput
+        """
+
+        self._claims_propagation_config = claims_propagation_config
 
     @property
     def connection_uid(self):
