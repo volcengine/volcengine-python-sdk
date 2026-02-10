@@ -45,6 +45,7 @@ class CreateSslVpnServerRequest(object):
         'project_name': 'str',
         'protocol': 'str',
         'ssl_vpn_server_name': 'str',
+        'tags': 'list[TagForCreateSslVpnServerInput]',
         'vpn_gateway_id': 'str'
     }
 
@@ -61,10 +62,11 @@ class CreateSslVpnServerRequest(object):
         'project_name': 'ProjectName',
         'protocol': 'Protocol',
         'ssl_vpn_server_name': 'SslVpnServerName',
+        'tags': 'Tags',
         'vpn_gateway_id': 'VpnGatewayId'
     }
 
-    def __init__(self, auth=None, cipher=None, client_cert_session_policy=None, client_ip_pool=None, client_token=None, compress=None, description=None, local_subnets=None, port=None, project_name=None, protocol=None, ssl_vpn_server_name=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth=None, cipher=None, client_cert_session_policy=None, client_ip_pool=None, client_token=None, compress=None, description=None, local_subnets=None, port=None, project_name=None, protocol=None, ssl_vpn_server_name=None, tags=None, vpn_gateway_id=None, _configuration=None):  # noqa: E501
         """CreateSslVpnServerRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class CreateSslVpnServerRequest(object):
         self._project_name = None
         self._protocol = None
         self._ssl_vpn_server_name = None
+        self._tags = None
         self._vpn_gateway_id = None
         self.discriminator = None
 
@@ -108,6 +111,8 @@ class CreateSslVpnServerRequest(object):
             self.protocol = protocol
         if ssl_vpn_server_name is not None:
             self.ssl_vpn_server_name = ssl_vpn_server_name
+        if tags is not None:
+            self.tags = tags
         self.vpn_gateway_id = vpn_gateway_id
 
     @property
@@ -128,6 +133,13 @@ class CreateSslVpnServerRequest(object):
         :param auth: The auth of this CreateSslVpnServerRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["SHA1", "MD5", "None"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                auth not in allowed_values):
+            raise ValueError(
+                "Invalid value for `auth` ({0}), must be one of {1}"  # noqa: E501
+                .format(auth, allowed_values)
+            )
 
         self._auth = auth
 
@@ -149,6 +161,13 @@ class CreateSslVpnServerRequest(object):
         :param cipher: The cipher of this CreateSslVpnServerRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["AES-128-CBC", "AES-192-CBC", "AES-256-CBC", "None"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                cipher not in allowed_values):
+            raise ValueError(
+                "Invalid value for `cipher` ({0}), must be one of {1}"  # noqa: E501
+                .format(cipher, allowed_values)
+            )
 
         self._cipher = cipher
 
@@ -347,6 +366,13 @@ class CreateSslVpnServerRequest(object):
         :param protocol: The protocol of this CreateSslVpnServerRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["TCP", "UDP"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                protocol not in allowed_values):
+            raise ValueError(
+                "Invalid value for `protocol` ({0}), must be one of {1}"  # noqa: E501
+                .format(protocol, allowed_values)
+            )
 
         self._protocol = protocol
 
@@ -370,6 +396,27 @@ class CreateSslVpnServerRequest(object):
         """
 
         self._ssl_vpn_server_name = ssl_vpn_server_name
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateSslVpnServerRequest.  # noqa: E501
+
+
+        :return: The tags of this CreateSslVpnServerRequest.  # noqa: E501
+        :rtype: list[TagForCreateSslVpnServerInput]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateSslVpnServerRequest.
+
+
+        :param tags: The tags of this CreateSslVpnServerRequest.  # noqa: E501
+        :type: list[TagForCreateSslVpnServerInput]
+        """
+
+        self._tags = tags
 
     @property
     def vpn_gateway_id(self):

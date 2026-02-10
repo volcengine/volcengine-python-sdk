@@ -68,10 +68,8 @@ class HealthCheckConfigForCreateVpnConnectionHealthCheckersInput(object):
             self.check_interval = check_interval
         if down_time is not None:
             self.down_time = down_time
-        if local_ip is not None:
-            self.local_ip = local_ip
-        if remote_ip is not None:
-            self.remote_ip = remote_ip
+        self.local_ip = local_ip
+        self.remote_ip = remote_ip
         if timeout is not None:
             self.timeout = timeout
         if up_time is not None:
@@ -137,6 +135,8 @@ class HealthCheckConfigForCreateVpnConnectionHealthCheckersInput(object):
         :param local_ip: The local_ip of this HealthCheckConfigForCreateVpnConnectionHealthCheckersInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and local_ip is None:
+            raise ValueError("Invalid value for `local_ip`, must not be `None`")  # noqa: E501
 
         self._local_ip = local_ip
 
@@ -158,6 +158,8 @@ class HealthCheckConfigForCreateVpnConnectionHealthCheckersInput(object):
         :param remote_ip: The remote_ip of this HealthCheckConfigForCreateVpnConnectionHealthCheckersInput.  # noqa: E501
         :type: str
         """
+        if self._configuration.client_side_validation and remote_ip is None:
+            raise ValueError("Invalid value for `remote_ip`, must not be `None`")  # noqa: E501
 
         self._remote_ip = remote_ip
 
