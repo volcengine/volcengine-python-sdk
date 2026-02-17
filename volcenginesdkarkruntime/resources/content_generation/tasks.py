@@ -24,7 +24,7 @@ from ..._compat import cached_property
 from ..._response import to_raw_response_wrapper, async_to_raw_response_wrapper
 from ..._types import Body, Query, Headers
 from ..._utils._utils import apikey_required, async_apikey_required
-from ...types.content_generation.content_generation_task import ContentGenerationTask
+from ...types.content_generation.content_generation_task import (ContentGenerationTask,ContentGenerationTool)
 from ...types.content_generation.content_generation_task_id import (
     ContentGenerationTaskID,
 )
@@ -57,6 +57,7 @@ class Tasks(SyncAPIResource):
         ratio: Optional[str] = None,
         duration: Optional[int] = None,
         frames: Optional[int] = None,
+        tools: Optional[List[ContentGenerationTool]] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -80,6 +81,7 @@ class Tasks(SyncAPIResource):
                 "ratio": ratio,
                 "duration": duration,
                 "frames": frames,
+                "tools": tools,
             },
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -203,6 +205,7 @@ class AsyncTasks(AsyncAPIResource):
         ratio: Optional[str] = None,
         duration: Optional[int] = None,
         frames: Optional[int] = None,
+        tools: Optional[List[ContentGenerationTool]] = None,
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
@@ -226,6 +229,7 @@ class AsyncTasks(AsyncAPIResource):
                 "ratio": ratio,
                 "duration": duration,
                 "frames": frames,
+                "tools": tools,
             },
             options=make_request_options(
                 extra_headers=extra_headers,

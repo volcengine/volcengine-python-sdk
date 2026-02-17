@@ -9,8 +9,12 @@
 #
 # This modified file is released under the same license.
 
-__all__ = ["ContentGenerationTask"]
+__all__ = [
+    "ContentGenerationTask",
+    "ContentGenerationTool"
+]
 
+from typing import List
 from volcenginesdkarkruntime._models import BaseModel
 
 
@@ -36,6 +40,11 @@ class ContentGenerationError(BaseModel):
 
     code: str
     """The error code for task failure"""
+
+
+class ContentGenerationTool(BaseModel):
+    type: str
+    """The content generation tool used to generate the videos."""
 
 
 class ContentGenerationTask(BaseModel):
@@ -104,3 +113,6 @@ class ContentGenerationTask(BaseModel):
 
     draft_task_id: str
     """The ID of the draft task, if applicable."""
+
+    tools: List[ContentGenerationTool]
+    """The list of content generation tools."""
