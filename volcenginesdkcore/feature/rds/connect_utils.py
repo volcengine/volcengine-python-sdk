@@ -5,31 +5,38 @@ RDS MySQL connection authentication utilities.
 This module provides utilities for generating authentication tokens for RDS MySQL database connections.
 """
 
-from volcenginesdkcore.signv4 import SignerV4
-from volcenginesdkcore.endpoint.providers.default_provider import DefaultEndpointProvider
+from volcenginesdkcore.endpoint.providers.standard_provider import StandardEndpointResolver
+from volcenginesdkcore.interceptor import InterceptorChain, InterceptorContext, SignRequestInterceptor, \
+    ResolveEndpointInterceptor
+from volcenginesdkcore.interceptor import Request
+
+DEFAULT_SERVICE = 'rds_mysql'
+DEFAULT_API_VERSION = '2022-01-01'
+DEFAULT_API = 'ConnectDatabase'
+DEFAULT_EXPIRES = 900
 
 
-def build_auth_token(credentials, db_user, instance_id, region, expires=None):
+def build_auth_token(api_client, db_user, instance_id, expires=None):
     """
     Build an authentication token (presigned URL) for connecting to RDS MySQL database.
 
-    :param credentials: CredentialValue object with ak, sk, and optional session_token
+    :param api_client: ApiClient instance
     :param db_user: Database username
     :param instance_id: RDS instance ID
-    :param region: Service region (e.g., 'cn-beijing')
     :param expires: Token expiration time in seconds (default: 900, i.e., 15 minutes)
     :return: Presigned URL string for database authentication
     :raises ValueError: If required parameters are missing or invalid
     """
+    # Validate api_client
+    if api_client is None:
+        raise ValueError("api_client must not be None")
+
+    configuration = api_client.configuration
+    region = configuration.region
+
     # Validate inputs
-    if credentials is None:
-        raise ValueError("credentials must not be None")
-
-    if not hasattr(credentials, 'ak') or not credentials.ak:
-        raise ValueError("credentials.ak must not be empty")
-
-    if not hasattr(credentials, 'sk') or not credentials.sk:
-        raise ValueError("credentials.sk must not be empty")
+    if not region:
+        raise ValueError("region must not be empty")
 
     if not db_user:
         raise ValueError("db_user must not be empty")
@@ -37,40 +44,38 @@ def build_auth_token(credentials, db_user, instance_id, region, expires=None):
     if not instance_id:
         raise ValueError("instance_id must not be empty")
 
-    if not region:
-        raise ValueError("region must not be empty")
-
     # Set default expiration time
     if expires is None or expires <= 0:
-        expires = 900  # 15 minutes
-
-    # Service configuration
-    service = 'rds_mysql'
-
-    # Get endpoint
-    endpoint_provider = DefaultEndpointProvider()
-    resolved_endpoint = endpoint_provider.endpoint_for(service, region)
-    host = resolved_endpoint.host
+        expires = DEFAULT_EXPIRES
 
     # Build query parameters
     query = {
-        'Action': 'ConnectDatabase',
-        'Version': '2022-01-01',
+        'Action': DEFAULT_API,
+        'Version': DEFAULT_API_VERSION,
         'X-Expires': str(expires),
         'DBUser': db_user,
         'InstanceId': instance_id,
     }
 
-    # Sign the URL
-    signed_query = SignerV4.sign_url(
-        path='/',
-        method='GET',
-        query=query,
-        ak=credentials.ak,
-        sk=credentials.sk,
-        region=region,
-        service=service,
-        session_token=getattr(credentials, 'session_token', None)
-    )
+    # Create Request with presign mode
+    request = Request(configuration,
+                      resource_path='/{}/{}/{}/get/text_plain/'.format(DEFAULT_API, DEFAULT_API_VERSION,
+                                                                       DEFAULT_SERVICE),
+                      method='GET',
+                      query_params=query)
+    request.host = None  # Force endpoint resolution by interceptor
+    request.endpoint_provider = StandardEndpointResolver()
+    request.service = DEFAULT_SERVICE
+    request.is_presign = True
 
-    return signed_query
+    # Create interceptor chain:
+    #   ResolveEndpointInterceptor - resolves endpoint + scheme
+    #   SignRequestInterceptor     - presign URL signing
+    chain = InterceptorChain()
+    chain.append_request_interceptor(ResolveEndpointInterceptor())
+    chain.append_request_interceptor(SignRequestInterceptor())
+
+    context = InterceptorContext(request=request)
+    context = chain.execute_request(context)
+
+    return '{url}?{query}'.format(url=context.request.url, query=context.request.signed_query)
