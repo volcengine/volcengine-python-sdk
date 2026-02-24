@@ -28,6 +28,7 @@ class SignRequestInterceptor(RequestInterceptor):
                 region=context.request.region,
                 service=context.request.service,
                 session_token=context.request.session_token,
+                host=context.request.host,
             )
         else:
             self.update_params_for_auth(host=context.request.host, path=context.request.true_path,

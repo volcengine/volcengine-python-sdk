@@ -93,7 +93,7 @@ class SignerV4(object):
         return hmac.new(key, msg.encode('utf-8'), hashlib.sha256).digest()
 
     @staticmethod
-    def sign_url(path, method, query, ak, sk, region, service, session_token=None):
+    def sign_url(path, method, query, ak, sk, region, service, session_token=None, host=None):
         """
         Generate presigned URL query string (AWS Signature V4)
 
@@ -105,6 +105,7 @@ class SignerV4(object):
         :param region: Service region
         :param service: Service name
         :param session_token: Optional session token
+        :param host: Optional host header to sign
         :return: Query string with signature
         """
         format_date = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
@@ -113,31 +114,46 @@ class SignerV4(object):
         # Build credential scope
         credential_scope = '/'.join([date, region, service, 'request'])
 
+        # Determine if host header should be signed
+        sign_host = host is not None and host != ''
+
         # Add required query parameters
         query = dict(query)  # Make a copy to avoid modifying original
         query['X-Date'] = format_date
         query['X-NotSignBody'] = ''
         query['X-Credential'] = ak + '/' + credential_scope
         query['X-Algorithm'] = 'HMAC-SHA256'
-        query['X-SignedHeaders'] = ''
+        query['X-SignedHeaders'] = 'host' if sign_host else ''
         query['X-SignedQueries'] = ''
 
+        # Generate X-SignedQueries BEFORE adding X-Security-Token
+        query['X-SignedQueries'] = ';'.join(sorted(query.keys()))
+
+        # X-Security-Token must be added AFTER X-SignedQueries calculation
         if session_token:
             query['X-Security-Token'] = session_token
 
-        # Generate X-SignedQueries with all query parameter names
-        query['X-SignedQueries'] = ';'.join(sorted(query.keys()))
-
-        # Build canonical request with empty body
+        # Build canonical request
         body_hash = hashlib.sha256(b'').hexdigest()
-        canonical_request = '\n'.join([
-            method,
-            path,
-            SignerV4.canonical_query(query),
-            '\n',  # Empty line for signed headers section
-            '',    # Empty signed headers list
-            body_hash
-        ])
+
+        if sign_host:
+            canonical_request = '\n'.join([
+                method,
+                path,
+                SignerV4.canonical_query(query),
+                'host:' + host + '\n',
+                'host',
+                body_hash
+            ])
+        else:
+            canonical_request = '\n'.join([
+                method,
+                path,
+                SignerV4.canonical_query(query),
+                '\n',
+                '',
+                body_hash
+            ])
         sdk_core_logger.debug_sign("[sign_url] canonical_request:\n%s", canonical_request)
 
         # Build string to sign
