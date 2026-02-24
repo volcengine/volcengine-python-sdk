@@ -43,8 +43,8 @@ class TargetInfoForGetTaskResultOutput(object):
 
     attribute_map = {
         'city': 'City',
-        'detect_url': 'DetectURL',
-        'ip': 'IP',
+        'detect_url': 'DetectUrl',
+        'ip': 'Ip',
         'ipv6': 'Ipv6',
         'isp': 'Isp',
         'region': 'Region'
