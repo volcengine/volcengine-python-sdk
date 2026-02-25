@@ -63,7 +63,6 @@ def build_auth_token(api_client, db_user, instance_id, expires=None):
                                                                        DEFAULT_SERVICE),
                       method='GET',
                       query_params=query)
-    request.host = None  # Force endpoint resolution by interceptor
     request.endpoint_provider = StandardEndpointResolver()
     request.service = DEFAULT_SERVICE
     request.is_presign = True
