@@ -128,6 +128,7 @@ class SignerV4(object):
 
         # Generate X-SignedQueries BEFORE adding X-Security-Token
         query['X-SignedQueries'] = ';'.join(sorted(query.keys()))
+        signed_query_keys = set(query.keys())
 
         # X-Security-Token must be added AFTER X-SignedQueries calculation
         if session_token:
@@ -135,12 +136,13 @@ class SignerV4(object):
 
         # Build canonical request
         body_hash = hashlib.sha256(b'').hexdigest()
+        canonical_query_params = {k: v for k, v in query.items() if k in signed_query_keys}
 
         if sign_host:
             canonical_request = '\n'.join([
                 method,
                 path,
-                SignerV4.canonical_query(query),
+                SignerV4.canonical_query(canonical_query_params),
                 'host:' + host + '\n',
                 'host',
                 body_hash
@@ -149,7 +151,7 @@ class SignerV4(object):
             canonical_request = '\n'.join([
                 method,
                 path,
-                SignerV4.canonical_query(query),
+                SignerV4.canonical_query(canonical_query_params),
                 '\n',
                 '',
                 body_hash
